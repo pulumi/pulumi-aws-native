@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         [Input("preTokenGeneration")]
         public Input<string>? PreTokenGeneration { get; set; }
 
+        [Input("preTokenGenerationConfig")]
+        public Input<Inputs.UserPoolPreTokenGenerationConfigArgs>? PreTokenGenerationConfig { get; set; }
+
         [Input("userMigration")]
         public Input<string>? UserMigration { get; set; }
 

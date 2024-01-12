@@ -32,6 +32,8 @@ export const ServiceCodeConfigurationValuesRuntime = {
     Dotnet6: "DOTNET_6",
     Php81: "PHP_81",
     Ruby31: "RUBY_31",
+    Python311: "PYTHON_311",
+    Nodejs18: "NODEJS_18",
 } as const;
 
 /**

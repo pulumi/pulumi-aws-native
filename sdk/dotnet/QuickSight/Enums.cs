@@ -11351,6 +11351,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct TopicUserExperienceVersion : IEquatable<TopicUserExperienceVersion>
+    {
+        private readonly string _value;
+
+        private TopicUserExperienceVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicUserExperienceVersion Legacy { get; } = new TopicUserExperienceVersion("LEGACY");
+        public static TopicUserExperienceVersion NewReaderExperience { get; } = new TopicUserExperienceVersion("NEW_READER_EXPERIENCE");
+
+        public static bool operator ==(TopicUserExperienceVersion left, TopicUserExperienceVersion right) => left.Equals(right);
+        public static bool operator !=(TopicUserExperienceVersion left, TopicUserExperienceVersion right) => !left.Equals(right);
+
+        public static explicit operator string(TopicUserExperienceVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicUserExperienceVersion other && Equals(other);
+        public bool Equals(TopicUserExperienceVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct VpcConnectionNetworkInterfaceStatus : IEquatable<VpcConnectionNetworkInterfaceStatus>
     {
         private readonly string _value;

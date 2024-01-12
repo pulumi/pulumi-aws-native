@@ -196,9 +196,9 @@ class RuleGroupPositionalConstraint(str, Enum):
 
 
 class RuleGroupRateBasedStatementAggregateKeyType(str, Enum):
-    CONSTANT = "CONSTANT"
     IP = "IP"
     FORWARDED_IP = "FORWARDED_IP"
+    CONSTANT = "CONSTANT"
     CUSTOM_KEYS = "CUSTOM_KEYS"
 
 

@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("tier")]
         public Output<Pulumi.AwsNative.MediaTailor.ChannelTier?> Tier { get; private set; } = null!;
 
+        [Output("timeShiftConfiguration")]
+        public Output<Outputs.ChannelTimeShiftConfiguration?> TimeShiftConfiguration { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Channel resource with the given unique name, arguments, and options.
@@ -136,6 +139,9 @@ namespace Pulumi.AwsNative.MediaTailor
 
         [Input("tier")]
         public Input<Pulumi.AwsNative.MediaTailor.ChannelTier>? Tier { get; set; }
+
+        [Input("timeShiftConfiguration")]
+        public Input<Inputs.ChannelTimeShiftConfigurationArgs>? TimeShiftConfiguration { get; set; }
 
         public ChannelArgs()
         {

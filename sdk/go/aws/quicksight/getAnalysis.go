@@ -29,14 +29,16 @@ type LookupAnalysisArgs struct {
 }
 
 type LookupAnalysisResult struct {
-	Arn         *string                      `pulumi:"arn"`
-	CreatedTime *string                      `pulumi:"createdTime"`
-	DataSetArns []string                     `pulumi:"dataSetArns"`
-	Errors      []AnalysisError              `pulumi:"errors"`
-	Name        *string                      `pulumi:"name"`
-	Permissions []AnalysisResourcePermission `pulumi:"permissions"`
-	Tags        []AnalysisTag                `pulumi:"tags"`
-	ThemeArn    *string                      `pulumi:"themeArn"`
+	Arn             *string                      `pulumi:"arn"`
+	CreatedTime     *string                      `pulumi:"createdTime"`
+	DataSetArns     []string                     `pulumi:"dataSetArns"`
+	Errors          []AnalysisError              `pulumi:"errors"`
+	LastUpdatedTime *string                      `pulumi:"lastUpdatedTime"`
+	Name            *string                      `pulumi:"name"`
+	Permissions     []AnalysisResourcePermission `pulumi:"permissions"`
+	Sheets          []AnalysisSheet              `pulumi:"sheets"`
+	Tags            []AnalysisTag                `pulumi:"tags"`
+	ThemeArn        *string                      `pulumi:"themeArn"`
 }
 
 func LookupAnalysisOutput(ctx *pulumi.Context, args LookupAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupAnalysisResultOutput {
@@ -97,12 +99,20 @@ func (o LookupAnalysisResultOutput) Errors() AnalysisErrorArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisError { return v.Errors }).(AnalysisErrorArrayOutput)
 }
 
+func (o LookupAnalysisResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAnalysisResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupAnalysisResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAnalysisResultOutput) Permissions() AnalysisResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisResourcePermission { return v.Permissions }).(AnalysisResourcePermissionArrayOutput)
+}
+
+func (o LookupAnalysisResultOutput) Sheets() AnalysisSheetArrayOutput {
+	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisSheet { return v.Sheets }).(AnalysisSheetArrayOutput)
 }
 
 func (o LookupAnalysisResultOutput) Tags() AnalysisTagArrayOutput {

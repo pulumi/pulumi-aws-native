@@ -15,6 +15,7 @@ __all__ = [
     'CertificateAuthorityAccessDescription',
     'CertificateAuthorityAccessMethod',
     'CertificateAuthorityCrlConfiguration',
+    'CertificateAuthorityCrlDistributionPointExtensionConfiguration',
     'CertificateAuthorityCsrExtensions',
     'CertificateAuthorityCustomAttribute',
     'CertificateAuthorityEdiPartyName',
@@ -165,7 +166,9 @@ class CertificateAuthorityCrlConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customCname":
+        if key == "crlDistributionPointExtensionConfiguration":
+            suggest = "crl_distribution_point_extension_configuration"
+        elif key == "customCname":
             suggest = "custom_cname"
         elif key == "expirationInDays":
             suggest = "expiration_in_days"
@@ -186,6 +189,7 @@ class CertificateAuthorityCrlConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 crl_distribution_point_extension_configuration: Optional['outputs.CertificateAuthorityCrlDistributionPointExtensionConfiguration'] = None,
                  custom_cname: Optional[str] = None,
                  enabled: Optional[bool] = None,
                  expiration_in_days: Optional[int] = None,
@@ -194,6 +198,8 @@ class CertificateAuthorityCrlConfiguration(dict):
         """
         Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
         """
+        if crl_distribution_point_extension_configuration is not None:
+            pulumi.set(__self__, "crl_distribution_point_extension_configuration", crl_distribution_point_extension_configuration)
         if custom_cname is not None:
             pulumi.set(__self__, "custom_cname", custom_cname)
         if enabled is not None:
@@ -204,6 +210,11 @@ class CertificateAuthorityCrlConfiguration(dict):
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_object_acl is not None:
             pulumi.set(__self__, "s3_object_acl", s3_object_acl)
+
+    @property
+    @pulumi.getter(name="crlDistributionPointExtensionConfiguration")
+    def crl_distribution_point_extension_configuration(self) -> Optional['outputs.CertificateAuthorityCrlDistributionPointExtensionConfiguration']:
+        return pulumi.get(self, "crl_distribution_point_extension_configuration")
 
     @property
     @pulumi.getter(name="customCname")
@@ -229,6 +240,41 @@ class CertificateAuthorityCrlConfiguration(dict):
     @pulumi.getter(name="s3ObjectAcl")
     def s3_object_acl(self) -> Optional[str]:
         return pulumi.get(self, "s3_object_acl")
+
+
+@pulumi.output_type
+class CertificateAuthorityCrlDistributionPointExtensionConfiguration(dict):
+    """
+    Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "omitExtension":
+            suggest = "omit_extension"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityCrlDistributionPointExtensionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityCrlDistributionPointExtensionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityCrlDistributionPointExtensionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 omit_extension: bool):
+        """
+        Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+        """
+        pulumi.set(__self__, "omit_extension", omit_extension)
+
+    @property
+    @pulumi.getter(name="omitExtension")
+    def omit_extension(self) -> bool:
+        return pulumi.get(self, "omit_extension")
 
 
 @pulumi.output_type

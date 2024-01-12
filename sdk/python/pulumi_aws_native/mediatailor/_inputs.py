@@ -17,6 +17,7 @@ __all__ = [
     'ChannelRequestOutputItemArgs',
     'ChannelSlateSourceArgs',
     'ChannelTagArgs',
+    'ChannelTimeShiftConfigurationArgs',
     'LiveSourceHttpPackageConfigurationArgs',
     'LiveSourceTagArgs',
     'PlaybackConfigurationAdMarkerPassthroughArgs',
@@ -301,6 +302,29 @@ class ChannelTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ChannelTimeShiftConfigurationArgs:
+    def __init__(__self__, *,
+                 max_time_delay_seconds: pulumi.Input[float]):
+        """
+        <p>The configuration for time-shifted viewing.</p>
+        :param pulumi.Input[float] max_time_delay_seconds: <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
+        """
+        pulumi.set(__self__, "max_time_delay_seconds", max_time_delay_seconds)
+
+    @property
+    @pulumi.getter(name="maxTimeDelaySeconds")
+    def max_time_delay_seconds(self) -> pulumi.Input[float]:
+        """
+        <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
+        """
+        return pulumi.get(self, "max_time_delay_seconds")
+
+    @max_time_delay_seconds.setter
+    def max_time_delay_seconds(self, value: pulumi.Input[float]):
+        pulumi.set(self, "max_time_delay_seconds", value)
 
 
 @pulumi.input_type

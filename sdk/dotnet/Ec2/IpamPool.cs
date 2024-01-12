@@ -132,6 +132,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("sourceIpamPoolId")]
         public Output<string?> SourceIpamPoolId { get; private set; } = null!;
 
+        [Output("sourceResource")]
+        public Output<Outputs.IpamPoolSourceResource?> SourceResource { get; private set; } = null!;
+
         /// <summary>
         /// The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
         /// </summary>
@@ -182,6 +185,7 @@ namespace Pulumi.AwsNative.Ec2
                     "publicIpSource",
                     "publiclyAdvertisable",
                     "sourceIpamPoolId",
+                    "sourceResource",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -297,6 +301,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("sourceIpamPoolId")]
         public Input<string>? SourceIpamPoolId { get; set; }
+
+        [Input("sourceResource")]
+        public Input<Inputs.IpamPoolSourceResourceArgs>? SourceResource { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.IpamPoolTagArgs>? _tags;

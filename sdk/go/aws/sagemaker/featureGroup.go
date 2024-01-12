@@ -36,7 +36,8 @@ type FeatureGroup struct {
 	// Role Arn
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// An array of key-value pair to apply to this resource.
-	Tags FeatureGroupTagArrayOutput `pulumi:"tags"`
+	Tags             FeatureGroupTagArrayOutput            `pulumi:"tags"`
+	ThroughputConfig FeatureGroupThroughputConfigPtrOutput `pulumi:"throughputConfig"`
 }
 
 // NewFeatureGroup registers a new resource with the given unique name, arguments, and options.
@@ -114,7 +115,8 @@ type featureGroupArgs struct {
 	// Role Arn
 	RoleArn *string `pulumi:"roleArn"`
 	// An array of key-value pair to apply to this resource.
-	Tags []FeatureGroupTag `pulumi:"tags"`
+	Tags             []FeatureGroupTag             `pulumi:"tags"`
+	ThroughputConfig *FeatureGroupThroughputConfig `pulumi:"throughputConfig"`
 }
 
 // The set of arguments for constructing a FeatureGroup resource.
@@ -134,7 +136,8 @@ type FeatureGroupArgs struct {
 	// Role Arn
 	RoleArn pulumi.StringPtrInput
 	// An array of key-value pair to apply to this resource.
-	Tags FeatureGroupTagArrayInput
+	Tags             FeatureGroupTagArrayInput
+	ThroughputConfig FeatureGroupThroughputConfigPtrInput
 }
 
 func (FeatureGroupArgs) ElementType() reflect.Type {
@@ -237,6 +240,10 @@ func (o FeatureGroupOutput) RoleArn() pulumi.StringPtrOutput {
 // An array of key-value pair to apply to this resource.
 func (o FeatureGroupOutput) Tags() FeatureGroupTagArrayOutput {
 	return o.ApplyT(func(v *FeatureGroup) FeatureGroupTagArrayOutput { return v.Tags }).(FeatureGroupTagArrayOutput)
+}
+
+func (o FeatureGroupOutput) ThroughputConfig() FeatureGroupThroughputConfigPtrOutput {
+	return o.ApplyT(func(v *FeatureGroup) FeatureGroupThroughputConfigPtrOutput { return v.ThroughputConfig }).(FeatureGroupThroughputConfigPtrOutput)
 }
 
 func init() {

@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         public readonly string? PreAuthentication;
         public readonly string? PreSignUp;
         public readonly string? PreTokenGeneration;
+        public readonly Outputs.UserPoolPreTokenGenerationConfig? PreTokenGenerationConfig;
         public readonly string? UserMigration;
         public readonly string? VerifyAuthChallengeResponse;
 
@@ -51,6 +52,8 @@ namespace Pulumi.AwsNative.Cognito.Outputs
 
             string? preTokenGeneration,
 
+            Outputs.UserPoolPreTokenGenerationConfig? preTokenGenerationConfig,
+
             string? userMigration,
 
             string? verifyAuthChallengeResponse)
@@ -66,6 +69,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
             PreAuthentication = preAuthentication;
             PreSignUp = preSignUp;
             PreTokenGeneration = preTokenGeneration;
+            PreTokenGenerationConfig = preTokenGenerationConfig;
             UserMigration = userMigration;
             VerifyAuthChallengeResponse = verifyAuthChallengeResponse;
         }

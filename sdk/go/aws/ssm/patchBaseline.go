@@ -13,24 +13,36 @@ import (
 )
 
 // Resource Type definition for AWS::SSM::PatchBaseline
-//
-// Deprecated: PatchBaseline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type PatchBaseline struct {
 	pulumi.CustomResourceState
 
-	ApprovalRules                    PatchBaselineRuleGroupPtrOutput        `pulumi:"approvalRules"`
-	ApprovedPatches                  pulumi.StringArrayOutput               `pulumi:"approvedPatches"`
-	ApprovedPatchesComplianceLevel   pulumi.StringPtrOutput                 `pulumi:"approvedPatchesComplianceLevel"`
-	ApprovedPatchesEnableNonSecurity pulumi.BoolPtrOutput                   `pulumi:"approvedPatchesEnableNonSecurity"`
-	Description                      pulumi.StringPtrOutput                 `pulumi:"description"`
-	GlobalFilters                    PatchBaselinePatchFilterGroupPtrOutput `pulumi:"globalFilters"`
-	Name                             pulumi.StringOutput                    `pulumi:"name"`
-	OperatingSystem                  pulumi.StringPtrOutput                 `pulumi:"operatingSystem"`
-	PatchGroups                      pulumi.StringArrayOutput               `pulumi:"patchGroups"`
-	RejectedPatches                  pulumi.StringArrayOutput               `pulumi:"rejectedPatches"`
-	RejectedPatchesAction            pulumi.StringPtrOutput                 `pulumi:"rejectedPatchesAction"`
-	Sources                          PatchBaselinePatchSourceArrayOutput    `pulumi:"sources"`
-	Tags                             PatchBaselineTagArrayOutput            `pulumi:"tags"`
+	ApprovalRules PatchBaselineRuleGroupPtrOutput `pulumi:"approvalRules"`
+	// A list of explicitly approved patches for the baseline.
+	ApprovedPatches pulumi.StringArrayOutput `pulumi:"approvedPatches"`
+	// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+	ApprovedPatchesComplianceLevel PatchBaselineApprovedPatchesComplianceLevelPtrOutput `pulumi:"approvedPatchesComplianceLevel"`
+	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+	ApprovedPatchesEnableNonSecurity pulumi.BoolPtrOutput `pulumi:"approvedPatchesEnableNonSecurity"`
+	// Set the baseline as default baseline. Only registering to default patch baseline is allowed.
+	DefaultBaseline pulumi.BoolPtrOutput `pulumi:"defaultBaseline"`
+	// The description of the patch baseline.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A set of global filters used to include patches in the baseline.
+	GlobalFilters PatchBaselinePatchFilterGroupPtrOutput `pulumi:"globalFilters"`
+	// The name of the patch baseline.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+	OperatingSystem PatchBaselineOperatingSystemPtrOutput `pulumi:"operatingSystem"`
+	// PatchGroups is used to associate instances with a specific patch baseline
+	PatchGroups pulumi.StringArrayOutput `pulumi:"patchGroups"`
+	// A list of explicitly rejected patches for the baseline.
+	RejectedPatches pulumi.StringArrayOutput `pulumi:"rejectedPatches"`
+	// The action for Patch Manager to take on patches included in the RejectedPackages list.
+	RejectedPatchesAction PatchBaselineRejectedPatchesActionPtrOutput `pulumi:"rejectedPatchesAction"`
+	// Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+	Sources PatchBaselinePatchSourceArrayOutput `pulumi:"sources"`
+	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
+	Tags PatchBaselineTagArrayOutput `pulumi:"tags"`
 }
 
 // NewPatchBaseline registers a new resource with the given unique name, arguments, and options.
@@ -77,36 +89,64 @@ func (PatchBaselineState) ElementType() reflect.Type {
 }
 
 type patchBaselineArgs struct {
-	ApprovalRules                    *PatchBaselineRuleGroup        `pulumi:"approvalRules"`
-	ApprovedPatches                  []string                       `pulumi:"approvedPatches"`
-	ApprovedPatchesComplianceLevel   *string                        `pulumi:"approvedPatchesComplianceLevel"`
-	ApprovedPatchesEnableNonSecurity *bool                          `pulumi:"approvedPatchesEnableNonSecurity"`
-	Description                      *string                        `pulumi:"description"`
-	GlobalFilters                    *PatchBaselinePatchFilterGroup `pulumi:"globalFilters"`
-	Name                             *string                        `pulumi:"name"`
-	OperatingSystem                  *string                        `pulumi:"operatingSystem"`
-	PatchGroups                      []string                       `pulumi:"patchGroups"`
-	RejectedPatches                  []string                       `pulumi:"rejectedPatches"`
-	RejectedPatchesAction            *string                        `pulumi:"rejectedPatchesAction"`
-	Sources                          []PatchBaselinePatchSource     `pulumi:"sources"`
-	Tags                             []PatchBaselineTag             `pulumi:"tags"`
+	ApprovalRules *PatchBaselineRuleGroup `pulumi:"approvalRules"`
+	// A list of explicitly approved patches for the baseline.
+	ApprovedPatches []string `pulumi:"approvedPatches"`
+	// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+	ApprovedPatchesComplianceLevel *PatchBaselineApprovedPatchesComplianceLevel `pulumi:"approvedPatchesComplianceLevel"`
+	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+	ApprovedPatchesEnableNonSecurity *bool `pulumi:"approvedPatchesEnableNonSecurity"`
+	// Set the baseline as default baseline. Only registering to default patch baseline is allowed.
+	DefaultBaseline *bool `pulumi:"defaultBaseline"`
+	// The description of the patch baseline.
+	Description *string `pulumi:"description"`
+	// A set of global filters used to include patches in the baseline.
+	GlobalFilters *PatchBaselinePatchFilterGroup `pulumi:"globalFilters"`
+	// The name of the patch baseline.
+	Name *string `pulumi:"name"`
+	// Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+	OperatingSystem *PatchBaselineOperatingSystem `pulumi:"operatingSystem"`
+	// PatchGroups is used to associate instances with a specific patch baseline
+	PatchGroups []string `pulumi:"patchGroups"`
+	// A list of explicitly rejected patches for the baseline.
+	RejectedPatches []string `pulumi:"rejectedPatches"`
+	// The action for Patch Manager to take on patches included in the RejectedPackages list.
+	RejectedPatchesAction *PatchBaselineRejectedPatchesAction `pulumi:"rejectedPatchesAction"`
+	// Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+	Sources []PatchBaselinePatchSource `pulumi:"sources"`
+	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
+	Tags []PatchBaselineTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PatchBaseline resource.
 type PatchBaselineArgs struct {
-	ApprovalRules                    PatchBaselineRuleGroupPtrInput
-	ApprovedPatches                  pulumi.StringArrayInput
-	ApprovedPatchesComplianceLevel   pulumi.StringPtrInput
+	ApprovalRules PatchBaselineRuleGroupPtrInput
+	// A list of explicitly approved patches for the baseline.
+	ApprovedPatches pulumi.StringArrayInput
+	// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+	ApprovedPatchesComplianceLevel PatchBaselineApprovedPatchesComplianceLevelPtrInput
+	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
 	ApprovedPatchesEnableNonSecurity pulumi.BoolPtrInput
-	Description                      pulumi.StringPtrInput
-	GlobalFilters                    PatchBaselinePatchFilterGroupPtrInput
-	Name                             pulumi.StringPtrInput
-	OperatingSystem                  pulumi.StringPtrInput
-	PatchGroups                      pulumi.StringArrayInput
-	RejectedPatches                  pulumi.StringArrayInput
-	RejectedPatchesAction            pulumi.StringPtrInput
-	Sources                          PatchBaselinePatchSourceArrayInput
-	Tags                             PatchBaselineTagArrayInput
+	// Set the baseline as default baseline. Only registering to default patch baseline is allowed.
+	DefaultBaseline pulumi.BoolPtrInput
+	// The description of the patch baseline.
+	Description pulumi.StringPtrInput
+	// A set of global filters used to include patches in the baseline.
+	GlobalFilters PatchBaselinePatchFilterGroupPtrInput
+	// The name of the patch baseline.
+	Name pulumi.StringPtrInput
+	// Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+	OperatingSystem PatchBaselineOperatingSystemPtrInput
+	// PatchGroups is used to associate instances with a specific patch baseline
+	PatchGroups pulumi.StringArrayInput
+	// A list of explicitly rejected patches for the baseline.
+	RejectedPatches pulumi.StringArrayInput
+	// The action for Patch Manager to take on patches included in the RejectedPackages list.
+	RejectedPatchesAction PatchBaselineRejectedPatchesActionPtrInput
+	// Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+	Sources PatchBaselinePatchSourceArrayInput
+	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
+	Tags PatchBaselineTagArrayInput
 }
 
 func (PatchBaselineArgs) ElementType() reflect.Type {
@@ -162,50 +202,69 @@ func (o PatchBaselineOutput) ApprovalRules() PatchBaselineRuleGroupPtrOutput {
 	return o.ApplyT(func(v *PatchBaseline) PatchBaselineRuleGroupPtrOutput { return v.ApprovalRules }).(PatchBaselineRuleGroupPtrOutput)
 }
 
+// A list of explicitly approved patches for the baseline.
 func (o PatchBaselineOutput) ApprovedPatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.StringArrayOutput { return v.ApprovedPatches }).(pulumi.StringArrayOutput)
 }
 
-func (o PatchBaselineOutput) ApprovedPatchesComplianceLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PatchBaseline) pulumi.StringPtrOutput { return v.ApprovedPatchesComplianceLevel }).(pulumi.StringPtrOutput)
+// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+func (o PatchBaselineOutput) ApprovedPatchesComplianceLevel() PatchBaselineApprovedPatchesComplianceLevelPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) PatchBaselineApprovedPatchesComplianceLevelPtrOutput {
+		return v.ApprovedPatchesComplianceLevel
+	}).(PatchBaselineApprovedPatchesComplianceLevelPtrOutput)
 }
 
+// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
 func (o PatchBaselineOutput) ApprovedPatchesEnableNonSecurity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.BoolPtrOutput { return v.ApprovedPatchesEnableNonSecurity }).(pulumi.BoolPtrOutput)
 }
 
+// Set the baseline as default baseline. Only registering to default patch baseline is allowed.
+func (o PatchBaselineOutput) DefaultBaseline() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.BoolPtrOutput { return v.DefaultBaseline }).(pulumi.BoolPtrOutput)
+}
+
+// The description of the patch baseline.
 func (o PatchBaselineOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A set of global filters used to include patches in the baseline.
 func (o PatchBaselineOutput) GlobalFilters() PatchBaselinePatchFilterGroupPtrOutput {
 	return o.ApplyT(func(v *PatchBaseline) PatchBaselinePatchFilterGroupPtrOutput { return v.GlobalFilters }).(PatchBaselinePatchFilterGroupPtrOutput)
 }
 
+// The name of the patch baseline.
 func (o PatchBaselineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o PatchBaselineOutput) OperatingSystem() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PatchBaseline) pulumi.StringPtrOutput { return v.OperatingSystem }).(pulumi.StringPtrOutput)
+// Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+func (o PatchBaselineOutput) OperatingSystem() PatchBaselineOperatingSystemPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) PatchBaselineOperatingSystemPtrOutput { return v.OperatingSystem }).(PatchBaselineOperatingSystemPtrOutput)
 }
 
+// PatchGroups is used to associate instances with a specific patch baseline
 func (o PatchBaselineOutput) PatchGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.StringArrayOutput { return v.PatchGroups }).(pulumi.StringArrayOutput)
 }
 
+// A list of explicitly rejected patches for the baseline.
 func (o PatchBaselineOutput) RejectedPatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.StringArrayOutput { return v.RejectedPatches }).(pulumi.StringArrayOutput)
 }
 
-func (o PatchBaselineOutput) RejectedPatchesAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PatchBaseline) pulumi.StringPtrOutput { return v.RejectedPatchesAction }).(pulumi.StringPtrOutput)
+// The action for Patch Manager to take on patches included in the RejectedPackages list.
+func (o PatchBaselineOutput) RejectedPatchesAction() PatchBaselineRejectedPatchesActionPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) PatchBaselineRejectedPatchesActionPtrOutput { return v.RejectedPatchesAction }).(PatchBaselineRejectedPatchesActionPtrOutput)
 }
 
+// Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 func (o PatchBaselineOutput) Sources() PatchBaselinePatchSourceArrayOutput {
 	return o.ApplyT(func(v *PatchBaseline) PatchBaselinePatchSourceArrayOutput { return v.Sources }).(PatchBaselinePatchSourceArrayOutput)
 }
 
+// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
 func (o PatchBaselineOutput) Tags() PatchBaselineTagArrayOutput {
 	return o.ApplyT(func(v *PatchBaseline) PatchBaselineTagArrayOutput { return v.Tags }).(PatchBaselineTagArrayOutput)
 }

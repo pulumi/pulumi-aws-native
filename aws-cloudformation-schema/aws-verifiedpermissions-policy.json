@@ -106,7 +106,7 @@
       "$ref" : "#/definitions/PolicyType"
     }
   },
-  "required" : [ "Definition" ],
+  "required" : [ "Definition", "PolicyStoreId" ],
   "readOnlyProperties" : [ "/properties/PolicyId", "/properties/PolicyType" ],
   "createOnlyProperties" : [ "/properties/PolicyStoreId" ],
   "primaryIdentifier" : [ "/properties/PolicyId", "/properties/PolicyStoreId" ],

@@ -2317,15 +2317,14 @@ class LifecyclePolicyPolicyDetailArgs:
 class LifecyclePolicyRecipeSelectionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 semantic_version: Optional[pulumi.Input[str]] = None):
+                 semantic_version: pulumi.Input[str]):
         """
         The recipe to apply the lifecycle policy for.
         :param pulumi.Input[str] name: The recipe name.
         :param pulumi.Input[str] semantic_version: The recipe version.
         """
         pulumi.set(__self__, "name", name)
-        if semantic_version is not None:
-            pulumi.set(__self__, "semantic_version", semantic_version)
+        pulumi.set(__self__, "semantic_version", semantic_version)
 
     @property
     @pulumi.getter
@@ -2341,14 +2340,14 @@ class LifecyclePolicyRecipeSelectionArgs:
 
     @property
     @pulumi.getter(name="semanticVersion")
-    def semantic_version(self) -> Optional[pulumi.Input[str]]:
+    def semantic_version(self) -> pulumi.Input[str]:
         """
         The recipe version.
         """
         return pulumi.get(self, "semantic_version")
 
     @semantic_version.setter
-    def semantic_version(self, value: Optional[pulumi.Input[str]]):
+    def semantic_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "semantic_version", value)
 
 

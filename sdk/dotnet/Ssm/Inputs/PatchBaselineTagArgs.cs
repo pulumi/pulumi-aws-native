@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ssm.Inputs
 {
 
+    /// <summary>
+    /// Metadata that you assign to your AWS resources.
+    /// </summary>
     public sealed class PatchBaselineTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]

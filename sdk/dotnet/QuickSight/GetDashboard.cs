@@ -58,7 +58,9 @@ namespace Pulumi.AwsNative.QuickSight
     public sealed class GetDashboardResult
     {
         public readonly string? Arn;
+        public readonly string? CreatedTime;
         public readonly string? LastPublishedTime;
+        public readonly string? LastUpdatedTime;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.DashboardResourcePermission> Permissions;
         public readonly ImmutableArray<Outputs.DashboardTag> Tags;
@@ -68,7 +70,11 @@ namespace Pulumi.AwsNative.QuickSight
         private GetDashboardResult(
             string? arn,
 
+            string? createdTime,
+
             string? lastPublishedTime,
+
+            string? lastUpdatedTime,
 
             string? name,
 
@@ -79,7 +85,9 @@ namespace Pulumi.AwsNative.QuickSight
             Outputs.DashboardVersion? version)
         {
             Arn = arn;
+            CreatedTime = createdTime;
             LastPublishedTime = lastPublishedTime;
+            LastUpdatedTime = lastUpdatedTime;
             Name = name;
             Permissions = permissions;
             Tags = tags;

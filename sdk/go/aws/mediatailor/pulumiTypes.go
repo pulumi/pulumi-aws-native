@@ -1034,6 +1034,170 @@ func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
 	}).(ChannelTagOutput)
 }
 
+// <p>The configuration for time-shifted viewing.</p>
+type ChannelTimeShiftConfiguration struct {
+	// <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
+	MaxTimeDelaySeconds float64 `pulumi:"maxTimeDelaySeconds"`
+}
+
+// ChannelTimeShiftConfigurationInput is an input type that accepts ChannelTimeShiftConfigurationArgs and ChannelTimeShiftConfigurationOutput values.
+// You can construct a concrete instance of `ChannelTimeShiftConfigurationInput` via:
+//
+//	ChannelTimeShiftConfigurationArgs{...}
+type ChannelTimeShiftConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelTimeShiftConfigurationOutput() ChannelTimeShiftConfigurationOutput
+	ToChannelTimeShiftConfigurationOutputWithContext(context.Context) ChannelTimeShiftConfigurationOutput
+}
+
+// <p>The configuration for time-shifted viewing.</p>
+type ChannelTimeShiftConfigurationArgs struct {
+	// <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
+	MaxTimeDelaySeconds pulumi.Float64Input `pulumi:"maxTimeDelaySeconds"`
+}
+
+func (ChannelTimeShiftConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTimeShiftConfiguration)(nil)).Elem()
+}
+
+func (i ChannelTimeShiftConfigurationArgs) ToChannelTimeShiftConfigurationOutput() ChannelTimeShiftConfigurationOutput {
+	return i.ToChannelTimeShiftConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelTimeShiftConfigurationArgs) ToChannelTimeShiftConfigurationOutputWithContext(ctx context.Context) ChannelTimeShiftConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTimeShiftConfigurationOutput)
+}
+
+func (i ChannelTimeShiftConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTimeShiftConfiguration] {
+	return pulumix.Output[ChannelTimeShiftConfiguration]{
+		OutputState: i.ToChannelTimeShiftConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ChannelTimeShiftConfigurationArgs) ToChannelTimeShiftConfigurationPtrOutput() ChannelTimeShiftConfigurationPtrOutput {
+	return i.ToChannelTimeShiftConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelTimeShiftConfigurationArgs) ToChannelTimeShiftConfigurationPtrOutputWithContext(ctx context.Context) ChannelTimeShiftConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTimeShiftConfigurationOutput).ToChannelTimeShiftConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelTimeShiftConfigurationPtrInput is an input type that accepts ChannelTimeShiftConfigurationArgs, ChannelTimeShiftConfigurationPtr and ChannelTimeShiftConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelTimeShiftConfigurationPtrInput` via:
+//
+//	        ChannelTimeShiftConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelTimeShiftConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelTimeShiftConfigurationPtrOutput() ChannelTimeShiftConfigurationPtrOutput
+	ToChannelTimeShiftConfigurationPtrOutputWithContext(context.Context) ChannelTimeShiftConfigurationPtrOutput
+}
+
+type channelTimeShiftConfigurationPtrType ChannelTimeShiftConfigurationArgs
+
+func ChannelTimeShiftConfigurationPtr(v *ChannelTimeShiftConfigurationArgs) ChannelTimeShiftConfigurationPtrInput {
+	return (*channelTimeShiftConfigurationPtrType)(v)
+}
+
+func (*channelTimeShiftConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTimeShiftConfiguration)(nil)).Elem()
+}
+
+func (i *channelTimeShiftConfigurationPtrType) ToChannelTimeShiftConfigurationPtrOutput() ChannelTimeShiftConfigurationPtrOutput {
+	return i.ToChannelTimeShiftConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelTimeShiftConfigurationPtrType) ToChannelTimeShiftConfigurationPtrOutputWithContext(ctx context.Context) ChannelTimeShiftConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTimeShiftConfigurationPtrOutput)
+}
+
+func (i *channelTimeShiftConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelTimeShiftConfiguration] {
+	return pulumix.Output[*ChannelTimeShiftConfiguration]{
+		OutputState: i.ToChannelTimeShiftConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// <p>The configuration for time-shifted viewing.</p>
+type ChannelTimeShiftConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelTimeShiftConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTimeShiftConfiguration)(nil)).Elem()
+}
+
+func (o ChannelTimeShiftConfigurationOutput) ToChannelTimeShiftConfigurationOutput() ChannelTimeShiftConfigurationOutput {
+	return o
+}
+
+func (o ChannelTimeShiftConfigurationOutput) ToChannelTimeShiftConfigurationOutputWithContext(ctx context.Context) ChannelTimeShiftConfigurationOutput {
+	return o
+}
+
+func (o ChannelTimeShiftConfigurationOutput) ToChannelTimeShiftConfigurationPtrOutput() ChannelTimeShiftConfigurationPtrOutput {
+	return o.ToChannelTimeShiftConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelTimeShiftConfigurationOutput) ToChannelTimeShiftConfigurationPtrOutputWithContext(ctx context.Context) ChannelTimeShiftConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelTimeShiftConfiguration) *ChannelTimeShiftConfiguration {
+		return &v
+	}).(ChannelTimeShiftConfigurationPtrOutput)
+}
+
+func (o ChannelTimeShiftConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTimeShiftConfiguration] {
+	return pulumix.Output[ChannelTimeShiftConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
+func (o ChannelTimeShiftConfigurationOutput) MaxTimeDelaySeconds() pulumi.Float64Output {
+	return o.ApplyT(func(v ChannelTimeShiftConfiguration) float64 { return v.MaxTimeDelaySeconds }).(pulumi.Float64Output)
+}
+
+type ChannelTimeShiftConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelTimeShiftConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTimeShiftConfiguration)(nil)).Elem()
+}
+
+func (o ChannelTimeShiftConfigurationPtrOutput) ToChannelTimeShiftConfigurationPtrOutput() ChannelTimeShiftConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelTimeShiftConfigurationPtrOutput) ToChannelTimeShiftConfigurationPtrOutputWithContext(ctx context.Context) ChannelTimeShiftConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelTimeShiftConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelTimeShiftConfiguration] {
+	return pulumix.Output[*ChannelTimeShiftConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelTimeShiftConfigurationPtrOutput) Elem() ChannelTimeShiftConfigurationOutput {
+	return o.ApplyT(func(v *ChannelTimeShiftConfiguration) ChannelTimeShiftConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelTimeShiftConfiguration
+		return ret
+	}).(ChannelTimeShiftConfigurationOutput)
+}
+
+// <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
+func (o ChannelTimeShiftConfigurationPtrOutput) MaxTimeDelaySeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ChannelTimeShiftConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxTimeDelaySeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
 // <p>The HTTP package configuration properties for the requested VOD source.</p>
 type LiveSourceHttpPackageConfiguration struct {
 	// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
@@ -4033,6 +4197,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlateSourcePtrInput)(nil)).Elem(), ChannelSlateSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagInput)(nil)).Elem(), ChannelTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagArrayInput)(nil)).Elem(), ChannelTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeShiftConfigurationInput)(nil)).Elem(), ChannelTimeShiftConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeShiftConfigurationPtrInput)(nil)).Elem(), ChannelTimeShiftConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationArrayInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceTagInput)(nil)).Elem(), LiveSourceTagArgs{})
@@ -4082,6 +4248,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelSlateSourcePtrOutput{})
 	pulumi.RegisterOutputType(ChannelTagOutput{})
 	pulumi.RegisterOutputType(ChannelTagArrayOutput{})
+	pulumi.RegisterOutputType(ChannelTimeShiftConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelTimeShiftConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationOutput{})
 	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(LiveSourceTagOutput{})

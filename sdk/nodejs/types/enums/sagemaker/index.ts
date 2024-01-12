@@ -302,6 +302,16 @@ export const FeatureGroupTableFormat = {
  */
 export type FeatureGroupTableFormat = (typeof FeatureGroupTableFormat)[keyof typeof FeatureGroupTableFormat];
 
+export const FeatureGroupThroughputMode = {
+    OnDemand: "OnDemand",
+    Provisioned: "Provisioned",
+} as const;
+
+/**
+ * Throughput mode configuration of the feature group
+ */
+export type FeatureGroupThroughputMode = (typeof FeatureGroupThroughputMode)[keyof typeof FeatureGroupThroughputMode];
+
 export const ImageVersionJobType = {
     Training: "TRAINING",
     Inference: "INFERENCE",

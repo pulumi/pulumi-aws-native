@@ -15,19 +15,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly ImmutableArray<string> Actions;
         public readonly string Principal;
-        public readonly string? Resource;
 
         [OutputConstructor]
         private ThemeResourcePermission(
             ImmutableArray<string> actions,
 
-            string principal,
-
-            string? resource)
+            string principal)
         {
             Actions = actions;
             Principal = principal;
-            Resource = resource;
         }
     }
 }

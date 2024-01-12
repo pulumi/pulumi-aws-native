@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbClusterResult:
-    def __init__(__self__, backup_retention_period=None, cluster_resource_id=None, copy_tags_to_snapshot=None, db_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, id=None, master_user_password=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, restore_to_time=None, restore_type=None, tags=None, use_latest_restorable_time=None, vpc_security_group_ids=None):
+    def __init__(__self__, backup_retention_period=None, cluster_resource_id=None, copy_tags_to_snapshot=None, db_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, engine_version=None, id=None, master_user_password=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, restore_to_time=None, restore_type=None, storage_type=None, tags=None, use_latest_restorable_time=None, vpc_security_group_ids=None):
         if backup_retention_period and not isinstance(backup_retention_period, int):
             raise TypeError("Expected argument 'backup_retention_period' to be a int")
         pulumi.set(__self__, "backup_retention_period", backup_retention_period)
@@ -41,6 +41,9 @@ class GetDbClusterResult:
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if engine_version and not isinstance(engine_version, str):
+            raise TypeError("Expected argument 'engine_version' to be a str")
+        pulumi.set(__self__, "engine_version", engine_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -65,6 +68,9 @@ class GetDbClusterResult:
         if restore_type and not isinstance(restore_type, str):
             raise TypeError("Expected argument 'restore_type' to be a str")
         pulumi.set(__self__, "restore_type", restore_type)
+        if storage_type and not isinstance(storage_type, str):
+            raise TypeError("Expected argument 'storage_type' to be a str")
+        pulumi.set(__self__, "storage_type", storage_type)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -111,6 +117,11 @@ class GetDbClusterResult:
         return pulumi.get(self, "endpoint")
 
     @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional[str]:
+        return pulumi.get(self, "engine_version")
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
@@ -151,6 +162,11 @@ class GetDbClusterResult:
         return pulumi.get(self, "restore_type")
 
     @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[str]:
+        return pulumi.get(self, "storage_type")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DbClusterTag']]:
         return pulumi.get(self, "tags")
@@ -179,6 +195,7 @@ class AwaitableGetDbClusterResult(GetDbClusterResult):
             deletion_protection=self.deletion_protection,
             enable_cloudwatch_logs_exports=self.enable_cloudwatch_logs_exports,
             endpoint=self.endpoint,
+            engine_version=self.engine_version,
             id=self.id,
             master_user_password=self.master_user_password,
             port=self.port,
@@ -187,6 +204,7 @@ class AwaitableGetDbClusterResult(GetDbClusterResult):
             read_endpoint=self.read_endpoint,
             restore_to_time=self.restore_to_time,
             restore_type=self.restore_type,
+            storage_type=self.storage_type,
             tags=self.tags,
             use_latest_restorable_time=self.use_latest_restorable_time,
             vpc_security_group_ids=self.vpc_security_group_ids)
@@ -210,6 +228,7 @@ def get_db_cluster(id: Optional[str] = None,
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         enable_cloudwatch_logs_exports=pulumi.get(__ret__, 'enable_cloudwatch_logs_exports'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
+        engine_version=pulumi.get(__ret__, 'engine_version'),
         id=pulumi.get(__ret__, 'id'),
         master_user_password=pulumi.get(__ret__, 'master_user_password'),
         port=pulumi.get(__ret__, 'port'),
@@ -218,6 +237,7 @@ def get_db_cluster(id: Optional[str] = None,
         read_endpoint=pulumi.get(__ret__, 'read_endpoint'),
         restore_to_time=pulumi.get(__ret__, 'restore_to_time'),
         restore_type=pulumi.get(__ret__, 'restore_type'),
+        storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
         use_latest_restorable_time=pulumi.get(__ret__, 'use_latest_restorable_time'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))

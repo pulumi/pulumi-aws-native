@@ -88,11 +88,19 @@ export namespace acmpca {
      * Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
      */
     export interface CertificateAuthorityCrlConfiguration {
+        crlDistributionPointExtensionConfiguration?: outputs.acmpca.CertificateAuthorityCrlDistributionPointExtensionConfiguration;
         customCname?: string;
         enabled?: boolean;
         expirationInDays?: number;
         s3BucketName?: string;
         s3ObjectAcl?: string;
+    }
+
+    /**
+     * Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+     */
+    export interface CertificateAuthorityCrlDistributionPointExtensionConfiguration {
+        omitExtension: boolean;
     }
 
     /**
@@ -7887,6 +7895,7 @@ export namespace cognito {
         preAuthentication?: string;
         preSignUp?: string;
         preTokenGeneration?: string;
+        preTokenGenerationConfig?: outputs.cognito.UserPoolPreTokenGenerationConfig;
         userMigration?: string;
         verifyAuthChallengeResponse?: string;
     }
@@ -7907,6 +7916,11 @@ export namespace cognito {
 
     export interface UserPoolPolicies {
         passwordPolicy?: outputs.cognito.UserPoolPasswordPolicy;
+    }
+
+    export interface UserPoolPreTokenGenerationConfig {
+        lambdaArn?: string;
+        lambdaVersion?: string;
     }
 
     export interface UserPoolRecoveryOption {
@@ -13171,6 +13185,16 @@ export namespace ec2 {
     }
 
     /**
+     * The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
+     */
+    export interface IpamPoolSourceResource {
+        resourceId: string;
+        resourceOwner: string;
+        resourceRegion: string;
+        resourceType: string;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface IpamPoolTag {
@@ -13719,6 +13743,10 @@ export namespace ec2 {
          * Disables the automatic recovery behavior of your instance or sets it to default.
          */
         autoRecovery?: string;
+        /**
+         * Disables the automatic reboot-migration behavior of your instance or sets it to default.
+         */
+        rebootMigration?: string;
     }
 
     /**
@@ -14292,6 +14320,12 @@ export namespace ec2 {
     export interface NetworkInsightsPathTag {
         key: string;
         value?: string;
+    }
+
+    export interface NetworkInterfaceConnectionTrackingSpecification {
+        tcpEstablishedTimeout?: number;
+        udpStreamTimeout?: number;
+        udpTimeout?: number;
     }
 
     export interface NetworkInterfaceInstanceIpv6Address {
@@ -15650,6 +15684,7 @@ export namespace ecs {
     }
 
     export interface TaskDefinitionVolume {
+        configuredAtLaunch?: boolean;
         dockerVolumeConfiguration?: outputs.ecs.TaskDefinitionDockerVolumeConfiguration;
         efsVolumeConfiguration?: outputs.ecs.TaskDefinitionEfsVolumeConfiguration;
         host?: outputs.ecs.TaskDefinitionHostVolumeProperties;
@@ -21646,7 +21681,7 @@ export namespace imagebuilder {
         /**
          * The recipe version.
          */
-        semanticVersion?: string;
+        semanticVersion: string;
     }
 
     /**
@@ -32704,6 +32739,16 @@ export namespace mediatailor {
     }
 
     /**
+     * <p>The configuration for time-shifted viewing.</p>
+     */
+    export interface ChannelTimeShiftConfiguration {
+        /**
+         * <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
+         */
+        maxTimeDelaySeconds: number;
+    }
+
+    /**
      * <p>The HTTP package configuration properties for the requested VOD source.</p>
      */
     export interface LiveSourceHttpPackageConfiguration {
@@ -38525,7 +38570,6 @@ export namespace quicksight {
     export interface AnalysisResourcePermission {
         actions: string[];
         principal: string;
-        resource?: string;
     }
 
     export interface AnalysisRollingDateConfiguration {
@@ -41599,7 +41643,6 @@ export namespace quicksight {
     export interface DashboardResourcePermission {
         actions: string[];
         principal: string;
-        resource?: string;
     }
 
     export interface DashboardRollingDateConfiguration {
@@ -45497,7 +45540,6 @@ export namespace quicksight {
     export interface TemplateResourcePermission {
         actions: string[];
         principal: string;
-        resource?: string;
     }
 
     export interface TemplateRollingDateConfiguration {
@@ -46360,7 +46402,6 @@ export namespace quicksight {
     export interface ThemeResourcePermission {
         actions: string[];
         principal: string;
-        resource?: string;
     }
 
     export interface ThemeSheetStyle {
@@ -50521,6 +50562,18 @@ export namespace sagemaker {
         value: string;
     }
 
+    export interface FeatureGroupThroughputConfig {
+        /**
+         * For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
+         */
+        provisionedReadCapacityUnits?: number;
+        /**
+         * For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
+         */
+        provisionedWriteCapacityUnits?: number;
+        throughputMode: enums.sagemaker.FeatureGroupThroughputMode;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -50737,6 +50790,10 @@ export namespace sagemaker {
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: string;
+    }
+
+    export interface ModelAccessConfig {
+        acceptEula: boolean;
     }
 
     /**
@@ -52470,6 +52527,7 @@ export namespace sagemaker {
 
     export interface ModelS3DataSource {
         compressionType: string;
+        modelAccessConfig?: outputs.sagemaker.ModelAccessConfig;
         s3DataType: string;
         s3Uri: string;
     }
@@ -54524,36 +54582,51 @@ export namespace ssm {
         maintenanceWindowStepFunctionsParameters?: outputs.ssm.MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters;
     }
 
+    /**
+     * Defines which patches should be included in a patch baseline.
+     */
     export interface PatchBaselinePatchFilter {
-        key?: string;
+        key?: enums.ssm.PatchBaselinePatchFilterKey;
         values?: string[];
     }
 
+    /**
+     * The patch filter group that defines the criteria for the rule.
+     */
     export interface PatchBaselinePatchFilterGroup {
         patchFilters?: outputs.ssm.PatchBaselinePatchFilter[];
     }
 
+    /**
+     * Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+     */
     export interface PatchBaselinePatchSource {
         configuration?: string;
         name?: string;
         products?: string[];
     }
 
-    export interface PatchBaselinePatchStringDate {
-    }
-
+    /**
+     * Defines an approval rule for a patch baseline.
+     */
     export interface PatchBaselineRule {
         approveAfterDays?: number;
-        approveUntilDate?: outputs.ssm.PatchBaselinePatchStringDate;
-        complianceLevel?: string;
+        approveUntilDate?: string;
+        complianceLevel?: enums.ssm.PatchBaselineRuleComplianceLevel;
         enableNonSecurity?: boolean;
         patchFilterGroup?: outputs.ssm.PatchBaselinePatchFilterGroup;
     }
 
+    /**
+     * A set of rules defining the approval rules for a patch baseline.
+     */
     export interface PatchBaselineRuleGroup {
         patchRules?: outputs.ssm.PatchBaselineRule[];
     }
 
+    /**
+     * Metadata that you assign to your AWS resources.
+     */
     export interface PatchBaselineTag {
         key: string;
         value: string;

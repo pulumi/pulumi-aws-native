@@ -26,8 +26,9 @@ type Channel struct {
 	Outputs      ChannelRequestOutputItemArrayOutput `pulumi:"outputs"`
 	PlaybackMode ChannelPlaybackModeOutput           `pulumi:"playbackMode"`
 	// The tags to assign to the channel.
-	Tags ChannelTagArrayOutput `pulumi:"tags"`
-	Tier ChannelTierPtrOutput  `pulumi:"tier"`
+	Tags                   ChannelTagArrayOutput                  `pulumi:"tags"`
+	Tier                   ChannelTierPtrOutput                   `pulumi:"tier"`
+	TimeShiftConfiguration ChannelTimeShiftConfigurationPtrOutput `pulumi:"timeShiftConfiguration"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -88,8 +89,9 @@ type channelArgs struct {
 	Outputs      []ChannelRequestOutputItem `pulumi:"outputs"`
 	PlaybackMode ChannelPlaybackMode        `pulumi:"playbackMode"`
 	// The tags to assign to the channel.
-	Tags []ChannelTag `pulumi:"tags"`
-	Tier *ChannelTier `pulumi:"tier"`
+	Tags                   []ChannelTag                   `pulumi:"tags"`
+	Tier                   *ChannelTier                   `pulumi:"tier"`
+	TimeShiftConfiguration *ChannelTimeShiftConfiguration `pulumi:"timeShiftConfiguration"`
 }
 
 // The set of arguments for constructing a Channel resource.
@@ -101,8 +103,9 @@ type ChannelArgs struct {
 	Outputs      ChannelRequestOutputItemArrayInput
 	PlaybackMode ChannelPlaybackModeInput
 	// The tags to assign to the channel.
-	Tags ChannelTagArrayInput
-	Tier ChannelTierPtrInput
+	Tags                   ChannelTagArrayInput
+	Tier                   ChannelTierPtrInput
+	TimeShiftConfiguration ChannelTimeShiftConfigurationPtrInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {
@@ -187,6 +190,10 @@ func (o ChannelOutput) Tags() ChannelTagArrayOutput {
 
 func (o ChannelOutput) Tier() ChannelTierPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelTierPtrOutput { return v.Tier }).(ChannelTierPtrOutput)
+}
+
+func (o ChannelOutput) TimeShiftConfiguration() ChannelTimeShiftConfigurationPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelTimeShiftConfigurationPtrOutput { return v.TimeShiftConfiguration }).(ChannelTimeShiftConfigurationPtrOutput)
 }
 
 func init() {

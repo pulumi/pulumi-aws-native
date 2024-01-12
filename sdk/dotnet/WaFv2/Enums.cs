@@ -577,9 +577,9 @@ namespace Pulumi.AwsNative.WaFv2
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static RuleGroupRateBasedStatementAggregateKeyType Constant { get; } = new RuleGroupRateBasedStatementAggregateKeyType("CONSTANT");
         public static RuleGroupRateBasedStatementAggregateKeyType Ip { get; } = new RuleGroupRateBasedStatementAggregateKeyType("IP");
         public static RuleGroupRateBasedStatementAggregateKeyType ForwardedIp { get; } = new RuleGroupRateBasedStatementAggregateKeyType("FORWARDED_IP");
+        public static RuleGroupRateBasedStatementAggregateKeyType Constant { get; } = new RuleGroupRateBasedStatementAggregateKeyType("CONSTANT");
         public static RuleGroupRateBasedStatementAggregateKeyType CustomKeys { get; } = new RuleGroupRateBasedStatementAggregateKeyType("CUSTOM_KEYS");
 
         public static bool operator ==(RuleGroupRateBasedStatementAggregateKeyType left, RuleGroupRateBasedStatementAggregateKeyType right) => left.Equals(right);

@@ -26,9 +26,12 @@ export interface GetTemplateArgs {
 
 export interface GetTemplateResult {
     readonly arn?: string;
+    readonly createdTime?: string;
+    readonly lastUpdatedTime?: string;
     readonly name?: string;
     readonly permissions?: outputs.quicksight.TemplateResourcePermission[];
     readonly tags?: outputs.quicksight.TemplateTag[];
+    readonly version?: outputs.quicksight.TemplateVersion;
 }
 /**
  * Definition of the AWS::QuickSight::Template Resource Type.

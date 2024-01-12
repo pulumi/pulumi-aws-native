@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// <summary>
         /// The recipe version.
         /// </summary>
-        public readonly string? SemanticVersion;
+        public readonly string SemanticVersion;
 
         [OutputConstructor]
         private LifecyclePolicyRecipeSelection(
             string name,
 
-            string? semanticVersion)
+            string semanticVersion)
         {
             Name = name;
             SemanticVersion = semanticVersion;

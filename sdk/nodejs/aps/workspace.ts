@@ -49,6 +49,10 @@ export class Workspace extends pulumi.CustomResource {
      * Workspace arn.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * KMS Key ARN used to encrypt and decrypt AMP workspace data.
+     */
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     public readonly loggingConfiguration!: pulumi.Output<outputs.aps.WorkspaceLoggingConfiguration | undefined>;
     /**
      * AMP Workspace prometheus endpoint
@@ -76,6 +80,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["alertManagerDefinition"] = args ? args.alertManagerDefinition : undefined;
             resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -85,12 +90,15 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["alertManagerDefinition"] = undefined /*out*/;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["loggingConfiguration"] = undefined /*out*/;
             resourceInputs["prometheusEndpoint"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["kmsKeyArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -107,6 +115,10 @@ export interface WorkspaceArgs {
      * AMP Workspace alias.
      */
     alias?: pulumi.Input<string>;
+    /**
+     * KMS Key ARN used to encrypt and decrypt AMP workspace data.
+     */
+    kmsKeyArn?: pulumi.Input<string>;
     loggingConfiguration?: pulumi.Input<inputs.aps.WorkspaceLoggingConfigurationArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

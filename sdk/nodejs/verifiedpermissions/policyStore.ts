@@ -38,6 +38,7 @@ export class PolicyStore extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly policyStoreId!: pulumi.Output<string>;
     public readonly schema!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreSchemaDefinition | undefined>;
     public readonly validationSettings!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreValidationSettings>;
@@ -56,12 +57,14 @@ export class PolicyStore extends pulumi.CustomResource {
             if ((!args || args.validationSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'validationSettings'");
             }
+            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["validationSettings"] = args ? args.validationSettings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
             resourceInputs["schema"] = undefined /*out*/;
             resourceInputs["validationSettings"] = undefined /*out*/;
@@ -75,6 +78,7 @@ export class PolicyStore extends pulumi.CustomResource {
  * The set of arguments for constructing a PolicyStore resource.
  */
 export interface PolicyStoreArgs {
+    description?: pulumi.Input<string>;
     schema?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreSchemaDefinitionArgs>;
     validationSettings: pulumi.Input<inputs.verifiedpermissions.PolicyStoreValidationSettingsArgs>;
 }

@@ -97,6 +97,7 @@ __all__ = [
     'FeatureGroupOnlineStoreSecurityConfigArgs',
     'FeatureGroupS3StorageConfigArgs',
     'FeatureGroupTagArgs',
+    'FeatureGroupThroughputConfigArgs',
     'ImageTagArgs',
     'InferenceComponentComputeResourceRequirementsArgs',
     'InferenceComponentContainerSpecificationArgs',
@@ -115,6 +116,7 @@ __all__ = [
     'InferenceExperimentShadowModeConfigArgs',
     'InferenceExperimentShadowModelVariantConfigArgs',
     'InferenceExperimentTagArgs',
+    'ModelAccessConfigArgs',
     'ModelBiasJobDefinitionBatchTransformInputArgs',
     'ModelBiasJobDefinitionClusterConfigArgs',
     'ModelBiasJobDefinitionConstraintsResourceArgs',
@@ -3952,6 +3954,56 @@ class FeatureGroupTagArgs:
 
 
 @pulumi.input_type
+class FeatureGroupThroughputConfigArgs:
+    def __init__(__self__, *,
+                 throughput_mode: pulumi.Input['FeatureGroupThroughputMode'],
+                 provisioned_read_capacity_units: Optional[pulumi.Input[int]] = None,
+                 provisioned_write_capacity_units: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] provisioned_read_capacity_units: For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
+        :param pulumi.Input[int] provisioned_write_capacity_units: For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
+        """
+        pulumi.set(__self__, "throughput_mode", throughput_mode)
+        if provisioned_read_capacity_units is not None:
+            pulumi.set(__self__, "provisioned_read_capacity_units", provisioned_read_capacity_units)
+        if provisioned_write_capacity_units is not None:
+            pulumi.set(__self__, "provisioned_write_capacity_units", provisioned_write_capacity_units)
+
+    @property
+    @pulumi.getter(name="throughputMode")
+    def throughput_mode(self) -> pulumi.Input['FeatureGroupThroughputMode']:
+        return pulumi.get(self, "throughput_mode")
+
+    @throughput_mode.setter
+    def throughput_mode(self, value: pulumi.Input['FeatureGroupThroughputMode']):
+        pulumi.set(self, "throughput_mode", value)
+
+    @property
+    @pulumi.getter(name="provisionedReadCapacityUnits")
+    def provisioned_read_capacity_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
+        """
+        return pulumi.get(self, "provisioned_read_capacity_units")
+
+    @provisioned_read_capacity_units.setter
+    def provisioned_read_capacity_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "provisioned_read_capacity_units", value)
+
+    @property
+    @pulumi.getter(name="provisionedWriteCapacityUnits")
+    def provisioned_write_capacity_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
+        """
+        return pulumi.get(self, "provisioned_write_capacity_units")
+
+    @provisioned_write_capacity_units.setter
+    def provisioned_write_capacity_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "provisioned_write_capacity_units", value)
+
+
+@pulumi.input_type
 class ImageTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -4675,6 +4727,22 @@ class InferenceExperimentTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ModelAccessConfigArgs:
+    def __init__(__self__, *,
+                 accept_eula: pulumi.Input[bool]):
+        pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "accept_eula")
+
+    @accept_eula.setter
+    def accept_eula(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "accept_eula", value)
 
 
 @pulumi.input_type
@@ -10910,10 +10978,13 @@ class ModelS3DataSourceArgs:
     def __init__(__self__, *,
                  compression_type: pulumi.Input[str],
                  s3_data_type: pulumi.Input[str],
-                 s3_uri: pulumi.Input[str]):
+                 s3_uri: pulumi.Input[str],
+                 model_access_config: Optional[pulumi.Input['ModelAccessConfigArgs']] = None):
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
         pulumi.set(__self__, "s3_uri", s3_uri)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
 
     @property
     @pulumi.getter(name="compressionType")
@@ -10941,6 +11012,15 @@ class ModelS3DataSourceArgs:
     @s3_uri.setter
     def s3_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_uri", value)
+
+    @property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional[pulumi.Input['ModelAccessConfigArgs']]:
+        return pulumi.get(self, "model_access_config")
+
+    @model_access_config.setter
+    def model_access_config(self, value: Optional[pulumi.Input['ModelAccessConfigArgs']]):
+        pulumi.set(self, "model_access_config", value)
 
 
 @pulumi.input_type

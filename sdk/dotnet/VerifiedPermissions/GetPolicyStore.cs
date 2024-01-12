@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     public sealed class GetPolicyStoreResult
     {
         public readonly string? Arn;
+        public readonly string? Description;
         public readonly string? PolicyStoreId;
         public readonly Outputs.PolicyStoreSchemaDefinition? Schema;
         public readonly Outputs.PolicyStoreValidationSettings? ValidationSettings;
@@ -60,6 +61,8 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         private GetPolicyStoreResult(
             string? arn,
 
+            string? description,
+
             string? policyStoreId,
 
             Outputs.PolicyStoreSchemaDefinition? schema,
@@ -67,6 +70,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
             Outputs.PolicyStoreValidationSettings? validationSettings)
         {
             Arn = arn;
+            Description = description;
             PolicyStoreId = policyStoreId;
             Schema = schema;
             ValidationSettings = validationSettings;

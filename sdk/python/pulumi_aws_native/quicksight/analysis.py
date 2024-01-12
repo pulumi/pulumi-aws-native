@@ -20,9 +20,11 @@ class AnalysisArgs:
                  analysis_id: pulumi.Input[str],
                  aws_account_id: pulumi.Input[str],
                  definition: Optional[pulumi.Input['AnalysisDefinitionArgs']] = None,
+                 errors: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]] = None,
+                 sheets: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisSheetArgs']]]] = None,
                  source_entity: Optional[pulumi.Input['AnalysisSourceEntityArgs']] = None,
                  status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]] = None,
@@ -35,12 +37,16 @@ class AnalysisArgs:
         pulumi.set(__self__, "aws_account_id", aws_account_id)
         if definition is not None:
             pulumi.set(__self__, "definition", definition)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if sheets is not None:
+            pulumi.set(__self__, "sheets", sheets)
         if source_entity is not None:
             pulumi.set(__self__, "source_entity", source_entity)
         if status is not None:
@@ -81,6 +87,15 @@ class AnalysisArgs:
 
     @property
     @pulumi.getter
+    def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]]:
+        return pulumi.get(self, "errors")
+
+    @errors.setter
+    def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]]):
+        pulumi.set(self, "errors", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
@@ -105,6 +120,15 @@ class AnalysisArgs:
     @permissions.setter
     def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def sheets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisSheetArgs']]]]:
+        return pulumi.get(self, "sheets")
+
+    @sheets.setter
+    def sheets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisSheetArgs']]]]):
+        pulumi.set(self, "sheets", value)
 
     @property
     @pulumi.getter(name="sourceEntity")
@@ -160,9 +184,11 @@ class Analysis(pulumi.CustomResource):
                  analysis_id: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  definition: Optional[pulumi.Input[pulumi.InputType['AnalysisDefinitionArgs']]] = None,
+                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisErrorArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['AnalysisParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]]] = None,
+                 sheets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisSheetArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']]] = None,
                  status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]]] = None,
@@ -202,9 +228,11 @@ class Analysis(pulumi.CustomResource):
                  analysis_id: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  definition: Optional[pulumi.Input[pulumi.InputType['AnalysisDefinitionArgs']]] = None,
+                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisErrorArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['AnalysisParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]]] = None,
+                 sheets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisSheetArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']]] = None,
                  status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]]] = None,
@@ -226,9 +254,11 @@ class Analysis(pulumi.CustomResource):
                 raise TypeError("Missing required property 'aws_account_id'")
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["definition"] = definition
+            __props__.__dict__["errors"] = errors
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
+            __props__.__dict__["sheets"] = sheets
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
@@ -237,9 +267,7 @@ class Analysis(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["data_set_arns"] = None
-            __props__.__dict__["errors"] = None
             __props__.__dict__["last_updated_time"] = None
-            __props__.__dict__["sheets"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analysis_id", "aws_account_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Analysis, __self__).__init__(
@@ -315,7 +343,7 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def errors(self) -> pulumi.Output[Sequence['outputs.AnalysisError']]:
+    def errors(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisError']]]:
         return pulumi.get(self, "errors")
 
     @property
@@ -340,7 +368,7 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sheets(self) -> pulumi.Output[Sequence['outputs.AnalysisSheet']]:
+    def sheets(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisSheet']]]:
         return pulumi.get(self, "sheets")
 
     @property

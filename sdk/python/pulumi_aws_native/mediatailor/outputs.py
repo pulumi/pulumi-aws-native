@@ -18,6 +18,7 @@ __all__ = [
     'ChannelRequestOutputItem',
     'ChannelSlateSource',
     'ChannelTag',
+    'ChannelTimeShiftConfiguration',
     'LiveSourceHttpPackageConfiguration',
     'LiveSourceTag',
     'PlaybackConfigurationAdMarkerPassthrough',
@@ -358,6 +359,45 @@ class ChannelTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ChannelTimeShiftConfiguration(dict):
+    """
+    <p>The configuration for time-shifted viewing.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxTimeDelaySeconds":
+            suggest = "max_time_delay_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelTimeShiftConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelTimeShiftConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelTimeShiftConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_time_delay_seconds: float):
+        """
+        <p>The configuration for time-shifted viewing.</p>
+        :param float max_time_delay_seconds: <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
+        """
+        pulumi.set(__self__, "max_time_delay_seconds", max_time_delay_seconds)
+
+    @property
+    @pulumi.getter(name="maxTimeDelaySeconds")
+    def max_time_delay_seconds(self) -> float:
+        """
+        <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
+        """
+        return pulumi.get(self, "max_time_delay_seconds")
 
 
 @pulumi.output_type

@@ -18,11 +18,14 @@ __all__ = ['PolicyStoreArgs', 'PolicyStore']
 class PolicyStoreArgs:
     def __init__(__self__, *,
                  validation_settings: pulumi.Input['PolicyStoreValidationSettingsArgs'],
+                 description: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']] = None):
         """
         The set of arguments for constructing a PolicyStore resource.
         """
         pulumi.set(__self__, "validation_settings", validation_settings)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
 
@@ -34,6 +37,15 @@ class PolicyStoreArgs:
     @validation_settings.setter
     def validation_settings(self, value: pulumi.Input['PolicyStoreValidationSettingsArgs']):
         pulumi.set(self, "validation_settings", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -50,6 +62,7 @@ class PolicyStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[pulumi.InputType['PolicyStoreSchemaDefinitionArgs']]] = None,
                  validation_settings: Optional[pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']]] = None,
                  __props__=None):
@@ -83,6 +96,7 @@ class PolicyStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[pulumi.InputType['PolicyStoreSchemaDefinitionArgs']]] = None,
                  validation_settings: Optional[pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']]] = None,
                  __props__=None):
@@ -94,6 +108,7 @@ class PolicyStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyStoreArgs.__new__(PolicyStoreArgs)
 
+            __props__.__dict__["description"] = description
             __props__.__dict__["schema"] = schema
             if validation_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'validation_settings'")
@@ -123,6 +138,7 @@ class PolicyStore(pulumi.CustomResource):
         __props__ = PolicyStoreArgs.__new__(PolicyStoreArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["description"] = None
         __props__.__dict__["policy_store_id"] = None
         __props__.__dict__["schema"] = None
         __props__.__dict__["validation_settings"] = None
@@ -132,6 +148,11 @@ class PolicyStore(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="policyStoreId")

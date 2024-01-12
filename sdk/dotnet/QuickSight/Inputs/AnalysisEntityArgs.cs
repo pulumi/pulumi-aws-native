@@ -7,14 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ssm.Inputs
+namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    public sealed class PatchBaselinePatchStringDateArgs : global::Pulumi.ResourceArgs
+    public sealed class AnalysisEntityArgs : global::Pulumi.ResourceArgs
     {
-        public PatchBaselinePatchStringDateArgs()
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        public AnalysisEntityArgs()
         {
         }
-        public static new PatchBaselinePatchStringDateArgs Empty => new PatchBaselinePatchStringDateArgs();
+        public static new AnalysisEntityArgs Empty => new AnalysisEntityArgs();
     }
 }

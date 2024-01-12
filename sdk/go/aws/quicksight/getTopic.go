@@ -29,10 +29,11 @@ type LookupTopicArgs struct {
 }
 
 type LookupTopicResult struct {
-	Arn         *string                `pulumi:"arn"`
-	DataSets    []TopicDatasetMetadata `pulumi:"dataSets"`
-	Description *string                `pulumi:"description"`
-	Name        *string                `pulumi:"name"`
+	Arn                   *string                     `pulumi:"arn"`
+	DataSets              []TopicDatasetMetadata      `pulumi:"dataSets"`
+	Description           *string                     `pulumi:"description"`
+	Name                  *string                     `pulumi:"name"`
+	UserExperienceVersion *TopicUserExperienceVersion `pulumi:"userExperienceVersion"`
 }
 
 func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
@@ -91,6 +92,10 @@ func (o LookupTopicResultOutput) Description() pulumi.StringPtrOutput {
 
 func (o LookupTopicResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupTopicResultOutput) UserExperienceVersion() TopicUserExperienceVersionPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *TopicUserExperienceVersion { return v.UserExperienceVersion }).(TopicUserExperienceVersionPtrOutput)
 }
 
 func init() {

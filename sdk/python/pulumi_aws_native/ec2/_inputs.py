@@ -76,6 +76,7 @@ __all__ = [
     'InternetGatewayTagArgs',
     'IpamOperatingRegionArgs',
     'IpamPoolProvisionedCidrArgs',
+    'IpamPoolSourceResourceArgs',
     'IpamPoolTagArgs',
     'IpamResourceDiscoveryAssociationTagArgs',
     'IpamResourceDiscoveryIpamOperatingRegionArgs',
@@ -141,6 +142,7 @@ __all__ = [
     'NetworkInsightsPathFilterPortRangeArgs',
     'NetworkInsightsPathPathFilterArgs',
     'NetworkInsightsPathTagArgs',
+    'NetworkInterfaceConnectionTrackingSpecificationArgs',
     'NetworkInterfaceInstanceIpv6AddressArgs',
     'NetworkInterfaceIpv4PrefixSpecificationArgs',
     'NetworkInterfaceIpv6PrefixSpecificationArgs',
@@ -2818,6 +2820,58 @@ class IpamPoolProvisionedCidrArgs:
 
 
 @pulumi.input_type
+class IpamPoolSourceResourceArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[str],
+                 resource_owner: pulumi.Input[str],
+                 resource_region: pulumi.Input[str],
+                 resource_type: pulumi.Input[str]):
+        """
+        The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_owner", resource_owner)
+        pulumi.set(__self__, "resource_region", resource_region)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="resourceOwner")
+    def resource_owner(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resource_owner")
+
+    @resource_owner.setter
+    def resource_owner(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_owner", value)
+
+    @property
+    @pulumi.getter(name="resourceRegion")
+    def resource_region(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resource_region")
+
+    @resource_region.setter
+    def resource_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_region", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_type", value)
+
+
+@pulumi.input_type
 class IpamPoolTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -4723,13 +4777,17 @@ class LaunchTemplateLicenseSpecificationArgs:
 @pulumi.input_type
 class LaunchTemplateMaintenanceOptionsArgs:
     def __init__(__self__, *,
-                 auto_recovery: Optional[pulumi.Input[str]] = None):
+                 auto_recovery: Optional[pulumi.Input[str]] = None,
+                 reboot_migration: Optional[pulumi.Input[str]] = None):
         """
         The maintenance options of your instance.
         :param pulumi.Input[str] auto_recovery: Disables the automatic recovery behavior of your instance or sets it to default.
+        :param pulumi.Input[str] reboot_migration: Disables the automatic reboot-migration behavior of your instance or sets it to default.
         """
         if auto_recovery is not None:
             pulumi.set(__self__, "auto_recovery", auto_recovery)
+        if reboot_migration is not None:
+            pulumi.set(__self__, "reboot_migration", reboot_migration)
 
     @property
     @pulumi.getter(name="autoRecovery")
@@ -4742,6 +4800,18 @@ class LaunchTemplateMaintenanceOptionsArgs:
     @auto_recovery.setter
     def auto_recovery(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_recovery", value)
+
+    @property
+    @pulumi.getter(name="rebootMigration")
+    def reboot_migration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Disables the automatic reboot-migration behavior of your instance or sets it to default.
+        """
+        return pulumi.get(self, "reboot_migration")
+
+    @reboot_migration.setter
+    def reboot_migration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reboot_migration", value)
 
 
 @pulumi.input_type
@@ -6434,6 +6504,47 @@ class NetworkInsightsPathTagArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NetworkInterfaceConnectionTrackingSpecificationArgs:
+    def __init__(__self__, *,
+                 tcp_established_timeout: Optional[pulumi.Input[int]] = None,
+                 udp_stream_timeout: Optional[pulumi.Input[int]] = None,
+                 udp_timeout: Optional[pulumi.Input[int]] = None):
+        if tcp_established_timeout is not None:
+            pulumi.set(__self__, "tcp_established_timeout", tcp_established_timeout)
+        if udp_stream_timeout is not None:
+            pulumi.set(__self__, "udp_stream_timeout", udp_stream_timeout)
+        if udp_timeout is not None:
+            pulumi.set(__self__, "udp_timeout", udp_timeout)
+
+    @property
+    @pulumi.getter(name="tcpEstablishedTimeout")
+    def tcp_established_timeout(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "tcp_established_timeout")
+
+    @tcp_established_timeout.setter
+    def tcp_established_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tcp_established_timeout", value)
+
+    @property
+    @pulumi.getter(name="udpStreamTimeout")
+    def udp_stream_timeout(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "udp_stream_timeout")
+
+    @udp_stream_timeout.setter
+    def udp_stream_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "udp_stream_timeout", value)
+
+    @property
+    @pulumi.getter(name="udpTimeout")
+    def udp_timeout(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "udp_timeout")
+
+    @udp_timeout.setter
+    def udp_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "udp_timeout", value)
 
 
 @pulumi.input_type

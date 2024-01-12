@@ -23,9 +23,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 
-        [Input("resource")]
-        public Input<string>? Resource { get; set; }
-
         public DashboardResourcePermissionArgs()
         {
         }

@@ -103,3 +103,84 @@ export const ParameterType = {
  * The type of the parameter.
  */
 export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
+
+export const PatchBaselineApprovedPatchesComplianceLevel = {
+    Critical: "CRITICAL",
+    High: "HIGH",
+    Medium: "MEDIUM",
+    Low: "LOW",
+    Informational: "INFORMATIONAL",
+    Unspecified: "UNSPECIFIED",
+} as const;
+
+/**
+ * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+ */
+export type PatchBaselineApprovedPatchesComplianceLevel = (typeof PatchBaselineApprovedPatchesComplianceLevel)[keyof typeof PatchBaselineApprovedPatchesComplianceLevel];
+
+export const PatchBaselineOperatingSystem = {
+    Windows: "WINDOWS",
+    AmazonLinux: "AMAZON_LINUX",
+    AmazonLinux2: "AMAZON_LINUX_2",
+    AmazonLinux2022: "AMAZON_LINUX_2022",
+    AmazonLinux2023: "AMAZON_LINUX_2023",
+    Ubuntu: "UBUNTU",
+    RedhatEnterpriseLinux: "REDHAT_ENTERPRISE_LINUX",
+    Suse: "SUSE",
+    Centos: "CENTOS",
+    OracleLinux: "ORACLE_LINUX",
+    Debian: "DEBIAN",
+    Macos: "MACOS",
+    Raspbian: "RASPBIAN",
+    RockyLinux: "ROCKY_LINUX",
+} as const;
+
+/**
+ * Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+ */
+export type PatchBaselineOperatingSystem = (typeof PatchBaselineOperatingSystem)[keyof typeof PatchBaselineOperatingSystem];
+
+export const PatchBaselinePatchFilterKey = {
+    AdvisoryId: "ADVISORY_ID",
+    Arch: "ARCH",
+    BugzillaId: "BUGZILLA_ID",
+    Classification: "CLASSIFICATION",
+    CveId: "CVE_ID",
+    Epoch: "EPOCH",
+    MsrcSeverity: "MSRC_SEVERITY",
+    Name: "NAME",
+    PatchId: "PATCH_ID",
+    PatchSet: "PATCH_SET",
+    Priority: "PRIORITY",
+    Product: "PRODUCT",
+    ProductFamily: "PRODUCT_FAMILY",
+    Release: "RELEASE",
+    Repository: "REPOSITORY",
+    Section: "SECTION",
+    Security: "SECURITY",
+    Severity: "SEVERITY",
+    Version: "VERSION",
+} as const;
+
+export type PatchBaselinePatchFilterKey = (typeof PatchBaselinePatchFilterKey)[keyof typeof PatchBaselinePatchFilterKey];
+
+export const PatchBaselineRejectedPatchesAction = {
+    AllowAsDependency: "ALLOW_AS_DEPENDENCY",
+    Block: "BLOCK",
+} as const;
+
+/**
+ * The action for Patch Manager to take on patches included in the RejectedPackages list.
+ */
+export type PatchBaselineRejectedPatchesAction = (typeof PatchBaselineRejectedPatchesAction)[keyof typeof PatchBaselineRejectedPatchesAction];
+
+export const PatchBaselineRuleComplianceLevel = {
+    Critical: "CRITICAL",
+    High: "HIGH",
+    Informational: "INFORMATIONAL",
+    Low: "LOW",
+    Medium: "MEDIUM",
+    Unspecified: "UNSPECIFIED",
+} as const;
+
+export type PatchBaselineRuleComplianceLevel = (typeof PatchBaselineRuleComplianceLevel)[keyof typeof PatchBaselineRuleComplianceLevel];

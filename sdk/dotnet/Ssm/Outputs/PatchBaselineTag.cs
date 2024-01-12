@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ssm.Outputs
 {
 
+    /// <summary>
+    /// Metadata that you assign to your AWS resources.
+    /// </summary>
     [OutputType]
     public sealed class PatchBaselineTag
     {

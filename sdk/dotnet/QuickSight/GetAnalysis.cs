@@ -61,8 +61,10 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly string? CreatedTime;
         public readonly ImmutableArray<string> DataSetArns;
         public readonly ImmutableArray<Outputs.AnalysisError> Errors;
+        public readonly string? LastUpdatedTime;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.AnalysisResourcePermission> Permissions;
+        public readonly ImmutableArray<Outputs.AnalysisSheet> Sheets;
         public readonly ImmutableArray<Outputs.AnalysisTag> Tags;
         public readonly string? ThemeArn;
 
@@ -76,9 +78,13 @@ namespace Pulumi.AwsNative.QuickSight
 
             ImmutableArray<Outputs.AnalysisError> errors,
 
+            string? lastUpdatedTime,
+
             string? name,
 
             ImmutableArray<Outputs.AnalysisResourcePermission> permissions,
+
+            ImmutableArray<Outputs.AnalysisSheet> sheets,
 
             ImmutableArray<Outputs.AnalysisTag> tags,
 
@@ -88,8 +94,10 @@ namespace Pulumi.AwsNative.QuickSight
             CreatedTime = createdTime;
             DataSetArns = dataSetArns;
             Errors = errors;
+            LastUpdatedTime = lastUpdatedTime;
             Name = name;
             Permissions = permissions;
+            Sheets = sheets;
             Tags = tags;
             ThemeArn = themeArn;
         }

@@ -26,7 +26,9 @@ export interface GetDashboardArgs {
 
 export interface GetDashboardResult {
     readonly arn?: string;
+    readonly createdTime?: string;
     readonly lastPublishedTime?: string;
+    readonly lastUpdatedTime?: string;
     readonly name?: string;
     readonly permissions?: outputs.quicksight.DashboardResourcePermission[];
     readonly tags?: outputs.quicksight.DashboardTag[];

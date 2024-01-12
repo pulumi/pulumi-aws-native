@@ -24,12 +24,10 @@ func LookupQueuePolicy(ctx *pulumi.Context, args *LookupQueuePolicyArgs, opts ..
 }
 
 type LookupQueuePolicyArgs struct {
-	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
 
 type LookupQueuePolicyResult struct {
-	// The provider-assigned unique ID for this managed resource.
 	Id *string `pulumi:"id"`
 	// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
@@ -51,7 +49,6 @@ func LookupQueuePolicyOutput(ctx *pulumi.Context, args LookupQueuePolicyOutputAr
 }
 
 type LookupQueuePolicyOutputArgs struct {
-	// The provider-assigned unique ID for this managed resource.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -79,7 +76,6 @@ func (o LookupQueuePolicyResultOutput) ToOutput(ctx context.Context) pulumix.Out
 	}
 }
 
-// The provider-assigned unique ID for this managed resource.
 func (o LookupQueuePolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueuePolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

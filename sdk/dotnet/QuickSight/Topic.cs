@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("topicId")]
         public Output<string?> TopicId { get; private set; } = null!;
 
+        [Output("userExperienceVersion")]
+        public Output<Pulumi.AwsNative.QuickSight.TopicUserExperienceVersion?> UserExperienceVersion { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Topic resource with the given unique name, arguments, and options.
@@ -102,6 +105,9 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("topicId")]
         public Input<string>? TopicId { get; set; }
+
+        [Input("userExperienceVersion")]
+        public Input<Pulumi.AwsNative.QuickSight.TopicUserExperienceVersion>? UserExperienceVersion { get; set; }
 
         public TopicArgs()
         {

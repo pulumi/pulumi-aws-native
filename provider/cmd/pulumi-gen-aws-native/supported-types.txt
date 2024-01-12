@@ -263,6 +263,7 @@ AWS::EC2::IPAMPoolCidr
 AWS::EC2::IPAMResourceDiscovery
 AWS::EC2::IPAMResourceDiscoveryAssociation
 AWS::EC2::IPAMScope
+AWS::EC2::Instance
 AWS::EC2::InstanceConnectEndpoint
 AWS::EC2::InternetGateway
 AWS::EC2::KeyPair
@@ -284,6 +285,7 @@ AWS::EC2::PlacementGroup
 AWS::EC2::PrefixList
 AWS::EC2::Route
 AWS::EC2::RouteTable
+AWS::EC2::SecurityGroup
 AWS::EC2::SecurityGroupEgress
 AWS::EC2::SnapshotBlockPublicAccess
 AWS::EC2::SpotFleet
@@ -800,6 +802,7 @@ AWS::SQS::QueueInlinePolicy
 AWS::SSM::Association
 AWS::SSM::Document
 AWS::SSM::Parameter
+AWS::SSM::PatchBaseline
 AWS::SSM::ResourceDataSync
 AWS::SSM::ResourcePolicy
 AWS::SSMContacts::Contact

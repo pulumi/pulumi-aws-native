@@ -2853,9 +2853,10 @@ func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) MaintenanceWindo
 	}).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput)
 }
 
+// Defines which patches should be included in a patch baseline.
 type PatchBaselinePatchFilter struct {
-	Key    *string  `pulumi:"key"`
-	Values []string `pulumi:"values"`
+	Key    *PatchBaselinePatchFilterKey `pulumi:"key"`
+	Values []string                     `pulumi:"values"`
 }
 
 // PatchBaselinePatchFilterInput is an input type that accepts PatchBaselinePatchFilterArgs and PatchBaselinePatchFilterOutput values.
@@ -2869,9 +2870,10 @@ type PatchBaselinePatchFilterInput interface {
 	ToPatchBaselinePatchFilterOutputWithContext(context.Context) PatchBaselinePatchFilterOutput
 }
 
+// Defines which patches should be included in a patch baseline.
 type PatchBaselinePatchFilterArgs struct {
-	Key    pulumi.StringPtrInput   `pulumi:"key"`
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Key    PatchBaselinePatchFilterKeyPtrInput `pulumi:"key"`
+	Values pulumi.StringArrayInput             `pulumi:"values"`
 }
 
 func (PatchBaselinePatchFilterArgs) ElementType() reflect.Type {
@@ -2923,6 +2925,7 @@ func (i PatchBaselinePatchFilterArray) ToOutput(ctx context.Context) pulumix.Out
 	}
 }
 
+// Defines which patches should be included in a patch baseline.
 type PatchBaselinePatchFilterOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselinePatchFilterOutput) ElementType() reflect.Type {
@@ -2943,8 +2946,8 @@ func (o PatchBaselinePatchFilterOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
-func (o PatchBaselinePatchFilterOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PatchBaselinePatchFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+func (o PatchBaselinePatchFilterOutput) Key() PatchBaselinePatchFilterKeyPtrOutput {
+	return o.ApplyT(func(v PatchBaselinePatchFilter) *PatchBaselinePatchFilterKey { return v.Key }).(PatchBaselinePatchFilterKeyPtrOutput)
 }
 
 func (o PatchBaselinePatchFilterOutput) Values() pulumi.StringArrayOutput {
@@ -2977,6 +2980,7 @@ func (o PatchBaselinePatchFilterArrayOutput) Index(i pulumi.IntInput) PatchBasel
 	}).(PatchBaselinePatchFilterOutput)
 }
 
+// The patch filter group that defines the criteria for the rule.
 type PatchBaselinePatchFilterGroup struct {
 	PatchFilters []PatchBaselinePatchFilter `pulumi:"patchFilters"`
 }
@@ -2992,6 +2996,7 @@ type PatchBaselinePatchFilterGroupInput interface {
 	ToPatchBaselinePatchFilterGroupOutputWithContext(context.Context) PatchBaselinePatchFilterGroupOutput
 }
 
+// The patch filter group that defines the criteria for the rule.
 type PatchBaselinePatchFilterGroupArgs struct {
 	PatchFilters PatchBaselinePatchFilterArrayInput `pulumi:"patchFilters"`
 }
@@ -3061,6 +3066,7 @@ func (i *patchBaselinePatchFilterGroupPtrType) ToOutput(ctx context.Context) pul
 	}
 }
 
+// The patch filter group that defines the criteria for the rule.
 type PatchBaselinePatchFilterGroupOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselinePatchFilterGroupOutput) ElementType() reflect.Type {
@@ -3134,6 +3140,7 @@ func (o PatchBaselinePatchFilterGroupPtrOutput) PatchFilters() PatchBaselinePatc
 	}).(PatchBaselinePatchFilterArrayOutput)
 }
 
+// Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 type PatchBaselinePatchSource struct {
 	Configuration *string  `pulumi:"configuration"`
 	Name          *string  `pulumi:"name"`
@@ -3151,6 +3158,7 @@ type PatchBaselinePatchSourceInput interface {
 	ToPatchBaselinePatchSourceOutputWithContext(context.Context) PatchBaselinePatchSourceOutput
 }
 
+// Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 type PatchBaselinePatchSourceArgs struct {
 	Configuration pulumi.StringPtrInput   `pulumi:"configuration"`
 	Name          pulumi.StringPtrInput   `pulumi:"name"`
@@ -3206,6 +3214,7 @@ func (i PatchBaselinePatchSourceArray) ToOutput(ctx context.Context) pulumix.Out
 	}
 }
 
+// Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 type PatchBaselinePatchSourceOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselinePatchSourceOutput) ElementType() reflect.Type {
@@ -3264,154 +3273,13 @@ func (o PatchBaselinePatchSourceArrayOutput) Index(i pulumi.IntInput) PatchBasel
 	}).(PatchBaselinePatchSourceOutput)
 }
 
-type PatchBaselinePatchStringDate struct {
-}
-
-// PatchBaselinePatchStringDateInput is an input type that accepts PatchBaselinePatchStringDateArgs and PatchBaselinePatchStringDateOutput values.
-// You can construct a concrete instance of `PatchBaselinePatchStringDateInput` via:
-//
-//	PatchBaselinePatchStringDateArgs{...}
-type PatchBaselinePatchStringDateInput interface {
-	pulumi.Input
-
-	ToPatchBaselinePatchStringDateOutput() PatchBaselinePatchStringDateOutput
-	ToPatchBaselinePatchStringDateOutputWithContext(context.Context) PatchBaselinePatchStringDateOutput
-}
-
-type PatchBaselinePatchStringDateArgs struct {
-}
-
-func (PatchBaselinePatchStringDateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchBaselinePatchStringDate)(nil)).Elem()
-}
-
-func (i PatchBaselinePatchStringDateArgs) ToPatchBaselinePatchStringDateOutput() PatchBaselinePatchStringDateOutput {
-	return i.ToPatchBaselinePatchStringDateOutputWithContext(context.Background())
-}
-
-func (i PatchBaselinePatchStringDateArgs) ToPatchBaselinePatchStringDateOutputWithContext(ctx context.Context) PatchBaselinePatchStringDateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchStringDateOutput)
-}
-
-func (i PatchBaselinePatchStringDateArgs) ToOutput(ctx context.Context) pulumix.Output[PatchBaselinePatchStringDate] {
-	return pulumix.Output[PatchBaselinePatchStringDate]{
-		OutputState: i.ToPatchBaselinePatchStringDateOutputWithContext(ctx).OutputState,
-	}
-}
-
-func (i PatchBaselinePatchStringDateArgs) ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput {
-	return i.ToPatchBaselinePatchStringDatePtrOutputWithContext(context.Background())
-}
-
-func (i PatchBaselinePatchStringDateArgs) ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx context.Context) PatchBaselinePatchStringDatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchStringDateOutput).ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx)
-}
-
-// PatchBaselinePatchStringDatePtrInput is an input type that accepts PatchBaselinePatchStringDateArgs, PatchBaselinePatchStringDatePtr and PatchBaselinePatchStringDatePtrOutput values.
-// You can construct a concrete instance of `PatchBaselinePatchStringDatePtrInput` via:
-//
-//	        PatchBaselinePatchStringDateArgs{...}
-//
-//	or:
-//
-//	        nil
-type PatchBaselinePatchStringDatePtrInput interface {
-	pulumi.Input
-
-	ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput
-	ToPatchBaselinePatchStringDatePtrOutputWithContext(context.Context) PatchBaselinePatchStringDatePtrOutput
-}
-
-type patchBaselinePatchStringDatePtrType PatchBaselinePatchStringDateArgs
-
-func PatchBaselinePatchStringDatePtr(v *PatchBaselinePatchStringDateArgs) PatchBaselinePatchStringDatePtrInput {
-	return (*patchBaselinePatchStringDatePtrType)(v)
-}
-
-func (*patchBaselinePatchStringDatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PatchBaselinePatchStringDate)(nil)).Elem()
-}
-
-func (i *patchBaselinePatchStringDatePtrType) ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput {
-	return i.ToPatchBaselinePatchStringDatePtrOutputWithContext(context.Background())
-}
-
-func (i *patchBaselinePatchStringDatePtrType) ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx context.Context) PatchBaselinePatchStringDatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchStringDatePtrOutput)
-}
-
-func (i *patchBaselinePatchStringDatePtrType) ToOutput(ctx context.Context) pulumix.Output[*PatchBaselinePatchStringDate] {
-	return pulumix.Output[*PatchBaselinePatchStringDate]{
-		OutputState: i.ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-type PatchBaselinePatchStringDateOutput struct{ *pulumi.OutputState }
-
-func (PatchBaselinePatchStringDateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchBaselinePatchStringDate)(nil)).Elem()
-}
-
-func (o PatchBaselinePatchStringDateOutput) ToPatchBaselinePatchStringDateOutput() PatchBaselinePatchStringDateOutput {
-	return o
-}
-
-func (o PatchBaselinePatchStringDateOutput) ToPatchBaselinePatchStringDateOutputWithContext(ctx context.Context) PatchBaselinePatchStringDateOutput {
-	return o
-}
-
-func (o PatchBaselinePatchStringDateOutput) ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput {
-	return o.ToPatchBaselinePatchStringDatePtrOutputWithContext(context.Background())
-}
-
-func (o PatchBaselinePatchStringDateOutput) ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx context.Context) PatchBaselinePatchStringDatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselinePatchStringDate) *PatchBaselinePatchStringDate {
-		return &v
-	}).(PatchBaselinePatchStringDatePtrOutput)
-}
-
-func (o PatchBaselinePatchStringDateOutput) ToOutput(ctx context.Context) pulumix.Output[PatchBaselinePatchStringDate] {
-	return pulumix.Output[PatchBaselinePatchStringDate]{
-		OutputState: o.OutputState,
-	}
-}
-
-type PatchBaselinePatchStringDatePtrOutput struct{ *pulumi.OutputState }
-
-func (PatchBaselinePatchStringDatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PatchBaselinePatchStringDate)(nil)).Elem()
-}
-
-func (o PatchBaselinePatchStringDatePtrOutput) ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput {
-	return o
-}
-
-func (o PatchBaselinePatchStringDatePtrOutput) ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx context.Context) PatchBaselinePatchStringDatePtrOutput {
-	return o
-}
-
-func (o PatchBaselinePatchStringDatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PatchBaselinePatchStringDate] {
-	return pulumix.Output[*PatchBaselinePatchStringDate]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o PatchBaselinePatchStringDatePtrOutput) Elem() PatchBaselinePatchStringDateOutput {
-	return o.ApplyT(func(v *PatchBaselinePatchStringDate) PatchBaselinePatchStringDate {
-		if v != nil {
-			return *v
-		}
-		var ret PatchBaselinePatchStringDate
-		return ret
-	}).(PatchBaselinePatchStringDateOutput)
-}
-
+// Defines an approval rule for a patch baseline.
 type PatchBaselineRule struct {
-	ApproveAfterDays  *int                           `pulumi:"approveAfterDays"`
-	ApproveUntilDate  *PatchBaselinePatchStringDate  `pulumi:"approveUntilDate"`
-	ComplianceLevel   *string                        `pulumi:"complianceLevel"`
-	EnableNonSecurity *bool                          `pulumi:"enableNonSecurity"`
-	PatchFilterGroup  *PatchBaselinePatchFilterGroup `pulumi:"patchFilterGroup"`
+	ApproveAfterDays  *int                              `pulumi:"approveAfterDays"`
+	ApproveUntilDate  *string                           `pulumi:"approveUntilDate"`
+	ComplianceLevel   *PatchBaselineRuleComplianceLevel `pulumi:"complianceLevel"`
+	EnableNonSecurity *bool                             `pulumi:"enableNonSecurity"`
+	PatchFilterGroup  *PatchBaselinePatchFilterGroup    `pulumi:"patchFilterGroup"`
 }
 
 // PatchBaselineRuleInput is an input type that accepts PatchBaselineRuleArgs and PatchBaselineRuleOutput values.
@@ -3425,12 +3293,13 @@ type PatchBaselineRuleInput interface {
 	ToPatchBaselineRuleOutputWithContext(context.Context) PatchBaselineRuleOutput
 }
 
+// Defines an approval rule for a patch baseline.
 type PatchBaselineRuleArgs struct {
-	ApproveAfterDays  pulumi.IntPtrInput                    `pulumi:"approveAfterDays"`
-	ApproveUntilDate  PatchBaselinePatchStringDatePtrInput  `pulumi:"approveUntilDate"`
-	ComplianceLevel   pulumi.StringPtrInput                 `pulumi:"complianceLevel"`
-	EnableNonSecurity pulumi.BoolPtrInput                   `pulumi:"enableNonSecurity"`
-	PatchFilterGroup  PatchBaselinePatchFilterGroupPtrInput `pulumi:"patchFilterGroup"`
+	ApproveAfterDays  pulumi.IntPtrInput                       `pulumi:"approveAfterDays"`
+	ApproveUntilDate  pulumi.StringPtrInput                    `pulumi:"approveUntilDate"`
+	ComplianceLevel   PatchBaselineRuleComplianceLevelPtrInput `pulumi:"complianceLevel"`
+	EnableNonSecurity pulumi.BoolPtrInput                      `pulumi:"enableNonSecurity"`
+	PatchFilterGroup  PatchBaselinePatchFilterGroupPtrInput    `pulumi:"patchFilterGroup"`
 }
 
 func (PatchBaselineRuleArgs) ElementType() reflect.Type {
@@ -3482,6 +3351,7 @@ func (i PatchBaselineRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]P
 	}
 }
 
+// Defines an approval rule for a patch baseline.
 type PatchBaselineRuleOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineRuleOutput) ElementType() reflect.Type {
@@ -3506,12 +3376,12 @@ func (o PatchBaselineRuleOutput) ApproveAfterDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PatchBaselineRule) *int { return v.ApproveAfterDays }).(pulumi.IntPtrOutput)
 }
 
-func (o PatchBaselineRuleOutput) ApproveUntilDate() PatchBaselinePatchStringDatePtrOutput {
-	return o.ApplyT(func(v PatchBaselineRule) *PatchBaselinePatchStringDate { return v.ApproveUntilDate }).(PatchBaselinePatchStringDatePtrOutput)
+func (o PatchBaselineRuleOutput) ApproveUntilDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PatchBaselineRule) *string { return v.ApproveUntilDate }).(pulumi.StringPtrOutput)
 }
 
-func (o PatchBaselineRuleOutput) ComplianceLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PatchBaselineRule) *string { return v.ComplianceLevel }).(pulumi.StringPtrOutput)
+func (o PatchBaselineRuleOutput) ComplianceLevel() PatchBaselineRuleComplianceLevelPtrOutput {
+	return o.ApplyT(func(v PatchBaselineRule) *PatchBaselineRuleComplianceLevel { return v.ComplianceLevel }).(PatchBaselineRuleComplianceLevelPtrOutput)
 }
 
 func (o PatchBaselineRuleOutput) EnableNonSecurity() pulumi.BoolPtrOutput {
@@ -3548,6 +3418,7 @@ func (o PatchBaselineRuleArrayOutput) Index(i pulumi.IntInput) PatchBaselineRule
 	}).(PatchBaselineRuleOutput)
 }
 
+// A set of rules defining the approval rules for a patch baseline.
 type PatchBaselineRuleGroup struct {
 	PatchRules []PatchBaselineRule `pulumi:"patchRules"`
 }
@@ -3563,6 +3434,7 @@ type PatchBaselineRuleGroupInput interface {
 	ToPatchBaselineRuleGroupOutputWithContext(context.Context) PatchBaselineRuleGroupOutput
 }
 
+// A set of rules defining the approval rules for a patch baseline.
 type PatchBaselineRuleGroupArgs struct {
 	PatchRules PatchBaselineRuleArrayInput `pulumi:"patchRules"`
 }
@@ -3632,6 +3504,7 @@ func (i *patchBaselineRuleGroupPtrType) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
+// A set of rules defining the approval rules for a patch baseline.
 type PatchBaselineRuleGroupOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineRuleGroupOutput) ElementType() reflect.Type {
@@ -3705,6 +3578,7 @@ func (o PatchBaselineRuleGroupPtrOutput) PatchRules() PatchBaselineRuleArrayOutp
 	}).(PatchBaselineRuleArrayOutput)
 }
 
+// Metadata that you assign to your AWS resources.
 type PatchBaselineTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -3721,6 +3595,7 @@ type PatchBaselineTagInput interface {
 	ToPatchBaselineTagOutputWithContext(context.Context) PatchBaselineTagOutput
 }
 
+// Metadata that you assign to your AWS resources.
 type PatchBaselineTagArgs struct {
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
@@ -3775,6 +3650,7 @@ func (i PatchBaselineTagArray) ToOutput(ctx context.Context) pulumix.Output[[]Pa
 	}
 }
 
+// Metadata that you assign to your AWS resources.
 type PatchBaselineTagOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineTagOutput) ElementType() reflect.Type {
@@ -4463,8 +4339,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePatchFilterGroupPtrInput)(nil)).Elem(), PatchBaselinePatchFilterGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePatchSourceInput)(nil)).Elem(), PatchBaselinePatchSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePatchSourceArrayInput)(nil)).Elem(), PatchBaselinePatchSourceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePatchStringDateInput)(nil)).Elem(), PatchBaselinePatchStringDateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePatchStringDatePtrInput)(nil)).Elem(), PatchBaselinePatchStringDateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineRuleInput)(nil)).Elem(), PatchBaselineRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineRuleArrayInput)(nil)).Elem(), PatchBaselineRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineRuleGroupInput)(nil)).Elem(), PatchBaselineRuleGroupArgs{})
@@ -4517,8 +4391,6 @@ func init() {
 	pulumi.RegisterOutputType(PatchBaselinePatchFilterGroupPtrOutput{})
 	pulumi.RegisterOutputType(PatchBaselinePatchSourceOutput{})
 	pulumi.RegisterOutputType(PatchBaselinePatchSourceArrayOutput{})
-	pulumi.RegisterOutputType(PatchBaselinePatchStringDateOutput{})
-	pulumi.RegisterOutputType(PatchBaselinePatchStringDatePtrOutput{})
 	pulumi.RegisterOutputType(PatchBaselineRuleOutput{})
 	pulumi.RegisterOutputType(PatchBaselineRuleArrayOutput{})
 	pulumi.RegisterOutputType(PatchBaselineRuleGroupOutput{})

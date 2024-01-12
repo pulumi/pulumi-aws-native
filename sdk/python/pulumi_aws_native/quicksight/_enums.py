@@ -391,6 +391,7 @@ __all__ = [
     'TopicRelativeDateFilterFunction',
     'TopicTimeGranularity',
     'TopicUndefinedSpecifiedValueType',
+    'TopicUserExperienceVersion',
     'VpcConnectionNetworkInterfaceStatus',
     'VpcConnectionVpcConnectionAvailabilityStatus',
     'VpcConnectionVpcConnectionResourceStatus',
@@ -2860,6 +2861,11 @@ class TopicTimeGranularity(str, Enum):
 class TopicUndefinedSpecifiedValueType(str, Enum):
     LEAST = "LEAST"
     MOST = "MOST"
+
+
+class TopicUserExperienceVersion(str, Enum):
+    LEGACY = "LEGACY"
+    NEW_READER_EXPERIENCE = "NEW_READER_EXPERIENCE"
 
 
 class VpcConnectionNetworkInterfaceStatus(str, Enum):

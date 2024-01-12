@@ -24,6 +24,7 @@ export interface GetPolicyStoreArgs {
 
 export interface GetPolicyStoreResult {
     readonly arn?: string;
+    readonly description?: string;
     readonly policyStoreId?: string;
     readonly schema?: outputs.verifiedpermissions.PolicyStoreSchemaDefinition;
     readonly validationSettings?: outputs.verifiedpermissions.PolicyStoreValidationSettings;

@@ -21,7 +21,7 @@ type IpSet struct {
 	DetectorId pulumi.StringPtrOutput  `pulumi:"detectorId"`
 	Format     pulumi.StringOutput     `pulumi:"format"`
 	Location   pulumi.StringOutput     `pulumi:"location"`
-	Name       pulumi.StringOutput     `pulumi:"name"`
+	Name       pulumi.StringPtrOutput  `pulumi:"name"`
 	Tags       IpSetTagItemArrayOutput `pulumi:"tags"`
 }
 
@@ -159,8 +159,8 @@ func (o IpSetOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-func (o IpSetOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o IpSetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o IpSetOutput) Tags() IpSetTagItemArrayOutput {

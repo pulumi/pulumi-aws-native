@@ -58,6 +58,7 @@ namespace Pulumi.AwsNative.DocDb
         public readonly bool? DeletionProtection;
         public readonly ImmutableArray<string> EnableCloudwatchLogsExports;
         public readonly string? Endpoint;
+        public readonly string? EngineVersion;
         public readonly string? Id;
         public readonly string? MasterUserPassword;
         public readonly int? Port;
@@ -66,6 +67,7 @@ namespace Pulumi.AwsNative.DocDb
         public readonly string? ReadEndpoint;
         public readonly string? RestoreToTime;
         public readonly string? RestoreType;
+        public readonly string? StorageType;
         public readonly ImmutableArray<Outputs.DbClusterTag> Tags;
         public readonly bool? UseLatestRestorableTime;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
@@ -86,6 +88,8 @@ namespace Pulumi.AwsNative.DocDb
 
             string? endpoint,
 
+            string? engineVersion,
+
             string? id,
 
             string? masterUserPassword,
@@ -102,6 +106,8 @@ namespace Pulumi.AwsNative.DocDb
 
             string? restoreType,
 
+            string? storageType,
+
             ImmutableArray<Outputs.DbClusterTag> tags,
 
             bool? useLatestRestorableTime,
@@ -115,6 +121,7 @@ namespace Pulumi.AwsNative.DocDb
             DeletionProtection = deletionProtection;
             EnableCloudwatchLogsExports = enableCloudwatchLogsExports;
             Endpoint = endpoint;
+            EngineVersion = engineVersion;
             Id = id;
             MasterUserPassword = masterUserPassword;
             Port = port;
@@ -123,6 +130,7 @@ namespace Pulumi.AwsNative.DocDb
             ReadEndpoint = readEndpoint;
             RestoreToTime = restoreToTime;
             RestoreType = restoreType;
+            StorageType = storageType;
             Tags = tags;
             UseLatestRestorableTime = useLatestRestorableTime;
             VpcSecurityGroupIds = vpcSecurityGroupIds;

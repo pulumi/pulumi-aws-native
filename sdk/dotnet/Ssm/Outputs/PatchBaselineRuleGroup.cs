@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ssm.Outputs
 {
 
+    /// <summary>
+    /// A set of rules defining the approval rules for a patch baseline.
+    /// </summary>
     [OutputType]
     public sealed class PatchBaselineRuleGroup
     {

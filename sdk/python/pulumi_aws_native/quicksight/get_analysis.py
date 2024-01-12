@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAnalysisResult:
-    def __init__(__self__, arn=None, created_time=None, data_set_arns=None, errors=None, name=None, permissions=None, tags=None, theme_arn=None):
+    def __init__(__self__, arn=None, created_time=None, data_set_arns=None, errors=None, last_updated_time=None, name=None, permissions=None, sheets=None, tags=None, theme_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -33,12 +33,18 @@ class GetAnalysisResult:
         if errors and not isinstance(errors, list):
             raise TypeError("Expected argument 'errors' to be a list")
         pulumi.set(__self__, "errors", errors)
+        if last_updated_time and not isinstance(last_updated_time, str):
+            raise TypeError("Expected argument 'last_updated_time' to be a str")
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if permissions and not isinstance(permissions, list):
             raise TypeError("Expected argument 'permissions' to be a list")
         pulumi.set(__self__, "permissions", permissions)
+        if sheets and not isinstance(sheets, list):
+            raise TypeError("Expected argument 'sheets' to be a list")
+        pulumi.set(__self__, "sheets", sheets)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -67,6 +73,11 @@ class GetAnalysisResult:
         return pulumi.get(self, "errors")
 
     @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[str]:
+        return pulumi.get(self, "last_updated_time")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
@@ -75,6 +86,11 @@ class GetAnalysisResult:
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.AnalysisResourcePermission']]:
         return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def sheets(self) -> Optional[Sequence['outputs.AnalysisSheet']]:
+        return pulumi.get(self, "sheets")
 
     @property
     @pulumi.getter
@@ -97,8 +113,10 @@ class AwaitableGetAnalysisResult(GetAnalysisResult):
             created_time=self.created_time,
             data_set_arns=self.data_set_arns,
             errors=self.errors,
+            last_updated_time=self.last_updated_time,
             name=self.name,
             permissions=self.permissions,
+            sheets=self.sheets,
             tags=self.tags,
             theme_arn=self.theme_arn)
 
@@ -120,8 +138,10 @@ def get_analysis(analysis_id: Optional[str] = None,
         created_time=pulumi.get(__ret__, 'created_time'),
         data_set_arns=pulumi.get(__ret__, 'data_set_arns'),
         errors=pulumi.get(__ret__, 'errors'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'),
+        sheets=pulumi.get(__ret__, 'sheets'),
         tags=pulumi.get(__ret__, 'tags'),
         theme_arn=pulumi.get(__ret__, 'theme_arn'))
 

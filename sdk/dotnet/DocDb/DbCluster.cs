@@ -85,6 +85,9 @@ namespace Pulumi.AwsNative.DocDb
         [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
+        [Output("storageType")]
+        public Output<string?> StorageType { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DbClusterTag>> Tags { get; private set; } = null!;
 
@@ -122,7 +125,6 @@ namespace Pulumi.AwsNative.DocDb
                     "availabilityZones[*]",
                     "dbClusterIdentifier",
                     "dbSubnetGroupName",
-                    "engineVersion",
                     "kmsKeyId",
                     "masterUsername",
                     "snapshotIdentifier",
@@ -220,6 +222,9 @@ namespace Pulumi.AwsNative.DocDb
 
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
+
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.DbClusterTagArgs>? _tags;

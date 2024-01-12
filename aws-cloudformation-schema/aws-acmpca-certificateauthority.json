@@ -91,6 +91,17 @@
       },
       "required" : [ "ObjectIdentifier", "Value" ]
     },
+    "CrlDistributionPointExtensionConfiguration" : {
+      "description" : "Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "OmitExtension" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "OmitExtension" ]
+    },
     "CrlConfiguration" : {
       "description" : "Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.",
       "type" : "object",
@@ -110,6 +121,9 @@
         },
         "S3ObjectAcl" : {
           "type" : "string"
+        },
+        "CrlDistributionPointExtensionConfiguration" : {
+          "$ref" : "#/definitions/CrlDistributionPointExtensionConfiguration"
         }
       }
     },
@@ -364,7 +378,7 @@
   "additionalProperties" : false,
   "required" : [ "Type", "KeyAlgorithm", "SigningAlgorithm", "Subject" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CertificateSigningRequest" ],
-  "writeOnlyProperties" : [ "/properties/Subject" ],
+  "writeOnlyProperties" : [ "/properties/Subject", "/properties/Subject", "/properties/CsrExtensions", "/properties/Tags", "/properties/RevocationConfiguration", "/properties/KeyStorageSecurityStandard" ],
   "createOnlyProperties" : [ "/properties/Type", "/properties/KeyAlgorithm", "/properties/SigningAlgorithm", "/properties/Subject", "/properties/CsrExtensions", "/properties/KeyStorageSecurityStandard", "/properties/UsageMode" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
@@ -378,7 +392,7 @@
       "permissions" : [ "acm-pca:ListTags", "acm-pca:TagCertificateAuthority", "acm-pca:UntagCertificateAuthority", "acm-pca:UpdateCertificateAuthority" ]
     },
     "delete" : {
-      "permissions" : [ "acm-pca:DeleteCertificateAuthority" ]
+      "permissions" : [ "acm-pca:DeleteCertificateAuthority", "acm-pca:DescribeCertificateAuthority" ]
     },
     "list" : {
       "permissions" : [ "acm-pca:DescribeCertificateAuthority", "acm-pca:GetCertificateAuthorityCsr", "acm-pca:ListCertificateAuthorities", "acm-pca:ListTags" ]

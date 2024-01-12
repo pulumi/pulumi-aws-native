@@ -17,10 +17,10 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	Definition    pulumi.AnyOutput       `pulumi:"definition"`
-	PolicyId      pulumi.StringOutput    `pulumi:"policyId"`
-	PolicyStoreId pulumi.StringPtrOutput `pulumi:"policyStoreId"`
-	PolicyType    PolicyTypeOutput       `pulumi:"policyType"`
+	Definition    pulumi.AnyOutput    `pulumi:"definition"`
+	PolicyId      pulumi.StringOutput `pulumi:"policyId"`
+	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
+	PolicyType    PolicyTypeOutput    `pulumi:"policyType"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -32,6 +32,9 @@ func NewPolicy(ctx *pulumi.Context,
 
 	if args.Definition == nil {
 		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
+	if args.PolicyStoreId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyStoreId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"policyStoreId",
@@ -71,13 +74,13 @@ func (PolicyState) ElementType() reflect.Type {
 
 type policyArgs struct {
 	Definition    interface{} `pulumi:"definition"`
-	PolicyStoreId *string     `pulumi:"policyStoreId"`
+	PolicyStoreId string      `pulumi:"policyStoreId"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
 	Definition    pulumi.Input
-	PolicyStoreId pulumi.StringPtrInput
+	PolicyStoreId pulumi.StringInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {
@@ -137,8 +140,8 @@ func (o PolicyOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-func (o PolicyOutput) PolicyStoreId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PolicyStoreId }).(pulumi.StringPtrOutput)
+func (o PolicyOutput) PolicyStoreId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
 
 func (o PolicyOutput) PolicyType() PolicyTypeOutput {

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFeatureGroupResult:
-    def __init__(__self__, creation_time=None, feature_definitions=None, feature_group_status=None):
+    def __init__(__self__, creation_time=None, feature_definitions=None, feature_group_status=None, throughput_config=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -30,6 +30,9 @@ class GetFeatureGroupResult:
         if feature_group_status and not isinstance(feature_group_status, str):
             raise TypeError("Expected argument 'feature_group_status' to be a str")
         pulumi.set(__self__, "feature_group_status", feature_group_status)
+        if throughput_config and not isinstance(throughput_config, dict):
+            raise TypeError("Expected argument 'throughput_config' to be a dict")
+        pulumi.set(__self__, "throughput_config", throughput_config)
 
     @property
     @pulumi.getter(name="creationTime")
@@ -55,6 +58,11 @@ class GetFeatureGroupResult:
         """
         return pulumi.get(self, "feature_group_status")
 
+    @property
+    @pulumi.getter(name="throughputConfig")
+    def throughput_config(self) -> Optional['outputs.FeatureGroupThroughputConfig']:
+        return pulumi.get(self, "throughput_config")
+
 
 class AwaitableGetFeatureGroupResult(GetFeatureGroupResult):
     # pylint: disable=using-constant-test
@@ -64,7 +72,8 @@ class AwaitableGetFeatureGroupResult(GetFeatureGroupResult):
         return GetFeatureGroupResult(
             creation_time=self.creation_time,
             feature_definitions=self.feature_definitions,
-            feature_group_status=self.feature_group_status)
+            feature_group_status=self.feature_group_status,
+            throughput_config=self.throughput_config)
 
 
 def get_feature_group(feature_group_name: Optional[str] = None,
@@ -83,7 +92,8 @@ def get_feature_group(feature_group_name: Optional[str] = None,
     return AwaitableGetFeatureGroupResult(
         creation_time=pulumi.get(__ret__, 'creation_time'),
         feature_definitions=pulumi.get(__ret__, 'feature_definitions'),
-        feature_group_status=pulumi.get(__ret__, 'feature_group_status'))
+        feature_group_status=pulumi.get(__ret__, 'feature_group_status'),
+        throughput_config=pulumi.get(__ret__, 'throughput_config'))
 
 
 @_utilities.lift_output_func(get_feature_group)

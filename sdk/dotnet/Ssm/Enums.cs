@@ -297,4 +297,190 @@ namespace Pulumi.AwsNative.Ssm
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+    /// </summary>
+    [EnumType]
+    public readonly struct PatchBaselineApprovedPatchesComplianceLevel : IEquatable<PatchBaselineApprovedPatchesComplianceLevel>
+    {
+        private readonly string _value;
+
+        private PatchBaselineApprovedPatchesComplianceLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PatchBaselineApprovedPatchesComplianceLevel Critical { get; } = new PatchBaselineApprovedPatchesComplianceLevel("CRITICAL");
+        public static PatchBaselineApprovedPatchesComplianceLevel High { get; } = new PatchBaselineApprovedPatchesComplianceLevel("HIGH");
+        public static PatchBaselineApprovedPatchesComplianceLevel Medium { get; } = new PatchBaselineApprovedPatchesComplianceLevel("MEDIUM");
+        public static PatchBaselineApprovedPatchesComplianceLevel Low { get; } = new PatchBaselineApprovedPatchesComplianceLevel("LOW");
+        public static PatchBaselineApprovedPatchesComplianceLevel Informational { get; } = new PatchBaselineApprovedPatchesComplianceLevel("INFORMATIONAL");
+        public static PatchBaselineApprovedPatchesComplianceLevel Unspecified { get; } = new PatchBaselineApprovedPatchesComplianceLevel("UNSPECIFIED");
+
+        public static bool operator ==(PatchBaselineApprovedPatchesComplianceLevel left, PatchBaselineApprovedPatchesComplianceLevel right) => left.Equals(right);
+        public static bool operator !=(PatchBaselineApprovedPatchesComplianceLevel left, PatchBaselineApprovedPatchesComplianceLevel right) => !left.Equals(right);
+
+        public static explicit operator string(PatchBaselineApprovedPatchesComplianceLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PatchBaselineApprovedPatchesComplianceLevel other && Equals(other);
+        public bool Equals(PatchBaselineApprovedPatchesComplianceLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+    /// </summary>
+    [EnumType]
+    public readonly struct PatchBaselineOperatingSystem : IEquatable<PatchBaselineOperatingSystem>
+    {
+        private readonly string _value;
+
+        private PatchBaselineOperatingSystem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PatchBaselineOperatingSystem Windows { get; } = new PatchBaselineOperatingSystem("WINDOWS");
+        public static PatchBaselineOperatingSystem AmazonLinux { get; } = new PatchBaselineOperatingSystem("AMAZON_LINUX");
+        public static PatchBaselineOperatingSystem AmazonLinux2 { get; } = new PatchBaselineOperatingSystem("AMAZON_LINUX_2");
+        public static PatchBaselineOperatingSystem AmazonLinux2022 { get; } = new PatchBaselineOperatingSystem("AMAZON_LINUX_2022");
+        public static PatchBaselineOperatingSystem AmazonLinux2023 { get; } = new PatchBaselineOperatingSystem("AMAZON_LINUX_2023");
+        public static PatchBaselineOperatingSystem Ubuntu { get; } = new PatchBaselineOperatingSystem("UBUNTU");
+        public static PatchBaselineOperatingSystem RedhatEnterpriseLinux { get; } = new PatchBaselineOperatingSystem("REDHAT_ENTERPRISE_LINUX");
+        public static PatchBaselineOperatingSystem Suse { get; } = new PatchBaselineOperatingSystem("SUSE");
+        public static PatchBaselineOperatingSystem Centos { get; } = new PatchBaselineOperatingSystem("CENTOS");
+        public static PatchBaselineOperatingSystem OracleLinux { get; } = new PatchBaselineOperatingSystem("ORACLE_LINUX");
+        public static PatchBaselineOperatingSystem Debian { get; } = new PatchBaselineOperatingSystem("DEBIAN");
+        public static PatchBaselineOperatingSystem Macos { get; } = new PatchBaselineOperatingSystem("MACOS");
+        public static PatchBaselineOperatingSystem Raspbian { get; } = new PatchBaselineOperatingSystem("RASPBIAN");
+        public static PatchBaselineOperatingSystem RockyLinux { get; } = new PatchBaselineOperatingSystem("ROCKY_LINUX");
+
+        public static bool operator ==(PatchBaselineOperatingSystem left, PatchBaselineOperatingSystem right) => left.Equals(right);
+        public static bool operator !=(PatchBaselineOperatingSystem left, PatchBaselineOperatingSystem right) => !left.Equals(right);
+
+        public static explicit operator string(PatchBaselineOperatingSystem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PatchBaselineOperatingSystem other && Equals(other);
+        public bool Equals(PatchBaselineOperatingSystem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PatchBaselinePatchFilterKey : IEquatable<PatchBaselinePatchFilterKey>
+    {
+        private readonly string _value;
+
+        private PatchBaselinePatchFilterKey(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PatchBaselinePatchFilterKey AdvisoryId { get; } = new PatchBaselinePatchFilterKey("ADVISORY_ID");
+        public static PatchBaselinePatchFilterKey Arch { get; } = new PatchBaselinePatchFilterKey("ARCH");
+        public static PatchBaselinePatchFilterKey BugzillaId { get; } = new PatchBaselinePatchFilterKey("BUGZILLA_ID");
+        public static PatchBaselinePatchFilterKey Classification { get; } = new PatchBaselinePatchFilterKey("CLASSIFICATION");
+        public static PatchBaselinePatchFilterKey CveId { get; } = new PatchBaselinePatchFilterKey("CVE_ID");
+        public static PatchBaselinePatchFilterKey Epoch { get; } = new PatchBaselinePatchFilterKey("EPOCH");
+        public static PatchBaselinePatchFilterKey MsrcSeverity { get; } = new PatchBaselinePatchFilterKey("MSRC_SEVERITY");
+        public static PatchBaselinePatchFilterKey Name { get; } = new PatchBaselinePatchFilterKey("NAME");
+        public static PatchBaselinePatchFilterKey PatchId { get; } = new PatchBaselinePatchFilterKey("PATCH_ID");
+        public static PatchBaselinePatchFilterKey PatchSet { get; } = new PatchBaselinePatchFilterKey("PATCH_SET");
+        public static PatchBaselinePatchFilterKey Priority { get; } = new PatchBaselinePatchFilterKey("PRIORITY");
+        public static PatchBaselinePatchFilterKey Product { get; } = new PatchBaselinePatchFilterKey("PRODUCT");
+        public static PatchBaselinePatchFilterKey ProductFamily { get; } = new PatchBaselinePatchFilterKey("PRODUCT_FAMILY");
+        public static PatchBaselinePatchFilterKey Release { get; } = new PatchBaselinePatchFilterKey("RELEASE");
+        public static PatchBaselinePatchFilterKey Repository { get; } = new PatchBaselinePatchFilterKey("REPOSITORY");
+        public static PatchBaselinePatchFilterKey Section { get; } = new PatchBaselinePatchFilterKey("SECTION");
+        public static PatchBaselinePatchFilterKey Security { get; } = new PatchBaselinePatchFilterKey("SECURITY");
+        public static PatchBaselinePatchFilterKey Severity { get; } = new PatchBaselinePatchFilterKey("SEVERITY");
+        public static PatchBaselinePatchFilterKey Version { get; } = new PatchBaselinePatchFilterKey("VERSION");
+
+        public static bool operator ==(PatchBaselinePatchFilterKey left, PatchBaselinePatchFilterKey right) => left.Equals(right);
+        public static bool operator !=(PatchBaselinePatchFilterKey left, PatchBaselinePatchFilterKey right) => !left.Equals(right);
+
+        public static explicit operator string(PatchBaselinePatchFilterKey value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PatchBaselinePatchFilterKey other && Equals(other);
+        public bool Equals(PatchBaselinePatchFilterKey other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The action for Patch Manager to take on patches included in the RejectedPackages list.
+    /// </summary>
+    [EnumType]
+    public readonly struct PatchBaselineRejectedPatchesAction : IEquatable<PatchBaselineRejectedPatchesAction>
+    {
+        private readonly string _value;
+
+        private PatchBaselineRejectedPatchesAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PatchBaselineRejectedPatchesAction AllowAsDependency { get; } = new PatchBaselineRejectedPatchesAction("ALLOW_AS_DEPENDENCY");
+        public static PatchBaselineRejectedPatchesAction Block { get; } = new PatchBaselineRejectedPatchesAction("BLOCK");
+
+        public static bool operator ==(PatchBaselineRejectedPatchesAction left, PatchBaselineRejectedPatchesAction right) => left.Equals(right);
+        public static bool operator !=(PatchBaselineRejectedPatchesAction left, PatchBaselineRejectedPatchesAction right) => !left.Equals(right);
+
+        public static explicit operator string(PatchBaselineRejectedPatchesAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PatchBaselineRejectedPatchesAction other && Equals(other);
+        public bool Equals(PatchBaselineRejectedPatchesAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PatchBaselineRuleComplianceLevel : IEquatable<PatchBaselineRuleComplianceLevel>
+    {
+        private readonly string _value;
+
+        private PatchBaselineRuleComplianceLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PatchBaselineRuleComplianceLevel Critical { get; } = new PatchBaselineRuleComplianceLevel("CRITICAL");
+        public static PatchBaselineRuleComplianceLevel High { get; } = new PatchBaselineRuleComplianceLevel("HIGH");
+        public static PatchBaselineRuleComplianceLevel Informational { get; } = new PatchBaselineRuleComplianceLevel("INFORMATIONAL");
+        public static PatchBaselineRuleComplianceLevel Low { get; } = new PatchBaselineRuleComplianceLevel("LOW");
+        public static PatchBaselineRuleComplianceLevel Medium { get; } = new PatchBaselineRuleComplianceLevel("MEDIUM");
+        public static PatchBaselineRuleComplianceLevel Unspecified { get; } = new PatchBaselineRuleComplianceLevel("UNSPECIFIED");
+
+        public static bool operator ==(PatchBaselineRuleComplianceLevel left, PatchBaselineRuleComplianceLevel right) => left.Equals(right);
+        public static bool operator !=(PatchBaselineRuleComplianceLevel left, PatchBaselineRuleComplianceLevel right) => !left.Equals(right);
+
+        public static explicit operator string(PatchBaselineRuleComplianceLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PatchBaselineRuleComplianceLevel other && Equals(other);
+        public bool Equals(PatchBaselineRuleComplianceLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

@@ -19,7 +19,19 @@ namespace Pulumi.AwsNative.Ec2
         /// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
         /// </summary>
         [Output("ipv6CidrBlock")]
-        public Output<string> Ipv6CidrBlock { get; private set; } = null!;
+        public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+        /// </summary>
+        [Output("ipv6IpamPoolId")]
+        public Output<string?> Ipv6IpamPoolId { get; private set; } = null!;
+
+        /// <summary>
+        /// The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
+        /// </summary>
+        [Output("ipv6NetmaskLength")]
+        public Output<int?> Ipv6NetmaskLength { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the subnet
@@ -53,6 +65,8 @@ namespace Pulumi.AwsNative.Ec2
                 ReplaceOnChanges =
                 {
                     "ipv6CidrBlock",
+                    "ipv6IpamPoolId",
+                    "ipv6NetmaskLength",
                     "subnetId",
                 },
             };
@@ -80,8 +94,20 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
         /// </summary>
-        [Input("ipv6CidrBlock", required: true)]
-        public Input<string> Ipv6CidrBlock { get; set; } = null!;
+        [Input("ipv6CidrBlock")]
+        public Input<string>? Ipv6CidrBlock { get; set; }
+
+        /// <summary>
+        /// The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+        /// </summary>
+        [Input("ipv6IpamPoolId")]
+        public Input<string>? Ipv6IpamPoolId { get; set; }
+
+        /// <summary>
+        /// The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
+        /// </summary>
+        [Input("ipv6NetmaskLength")]
+        public Input<int>? Ipv6NetmaskLength { get; set; }
 
         /// <summary>
         /// The ID of the subnet

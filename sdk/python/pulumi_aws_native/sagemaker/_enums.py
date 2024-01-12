@@ -23,6 +23,7 @@ __all__ = [
     'FeatureGroupFeatureDefinitionFeatureType',
     'FeatureGroupStorageType',
     'FeatureGroupTableFormat',
+    'FeatureGroupThroughputMode',
     'ImageVersionJobType',
     'ImageVersionProcessor',
     'ImageVersionVendorGuidance',
@@ -348,6 +349,14 @@ class FeatureGroupTableFormat(str, Enum):
     """
     ICEBERG = "Iceberg"
     GLUE = "Glue"
+
+
+class FeatureGroupThroughputMode(str, Enum):
+    """
+    Throughput mode configuration of the feature group
+    """
+    ON_DEMAND = "OnDemand"
+    PROVISIONED = "Provisioned"
 
 
 class ImageVersionJobType(str, Enum):

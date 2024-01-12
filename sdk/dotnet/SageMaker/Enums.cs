@@ -686,6 +686,37 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// Throughput mode configuration of the feature group
+    /// </summary>
+    [EnumType]
+    public readonly struct FeatureGroupThroughputMode : IEquatable<FeatureGroupThroughputMode>
+    {
+        private readonly string _value;
+
+        private FeatureGroupThroughputMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FeatureGroupThroughputMode OnDemand { get; } = new FeatureGroupThroughputMode("OnDemand");
+        public static FeatureGroupThroughputMode Provisioned { get; } = new FeatureGroupThroughputMode("Provisioned");
+
+        public static bool operator ==(FeatureGroupThroughputMode left, FeatureGroupThroughputMode right) => left.Equals(right);
+        public static bool operator !=(FeatureGroupThroughputMode left, FeatureGroupThroughputMode right) => !left.Equals(right);
+
+        public static explicit operator string(FeatureGroupThroughputMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FeatureGroupThroughputMode other && Equals(other);
+        public bool Equals(FeatureGroupThroughputMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates SageMaker job type compatibility.
     /// </summary>
     [EnumType]

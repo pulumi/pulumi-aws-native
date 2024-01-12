@@ -33,9 +33,6 @@ type LookupCertificateAuthorityResult struct {
 	Arn *string `pulumi:"arn"`
 	// The base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
 	CertificateSigningRequest *string `pulumi:"certificateSigningRequest"`
-	// Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
-	RevocationConfiguration *CertificateAuthorityRevocationConfiguration `pulumi:"revocationConfiguration"`
-	Tags                    []CertificateAuthorityTag                    `pulumi:"tags"`
 }
 
 func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificateAuthorityOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateAuthorityResultOutput {
@@ -88,17 +85,6 @@ func (o LookupCertificateAuthorityResultOutput) Arn() pulumi.StringPtrOutput {
 // The base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
 func (o LookupCertificateAuthorityResultOutput) CertificateSigningRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.CertificateSigningRequest }).(pulumi.StringPtrOutput)
-}
-
-// Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
-func (o LookupCertificateAuthorityResultOutput) RevocationConfiguration() CertificateAuthorityRevocationConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) *CertificateAuthorityRevocationConfiguration {
-		return v.RevocationConfiguration
-	}).(CertificateAuthorityRevocationConfigurationPtrOutput)
-}
-
-func (o LookupCertificateAuthorityResultOutput) Tags() CertificateAuthorityTagArrayOutput {
-	return o.ApplyT(func(v LookupCertificateAuthorityResult) []CertificateAuthorityTag { return v.Tags }).(CertificateAuthorityTagArrayOutput)
 }
 
 func init() {

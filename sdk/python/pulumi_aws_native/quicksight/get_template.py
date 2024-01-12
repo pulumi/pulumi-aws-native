@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetTemplateResult',
@@ -19,10 +20,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetTemplateResult:
-    def __init__(__self__, arn=None, name=None, permissions=None, tags=None):
+    def __init__(__self__, arn=None, created_time=None, last_updated_time=None, name=None, permissions=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        pulumi.set(__self__, "created_time", created_time)
+        if last_updated_time and not isinstance(last_updated_time, str):
+            raise TypeError("Expected argument 'last_updated_time' to be a str")
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -32,11 +39,24 @@ class GetTemplateResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if version and not isinstance(version, dict):
+            raise TypeError("Expected argument 'version' to be a dict")
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[str]:
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[str]:
+        return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
@@ -53,6 +73,11 @@ class GetTemplateResult:
     def tags(self) -> Optional[Sequence['outputs.TemplateTag']]:
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional['outputs.TemplateVersion']:
+        return pulumi.get(self, "version")
+
 
 class AwaitableGetTemplateResult(GetTemplateResult):
     # pylint: disable=using-constant-test
@@ -61,9 +86,12 @@ class AwaitableGetTemplateResult(GetTemplateResult):
             yield self
         return GetTemplateResult(
             arn=self.arn,
+            created_time=self.created_time,
+            last_updated_time=self.last_updated_time,
             name=self.name,
             permissions=self.permissions,
-            tags=self.tags)
+            tags=self.tags,
+            version=self.version)
 
 
 def get_template(aws_account_id: Optional[str] = None,
@@ -80,9 +108,12 @@ def get_template(aws_account_id: Optional[str] = None,
 
     return AwaitableGetTemplateResult(
         arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_template)

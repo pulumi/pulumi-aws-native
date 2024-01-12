@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTopicResult:
-    def __init__(__self__, arn=None, data_sets=None, description=None, name=None):
+    def __init__(__self__, arn=None, data_sets=None, description=None, name=None, user_experience_version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -33,6 +33,9 @@ class GetTopicResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if user_experience_version and not isinstance(user_experience_version, str):
+            raise TypeError("Expected argument 'user_experience_version' to be a str")
+        pulumi.set(__self__, "user_experience_version", user_experience_version)
 
     @property
     @pulumi.getter
@@ -54,6 +57,11 @@ class GetTopicResult:
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter(name="userExperienceVersion")
+    def user_experience_version(self) -> Optional['TopicUserExperienceVersion']:
+        return pulumi.get(self, "user_experience_version")
+
 
 class AwaitableGetTopicResult(GetTopicResult):
     # pylint: disable=using-constant-test
@@ -64,7 +72,8 @@ class AwaitableGetTopicResult(GetTopicResult):
             arn=self.arn,
             data_sets=self.data_sets,
             description=self.description,
-            name=self.name)
+            name=self.name,
+            user_experience_version=self.user_experience_version)
 
 
 def get_topic(aws_account_id: Optional[str] = None,
@@ -83,7 +92,8 @@ def get_topic(aws_account_id: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         data_sets=pulumi.get(__ret__, 'data_sets'),
         description=pulumi.get(__ret__, 'description'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        user_experience_version=pulumi.get(__ret__, 'user_experience_version'))
 
 
 @_utilities.lift_output_func(get_topic)

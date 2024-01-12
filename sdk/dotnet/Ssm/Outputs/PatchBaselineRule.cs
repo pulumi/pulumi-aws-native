@@ -10,12 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ssm.Outputs
 {
 
+    /// <summary>
+    /// Defines an approval rule for a patch baseline.
+    /// </summary>
     [OutputType]
     public sealed class PatchBaselineRule
     {
         public readonly int? ApproveAfterDays;
-        public readonly Outputs.PatchBaselinePatchStringDate? ApproveUntilDate;
-        public readonly string? ComplianceLevel;
+        public readonly string? ApproveUntilDate;
+        public readonly Pulumi.AwsNative.Ssm.PatchBaselineRuleComplianceLevel? ComplianceLevel;
         public readonly bool? EnableNonSecurity;
         public readonly Outputs.PatchBaselinePatchFilterGroup? PatchFilterGroup;
 
@@ -23,9 +26,9 @@ namespace Pulumi.AwsNative.Ssm.Outputs
         private PatchBaselineRule(
             int? approveAfterDays,
 
-            Outputs.PatchBaselinePatchStringDate? approveUntilDate,
+            string? approveUntilDate,
 
-            string? complianceLevel,
+            Pulumi.AwsNative.Ssm.PatchBaselineRuleComplianceLevel? complianceLevel,
 
             bool? enableNonSecurity,
 

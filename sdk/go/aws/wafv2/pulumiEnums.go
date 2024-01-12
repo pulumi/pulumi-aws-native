@@ -3318,9 +3318,9 @@ func (in *ruleGroupPositionalConstraintPtr) ToOutput(ctx context.Context) pulumi
 type RuleGroupRateBasedStatementAggregateKeyType string
 
 const (
-	RuleGroupRateBasedStatementAggregateKeyTypeConstant    = RuleGroupRateBasedStatementAggregateKeyType("CONSTANT")
 	RuleGroupRateBasedStatementAggregateKeyTypeIp          = RuleGroupRateBasedStatementAggregateKeyType("IP")
 	RuleGroupRateBasedStatementAggregateKeyTypeForwardedIp = RuleGroupRateBasedStatementAggregateKeyType("FORWARDED_IP")
+	RuleGroupRateBasedStatementAggregateKeyTypeConstant    = RuleGroupRateBasedStatementAggregateKeyType("CONSTANT")
 	RuleGroupRateBasedStatementAggregateKeyTypeCustomKeys  = RuleGroupRateBasedStatementAggregateKeyType("CUSTOM_KEYS")
 )
 
@@ -7607,8 +7607,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupOversizeHandlingPtrInput)(nil)).Elem(), RuleGroupOversizeHandling("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPositionalConstraintInput)(nil)).Elem(), RuleGroupPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPositionalConstraintPtrInput)(nil)).Elem(), RuleGroupPositionalConstraint("EXACTLY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), RuleGroupRateBasedStatementAggregateKeyType("CONSTANT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementAggregateKeyTypePtrInput)(nil)).Elem(), RuleGroupRateBasedStatementAggregateKeyType("CONSTANT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), RuleGroupRateBasedStatementAggregateKeyType("IP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementAggregateKeyTypePtrInput)(nil)).Elem(), RuleGroupRateBasedStatementAggregateKeyType("IP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupScopeInput)(nil)).Elem(), RuleGroupScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupScopePtrInput)(nil)).Elem(), RuleGroupScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSensitivityLevelInput)(nil)).Elem(), RuleGroupSensitivityLevel("LOW"))

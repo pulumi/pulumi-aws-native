@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetPatchBaselineResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPatchBaselineResult:
-    def __init__(__self__, approval_rules=None, approved_patches=None, approved_patches_compliance_level=None, approved_patches_enable_non_security=None, description=None, global_filters=None, id=None, name=None, patch_groups=None, rejected_patches=None, rejected_patches_action=None, sources=None, tags=None):
+    def __init__(__self__, approval_rules=None, approved_patches=None, approved_patches_compliance_level=None, approved_patches_enable_non_security=None, default_baseline=None, description=None, global_filters=None, id=None, name=None, patch_groups=None, rejected_patches=None, rejected_patches_action=None, sources=None, tags=None):
         if approval_rules and not isinstance(approval_rules, dict):
             raise TypeError("Expected argument 'approval_rules' to be a dict")
         pulumi.set(__self__, "approval_rules", approval_rules)
@@ -32,6 +33,9 @@ class GetPatchBaselineResult:
         if approved_patches_enable_non_security and not isinstance(approved_patches_enable_non_security, bool):
             raise TypeError("Expected argument 'approved_patches_enable_non_security' to be a bool")
         pulumi.set(__self__, "approved_patches_enable_non_security", approved_patches_enable_non_security)
+        if default_baseline and not isinstance(default_baseline, bool):
+            raise TypeError("Expected argument 'default_baseline' to be a bool")
+        pulumi.set(__self__, "default_baseline", default_baseline)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -68,61 +72,105 @@ class GetPatchBaselineResult:
     @property
     @pulumi.getter(name="approvedPatches")
     def approved_patches(self) -> Optional[Sequence[str]]:
+        """
+        A list of explicitly approved patches for the baseline.
+        """
         return pulumi.get(self, "approved_patches")
 
     @property
     @pulumi.getter(name="approvedPatchesComplianceLevel")
-    def approved_patches_compliance_level(self) -> Optional[str]:
+    def approved_patches_compliance_level(self) -> Optional['PatchBaselineApprovedPatchesComplianceLevel']:
+        """
+        Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+        """
         return pulumi.get(self, "approved_patches_compliance_level")
 
     @property
     @pulumi.getter(name="approvedPatchesEnableNonSecurity")
     def approved_patches_enable_non_security(self) -> Optional[bool]:
+        """
+        Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+        """
         return pulumi.get(self, "approved_patches_enable_non_security")
+
+    @property
+    @pulumi.getter(name="defaultBaseline")
+    def default_baseline(self) -> Optional[bool]:
+        """
+        Set the baseline as default baseline. Only registering to default patch baseline is allowed.
+        """
+        return pulumi.get(self, "default_baseline")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the patch baseline.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="globalFilters")
     def global_filters(self) -> Optional['outputs.PatchBaselinePatchFilterGroup']:
+        """
+        A set of global filters used to include patches in the baseline.
+        """
         return pulumi.get(self, "global_filters")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the patch baseline.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the patch baseline.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="patchGroups")
     def patch_groups(self) -> Optional[Sequence[str]]:
+        """
+        PatchGroups is used to associate instances with a specific patch baseline
+        """
         return pulumi.get(self, "patch_groups")
 
     @property
     @pulumi.getter(name="rejectedPatches")
     def rejected_patches(self) -> Optional[Sequence[str]]:
+        """
+        A list of explicitly rejected patches for the baseline.
+        """
         return pulumi.get(self, "rejected_patches")
 
     @property
     @pulumi.getter(name="rejectedPatchesAction")
-    def rejected_patches_action(self) -> Optional[str]:
+    def rejected_patches_action(self) -> Optional['PatchBaselineRejectedPatchesAction']:
+        """
+        The action for Patch Manager to take on patches included in the RejectedPackages list.
+        """
         return pulumi.get(self, "rejected_patches_action")
 
     @property
     @pulumi.getter
     def sources(self) -> Optional[Sequence['outputs.PatchBaselinePatchSource']]:
+        """
+        Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+        """
         return pulumi.get(self, "sources")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.PatchBaselineTag']]:
+        """
+        Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -136,6 +184,7 @@ class AwaitableGetPatchBaselineResult(GetPatchBaselineResult):
             approved_patches=self.approved_patches,
             approved_patches_compliance_level=self.approved_patches_compliance_level,
             approved_patches_enable_non_security=self.approved_patches_enable_non_security,
+            default_baseline=self.default_baseline,
             description=self.description,
             global_filters=self.global_filters,
             id=self.id,
@@ -151,6 +200,9 @@ def get_patch_baseline(id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPatchBaselineResult:
     """
     Resource Type definition for AWS::SSM::PatchBaseline
+
+
+    :param str id: The ID of the patch baseline.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -162,6 +214,7 @@ def get_patch_baseline(id: Optional[str] = None,
         approved_patches=pulumi.get(__ret__, 'approved_patches'),
         approved_patches_compliance_level=pulumi.get(__ret__, 'approved_patches_compliance_level'),
         approved_patches_enable_non_security=pulumi.get(__ret__, 'approved_patches_enable_non_security'),
+        default_baseline=pulumi.get(__ret__, 'default_baseline'),
         description=pulumi.get(__ret__, 'description'),
         global_filters=pulumi.get(__ret__, 'global_filters'),
         id=pulumi.get(__ret__, 'id'),
@@ -178,5 +231,8 @@ def get_patch_baseline_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPatchBaselineResult]:
     """
     Resource Type definition for AWS::SSM::PatchBaseline
+
+
+    :param str id: The ID of the patch baseline.
     """
     ...

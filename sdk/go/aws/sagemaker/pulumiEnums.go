@@ -3429,6 +3429,189 @@ func (in *featureGroupTableFormatPtr) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
+// Throughput mode configuration of the feature group
+type FeatureGroupThroughputMode string
+
+const (
+	FeatureGroupThroughputModeOnDemand    = FeatureGroupThroughputMode("OnDemand")
+	FeatureGroupThroughputModeProvisioned = FeatureGroupThroughputMode("Provisioned")
+)
+
+func (FeatureGroupThroughputMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupThroughputMode)(nil)).Elem()
+}
+
+func (e FeatureGroupThroughputMode) ToFeatureGroupThroughputModeOutput() FeatureGroupThroughputModeOutput {
+	return pulumi.ToOutput(e).(FeatureGroupThroughputModeOutput)
+}
+
+func (e FeatureGroupThroughputMode) ToFeatureGroupThroughputModeOutputWithContext(ctx context.Context) FeatureGroupThroughputModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FeatureGroupThroughputModeOutput)
+}
+
+func (e FeatureGroupThroughputMode) ToFeatureGroupThroughputModePtrOutput() FeatureGroupThroughputModePtrOutput {
+	return e.ToFeatureGroupThroughputModePtrOutputWithContext(context.Background())
+}
+
+func (e FeatureGroupThroughputMode) ToFeatureGroupThroughputModePtrOutputWithContext(ctx context.Context) FeatureGroupThroughputModePtrOutput {
+	return FeatureGroupThroughputMode(e).ToFeatureGroupThroughputModeOutputWithContext(ctx).ToFeatureGroupThroughputModePtrOutputWithContext(ctx)
+}
+
+func (e FeatureGroupThroughputMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeatureGroupThroughputMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeatureGroupThroughputMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FeatureGroupThroughputMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FeatureGroupThroughputModeOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupThroughputModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupThroughputMode)(nil)).Elem()
+}
+
+func (o FeatureGroupThroughputModeOutput) ToFeatureGroupThroughputModeOutput() FeatureGroupThroughputModeOutput {
+	return o
+}
+
+func (o FeatureGroupThroughputModeOutput) ToFeatureGroupThroughputModeOutputWithContext(ctx context.Context) FeatureGroupThroughputModeOutput {
+	return o
+}
+
+func (o FeatureGroupThroughputModeOutput) ToFeatureGroupThroughputModePtrOutput() FeatureGroupThroughputModePtrOutput {
+	return o.ToFeatureGroupThroughputModePtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupThroughputModeOutput) ToFeatureGroupThroughputModePtrOutputWithContext(ctx context.Context) FeatureGroupThroughputModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupThroughputMode) *FeatureGroupThroughputMode {
+		return &v
+	}).(FeatureGroupThroughputModePtrOutput)
+}
+
+func (o FeatureGroupThroughputModeOutput) ToOutput(ctx context.Context) pulumix.Output[FeatureGroupThroughputMode] {
+	return pulumix.Output[FeatureGroupThroughputMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FeatureGroupThroughputModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupThroughputModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeatureGroupThroughputMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FeatureGroupThroughputModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupThroughputModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeatureGroupThroughputMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupThroughputModePtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupThroughputModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupThroughputMode)(nil)).Elem()
+}
+
+func (o FeatureGroupThroughputModePtrOutput) ToFeatureGroupThroughputModePtrOutput() FeatureGroupThroughputModePtrOutput {
+	return o
+}
+
+func (o FeatureGroupThroughputModePtrOutput) ToFeatureGroupThroughputModePtrOutputWithContext(ctx context.Context) FeatureGroupThroughputModePtrOutput {
+	return o
+}
+
+func (o FeatureGroupThroughputModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroupThroughputMode] {
+	return pulumix.Output[*FeatureGroupThroughputMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FeatureGroupThroughputModePtrOutput) Elem() FeatureGroupThroughputModeOutput {
+	return o.ApplyT(func(v *FeatureGroupThroughputMode) FeatureGroupThroughputMode {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupThroughputMode
+		return ret
+	}).(FeatureGroupThroughputModeOutput)
+}
+
+func (o FeatureGroupThroughputModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupThroughputModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FeatureGroupThroughputMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FeatureGroupThroughputModeInput is an input type that accepts FeatureGroupThroughputModeArgs and FeatureGroupThroughputModeOutput values.
+// You can construct a concrete instance of `FeatureGroupThroughputModeInput` via:
+//
+//	FeatureGroupThroughputModeArgs{...}
+type FeatureGroupThroughputModeInput interface {
+	pulumi.Input
+
+	ToFeatureGroupThroughputModeOutput() FeatureGroupThroughputModeOutput
+	ToFeatureGroupThroughputModeOutputWithContext(context.Context) FeatureGroupThroughputModeOutput
+}
+
+var featureGroupThroughputModePtrType = reflect.TypeOf((**FeatureGroupThroughputMode)(nil)).Elem()
+
+type FeatureGroupThroughputModePtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupThroughputModePtrOutput() FeatureGroupThroughputModePtrOutput
+	ToFeatureGroupThroughputModePtrOutputWithContext(context.Context) FeatureGroupThroughputModePtrOutput
+}
+
+type featureGroupThroughputModePtr string
+
+func FeatureGroupThroughputModePtr(v string) FeatureGroupThroughputModePtrInput {
+	return (*featureGroupThroughputModePtr)(&v)
+}
+
+func (*featureGroupThroughputModePtr) ElementType() reflect.Type {
+	return featureGroupThroughputModePtrType
+}
+
+func (in *featureGroupThroughputModePtr) ToFeatureGroupThroughputModePtrOutput() FeatureGroupThroughputModePtrOutput {
+	return pulumi.ToOutput(in).(FeatureGroupThroughputModePtrOutput)
+}
+
+func (in *featureGroupThroughputModePtr) ToFeatureGroupThroughputModePtrOutputWithContext(ctx context.Context) FeatureGroupThroughputModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FeatureGroupThroughputModePtrOutput)
+}
+
+func (in *featureGroupThroughputModePtr) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroupThroughputMode] {
+	return pulumix.Output[*FeatureGroupThroughputMode]{
+		OutputState: in.ToFeatureGroupThroughputModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Indicates SageMaker job type compatibility.
 type ImageVersionJobType string
 
@@ -13355,6 +13538,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupStorageTypePtrInput)(nil)).Elem(), FeatureGroupStorageType("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTableFormatInput)(nil)).Elem(), FeatureGroupTableFormat("Iceberg"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTableFormatPtrInput)(nil)).Elem(), FeatureGroupTableFormat("Iceberg"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupThroughputModeInput)(nil)).Elem(), FeatureGroupThroughputMode("OnDemand"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupThroughputModePtrInput)(nil)).Elem(), FeatureGroupThroughputMode("OnDemand"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionJobTypeInput)(nil)).Elem(), ImageVersionJobType("TRAINING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionJobTypePtrInput)(nil)).Elem(), ImageVersionJobType("TRAINING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionProcessorInput)(nil)).Elem(), ImageVersionProcessor("CPU"))
@@ -13489,6 +13674,8 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupTableFormatOutput{})
 	pulumi.RegisterOutputType(FeatureGroupTableFormatPtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupThroughputModeOutput{})
+	pulumi.RegisterOutputType(FeatureGroupThroughputModePtrOutput{})
 	pulumi.RegisterOutputType(ImageVersionJobTypeOutput{})
 	pulumi.RegisterOutputType(ImageVersionJobTypePtrOutput{})
 	pulumi.RegisterOutputType(ImageVersionProcessorOutput{})

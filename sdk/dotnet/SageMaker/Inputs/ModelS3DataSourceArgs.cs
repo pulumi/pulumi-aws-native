@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("compressionType", required: true)]
         public Input<string> CompressionType { get; set; } = null!;
 
+        [Input("modelAccessConfig")]
+        public Input<Inputs.ModelAccessConfigArgs>? ModelAccessConfig { get; set; }
+
         [Input("s3DataType", required: true)]
         public Input<string> S3DataType { get; set; } = null!;
 

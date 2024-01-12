@@ -2775,19 +2775,20 @@ func (o UserPoolInviteMessageTemplatePtrOutput) SmsMessage() pulumi.StringPtrOut
 }
 
 type UserPoolLambdaConfig struct {
-	CreateAuthChallenge         *string                    `pulumi:"createAuthChallenge"`
-	CustomEmailSender           *UserPoolCustomEmailSender `pulumi:"customEmailSender"`
-	CustomMessage               *string                    `pulumi:"customMessage"`
-	CustomSmsSender             *UserPoolCustomSmsSender   `pulumi:"customSmsSender"`
-	DefineAuthChallenge         *string                    `pulumi:"defineAuthChallenge"`
-	KmsKeyId                    *string                    `pulumi:"kmsKeyId"`
-	PostAuthentication          *string                    `pulumi:"postAuthentication"`
-	PostConfirmation            *string                    `pulumi:"postConfirmation"`
-	PreAuthentication           *string                    `pulumi:"preAuthentication"`
-	PreSignUp                   *string                    `pulumi:"preSignUp"`
-	PreTokenGeneration          *string                    `pulumi:"preTokenGeneration"`
-	UserMigration               *string                    `pulumi:"userMigration"`
-	VerifyAuthChallengeResponse *string                    `pulumi:"verifyAuthChallengeResponse"`
+	CreateAuthChallenge         *string                           `pulumi:"createAuthChallenge"`
+	CustomEmailSender           *UserPoolCustomEmailSender        `pulumi:"customEmailSender"`
+	CustomMessage               *string                           `pulumi:"customMessage"`
+	CustomSmsSender             *UserPoolCustomSmsSender          `pulumi:"customSmsSender"`
+	DefineAuthChallenge         *string                           `pulumi:"defineAuthChallenge"`
+	KmsKeyId                    *string                           `pulumi:"kmsKeyId"`
+	PostAuthentication          *string                           `pulumi:"postAuthentication"`
+	PostConfirmation            *string                           `pulumi:"postConfirmation"`
+	PreAuthentication           *string                           `pulumi:"preAuthentication"`
+	PreSignUp                   *string                           `pulumi:"preSignUp"`
+	PreTokenGeneration          *string                           `pulumi:"preTokenGeneration"`
+	PreTokenGenerationConfig    *UserPoolPreTokenGenerationConfig `pulumi:"preTokenGenerationConfig"`
+	UserMigration               *string                           `pulumi:"userMigration"`
+	VerifyAuthChallengeResponse *string                           `pulumi:"verifyAuthChallengeResponse"`
 }
 
 // UserPoolLambdaConfigInput is an input type that accepts UserPoolLambdaConfigArgs and UserPoolLambdaConfigOutput values.
@@ -2802,19 +2803,20 @@ type UserPoolLambdaConfigInput interface {
 }
 
 type UserPoolLambdaConfigArgs struct {
-	CreateAuthChallenge         pulumi.StringPtrInput             `pulumi:"createAuthChallenge"`
-	CustomEmailSender           UserPoolCustomEmailSenderPtrInput `pulumi:"customEmailSender"`
-	CustomMessage               pulumi.StringPtrInput             `pulumi:"customMessage"`
-	CustomSmsSender             UserPoolCustomSmsSenderPtrInput   `pulumi:"customSmsSender"`
-	DefineAuthChallenge         pulumi.StringPtrInput             `pulumi:"defineAuthChallenge"`
-	KmsKeyId                    pulumi.StringPtrInput             `pulumi:"kmsKeyId"`
-	PostAuthentication          pulumi.StringPtrInput             `pulumi:"postAuthentication"`
-	PostConfirmation            pulumi.StringPtrInput             `pulumi:"postConfirmation"`
-	PreAuthentication           pulumi.StringPtrInput             `pulumi:"preAuthentication"`
-	PreSignUp                   pulumi.StringPtrInput             `pulumi:"preSignUp"`
-	PreTokenGeneration          pulumi.StringPtrInput             `pulumi:"preTokenGeneration"`
-	UserMigration               pulumi.StringPtrInput             `pulumi:"userMigration"`
-	VerifyAuthChallengeResponse pulumi.StringPtrInput             `pulumi:"verifyAuthChallengeResponse"`
+	CreateAuthChallenge         pulumi.StringPtrInput                    `pulumi:"createAuthChallenge"`
+	CustomEmailSender           UserPoolCustomEmailSenderPtrInput        `pulumi:"customEmailSender"`
+	CustomMessage               pulumi.StringPtrInput                    `pulumi:"customMessage"`
+	CustomSmsSender             UserPoolCustomSmsSenderPtrInput          `pulumi:"customSmsSender"`
+	DefineAuthChallenge         pulumi.StringPtrInput                    `pulumi:"defineAuthChallenge"`
+	KmsKeyId                    pulumi.StringPtrInput                    `pulumi:"kmsKeyId"`
+	PostAuthentication          pulumi.StringPtrInput                    `pulumi:"postAuthentication"`
+	PostConfirmation            pulumi.StringPtrInput                    `pulumi:"postConfirmation"`
+	PreAuthentication           pulumi.StringPtrInput                    `pulumi:"preAuthentication"`
+	PreSignUp                   pulumi.StringPtrInput                    `pulumi:"preSignUp"`
+	PreTokenGeneration          pulumi.StringPtrInput                    `pulumi:"preTokenGeneration"`
+	PreTokenGenerationConfig    UserPoolPreTokenGenerationConfigPtrInput `pulumi:"preTokenGenerationConfig"`
+	UserMigration               pulumi.StringPtrInput                    `pulumi:"userMigration"`
+	VerifyAuthChallengeResponse pulumi.StringPtrInput                    `pulumi:"verifyAuthChallengeResponse"`
 }
 
 func (UserPoolLambdaConfigArgs) ElementType() reflect.Type {
@@ -2956,6 +2958,10 @@ func (o UserPoolLambdaConfigOutput) PreTokenGeneration() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PreTokenGeneration }).(pulumi.StringPtrOutput)
 }
 
+func (o UserPoolLambdaConfigOutput) PreTokenGenerationConfig() UserPoolPreTokenGenerationConfigPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolPreTokenGenerationConfig { return v.PreTokenGenerationConfig }).(UserPoolPreTokenGenerationConfigPtrOutput)
+}
+
 func (o UserPoolLambdaConfigOutput) UserMigration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.UserMigration }).(pulumi.StringPtrOutput)
 }
@@ -3091,6 +3097,15 @@ func (o UserPoolLambdaConfigPtrOutput) PreTokenGeneration() pulumi.StringPtrOutp
 		}
 		return v.PreTokenGeneration
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolLambdaConfigPtrOutput) PreTokenGenerationConfig() UserPoolPreTokenGenerationConfigPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolPreTokenGenerationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PreTokenGenerationConfig
+	}).(UserPoolPreTokenGenerationConfigPtrOutput)
 }
 
 func (o UserPoolLambdaConfigPtrOutput) UserMigration() pulumi.StringPtrOutput {
@@ -3670,6 +3685,178 @@ func (o UserPoolPoliciesPtrOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOut
 		}
 		return v.PasswordPolicy
 	}).(UserPoolPasswordPolicyPtrOutput)
+}
+
+type UserPoolPreTokenGenerationConfig struct {
+	LambdaArn     *string `pulumi:"lambdaArn"`
+	LambdaVersion *string `pulumi:"lambdaVersion"`
+}
+
+// UserPoolPreTokenGenerationConfigInput is an input type that accepts UserPoolPreTokenGenerationConfigArgs and UserPoolPreTokenGenerationConfigOutput values.
+// You can construct a concrete instance of `UserPoolPreTokenGenerationConfigInput` via:
+//
+//	UserPoolPreTokenGenerationConfigArgs{...}
+type UserPoolPreTokenGenerationConfigInput interface {
+	pulumi.Input
+
+	ToUserPoolPreTokenGenerationConfigOutput() UserPoolPreTokenGenerationConfigOutput
+	ToUserPoolPreTokenGenerationConfigOutputWithContext(context.Context) UserPoolPreTokenGenerationConfigOutput
+}
+
+type UserPoolPreTokenGenerationConfigArgs struct {
+	LambdaArn     pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	LambdaVersion pulumi.StringPtrInput `pulumi:"lambdaVersion"`
+}
+
+func (UserPoolPreTokenGenerationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (i UserPoolPreTokenGenerationConfigArgs) ToUserPoolPreTokenGenerationConfigOutput() UserPoolPreTokenGenerationConfigOutput {
+	return i.ToUserPoolPreTokenGenerationConfigOutputWithContext(context.Background())
+}
+
+func (i UserPoolPreTokenGenerationConfigArgs) ToUserPoolPreTokenGenerationConfigOutputWithContext(ctx context.Context) UserPoolPreTokenGenerationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolPreTokenGenerationConfigOutput)
+}
+
+func (i UserPoolPreTokenGenerationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolPreTokenGenerationConfig] {
+	return pulumix.Output[UserPoolPreTokenGenerationConfig]{
+		OutputState: i.ToUserPoolPreTokenGenerationConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i UserPoolPreTokenGenerationConfigArgs) ToUserPoolPreTokenGenerationConfigPtrOutput() UserPoolPreTokenGenerationConfigPtrOutput {
+	return i.ToUserPoolPreTokenGenerationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolPreTokenGenerationConfigArgs) ToUserPoolPreTokenGenerationConfigPtrOutputWithContext(ctx context.Context) UserPoolPreTokenGenerationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolPreTokenGenerationConfigOutput).ToUserPoolPreTokenGenerationConfigPtrOutputWithContext(ctx)
+}
+
+// UserPoolPreTokenGenerationConfigPtrInput is an input type that accepts UserPoolPreTokenGenerationConfigArgs, UserPoolPreTokenGenerationConfigPtr and UserPoolPreTokenGenerationConfigPtrOutput values.
+// You can construct a concrete instance of `UserPoolPreTokenGenerationConfigPtrInput` via:
+//
+//	        UserPoolPreTokenGenerationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolPreTokenGenerationConfigPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolPreTokenGenerationConfigPtrOutput() UserPoolPreTokenGenerationConfigPtrOutput
+	ToUserPoolPreTokenGenerationConfigPtrOutputWithContext(context.Context) UserPoolPreTokenGenerationConfigPtrOutput
+}
+
+type userPoolPreTokenGenerationConfigPtrType UserPoolPreTokenGenerationConfigArgs
+
+func UserPoolPreTokenGenerationConfigPtr(v *UserPoolPreTokenGenerationConfigArgs) UserPoolPreTokenGenerationConfigPtrInput {
+	return (*userPoolPreTokenGenerationConfigPtrType)(v)
+}
+
+func (*userPoolPreTokenGenerationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (i *userPoolPreTokenGenerationConfigPtrType) ToUserPoolPreTokenGenerationConfigPtrOutput() UserPoolPreTokenGenerationConfigPtrOutput {
+	return i.ToUserPoolPreTokenGenerationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolPreTokenGenerationConfigPtrType) ToUserPoolPreTokenGenerationConfigPtrOutputWithContext(ctx context.Context) UserPoolPreTokenGenerationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolPreTokenGenerationConfigPtrOutput)
+}
+
+func (i *userPoolPreTokenGenerationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolPreTokenGenerationConfig] {
+	return pulumix.Output[*UserPoolPreTokenGenerationConfig]{
+		OutputState: i.ToUserPoolPreTokenGenerationConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type UserPoolPreTokenGenerationConfigOutput struct{ *pulumi.OutputState }
+
+func (UserPoolPreTokenGenerationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (o UserPoolPreTokenGenerationConfigOutput) ToUserPoolPreTokenGenerationConfigOutput() UserPoolPreTokenGenerationConfigOutput {
+	return o
+}
+
+func (o UserPoolPreTokenGenerationConfigOutput) ToUserPoolPreTokenGenerationConfigOutputWithContext(ctx context.Context) UserPoolPreTokenGenerationConfigOutput {
+	return o
+}
+
+func (o UserPoolPreTokenGenerationConfigOutput) ToUserPoolPreTokenGenerationConfigPtrOutput() UserPoolPreTokenGenerationConfigPtrOutput {
+	return o.ToUserPoolPreTokenGenerationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolPreTokenGenerationConfigOutput) ToUserPoolPreTokenGenerationConfigPtrOutputWithContext(ctx context.Context) UserPoolPreTokenGenerationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolPreTokenGenerationConfig) *UserPoolPreTokenGenerationConfig {
+		return &v
+	}).(UserPoolPreTokenGenerationConfigPtrOutput)
+}
+
+func (o UserPoolPreTokenGenerationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolPreTokenGenerationConfig] {
+	return pulumix.Output[UserPoolPreTokenGenerationConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o UserPoolPreTokenGenerationConfigOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolPreTokenGenerationConfig) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolPreTokenGenerationConfigOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolPreTokenGenerationConfig) *string { return v.LambdaVersion }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolPreTokenGenerationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolPreTokenGenerationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (o UserPoolPreTokenGenerationConfigPtrOutput) ToUserPoolPreTokenGenerationConfigPtrOutput() UserPoolPreTokenGenerationConfigPtrOutput {
+	return o
+}
+
+func (o UserPoolPreTokenGenerationConfigPtrOutput) ToUserPoolPreTokenGenerationConfigPtrOutputWithContext(ctx context.Context) UserPoolPreTokenGenerationConfigPtrOutput {
+	return o
+}
+
+func (o UserPoolPreTokenGenerationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolPreTokenGenerationConfig] {
+	return pulumix.Output[*UserPoolPreTokenGenerationConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o UserPoolPreTokenGenerationConfigPtrOutput) Elem() UserPoolPreTokenGenerationConfigOutput {
+	return o.ApplyT(func(v *UserPoolPreTokenGenerationConfig) UserPoolPreTokenGenerationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolPreTokenGenerationConfig
+		return ret
+	}).(UserPoolPreTokenGenerationConfigOutput)
+}
+
+func (o UserPoolPreTokenGenerationConfigPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolPreTokenGenerationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolPreTokenGenerationConfigPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolPreTokenGenerationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 type UserPoolRecoveryOption struct {
@@ -6627,6 +6814,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolPasswordPolicyPtrInput)(nil)).Elem(), UserPoolPasswordPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolPoliciesInput)(nil)).Elem(), UserPoolPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolPoliciesPtrInput)(nil)).Elem(), UserPoolPoliciesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolPreTokenGenerationConfigInput)(nil)).Elem(), UserPoolPreTokenGenerationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolPreTokenGenerationConfigPtrInput)(nil)).Elem(), UserPoolPreTokenGenerationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRecoveryOptionInput)(nil)).Elem(), UserPoolRecoveryOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRecoveryOptionArrayInput)(nil)).Elem(), UserPoolRecoveryOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolResourceServerResourceServerScopeTypeInput)(nil)).Elem(), UserPoolResourceServerResourceServerScopeTypeArgs{})
@@ -6701,6 +6890,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolPasswordPolicyPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolPoliciesOutput{})
 	pulumi.RegisterOutputType(UserPoolPoliciesPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolPreTokenGenerationConfigOutput{})
+	pulumi.RegisterOutputType(UserPoolPreTokenGenerationConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolRecoveryOptionOutput{})
 	pulumi.RegisterOutputType(UserPoolRecoveryOptionArrayOutput{})
 	pulumi.RegisterOutputType(UserPoolResourceServerResourceServerScopeTypeOutput{})

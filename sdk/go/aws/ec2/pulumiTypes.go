@@ -10359,6 +10359,211 @@ func (o IpamPoolProvisionedCidrArrayOutput) Index(i pulumi.IntInput) IpamPoolPro
 	}).(IpamPoolProvisionedCidrOutput)
 }
 
+// The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
+type IpamPoolSourceResource struct {
+	ResourceId     string `pulumi:"resourceId"`
+	ResourceOwner  string `pulumi:"resourceOwner"`
+	ResourceRegion string `pulumi:"resourceRegion"`
+	ResourceType   string `pulumi:"resourceType"`
+}
+
+// IpamPoolSourceResourceInput is an input type that accepts IpamPoolSourceResourceArgs and IpamPoolSourceResourceOutput values.
+// You can construct a concrete instance of `IpamPoolSourceResourceInput` via:
+//
+//	IpamPoolSourceResourceArgs{...}
+type IpamPoolSourceResourceInput interface {
+	pulumi.Input
+
+	ToIpamPoolSourceResourceOutput() IpamPoolSourceResourceOutput
+	ToIpamPoolSourceResourceOutputWithContext(context.Context) IpamPoolSourceResourceOutput
+}
+
+// The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
+type IpamPoolSourceResourceArgs struct {
+	ResourceId     pulumi.StringInput `pulumi:"resourceId"`
+	ResourceOwner  pulumi.StringInput `pulumi:"resourceOwner"`
+	ResourceRegion pulumi.StringInput `pulumi:"resourceRegion"`
+	ResourceType   pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (IpamPoolSourceResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPoolSourceResource)(nil)).Elem()
+}
+
+func (i IpamPoolSourceResourceArgs) ToIpamPoolSourceResourceOutput() IpamPoolSourceResourceOutput {
+	return i.ToIpamPoolSourceResourceOutputWithContext(context.Background())
+}
+
+func (i IpamPoolSourceResourceArgs) ToIpamPoolSourceResourceOutputWithContext(ctx context.Context) IpamPoolSourceResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPoolSourceResourceOutput)
+}
+
+func (i IpamPoolSourceResourceArgs) ToOutput(ctx context.Context) pulumix.Output[IpamPoolSourceResource] {
+	return pulumix.Output[IpamPoolSourceResource]{
+		OutputState: i.ToIpamPoolSourceResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i IpamPoolSourceResourceArgs) ToIpamPoolSourceResourcePtrOutput() IpamPoolSourceResourcePtrOutput {
+	return i.ToIpamPoolSourceResourcePtrOutputWithContext(context.Background())
+}
+
+func (i IpamPoolSourceResourceArgs) ToIpamPoolSourceResourcePtrOutputWithContext(ctx context.Context) IpamPoolSourceResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPoolSourceResourceOutput).ToIpamPoolSourceResourcePtrOutputWithContext(ctx)
+}
+
+// IpamPoolSourceResourcePtrInput is an input type that accepts IpamPoolSourceResourceArgs, IpamPoolSourceResourcePtr and IpamPoolSourceResourcePtrOutput values.
+// You can construct a concrete instance of `IpamPoolSourceResourcePtrInput` via:
+//
+//	        IpamPoolSourceResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type IpamPoolSourceResourcePtrInput interface {
+	pulumi.Input
+
+	ToIpamPoolSourceResourcePtrOutput() IpamPoolSourceResourcePtrOutput
+	ToIpamPoolSourceResourcePtrOutputWithContext(context.Context) IpamPoolSourceResourcePtrOutput
+}
+
+type ipamPoolSourceResourcePtrType IpamPoolSourceResourceArgs
+
+func IpamPoolSourceResourcePtr(v *IpamPoolSourceResourceArgs) IpamPoolSourceResourcePtrInput {
+	return (*ipamPoolSourceResourcePtrType)(v)
+}
+
+func (*ipamPoolSourceResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamPoolSourceResource)(nil)).Elem()
+}
+
+func (i *ipamPoolSourceResourcePtrType) ToIpamPoolSourceResourcePtrOutput() IpamPoolSourceResourcePtrOutput {
+	return i.ToIpamPoolSourceResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *ipamPoolSourceResourcePtrType) ToIpamPoolSourceResourcePtrOutputWithContext(ctx context.Context) IpamPoolSourceResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPoolSourceResourcePtrOutput)
+}
+
+func (i *ipamPoolSourceResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*IpamPoolSourceResource] {
+	return pulumix.Output[*IpamPoolSourceResource]{
+		OutputState: i.ToIpamPoolSourceResourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
+type IpamPoolSourceResourceOutput struct{ *pulumi.OutputState }
+
+func (IpamPoolSourceResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPoolSourceResource)(nil)).Elem()
+}
+
+func (o IpamPoolSourceResourceOutput) ToIpamPoolSourceResourceOutput() IpamPoolSourceResourceOutput {
+	return o
+}
+
+func (o IpamPoolSourceResourceOutput) ToIpamPoolSourceResourceOutputWithContext(ctx context.Context) IpamPoolSourceResourceOutput {
+	return o
+}
+
+func (o IpamPoolSourceResourceOutput) ToIpamPoolSourceResourcePtrOutput() IpamPoolSourceResourcePtrOutput {
+	return o.ToIpamPoolSourceResourcePtrOutputWithContext(context.Background())
+}
+
+func (o IpamPoolSourceResourceOutput) ToIpamPoolSourceResourcePtrOutputWithContext(ctx context.Context) IpamPoolSourceResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamPoolSourceResource) *IpamPoolSourceResource {
+		return &v
+	}).(IpamPoolSourceResourcePtrOutput)
+}
+
+func (o IpamPoolSourceResourceOutput) ToOutput(ctx context.Context) pulumix.Output[IpamPoolSourceResource] {
+	return pulumix.Output[IpamPoolSourceResource]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o IpamPoolSourceResourceOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamPoolSourceResource) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+func (o IpamPoolSourceResourceOutput) ResourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamPoolSourceResource) string { return v.ResourceOwner }).(pulumi.StringOutput)
+}
+
+func (o IpamPoolSourceResourceOutput) ResourceRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamPoolSourceResource) string { return v.ResourceRegion }).(pulumi.StringOutput)
+}
+
+func (o IpamPoolSourceResourceOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamPoolSourceResource) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type IpamPoolSourceResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (IpamPoolSourceResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamPoolSourceResource)(nil)).Elem()
+}
+
+func (o IpamPoolSourceResourcePtrOutput) ToIpamPoolSourceResourcePtrOutput() IpamPoolSourceResourcePtrOutput {
+	return o
+}
+
+func (o IpamPoolSourceResourcePtrOutput) ToIpamPoolSourceResourcePtrOutputWithContext(ctx context.Context) IpamPoolSourceResourcePtrOutput {
+	return o
+}
+
+func (o IpamPoolSourceResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IpamPoolSourceResource] {
+	return pulumix.Output[*IpamPoolSourceResource]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o IpamPoolSourceResourcePtrOutput) Elem() IpamPoolSourceResourceOutput {
+	return o.ApplyT(func(v *IpamPoolSourceResource) IpamPoolSourceResource {
+		if v != nil {
+			return *v
+		}
+		var ret IpamPoolSourceResource
+		return ret
+	}).(IpamPoolSourceResourceOutput)
+}
+
+func (o IpamPoolSourceResourcePtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpamPoolSourceResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IpamPoolSourceResourcePtrOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpamPoolSourceResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IpamPoolSourceResourcePtrOutput) ResourceRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpamPoolSourceResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IpamPoolSourceResourcePtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpamPoolSourceResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type IpamPoolTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -15841,6 +16046,8 @@ func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) 
 type LaunchTemplateMaintenanceOptions struct {
 	// Disables the automatic recovery behavior of your instance or sets it to default.
 	AutoRecovery *string `pulumi:"autoRecovery"`
+	// Disables the automatic reboot-migration behavior of your instance or sets it to default.
+	RebootMigration *string `pulumi:"rebootMigration"`
 }
 
 // LaunchTemplateMaintenanceOptionsInput is an input type that accepts LaunchTemplateMaintenanceOptionsArgs and LaunchTemplateMaintenanceOptionsOutput values.
@@ -15858,6 +16065,8 @@ type LaunchTemplateMaintenanceOptionsInput interface {
 type LaunchTemplateMaintenanceOptionsArgs struct {
 	// Disables the automatic recovery behavior of your instance or sets it to default.
 	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
+	// Disables the automatic reboot-migration behavior of your instance or sets it to default.
+	RebootMigration pulumi.StringPtrInput `pulumi:"rebootMigration"`
 }
 
 func (LaunchTemplateMaintenanceOptionsArgs) ElementType() reflect.Type {
@@ -15961,6 +16170,11 @@ func (o LaunchTemplateMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrO
 	return o.ApplyT(func(v LaunchTemplateMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
 }
 
+// Disables the automatic reboot-migration behavior of your instance or sets it to default.
+func (o LaunchTemplateMaintenanceOptionsOutput) RebootMigration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMaintenanceOptions) *string { return v.RebootMigration }).(pulumi.StringPtrOutput)
+}
+
 type LaunchTemplateMaintenanceOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateMaintenanceOptionsPtrOutput) ElementType() reflect.Type {
@@ -15998,6 +16212,16 @@ func (o LaunchTemplateMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringP
 			return nil
 		}
 		return v.AutoRecovery
+	}).(pulumi.StringPtrOutput)
+}
+
+// Disables the automatic reboot-migration behavior of your instance or sets it to default.
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) RebootMigration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMaintenanceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RebootMigration
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -23461,6 +23685,193 @@ func (o NetworkInsightsPathTagArrayOutput) Index(i pulumi.IntInput) NetworkInsig
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInsightsPathTag {
 		return vs[0].([]NetworkInsightsPathTag)[vs[1].(int)]
 	}).(NetworkInsightsPathTagOutput)
+}
+
+type NetworkInterfaceConnectionTrackingSpecification struct {
+	TcpEstablishedTimeout *int `pulumi:"tcpEstablishedTimeout"`
+	UdpStreamTimeout      *int `pulumi:"udpStreamTimeout"`
+	UdpTimeout            *int `pulumi:"udpTimeout"`
+}
+
+// NetworkInterfaceConnectionTrackingSpecificationInput is an input type that accepts NetworkInterfaceConnectionTrackingSpecificationArgs and NetworkInterfaceConnectionTrackingSpecificationOutput values.
+// You can construct a concrete instance of `NetworkInterfaceConnectionTrackingSpecificationInput` via:
+//
+//	NetworkInterfaceConnectionTrackingSpecificationArgs{...}
+type NetworkInterfaceConnectionTrackingSpecificationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceConnectionTrackingSpecificationOutput() NetworkInterfaceConnectionTrackingSpecificationOutput
+	ToNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(context.Context) NetworkInterfaceConnectionTrackingSpecificationOutput
+}
+
+type NetworkInterfaceConnectionTrackingSpecificationArgs struct {
+	TcpEstablishedTimeout pulumi.IntPtrInput `pulumi:"tcpEstablishedTimeout"`
+	UdpStreamTimeout      pulumi.IntPtrInput `pulumi:"udpStreamTimeout"`
+	UdpTimeout            pulumi.IntPtrInput `pulumi:"udpTimeout"`
+}
+
+func (NetworkInterfaceConnectionTrackingSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfaceConnectionTrackingSpecificationArgs) ToNetworkInterfaceConnectionTrackingSpecificationOutput() NetworkInterfaceConnectionTrackingSpecificationOutput {
+	return i.ToNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceConnectionTrackingSpecificationArgs) ToNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceConnectionTrackingSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceConnectionTrackingSpecificationOutput)
+}
+
+func (i NetworkInterfaceConnectionTrackingSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkInterfaceConnectionTrackingSpecification] {
+	return pulumix.Output[NetworkInterfaceConnectionTrackingSpecification]{
+		OutputState: i.ToNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i NetworkInterfaceConnectionTrackingSpecificationArgs) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutput() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return i.ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceConnectionTrackingSpecificationArgs) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceConnectionTrackingSpecificationOutput).ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx)
+}
+
+// NetworkInterfaceConnectionTrackingSpecificationPtrInput is an input type that accepts NetworkInterfaceConnectionTrackingSpecificationArgs, NetworkInterfaceConnectionTrackingSpecificationPtr and NetworkInterfaceConnectionTrackingSpecificationPtrOutput values.
+// You can construct a concrete instance of `NetworkInterfaceConnectionTrackingSpecificationPtrInput` via:
+//
+//	        NetworkInterfaceConnectionTrackingSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInterfaceConnectionTrackingSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceConnectionTrackingSpecificationPtrOutput() NetworkInterfaceConnectionTrackingSpecificationPtrOutput
+	ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(context.Context) NetworkInterfaceConnectionTrackingSpecificationPtrOutput
+}
+
+type networkInterfaceConnectionTrackingSpecificationPtrType NetworkInterfaceConnectionTrackingSpecificationArgs
+
+func NetworkInterfaceConnectionTrackingSpecificationPtr(v *NetworkInterfaceConnectionTrackingSpecificationArgs) NetworkInterfaceConnectionTrackingSpecificationPtrInput {
+	return (*networkInterfaceConnectionTrackingSpecificationPtrType)(v)
+}
+
+func (*networkInterfaceConnectionTrackingSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (i *networkInterfaceConnectionTrackingSpecificationPtrType) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutput() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return i.ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInterfaceConnectionTrackingSpecificationPtrType) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceConnectionTrackingSpecificationPtrOutput)
+}
+
+func (i *networkInterfaceConnectionTrackingSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceConnectionTrackingSpecification] {
+	return pulumix.Output[*NetworkInterfaceConnectionTrackingSpecification]{
+		OutputState: i.ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type NetworkInterfaceConnectionTrackingSpecificationOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceConnectionTrackingSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) ToNetworkInterfaceConnectionTrackingSpecificationOutput() NetworkInterfaceConnectionTrackingSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) ToNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceConnectionTrackingSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutput() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o.ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceConnectionTrackingSpecification) *NetworkInterfaceConnectionTrackingSpecification {
+		return &v
+	}).(NetworkInterfaceConnectionTrackingSpecificationPtrOutput)
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkInterfaceConnectionTrackingSpecification] {
+	return pulumix.Output[NetworkInterfaceConnectionTrackingSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceConnectionTrackingSpecification) *int { return v.TcpEstablishedTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceConnectionTrackingSpecification) *int { return v.UdpStreamTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) UdpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceConnectionTrackingSpecification) *int { return v.UdpTimeout }).(pulumi.IntPtrOutput)
+}
+
+type NetworkInterfaceConnectionTrackingSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceConnectionTrackingSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutput() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceConnectionTrackingSpecification] {
+	return pulumix.Output[*NetworkInterfaceConnectionTrackingSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) Elem() NetworkInterfaceConnectionTrackingSpecificationOutput {
+	return o.ApplyT(func(v *NetworkInterfaceConnectionTrackingSpecification) NetworkInterfaceConnectionTrackingSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceConnectionTrackingSpecification
+		return ret
+	}).(NetworkInterfaceConnectionTrackingSpecificationOutput)
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceConnectionTrackingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TcpEstablishedTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceConnectionTrackingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UdpStreamTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) UdpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceConnectionTrackingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UdpTimeout
+	}).(pulumi.IntPtrOutput)
 }
 
 type NetworkInterfaceInstanceIpv6Address struct {
@@ -37027,6 +37438,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamOperatingRegionArrayInput)(nil)).Elem(), IpamOperatingRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolProvisionedCidrInput)(nil)).Elem(), IpamPoolProvisionedCidrArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolProvisionedCidrArrayInput)(nil)).Elem(), IpamPoolProvisionedCidrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolSourceResourceInput)(nil)).Elem(), IpamPoolSourceResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolSourceResourcePtrInput)(nil)).Elem(), IpamPoolSourceResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolTagInput)(nil)).Elem(), IpamPoolTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolTagArrayInput)(nil)).Elem(), IpamPoolTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryAssociationTagInput)(nil)).Elem(), IpamResourceDiscoveryAssociationTagArgs{})
@@ -37156,6 +37569,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathPathFilterPtrInput)(nil)).Elem(), NetworkInsightsPathPathFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathTagInput)(nil)).Elem(), NetworkInsightsPathTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathTagArrayInput)(nil)).Elem(), NetworkInsightsPathTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceConnectionTrackingSpecificationInput)(nil)).Elem(), NetworkInterfaceConnectionTrackingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceConnectionTrackingSpecificationPtrInput)(nil)).Elem(), NetworkInterfaceConnectionTrackingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceInstanceIpv6AddressInput)(nil)).Elem(), NetworkInterfaceInstanceIpv6AddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceInstanceIpv6AddressArrayInput)(nil)).Elem(), NetworkInterfaceInstanceIpv6AddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceIpv4PrefixSpecificationInput)(nil)).Elem(), NetworkInterfaceIpv4PrefixSpecificationArgs{})
@@ -37450,6 +37865,8 @@ func init() {
 	pulumi.RegisterOutputType(IpamOperatingRegionArrayOutput{})
 	pulumi.RegisterOutputType(IpamPoolProvisionedCidrOutput{})
 	pulumi.RegisterOutputType(IpamPoolProvisionedCidrArrayOutput{})
+	pulumi.RegisterOutputType(IpamPoolSourceResourceOutput{})
+	pulumi.RegisterOutputType(IpamPoolSourceResourcePtrOutput{})
 	pulumi.RegisterOutputType(IpamPoolTagOutput{})
 	pulumi.RegisterOutputType(IpamPoolTagArrayOutput{})
 	pulumi.RegisterOutputType(IpamResourceDiscoveryAssociationTagOutput{})
@@ -37607,6 +38024,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsPathPathFilterPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathTagOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathTagArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceConnectionTrackingSpecificationOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceConnectionTrackingSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceIpv4PrefixSpecificationOutput{})

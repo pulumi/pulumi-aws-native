@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<string> Location { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ThreatIntelSetTagItem>> Tags { get; private set; } = null!;

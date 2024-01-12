@@ -46,6 +46,8 @@ class ServiceCodeConfigurationValuesRuntime(str, Enum):
     DOTNET6 = "DOTNET_6"
     PHP81 = "PHP_81"
     RUBY31 = "RUBY_31"
+    PYTHON311 = "PYTHON_311"
+    NODEJS18 = "NODEJS_18"
 
 
 class ServiceEgressConfigurationEgressType(str, Enum):

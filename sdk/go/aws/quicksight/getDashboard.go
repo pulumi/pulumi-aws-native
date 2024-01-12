@@ -30,7 +30,9 @@ type LookupDashboardArgs struct {
 
 type LookupDashboardResult struct {
 	Arn               *string                       `pulumi:"arn"`
+	CreatedTime       *string                       `pulumi:"createdTime"`
 	LastPublishedTime *string                       `pulumi:"lastPublishedTime"`
+	LastUpdatedTime   *string                       `pulumi:"lastUpdatedTime"`
 	Name              *string                       `pulumi:"name"`
 	Permissions       []DashboardResourcePermission `pulumi:"permissions"`
 	Tags              []DashboardTag                `pulumi:"tags"`
@@ -83,8 +85,16 @@ func (o LookupDashboardResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupDashboardResultOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDashboardResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupDashboardResultOutput) LastPublishedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.LastPublishedTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDashboardResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDashboardResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDashboardResultOutput) Name() pulumi.StringPtrOutput {

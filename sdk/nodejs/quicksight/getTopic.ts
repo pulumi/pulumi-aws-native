@@ -29,6 +29,7 @@ export interface GetTopicResult {
     readonly dataSets?: outputs.quicksight.TopicDatasetMetadata[];
     readonly description?: string;
     readonly name?: string;
+    readonly userExperienceVersion?: enums.quicksight.TopicUserExperienceVersion;
 }
 /**
  * Definition of the AWS::QuickSight::Topic Resource Type.

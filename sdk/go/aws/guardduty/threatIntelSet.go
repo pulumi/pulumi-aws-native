@@ -21,7 +21,7 @@ type ThreatIntelSet struct {
 	DetectorId pulumi.StringPtrOutput           `pulumi:"detectorId"`
 	Format     pulumi.StringOutput              `pulumi:"format"`
 	Location   pulumi.StringOutput              `pulumi:"location"`
-	Name       pulumi.StringOutput              `pulumi:"name"`
+	Name       pulumi.StringPtrOutput           `pulumi:"name"`
 	Tags       ThreatIntelSetTagItemArrayOutput `pulumi:"tags"`
 }
 
@@ -159,8 +159,8 @@ func (o ThreatIntelSetOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-func (o ThreatIntelSetOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o ThreatIntelSetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o ThreatIntelSetOutput) Tags() ThreatIntelSetTagItemArrayOutput {

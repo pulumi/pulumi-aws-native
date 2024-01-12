@@ -62,6 +62,7 @@ namespace Pulumi.AwsNative.MediaTailor
         /// The tags to assign to the channel.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelTag> Tags;
+        public readonly Outputs.ChannelTimeShiftConfiguration? TimeShiftConfiguration;
 
         [OutputConstructor]
         private GetChannelResult(
@@ -73,13 +74,16 @@ namespace Pulumi.AwsNative.MediaTailor
 
             Pulumi.AwsNative.MediaTailor.ChannelPlaybackMode? playbackMode,
 
-            ImmutableArray<Outputs.ChannelTag> tags)
+            ImmutableArray<Outputs.ChannelTag> tags,
+
+            Outputs.ChannelTimeShiftConfiguration? timeShiftConfiguration)
         {
             Arn = arn;
             FillerSlate = fillerSlate;
             LogConfiguration = logConfiguration;
             PlaybackMode = playbackMode;
             Tags = tags;
+            TimeShiftConfiguration = timeShiftConfiguration;
         }
     }
 }

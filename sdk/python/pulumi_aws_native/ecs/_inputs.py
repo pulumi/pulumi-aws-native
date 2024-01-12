@@ -2955,10 +2955,13 @@ class TaskDefinitionVolumeFromArgs:
 @pulumi.input_type
 class TaskDefinitionVolumeArgs:
     def __init__(__self__, *,
+                 configured_at_launch: Optional[pulumi.Input[bool]] = None,
                  docker_volume_configuration: Optional[pulumi.Input['TaskDefinitionDockerVolumeConfigurationArgs']] = None,
                  efs_volume_configuration: Optional[pulumi.Input['TaskDefinitionEfsVolumeConfigurationArgs']] = None,
                  host: Optional[pulumi.Input['TaskDefinitionHostVolumePropertiesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
+        if configured_at_launch is not None:
+            pulumi.set(__self__, "configured_at_launch", configured_at_launch)
         if docker_volume_configuration is not None:
             pulumi.set(__self__, "docker_volume_configuration", docker_volume_configuration)
         if efs_volume_configuration is not None:
@@ -2967,6 +2970,15 @@ class TaskDefinitionVolumeArgs:
             pulumi.set(__self__, "host", host)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="configuredAtLaunch")
+    def configured_at_launch(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "configured_at_launch")
+
+    @configured_at_launch.setter
+    def configured_at_launch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "configured_at_launch", value)
 
     @property
     @pulumi.getter(name="dockerVolumeConfiguration")

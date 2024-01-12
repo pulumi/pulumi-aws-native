@@ -91,6 +91,8 @@ namespace Pulumi.AwsNative.AppRunner
         public static ServiceCodeConfigurationValuesRuntime Dotnet6 { get; } = new ServiceCodeConfigurationValuesRuntime("DOTNET_6");
         public static ServiceCodeConfigurationValuesRuntime Php81 { get; } = new ServiceCodeConfigurationValuesRuntime("PHP_81");
         public static ServiceCodeConfigurationValuesRuntime Ruby31 { get; } = new ServiceCodeConfigurationValuesRuntime("RUBY_31");
+        public static ServiceCodeConfigurationValuesRuntime Python311 { get; } = new ServiceCodeConfigurationValuesRuntime("PYTHON_311");
+        public static ServiceCodeConfigurationValuesRuntime Nodejs18 { get; } = new ServiceCodeConfigurationValuesRuntime("NODEJS_18");
 
         public static bool operator ==(ServiceCodeConfigurationValuesRuntime left, ServiceCodeConfigurationValuesRuntime right) => left.Equals(right);
         public static bool operator !=(ServiceCodeConfigurationValuesRuntime left, ServiceCodeConfigurationValuesRuntime right) => !left.Equals(right);

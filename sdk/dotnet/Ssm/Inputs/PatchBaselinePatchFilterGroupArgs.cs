@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ssm.Inputs
 {
 
+    /// <summary>
+    /// The patch filter group that defines the criteria for the rule.
+    /// </summary>
     public sealed class PatchBaselinePatchFilterGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("patchFilters")]

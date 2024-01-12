@@ -19,22 +19,65 @@ export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.Invok
 }
 
 export interface GetPatchBaselineArgs {
+    /**
+     * The ID of the patch baseline.
+     */
     id: string;
 }
 
 export interface GetPatchBaselineResult {
     readonly approvalRules?: outputs.ssm.PatchBaselineRuleGroup;
+    /**
+     * A list of explicitly approved patches for the baseline.
+     */
     readonly approvedPatches?: string[];
-    readonly approvedPatchesComplianceLevel?: string;
+    /**
+     * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+     */
+    readonly approvedPatchesComplianceLevel?: enums.ssm.PatchBaselineApprovedPatchesComplianceLevel;
+    /**
+     * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+     */
     readonly approvedPatchesEnableNonSecurity?: boolean;
+    /**
+     * Set the baseline as default baseline. Only registering to default patch baseline is allowed.
+     */
+    readonly defaultBaseline?: boolean;
+    /**
+     * The description of the patch baseline.
+     */
     readonly description?: string;
+    /**
+     * A set of global filters used to include patches in the baseline.
+     */
     readonly globalFilters?: outputs.ssm.PatchBaselinePatchFilterGroup;
+    /**
+     * The ID of the patch baseline.
+     */
     readonly id?: string;
+    /**
+     * The name of the patch baseline.
+     */
     readonly name?: string;
+    /**
+     * PatchGroups is used to associate instances with a specific patch baseline
+     */
     readonly patchGroups?: string[];
+    /**
+     * A list of explicitly rejected patches for the baseline.
+     */
     readonly rejectedPatches?: string[];
-    readonly rejectedPatchesAction?: string;
+    /**
+     * The action for Patch Manager to take on patches included in the RejectedPackages list.
+     */
+    readonly rejectedPatchesAction?: enums.ssm.PatchBaselineRejectedPatchesAction;
+    /**
+     * Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+     */
     readonly sources?: outputs.ssm.PatchBaselinePatchSource[];
+    /**
+     * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
+     */
     readonly tags?: outputs.ssm.PatchBaselineTag[];
 }
 /**
@@ -45,5 +88,8 @@ export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: 
 }
 
 export interface GetPatchBaselineOutputArgs {
+    /**
+     * The ID of the patch baseline.
+     */
     id: pulumi.Input<string>;
 }

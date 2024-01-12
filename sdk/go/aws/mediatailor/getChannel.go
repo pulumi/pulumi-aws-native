@@ -34,7 +34,8 @@ type LookupChannelResult struct {
 	LogConfiguration *ChannelLogConfigurationForChannel `pulumi:"logConfiguration"`
 	PlaybackMode     *ChannelPlaybackMode               `pulumi:"playbackMode"`
 	// The tags to assign to the channel.
-	Tags []ChannelTag `pulumi:"tags"`
+	Tags                   []ChannelTag                   `pulumi:"tags"`
+	TimeShiftConfiguration *ChannelTimeShiftConfiguration `pulumi:"timeShiftConfiguration"`
 }
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
@@ -98,6 +99,10 @@ func (o LookupChannelResultOutput) PlaybackMode() ChannelPlaybackModePtrOutput {
 // The tags to assign to the channel.
 func (o LookupChannelResultOutput) Tags() ChannelTagArrayOutput {
 	return o.ApplyT(func(v LookupChannelResult) []ChannelTag { return v.Tags }).(ChannelTagArrayOutput)
+}
+
+func (o LookupChannelResultOutput) TimeShiftConfiguration() ChannelTimeShiftConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupChannelResult) *ChannelTimeShiftConfiguration { return v.TimeShiftConfiguration }).(ChannelTimeShiftConfigurationPtrOutput)
 }
 
 func init() {

@@ -77,6 +77,7 @@ __all__ = [
     'InternetGatewayTag',
     'IpamOperatingRegion',
     'IpamPoolProvisionedCidr',
+    'IpamPoolSourceResource',
     'IpamPoolTag',
     'IpamResourceDiscoveryAssociationTag',
     'IpamResourceDiscoveryIpamOperatingRegion',
@@ -155,6 +156,7 @@ __all__ = [
     'NetworkInsightsPathFilterPortRange',
     'NetworkInsightsPathPathFilter',
     'NetworkInsightsPathTag',
+    'NetworkInterfaceConnectionTrackingSpecification',
     'NetworkInterfaceInstanceIpv6Address',
     'NetworkInterfaceIpv4PrefixSpecification',
     'NetworkInterfaceIpv6PrefixSpecification',
@@ -2867,6 +2869,68 @@ class IpamPoolProvisionedCidr(dict):
 
 
 @pulumi.output_type
+class IpamPoolSourceResource(dict):
+    """
+    The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "resourceOwner":
+            suggest = "resource_owner"
+        elif key == "resourceRegion":
+            suggest = "resource_region"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpamPoolSourceResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpamPoolSourceResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpamPoolSourceResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: str,
+                 resource_owner: str,
+                 resource_region: str,
+                 resource_type: str):
+        """
+        The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_owner", resource_owner)
+        pulumi.set(__self__, "resource_region", resource_region)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceOwner")
+    def resource_owner(self) -> str:
+        return pulumi.get(self, "resource_owner")
+
+    @property
+    @pulumi.getter(name="resourceRegion")
+    def resource_region(self) -> str:
+        return pulumi.get(self, "resource_region")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
 class IpamPoolTag(dict):
     """
     A key-value pair to associate with a resource.
@@ -4841,6 +4905,8 @@ class LaunchTemplateMaintenanceOptions(dict):
         suggest = None
         if key == "autoRecovery":
             suggest = "auto_recovery"
+        elif key == "rebootMigration":
+            suggest = "reboot_migration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateMaintenanceOptions. Access the value via the '{suggest}' property getter instead.")
@@ -4854,13 +4920,17 @@ class LaunchTemplateMaintenanceOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 auto_recovery: Optional[str] = None):
+                 auto_recovery: Optional[str] = None,
+                 reboot_migration: Optional[str] = None):
         """
         The maintenance options of your instance.
         :param str auto_recovery: Disables the automatic recovery behavior of your instance or sets it to default.
+        :param str reboot_migration: Disables the automatic reboot-migration behavior of your instance or sets it to default.
         """
         if auto_recovery is not None:
             pulumi.set(__self__, "auto_recovery", auto_recovery)
+        if reboot_migration is not None:
+            pulumi.set(__self__, "reboot_migration", reboot_migration)
 
     @property
     @pulumi.getter(name="autoRecovery")
@@ -4869,6 +4939,14 @@ class LaunchTemplateMaintenanceOptions(dict):
         Disables the automatic recovery behavior of your instance or sets it to default.
         """
         return pulumi.get(self, "auto_recovery")
+
+    @property
+    @pulumi.getter(name="rebootMigration")
+    def reboot_migration(self) -> Optional[str]:
+        """
+        Disables the automatic reboot-migration behavior of your instance or sets it to default.
+        """
+        return pulumi.get(self, "reboot_migration")
 
 
 @pulumi.output_type
@@ -7896,6 +7974,56 @@ class NetworkInsightsPathTag(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class NetworkInterfaceConnectionTrackingSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tcpEstablishedTimeout":
+            suggest = "tcp_established_timeout"
+        elif key == "udpStreamTimeout":
+            suggest = "udp_stream_timeout"
+        elif key == "udpTimeout":
+            suggest = "udp_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceConnectionTrackingSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceConnectionTrackingSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceConnectionTrackingSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tcp_established_timeout: Optional[int] = None,
+                 udp_stream_timeout: Optional[int] = None,
+                 udp_timeout: Optional[int] = None):
+        if tcp_established_timeout is not None:
+            pulumi.set(__self__, "tcp_established_timeout", tcp_established_timeout)
+        if udp_stream_timeout is not None:
+            pulumi.set(__self__, "udp_stream_timeout", udp_stream_timeout)
+        if udp_timeout is not None:
+            pulumi.set(__self__, "udp_timeout", udp_timeout)
+
+    @property
+    @pulumi.getter(name="tcpEstablishedTimeout")
+    def tcp_established_timeout(self) -> Optional[int]:
+        return pulumi.get(self, "tcp_established_timeout")
+
+    @property
+    @pulumi.getter(name="udpStreamTimeout")
+    def udp_stream_timeout(self) -> Optional[int]:
+        return pulumi.get(self, "udp_stream_timeout")
+
+    @property
+    @pulumi.getter(name="udpTimeout")
+    def udp_timeout(self) -> Optional[int]:
+        return pulumi.get(self, "udp_timeout")
 
 
 @pulumi.output_type

@@ -58,24 +58,36 @@ namespace Pulumi.AwsNative.QuickSight
     public sealed class GetTemplateResult
     {
         public readonly string? Arn;
+        public readonly string? CreatedTime;
+        public readonly string? LastUpdatedTime;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.TemplateResourcePermission> Permissions;
         public readonly ImmutableArray<Outputs.TemplateTag> Tags;
+        public readonly Outputs.TemplateVersion? Version;
 
         [OutputConstructor]
         private GetTemplateResult(
             string? arn,
 
+            string? createdTime,
+
+            string? lastUpdatedTime,
+
             string? name,
 
             ImmutableArray<Outputs.TemplateResourcePermission> permissions,
 
-            ImmutableArray<Outputs.TemplateTag> tags)
+            ImmutableArray<Outputs.TemplateTag> tags,
+
+            Outputs.TemplateVersion? version)
         {
             Arn = arn;
+            CreatedTime = createdTime;
+            LastUpdatedTime = lastUpdatedTime;
             Name = name;
             Permissions = permissions;
             Tags = tags;
+            Version = version;
         }
     }
 }

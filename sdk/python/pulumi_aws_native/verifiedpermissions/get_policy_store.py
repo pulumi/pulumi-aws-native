@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetPolicyStoreResult:
-    def __init__(__self__, arn=None, policy_store_id=None, schema=None, validation_settings=None):
+    def __init__(__self__, arn=None, description=None, policy_store_id=None, schema=None, validation_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if policy_store_id and not isinstance(policy_store_id, str):
             raise TypeError("Expected argument 'policy_store_id' to be a str")
         pulumi.set(__self__, "policy_store_id", policy_store_id)
@@ -38,6 +41,11 @@ class GetPolicyStoreResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="policyStoreId")
@@ -62,6 +70,7 @@ class AwaitableGetPolicyStoreResult(GetPolicyStoreResult):
             yield self
         return GetPolicyStoreResult(
             arn=self.arn,
+            description=self.description,
             policy_store_id=self.policy_store_id,
             schema=self.schema,
             validation_settings=self.validation_settings)
@@ -79,6 +88,7 @@ def get_policy_store(policy_store_id: Optional[str] = None,
 
     return AwaitableGetPolicyStoreResult(
         arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
         policy_store_id=pulumi.get(__ret__, 'policy_store_id'),
         schema=pulumi.get(__ret__, 'schema'),
         validation_settings=pulumi.get(__ret__, 'validation_settings'))

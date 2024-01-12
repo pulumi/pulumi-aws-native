@@ -1674,6 +1674,956 @@ func (in *parameterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*Parame
 	}
 }
 
+// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+type PatchBaselineApprovedPatchesComplianceLevel string
+
+const (
+	PatchBaselineApprovedPatchesComplianceLevelCritical      = PatchBaselineApprovedPatchesComplianceLevel("CRITICAL")
+	PatchBaselineApprovedPatchesComplianceLevelHigh          = PatchBaselineApprovedPatchesComplianceLevel("HIGH")
+	PatchBaselineApprovedPatchesComplianceLevelMedium        = PatchBaselineApprovedPatchesComplianceLevel("MEDIUM")
+	PatchBaselineApprovedPatchesComplianceLevelLow           = PatchBaselineApprovedPatchesComplianceLevel("LOW")
+	PatchBaselineApprovedPatchesComplianceLevelInformational = PatchBaselineApprovedPatchesComplianceLevel("INFORMATIONAL")
+	PatchBaselineApprovedPatchesComplianceLevelUnspecified   = PatchBaselineApprovedPatchesComplianceLevel("UNSPECIFIED")
+)
+
+func (PatchBaselineApprovedPatchesComplianceLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineApprovedPatchesComplianceLevel)(nil)).Elem()
+}
+
+func (e PatchBaselineApprovedPatchesComplianceLevel) ToPatchBaselineApprovedPatchesComplianceLevelOutput() PatchBaselineApprovedPatchesComplianceLevelOutput {
+	return pulumi.ToOutput(e).(PatchBaselineApprovedPatchesComplianceLevelOutput)
+}
+
+func (e PatchBaselineApprovedPatchesComplianceLevel) ToPatchBaselineApprovedPatchesComplianceLevelOutputWithContext(ctx context.Context) PatchBaselineApprovedPatchesComplianceLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PatchBaselineApprovedPatchesComplianceLevelOutput)
+}
+
+func (e PatchBaselineApprovedPatchesComplianceLevel) ToPatchBaselineApprovedPatchesComplianceLevelPtrOutput() PatchBaselineApprovedPatchesComplianceLevelPtrOutput {
+	return e.ToPatchBaselineApprovedPatchesComplianceLevelPtrOutputWithContext(context.Background())
+}
+
+func (e PatchBaselineApprovedPatchesComplianceLevel) ToPatchBaselineApprovedPatchesComplianceLevelPtrOutputWithContext(ctx context.Context) PatchBaselineApprovedPatchesComplianceLevelPtrOutput {
+	return PatchBaselineApprovedPatchesComplianceLevel(e).ToPatchBaselineApprovedPatchesComplianceLevelOutputWithContext(ctx).ToPatchBaselineApprovedPatchesComplianceLevelPtrOutputWithContext(ctx)
+}
+
+func (e PatchBaselineApprovedPatchesComplianceLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PatchBaselineApprovedPatchesComplianceLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PatchBaselineApprovedPatchesComplianceLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PatchBaselineApprovedPatchesComplianceLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PatchBaselineApprovedPatchesComplianceLevelOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineApprovedPatchesComplianceLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineApprovedPatchesComplianceLevel)(nil)).Elem()
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelOutput) ToPatchBaselineApprovedPatchesComplianceLevelOutput() PatchBaselineApprovedPatchesComplianceLevelOutput {
+	return o
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelOutput) ToPatchBaselineApprovedPatchesComplianceLevelOutputWithContext(ctx context.Context) PatchBaselineApprovedPatchesComplianceLevelOutput {
+	return o
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelOutput) ToPatchBaselineApprovedPatchesComplianceLevelPtrOutput() PatchBaselineApprovedPatchesComplianceLevelPtrOutput {
+	return o.ToPatchBaselineApprovedPatchesComplianceLevelPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelOutput) ToPatchBaselineApprovedPatchesComplianceLevelPtrOutputWithContext(ctx context.Context) PatchBaselineApprovedPatchesComplianceLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselineApprovedPatchesComplianceLevel) *PatchBaselineApprovedPatchesComplianceLevel {
+		return &v
+	}).(PatchBaselineApprovedPatchesComplianceLevelPtrOutput)
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelOutput) ToOutput(ctx context.Context) pulumix.Output[PatchBaselineApprovedPatchesComplianceLevel] {
+	return pulumix.Output[PatchBaselineApprovedPatchesComplianceLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PatchBaselineApprovedPatchesComplianceLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PatchBaselineApprovedPatchesComplianceLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PatchBaselineApprovedPatchesComplianceLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineApprovedPatchesComplianceLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselineApprovedPatchesComplianceLevel)(nil)).Elem()
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelPtrOutput) ToPatchBaselineApprovedPatchesComplianceLevelPtrOutput() PatchBaselineApprovedPatchesComplianceLevelPtrOutput {
+	return o
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelPtrOutput) ToPatchBaselineApprovedPatchesComplianceLevelPtrOutputWithContext(ctx context.Context) PatchBaselineApprovedPatchesComplianceLevelPtrOutput {
+	return o
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PatchBaselineApprovedPatchesComplianceLevel] {
+	return pulumix.Output[*PatchBaselineApprovedPatchesComplianceLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelPtrOutput) Elem() PatchBaselineApprovedPatchesComplianceLevelOutput {
+	return o.ApplyT(func(v *PatchBaselineApprovedPatchesComplianceLevel) PatchBaselineApprovedPatchesComplianceLevel {
+		if v != nil {
+			return *v
+		}
+		var ret PatchBaselineApprovedPatchesComplianceLevel
+		return ret
+	}).(PatchBaselineApprovedPatchesComplianceLevelOutput)
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineApprovedPatchesComplianceLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PatchBaselineApprovedPatchesComplianceLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PatchBaselineApprovedPatchesComplianceLevelInput is an input type that accepts PatchBaselineApprovedPatchesComplianceLevelArgs and PatchBaselineApprovedPatchesComplianceLevelOutput values.
+// You can construct a concrete instance of `PatchBaselineApprovedPatchesComplianceLevelInput` via:
+//
+//	PatchBaselineApprovedPatchesComplianceLevelArgs{...}
+type PatchBaselineApprovedPatchesComplianceLevelInput interface {
+	pulumi.Input
+
+	ToPatchBaselineApprovedPatchesComplianceLevelOutput() PatchBaselineApprovedPatchesComplianceLevelOutput
+	ToPatchBaselineApprovedPatchesComplianceLevelOutputWithContext(context.Context) PatchBaselineApprovedPatchesComplianceLevelOutput
+}
+
+var patchBaselineApprovedPatchesComplianceLevelPtrType = reflect.TypeOf((**PatchBaselineApprovedPatchesComplianceLevel)(nil)).Elem()
+
+type PatchBaselineApprovedPatchesComplianceLevelPtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselineApprovedPatchesComplianceLevelPtrOutput() PatchBaselineApprovedPatchesComplianceLevelPtrOutput
+	ToPatchBaselineApprovedPatchesComplianceLevelPtrOutputWithContext(context.Context) PatchBaselineApprovedPatchesComplianceLevelPtrOutput
+}
+
+type patchBaselineApprovedPatchesComplianceLevelPtr string
+
+func PatchBaselineApprovedPatchesComplianceLevelPtr(v string) PatchBaselineApprovedPatchesComplianceLevelPtrInput {
+	return (*patchBaselineApprovedPatchesComplianceLevelPtr)(&v)
+}
+
+func (*patchBaselineApprovedPatchesComplianceLevelPtr) ElementType() reflect.Type {
+	return patchBaselineApprovedPatchesComplianceLevelPtrType
+}
+
+func (in *patchBaselineApprovedPatchesComplianceLevelPtr) ToPatchBaselineApprovedPatchesComplianceLevelPtrOutput() PatchBaselineApprovedPatchesComplianceLevelPtrOutput {
+	return pulumi.ToOutput(in).(PatchBaselineApprovedPatchesComplianceLevelPtrOutput)
+}
+
+func (in *patchBaselineApprovedPatchesComplianceLevelPtr) ToPatchBaselineApprovedPatchesComplianceLevelPtrOutputWithContext(ctx context.Context) PatchBaselineApprovedPatchesComplianceLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PatchBaselineApprovedPatchesComplianceLevelPtrOutput)
+}
+
+func (in *patchBaselineApprovedPatchesComplianceLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*PatchBaselineApprovedPatchesComplianceLevel] {
+	return pulumix.Output[*PatchBaselineApprovedPatchesComplianceLevel]{
+		OutputState: in.ToPatchBaselineApprovedPatchesComplianceLevelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+type PatchBaselineOperatingSystem string
+
+const (
+	PatchBaselineOperatingSystemWindows               = PatchBaselineOperatingSystem("WINDOWS")
+	PatchBaselineOperatingSystemAmazonLinux           = PatchBaselineOperatingSystem("AMAZON_LINUX")
+	PatchBaselineOperatingSystemAmazonLinux2          = PatchBaselineOperatingSystem("AMAZON_LINUX_2")
+	PatchBaselineOperatingSystemAmazonLinux2022       = PatchBaselineOperatingSystem("AMAZON_LINUX_2022")
+	PatchBaselineOperatingSystemAmazonLinux2023       = PatchBaselineOperatingSystem("AMAZON_LINUX_2023")
+	PatchBaselineOperatingSystemUbuntu                = PatchBaselineOperatingSystem("UBUNTU")
+	PatchBaselineOperatingSystemRedhatEnterpriseLinux = PatchBaselineOperatingSystem("REDHAT_ENTERPRISE_LINUX")
+	PatchBaselineOperatingSystemSuse                  = PatchBaselineOperatingSystem("SUSE")
+	PatchBaselineOperatingSystemCentos                = PatchBaselineOperatingSystem("CENTOS")
+	PatchBaselineOperatingSystemOracleLinux           = PatchBaselineOperatingSystem("ORACLE_LINUX")
+	PatchBaselineOperatingSystemDebian                = PatchBaselineOperatingSystem("DEBIAN")
+	PatchBaselineOperatingSystemMacos                 = PatchBaselineOperatingSystem("MACOS")
+	PatchBaselineOperatingSystemRaspbian              = PatchBaselineOperatingSystem("RASPBIAN")
+	PatchBaselineOperatingSystemRockyLinux            = PatchBaselineOperatingSystem("ROCKY_LINUX")
+)
+
+func (PatchBaselineOperatingSystem) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineOperatingSystem)(nil)).Elem()
+}
+
+func (e PatchBaselineOperatingSystem) ToPatchBaselineOperatingSystemOutput() PatchBaselineOperatingSystemOutput {
+	return pulumi.ToOutput(e).(PatchBaselineOperatingSystemOutput)
+}
+
+func (e PatchBaselineOperatingSystem) ToPatchBaselineOperatingSystemOutputWithContext(ctx context.Context) PatchBaselineOperatingSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PatchBaselineOperatingSystemOutput)
+}
+
+func (e PatchBaselineOperatingSystem) ToPatchBaselineOperatingSystemPtrOutput() PatchBaselineOperatingSystemPtrOutput {
+	return e.ToPatchBaselineOperatingSystemPtrOutputWithContext(context.Background())
+}
+
+func (e PatchBaselineOperatingSystem) ToPatchBaselineOperatingSystemPtrOutputWithContext(ctx context.Context) PatchBaselineOperatingSystemPtrOutput {
+	return PatchBaselineOperatingSystem(e).ToPatchBaselineOperatingSystemOutputWithContext(ctx).ToPatchBaselineOperatingSystemPtrOutputWithContext(ctx)
+}
+
+func (e PatchBaselineOperatingSystem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PatchBaselineOperatingSystem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PatchBaselineOperatingSystem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PatchBaselineOperatingSystem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PatchBaselineOperatingSystemOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineOperatingSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineOperatingSystem)(nil)).Elem()
+}
+
+func (o PatchBaselineOperatingSystemOutput) ToPatchBaselineOperatingSystemOutput() PatchBaselineOperatingSystemOutput {
+	return o
+}
+
+func (o PatchBaselineOperatingSystemOutput) ToPatchBaselineOperatingSystemOutputWithContext(ctx context.Context) PatchBaselineOperatingSystemOutput {
+	return o
+}
+
+func (o PatchBaselineOperatingSystemOutput) ToPatchBaselineOperatingSystemPtrOutput() PatchBaselineOperatingSystemPtrOutput {
+	return o.ToPatchBaselineOperatingSystemPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineOperatingSystemOutput) ToPatchBaselineOperatingSystemPtrOutputWithContext(ctx context.Context) PatchBaselineOperatingSystemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselineOperatingSystem) *PatchBaselineOperatingSystem {
+		return &v
+	}).(PatchBaselineOperatingSystemPtrOutput)
+}
+
+func (o PatchBaselineOperatingSystemOutput) ToOutput(ctx context.Context) pulumix.Output[PatchBaselineOperatingSystem] {
+	return pulumix.Output[PatchBaselineOperatingSystem]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PatchBaselineOperatingSystemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineOperatingSystemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PatchBaselineOperatingSystem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PatchBaselineOperatingSystemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineOperatingSystemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PatchBaselineOperatingSystem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PatchBaselineOperatingSystemPtrOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineOperatingSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselineOperatingSystem)(nil)).Elem()
+}
+
+func (o PatchBaselineOperatingSystemPtrOutput) ToPatchBaselineOperatingSystemPtrOutput() PatchBaselineOperatingSystemPtrOutput {
+	return o
+}
+
+func (o PatchBaselineOperatingSystemPtrOutput) ToPatchBaselineOperatingSystemPtrOutputWithContext(ctx context.Context) PatchBaselineOperatingSystemPtrOutput {
+	return o
+}
+
+func (o PatchBaselineOperatingSystemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PatchBaselineOperatingSystem] {
+	return pulumix.Output[*PatchBaselineOperatingSystem]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PatchBaselineOperatingSystemPtrOutput) Elem() PatchBaselineOperatingSystemOutput {
+	return o.ApplyT(func(v *PatchBaselineOperatingSystem) PatchBaselineOperatingSystem {
+		if v != nil {
+			return *v
+		}
+		var ret PatchBaselineOperatingSystem
+		return ret
+	}).(PatchBaselineOperatingSystemOutput)
+}
+
+func (o PatchBaselineOperatingSystemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineOperatingSystemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PatchBaselineOperatingSystem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PatchBaselineOperatingSystemInput is an input type that accepts PatchBaselineOperatingSystemArgs and PatchBaselineOperatingSystemOutput values.
+// You can construct a concrete instance of `PatchBaselineOperatingSystemInput` via:
+//
+//	PatchBaselineOperatingSystemArgs{...}
+type PatchBaselineOperatingSystemInput interface {
+	pulumi.Input
+
+	ToPatchBaselineOperatingSystemOutput() PatchBaselineOperatingSystemOutput
+	ToPatchBaselineOperatingSystemOutputWithContext(context.Context) PatchBaselineOperatingSystemOutput
+}
+
+var patchBaselineOperatingSystemPtrType = reflect.TypeOf((**PatchBaselineOperatingSystem)(nil)).Elem()
+
+type PatchBaselineOperatingSystemPtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselineOperatingSystemPtrOutput() PatchBaselineOperatingSystemPtrOutput
+	ToPatchBaselineOperatingSystemPtrOutputWithContext(context.Context) PatchBaselineOperatingSystemPtrOutput
+}
+
+type patchBaselineOperatingSystemPtr string
+
+func PatchBaselineOperatingSystemPtr(v string) PatchBaselineOperatingSystemPtrInput {
+	return (*patchBaselineOperatingSystemPtr)(&v)
+}
+
+func (*patchBaselineOperatingSystemPtr) ElementType() reflect.Type {
+	return patchBaselineOperatingSystemPtrType
+}
+
+func (in *patchBaselineOperatingSystemPtr) ToPatchBaselineOperatingSystemPtrOutput() PatchBaselineOperatingSystemPtrOutput {
+	return pulumi.ToOutput(in).(PatchBaselineOperatingSystemPtrOutput)
+}
+
+func (in *patchBaselineOperatingSystemPtr) ToPatchBaselineOperatingSystemPtrOutputWithContext(ctx context.Context) PatchBaselineOperatingSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PatchBaselineOperatingSystemPtrOutput)
+}
+
+func (in *patchBaselineOperatingSystemPtr) ToOutput(ctx context.Context) pulumix.Output[*PatchBaselineOperatingSystem] {
+	return pulumix.Output[*PatchBaselineOperatingSystem]{
+		OutputState: in.ToPatchBaselineOperatingSystemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PatchBaselinePatchFilterKey string
+
+const (
+	PatchBaselinePatchFilterKeyAdvisoryId     = PatchBaselinePatchFilterKey("ADVISORY_ID")
+	PatchBaselinePatchFilterKeyArch           = PatchBaselinePatchFilterKey("ARCH")
+	PatchBaselinePatchFilterKeyBugzillaId     = PatchBaselinePatchFilterKey("BUGZILLA_ID")
+	PatchBaselinePatchFilterKeyClassification = PatchBaselinePatchFilterKey("CLASSIFICATION")
+	PatchBaselinePatchFilterKeyCveId          = PatchBaselinePatchFilterKey("CVE_ID")
+	PatchBaselinePatchFilterKeyEpoch          = PatchBaselinePatchFilterKey("EPOCH")
+	PatchBaselinePatchFilterKeyMsrcSeverity   = PatchBaselinePatchFilterKey("MSRC_SEVERITY")
+	PatchBaselinePatchFilterKeyName           = PatchBaselinePatchFilterKey("NAME")
+	PatchBaselinePatchFilterKeyPatchId        = PatchBaselinePatchFilterKey("PATCH_ID")
+	PatchBaselinePatchFilterKeyPatchSet       = PatchBaselinePatchFilterKey("PATCH_SET")
+	PatchBaselinePatchFilterKeyPriority       = PatchBaselinePatchFilterKey("PRIORITY")
+	PatchBaselinePatchFilterKeyProduct        = PatchBaselinePatchFilterKey("PRODUCT")
+	PatchBaselinePatchFilterKeyProductFamily  = PatchBaselinePatchFilterKey("PRODUCT_FAMILY")
+	PatchBaselinePatchFilterKeyRelease        = PatchBaselinePatchFilterKey("RELEASE")
+	PatchBaselinePatchFilterKeyRepository     = PatchBaselinePatchFilterKey("REPOSITORY")
+	PatchBaselinePatchFilterKeySection        = PatchBaselinePatchFilterKey("SECTION")
+	PatchBaselinePatchFilterKeySecurity       = PatchBaselinePatchFilterKey("SECURITY")
+	PatchBaselinePatchFilterKeySeverity       = PatchBaselinePatchFilterKey("SEVERITY")
+	PatchBaselinePatchFilterKeyVersion        = PatchBaselinePatchFilterKey("VERSION")
+)
+
+func (PatchBaselinePatchFilterKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchFilterKey)(nil)).Elem()
+}
+
+func (e PatchBaselinePatchFilterKey) ToPatchBaselinePatchFilterKeyOutput() PatchBaselinePatchFilterKeyOutput {
+	return pulumi.ToOutput(e).(PatchBaselinePatchFilterKeyOutput)
+}
+
+func (e PatchBaselinePatchFilterKey) ToPatchBaselinePatchFilterKeyOutputWithContext(ctx context.Context) PatchBaselinePatchFilterKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PatchBaselinePatchFilterKeyOutput)
+}
+
+func (e PatchBaselinePatchFilterKey) ToPatchBaselinePatchFilterKeyPtrOutput() PatchBaselinePatchFilterKeyPtrOutput {
+	return e.ToPatchBaselinePatchFilterKeyPtrOutputWithContext(context.Background())
+}
+
+func (e PatchBaselinePatchFilterKey) ToPatchBaselinePatchFilterKeyPtrOutputWithContext(ctx context.Context) PatchBaselinePatchFilterKeyPtrOutput {
+	return PatchBaselinePatchFilterKey(e).ToPatchBaselinePatchFilterKeyOutputWithContext(ctx).ToPatchBaselinePatchFilterKeyPtrOutputWithContext(ctx)
+}
+
+func (e PatchBaselinePatchFilterKey) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PatchBaselinePatchFilterKey) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PatchBaselinePatchFilterKey) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PatchBaselinePatchFilterKey) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PatchBaselinePatchFilterKeyOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchFilterKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchFilterKey)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchFilterKeyOutput) ToPatchBaselinePatchFilterKeyOutput() PatchBaselinePatchFilterKeyOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterKeyOutput) ToPatchBaselinePatchFilterKeyOutputWithContext(ctx context.Context) PatchBaselinePatchFilterKeyOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterKeyOutput) ToPatchBaselinePatchFilterKeyPtrOutput() PatchBaselinePatchFilterKeyPtrOutput {
+	return o.ToPatchBaselinePatchFilterKeyPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselinePatchFilterKeyOutput) ToPatchBaselinePatchFilterKeyPtrOutputWithContext(ctx context.Context) PatchBaselinePatchFilterKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselinePatchFilterKey) *PatchBaselinePatchFilterKey {
+		return &v
+	}).(PatchBaselinePatchFilterKeyPtrOutput)
+}
+
+func (o PatchBaselinePatchFilterKeyOutput) ToOutput(ctx context.Context) pulumix.Output[PatchBaselinePatchFilterKey] {
+	return pulumix.Output[PatchBaselinePatchFilterKey]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PatchBaselinePatchFilterKeyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PatchBaselinePatchFilterKeyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PatchBaselinePatchFilterKey) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PatchBaselinePatchFilterKeyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselinePatchFilterKeyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PatchBaselinePatchFilterKey) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PatchBaselinePatchFilterKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchFilterKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselinePatchFilterKey)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchFilterKeyPtrOutput) ToPatchBaselinePatchFilterKeyPtrOutput() PatchBaselinePatchFilterKeyPtrOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterKeyPtrOutput) ToPatchBaselinePatchFilterKeyPtrOutputWithContext(ctx context.Context) PatchBaselinePatchFilterKeyPtrOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PatchBaselinePatchFilterKey] {
+	return pulumix.Output[*PatchBaselinePatchFilterKey]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PatchBaselinePatchFilterKeyPtrOutput) Elem() PatchBaselinePatchFilterKeyOutput {
+	return o.ApplyT(func(v *PatchBaselinePatchFilterKey) PatchBaselinePatchFilterKey {
+		if v != nil {
+			return *v
+		}
+		var ret PatchBaselinePatchFilterKey
+		return ret
+	}).(PatchBaselinePatchFilterKeyOutput)
+}
+
+func (o PatchBaselinePatchFilterKeyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselinePatchFilterKeyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PatchBaselinePatchFilterKey) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PatchBaselinePatchFilterKeyInput is an input type that accepts PatchBaselinePatchFilterKeyArgs and PatchBaselinePatchFilterKeyOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchFilterKeyInput` via:
+//
+//	PatchBaselinePatchFilterKeyArgs{...}
+type PatchBaselinePatchFilterKeyInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchFilterKeyOutput() PatchBaselinePatchFilterKeyOutput
+	ToPatchBaselinePatchFilterKeyOutputWithContext(context.Context) PatchBaselinePatchFilterKeyOutput
+}
+
+var patchBaselinePatchFilterKeyPtrType = reflect.TypeOf((**PatchBaselinePatchFilterKey)(nil)).Elem()
+
+type PatchBaselinePatchFilterKeyPtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchFilterKeyPtrOutput() PatchBaselinePatchFilterKeyPtrOutput
+	ToPatchBaselinePatchFilterKeyPtrOutputWithContext(context.Context) PatchBaselinePatchFilterKeyPtrOutput
+}
+
+type patchBaselinePatchFilterKeyPtr string
+
+func PatchBaselinePatchFilterKeyPtr(v string) PatchBaselinePatchFilterKeyPtrInput {
+	return (*patchBaselinePatchFilterKeyPtr)(&v)
+}
+
+func (*patchBaselinePatchFilterKeyPtr) ElementType() reflect.Type {
+	return patchBaselinePatchFilterKeyPtrType
+}
+
+func (in *patchBaselinePatchFilterKeyPtr) ToPatchBaselinePatchFilterKeyPtrOutput() PatchBaselinePatchFilterKeyPtrOutput {
+	return pulumi.ToOutput(in).(PatchBaselinePatchFilterKeyPtrOutput)
+}
+
+func (in *patchBaselinePatchFilterKeyPtr) ToPatchBaselinePatchFilterKeyPtrOutputWithContext(ctx context.Context) PatchBaselinePatchFilterKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PatchBaselinePatchFilterKeyPtrOutput)
+}
+
+func (in *patchBaselinePatchFilterKeyPtr) ToOutput(ctx context.Context) pulumix.Output[*PatchBaselinePatchFilterKey] {
+	return pulumix.Output[*PatchBaselinePatchFilterKey]{
+		OutputState: in.ToPatchBaselinePatchFilterKeyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The action for Patch Manager to take on patches included in the RejectedPackages list.
+type PatchBaselineRejectedPatchesAction string
+
+const (
+	PatchBaselineRejectedPatchesActionAllowAsDependency = PatchBaselineRejectedPatchesAction("ALLOW_AS_DEPENDENCY")
+	PatchBaselineRejectedPatchesActionBlock             = PatchBaselineRejectedPatchesAction("BLOCK")
+)
+
+func (PatchBaselineRejectedPatchesAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineRejectedPatchesAction)(nil)).Elem()
+}
+
+func (e PatchBaselineRejectedPatchesAction) ToPatchBaselineRejectedPatchesActionOutput() PatchBaselineRejectedPatchesActionOutput {
+	return pulumi.ToOutput(e).(PatchBaselineRejectedPatchesActionOutput)
+}
+
+func (e PatchBaselineRejectedPatchesAction) ToPatchBaselineRejectedPatchesActionOutputWithContext(ctx context.Context) PatchBaselineRejectedPatchesActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PatchBaselineRejectedPatchesActionOutput)
+}
+
+func (e PatchBaselineRejectedPatchesAction) ToPatchBaselineRejectedPatchesActionPtrOutput() PatchBaselineRejectedPatchesActionPtrOutput {
+	return e.ToPatchBaselineRejectedPatchesActionPtrOutputWithContext(context.Background())
+}
+
+func (e PatchBaselineRejectedPatchesAction) ToPatchBaselineRejectedPatchesActionPtrOutputWithContext(ctx context.Context) PatchBaselineRejectedPatchesActionPtrOutput {
+	return PatchBaselineRejectedPatchesAction(e).ToPatchBaselineRejectedPatchesActionOutputWithContext(ctx).ToPatchBaselineRejectedPatchesActionPtrOutputWithContext(ctx)
+}
+
+func (e PatchBaselineRejectedPatchesAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PatchBaselineRejectedPatchesAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PatchBaselineRejectedPatchesAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PatchBaselineRejectedPatchesAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PatchBaselineRejectedPatchesActionOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineRejectedPatchesActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineRejectedPatchesAction)(nil)).Elem()
+}
+
+func (o PatchBaselineRejectedPatchesActionOutput) ToPatchBaselineRejectedPatchesActionOutput() PatchBaselineRejectedPatchesActionOutput {
+	return o
+}
+
+func (o PatchBaselineRejectedPatchesActionOutput) ToPatchBaselineRejectedPatchesActionOutputWithContext(ctx context.Context) PatchBaselineRejectedPatchesActionOutput {
+	return o
+}
+
+func (o PatchBaselineRejectedPatchesActionOutput) ToPatchBaselineRejectedPatchesActionPtrOutput() PatchBaselineRejectedPatchesActionPtrOutput {
+	return o.ToPatchBaselineRejectedPatchesActionPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineRejectedPatchesActionOutput) ToPatchBaselineRejectedPatchesActionPtrOutputWithContext(ctx context.Context) PatchBaselineRejectedPatchesActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselineRejectedPatchesAction) *PatchBaselineRejectedPatchesAction {
+		return &v
+	}).(PatchBaselineRejectedPatchesActionPtrOutput)
+}
+
+func (o PatchBaselineRejectedPatchesActionOutput) ToOutput(ctx context.Context) pulumix.Output[PatchBaselineRejectedPatchesAction] {
+	return pulumix.Output[PatchBaselineRejectedPatchesAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PatchBaselineRejectedPatchesActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineRejectedPatchesActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PatchBaselineRejectedPatchesAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PatchBaselineRejectedPatchesActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineRejectedPatchesActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PatchBaselineRejectedPatchesAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PatchBaselineRejectedPatchesActionPtrOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineRejectedPatchesActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselineRejectedPatchesAction)(nil)).Elem()
+}
+
+func (o PatchBaselineRejectedPatchesActionPtrOutput) ToPatchBaselineRejectedPatchesActionPtrOutput() PatchBaselineRejectedPatchesActionPtrOutput {
+	return o
+}
+
+func (o PatchBaselineRejectedPatchesActionPtrOutput) ToPatchBaselineRejectedPatchesActionPtrOutputWithContext(ctx context.Context) PatchBaselineRejectedPatchesActionPtrOutput {
+	return o
+}
+
+func (o PatchBaselineRejectedPatchesActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PatchBaselineRejectedPatchesAction] {
+	return pulumix.Output[*PatchBaselineRejectedPatchesAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PatchBaselineRejectedPatchesActionPtrOutput) Elem() PatchBaselineRejectedPatchesActionOutput {
+	return o.ApplyT(func(v *PatchBaselineRejectedPatchesAction) PatchBaselineRejectedPatchesAction {
+		if v != nil {
+			return *v
+		}
+		var ret PatchBaselineRejectedPatchesAction
+		return ret
+	}).(PatchBaselineRejectedPatchesActionOutput)
+}
+
+func (o PatchBaselineRejectedPatchesActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineRejectedPatchesActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PatchBaselineRejectedPatchesAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PatchBaselineRejectedPatchesActionInput is an input type that accepts PatchBaselineRejectedPatchesActionArgs and PatchBaselineRejectedPatchesActionOutput values.
+// You can construct a concrete instance of `PatchBaselineRejectedPatchesActionInput` via:
+//
+//	PatchBaselineRejectedPatchesActionArgs{...}
+type PatchBaselineRejectedPatchesActionInput interface {
+	pulumi.Input
+
+	ToPatchBaselineRejectedPatchesActionOutput() PatchBaselineRejectedPatchesActionOutput
+	ToPatchBaselineRejectedPatchesActionOutputWithContext(context.Context) PatchBaselineRejectedPatchesActionOutput
+}
+
+var patchBaselineRejectedPatchesActionPtrType = reflect.TypeOf((**PatchBaselineRejectedPatchesAction)(nil)).Elem()
+
+type PatchBaselineRejectedPatchesActionPtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselineRejectedPatchesActionPtrOutput() PatchBaselineRejectedPatchesActionPtrOutput
+	ToPatchBaselineRejectedPatchesActionPtrOutputWithContext(context.Context) PatchBaselineRejectedPatchesActionPtrOutput
+}
+
+type patchBaselineRejectedPatchesActionPtr string
+
+func PatchBaselineRejectedPatchesActionPtr(v string) PatchBaselineRejectedPatchesActionPtrInput {
+	return (*patchBaselineRejectedPatchesActionPtr)(&v)
+}
+
+func (*patchBaselineRejectedPatchesActionPtr) ElementType() reflect.Type {
+	return patchBaselineRejectedPatchesActionPtrType
+}
+
+func (in *patchBaselineRejectedPatchesActionPtr) ToPatchBaselineRejectedPatchesActionPtrOutput() PatchBaselineRejectedPatchesActionPtrOutput {
+	return pulumi.ToOutput(in).(PatchBaselineRejectedPatchesActionPtrOutput)
+}
+
+func (in *patchBaselineRejectedPatchesActionPtr) ToPatchBaselineRejectedPatchesActionPtrOutputWithContext(ctx context.Context) PatchBaselineRejectedPatchesActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PatchBaselineRejectedPatchesActionPtrOutput)
+}
+
+func (in *patchBaselineRejectedPatchesActionPtr) ToOutput(ctx context.Context) pulumix.Output[*PatchBaselineRejectedPatchesAction] {
+	return pulumix.Output[*PatchBaselineRejectedPatchesAction]{
+		OutputState: in.ToPatchBaselineRejectedPatchesActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PatchBaselineRuleComplianceLevel string
+
+const (
+	PatchBaselineRuleComplianceLevelCritical      = PatchBaselineRuleComplianceLevel("CRITICAL")
+	PatchBaselineRuleComplianceLevelHigh          = PatchBaselineRuleComplianceLevel("HIGH")
+	PatchBaselineRuleComplianceLevelInformational = PatchBaselineRuleComplianceLevel("INFORMATIONAL")
+	PatchBaselineRuleComplianceLevelLow           = PatchBaselineRuleComplianceLevel("LOW")
+	PatchBaselineRuleComplianceLevelMedium        = PatchBaselineRuleComplianceLevel("MEDIUM")
+	PatchBaselineRuleComplianceLevelUnspecified   = PatchBaselineRuleComplianceLevel("UNSPECIFIED")
+)
+
+func (PatchBaselineRuleComplianceLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineRuleComplianceLevel)(nil)).Elem()
+}
+
+func (e PatchBaselineRuleComplianceLevel) ToPatchBaselineRuleComplianceLevelOutput() PatchBaselineRuleComplianceLevelOutput {
+	return pulumi.ToOutput(e).(PatchBaselineRuleComplianceLevelOutput)
+}
+
+func (e PatchBaselineRuleComplianceLevel) ToPatchBaselineRuleComplianceLevelOutputWithContext(ctx context.Context) PatchBaselineRuleComplianceLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PatchBaselineRuleComplianceLevelOutput)
+}
+
+func (e PatchBaselineRuleComplianceLevel) ToPatchBaselineRuleComplianceLevelPtrOutput() PatchBaselineRuleComplianceLevelPtrOutput {
+	return e.ToPatchBaselineRuleComplianceLevelPtrOutputWithContext(context.Background())
+}
+
+func (e PatchBaselineRuleComplianceLevel) ToPatchBaselineRuleComplianceLevelPtrOutputWithContext(ctx context.Context) PatchBaselineRuleComplianceLevelPtrOutput {
+	return PatchBaselineRuleComplianceLevel(e).ToPatchBaselineRuleComplianceLevelOutputWithContext(ctx).ToPatchBaselineRuleComplianceLevelPtrOutputWithContext(ctx)
+}
+
+func (e PatchBaselineRuleComplianceLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PatchBaselineRuleComplianceLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PatchBaselineRuleComplianceLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PatchBaselineRuleComplianceLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PatchBaselineRuleComplianceLevelOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineRuleComplianceLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineRuleComplianceLevel)(nil)).Elem()
+}
+
+func (o PatchBaselineRuleComplianceLevelOutput) ToPatchBaselineRuleComplianceLevelOutput() PatchBaselineRuleComplianceLevelOutput {
+	return o
+}
+
+func (o PatchBaselineRuleComplianceLevelOutput) ToPatchBaselineRuleComplianceLevelOutputWithContext(ctx context.Context) PatchBaselineRuleComplianceLevelOutput {
+	return o
+}
+
+func (o PatchBaselineRuleComplianceLevelOutput) ToPatchBaselineRuleComplianceLevelPtrOutput() PatchBaselineRuleComplianceLevelPtrOutput {
+	return o.ToPatchBaselineRuleComplianceLevelPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineRuleComplianceLevelOutput) ToPatchBaselineRuleComplianceLevelPtrOutputWithContext(ctx context.Context) PatchBaselineRuleComplianceLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselineRuleComplianceLevel) *PatchBaselineRuleComplianceLevel {
+		return &v
+	}).(PatchBaselineRuleComplianceLevelPtrOutput)
+}
+
+func (o PatchBaselineRuleComplianceLevelOutput) ToOutput(ctx context.Context) pulumix.Output[PatchBaselineRuleComplianceLevel] {
+	return pulumix.Output[PatchBaselineRuleComplianceLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PatchBaselineRuleComplianceLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineRuleComplianceLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PatchBaselineRuleComplianceLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PatchBaselineRuleComplianceLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineRuleComplianceLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PatchBaselineRuleComplianceLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PatchBaselineRuleComplianceLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineRuleComplianceLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselineRuleComplianceLevel)(nil)).Elem()
+}
+
+func (o PatchBaselineRuleComplianceLevelPtrOutput) ToPatchBaselineRuleComplianceLevelPtrOutput() PatchBaselineRuleComplianceLevelPtrOutput {
+	return o
+}
+
+func (o PatchBaselineRuleComplianceLevelPtrOutput) ToPatchBaselineRuleComplianceLevelPtrOutputWithContext(ctx context.Context) PatchBaselineRuleComplianceLevelPtrOutput {
+	return o
+}
+
+func (o PatchBaselineRuleComplianceLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PatchBaselineRuleComplianceLevel] {
+	return pulumix.Output[*PatchBaselineRuleComplianceLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PatchBaselineRuleComplianceLevelPtrOutput) Elem() PatchBaselineRuleComplianceLevelOutput {
+	return o.ApplyT(func(v *PatchBaselineRuleComplianceLevel) PatchBaselineRuleComplianceLevel {
+		if v != nil {
+			return *v
+		}
+		var ret PatchBaselineRuleComplianceLevel
+		return ret
+	}).(PatchBaselineRuleComplianceLevelOutput)
+}
+
+func (o PatchBaselineRuleComplianceLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineRuleComplianceLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PatchBaselineRuleComplianceLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PatchBaselineRuleComplianceLevelInput is an input type that accepts PatchBaselineRuleComplianceLevelArgs and PatchBaselineRuleComplianceLevelOutput values.
+// You can construct a concrete instance of `PatchBaselineRuleComplianceLevelInput` via:
+//
+//	PatchBaselineRuleComplianceLevelArgs{...}
+type PatchBaselineRuleComplianceLevelInput interface {
+	pulumi.Input
+
+	ToPatchBaselineRuleComplianceLevelOutput() PatchBaselineRuleComplianceLevelOutput
+	ToPatchBaselineRuleComplianceLevelOutputWithContext(context.Context) PatchBaselineRuleComplianceLevelOutput
+}
+
+var patchBaselineRuleComplianceLevelPtrType = reflect.TypeOf((**PatchBaselineRuleComplianceLevel)(nil)).Elem()
+
+type PatchBaselineRuleComplianceLevelPtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselineRuleComplianceLevelPtrOutput() PatchBaselineRuleComplianceLevelPtrOutput
+	ToPatchBaselineRuleComplianceLevelPtrOutputWithContext(context.Context) PatchBaselineRuleComplianceLevelPtrOutput
+}
+
+type patchBaselineRuleComplianceLevelPtr string
+
+func PatchBaselineRuleComplianceLevelPtr(v string) PatchBaselineRuleComplianceLevelPtrInput {
+	return (*patchBaselineRuleComplianceLevelPtr)(&v)
+}
+
+func (*patchBaselineRuleComplianceLevelPtr) ElementType() reflect.Type {
+	return patchBaselineRuleComplianceLevelPtrType
+}
+
+func (in *patchBaselineRuleComplianceLevelPtr) ToPatchBaselineRuleComplianceLevelPtrOutput() PatchBaselineRuleComplianceLevelPtrOutput {
+	return pulumi.ToOutput(in).(PatchBaselineRuleComplianceLevelPtrOutput)
+}
+
+func (in *patchBaselineRuleComplianceLevelPtr) ToPatchBaselineRuleComplianceLevelPtrOutputWithContext(ctx context.Context) PatchBaselineRuleComplianceLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PatchBaselineRuleComplianceLevelPtrOutput)
+}
+
+func (in *patchBaselineRuleComplianceLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*PatchBaselineRuleComplianceLevel] {
+	return pulumix.Output[*PatchBaselineRuleComplianceLevel]{
+		OutputState: in.ToPatchBaselineRuleComplianceLevelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationComplianceSeverityInput)(nil)).Elem(), AssociationComplianceSeverity("CRITICAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationComplianceSeverityPtrInput)(nil)).Elem(), AssociationComplianceSeverity("CRITICAL"))
@@ -1693,6 +2643,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTierPtrInput)(nil)).Elem(), ParameterTier("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTypeInput)(nil)).Elem(), ParameterType("String"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTypePtrInput)(nil)).Elem(), ParameterType("String"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineApprovedPatchesComplianceLevelInput)(nil)).Elem(), PatchBaselineApprovedPatchesComplianceLevel("CRITICAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineApprovedPatchesComplianceLevelPtrInput)(nil)).Elem(), PatchBaselineApprovedPatchesComplianceLevel("CRITICAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineOperatingSystemInput)(nil)).Elem(), PatchBaselineOperatingSystem("WINDOWS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineOperatingSystemPtrInput)(nil)).Elem(), PatchBaselineOperatingSystem("WINDOWS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePatchFilterKeyInput)(nil)).Elem(), PatchBaselinePatchFilterKey("ADVISORY_ID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePatchFilterKeyPtrInput)(nil)).Elem(), PatchBaselinePatchFilterKey("ADVISORY_ID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineRejectedPatchesActionInput)(nil)).Elem(), PatchBaselineRejectedPatchesAction("ALLOW_AS_DEPENDENCY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineRejectedPatchesActionPtrInput)(nil)).Elem(), PatchBaselineRejectedPatchesAction("ALLOW_AS_DEPENDENCY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineRuleComplianceLevelInput)(nil)).Elem(), PatchBaselineRuleComplianceLevel("CRITICAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineRuleComplianceLevelPtrInput)(nil)).Elem(), PatchBaselineRuleComplianceLevel("CRITICAL"))
 	pulumi.RegisterOutputType(AssociationComplianceSeverityOutput{})
 	pulumi.RegisterOutputType(AssociationComplianceSeverityPtrOutput{})
 	pulumi.RegisterOutputType(AssociationSyncComplianceOutput{})
@@ -1711,4 +2671,14 @@ func init() {
 	pulumi.RegisterOutputType(ParameterTierPtrOutput{})
 	pulumi.RegisterOutputType(ParameterTypeOutput{})
 	pulumi.RegisterOutputType(ParameterTypePtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselineApprovedPatchesComplianceLevelOutput{})
+	pulumi.RegisterOutputType(PatchBaselineApprovedPatchesComplianceLevelPtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselineOperatingSystemOutput{})
+	pulumi.RegisterOutputType(PatchBaselineOperatingSystemPtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchFilterKeyOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchFilterKeyPtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselineRejectedPatchesActionOutput{})
+	pulumi.RegisterOutputType(PatchBaselineRejectedPatchesActionPtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselineRuleComplianceLevelOutput{})
+	pulumi.RegisterOutputType(PatchBaselineRuleComplianceLevelPtrOutput{})
 }

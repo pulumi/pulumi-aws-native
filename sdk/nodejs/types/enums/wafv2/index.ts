@@ -185,9 +185,9 @@ export const RuleGroupPositionalConstraint = {
 export type RuleGroupPositionalConstraint = (typeof RuleGroupPositionalConstraint)[keyof typeof RuleGroupPositionalConstraint];
 
 export const RuleGroupRateBasedStatementAggregateKeyType = {
-    Constant: "CONSTANT",
     Ip: "IP",
     ForwardedIp: "FORWARDED_IP",
+    Constant: "CONSTANT",
     CustomKeys: "CUSTOM_KEYS",
 } as const;
 

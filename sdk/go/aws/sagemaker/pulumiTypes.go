@@ -14307,6 +14307,201 @@ func (o FeatureGroupTagArrayOutput) Index(i pulumi.IntInput) FeatureGroupTagOutp
 	}).(FeatureGroupTagOutput)
 }
 
+type FeatureGroupThroughputConfig struct {
+	// For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
+	ProvisionedReadCapacityUnits *int `pulumi:"provisionedReadCapacityUnits"`
+	// For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
+	ProvisionedWriteCapacityUnits *int                       `pulumi:"provisionedWriteCapacityUnits"`
+	ThroughputMode                FeatureGroupThroughputMode `pulumi:"throughputMode"`
+}
+
+// FeatureGroupThroughputConfigInput is an input type that accepts FeatureGroupThroughputConfigArgs and FeatureGroupThroughputConfigOutput values.
+// You can construct a concrete instance of `FeatureGroupThroughputConfigInput` via:
+//
+//	FeatureGroupThroughputConfigArgs{...}
+type FeatureGroupThroughputConfigInput interface {
+	pulumi.Input
+
+	ToFeatureGroupThroughputConfigOutput() FeatureGroupThroughputConfigOutput
+	ToFeatureGroupThroughputConfigOutputWithContext(context.Context) FeatureGroupThroughputConfigOutput
+}
+
+type FeatureGroupThroughputConfigArgs struct {
+	// For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
+	ProvisionedReadCapacityUnits pulumi.IntPtrInput `pulumi:"provisionedReadCapacityUnits"`
+	// For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
+	ProvisionedWriteCapacityUnits pulumi.IntPtrInput              `pulumi:"provisionedWriteCapacityUnits"`
+	ThroughputMode                FeatureGroupThroughputModeInput `pulumi:"throughputMode"`
+}
+
+func (FeatureGroupThroughputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupThroughputConfig)(nil)).Elem()
+}
+
+func (i FeatureGroupThroughputConfigArgs) ToFeatureGroupThroughputConfigOutput() FeatureGroupThroughputConfigOutput {
+	return i.ToFeatureGroupThroughputConfigOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupThroughputConfigArgs) ToFeatureGroupThroughputConfigOutputWithContext(ctx context.Context) FeatureGroupThroughputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupThroughputConfigOutput)
+}
+
+func (i FeatureGroupThroughputConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FeatureGroupThroughputConfig] {
+	return pulumix.Output[FeatureGroupThroughputConfig]{
+		OutputState: i.ToFeatureGroupThroughputConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FeatureGroupThroughputConfigArgs) ToFeatureGroupThroughputConfigPtrOutput() FeatureGroupThroughputConfigPtrOutput {
+	return i.ToFeatureGroupThroughputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupThroughputConfigArgs) ToFeatureGroupThroughputConfigPtrOutputWithContext(ctx context.Context) FeatureGroupThroughputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupThroughputConfigOutput).ToFeatureGroupThroughputConfigPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupThroughputConfigPtrInput is an input type that accepts FeatureGroupThroughputConfigArgs, FeatureGroupThroughputConfigPtr and FeatureGroupThroughputConfigPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupThroughputConfigPtrInput` via:
+//
+//	        FeatureGroupThroughputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeatureGroupThroughputConfigPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupThroughputConfigPtrOutput() FeatureGroupThroughputConfigPtrOutput
+	ToFeatureGroupThroughputConfigPtrOutputWithContext(context.Context) FeatureGroupThroughputConfigPtrOutput
+}
+
+type featureGroupThroughputConfigPtrType FeatureGroupThroughputConfigArgs
+
+func FeatureGroupThroughputConfigPtr(v *FeatureGroupThroughputConfigArgs) FeatureGroupThroughputConfigPtrInput {
+	return (*featureGroupThroughputConfigPtrType)(v)
+}
+
+func (*featureGroupThroughputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupThroughputConfig)(nil)).Elem()
+}
+
+func (i *featureGroupThroughputConfigPtrType) ToFeatureGroupThroughputConfigPtrOutput() FeatureGroupThroughputConfigPtrOutput {
+	return i.ToFeatureGroupThroughputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupThroughputConfigPtrType) ToFeatureGroupThroughputConfigPtrOutputWithContext(ctx context.Context) FeatureGroupThroughputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupThroughputConfigPtrOutput)
+}
+
+func (i *featureGroupThroughputConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroupThroughputConfig] {
+	return pulumix.Output[*FeatureGroupThroughputConfig]{
+		OutputState: i.ToFeatureGroupThroughputConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FeatureGroupThroughputConfigOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupThroughputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupThroughputConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupThroughputConfigOutput) ToFeatureGroupThroughputConfigOutput() FeatureGroupThroughputConfigOutput {
+	return o
+}
+
+func (o FeatureGroupThroughputConfigOutput) ToFeatureGroupThroughputConfigOutputWithContext(ctx context.Context) FeatureGroupThroughputConfigOutput {
+	return o
+}
+
+func (o FeatureGroupThroughputConfigOutput) ToFeatureGroupThroughputConfigPtrOutput() FeatureGroupThroughputConfigPtrOutput {
+	return o.ToFeatureGroupThroughputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupThroughputConfigOutput) ToFeatureGroupThroughputConfigPtrOutputWithContext(ctx context.Context) FeatureGroupThroughputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupThroughputConfig) *FeatureGroupThroughputConfig {
+		return &v
+	}).(FeatureGroupThroughputConfigPtrOutput)
+}
+
+func (o FeatureGroupThroughputConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FeatureGroupThroughputConfig] {
+	return pulumix.Output[FeatureGroupThroughputConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
+func (o FeatureGroupThroughputConfigOutput) ProvisionedReadCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FeatureGroupThroughputConfig) *int { return v.ProvisionedReadCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+// For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
+func (o FeatureGroupThroughputConfigOutput) ProvisionedWriteCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FeatureGroupThroughputConfig) *int { return v.ProvisionedWriteCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+func (o FeatureGroupThroughputConfigOutput) ThroughputMode() FeatureGroupThroughputModeOutput {
+	return o.ApplyT(func(v FeatureGroupThroughputConfig) FeatureGroupThroughputMode { return v.ThroughputMode }).(FeatureGroupThroughputModeOutput)
+}
+
+type FeatureGroupThroughputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupThroughputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupThroughputConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupThroughputConfigPtrOutput) ToFeatureGroupThroughputConfigPtrOutput() FeatureGroupThroughputConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupThroughputConfigPtrOutput) ToFeatureGroupThroughputConfigPtrOutputWithContext(ctx context.Context) FeatureGroupThroughputConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupThroughputConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroupThroughputConfig] {
+	return pulumix.Output[*FeatureGroupThroughputConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FeatureGroupThroughputConfigPtrOutput) Elem() FeatureGroupThroughputConfigOutput {
+	return o.ApplyT(func(v *FeatureGroupThroughputConfig) FeatureGroupThroughputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupThroughputConfig
+		return ret
+	}).(FeatureGroupThroughputConfigOutput)
+}
+
+// For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
+func (o FeatureGroupThroughputConfigPtrOutput) ProvisionedReadCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupThroughputConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedReadCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
+func (o FeatureGroupThroughputConfigPtrOutput) ProvisionedWriteCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupThroughputConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedWriteCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FeatureGroupThroughputConfigPtrOutput) ThroughputMode() FeatureGroupThroughputModePtrOutput {
+	return o.ApplyT(func(v *FeatureGroupThroughputConfig) *FeatureGroupThroughputMode {
+		if v == nil {
+			return nil
+		}
+		return &v.ThroughputMode
+	}).(FeatureGroupThroughputModePtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ImageTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -17129,6 +17324,163 @@ func (o InferenceExperimentTagArrayOutput) Index(i pulumi.IntInput) InferenceExp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InferenceExperimentTag {
 		return vs[0].([]InferenceExperimentTag)[vs[1].(int)]
 	}).(InferenceExperimentTagOutput)
+}
+
+type ModelAccessConfig struct {
+	AcceptEula bool `pulumi:"acceptEula"`
+}
+
+// ModelAccessConfigInput is an input type that accepts ModelAccessConfigArgs and ModelAccessConfigOutput values.
+// You can construct a concrete instance of `ModelAccessConfigInput` via:
+//
+//	ModelAccessConfigArgs{...}
+type ModelAccessConfigInput interface {
+	pulumi.Input
+
+	ToModelAccessConfigOutput() ModelAccessConfigOutput
+	ToModelAccessConfigOutputWithContext(context.Context) ModelAccessConfigOutput
+}
+
+type ModelAccessConfigArgs struct {
+	AcceptEula pulumi.BoolInput `pulumi:"acceptEula"`
+}
+
+func (ModelAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelAccessConfig)(nil)).Elem()
+}
+
+func (i ModelAccessConfigArgs) ToModelAccessConfigOutput() ModelAccessConfigOutput {
+	return i.ToModelAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ModelAccessConfigArgs) ToModelAccessConfigOutputWithContext(ctx context.Context) ModelAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelAccessConfigOutput)
+}
+
+func (i ModelAccessConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ModelAccessConfig] {
+	return pulumix.Output[ModelAccessConfig]{
+		OutputState: i.ToModelAccessConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ModelAccessConfigArgs) ToModelAccessConfigPtrOutput() ModelAccessConfigPtrOutput {
+	return i.ToModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelAccessConfigArgs) ToModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelAccessConfigOutput).ToModelAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ModelAccessConfigPtrInput is an input type that accepts ModelAccessConfigArgs, ModelAccessConfigPtr and ModelAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ModelAccessConfigPtrInput` via:
+//
+//	        ModelAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelAccessConfigPtrOutput() ModelAccessConfigPtrOutput
+	ToModelAccessConfigPtrOutputWithContext(context.Context) ModelAccessConfigPtrOutput
+}
+
+type modelAccessConfigPtrType ModelAccessConfigArgs
+
+func ModelAccessConfigPtr(v *ModelAccessConfigArgs) ModelAccessConfigPtrInput {
+	return (*modelAccessConfigPtrType)(v)
+}
+
+func (*modelAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelAccessConfig)(nil)).Elem()
+}
+
+func (i *modelAccessConfigPtrType) ToModelAccessConfigPtrOutput() ModelAccessConfigPtrOutput {
+	return i.ToModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelAccessConfigPtrType) ToModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelAccessConfigPtrOutput)
+}
+
+func (i *modelAccessConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ModelAccessConfig] {
+	return pulumix.Output[*ModelAccessConfig]{
+		OutputState: i.ToModelAccessConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ModelAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelAccessConfig)(nil)).Elem()
+}
+
+func (o ModelAccessConfigOutput) ToModelAccessConfigOutput() ModelAccessConfigOutput {
+	return o
+}
+
+func (o ModelAccessConfigOutput) ToModelAccessConfigOutputWithContext(ctx context.Context) ModelAccessConfigOutput {
+	return o
+}
+
+func (o ModelAccessConfigOutput) ToModelAccessConfigPtrOutput() ModelAccessConfigPtrOutput {
+	return o.ToModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelAccessConfigOutput) ToModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelAccessConfig) *ModelAccessConfig {
+		return &v
+	}).(ModelAccessConfigPtrOutput)
+}
+
+func (o ModelAccessConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ModelAccessConfig] {
+	return pulumix.Output[ModelAccessConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ModelAccessConfigOutput) AcceptEula() pulumi.BoolOutput {
+	return o.ApplyT(func(v ModelAccessConfig) bool { return v.AcceptEula }).(pulumi.BoolOutput)
+}
+
+type ModelAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelAccessConfig)(nil)).Elem()
+}
+
+func (o ModelAccessConfigPtrOutput) ToModelAccessConfigPtrOutput() ModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelAccessConfigPtrOutput) ToModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelAccessConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelAccessConfig] {
+	return pulumix.Output[*ModelAccessConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ModelAccessConfigPtrOutput) Elem() ModelAccessConfigOutput {
+	return o.ApplyT(func(v *ModelAccessConfig) ModelAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelAccessConfig
+		return ret
+	}).(ModelAccessConfigOutput)
+}
+
+func (o ModelAccessConfigPtrOutput) AcceptEula() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AcceptEula
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The batch transform input for a monitoring job.
@@ -36422,9 +36774,10 @@ func (o ModelRepositoryAuthConfigPtrOutput) RepositoryCredentialsProviderArn() p
 }
 
 type ModelS3DataSource struct {
-	CompressionType string `pulumi:"compressionType"`
-	S3DataType      string `pulumi:"s3DataType"`
-	S3Uri           string `pulumi:"s3Uri"`
+	CompressionType   string             `pulumi:"compressionType"`
+	ModelAccessConfig *ModelAccessConfig `pulumi:"modelAccessConfig"`
+	S3DataType        string             `pulumi:"s3DataType"`
+	S3Uri             string             `pulumi:"s3Uri"`
 }
 
 // ModelS3DataSourceInput is an input type that accepts ModelS3DataSourceArgs and ModelS3DataSourceOutput values.
@@ -36439,9 +36792,10 @@ type ModelS3DataSourceInput interface {
 }
 
 type ModelS3DataSourceArgs struct {
-	CompressionType pulumi.StringInput `pulumi:"compressionType"`
-	S3DataType      pulumi.StringInput `pulumi:"s3DataType"`
-	S3Uri           pulumi.StringInput `pulumi:"s3Uri"`
+	CompressionType   pulumi.StringInput        `pulumi:"compressionType"`
+	ModelAccessConfig ModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
+	S3DataType        pulumi.StringInput        `pulumi:"s3DataType"`
+	S3Uri             pulumi.StringInput        `pulumi:"s3Uri"`
 }
 
 func (ModelS3DataSourceArgs) ElementType() reflect.Type {
@@ -36543,6 +36897,10 @@ func (o ModelS3DataSourceOutput) CompressionType() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
 }
 
+func (o ModelS3DataSourceOutput) ModelAccessConfig() ModelAccessConfigPtrOutput {
+	return o.ApplyT(func(v ModelS3DataSource) *ModelAccessConfig { return v.ModelAccessConfig }).(ModelAccessConfigPtrOutput)
+}
+
 func (o ModelS3DataSourceOutput) S3DataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelS3DataSource) string { return v.S3DataType }).(pulumi.StringOutput)
 }
@@ -36588,6 +36946,15 @@ func (o ModelS3DataSourcePtrOutput) CompressionType() pulumi.StringPtrOutput {
 		}
 		return &v.CompressionType
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelS3DataSourcePtrOutput) ModelAccessConfig() ModelAccessConfigPtrOutput {
+	return o.ApplyT(func(v *ModelS3DataSource) *ModelAccessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ModelAccessConfig
+	}).(ModelAccessConfigPtrOutput)
 }
 
 func (o ModelS3DataSourcePtrOutput) S3DataType() pulumi.StringPtrOutput {
@@ -47632,6 +47999,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupS3StorageConfigPtrInput)(nil)).Elem(), FeatureGroupS3StorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTagInput)(nil)).Elem(), FeatureGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTagArrayInput)(nil)).Elem(), FeatureGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupThroughputConfigInput)(nil)).Elem(), FeatureGroupThroughputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupThroughputConfigPtrInput)(nil)).Elem(), FeatureGroupThroughputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTagInput)(nil)).Elem(), ImageTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTagArrayInput)(nil)).Elem(), ImageTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentComputeResourceRequirementsInput)(nil)).Elem(), InferenceComponentComputeResourceRequirementsArgs{})
@@ -47663,6 +48032,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentShadowModelVariantConfigArrayInput)(nil)).Elem(), InferenceExperimentShadowModelVariantConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentTagInput)(nil)).Elem(), InferenceExperimentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentTagArrayInput)(nil)).Elem(), InferenceExperimentTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelAccessConfigInput)(nil)).Elem(), ModelAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelAccessConfigPtrInput)(nil)).Elem(), ModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionClusterConfigInput)(nil)).Elem(), ModelBiasJobDefinitionClusterConfigArgs{})
@@ -48164,6 +48535,8 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupS3StorageConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupTagOutput{})
 	pulumi.RegisterOutputType(FeatureGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(FeatureGroupThroughputConfigOutput{})
+	pulumi.RegisterOutputType(FeatureGroupThroughputConfigPtrOutput{})
 	pulumi.RegisterOutputType(ImageTagOutput{})
 	pulumi.RegisterOutputType(ImageTagArrayOutput{})
 	pulumi.RegisterOutputType(InferenceComponentComputeResourceRequirementsOutput{})
@@ -48200,6 +48573,8 @@ func init() {
 	pulumi.RegisterOutputType(InferenceExperimentShadowModelVariantConfigArrayOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentTagOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentTagArrayOutput{})
+	pulumi.RegisterOutputType(ModelAccessConfigOutput{})
+	pulumi.RegisterOutputType(ModelAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionClusterConfigOutput{})

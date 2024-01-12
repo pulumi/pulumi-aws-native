@@ -39,7 +39,7 @@ export class Policy extends pulumi.CustomResource {
 
     public readonly definition!: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition0Properties | outputs.verifiedpermissions.PolicyDefinition1Properties>;
     public /*out*/ readonly policyId!: pulumi.Output<string>;
-    public readonly policyStoreId!: pulumi.Output<string | undefined>;
+    public readonly policyStoreId!: pulumi.Output<string>;
     public /*out*/ readonly policyType!: pulumi.Output<enums.verifiedpermissions.PolicyType>;
 
     /**
@@ -55,6 +55,9 @@ export class Policy extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.definition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
+            }
+            if ((!args || args.policyStoreId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'policyStoreId'");
             }
             resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
@@ -78,5 +81,5 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyArgs {
     definition: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition0PropertiesArgs | inputs.verifiedpermissions.PolicyDefinition1PropertiesArgs>;
-    policyStoreId?: pulumi.Input<string>;
+    policyStoreId: pulumi.Input<string>;
 }

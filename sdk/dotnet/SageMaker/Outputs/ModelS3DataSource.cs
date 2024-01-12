@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class ModelS3DataSource
     {
         public readonly string CompressionType;
+        public readonly Outputs.ModelAccessConfig? ModelAccessConfig;
         public readonly string S3DataType;
         public readonly string S3Uri;
 
@@ -21,11 +22,14 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private ModelS3DataSource(
             string compressionType,
 
+            Outputs.ModelAccessConfig? modelAccessConfig,
+
             string s3DataType,
 
             string s3Uri)
         {
             CompressionType = compressionType;
+            ModelAccessConfig = modelAccessConfig;
             S3DataType = s3DataType;
             S3Uri = s3Uri;
         }

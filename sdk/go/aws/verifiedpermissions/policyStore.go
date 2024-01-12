@@ -18,6 +18,7 @@ type PolicyStore struct {
 	pulumi.CustomResourceState
 
 	Arn                pulumi.StringOutput                  `pulumi:"arn"`
+	Description        pulumi.StringPtrOutput               `pulumi:"description"`
 	PolicyStoreId      pulumi.StringOutput                  `pulumi:"policyStoreId"`
 	Schema             PolicyStoreSchemaDefinitionPtrOutput `pulumi:"schema"`
 	ValidationSettings PolicyStoreValidationSettingsOutput  `pulumi:"validationSettings"`
@@ -66,12 +67,14 @@ func (PolicyStoreState) ElementType() reflect.Type {
 }
 
 type policyStoreArgs struct {
+	Description        *string                       `pulumi:"description"`
 	Schema             *PolicyStoreSchemaDefinition  `pulumi:"schema"`
 	ValidationSettings PolicyStoreValidationSettings `pulumi:"validationSettings"`
 }
 
 // The set of arguments for constructing a PolicyStore resource.
 type PolicyStoreArgs struct {
+	Description        pulumi.StringPtrInput
 	Schema             PolicyStoreSchemaDefinitionPtrInput
 	ValidationSettings PolicyStoreValidationSettingsInput
 }
@@ -127,6 +130,10 @@ func (o PolicyStoreOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyS
 
 func (o PolicyStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PolicyStoreOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyStore) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyStoreOutput) PolicyStoreId() pulumi.StringOutput {

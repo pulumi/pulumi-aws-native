@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
     /// </summary>
     public sealed class CertificateAuthorityCrlConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("crlDistributionPointExtensionConfiguration")]
+        public Input<Inputs.CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs>? CrlDistributionPointExtensionConfiguration { get; set; }
+
         [Input("customCname")]
         public Input<string>? CustomCname { get; set; }
 

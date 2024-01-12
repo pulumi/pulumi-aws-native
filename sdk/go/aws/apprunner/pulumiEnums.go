@@ -390,6 +390,8 @@ const (
 	ServiceCodeConfigurationValuesRuntimeDotnet6    = ServiceCodeConfigurationValuesRuntime("DOTNET_6")
 	ServiceCodeConfigurationValuesRuntimePhp81      = ServiceCodeConfigurationValuesRuntime("PHP_81")
 	ServiceCodeConfigurationValuesRuntimeRuby31     = ServiceCodeConfigurationValuesRuntime("RUBY_31")
+	ServiceCodeConfigurationValuesRuntimePython311  = ServiceCodeConfigurationValuesRuntime("PYTHON_311")
+	ServiceCodeConfigurationValuesRuntimeNodejs18   = ServiceCodeConfigurationValuesRuntime("NODEJS_18")
 )
 
 func (ServiceCodeConfigurationValuesRuntime) ElementType() reflect.Type {

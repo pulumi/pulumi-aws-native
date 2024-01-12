@@ -790,11 +790,19 @@ export namespace acmpca {
      * Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
      */
     export interface CertificateAuthorityCrlConfigurationArgs {
+        crlDistributionPointExtensionConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs>;
         customCname?: pulumi.Input<string>;
         enabled?: pulumi.Input<boolean>;
         expirationInDays?: pulumi.Input<number>;
         s3BucketName?: pulumi.Input<string>;
         s3ObjectAcl?: pulumi.Input<string>;
+    }
+
+    /**
+     * Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+     */
+    export interface CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs {
+        omitExtension: pulumi.Input<boolean>;
     }
 
     /**
@@ -8531,6 +8539,7 @@ export namespace cognito {
         preAuthentication?: pulumi.Input<string>;
         preSignUp?: pulumi.Input<string>;
         preTokenGeneration?: pulumi.Input<string>;
+        preTokenGenerationConfig?: pulumi.Input<inputs.cognito.UserPoolPreTokenGenerationConfigArgs>;
         userMigration?: pulumi.Input<string>;
         verifyAuthChallengeResponse?: pulumi.Input<string>;
     }
@@ -8551,6 +8560,11 @@ export namespace cognito {
 
     export interface UserPoolPoliciesArgs {
         passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicyArgs>;
+    }
+
+    export interface UserPoolPreTokenGenerationConfigArgs {
+        lambdaArn?: pulumi.Input<string>;
+        lambdaVersion?: pulumi.Input<string>;
     }
 
     export interface UserPoolRecoveryOptionArgs {
@@ -13061,6 +13075,16 @@ export namespace ec2 {
     }
 
     /**
+     * The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
+     */
+    export interface IpamPoolSourceResourceArgs {
+        resourceId: pulumi.Input<string>;
+        resourceOwner: pulumi.Input<string>;
+        resourceRegion: pulumi.Input<string>;
+        resourceType: pulumi.Input<string>;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface IpamPoolTagArgs {
@@ -13609,6 +13633,10 @@ export namespace ec2 {
          * Disables the automatic recovery behavior of your instance or sets it to default.
          */
         autoRecovery?: pulumi.Input<string>;
+        /**
+         * Disables the automatic reboot-migration behavior of your instance or sets it to default.
+         */
+        rebootMigration?: pulumi.Input<string>;
     }
 
     /**
@@ -14024,6 +14052,12 @@ export namespace ec2 {
     export interface NetworkInsightsPathTagArgs {
         key: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+    }
+
+    export interface NetworkInterfaceConnectionTrackingSpecificationArgs {
+        tcpEstablishedTimeout?: pulumi.Input<number>;
+        udpStreamTimeout?: pulumi.Input<number>;
+        udpTimeout?: pulumi.Input<number>;
     }
 
     export interface NetworkInterfaceInstanceIpv6AddressArgs {
@@ -15369,6 +15403,7 @@ export namespace ecs {
     }
 
     export interface TaskDefinitionVolumeArgs {
+        configuredAtLaunch?: pulumi.Input<boolean>;
         dockerVolumeConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionDockerVolumeConfigurationArgs>;
         efsVolumeConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionEfsVolumeConfigurationArgs>;
         host?: pulumi.Input<inputs.ecs.TaskDefinitionHostVolumePropertiesArgs>;
@@ -21311,7 +21346,7 @@ export namespace imagebuilder {
         /**
          * The recipe version.
          */
-        semanticVersion?: pulumi.Input<string>;
+        semanticVersion: pulumi.Input<string>;
     }
 
     /**
@@ -32275,6 +32310,16 @@ export namespace mediatailor {
     }
 
     /**
+     * <p>The configuration for time-shifted viewing.</p>
+     */
+    export interface ChannelTimeShiftConfigurationArgs {
+        /**
+         * <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
+         */
+        maxTimeDelaySeconds: pulumi.Input<number>;
+    }
+
+    /**
      * <p>The HTTP package configuration properties for the requested VOD source.</p>
      */
     export interface LiveSourceHttpPackageConfigurationArgs {
@@ -36518,6 +36563,16 @@ export namespace quicksight {
         visualId: pulumi.Input<string>;
     }
 
+    export interface AnalysisEntityArgs {
+        path?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisErrorArgs {
+        message?: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.AnalysisErrorType>;
+        violatedEntities?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisEntityArgs>[]>;
+    }
+
     export interface AnalysisExcludePeriodConfigurationArgs {
         amount: pulumi.Input<number>;
         granularity: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
@@ -37965,7 +38020,6 @@ export namespace quicksight {
     export interface AnalysisResourcePermissionArgs {
         actions: pulumi.Input<pulumi.Input<string>[]>;
         principal: pulumi.Input<string>;
-        resource?: pulumi.Input<string>;
     }
 
     export interface AnalysisRollingDateConfigurationArgs {
@@ -38118,6 +38172,11 @@ export namespace quicksight {
 
     export interface AnalysisShapeConditionalFormatArgs {
         backgroundColor: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
+    }
+
+    export interface AnalysisSheetArgs {
+        name?: pulumi.Input<string>;
+        sheetId?: pulumi.Input<string>;
     }
 
     export interface AnalysisSheetControlInfoIconLabelOptionsArgs {
@@ -41024,7 +41083,6 @@ export namespace quicksight {
     export interface DashboardResourcePermissionArgs {
         actions: pulumi.Input<pulumi.Input<string>[]>;
         principal: pulumi.Input<string>;
-        resource?: pulumi.Input<string>;
     }
 
     export interface DashboardRollingDateConfigurationArgs {
@@ -44878,7 +44936,6 @@ export namespace quicksight {
     export interface TemplateResourcePermissionArgs {
         actions: pulumi.Input<pulumi.Input<string>[]>;
         principal: pulumi.Input<string>;
-        resource?: pulumi.Input<string>;
     }
 
     export interface TemplateRollingDateConfigurationArgs {
@@ -45719,7 +45776,6 @@ export namespace quicksight {
     export interface ThemeResourcePermissionArgs {
         actions: pulumi.Input<pulumi.Input<string>[]>;
         principal: pulumi.Input<string>;
-        resource?: pulumi.Input<string>;
     }
 
     export interface ThemeSheetStyleArgs {
@@ -49663,6 +49719,18 @@ export namespace sagemaker {
         value: pulumi.Input<string>;
     }
 
+    export interface FeatureGroupThroughputConfigArgs {
+        /**
+         * For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
+         */
+        provisionedReadCapacityUnits?: pulumi.Input<number>;
+        /**
+         * For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
+         */
+        provisionedWriteCapacityUnits?: pulumi.Input<number>;
+        throughputMode: pulumi.Input<enums.sagemaker.FeatureGroupThroughputMode>;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -49864,6 +49932,10 @@ export namespace sagemaker {
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface ModelAccessConfigArgs {
+        acceptEula: pulumi.Input<boolean>;
     }
 
     /**
@@ -51597,6 +51669,7 @@ export namespace sagemaker {
 
     export interface ModelS3DataSourceArgs {
         compressionType: pulumi.Input<string>;
+        modelAccessConfig?: pulumi.Input<inputs.sagemaker.ModelAccessConfigArgs>;
         s3DataType: pulumi.Input<string>;
         s3Uri: pulumi.Input<string>;
     }
@@ -53638,36 +53711,51 @@ export namespace ssm {
         maintenanceWindowStepFunctionsParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs>;
     }
 
+    /**
+     * Defines which patches should be included in a patch baseline.
+     */
     export interface PatchBaselinePatchFilterArgs {
-        key?: pulumi.Input<string>;
+        key?: pulumi.Input<enums.ssm.PatchBaselinePatchFilterKey>;
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * The patch filter group that defines the criteria for the rule.
+     */
     export interface PatchBaselinePatchFilterGroupArgs {
         patchFilters?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselinePatchFilterArgs>[]>;
     }
 
+    /**
+     * Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+     */
     export interface PatchBaselinePatchSourceArgs {
         configuration?: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         products?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface PatchBaselinePatchStringDateArgs {
-    }
-
+    /**
+     * Defines an approval rule for a patch baseline.
+     */
     export interface PatchBaselineRuleArgs {
         approveAfterDays?: pulumi.Input<number>;
-        approveUntilDate?: pulumi.Input<inputs.ssm.PatchBaselinePatchStringDateArgs>;
-        complianceLevel?: pulumi.Input<string>;
+        approveUntilDate?: pulumi.Input<string>;
+        complianceLevel?: pulumi.Input<enums.ssm.PatchBaselineRuleComplianceLevel>;
         enableNonSecurity?: pulumi.Input<boolean>;
         patchFilterGroup?: pulumi.Input<inputs.ssm.PatchBaselinePatchFilterGroupArgs>;
     }
 
+    /**
+     * A set of rules defining the approval rules for a patch baseline.
+     */
     export interface PatchBaselineRuleGroupArgs {
         patchRules?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineRuleArgs>[]>;
     }
 
+    /**
+     * Metadata that you assign to your AWS resources.
+     */
     export interface PatchBaselineTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;

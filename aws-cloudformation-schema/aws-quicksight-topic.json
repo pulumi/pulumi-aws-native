@@ -598,6 +598,9 @@
           "items" : {
             "$ref" : "#/definitions/DatasetMetadata"
           }
+        },
+        "UserExperienceVersion" : {
+          "$ref" : "#/definitions/TopicUserExperienceVersion"
         }
       },
       "additionalProperties" : false
@@ -768,6 +771,10 @@
       "type" : "string",
       "enum" : [ "SECOND", "MINUTE", "HOUR", "DAY", "WEEK", "MONTH", "QUARTER", "YEAR" ]
     },
+    "TopicUserExperienceVersion" : {
+      "type" : "string",
+      "enum" : [ "LEGACY", "NEW_READER_EXPERIENCE" ]
+    },
     "TypeParameters" : {
       "type" : "object",
       "patternProperties" : {
@@ -815,6 +822,9 @@
       "maxLength" : 256,
       "minLength" : 0,
       "pattern" : "^[A-Za-z0-9-_.\\\\+]*$"
+    },
+    "UserExperienceVersion" : {
+      "$ref" : "#/definitions/TopicUserExperienceVersion"
     }
   },
   "readOnlyProperties" : [ "/properties/Arn" ],

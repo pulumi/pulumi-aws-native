@@ -14,6 +14,7 @@ __all__ = [
     'CertificateAuthorityAccessDescriptionArgs',
     'CertificateAuthorityAccessMethodArgs',
     'CertificateAuthorityCrlConfigurationArgs',
+    'CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs',
     'CertificateAuthorityCsrExtensionsArgs',
     'CertificateAuthorityCustomAttributeArgs',
     'CertificateAuthorityEdiPartyNameArgs',
@@ -136,6 +137,7 @@ class CertificateAuthorityAccessMethodArgs:
 @pulumi.input_type
 class CertificateAuthorityCrlConfigurationArgs:
     def __init__(__self__, *,
+                 crl_distribution_point_extension_configuration: Optional[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']] = None,
                  custom_cname: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration_in_days: Optional[pulumi.Input[int]] = None,
@@ -144,6 +146,8 @@ class CertificateAuthorityCrlConfigurationArgs:
         """
         Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
         """
+        if crl_distribution_point_extension_configuration is not None:
+            pulumi.set(__self__, "crl_distribution_point_extension_configuration", crl_distribution_point_extension_configuration)
         if custom_cname is not None:
             pulumi.set(__self__, "custom_cname", custom_cname)
         if enabled is not None:
@@ -154,6 +158,15 @@ class CertificateAuthorityCrlConfigurationArgs:
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_object_acl is not None:
             pulumi.set(__self__, "s3_object_acl", s3_object_acl)
+
+    @property
+    @pulumi.getter(name="crlDistributionPointExtensionConfiguration")
+    def crl_distribution_point_extension_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']]:
+        return pulumi.get(self, "crl_distribution_point_extension_configuration")
+
+    @crl_distribution_point_extension_configuration.setter
+    def crl_distribution_point_extension_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']]):
+        pulumi.set(self, "crl_distribution_point_extension_configuration", value)
 
     @property
     @pulumi.getter(name="customCname")
@@ -199,6 +212,25 @@ class CertificateAuthorityCrlConfigurationArgs:
     @s3_object_acl.setter
     def s3_object_acl(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_object_acl", value)
+
+
+@pulumi.input_type
+class CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs:
+    def __init__(__self__, *,
+                 omit_extension: pulumi.Input[bool]):
+        """
+        Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+        """
+        pulumi.set(__self__, "omit_extension", omit_extension)
+
+    @property
+    @pulumi.getter(name="omitExtension")
+    def omit_extension(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "omit_extension")
+
+    @omit_extension.setter
+    def omit_extension(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "omit_extension", value)
 
 
 @pulumi.input_type

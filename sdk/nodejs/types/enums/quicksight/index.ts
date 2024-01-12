@@ -3239,6 +3239,13 @@ export const TopicUndefinedSpecifiedValueType = {
 
 export type TopicUndefinedSpecifiedValueType = (typeof TopicUndefinedSpecifiedValueType)[keyof typeof TopicUndefinedSpecifiedValueType];
 
+export const TopicUserExperienceVersion = {
+    Legacy: "LEGACY",
+    NewReaderExperience: "NEW_READER_EXPERIENCE",
+} as const;
+
+export type TopicUserExperienceVersion = (typeof TopicUserExperienceVersion)[keyof typeof TopicUserExperienceVersion];
+
 export const VpcConnectionNetworkInterfaceStatus = {
     Creating: "CREATING",
     Available: "AVAILABLE",

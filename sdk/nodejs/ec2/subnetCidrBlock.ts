@@ -37,7 +37,15 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
     /**
      * The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
      */
-    public readonly ipv6CidrBlock!: pulumi.Output<string>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+     */
+    public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
+    /**
+     * The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
+     */
+    public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * The ID of the subnet
      */
@@ -54,20 +62,21 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipv6CidrBlock === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ipv6CidrBlock'");
-            }
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
             resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
+            resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         } else {
             resourceInputs["ipv6CidrBlock"] = undefined /*out*/;
+            resourceInputs["ipv6IpamPoolId"] = undefined /*out*/;
+            resourceInputs["ipv6NetmaskLength"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["ipv6CidrBlock", "subnetId"] };
+        const replaceOnChanges = { replaceOnChanges: ["ipv6CidrBlock", "ipv6IpamPoolId", "ipv6NetmaskLength", "subnetId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SubnetCidrBlock.__pulumiType, name, resourceInputs, opts);
     }
@@ -80,7 +89,15 @@ export interface SubnetCidrBlockArgs {
     /**
      * The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
      */
-    ipv6CidrBlock: pulumi.Input<string>;
+    ipv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+     */
+    ipv6IpamPoolId?: pulumi.Input<string>;
+    /**
+     * The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
+     */
+    ipv6NetmaskLength?: pulumi.Input<number>;
     /**
      * The ID of the subnet
      */

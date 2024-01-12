@@ -16,16 +16,10 @@ export function getQueuePolicy(args: GetQueuePolicyArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetQueuePolicyArgs {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     id: string;
 }
 
 export interface GetQueuePolicyResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     readonly id?: string;
     /**
      * A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
@@ -44,8 +38,5 @@ export function getQueuePolicyOutput(args: GetQueuePolicyOutputArgs, opts?: pulu
 }
 
 export interface GetQueuePolicyOutputArgs {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     id: pulumi.Input<string>;
 }

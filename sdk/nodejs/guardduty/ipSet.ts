@@ -41,7 +41,7 @@ export class IpSet extends pulumi.CustomResource {
     public readonly detectorId!: pulumi.Output<string | undefined>;
     public readonly format!: pulumi.Output<string>;
     public readonly location!: pulumi.Output<string>;
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.guardduty.IpSetTagItem[] | undefined>;
 
     /**

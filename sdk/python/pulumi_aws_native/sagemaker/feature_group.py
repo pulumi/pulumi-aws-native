@@ -25,7 +25,8 @@ class FeatureGroupArgs:
                  offline_store_config: Optional[pulumi.Input['OfflineStoreConfigPropertiesArgs']] = None,
                  online_store_config: Optional[pulumi.Input['OnlineStoreConfigPropertiesArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]] = None,
+                 throughput_config: Optional[pulumi.Input['FeatureGroupThroughputConfigArgs']] = None):
         """
         The set of arguments for constructing a FeatureGroup resource.
         :param pulumi.Input[str] event_time_feature_name: The Event Time Feature Name.
@@ -51,6 +52,8 @@ class FeatureGroupArgs:
             pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if throughput_config is not None:
+            pulumi.set(__self__, "throughput_config", throughput_config)
 
     @property
     @pulumi.getter(name="eventTimeFeatureName")
@@ -154,6 +157,15 @@ class FeatureGroupArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="throughputConfig")
+    def throughput_config(self) -> Optional[pulumi.Input['FeatureGroupThroughputConfigArgs']]:
+        return pulumi.get(self, "throughput_config")
+
+    @throughput_config.setter
+    def throughput_config(self, value: Optional[pulumi.Input['FeatureGroupThroughputConfigArgs']]):
+        pulumi.set(self, "throughput_config", value)
+
 
 class FeatureGroup(pulumi.CustomResource):
     @overload
@@ -169,6 +181,7 @@ class FeatureGroup(pulumi.CustomResource):
                  record_identifier_feature_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupTagArgs']]]]] = None,
+                 throughput_config: Optional[pulumi.Input[pulumi.InputType['FeatureGroupThroughputConfigArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::FeatureGroup
@@ -216,6 +229,7 @@ class FeatureGroup(pulumi.CustomResource):
                  record_identifier_feature_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupTagArgs']]]]] = None,
+                 throughput_config: Optional[pulumi.Input[pulumi.InputType['FeatureGroupThroughputConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -240,6 +254,7 @@ class FeatureGroup(pulumi.CustomResource):
             __props__.__dict__["record_identifier_feature_name"] = record_identifier_feature_name
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["throughput_config"] = throughput_config
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["feature_group_status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "event_time_feature_name", "feature_group_name", "offline_store_config", "online_store_config", "record_identifier_feature_name", "role_arn", "tags[*]"])
@@ -277,6 +292,7 @@ class FeatureGroup(pulumi.CustomResource):
         __props__.__dict__["record_identifier_feature_name"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["throughput_config"] = None
         return FeatureGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -360,4 +376,9 @@ class FeatureGroup(pulumi.CustomResource):
         An array of key-value pair to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="throughputConfig")
+    def throughput_config(self) -> pulumi.Output[Optional['outputs.FeatureGroupThroughputConfig']]:
+        return pulumi.get(self, "throughput_config")
 

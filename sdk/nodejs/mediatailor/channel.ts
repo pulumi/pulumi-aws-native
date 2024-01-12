@@ -54,6 +54,7 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.mediatailor.ChannelTag[] | undefined>;
     public readonly tier!: pulumi.Output<enums.mediatailor.ChannelTier | undefined>;
+    public readonly timeShiftConfiguration!: pulumi.Output<outputs.mediatailor.ChannelTimeShiftConfiguration | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -79,6 +80,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["playbackMode"] = args ? args.playbackMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["timeShiftConfiguration"] = args ? args.timeShiftConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -89,6 +91,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["playbackMode"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tier"] = undefined /*out*/;
+            resourceInputs["timeShiftConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["channelName", "tier"] };
@@ -114,4 +117,5 @@ export interface ChannelArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.mediatailor.ChannelTagArgs>[]>;
     tier?: pulumi.Input<enums.mediatailor.ChannelTier>;
+    timeShiftConfiguration?: pulumi.Input<inputs.mediatailor.ChannelTimeShiftConfigurationArgs>;
 }

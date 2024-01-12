@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.Sqs
 
     public sealed class GetQueuePolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -41,9 +38,6 @@ namespace Pulumi.AwsNative.Sqs
 
     public sealed class GetQueuePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -57,9 +51,6 @@ namespace Pulumi.AwsNative.Sqs
     [OutputType]
     public sealed class GetQueuePolicyResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.

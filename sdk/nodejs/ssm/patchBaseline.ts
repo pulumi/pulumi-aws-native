@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::SSM::PatchBaseline
- *
- * @deprecated PatchBaseline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class PatchBaseline extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class PatchBaseline extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PatchBaseline {
-        pulumi.log.warn("PatchBaseline is deprecated: PatchBaseline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new PatchBaseline(name, undefined as any, { ...opts, id: id });
     }
 
@@ -41,17 +38,57 @@ export class PatchBaseline extends pulumi.CustomResource {
     }
 
     public readonly approvalRules!: pulumi.Output<outputs.ssm.PatchBaselineRuleGroup | undefined>;
+    /**
+     * A list of explicitly approved patches for the baseline.
+     */
     public readonly approvedPatches!: pulumi.Output<string[] | undefined>;
-    public readonly approvedPatchesComplianceLevel!: pulumi.Output<string | undefined>;
+    /**
+     * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+     */
+    public readonly approvedPatchesComplianceLevel!: pulumi.Output<enums.ssm.PatchBaselineApprovedPatchesComplianceLevel | undefined>;
+    /**
+     * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+     */
     public readonly approvedPatchesEnableNonSecurity!: pulumi.Output<boolean | undefined>;
+    /**
+     * Set the baseline as default baseline. Only registering to default patch baseline is allowed.
+     */
+    public readonly defaultBaseline!: pulumi.Output<boolean | undefined>;
+    /**
+     * The description of the patch baseline.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A set of global filters used to include patches in the baseline.
+     */
     public readonly globalFilters!: pulumi.Output<outputs.ssm.PatchBaselinePatchFilterGroup | undefined>;
+    /**
+     * The name of the patch baseline.
+     */
     public readonly name!: pulumi.Output<string>;
-    public readonly operatingSystem!: pulumi.Output<string | undefined>;
+    /**
+     * Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+     */
+    public readonly operatingSystem!: pulumi.Output<enums.ssm.PatchBaselineOperatingSystem | undefined>;
+    /**
+     * PatchGroups is used to associate instances with a specific patch baseline
+     */
     public readonly patchGroups!: pulumi.Output<string[] | undefined>;
+    /**
+     * A list of explicitly rejected patches for the baseline.
+     */
     public readonly rejectedPatches!: pulumi.Output<string[] | undefined>;
-    public readonly rejectedPatchesAction!: pulumi.Output<string | undefined>;
+    /**
+     * The action for Patch Manager to take on patches included in the RejectedPackages list.
+     */
+    public readonly rejectedPatchesAction!: pulumi.Output<enums.ssm.PatchBaselineRejectedPatchesAction | undefined>;
+    /**
+     * Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+     */
     public readonly sources!: pulumi.Output<outputs.ssm.PatchBaselinePatchSource[] | undefined>;
+    /**
+     * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
+     */
     public readonly tags!: pulumi.Output<outputs.ssm.PatchBaselineTag[] | undefined>;
 
     /**
@@ -61,9 +98,7 @@ export class PatchBaseline extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated PatchBaseline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: PatchBaselineArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PatchBaseline is deprecated: PatchBaseline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -71,6 +106,7 @@ export class PatchBaseline extends pulumi.CustomResource {
             resourceInputs["approvedPatches"] = args ? args.approvedPatches : undefined;
             resourceInputs["approvedPatchesComplianceLevel"] = args ? args.approvedPatchesComplianceLevel : undefined;
             resourceInputs["approvedPatchesEnableNonSecurity"] = args ? args.approvedPatchesEnableNonSecurity : undefined;
+            resourceInputs["defaultBaseline"] = args ? args.defaultBaseline : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["globalFilters"] = args ? args.globalFilters : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -85,6 +121,7 @@ export class PatchBaseline extends pulumi.CustomResource {
             resourceInputs["approvedPatches"] = undefined /*out*/;
             resourceInputs["approvedPatchesComplianceLevel"] = undefined /*out*/;
             resourceInputs["approvedPatchesEnableNonSecurity"] = undefined /*out*/;
+            resourceInputs["defaultBaseline"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["globalFilters"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -107,16 +144,56 @@ export class PatchBaseline extends pulumi.CustomResource {
  */
 export interface PatchBaselineArgs {
     approvalRules?: pulumi.Input<inputs.ssm.PatchBaselineRuleGroupArgs>;
+    /**
+     * A list of explicitly approved patches for the baseline.
+     */
     approvedPatches?: pulumi.Input<pulumi.Input<string>[]>;
-    approvedPatchesComplianceLevel?: pulumi.Input<string>;
+    /**
+     * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+     */
+    approvedPatchesComplianceLevel?: pulumi.Input<enums.ssm.PatchBaselineApprovedPatchesComplianceLevel>;
+    /**
+     * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+     */
     approvedPatchesEnableNonSecurity?: pulumi.Input<boolean>;
+    /**
+     * Set the baseline as default baseline. Only registering to default patch baseline is allowed.
+     */
+    defaultBaseline?: pulumi.Input<boolean>;
+    /**
+     * The description of the patch baseline.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A set of global filters used to include patches in the baseline.
+     */
     globalFilters?: pulumi.Input<inputs.ssm.PatchBaselinePatchFilterGroupArgs>;
+    /**
+     * The name of the patch baseline.
+     */
     name?: pulumi.Input<string>;
-    operatingSystem?: pulumi.Input<string>;
+    /**
+     * Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+     */
+    operatingSystem?: pulumi.Input<enums.ssm.PatchBaselineOperatingSystem>;
+    /**
+     * PatchGroups is used to associate instances with a specific patch baseline
+     */
     patchGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of explicitly rejected patches for the baseline.
+     */
     rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
-    rejectedPatchesAction?: pulumi.Input<string>;
+    /**
+     * The action for Patch Manager to take on patches included in the RejectedPackages list.
+     */
+    rejectedPatchesAction?: pulumi.Input<enums.ssm.PatchBaselineRejectedPatchesAction>;
+    /**
+     * Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+     */
     sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselinePatchSourceArgs>[]>;
+    /**
+     * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineTagArgs>[]>;
 }

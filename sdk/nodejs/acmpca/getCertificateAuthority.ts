@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -34,11 +31,6 @@ export interface GetCertificateAuthorityResult {
      * The base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
      */
     readonly certificateSigningRequest?: string;
-    /**
-     * Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
-     */
-    readonly revocationConfiguration?: outputs.acmpca.CertificateAuthorityRevocationConfiguration;
-    readonly tags?: outputs.acmpca.CertificateAuthorityTag[];
 }
 /**
  * Private certificate authority.

@@ -43,6 +43,7 @@ export class Topic extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly topicId!: pulumi.Output<string | undefined>;
+    public readonly userExperienceVersion!: pulumi.Output<enums.quicksight.TopicUserExperienceVersion | undefined>;
 
     /**
      * Create a Topic resource with the given unique name, arguments, and options.
@@ -60,6 +61,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["topicId"] = args ? args.topicId : undefined;
+            resourceInputs["userExperienceVersion"] = args ? args.userExperienceVersion : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -68,6 +70,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["topicId"] = undefined /*out*/;
+            resourceInputs["userExperienceVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "topicId"] };
@@ -85,4 +88,5 @@ export interface TopicArgs {
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     topicId?: pulumi.Input<string>;
+    userExperienceVersion?: pulumi.Input<enums.quicksight.TopicUserExperienceVersion>;
 }

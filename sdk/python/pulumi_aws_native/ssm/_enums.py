@@ -14,6 +14,11 @@ __all__ = [
     'ParameterDataType',
     'ParameterTier',
     'ParameterType',
+    'PatchBaselineApprovedPatchesComplianceLevel',
+    'PatchBaselineOperatingSystem',
+    'PatchBaselinePatchFilterKey',
+    'PatchBaselineRejectedPatchesAction',
+    'PatchBaselineRuleComplianceLevel',
 ]
 
 
@@ -99,3 +104,74 @@ class ParameterType(str, Enum):
     STRING = "String"
     STRING_LIST = "StringList"
     SECURE_STRING = "SecureString"
+
+
+class PatchBaselineApprovedPatchesComplianceLevel(str, Enum):
+    """
+    Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+    """
+    CRITICAL = "CRITICAL"
+    HIGH = "HIGH"
+    MEDIUM = "MEDIUM"
+    LOW = "LOW"
+    INFORMATIONAL = "INFORMATIONAL"
+    UNSPECIFIED = "UNSPECIFIED"
+
+
+class PatchBaselineOperatingSystem(str, Enum):
+    """
+    Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+    """
+    WINDOWS = "WINDOWS"
+    AMAZON_LINUX = "AMAZON_LINUX"
+    AMAZON_LINUX2 = "AMAZON_LINUX_2"
+    AMAZON_LINUX2022 = "AMAZON_LINUX_2022"
+    AMAZON_LINUX2023 = "AMAZON_LINUX_2023"
+    UBUNTU = "UBUNTU"
+    REDHAT_ENTERPRISE_LINUX = "REDHAT_ENTERPRISE_LINUX"
+    SUSE = "SUSE"
+    CENTOS = "CENTOS"
+    ORACLE_LINUX = "ORACLE_LINUX"
+    DEBIAN = "DEBIAN"
+    MACOS = "MACOS"
+    RASPBIAN = "RASPBIAN"
+    ROCKY_LINUX = "ROCKY_LINUX"
+
+
+class PatchBaselinePatchFilterKey(str, Enum):
+    ADVISORY_ID = "ADVISORY_ID"
+    ARCH = "ARCH"
+    BUGZILLA_ID = "BUGZILLA_ID"
+    CLASSIFICATION = "CLASSIFICATION"
+    CVE_ID = "CVE_ID"
+    EPOCH = "EPOCH"
+    MSRC_SEVERITY = "MSRC_SEVERITY"
+    NAME = "NAME"
+    PATCH_ID = "PATCH_ID"
+    PATCH_SET = "PATCH_SET"
+    PRIORITY = "PRIORITY"
+    PRODUCT = "PRODUCT"
+    PRODUCT_FAMILY = "PRODUCT_FAMILY"
+    RELEASE = "RELEASE"
+    REPOSITORY = "REPOSITORY"
+    SECTION = "SECTION"
+    SECURITY = "SECURITY"
+    SEVERITY = "SEVERITY"
+    VERSION = "VERSION"
+
+
+class PatchBaselineRejectedPatchesAction(str, Enum):
+    """
+    The action for Patch Manager to take on patches included in the RejectedPackages list.
+    """
+    ALLOW_AS_DEPENDENCY = "ALLOW_AS_DEPENDENCY"
+    BLOCK = "BLOCK"
+
+
+class PatchBaselineRuleComplianceLevel(str, Enum):
+    CRITICAL = "CRITICAL"
+    HIGH = "HIGH"
+    INFORMATIONAL = "INFORMATIONAL"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    UNSPECIFIED = "UNSPECIFIED"

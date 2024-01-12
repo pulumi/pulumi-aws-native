@@ -16,12 +16,13 @@ import (
 type Topic struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput             `pulumi:"arn"`
-	AwsAccountId pulumi.StringPtrOutput          `pulumi:"awsAccountId"`
-	DataSets     TopicDatasetMetadataArrayOutput `pulumi:"dataSets"`
-	Description  pulumi.StringPtrOutput          `pulumi:"description"`
-	Name         pulumi.StringPtrOutput          `pulumi:"name"`
-	TopicId      pulumi.StringPtrOutput          `pulumi:"topicId"`
+	Arn                   pulumi.StringOutput                 `pulumi:"arn"`
+	AwsAccountId          pulumi.StringPtrOutput              `pulumi:"awsAccountId"`
+	DataSets              TopicDatasetMetadataArrayOutput     `pulumi:"dataSets"`
+	Description           pulumi.StringPtrOutput              `pulumi:"description"`
+	Name                  pulumi.StringPtrOutput              `pulumi:"name"`
+	TopicId               pulumi.StringPtrOutput              `pulumi:"topicId"`
+	UserExperienceVersion TopicUserExperienceVersionPtrOutput `pulumi:"userExperienceVersion"`
 }
 
 // NewTopic registers a new resource with the given unique name, arguments, and options.
@@ -69,20 +70,22 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
-	AwsAccountId *string                `pulumi:"awsAccountId"`
-	DataSets     []TopicDatasetMetadata `pulumi:"dataSets"`
-	Description  *string                `pulumi:"description"`
-	Name         *string                `pulumi:"name"`
-	TopicId      *string                `pulumi:"topicId"`
+	AwsAccountId          *string                     `pulumi:"awsAccountId"`
+	DataSets              []TopicDatasetMetadata      `pulumi:"dataSets"`
+	Description           *string                     `pulumi:"description"`
+	Name                  *string                     `pulumi:"name"`
+	TopicId               *string                     `pulumi:"topicId"`
+	UserExperienceVersion *TopicUserExperienceVersion `pulumi:"userExperienceVersion"`
 }
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	DataSets     TopicDatasetMetadataArrayInput
-	Description  pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
-	TopicId      pulumi.StringPtrInput
+	AwsAccountId          pulumi.StringPtrInput
+	DataSets              TopicDatasetMetadataArrayInput
+	Description           pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	TopicId               pulumi.StringPtrInput
+	UserExperienceVersion TopicUserExperienceVersionPtrInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {
@@ -156,6 +159,10 @@ func (o TopicOutput) Name() pulumi.StringPtrOutput {
 
 func (o TopicOutput) TopicId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.TopicId }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicOutput) UserExperienceVersion() TopicUserExperienceVersionPtrOutput {
+	return o.ApplyT(func(v *Topic) TopicUserExperienceVersionPtrOutput { return v.UserExperienceVersion }).(TopicUserExperienceVersionPtrOutput)
 }
 
 func init() {

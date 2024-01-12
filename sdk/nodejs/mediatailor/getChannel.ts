@@ -34,6 +34,7 @@ export interface GetChannelResult {
      * The tags to assign to the channel.
      */
     readonly tags?: outputs.mediatailor.ChannelTag[];
+    readonly timeShiftConfiguration?: outputs.mediatailor.ChannelTimeShiftConfiguration;
 }
 /**
  * Definition of AWS::MediaTailor::Channel Resource Type

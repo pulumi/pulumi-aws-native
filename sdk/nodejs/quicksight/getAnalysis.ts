@@ -29,8 +29,10 @@ export interface GetAnalysisResult {
     readonly createdTime?: string;
     readonly dataSetArns?: string[];
     readonly errors?: outputs.quicksight.AnalysisError[];
+    readonly lastUpdatedTime?: string;
     readonly name?: string;
     readonly permissions?: outputs.quicksight.AnalysisResourcePermission[];
+    readonly sheets?: outputs.quicksight.AnalysisSheet[];
     readonly tags?: outputs.quicksight.AnalysisTag[];
     readonly themeArn?: string;
 }

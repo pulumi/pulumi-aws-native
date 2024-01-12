@@ -508,7 +508,6 @@ func (o ThemeMarginStylePtrOutput) Show() pulumi.BoolPtrOutput {
 type ThemeResourcePermission struct {
 	Actions   []string `pulumi:"actions"`
 	Principal string   `pulumi:"principal"`
-	Resource  *string  `pulumi:"resource"`
 }
 
 // ThemeResourcePermissionInput is an input type that accepts ThemeResourcePermissionArgs and ThemeResourcePermissionOutput values.
@@ -525,7 +524,6 @@ type ThemeResourcePermissionInput interface {
 type ThemeResourcePermissionArgs struct {
 	Actions   pulumi.StringArrayInput `pulumi:"actions"`
 	Principal pulumi.StringInput      `pulumi:"principal"`
-	Resource  pulumi.StringPtrInput   `pulumi:"resource"`
 }
 
 func (ThemeResourcePermissionArgs) ElementType() reflect.Type {
@@ -603,10 +601,6 @@ func (o ThemeResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 
 func (o ThemeResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v ThemeResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
-}
-
-func (o ThemeResourcePermissionOutput) Resource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ThemeResourcePermission) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
 type ThemeResourcePermissionArrayOutput struct{ *pulumi.OutputState }

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
     [OutputType]
     public sealed class CertificateAuthorityCrlConfiguration
     {
+        public readonly Outputs.CertificateAuthorityCrlDistributionPointExtensionConfiguration? CrlDistributionPointExtensionConfiguration;
         public readonly string? CustomCname;
         public readonly bool? Enabled;
         public readonly int? ExpirationInDays;
@@ -24,6 +25,8 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
 
         [OutputConstructor]
         private CertificateAuthorityCrlConfiguration(
+            Outputs.CertificateAuthorityCrlDistributionPointExtensionConfiguration? crlDistributionPointExtensionConfiguration,
+
             string? customCname,
 
             bool? enabled,
@@ -34,6 +37,7 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
 
             string? s3ObjectAcl)
         {
+            CrlDistributionPointExtensionConfiguration = crlDistributionPointExtensionConfiguration;
             CustomCname = customCname;
             Enabled = enabled;
             ExpirationInDays = expirationInDays;

@@ -30,6 +30,7 @@ export interface GetDbClusterResult {
     readonly deletionProtection?: boolean;
     readonly enableCloudwatchLogsExports?: string[];
     readonly endpoint?: string;
+    readonly engineVersion?: string;
     readonly id?: string;
     readonly masterUserPassword?: string;
     readonly port?: number;
@@ -38,6 +39,7 @@ export interface GetDbClusterResult {
     readonly readEndpoint?: string;
     readonly restoreToTime?: string;
     readonly restoreType?: string;
+    readonly storageType?: string;
     readonly tags?: outputs.docdb.DbClusterTag[];
     readonly useLatestRestorableTime?: boolean;
     readonly vpcSecurityGroupIds?: string[];

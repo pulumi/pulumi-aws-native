@@ -61,6 +61,7 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly ImmutableArray<Outputs.TopicDatasetMetadata> DataSets;
         public readonly string? Description;
         public readonly string? Name;
+        public readonly Pulumi.AwsNative.QuickSight.TopicUserExperienceVersion? UserExperienceVersion;
 
         [OutputConstructor]
         private GetTopicResult(
@@ -70,12 +71,15 @@ namespace Pulumi.AwsNative.QuickSight
 
             string? description,
 
-            string? name)
+            string? name,
+
+            Pulumi.AwsNative.QuickSight.TopicUserExperienceVersion? userExperienceVersion)
         {
             Arn = arn;
             DataSets = dataSets;
             Description = description;
             Name = name;
+            UserExperienceVersion = userExperienceVersion;
         }
     }
 }

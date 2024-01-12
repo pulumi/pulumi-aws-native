@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("tags")]
         public Output<ImmutableArray<Outputs.FeatureGroupTag>> Tags { get; private set; } = null!;
 
+        [Output("throughputConfig")]
+        public Output<Outputs.FeatureGroupThroughputConfig?> ThroughputConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a FeatureGroup resource with the given unique name, arguments, and options.
@@ -190,6 +193,9 @@ namespace Pulumi.AwsNative.SageMaker
             get => _tags ?? (_tags = new InputList<Inputs.FeatureGroupTagArgs>());
             set => _tags = value;
         }
+
+        [Input("throughputConfig")]
+        public Input<Inputs.FeatureGroupThroughputConfigArgs>? ThroughputConfig { get; set; }
 
         public FeatureGroupArgs()
         {

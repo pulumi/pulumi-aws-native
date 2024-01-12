@@ -14,27 +14,24 @@ __all__ = ['SubnetCidrBlockArgs', 'SubnetCidrBlock']
 @pulumi.input_type
 class SubnetCidrBlockArgs:
     def __init__(__self__, *,
-                 ipv6_cidr_block: pulumi.Input[str],
-                 subnet_id: pulumi.Input[str]):
+                 subnet_id: pulumi.Input[str],
+                 ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a SubnetCidrBlock resource.
-        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
         :param pulumi.Input[str] subnet_id: The ID of the subnet
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
+        :param pulumi.Input[str] ipv6_ipam_pool_id: The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+        :param pulumi.Input[int] ipv6_netmask_length: The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
         """
-        pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
         pulumi.set(__self__, "subnet_id", subnet_id)
-
-    @property
-    @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> pulumi.Input[str]:
-        """
-        The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
-        """
-        return pulumi.get(self, "ipv6_cidr_block")
-
-    @ipv6_cidr_block.setter
-    def ipv6_cidr_block(self, value: pulumi.Input[str]):
-        pulumi.set(self, "ipv6_cidr_block", value)
+        if ipv6_cidr_block is not None:
+            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if ipv6_ipam_pool_id is not None:
+            pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
+        if ipv6_netmask_length is not None:
+            pulumi.set(__self__, "ipv6_netmask_length", ipv6_netmask_length)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -48,6 +45,42 @@ class SubnetCidrBlockArgs:
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
 
+    @property
+    @pulumi.getter(name="ipv6CidrBlock")
+    def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
+        """
+        return pulumi.get(self, "ipv6_cidr_block")
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="ipv6IpamPoolId")
+    def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+        """
+        return pulumi.get(self, "ipv6_ipam_pool_id")
+
+    @ipv6_ipam_pool_id.setter
+    def ipv6_ipam_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_ipam_pool_id", value)
+
+    @property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
+        """
+        return pulumi.get(self, "ipv6_netmask_length")
+
+    @ipv6_netmask_length.setter
+    def ipv6_netmask_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6_netmask_length", value)
+
 
 class SubnetCidrBlock(pulumi.CustomResource):
     @overload
@@ -55,6 +88,8 @@ class SubnetCidrBlock(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -63,6 +98,8 @@ class SubnetCidrBlock(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
+        :param pulumi.Input[str] ipv6_ipam_pool_id: The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+        :param pulumi.Input[int] ipv6_netmask_length: The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
         :param pulumi.Input[str] subnet_id: The ID of the subnet
         """
         ...
@@ -90,6 +127,8 @@ class SubnetCidrBlock(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -100,13 +139,13 @@ class SubnetCidrBlock(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SubnetCidrBlockArgs.__new__(SubnetCidrBlockArgs)
 
-            if ipv6_cidr_block is None and not opts.urn:
-                raise TypeError("Missing required property 'ipv6_cidr_block'")
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
+            __props__.__dict__["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
+            __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ipv6_cidr_block", "subnet_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ipv6_cidr_block", "ipv6_ipam_pool_id", "ipv6_netmask_length", "subnet_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SubnetCidrBlock, __self__).__init__(
             'aws-native:ec2:SubnetCidrBlock',
@@ -131,16 +170,34 @@ class SubnetCidrBlock(pulumi.CustomResource):
         __props__ = SubnetCidrBlockArgs.__new__(SubnetCidrBlockArgs)
 
         __props__.__dict__["ipv6_cidr_block"] = None
+        __props__.__dict__["ipv6_ipam_pool_id"] = None
+        __props__.__dict__["ipv6_netmask_length"] = None
         __props__.__dict__["subnet_id"] = None
         return SubnetCidrBlock(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> pulumi.Output[str]:
+    def ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
         """
         return pulumi.get(self, "ipv6_cidr_block")
+
+    @property
+    @pulumi.getter(name="ipv6IpamPoolId")
+    def ipv6_ipam_pool_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+        """
+        return pulumi.get(self, "ipv6_ipam_pool_id")
+
+    @property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> pulumi.Output[Optional[int]]:
+        """
+        The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
+        """
+        return pulumi.get(self, "ipv6_netmask_length")
 
     @property
     @pulumi.getter(name="subnetId")

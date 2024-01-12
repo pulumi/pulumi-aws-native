@@ -55,7 +55,8 @@ type IpamPool struct {
 	// Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
 	PubliclyAdvertisable pulumi.BoolPtrOutput `pulumi:"publiclyAdvertisable"`
 	// The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
-	SourceIpamPoolId pulumi.StringPtrOutput `pulumi:"sourceIpamPoolId"`
+	SourceIpamPoolId pulumi.StringPtrOutput          `pulumi:"sourceIpamPoolId"`
+	SourceResource   IpamPoolSourceResourcePtrOutput `pulumi:"sourceResource"`
 	// The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
 	State IpamPoolStateEnumOutput `pulumi:"state"`
 	// An explanation of how the pool arrived at it current state.
@@ -85,6 +86,7 @@ func NewIpamPool(ctx *pulumi.Context,
 		"publicIpSource",
 		"publiclyAdvertisable",
 		"sourceIpamPoolId",
+		"sourceResource",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -146,7 +148,8 @@ type ipamPoolArgs struct {
 	// Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
 	PubliclyAdvertisable *bool `pulumi:"publiclyAdvertisable"`
 	// The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
-	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
+	SourceIpamPoolId *string                 `pulumi:"sourceIpamPoolId"`
+	SourceResource   *IpamPoolSourceResource `pulumi:"sourceResource"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []IpamPoolTag `pulumi:"tags"`
 }
@@ -180,6 +183,7 @@ type IpamPoolArgs struct {
 	PubliclyAdvertisable pulumi.BoolPtrInput
 	// The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
 	SourceIpamPoolId pulumi.StringPtrInput
+	SourceResource   IpamPoolSourceResourcePtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags IpamPoolTagArrayInput
 }
@@ -330,6 +334,10 @@ func (o IpamPoolOutput) PubliclyAdvertisable() pulumi.BoolPtrOutput {
 // The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
 func (o IpamPoolOutput) SourceIpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpamPool) pulumi.StringPtrOutput { return v.SourceIpamPoolId }).(pulumi.StringPtrOutput)
+}
+
+func (o IpamPoolOutput) SourceResource() IpamPoolSourceResourcePtrOutput {
+	return o.ApplyT(func(v *IpamPool) IpamPoolSourceResourcePtrOutput { return v.SourceResource }).(IpamPoolSourceResourcePtrOutput)
 }
 
 // The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"

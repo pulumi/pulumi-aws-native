@@ -18343,12 +18343,9 @@ class AnalysisRelativeDatesFilter(dict):
 class AnalysisResourcePermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
-                 principal: str,
-                 resource: Optional[str] = None):
+                 principal: str):
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -18359,11 +18356,6 @@ class AnalysisResourcePermission(dict):
     @pulumi.getter
     def principal(self) -> str:
         return pulumi.get(self, "principal")
-
-    @property
-    @pulumi.getter
-    def resource(self) -> Optional[str]:
-        return pulumi.get(self, "resource")
 
 
 @pulumi.output_type
@@ -41310,12 +41302,9 @@ class DashboardRelativeDatesFilter(dict):
 class DashboardResourcePermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
-                 principal: str,
-                 resource: Optional[str] = None):
+                 principal: str):
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -41326,11 +41315,6 @@ class DashboardResourcePermission(dict):
     @pulumi.getter
     def principal(self) -> str:
         return pulumi.get(self, "principal")
-
-    @property
-    @pulumi.getter
-    def resource(self) -> Optional[str]:
-        return pulumi.get(self, "resource")
 
 
 @pulumi.output_type
@@ -67308,12 +67292,9 @@ class TemplateRelativeDatesFilter(dict):
 class TemplateResourcePermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
-                 principal: str,
-                 resource: Optional[str] = None):
+                 principal: str):
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -67324,11 +67305,6 @@ class TemplateResourcePermission(dict):
     @pulumi.getter
     def principal(self) -> str:
         return pulumi.get(self, "principal")
-
-    @property
-    @pulumi.getter
-    def resource(self) -> Optional[str]:
-        return pulumi.get(self, "resource")
 
 
 @pulumi.output_type
@@ -73627,12 +73603,9 @@ class ThemeMarginStyle(dict):
 class ThemeResourcePermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
-                 principal: str,
-                 resource: Optional[str] = None):
+                 principal: str):
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -73643,11 +73616,6 @@ class ThemeResourcePermission(dict):
     @pulumi.getter
     def principal(self) -> str:
         return pulumi.get(self, "principal")
-
-    @property
-    @pulumi.getter
-    def resource(self) -> Optional[str]:
-        return pulumi.get(self, "resource")
 
 
 @pulumi.output_type

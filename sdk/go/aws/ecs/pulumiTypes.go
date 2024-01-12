@@ -9661,6 +9661,7 @@ func (o TaskDefinitionUlimitArrayOutput) Index(i pulumi.IntInput) TaskDefinition
 }
 
 type TaskDefinitionVolume struct {
+	ConfiguredAtLaunch        *bool                                    `pulumi:"configuredAtLaunch"`
 	DockerVolumeConfiguration *TaskDefinitionDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
 	EfsVolumeConfiguration    *TaskDefinitionEfsVolumeConfiguration    `pulumi:"efsVolumeConfiguration"`
 	Host                      *TaskDefinitionHostVolumeProperties      `pulumi:"host"`
@@ -9679,6 +9680,7 @@ type TaskDefinitionVolumeInput interface {
 }
 
 type TaskDefinitionVolumeArgs struct {
+	ConfiguredAtLaunch        pulumi.BoolPtrInput                             `pulumi:"configuredAtLaunch"`
 	DockerVolumeConfiguration TaskDefinitionDockerVolumeConfigurationPtrInput `pulumi:"dockerVolumeConfiguration"`
 	EfsVolumeConfiguration    TaskDefinitionEfsVolumeConfigurationPtrInput    `pulumi:"efsVolumeConfiguration"`
 	Host                      TaskDefinitionHostVolumePropertiesPtrInput      `pulumi:"host"`
@@ -9752,6 +9754,10 @@ func (o TaskDefinitionVolumeOutput) ToOutput(ctx context.Context) pulumix.Output
 	return pulumix.Output[TaskDefinitionVolume]{
 		OutputState: o.OutputState,
 	}
+}
+
+func (o TaskDefinitionVolumeOutput) ConfiguredAtLaunch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolume) *bool { return v.ConfiguredAtLaunch }).(pulumi.BoolPtrOutput)
 }
 
 func (o TaskDefinitionVolumeOutput) DockerVolumeConfiguration() TaskDefinitionDockerVolumeConfigurationPtrOutput {

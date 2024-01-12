@@ -32,9 +32,6 @@ class GetQueuePolicyResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -69,9 +66,6 @@ def get_queue_policy(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueuePolicyResult:
     """
     The ``AWS::SQS::QueuePolicy`` type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.
-
-
-    :param str id: The provider-assigned unique ID for this managed resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -89,8 +83,5 @@ def get_queue_policy_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueuePolicyResult]:
     """
     The ``AWS::SQS::QueuePolicy`` type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.
-
-
-    :param str id: The provider-assigned unique ID for this managed resource.
     """
     ...

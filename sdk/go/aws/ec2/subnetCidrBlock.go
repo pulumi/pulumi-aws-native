@@ -18,7 +18,11 @@ type SubnetCidrBlock struct {
 	pulumi.CustomResourceState
 
 	// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
-	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
+	// The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+	Ipv6IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
+	// The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
+	Ipv6NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv6NetmaskLength"`
 	// The ID of the subnet
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
@@ -30,14 +34,13 @@ func NewSubnetCidrBlock(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Ipv6CidrBlock == nil {
-		return nil, errors.New("invalid value for required argument 'Ipv6CidrBlock'")
-	}
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"ipv6CidrBlock",
+		"ipv6IpamPoolId",
+		"ipv6NetmaskLength",
 		"subnetId",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -75,7 +78,11 @@ func (SubnetCidrBlockState) ElementType() reflect.Type {
 
 type subnetCidrBlockArgs struct {
 	// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
-	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
+	// The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
+	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
 	// The ID of the subnet
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -83,7 +90,11 @@ type subnetCidrBlockArgs struct {
 // The set of arguments for constructing a SubnetCidrBlock resource.
 type SubnetCidrBlockArgs struct {
 	// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
-	Ipv6CidrBlock pulumi.StringInput
+	Ipv6CidrBlock pulumi.StringPtrInput
+	// The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+	Ipv6IpamPoolId pulumi.StringPtrInput
+	// The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
+	Ipv6NetmaskLength pulumi.IntPtrInput
 	// The ID of the subnet
 	SubnetId pulumi.StringInput
 }
@@ -138,8 +149,18 @@ func (o SubnetCidrBlockOutput) ToOutput(ctx context.Context) pulumix.Output[*Sub
 }
 
 // The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
-func (o SubnetCidrBlockOutput) Ipv6CidrBlock() pulumi.StringOutput {
-	return o.ApplyT(func(v *SubnetCidrBlock) pulumi.StringOutput { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+func (o SubnetCidrBlockOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetCidrBlock) pulumi.StringPtrOutput { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+func (o SubnetCidrBlockOutput) Ipv6IpamPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetCidrBlock) pulumi.StringPtrOutput { return v.Ipv6IpamPoolId }).(pulumi.StringPtrOutput)
+}
+
+// The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
+func (o SubnetCidrBlockOutput) Ipv6NetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SubnetCidrBlock) pulumi.IntPtrOutput { return v.Ipv6NetmaskLength }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the subnet

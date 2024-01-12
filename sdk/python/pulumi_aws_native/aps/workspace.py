@@ -18,18 +18,22 @@ class WorkspaceArgs:
     def __init__(__self__, *,
                  alert_manager_definition: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] alert_manager_definition: The AMP Workspace alert manager definition data
         :param pulumi.Input[str] alias: AMP Workspace alias.
+        :param pulumi.Input[str] kms_key_arn: KMS Key ARN used to encrypt and decrypt AMP workspace data.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if alert_manager_definition is not None:
             pulumi.set(__self__, "alert_manager_definition", alert_manager_definition)
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
         if tags is not None:
@@ -60,6 +64,18 @@ class WorkspaceArgs:
         pulumi.set(self, "alias", value)
 
     @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS Key ARN used to encrypt and decrypt AMP workspace data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']]:
         return pulumi.get(self, "logging_configuration")
@@ -88,6 +104,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alert_manager_definition: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceTagArgs']]]]] = None,
                  __props__=None):
@@ -98,6 +115,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_manager_definition: The AMP Workspace alert manager definition data
         :param pulumi.Input[str] alias: AMP Workspace alias.
+        :param pulumi.Input[str] kms_key_arn: KMS Key ARN used to encrypt and decrypt AMP workspace data.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -126,6 +144,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alert_manager_definition: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceTagArgs']]]]] = None,
                  __props__=None):
@@ -139,11 +158,14 @@ class Workspace(pulumi.CustomResource):
 
             __props__.__dict__["alert_manager_definition"] = alert_manager_definition
             __props__.__dict__["alias"] = alias
+            __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["prometheus_endpoint"] = None
             __props__.__dict__["workspace_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kms_key_arn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workspace, __self__).__init__(
             'aws-native:aps:Workspace',
             resource_name,
@@ -169,6 +191,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["alert_manager_definition"] = None
         __props__.__dict__["alias"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["logging_configuration"] = None
         __props__.__dict__["prometheus_endpoint"] = None
         __props__.__dict__["tags"] = None
@@ -198,6 +221,14 @@ class Workspace(pulumi.CustomResource):
         Workspace arn.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        KMS Key ARN used to encrypt and decrypt AMP workspace data.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="loggingConfiguration")

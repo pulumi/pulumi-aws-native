@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         /// <summary>
         /// The recipe version.
         /// </summary>
-        [Input("semanticVersion")]
-        public Input<string>? SemanticVersion { get; set; }
+        [Input("semanticVersion", required: true)]
+        public Input<string> SemanticVersion { get; set; } = null!;
 
         public LifecyclePolicyRecipeSelectionArgs()
         {

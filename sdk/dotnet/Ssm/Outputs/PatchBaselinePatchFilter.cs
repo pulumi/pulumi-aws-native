@@ -10,15 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ssm.Outputs
 {
 
+    /// <summary>
+    /// Defines which patches should be included in a patch baseline.
+    /// </summary>
     [OutputType]
     public sealed class PatchBaselinePatchFilter
     {
-        public readonly string? Key;
+        public readonly Pulumi.AwsNative.Ssm.PatchBaselinePatchFilterKey? Key;
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
         private PatchBaselinePatchFilter(
-            string? key,
+            Pulumi.AwsNative.Ssm.PatchBaselinePatchFilterKey? key,
 
             ImmutableArray<string> values)
         {

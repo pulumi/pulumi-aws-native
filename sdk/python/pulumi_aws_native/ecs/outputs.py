@@ -3002,7 +3002,9 @@ class TaskDefinitionVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dockerVolumeConfiguration":
+        if key == "configuredAtLaunch":
+            suggest = "configured_at_launch"
+        elif key == "dockerVolumeConfiguration":
             suggest = "docker_volume_configuration"
         elif key == "efsVolumeConfiguration":
             suggest = "efs_volume_configuration"
@@ -3019,10 +3021,13 @@ class TaskDefinitionVolume(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 configured_at_launch: Optional[bool] = None,
                  docker_volume_configuration: Optional['outputs.TaskDefinitionDockerVolumeConfiguration'] = None,
                  efs_volume_configuration: Optional['outputs.TaskDefinitionEfsVolumeConfiguration'] = None,
                  host: Optional['outputs.TaskDefinitionHostVolumeProperties'] = None,
                  name: Optional[str] = None):
+        if configured_at_launch is not None:
+            pulumi.set(__self__, "configured_at_launch", configured_at_launch)
         if docker_volume_configuration is not None:
             pulumi.set(__self__, "docker_volume_configuration", docker_volume_configuration)
         if efs_volume_configuration is not None:
@@ -3031,6 +3036,11 @@ class TaskDefinitionVolume(dict):
             pulumi.set(__self__, "host", host)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="configuredAtLaunch")
+    def configured_at_launch(self) -> Optional[bool]:
+        return pulumi.get(self, "configured_at_launch")
 
     @property
     @pulumi.getter(name="dockerVolumeConfiguration")

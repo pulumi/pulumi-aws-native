@@ -23,7 +23,8 @@ class ChannelArgs:
                  filler_slate: Optional[pulumi.Input['ChannelSlateSourceArgs']] = None,
                  log_configuration: Optional[pulumi.Input['ChannelLogConfigurationForChannelArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
-                 tier: Optional[pulumi.Input['ChannelTier']] = None):
+                 tier: Optional[pulumi.Input['ChannelTier']] = None,
+                 time_shift_configuration: Optional[pulumi.Input['ChannelTimeShiftConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Channel resource.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelRequestOutputItemArgs']]] outputs: <p>The channel's output properties.</p>
@@ -41,6 +42,8 @@ class ChannelArgs:
             pulumi.set(__self__, "tags", tags)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
+        if time_shift_configuration is not None:
+            pulumi.set(__self__, "time_shift_configuration", time_shift_configuration)
 
     @property
     @pulumi.getter
@@ -111,6 +114,15 @@ class ChannelArgs:
     def tier(self, value: Optional[pulumi.Input['ChannelTier']]):
         pulumi.set(self, "tier", value)
 
+    @property
+    @pulumi.getter(name="timeShiftConfiguration")
+    def time_shift_configuration(self) -> Optional[pulumi.Input['ChannelTimeShiftConfigurationArgs']]:
+        return pulumi.get(self, "time_shift_configuration")
+
+    @time_shift_configuration.setter
+    def time_shift_configuration(self, value: Optional[pulumi.Input['ChannelTimeShiftConfigurationArgs']]):
+        pulumi.set(self, "time_shift_configuration", value)
+
 
 class Channel(pulumi.CustomResource):
     @overload
@@ -124,6 +136,7 @@ class Channel(pulumi.CustomResource):
                  playback_mode: Optional[pulumi.Input['ChannelPlaybackMode']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
                  tier: Optional[pulumi.Input['ChannelTier']] = None,
+                 time_shift_configuration: Optional[pulumi.Input[pulumi.InputType['ChannelTimeShiftConfigurationArgs']]] = None,
                  __props__=None):
         """
         Definition of AWS::MediaTailor::Channel Resource Type
@@ -164,6 +177,7 @@ class Channel(pulumi.CustomResource):
                  playback_mode: Optional[pulumi.Input['ChannelPlaybackMode']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
                  tier: Optional[pulumi.Input['ChannelTier']] = None,
+                 time_shift_configuration: Optional[pulumi.Input[pulumi.InputType['ChannelTimeShiftConfigurationArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -184,6 +198,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["playback_mode"] = playback_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tier"] = tier
+            __props__.__dict__["time_shift_configuration"] = time_shift_configuration
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channel_name", "tier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -217,6 +232,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["playback_mode"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tier"] = None
+        __props__.__dict__["time_shift_configuration"] = None
         return Channel(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -267,4 +283,9 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def tier(self) -> pulumi.Output[Optional['ChannelTier']]:
         return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter(name="timeShiftConfiguration")
+    def time_shift_configuration(self) -> pulumi.Output[Optional['outputs.ChannelTimeShiftConfiguration']]:
+        return pulumi.get(self, "time_shift_configuration")
 

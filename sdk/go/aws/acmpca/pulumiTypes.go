@@ -388,11 +388,12 @@ func (o CertificateAuthorityAccessMethodOutput) CustomObjectIdentifier() pulumi.
 
 // Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
 type CertificateAuthorityCrlConfiguration struct {
-	CustomCname      *string `pulumi:"customCname"`
-	Enabled          *bool   `pulumi:"enabled"`
-	ExpirationInDays *int    `pulumi:"expirationInDays"`
-	S3BucketName     *string `pulumi:"s3BucketName"`
-	S3ObjectAcl      *string `pulumi:"s3ObjectAcl"`
+	CrlDistributionPointExtensionConfiguration *CertificateAuthorityCrlDistributionPointExtensionConfiguration `pulumi:"crlDistributionPointExtensionConfiguration"`
+	CustomCname                                *string                                                         `pulumi:"customCname"`
+	Enabled                                    *bool                                                           `pulumi:"enabled"`
+	ExpirationInDays                           *int                                                            `pulumi:"expirationInDays"`
+	S3BucketName                               *string                                                         `pulumi:"s3BucketName"`
+	S3ObjectAcl                                *string                                                         `pulumi:"s3ObjectAcl"`
 }
 
 // CertificateAuthorityCrlConfigurationInput is an input type that accepts CertificateAuthorityCrlConfigurationArgs and CertificateAuthorityCrlConfigurationOutput values.
@@ -408,11 +409,12 @@ type CertificateAuthorityCrlConfigurationInput interface {
 
 // Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
 type CertificateAuthorityCrlConfigurationArgs struct {
-	CustomCname      pulumi.StringPtrInput `pulumi:"customCname"`
-	Enabled          pulumi.BoolPtrInput   `pulumi:"enabled"`
-	ExpirationInDays pulumi.IntPtrInput    `pulumi:"expirationInDays"`
-	S3BucketName     pulumi.StringPtrInput `pulumi:"s3BucketName"`
-	S3ObjectAcl      pulumi.StringPtrInput `pulumi:"s3ObjectAcl"`
+	CrlDistributionPointExtensionConfiguration CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrInput `pulumi:"crlDistributionPointExtensionConfiguration"`
+	CustomCname                                pulumi.StringPtrInput                                                  `pulumi:"customCname"`
+	Enabled                                    pulumi.BoolPtrInput                                                    `pulumi:"enabled"`
+	ExpirationInDays                           pulumi.IntPtrInput                                                     `pulumi:"expirationInDays"`
+	S3BucketName                               pulumi.StringPtrInput                                                  `pulumi:"s3BucketName"`
+	S3ObjectAcl                                pulumi.StringPtrInput                                                  `pulumi:"s3ObjectAcl"`
 }
 
 func (CertificateAuthorityCrlConfigurationArgs) ElementType() reflect.Type {
@@ -511,6 +513,12 @@ func (o CertificateAuthorityCrlConfigurationOutput) ToOutput(ctx context.Context
 	}
 }
 
+func (o CertificateAuthorityCrlConfigurationOutput) CrlDistributionPointExtensionConfiguration() CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *CertificateAuthorityCrlDistributionPointExtensionConfiguration {
+		return v.CrlDistributionPointExtensionConfiguration
+	}).(CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput)
+}
+
 func (o CertificateAuthorityCrlConfigurationOutput) CustomCname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
 }
@@ -561,6 +569,15 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) Elem() CertificateAuthori
 	}).(CertificateAuthorityCrlConfigurationOutput)
 }
 
+func (o CertificateAuthorityCrlConfigurationPtrOutput) CrlDistributionPointExtensionConfiguration() CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *CertificateAuthorityCrlDistributionPointExtensionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CrlDistributionPointExtensionConfiguration
+	}).(CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput)
+}
+
 func (o CertificateAuthorityCrlConfigurationPtrOutput) CustomCname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *string {
 		if v == nil {
@@ -604,6 +621,166 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) S3ObjectAcl() pulumi.Stri
 		}
 		return v.S3ObjectAcl
 	}).(pulumi.StringPtrOutput)
+}
+
+// Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+type CertificateAuthorityCrlDistributionPointExtensionConfiguration struct {
+	OmitExtension bool `pulumi:"omitExtension"`
+}
+
+// CertificateAuthorityCrlDistributionPointExtensionConfigurationInput is an input type that accepts CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs and CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCrlDistributionPointExtensionConfigurationInput` via:
+//
+//	CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs{...}
+type CertificateAuthorityCrlDistributionPointExtensionConfigurationInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityCrlDistributionPointExtensionConfigurationOutput() CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput
+	ToCertificateAuthorityCrlDistributionPointExtensionConfigurationOutputWithContext(context.Context) CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput
+}
+
+// Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+type CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs struct {
+	OmitExtension pulumi.BoolInput `pulumi:"omitExtension"`
+}
+
+func (CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityCrlDistributionPointExtensionConfiguration)(nil)).Elem()
+}
+
+func (i CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs) ToCertificateAuthorityCrlDistributionPointExtensionConfigurationOutput() CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput {
+	return i.ToCertificateAuthorityCrlDistributionPointExtensionConfigurationOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs) ToCertificateAuthorityCrlDistributionPointExtensionConfigurationOutputWithContext(ctx context.Context) CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput)
+}
+
+func (i CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityCrlDistributionPointExtensionConfiguration] {
+	return pulumix.Output[CertificateAuthorityCrlDistributionPointExtensionConfiguration]{
+		OutputState: i.ToCertificateAuthorityCrlDistributionPointExtensionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs) ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput() CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput {
+	return i.ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs) ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput).ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutputWithContext(ctx)
+}
+
+// CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrInput is an input type that accepts CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs, CertificateAuthorityCrlDistributionPointExtensionConfigurationPtr and CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrInput` via:
+//
+//	        CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput() CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput
+	ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutputWithContext(context.Context) CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput
+}
+
+type certificateAuthorityCrlDistributionPointExtensionConfigurationPtrType CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs
+
+func CertificateAuthorityCrlDistributionPointExtensionConfigurationPtr(v *CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs) CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrInput {
+	return (*certificateAuthorityCrlDistributionPointExtensionConfigurationPtrType)(v)
+}
+
+func (*certificateAuthorityCrlDistributionPointExtensionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityCrlDistributionPointExtensionConfiguration)(nil)).Elem()
+}
+
+func (i *certificateAuthorityCrlDistributionPointExtensionConfigurationPtrType) ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput() CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput {
+	return i.ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateAuthorityCrlDistributionPointExtensionConfigurationPtrType) ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput)
+}
+
+func (i *certificateAuthorityCrlDistributionPointExtensionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityCrlDistributionPointExtensionConfiguration] {
+	return pulumix.Output[*CertificateAuthorityCrlDistributionPointExtensionConfiguration]{
+		OutputState: i.ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+type CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityCrlDistributionPointExtensionConfiguration)(nil)).Elem()
+}
+
+func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput) ToCertificateAuthorityCrlDistributionPointExtensionConfigurationOutput() CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput {
+	return o
+}
+
+func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput) ToCertificateAuthorityCrlDistributionPointExtensionConfigurationOutputWithContext(ctx context.Context) CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput {
+	return o
+}
+
+func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput) ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput() CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput {
+	return o.ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput) ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityCrlDistributionPointExtensionConfiguration) *CertificateAuthorityCrlDistributionPointExtensionConfiguration {
+		return &v
+	}).(CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput)
+}
+
+func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityCrlDistributionPointExtensionConfiguration] {
+	return pulumix.Output[CertificateAuthorityCrlDistributionPointExtensionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput) OmitExtension() pulumi.BoolOutput {
+	return o.ApplyT(func(v CertificateAuthorityCrlDistributionPointExtensionConfiguration) bool { return v.OmitExtension }).(pulumi.BoolOutput)
+}
+
+type CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityCrlDistributionPointExtensionConfiguration)(nil)).Elem()
+}
+
+func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput) ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput() CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput) ToCertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityCrlDistributionPointExtensionConfiguration] {
+	return pulumix.Output[*CertificateAuthorityCrlDistributionPointExtensionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput) Elem() CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCrlDistributionPointExtensionConfiguration) CertificateAuthorityCrlDistributionPointExtensionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityCrlDistributionPointExtensionConfiguration
+		return ret
+	}).(CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput)
+}
+
+func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput) OmitExtension() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCrlDistributionPointExtensionConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OmitExtension
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Structure that contains CSR pass though extensions information.
@@ -4765,6 +4942,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityAccessMethodInput)(nil)).Elem(), CertificateAuthorityAccessMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCrlConfigurationInput)(nil)).Elem(), CertificateAuthorityCrlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCrlConfigurationPtrInput)(nil)).Elem(), CertificateAuthorityCrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCrlDistributionPointExtensionConfigurationInput)(nil)).Elem(), CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrInput)(nil)).Elem(), CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCsrExtensionsInput)(nil)).Elem(), CertificateAuthorityCsrExtensionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCsrExtensionsPtrInput)(nil)).Elem(), CertificateAuthorityCsrExtensionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCustomAttributeInput)(nil)).Elem(), CertificateAuthorityCustomAttributeArgs{})
@@ -4816,6 +4995,8 @@ func init() {
 	pulumi.RegisterOutputType(CertificateAuthorityAccessMethodOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCrlConfigurationOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCrlConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCsrExtensionsOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCsrExtensionsPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCustomAttributeOutput{})

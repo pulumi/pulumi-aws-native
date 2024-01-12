@@ -1,4 +1,5 @@
 {
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
   "typeName" : "AWS::QuickSight::Template",
   "description" : "Definition of the AWS::QuickSight::Template Resource Type.",
   "definitions" : {
@@ -7127,9 +7128,6 @@
           "maxLength" : 256,
           "minLength" : 1
         },
-        "Resource" : {
-          "type" : "string"
-        },
         "Actions" : {
           "type" : "array",
           "items" : {
@@ -10009,25 +10007,33 @@
       "minLength" : 1
     }
   },
-  "readOnlyProperties" : [ "/properties/TemplateError", "/properties/Arn", "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
-  "writeOnlyProperties" : [ "/properties/Definition", "/properties/VersionDescription", "/properties/SourceEntity", "/properties/CreatedTime", "/properties/Version", "/properties/LastUpdatedTime", "/properties/ValidationStrategy" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
+  "writeOnlyProperties" : [ "/properties/Definition", "/properties/VersionDescription", "/properties/SourceEntity", "/properties/ValidationStrategy" ],
   "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/TemplateId" ],
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/TemplateId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "quicksight:DescribeTemplate", "quicksight:DescribeTemplatePermissions", "quicksight:CreateTemplate", "quicksight:DescribeAnalysis", "quicksight:ListTagsForResource" ]
+      "permissions" : [ "quicksight:DescribeTemplate", "quicksight:DescribeTemplatePermissions", "quicksight:CreateTemplate", "quicksight:DescribeAnalysis", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "quicksight:DescribeTemplate" ]
+      "permissions" : [ "quicksight:DescribeTemplate", "quicksight:DescribeTemplatePermissions", "quicksight:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "quicksight:UpdateTemplate", "quicksight:UpdateTemplatePermissions", "quicksight:DescribeAnalysis", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
+      "permissions" : [ "quicksight:DescribeTemplate", "quicksight:DescribeTemplatePermissions", "quicksight:UpdateTemplate", "quicksight:UpdateTemplatePermissions", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "quicksight:DescribeTemplate", "quicksight:DeleteTemplate" ]
     },
     "list" : {
-      "permissions" : [ "quicksight:ListTemplates" ]
+      "permissions" : [ "quicksight:ListTemplates" ],
+      "handlerSchema" : {
+        "properties" : {
+          "AwsAccountId" : {
+            "$ref" : "resource-schema.json#/properties/AwsAccountId"
+          }
+        },
+        "required" : [ "AwsAccountId" ]
+      }
     }
   },
   "additionalProperties" : false,

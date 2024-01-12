@@ -7367,7 +7367,7 @@ type LifecyclePolicyRecipeSelection struct {
 	// The recipe name.
 	Name string `pulumi:"name"`
 	// The recipe version.
-	SemanticVersion *string `pulumi:"semanticVersion"`
+	SemanticVersion string `pulumi:"semanticVersion"`
 }
 
 // LifecyclePolicyRecipeSelectionInput is an input type that accepts LifecyclePolicyRecipeSelectionArgs and LifecyclePolicyRecipeSelectionOutput values.
@@ -7386,7 +7386,7 @@ type LifecyclePolicyRecipeSelectionArgs struct {
 	// The recipe name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The recipe version.
-	SemanticVersion pulumi.StringPtrInput `pulumi:"semanticVersion"`
+	SemanticVersion pulumi.StringInput `pulumi:"semanticVersion"`
 }
 
 func (LifecyclePolicyRecipeSelectionArgs) ElementType() reflect.Type {
@@ -7465,8 +7465,8 @@ func (o LifecyclePolicyRecipeSelectionOutput) Name() pulumi.StringOutput {
 }
 
 // The recipe version.
-func (o LifecyclePolicyRecipeSelectionOutput) SemanticVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LifecyclePolicyRecipeSelection) *string { return v.SemanticVersion }).(pulumi.StringPtrOutput)
+func (o LifecyclePolicyRecipeSelectionOutput) SemanticVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyRecipeSelection) string { return v.SemanticVersion }).(pulumi.StringOutput)
 }
 
 type LifecyclePolicyRecipeSelectionArrayOutput struct{ *pulumi.OutputState }

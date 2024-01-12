@@ -31,6 +31,7 @@ class IpamPoolArgs:
                  public_ip_source: Optional[pulumi.Input['IpamPoolPublicIpSource']] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 source_resource: Optional[pulumi.Input['IpamPoolSourceResourceArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamPoolTagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamPool resource.
@@ -75,6 +76,8 @@ class IpamPoolArgs:
             pulumi.set(__self__, "publicly_advertisable", publicly_advertisable)
         if source_ipam_pool_id is not None:
             pulumi.set(__self__, "source_ipam_pool_id", source_ipam_pool_id)
+        if source_resource is not None:
+            pulumi.set(__self__, "source_resource", source_resource)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -244,6 +247,15 @@ class IpamPoolArgs:
         pulumi.set(self, "source_ipam_pool_id", value)
 
     @property
+    @pulumi.getter(name="sourceResource")
+    def source_resource(self) -> Optional[pulumi.Input['IpamPoolSourceResourceArgs']]:
+        return pulumi.get(self, "source_resource")
+
+    @source_resource.setter
+    def source_resource(self, value: Optional[pulumi.Input['IpamPoolSourceResourceArgs']]):
+        pulumi.set(self, "source_resource", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpamPoolTagArgs']]]]:
         """
@@ -275,6 +287,7 @@ class IpamPool(pulumi.CustomResource):
                  public_ip_source: Optional[pulumi.Input['IpamPoolPublicIpSource']] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 source_resource: Optional[pulumi.Input[pulumi.InputType['IpamPoolSourceResourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamPoolTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -335,6 +348,7 @@ class IpamPool(pulumi.CustomResource):
                  public_ip_source: Optional[pulumi.Input['IpamPoolPublicIpSource']] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 source_resource: Optional[pulumi.Input[pulumi.InputType['IpamPoolSourceResourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamPoolTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -363,6 +377,7 @@ class IpamPool(pulumi.CustomResource):
             __props__.__dict__["public_ip_source"] = public_ip_source
             __props__.__dict__["publicly_advertisable"] = publicly_advertisable
             __props__.__dict__["source_ipam_pool_id"] = source_ipam_pool_id
+            __props__.__dict__["source_resource"] = source_resource
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["ipam_arn"] = None
@@ -372,7 +387,7 @@ class IpamPool(pulumi.CustomResource):
             __props__.__dict__["pool_depth"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["state_message"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["address_family", "aws_service", "ipam_scope_id", "locale", "public_ip_source", "publicly_advertisable", "source_ipam_pool_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["address_family", "aws_service", "ipam_scope_id", "locale", "public_ip_source", "publicly_advertisable", "source_ipam_pool_id", "source_resource"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IpamPool, __self__).__init__(
             'aws-native:ec2:IpamPool',
@@ -416,6 +431,7 @@ class IpamPool(pulumi.CustomResource):
         __props__.__dict__["public_ip_source"] = None
         __props__.__dict__["publicly_advertisable"] = None
         __props__.__dict__["source_ipam_pool_id"] = None
+        __props__.__dict__["source_resource"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["state_message"] = None
         __props__.__dict__["tags"] = None
@@ -577,6 +593,11 @@ class IpamPool(pulumi.CustomResource):
         The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
         """
         return pulumi.get(self, "source_ipam_pool_id")
+
+    @property
+    @pulumi.getter(name="sourceResource")
+    def source_resource(self) -> pulumi.Output[Optional['outputs.IpamPoolSourceResource']]:
+        return pulumi.get(self, "source_resource")
 
     @property
     @pulumi.getter

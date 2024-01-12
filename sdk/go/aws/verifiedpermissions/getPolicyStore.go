@@ -29,6 +29,7 @@ type LookupPolicyStoreArgs struct {
 
 type LookupPolicyStoreResult struct {
 	Arn                *string                        `pulumi:"arn"`
+	Description        *string                        `pulumi:"description"`
 	PolicyStoreId      *string                        `pulumi:"policyStoreId"`
 	Schema             *PolicyStoreSchemaDefinition   `pulumi:"schema"`
 	ValidationSettings *PolicyStoreValidationSettings `pulumi:"validationSettings"`
@@ -77,6 +78,10 @@ func (o LookupPolicyStoreResultOutput) ToOutput(ctx context.Context) pulumix.Out
 
 func (o LookupPolicyStoreResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPolicyStoreResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyStoreResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupPolicyStoreResultOutput) PolicyStoreId() pulumi.StringPtrOutput {

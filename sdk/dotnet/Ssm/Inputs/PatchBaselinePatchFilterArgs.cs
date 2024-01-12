@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ssm.Inputs
 {
 
+    /// <summary>
+    /// Defines which patches should be included in a patch baseline.
+    /// </summary>
     public sealed class PatchBaselinePatchFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]
-        public Input<string>? Key { get; set; }
+        public Input<Pulumi.AwsNative.Ssm.PatchBaselinePatchFilterKey>? Key { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;

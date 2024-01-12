@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
@@ -72,6 +75,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class PolicyStoreArgs : global::Pulumi.ResourceArgs
     {
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
         [Input("schema")]
         public Input<Inputs.PolicyStoreSchemaDefinitionArgs>? Schema { get; set; }
 

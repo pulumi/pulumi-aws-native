@@ -98,6 +98,7 @@ __all__ = [
     'FeatureGroupOnlineStoreSecurityConfig',
     'FeatureGroupS3StorageConfig',
     'FeatureGroupTag',
+    'FeatureGroupThroughputConfig',
     'ImageTag',
     'InferenceComponentComputeResourceRequirements',
     'InferenceComponentContainerSpecification',
@@ -117,6 +118,7 @@ __all__ = [
     'InferenceExperimentShadowModeConfig',
     'InferenceExperimentShadowModelVariantConfig',
     'InferenceExperimentTag',
+    'ModelAccessConfig',
     'ModelBiasJobDefinitionBatchTransformInput',
     'ModelBiasJobDefinitionClusterConfig',
     'ModelBiasJobDefinitionConstraintsResource',
@@ -4521,6 +4523,65 @@ class FeatureGroupTag(dict):
 
 
 @pulumi.output_type
+class FeatureGroupThroughputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "throughputMode":
+            suggest = "throughput_mode"
+        elif key == "provisionedReadCapacityUnits":
+            suggest = "provisioned_read_capacity_units"
+        elif key == "provisionedWriteCapacityUnits":
+            suggest = "provisioned_write_capacity_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureGroupThroughputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureGroupThroughputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureGroupThroughputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 throughput_mode: 'FeatureGroupThroughputMode',
+                 provisioned_read_capacity_units: Optional[int] = None,
+                 provisioned_write_capacity_units: Optional[int] = None):
+        """
+        :param int provisioned_read_capacity_units: For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
+        :param int provisioned_write_capacity_units: For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
+        """
+        pulumi.set(__self__, "throughput_mode", throughput_mode)
+        if provisioned_read_capacity_units is not None:
+            pulumi.set(__self__, "provisioned_read_capacity_units", provisioned_read_capacity_units)
+        if provisioned_write_capacity_units is not None:
+            pulumi.set(__self__, "provisioned_write_capacity_units", provisioned_write_capacity_units)
+
+    @property
+    @pulumi.getter(name="throughputMode")
+    def throughput_mode(self) -> 'FeatureGroupThroughputMode':
+        return pulumi.get(self, "throughput_mode")
+
+    @property
+    @pulumi.getter(name="provisionedReadCapacityUnits")
+    def provisioned_read_capacity_units(self) -> Optional[int]:
+        """
+        For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
+        """
+        return pulumi.get(self, "provisioned_read_capacity_units")
+
+    @property
+    @pulumi.getter(name="provisionedWriteCapacityUnits")
+    def provisioned_write_capacity_units(self) -> Optional[int]:
+        """
+        For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
+        """
+        return pulumi.get(self, "provisioned_write_capacity_units")
+
+
+@pulumi.output_type
 class ImageTag(dict):
     """
     A key-value pair to associate with a resource.
@@ -5451,6 +5512,35 @@ class InferenceExperimentTag(dict):
         The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ModelAccessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceptEula":
+            suggest = "accept_eula"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accept_eula: bool):
+        pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> bool:
+        return pulumi.get(self, "accept_eula")
 
 
 @pulumi.output_type
@@ -12472,6 +12562,8 @@ class ModelS3DataSource(dict):
             suggest = "s3_data_type"
         elif key == "s3Uri":
             suggest = "s3_uri"
+        elif key == "modelAccessConfig":
+            suggest = "model_access_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ModelS3DataSource. Access the value via the '{suggest}' property getter instead.")
@@ -12487,10 +12579,13 @@ class ModelS3DataSource(dict):
     def __init__(__self__, *,
                  compression_type: str,
                  s3_data_type: str,
-                 s3_uri: str):
+                 s3_uri: str,
+                 model_access_config: Optional['outputs.ModelAccessConfig'] = None):
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
         pulumi.set(__self__, "s3_uri", s3_uri)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
 
     @property
     @pulumi.getter(name="compressionType")
@@ -12506,6 +12601,11 @@ class ModelS3DataSource(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         return pulumi.get(self, "s3_uri")
+
+    @property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional['outputs.ModelAccessConfig']:
+        return pulumi.get(self, "model_access_config")
 
 
 @pulumi.output_type

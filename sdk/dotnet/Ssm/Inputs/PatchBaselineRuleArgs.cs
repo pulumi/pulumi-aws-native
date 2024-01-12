@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ssm.Inputs
 {
 
+    /// <summary>
+    /// Defines an approval rule for a patch baseline.
+    /// </summary>
     public sealed class PatchBaselineRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("approveAfterDays")]
         public Input<int>? ApproveAfterDays { get; set; }
 
         [Input("approveUntilDate")]
-        public Input<Inputs.PatchBaselinePatchStringDateArgs>? ApproveUntilDate { get; set; }
+        public Input<string>? ApproveUntilDate { get; set; }
 
         [Input("complianceLevel")]
-        public Input<string>? ComplianceLevel { get; set; }
+        public Input<Pulumi.AwsNative.Ssm.PatchBaselineRuleComplianceLevel>? ComplianceLevel { get; set; }
 
         [Input("enableNonSecurity")]
         public Input<bool>? EnableNonSecurity { get; set; }

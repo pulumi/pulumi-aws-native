@@ -65,26 +65,15 @@ namespace Pulumi.AwsNative.Acmpca
         /// The base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
         /// </summary>
         public readonly string? CertificateSigningRequest;
-        /// <summary>
-        /// Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
-        /// </summary>
-        public readonly Outputs.CertificateAuthorityRevocationConfiguration? RevocationConfiguration;
-        public readonly ImmutableArray<Outputs.CertificateAuthorityTag> Tags;
 
         [OutputConstructor]
         private GetCertificateAuthorityResult(
             string? arn,
 
-            string? certificateSigningRequest,
-
-            Outputs.CertificateAuthorityRevocationConfiguration? revocationConfiguration,
-
-            ImmutableArray<Outputs.CertificateAuthorityTag> tags)
+            string? certificateSigningRequest)
         {
             Arn = arn;
             CertificateSigningRequest = certificateSigningRequest;
-            RevocationConfiguration = revocationConfiguration;
-            Tags = tags;
         }
     }
 }

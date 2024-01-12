@@ -29,10 +29,13 @@ type LookupTemplateArgs struct {
 }
 
 type LookupTemplateResult struct {
-	Arn         *string                      `pulumi:"arn"`
-	Name        *string                      `pulumi:"name"`
-	Permissions []TemplateResourcePermission `pulumi:"permissions"`
-	Tags        []TemplateTag                `pulumi:"tags"`
+	Arn             *string                      `pulumi:"arn"`
+	CreatedTime     *string                      `pulumi:"createdTime"`
+	LastUpdatedTime *string                      `pulumi:"lastUpdatedTime"`
+	Name            *string                      `pulumi:"name"`
+	Permissions     []TemplateResourcePermission `pulumi:"permissions"`
+	Tags            []TemplateTag                `pulumi:"tags"`
+	Version         *TemplateVersion             `pulumi:"version"`
 }
 
 func LookupTemplateOutput(ctx *pulumi.Context, args LookupTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupTemplateResultOutput {
@@ -81,6 +84,14 @@ func (o LookupTemplateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupTemplateResultOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTemplateResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupTemplateResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTemplateResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupTemplateResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -91,6 +102,10 @@ func (o LookupTemplateResultOutput) Permissions() TemplateResourcePermissionArra
 
 func (o LookupTemplateResultOutput) Tags() TemplateTagArrayOutput {
 	return o.ApplyT(func(v LookupTemplateResult) []TemplateTag { return v.Tags }).(TemplateTagArrayOutput)
+}
+
+func (o LookupTemplateResultOutput) Version() TemplateVersionPtrOutput {
+	return o.ApplyT(func(v LookupTemplateResult) *TemplateVersion { return v.Version }).(TemplateVersionPtrOutput)
 }
 
 func init() {

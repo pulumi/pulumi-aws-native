@@ -75,6 +75,7 @@ export class FeatureGroup extends pulumi.CustomResource {
      * An array of key-value pair to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.sagemaker.FeatureGroupTag[] | undefined>;
+    public readonly throughputConfig!: pulumi.Output<outputs.sagemaker.FeatureGroupThroughputConfig | undefined>;
 
     /**
      * Create a FeatureGroup resource with the given unique name, arguments, and options.
@@ -105,6 +106,7 @@ export class FeatureGroup extends pulumi.CustomResource {
             resourceInputs["recordIdentifierFeatureName"] = args ? args.recordIdentifierFeatureName : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throughputConfig"] = args ? args.throughputConfig : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["featureGroupStatus"] = undefined /*out*/;
         } else {
@@ -119,6 +121,7 @@ export class FeatureGroup extends pulumi.CustomResource {
             resourceInputs["recordIdentifierFeatureName"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["throughputConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["description", "eventTimeFeatureName", "featureGroupName", "offlineStoreConfig", "onlineStoreConfig", "recordIdentifierFeatureName", "roleArn", "tags[*]"] };
@@ -161,4 +164,5 @@ export interface FeatureGroupArgs {
      * An array of key-value pair to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.FeatureGroupTagArgs>[]>;
+    throughputConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupThroughputConfigArgs>;
 }

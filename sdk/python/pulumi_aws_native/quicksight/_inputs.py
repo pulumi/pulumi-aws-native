@@ -140,6 +140,8 @@ __all__ = [
     'AnalysisDropDownControlDisplayOptionsArgs',
     'AnalysisDynamicDefaultValueArgs',
     'AnalysisEmptyVisualArgs',
+    'AnalysisEntityArgs',
+    'AnalysisErrorArgs',
     'AnalysisExcludePeriodConfigurationArgs',
     'AnalysisExplicitHierarchyArgs',
     'AnalysisFieldBasedTooltipArgs',
@@ -391,6 +393,7 @@ __all__ = [
     'AnalysisSheetElementRenderingRuleArgs',
     'AnalysisSheetTextBoxArgs',
     'AnalysisSheetVisualScopingConfigurationArgs',
+    'AnalysisSheetArgs',
     'AnalysisShortFormatTextArgs',
     'AnalysisSimpleClusterMarkerArgs',
     'AnalysisSliderControlDisplayOptionsArgs',
@@ -6773,6 +6776,64 @@ class AnalysisEmptyVisualArgs:
     @actions.setter
     def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisVisualCustomActionArgs']]]]):
         pulumi.set(self, "actions", value)
+
+
+@pulumi.input_type
+class AnalysisEntityArgs:
+    def __init__(__self__, *,
+                 path: Optional[pulumi.Input[str]] = None):
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class AnalysisErrorArgs:
+    def __init__(__self__, *,
+                 message: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['AnalysisErrorType']] = None,
+                 violated_entities: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisEntityArgs']]]] = None):
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if violated_entities is not None:
+            pulumi.set(__self__, "violated_entities", violated_entities)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['AnalysisErrorType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['AnalysisErrorType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="violatedEntities")
+    def violated_entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisEntityArgs']]]]:
+        return pulumi.get(self, "violated_entities")
+
+    @violated_entities.setter
+    def violated_entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisEntityArgs']]]]):
+        pulumi.set(self, "violated_entities", value)
 
 
 @pulumi.input_type
@@ -16830,12 +16891,9 @@ class AnalysisRelativeDatesFilterArgs:
 class AnalysisResourcePermissionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 principal: pulumi.Input[str],
-                 resource: Optional[pulumi.Input[str]] = None):
+                 principal: pulumi.Input[str]):
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -16854,15 +16912,6 @@ class AnalysisResourcePermissionArgs:
     @principal.setter
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
-
-    @property
-    @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource", value)
 
 
 @pulumi.input_type
@@ -18149,6 +18198,35 @@ class AnalysisSheetVisualScopingConfigurationArgs:
     @visual_ids.setter
     def visual_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "visual_ids", value)
+
+
+@pulumi.input_type
+class AnalysisSheetArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sheet_id: Optional[pulumi.Input[str]] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sheet_id is not None:
+            pulumi.set(__self__, "sheet_id", sheet_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sheetId")
+    def sheet_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sheet_id")
+
+    @sheet_id.setter
+    def sheet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sheet_id", value)
 
 
 @pulumi.input_type
@@ -37740,12 +37818,9 @@ class DashboardRelativeDatesFilterArgs:
 class DashboardResourcePermissionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 principal: pulumi.Input[str],
-                 resource: Optional[pulumi.Input[str]] = None):
+                 principal: pulumi.Input[str]):
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -37764,15 +37839,6 @@ class DashboardResourcePermissionArgs:
     @principal.setter
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
-
-    @property
-    @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource", value)
 
 
 @pulumi.input_type
@@ -61263,12 +61329,9 @@ class TemplateRelativeDatesFilterArgs:
 class TemplateResourcePermissionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 principal: pulumi.Input[str],
-                 resource: Optional[pulumi.Input[str]] = None):
+                 principal: pulumi.Input[str]):
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -61287,15 +61350,6 @@ class TemplateResourcePermissionArgs:
     @principal.setter
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
-
-    @property
-    @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource", value)
 
 
 @pulumi.input_type
@@ -66976,12 +67030,9 @@ class ThemeMarginStyleArgs:
 class ThemeResourcePermissionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 principal: pulumi.Input[str],
-                 resource: Optional[pulumi.Input[str]] = None):
+                 principal: pulumi.Input[str]):
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -67000,15 +67051,6 @@ class ThemeResourcePermissionArgs:
     @principal.setter
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
-
-    @property
-    @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource", value)
 
 
 @pulumi.input_type

@@ -21,7 +21,9 @@ type Workspace struct {
 	// AMP Workspace alias.
 	Alias pulumi.StringPtrOutput `pulumi:"alias"`
 	// Workspace arn.
-	Arn                  pulumi.StringOutput                    `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
+	KmsKeyArn            pulumi.StringPtrOutput                 `pulumi:"kmsKeyArn"`
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// AMP Workspace prometheus endpoint
 	PrometheusEndpoint pulumi.StringOutput `pulumi:"prometheusEndpoint"`
@@ -38,6 +40,10 @@ func NewWorkspace(ctx *pulumi.Context,
 		args = &WorkspaceArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"kmsKeyArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workspace
 	err := ctx.RegisterResource("aws-native:aps:Workspace", name, args, &resource, opts...)
@@ -74,7 +80,9 @@ type workspaceArgs struct {
 	// The AMP Workspace alert manager definition data
 	AlertManagerDefinition *string `pulumi:"alertManagerDefinition"`
 	// AMP Workspace alias.
-	Alias                *string                        `pulumi:"alias"`
+	Alias *string `pulumi:"alias"`
+	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
+	KmsKeyArn            *string                        `pulumi:"kmsKeyArn"`
 	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []WorkspaceTag `pulumi:"tags"`
@@ -85,7 +93,9 @@ type WorkspaceArgs struct {
 	// The AMP Workspace alert manager definition data
 	AlertManagerDefinition pulumi.StringPtrInput
 	// AMP Workspace alias.
-	Alias                pulumi.StringPtrInput
+	Alias pulumi.StringPtrInput
+	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
+	KmsKeyArn            pulumi.StringPtrInput
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags WorkspaceTagArrayInput
@@ -153,6 +163,11 @@ func (o WorkspaceOutput) Alias() pulumi.StringPtrOutput {
 // Workspace arn.
 func (o WorkspaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// KMS Key ARN used to encrypt and decrypt AMP workspace data.
+func (o WorkspaceOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 func (o WorkspaceOutput) LoggingConfiguration() WorkspaceLoggingConfigurationPtrOutput {

@@ -17,8 +17,11 @@ import (
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 
+	ConnectionTrackingSpecification NetworkInterfaceConnectionTrackingSpecificationPtrOutput `pulumi:"connectionTrackingSpecification"`
 	// A description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+	EnablePrimaryIpv6 pulumi.BoolPtrOutput `pulumi:"enablePrimaryIpv6"`
 	// A list of security group IDs associated with this network interface.
 	GroupSet pulumi.StringArrayOutput `pulumi:"groupSet"`
 	// Indicates the type of network interface.
@@ -35,6 +38,8 @@ type NetworkInterface struct {
 	Ipv6PrefixCount pulumi.IntPtrOutput `pulumi:"ipv6PrefixCount"`
 	// Assigns a list of IPv6 prefixes to the network interface. If you want EC2 to automatically assign IPv6 prefixes, use the Ipv6PrefixCount property and do not specify this property. Presently, only /80 prefixes are supported. You can't specify IPv6 prefixes if you've specified one of the following: a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
 	Ipv6Prefixes NetworkInterfaceIpv6PrefixSpecificationArrayOutput `pulumi:"ipv6Prefixes"`
+	// The primary IPv6 address
+	PrimaryIpv6Address pulumi.StringOutput `pulumi:"primaryIpv6Address"`
 	// Returns the primary private IP address of the network interface.
 	PrimaryPrivateIpAddress pulumi.StringOutput `pulumi:"primaryPrivateIpAddress"`
 	// Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property.
@@ -102,8 +107,11 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 }
 
 type networkInterfaceArgs struct {
+	ConnectionTrackingSpecification *NetworkInterfaceConnectionTrackingSpecification `pulumi:"connectionTrackingSpecification"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
+	// If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+	EnablePrimaryIpv6 *bool `pulumi:"enablePrimaryIpv6"`
 	// A list of security group IDs associated with this network interface.
 	GroupSet []string `pulumi:"groupSet"`
 	// Indicates the type of network interface.
@@ -136,8 +144,11 @@ type networkInterfaceArgs struct {
 
 // The set of arguments for constructing a NetworkInterface resource.
 type NetworkInterfaceArgs struct {
+	ConnectionTrackingSpecification NetworkInterfaceConnectionTrackingSpecificationPtrInput
 	// A description for the network interface.
 	Description pulumi.StringPtrInput
+	// If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+	EnablePrimaryIpv6 pulumi.BoolPtrInput
 	// A list of security group IDs associated with this network interface.
 	GroupSet pulumi.StringArrayInput
 	// Indicates the type of network interface.
@@ -217,9 +228,20 @@ func (o NetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[*Ne
 	}
 }
 
+func (o NetworkInterfaceOutput) ConnectionTrackingSpecification() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+		return v.ConnectionTrackingSpecification
+	}).(NetworkInterfaceConnectionTrackingSpecificationPtrOutput)
+}
+
 // A description for the network interface.
 func (o NetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+func (o NetworkInterfaceOutput) EnablePrimaryIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolPtrOutput { return v.EnablePrimaryIpv6 }).(pulumi.BoolPtrOutput)
 }
 
 // A list of security group IDs associated with this network interface.
@@ -260,6 +282,11 @@ func (o NetworkInterfaceOutput) Ipv6PrefixCount() pulumi.IntPtrOutput {
 // Assigns a list of IPv6 prefixes to the network interface. If you want EC2 to automatically assign IPv6 prefixes, use the Ipv6PrefixCount property and do not specify this property. Presently, only /80 prefixes are supported. You can't specify IPv6 prefixes if you've specified one of the following: a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
 func (o NetworkInterfaceOutput) Ipv6Prefixes() NetworkInterfaceIpv6PrefixSpecificationArrayOutput {
 	return o.ApplyT(func(v *NetworkInterface) NetworkInterfaceIpv6PrefixSpecificationArrayOutput { return v.Ipv6Prefixes }).(NetworkInterfaceIpv6PrefixSpecificationArrayOutput)
+}
+
+// The primary IPv6 address
+func (o NetworkInterfaceOutput) PrimaryIpv6Address() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.PrimaryIpv6Address }).(pulumi.StringOutput)
 }
 
 // Returns the primary private IP address of the network interface.

@@ -41,6 +41,7 @@ type DbCluster struct {
 	SnapshotIdentifier          pulumi.StringPtrOutput   `pulumi:"snapshotIdentifier"`
 	SourceDbClusterIdentifier   pulumi.StringPtrOutput   `pulumi:"sourceDbClusterIdentifier"`
 	StorageEncrypted            pulumi.BoolPtrOutput     `pulumi:"storageEncrypted"`
+	StorageType                 pulumi.StringPtrOutput   `pulumi:"storageType"`
 	Tags                        DbClusterTagArrayOutput  `pulumi:"tags"`
 	UseLatestRestorableTime     pulumi.BoolPtrOutput     `pulumi:"useLatestRestorableTime"`
 	VpcSecurityGroupIds         pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -57,7 +58,6 @@ func NewDbCluster(ctx *pulumi.Context,
 		"availabilityZones[*]",
 		"dbClusterIdentifier",
 		"dbSubnetGroupName",
-		"engineVersion",
 		"kmsKeyId",
 		"masterUsername",
 		"snapshotIdentifier",
@@ -118,6 +118,7 @@ type dbClusterArgs struct {
 	SnapshotIdentifier          *string        `pulumi:"snapshotIdentifier"`
 	SourceDbClusterIdentifier   *string        `pulumi:"sourceDbClusterIdentifier"`
 	StorageEncrypted            *bool          `pulumi:"storageEncrypted"`
+	StorageType                 *string        `pulumi:"storageType"`
 	Tags                        []DbClusterTag `pulumi:"tags"`
 	UseLatestRestorableTime     *bool          `pulumi:"useLatestRestorableTime"`
 	VpcSecurityGroupIds         []string       `pulumi:"vpcSecurityGroupIds"`
@@ -145,6 +146,7 @@ type DbClusterArgs struct {
 	SnapshotIdentifier          pulumi.StringPtrInput
 	SourceDbClusterIdentifier   pulumi.StringPtrInput
 	StorageEncrypted            pulumi.BoolPtrInput
+	StorageType                 pulumi.StringPtrInput
 	Tags                        DbClusterTagArrayInput
 	UseLatestRestorableTime     pulumi.BoolPtrInput
 	VpcSecurityGroupIds         pulumi.StringArrayInput
@@ -289,6 +291,10 @@ func (o DbClusterOutput) SourceDbClusterIdentifier() pulumi.StringPtrOutput {
 
 func (o DbClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o DbClusterOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 func (o DbClusterOutput) Tags() DbClusterTagArrayOutput {

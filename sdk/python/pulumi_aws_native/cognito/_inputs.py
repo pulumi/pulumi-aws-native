@@ -30,6 +30,7 @@ __all__ = [
     'UserPoolNumberAttributeConstraintsArgs',
     'UserPoolPasswordPolicyArgs',
     'UserPoolPoliciesArgs',
+    'UserPoolPreTokenGenerationConfigArgs',
     'UserPoolRecoveryOptionArgs',
     'UserPoolResourceServerResourceServerScopeTypeArgs',
     'UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs',
@@ -623,6 +624,7 @@ class UserPoolLambdaConfigArgs:
                  pre_authentication: Optional[pulumi.Input[str]] = None,
                  pre_sign_up: Optional[pulumi.Input[str]] = None,
                  pre_token_generation: Optional[pulumi.Input[str]] = None,
+                 pre_token_generation_config: Optional[pulumi.Input['UserPoolPreTokenGenerationConfigArgs']] = None,
                  user_migration: Optional[pulumi.Input[str]] = None,
                  verify_auth_challenge_response: Optional[pulumi.Input[str]] = None):
         if create_auth_challenge is not None:
@@ -647,6 +649,8 @@ class UserPoolLambdaConfigArgs:
             pulumi.set(__self__, "pre_sign_up", pre_sign_up)
         if pre_token_generation is not None:
             pulumi.set(__self__, "pre_token_generation", pre_token_generation)
+        if pre_token_generation_config is not None:
+            pulumi.set(__self__, "pre_token_generation_config", pre_token_generation_config)
         if user_migration is not None:
             pulumi.set(__self__, "user_migration", user_migration)
         if verify_auth_challenge_response is not None:
@@ -750,6 +754,15 @@ class UserPoolLambdaConfigArgs:
     @pre_token_generation.setter
     def pre_token_generation(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pre_token_generation", value)
+
+    @property
+    @pulumi.getter(name="preTokenGenerationConfig")
+    def pre_token_generation_config(self) -> Optional[pulumi.Input['UserPoolPreTokenGenerationConfigArgs']]:
+        return pulumi.get(self, "pre_token_generation_config")
+
+    @pre_token_generation_config.setter
+    def pre_token_generation_config(self, value: Optional[pulumi.Input['UserPoolPreTokenGenerationConfigArgs']]):
+        pulumi.set(self, "pre_token_generation_config", value)
 
     @property
     @pulumi.getter(name="userMigration")
@@ -891,6 +904,35 @@ class UserPoolPoliciesArgs:
     @password_policy.setter
     def password_policy(self, value: Optional[pulumi.Input['UserPoolPasswordPolicyArgs']]):
         pulumi.set(self, "password_policy", value)
+
+
+@pulumi.input_type
+class UserPoolPreTokenGenerationConfigArgs:
+    def __init__(__self__, *,
+                 lambda_arn: Optional[pulumi.Input[str]] = None,
+                 lambda_version: Optional[pulumi.Input[str]] = None):
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_version is not None:
+            pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lambda_arn", value)
+
+    @property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "lambda_version")
+
+    @lambda_version.setter
+    def lambda_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lambda_version", value)
 
 
 @pulumi.input_type

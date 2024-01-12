@@ -114,6 +114,7 @@ export class IpamPool extends pulumi.CustomResource {
      * The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
      */
     public readonly sourceIpamPoolId!: pulumi.Output<string | undefined>;
+    public readonly sourceResource!: pulumi.Output<outputs.ec2.IpamPoolSourceResource | undefined>;
     /**
      * The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
      */
@@ -158,6 +159,7 @@ export class IpamPool extends pulumi.CustomResource {
             resourceInputs["publicIpSource"] = args ? args.publicIpSource : undefined;
             resourceInputs["publiclyAdvertisable"] = args ? args.publiclyAdvertisable : undefined;
             resourceInputs["sourceIpamPoolId"] = args ? args.sourceIpamPoolId : undefined;
+            resourceInputs["sourceResource"] = args ? args.sourceResource : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipamArn"] = undefined /*out*/;
@@ -188,12 +190,13 @@ export class IpamPool extends pulumi.CustomResource {
             resourceInputs["publicIpSource"] = undefined /*out*/;
             resourceInputs["publiclyAdvertisable"] = undefined /*out*/;
             resourceInputs["sourceIpamPoolId"] = undefined /*out*/;
+            resourceInputs["sourceResource"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["stateMessage"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["addressFamily", "awsService", "ipamScopeId", "locale", "publicIpSource", "publiclyAdvertisable", "sourceIpamPoolId"] };
+        const replaceOnChanges = { replaceOnChanges: ["addressFamily", "awsService", "ipamScopeId", "locale", "publicIpSource", "publiclyAdvertisable", "sourceIpamPoolId", "sourceResource"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IpamPool.__pulumiType, name, resourceInputs, opts);
     }
@@ -256,6 +259,7 @@ export interface IpamPoolArgs {
      * The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
      */
     sourceIpamPoolId?: pulumi.Input<string>;
+    sourceResource?: pulumi.Input<inputs.ec2.IpamPoolSourceResourceArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

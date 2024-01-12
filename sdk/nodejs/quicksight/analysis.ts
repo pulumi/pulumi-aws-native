@@ -43,12 +43,12 @@ export class Analysis extends pulumi.CustomResource {
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     public /*out*/ readonly dataSetArns!: pulumi.Output<string[]>;
     public readonly definition!: pulumi.Output<outputs.quicksight.AnalysisDefinition | undefined>;
-    public /*out*/ readonly errors!: pulumi.Output<outputs.quicksight.AnalysisError[]>;
+    public readonly errors!: pulumi.Output<outputs.quicksight.AnalysisError[] | undefined>;
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly parameters!: pulumi.Output<outputs.quicksight.AnalysisParameters | undefined>;
     public readonly permissions!: pulumi.Output<outputs.quicksight.AnalysisResourcePermission[] | undefined>;
-    public /*out*/ readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[]>;
+    public readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[] | undefined>;
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
     public readonly status!: pulumi.Output<enums.quicksight.AnalysisResourceStatus | undefined>;
     public readonly tags!: pulumi.Output<outputs.quicksight.AnalysisTag[] | undefined>;
@@ -75,9 +75,11 @@ export class Analysis extends pulumi.CustomResource {
             resourceInputs["analysisId"] = args ? args.analysisId : undefined;
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["errors"] = args ? args.errors : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["sheets"] = args ? args.sheets : undefined;
             resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -86,9 +88,7 @@ export class Analysis extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["dataSetArns"] = undefined /*out*/;
-            resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
-            resourceInputs["sheets"] = undefined /*out*/;
         } else {
             resourceInputs["analysisId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -122,9 +122,11 @@ export interface AnalysisArgs {
     analysisId: pulumi.Input<string>;
     awsAccountId: pulumi.Input<string>;
     definition?: pulumi.Input<inputs.quicksight.AnalysisDefinitionArgs>;
+    errors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisErrorArgs>[]>;
     name?: pulumi.Input<string>;
     parameters?: pulumi.Input<inputs.quicksight.AnalysisParametersArgs>;
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisResourcePermissionArgs>[]>;
+    sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetArgs>[]>;
     sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntityArgs>;
     status?: pulumi.Input<enums.quicksight.AnalysisResourceStatus>;
     tags?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTagArgs>[]>;

@@ -32,7 +32,6 @@ __all__ = [
     'PatchBaselinePatchFilter',
     'PatchBaselinePatchFilterGroup',
     'PatchBaselinePatchSource',
-    'PatchBaselinePatchStringDate',
     'PatchBaselineRule',
     'PatchBaselineRuleGroup',
     'PatchBaselineTag',
@@ -730,9 +729,15 @@ class MaintenanceWindowTaskTaskInvocationParameters(dict):
 
 @pulumi.output_type
 class PatchBaselinePatchFilter(dict):
+    """
+    Defines which patches should be included in a patch baseline.
+    """
     def __init__(__self__, *,
-                 key: Optional[str] = None,
+                 key: Optional['PatchBaselinePatchFilterKey'] = None,
                  values: Optional[Sequence[str]] = None):
+        """
+        Defines which patches should be included in a patch baseline.
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if values is not None:
@@ -740,7 +745,7 @@ class PatchBaselinePatchFilter(dict):
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[str]:
+    def key(self) -> Optional['PatchBaselinePatchFilterKey']:
         return pulumi.get(self, "key")
 
     @property
@@ -751,6 +756,9 @@ class PatchBaselinePatchFilter(dict):
 
 @pulumi.output_type
 class PatchBaselinePatchFilterGroup(dict):
+    """
+    The patch filter group that defines the criteria for the rule.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -770,6 +778,9 @@ class PatchBaselinePatchFilterGroup(dict):
 
     def __init__(__self__, *,
                  patch_filters: Optional[Sequence['outputs.PatchBaselinePatchFilter']] = None):
+        """
+        The patch filter group that defines the criteria for the rule.
+        """
         if patch_filters is not None:
             pulumi.set(__self__, "patch_filters", patch_filters)
 
@@ -781,10 +792,16 @@ class PatchBaselinePatchFilterGroup(dict):
 
 @pulumi.output_type
 class PatchBaselinePatchSource(dict):
+    """
+    Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+    """
     def __init__(__self__, *,
                  configuration: Optional[str] = None,
                  name: Optional[str] = None,
                  products: Optional[Sequence[str]] = None):
+        """
+        Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+        """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if name is not None:
@@ -809,13 +826,10 @@ class PatchBaselinePatchSource(dict):
 
 
 @pulumi.output_type
-class PatchBaselinePatchStringDate(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class PatchBaselineRule(dict):
+    """
+    Defines an approval rule for a patch baseline.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -843,10 +857,13 @@ class PatchBaselineRule(dict):
 
     def __init__(__self__, *,
                  approve_after_days: Optional[int] = None,
-                 approve_until_date: Optional['outputs.PatchBaselinePatchStringDate'] = None,
-                 compliance_level: Optional[str] = None,
+                 approve_until_date: Optional[str] = None,
+                 compliance_level: Optional['PatchBaselineRuleComplianceLevel'] = None,
                  enable_non_security: Optional[bool] = None,
                  patch_filter_group: Optional['outputs.PatchBaselinePatchFilterGroup'] = None):
+        """
+        Defines an approval rule for a patch baseline.
+        """
         if approve_after_days is not None:
             pulumi.set(__self__, "approve_after_days", approve_after_days)
         if approve_until_date is not None:
@@ -865,12 +882,12 @@ class PatchBaselineRule(dict):
 
     @property
     @pulumi.getter(name="approveUntilDate")
-    def approve_until_date(self) -> Optional['outputs.PatchBaselinePatchStringDate']:
+    def approve_until_date(self) -> Optional[str]:
         return pulumi.get(self, "approve_until_date")
 
     @property
     @pulumi.getter(name="complianceLevel")
-    def compliance_level(self) -> Optional[str]:
+    def compliance_level(self) -> Optional['PatchBaselineRuleComplianceLevel']:
         return pulumi.get(self, "compliance_level")
 
     @property
@@ -886,6 +903,9 @@ class PatchBaselineRule(dict):
 
 @pulumi.output_type
 class PatchBaselineRuleGroup(dict):
+    """
+    A set of rules defining the approval rules for a patch baseline.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -905,6 +925,9 @@ class PatchBaselineRuleGroup(dict):
 
     def __init__(__self__, *,
                  patch_rules: Optional[Sequence['outputs.PatchBaselineRule']] = None):
+        """
+        A set of rules defining the approval rules for a patch baseline.
+        """
         if patch_rules is not None:
             pulumi.set(__self__, "patch_rules", patch_rules)
 
@@ -916,9 +939,15 @@ class PatchBaselineRuleGroup(dict):
 
 @pulumi.output_type
 class PatchBaselineTag(dict):
+    """
+    Metadata that you assign to your AWS resources.
+    """
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        Metadata that you assign to your AWS resources.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 

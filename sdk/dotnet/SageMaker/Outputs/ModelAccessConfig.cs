@@ -7,15 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ssm.Outputs
+namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     [OutputType]
-    public sealed class PatchBaselinePatchStringDate
+    public sealed class ModelAccessConfig
     {
+        public readonly bool AcceptEula;
+
         [OutputConstructor]
-        private PatchBaselinePatchStringDate()
+        private ModelAccessConfig(bool acceptEula)
         {
+            AcceptEula = acceptEula;
         }
     }
 }

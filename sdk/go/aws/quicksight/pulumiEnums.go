@@ -4425,6 +4425,42 @@ const (
 	AnalysisErrorTypeColumnReplacementMissing     = AnalysisErrorType("COLUMN_REPLACEMENT_MISSING")
 )
 
+func (AnalysisErrorType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisErrorType)(nil)).Elem()
+}
+
+func (e AnalysisErrorType) ToAnalysisErrorTypeOutput() AnalysisErrorTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisErrorTypeOutput)
+}
+
+func (e AnalysisErrorType) ToAnalysisErrorTypeOutputWithContext(ctx context.Context) AnalysisErrorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisErrorTypeOutput)
+}
+
+func (e AnalysisErrorType) ToAnalysisErrorTypePtrOutput() AnalysisErrorTypePtrOutput {
+	return e.ToAnalysisErrorTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisErrorType) ToAnalysisErrorTypePtrOutputWithContext(ctx context.Context) AnalysisErrorTypePtrOutput {
+	return AnalysisErrorType(e).ToAnalysisErrorTypeOutputWithContext(ctx).ToAnalysisErrorTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisErrorType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisErrorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisErrorType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisErrorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type AnalysisErrorTypeOutput struct{ *pulumi.OutputState }
 
 func (AnalysisErrorTypeOutput) ElementType() reflect.Type {
@@ -4518,6 +4554,50 @@ func (o AnalysisErrorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisErrorTypeInput is an input type that accepts AnalysisErrorTypeArgs and AnalysisErrorTypeOutput values.
+// You can construct a concrete instance of `AnalysisErrorTypeInput` via:
+//
+//	AnalysisErrorTypeArgs{...}
+type AnalysisErrorTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisErrorTypeOutput() AnalysisErrorTypeOutput
+	ToAnalysisErrorTypeOutputWithContext(context.Context) AnalysisErrorTypeOutput
+}
+
+var analysisErrorTypePtrType = reflect.TypeOf((**AnalysisErrorType)(nil)).Elem()
+
+type AnalysisErrorTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisErrorTypePtrOutput() AnalysisErrorTypePtrOutput
+	ToAnalysisErrorTypePtrOutputWithContext(context.Context) AnalysisErrorTypePtrOutput
+}
+
+type analysisErrorTypePtr string
+
+func AnalysisErrorTypePtr(v string) AnalysisErrorTypePtrInput {
+	return (*analysisErrorTypePtr)(&v)
+}
+
+func (*analysisErrorTypePtr) ElementType() reflect.Type {
+	return analysisErrorTypePtrType
+}
+
+func (in *analysisErrorTypePtr) ToAnalysisErrorTypePtrOutput() AnalysisErrorTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisErrorTypePtrOutput)
+}
+
+func (in *analysisErrorTypePtr) ToAnalysisErrorTypePtrOutputWithContext(ctx context.Context) AnalysisErrorTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisErrorTypePtrOutput)
+}
+
+func (in *analysisErrorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisErrorType] {
+	return pulumix.Output[*AnalysisErrorType]{
+		OutputState: in.ToAnalysisErrorTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type AnalysisFilterNullOption string
@@ -69973,6 +70053,188 @@ func (in *topicUndefinedSpecifiedValueTypePtr) ToOutput(ctx context.Context) pul
 	}
 }
 
+type TopicUserExperienceVersion string
+
+const (
+	TopicUserExperienceVersionLegacy              = TopicUserExperienceVersion("LEGACY")
+	TopicUserExperienceVersionNewReaderExperience = TopicUserExperienceVersion("NEW_READER_EXPERIENCE")
+)
+
+func (TopicUserExperienceVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicUserExperienceVersion)(nil)).Elem()
+}
+
+func (e TopicUserExperienceVersion) ToTopicUserExperienceVersionOutput() TopicUserExperienceVersionOutput {
+	return pulumi.ToOutput(e).(TopicUserExperienceVersionOutput)
+}
+
+func (e TopicUserExperienceVersion) ToTopicUserExperienceVersionOutputWithContext(ctx context.Context) TopicUserExperienceVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicUserExperienceVersionOutput)
+}
+
+func (e TopicUserExperienceVersion) ToTopicUserExperienceVersionPtrOutput() TopicUserExperienceVersionPtrOutput {
+	return e.ToTopicUserExperienceVersionPtrOutputWithContext(context.Background())
+}
+
+func (e TopicUserExperienceVersion) ToTopicUserExperienceVersionPtrOutputWithContext(ctx context.Context) TopicUserExperienceVersionPtrOutput {
+	return TopicUserExperienceVersion(e).ToTopicUserExperienceVersionOutputWithContext(ctx).ToTopicUserExperienceVersionPtrOutputWithContext(ctx)
+}
+
+func (e TopicUserExperienceVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicUserExperienceVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicUserExperienceVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicUserExperienceVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicUserExperienceVersionOutput struct{ *pulumi.OutputState }
+
+func (TopicUserExperienceVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicUserExperienceVersion)(nil)).Elem()
+}
+
+func (o TopicUserExperienceVersionOutput) ToTopicUserExperienceVersionOutput() TopicUserExperienceVersionOutput {
+	return o
+}
+
+func (o TopicUserExperienceVersionOutput) ToTopicUserExperienceVersionOutputWithContext(ctx context.Context) TopicUserExperienceVersionOutput {
+	return o
+}
+
+func (o TopicUserExperienceVersionOutput) ToTopicUserExperienceVersionPtrOutput() TopicUserExperienceVersionPtrOutput {
+	return o.ToTopicUserExperienceVersionPtrOutputWithContext(context.Background())
+}
+
+func (o TopicUserExperienceVersionOutput) ToTopicUserExperienceVersionPtrOutputWithContext(ctx context.Context) TopicUserExperienceVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicUserExperienceVersion) *TopicUserExperienceVersion {
+		return &v
+	}).(TopicUserExperienceVersionPtrOutput)
+}
+
+func (o TopicUserExperienceVersionOutput) ToOutput(ctx context.Context) pulumix.Output[TopicUserExperienceVersion] {
+	return pulumix.Output[TopicUserExperienceVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicUserExperienceVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicUserExperienceVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicUserExperienceVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicUserExperienceVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicUserExperienceVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicUserExperienceVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicUserExperienceVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicUserExperienceVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicUserExperienceVersion)(nil)).Elem()
+}
+
+func (o TopicUserExperienceVersionPtrOutput) ToTopicUserExperienceVersionPtrOutput() TopicUserExperienceVersionPtrOutput {
+	return o
+}
+
+func (o TopicUserExperienceVersionPtrOutput) ToTopicUserExperienceVersionPtrOutputWithContext(ctx context.Context) TopicUserExperienceVersionPtrOutput {
+	return o
+}
+
+func (o TopicUserExperienceVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicUserExperienceVersion] {
+	return pulumix.Output[*TopicUserExperienceVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicUserExperienceVersionPtrOutput) Elem() TopicUserExperienceVersionOutput {
+	return o.ApplyT(func(v *TopicUserExperienceVersion) TopicUserExperienceVersion {
+		if v != nil {
+			return *v
+		}
+		var ret TopicUserExperienceVersion
+		return ret
+	}).(TopicUserExperienceVersionOutput)
+}
+
+func (o TopicUserExperienceVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicUserExperienceVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicUserExperienceVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicUserExperienceVersionInput is an input type that accepts TopicUserExperienceVersionArgs and TopicUserExperienceVersionOutput values.
+// You can construct a concrete instance of `TopicUserExperienceVersionInput` via:
+//
+//	TopicUserExperienceVersionArgs{...}
+type TopicUserExperienceVersionInput interface {
+	pulumi.Input
+
+	ToTopicUserExperienceVersionOutput() TopicUserExperienceVersionOutput
+	ToTopicUserExperienceVersionOutputWithContext(context.Context) TopicUserExperienceVersionOutput
+}
+
+var topicUserExperienceVersionPtrType = reflect.TypeOf((**TopicUserExperienceVersion)(nil)).Elem()
+
+type TopicUserExperienceVersionPtrInput interface {
+	pulumi.Input
+
+	ToTopicUserExperienceVersionPtrOutput() TopicUserExperienceVersionPtrOutput
+	ToTopicUserExperienceVersionPtrOutputWithContext(context.Context) TopicUserExperienceVersionPtrOutput
+}
+
+type topicUserExperienceVersionPtr string
+
+func TopicUserExperienceVersionPtr(v string) TopicUserExperienceVersionPtrInput {
+	return (*topicUserExperienceVersionPtr)(&v)
+}
+
+func (*topicUserExperienceVersionPtr) ElementType() reflect.Type {
+	return topicUserExperienceVersionPtrType
+}
+
+func (in *topicUserExperienceVersionPtr) ToTopicUserExperienceVersionPtrOutput() TopicUserExperienceVersionPtrOutput {
+	return pulumi.ToOutput(in).(TopicUserExperienceVersionPtrOutput)
+}
+
+func (in *topicUserExperienceVersionPtr) ToTopicUserExperienceVersionPtrOutputWithContext(ctx context.Context) TopicUserExperienceVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicUserExperienceVersionPtrOutput)
+}
+
+func (in *topicUserExperienceVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*TopicUserExperienceVersion] {
+	return pulumix.Output[*TopicUserExperienceVersion]{
+		OutputState: in.ToTopicUserExperienceVersionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcConnectionNetworkInterfaceStatus string
 
 const (
@@ -70424,6 +70686,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDateAggregationFunctionPtrInput)(nil)).Elem(), AnalysisDateAggregationFunction("COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDayOfTheWeekInput)(nil)).Elem(), AnalysisDayOfTheWeek("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDayOfTheWeekPtrInput)(nil)).Elem(), AnalysisDayOfTheWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisErrorTypeInput)(nil)).Elem(), AnalysisErrorType("ACCESS_DENIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisErrorTypePtrInput)(nil)).Elem(), AnalysisErrorType("ACCESS_DENIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisFilterNullOptionInput)(nil)).Elem(), AnalysisFilterNullOption("ALL_VALUES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisFilterNullOptionPtrInput)(nil)).Elem(), AnalysisFilterNullOption("ALL_VALUES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisFilterVisualScopeInput)(nil)).Elem(), AnalysisFilterVisualScope("ALL_VISUALS"))
@@ -71127,6 +71391,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicTimeGranularityPtrInput)(nil)).Elem(), TopicTimeGranularity("SECOND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicUndefinedSpecifiedValueTypeInput)(nil)).Elem(), TopicUndefinedSpecifiedValueType("LEAST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicUndefinedSpecifiedValueTypePtrInput)(nil)).Elem(), TopicUndefinedSpecifiedValueType("LEAST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicUserExperienceVersionInput)(nil)).Elem(), TopicUserExperienceVersion("LEGACY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicUserExperienceVersionPtrInput)(nil)).Elem(), TopicUserExperienceVersion("LEGACY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionVpcConnectionAvailabilityStatusInput)(nil)).Elem(), VpcConnectionVpcConnectionAvailabilityStatus("AVAILABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionVpcConnectionAvailabilityStatusPtrInput)(nil)).Elem(), VpcConnectionVpcConnectionAvailabilityStatus("AVAILABLE"))
 	pulumi.RegisterOutputType(AnalysisAnchorOptionOutput{})
@@ -71902,6 +72168,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicTimeGranularityPtrOutput{})
 	pulumi.RegisterOutputType(TopicUndefinedSpecifiedValueTypeOutput{})
 	pulumi.RegisterOutputType(TopicUndefinedSpecifiedValueTypePtrOutput{})
+	pulumi.RegisterOutputType(TopicUserExperienceVersionOutput{})
+	pulumi.RegisterOutputType(TopicUserExperienceVersionPtrOutput{})
 	pulumi.RegisterOutputType(VpcConnectionNetworkInterfaceStatusOutput{})
 	pulumi.RegisterOutputType(VpcConnectionNetworkInterfaceStatusPtrOutput{})
 	pulumi.RegisterOutputType(VpcConnectionVpcConnectionAvailabilityStatusOutput{})

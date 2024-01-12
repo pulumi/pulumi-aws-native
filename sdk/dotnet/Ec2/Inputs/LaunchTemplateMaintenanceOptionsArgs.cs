@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("autoRecovery")]
         public Input<string>? AutoRecovery { get; set; }
 
+        /// <summary>
+        /// Disables the automatic reboot-migration behavior of your instance or sets it to default.
+        /// </summary>
+        [Input("rebootMigration")]
+        public Input<string>? RebootMigration { get; set; }
+
         public LaunchTemplateMaintenanceOptionsArgs()
         {
         }

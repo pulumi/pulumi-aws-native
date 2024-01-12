@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ssm.Outputs
 {
 
+    /// <summary>
+    /// Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+    /// </summary>
     [OutputType]
     public sealed class PatchBaselinePatchSource
     {

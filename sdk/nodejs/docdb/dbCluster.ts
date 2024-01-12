@@ -63,6 +63,7 @@ export class DbCluster extends pulumi.CustomResource {
     public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
     public readonly sourceDbClusterIdentifier!: pulumi.Output<string | undefined>;
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
+    public readonly storageType!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.docdb.DbClusterTag[] | undefined>;
     public readonly useLatestRestorableTime!: pulumi.Output<boolean | undefined>;
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -100,6 +101,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
@@ -130,12 +132,13 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["snapshotIdentifier"] = undefined /*out*/;
             resourceInputs["sourceDbClusterIdentifier"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
+            resourceInputs["storageType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["useLatestRestorableTime"] = undefined /*out*/;
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["availabilityZones[*]", "dbClusterIdentifier", "dbSubnetGroupName", "engineVersion", "kmsKeyId", "masterUsername", "snapshotIdentifier", "sourceDbClusterIdentifier", "storageEncrypted"] };
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZones[*]", "dbClusterIdentifier", "dbSubnetGroupName", "kmsKeyId", "masterUsername", "snapshotIdentifier", "sourceDbClusterIdentifier", "storageEncrypted"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -165,6 +168,7 @@ export interface DbClusterArgs {
     snapshotIdentifier?: pulumi.Input<string>;
     sourceDbClusterIdentifier?: pulumi.Input<string>;
     storageEncrypted?: pulumi.Input<boolean>;
+    storageType?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.docdb.DbClusterTagArgs>[]>;
     useLatestRestorableTime?: pulumi.Input<boolean>;
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;

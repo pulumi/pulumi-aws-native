@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
     public sealed class TaskDefinitionVolumeArgs : global::Pulumi.ResourceArgs
     {
+        [Input("configuredAtLaunch")]
+        public Input<bool>? ConfiguredAtLaunch { get; set; }
+
         [Input("dockerVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionDockerVolumeConfigurationArgs>? DockerVolumeConfiguration { get; set; }
 

@@ -90,9 +90,11 @@ type analysisArgs struct {
 	AnalysisId         string                       `pulumi:"analysisId"`
 	AwsAccountId       string                       `pulumi:"awsAccountId"`
 	Definition         *AnalysisDefinition          `pulumi:"definition"`
+	Errors             []AnalysisError              `pulumi:"errors"`
 	Name               *string                      `pulumi:"name"`
 	Parameters         *AnalysisParameters          `pulumi:"parameters"`
 	Permissions        []AnalysisResourcePermission `pulumi:"permissions"`
+	Sheets             []AnalysisSheet              `pulumi:"sheets"`
 	SourceEntity       *AnalysisSourceEntity        `pulumi:"sourceEntity"`
 	Status             *AnalysisResourceStatus      `pulumi:"status"`
 	Tags               []AnalysisTag                `pulumi:"tags"`
@@ -105,9 +107,11 @@ type AnalysisArgs struct {
 	AnalysisId         pulumi.StringInput
 	AwsAccountId       pulumi.StringInput
 	Definition         AnalysisDefinitionPtrInput
+	Errors             AnalysisErrorArrayInput
 	Name               pulumi.StringPtrInput
 	Parameters         AnalysisParametersPtrInput
 	Permissions        AnalysisResourcePermissionArrayInput
+	Sheets             AnalysisSheetArrayInput
 	SourceEntity       AnalysisSourceEntityPtrInput
 	Status             AnalysisResourceStatusPtrInput
 	Tags               AnalysisTagArrayInput

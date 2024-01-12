@@ -125,6 +125,14 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("definition")]
         public Input<Inputs.AnalysisDefinitionArgs>? Definition { get; set; }
 
+        [Input("errors")]
+        private InputList<Inputs.AnalysisErrorArgs>? _errors;
+        public InputList<Inputs.AnalysisErrorArgs> Errors
+        {
+            get => _errors ?? (_errors = new InputList<Inputs.AnalysisErrorArgs>());
+            set => _errors = value;
+        }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -137,6 +145,14 @@ namespace Pulumi.AwsNative.QuickSight
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.AnalysisResourcePermissionArgs>());
             set => _permissions = value;
+        }
+
+        [Input("sheets")]
+        private InputList<Inputs.AnalysisSheetArgs>? _sheets;
+        public InputList<Inputs.AnalysisSheetArgs> Sheets
+        {
+            get => _sheets ?? (_sheets = new InputList<Inputs.AnalysisSheetArgs>());
+            set => _sheets = value;
         }
 
         [Input("sourceEntity")]

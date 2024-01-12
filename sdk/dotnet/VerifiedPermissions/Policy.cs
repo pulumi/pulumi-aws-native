@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         public Output<string> PolicyId { get; private set; } = null!;
 
         [Output("policyStoreId")]
-        public Output<string?> PolicyStoreId { get; private set; } = null!;
+        public Output<string> PolicyStoreId { get; private set; } = null!;
 
         [Output("policyType")]
         public Output<Pulumi.AwsNative.VerifiedPermissions.PolicyType> PolicyType { get; private set; } = null!;
@@ -79,8 +79,8 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         [Input("definition", required: true)]
         public InputUnion<Inputs.PolicyDefinition0PropertiesArgs, Inputs.PolicyDefinition1PropertiesArgs> Definition { get; set; } = null!;
 
-        [Input("policyStoreId")]
-        public Input<string>? PolicyStoreId { get; set; }
+        [Input("policyStoreId", required: true)]
+        public Input<string> PolicyStoreId { get; set; } = null!;
 
         public PolicyArgs()
         {

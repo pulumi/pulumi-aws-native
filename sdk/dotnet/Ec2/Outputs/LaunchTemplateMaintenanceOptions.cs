@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// Disables the automatic recovery behavior of your instance or sets it to default.
         /// </summary>
         public readonly string? AutoRecovery;
+        /// <summary>
+        /// Disables the automatic reboot-migration behavior of your instance or sets it to default.
+        /// </summary>
+        public readonly string? RebootMigration;
 
         [OutputConstructor]
-        private LaunchTemplateMaintenanceOptions(string? autoRecovery)
+        private LaunchTemplateMaintenanceOptions(
+            string? autoRecovery,
+
+            string? rebootMigration)
         {
             AutoRecovery = autoRecovery;
+            RebootMigration = rebootMigration;
         }
     }
 }

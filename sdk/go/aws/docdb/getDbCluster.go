@@ -35,6 +35,7 @@ type LookupDbClusterResult struct {
 	DeletionProtection          *bool          `pulumi:"deletionProtection"`
 	EnableCloudwatchLogsExports []string       `pulumi:"enableCloudwatchLogsExports"`
 	Endpoint                    *string        `pulumi:"endpoint"`
+	EngineVersion               *string        `pulumi:"engineVersion"`
 	Id                          *string        `pulumi:"id"`
 	MasterUserPassword          *string        `pulumi:"masterUserPassword"`
 	Port                        *int           `pulumi:"port"`
@@ -43,6 +44,7 @@ type LookupDbClusterResult struct {
 	ReadEndpoint                *string        `pulumi:"readEndpoint"`
 	RestoreToTime               *string        `pulumi:"restoreToTime"`
 	RestoreType                 *string        `pulumi:"restoreType"`
+	StorageType                 *string        `pulumi:"storageType"`
 	Tags                        []DbClusterTag `pulumi:"tags"`
 	UseLatestRestorableTime     *bool          `pulumi:"useLatestRestorableTime"`
 	VpcSecurityGroupIds         []string       `pulumi:"vpcSecurityGroupIds"`
@@ -117,6 +119,10 @@ func (o LookupDbClusterResultOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupDbClusterResultOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupDbClusterResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -147,6 +153,10 @@ func (o LookupDbClusterResultOutput) RestoreToTime() pulumi.StringPtrOutput {
 
 func (o LookupDbClusterResultOutput) RestoreType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.RestoreType }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDbClusterResultOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDbClusterResultOutput) Tags() DbClusterTagArrayOutput {

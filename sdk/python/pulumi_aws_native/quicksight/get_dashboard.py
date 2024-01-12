@@ -20,13 +20,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetDashboardResult:
-    def __init__(__self__, arn=None, last_published_time=None, name=None, permissions=None, tags=None, version=None):
+    def __init__(__self__, arn=None, created_time=None, last_published_time=None, last_updated_time=None, name=None, permissions=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        pulumi.set(__self__, "created_time", created_time)
         if last_published_time and not isinstance(last_published_time, str):
             raise TypeError("Expected argument 'last_published_time' to be a str")
         pulumi.set(__self__, "last_published_time", last_published_time)
+        if last_updated_time and not isinstance(last_updated_time, str):
+            raise TypeError("Expected argument 'last_updated_time' to be a str")
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -46,9 +52,19 @@ class GetDashboardResult:
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[str]:
+        return pulumi.get(self, "created_time")
+
+    @property
     @pulumi.getter(name="lastPublishedTime")
     def last_published_time(self) -> Optional[str]:
         return pulumi.get(self, "last_published_time")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[str]:
+        return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
@@ -78,7 +94,9 @@ class AwaitableGetDashboardResult(GetDashboardResult):
             yield self
         return GetDashboardResult(
             arn=self.arn,
+            created_time=self.created_time,
             last_published_time=self.last_published_time,
+            last_updated_time=self.last_updated_time,
             name=self.name,
             permissions=self.permissions,
             tags=self.tags,
@@ -99,7 +117,9 @@ def get_dashboard(aws_account_id: Optional[str] = None,
 
     return AwaitableGetDashboardResult(
         arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
         last_published_time=pulumi.get(__ret__, 'last_published_time'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'),
         tags=pulumi.get(__ret__, 'tags'),

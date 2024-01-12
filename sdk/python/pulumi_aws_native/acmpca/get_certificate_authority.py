@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetCertificateAuthorityResult',
@@ -19,19 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetCertificateAuthorityResult:
-    def __init__(__self__, arn=None, certificate_signing_request=None, revocation_configuration=None, tags=None):
+    def __init__(__self__, arn=None, certificate_signing_request=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if certificate_signing_request and not isinstance(certificate_signing_request, str):
             raise TypeError("Expected argument 'certificate_signing_request' to be a str")
         pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
-        if revocation_configuration and not isinstance(revocation_configuration, dict):
-            raise TypeError("Expected argument 'revocation_configuration' to be a dict")
-        pulumi.set(__self__, "revocation_configuration", revocation_configuration)
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -49,19 +42,6 @@ class GetCertificateAuthorityResult:
         """
         return pulumi.get(self, "certificate_signing_request")
 
-    @property
-    @pulumi.getter(name="revocationConfiguration")
-    def revocation_configuration(self) -> Optional['outputs.CertificateAuthorityRevocationConfiguration']:
-        """
-        Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
-        """
-        return pulumi.get(self, "revocation_configuration")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.CertificateAuthorityTag']]:
-        return pulumi.get(self, "tags")
-
 
 class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
     # pylint: disable=using-constant-test
@@ -70,9 +50,7 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
             yield self
         return GetCertificateAuthorityResult(
             arn=self.arn,
-            certificate_signing_request=self.certificate_signing_request,
-            revocation_configuration=self.revocation_configuration,
-            tags=self.tags)
+            certificate_signing_request=self.certificate_signing_request)
 
 
 def get_certificate_authority(arn: Optional[str] = None,
@@ -90,9 +68,7 @@ def get_certificate_authority(arn: Optional[str] = None,
 
     return AwaitableGetCertificateAuthorityResult(
         arn=pulumi.get(__ret__, 'arn'),
-        certificate_signing_request=pulumi.get(__ret__, 'certificate_signing_request'),
-        revocation_configuration=pulumi.get(__ret__, 'revocation_configuration'),
-        tags=pulumi.get(__ret__, 'tags'))
+        certificate_signing_request=pulumi.get(__ret__, 'certificate_signing_request'))
 
 
 @_utilities.lift_output_func(get_certificate_authority)

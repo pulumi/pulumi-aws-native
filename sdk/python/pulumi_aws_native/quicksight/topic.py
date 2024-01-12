@@ -21,7 +21,8 @@ class TopicArgs:
                  data_sets: Optional[pulumi.Input[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 topic_id: Optional[pulumi.Input[str]] = None):
+                 topic_id: Optional[pulumi.Input[str]] = None,
+                 user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None):
         """
         The set of arguments for constructing a Topic resource.
         """
@@ -35,6 +36,8 @@ class TopicArgs:
             pulumi.set(__self__, "name", name)
         if topic_id is not None:
             pulumi.set(__self__, "topic_id", topic_id)
+        if user_experience_version is not None:
+            pulumi.set(__self__, "user_experience_version", user_experience_version)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -81,6 +84,15 @@ class TopicArgs:
     def topic_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "topic_id", value)
 
+    @property
+    @pulumi.getter(name="userExperienceVersion")
+    def user_experience_version(self) -> Optional[pulumi.Input['TopicUserExperienceVersion']]:
+        return pulumi.get(self, "user_experience_version")
+
+    @user_experience_version.setter
+    def user_experience_version(self, value: Optional[pulumi.Input['TopicUserExperienceVersion']]):
+        pulumi.set(self, "user_experience_version", value)
+
 
 class Topic(pulumi.CustomResource):
     @overload
@@ -92,6 +104,7 @@ class Topic(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  topic_id: Optional[pulumi.Input[str]] = None,
+                 user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::Topic Resource Type.
@@ -128,6 +141,7 @@ class Topic(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  topic_id: Optional[pulumi.Input[str]] = None,
+                 user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -142,6 +156,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["topic_id"] = topic_id
+            __props__.__dict__["user_experience_version"] = user_experience_version
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["aws_account_id", "topic_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -173,6 +188,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["topic_id"] = None
+        __props__.__dict__["user_experience_version"] = None
         return Topic(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -204,4 +220,9 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="topicId")
     def topic_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "topic_id")
+
+    @property
+    @pulumi.getter(name="userExperienceVersion")
+    def user_experience_version(self) -> pulumi.Output[Optional['TopicUserExperienceVersion']]:
+        return pulumi.get(self, "user_experience_version")
 
