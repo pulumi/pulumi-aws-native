@@ -79,19 +79,19 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "voiceid:CreateDomain" ]
+      "permissions" : [ "voiceid:CreateDomain", "voiceid:DescribeDomain", "voiceid:TagResource", "voiceid:ListTagsForResource", "kms:CreateGrant", "kms:DescribeKey", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "voiceid:DescribeDomain" ]
+      "permissions" : [ "voiceid:DescribeDomain", "voiceid:ListTagsForResource", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "voiceid:UpdateDomain" ]
+      "permissions" : [ "voiceid:DescribeDomain", "voiceid:UpdateDomain", "voiceid:TagResource", "voiceid:UntagResource", "voiceid:ListTagsForResource", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey" ]
     },
     "delete" : {
-      "permissions" : [ "voiceid:DeleteDomain" ]
+      "permissions" : [ "voiceid:DeleteDomain", "voiceid:DescribeDomain", "kms:Decrypt" ]
     },
     "list" : {
-      "permissions" : [ "voiceid:ListDomains" ]
+      "permissions" : [ "voiceid:ListDomains", "kms:Decrypt" ]
     }
   },
   "additionalProperties" : false

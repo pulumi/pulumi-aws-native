@@ -251,7 +251,7 @@
           "type" : "string"
         }
       },
-      "required" : [ "Name" ]
+      "required" : [ "Name", "SemanticVersion" ]
     }
   },
   "required" : [ "Name", "ExecutionRole", "ResourceType", "PolicyDetails", "ResourceSelection" ],

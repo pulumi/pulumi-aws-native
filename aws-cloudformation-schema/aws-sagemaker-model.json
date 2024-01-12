@@ -53,6 +53,16 @@
       },
       "required" : [ "RepositoryAccessMode" ]
     },
+    "ModelAccessConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AcceptEula" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "AcceptEula" ]
+    },
     "VpcConfig" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -88,6 +98,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "ModelAccessConfig" : {
+          "$ref" : "#/definitions/ModelAccessConfig"
+        },
         "S3DataType" : {
           "type" : "string"
         },

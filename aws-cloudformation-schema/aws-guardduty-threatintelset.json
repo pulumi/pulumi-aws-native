@@ -60,7 +60,7 @@
       "required" : [ "Key", "Value" ]
     }
   },
-  "required" : [ "Format", "Location", "Name" ],
+  "required" : [ "Format", "Location" ],
   "primaryIdentifier" : [ "/properties/Id", "/properties/DetectorId" ],
   "readOnlyProperties" : [ "/properties/Id" ],
   "createOnlyProperties" : [ "/properties/Format", "/properties/DetectorId" ],

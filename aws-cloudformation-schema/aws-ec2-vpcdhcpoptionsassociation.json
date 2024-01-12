@@ -14,7 +14,12 @@
   },
   "additionalProperties" : false,
   "required" : [ "VpcId", "DhcpOptionsId" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "createOnlyProperties" : [ "/properties/DhcpOptionsId", "/properties/VpcId" ],
   "primaryIdentifier" : [ "/properties/DhcpOptionsId", "/properties/VpcId" ],
   "replacementStrategy" : "delete_then_create",

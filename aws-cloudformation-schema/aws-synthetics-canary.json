@@ -253,12 +253,15 @@
     }
   },
   "required" : [ "Name", "Code", "ArtifactS3Location", "ExecutionRoleArn", "Schedule", "RuntimeVersion" ],
+  "tagging" : {
+    "taggable" : true
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "synthetics:CreateCanary", "synthetics:StartCanary", "s3:CreateBucket", "s3:GetObject", "s3:GetObjectVersion", "s3:PutBucketEncryption", "s3:PutEncryptionConfiguration", "lambda:CreateFunction", "lambda:AddPermission", "lambda:PublishVersion", "lambda:UpdateFunctionConfiguration", "lambda:GetFunctionConfiguration", "lambda:GetLayerVersionByArn", "lambda:GetLayerVersion", "lambda:PublishLayerVersion", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "iam:PassRole" ]
+      "permissions" : [ "synthetics:CreateCanary", "synthetics:StartCanary", "synthetics:GetCanary", "synthetics:TagResource", "s3:CreateBucket", "s3:GetObject", "s3:GetObjectVersion", "s3:PutBucketEncryption", "s3:PutEncryptionConfiguration", "s3:GetBucketLocation", "lambda:CreateFunction", "lambda:AddPermission", "lambda:PublishVersion", "lambda:UpdateFunctionConfiguration", "lambda:GetFunctionConfiguration", "lambda:GetLayerVersionByArn", "lambda:GetLayerVersion", "lambda:PublishLayerVersion", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "iam:PassRole" ]
     },
     "update" : {
-      "permissions" : [ "synthetics:UpdateCanary", "synthetics:StartCanary", "synthetics:StopCanary", "synthetics:TagResource", "synthetics:UntagResource" ]
+      "permissions" : [ "synthetics:UpdateCanary", "synthetics:StartCanary", "synthetics:StopCanary", "synthetics:GetCanary", "synthetics:TagResource", "synthetics:UntagResource", "s3:GetObject", "s3:GetObjectVersion", "s3:PutBucketEncryption", "s3:PutEncryptionConfiguration", "s3:GetBucketLocation", "lambda:AddPermission", "lambda:PublishVersion", "lambda:UpdateFunctionConfiguration", "lambda:GetFunctionConfiguration", "lambda:GetLayerVersionByArn", "lambda:GetLayerVersion", "lambda:PublishLayerVersion", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "synthetics:GetCanary", "synthetics:DescribeCanaries", "synthetics:ListTagsForResource", "iam:ListRoles", "s3:ListAllMyBuckets", "s3:GetBucketLocation" ]
