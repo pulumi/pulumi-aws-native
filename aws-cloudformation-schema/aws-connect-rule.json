@@ -243,7 +243,7 @@
         "EventSourceName" : {
           "description" : "The name of event source.",
           "type" : "string",
-          "enum" : [ "OnContactEvaluationSubmit", "OnPostCallAnalysisAvailable", "OnRealTimeCallAnalysisAvailable", "OnRealTimeChatAnalysisAvailable", "OnPostChatAnalysisAvailable", "OnZendeskTicketCreate", "OnZendeskTicketStatusUpdate", "OnSalesforceCaseCreate", "OnMetricDataUpdate", "OnCaseCreate", "OnCasesUpdate" ]
+          "enum" : [ "OnContactEvaluationSubmit", "OnPostCallAnalysisAvailable", "OnRealTimeCallAnalysisAvailable", "OnRealTimeChatAnalysisAvailable", "OnPostChatAnalysisAvailable", "OnZendeskTicketCreate", "OnZendeskTicketStatusUpdate", "OnSalesforceCaseCreate", "OnMetricDataUpdate", "OnCaseCreate", "OnCaseUpdate" ]
         },
         "IntegrationAssociationArn" : {
           "description" : "The Amazon Resource Name (ARN) for the AppIntegration association.",
@@ -331,7 +331,7 @@
         "UpdateCaseActions" : {
           "$ref" : "#/definitions/UpdateCaseActions"
         },
-        "EndAssociatedTaskActions" : {
+        "EndAssociatedTasksActions" : {
           "$ref" : "#/definitions/EndAssociatedTasksActions"
         }
       },
@@ -412,7 +412,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "connect:CreateRule" ]
+      "permissions" : [ "connect:CreateRule", "cases:GetTemplate", "cases:ListFields", "cases:ListFieldOptions" ]
     },
     "read" : {
       "permissions" : [ "connect:DescribeRule" ]
@@ -421,7 +421,7 @@
       "permissions" : [ "connect:DeleteRule", "connect:UntagResource" ]
     },
     "update" : {
-      "permissions" : [ "connect:UpdateRule", "connect:TagResource", "connect:UntagResource" ]
+      "permissions" : [ "connect:UpdateRule", "cases:GetTemplate", "cases:ListFields", "cases:ListFieldOptions", "connect:TagResource", "connect:UntagResource" ]
     }
   },
   "additionalProperties" : false,
