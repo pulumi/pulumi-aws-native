@@ -53,32 +53,30 @@ __all__ = [
 @pulumi.input_type
 class IdentityPoolCognitoIdentityProviderArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[str]] = None,
-                 provider_name: Optional[pulumi.Input[str]] = None,
+                 client_id: pulumi.Input[str],
+                 provider_name: pulumi.Input[str],
                  server_side_token_check: Optional[pulumi.Input[bool]] = None):
-        if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
-        if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "provider_name", provider_name)
         if server_side_token_check is not None:
             pulumi.set(__self__, "server_side_token_check", server_side_token_check)
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[str]]:
+    def client_id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[str]]):
+    def client_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_id", value)
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> Optional[pulumi.Input[str]]:
+    def provider_name(self) -> pulumi.Input[str]:
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
-    def provider_name(self, value: Optional[pulumi.Input[str]]):
+    def provider_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "provider_name", value)
 
     @property

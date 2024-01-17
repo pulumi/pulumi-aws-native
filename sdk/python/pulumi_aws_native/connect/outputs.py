@@ -2117,8 +2117,8 @@ class RuleActions(dict):
             suggest = "assign_contact_category_actions"
         elif key == "createCaseActions":
             suggest = "create_case_actions"
-        elif key == "endAssociatedTaskActions":
-            suggest = "end_associated_task_actions"
+        elif key == "endAssociatedTasksActions":
+            suggest = "end_associated_tasks_actions"
         elif key == "eventBridgeActions":
             suggest = "event_bridge_actions"
         elif key == "sendNotificationActions":
@@ -2142,7 +2142,7 @@ class RuleActions(dict):
     def __init__(__self__, *,
                  assign_contact_category_actions: Optional[Sequence['outputs.RuleAssignContactCategoryAction']] = None,
                  create_case_actions: Optional[Sequence['outputs.RuleCreateCaseAction']] = None,
-                 end_associated_task_actions: Optional[Sequence['outputs.RuleEndAssociatedTasksAction']] = None,
+                 end_associated_tasks_actions: Optional[Sequence['outputs.RuleEndAssociatedTasksAction']] = None,
                  event_bridge_actions: Optional[Sequence['outputs.RuleEventBridgeAction']] = None,
                  send_notification_actions: Optional[Sequence['outputs.RuleSendNotificationAction']] = None,
                  task_actions: Optional[Sequence['outputs.RuleTaskAction']] = None,
@@ -2154,8 +2154,8 @@ class RuleActions(dict):
             pulumi.set(__self__, "assign_contact_category_actions", assign_contact_category_actions)
         if create_case_actions is not None:
             pulumi.set(__self__, "create_case_actions", create_case_actions)
-        if end_associated_task_actions is not None:
-            pulumi.set(__self__, "end_associated_task_actions", end_associated_task_actions)
+        if end_associated_tasks_actions is not None:
+            pulumi.set(__self__, "end_associated_tasks_actions", end_associated_tasks_actions)
         if event_bridge_actions is not None:
             pulumi.set(__self__, "event_bridge_actions", event_bridge_actions)
         if send_notification_actions is not None:
@@ -2176,9 +2176,9 @@ class RuleActions(dict):
         return pulumi.get(self, "create_case_actions")
 
     @property
-    @pulumi.getter(name="endAssociatedTaskActions")
-    def end_associated_task_actions(self) -> Optional[Sequence['outputs.RuleEndAssociatedTasksAction']]:
-        return pulumi.get(self, "end_associated_task_actions")
+    @pulumi.getter(name="endAssociatedTasksActions")
+    def end_associated_tasks_actions(self) -> Optional[Sequence['outputs.RuleEndAssociatedTasksAction']]:
+        return pulumi.get(self, "end_associated_tasks_actions")
 
     @property
     @pulumi.getter(name="eventBridgeActions")

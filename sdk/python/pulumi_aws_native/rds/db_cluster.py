@@ -92,7 +92,7 @@ class DbClusterArgs:
         :param pulumi.Input[str] domain_iam_role_name: Specify the name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
         :param pulumi.Input[bool] enable_global_write_forwarding: Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
-        :param pulumi.Input[bool] enable_http_endpoint: A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
+        :param pulumi.Input[bool] enable_http_endpoint: A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
         :param pulumi.Input[str] engine_mode: The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
@@ -478,7 +478,7 @@ class DbClusterArgs:
     @pulumi.getter(name="enableHttpEndpoint")
     def enable_http_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
-        A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
+        A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
         """
         return pulumi.get(self, "enable_http_endpoint")
 
@@ -996,7 +996,7 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[str] domain_iam_role_name: Specify the name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
         :param pulumi.Input[bool] enable_global_write_forwarding: Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
-        :param pulumi.Input[bool] enable_http_endpoint: A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
+        :param pulumi.Input[bool] enable_http_endpoint: A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
         :param pulumi.Input[str] engine_mode: The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
@@ -1441,7 +1441,7 @@ class DbCluster(pulumi.CustomResource):
     @pulumi.getter(name="enableHttpEndpoint")
     def enable_http_endpoint(self) -> pulumi.Output[Optional[bool]]:
         """
-        A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
+        A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
         """
         return pulumi.get(self, "enable_http_endpoint")
 

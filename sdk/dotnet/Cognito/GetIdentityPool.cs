@@ -53,15 +53,12 @@ namespace Pulumi.AwsNative.Cognito
     {
         public readonly bool? AllowClassicFlow;
         public readonly bool? AllowUnauthenticatedIdentities;
-        public readonly object? CognitoEvents;
         public readonly ImmutableArray<Outputs.IdentityPoolCognitoIdentityProvider> CognitoIdentityProviders;
-        public readonly Outputs.IdentityPoolCognitoStreams? CognitoStreams;
         public readonly string? DeveloperProviderName;
         public readonly string? Id;
         public readonly string? IdentityPoolName;
         public readonly string? Name;
         public readonly ImmutableArray<string> OpenIdConnectProviderArns;
-        public readonly Outputs.IdentityPoolPushSync? PushSync;
         public readonly ImmutableArray<string> SamlProviderArns;
         public readonly object? SupportedLoginProviders;
 
@@ -71,11 +68,7 @@ namespace Pulumi.AwsNative.Cognito
 
             bool? allowUnauthenticatedIdentities,
 
-            object? cognitoEvents,
-
             ImmutableArray<Outputs.IdentityPoolCognitoIdentityProvider> cognitoIdentityProviders,
-
-            Outputs.IdentityPoolCognitoStreams? cognitoStreams,
 
             string? developerProviderName,
 
@@ -87,23 +80,18 @@ namespace Pulumi.AwsNative.Cognito
 
             ImmutableArray<string> openIdConnectProviderArns,
 
-            Outputs.IdentityPoolPushSync? pushSync,
-
             ImmutableArray<string> samlProviderArns,
 
             object? supportedLoginProviders)
         {
             AllowClassicFlow = allowClassicFlow;
             AllowUnauthenticatedIdentities = allowUnauthenticatedIdentities;
-            CognitoEvents = cognitoEvents;
             CognitoIdentityProviders = cognitoIdentityProviders;
-            CognitoStreams = cognitoStreams;
             DeveloperProviderName = developerProviderName;
             Id = id;
             IdentityPoolName = identityPoolName;
             Name = name;
             OpenIdConnectProviderArns = openIdConnectProviderArns;
-            PushSync = pushSync;
             SamlProviderArns = samlProviderArns;
             SupportedLoginProviders = supportedLoginProviders;
         }

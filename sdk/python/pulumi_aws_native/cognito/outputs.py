@@ -75,24 +75,22 @@ class IdentityPoolCognitoIdentityProvider(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_id: Optional[str] = None,
-                 provider_name: Optional[str] = None,
+                 client_id: str,
+                 provider_name: str,
                  server_side_token_check: Optional[bool] = None):
-        if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
-        if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "provider_name", provider_name)
         if server_side_token_check is not None:
             pulumi.set(__self__, "server_side_token_check", server_side_token_check)
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[str]:
+    def client_id(self) -> str:
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> Optional[str]:
+    def provider_name(self) -> str:
         return pulumi.get(self, "provider_name")
 
     @property

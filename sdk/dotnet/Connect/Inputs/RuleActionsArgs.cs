@@ -31,12 +31,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
             set => _createCaseActions = value;
         }
 
-        [Input("endAssociatedTaskActions")]
-        private InputList<Inputs.RuleEndAssociatedTasksActionArgs>? _endAssociatedTaskActions;
-        public InputList<Inputs.RuleEndAssociatedTasksActionArgs> EndAssociatedTaskActions
+        [Input("endAssociatedTasksActions")]
+        private InputList<Inputs.RuleEndAssociatedTasksActionArgs>? _endAssociatedTasksActions;
+        public InputList<Inputs.RuleEndAssociatedTasksActionArgs> EndAssociatedTasksActions
         {
-            get => _endAssociatedTaskActions ?? (_endAssociatedTaskActions = new InputList<Inputs.RuleEndAssociatedTasksActionArgs>());
-            set => _endAssociatedTaskActions = value;
+            get => _endAssociatedTasksActions ?? (_endAssociatedTasksActions = new InputList<Inputs.RuleEndAssociatedTasksActionArgs>());
+            set => _endAssociatedTasksActions = value;
         }
 
         [Input("eventBridgeActions")]

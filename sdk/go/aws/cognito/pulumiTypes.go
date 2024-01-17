@@ -15,9 +15,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type IdentityPoolCognitoIdentityProvider struct {
-	ClientId             *string `pulumi:"clientId"`
-	ProviderName         *string `pulumi:"providerName"`
-	ServerSideTokenCheck *bool   `pulumi:"serverSideTokenCheck"`
+	ClientId             string `pulumi:"clientId"`
+	ProviderName         string `pulumi:"providerName"`
+	ServerSideTokenCheck *bool  `pulumi:"serverSideTokenCheck"`
 }
 
 // IdentityPoolCognitoIdentityProviderInput is an input type that accepts IdentityPoolCognitoIdentityProviderArgs and IdentityPoolCognitoIdentityProviderOutput values.
@@ -32,9 +32,9 @@ type IdentityPoolCognitoIdentityProviderInput interface {
 }
 
 type IdentityPoolCognitoIdentityProviderArgs struct {
-	ClientId             pulumi.StringPtrInput `pulumi:"clientId"`
-	ProviderName         pulumi.StringPtrInput `pulumi:"providerName"`
-	ServerSideTokenCheck pulumi.BoolPtrInput   `pulumi:"serverSideTokenCheck"`
+	ClientId             pulumi.StringInput  `pulumi:"clientId"`
+	ProviderName         pulumi.StringInput  `pulumi:"providerName"`
+	ServerSideTokenCheck pulumi.BoolPtrInput `pulumi:"serverSideTokenCheck"`
 }
 
 func (IdentityPoolCognitoIdentityProviderArgs) ElementType() reflect.Type {
@@ -106,12 +106,12 @@ func (o IdentityPoolCognitoIdentityProviderOutput) ToOutput(ctx context.Context)
 	}
 }
 
-func (o IdentityPoolCognitoIdentityProviderOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdentityPoolCognitoIdentityProvider) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+func (o IdentityPoolCognitoIdentityProviderOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityPoolCognitoIdentityProvider) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-func (o IdentityPoolCognitoIdentityProviderOutput) ProviderName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdentityPoolCognitoIdentityProvider) *string { return v.ProviderName }).(pulumi.StringPtrOutput)
+func (o IdentityPoolCognitoIdentityProviderOutput) ProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityPoolCognitoIdentityProvider) string { return v.ProviderName }).(pulumi.StringOutput)
 }
 
 func (o IdentityPoolCognitoIdentityProviderOutput) ServerSideTokenCheck() pulumi.BoolPtrOutput {

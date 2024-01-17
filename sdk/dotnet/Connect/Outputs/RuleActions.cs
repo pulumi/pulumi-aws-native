@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
     {
         public readonly ImmutableArray<Outputs.RuleAssignContactCategoryAction> AssignContactCategoryActions;
         public readonly ImmutableArray<Outputs.RuleCreateCaseAction> CreateCaseActions;
-        public readonly ImmutableArray<Outputs.RuleEndAssociatedTasksAction> EndAssociatedTaskActions;
+        public readonly ImmutableArray<Outputs.RuleEndAssociatedTasksAction> EndAssociatedTasksActions;
         public readonly ImmutableArray<Outputs.RuleEventBridgeAction> EventBridgeActions;
         public readonly ImmutableArray<Outputs.RuleSendNotificationAction> SendNotificationActions;
         public readonly ImmutableArray<Outputs.RuleTaskAction> TaskActions;
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             ImmutableArray<Outputs.RuleCreateCaseAction> createCaseActions,
 
-            ImmutableArray<Outputs.RuleEndAssociatedTasksAction> endAssociatedTaskActions,
+            ImmutableArray<Outputs.RuleEndAssociatedTasksAction> endAssociatedTasksActions,
 
             ImmutableArray<Outputs.RuleEventBridgeAction> eventBridgeActions,
 
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         {
             AssignContactCategoryActions = assignContactCategoryActions;
             CreateCaseActions = createCaseActions;
-            EndAssociatedTaskActions = endAssociatedTaskActions;
+            EndAssociatedTasksActions = endAssociatedTasksActions;
             EventBridgeActions = eventBridgeActions;
             SendNotificationActions = sendNotificationActions;
             TaskActions = taskActions;

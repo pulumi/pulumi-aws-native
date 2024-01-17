@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainClusterConfig
     {
+        public readonly Outputs.DomainColdStorageOptions? ColdStorageOptions;
         public readonly int? DedicatedMasterCount;
         public readonly bool? DedicatedMasterEnabled;
         public readonly string? DedicatedMasterType;
@@ -27,6 +28,8 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
 
         [OutputConstructor]
         private DomainClusterConfig(
+            Outputs.DomainColdStorageOptions? coldStorageOptions,
+
             int? dedicatedMasterCount,
 
             bool? dedicatedMasterEnabled,
@@ -49,6 +52,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
 
             bool? zoneAwarenessEnabled)
         {
+            ColdStorageOptions = coldStorageOptions;
             DedicatedMasterCount = dedicatedMasterCount;
             DedicatedMasterEnabled = dedicatedMasterEnabled;
             DedicatedMasterType = dedicatedMasterType;

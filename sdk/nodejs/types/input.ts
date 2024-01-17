@@ -8440,8 +8440,8 @@ export namespace codestarnotifications {
 
 export namespace cognito {
     export interface IdentityPoolCognitoIdentityProviderArgs {
-        clientId?: pulumi.Input<string>;
-        providerName?: pulumi.Input<string>;
+        clientId: pulumi.Input<string>;
+        providerName: pulumi.Input<string>;
         serverSideTokenCheck?: pulumi.Input<boolean>;
     }
 
@@ -9557,7 +9557,7 @@ export namespace connect {
     export interface RuleActionsArgs {
         assignContactCategoryActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleAssignContactCategoryActionArgs>[]>;
         createCaseActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleCreateCaseActionArgs>[]>;
-        endAssociatedTaskActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleEndAssociatedTasksActionArgs>[]>;
+        endAssociatedTasksActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleEndAssociatedTasksActionArgs>[]>;
         eventBridgeActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleEventBridgeActionArgs>[]>;
         sendNotificationActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleSendNotificationActionArgs>[]>;
         taskActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleTaskActionArgs>[]>;
@@ -34036,6 +34036,7 @@ export namespace opensearchservice {
     }
 
     export interface DomainClusterConfigArgs {
+        coldStorageOptions?: pulumi.Input<inputs.opensearchservice.DomainColdStorageOptionsArgs>;
         dedicatedMasterCount?: pulumi.Input<number>;
         dedicatedMasterEnabled?: pulumi.Input<boolean>;
         dedicatedMasterType?: pulumi.Input<string>;
@@ -34054,6 +34055,10 @@ export namespace opensearchservice {
         identityPoolId?: pulumi.Input<string>;
         roleArn?: pulumi.Input<string>;
         userPoolId?: pulumi.Input<string>;
+    }
+
+    export interface DomainColdStorageOptionsArgs {
+        enabled?: pulumi.Input<boolean>;
     }
 
     export interface DomainEbsOptionsArgs {

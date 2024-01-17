@@ -247,6 +247,7 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) SamlOptions() DomainSamlOpt
 }
 
 type DomainClusterConfig struct {
+	ColdStorageOptions        *DomainColdStorageOptions  `pulumi:"coldStorageOptions"`
 	DedicatedMasterCount      *int                       `pulumi:"dedicatedMasterCount"`
 	DedicatedMasterEnabled    *bool                      `pulumi:"dedicatedMasterEnabled"`
 	DedicatedMasterType       *string                    `pulumi:"dedicatedMasterType"`
@@ -272,6 +273,7 @@ type DomainClusterConfigInput interface {
 }
 
 type DomainClusterConfigArgs struct {
+	ColdStorageOptions        DomainColdStorageOptionsPtrInput  `pulumi:"coldStorageOptions"`
 	DedicatedMasterCount      pulumi.IntPtrInput                `pulumi:"dedicatedMasterCount"`
 	DedicatedMasterEnabled    pulumi.BoolPtrInput               `pulumi:"dedicatedMasterEnabled"`
 	DedicatedMasterType       pulumi.StringPtrInput             `pulumi:"dedicatedMasterType"`
@@ -380,6 +382,10 @@ func (o DomainClusterConfigOutput) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
+func (o DomainClusterConfigOutput) ColdStorageOptions() DomainColdStorageOptionsPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfig) *DomainColdStorageOptions { return v.ColdStorageOptions }).(DomainColdStorageOptionsPtrOutput)
+}
+
 func (o DomainClusterConfigOutput) DedicatedMasterCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *int { return v.DedicatedMasterCount }).(pulumi.IntPtrOutput)
 }
@@ -452,6 +458,15 @@ func (o DomainClusterConfigPtrOutput) Elem() DomainClusterConfigOutput {
 		var ret DomainClusterConfig
 		return ret
 	}).(DomainClusterConfigOutput)
+}
+
+func (o DomainClusterConfigPtrOutput) ColdStorageOptions() DomainColdStorageOptionsPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) *DomainColdStorageOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ColdStorageOptions
+	}).(DomainColdStorageOptionsPtrOutput)
 }
 
 func (o DomainClusterConfigPtrOutput) DedicatedMasterCount() pulumi.IntPtrOutput {
@@ -753,6 +768,163 @@ func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 		}
 		return v.UserPoolId
 	}).(pulumi.StringPtrOutput)
+}
+
+type DomainColdStorageOptions struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DomainColdStorageOptionsInput is an input type that accepts DomainColdStorageOptionsArgs and DomainColdStorageOptionsOutput values.
+// You can construct a concrete instance of `DomainColdStorageOptionsInput` via:
+//
+//	DomainColdStorageOptionsArgs{...}
+type DomainColdStorageOptionsInput interface {
+	pulumi.Input
+
+	ToDomainColdStorageOptionsOutput() DomainColdStorageOptionsOutput
+	ToDomainColdStorageOptionsOutputWithContext(context.Context) DomainColdStorageOptionsOutput
+}
+
+type DomainColdStorageOptionsArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DomainColdStorageOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainColdStorageOptions)(nil)).Elem()
+}
+
+func (i DomainColdStorageOptionsArgs) ToDomainColdStorageOptionsOutput() DomainColdStorageOptionsOutput {
+	return i.ToDomainColdStorageOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainColdStorageOptionsArgs) ToDomainColdStorageOptionsOutputWithContext(ctx context.Context) DomainColdStorageOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainColdStorageOptionsOutput)
+}
+
+func (i DomainColdStorageOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainColdStorageOptions] {
+	return pulumix.Output[DomainColdStorageOptions]{
+		OutputState: i.ToDomainColdStorageOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainColdStorageOptionsArgs) ToDomainColdStorageOptionsPtrOutput() DomainColdStorageOptionsPtrOutput {
+	return i.ToDomainColdStorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainColdStorageOptionsArgs) ToDomainColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainColdStorageOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainColdStorageOptionsOutput).ToDomainColdStorageOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainColdStorageOptionsPtrInput is an input type that accepts DomainColdStorageOptionsArgs, DomainColdStorageOptionsPtr and DomainColdStorageOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainColdStorageOptionsPtrInput` via:
+//
+//	        DomainColdStorageOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainColdStorageOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainColdStorageOptionsPtrOutput() DomainColdStorageOptionsPtrOutput
+	ToDomainColdStorageOptionsPtrOutputWithContext(context.Context) DomainColdStorageOptionsPtrOutput
+}
+
+type domainColdStorageOptionsPtrType DomainColdStorageOptionsArgs
+
+func DomainColdStorageOptionsPtr(v *DomainColdStorageOptionsArgs) DomainColdStorageOptionsPtrInput {
+	return (*domainColdStorageOptionsPtrType)(v)
+}
+
+func (*domainColdStorageOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainColdStorageOptions)(nil)).Elem()
+}
+
+func (i *domainColdStorageOptionsPtrType) ToDomainColdStorageOptionsPtrOutput() DomainColdStorageOptionsPtrOutput {
+	return i.ToDomainColdStorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainColdStorageOptionsPtrType) ToDomainColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainColdStorageOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainColdStorageOptionsPtrOutput)
+}
+
+func (i *domainColdStorageOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainColdStorageOptions] {
+	return pulumix.Output[*DomainColdStorageOptions]{
+		OutputState: i.ToDomainColdStorageOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DomainColdStorageOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainColdStorageOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainColdStorageOptions)(nil)).Elem()
+}
+
+func (o DomainColdStorageOptionsOutput) ToDomainColdStorageOptionsOutput() DomainColdStorageOptionsOutput {
+	return o
+}
+
+func (o DomainColdStorageOptionsOutput) ToDomainColdStorageOptionsOutputWithContext(ctx context.Context) DomainColdStorageOptionsOutput {
+	return o
+}
+
+func (o DomainColdStorageOptionsOutput) ToDomainColdStorageOptionsPtrOutput() DomainColdStorageOptionsPtrOutput {
+	return o.ToDomainColdStorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainColdStorageOptionsOutput) ToDomainColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainColdStorageOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainColdStorageOptions) *DomainColdStorageOptions {
+		return &v
+	}).(DomainColdStorageOptionsPtrOutput)
+}
+
+func (o DomainColdStorageOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainColdStorageOptions] {
+	return pulumix.Output[DomainColdStorageOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainColdStorageOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainColdStorageOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DomainColdStorageOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainColdStorageOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainColdStorageOptions)(nil)).Elem()
+}
+
+func (o DomainColdStorageOptionsPtrOutput) ToDomainColdStorageOptionsPtrOutput() DomainColdStorageOptionsPtrOutput {
+	return o
+}
+
+func (o DomainColdStorageOptionsPtrOutput) ToDomainColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainColdStorageOptionsPtrOutput {
+	return o
+}
+
+func (o DomainColdStorageOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainColdStorageOptions] {
+	return pulumix.Output[*DomainColdStorageOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainColdStorageOptionsPtrOutput) Elem() DomainColdStorageOptionsOutput {
+	return o.ApplyT(func(v *DomainColdStorageOptions) DomainColdStorageOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainColdStorageOptions
+		return ret
+	}).(DomainColdStorageOptionsOutput)
+}
+
+func (o DomainColdStorageOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainColdStorageOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type DomainEbsOptions struct {
@@ -3570,6 +3742,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigPtrInput)(nil)).Elem(), DomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCognitoOptionsInput)(nil)).Elem(), DomainCognitoOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCognitoOptionsPtrInput)(nil)).Elem(), DomainCognitoOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainColdStorageOptionsInput)(nil)).Elem(), DomainColdStorageOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainColdStorageOptionsPtrInput)(nil)).Elem(), DomainColdStorageOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEbsOptionsInput)(nil)).Elem(), DomainEbsOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEbsOptionsPtrInput)(nil)).Elem(), DomainEbsOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEncryptionAtRestOptionsInput)(nil)).Elem(), DomainEncryptionAtRestOptionsArgs{})
@@ -3606,6 +3780,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainColdStorageOptionsOutput{})
+	pulumi.RegisterOutputType(DomainColdStorageOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEbsOptionsOutput{})
 	pulumi.RegisterOutputType(DomainEbsOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEncryptionAtRestOptionsOutput{})

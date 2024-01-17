@@ -13,6 +13,7 @@ __all__ = [
     'DomainAdvancedSecurityOptionsInputArgs',
     'DomainClusterConfigArgs',
     'DomainCognitoOptionsArgs',
+    'DomainColdStorageOptionsArgs',
     'DomainEbsOptionsArgs',
     'DomainEncryptionAtRestOptionsArgs',
     'DomainEndpointOptionsArgs',
@@ -110,6 +111,7 @@ class DomainAdvancedSecurityOptionsInputArgs:
 @pulumi.input_type
 class DomainClusterConfigArgs:
     def __init__(__self__, *,
+                 cold_storage_options: Optional[pulumi.Input['DomainColdStorageOptionsArgs']] = None,
                  dedicated_master_count: Optional[pulumi.Input[int]] = None,
                  dedicated_master_enabled: Optional[pulumi.Input[bool]] = None,
                  dedicated_master_type: Optional[pulumi.Input[str]] = None,
@@ -121,6 +123,8 @@ class DomainClusterConfigArgs:
                  warm_type: Optional[pulumi.Input[str]] = None,
                  zone_awareness_config: Optional[pulumi.Input['DomainZoneAwarenessConfigArgs']] = None,
                  zone_awareness_enabled: Optional[pulumi.Input[bool]] = None):
+        if cold_storage_options is not None:
+            pulumi.set(__self__, "cold_storage_options", cold_storage_options)
         if dedicated_master_count is not None:
             pulumi.set(__self__, "dedicated_master_count", dedicated_master_count)
         if dedicated_master_enabled is not None:
@@ -143,6 +147,15 @@ class DomainClusterConfigArgs:
             pulumi.set(__self__, "zone_awareness_config", zone_awareness_config)
         if zone_awareness_enabled is not None:
             pulumi.set(__self__, "zone_awareness_enabled", zone_awareness_enabled)
+
+    @property
+    @pulumi.getter(name="coldStorageOptions")
+    def cold_storage_options(self) -> Optional[pulumi.Input['DomainColdStorageOptionsArgs']]:
+        return pulumi.get(self, "cold_storage_options")
+
+    @cold_storage_options.setter
+    def cold_storage_options(self, value: Optional[pulumi.Input['DomainColdStorageOptionsArgs']]):
+        pulumi.set(self, "cold_storage_options", value)
 
     @property
     @pulumi.getter(name="dedicatedMasterCount")
@@ -295,6 +308,23 @@ class DomainCognitoOptionsArgs:
     @user_pool_id.setter
     def user_pool_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_pool_id", value)
+
+
+@pulumi.input_type
+class DomainColdStorageOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type

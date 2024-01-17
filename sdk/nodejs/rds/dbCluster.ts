@@ -122,7 +122,7 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly enableGlobalWriteForwarding!: pulumi.Output<boolean | undefined>;
     /**
-     * A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
+     * A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
      */
     public readonly enableHttpEndpoint!: pulumi.Output<boolean | undefined>;
     /**
@@ -488,7 +488,7 @@ export interface DbClusterArgs {
      */
     enableGlobalWriteForwarding?: pulumi.Input<boolean>;
     /**
-     * A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
+     * A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
      */
     enableHttpEndpoint?: pulumi.Input<boolean>;
     /**

@@ -268,7 +268,7 @@ class GetDbClusterResult:
     @pulumi.getter(name="enableHttpEndpoint")
     def enable_http_endpoint(self) -> Optional[bool]:
         """
-        A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
+        A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
         """
         return pulumi.get(self, "enable_http_endpoint")
 

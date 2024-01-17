@@ -1900,7 +1900,7 @@ class RuleActionsArgs:
     def __init__(__self__, *,
                  assign_contact_category_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleAssignContactCategoryActionArgs']]]] = None,
                  create_case_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleCreateCaseActionArgs']]]] = None,
-                 end_associated_task_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEndAssociatedTasksActionArgs']]]] = None,
+                 end_associated_tasks_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEndAssociatedTasksActionArgs']]]] = None,
                  event_bridge_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEventBridgeActionArgs']]]] = None,
                  send_notification_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSendNotificationActionArgs']]]] = None,
                  task_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTaskActionArgs']]]] = None,
@@ -1912,8 +1912,8 @@ class RuleActionsArgs:
             pulumi.set(__self__, "assign_contact_category_actions", assign_contact_category_actions)
         if create_case_actions is not None:
             pulumi.set(__self__, "create_case_actions", create_case_actions)
-        if end_associated_task_actions is not None:
-            pulumi.set(__self__, "end_associated_task_actions", end_associated_task_actions)
+        if end_associated_tasks_actions is not None:
+            pulumi.set(__self__, "end_associated_tasks_actions", end_associated_tasks_actions)
         if event_bridge_actions is not None:
             pulumi.set(__self__, "event_bridge_actions", event_bridge_actions)
         if send_notification_actions is not None:
@@ -1942,13 +1942,13 @@ class RuleActionsArgs:
         pulumi.set(self, "create_case_actions", value)
 
     @property
-    @pulumi.getter(name="endAssociatedTaskActions")
-    def end_associated_task_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleEndAssociatedTasksActionArgs']]]]:
-        return pulumi.get(self, "end_associated_task_actions")
+    @pulumi.getter(name="endAssociatedTasksActions")
+    def end_associated_tasks_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleEndAssociatedTasksActionArgs']]]]:
+        return pulumi.get(self, "end_associated_tasks_actions")
 
-    @end_associated_task_actions.setter
-    def end_associated_task_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEndAssociatedTasksActionArgs']]]]):
-        pulumi.set(self, "end_associated_task_actions", value)
+    @end_associated_tasks_actions.setter
+    def end_associated_tasks_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEndAssociatedTasksActionArgs']]]]):
+        pulumi.set(self, "end_associated_tasks_actions", value)
 
     @property
     @pulumi.getter(name="eventBridgeActions")

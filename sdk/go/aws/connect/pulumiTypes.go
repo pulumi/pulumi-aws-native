@@ -6762,7 +6762,7 @@ func (o RoutingProfileTagArrayOutput) Index(i pulumi.IntInput) RoutingProfileTag
 type RuleActions struct {
 	AssignContactCategoryActions []RuleAssignContactCategoryAction `pulumi:"assignContactCategoryActions"`
 	CreateCaseActions            []RuleCreateCaseAction            `pulumi:"createCaseActions"`
-	EndAssociatedTaskActions     []RuleEndAssociatedTasksAction    `pulumi:"endAssociatedTaskActions"`
+	EndAssociatedTasksActions    []RuleEndAssociatedTasksAction    `pulumi:"endAssociatedTasksActions"`
 	EventBridgeActions           []RuleEventBridgeAction           `pulumi:"eventBridgeActions"`
 	SendNotificationActions      []RuleSendNotificationAction      `pulumi:"sendNotificationActions"`
 	TaskActions                  []RuleTaskAction                  `pulumi:"taskActions"`
@@ -6784,7 +6784,7 @@ type RuleActionsInput interface {
 type RuleActionsArgs struct {
 	AssignContactCategoryActions RuleAssignContactCategoryActionArrayInput `pulumi:"assignContactCategoryActions"`
 	CreateCaseActions            RuleCreateCaseActionArrayInput            `pulumi:"createCaseActions"`
-	EndAssociatedTaskActions     RuleEndAssociatedTasksActionArrayInput    `pulumi:"endAssociatedTaskActions"`
+	EndAssociatedTasksActions    RuleEndAssociatedTasksActionArrayInput    `pulumi:"endAssociatedTasksActions"`
 	EventBridgeActions           RuleEventBridgeActionArrayInput           `pulumi:"eventBridgeActions"`
 	SendNotificationActions      RuleSendNotificationActionArrayInput      `pulumi:"sendNotificationActions"`
 	TaskActions                  RuleTaskActionArrayInput                  `pulumi:"taskActions"`
@@ -6838,8 +6838,8 @@ func (o RuleActionsOutput) CreateCaseActions() RuleCreateCaseActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleCreateCaseAction { return v.CreateCaseActions }).(RuleCreateCaseActionArrayOutput)
 }
 
-func (o RuleActionsOutput) EndAssociatedTaskActions() RuleEndAssociatedTasksActionArrayOutput {
-	return o.ApplyT(func(v RuleActions) []RuleEndAssociatedTasksAction { return v.EndAssociatedTaskActions }).(RuleEndAssociatedTasksActionArrayOutput)
+func (o RuleActionsOutput) EndAssociatedTasksActions() RuleEndAssociatedTasksActionArrayOutput {
+	return o.ApplyT(func(v RuleActions) []RuleEndAssociatedTasksAction { return v.EndAssociatedTasksActions }).(RuleEndAssociatedTasksActionArrayOutput)
 }
 
 func (o RuleActionsOutput) EventBridgeActions() RuleEventBridgeActionArrayOutput {
@@ -6906,12 +6906,12 @@ func (o RuleActionsPtrOutput) CreateCaseActions() RuleCreateCaseActionArrayOutpu
 	}).(RuleCreateCaseActionArrayOutput)
 }
 
-func (o RuleActionsPtrOutput) EndAssociatedTaskActions() RuleEndAssociatedTasksActionArrayOutput {
+func (o RuleActionsPtrOutput) EndAssociatedTasksActions() RuleEndAssociatedTasksActionArrayOutput {
 	return o.ApplyT(func(v *RuleActions) []RuleEndAssociatedTasksAction {
 		if v == nil {
 			return nil
 		}
-		return v.EndAssociatedTaskActions
+		return v.EndAssociatedTasksActions
 	}).(RuleEndAssociatedTasksActionArrayOutput)
 }
 

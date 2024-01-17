@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
     public sealed class DomainClusterConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("coldStorageOptions")]
+        public Input<Inputs.DomainColdStorageOptionsArgs>? ColdStorageOptions { get; set; }
+
         [Input("dedicatedMasterCount")]
         public Input<int>? DedicatedMasterCount { get; set; }
 

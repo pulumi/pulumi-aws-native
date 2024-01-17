@@ -290,7 +290,7 @@ export const RuleTriggerEventSourceEventSourceName = {
     OnSalesforceCaseCreate: "OnSalesforceCaseCreate",
     OnMetricDataUpdate: "OnMetricDataUpdate",
     OnCaseCreate: "OnCaseCreate",
-    OnCasesUpdate: "OnCasesUpdate",
+    OnCaseUpdate: "OnCaseUpdate",
 } as const;
 
 /**

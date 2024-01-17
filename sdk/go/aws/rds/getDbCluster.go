@@ -59,7 +59,7 @@ type LookupDbClusterResult struct {
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
 	EnableGlobalWriteForwarding *bool `pulumi:"enableGlobalWriteForwarding"`
-	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
+	// A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
 	EnableIamDatabaseAuthentication *bool              `pulumi:"enableIamDatabaseAuthentication"`
@@ -230,7 +230,7 @@ func (o LookupDbClusterResultOutput) EnableGlobalWriteForwarding() pulumi.BoolPt
 	return o.ApplyT(func(v LookupDbClusterResult) *bool { return v.EnableGlobalWriteForwarding }).(pulumi.BoolPtrOutput)
 }
 
-// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
+// A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
 func (o LookupDbClusterResultOutput) EnableHttpEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *bool { return v.EnableHttpEndpoint }).(pulumi.BoolPtrOutput)
 }

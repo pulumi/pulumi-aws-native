@@ -7796,8 +7796,8 @@ export namespace codestarnotifications {
 
 export namespace cognito {
     export interface IdentityPoolCognitoIdentityProvider {
-        clientId?: string;
-        providerName?: string;
+        clientId: string;
+        providerName: string;
         serverSideTokenCheck?: boolean;
     }
 
@@ -9620,7 +9620,7 @@ export namespace connect {
     export interface RuleActions {
         assignContactCategoryActions?: outputs.connect.RuleAssignContactCategoryAction[];
         createCaseActions?: outputs.connect.RuleCreateCaseAction[];
-        endAssociatedTaskActions?: outputs.connect.RuleEndAssociatedTasksAction[];
+        endAssociatedTasksActions?: outputs.connect.RuleEndAssociatedTasksAction[];
         eventBridgeActions?: outputs.connect.RuleEventBridgeAction[];
         sendNotificationActions?: outputs.connect.RuleSendNotificationAction[];
         taskActions?: outputs.connect.RuleTaskAction[];
@@ -34547,6 +34547,7 @@ export namespace opensearchservice {
     }
 
     export interface DomainClusterConfig {
+        coldStorageOptions?: outputs.opensearchservice.DomainColdStorageOptions;
         dedicatedMasterCount?: number;
         dedicatedMasterEnabled?: boolean;
         dedicatedMasterType?: string;
@@ -34565,6 +34566,10 @@ export namespace opensearchservice {
         identityPoolId?: string;
         roleArn?: string;
         userPoolId?: string;
+    }
+
+    export interface DomainColdStorageOptions {
+        enabled?: boolean;
     }
 
     export interface DomainEbsOptions {

@@ -4467,7 +4467,7 @@ const (
 	RuleTriggerEventSourceEventSourceNameOnSalesforceCaseCreate          = RuleTriggerEventSourceEventSourceName("OnSalesforceCaseCreate")
 	RuleTriggerEventSourceEventSourceNameOnMetricDataUpdate              = RuleTriggerEventSourceEventSourceName("OnMetricDataUpdate")
 	RuleTriggerEventSourceEventSourceNameOnCaseCreate                    = RuleTriggerEventSourceEventSourceName("OnCaseCreate")
-	RuleTriggerEventSourceEventSourceNameOnCasesUpdate                   = RuleTriggerEventSourceEventSourceName("OnCasesUpdate")
+	RuleTriggerEventSourceEventSourceNameOnCaseUpdate                    = RuleTriggerEventSourceEventSourceName("OnCaseUpdate")
 )
 
 func (RuleTriggerEventSourceEventSourceName) ElementType() reflect.Type {

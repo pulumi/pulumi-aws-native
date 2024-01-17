@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<bool?> EnableGlobalWriteForwarding { get; private set; } = null!;
 
         /// <summary>
-        /// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
+        /// A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
         /// </summary>
         [Output("enableHttpEndpoint")]
         public Output<bool?> EnableHttpEndpoint { get; private set; } = null!;
@@ -560,7 +560,7 @@ namespace Pulumi.AwsNative.Rds
         public Input<bool>? EnableGlobalWriteForwarding { get; set; }
 
         /// <summary>
-        /// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
+        /// A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
         /// </summary>
         [Input("enableHttpEndpoint")]
         public Input<bool>? EnableHttpEndpoint { get; set; }

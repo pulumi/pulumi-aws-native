@@ -25,15 +25,12 @@ export interface GetIdentityPoolArgs {
 export interface GetIdentityPoolResult {
     readonly allowClassicFlow?: boolean;
     readonly allowUnauthenticatedIdentities?: boolean;
-    readonly cognitoEvents?: any;
     readonly cognitoIdentityProviders?: outputs.cognito.IdentityPoolCognitoIdentityProvider[];
-    readonly cognitoStreams?: outputs.cognito.IdentityPoolCognitoStreams;
     readonly developerProviderName?: string;
     readonly id?: string;
     readonly identityPoolName?: string;
     readonly name?: string;
     readonly openIdConnectProviderArns?: string[];
-    readonly pushSync?: outputs.cognito.IdentityPoolPushSync;
     readonly samlProviderArns?: string[];
     readonly supportedLoginProviders?: any;
 }

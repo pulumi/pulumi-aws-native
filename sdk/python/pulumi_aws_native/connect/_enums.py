@@ -279,7 +279,7 @@ class RuleTriggerEventSourceEventSourceName(str, Enum):
     ON_SALESFORCE_CASE_CREATE = "OnSalesforceCaseCreate"
     ON_METRIC_DATA_UPDATE = "OnMetricDataUpdate"
     ON_CASE_CREATE = "OnCaseCreate"
-    ON_CASES_UPDATE = "OnCasesUpdate"
+    ON_CASE_UPDATE = "OnCaseUpdate"
 
 
 class TaskTemplateFieldType(str, Enum):

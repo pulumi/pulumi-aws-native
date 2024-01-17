@@ -1,5 +1,14 @@
 ## Unreleased
 
+## 0.94.0 (2024-01-17)
+
+Breaking changes to types:
+
+- "aws-native:cognito:IdentityPoolCognitoIdentityProvider": required:
+    - `🟢` "clientId" property has changed to Required
+    - `🟢` "providerName" property has changed to Required
+- `🟡` "aws-native:connect:RuleActions": properties: "endAssociatedTaskActions" removed
+
 ## 0.93.0 (2024-01-12)
 
 ### Breaking Changes
