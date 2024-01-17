@@ -441,6 +441,7 @@ AWS::IAM::VirtualMFADevice
 AWS::IVS::Channel
 AWS::IVS::PlaybackKeyPair
 AWS::IVS::RecordingConfiguration
+AWS::IVS::Stage
 AWS::IVS::StreamKey
 AWS::IVSChat::LoggingConfiguration
 AWS::IVSChat::Room

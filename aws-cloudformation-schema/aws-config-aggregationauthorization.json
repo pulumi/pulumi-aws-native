@@ -54,6 +54,13 @@
   "required" : [ "AuthorizedAccountId", "AuthorizedAwsRegion" ],
   "readOnlyProperties" : [ "/properties/AggregationAuthorizationArn" ],
   "createOnlyProperties" : [ "/properties/AuthorizedAccountId", "/properties/AuthorizedAwsRegion" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "primaryIdentifier" : [ "/properties/AuthorizedAccountId", "/properties/AuthorizedAwsRegion" ],
   "handlers" : {
     "create" : {
