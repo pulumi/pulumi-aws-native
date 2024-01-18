@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
@@ -85,12 +84,6 @@ func (o LookupStackSetResultOutput) ToLookupStackSetResultOutput() LookupStackSe
 
 func (o LookupStackSetResultOutput) ToLookupStackSetResultOutputWithContext(ctx context.Context) LookupStackSetResultOutput {
 	return o
-}
-
-func (o LookupStackSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStackSetResult] {
-	return pulumix.Output[LookupStackSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.

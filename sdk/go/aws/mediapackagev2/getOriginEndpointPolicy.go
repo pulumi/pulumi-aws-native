@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::MediaPackageV2::OriginEndpointPolicy Resource Type
@@ -68,12 +67,6 @@ func (o LookupOriginEndpointPolicyResultOutput) ToLookupOriginEndpointPolicyResu
 
 func (o LookupOriginEndpointPolicyResultOutput) ToLookupOriginEndpointPolicyResultOutputWithContext(ctx context.Context) LookupOriginEndpointPolicyResultOutput {
 	return o
-}
-
-func (o LookupOriginEndpointPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOriginEndpointPolicyResult] {
-	return pulumix.Output[LookupOriginEndpointPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupOriginEndpointPolicyResultOutput) Policy() pulumi.AnyOutput {

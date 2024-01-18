@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCCidrBlock
@@ -64,12 +63,6 @@ func (o LookupVpcCidrBlockResultOutput) ToLookupVpcCidrBlockResultOutput() Looku
 
 func (o LookupVpcCidrBlockResultOutput) ToLookupVpcCidrBlockResultOutputWithContext(ctx context.Context) LookupVpcCidrBlockResultOutput {
 	return o
-}
-
-func (o LookupVpcCidrBlockResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcCidrBlockResult] {
-	return pulumix.Output[LookupVpcCidrBlockResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVpcCidrBlockResultOutput) Id() pulumi.StringPtrOutput {

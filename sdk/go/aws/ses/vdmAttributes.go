@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SES::VdmAttributes
@@ -95,12 +94,6 @@ func (i *VdmAttributes) ToVdmAttributesOutputWithContext(ctx context.Context) Vd
 	return pulumi.ToOutputWithContext(ctx, i).(VdmAttributesOutput)
 }
 
-func (i *VdmAttributes) ToOutput(ctx context.Context) pulumix.Output[*VdmAttributes] {
-	return pulumix.Output[*VdmAttributes]{
-		OutputState: i.ToVdmAttributesOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VdmAttributesOutput struct{ *pulumi.OutputState }
 
 func (VdmAttributesOutput) ElementType() reflect.Type {
@@ -113,12 +106,6 @@ func (o VdmAttributesOutput) ToVdmAttributesOutput() VdmAttributesOutput {
 
 func (o VdmAttributesOutput) ToVdmAttributesOutputWithContext(ctx context.Context) VdmAttributesOutput {
 	return o
-}
-
-func (o VdmAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[*VdmAttributes] {
-	return pulumix.Output[*VdmAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VdmAttributesOutput) DashboardAttributes() VdmAttributesDashboardAttributesPtrOutput {

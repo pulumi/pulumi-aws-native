@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
@@ -64,12 +63,6 @@ func (o LookupSubnetNetworkAclAssociationResultOutput) ToLookupSubnetNetworkAclA
 
 func (o LookupSubnetNetworkAclAssociationResultOutput) ToLookupSubnetNetworkAclAssociationResultOutputWithContext(ctx context.Context) LookupSubnetNetworkAclAssociationResultOutput {
 	return o
-}
-
-func (o LookupSubnetNetworkAclAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubnetNetworkAclAssociationResult] {
-	return pulumix.Output[LookupSubnetNetworkAclAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSubnetNetworkAclAssociationResultOutput) AssociationId() pulumi.StringPtrOutput {

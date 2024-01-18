@@ -79,12 +79,6 @@ func (o EnvironmentFederationModeOutput) ToEnvironmentFederationModePtrOutputWit
 	}).(EnvironmentFederationModePtrOutput)
 }
 
-func (o EnvironmentFederationModeOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentFederationMode] {
-	return pulumix.Output[EnvironmentFederationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentFederationModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o EnvironmentFederationModePtrOutput) ToEnvironmentFederationModePtrOutput
 	return o
 }
 
-func (o EnvironmentFederationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentFederationMode] {
-	return pulumix.Output[*EnvironmentFederationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentFederationModePtrOutput) Elem() EnvironmentFederationModeOutput {
 	return o.ApplyT(func(v *EnvironmentFederationMode) EnvironmentFederationMode {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o EnvironmentFederationModePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentFederationModeInput is an input type that accepts EnvironmentFederationModeArgs and EnvironmentFederationModeOutput values.
-// You can construct a concrete instance of `EnvironmentFederationModeInput` via:
+// EnvironmentFederationModeInput is an input type that accepts values of the EnvironmentFederationMode enum
+// A concrete instance of `EnvironmentFederationModeInput` can be one of the following:
 //
-//	EnvironmentFederationModeArgs{...}
+//	EnvironmentFederationModeLocal
+//	EnvironmentFederationModeFederated
 type EnvironmentFederationModeInput interface {
 	pulumi.Input
 
@@ -234,12 +223,6 @@ func (o EnvironmentStatusOutput) ToEnvironmentStatusPtrOutputWithContext(ctx con
 	}).(EnvironmentStatusPtrOutput)
 }
 
-func (o EnvironmentStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentStatus] {
-	return pulumix.Output[EnvironmentStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -273,12 +256,6 @@ func (o EnvironmentStatusPtrOutput) ToEnvironmentStatusPtrOutput() EnvironmentSt
 
 func (o EnvironmentStatusPtrOutput) ToEnvironmentStatusPtrOutputWithContext(ctx context.Context) EnvironmentStatusPtrOutput {
 	return o
-}
-
-func (o EnvironmentStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentStatus] {
-	return pulumix.Output[*EnvironmentStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentStatusPtrOutput) Elem() EnvironmentStatusOutput {

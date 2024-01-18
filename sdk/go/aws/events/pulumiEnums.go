@@ -83,12 +83,6 @@ func (o ApiDestinationHttpMethodOutput) ToApiDestinationHttpMethodPtrOutputWithC
 	}).(ApiDestinationHttpMethodPtrOutput)
 }
 
-func (o ApiDestinationHttpMethodOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDestinationHttpMethod] {
-	return pulumix.Output[ApiDestinationHttpMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApiDestinationHttpMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -124,12 +118,6 @@ func (o ApiDestinationHttpMethodPtrOutput) ToApiDestinationHttpMethodPtrOutputWi
 	return o
 }
 
-func (o ApiDestinationHttpMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiDestinationHttpMethod] {
-	return pulumix.Output[*ApiDestinationHttpMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApiDestinationHttpMethodPtrOutput) Elem() ApiDestinationHttpMethodOutput {
 	return o.ApplyT(func(v *ApiDestinationHttpMethod) ApiDestinationHttpMethod {
 		if v != nil {
@@ -154,10 +142,16 @@ func (o ApiDestinationHttpMethodPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApiDestinationHttpMethodInput is an input type that accepts ApiDestinationHttpMethodArgs and ApiDestinationHttpMethodOutput values.
-// You can construct a concrete instance of `ApiDestinationHttpMethodInput` via:
+// ApiDestinationHttpMethodInput is an input type that accepts values of the ApiDestinationHttpMethod enum
+// A concrete instance of `ApiDestinationHttpMethodInput` can be one of the following:
 //
-//	ApiDestinationHttpMethodArgs{...}
+//	ApiDestinationHttpMethodGet
+//	ApiDestinationHttpMethodHead
+//	ApiDestinationHttpMethodPost
+//	ApiDestinationHttpMethodOptions
+//	ApiDestinationHttpMethodPut
+//	ApiDestinationHttpMethodDelete
+//	ApiDestinationHttpMethodPatch
 type ApiDestinationHttpMethodInput interface {
 	pulumi.Input
 
@@ -266,12 +260,6 @@ func (o ConnectionAuthorizationTypeOutput) ToConnectionAuthorizationTypePtrOutpu
 	}).(ConnectionAuthorizationTypePtrOutput)
 }
 
-func (o ConnectionAuthorizationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectionAuthorizationType] {
-	return pulumix.Output[ConnectionAuthorizationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectionAuthorizationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -307,12 +295,6 @@ func (o ConnectionAuthorizationTypePtrOutput) ToConnectionAuthorizationTypePtrOu
 	return o
 }
 
-func (o ConnectionAuthorizationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAuthorizationType] {
-	return pulumix.Output[*ConnectionAuthorizationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectionAuthorizationTypePtrOutput) Elem() ConnectionAuthorizationTypeOutput {
 	return o.ApplyT(func(v *ConnectionAuthorizationType) ConnectionAuthorizationType {
 		if v != nil {
@@ -337,10 +319,12 @@ func (o ConnectionAuthorizationTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionAuthorizationTypeInput is an input type that accepts ConnectionAuthorizationTypeArgs and ConnectionAuthorizationTypeOutput values.
-// You can construct a concrete instance of `ConnectionAuthorizationTypeInput` via:
+// ConnectionAuthorizationTypeInput is an input type that accepts values of the ConnectionAuthorizationType enum
+// A concrete instance of `ConnectionAuthorizationTypeInput` can be one of the following:
 //
-//	ConnectionAuthorizationTypeArgs{...}
+//	ConnectionAuthorizationTypeApiKey
+//	ConnectionAuthorizationTypeBasic
+//	ConnectionAuthorizationTypeOauthClientCredentials
 type ConnectionAuthorizationTypeInput interface {
 	pulumi.Input
 
@@ -449,12 +433,6 @@ func (o ConnectionOAuthParametersHttpMethodOutput) ToConnectionOAuthParametersHt
 	}).(ConnectionOAuthParametersHttpMethodPtrOutput)
 }
 
-func (o ConnectionOAuthParametersHttpMethodOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectionOAuthParametersHttpMethod] {
-	return pulumix.Output[ConnectionOAuthParametersHttpMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectionOAuthParametersHttpMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -490,12 +468,6 @@ func (o ConnectionOAuthParametersHttpMethodPtrOutput) ToConnectionOAuthParameter
 	return o
 }
 
-func (o ConnectionOAuthParametersHttpMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionOAuthParametersHttpMethod] {
-	return pulumix.Output[*ConnectionOAuthParametersHttpMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectionOAuthParametersHttpMethodPtrOutput) Elem() ConnectionOAuthParametersHttpMethodOutput {
 	return o.ApplyT(func(v *ConnectionOAuthParametersHttpMethod) ConnectionOAuthParametersHttpMethod {
 		if v != nil {
@@ -520,10 +492,12 @@ func (o ConnectionOAuthParametersHttpMethodPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionOAuthParametersHttpMethodInput is an input type that accepts ConnectionOAuthParametersHttpMethodArgs and ConnectionOAuthParametersHttpMethodOutput values.
-// You can construct a concrete instance of `ConnectionOAuthParametersHttpMethodInput` via:
+// ConnectionOAuthParametersHttpMethodInput is an input type that accepts values of the ConnectionOAuthParametersHttpMethod enum
+// A concrete instance of `ConnectionOAuthParametersHttpMethodInput` can be one of the following:
 //
-//	ConnectionOAuthParametersHttpMethodArgs{...}
+//	ConnectionOAuthParametersHttpMethodGet
+//	ConnectionOAuthParametersHttpMethodPost
+//	ConnectionOAuthParametersHttpMethodPut
 type ConnectionOAuthParametersHttpMethodInput interface {
 	pulumi.Input
 
@@ -631,12 +605,6 @@ func (o EndpointReplicationStateOutput) ToEndpointReplicationStatePtrOutputWithC
 	}).(EndpointReplicationStatePtrOutput)
 }
 
-func (o EndpointReplicationStateOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointReplicationState] {
-	return pulumix.Output[EndpointReplicationState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointReplicationStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -672,12 +640,6 @@ func (o EndpointReplicationStatePtrOutput) ToEndpointReplicationStatePtrOutputWi
 	return o
 }
 
-func (o EndpointReplicationStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointReplicationState] {
-	return pulumix.Output[*EndpointReplicationState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointReplicationStatePtrOutput) Elem() EndpointReplicationStateOutput {
 	return o.ApplyT(func(v *EndpointReplicationState) EndpointReplicationState {
 		if v != nil {
@@ -702,10 +664,11 @@ func (o EndpointReplicationStatePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// EndpointReplicationStateInput is an input type that accepts EndpointReplicationStateArgs and EndpointReplicationStateOutput values.
-// You can construct a concrete instance of `EndpointReplicationStateInput` via:
+// EndpointReplicationStateInput is an input type that accepts values of the EndpointReplicationState enum
+// A concrete instance of `EndpointReplicationStateInput` can be one of the following:
 //
-//	EndpointReplicationStateArgs{...}
+//	EndpointReplicationStateEnabled
+//	EndpointReplicationStateDisabled
 type EndpointReplicationStateInput interface {
 	pulumi.Input
 
@@ -781,12 +744,6 @@ func (o EndpointStateEnumOutput) ToEndpointStateEnumPtrOutputWithContext(ctx con
 	}).(EndpointStateEnumPtrOutput)
 }
 
-func (o EndpointStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointStateEnum] {
-	return pulumix.Output[EndpointStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -820,12 +777,6 @@ func (o EndpointStateEnumPtrOutput) ToEndpointStateEnumPtrOutput() EndpointState
 
 func (o EndpointStateEnumPtrOutput) ToEndpointStateEnumPtrOutputWithContext(ctx context.Context) EndpointStateEnumPtrOutput {
 	return o
-}
-
-func (o EndpointStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointStateEnum] {
-	return pulumix.Output[*EndpointStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointStateEnumPtrOutput) Elem() EndpointStateEnumOutput {
@@ -921,12 +872,6 @@ func (o RuleStateEnumOutput) ToRuleStateEnumPtrOutputWithContext(ctx context.Con
 	}).(RuleStateEnumPtrOutput)
 }
 
-func (o RuleStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[RuleStateEnum] {
-	return pulumix.Output[RuleStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -962,12 +907,6 @@ func (o RuleStateEnumPtrOutput) ToRuleStateEnumPtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o RuleStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleStateEnum] {
-	return pulumix.Output[*RuleStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleStateEnumPtrOutput) Elem() RuleStateEnumOutput {
 	return o.ApplyT(func(v *RuleStateEnum) RuleStateEnum {
 		if v != nil {
@@ -992,10 +931,12 @@ func (o RuleStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleStateEnumInput is an input type that accepts RuleStateEnumArgs and RuleStateEnumOutput values.
-// You can construct a concrete instance of `RuleStateEnumInput` via:
+// RuleStateEnumInput is an input type that accepts values of the RuleStateEnum enum
+// A concrete instance of `RuleStateEnumInput` can be one of the following:
 //
-//	RuleStateEnumArgs{...}
+//	RuleStateEnumDisabled
+//	RuleStateEnumEnabled
+//	RuleStateEnumEnabledWithAllCloudtrailManagementEvents
 type RuleStateEnumInput interface {
 	pulumi.Input
 

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i ServerEngineAttributeArgs) ToServerEngineAttributeOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEngineAttributeOutput)
 }
 
-func (i ServerEngineAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[ServerEngineAttribute] {
-	return pulumix.Output[ServerEngineAttribute]{
-		OutputState: i.ToServerEngineAttributeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerEngineAttributeArrayInput is an input type that accepts ServerEngineAttributeArray and ServerEngineAttributeArrayOutput values.
 // You can construct a concrete instance of `ServerEngineAttributeArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i ServerEngineAttributeArray) ToServerEngineAttributeArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEngineAttributeArrayOutput)
 }
 
-func (i ServerEngineAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]ServerEngineAttribute] {
-	return pulumix.Output[[]ServerEngineAttribute]{
-		OutputState: i.ToServerEngineAttributeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerEngineAttributeOutput struct{ *pulumi.OutputState }
 
 func (ServerEngineAttributeOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o ServerEngineAttributeOutput) ToServerEngineAttributeOutput() ServerEngin
 
 func (o ServerEngineAttributeOutput) ToServerEngineAttributeOutputWithContext(ctx context.Context) ServerEngineAttributeOutput {
 	return o
-}
-
-func (o ServerEngineAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[ServerEngineAttribute] {
-	return pulumix.Output[ServerEngineAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerEngineAttributeOutput) Name() pulumi.StringPtrOutput {
@@ -124,12 +105,6 @@ func (o ServerEngineAttributeArrayOutput) ToServerEngineAttributeArrayOutput() S
 
 func (o ServerEngineAttributeArrayOutput) ToServerEngineAttributeArrayOutputWithContext(ctx context.Context) ServerEngineAttributeArrayOutput {
 	return o
-}
-
-func (o ServerEngineAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServerEngineAttribute] {
-	return pulumix.Output[[]ServerEngineAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerEngineAttributeArrayOutput) Index(i pulumi.IntInput) ServerEngineAttributeOutput {
@@ -171,12 +146,6 @@ func (i ServerTagArgs) ToServerTagOutputWithContext(ctx context.Context) ServerT
 	return pulumi.ToOutputWithContext(ctx, i).(ServerTagOutput)
 }
 
-func (i ServerTagArgs) ToOutput(ctx context.Context) pulumix.Output[ServerTag] {
-	return pulumix.Output[ServerTag]{
-		OutputState: i.ToServerTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerTagArrayInput is an input type that accepts ServerTagArray and ServerTagArrayOutput values.
 // You can construct a concrete instance of `ServerTagArrayInput` via:
 //
@@ -202,12 +171,6 @@ func (i ServerTagArray) ToServerTagArrayOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(ServerTagArrayOutput)
 }
 
-func (i ServerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ServerTag] {
-	return pulumix.Output[[]ServerTag]{
-		OutputState: i.ToServerTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerTagOutput struct{ *pulumi.OutputState }
 
 func (ServerTagOutput) ElementType() reflect.Type {
@@ -220,12 +183,6 @@ func (o ServerTagOutput) ToServerTagOutput() ServerTagOutput {
 
 func (o ServerTagOutput) ToServerTagOutputWithContext(ctx context.Context) ServerTagOutput {
 	return o
-}
-
-func (o ServerTagOutput) ToOutput(ctx context.Context) pulumix.Output[ServerTag] {
-	return pulumix.Output[ServerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerTagOutput) Key() pulumi.StringOutput {
@@ -248,12 +205,6 @@ func (o ServerTagArrayOutput) ToServerTagArrayOutput() ServerTagArrayOutput {
 
 func (o ServerTagArrayOutput) ToServerTagArrayOutputWithContext(ctx context.Context) ServerTagArrayOutput {
 	return o
-}
-
-func (o ServerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServerTag] {
-	return pulumix.Output[[]ServerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerTagArrayOutput) Index(i pulumi.IntInput) ServerTagOutput {

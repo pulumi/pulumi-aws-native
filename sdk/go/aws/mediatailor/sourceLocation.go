@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::MediaTailor::SourceLocation Resource Type
@@ -121,12 +120,6 @@ func (i *SourceLocation) ToSourceLocationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationOutput)
 }
 
-func (i *SourceLocation) ToOutput(ctx context.Context) pulumix.Output[*SourceLocation] {
-	return pulumix.Output[*SourceLocation]{
-		OutputState: i.ToSourceLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SourceLocationOutput struct{ *pulumi.OutputState }
 
 func (SourceLocationOutput) ElementType() reflect.Type {
@@ -139,12 +132,6 @@ func (o SourceLocationOutput) ToSourceLocationOutput() SourceLocationOutput {
 
 func (o SourceLocationOutput) ToSourceLocationOutputWithContext(ctx context.Context) SourceLocationOutput {
 	return o
-}
-
-func (o SourceLocationOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceLocation] {
-	return pulumix.Output[*SourceLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceLocationOutput) AccessConfiguration() SourceLocationAccessConfigurationPtrOutput {

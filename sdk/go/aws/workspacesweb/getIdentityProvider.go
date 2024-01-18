@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
@@ -67,12 +66,6 @@ func (o LookupIdentityProviderResultOutput) ToLookupIdentityProviderResultOutput
 
 func (o LookupIdentityProviderResultOutput) ToLookupIdentityProviderResultOutputWithContext(ctx context.Context) LookupIdentityProviderResultOutput {
 	return o
-}
-
-func (o LookupIdentityProviderResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIdentityProviderResult] {
-	return pulumix.Output[LookupIdentityProviderResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupIdentityProviderResultOutput) IdentityProviderArn() pulumi.StringPtrOutput {

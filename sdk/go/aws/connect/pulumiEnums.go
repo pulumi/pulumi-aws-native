@@ -79,12 +79,6 @@ func (o ContactFlowStateEnumOutput) ToContactFlowStateEnumPtrOutputWithContext(c
 	}).(ContactFlowStateEnumPtrOutput)
 }
 
-func (o ContactFlowStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[ContactFlowStateEnum] {
-	return pulumix.Output[ContactFlowStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContactFlowStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o ContactFlowStateEnumPtrOutput) ToContactFlowStateEnumPtrOutputWithContex
 	return o
 }
 
-func (o ContactFlowStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactFlowStateEnum] {
-	return pulumix.Output[*ContactFlowStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContactFlowStateEnumPtrOutput) Elem() ContactFlowStateEnumOutput {
 	return o.ApplyT(func(v *ContactFlowStateEnum) ContactFlowStateEnum {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o ContactFlowStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ContactFlowStateEnumInput is an input type that accepts ContactFlowStateEnumArgs and ContactFlowStateEnumOutput values.
-// You can construct a concrete instance of `ContactFlowStateEnumInput` via:
+// ContactFlowStateEnumInput is an input type that accepts values of the ContactFlowStateEnum enum
+// A concrete instance of `ContactFlowStateEnumInput` can be one of the following:
 //
-//	ContactFlowStateEnumArgs{...}
+//	ContactFlowStateEnumActive
+//	ContactFlowStateEnumArchived
 type ContactFlowStateEnumInput interface {
 	pulumi.Input
 
@@ -269,12 +258,6 @@ func (o ContactFlowTypeOutput) ToContactFlowTypePtrOutputWithContext(ctx context
 	}).(ContactFlowTypePtrOutput)
 }
 
-func (o ContactFlowTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContactFlowType] {
-	return pulumix.Output[ContactFlowType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContactFlowTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -310,12 +293,6 @@ func (o ContactFlowTypePtrOutput) ToContactFlowTypePtrOutputWithContext(ctx cont
 	return o
 }
 
-func (o ContactFlowTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactFlowType] {
-	return pulumix.Output[*ContactFlowType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContactFlowTypePtrOutput) Elem() ContactFlowTypeOutput {
 	return o.ApplyT(func(v *ContactFlowType) ContactFlowType {
 		if v != nil {
@@ -340,10 +317,18 @@ func (o ContactFlowTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ContactFlowTypeInput is an input type that accepts ContactFlowTypeArgs and ContactFlowTypeOutput values.
-// You can construct a concrete instance of `ContactFlowTypeInput` via:
+// ContactFlowTypeInput is an input type that accepts values of the ContactFlowType enum
+// A concrete instance of `ContactFlowTypeInput` can be one of the following:
 //
-//	ContactFlowTypeArgs{...}
+//	ContactFlowTypeContactFlow
+//	ContactFlowTypeCustomerQueue
+//	ContactFlowTypeCustomerHold
+//	ContactFlowTypeCustomerWhisper
+//	ContactFlowTypeAgentHold
+//	ContactFlowTypeAgentWhisper
+//	ContactFlowTypeOutboundWhisper
+//	ContactFlowTypeAgentTransfer
+//	ContactFlowTypeQueueTransfer
 type ContactFlowTypeInput interface {
 	pulumi.Input
 
@@ -458,12 +443,6 @@ func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToEvalu
 	}).(EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput)
 }
 
-func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormNumericQuestionPropertyValueAutomationLabel] {
-	return pulumix.Output[EvaluationFormNumericQuestionPropertyValueAutomationLabel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -499,12 +478,6 @@ func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) ToEv
 	return o
 }
 
-func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormNumericQuestionPropertyValueAutomationLabel] {
-	return pulumix.Output[*EvaluationFormNumericQuestionPropertyValueAutomationLabel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) Elem() EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput {
 	return o.ApplyT(func(v *EvaluationFormNumericQuestionPropertyValueAutomationLabel) EvaluationFormNumericQuestionPropertyValueAutomationLabel {
 		if v != nil {
@@ -529,10 +502,17 @@ func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// EvaluationFormNumericQuestionPropertyValueAutomationLabelInput is an input type that accepts EvaluationFormNumericQuestionPropertyValueAutomationLabelArgs and EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput values.
-// You can construct a concrete instance of `EvaluationFormNumericQuestionPropertyValueAutomationLabelInput` via:
+// EvaluationFormNumericQuestionPropertyValueAutomationLabelInput is an input type that accepts values of the EvaluationFormNumericQuestionPropertyValueAutomationLabel enum
+// A concrete instance of `EvaluationFormNumericQuestionPropertyValueAutomationLabelInput` can be one of the following:
 //
-//	EvaluationFormNumericQuestionPropertyValueAutomationLabelArgs{...}
+//	EvaluationFormNumericQuestionPropertyValueAutomationLabelOverallCustomerSentimentScore
+//	EvaluationFormNumericQuestionPropertyValueAutomationLabelOverallAgentSentimentScore
+//	EvaluationFormNumericQuestionPropertyValueAutomationLabelNonTalkTime
+//	EvaluationFormNumericQuestionPropertyValueAutomationLabelNonTalkTimePercentage
+//	EvaluationFormNumericQuestionPropertyValueAutomationLabelNumberOfInterruptions
+//	EvaluationFormNumericQuestionPropertyValueAutomationLabelContactDuration
+//	EvaluationFormNumericQuestionPropertyValueAutomationLabelAgentInteractionDuration
+//	EvaluationFormNumericQuestionPropertyValueAutomationLabelCustomerHoldTime
 type EvaluationFormNumericQuestionPropertyValueAutomationLabelInput interface {
 	pulumi.Input
 
@@ -642,12 +622,6 @@ func (o EvaluationFormQuestionQuestionTypeOutput) ToEvaluationFormQuestionQuesti
 	}).(EvaluationFormQuestionQuestionTypePtrOutput)
 }
 
-func (o EvaluationFormQuestionQuestionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormQuestionQuestionType] {
-	return pulumix.Output[EvaluationFormQuestionQuestionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormQuestionQuestionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -683,12 +657,6 @@ func (o EvaluationFormQuestionQuestionTypePtrOutput) ToEvaluationFormQuestionQue
 	return o
 }
 
-func (o EvaluationFormQuestionQuestionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormQuestionQuestionType] {
-	return pulumix.Output[*EvaluationFormQuestionQuestionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormQuestionQuestionTypePtrOutput) Elem() EvaluationFormQuestionQuestionTypeOutput {
 	return o.ApplyT(func(v *EvaluationFormQuestionQuestionType) EvaluationFormQuestionQuestionType {
 		if v != nil {
@@ -713,10 +681,12 @@ func (o EvaluationFormQuestionQuestionTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// EvaluationFormQuestionQuestionTypeInput is an input type that accepts EvaluationFormQuestionQuestionTypeArgs and EvaluationFormQuestionQuestionTypeOutput values.
-// You can construct a concrete instance of `EvaluationFormQuestionQuestionTypeInput` via:
+// EvaluationFormQuestionQuestionTypeInput is an input type that accepts values of the EvaluationFormQuestionQuestionType enum
+// A concrete instance of `EvaluationFormQuestionQuestionTypeInput` can be one of the following:
 //
-//	EvaluationFormQuestionQuestionTypeArgs{...}
+//	EvaluationFormQuestionQuestionTypeNumeric
+//	EvaluationFormQuestionQuestionTypeSingleselect
+//	EvaluationFormQuestionQuestionTypeText
 type EvaluationFormQuestionQuestionTypeInput interface {
 	pulumi.Input
 
@@ -825,12 +795,6 @@ func (o EvaluationFormScoringStrategyModeOutput) ToEvaluationFormScoringStrategy
 	}).(EvaluationFormScoringStrategyModePtrOutput)
 }
 
-func (o EvaluationFormScoringStrategyModeOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormScoringStrategyMode] {
-	return pulumix.Output[EvaluationFormScoringStrategyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormScoringStrategyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -866,12 +830,6 @@ func (o EvaluationFormScoringStrategyModePtrOutput) ToEvaluationFormScoringStrat
 	return o
 }
 
-func (o EvaluationFormScoringStrategyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormScoringStrategyMode] {
-	return pulumix.Output[*EvaluationFormScoringStrategyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormScoringStrategyModePtrOutput) Elem() EvaluationFormScoringStrategyModeOutput {
 	return o.ApplyT(func(v *EvaluationFormScoringStrategyMode) EvaluationFormScoringStrategyMode {
 		if v != nil {
@@ -896,10 +854,11 @@ func (o EvaluationFormScoringStrategyModePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// EvaluationFormScoringStrategyModeInput is an input type that accepts EvaluationFormScoringStrategyModeArgs and EvaluationFormScoringStrategyModeOutput values.
-// You can construct a concrete instance of `EvaluationFormScoringStrategyModeInput` via:
+// EvaluationFormScoringStrategyModeInput is an input type that accepts values of the EvaluationFormScoringStrategyMode enum
+// A concrete instance of `EvaluationFormScoringStrategyModeInput` can be one of the following:
 //
-//	EvaluationFormScoringStrategyModeArgs{...}
+//	EvaluationFormScoringStrategyModeQuestionOnly
+//	EvaluationFormScoringStrategyModeSectionOnly
 type EvaluationFormScoringStrategyModeInput interface {
 	pulumi.Input
 
@@ -1008,12 +967,6 @@ func (o EvaluationFormScoringStrategyStatusOutput) ToEvaluationFormScoringStrate
 	}).(EvaluationFormScoringStrategyStatusPtrOutput)
 }
 
-func (o EvaluationFormScoringStrategyStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormScoringStrategyStatus] {
-	return pulumix.Output[EvaluationFormScoringStrategyStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormScoringStrategyStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1049,12 +1002,6 @@ func (o EvaluationFormScoringStrategyStatusPtrOutput) ToEvaluationFormScoringStr
 	return o
 }
 
-func (o EvaluationFormScoringStrategyStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormScoringStrategyStatus] {
-	return pulumix.Output[*EvaluationFormScoringStrategyStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormScoringStrategyStatusPtrOutput) Elem() EvaluationFormScoringStrategyStatusOutput {
 	return o.ApplyT(func(v *EvaluationFormScoringStrategyStatus) EvaluationFormScoringStrategyStatus {
 		if v != nil {
@@ -1079,10 +1026,11 @@ func (o EvaluationFormScoringStrategyStatusPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// EvaluationFormScoringStrategyStatusInput is an input type that accepts EvaluationFormScoringStrategyStatusArgs and EvaluationFormScoringStrategyStatusOutput values.
-// You can construct a concrete instance of `EvaluationFormScoringStrategyStatusInput` via:
+// EvaluationFormScoringStrategyStatusInput is an input type that accepts values of the EvaluationFormScoringStrategyStatus enum
+// A concrete instance of `EvaluationFormScoringStrategyStatusInput` can be one of the following:
 //
-//	EvaluationFormScoringStrategyStatusArgs{...}
+//	EvaluationFormScoringStrategyStatusEnabled
+//	EvaluationFormScoringStrategyStatusDisabled
 type EvaluationFormScoringStrategyStatusInput interface {
 	pulumi.Input
 
@@ -1191,12 +1139,6 @@ func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToEvaluatio
 	}).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput)
 }
 
-func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormSingleSelectQuestionPropertiesDisplayAs] {
-	return pulumix.Output[EvaluationFormSingleSelectQuestionPropertiesDisplayAs]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1232,12 +1174,6 @@ func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) ToEvalua
 	return o
 }
 
-func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormSingleSelectQuestionPropertiesDisplayAs] {
-	return pulumix.Output[*EvaluationFormSingleSelectQuestionPropertiesDisplayAs]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) Elem() EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput {
 	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionPropertiesDisplayAs) EvaluationFormSingleSelectQuestionPropertiesDisplayAs {
 		if v != nil {
@@ -1262,10 +1198,11 @@ func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// EvaluationFormSingleSelectQuestionPropertiesDisplayAsInput is an input type that accepts EvaluationFormSingleSelectQuestionPropertiesDisplayAsArgs and EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput values.
-// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionPropertiesDisplayAsInput` via:
+// EvaluationFormSingleSelectQuestionPropertiesDisplayAsInput is an input type that accepts values of the EvaluationFormSingleSelectQuestionPropertiesDisplayAs enum
+// A concrete instance of `EvaluationFormSingleSelectQuestionPropertiesDisplayAsInput` can be one of the following:
 //
-//	EvaluationFormSingleSelectQuestionPropertiesDisplayAsArgs{...}
+//	EvaluationFormSingleSelectQuestionPropertiesDisplayAsDropdown
+//	EvaluationFormSingleSelectQuestionPropertiesDisplayAsRadio
 type EvaluationFormSingleSelectQuestionPropertiesDisplayAsInput interface {
 	pulumi.Input
 
@@ -1374,12 +1311,6 @@ func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput)
 	}).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput)
 }
 
-func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition] {
-	return pulumix.Output[EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1415,12 +1346,6 @@ func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutp
 	return o
 }
 
-func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition] {
-	return pulumix.Output[*EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput) Elem() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput {
 	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition {
 		if v != nil {
@@ -1445,10 +1370,11 @@ func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionInput is an input type that accepts EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionArgs and EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput values.
-// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionInput` via:
+// EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionInput is an input type that accepts values of the EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition enum
+// A concrete instance of `EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionInput` can be one of the following:
 //
-//	EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionArgs{...}
+//	EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPresent
+//	EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionNotPresent
 type EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionInput interface {
 	pulumi.Input
 
@@ -1557,12 +1483,6 @@ func (o EvaluationFormStatusOutput) ToEvaluationFormStatusPtrOutputWithContext(c
 	}).(EvaluationFormStatusPtrOutput)
 }
 
-func (o EvaluationFormStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EvaluationFormStatus] {
-	return pulumix.Output[EvaluationFormStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1598,12 +1518,6 @@ func (o EvaluationFormStatusPtrOutput) ToEvaluationFormStatusPtrOutputWithContex
 	return o
 }
 
-func (o EvaluationFormStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationFormStatus] {
-	return pulumix.Output[*EvaluationFormStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EvaluationFormStatusPtrOutput) Elem() EvaluationFormStatusOutput {
 	return o.ApplyT(func(v *EvaluationFormStatus) EvaluationFormStatus {
 		if v != nil {
@@ -1628,10 +1542,11 @@ func (o EvaluationFormStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// EvaluationFormStatusInput is an input type that accepts EvaluationFormStatusArgs and EvaluationFormStatusOutput values.
-// You can construct a concrete instance of `EvaluationFormStatusInput` via:
+// EvaluationFormStatusInput is an input type that accepts values of the EvaluationFormStatus enum
+// A concrete instance of `EvaluationFormStatusInput` can be one of the following:
 //
-//	EvaluationFormStatusArgs{...}
+//	EvaluationFormStatusDraft
+//	EvaluationFormStatusActive
 type EvaluationFormStatusInput interface {
 	pulumi.Input
 
@@ -1745,12 +1660,6 @@ func (o HoursOfOperationConfigDayOutput) ToHoursOfOperationConfigDayPtrOutputWit
 	}).(HoursOfOperationConfigDayPtrOutput)
 }
 
-func (o HoursOfOperationConfigDayOutput) ToOutput(ctx context.Context) pulumix.Output[HoursOfOperationConfigDay] {
-	return pulumix.Output[HoursOfOperationConfigDay]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HoursOfOperationConfigDayOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1786,12 +1695,6 @@ func (o HoursOfOperationConfigDayPtrOutput) ToHoursOfOperationConfigDayPtrOutput
 	return o
 }
 
-func (o HoursOfOperationConfigDayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HoursOfOperationConfigDay] {
-	return pulumix.Output[*HoursOfOperationConfigDay]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HoursOfOperationConfigDayPtrOutput) Elem() HoursOfOperationConfigDayOutput {
 	return o.ApplyT(func(v *HoursOfOperationConfigDay) HoursOfOperationConfigDay {
 		if v != nil {
@@ -1816,10 +1719,16 @@ func (o HoursOfOperationConfigDayPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// HoursOfOperationConfigDayInput is an input type that accepts HoursOfOperationConfigDayArgs and HoursOfOperationConfigDayOutput values.
-// You can construct a concrete instance of `HoursOfOperationConfigDayInput` via:
+// HoursOfOperationConfigDayInput is an input type that accepts values of the HoursOfOperationConfigDay enum
+// A concrete instance of `HoursOfOperationConfigDayInput` can be one of the following:
 //
-//	HoursOfOperationConfigDayArgs{...}
+//	HoursOfOperationConfigDaySunday
+//	HoursOfOperationConfigDayMonday
+//	HoursOfOperationConfigDayTuesday
+//	HoursOfOperationConfigDayWednesday
+//	HoursOfOperationConfigDayThursday
+//	HoursOfOperationConfigDayFriday
+//	HoursOfOperationConfigDaySaturday
 type HoursOfOperationConfigDayInput interface {
 	pulumi.Input
 
@@ -1929,12 +1838,6 @@ func (o InstanceIdentityManagementTypeOutput) ToInstanceIdentityManagementTypePt
 	}).(InstanceIdentityManagementTypePtrOutput)
 }
 
-func (o InstanceIdentityManagementTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceIdentityManagementType] {
-	return pulumix.Output[InstanceIdentityManagementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceIdentityManagementTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1970,12 +1873,6 @@ func (o InstanceIdentityManagementTypePtrOutput) ToInstanceIdentityManagementTyp
 	return o
 }
 
-func (o InstanceIdentityManagementTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceIdentityManagementType] {
-	return pulumix.Output[*InstanceIdentityManagementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceIdentityManagementTypePtrOutput) Elem() InstanceIdentityManagementTypeOutput {
 	return o.ApplyT(func(v *InstanceIdentityManagementType) InstanceIdentityManagementType {
 		if v != nil {
@@ -2000,10 +1897,12 @@ func (o InstanceIdentityManagementTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceIdentityManagementTypeInput is an input type that accepts InstanceIdentityManagementTypeArgs and InstanceIdentityManagementTypeOutput values.
-// You can construct a concrete instance of `InstanceIdentityManagementTypeInput` via:
+// InstanceIdentityManagementTypeInput is an input type that accepts values of the InstanceIdentityManagementType enum
+// A concrete instance of `InstanceIdentityManagementTypeInput` can be one of the following:
 //
-//	InstanceIdentityManagementTypeArgs{...}
+//	InstanceIdentityManagementTypeSaml
+//	InstanceIdentityManagementTypeConnectManaged
+//	InstanceIdentityManagementTypeExistingDirectory
 type InstanceIdentityManagementTypeInput interface {
 	pulumi.Input
 
@@ -2077,12 +1976,6 @@ func (o InstanceStatusOutput) ToInstanceStatusPtrOutputWithContext(ctx context.C
 	}).(InstanceStatusPtrOutput)
 }
 
-func (o InstanceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceStatus] {
-	return pulumix.Output[InstanceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2116,12 +2009,6 @@ func (o InstanceStatusPtrOutput) ToInstanceStatusPtrOutput() InstanceStatusPtrOu
 
 func (o InstanceStatusPtrOutput) ToInstanceStatusPtrOutputWithContext(ctx context.Context) InstanceStatusPtrOutput {
 	return o
-}
-
-func (o InstanceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceStatus] {
-	return pulumix.Output[*InstanceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceStatusPtrOutput) Elem() InstanceStatusOutput {
@@ -2215,12 +2102,6 @@ func (o InstanceStorageConfigEncryptionTypeOutput) ToInstanceStorageConfigEncryp
 	}).(InstanceStorageConfigEncryptionTypePtrOutput)
 }
 
-func (o InstanceStorageConfigEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceStorageConfigEncryptionType] {
-	return pulumix.Output[InstanceStorageConfigEncryptionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceStorageConfigEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2256,12 +2137,6 @@ func (o InstanceStorageConfigEncryptionTypePtrOutput) ToInstanceStorageConfigEnc
 	return o
 }
 
-func (o InstanceStorageConfigEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfigEncryptionType] {
-	return pulumix.Output[*InstanceStorageConfigEncryptionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceStorageConfigEncryptionTypePtrOutput) Elem() InstanceStorageConfigEncryptionTypeOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigEncryptionType) InstanceStorageConfigEncryptionType {
 		if v != nil {
@@ -2286,10 +2161,10 @@ func (o InstanceStorageConfigEncryptionTypePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceStorageConfigEncryptionTypeInput is an input type that accepts InstanceStorageConfigEncryptionTypeArgs and InstanceStorageConfigEncryptionTypeOutput values.
-// You can construct a concrete instance of `InstanceStorageConfigEncryptionTypeInput` via:
+// InstanceStorageConfigEncryptionTypeInput is an input type that accepts values of the InstanceStorageConfigEncryptionType enum
+// A concrete instance of `InstanceStorageConfigEncryptionTypeInput` can be one of the following:
 //
-//	InstanceStorageConfigEncryptionTypeArgs{...}
+//	InstanceStorageConfigEncryptionTypeKms
 type InstanceStorageConfigEncryptionTypeInput interface {
 	pulumi.Input
 
@@ -2402,12 +2277,6 @@ func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToInstanceStorag
 	}).(InstanceStorageConfigInstanceStorageResourceTypePtrOutput)
 }
 
-func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceStorageConfigInstanceStorageResourceType] {
-	return pulumix.Output[InstanceStorageConfigInstanceStorageResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceStorageConfigInstanceStorageResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2443,12 +2312,6 @@ func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) ToInstanceSto
 	return o
 }
 
-func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfigInstanceStorageResourceType] {
-	return pulumix.Output[*InstanceStorageConfigInstanceStorageResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) Elem() InstanceStorageConfigInstanceStorageResourceTypeOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigInstanceStorageResourceType) InstanceStorageConfigInstanceStorageResourceType {
 		if v != nil {
@@ -2473,10 +2336,15 @@ func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) ToStringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceStorageConfigInstanceStorageResourceTypeInput is an input type that accepts InstanceStorageConfigInstanceStorageResourceTypeArgs and InstanceStorageConfigInstanceStorageResourceTypeOutput values.
-// You can construct a concrete instance of `InstanceStorageConfigInstanceStorageResourceTypeInput` via:
+// InstanceStorageConfigInstanceStorageResourceTypeInput is an input type that accepts values of the InstanceStorageConfigInstanceStorageResourceType enum
+// A concrete instance of `InstanceStorageConfigInstanceStorageResourceTypeInput` can be one of the following:
 //
-//	InstanceStorageConfigInstanceStorageResourceTypeArgs{...}
+//	InstanceStorageConfigInstanceStorageResourceTypeChatTranscripts
+//	InstanceStorageConfigInstanceStorageResourceTypeCallRecordings
+//	InstanceStorageConfigInstanceStorageResourceTypeScheduledReports
+//	InstanceStorageConfigInstanceStorageResourceTypeMediaStreams
+//	InstanceStorageConfigInstanceStorageResourceTypeContactTraceRecords
+//	InstanceStorageConfigInstanceStorageResourceTypeAgentEvents
 type InstanceStorageConfigInstanceStorageResourceTypeInput interface {
 	pulumi.Input
 
@@ -2587,12 +2455,6 @@ func (o InstanceStorageConfigStorageTypeOutput) ToInstanceStorageConfigStorageTy
 	}).(InstanceStorageConfigStorageTypePtrOutput)
 }
 
-func (o InstanceStorageConfigStorageTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceStorageConfigStorageType] {
-	return pulumix.Output[InstanceStorageConfigStorageType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceStorageConfigStorageTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2628,12 +2490,6 @@ func (o InstanceStorageConfigStorageTypePtrOutput) ToInstanceStorageConfigStorag
 	return o
 }
 
-func (o InstanceStorageConfigStorageTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfigStorageType] {
-	return pulumix.Output[*InstanceStorageConfigStorageType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceStorageConfigStorageTypePtrOutput) Elem() InstanceStorageConfigStorageTypeOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigStorageType) InstanceStorageConfigStorageType {
 		if v != nil {
@@ -2658,10 +2514,13 @@ func (o InstanceStorageConfigStorageTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceStorageConfigStorageTypeInput is an input type that accepts InstanceStorageConfigStorageTypeArgs and InstanceStorageConfigStorageTypeOutput values.
-// You can construct a concrete instance of `InstanceStorageConfigStorageTypeInput` via:
+// InstanceStorageConfigStorageTypeInput is an input type that accepts values of the InstanceStorageConfigStorageType enum
+// A concrete instance of `InstanceStorageConfigStorageTypeInput` can be one of the following:
 //
-//	InstanceStorageConfigStorageTypeArgs{...}
+//	InstanceStorageConfigStorageTypeS3
+//	InstanceStorageConfigStorageTypeKinesisVideoStream
+//	InstanceStorageConfigStorageTypeKinesisStream
+//	InstanceStorageConfigStorageTypeKinesisFirehose
 type InstanceStorageConfigStorageTypeInput interface {
 	pulumi.Input
 
@@ -2771,12 +2630,6 @@ func (o IntegrationAssociationIntegrationTypeOutput) ToIntegrationAssociationInt
 	}).(IntegrationAssociationIntegrationTypePtrOutput)
 }
 
-func (o IntegrationAssociationIntegrationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationAssociationIntegrationType] {
-	return pulumix.Output[IntegrationAssociationIntegrationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationAssociationIntegrationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2812,12 +2665,6 @@ func (o IntegrationAssociationIntegrationTypePtrOutput) ToIntegrationAssociation
 	return o
 }
 
-func (o IntegrationAssociationIntegrationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAssociationIntegrationType] {
-	return pulumix.Output[*IntegrationAssociationIntegrationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationAssociationIntegrationTypePtrOutput) Elem() IntegrationAssociationIntegrationTypeOutput {
 	return o.ApplyT(func(v *IntegrationAssociationIntegrationType) IntegrationAssociationIntegrationType {
 		if v != nil {
@@ -2842,10 +2689,12 @@ func (o IntegrationAssociationIntegrationTypePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntegrationAssociationIntegrationTypeInput is an input type that accepts IntegrationAssociationIntegrationTypeArgs and IntegrationAssociationIntegrationTypeOutput values.
-// You can construct a concrete instance of `IntegrationAssociationIntegrationTypeInput` via:
+// IntegrationAssociationIntegrationTypeInput is an input type that accepts values of the IntegrationAssociationIntegrationType enum
+// A concrete instance of `IntegrationAssociationIntegrationTypeInput` can be one of the following:
 //
-//	IntegrationAssociationIntegrationTypeArgs{...}
+//	IntegrationAssociationIntegrationTypeLexBot
+//	IntegrationAssociationIntegrationTypeLambdaFunction
+//	IntegrationAssociationIntegrationTypeApplication
 type IntegrationAssociationIntegrationTypeInput interface {
 	pulumi.Input
 
@@ -2954,12 +2803,6 @@ func (o QueueStatusOutput) ToQueueStatusPtrOutputWithContext(ctx context.Context
 	}).(QueueStatusPtrOutput)
 }
 
-func (o QueueStatusOutput) ToOutput(ctx context.Context) pulumix.Output[QueueStatus] {
-	return pulumix.Output[QueueStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o QueueStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2995,12 +2838,6 @@ func (o QueueStatusPtrOutput) ToQueueStatusPtrOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o QueueStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*QueueStatus] {
-	return pulumix.Output[*QueueStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o QueueStatusPtrOutput) Elem() QueueStatusOutput {
 	return o.ApplyT(func(v *QueueStatus) QueueStatus {
 		if v != nil {
@@ -3025,10 +2862,11 @@ func (o QueueStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// QueueStatusInput is an input type that accepts QueueStatusArgs and QueueStatusOutput values.
-// You can construct a concrete instance of `QueueStatusInput` via:
+// QueueStatusInput is an input type that accepts values of the QueueStatus enum
+// A concrete instance of `QueueStatusInput` can be one of the following:
 //
-//	QueueStatusArgs{...}
+//	QueueStatusEnabled
+//	QueueStatusDisabled
 type QueueStatusInput interface {
 	pulumi.Input
 
@@ -3101,12 +2939,6 @@ func (o QueueTypeOutput) ToQueueTypePtrOutputWithContext(ctx context.Context) Qu
 	}).(QueueTypePtrOutput)
 }
 
-func (o QueueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[QueueType] {
-	return pulumix.Output[QueueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o QueueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3140,12 +2972,6 @@ func (o QueueTypePtrOutput) ToQueueTypePtrOutput() QueueTypePtrOutput {
 
 func (o QueueTypePtrOutput) ToQueueTypePtrOutputWithContext(ctx context.Context) QueueTypePtrOutput {
 	return o
-}
-
-func (o QueueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*QueueType] {
-	return pulumix.Output[*QueueType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o QueueTypePtrOutput) Elem() QueueTypeOutput {
@@ -3241,12 +3067,6 @@ func (o QuickConnectTypeOutput) ToQuickConnectTypePtrOutputWithContext(ctx conte
 	}).(QuickConnectTypePtrOutput)
 }
 
-func (o QuickConnectTypeOutput) ToOutput(ctx context.Context) pulumix.Output[QuickConnectType] {
-	return pulumix.Output[QuickConnectType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o QuickConnectTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3282,12 +3102,6 @@ func (o QuickConnectTypePtrOutput) ToQuickConnectTypePtrOutputWithContext(ctx co
 	return o
 }
 
-func (o QuickConnectTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*QuickConnectType] {
-	return pulumix.Output[*QuickConnectType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o QuickConnectTypePtrOutput) Elem() QuickConnectTypeOutput {
 	return o.ApplyT(func(v *QuickConnectType) QuickConnectType {
 		if v != nil {
@@ -3312,10 +3126,12 @@ func (o QuickConnectTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// QuickConnectTypeInput is an input type that accepts QuickConnectTypeArgs and QuickConnectTypeOutput values.
-// You can construct a concrete instance of `QuickConnectTypeInput` via:
+// QuickConnectTypeInput is an input type that accepts values of the QuickConnectType enum
+// A concrete instance of `QuickConnectTypeInput` can be one of the following:
 //
-//	QuickConnectTypeArgs{...}
+//	QuickConnectTypePhoneNumber
+//	QuickConnectTypeQueue
+//	QuickConnectTypeUser
 type QuickConnectTypeInput interface {
 	pulumi.Input
 
@@ -3424,12 +3240,6 @@ func (o RoutingProfileAgentAvailabilityTimerOutput) ToRoutingProfileAgentAvailab
 	}).(RoutingProfileAgentAvailabilityTimerPtrOutput)
 }
 
-func (o RoutingProfileAgentAvailabilityTimerOutput) ToOutput(ctx context.Context) pulumix.Output[RoutingProfileAgentAvailabilityTimer] {
-	return pulumix.Output[RoutingProfileAgentAvailabilityTimer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoutingProfileAgentAvailabilityTimerOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3465,12 +3275,6 @@ func (o RoutingProfileAgentAvailabilityTimerPtrOutput) ToRoutingProfileAgentAvai
 	return o
 }
 
-func (o RoutingProfileAgentAvailabilityTimerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfileAgentAvailabilityTimer] {
-	return pulumix.Output[*RoutingProfileAgentAvailabilityTimer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoutingProfileAgentAvailabilityTimerPtrOutput) Elem() RoutingProfileAgentAvailabilityTimerOutput {
 	return o.ApplyT(func(v *RoutingProfileAgentAvailabilityTimer) RoutingProfileAgentAvailabilityTimer {
 		if v != nil {
@@ -3495,10 +3299,11 @@ func (o RoutingProfileAgentAvailabilityTimerPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// RoutingProfileAgentAvailabilityTimerInput is an input type that accepts RoutingProfileAgentAvailabilityTimerArgs and RoutingProfileAgentAvailabilityTimerOutput values.
-// You can construct a concrete instance of `RoutingProfileAgentAvailabilityTimerInput` via:
+// RoutingProfileAgentAvailabilityTimerInput is an input type that accepts values of the RoutingProfileAgentAvailabilityTimer enum
+// A concrete instance of `RoutingProfileAgentAvailabilityTimerInput` can be one of the following:
 //
-//	RoutingProfileAgentAvailabilityTimerArgs{...}
+//	RoutingProfileAgentAvailabilityTimerTimeSinceLastActivity
+//	RoutingProfileAgentAvailabilityTimerTimeSinceLastInbound
 type RoutingProfileAgentAvailabilityTimerInput interface {
 	pulumi.Input
 
@@ -3607,12 +3412,6 @@ func (o RoutingProfileBehaviorTypeOutput) ToRoutingProfileBehaviorTypePtrOutputW
 	}).(RoutingProfileBehaviorTypePtrOutput)
 }
 
-func (o RoutingProfileBehaviorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RoutingProfileBehaviorType] {
-	return pulumix.Output[RoutingProfileBehaviorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoutingProfileBehaviorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3648,12 +3447,6 @@ func (o RoutingProfileBehaviorTypePtrOutput) ToRoutingProfileBehaviorTypePtrOutp
 	return o
 }
 
-func (o RoutingProfileBehaviorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfileBehaviorType] {
-	return pulumix.Output[*RoutingProfileBehaviorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoutingProfileBehaviorTypePtrOutput) Elem() RoutingProfileBehaviorTypeOutput {
 	return o.ApplyT(func(v *RoutingProfileBehaviorType) RoutingProfileBehaviorType {
 		if v != nil {
@@ -3678,10 +3471,11 @@ func (o RoutingProfileBehaviorTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// RoutingProfileBehaviorTypeInput is an input type that accepts RoutingProfileBehaviorTypeArgs and RoutingProfileBehaviorTypeOutput values.
-// You can construct a concrete instance of `RoutingProfileBehaviorTypeInput` via:
+// RoutingProfileBehaviorTypeInput is an input type that accepts values of the RoutingProfileBehaviorType enum
+// A concrete instance of `RoutingProfileBehaviorTypeInput` can be one of the following:
 //
-//	RoutingProfileBehaviorTypeArgs{...}
+//	RoutingProfileBehaviorTypeRouteCurrentChannelOnly
+//	RoutingProfileBehaviorTypeRouteAnyChannel
 type RoutingProfileBehaviorTypeInput interface {
 	pulumi.Input
 
@@ -3791,12 +3585,6 @@ func (o RoutingProfileChannelOutput) ToRoutingProfileChannelPtrOutputWithContext
 	}).(RoutingProfileChannelPtrOutput)
 }
 
-func (o RoutingProfileChannelOutput) ToOutput(ctx context.Context) pulumix.Output[RoutingProfileChannel] {
-	return pulumix.Output[RoutingProfileChannel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoutingProfileChannelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3832,12 +3620,6 @@ func (o RoutingProfileChannelPtrOutput) ToRoutingProfileChannelPtrOutputWithCont
 	return o
 }
 
-func (o RoutingProfileChannelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfileChannel] {
-	return pulumix.Output[*RoutingProfileChannel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoutingProfileChannelPtrOutput) Elem() RoutingProfileChannelOutput {
 	return o.ApplyT(func(v *RoutingProfileChannel) RoutingProfileChannel {
 		if v != nil {
@@ -3862,10 +3644,12 @@ func (o RoutingProfileChannelPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// RoutingProfileChannelInput is an input type that accepts RoutingProfileChannelArgs and RoutingProfileChannelOutput values.
-// You can construct a concrete instance of `RoutingProfileChannelInput` via:
+// RoutingProfileChannelInput is an input type that accepts values of the RoutingProfileChannel enum
+// A concrete instance of `RoutingProfileChannelInput` can be one of the following:
 //
-//	RoutingProfileChannelArgs{...}
+//	RoutingProfileChannelVoice
+//	RoutingProfileChannelChat
+//	RoutingProfileChannelTask
 type RoutingProfileChannelInput interface {
 	pulumi.Input
 
@@ -3974,12 +3758,6 @@ func (o RulePublishStatusOutput) ToRulePublishStatusPtrOutputWithContext(ctx con
 	}).(RulePublishStatusPtrOutput)
 }
 
-func (o RulePublishStatusOutput) ToOutput(ctx context.Context) pulumix.Output[RulePublishStatus] {
-	return pulumix.Output[RulePublishStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RulePublishStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4015,12 +3793,6 @@ func (o RulePublishStatusPtrOutput) ToRulePublishStatusPtrOutputWithContext(ctx 
 	return o
 }
 
-func (o RulePublishStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RulePublishStatus] {
-	return pulumix.Output[*RulePublishStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RulePublishStatusPtrOutput) Elem() RulePublishStatusOutput {
 	return o.ApplyT(func(v *RulePublishStatus) RulePublishStatus {
 		if v != nil {
@@ -4045,10 +3817,11 @@ func (o RulePublishStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// RulePublishStatusInput is an input type that accepts RulePublishStatusArgs and RulePublishStatusOutput values.
-// You can construct a concrete instance of `RulePublishStatusInput` via:
+// RulePublishStatusInput is an input type that accepts values of the RulePublishStatus enum
+// A concrete instance of `RulePublishStatusInput` can be one of the following:
 //
-//	RulePublishStatusArgs{...}
+//	RulePublishStatusDraft
+//	RulePublishStatusPublished
 type RulePublishStatusInput interface {
 	pulumi.Input
 
@@ -4156,12 +3929,6 @@ func (o RuleSendNotificationActionContentTypeOutput) ToRuleSendNotificationActio
 	}).(RuleSendNotificationActionContentTypePtrOutput)
 }
 
-func (o RuleSendNotificationActionContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleSendNotificationActionContentType] {
-	return pulumix.Output[RuleSendNotificationActionContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleSendNotificationActionContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4197,12 +3964,6 @@ func (o RuleSendNotificationActionContentTypePtrOutput) ToRuleSendNotificationAc
 	return o
 }
 
-func (o RuleSendNotificationActionContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleSendNotificationActionContentType] {
-	return pulumix.Output[*RuleSendNotificationActionContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleSendNotificationActionContentTypePtrOutput) Elem() RuleSendNotificationActionContentTypeOutput {
 	return o.ApplyT(func(v *RuleSendNotificationActionContentType) RuleSendNotificationActionContentType {
 		if v != nil {
@@ -4227,10 +3988,10 @@ func (o RuleSendNotificationActionContentTypePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleSendNotificationActionContentTypeInput is an input type that accepts RuleSendNotificationActionContentTypeArgs and RuleSendNotificationActionContentTypeOutput values.
-// You can construct a concrete instance of `RuleSendNotificationActionContentTypeInput` via:
+// RuleSendNotificationActionContentTypeInput is an input type that accepts values of the RuleSendNotificationActionContentType enum
+// A concrete instance of `RuleSendNotificationActionContentTypeInput` can be one of the following:
 //
-//	RuleSendNotificationActionContentTypeArgs{...}
+//	RuleSendNotificationActionContentTypePlainText
 type RuleSendNotificationActionContentTypeInput interface {
 	pulumi.Input
 
@@ -4338,12 +4099,6 @@ func (o RuleSendNotificationActionDeliveryMethodOutput) ToRuleSendNotificationAc
 	}).(RuleSendNotificationActionDeliveryMethodPtrOutput)
 }
 
-func (o RuleSendNotificationActionDeliveryMethodOutput) ToOutput(ctx context.Context) pulumix.Output[RuleSendNotificationActionDeliveryMethod] {
-	return pulumix.Output[RuleSendNotificationActionDeliveryMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleSendNotificationActionDeliveryMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4379,12 +4134,6 @@ func (o RuleSendNotificationActionDeliveryMethodPtrOutput) ToRuleSendNotificatio
 	return o
 }
 
-func (o RuleSendNotificationActionDeliveryMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleSendNotificationActionDeliveryMethod] {
-	return pulumix.Output[*RuleSendNotificationActionDeliveryMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleSendNotificationActionDeliveryMethodPtrOutput) Elem() RuleSendNotificationActionDeliveryMethodOutput {
 	return o.ApplyT(func(v *RuleSendNotificationActionDeliveryMethod) RuleSendNotificationActionDeliveryMethod {
 		if v != nil {
@@ -4409,10 +4158,10 @@ func (o RuleSendNotificationActionDeliveryMethodPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleSendNotificationActionDeliveryMethodInput is an input type that accepts RuleSendNotificationActionDeliveryMethodArgs and RuleSendNotificationActionDeliveryMethodOutput values.
-// You can construct a concrete instance of `RuleSendNotificationActionDeliveryMethodInput` via:
+// RuleSendNotificationActionDeliveryMethodInput is an input type that accepts values of the RuleSendNotificationActionDeliveryMethod enum
+// A concrete instance of `RuleSendNotificationActionDeliveryMethodInput` can be one of the following:
 //
-//	RuleSendNotificationActionDeliveryMethodArgs{...}
+//	RuleSendNotificationActionDeliveryMethodEmail
 type RuleSendNotificationActionDeliveryMethodInput interface {
 	pulumi.Input
 
@@ -4530,12 +4279,6 @@ func (o RuleTriggerEventSourceEventSourceNameOutput) ToRuleTriggerEventSourceEve
 	}).(RuleTriggerEventSourceEventSourceNamePtrOutput)
 }
 
-func (o RuleTriggerEventSourceEventSourceNameOutput) ToOutput(ctx context.Context) pulumix.Output[RuleTriggerEventSourceEventSourceName] {
-	return pulumix.Output[RuleTriggerEventSourceEventSourceName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleTriggerEventSourceEventSourceNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4571,12 +4314,6 @@ func (o RuleTriggerEventSourceEventSourceNamePtrOutput) ToRuleTriggerEventSource
 	return o
 }
 
-func (o RuleTriggerEventSourceEventSourceNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleTriggerEventSourceEventSourceName] {
-	return pulumix.Output[*RuleTriggerEventSourceEventSourceName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleTriggerEventSourceEventSourceNamePtrOutput) Elem() RuleTriggerEventSourceEventSourceNameOutput {
 	return o.ApplyT(func(v *RuleTriggerEventSourceEventSourceName) RuleTriggerEventSourceEventSourceName {
 		if v != nil {
@@ -4601,10 +4338,20 @@ func (o RuleTriggerEventSourceEventSourceNamePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleTriggerEventSourceEventSourceNameInput is an input type that accepts RuleTriggerEventSourceEventSourceNameArgs and RuleTriggerEventSourceEventSourceNameOutput values.
-// You can construct a concrete instance of `RuleTriggerEventSourceEventSourceNameInput` via:
+// RuleTriggerEventSourceEventSourceNameInput is an input type that accepts values of the RuleTriggerEventSourceEventSourceName enum
+// A concrete instance of `RuleTriggerEventSourceEventSourceNameInput` can be one of the following:
 //
-//	RuleTriggerEventSourceEventSourceNameArgs{...}
+//	RuleTriggerEventSourceEventSourceNameOnContactEvaluationSubmit
+//	RuleTriggerEventSourceEventSourceNameOnPostCallAnalysisAvailable
+//	RuleTriggerEventSourceEventSourceNameOnRealTimeCallAnalysisAvailable
+//	RuleTriggerEventSourceEventSourceNameOnRealTimeChatAnalysisAvailable
+//	RuleTriggerEventSourceEventSourceNameOnPostChatAnalysisAvailable
+//	RuleTriggerEventSourceEventSourceNameOnZendeskTicketCreate
+//	RuleTriggerEventSourceEventSourceNameOnZendeskTicketStatusUpdate
+//	RuleTriggerEventSourceEventSourceNameOnSalesforceCaseCreate
+//	RuleTriggerEventSourceEventSourceNameOnMetricDataUpdate
+//	RuleTriggerEventSourceEventSourceNameOnCaseCreate
+//	RuleTriggerEventSourceEventSourceNameOnCaseUpdate
 type RuleTriggerEventSourceEventSourceNameInput interface {
 	pulumi.Input
 
@@ -4723,12 +4470,6 @@ func (o TaskTemplateFieldTypeOutput) ToTaskTemplateFieldTypePtrOutputWithContext
 	}).(TaskTemplateFieldTypePtrOutput)
 }
 
-func (o TaskTemplateFieldTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskTemplateFieldType] {
-	return pulumix.Output[TaskTemplateFieldType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskTemplateFieldTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4764,12 +4505,6 @@ func (o TaskTemplateFieldTypePtrOutput) ToTaskTemplateFieldTypePtrOutputWithCont
 	return o
 }
 
-func (o TaskTemplateFieldTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskTemplateFieldType] {
-	return pulumix.Output[*TaskTemplateFieldType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskTemplateFieldTypePtrOutput) Elem() TaskTemplateFieldTypeOutput {
 	return o.ApplyT(func(v *TaskTemplateFieldType) TaskTemplateFieldType {
 		if v != nil {
@@ -4794,10 +4529,21 @@ func (o TaskTemplateFieldTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskTemplateFieldTypeInput is an input type that accepts TaskTemplateFieldTypeArgs and TaskTemplateFieldTypeOutput values.
-// You can construct a concrete instance of `TaskTemplateFieldTypeInput` via:
+// TaskTemplateFieldTypeInput is an input type that accepts values of the TaskTemplateFieldType enum
+// A concrete instance of `TaskTemplateFieldTypeInput` can be one of the following:
 //
-//	TaskTemplateFieldTypeArgs{...}
+//	TaskTemplateFieldTypeName
+//	TaskTemplateFieldTypeDescription
+//	TaskTemplateFieldTypeScheduledTime
+//	TaskTemplateFieldTypeQuickConnect
+//	TaskTemplateFieldTypeUrl
+//	TaskTemplateFieldTypeNumber
+//	TaskTemplateFieldTypeText
+//	TaskTemplateFieldTypeTextArea
+//	TaskTemplateFieldTypeDateTime
+//	TaskTemplateFieldTypeBoolean
+//	TaskTemplateFieldTypeSingleSelect
+//	TaskTemplateFieldTypeEmail
 type TaskTemplateFieldTypeInput interface {
 	pulumi.Input
 
@@ -4906,12 +4652,6 @@ func (o TaskTemplateStatusOutput) ToTaskTemplateStatusPtrOutputWithContext(ctx c
 	}).(TaskTemplateStatusPtrOutput)
 }
 
-func (o TaskTemplateStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TaskTemplateStatus] {
-	return pulumix.Output[TaskTemplateStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskTemplateStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4947,12 +4687,6 @@ func (o TaskTemplateStatusPtrOutput) ToTaskTemplateStatusPtrOutputWithContext(ct
 	return o
 }
 
-func (o TaskTemplateStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskTemplateStatus] {
-	return pulumix.Output[*TaskTemplateStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskTemplateStatusPtrOutput) Elem() TaskTemplateStatusOutput {
 	return o.ApplyT(func(v *TaskTemplateStatus) TaskTemplateStatus {
 		if v != nil {
@@ -4977,10 +4711,11 @@ func (o TaskTemplateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskTemplateStatusInput is an input type that accepts TaskTemplateStatusArgs and TaskTemplateStatusOutput values.
-// You can construct a concrete instance of `TaskTemplateStatusInput` via:
+// TaskTemplateStatusInput is an input type that accepts values of the TaskTemplateStatus enum
+// A concrete instance of `TaskTemplateStatusInput` can be one of the following:
 //
-//	TaskTemplateStatusArgs{...}
+//	TaskTemplateStatusActive
+//	TaskTemplateStatusInactive
 type TaskTemplateStatusInput interface {
 	pulumi.Input
 
@@ -5057,12 +4792,6 @@ func (o TrafficDistributionGroupStatusOutput) ToTrafficDistributionGroupStatusPt
 	}).(TrafficDistributionGroupStatusPtrOutput)
 }
 
-func (o TrafficDistributionGroupStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TrafficDistributionGroupStatus] {
-	return pulumix.Output[TrafficDistributionGroupStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrafficDistributionGroupStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5096,12 +4825,6 @@ func (o TrafficDistributionGroupStatusPtrOutput) ToTrafficDistributionGroupStatu
 
 func (o TrafficDistributionGroupStatusPtrOutput) ToTrafficDistributionGroupStatusPtrOutputWithContext(ctx context.Context) TrafficDistributionGroupStatusPtrOutput {
 	return o
-}
-
-func (o TrafficDistributionGroupStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficDistributionGroupStatus] {
-	return pulumix.Output[*TrafficDistributionGroupStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrafficDistributionGroupStatusPtrOutput) Elem() TrafficDistributionGroupStatusOutput {
@@ -5196,12 +4919,6 @@ func (o UserPhoneTypeOutput) ToUserPhoneTypePtrOutputWithContext(ctx context.Con
 	}).(UserPhoneTypePtrOutput)
 }
 
-func (o UserPhoneTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPhoneType] {
-	return pulumix.Output[UserPhoneType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPhoneTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5237,12 +4954,6 @@ func (o UserPhoneTypePtrOutput) ToUserPhoneTypePtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o UserPhoneTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPhoneType] {
-	return pulumix.Output[*UserPhoneType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPhoneTypePtrOutput) Elem() UserPhoneTypeOutput {
 	return o.ApplyT(func(v *UserPhoneType) UserPhoneType {
 		if v != nil {
@@ -5267,10 +4978,11 @@ func (o UserPhoneTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// UserPhoneTypeInput is an input type that accepts UserPhoneTypeArgs and UserPhoneTypeOutput values.
-// You can construct a concrete instance of `UserPhoneTypeInput` via:
+// UserPhoneTypeInput is an input type that accepts values of the UserPhoneType enum
+// A concrete instance of `UserPhoneTypeInput` can be one of the following:
 //
-//	UserPhoneTypeArgs{...}
+//	UserPhoneTypeSoftPhone
+//	UserPhoneTypeDeskPhone
 type UserPhoneTypeInput interface {
 	pulumi.Input
 

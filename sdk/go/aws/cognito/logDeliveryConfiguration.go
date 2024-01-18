@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::LogDeliveryConfiguration
@@ -101,12 +100,6 @@ func (i *LogDeliveryConfiguration) ToLogDeliveryConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationOutput)
 }
 
-func (i *LogDeliveryConfiguration) ToOutput(ctx context.Context) pulumix.Output[*LogDeliveryConfiguration] {
-	return pulumix.Output[*LogDeliveryConfiguration]{
-		OutputState: i.ToLogDeliveryConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogDeliveryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LogDeliveryConfigurationOutput) ElementType() reflect.Type {
@@ -119,12 +112,6 @@ func (o LogDeliveryConfigurationOutput) ToLogDeliveryConfigurationOutput() LogDe
 
 func (o LogDeliveryConfigurationOutput) ToLogDeliveryConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationOutput {
 	return o
-}
-
-func (o LogDeliveryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*LogDeliveryConfiguration] {
-	return pulumix.Output[*LogDeliveryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogDeliveryConfigurationOutput) LogConfigurations() LogDeliveryConfigurationLogConfigurationArrayOutput {

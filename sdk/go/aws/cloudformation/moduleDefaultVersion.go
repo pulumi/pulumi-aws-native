@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A module that has been registered in the CloudFormation registry as the default version
@@ -111,12 +110,6 @@ func (i *ModuleDefaultVersion) ToModuleDefaultVersionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleDefaultVersionOutput)
 }
 
-func (i *ModuleDefaultVersion) ToOutput(ctx context.Context) pulumix.Output[*ModuleDefaultVersion] {
-	return pulumix.Output[*ModuleDefaultVersion]{
-		OutputState: i.ToModuleDefaultVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ModuleDefaultVersionOutput struct{ *pulumi.OutputState }
 
 func (ModuleDefaultVersionOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o ModuleDefaultVersionOutput) ToModuleDefaultVersionOutput() ModuleDefault
 
 func (o ModuleDefaultVersionOutput) ToModuleDefaultVersionOutputWithContext(ctx context.Context) ModuleDefaultVersionOutput {
 	return o
-}
-
-func (o ModuleDefaultVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*ModuleDefaultVersion] {
-	return pulumix.Output[*ModuleDefaultVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the module version to set as the default version.

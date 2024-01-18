@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53::CidrCollection.
@@ -71,12 +70,6 @@ func (o LookupCidrCollectionResultOutput) ToLookupCidrCollectionResultOutput() L
 
 func (o LookupCidrCollectionResultOutput) ToLookupCidrCollectionResultOutputWithContext(ctx context.Context) LookupCidrCollectionResultOutput {
 	return o
-}
-
-func (o LookupCidrCollectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCidrCollectionResult] {
-	return pulumix.Output[LookupCidrCollectionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon resource name (ARN) to uniquely identify the AWS resource.

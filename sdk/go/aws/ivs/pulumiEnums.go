@@ -79,12 +79,6 @@ func (o ChannelLatencyModeOutput) ToChannelLatencyModePtrOutputWithContext(ctx c
 	}).(ChannelLatencyModePtrOutput)
 }
 
-func (o ChannelLatencyModeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelLatencyMode] {
-	return pulumix.Output[ChannelLatencyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelLatencyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o ChannelLatencyModePtrOutput) ToChannelLatencyModePtrOutputWithContext(ct
 	return o
 }
 
-func (o ChannelLatencyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelLatencyMode] {
-	return pulumix.Output[*ChannelLatencyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelLatencyModePtrOutput) Elem() ChannelLatencyModeOutput {
 	return o.ApplyT(func(v *ChannelLatencyMode) ChannelLatencyMode {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o ChannelLatencyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ChannelLatencyModeInput is an input type that accepts ChannelLatencyModeArgs and ChannelLatencyModeOutput values.
-// You can construct a concrete instance of `ChannelLatencyModeInput` via:
+// ChannelLatencyModeInput is an input type that accepts values of the ChannelLatencyMode enum
+// A concrete instance of `ChannelLatencyModeInput` can be one of the following:
 //
-//	ChannelLatencyModeArgs{...}
+//	ChannelLatencyModeNormal
+//	ChannelLatencyModeLow
 type ChannelLatencyModeInput interface {
 	pulumi.Input
 
@@ -262,12 +251,6 @@ func (o ChannelPresetOutput) ToChannelPresetPtrOutputWithContext(ctx context.Con
 	}).(ChannelPresetPtrOutput)
 }
 
-func (o ChannelPresetOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelPreset] {
-	return pulumix.Output[ChannelPreset]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelPresetOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +286,6 @@ func (o ChannelPresetPtrOutput) ToChannelPresetPtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o ChannelPresetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelPreset] {
-	return pulumix.Output[*ChannelPreset]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelPresetPtrOutput) Elem() ChannelPresetOutput {
 	return o.ApplyT(func(v *ChannelPreset) ChannelPreset {
 		if v != nil {
@@ -333,10 +310,11 @@ func (o ChannelPresetPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ChannelPresetInput is an input type that accepts ChannelPresetArgs and ChannelPresetOutput values.
-// You can construct a concrete instance of `ChannelPresetInput` via:
+// ChannelPresetInput is an input type that accepts values of the ChannelPreset enum
+// A concrete instance of `ChannelPresetInput` can be one of the following:
 //
-//	ChannelPresetArgs{...}
+//	ChannelPresetHigherBandwidthDelivery
+//	ChannelPresetConstrainedBandwidthDelivery
 type ChannelPresetInput interface {
 	pulumi.Input
 
@@ -447,12 +425,6 @@ func (o ChannelTypeOutput) ToChannelTypePtrOutputWithContext(ctx context.Context
 	}).(ChannelTypePtrOutput)
 }
 
-func (o ChannelTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelType] {
-	return pulumix.Output[ChannelType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -488,12 +460,6 @@ func (o ChannelTypePtrOutput) ToChannelTypePtrOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ChannelTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelType] {
-	return pulumix.Output[*ChannelType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelTypePtrOutput) Elem() ChannelTypeOutput {
 	return o.ApplyT(func(v *ChannelType) ChannelType {
 		if v != nil {
@@ -518,10 +484,13 @@ func (o ChannelTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ChannelTypeInput is an input type that accepts ChannelTypeArgs and ChannelTypeOutput values.
-// You can construct a concrete instance of `ChannelTypeInput` via:
+// ChannelTypeInput is an input type that accepts values of the ChannelType enum
+// A concrete instance of `ChannelTypeInput` can be one of the following:
 //
-//	ChannelTypeArgs{...}
+//	ChannelTypeStandard
+//	ChannelTypeBasic
+//	ChannelTypeAdvancedSd
+//	ChannelTypeAdvancedHd
 type ChannelTypeInput interface {
 	pulumi.Input
 
@@ -631,12 +600,6 @@ func (o RecordingConfigurationRenditionConfigurationRenditionSelectionOutput) To
 	}).(RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput)
 }
 
-func (o RecordingConfigurationRenditionConfigurationRenditionSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationRenditionConfigurationRenditionSelection] {
-	return pulumix.Output[RecordingConfigurationRenditionConfigurationRenditionSelection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordingConfigurationRenditionConfigurationRenditionSelectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -672,12 +635,6 @@ func (o RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput)
 	return o
 }
 
-func (o RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationRenditionConfigurationRenditionSelection] {
-	return pulumix.Output[*RecordingConfigurationRenditionConfigurationRenditionSelection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput) Elem() RecordingConfigurationRenditionConfigurationRenditionSelectionOutput {
 	return o.ApplyT(func(v *RecordingConfigurationRenditionConfigurationRenditionSelection) RecordingConfigurationRenditionConfigurationRenditionSelection {
 		if v != nil {
@@ -702,10 +659,12 @@ func (o RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// RecordingConfigurationRenditionConfigurationRenditionSelectionInput is an input type that accepts RecordingConfigurationRenditionConfigurationRenditionSelectionArgs and RecordingConfigurationRenditionConfigurationRenditionSelectionOutput values.
-// You can construct a concrete instance of `RecordingConfigurationRenditionConfigurationRenditionSelectionInput` via:
+// RecordingConfigurationRenditionConfigurationRenditionSelectionInput is an input type that accepts values of the RecordingConfigurationRenditionConfigurationRenditionSelection enum
+// A concrete instance of `RecordingConfigurationRenditionConfigurationRenditionSelectionInput` can be one of the following:
 //
-//	RecordingConfigurationRenditionConfigurationRenditionSelectionArgs{...}
+//	RecordingConfigurationRenditionConfigurationRenditionSelectionAll
+//	RecordingConfigurationRenditionConfigurationRenditionSelectionNone
+//	RecordingConfigurationRenditionConfigurationRenditionSelectionCustom
 type RecordingConfigurationRenditionConfigurationRenditionSelectionInput interface {
 	pulumi.Input
 
@@ -815,12 +774,6 @@ func (o RecordingConfigurationRenditionConfigurationRenditionsItemOutput) ToReco
 	}).(RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput)
 }
 
-func (o RecordingConfigurationRenditionConfigurationRenditionsItemOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationRenditionConfigurationRenditionsItem] {
-	return pulumix.Output[RecordingConfigurationRenditionConfigurationRenditionsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordingConfigurationRenditionConfigurationRenditionsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -856,12 +809,6 @@ func (o RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput) ToR
 	return o
 }
 
-func (o RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationRenditionConfigurationRenditionsItem] {
-	return pulumix.Output[*RecordingConfigurationRenditionConfigurationRenditionsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput) Elem() RecordingConfigurationRenditionConfigurationRenditionsItemOutput {
 	return o.ApplyT(func(v *RecordingConfigurationRenditionConfigurationRenditionsItem) RecordingConfigurationRenditionConfigurationRenditionsItem {
 		if v != nil {
@@ -886,10 +833,13 @@ func (o RecordingConfigurationRenditionConfigurationRenditionsItemPtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// RecordingConfigurationRenditionConfigurationRenditionsItemInput is an input type that accepts RecordingConfigurationRenditionConfigurationRenditionsItemArgs and RecordingConfigurationRenditionConfigurationRenditionsItemOutput values.
-// You can construct a concrete instance of `RecordingConfigurationRenditionConfigurationRenditionsItemInput` via:
+// RecordingConfigurationRenditionConfigurationRenditionsItemInput is an input type that accepts values of the RecordingConfigurationRenditionConfigurationRenditionsItem enum
+// A concrete instance of `RecordingConfigurationRenditionConfigurationRenditionsItemInput` can be one of the following:
 //
-//	RecordingConfigurationRenditionConfigurationRenditionsItemArgs{...}
+//	RecordingConfigurationRenditionConfigurationRenditionsItemFullHd
+//	RecordingConfigurationRenditionConfigurationRenditionsItemHd
+//	RecordingConfigurationRenditionConfigurationRenditionsItemSd
+//	RecordingConfigurationRenditionConfigurationRenditionsItemLowestResolution
 type RecordingConfigurationRenditionConfigurationRenditionsItemInput interface {
 	pulumi.Input
 
@@ -955,12 +905,6 @@ func (i RecordingConfigurationRenditionConfigurationRenditionsItemArray) ToRecor
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput)
 }
 
-func (i RecordingConfigurationRenditionConfigurationRenditionsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]RecordingConfigurationRenditionConfigurationRenditionsItem] {
-	return pulumix.Output[[]RecordingConfigurationRenditionConfigurationRenditionsItem]{
-		OutputState: i.ToRecordingConfigurationRenditionConfigurationRenditionsItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput) ElementType() reflect.Type {
@@ -973,12 +917,6 @@ func (o RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput) T
 
 func (o RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput) ToRecordingConfigurationRenditionConfigurationRenditionsItemArrayOutputWithContext(ctx context.Context) RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput {
 	return o
-}
-
-func (o RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RecordingConfigurationRenditionConfigurationRenditionsItem] {
-	return pulumix.Output[[]RecordingConfigurationRenditionConfigurationRenditionsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordingConfigurationRenditionConfigurationRenditionsItemArrayOutput) Index(i pulumi.IntInput) RecordingConfigurationRenditionConfigurationRenditionsItemOutput {
@@ -1020,12 +958,6 @@ func (o RecordingConfigurationStateEnumOutput) ToRecordingConfigurationStateEnum
 	}).(RecordingConfigurationStateEnumPtrOutput)
 }
 
-func (o RecordingConfigurationStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationStateEnum] {
-	return pulumix.Output[RecordingConfigurationStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordingConfigurationStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1059,12 +991,6 @@ func (o RecordingConfigurationStateEnumPtrOutput) ToRecordingConfigurationStateE
 
 func (o RecordingConfigurationStateEnumPtrOutput) ToRecordingConfigurationStateEnumPtrOutputWithContext(ctx context.Context) RecordingConfigurationStateEnumPtrOutput {
 	return o
-}
-
-func (o RecordingConfigurationStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationStateEnum] {
-	return pulumix.Output[*RecordingConfigurationStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordingConfigurationStateEnumPtrOutput) Elem() RecordingConfigurationStateEnumOutput {
@@ -1159,12 +1085,6 @@ func (o RecordingConfigurationThumbnailConfigurationRecordingModeOutput) ToRecor
 	}).(RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput)
 }
 
-func (o RecordingConfigurationThumbnailConfigurationRecordingModeOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationThumbnailConfigurationRecordingMode] {
-	return pulumix.Output[RecordingConfigurationThumbnailConfigurationRecordingMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordingConfigurationThumbnailConfigurationRecordingModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1200,12 +1120,6 @@ func (o RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput) ToRe
 	return o
 }
 
-func (o RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationThumbnailConfigurationRecordingMode] {
-	return pulumix.Output[*RecordingConfigurationThumbnailConfigurationRecordingMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput) Elem() RecordingConfigurationThumbnailConfigurationRecordingModeOutput {
 	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfigurationRecordingMode) RecordingConfigurationThumbnailConfigurationRecordingMode {
 		if v != nil {
@@ -1230,10 +1144,11 @@ func (o RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// RecordingConfigurationThumbnailConfigurationRecordingModeInput is an input type that accepts RecordingConfigurationThumbnailConfigurationRecordingModeArgs and RecordingConfigurationThumbnailConfigurationRecordingModeOutput values.
-// You can construct a concrete instance of `RecordingConfigurationThumbnailConfigurationRecordingModeInput` via:
+// RecordingConfigurationThumbnailConfigurationRecordingModeInput is an input type that accepts values of the RecordingConfigurationThumbnailConfigurationRecordingMode enum
+// A concrete instance of `RecordingConfigurationThumbnailConfigurationRecordingModeInput` can be one of the following:
 //
-//	RecordingConfigurationThumbnailConfigurationRecordingModeArgs{...}
+//	RecordingConfigurationThumbnailConfigurationRecordingModeInterval
+//	RecordingConfigurationThumbnailConfigurationRecordingModeDisabled
 type RecordingConfigurationThumbnailConfigurationRecordingModeInput interface {
 	pulumi.Input
 
@@ -1344,12 +1259,6 @@ func (o RecordingConfigurationThumbnailConfigurationResolutionOutput) ToRecordin
 	}).(RecordingConfigurationThumbnailConfigurationResolutionPtrOutput)
 }
 
-func (o RecordingConfigurationThumbnailConfigurationResolutionOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationThumbnailConfigurationResolution] {
-	return pulumix.Output[RecordingConfigurationThumbnailConfigurationResolution]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordingConfigurationThumbnailConfigurationResolutionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1385,12 +1294,6 @@ func (o RecordingConfigurationThumbnailConfigurationResolutionPtrOutput) ToRecor
 	return o
 }
 
-func (o RecordingConfigurationThumbnailConfigurationResolutionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationThumbnailConfigurationResolution] {
-	return pulumix.Output[*RecordingConfigurationThumbnailConfigurationResolution]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordingConfigurationThumbnailConfigurationResolutionPtrOutput) Elem() RecordingConfigurationThumbnailConfigurationResolutionOutput {
 	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfigurationResolution) RecordingConfigurationThumbnailConfigurationResolution {
 		if v != nil {
@@ -1415,10 +1318,13 @@ func (o RecordingConfigurationThumbnailConfigurationResolutionPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// RecordingConfigurationThumbnailConfigurationResolutionInput is an input type that accepts RecordingConfigurationThumbnailConfigurationResolutionArgs and RecordingConfigurationThumbnailConfigurationResolutionOutput values.
-// You can construct a concrete instance of `RecordingConfigurationThumbnailConfigurationResolutionInput` via:
+// RecordingConfigurationThumbnailConfigurationResolutionInput is an input type that accepts values of the RecordingConfigurationThumbnailConfigurationResolution enum
+// A concrete instance of `RecordingConfigurationThumbnailConfigurationResolutionInput` can be one of the following:
 //
-//	RecordingConfigurationThumbnailConfigurationResolutionArgs{...}
+//	RecordingConfigurationThumbnailConfigurationResolutionFullHd
+//	RecordingConfigurationThumbnailConfigurationResolutionHd
+//	RecordingConfigurationThumbnailConfigurationResolutionSd
+//	RecordingConfigurationThumbnailConfigurationResolutionLowestResolution
 type RecordingConfigurationThumbnailConfigurationResolutionInput interface {
 	pulumi.Input
 
@@ -1526,12 +1432,6 @@ func (o RecordingConfigurationThumbnailConfigurationStorageItemOutput) ToRecordi
 	}).(RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput)
 }
 
-func (o RecordingConfigurationThumbnailConfigurationStorageItemOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationThumbnailConfigurationStorageItem] {
-	return pulumix.Output[RecordingConfigurationThumbnailConfigurationStorageItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordingConfigurationThumbnailConfigurationStorageItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1567,12 +1467,6 @@ func (o RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput) ToReco
 	return o
 }
 
-func (o RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationThumbnailConfigurationStorageItem] {
-	return pulumix.Output[*RecordingConfigurationThumbnailConfigurationStorageItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput) Elem() RecordingConfigurationThumbnailConfigurationStorageItemOutput {
 	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfigurationStorageItem) RecordingConfigurationThumbnailConfigurationStorageItem {
 		if v != nil {
@@ -1597,10 +1491,11 @@ func (o RecordingConfigurationThumbnailConfigurationStorageItemPtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// RecordingConfigurationThumbnailConfigurationStorageItemInput is an input type that accepts RecordingConfigurationThumbnailConfigurationStorageItemArgs and RecordingConfigurationThumbnailConfigurationStorageItemOutput values.
-// You can construct a concrete instance of `RecordingConfigurationThumbnailConfigurationStorageItemInput` via:
+// RecordingConfigurationThumbnailConfigurationStorageItemInput is an input type that accepts values of the RecordingConfigurationThumbnailConfigurationStorageItem enum
+// A concrete instance of `RecordingConfigurationThumbnailConfigurationStorageItemInput` can be one of the following:
 //
-//	RecordingConfigurationThumbnailConfigurationStorageItemArgs{...}
+//	RecordingConfigurationThumbnailConfigurationStorageItemSequential
+//	RecordingConfigurationThumbnailConfigurationStorageItemLatest
 type RecordingConfigurationThumbnailConfigurationStorageItemInput interface {
 	pulumi.Input
 
@@ -1666,12 +1561,6 @@ func (i RecordingConfigurationThumbnailConfigurationStorageItemArray) ToRecordin
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput)
 }
 
-func (i RecordingConfigurationThumbnailConfigurationStorageItemArray) ToOutput(ctx context.Context) pulumix.Output[[]RecordingConfigurationThumbnailConfigurationStorageItem] {
-	return pulumix.Output[[]RecordingConfigurationThumbnailConfigurationStorageItem]{
-		OutputState: i.ToRecordingConfigurationThumbnailConfigurationStorageItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput struct{ *pulumi.OutputState }
 
 func (RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput) ElementType() reflect.Type {
@@ -1684,12 +1573,6 @@ func (o RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput) ToRe
 
 func (o RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput) ToRecordingConfigurationThumbnailConfigurationStorageItemArrayOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput {
 	return o
-}
-
-func (o RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RecordingConfigurationThumbnailConfigurationStorageItem] {
-	return pulumix.Output[[]RecordingConfigurationThumbnailConfigurationStorageItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordingConfigurationThumbnailConfigurationStorageItemArrayOutput) Index(i pulumi.IntInput) RecordingConfigurationThumbnailConfigurationStorageItemOutput {

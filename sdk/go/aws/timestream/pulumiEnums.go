@@ -78,12 +78,6 @@ func (o ScheduledQueryDimensionValueTypeOutput) ToScheduledQueryDimensionValueTy
 	}).(ScheduledQueryDimensionValueTypePtrOutput)
 }
 
-func (o ScheduledQueryDimensionValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryDimensionValueType] {
-	return pulumix.Output[ScheduledQueryDimensionValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryDimensionValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o ScheduledQueryDimensionValueTypePtrOutput) ToScheduledQueryDimensionValu
 	return o
 }
 
-func (o ScheduledQueryDimensionValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryDimensionValueType] {
-	return pulumix.Output[*ScheduledQueryDimensionValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryDimensionValueTypePtrOutput) Elem() ScheduledQueryDimensionValueTypeOutput {
 	return o.ApplyT(func(v *ScheduledQueryDimensionValueType) ScheduledQueryDimensionValueType {
 		if v != nil {
@@ -149,10 +137,10 @@ func (o ScheduledQueryDimensionValueTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScheduledQueryDimensionValueTypeInput is an input type that accepts ScheduledQueryDimensionValueTypeArgs and ScheduledQueryDimensionValueTypeOutput values.
-// You can construct a concrete instance of `ScheduledQueryDimensionValueTypeInput` via:
+// ScheduledQueryDimensionValueTypeInput is an input type that accepts values of the ScheduledQueryDimensionValueType enum
+// A concrete instance of `ScheduledQueryDimensionValueTypeInput` can be one of the following:
 //
-//	ScheduledQueryDimensionValueTypeArgs{...}
+//	ScheduledQueryDimensionValueTypeVarchar
 type ScheduledQueryDimensionValueTypeInput interface {
 	pulumi.Input
 
@@ -261,12 +249,6 @@ func (o ScheduledQueryEncryptionOptionOutput) ToScheduledQueryEncryptionOptionPt
 	}).(ScheduledQueryEncryptionOptionPtrOutput)
 }
 
-func (o ScheduledQueryEncryptionOptionOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryEncryptionOption] {
-	return pulumix.Output[ScheduledQueryEncryptionOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryEncryptionOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o ScheduledQueryEncryptionOptionPtrOutput) ToScheduledQueryEncryptionOptio
 	return o
 }
 
-func (o ScheduledQueryEncryptionOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryEncryptionOption] {
-	return pulumix.Output[*ScheduledQueryEncryptionOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryEncryptionOptionPtrOutput) Elem() ScheduledQueryEncryptionOptionOutput {
 	return o.ApplyT(func(v *ScheduledQueryEncryptionOption) ScheduledQueryEncryptionOption {
 		if v != nil {
@@ -332,10 +308,11 @@ func (o ScheduledQueryEncryptionOptionPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScheduledQueryEncryptionOptionInput is an input type that accepts ScheduledQueryEncryptionOptionArgs and ScheduledQueryEncryptionOptionOutput values.
-// You can construct a concrete instance of `ScheduledQueryEncryptionOptionInput` via:
+// ScheduledQueryEncryptionOptionInput is an input type that accepts values of the ScheduledQueryEncryptionOption enum
+// A concrete instance of `ScheduledQueryEncryptionOptionInput` can be one of the following:
 //
-//	ScheduledQueryEncryptionOptionArgs{...}
+//	ScheduledQueryEncryptionOptionSseS3
+//	ScheduledQueryEncryptionOptionSseKms
 type ScheduledQueryEncryptionOptionInput interface {
 	pulumi.Input
 
@@ -447,12 +424,6 @@ func (o ScheduledQueryMixedMeasureMappingMeasureValueTypeOutput) ToScheduledQuer
 	}).(ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput)
 }
 
-func (o ScheduledQueryMixedMeasureMappingMeasureValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryMixedMeasureMappingMeasureValueType] {
-	return pulumix.Output[ScheduledQueryMixedMeasureMappingMeasureValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryMixedMeasureMappingMeasureValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -488,12 +459,6 @@ func (o ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput) ToScheduledQ
 	return o
 }
 
-func (o ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryMixedMeasureMappingMeasureValueType] {
-	return pulumix.Output[*ScheduledQueryMixedMeasureMappingMeasureValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput) Elem() ScheduledQueryMixedMeasureMappingMeasureValueTypeOutput {
 	return o.ApplyT(func(v *ScheduledQueryMixedMeasureMappingMeasureValueType) ScheduledQueryMixedMeasureMappingMeasureValueType {
 		if v != nil {
@@ -518,10 +483,14 @@ func (o ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScheduledQueryMixedMeasureMappingMeasureValueTypeInput is an input type that accepts ScheduledQueryMixedMeasureMappingMeasureValueTypeArgs and ScheduledQueryMixedMeasureMappingMeasureValueTypeOutput values.
-// You can construct a concrete instance of `ScheduledQueryMixedMeasureMappingMeasureValueTypeInput` via:
+// ScheduledQueryMixedMeasureMappingMeasureValueTypeInput is an input type that accepts values of the ScheduledQueryMixedMeasureMappingMeasureValueType enum
+// A concrete instance of `ScheduledQueryMixedMeasureMappingMeasureValueTypeInput` can be one of the following:
 //
-//	ScheduledQueryMixedMeasureMappingMeasureValueTypeArgs{...}
+//	ScheduledQueryMixedMeasureMappingMeasureValueTypeBigint
+//	ScheduledQueryMixedMeasureMappingMeasureValueTypeBoolean
+//	ScheduledQueryMixedMeasureMappingMeasureValueTypeDouble
+//	ScheduledQueryMixedMeasureMappingMeasureValueTypeVarchar
+//	ScheduledQueryMixedMeasureMappingMeasureValueTypeMulti
 type ScheduledQueryMixedMeasureMappingMeasureValueTypeInput interface {
 	pulumi.Input
 
@@ -633,12 +602,6 @@ func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput) ToSche
 	}).(ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput)
 }
 
-func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryMultiMeasureAttributeMappingMeasureValueType] {
-	return pulumix.Output[ScheduledQueryMultiMeasureAttributeMappingMeasureValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -674,12 +637,6 @@ func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput) ToS
 	return o
 }
 
-func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryMultiMeasureAttributeMappingMeasureValueType] {
-	return pulumix.Output[*ScheduledQueryMultiMeasureAttributeMappingMeasureValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput) Elem() ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput {
 	return o.ApplyT(func(v *ScheduledQueryMultiMeasureAttributeMappingMeasureValueType) ScheduledQueryMultiMeasureAttributeMappingMeasureValueType {
 		if v != nil {
@@ -704,10 +661,14 @@ func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeInput is an input type that accepts ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeArgs and ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput values.
-// You can construct a concrete instance of `ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeInput` via:
+// ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeInput is an input type that accepts values of the ScheduledQueryMultiMeasureAttributeMappingMeasureValueType enum
+// A concrete instance of `ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeInput` can be one of the following:
 //
-//	ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeArgs{...}
+//	ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeBigint
+//	ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeBoolean
+//	ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeDouble
+//	ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeVarchar
+//	ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeTimestamp
 type ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeInput interface {
 	pulumi.Input
 
@@ -816,12 +777,6 @@ func (o TablePartitionKeyEnforcementLevelOutput) ToTablePartitionKeyEnforcementL
 	}).(TablePartitionKeyEnforcementLevelPtrOutput)
 }
 
-func (o TablePartitionKeyEnforcementLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TablePartitionKeyEnforcementLevel] {
-	return pulumix.Output[TablePartitionKeyEnforcementLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TablePartitionKeyEnforcementLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -857,12 +812,6 @@ func (o TablePartitionKeyEnforcementLevelPtrOutput) ToTablePartitionKeyEnforceme
 	return o
 }
 
-func (o TablePartitionKeyEnforcementLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TablePartitionKeyEnforcementLevel] {
-	return pulumix.Output[*TablePartitionKeyEnforcementLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TablePartitionKeyEnforcementLevelPtrOutput) Elem() TablePartitionKeyEnforcementLevelOutput {
 	return o.ApplyT(func(v *TablePartitionKeyEnforcementLevel) TablePartitionKeyEnforcementLevel {
 		if v != nil {
@@ -887,10 +836,11 @@ func (o TablePartitionKeyEnforcementLevelPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// TablePartitionKeyEnforcementLevelInput is an input type that accepts TablePartitionKeyEnforcementLevelArgs and TablePartitionKeyEnforcementLevelOutput values.
-// You can construct a concrete instance of `TablePartitionKeyEnforcementLevelInput` via:
+// TablePartitionKeyEnforcementLevelInput is an input type that accepts values of the TablePartitionKeyEnforcementLevel enum
+// A concrete instance of `TablePartitionKeyEnforcementLevelInput` can be one of the following:
 //
-//	TablePartitionKeyEnforcementLevelArgs{...}
+//	TablePartitionKeyEnforcementLevelRequired
+//	TablePartitionKeyEnforcementLevelOptional
 type TablePartitionKeyEnforcementLevelInput interface {
 	pulumi.Input
 
@@ -999,12 +949,6 @@ func (o TablePartitionKeyTypeOutput) ToTablePartitionKeyTypePtrOutputWithContext
 	}).(TablePartitionKeyTypePtrOutput)
 }
 
-func (o TablePartitionKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TablePartitionKeyType] {
-	return pulumix.Output[TablePartitionKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TablePartitionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1040,12 +984,6 @@ func (o TablePartitionKeyTypePtrOutput) ToTablePartitionKeyTypePtrOutputWithCont
 	return o
 }
 
-func (o TablePartitionKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TablePartitionKeyType] {
-	return pulumix.Output[*TablePartitionKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TablePartitionKeyTypePtrOutput) Elem() TablePartitionKeyTypeOutput {
 	return o.ApplyT(func(v *TablePartitionKeyType) TablePartitionKeyType {
 		if v != nil {
@@ -1070,10 +1008,11 @@ func (o TablePartitionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// TablePartitionKeyTypeInput is an input type that accepts TablePartitionKeyTypeArgs and TablePartitionKeyTypeOutput values.
-// You can construct a concrete instance of `TablePartitionKeyTypeInput` via:
+// TablePartitionKeyTypeInput is an input type that accepts values of the TablePartitionKeyType enum
+// A concrete instance of `TablePartitionKeyTypeInput` can be one of the following:
 //
-//	TablePartitionKeyTypeArgs{...}
+//	TablePartitionKeyTypeDimension
+//	TablePartitionKeyTypeMeasure
 type TablePartitionKeyTypeInput interface {
 	pulumi.Input
 

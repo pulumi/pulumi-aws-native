@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
@@ -67,12 +66,6 @@ func (o LookupBotVersionResultOutput) ToLookupBotVersionResultOutput() LookupBot
 
 func (o LookupBotVersionResultOutput) ToLookupBotVersionResultOutputWithContext(ctx context.Context) LookupBotVersionResultOutput {
 	return o
-}
-
-func (o LookupBotVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBotVersionResult] {
-	return pulumix.Output[LookupBotVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupBotVersionResultOutput) BotVersion() pulumi.StringPtrOutput {

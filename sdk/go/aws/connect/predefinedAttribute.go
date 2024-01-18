@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::PredefinedAttribute
@@ -117,12 +116,6 @@ func (i *PredefinedAttribute) ToPredefinedAttributeOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PredefinedAttributeOutput)
 }
 
-func (i *PredefinedAttribute) ToOutput(ctx context.Context) pulumix.Output[*PredefinedAttribute] {
-	return pulumix.Output[*PredefinedAttribute]{
-		OutputState: i.ToPredefinedAttributeOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PredefinedAttributeOutput struct{ *pulumi.OutputState }
 
 func (PredefinedAttributeOutput) ElementType() reflect.Type {
@@ -135,12 +128,6 @@ func (o PredefinedAttributeOutput) ToPredefinedAttributeOutput() PredefinedAttri
 
 func (o PredefinedAttributeOutput) ToPredefinedAttributeOutputWithContext(ctx context.Context) PredefinedAttributeOutput {
 	return o
-}
-
-func (o PredefinedAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[*PredefinedAttribute] {
-	return pulumix.Output[*PredefinedAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The identifier of the Amazon Connect instance.

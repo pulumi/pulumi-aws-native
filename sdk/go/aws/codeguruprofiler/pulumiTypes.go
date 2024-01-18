@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i AgentPermissionsPropertiesArgs) ToAgentPermissionsPropertiesOutput() Age
 
 func (i AgentPermissionsPropertiesArgs) ToAgentPermissionsPropertiesOutputWithContext(ctx context.Context) AgentPermissionsPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AgentPermissionsPropertiesOutput)
-}
-
-func (i AgentPermissionsPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[AgentPermissionsProperties] {
-	return pulumix.Output[AgentPermissionsProperties]{
-		OutputState: i.ToAgentPermissionsPropertiesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AgentPermissionsPropertiesArgs) ToAgentPermissionsPropertiesPtrOutput() AgentPermissionsPropertiesPtrOutput {
@@ -96,12 +89,6 @@ func (i *agentPermissionsPropertiesPtrType) ToAgentPermissionsPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AgentPermissionsPropertiesPtrOutput)
 }
 
-func (i *agentPermissionsPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AgentPermissionsProperties] {
-	return pulumix.Output[*AgentPermissionsProperties]{
-		OutputState: i.ToAgentPermissionsPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The agent permissions attached to this profiling group.
 type AgentPermissionsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -127,12 +114,6 @@ func (o AgentPermissionsPropertiesOutput) ToAgentPermissionsPropertiesPtrOutputW
 	}).(AgentPermissionsPropertiesPtrOutput)
 }
 
-func (o AgentPermissionsPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[AgentPermissionsProperties] {
-	return pulumix.Output[AgentPermissionsProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The principals for the agent permissions.
 func (o AgentPermissionsPropertiesOutput) Principals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentPermissionsProperties) []string { return v.Principals }).(pulumi.StringArrayOutput)
@@ -150,12 +131,6 @@ func (o AgentPermissionsPropertiesPtrOutput) ToAgentPermissionsPropertiesPtrOutp
 
 func (o AgentPermissionsPropertiesPtrOutput) ToAgentPermissionsPropertiesPtrOutputWithContext(ctx context.Context) AgentPermissionsPropertiesPtrOutput {
 	return o
-}
-
-func (o AgentPermissionsPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AgentPermissionsProperties] {
-	return pulumix.Output[*AgentPermissionsProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AgentPermissionsPropertiesPtrOutput) Elem() AgentPermissionsPropertiesOutput {
@@ -213,12 +188,6 @@ func (i ProfilingGroupChannelArgs) ToProfilingGroupChannelOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ProfilingGroupChannelOutput)
 }
 
-func (i ProfilingGroupChannelArgs) ToOutput(ctx context.Context) pulumix.Output[ProfilingGroupChannel] {
-	return pulumix.Output[ProfilingGroupChannel]{
-		OutputState: i.ToProfilingGroupChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProfilingGroupChannelArrayInput is an input type that accepts ProfilingGroupChannelArray and ProfilingGroupChannelArrayOutput values.
 // You can construct a concrete instance of `ProfilingGroupChannelArrayInput` via:
 //
@@ -244,12 +213,6 @@ func (i ProfilingGroupChannelArray) ToProfilingGroupChannelArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ProfilingGroupChannelArrayOutput)
 }
 
-func (i ProfilingGroupChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]ProfilingGroupChannel] {
-	return pulumix.Output[[]ProfilingGroupChannel]{
-		OutputState: i.ToProfilingGroupChannelArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
 type ProfilingGroupChannelOutput struct{ *pulumi.OutputState }
 
@@ -263,12 +226,6 @@ func (o ProfilingGroupChannelOutput) ToProfilingGroupChannelOutput() ProfilingGr
 
 func (o ProfilingGroupChannelOutput) ToProfilingGroupChannelOutputWithContext(ctx context.Context) ProfilingGroupChannelOutput {
 	return o
-}
-
-func (o ProfilingGroupChannelOutput) ToOutput(ctx context.Context) pulumix.Output[ProfilingGroupChannel] {
-	return pulumix.Output[ProfilingGroupChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProfilingGroupChannelOutput) ChannelId() pulumi.StringPtrOutput {
@@ -291,12 +248,6 @@ func (o ProfilingGroupChannelArrayOutput) ToProfilingGroupChannelArrayOutput() P
 
 func (o ProfilingGroupChannelArrayOutput) ToProfilingGroupChannelArrayOutputWithContext(ctx context.Context) ProfilingGroupChannelArrayOutput {
 	return o
-}
-
-func (o ProfilingGroupChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProfilingGroupChannel] {
-	return pulumix.Output[[]ProfilingGroupChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProfilingGroupChannelArrayOutput) Index(i pulumi.IntInput) ProfilingGroupChannelOutput {
@@ -344,12 +295,6 @@ func (i ProfilingGroupTagArgs) ToProfilingGroupTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ProfilingGroupTagOutput)
 }
 
-func (i ProfilingGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ProfilingGroupTag] {
-	return pulumix.Output[ProfilingGroupTag]{
-		OutputState: i.ToProfilingGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProfilingGroupTagArrayInput is an input type that accepts ProfilingGroupTagArray and ProfilingGroupTagArrayOutput values.
 // You can construct a concrete instance of `ProfilingGroupTagArrayInput` via:
 //
@@ -375,12 +320,6 @@ func (i ProfilingGroupTagArray) ToProfilingGroupTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ProfilingGroupTagArrayOutput)
 }
 
-func (i ProfilingGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ProfilingGroupTag] {
-	return pulumix.Output[[]ProfilingGroupTag]{
-		OutputState: i.ToProfilingGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type ProfilingGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -394,12 +333,6 @@ func (o ProfilingGroupTagOutput) ToProfilingGroupTagOutput() ProfilingGroupTagOu
 
 func (o ProfilingGroupTagOutput) ToProfilingGroupTagOutputWithContext(ctx context.Context) ProfilingGroupTagOutput {
 	return o
-}
-
-func (o ProfilingGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ProfilingGroupTag] {
-	return pulumix.Output[ProfilingGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
@@ -424,12 +357,6 @@ func (o ProfilingGroupTagArrayOutput) ToProfilingGroupTagArrayOutput() Profiling
 
 func (o ProfilingGroupTagArrayOutput) ToProfilingGroupTagArrayOutputWithContext(ctx context.Context) ProfilingGroupTagArrayOutput {
 	return o
-}
-
-func (o ProfilingGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProfilingGroupTag] {
-	return pulumix.Output[[]ProfilingGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProfilingGroupTagArrayOutput) Index(i pulumi.IntInput) ProfilingGroupTagOutput {

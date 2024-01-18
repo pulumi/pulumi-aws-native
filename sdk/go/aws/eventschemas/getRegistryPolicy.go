@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EventSchemas::RegistryPolicy
@@ -67,12 +66,6 @@ func (o LookupRegistryPolicyResultOutput) ToLookupRegistryPolicyResultOutput() L
 
 func (o LookupRegistryPolicyResultOutput) ToLookupRegistryPolicyResultOutputWithContext(ctx context.Context) LookupRegistryPolicyResultOutput {
 	return o
-}
-
-func (o LookupRegistryPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRegistryPolicyResult] {
-	return pulumix.Output[LookupRegistryPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRegistryPolicyResultOutput) Id() pulumi.StringPtrOutput {

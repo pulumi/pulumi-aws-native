@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53Resolver::FirewallDomainList.
@@ -128,12 +127,6 @@ func (i *FirewallDomainList) ToFirewallDomainListOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallDomainListOutput)
 }
 
-func (i *FirewallDomainList) ToOutput(ctx context.Context) pulumix.Output[*FirewallDomainList] {
-	return pulumix.Output[*FirewallDomainList]{
-		OutputState: i.ToFirewallDomainListOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FirewallDomainListOutput struct{ *pulumi.OutputState }
 
 func (FirewallDomainListOutput) ElementType() reflect.Type {
@@ -146,12 +139,6 @@ func (o FirewallDomainListOutput) ToFirewallDomainListOutput() FirewallDomainLis
 
 func (o FirewallDomainListOutput) ToFirewallDomainListOutputWithContext(ctx context.Context) FirewallDomainListOutput {
 	return o
-}
-
-func (o FirewallDomainListOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallDomainList] {
-	return pulumix.Output[*FirewallDomainList]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Arn

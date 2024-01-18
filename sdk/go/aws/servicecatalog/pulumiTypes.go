@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i CloudFormationProductCodeStarParametersArgs) ToCloudFormationProductCode
 
 func (i CloudFormationProductCodeStarParametersArgs) ToCloudFormationProductCodeStarParametersOutputWithContext(ctx context.Context) CloudFormationProductCodeStarParametersOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductCodeStarParametersOutput)
-}
-
-func (i CloudFormationProductCodeStarParametersArgs) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProductCodeStarParameters] {
-	return pulumix.Output[CloudFormationProductCodeStarParameters]{
-		OutputState: i.ToCloudFormationProductCodeStarParametersOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i CloudFormationProductCodeStarParametersArgs) ToCloudFormationProductCodeStarParametersPtrOutput() CloudFormationProductCodeStarParametersPtrOutput {
@@ -98,12 +91,6 @@ func (i *cloudFormationProductCodeStarParametersPtrType) ToCloudFormationProduct
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductCodeStarParametersPtrOutput)
 }
 
-func (i *cloudFormationProductCodeStarParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProductCodeStarParameters] {
-	return pulumix.Output[*CloudFormationProductCodeStarParameters]{
-		OutputState: i.ToCloudFormationProductCodeStarParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudFormationProductCodeStarParametersOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProductCodeStarParametersOutput) ElementType() reflect.Type {
@@ -126,12 +113,6 @@ func (o CloudFormationProductCodeStarParametersOutput) ToCloudFormationProductCo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFormationProductCodeStarParameters) *CloudFormationProductCodeStarParameters {
 		return &v
 	}).(CloudFormationProductCodeStarParametersPtrOutput)
-}
-
-func (o CloudFormationProductCodeStarParametersOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProductCodeStarParameters] {
-	return pulumix.Output[CloudFormationProductCodeStarParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProductCodeStarParametersOutput) ArtifactPath() pulumi.StringOutput {
@@ -162,12 +143,6 @@ func (o CloudFormationProductCodeStarParametersPtrOutput) ToCloudFormationProduc
 
 func (o CloudFormationProductCodeStarParametersPtrOutput) ToCloudFormationProductCodeStarParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductCodeStarParametersPtrOutput {
 	return o
-}
-
-func (o CloudFormationProductCodeStarParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProductCodeStarParameters] {
-	return pulumix.Output[*CloudFormationProductCodeStarParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProductCodeStarParametersPtrOutput) Elem() CloudFormationProductCodeStarParametersOutput {
@@ -247,12 +222,6 @@ func (i CloudFormationProductConnectionParametersArgs) ToCloudFormationProductCo
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductConnectionParametersOutput)
 }
 
-func (i CloudFormationProductConnectionParametersArgs) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProductConnectionParameters] {
-	return pulumix.Output[CloudFormationProductConnectionParameters]{
-		OutputState: i.ToCloudFormationProductConnectionParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CloudFormationProductConnectionParametersArgs) ToCloudFormationProductConnectionParametersPtrOutput() CloudFormationProductConnectionParametersPtrOutput {
 	return i.ToCloudFormationProductConnectionParametersPtrOutputWithContext(context.Background())
 }
@@ -294,12 +263,6 @@ func (i *cloudFormationProductConnectionParametersPtrType) ToCloudFormationProdu
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductConnectionParametersPtrOutput)
 }
 
-func (i *cloudFormationProductConnectionParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProductConnectionParameters] {
-	return pulumix.Output[*CloudFormationProductConnectionParameters]{
-		OutputState: i.ToCloudFormationProductConnectionParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudFormationProductConnectionParametersOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProductConnectionParametersOutput) ElementType() reflect.Type {
@@ -324,12 +287,6 @@ func (o CloudFormationProductConnectionParametersOutput) ToCloudFormationProduct
 	}).(CloudFormationProductConnectionParametersPtrOutput)
 }
 
-func (o CloudFormationProductConnectionParametersOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProductConnectionParameters] {
-	return pulumix.Output[CloudFormationProductConnectionParameters]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CloudFormationProductConnectionParametersOutput) CodeStar() CloudFormationProductCodeStarParametersPtrOutput {
 	return o.ApplyT(func(v CloudFormationProductConnectionParameters) *CloudFormationProductCodeStarParameters {
 		return v.CodeStar
@@ -348,12 +305,6 @@ func (o CloudFormationProductConnectionParametersPtrOutput) ToCloudFormationProd
 
 func (o CloudFormationProductConnectionParametersPtrOutput) ToCloudFormationProductConnectionParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersPtrOutput {
 	return o
-}
-
-func (o CloudFormationProductConnectionParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProductConnectionParameters] {
-	return pulumix.Output[*CloudFormationProductConnectionParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProductConnectionParametersPtrOutput) Elem() CloudFormationProductConnectionParametersOutput {
@@ -414,12 +365,6 @@ func (i CloudFormationProductProvisioningArtifactPropertiesArgs) ToCloudFormatio
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductProvisioningArtifactPropertiesOutput)
 }
 
-func (i CloudFormationProductProvisioningArtifactPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProductProvisioningArtifactProperties] {
-	return pulumix.Output[CloudFormationProductProvisioningArtifactProperties]{
-		OutputState: i.ToCloudFormationProductProvisioningArtifactPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CloudFormationProductProvisioningArtifactPropertiesArrayInput is an input type that accepts CloudFormationProductProvisioningArtifactPropertiesArray and CloudFormationProductProvisioningArtifactPropertiesArrayOutput values.
 // You can construct a concrete instance of `CloudFormationProductProvisioningArtifactPropertiesArrayInput` via:
 //
@@ -445,12 +390,6 @@ func (i CloudFormationProductProvisioningArtifactPropertiesArray) ToCloudFormati
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductProvisioningArtifactPropertiesArrayOutput)
 }
 
-func (i CloudFormationProductProvisioningArtifactPropertiesArray) ToOutput(ctx context.Context) pulumix.Output[[]CloudFormationProductProvisioningArtifactProperties] {
-	return pulumix.Output[[]CloudFormationProductProvisioningArtifactProperties]{
-		OutputState: i.ToCloudFormationProductProvisioningArtifactPropertiesArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudFormationProductProvisioningArtifactPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProductProvisioningArtifactPropertiesOutput) ElementType() reflect.Type {
@@ -463,12 +402,6 @@ func (o CloudFormationProductProvisioningArtifactPropertiesOutput) ToCloudFormat
 
 func (o CloudFormationProductProvisioningArtifactPropertiesOutput) ToCloudFormationProductProvisioningArtifactPropertiesOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesOutput {
 	return o
-}
-
-func (o CloudFormationProductProvisioningArtifactPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProductProvisioningArtifactProperties] {
-	return pulumix.Output[CloudFormationProductProvisioningArtifactProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProductProvisioningArtifactPropertiesOutput) Description() pulumi.StringPtrOutput {
@@ -503,12 +436,6 @@ func (o CloudFormationProductProvisioningArtifactPropertiesArrayOutput) ToCloudF
 
 func (o CloudFormationProductProvisioningArtifactPropertiesArrayOutput) ToCloudFormationProductProvisioningArtifactPropertiesArrayOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesArrayOutput {
 	return o
-}
-
-func (o CloudFormationProductProvisioningArtifactPropertiesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CloudFormationProductProvisioningArtifactProperties] {
-	return pulumix.Output[[]CloudFormationProductProvisioningArtifactProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProductProvisioningArtifactPropertiesArrayOutput) Index(i pulumi.IntInput) CloudFormationProductProvisioningArtifactPropertiesOutput {
@@ -548,12 +475,6 @@ func (i CloudFormationProductSourceConnectionArgs) ToCloudFormationProductSource
 
 func (i CloudFormationProductSourceConnectionArgs) ToCloudFormationProductSourceConnectionOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductSourceConnectionOutput)
-}
-
-func (i CloudFormationProductSourceConnectionArgs) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProductSourceConnection] {
-	return pulumix.Output[CloudFormationProductSourceConnection]{
-		OutputState: i.ToCloudFormationProductSourceConnectionOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i CloudFormationProductSourceConnectionArgs) ToCloudFormationProductSourceConnectionPtrOutput() CloudFormationProductSourceConnectionPtrOutput {
@@ -597,12 +518,6 @@ func (i *cloudFormationProductSourceConnectionPtrType) ToCloudFormationProductSo
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductSourceConnectionPtrOutput)
 }
 
-func (i *cloudFormationProductSourceConnectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProductSourceConnection] {
-	return pulumix.Output[*CloudFormationProductSourceConnection]{
-		OutputState: i.ToCloudFormationProductSourceConnectionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudFormationProductSourceConnectionOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProductSourceConnectionOutput) ElementType() reflect.Type {
@@ -627,12 +542,6 @@ func (o CloudFormationProductSourceConnectionOutput) ToCloudFormationProductSour
 	}).(CloudFormationProductSourceConnectionPtrOutput)
 }
 
-func (o CloudFormationProductSourceConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProductSourceConnection] {
-	return pulumix.Output[CloudFormationProductSourceConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CloudFormationProductSourceConnectionOutput) ConnectionParameters() CloudFormationProductConnectionParametersOutput {
 	return o.ApplyT(func(v CloudFormationProductSourceConnection) CloudFormationProductConnectionParameters {
 		return v.ConnectionParameters
@@ -655,12 +564,6 @@ func (o CloudFormationProductSourceConnectionPtrOutput) ToCloudFormationProductS
 
 func (o CloudFormationProductSourceConnectionPtrOutput) ToCloudFormationProductSourceConnectionPtrOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionPtrOutput {
 	return o
-}
-
-func (o CloudFormationProductSourceConnectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProductSourceConnection] {
-	return pulumix.Output[*CloudFormationProductSourceConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProductSourceConnectionPtrOutput) Elem() CloudFormationProductSourceConnectionOutput {
@@ -724,12 +627,6 @@ func (i CloudFormationProductTagArgs) ToCloudFormationProductTagOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductTagOutput)
 }
 
-func (i CloudFormationProductTagArgs) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProductTag] {
-	return pulumix.Output[CloudFormationProductTag]{
-		OutputState: i.ToCloudFormationProductTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CloudFormationProductTagArrayInput is an input type that accepts CloudFormationProductTagArray and CloudFormationProductTagArrayOutput values.
 // You can construct a concrete instance of `CloudFormationProductTagArrayInput` via:
 //
@@ -755,12 +652,6 @@ func (i CloudFormationProductTagArray) ToCloudFormationProductTagArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductTagArrayOutput)
 }
 
-func (i CloudFormationProductTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CloudFormationProductTag] {
-	return pulumix.Output[[]CloudFormationProductTag]{
-		OutputState: i.ToCloudFormationProductTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudFormationProductTagOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProductTagOutput) ElementType() reflect.Type {
@@ -773,12 +664,6 @@ func (o CloudFormationProductTagOutput) ToCloudFormationProductTagOutput() Cloud
 
 func (o CloudFormationProductTagOutput) ToCloudFormationProductTagOutputWithContext(ctx context.Context) CloudFormationProductTagOutput {
 	return o
-}
-
-func (o CloudFormationProductTagOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProductTag] {
-	return pulumix.Output[CloudFormationProductTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProductTagOutput) Key() pulumi.StringOutput {
@@ -801,12 +686,6 @@ func (o CloudFormationProductTagArrayOutput) ToCloudFormationProductTagArrayOutp
 
 func (o CloudFormationProductTagArrayOutput) ToCloudFormationProductTagArrayOutputWithContext(ctx context.Context) CloudFormationProductTagArrayOutput {
 	return o
-}
-
-func (o CloudFormationProductTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CloudFormationProductTag] {
-	return pulumix.Output[[]CloudFormationProductTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProductTagArrayOutput) Index(i pulumi.IntInput) CloudFormationProductTagOutput {
@@ -848,12 +727,6 @@ func (i CloudFormationProvisionedProductProvisioningParameterArgs) ToCloudFormat
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductProvisioningParameterOutput)
 }
 
-func (i CloudFormationProvisionedProductProvisioningParameterArgs) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProvisionedProductProvisioningParameter] {
-	return pulumix.Output[CloudFormationProvisionedProductProvisioningParameter]{
-		OutputState: i.ToCloudFormationProvisionedProductProvisioningParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CloudFormationProvisionedProductProvisioningParameterArrayInput is an input type that accepts CloudFormationProvisionedProductProvisioningParameterArray and CloudFormationProvisionedProductProvisioningParameterArrayOutput values.
 // You can construct a concrete instance of `CloudFormationProvisionedProductProvisioningParameterArrayInput` via:
 //
@@ -879,12 +752,6 @@ func (i CloudFormationProvisionedProductProvisioningParameterArray) ToCloudForma
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductProvisioningParameterArrayOutput)
 }
 
-func (i CloudFormationProvisionedProductProvisioningParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]CloudFormationProvisionedProductProvisioningParameter] {
-	return pulumix.Output[[]CloudFormationProvisionedProductProvisioningParameter]{
-		OutputState: i.ToCloudFormationProvisionedProductProvisioningParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudFormationProvisionedProductProvisioningParameterOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProvisionedProductProvisioningParameterOutput) ElementType() reflect.Type {
@@ -897,12 +764,6 @@ func (o CloudFormationProvisionedProductProvisioningParameterOutput) ToCloudForm
 
 func (o CloudFormationProvisionedProductProvisioningParameterOutput) ToCloudFormationProvisionedProductProvisioningParameterOutputWithContext(ctx context.Context) CloudFormationProvisionedProductProvisioningParameterOutput {
 	return o
-}
-
-func (o CloudFormationProvisionedProductProvisioningParameterOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProvisionedProductProvisioningParameter] {
-	return pulumix.Output[CloudFormationProvisionedProductProvisioningParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProvisionedProductProvisioningParameterOutput) Key() pulumi.StringOutput {
@@ -925,12 +786,6 @@ func (o CloudFormationProvisionedProductProvisioningParameterArrayOutput) ToClou
 
 func (o CloudFormationProvisionedProductProvisioningParameterArrayOutput) ToCloudFormationProvisionedProductProvisioningParameterArrayOutputWithContext(ctx context.Context) CloudFormationProvisionedProductProvisioningParameterArrayOutput {
 	return o
-}
-
-func (o CloudFormationProvisionedProductProvisioningParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CloudFormationProvisionedProductProvisioningParameter] {
-	return pulumix.Output[[]CloudFormationProvisionedProductProvisioningParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProvisionedProductProvisioningParameterArrayOutput) Index(i pulumi.IntInput) CloudFormationProvisionedProductProvisioningParameterOutput {
@@ -982,12 +837,6 @@ func (i CloudFormationProvisionedProductProvisioningPreferencesArgs) ToCloudForm
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductProvisioningPreferencesOutput)
 }
 
-func (i CloudFormationProvisionedProductProvisioningPreferencesArgs) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProvisionedProductProvisioningPreferences] {
-	return pulumix.Output[CloudFormationProvisionedProductProvisioningPreferences]{
-		OutputState: i.ToCloudFormationProvisionedProductProvisioningPreferencesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CloudFormationProvisionedProductProvisioningPreferencesArgs) ToCloudFormationProvisionedProductProvisioningPreferencesPtrOutput() CloudFormationProvisionedProductProvisioningPreferencesPtrOutput {
 	return i.ToCloudFormationProvisionedProductProvisioningPreferencesPtrOutputWithContext(context.Background())
 }
@@ -1029,12 +878,6 @@ func (i *cloudFormationProvisionedProductProvisioningPreferencesPtrType) ToCloud
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductProvisioningPreferencesPtrOutput)
 }
 
-func (i *cloudFormationProvisionedProductProvisioningPreferencesPtrType) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProvisionedProductProvisioningPreferences] {
-	return pulumix.Output[*CloudFormationProvisionedProductProvisioningPreferences]{
-		OutputState: i.ToCloudFormationProvisionedProductProvisioningPreferencesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudFormationProvisionedProductProvisioningPreferencesOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProvisionedProductProvisioningPreferencesOutput) ElementType() reflect.Type {
@@ -1057,12 +900,6 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) ToCloudFo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFormationProvisionedProductProvisioningPreferences) *CloudFormationProvisionedProductProvisioningPreferences {
 		return &v
 	}).(CloudFormationProvisionedProductProvisioningPreferencesPtrOutput)
-}
-
-func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProvisionedProductProvisioningPreferences] {
-	return pulumix.Output[CloudFormationProvisionedProductProvisioningPreferences]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetAccounts() pulumi.StringArrayOutput {
@@ -1115,12 +952,6 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) ToClou
 
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) ToCloudFormationProvisionedProductProvisioningPreferencesPtrOutputWithContext(ctx context.Context) CloudFormationProvisionedProductProvisioningPreferencesPtrOutput {
 	return o
-}
-
-func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProvisionedProductProvisioningPreferences] {
-	return pulumix.Output[*CloudFormationProvisionedProductProvisioningPreferences]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) Elem() CloudFormationProvisionedProductProvisioningPreferencesOutput {
@@ -1229,12 +1060,6 @@ func (i CloudFormationProvisionedProductTagArgs) ToCloudFormationProvisionedProd
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductTagOutput)
 }
 
-func (i CloudFormationProvisionedProductTagArgs) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProvisionedProductTag] {
-	return pulumix.Output[CloudFormationProvisionedProductTag]{
-		OutputState: i.ToCloudFormationProvisionedProductTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CloudFormationProvisionedProductTagArrayInput is an input type that accepts CloudFormationProvisionedProductTagArray and CloudFormationProvisionedProductTagArrayOutput values.
 // You can construct a concrete instance of `CloudFormationProvisionedProductTagArrayInput` via:
 //
@@ -1260,12 +1085,6 @@ func (i CloudFormationProvisionedProductTagArray) ToCloudFormationProvisionedPro
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductTagArrayOutput)
 }
 
-func (i CloudFormationProvisionedProductTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CloudFormationProvisionedProductTag] {
-	return pulumix.Output[[]CloudFormationProvisionedProductTag]{
-		OutputState: i.ToCloudFormationProvisionedProductTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudFormationProvisionedProductTagOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProvisionedProductTagOutput) ElementType() reflect.Type {
@@ -1278,12 +1097,6 @@ func (o CloudFormationProvisionedProductTagOutput) ToCloudFormationProvisionedPr
 
 func (o CloudFormationProvisionedProductTagOutput) ToCloudFormationProvisionedProductTagOutputWithContext(ctx context.Context) CloudFormationProvisionedProductTagOutput {
 	return o
-}
-
-func (o CloudFormationProvisionedProductTagOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProvisionedProductTag] {
-	return pulumix.Output[CloudFormationProvisionedProductTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProvisionedProductTagOutput) Key() pulumi.StringOutput {
@@ -1306,12 +1119,6 @@ func (o CloudFormationProvisionedProductTagArrayOutput) ToCloudFormationProvisio
 
 func (o CloudFormationProvisionedProductTagArrayOutput) ToCloudFormationProvisionedProductTagArrayOutputWithContext(ctx context.Context) CloudFormationProvisionedProductTagArrayOutput {
 	return o
-}
-
-func (o CloudFormationProvisionedProductTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CloudFormationProvisionedProductTag] {
-	return pulumix.Output[[]CloudFormationProvisionedProductTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProvisionedProductTagArrayOutput) Index(i pulumi.IntInput) CloudFormationProvisionedProductTagOutput {
@@ -1353,12 +1160,6 @@ func (i PortfolioTagArgs) ToPortfolioTagOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioTagOutput)
 }
 
-func (i PortfolioTagArgs) ToOutput(ctx context.Context) pulumix.Output[PortfolioTag] {
-	return pulumix.Output[PortfolioTag]{
-		OutputState: i.ToPortfolioTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PortfolioTagArrayInput is an input type that accepts PortfolioTagArray and PortfolioTagArrayOutput values.
 // You can construct a concrete instance of `PortfolioTagArrayInput` via:
 //
@@ -1384,12 +1185,6 @@ func (i PortfolioTagArray) ToPortfolioTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioTagArrayOutput)
 }
 
-func (i PortfolioTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PortfolioTag] {
-	return pulumix.Output[[]PortfolioTag]{
-		OutputState: i.ToPortfolioTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PortfolioTagOutput struct{ *pulumi.OutputState }
 
 func (PortfolioTagOutput) ElementType() reflect.Type {
@@ -1402,12 +1197,6 @@ func (o PortfolioTagOutput) ToPortfolioTagOutput() PortfolioTagOutput {
 
 func (o PortfolioTagOutput) ToPortfolioTagOutputWithContext(ctx context.Context) PortfolioTagOutput {
 	return o
-}
-
-func (o PortfolioTagOutput) ToOutput(ctx context.Context) pulumix.Output[PortfolioTag] {
-	return pulumix.Output[PortfolioTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PortfolioTagOutput) Key() pulumi.StringOutput {
@@ -1430,12 +1219,6 @@ func (o PortfolioTagArrayOutput) ToPortfolioTagArrayOutput() PortfolioTagArrayOu
 
 func (o PortfolioTagArrayOutput) ToPortfolioTagArrayOutputWithContext(ctx context.Context) PortfolioTagArrayOutput {
 	return o
-}
-
-func (o PortfolioTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PortfolioTag] {
-	return pulumix.Output[[]PortfolioTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PortfolioTagArrayOutput) Index(i pulumi.IntInput) PortfolioTagOutput {
@@ -1477,12 +1260,6 @@ func (i ServiceActionDefinitionParameterArgs) ToServiceActionDefinitionParameter
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionParameterOutput)
 }
 
-func (i ServiceActionDefinitionParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceActionDefinitionParameter] {
-	return pulumix.Output[ServiceActionDefinitionParameter]{
-		OutputState: i.ToServiceActionDefinitionParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceActionDefinitionParameterArrayInput is an input type that accepts ServiceActionDefinitionParameterArray and ServiceActionDefinitionParameterArrayOutput values.
 // You can construct a concrete instance of `ServiceActionDefinitionParameterArrayInput` via:
 //
@@ -1508,12 +1285,6 @@ func (i ServiceActionDefinitionParameterArray) ToServiceActionDefinitionParamete
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionParameterArrayOutput)
 }
 
-func (i ServiceActionDefinitionParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceActionDefinitionParameter] {
-	return pulumix.Output[[]ServiceActionDefinitionParameter]{
-		OutputState: i.ToServiceActionDefinitionParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceActionDefinitionParameterOutput struct{ *pulumi.OutputState }
 
 func (ServiceActionDefinitionParameterOutput) ElementType() reflect.Type {
@@ -1526,12 +1297,6 @@ func (o ServiceActionDefinitionParameterOutput) ToServiceActionDefinitionParamet
 
 func (o ServiceActionDefinitionParameterOutput) ToServiceActionDefinitionParameterOutputWithContext(ctx context.Context) ServiceActionDefinitionParameterOutput {
 	return o
-}
-
-func (o ServiceActionDefinitionParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceActionDefinitionParameter] {
-	return pulumix.Output[ServiceActionDefinitionParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceActionDefinitionParameterOutput) Key() pulumi.StringOutput {
@@ -1554,12 +1319,6 @@ func (o ServiceActionDefinitionParameterArrayOutput) ToServiceActionDefinitionPa
 
 func (o ServiceActionDefinitionParameterArrayOutput) ToServiceActionDefinitionParameterArrayOutputWithContext(ctx context.Context) ServiceActionDefinitionParameterArrayOutput {
 	return o
-}
-
-func (o ServiceActionDefinitionParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceActionDefinitionParameter] {
-	return pulumix.Output[[]ServiceActionDefinitionParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceActionDefinitionParameterArrayOutput) Index(i pulumi.IntInput) ServiceActionDefinitionParameterOutput {

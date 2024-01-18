@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
@@ -118,12 +117,6 @@ func (i *MitigationAction) ToMitigationActionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionOutput)
 }
 
-func (i *MitigationAction) ToOutput(ctx context.Context) pulumix.Output[*MitigationAction] {
-	return pulumix.Output[*MitigationAction]{
-		OutputState: i.ToMitigationActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MitigationActionOutput struct{ *pulumi.OutputState }
 
 func (MitigationActionOutput) ElementType() reflect.Type {
@@ -136,12 +129,6 @@ func (o MitigationActionOutput) ToMitigationActionOutput() MitigationActionOutpu
 
 func (o MitigationActionOutput) ToMitigationActionOutputWithContext(ctx context.Context) MitigationActionOutput {
 	return o
-}
-
-func (o MitigationActionOutput) ToOutput(ctx context.Context) pulumix.Output[*MitigationAction] {
-	return pulumix.Output[*MitigationAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A unique identifier for the mitigation action.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::EndpointConfig
@@ -65,12 +64,6 @@ func (o LookupEndpointConfigResultOutput) ToLookupEndpointConfigResultOutput() L
 
 func (o LookupEndpointConfigResultOutput) ToLookupEndpointConfigResultOutputWithContext(ctx context.Context) LookupEndpointConfigResultOutput {
 	return o
-}
-
-func (o LookupEndpointConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEndpointConfigResult] {
-	return pulumix.Output[LookupEndpointConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupEndpointConfigResultOutput) Id() pulumi.StringPtrOutput {

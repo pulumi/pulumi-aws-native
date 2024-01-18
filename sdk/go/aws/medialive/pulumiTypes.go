@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -61,12 +60,6 @@ func (i ChannelAacSettingsArgs) ToChannelAacSettingsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAacSettingsOutput)
 }
 
-func (i ChannelAacSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAacSettings] {
-	return pulumix.Output[ChannelAacSettings]{
-		OutputState: i.ToChannelAacSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAacSettingsArgs) ToChannelAacSettingsPtrOutput() ChannelAacSettingsPtrOutput {
 	return i.ToChannelAacSettingsPtrOutputWithContext(context.Background())
 }
@@ -108,12 +101,6 @@ func (i *channelAacSettingsPtrType) ToChannelAacSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAacSettingsPtrOutput)
 }
 
-func (i *channelAacSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAacSettings] {
-	return pulumix.Output[*ChannelAacSettings]{
-		OutputState: i.ToChannelAacSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAacSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAacSettingsOutput) ElementType() reflect.Type {
@@ -136,12 +123,6 @@ func (o ChannelAacSettingsOutput) ToChannelAacSettingsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAacSettings) *ChannelAacSettings {
 		return &v
 	}).(ChannelAacSettingsPtrOutput)
-}
-
-func (o ChannelAacSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAacSettings] {
-	return pulumix.Output[ChannelAacSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAacSettingsOutput) Bitrate() pulumi.Float64PtrOutput {
@@ -192,12 +173,6 @@ func (o ChannelAacSettingsPtrOutput) ToChannelAacSettingsPtrOutput() ChannelAacS
 
 func (o ChannelAacSettingsPtrOutput) ToChannelAacSettingsPtrOutputWithContext(ctx context.Context) ChannelAacSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAacSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAacSettings] {
-	return pulumix.Output[*ChannelAacSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAacSettingsPtrOutput) Elem() ChannelAacSettingsOutput {
@@ -336,12 +311,6 @@ func (i ChannelAc3SettingsArgs) ToChannelAc3SettingsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAc3SettingsOutput)
 }
 
-func (i ChannelAc3SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAc3Settings] {
-	return pulumix.Output[ChannelAc3Settings]{
-		OutputState: i.ToChannelAc3SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAc3SettingsArgs) ToChannelAc3SettingsPtrOutput() ChannelAc3SettingsPtrOutput {
 	return i.ToChannelAc3SettingsPtrOutputWithContext(context.Background())
 }
@@ -383,12 +352,6 @@ func (i *channelAc3SettingsPtrType) ToChannelAc3SettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAc3SettingsPtrOutput)
 }
 
-func (i *channelAc3SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAc3Settings] {
-	return pulumix.Output[*ChannelAc3Settings]{
-		OutputState: i.ToChannelAc3SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAc3SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAc3SettingsOutput) ElementType() reflect.Type {
@@ -411,12 +374,6 @@ func (o ChannelAc3SettingsOutput) ToChannelAc3SettingsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAc3Settings) *ChannelAc3Settings {
 		return &v
 	}).(ChannelAc3SettingsPtrOutput)
-}
-
-func (o ChannelAc3SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAc3Settings] {
-	return pulumix.Output[ChannelAc3Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAc3SettingsOutput) AttenuationControl() pulumi.StringPtrOutput {
@@ -463,12 +420,6 @@ func (o ChannelAc3SettingsPtrOutput) ToChannelAc3SettingsPtrOutput() ChannelAc3S
 
 func (o ChannelAc3SettingsPtrOutput) ToChannelAc3SettingsPtrOutputWithContext(ctx context.Context) ChannelAc3SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAc3SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAc3Settings] {
-	return pulumix.Output[*ChannelAc3Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAc3SettingsPtrOutput) Elem() ChannelAc3SettingsOutput {
@@ -584,12 +535,6 @@ func (i ChannelAncillarySourceSettingsArgs) ToChannelAncillarySourceSettingsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAncillarySourceSettingsOutput)
 }
 
-func (i ChannelAncillarySourceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAncillarySourceSettings] {
-	return pulumix.Output[ChannelAncillarySourceSettings]{
-		OutputState: i.ToChannelAncillarySourceSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAncillarySourceSettingsArgs) ToChannelAncillarySourceSettingsPtrOutput() ChannelAncillarySourceSettingsPtrOutput {
 	return i.ToChannelAncillarySourceSettingsPtrOutputWithContext(context.Background())
 }
@@ -631,12 +576,6 @@ func (i *channelAncillarySourceSettingsPtrType) ToChannelAncillarySourceSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAncillarySourceSettingsPtrOutput)
 }
 
-func (i *channelAncillarySourceSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAncillarySourceSettings] {
-	return pulumix.Output[*ChannelAncillarySourceSettings]{
-		OutputState: i.ToChannelAncillarySourceSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAncillarySourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAncillarySourceSettingsOutput) ElementType() reflect.Type {
@@ -661,12 +600,6 @@ func (o ChannelAncillarySourceSettingsOutput) ToChannelAncillarySourceSettingsPt
 	}).(ChannelAncillarySourceSettingsPtrOutput)
 }
 
-func (o ChannelAncillarySourceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAncillarySourceSettings] {
-	return pulumix.Output[ChannelAncillarySourceSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAncillarySourceSettingsOutput) SourceAncillaryChannelNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelAncillarySourceSettings) *int { return v.SourceAncillaryChannelNumber }).(pulumi.IntPtrOutput)
 }
@@ -683,12 +616,6 @@ func (o ChannelAncillarySourceSettingsPtrOutput) ToChannelAncillarySourceSetting
 
 func (o ChannelAncillarySourceSettingsPtrOutput) ToChannelAncillarySourceSettingsPtrOutputWithContext(ctx context.Context) ChannelAncillarySourceSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAncillarySourceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAncillarySourceSettings] {
-	return pulumix.Output[*ChannelAncillarySourceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAncillarySourceSettingsPtrOutput) Elem() ChannelAncillarySourceSettingsOutput {
@@ -741,12 +668,6 @@ func (i ChannelArchiveCdnSettingsArgs) ToChannelArchiveCdnSettingsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelArchiveCdnSettingsOutput)
 }
 
-func (i ChannelArchiveCdnSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelArchiveCdnSettings] {
-	return pulumix.Output[ChannelArchiveCdnSettings]{
-		OutputState: i.ToChannelArchiveCdnSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelArchiveCdnSettingsArgs) ToChannelArchiveCdnSettingsPtrOutput() ChannelArchiveCdnSettingsPtrOutput {
 	return i.ToChannelArchiveCdnSettingsPtrOutputWithContext(context.Background())
 }
@@ -788,12 +709,6 @@ func (i *channelArchiveCdnSettingsPtrType) ToChannelArchiveCdnSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelArchiveCdnSettingsPtrOutput)
 }
 
-func (i *channelArchiveCdnSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelArchiveCdnSettings] {
-	return pulumix.Output[*ChannelArchiveCdnSettings]{
-		OutputState: i.ToChannelArchiveCdnSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelArchiveCdnSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelArchiveCdnSettingsOutput) ElementType() reflect.Type {
@@ -818,12 +733,6 @@ func (o ChannelArchiveCdnSettingsOutput) ToChannelArchiveCdnSettingsPtrOutputWit
 	}).(ChannelArchiveCdnSettingsPtrOutput)
 }
 
-func (o ChannelArchiveCdnSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelArchiveCdnSettings] {
-	return pulumix.Output[ChannelArchiveCdnSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelArchiveCdnSettingsOutput) ArchiveS3Settings() ChannelArchiveS3SettingsPtrOutput {
 	return o.ApplyT(func(v ChannelArchiveCdnSettings) *ChannelArchiveS3Settings { return v.ArchiveS3Settings }).(ChannelArchiveS3SettingsPtrOutput)
 }
@@ -840,12 +749,6 @@ func (o ChannelArchiveCdnSettingsPtrOutput) ToChannelArchiveCdnSettingsPtrOutput
 
 func (o ChannelArchiveCdnSettingsPtrOutput) ToChannelArchiveCdnSettingsPtrOutputWithContext(ctx context.Context) ChannelArchiveCdnSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelArchiveCdnSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelArchiveCdnSettings] {
-	return pulumix.Output[*ChannelArchiveCdnSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelArchiveCdnSettingsPtrOutput) Elem() ChannelArchiveCdnSettingsOutput {
@@ -900,12 +803,6 @@ func (i ChannelArchiveContainerSettingsArgs) ToChannelArchiveContainerSettingsOu
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelArchiveContainerSettingsOutput)
 }
 
-func (i ChannelArchiveContainerSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelArchiveContainerSettings] {
-	return pulumix.Output[ChannelArchiveContainerSettings]{
-		OutputState: i.ToChannelArchiveContainerSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelArchiveContainerSettingsArgs) ToChannelArchiveContainerSettingsPtrOutput() ChannelArchiveContainerSettingsPtrOutput {
 	return i.ToChannelArchiveContainerSettingsPtrOutputWithContext(context.Background())
 }
@@ -947,12 +844,6 @@ func (i *channelArchiveContainerSettingsPtrType) ToChannelArchiveContainerSettin
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelArchiveContainerSettingsPtrOutput)
 }
 
-func (i *channelArchiveContainerSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelArchiveContainerSettings] {
-	return pulumix.Output[*ChannelArchiveContainerSettings]{
-		OutputState: i.ToChannelArchiveContainerSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelArchiveContainerSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelArchiveContainerSettingsOutput) ElementType() reflect.Type {
@@ -977,12 +868,6 @@ func (o ChannelArchiveContainerSettingsOutput) ToChannelArchiveContainerSettings
 	}).(ChannelArchiveContainerSettingsPtrOutput)
 }
 
-func (o ChannelArchiveContainerSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelArchiveContainerSettings] {
-	return pulumix.Output[ChannelArchiveContainerSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelArchiveContainerSettingsOutput) M2tsSettings() ChannelM2tsSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelArchiveContainerSettings) *ChannelM2tsSettings { return v.M2tsSettings }).(ChannelM2tsSettingsPtrOutput)
 }
@@ -1003,12 +888,6 @@ func (o ChannelArchiveContainerSettingsPtrOutput) ToChannelArchiveContainerSetti
 
 func (o ChannelArchiveContainerSettingsPtrOutput) ToChannelArchiveContainerSettingsPtrOutputWithContext(ctx context.Context) ChannelArchiveContainerSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelArchiveContainerSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelArchiveContainerSettings] {
-	return pulumix.Output[*ChannelArchiveContainerSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelArchiveContainerSettingsPtrOutput) Elem() ChannelArchiveContainerSettingsOutput {
@@ -1074,12 +953,6 @@ func (i ChannelArchiveGroupSettingsArgs) ToChannelArchiveGroupSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelArchiveGroupSettingsOutput)
 }
 
-func (i ChannelArchiveGroupSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelArchiveGroupSettings] {
-	return pulumix.Output[ChannelArchiveGroupSettings]{
-		OutputState: i.ToChannelArchiveGroupSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelArchiveGroupSettingsArgs) ToChannelArchiveGroupSettingsPtrOutput() ChannelArchiveGroupSettingsPtrOutput {
 	return i.ToChannelArchiveGroupSettingsPtrOutputWithContext(context.Background())
 }
@@ -1121,12 +994,6 @@ func (i *channelArchiveGroupSettingsPtrType) ToChannelArchiveGroupSettingsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelArchiveGroupSettingsPtrOutput)
 }
 
-func (i *channelArchiveGroupSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelArchiveGroupSettings] {
-	return pulumix.Output[*ChannelArchiveGroupSettings]{
-		OutputState: i.ToChannelArchiveGroupSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelArchiveGroupSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelArchiveGroupSettingsOutput) ElementType() reflect.Type {
@@ -1149,12 +1016,6 @@ func (o ChannelArchiveGroupSettingsOutput) ToChannelArchiveGroupSettingsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelArchiveGroupSettings) *ChannelArchiveGroupSettings {
 		return &v
 	}).(ChannelArchiveGroupSettingsPtrOutput)
-}
-
-func (o ChannelArchiveGroupSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelArchiveGroupSettings] {
-	return pulumix.Output[ChannelArchiveGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelArchiveGroupSettingsOutput) ArchiveCdnSettings() ChannelArchiveCdnSettingsPtrOutput {
@@ -1181,12 +1042,6 @@ func (o ChannelArchiveGroupSettingsPtrOutput) ToChannelArchiveGroupSettingsPtrOu
 
 func (o ChannelArchiveGroupSettingsPtrOutput) ToChannelArchiveGroupSettingsPtrOutputWithContext(ctx context.Context) ChannelArchiveGroupSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelArchiveGroupSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelArchiveGroupSettings] {
-	return pulumix.Output[*ChannelArchiveGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelArchiveGroupSettingsPtrOutput) Elem() ChannelArchiveGroupSettingsOutput {
@@ -1261,12 +1116,6 @@ func (i ChannelArchiveOutputSettingsArgs) ToChannelArchiveOutputSettingsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelArchiveOutputSettingsOutput)
 }
 
-func (i ChannelArchiveOutputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelArchiveOutputSettings] {
-	return pulumix.Output[ChannelArchiveOutputSettings]{
-		OutputState: i.ToChannelArchiveOutputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelArchiveOutputSettingsArgs) ToChannelArchiveOutputSettingsPtrOutput() ChannelArchiveOutputSettingsPtrOutput {
 	return i.ToChannelArchiveOutputSettingsPtrOutputWithContext(context.Background())
 }
@@ -1308,12 +1157,6 @@ func (i *channelArchiveOutputSettingsPtrType) ToChannelArchiveOutputSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelArchiveOutputSettingsPtrOutput)
 }
 
-func (i *channelArchiveOutputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelArchiveOutputSettings] {
-	return pulumix.Output[*ChannelArchiveOutputSettings]{
-		OutputState: i.ToChannelArchiveOutputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelArchiveOutputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelArchiveOutputSettingsOutput) ElementType() reflect.Type {
@@ -1336,12 +1179,6 @@ func (o ChannelArchiveOutputSettingsOutput) ToChannelArchiveOutputSettingsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelArchiveOutputSettings) *ChannelArchiveOutputSettings {
 		return &v
 	}).(ChannelArchiveOutputSettingsPtrOutput)
-}
-
-func (o ChannelArchiveOutputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelArchiveOutputSettings] {
-	return pulumix.Output[ChannelArchiveOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelArchiveOutputSettingsOutput) ContainerSettings() ChannelArchiveContainerSettingsPtrOutput {
@@ -1368,12 +1205,6 @@ func (o ChannelArchiveOutputSettingsPtrOutput) ToChannelArchiveOutputSettingsPtr
 
 func (o ChannelArchiveOutputSettingsPtrOutput) ToChannelArchiveOutputSettingsPtrOutputWithContext(ctx context.Context) ChannelArchiveOutputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelArchiveOutputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelArchiveOutputSettings] {
-	return pulumix.Output[*ChannelArchiveOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelArchiveOutputSettingsPtrOutput) Elem() ChannelArchiveOutputSettingsOutput {
@@ -1444,12 +1275,6 @@ func (i ChannelArchiveS3SettingsArgs) ToChannelArchiveS3SettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelArchiveS3SettingsOutput)
 }
 
-func (i ChannelArchiveS3SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelArchiveS3Settings] {
-	return pulumix.Output[ChannelArchiveS3Settings]{
-		OutputState: i.ToChannelArchiveS3SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelArchiveS3SettingsArgs) ToChannelArchiveS3SettingsPtrOutput() ChannelArchiveS3SettingsPtrOutput {
 	return i.ToChannelArchiveS3SettingsPtrOutputWithContext(context.Background())
 }
@@ -1491,12 +1316,6 @@ func (i *channelArchiveS3SettingsPtrType) ToChannelArchiveS3SettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelArchiveS3SettingsPtrOutput)
 }
 
-func (i *channelArchiveS3SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelArchiveS3Settings] {
-	return pulumix.Output[*ChannelArchiveS3Settings]{
-		OutputState: i.ToChannelArchiveS3SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelArchiveS3SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelArchiveS3SettingsOutput) ElementType() reflect.Type {
@@ -1521,12 +1340,6 @@ func (o ChannelArchiveS3SettingsOutput) ToChannelArchiveS3SettingsPtrOutputWithC
 	}).(ChannelArchiveS3SettingsPtrOutput)
 }
 
-func (o ChannelArchiveS3SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelArchiveS3Settings] {
-	return pulumix.Output[ChannelArchiveS3Settings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelArchiveS3SettingsOutput) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelArchiveS3Settings) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
 }
@@ -1543,12 +1356,6 @@ func (o ChannelArchiveS3SettingsPtrOutput) ToChannelArchiveS3SettingsPtrOutput()
 
 func (o ChannelArchiveS3SettingsPtrOutput) ToChannelArchiveS3SettingsPtrOutputWithContext(ctx context.Context) ChannelArchiveS3SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelArchiveS3SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelArchiveS3Settings] {
-	return pulumix.Output[*ChannelArchiveS3Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelArchiveS3SettingsPtrOutput) Elem() ChannelArchiveS3SettingsOutput {
@@ -1599,12 +1406,6 @@ func (i ChannelAribDestinationSettingsArgs) ToChannelAribDestinationSettingsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAribDestinationSettingsOutput)
 }
 
-func (i ChannelAribDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAribDestinationSettings] {
-	return pulumix.Output[ChannelAribDestinationSettings]{
-		OutputState: i.ToChannelAribDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAribDestinationSettingsArgs) ToChannelAribDestinationSettingsPtrOutput() ChannelAribDestinationSettingsPtrOutput {
 	return i.ToChannelAribDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -1646,12 +1447,6 @@ func (i *channelAribDestinationSettingsPtrType) ToChannelAribDestinationSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAribDestinationSettingsPtrOutput)
 }
 
-func (i *channelAribDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAribDestinationSettings] {
-	return pulumix.Output[*ChannelAribDestinationSettings]{
-		OutputState: i.ToChannelAribDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAribDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAribDestinationSettingsOutput) ElementType() reflect.Type {
@@ -1676,12 +1471,6 @@ func (o ChannelAribDestinationSettingsOutput) ToChannelAribDestinationSettingsPt
 	}).(ChannelAribDestinationSettingsPtrOutput)
 }
 
-func (o ChannelAribDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAribDestinationSettings] {
-	return pulumix.Output[ChannelAribDestinationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelAribDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelAribDestinationSettingsPtrOutput) ElementType() reflect.Type {
@@ -1694,12 +1483,6 @@ func (o ChannelAribDestinationSettingsPtrOutput) ToChannelAribDestinationSetting
 
 func (o ChannelAribDestinationSettingsPtrOutput) ToChannelAribDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelAribDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAribDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAribDestinationSettings] {
-	return pulumix.Output[*ChannelAribDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAribDestinationSettingsPtrOutput) Elem() ChannelAribDestinationSettingsOutput {
@@ -1739,12 +1522,6 @@ func (i ChannelAribSourceSettingsArgs) ToChannelAribSourceSettingsOutput() Chann
 
 func (i ChannelAribSourceSettingsArgs) ToChannelAribSourceSettingsOutputWithContext(ctx context.Context) ChannelAribSourceSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAribSourceSettingsOutput)
-}
-
-func (i ChannelAribSourceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAribSourceSettings] {
-	return pulumix.Output[ChannelAribSourceSettings]{
-		OutputState: i.ToChannelAribSourceSettingsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ChannelAribSourceSettingsArgs) ToChannelAribSourceSettingsPtrOutput() ChannelAribSourceSettingsPtrOutput {
@@ -1788,12 +1565,6 @@ func (i *channelAribSourceSettingsPtrType) ToChannelAribSourceSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAribSourceSettingsPtrOutput)
 }
 
-func (i *channelAribSourceSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAribSourceSettings] {
-	return pulumix.Output[*ChannelAribSourceSettings]{
-		OutputState: i.ToChannelAribSourceSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAribSourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAribSourceSettingsOutput) ElementType() reflect.Type {
@@ -1818,12 +1589,6 @@ func (o ChannelAribSourceSettingsOutput) ToChannelAribSourceSettingsPtrOutputWit
 	}).(ChannelAribSourceSettingsPtrOutput)
 }
 
-func (o ChannelAribSourceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAribSourceSettings] {
-	return pulumix.Output[ChannelAribSourceSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelAribSourceSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelAribSourceSettingsPtrOutput) ElementType() reflect.Type {
@@ -1836,12 +1601,6 @@ func (o ChannelAribSourceSettingsPtrOutput) ToChannelAribSourceSettingsPtrOutput
 
 func (o ChannelAribSourceSettingsPtrOutput) ToChannelAribSourceSettingsPtrOutputWithContext(ctx context.Context) ChannelAribSourceSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAribSourceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAribSourceSettings] {
-	return pulumix.Output[*ChannelAribSourceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAribSourceSettingsPtrOutput) Elem() ChannelAribSourceSettingsOutput {
@@ -1887,12 +1646,6 @@ func (i ChannelAudioChannelMappingArgs) ToChannelAudioChannelMappingOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioChannelMappingOutput)
 }
 
-func (i ChannelAudioChannelMappingArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioChannelMapping] {
-	return pulumix.Output[ChannelAudioChannelMapping]{
-		OutputState: i.ToChannelAudioChannelMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelAudioChannelMappingArrayInput is an input type that accepts ChannelAudioChannelMappingArray and ChannelAudioChannelMappingArrayOutput values.
 // You can construct a concrete instance of `ChannelAudioChannelMappingArrayInput` via:
 //
@@ -1918,12 +1671,6 @@ func (i ChannelAudioChannelMappingArray) ToChannelAudioChannelMappingArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioChannelMappingArrayOutput)
 }
 
-func (i ChannelAudioChannelMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelAudioChannelMapping] {
-	return pulumix.Output[[]ChannelAudioChannelMapping]{
-		OutputState: i.ToChannelAudioChannelMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioChannelMappingOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioChannelMappingOutput) ElementType() reflect.Type {
@@ -1936,12 +1683,6 @@ func (o ChannelAudioChannelMappingOutput) ToChannelAudioChannelMappingOutput() C
 
 func (o ChannelAudioChannelMappingOutput) ToChannelAudioChannelMappingOutputWithContext(ctx context.Context) ChannelAudioChannelMappingOutput {
 	return o
-}
-
-func (o ChannelAudioChannelMappingOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioChannelMapping] {
-	return pulumix.Output[ChannelAudioChannelMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioChannelMappingOutput) InputChannelLevels() ChannelInputChannelLevelArrayOutput {
@@ -1964,12 +1705,6 @@ func (o ChannelAudioChannelMappingArrayOutput) ToChannelAudioChannelMappingArray
 
 func (o ChannelAudioChannelMappingArrayOutput) ToChannelAudioChannelMappingArrayOutputWithContext(ctx context.Context) ChannelAudioChannelMappingArrayOutput {
 	return o
-}
-
-func (o ChannelAudioChannelMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelAudioChannelMapping] {
-	return pulumix.Output[[]ChannelAudioChannelMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioChannelMappingArrayOutput) Index(i pulumi.IntInput) ChannelAudioChannelMappingOutput {
@@ -2021,12 +1756,6 @@ func (i ChannelAudioCodecSettingsArgs) ToChannelAudioCodecSettingsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioCodecSettingsOutput)
 }
 
-func (i ChannelAudioCodecSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioCodecSettings] {
-	return pulumix.Output[ChannelAudioCodecSettings]{
-		OutputState: i.ToChannelAudioCodecSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAudioCodecSettingsArgs) ToChannelAudioCodecSettingsPtrOutput() ChannelAudioCodecSettingsPtrOutput {
 	return i.ToChannelAudioCodecSettingsPtrOutputWithContext(context.Background())
 }
@@ -2068,12 +1797,6 @@ func (i *channelAudioCodecSettingsPtrType) ToChannelAudioCodecSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioCodecSettingsPtrOutput)
 }
 
-func (i *channelAudioCodecSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioCodecSettings] {
-	return pulumix.Output[*ChannelAudioCodecSettings]{
-		OutputState: i.ToChannelAudioCodecSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioCodecSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioCodecSettingsOutput) ElementType() reflect.Type {
@@ -2096,12 +1819,6 @@ func (o ChannelAudioCodecSettingsOutput) ToChannelAudioCodecSettingsPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAudioCodecSettings) *ChannelAudioCodecSettings {
 		return &v
 	}).(ChannelAudioCodecSettingsPtrOutput)
-}
-
-func (o ChannelAudioCodecSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioCodecSettings] {
-	return pulumix.Output[ChannelAudioCodecSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioCodecSettingsOutput) AacSettings() ChannelAacSettingsPtrOutput {
@@ -2144,12 +1861,6 @@ func (o ChannelAudioCodecSettingsPtrOutput) ToChannelAudioCodecSettingsPtrOutput
 
 func (o ChannelAudioCodecSettingsPtrOutput) ToChannelAudioCodecSettingsPtrOutputWithContext(ctx context.Context) ChannelAudioCodecSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAudioCodecSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioCodecSettings] {
-	return pulumix.Output[*ChannelAudioCodecSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioCodecSettingsPtrOutput) Elem() ChannelAudioCodecSettingsOutput {
@@ -2276,12 +1987,6 @@ func (i ChannelAudioDescriptionArgs) ToChannelAudioDescriptionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioDescriptionOutput)
 }
 
-func (i ChannelAudioDescriptionArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioDescription] {
-	return pulumix.Output[ChannelAudioDescription]{
-		OutputState: i.ToChannelAudioDescriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelAudioDescriptionArrayInput is an input type that accepts ChannelAudioDescriptionArray and ChannelAudioDescriptionArrayOutput values.
 // You can construct a concrete instance of `ChannelAudioDescriptionArrayInput` via:
 //
@@ -2307,12 +2012,6 @@ func (i ChannelAudioDescriptionArray) ToChannelAudioDescriptionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioDescriptionArrayOutput)
 }
 
-func (i ChannelAudioDescriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelAudioDescription] {
-	return pulumix.Output[[]ChannelAudioDescription]{
-		OutputState: i.ToChannelAudioDescriptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioDescriptionOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioDescriptionOutput) ElementType() reflect.Type {
@@ -2325,12 +2024,6 @@ func (o ChannelAudioDescriptionOutput) ToChannelAudioDescriptionOutput() Channel
 
 func (o ChannelAudioDescriptionOutput) ToChannelAudioDescriptionOutputWithContext(ctx context.Context) ChannelAudioDescriptionOutput {
 	return o
-}
-
-func (o ChannelAudioDescriptionOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioDescription] {
-	return pulumix.Output[ChannelAudioDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioDescriptionOutput) AudioNormalizationSettings() ChannelAudioNormalizationSettingsPtrOutput {
@@ -2393,12 +2086,6 @@ func (o ChannelAudioDescriptionArrayOutput) ToChannelAudioDescriptionArrayOutput
 	return o
 }
 
-func (o ChannelAudioDescriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelAudioDescription] {
-	return pulumix.Output[[]ChannelAudioDescription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAudioDescriptionArrayOutput) Index(i pulumi.IntInput) ChannelAudioDescriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelAudioDescription {
 		return vs[0].([]ChannelAudioDescription)[vs[1].(int)]
@@ -2434,12 +2121,6 @@ func (i ChannelAudioDolbyEDecodeArgs) ToChannelAudioDolbyEDecodeOutput() Channel
 
 func (i ChannelAudioDolbyEDecodeArgs) ToChannelAudioDolbyEDecodeOutputWithContext(ctx context.Context) ChannelAudioDolbyEDecodeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioDolbyEDecodeOutput)
-}
-
-func (i ChannelAudioDolbyEDecodeArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioDolbyEDecode] {
-	return pulumix.Output[ChannelAudioDolbyEDecode]{
-		OutputState: i.ToChannelAudioDolbyEDecodeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ChannelAudioDolbyEDecodeArgs) ToChannelAudioDolbyEDecodePtrOutput() ChannelAudioDolbyEDecodePtrOutput {
@@ -2483,12 +2164,6 @@ func (i *channelAudioDolbyEDecodePtrType) ToChannelAudioDolbyEDecodePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioDolbyEDecodePtrOutput)
 }
 
-func (i *channelAudioDolbyEDecodePtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioDolbyEDecode] {
-	return pulumix.Output[*ChannelAudioDolbyEDecode]{
-		OutputState: i.ToChannelAudioDolbyEDecodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioDolbyEDecodeOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioDolbyEDecodeOutput) ElementType() reflect.Type {
@@ -2513,12 +2188,6 @@ func (o ChannelAudioDolbyEDecodeOutput) ToChannelAudioDolbyEDecodePtrOutputWithC
 	}).(ChannelAudioDolbyEDecodePtrOutput)
 }
 
-func (o ChannelAudioDolbyEDecodeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioDolbyEDecode] {
-	return pulumix.Output[ChannelAudioDolbyEDecode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAudioDolbyEDecodeOutput) ProgramSelection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelAudioDolbyEDecode) *string { return v.ProgramSelection }).(pulumi.StringPtrOutput)
 }
@@ -2535,12 +2204,6 @@ func (o ChannelAudioDolbyEDecodePtrOutput) ToChannelAudioDolbyEDecodePtrOutput()
 
 func (o ChannelAudioDolbyEDecodePtrOutput) ToChannelAudioDolbyEDecodePtrOutputWithContext(ctx context.Context) ChannelAudioDolbyEDecodePtrOutput {
 	return o
-}
-
-func (o ChannelAudioDolbyEDecodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioDolbyEDecode] {
-	return pulumix.Output[*ChannelAudioDolbyEDecode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioDolbyEDecodePtrOutput) Elem() ChannelAudioDolbyEDecodeOutput {
@@ -2595,12 +2258,6 @@ func (i ChannelAudioHlsRenditionSelectionArgs) ToChannelAudioHlsRenditionSelecti
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioHlsRenditionSelectionOutput)
 }
 
-func (i ChannelAudioHlsRenditionSelectionArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioHlsRenditionSelection] {
-	return pulumix.Output[ChannelAudioHlsRenditionSelection]{
-		OutputState: i.ToChannelAudioHlsRenditionSelectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAudioHlsRenditionSelectionArgs) ToChannelAudioHlsRenditionSelectionPtrOutput() ChannelAudioHlsRenditionSelectionPtrOutput {
 	return i.ToChannelAudioHlsRenditionSelectionPtrOutputWithContext(context.Background())
 }
@@ -2642,12 +2299,6 @@ func (i *channelAudioHlsRenditionSelectionPtrType) ToChannelAudioHlsRenditionSel
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioHlsRenditionSelectionPtrOutput)
 }
 
-func (i *channelAudioHlsRenditionSelectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioHlsRenditionSelection] {
-	return pulumix.Output[*ChannelAudioHlsRenditionSelection]{
-		OutputState: i.ToChannelAudioHlsRenditionSelectionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioHlsRenditionSelectionOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioHlsRenditionSelectionOutput) ElementType() reflect.Type {
@@ -2672,12 +2323,6 @@ func (o ChannelAudioHlsRenditionSelectionOutput) ToChannelAudioHlsRenditionSelec
 	}).(ChannelAudioHlsRenditionSelectionPtrOutput)
 }
 
-func (o ChannelAudioHlsRenditionSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioHlsRenditionSelection] {
-	return pulumix.Output[ChannelAudioHlsRenditionSelection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAudioHlsRenditionSelectionOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelAudioHlsRenditionSelection) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
@@ -2698,12 +2343,6 @@ func (o ChannelAudioHlsRenditionSelectionPtrOutput) ToChannelAudioHlsRenditionSe
 
 func (o ChannelAudioHlsRenditionSelectionPtrOutput) ToChannelAudioHlsRenditionSelectionPtrOutputWithContext(ctx context.Context) ChannelAudioHlsRenditionSelectionPtrOutput {
 	return o
-}
-
-func (o ChannelAudioHlsRenditionSelectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioHlsRenditionSelection] {
-	return pulumix.Output[*ChannelAudioHlsRenditionSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioHlsRenditionSelectionPtrOutput) Elem() ChannelAudioHlsRenditionSelectionOutput {
@@ -2767,12 +2406,6 @@ func (i ChannelAudioLanguageSelectionArgs) ToChannelAudioLanguageSelectionOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioLanguageSelectionOutput)
 }
 
-func (i ChannelAudioLanguageSelectionArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioLanguageSelection] {
-	return pulumix.Output[ChannelAudioLanguageSelection]{
-		OutputState: i.ToChannelAudioLanguageSelectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAudioLanguageSelectionArgs) ToChannelAudioLanguageSelectionPtrOutput() ChannelAudioLanguageSelectionPtrOutput {
 	return i.ToChannelAudioLanguageSelectionPtrOutputWithContext(context.Background())
 }
@@ -2814,12 +2447,6 @@ func (i *channelAudioLanguageSelectionPtrType) ToChannelAudioLanguageSelectionPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioLanguageSelectionPtrOutput)
 }
 
-func (i *channelAudioLanguageSelectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioLanguageSelection] {
-	return pulumix.Output[*ChannelAudioLanguageSelection]{
-		OutputState: i.ToChannelAudioLanguageSelectionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioLanguageSelectionOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioLanguageSelectionOutput) ElementType() reflect.Type {
@@ -2844,12 +2471,6 @@ func (o ChannelAudioLanguageSelectionOutput) ToChannelAudioLanguageSelectionPtrO
 	}).(ChannelAudioLanguageSelectionPtrOutput)
 }
 
-func (o ChannelAudioLanguageSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioLanguageSelection] {
-	return pulumix.Output[ChannelAudioLanguageSelection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAudioLanguageSelectionOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelAudioLanguageSelection) *string { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
@@ -2870,12 +2491,6 @@ func (o ChannelAudioLanguageSelectionPtrOutput) ToChannelAudioLanguageSelectionP
 
 func (o ChannelAudioLanguageSelectionPtrOutput) ToChannelAudioLanguageSelectionPtrOutputWithContext(ctx context.Context) ChannelAudioLanguageSelectionPtrOutput {
 	return o
-}
-
-func (o ChannelAudioLanguageSelectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioLanguageSelection] {
-	return pulumix.Output[*ChannelAudioLanguageSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioLanguageSelectionPtrOutput) Elem() ChannelAudioLanguageSelectionOutput {
@@ -2941,12 +2556,6 @@ func (i ChannelAudioNormalizationSettingsArgs) ToChannelAudioNormalizationSettin
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioNormalizationSettingsOutput)
 }
 
-func (i ChannelAudioNormalizationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioNormalizationSettings] {
-	return pulumix.Output[ChannelAudioNormalizationSettings]{
-		OutputState: i.ToChannelAudioNormalizationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAudioNormalizationSettingsArgs) ToChannelAudioNormalizationSettingsPtrOutput() ChannelAudioNormalizationSettingsPtrOutput {
 	return i.ToChannelAudioNormalizationSettingsPtrOutputWithContext(context.Background())
 }
@@ -2988,12 +2597,6 @@ func (i *channelAudioNormalizationSettingsPtrType) ToChannelAudioNormalizationSe
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioNormalizationSettingsPtrOutput)
 }
 
-func (i *channelAudioNormalizationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioNormalizationSettings] {
-	return pulumix.Output[*ChannelAudioNormalizationSettings]{
-		OutputState: i.ToChannelAudioNormalizationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioNormalizationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioNormalizationSettingsOutput) ElementType() reflect.Type {
@@ -3016,12 +2619,6 @@ func (o ChannelAudioNormalizationSettingsOutput) ToChannelAudioNormalizationSett
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAudioNormalizationSettings) *ChannelAudioNormalizationSettings {
 		return &v
 	}).(ChannelAudioNormalizationSettingsPtrOutput)
-}
-
-func (o ChannelAudioNormalizationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioNormalizationSettings] {
-	return pulumix.Output[ChannelAudioNormalizationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioNormalizationSettingsOutput) Algorithm() pulumi.StringPtrOutput {
@@ -3048,12 +2645,6 @@ func (o ChannelAudioNormalizationSettingsPtrOutput) ToChannelAudioNormalizationS
 
 func (o ChannelAudioNormalizationSettingsPtrOutput) ToChannelAudioNormalizationSettingsPtrOutputWithContext(ctx context.Context) ChannelAudioNormalizationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAudioNormalizationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioNormalizationSettings] {
-	return pulumix.Output[*ChannelAudioNormalizationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioNormalizationSettingsPtrOutput) Elem() ChannelAudioNormalizationSettingsOutput {
@@ -3130,12 +2721,6 @@ func (i ChannelAudioOnlyHlsSettingsArgs) ToChannelAudioOnlyHlsSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioOnlyHlsSettingsOutput)
 }
 
-func (i ChannelAudioOnlyHlsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioOnlyHlsSettings] {
-	return pulumix.Output[ChannelAudioOnlyHlsSettings]{
-		OutputState: i.ToChannelAudioOnlyHlsSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAudioOnlyHlsSettingsArgs) ToChannelAudioOnlyHlsSettingsPtrOutput() ChannelAudioOnlyHlsSettingsPtrOutput {
 	return i.ToChannelAudioOnlyHlsSettingsPtrOutputWithContext(context.Background())
 }
@@ -3177,12 +2762,6 @@ func (i *channelAudioOnlyHlsSettingsPtrType) ToChannelAudioOnlyHlsSettingsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioOnlyHlsSettingsPtrOutput)
 }
 
-func (i *channelAudioOnlyHlsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioOnlyHlsSettings] {
-	return pulumix.Output[*ChannelAudioOnlyHlsSettings]{
-		OutputState: i.ToChannelAudioOnlyHlsSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioOnlyHlsSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioOnlyHlsSettingsOutput) ElementType() reflect.Type {
@@ -3205,12 +2784,6 @@ func (o ChannelAudioOnlyHlsSettingsOutput) ToChannelAudioOnlyHlsSettingsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAudioOnlyHlsSettings) *ChannelAudioOnlyHlsSettings {
 		return &v
 	}).(ChannelAudioOnlyHlsSettingsPtrOutput)
-}
-
-func (o ChannelAudioOnlyHlsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioOnlyHlsSettings] {
-	return pulumix.Output[ChannelAudioOnlyHlsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioOnlyHlsSettingsOutput) AudioGroupId() pulumi.StringPtrOutput {
@@ -3241,12 +2814,6 @@ func (o ChannelAudioOnlyHlsSettingsPtrOutput) ToChannelAudioOnlyHlsSettingsPtrOu
 
 func (o ChannelAudioOnlyHlsSettingsPtrOutput) ToChannelAudioOnlyHlsSettingsPtrOutputWithContext(ctx context.Context) ChannelAudioOnlyHlsSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAudioOnlyHlsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioOnlyHlsSettings] {
-	return pulumix.Output[*ChannelAudioOnlyHlsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioOnlyHlsSettingsPtrOutput) Elem() ChannelAudioOnlyHlsSettingsOutput {
@@ -3326,12 +2893,6 @@ func (i ChannelAudioPidSelectionArgs) ToChannelAudioPidSelectionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioPidSelectionOutput)
 }
 
-func (i ChannelAudioPidSelectionArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioPidSelection] {
-	return pulumix.Output[ChannelAudioPidSelection]{
-		OutputState: i.ToChannelAudioPidSelectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAudioPidSelectionArgs) ToChannelAudioPidSelectionPtrOutput() ChannelAudioPidSelectionPtrOutput {
 	return i.ToChannelAudioPidSelectionPtrOutputWithContext(context.Background())
 }
@@ -3373,12 +2934,6 @@ func (i *channelAudioPidSelectionPtrType) ToChannelAudioPidSelectionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioPidSelectionPtrOutput)
 }
 
-func (i *channelAudioPidSelectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioPidSelection] {
-	return pulumix.Output[*ChannelAudioPidSelection]{
-		OutputState: i.ToChannelAudioPidSelectionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioPidSelectionOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioPidSelectionOutput) ElementType() reflect.Type {
@@ -3403,12 +2958,6 @@ func (o ChannelAudioPidSelectionOutput) ToChannelAudioPidSelectionPtrOutputWithC
 	}).(ChannelAudioPidSelectionPtrOutput)
 }
 
-func (o ChannelAudioPidSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioPidSelection] {
-	return pulumix.Output[ChannelAudioPidSelection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAudioPidSelectionOutput) Pid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelAudioPidSelection) *int { return v.Pid }).(pulumi.IntPtrOutput)
 }
@@ -3425,12 +2974,6 @@ func (o ChannelAudioPidSelectionPtrOutput) ToChannelAudioPidSelectionPtrOutput()
 
 func (o ChannelAudioPidSelectionPtrOutput) ToChannelAudioPidSelectionPtrOutputWithContext(ctx context.Context) ChannelAudioPidSelectionPtrOutput {
 	return o
-}
-
-func (o ChannelAudioPidSelectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioPidSelection] {
-	return pulumix.Output[*ChannelAudioPidSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioPidSelectionPtrOutput) Elem() ChannelAudioPidSelectionOutput {
@@ -3485,12 +3028,6 @@ func (i ChannelAudioSelectorArgs) ToChannelAudioSelectorOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioSelectorOutput)
 }
 
-func (i ChannelAudioSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioSelector] {
-	return pulumix.Output[ChannelAudioSelector]{
-		OutputState: i.ToChannelAudioSelectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelAudioSelectorArrayInput is an input type that accepts ChannelAudioSelectorArray and ChannelAudioSelectorArrayOutput values.
 // You can construct a concrete instance of `ChannelAudioSelectorArrayInput` via:
 //
@@ -3516,12 +3053,6 @@ func (i ChannelAudioSelectorArray) ToChannelAudioSelectorArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioSelectorArrayOutput)
 }
 
-func (i ChannelAudioSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelAudioSelector] {
-	return pulumix.Output[[]ChannelAudioSelector]{
-		OutputState: i.ToChannelAudioSelectorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioSelectorOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioSelectorOutput) ElementType() reflect.Type {
@@ -3534,12 +3065,6 @@ func (o ChannelAudioSelectorOutput) ToChannelAudioSelectorOutput() ChannelAudioS
 
 func (o ChannelAudioSelectorOutput) ToChannelAudioSelectorOutputWithContext(ctx context.Context) ChannelAudioSelectorOutput {
 	return o
-}
-
-func (o ChannelAudioSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioSelector] {
-	return pulumix.Output[ChannelAudioSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioSelectorOutput) Name() pulumi.StringPtrOutput {
@@ -3562,12 +3087,6 @@ func (o ChannelAudioSelectorArrayOutput) ToChannelAudioSelectorArrayOutput() Cha
 
 func (o ChannelAudioSelectorArrayOutput) ToChannelAudioSelectorArrayOutputWithContext(ctx context.Context) ChannelAudioSelectorArrayOutput {
 	return o
-}
-
-func (o ChannelAudioSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelAudioSelector] {
-	return pulumix.Output[[]ChannelAudioSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioSelectorArrayOutput) Index(i pulumi.IntInput) ChannelAudioSelectorOutput {
@@ -3613,12 +3132,6 @@ func (i ChannelAudioSelectorSettingsArgs) ToChannelAudioSelectorSettingsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioSelectorSettingsOutput)
 }
 
-func (i ChannelAudioSelectorSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioSelectorSettings] {
-	return pulumix.Output[ChannelAudioSelectorSettings]{
-		OutputState: i.ToChannelAudioSelectorSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAudioSelectorSettingsArgs) ToChannelAudioSelectorSettingsPtrOutput() ChannelAudioSelectorSettingsPtrOutput {
 	return i.ToChannelAudioSelectorSettingsPtrOutputWithContext(context.Background())
 }
@@ -3660,12 +3173,6 @@ func (i *channelAudioSelectorSettingsPtrType) ToChannelAudioSelectorSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioSelectorSettingsPtrOutput)
 }
 
-func (i *channelAudioSelectorSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioSelectorSettings] {
-	return pulumix.Output[*ChannelAudioSelectorSettings]{
-		OutputState: i.ToChannelAudioSelectorSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioSelectorSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioSelectorSettingsOutput) ElementType() reflect.Type {
@@ -3688,12 +3195,6 @@ func (o ChannelAudioSelectorSettingsOutput) ToChannelAudioSelectorSettingsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAudioSelectorSettings) *ChannelAudioSelectorSettings {
 		return &v
 	}).(ChannelAudioSelectorSettingsPtrOutput)
-}
-
-func (o ChannelAudioSelectorSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioSelectorSettings] {
-	return pulumix.Output[ChannelAudioSelectorSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioSelectorSettingsOutput) AudioHlsRenditionSelection() ChannelAudioHlsRenditionSelectionPtrOutput {
@@ -3726,12 +3227,6 @@ func (o ChannelAudioSelectorSettingsPtrOutput) ToChannelAudioSelectorSettingsPtr
 
 func (o ChannelAudioSelectorSettingsPtrOutput) ToChannelAudioSelectorSettingsPtrOutputWithContext(ctx context.Context) ChannelAudioSelectorSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAudioSelectorSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioSelectorSettings] {
-	return pulumix.Output[*ChannelAudioSelectorSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioSelectorSettingsPtrOutput) Elem() ChannelAudioSelectorSettingsOutput {
@@ -3813,12 +3308,6 @@ func (i ChannelAudioSilenceFailoverSettingsArgs) ToChannelAudioSilenceFailoverSe
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioSilenceFailoverSettingsOutput)
 }
 
-func (i ChannelAudioSilenceFailoverSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioSilenceFailoverSettings] {
-	return pulumix.Output[ChannelAudioSilenceFailoverSettings]{
-		OutputState: i.ToChannelAudioSilenceFailoverSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAudioSilenceFailoverSettingsArgs) ToChannelAudioSilenceFailoverSettingsPtrOutput() ChannelAudioSilenceFailoverSettingsPtrOutput {
 	return i.ToChannelAudioSilenceFailoverSettingsPtrOutputWithContext(context.Background())
 }
@@ -3860,12 +3349,6 @@ func (i *channelAudioSilenceFailoverSettingsPtrType) ToChannelAudioSilenceFailov
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioSilenceFailoverSettingsPtrOutput)
 }
 
-func (i *channelAudioSilenceFailoverSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioSilenceFailoverSettings] {
-	return pulumix.Output[*ChannelAudioSilenceFailoverSettings]{
-		OutputState: i.ToChannelAudioSilenceFailoverSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioSilenceFailoverSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioSilenceFailoverSettingsOutput) ElementType() reflect.Type {
@@ -3890,12 +3373,6 @@ func (o ChannelAudioSilenceFailoverSettingsOutput) ToChannelAudioSilenceFailover
 	}).(ChannelAudioSilenceFailoverSettingsPtrOutput)
 }
 
-func (o ChannelAudioSilenceFailoverSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioSilenceFailoverSettings] {
-	return pulumix.Output[ChannelAudioSilenceFailoverSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAudioSilenceFailoverSettingsOutput) AudioSelectorName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelAudioSilenceFailoverSettings) *string { return v.AudioSelectorName }).(pulumi.StringPtrOutput)
 }
@@ -3916,12 +3393,6 @@ func (o ChannelAudioSilenceFailoverSettingsPtrOutput) ToChannelAudioSilenceFailo
 
 func (o ChannelAudioSilenceFailoverSettingsPtrOutput) ToChannelAudioSilenceFailoverSettingsPtrOutputWithContext(ctx context.Context) ChannelAudioSilenceFailoverSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAudioSilenceFailoverSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioSilenceFailoverSettings] {
-	return pulumix.Output[*ChannelAudioSilenceFailoverSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioSilenceFailoverSettingsPtrOutput) Elem() ChannelAudioSilenceFailoverSettingsOutput {
@@ -3983,12 +3454,6 @@ func (i ChannelAudioTrackArgs) ToChannelAudioTrackOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioTrackOutput)
 }
 
-func (i ChannelAudioTrackArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioTrack] {
-	return pulumix.Output[ChannelAudioTrack]{
-		OutputState: i.ToChannelAudioTrackOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelAudioTrackArrayInput is an input type that accepts ChannelAudioTrackArray and ChannelAudioTrackArrayOutput values.
 // You can construct a concrete instance of `ChannelAudioTrackArrayInput` via:
 //
@@ -4014,12 +3479,6 @@ func (i ChannelAudioTrackArray) ToChannelAudioTrackArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioTrackArrayOutput)
 }
 
-func (i ChannelAudioTrackArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelAudioTrack] {
-	return pulumix.Output[[]ChannelAudioTrack]{
-		OutputState: i.ToChannelAudioTrackArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioTrackOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioTrackOutput) ElementType() reflect.Type {
@@ -4032,12 +3491,6 @@ func (o ChannelAudioTrackOutput) ToChannelAudioTrackOutput() ChannelAudioTrackOu
 
 func (o ChannelAudioTrackOutput) ToChannelAudioTrackOutputWithContext(ctx context.Context) ChannelAudioTrackOutput {
 	return o
-}
-
-func (o ChannelAudioTrackOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioTrack] {
-	return pulumix.Output[ChannelAudioTrack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioTrackOutput) Track() pulumi.IntPtrOutput {
@@ -4056,12 +3509,6 @@ func (o ChannelAudioTrackArrayOutput) ToChannelAudioTrackArrayOutput() ChannelAu
 
 func (o ChannelAudioTrackArrayOutput) ToChannelAudioTrackArrayOutputWithContext(ctx context.Context) ChannelAudioTrackArrayOutput {
 	return o
-}
-
-func (o ChannelAudioTrackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelAudioTrack] {
-	return pulumix.Output[[]ChannelAudioTrack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioTrackArrayOutput) Index(i pulumi.IntInput) ChannelAudioTrackOutput {
@@ -4101,12 +3548,6 @@ func (i ChannelAudioTrackSelectionArgs) ToChannelAudioTrackSelectionOutput() Cha
 
 func (i ChannelAudioTrackSelectionArgs) ToChannelAudioTrackSelectionOutputWithContext(ctx context.Context) ChannelAudioTrackSelectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioTrackSelectionOutput)
-}
-
-func (i ChannelAudioTrackSelectionArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioTrackSelection] {
-	return pulumix.Output[ChannelAudioTrackSelection]{
-		OutputState: i.ToChannelAudioTrackSelectionOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ChannelAudioTrackSelectionArgs) ToChannelAudioTrackSelectionPtrOutput() ChannelAudioTrackSelectionPtrOutput {
@@ -4150,12 +3591,6 @@ func (i *channelAudioTrackSelectionPtrType) ToChannelAudioTrackSelectionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioTrackSelectionPtrOutput)
 }
 
-func (i *channelAudioTrackSelectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioTrackSelection] {
-	return pulumix.Output[*ChannelAudioTrackSelection]{
-		OutputState: i.ToChannelAudioTrackSelectionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioTrackSelectionOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioTrackSelectionOutput) ElementType() reflect.Type {
@@ -4180,12 +3615,6 @@ func (o ChannelAudioTrackSelectionOutput) ToChannelAudioTrackSelectionPtrOutputW
 	}).(ChannelAudioTrackSelectionPtrOutput)
 }
 
-func (o ChannelAudioTrackSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioTrackSelection] {
-	return pulumix.Output[ChannelAudioTrackSelection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAudioTrackSelectionOutput) DolbyEDecode() ChannelAudioDolbyEDecodePtrOutput {
 	return o.ApplyT(func(v ChannelAudioTrackSelection) *ChannelAudioDolbyEDecode { return v.DolbyEDecode }).(ChannelAudioDolbyEDecodePtrOutput)
 }
@@ -4206,12 +3635,6 @@ func (o ChannelAudioTrackSelectionPtrOutput) ToChannelAudioTrackSelectionPtrOutp
 
 func (o ChannelAudioTrackSelectionPtrOutput) ToChannelAudioTrackSelectionPtrOutputWithContext(ctx context.Context) ChannelAudioTrackSelectionPtrOutput {
 	return o
-}
-
-func (o ChannelAudioTrackSelectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioTrackSelection] {
-	return pulumix.Output[*ChannelAudioTrackSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioTrackSelectionPtrOutput) Elem() ChannelAudioTrackSelectionOutput {
@@ -4273,12 +3696,6 @@ func (i ChannelAudioWatermarkSettingsArgs) ToChannelAudioWatermarkSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioWatermarkSettingsOutput)
 }
 
-func (i ChannelAudioWatermarkSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioWatermarkSettings] {
-	return pulumix.Output[ChannelAudioWatermarkSettings]{
-		OutputState: i.ToChannelAudioWatermarkSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAudioWatermarkSettingsArgs) ToChannelAudioWatermarkSettingsPtrOutput() ChannelAudioWatermarkSettingsPtrOutput {
 	return i.ToChannelAudioWatermarkSettingsPtrOutputWithContext(context.Background())
 }
@@ -4320,12 +3737,6 @@ func (i *channelAudioWatermarkSettingsPtrType) ToChannelAudioWatermarkSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioWatermarkSettingsPtrOutput)
 }
 
-func (i *channelAudioWatermarkSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioWatermarkSettings] {
-	return pulumix.Output[*ChannelAudioWatermarkSettings]{
-		OutputState: i.ToChannelAudioWatermarkSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAudioWatermarkSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAudioWatermarkSettingsOutput) ElementType() reflect.Type {
@@ -4350,12 +3761,6 @@ func (o ChannelAudioWatermarkSettingsOutput) ToChannelAudioWatermarkSettingsPtrO
 	}).(ChannelAudioWatermarkSettingsPtrOutput)
 }
 
-func (o ChannelAudioWatermarkSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAudioWatermarkSettings] {
-	return pulumix.Output[ChannelAudioWatermarkSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAudioWatermarkSettingsOutput) NielsenWatermarksSettings() ChannelNielsenWatermarksSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelAudioWatermarkSettings) *ChannelNielsenWatermarksSettings {
 		return v.NielsenWatermarksSettings
@@ -4374,12 +3779,6 @@ func (o ChannelAudioWatermarkSettingsPtrOutput) ToChannelAudioWatermarkSettingsP
 
 func (o ChannelAudioWatermarkSettingsPtrOutput) ToChannelAudioWatermarkSettingsPtrOutputWithContext(ctx context.Context) ChannelAudioWatermarkSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAudioWatermarkSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAudioWatermarkSettings] {
-	return pulumix.Output[*ChannelAudioWatermarkSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAudioWatermarkSettingsPtrOutput) Elem() ChannelAudioWatermarkSettingsOutput {
@@ -4438,12 +3837,6 @@ func (i ChannelAutomaticInputFailoverSettingsArgs) ToChannelAutomaticInputFailov
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAutomaticInputFailoverSettingsOutput)
 }
 
-func (i ChannelAutomaticInputFailoverSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAutomaticInputFailoverSettings] {
-	return pulumix.Output[ChannelAutomaticInputFailoverSettings]{
-		OutputState: i.ToChannelAutomaticInputFailoverSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAutomaticInputFailoverSettingsArgs) ToChannelAutomaticInputFailoverSettingsPtrOutput() ChannelAutomaticInputFailoverSettingsPtrOutput {
 	return i.ToChannelAutomaticInputFailoverSettingsPtrOutputWithContext(context.Background())
 }
@@ -4485,12 +3878,6 @@ func (i *channelAutomaticInputFailoverSettingsPtrType) ToChannelAutomaticInputFa
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAutomaticInputFailoverSettingsPtrOutput)
 }
 
-func (i *channelAutomaticInputFailoverSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAutomaticInputFailoverSettings] {
-	return pulumix.Output[*ChannelAutomaticInputFailoverSettings]{
-		OutputState: i.ToChannelAutomaticInputFailoverSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAutomaticInputFailoverSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAutomaticInputFailoverSettingsOutput) ElementType() reflect.Type {
@@ -4513,12 +3900,6 @@ func (o ChannelAutomaticInputFailoverSettingsOutput) ToChannelAutomaticInputFail
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAutomaticInputFailoverSettings) *ChannelAutomaticInputFailoverSettings {
 		return &v
 	}).(ChannelAutomaticInputFailoverSettingsPtrOutput)
-}
-
-func (o ChannelAutomaticInputFailoverSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAutomaticInputFailoverSettings] {
-	return pulumix.Output[ChannelAutomaticInputFailoverSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAutomaticInputFailoverSettingsOutput) ErrorClearTimeMsec() pulumi.IntPtrOutput {
@@ -4549,12 +3930,6 @@ func (o ChannelAutomaticInputFailoverSettingsPtrOutput) ToChannelAutomaticInputF
 
 func (o ChannelAutomaticInputFailoverSettingsPtrOutput) ToChannelAutomaticInputFailoverSettingsPtrOutputWithContext(ctx context.Context) ChannelAutomaticInputFailoverSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAutomaticInputFailoverSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAutomaticInputFailoverSettings] {
-	return pulumix.Output[*ChannelAutomaticInputFailoverSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAutomaticInputFailoverSettingsPtrOutput) Elem() ChannelAutomaticInputFailoverSettingsOutput {
@@ -4636,12 +4011,6 @@ func (i ChannelAvailBlankingArgs) ToChannelAvailBlankingOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAvailBlankingOutput)
 }
 
-func (i ChannelAvailBlankingArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAvailBlanking] {
-	return pulumix.Output[ChannelAvailBlanking]{
-		OutputState: i.ToChannelAvailBlankingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAvailBlankingArgs) ToChannelAvailBlankingPtrOutput() ChannelAvailBlankingPtrOutput {
 	return i.ToChannelAvailBlankingPtrOutputWithContext(context.Background())
 }
@@ -4683,12 +4052,6 @@ func (i *channelAvailBlankingPtrType) ToChannelAvailBlankingPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAvailBlankingPtrOutput)
 }
 
-func (i *channelAvailBlankingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAvailBlanking] {
-	return pulumix.Output[*ChannelAvailBlanking]{
-		OutputState: i.ToChannelAvailBlankingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAvailBlankingOutput struct{ *pulumi.OutputState }
 
 func (ChannelAvailBlankingOutput) ElementType() reflect.Type {
@@ -4713,12 +4076,6 @@ func (o ChannelAvailBlankingOutput) ToChannelAvailBlankingPtrOutputWithContext(c
 	}).(ChannelAvailBlankingPtrOutput)
 }
 
-func (o ChannelAvailBlankingOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAvailBlanking] {
-	return pulumix.Output[ChannelAvailBlanking]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAvailBlankingOutput) AvailBlankingImage() ChannelInputLocationPtrOutput {
 	return o.ApplyT(func(v ChannelAvailBlanking) *ChannelInputLocation { return v.AvailBlankingImage }).(ChannelInputLocationPtrOutput)
 }
@@ -4739,12 +4096,6 @@ func (o ChannelAvailBlankingPtrOutput) ToChannelAvailBlankingPtrOutput() Channel
 
 func (o ChannelAvailBlankingPtrOutput) ToChannelAvailBlankingPtrOutputWithContext(ctx context.Context) ChannelAvailBlankingPtrOutput {
 	return o
-}
-
-func (o ChannelAvailBlankingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAvailBlanking] {
-	return pulumix.Output[*ChannelAvailBlanking]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAvailBlankingPtrOutput) Elem() ChannelAvailBlankingOutput {
@@ -4806,12 +4157,6 @@ func (i ChannelAvailConfigurationArgs) ToChannelAvailConfigurationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAvailConfigurationOutput)
 }
 
-func (i ChannelAvailConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAvailConfiguration] {
-	return pulumix.Output[ChannelAvailConfiguration]{
-		OutputState: i.ToChannelAvailConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAvailConfigurationArgs) ToChannelAvailConfigurationPtrOutput() ChannelAvailConfigurationPtrOutput {
 	return i.ToChannelAvailConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4853,12 +4198,6 @@ func (i *channelAvailConfigurationPtrType) ToChannelAvailConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAvailConfigurationPtrOutput)
 }
 
-func (i *channelAvailConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAvailConfiguration] {
-	return pulumix.Output[*ChannelAvailConfiguration]{
-		OutputState: i.ToChannelAvailConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAvailConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ChannelAvailConfigurationOutput) ElementType() reflect.Type {
@@ -4883,12 +4222,6 @@ func (o ChannelAvailConfigurationOutput) ToChannelAvailConfigurationPtrOutputWit
 	}).(ChannelAvailConfigurationPtrOutput)
 }
 
-func (o ChannelAvailConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAvailConfiguration] {
-	return pulumix.Output[ChannelAvailConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAvailConfigurationOutput) AvailSettings() ChannelAvailSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelAvailConfiguration) *ChannelAvailSettings { return v.AvailSettings }).(ChannelAvailSettingsPtrOutput)
 }
@@ -4905,12 +4238,6 @@ func (o ChannelAvailConfigurationPtrOutput) ToChannelAvailConfigurationPtrOutput
 
 func (o ChannelAvailConfigurationPtrOutput) ToChannelAvailConfigurationPtrOutputWithContext(ctx context.Context) ChannelAvailConfigurationPtrOutput {
 	return o
-}
-
-func (o ChannelAvailConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAvailConfiguration] {
-	return pulumix.Output[*ChannelAvailConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAvailConfigurationPtrOutput) Elem() ChannelAvailConfigurationOutput {
@@ -4967,12 +4294,6 @@ func (i ChannelAvailSettingsArgs) ToChannelAvailSettingsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAvailSettingsOutput)
 }
 
-func (i ChannelAvailSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelAvailSettings] {
-	return pulumix.Output[ChannelAvailSettings]{
-		OutputState: i.ToChannelAvailSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelAvailSettingsArgs) ToChannelAvailSettingsPtrOutput() ChannelAvailSettingsPtrOutput {
 	return i.ToChannelAvailSettingsPtrOutputWithContext(context.Background())
 }
@@ -5014,12 +4335,6 @@ func (i *channelAvailSettingsPtrType) ToChannelAvailSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAvailSettingsPtrOutput)
 }
 
-func (i *channelAvailSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelAvailSettings] {
-	return pulumix.Output[*ChannelAvailSettings]{
-		OutputState: i.ToChannelAvailSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAvailSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelAvailSettingsOutput) ElementType() reflect.Type {
@@ -5042,12 +4357,6 @@ func (o ChannelAvailSettingsOutput) ToChannelAvailSettingsPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAvailSettings) *ChannelAvailSettings {
 		return &v
 	}).(ChannelAvailSettingsPtrOutput)
-}
-
-func (o ChannelAvailSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAvailSettings] {
-	return pulumix.Output[ChannelAvailSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAvailSettingsOutput) Esam() ChannelEsamPtrOutput {
@@ -5074,12 +4383,6 @@ func (o ChannelAvailSettingsPtrOutput) ToChannelAvailSettingsPtrOutput() Channel
 
 func (o ChannelAvailSettingsPtrOutput) ToChannelAvailSettingsPtrOutputWithContext(ctx context.Context) ChannelAvailSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelAvailSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAvailSettings] {
-	return pulumix.Output[*ChannelAvailSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAvailSettingsPtrOutput) Elem() ChannelAvailSettingsOutput {
@@ -5158,12 +4461,6 @@ func (i ChannelBlackoutSlateArgs) ToChannelBlackoutSlateOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelBlackoutSlateOutput)
 }
 
-func (i ChannelBlackoutSlateArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelBlackoutSlate] {
-	return pulumix.Output[ChannelBlackoutSlate]{
-		OutputState: i.ToChannelBlackoutSlateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelBlackoutSlateArgs) ToChannelBlackoutSlatePtrOutput() ChannelBlackoutSlatePtrOutput {
 	return i.ToChannelBlackoutSlatePtrOutputWithContext(context.Background())
 }
@@ -5205,12 +4502,6 @@ func (i *channelBlackoutSlatePtrType) ToChannelBlackoutSlatePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelBlackoutSlatePtrOutput)
 }
 
-func (i *channelBlackoutSlatePtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelBlackoutSlate] {
-	return pulumix.Output[*ChannelBlackoutSlate]{
-		OutputState: i.ToChannelBlackoutSlatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelBlackoutSlateOutput struct{ *pulumi.OutputState }
 
 func (ChannelBlackoutSlateOutput) ElementType() reflect.Type {
@@ -5233,12 +4524,6 @@ func (o ChannelBlackoutSlateOutput) ToChannelBlackoutSlatePtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelBlackoutSlate) *ChannelBlackoutSlate {
 		return &v
 	}).(ChannelBlackoutSlatePtrOutput)
-}
-
-func (o ChannelBlackoutSlateOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelBlackoutSlate] {
-	return pulumix.Output[ChannelBlackoutSlate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelBlackoutSlateOutput) BlackoutSlateImage() ChannelInputLocationPtrOutput {
@@ -5273,12 +4558,6 @@ func (o ChannelBlackoutSlatePtrOutput) ToChannelBlackoutSlatePtrOutput() Channel
 
 func (o ChannelBlackoutSlatePtrOutput) ToChannelBlackoutSlatePtrOutputWithContext(ctx context.Context) ChannelBlackoutSlatePtrOutput {
 	return o
-}
-
-func (o ChannelBlackoutSlatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelBlackoutSlate] {
-	return pulumix.Output[*ChannelBlackoutSlate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelBlackoutSlatePtrOutput) Elem() ChannelBlackoutSlateOutput {
@@ -5399,12 +4678,6 @@ func (i ChannelBurnInDestinationSettingsArgs) ToChannelBurnInDestinationSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelBurnInDestinationSettingsOutput)
 }
 
-func (i ChannelBurnInDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelBurnInDestinationSettings] {
-	return pulumix.Output[ChannelBurnInDestinationSettings]{
-		OutputState: i.ToChannelBurnInDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelBurnInDestinationSettingsArgs) ToChannelBurnInDestinationSettingsPtrOutput() ChannelBurnInDestinationSettingsPtrOutput {
 	return i.ToChannelBurnInDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -5446,12 +4719,6 @@ func (i *channelBurnInDestinationSettingsPtrType) ToChannelBurnInDestinationSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelBurnInDestinationSettingsPtrOutput)
 }
 
-func (i *channelBurnInDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelBurnInDestinationSettings] {
-	return pulumix.Output[*ChannelBurnInDestinationSettings]{
-		OutputState: i.ToChannelBurnInDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelBurnInDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelBurnInDestinationSettingsOutput) ElementType() reflect.Type {
@@ -5474,12 +4741,6 @@ func (o ChannelBurnInDestinationSettingsOutput) ToChannelBurnInDestinationSettin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelBurnInDestinationSettings) *ChannelBurnInDestinationSettings {
 		return &v
 	}).(ChannelBurnInDestinationSettingsPtrOutput)
-}
-
-func (o ChannelBurnInDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelBurnInDestinationSettings] {
-	return pulumix.Output[ChannelBurnInDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelBurnInDestinationSettingsOutput) Alignment() pulumi.StringPtrOutput {
@@ -5562,12 +4823,6 @@ func (o ChannelBurnInDestinationSettingsPtrOutput) ToChannelBurnInDestinationSet
 
 func (o ChannelBurnInDestinationSettingsPtrOutput) ToChannelBurnInDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelBurnInDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelBurnInDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelBurnInDestinationSettings] {
-	return pulumix.Output[*ChannelBurnInDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelBurnInDestinationSettingsPtrOutput) Elem() ChannelBurnInDestinationSettingsOutput {
@@ -5774,12 +5029,6 @@ func (i ChannelCaptionDescriptionArgs) ToChannelCaptionDescriptionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCaptionDescriptionOutput)
 }
 
-func (i ChannelCaptionDescriptionArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelCaptionDescription] {
-	return pulumix.Output[ChannelCaptionDescription]{
-		OutputState: i.ToChannelCaptionDescriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelCaptionDescriptionArrayInput is an input type that accepts ChannelCaptionDescriptionArray and ChannelCaptionDescriptionArrayOutput values.
 // You can construct a concrete instance of `ChannelCaptionDescriptionArrayInput` via:
 //
@@ -5805,12 +5054,6 @@ func (i ChannelCaptionDescriptionArray) ToChannelCaptionDescriptionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCaptionDescriptionArrayOutput)
 }
 
-func (i ChannelCaptionDescriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelCaptionDescription] {
-	return pulumix.Output[[]ChannelCaptionDescription]{
-		OutputState: i.ToChannelCaptionDescriptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelCaptionDescriptionOutput struct{ *pulumi.OutputState }
 
 func (ChannelCaptionDescriptionOutput) ElementType() reflect.Type {
@@ -5823,12 +5066,6 @@ func (o ChannelCaptionDescriptionOutput) ToChannelCaptionDescriptionOutput() Cha
 
 func (o ChannelCaptionDescriptionOutput) ToChannelCaptionDescriptionOutputWithContext(ctx context.Context) ChannelCaptionDescriptionOutput {
 	return o
-}
-
-func (o ChannelCaptionDescriptionOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelCaptionDescription] {
-	return pulumix.Output[ChannelCaptionDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCaptionDescriptionOutput) Accessibility() pulumi.StringPtrOutput {
@@ -5867,12 +5104,6 @@ func (o ChannelCaptionDescriptionArrayOutput) ToChannelCaptionDescriptionArrayOu
 
 func (o ChannelCaptionDescriptionArrayOutput) ToChannelCaptionDescriptionArrayOutputWithContext(ctx context.Context) ChannelCaptionDescriptionArrayOutput {
 	return o
-}
-
-func (o ChannelCaptionDescriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelCaptionDescription] {
-	return pulumix.Output[[]ChannelCaptionDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCaptionDescriptionArrayOutput) Index(i pulumi.IntInput) ChannelCaptionDescriptionOutput {
@@ -5936,12 +5167,6 @@ func (i ChannelCaptionDestinationSettingsArgs) ToChannelCaptionDestinationSettin
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCaptionDestinationSettingsOutput)
 }
 
-func (i ChannelCaptionDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelCaptionDestinationSettings] {
-	return pulumix.Output[ChannelCaptionDestinationSettings]{
-		OutputState: i.ToChannelCaptionDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelCaptionDestinationSettingsArgs) ToChannelCaptionDestinationSettingsPtrOutput() ChannelCaptionDestinationSettingsPtrOutput {
 	return i.ToChannelCaptionDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -5983,12 +5208,6 @@ func (i *channelCaptionDestinationSettingsPtrType) ToChannelCaptionDestinationSe
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCaptionDestinationSettingsPtrOutput)
 }
 
-func (i *channelCaptionDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelCaptionDestinationSettings] {
-	return pulumix.Output[*ChannelCaptionDestinationSettings]{
-		OutputState: i.ToChannelCaptionDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelCaptionDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelCaptionDestinationSettingsOutput) ElementType() reflect.Type {
@@ -6011,12 +5230,6 @@ func (o ChannelCaptionDestinationSettingsOutput) ToChannelCaptionDestinationSett
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelCaptionDestinationSettings) *ChannelCaptionDestinationSettings {
 		return &v
 	}).(ChannelCaptionDestinationSettingsPtrOutput)
-}
-
-func (o ChannelCaptionDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelCaptionDestinationSettings] {
-	return pulumix.Output[ChannelCaptionDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCaptionDestinationSettingsOutput) AribDestinationSettings() ChannelAribDestinationSettingsPtrOutput {
@@ -6109,12 +5322,6 @@ func (o ChannelCaptionDestinationSettingsPtrOutput) ToChannelCaptionDestinationS
 
 func (o ChannelCaptionDestinationSettingsPtrOutput) ToChannelCaptionDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelCaptionDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelCaptionDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelCaptionDestinationSettings] {
-	return pulumix.Output[*ChannelCaptionDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCaptionDestinationSettingsPtrOutput) Elem() ChannelCaptionDestinationSettingsOutput {
@@ -6279,12 +5486,6 @@ func (i ChannelCaptionLanguageMappingArgs) ToChannelCaptionLanguageMappingOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCaptionLanguageMappingOutput)
 }
 
-func (i ChannelCaptionLanguageMappingArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelCaptionLanguageMapping] {
-	return pulumix.Output[ChannelCaptionLanguageMapping]{
-		OutputState: i.ToChannelCaptionLanguageMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelCaptionLanguageMappingArrayInput is an input type that accepts ChannelCaptionLanguageMappingArray and ChannelCaptionLanguageMappingArrayOutput values.
 // You can construct a concrete instance of `ChannelCaptionLanguageMappingArrayInput` via:
 //
@@ -6310,12 +5511,6 @@ func (i ChannelCaptionLanguageMappingArray) ToChannelCaptionLanguageMappingArray
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCaptionLanguageMappingArrayOutput)
 }
 
-func (i ChannelCaptionLanguageMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelCaptionLanguageMapping] {
-	return pulumix.Output[[]ChannelCaptionLanguageMapping]{
-		OutputState: i.ToChannelCaptionLanguageMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelCaptionLanguageMappingOutput struct{ *pulumi.OutputState }
 
 func (ChannelCaptionLanguageMappingOutput) ElementType() reflect.Type {
@@ -6328,12 +5523,6 @@ func (o ChannelCaptionLanguageMappingOutput) ToChannelCaptionLanguageMappingOutp
 
 func (o ChannelCaptionLanguageMappingOutput) ToChannelCaptionLanguageMappingOutputWithContext(ctx context.Context) ChannelCaptionLanguageMappingOutput {
 	return o
-}
-
-func (o ChannelCaptionLanguageMappingOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelCaptionLanguageMapping] {
-	return pulumix.Output[ChannelCaptionLanguageMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCaptionLanguageMappingOutput) CaptionChannel() pulumi.IntPtrOutput {
@@ -6360,12 +5549,6 @@ func (o ChannelCaptionLanguageMappingArrayOutput) ToChannelCaptionLanguageMappin
 
 func (o ChannelCaptionLanguageMappingArrayOutput) ToChannelCaptionLanguageMappingArrayOutputWithContext(ctx context.Context) ChannelCaptionLanguageMappingArrayOutput {
 	return o
-}
-
-func (o ChannelCaptionLanguageMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelCaptionLanguageMapping] {
-	return pulumix.Output[[]ChannelCaptionLanguageMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCaptionLanguageMappingArrayOutput) Index(i pulumi.IntInput) ChannelCaptionLanguageMappingOutput {
@@ -6411,12 +5594,6 @@ func (i ChannelCaptionRectangleArgs) ToChannelCaptionRectangleOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCaptionRectangleOutput)
 }
 
-func (i ChannelCaptionRectangleArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelCaptionRectangle] {
-	return pulumix.Output[ChannelCaptionRectangle]{
-		OutputState: i.ToChannelCaptionRectangleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelCaptionRectangleArgs) ToChannelCaptionRectanglePtrOutput() ChannelCaptionRectanglePtrOutput {
 	return i.ToChannelCaptionRectanglePtrOutputWithContext(context.Background())
 }
@@ -6458,12 +5635,6 @@ func (i *channelCaptionRectanglePtrType) ToChannelCaptionRectanglePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCaptionRectanglePtrOutput)
 }
 
-func (i *channelCaptionRectanglePtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelCaptionRectangle] {
-	return pulumix.Output[*ChannelCaptionRectangle]{
-		OutputState: i.ToChannelCaptionRectanglePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelCaptionRectangleOutput struct{ *pulumi.OutputState }
 
 func (ChannelCaptionRectangleOutput) ElementType() reflect.Type {
@@ -6486,12 +5657,6 @@ func (o ChannelCaptionRectangleOutput) ToChannelCaptionRectanglePtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelCaptionRectangle) *ChannelCaptionRectangle {
 		return &v
 	}).(ChannelCaptionRectanglePtrOutput)
-}
-
-func (o ChannelCaptionRectangleOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelCaptionRectangle] {
-	return pulumix.Output[ChannelCaptionRectangle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCaptionRectangleOutput) Height() pulumi.Float64PtrOutput {
@@ -6522,12 +5687,6 @@ func (o ChannelCaptionRectanglePtrOutput) ToChannelCaptionRectanglePtrOutput() C
 
 func (o ChannelCaptionRectanglePtrOutput) ToChannelCaptionRectanglePtrOutputWithContext(ctx context.Context) ChannelCaptionRectanglePtrOutput {
 	return o
-}
-
-func (o ChannelCaptionRectanglePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelCaptionRectangle] {
-	return pulumix.Output[*ChannelCaptionRectangle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCaptionRectanglePtrOutput) Elem() ChannelCaptionRectangleOutput {
@@ -6611,12 +5770,6 @@ func (i ChannelCaptionSelectorArgs) ToChannelCaptionSelectorOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCaptionSelectorOutput)
 }
 
-func (i ChannelCaptionSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelCaptionSelector] {
-	return pulumix.Output[ChannelCaptionSelector]{
-		OutputState: i.ToChannelCaptionSelectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelCaptionSelectorArrayInput is an input type that accepts ChannelCaptionSelectorArray and ChannelCaptionSelectorArrayOutput values.
 // You can construct a concrete instance of `ChannelCaptionSelectorArrayInput` via:
 //
@@ -6642,12 +5795,6 @@ func (i ChannelCaptionSelectorArray) ToChannelCaptionSelectorArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCaptionSelectorArrayOutput)
 }
 
-func (i ChannelCaptionSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelCaptionSelector] {
-	return pulumix.Output[[]ChannelCaptionSelector]{
-		OutputState: i.ToChannelCaptionSelectorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelCaptionSelectorOutput struct{ *pulumi.OutputState }
 
 func (ChannelCaptionSelectorOutput) ElementType() reflect.Type {
@@ -6660,12 +5807,6 @@ func (o ChannelCaptionSelectorOutput) ToChannelCaptionSelectorOutput() ChannelCa
 
 func (o ChannelCaptionSelectorOutput) ToChannelCaptionSelectorOutputWithContext(ctx context.Context) ChannelCaptionSelectorOutput {
 	return o
-}
-
-func (o ChannelCaptionSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelCaptionSelector] {
-	return pulumix.Output[ChannelCaptionSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCaptionSelectorOutput) LanguageCode() pulumi.StringPtrOutput {
@@ -6692,12 +5833,6 @@ func (o ChannelCaptionSelectorArrayOutput) ToChannelCaptionSelectorArrayOutput()
 
 func (o ChannelCaptionSelectorArrayOutput) ToChannelCaptionSelectorArrayOutputWithContext(ctx context.Context) ChannelCaptionSelectorArrayOutput {
 	return o
-}
-
-func (o ChannelCaptionSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelCaptionSelector] {
-	return pulumix.Output[[]ChannelCaptionSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCaptionSelectorArrayOutput) Index(i pulumi.IntInput) ChannelCaptionSelectorOutput {
@@ -6749,12 +5884,6 @@ func (i ChannelCaptionSelectorSettingsArgs) ToChannelCaptionSelectorSettingsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCaptionSelectorSettingsOutput)
 }
 
-func (i ChannelCaptionSelectorSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelCaptionSelectorSettings] {
-	return pulumix.Output[ChannelCaptionSelectorSettings]{
-		OutputState: i.ToChannelCaptionSelectorSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelCaptionSelectorSettingsArgs) ToChannelCaptionSelectorSettingsPtrOutput() ChannelCaptionSelectorSettingsPtrOutput {
 	return i.ToChannelCaptionSelectorSettingsPtrOutputWithContext(context.Background())
 }
@@ -6796,12 +5925,6 @@ func (i *channelCaptionSelectorSettingsPtrType) ToChannelCaptionSelectorSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCaptionSelectorSettingsPtrOutput)
 }
 
-func (i *channelCaptionSelectorSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelCaptionSelectorSettings] {
-	return pulumix.Output[*ChannelCaptionSelectorSettings]{
-		OutputState: i.ToChannelCaptionSelectorSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelCaptionSelectorSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelCaptionSelectorSettingsOutput) ElementType() reflect.Type {
@@ -6824,12 +5947,6 @@ func (o ChannelCaptionSelectorSettingsOutput) ToChannelCaptionSelectorSettingsPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelCaptionSelectorSettings) *ChannelCaptionSelectorSettings {
 		return &v
 	}).(ChannelCaptionSelectorSettingsPtrOutput)
-}
-
-func (o ChannelCaptionSelectorSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelCaptionSelectorSettings] {
-	return pulumix.Output[ChannelCaptionSelectorSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCaptionSelectorSettingsOutput) AncillarySourceSettings() ChannelAncillarySourceSettingsPtrOutput {
@@ -6874,12 +5991,6 @@ func (o ChannelCaptionSelectorSettingsPtrOutput) ToChannelCaptionSelectorSetting
 
 func (o ChannelCaptionSelectorSettingsPtrOutput) ToChannelCaptionSelectorSettingsPtrOutputWithContext(ctx context.Context) ChannelCaptionSelectorSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelCaptionSelectorSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelCaptionSelectorSettings] {
-	return pulumix.Output[*ChannelCaptionSelectorSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCaptionSelectorSettingsPtrOutput) Elem() ChannelCaptionSelectorSettingsOutput {
@@ -6986,12 +6097,6 @@ func (i ChannelCdiInputSpecificationArgs) ToChannelCdiInputSpecificationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCdiInputSpecificationOutput)
 }
 
-func (i ChannelCdiInputSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelCdiInputSpecification] {
-	return pulumix.Output[ChannelCdiInputSpecification]{
-		OutputState: i.ToChannelCdiInputSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelCdiInputSpecificationArgs) ToChannelCdiInputSpecificationPtrOutput() ChannelCdiInputSpecificationPtrOutput {
 	return i.ToChannelCdiInputSpecificationPtrOutputWithContext(context.Background())
 }
@@ -7033,12 +6138,6 @@ func (i *channelCdiInputSpecificationPtrType) ToChannelCdiInputSpecificationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelCdiInputSpecificationPtrOutput)
 }
 
-func (i *channelCdiInputSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelCdiInputSpecification] {
-	return pulumix.Output[*ChannelCdiInputSpecification]{
-		OutputState: i.ToChannelCdiInputSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelCdiInputSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ChannelCdiInputSpecificationOutput) ElementType() reflect.Type {
@@ -7063,12 +6162,6 @@ func (o ChannelCdiInputSpecificationOutput) ToChannelCdiInputSpecificationPtrOut
 	}).(ChannelCdiInputSpecificationPtrOutput)
 }
 
-func (o ChannelCdiInputSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelCdiInputSpecification] {
-	return pulumix.Output[ChannelCdiInputSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelCdiInputSpecificationOutput) Resolution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelCdiInputSpecification) *string { return v.Resolution }).(pulumi.StringPtrOutput)
 }
@@ -7085,12 +6178,6 @@ func (o ChannelCdiInputSpecificationPtrOutput) ToChannelCdiInputSpecificationPtr
 
 func (o ChannelCdiInputSpecificationPtrOutput) ToChannelCdiInputSpecificationPtrOutputWithContext(ctx context.Context) ChannelCdiInputSpecificationPtrOutput {
 	return o
-}
-
-func (o ChannelCdiInputSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelCdiInputSpecification] {
-	return pulumix.Output[*ChannelCdiInputSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelCdiInputSpecificationPtrOutput) Elem() ChannelCdiInputSpecificationOutput {
@@ -7141,12 +6228,6 @@ func (i ChannelColorSpacePassthroughSettingsArgs) ToChannelColorSpacePassthrough
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelColorSpacePassthroughSettingsOutput)
 }
 
-func (i ChannelColorSpacePassthroughSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelColorSpacePassthroughSettings] {
-	return pulumix.Output[ChannelColorSpacePassthroughSettings]{
-		OutputState: i.ToChannelColorSpacePassthroughSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelColorSpacePassthroughSettingsArgs) ToChannelColorSpacePassthroughSettingsPtrOutput() ChannelColorSpacePassthroughSettingsPtrOutput {
 	return i.ToChannelColorSpacePassthroughSettingsPtrOutputWithContext(context.Background())
 }
@@ -7188,12 +6269,6 @@ func (i *channelColorSpacePassthroughSettingsPtrType) ToChannelColorSpacePassthr
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelColorSpacePassthroughSettingsPtrOutput)
 }
 
-func (i *channelColorSpacePassthroughSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelColorSpacePassthroughSettings] {
-	return pulumix.Output[*ChannelColorSpacePassthroughSettings]{
-		OutputState: i.ToChannelColorSpacePassthroughSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelColorSpacePassthroughSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelColorSpacePassthroughSettingsOutput) ElementType() reflect.Type {
@@ -7218,12 +6293,6 @@ func (o ChannelColorSpacePassthroughSettingsOutput) ToChannelColorSpacePassthrou
 	}).(ChannelColorSpacePassthroughSettingsPtrOutput)
 }
 
-func (o ChannelColorSpacePassthroughSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelColorSpacePassthroughSettings] {
-	return pulumix.Output[ChannelColorSpacePassthroughSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelColorSpacePassthroughSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelColorSpacePassthroughSettingsPtrOutput) ElementType() reflect.Type {
@@ -7236,12 +6305,6 @@ func (o ChannelColorSpacePassthroughSettingsPtrOutput) ToChannelColorSpacePassth
 
 func (o ChannelColorSpacePassthroughSettingsPtrOutput) ToChannelColorSpacePassthroughSettingsPtrOutputWithContext(ctx context.Context) ChannelColorSpacePassthroughSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelColorSpacePassthroughSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelColorSpacePassthroughSettings] {
-	return pulumix.Output[*ChannelColorSpacePassthroughSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelColorSpacePassthroughSettingsPtrOutput) Elem() ChannelColorSpacePassthroughSettingsOutput {
@@ -7281,12 +6344,6 @@ func (i ChannelDolbyVision81SettingsArgs) ToChannelDolbyVision81SettingsOutput()
 
 func (i ChannelDolbyVision81SettingsArgs) ToChannelDolbyVision81SettingsOutputWithContext(ctx context.Context) ChannelDolbyVision81SettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDolbyVision81SettingsOutput)
-}
-
-func (i ChannelDolbyVision81SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelDolbyVision81Settings] {
-	return pulumix.Output[ChannelDolbyVision81Settings]{
-		OutputState: i.ToChannelDolbyVision81SettingsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ChannelDolbyVision81SettingsArgs) ToChannelDolbyVision81SettingsPtrOutput() ChannelDolbyVision81SettingsPtrOutput {
@@ -7330,12 +6387,6 @@ func (i *channelDolbyVision81SettingsPtrType) ToChannelDolbyVision81SettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDolbyVision81SettingsPtrOutput)
 }
 
-func (i *channelDolbyVision81SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelDolbyVision81Settings] {
-	return pulumix.Output[*ChannelDolbyVision81Settings]{
-		OutputState: i.ToChannelDolbyVision81SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelDolbyVision81SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelDolbyVision81SettingsOutput) ElementType() reflect.Type {
@@ -7360,12 +6411,6 @@ func (o ChannelDolbyVision81SettingsOutput) ToChannelDolbyVision81SettingsPtrOut
 	}).(ChannelDolbyVision81SettingsPtrOutput)
 }
 
-func (o ChannelDolbyVision81SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelDolbyVision81Settings] {
-	return pulumix.Output[ChannelDolbyVision81Settings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelDolbyVision81SettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelDolbyVision81SettingsPtrOutput) ElementType() reflect.Type {
@@ -7378,12 +6423,6 @@ func (o ChannelDolbyVision81SettingsPtrOutput) ToChannelDolbyVision81SettingsPtr
 
 func (o ChannelDolbyVision81SettingsPtrOutput) ToChannelDolbyVision81SettingsPtrOutputWithContext(ctx context.Context) ChannelDolbyVision81SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelDolbyVision81SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelDolbyVision81Settings] {
-	return pulumix.Output[*ChannelDolbyVision81Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelDolbyVision81SettingsPtrOutput) Elem() ChannelDolbyVision81SettingsOutput {
@@ -7431,12 +6470,6 @@ func (i ChannelDvbNitSettingsArgs) ToChannelDvbNitSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDvbNitSettingsOutput)
 }
 
-func (i ChannelDvbNitSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelDvbNitSettings] {
-	return pulumix.Output[ChannelDvbNitSettings]{
-		OutputState: i.ToChannelDvbNitSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelDvbNitSettingsArgs) ToChannelDvbNitSettingsPtrOutput() ChannelDvbNitSettingsPtrOutput {
 	return i.ToChannelDvbNitSettingsPtrOutputWithContext(context.Background())
 }
@@ -7478,12 +6511,6 @@ func (i *channelDvbNitSettingsPtrType) ToChannelDvbNitSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDvbNitSettingsPtrOutput)
 }
 
-func (i *channelDvbNitSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelDvbNitSettings] {
-	return pulumix.Output[*ChannelDvbNitSettings]{
-		OutputState: i.ToChannelDvbNitSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelDvbNitSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelDvbNitSettingsOutput) ElementType() reflect.Type {
@@ -7506,12 +6533,6 @@ func (o ChannelDvbNitSettingsOutput) ToChannelDvbNitSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelDvbNitSettings) *ChannelDvbNitSettings {
 		return &v
 	}).(ChannelDvbNitSettingsPtrOutput)
-}
-
-func (o ChannelDvbNitSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelDvbNitSettings] {
-	return pulumix.Output[ChannelDvbNitSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelDvbNitSettingsOutput) NetworkId() pulumi.IntPtrOutput {
@@ -7538,12 +6559,6 @@ func (o ChannelDvbNitSettingsPtrOutput) ToChannelDvbNitSettingsPtrOutput() Chann
 
 func (o ChannelDvbNitSettingsPtrOutput) ToChannelDvbNitSettingsPtrOutputWithContext(ctx context.Context) ChannelDvbNitSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelDvbNitSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelDvbNitSettings] {
-	return pulumix.Output[*ChannelDvbNitSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelDvbNitSettingsPtrOutput) Elem() ChannelDvbNitSettingsOutput {
@@ -7620,12 +6635,6 @@ func (i ChannelDvbSdtSettingsArgs) ToChannelDvbSdtSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDvbSdtSettingsOutput)
 }
 
-func (i ChannelDvbSdtSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelDvbSdtSettings] {
-	return pulumix.Output[ChannelDvbSdtSettings]{
-		OutputState: i.ToChannelDvbSdtSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelDvbSdtSettingsArgs) ToChannelDvbSdtSettingsPtrOutput() ChannelDvbSdtSettingsPtrOutput {
 	return i.ToChannelDvbSdtSettingsPtrOutputWithContext(context.Background())
 }
@@ -7667,12 +6676,6 @@ func (i *channelDvbSdtSettingsPtrType) ToChannelDvbSdtSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDvbSdtSettingsPtrOutput)
 }
 
-func (i *channelDvbSdtSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelDvbSdtSettings] {
-	return pulumix.Output[*ChannelDvbSdtSettings]{
-		OutputState: i.ToChannelDvbSdtSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelDvbSdtSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelDvbSdtSettingsOutput) ElementType() reflect.Type {
@@ -7695,12 +6698,6 @@ func (o ChannelDvbSdtSettingsOutput) ToChannelDvbSdtSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelDvbSdtSettings) *ChannelDvbSdtSettings {
 		return &v
 	}).(ChannelDvbSdtSettingsPtrOutput)
-}
-
-func (o ChannelDvbSdtSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelDvbSdtSettings] {
-	return pulumix.Output[ChannelDvbSdtSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelDvbSdtSettingsOutput) OutputSdt() pulumi.StringPtrOutput {
@@ -7731,12 +6728,6 @@ func (o ChannelDvbSdtSettingsPtrOutput) ToChannelDvbSdtSettingsPtrOutput() Chann
 
 func (o ChannelDvbSdtSettingsPtrOutput) ToChannelDvbSdtSettingsPtrOutputWithContext(ctx context.Context) ChannelDvbSdtSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelDvbSdtSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelDvbSdtSettings] {
-	return pulumix.Output[*ChannelDvbSdtSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelDvbSdtSettingsPtrOutput) Elem() ChannelDvbSdtSettingsOutput {
@@ -7848,12 +6839,6 @@ func (i ChannelDvbSubDestinationSettingsArgs) ToChannelDvbSubDestinationSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDvbSubDestinationSettingsOutput)
 }
 
-func (i ChannelDvbSubDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelDvbSubDestinationSettings] {
-	return pulumix.Output[ChannelDvbSubDestinationSettings]{
-		OutputState: i.ToChannelDvbSubDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelDvbSubDestinationSettingsArgs) ToChannelDvbSubDestinationSettingsPtrOutput() ChannelDvbSubDestinationSettingsPtrOutput {
 	return i.ToChannelDvbSubDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -7895,12 +6880,6 @@ func (i *channelDvbSubDestinationSettingsPtrType) ToChannelDvbSubDestinationSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDvbSubDestinationSettingsPtrOutput)
 }
 
-func (i *channelDvbSubDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelDvbSubDestinationSettings] {
-	return pulumix.Output[*ChannelDvbSubDestinationSettings]{
-		OutputState: i.ToChannelDvbSubDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelDvbSubDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelDvbSubDestinationSettingsOutput) ElementType() reflect.Type {
@@ -7923,12 +6902,6 @@ func (o ChannelDvbSubDestinationSettingsOutput) ToChannelDvbSubDestinationSettin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelDvbSubDestinationSettings) *ChannelDvbSubDestinationSettings {
 		return &v
 	}).(ChannelDvbSubDestinationSettingsPtrOutput)
-}
-
-func (o ChannelDvbSubDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelDvbSubDestinationSettings] {
-	return pulumix.Output[ChannelDvbSubDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelDvbSubDestinationSettingsOutput) Alignment() pulumi.StringPtrOutput {
@@ -8011,12 +6984,6 @@ func (o ChannelDvbSubDestinationSettingsPtrOutput) ToChannelDvbSubDestinationSet
 
 func (o ChannelDvbSubDestinationSettingsPtrOutput) ToChannelDvbSubDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelDvbSubDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelDvbSubDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelDvbSubDestinationSettings] {
-	return pulumix.Output[*ChannelDvbSubDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelDvbSubDestinationSettingsPtrOutput) Elem() ChannelDvbSubDestinationSettingsOutput {
@@ -8215,12 +7182,6 @@ func (i ChannelDvbSubSourceSettingsArgs) ToChannelDvbSubSourceSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDvbSubSourceSettingsOutput)
 }
 
-func (i ChannelDvbSubSourceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelDvbSubSourceSettings] {
-	return pulumix.Output[ChannelDvbSubSourceSettings]{
-		OutputState: i.ToChannelDvbSubSourceSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelDvbSubSourceSettingsArgs) ToChannelDvbSubSourceSettingsPtrOutput() ChannelDvbSubSourceSettingsPtrOutput {
 	return i.ToChannelDvbSubSourceSettingsPtrOutputWithContext(context.Background())
 }
@@ -8262,12 +7223,6 @@ func (i *channelDvbSubSourceSettingsPtrType) ToChannelDvbSubSourceSettingsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDvbSubSourceSettingsPtrOutput)
 }
 
-func (i *channelDvbSubSourceSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelDvbSubSourceSettings] {
-	return pulumix.Output[*ChannelDvbSubSourceSettings]{
-		OutputState: i.ToChannelDvbSubSourceSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelDvbSubSourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelDvbSubSourceSettingsOutput) ElementType() reflect.Type {
@@ -8292,12 +7247,6 @@ func (o ChannelDvbSubSourceSettingsOutput) ToChannelDvbSubSourceSettingsPtrOutpu
 	}).(ChannelDvbSubSourceSettingsPtrOutput)
 }
 
-func (o ChannelDvbSubSourceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelDvbSubSourceSettings] {
-	return pulumix.Output[ChannelDvbSubSourceSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelDvbSubSourceSettingsOutput) OcrLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelDvbSubSourceSettings) *string { return v.OcrLanguage }).(pulumi.StringPtrOutput)
 }
@@ -8318,12 +7267,6 @@ func (o ChannelDvbSubSourceSettingsPtrOutput) ToChannelDvbSubSourceSettingsPtrOu
 
 func (o ChannelDvbSubSourceSettingsPtrOutput) ToChannelDvbSubSourceSettingsPtrOutputWithContext(ctx context.Context) ChannelDvbSubSourceSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelDvbSubSourceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelDvbSubSourceSettings] {
-	return pulumix.Output[*ChannelDvbSubSourceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelDvbSubSourceSettingsPtrOutput) Elem() ChannelDvbSubSourceSettingsOutput {
@@ -8385,12 +7328,6 @@ func (i ChannelDvbTdtSettingsArgs) ToChannelDvbTdtSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDvbTdtSettingsOutput)
 }
 
-func (i ChannelDvbTdtSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelDvbTdtSettings] {
-	return pulumix.Output[ChannelDvbTdtSettings]{
-		OutputState: i.ToChannelDvbTdtSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelDvbTdtSettingsArgs) ToChannelDvbTdtSettingsPtrOutput() ChannelDvbTdtSettingsPtrOutput {
 	return i.ToChannelDvbTdtSettingsPtrOutputWithContext(context.Background())
 }
@@ -8432,12 +7369,6 @@ func (i *channelDvbTdtSettingsPtrType) ToChannelDvbTdtSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDvbTdtSettingsPtrOutput)
 }
 
-func (i *channelDvbTdtSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelDvbTdtSettings] {
-	return pulumix.Output[*ChannelDvbTdtSettings]{
-		OutputState: i.ToChannelDvbTdtSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelDvbTdtSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelDvbTdtSettingsOutput) ElementType() reflect.Type {
@@ -8462,12 +7393,6 @@ func (o ChannelDvbTdtSettingsOutput) ToChannelDvbTdtSettingsPtrOutputWithContext
 	}).(ChannelDvbTdtSettingsPtrOutput)
 }
 
-func (o ChannelDvbTdtSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelDvbTdtSettings] {
-	return pulumix.Output[ChannelDvbTdtSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelDvbTdtSettingsOutput) RepInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelDvbTdtSettings) *int { return v.RepInterval }).(pulumi.IntPtrOutput)
 }
@@ -8484,12 +7409,6 @@ func (o ChannelDvbTdtSettingsPtrOutput) ToChannelDvbTdtSettingsPtrOutput() Chann
 
 func (o ChannelDvbTdtSettingsPtrOutput) ToChannelDvbTdtSettingsPtrOutputWithContext(ctx context.Context) ChannelDvbTdtSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelDvbTdtSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelDvbTdtSettings] {
-	return pulumix.Output[*ChannelDvbTdtSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelDvbTdtSettingsPtrOutput) Elem() ChannelDvbTdtSettingsOutput {
@@ -8554,12 +7473,6 @@ func (i ChannelEac3AtmosSettingsArgs) ToChannelEac3AtmosSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEac3AtmosSettingsOutput)
 }
 
-func (i ChannelEac3AtmosSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelEac3AtmosSettings] {
-	return pulumix.Output[ChannelEac3AtmosSettings]{
-		OutputState: i.ToChannelEac3AtmosSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelEac3AtmosSettingsArgs) ToChannelEac3AtmosSettingsPtrOutput() ChannelEac3AtmosSettingsPtrOutput {
 	return i.ToChannelEac3AtmosSettingsPtrOutputWithContext(context.Background())
 }
@@ -8601,12 +7514,6 @@ func (i *channelEac3AtmosSettingsPtrType) ToChannelEac3AtmosSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEac3AtmosSettingsPtrOutput)
 }
 
-func (i *channelEac3AtmosSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelEac3AtmosSettings] {
-	return pulumix.Output[*ChannelEac3AtmosSettings]{
-		OutputState: i.ToChannelEac3AtmosSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelEac3AtmosSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelEac3AtmosSettingsOutput) ElementType() reflect.Type {
@@ -8629,12 +7536,6 @@ func (o ChannelEac3AtmosSettingsOutput) ToChannelEac3AtmosSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEac3AtmosSettings) *ChannelEac3AtmosSettings {
 		return &v
 	}).(ChannelEac3AtmosSettingsPtrOutput)
-}
-
-func (o ChannelEac3AtmosSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelEac3AtmosSettings] {
-	return pulumix.Output[ChannelEac3AtmosSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEac3AtmosSettingsOutput) Bitrate() pulumi.Float64PtrOutput {
@@ -8677,12 +7578,6 @@ func (o ChannelEac3AtmosSettingsPtrOutput) ToChannelEac3AtmosSettingsPtrOutput()
 
 func (o ChannelEac3AtmosSettingsPtrOutput) ToChannelEac3AtmosSettingsPtrOutputWithContext(ctx context.Context) ChannelEac3AtmosSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelEac3AtmosSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelEac3AtmosSettings] {
-	return pulumix.Output[*ChannelEac3AtmosSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEac3AtmosSettingsPtrOutput) Elem() ChannelEac3AtmosSettingsOutput {
@@ -8827,12 +7722,6 @@ func (i ChannelEac3SettingsArgs) ToChannelEac3SettingsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEac3SettingsOutput)
 }
 
-func (i ChannelEac3SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelEac3Settings] {
-	return pulumix.Output[ChannelEac3Settings]{
-		OutputState: i.ToChannelEac3SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelEac3SettingsArgs) ToChannelEac3SettingsPtrOutput() ChannelEac3SettingsPtrOutput {
 	return i.ToChannelEac3SettingsPtrOutputWithContext(context.Background())
 }
@@ -8874,12 +7763,6 @@ func (i *channelEac3SettingsPtrType) ToChannelEac3SettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEac3SettingsPtrOutput)
 }
 
-func (i *channelEac3SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelEac3Settings] {
-	return pulumix.Output[*ChannelEac3Settings]{
-		OutputState: i.ToChannelEac3SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelEac3SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelEac3SettingsOutput) ElementType() reflect.Type {
@@ -8902,12 +7785,6 @@ func (o ChannelEac3SettingsOutput) ToChannelEac3SettingsPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEac3Settings) *ChannelEac3Settings {
 		return &v
 	}).(ChannelEac3SettingsPtrOutput)
-}
-
-func (o ChannelEac3SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelEac3Settings] {
-	return pulumix.Output[ChannelEac3Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEac3SettingsOutput) AttenuationControl() pulumi.StringPtrOutput {
@@ -9002,12 +7879,6 @@ func (o ChannelEac3SettingsPtrOutput) ToChannelEac3SettingsPtrOutput() ChannelEa
 
 func (o ChannelEac3SettingsPtrOutput) ToChannelEac3SettingsPtrOutputWithContext(ctx context.Context) ChannelEac3SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelEac3SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelEac3Settings] {
-	return pulumix.Output[*ChannelEac3Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEac3SettingsPtrOutput) Elem() ChannelEac3SettingsOutput {
@@ -9237,12 +8108,6 @@ func (i ChannelEbuTtDDestinationSettingsArgs) ToChannelEbuTtDDestinationSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEbuTtDDestinationSettingsOutput)
 }
 
-func (i ChannelEbuTtDDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelEbuTtDDestinationSettings] {
-	return pulumix.Output[ChannelEbuTtDDestinationSettings]{
-		OutputState: i.ToChannelEbuTtDDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelEbuTtDDestinationSettingsArgs) ToChannelEbuTtDDestinationSettingsPtrOutput() ChannelEbuTtDDestinationSettingsPtrOutput {
 	return i.ToChannelEbuTtDDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -9284,12 +8149,6 @@ func (i *channelEbuTtDDestinationSettingsPtrType) ToChannelEbuTtDDestinationSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEbuTtDDestinationSettingsPtrOutput)
 }
 
-func (i *channelEbuTtDDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelEbuTtDDestinationSettings] {
-	return pulumix.Output[*ChannelEbuTtDDestinationSettings]{
-		OutputState: i.ToChannelEbuTtDDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelEbuTtDDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelEbuTtDDestinationSettingsOutput) ElementType() reflect.Type {
@@ -9312,12 +8171,6 @@ func (o ChannelEbuTtDDestinationSettingsOutput) ToChannelEbuTtDDestinationSettin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEbuTtDDestinationSettings) *ChannelEbuTtDDestinationSettings {
 		return &v
 	}).(ChannelEbuTtDDestinationSettingsPtrOutput)
-}
-
-func (o ChannelEbuTtDDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelEbuTtDDestinationSettings] {
-	return pulumix.Output[ChannelEbuTtDDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEbuTtDDestinationSettingsOutput) CopyrightHolder() pulumi.StringPtrOutput {
@@ -9348,12 +8201,6 @@ func (o ChannelEbuTtDDestinationSettingsPtrOutput) ToChannelEbuTtDDestinationSet
 
 func (o ChannelEbuTtDDestinationSettingsPtrOutput) ToChannelEbuTtDDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEbuTtDDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelEbuTtDDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelEbuTtDDestinationSettings] {
-	return pulumix.Output[*ChannelEbuTtDDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEbuTtDDestinationSettingsPtrOutput) Elem() ChannelEbuTtDDestinationSettingsOutput {
@@ -9431,12 +8278,6 @@ func (i ChannelEmbeddedDestinationSettingsArgs) ToChannelEmbeddedDestinationSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEmbeddedDestinationSettingsOutput)
 }
 
-func (i ChannelEmbeddedDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelEmbeddedDestinationSettings] {
-	return pulumix.Output[ChannelEmbeddedDestinationSettings]{
-		OutputState: i.ToChannelEmbeddedDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelEmbeddedDestinationSettingsArgs) ToChannelEmbeddedDestinationSettingsPtrOutput() ChannelEmbeddedDestinationSettingsPtrOutput {
 	return i.ToChannelEmbeddedDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -9478,12 +8319,6 @@ func (i *channelEmbeddedDestinationSettingsPtrType) ToChannelEmbeddedDestination
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEmbeddedDestinationSettingsPtrOutput)
 }
 
-func (i *channelEmbeddedDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelEmbeddedDestinationSettings] {
-	return pulumix.Output[*ChannelEmbeddedDestinationSettings]{
-		OutputState: i.ToChannelEmbeddedDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelEmbeddedDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelEmbeddedDestinationSettingsOutput) ElementType() reflect.Type {
@@ -9508,12 +8343,6 @@ func (o ChannelEmbeddedDestinationSettingsOutput) ToChannelEmbeddedDestinationSe
 	}).(ChannelEmbeddedDestinationSettingsPtrOutput)
 }
 
-func (o ChannelEmbeddedDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelEmbeddedDestinationSettings] {
-	return pulumix.Output[ChannelEmbeddedDestinationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelEmbeddedDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelEmbeddedDestinationSettingsPtrOutput) ElementType() reflect.Type {
@@ -9526,12 +8355,6 @@ func (o ChannelEmbeddedDestinationSettingsPtrOutput) ToChannelEmbeddedDestinatio
 
 func (o ChannelEmbeddedDestinationSettingsPtrOutput) ToChannelEmbeddedDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEmbeddedDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelEmbeddedDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelEmbeddedDestinationSettings] {
-	return pulumix.Output[*ChannelEmbeddedDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEmbeddedDestinationSettingsPtrOutput) Elem() ChannelEmbeddedDestinationSettingsOutput {
@@ -9571,12 +8394,6 @@ func (i ChannelEmbeddedPlusScte20DestinationSettingsArgs) ToChannelEmbeddedPlusS
 
 func (i ChannelEmbeddedPlusScte20DestinationSettingsArgs) ToChannelEmbeddedPlusScte20DestinationSettingsOutputWithContext(ctx context.Context) ChannelEmbeddedPlusScte20DestinationSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEmbeddedPlusScte20DestinationSettingsOutput)
-}
-
-func (i ChannelEmbeddedPlusScte20DestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelEmbeddedPlusScte20DestinationSettings] {
-	return pulumix.Output[ChannelEmbeddedPlusScte20DestinationSettings]{
-		OutputState: i.ToChannelEmbeddedPlusScte20DestinationSettingsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ChannelEmbeddedPlusScte20DestinationSettingsArgs) ToChannelEmbeddedPlusScte20DestinationSettingsPtrOutput() ChannelEmbeddedPlusScte20DestinationSettingsPtrOutput {
@@ -9620,12 +8437,6 @@ func (i *channelEmbeddedPlusScte20DestinationSettingsPtrType) ToChannelEmbeddedP
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEmbeddedPlusScte20DestinationSettingsPtrOutput)
 }
 
-func (i *channelEmbeddedPlusScte20DestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelEmbeddedPlusScte20DestinationSettings] {
-	return pulumix.Output[*ChannelEmbeddedPlusScte20DestinationSettings]{
-		OutputState: i.ToChannelEmbeddedPlusScte20DestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelEmbeddedPlusScte20DestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelEmbeddedPlusScte20DestinationSettingsOutput) ElementType() reflect.Type {
@@ -9650,12 +8461,6 @@ func (o ChannelEmbeddedPlusScte20DestinationSettingsOutput) ToChannelEmbeddedPlu
 	}).(ChannelEmbeddedPlusScte20DestinationSettingsPtrOutput)
 }
 
-func (o ChannelEmbeddedPlusScte20DestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelEmbeddedPlusScte20DestinationSettings] {
-	return pulumix.Output[ChannelEmbeddedPlusScte20DestinationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelEmbeddedPlusScte20DestinationSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelEmbeddedPlusScte20DestinationSettingsPtrOutput) ElementType() reflect.Type {
@@ -9668,12 +8473,6 @@ func (o ChannelEmbeddedPlusScte20DestinationSettingsPtrOutput) ToChannelEmbedded
 
 func (o ChannelEmbeddedPlusScte20DestinationSettingsPtrOutput) ToChannelEmbeddedPlusScte20DestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEmbeddedPlusScte20DestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelEmbeddedPlusScte20DestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelEmbeddedPlusScte20DestinationSettings] {
-	return pulumix.Output[*ChannelEmbeddedPlusScte20DestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEmbeddedPlusScte20DestinationSettingsPtrOutput) Elem() ChannelEmbeddedPlusScte20DestinationSettingsOutput {
@@ -9723,12 +8522,6 @@ func (i ChannelEmbeddedSourceSettingsArgs) ToChannelEmbeddedSourceSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEmbeddedSourceSettingsOutput)
 }
 
-func (i ChannelEmbeddedSourceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelEmbeddedSourceSettings] {
-	return pulumix.Output[ChannelEmbeddedSourceSettings]{
-		OutputState: i.ToChannelEmbeddedSourceSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelEmbeddedSourceSettingsArgs) ToChannelEmbeddedSourceSettingsPtrOutput() ChannelEmbeddedSourceSettingsPtrOutput {
 	return i.ToChannelEmbeddedSourceSettingsPtrOutputWithContext(context.Background())
 }
@@ -9770,12 +8563,6 @@ func (i *channelEmbeddedSourceSettingsPtrType) ToChannelEmbeddedSourceSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEmbeddedSourceSettingsPtrOutput)
 }
 
-func (i *channelEmbeddedSourceSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelEmbeddedSourceSettings] {
-	return pulumix.Output[*ChannelEmbeddedSourceSettings]{
-		OutputState: i.ToChannelEmbeddedSourceSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelEmbeddedSourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelEmbeddedSourceSettingsOutput) ElementType() reflect.Type {
@@ -9798,12 +8585,6 @@ func (o ChannelEmbeddedSourceSettingsOutput) ToChannelEmbeddedSourceSettingsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEmbeddedSourceSettings) *ChannelEmbeddedSourceSettings {
 		return &v
 	}).(ChannelEmbeddedSourceSettingsPtrOutput)
-}
-
-func (o ChannelEmbeddedSourceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelEmbeddedSourceSettings] {
-	return pulumix.Output[ChannelEmbeddedSourceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEmbeddedSourceSettingsOutput) Convert608To708() pulumi.StringPtrOutput {
@@ -9834,12 +8615,6 @@ func (o ChannelEmbeddedSourceSettingsPtrOutput) ToChannelEmbeddedSourceSettingsP
 
 func (o ChannelEmbeddedSourceSettingsPtrOutput) ToChannelEmbeddedSourceSettingsPtrOutputWithContext(ctx context.Context) ChannelEmbeddedSourceSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelEmbeddedSourceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelEmbeddedSourceSettings] {
-	return pulumix.Output[*ChannelEmbeddedSourceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEmbeddedSourceSettingsPtrOutput) Elem() ChannelEmbeddedSourceSettingsOutput {
@@ -9943,12 +8718,6 @@ func (i ChannelEncoderSettingsArgs) ToChannelEncoderSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsOutput)
 }
 
-func (i ChannelEncoderSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelEncoderSettings] {
-	return pulumix.Output[ChannelEncoderSettings]{
-		OutputState: i.ToChannelEncoderSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelEncoderSettingsArgs) ToChannelEncoderSettingsPtrOutput() ChannelEncoderSettingsPtrOutput {
 	return i.ToChannelEncoderSettingsPtrOutputWithContext(context.Background())
 }
@@ -9990,12 +8759,6 @@ func (i *channelEncoderSettingsPtrType) ToChannelEncoderSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsPtrOutput)
 }
 
-func (i *channelEncoderSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelEncoderSettings] {
-	return pulumix.Output[*ChannelEncoderSettings]{
-		OutputState: i.ToChannelEncoderSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelEncoderSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelEncoderSettingsOutput) ElementType() reflect.Type {
@@ -10018,12 +8781,6 @@ func (o ChannelEncoderSettingsOutput) ToChannelEncoderSettingsPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettings) *ChannelEncoderSettings {
 		return &v
 	}).(ChannelEncoderSettingsPtrOutput)
-}
-
-func (o ChannelEncoderSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelEncoderSettings] {
-	return pulumix.Output[ChannelEncoderSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEncoderSettingsOutput) AudioDescriptions() ChannelAudioDescriptionArrayOutput {
@@ -10092,12 +8849,6 @@ func (o ChannelEncoderSettingsPtrOutput) ToChannelEncoderSettingsPtrOutput() Cha
 
 func (o ChannelEncoderSettingsPtrOutput) ToChannelEncoderSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelEncoderSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelEncoderSettings] {
-	return pulumix.Output[*ChannelEncoderSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEncoderSettingsPtrOutput) Elem() ChannelEncoderSettingsOutput {
@@ -10260,12 +9011,6 @@ func (i ChannelEpochLockingSettingsArgs) ToChannelEpochLockingSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEpochLockingSettingsOutput)
 }
 
-func (i ChannelEpochLockingSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelEpochLockingSettings] {
-	return pulumix.Output[ChannelEpochLockingSettings]{
-		OutputState: i.ToChannelEpochLockingSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelEpochLockingSettingsArgs) ToChannelEpochLockingSettingsPtrOutput() ChannelEpochLockingSettingsPtrOutput {
 	return i.ToChannelEpochLockingSettingsPtrOutputWithContext(context.Background())
 }
@@ -10307,12 +9052,6 @@ func (i *channelEpochLockingSettingsPtrType) ToChannelEpochLockingSettingsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEpochLockingSettingsPtrOutput)
 }
 
-func (i *channelEpochLockingSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelEpochLockingSettings] {
-	return pulumix.Output[*ChannelEpochLockingSettings]{
-		OutputState: i.ToChannelEpochLockingSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelEpochLockingSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelEpochLockingSettingsOutput) ElementType() reflect.Type {
@@ -10337,12 +9076,6 @@ func (o ChannelEpochLockingSettingsOutput) ToChannelEpochLockingSettingsPtrOutpu
 	}).(ChannelEpochLockingSettingsPtrOutput)
 }
 
-func (o ChannelEpochLockingSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelEpochLockingSettings] {
-	return pulumix.Output[ChannelEpochLockingSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelEpochLockingSettingsOutput) CustomEpoch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEpochLockingSettings) *string { return v.CustomEpoch }).(pulumi.StringPtrOutput)
 }
@@ -10363,12 +9096,6 @@ func (o ChannelEpochLockingSettingsPtrOutput) ToChannelEpochLockingSettingsPtrOu
 
 func (o ChannelEpochLockingSettingsPtrOutput) ToChannelEpochLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelEpochLockingSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelEpochLockingSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelEpochLockingSettings] {
-	return pulumix.Output[*ChannelEpochLockingSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEpochLockingSettingsPtrOutput) Elem() ChannelEpochLockingSettingsOutput {
@@ -10440,12 +9167,6 @@ func (i ChannelEsamArgs) ToChannelEsamOutputWithContext(ctx context.Context) Cha
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEsamOutput)
 }
 
-func (i ChannelEsamArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelEsam] {
-	return pulumix.Output[ChannelEsam]{
-		OutputState: i.ToChannelEsamOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelEsamArgs) ToChannelEsamPtrOutput() ChannelEsamPtrOutput {
 	return i.ToChannelEsamPtrOutputWithContext(context.Background())
 }
@@ -10487,12 +9208,6 @@ func (i *channelEsamPtrType) ToChannelEsamPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEsamPtrOutput)
 }
 
-func (i *channelEsamPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelEsam] {
-	return pulumix.Output[*ChannelEsam]{
-		OutputState: i.ToChannelEsamPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelEsamOutput struct{ *pulumi.OutputState }
 
 func (ChannelEsamOutput) ElementType() reflect.Type {
@@ -10515,12 +9230,6 @@ func (o ChannelEsamOutput) ToChannelEsamPtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEsam) *ChannelEsam {
 		return &v
 	}).(ChannelEsamPtrOutput)
-}
-
-func (o ChannelEsamOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelEsam] {
-	return pulumix.Output[ChannelEsam]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEsamOutput) AcquisitionPointId() pulumi.StringPtrOutput {
@@ -10559,12 +9268,6 @@ func (o ChannelEsamPtrOutput) ToChannelEsamPtrOutput() ChannelEsamPtrOutput {
 
 func (o ChannelEsamPtrOutput) ToChannelEsamPtrOutputWithContext(ctx context.Context) ChannelEsamPtrOutput {
 	return o
-}
-
-func (o ChannelEsamPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelEsam] {
-	return pulumix.Output[*ChannelEsam]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEsamPtrOutput) Elem() ChannelEsamOutput {
@@ -10662,12 +9365,6 @@ func (i ChannelFailoverConditionArgs) ToChannelFailoverConditionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFailoverConditionOutput)
 }
 
-func (i ChannelFailoverConditionArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelFailoverCondition] {
-	return pulumix.Output[ChannelFailoverCondition]{
-		OutputState: i.ToChannelFailoverConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelFailoverConditionArrayInput is an input type that accepts ChannelFailoverConditionArray and ChannelFailoverConditionArrayOutput values.
 // You can construct a concrete instance of `ChannelFailoverConditionArrayInput` via:
 //
@@ -10693,12 +9390,6 @@ func (i ChannelFailoverConditionArray) ToChannelFailoverConditionArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFailoverConditionArrayOutput)
 }
 
-func (i ChannelFailoverConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelFailoverCondition] {
-	return pulumix.Output[[]ChannelFailoverCondition]{
-		OutputState: i.ToChannelFailoverConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelFailoverConditionOutput struct{ *pulumi.OutputState }
 
 func (ChannelFailoverConditionOutput) ElementType() reflect.Type {
@@ -10711,12 +9402,6 @@ func (o ChannelFailoverConditionOutput) ToChannelFailoverConditionOutput() Chann
 
 func (o ChannelFailoverConditionOutput) ToChannelFailoverConditionOutputWithContext(ctx context.Context) ChannelFailoverConditionOutput {
 	return o
-}
-
-func (o ChannelFailoverConditionOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelFailoverCondition] {
-	return pulumix.Output[ChannelFailoverCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFailoverConditionOutput) FailoverConditionSettings() ChannelFailoverConditionSettingsPtrOutput {
@@ -10735,12 +9420,6 @@ func (o ChannelFailoverConditionArrayOutput) ToChannelFailoverConditionArrayOutp
 
 func (o ChannelFailoverConditionArrayOutput) ToChannelFailoverConditionArrayOutputWithContext(ctx context.Context) ChannelFailoverConditionArrayOutput {
 	return o
-}
-
-func (o ChannelFailoverConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelFailoverCondition] {
-	return pulumix.Output[[]ChannelFailoverCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFailoverConditionArrayOutput) Index(i pulumi.IntInput) ChannelFailoverConditionOutput {
@@ -10784,12 +9463,6 @@ func (i ChannelFailoverConditionSettingsArgs) ToChannelFailoverConditionSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFailoverConditionSettingsOutput)
 }
 
-func (i ChannelFailoverConditionSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelFailoverConditionSettings] {
-	return pulumix.Output[ChannelFailoverConditionSettings]{
-		OutputState: i.ToChannelFailoverConditionSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelFailoverConditionSettingsArgs) ToChannelFailoverConditionSettingsPtrOutput() ChannelFailoverConditionSettingsPtrOutput {
 	return i.ToChannelFailoverConditionSettingsPtrOutputWithContext(context.Background())
 }
@@ -10831,12 +9504,6 @@ func (i *channelFailoverConditionSettingsPtrType) ToChannelFailoverConditionSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFailoverConditionSettingsPtrOutput)
 }
 
-func (i *channelFailoverConditionSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelFailoverConditionSettings] {
-	return pulumix.Output[*ChannelFailoverConditionSettings]{
-		OutputState: i.ToChannelFailoverConditionSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelFailoverConditionSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelFailoverConditionSettingsOutput) ElementType() reflect.Type {
@@ -10859,12 +9526,6 @@ func (o ChannelFailoverConditionSettingsOutput) ToChannelFailoverConditionSettin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelFailoverConditionSettings) *ChannelFailoverConditionSettings {
 		return &v
 	}).(ChannelFailoverConditionSettingsPtrOutput)
-}
-
-func (o ChannelFailoverConditionSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelFailoverConditionSettings] {
-	return pulumix.Output[ChannelFailoverConditionSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFailoverConditionSettingsOutput) AudioSilenceSettings() ChannelAudioSilenceFailoverSettingsPtrOutput {
@@ -10895,12 +9556,6 @@ func (o ChannelFailoverConditionSettingsPtrOutput) ToChannelFailoverConditionSet
 
 func (o ChannelFailoverConditionSettingsPtrOutput) ToChannelFailoverConditionSettingsPtrOutputWithContext(ctx context.Context) ChannelFailoverConditionSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelFailoverConditionSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelFailoverConditionSettings] {
-	return pulumix.Output[*ChannelFailoverConditionSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFailoverConditionSettingsPtrOutput) Elem() ChannelFailoverConditionSettingsOutput {
@@ -10973,12 +9628,6 @@ func (i ChannelFeatureActivationsArgs) ToChannelFeatureActivationsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFeatureActivationsOutput)
 }
 
-func (i ChannelFeatureActivationsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelFeatureActivations] {
-	return pulumix.Output[ChannelFeatureActivations]{
-		OutputState: i.ToChannelFeatureActivationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelFeatureActivationsArgs) ToChannelFeatureActivationsPtrOutput() ChannelFeatureActivationsPtrOutput {
 	return i.ToChannelFeatureActivationsPtrOutputWithContext(context.Background())
 }
@@ -11020,12 +9669,6 @@ func (i *channelFeatureActivationsPtrType) ToChannelFeatureActivationsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFeatureActivationsPtrOutput)
 }
 
-func (i *channelFeatureActivationsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelFeatureActivations] {
-	return pulumix.Output[*ChannelFeatureActivations]{
-		OutputState: i.ToChannelFeatureActivationsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelFeatureActivationsOutput struct{ *pulumi.OutputState }
 
 func (ChannelFeatureActivationsOutput) ElementType() reflect.Type {
@@ -11050,12 +9693,6 @@ func (o ChannelFeatureActivationsOutput) ToChannelFeatureActivationsPtrOutputWit
 	}).(ChannelFeatureActivationsPtrOutput)
 }
 
-func (o ChannelFeatureActivationsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelFeatureActivations] {
-	return pulumix.Output[ChannelFeatureActivations]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelFeatureActivationsOutput) InputPrepareScheduleActions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelFeatureActivations) *string { return v.InputPrepareScheduleActions }).(pulumi.StringPtrOutput)
 }
@@ -11076,12 +9713,6 @@ func (o ChannelFeatureActivationsPtrOutput) ToChannelFeatureActivationsPtrOutput
 
 func (o ChannelFeatureActivationsPtrOutput) ToChannelFeatureActivationsPtrOutputWithContext(ctx context.Context) ChannelFeatureActivationsPtrOutput {
 	return o
-}
-
-func (o ChannelFeatureActivationsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelFeatureActivations] {
-	return pulumix.Output[*ChannelFeatureActivations]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFeatureActivationsPtrOutput) Elem() ChannelFeatureActivationsOutput {
@@ -11147,12 +9778,6 @@ func (i ChannelFecOutputSettingsArgs) ToChannelFecOutputSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFecOutputSettingsOutput)
 }
 
-func (i ChannelFecOutputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelFecOutputSettings] {
-	return pulumix.Output[ChannelFecOutputSettings]{
-		OutputState: i.ToChannelFecOutputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelFecOutputSettingsArgs) ToChannelFecOutputSettingsPtrOutput() ChannelFecOutputSettingsPtrOutput {
 	return i.ToChannelFecOutputSettingsPtrOutputWithContext(context.Background())
 }
@@ -11194,12 +9819,6 @@ func (i *channelFecOutputSettingsPtrType) ToChannelFecOutputSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFecOutputSettingsPtrOutput)
 }
 
-func (i *channelFecOutputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelFecOutputSettings] {
-	return pulumix.Output[*ChannelFecOutputSettings]{
-		OutputState: i.ToChannelFecOutputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelFecOutputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelFecOutputSettingsOutput) ElementType() reflect.Type {
@@ -11222,12 +9841,6 @@ func (o ChannelFecOutputSettingsOutput) ToChannelFecOutputSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelFecOutputSettings) *ChannelFecOutputSettings {
 		return &v
 	}).(ChannelFecOutputSettingsPtrOutput)
-}
-
-func (o ChannelFecOutputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelFecOutputSettings] {
-	return pulumix.Output[ChannelFecOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFecOutputSettingsOutput) ColumnDepth() pulumi.IntPtrOutput {
@@ -11254,12 +9867,6 @@ func (o ChannelFecOutputSettingsPtrOutput) ToChannelFecOutputSettingsPtrOutput()
 
 func (o ChannelFecOutputSettingsPtrOutput) ToChannelFecOutputSettingsPtrOutputWithContext(ctx context.Context) ChannelFecOutputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelFecOutputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelFecOutputSettings] {
-	return pulumix.Output[*ChannelFecOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFecOutputSettingsPtrOutput) Elem() ChannelFecOutputSettingsOutput {
@@ -11334,12 +9941,6 @@ func (i ChannelFmp4HlsSettingsArgs) ToChannelFmp4HlsSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFmp4HlsSettingsOutput)
 }
 
-func (i ChannelFmp4HlsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelFmp4HlsSettings] {
-	return pulumix.Output[ChannelFmp4HlsSettings]{
-		OutputState: i.ToChannelFmp4HlsSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelFmp4HlsSettingsArgs) ToChannelFmp4HlsSettingsPtrOutput() ChannelFmp4HlsSettingsPtrOutput {
 	return i.ToChannelFmp4HlsSettingsPtrOutputWithContext(context.Background())
 }
@@ -11381,12 +9982,6 @@ func (i *channelFmp4HlsSettingsPtrType) ToChannelFmp4HlsSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFmp4HlsSettingsPtrOutput)
 }
 
-func (i *channelFmp4HlsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelFmp4HlsSettings] {
-	return pulumix.Output[*ChannelFmp4HlsSettings]{
-		OutputState: i.ToChannelFmp4HlsSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelFmp4HlsSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelFmp4HlsSettingsOutput) ElementType() reflect.Type {
@@ -11409,12 +10004,6 @@ func (o ChannelFmp4HlsSettingsOutput) ToChannelFmp4HlsSettingsPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelFmp4HlsSettings) *ChannelFmp4HlsSettings {
 		return &v
 	}).(ChannelFmp4HlsSettingsPtrOutput)
-}
-
-func (o ChannelFmp4HlsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelFmp4HlsSettings] {
-	return pulumix.Output[ChannelFmp4HlsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFmp4HlsSettingsOutput) AudioRenditionSets() pulumi.StringPtrOutput {
@@ -11441,12 +10030,6 @@ func (o ChannelFmp4HlsSettingsPtrOutput) ToChannelFmp4HlsSettingsPtrOutput() Cha
 
 func (o ChannelFmp4HlsSettingsPtrOutput) ToChannelFmp4HlsSettingsPtrOutputWithContext(ctx context.Context) ChannelFmp4HlsSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelFmp4HlsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelFmp4HlsSettings] {
-	return pulumix.Output[*ChannelFmp4HlsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFmp4HlsSettingsPtrOutput) Elem() ChannelFmp4HlsSettingsOutput {
@@ -11517,12 +10100,6 @@ func (i ChannelFrameCaptureCdnSettingsArgs) ToChannelFrameCaptureCdnSettingsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFrameCaptureCdnSettingsOutput)
 }
 
-func (i ChannelFrameCaptureCdnSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelFrameCaptureCdnSettings] {
-	return pulumix.Output[ChannelFrameCaptureCdnSettings]{
-		OutputState: i.ToChannelFrameCaptureCdnSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelFrameCaptureCdnSettingsArgs) ToChannelFrameCaptureCdnSettingsPtrOutput() ChannelFrameCaptureCdnSettingsPtrOutput {
 	return i.ToChannelFrameCaptureCdnSettingsPtrOutputWithContext(context.Background())
 }
@@ -11564,12 +10141,6 @@ func (i *channelFrameCaptureCdnSettingsPtrType) ToChannelFrameCaptureCdnSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFrameCaptureCdnSettingsPtrOutput)
 }
 
-func (i *channelFrameCaptureCdnSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelFrameCaptureCdnSettings] {
-	return pulumix.Output[*ChannelFrameCaptureCdnSettings]{
-		OutputState: i.ToChannelFrameCaptureCdnSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelFrameCaptureCdnSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelFrameCaptureCdnSettingsOutput) ElementType() reflect.Type {
@@ -11594,12 +10165,6 @@ func (o ChannelFrameCaptureCdnSettingsOutput) ToChannelFrameCaptureCdnSettingsPt
 	}).(ChannelFrameCaptureCdnSettingsPtrOutput)
 }
 
-func (o ChannelFrameCaptureCdnSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelFrameCaptureCdnSettings] {
-	return pulumix.Output[ChannelFrameCaptureCdnSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelFrameCaptureCdnSettingsOutput) FrameCaptureS3Settings() ChannelFrameCaptureS3SettingsPtrOutput {
 	return o.ApplyT(func(v ChannelFrameCaptureCdnSettings) *ChannelFrameCaptureS3Settings { return v.FrameCaptureS3Settings }).(ChannelFrameCaptureS3SettingsPtrOutput)
 }
@@ -11616,12 +10181,6 @@ func (o ChannelFrameCaptureCdnSettingsPtrOutput) ToChannelFrameCaptureCdnSetting
 
 func (o ChannelFrameCaptureCdnSettingsPtrOutput) ToChannelFrameCaptureCdnSettingsPtrOutputWithContext(ctx context.Context) ChannelFrameCaptureCdnSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelFrameCaptureCdnSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelFrameCaptureCdnSettings] {
-	return pulumix.Output[*ChannelFrameCaptureCdnSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFrameCaptureCdnSettingsPtrOutput) Elem() ChannelFrameCaptureCdnSettingsOutput {
@@ -11676,12 +10235,6 @@ func (i ChannelFrameCaptureGroupSettingsArgs) ToChannelFrameCaptureGroupSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFrameCaptureGroupSettingsOutput)
 }
 
-func (i ChannelFrameCaptureGroupSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelFrameCaptureGroupSettings] {
-	return pulumix.Output[ChannelFrameCaptureGroupSettings]{
-		OutputState: i.ToChannelFrameCaptureGroupSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelFrameCaptureGroupSettingsArgs) ToChannelFrameCaptureGroupSettingsPtrOutput() ChannelFrameCaptureGroupSettingsPtrOutput {
 	return i.ToChannelFrameCaptureGroupSettingsPtrOutputWithContext(context.Background())
 }
@@ -11723,12 +10276,6 @@ func (i *channelFrameCaptureGroupSettingsPtrType) ToChannelFrameCaptureGroupSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFrameCaptureGroupSettingsPtrOutput)
 }
 
-func (i *channelFrameCaptureGroupSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelFrameCaptureGroupSettings] {
-	return pulumix.Output[*ChannelFrameCaptureGroupSettings]{
-		OutputState: i.ToChannelFrameCaptureGroupSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelFrameCaptureGroupSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelFrameCaptureGroupSettingsOutput) ElementType() reflect.Type {
@@ -11753,12 +10300,6 @@ func (o ChannelFrameCaptureGroupSettingsOutput) ToChannelFrameCaptureGroupSettin
 	}).(ChannelFrameCaptureGroupSettingsPtrOutput)
 }
 
-func (o ChannelFrameCaptureGroupSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelFrameCaptureGroupSettings] {
-	return pulumix.Output[ChannelFrameCaptureGroupSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelFrameCaptureGroupSettingsOutput) Destination() ChannelOutputLocationRefPtrOutput {
 	return o.ApplyT(func(v ChannelFrameCaptureGroupSettings) *ChannelOutputLocationRef { return v.Destination }).(ChannelOutputLocationRefPtrOutput)
 }
@@ -11781,12 +10322,6 @@ func (o ChannelFrameCaptureGroupSettingsPtrOutput) ToChannelFrameCaptureGroupSet
 
 func (o ChannelFrameCaptureGroupSettingsPtrOutput) ToChannelFrameCaptureGroupSettingsPtrOutputWithContext(ctx context.Context) ChannelFrameCaptureGroupSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelFrameCaptureGroupSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelFrameCaptureGroupSettings] {
-	return pulumix.Output[*ChannelFrameCaptureGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFrameCaptureGroupSettingsPtrOutput) Elem() ChannelFrameCaptureGroupSettingsOutput {
@@ -11846,12 +10381,6 @@ func (i ChannelFrameCaptureHlsSettingsArgs) ToChannelFrameCaptureHlsSettingsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFrameCaptureHlsSettingsOutput)
 }
 
-func (i ChannelFrameCaptureHlsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelFrameCaptureHlsSettings] {
-	return pulumix.Output[ChannelFrameCaptureHlsSettings]{
-		OutputState: i.ToChannelFrameCaptureHlsSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelFrameCaptureHlsSettingsArgs) ToChannelFrameCaptureHlsSettingsPtrOutput() ChannelFrameCaptureHlsSettingsPtrOutput {
 	return i.ToChannelFrameCaptureHlsSettingsPtrOutputWithContext(context.Background())
 }
@@ -11893,12 +10422,6 @@ func (i *channelFrameCaptureHlsSettingsPtrType) ToChannelFrameCaptureHlsSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFrameCaptureHlsSettingsPtrOutput)
 }
 
-func (i *channelFrameCaptureHlsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelFrameCaptureHlsSettings] {
-	return pulumix.Output[*ChannelFrameCaptureHlsSettings]{
-		OutputState: i.ToChannelFrameCaptureHlsSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelFrameCaptureHlsSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelFrameCaptureHlsSettingsOutput) ElementType() reflect.Type {
@@ -11923,12 +10446,6 @@ func (o ChannelFrameCaptureHlsSettingsOutput) ToChannelFrameCaptureHlsSettingsPt
 	}).(ChannelFrameCaptureHlsSettingsPtrOutput)
 }
 
-func (o ChannelFrameCaptureHlsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelFrameCaptureHlsSettings] {
-	return pulumix.Output[ChannelFrameCaptureHlsSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelFrameCaptureHlsSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelFrameCaptureHlsSettingsPtrOutput) ElementType() reflect.Type {
@@ -11941,12 +10458,6 @@ func (o ChannelFrameCaptureHlsSettingsPtrOutput) ToChannelFrameCaptureHlsSetting
 
 func (o ChannelFrameCaptureHlsSettingsPtrOutput) ToChannelFrameCaptureHlsSettingsPtrOutputWithContext(ctx context.Context) ChannelFrameCaptureHlsSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelFrameCaptureHlsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelFrameCaptureHlsSettings] {
-	return pulumix.Output[*ChannelFrameCaptureHlsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFrameCaptureHlsSettingsPtrOutput) Elem() ChannelFrameCaptureHlsSettingsOutput {
@@ -11990,12 +10501,6 @@ func (i ChannelFrameCaptureOutputSettingsArgs) ToChannelFrameCaptureOutputSettin
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFrameCaptureOutputSettingsOutput)
 }
 
-func (i ChannelFrameCaptureOutputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelFrameCaptureOutputSettings] {
-	return pulumix.Output[ChannelFrameCaptureOutputSettings]{
-		OutputState: i.ToChannelFrameCaptureOutputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelFrameCaptureOutputSettingsArgs) ToChannelFrameCaptureOutputSettingsPtrOutput() ChannelFrameCaptureOutputSettingsPtrOutput {
 	return i.ToChannelFrameCaptureOutputSettingsPtrOutputWithContext(context.Background())
 }
@@ -12037,12 +10542,6 @@ func (i *channelFrameCaptureOutputSettingsPtrType) ToChannelFrameCaptureOutputSe
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFrameCaptureOutputSettingsPtrOutput)
 }
 
-func (i *channelFrameCaptureOutputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelFrameCaptureOutputSettings] {
-	return pulumix.Output[*ChannelFrameCaptureOutputSettings]{
-		OutputState: i.ToChannelFrameCaptureOutputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelFrameCaptureOutputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelFrameCaptureOutputSettingsOutput) ElementType() reflect.Type {
@@ -12067,12 +10566,6 @@ func (o ChannelFrameCaptureOutputSettingsOutput) ToChannelFrameCaptureOutputSett
 	}).(ChannelFrameCaptureOutputSettingsPtrOutput)
 }
 
-func (o ChannelFrameCaptureOutputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelFrameCaptureOutputSettings] {
-	return pulumix.Output[ChannelFrameCaptureOutputSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelFrameCaptureOutputSettingsOutput) NameModifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelFrameCaptureOutputSettings) *string { return v.NameModifier }).(pulumi.StringPtrOutput)
 }
@@ -12089,12 +10582,6 @@ func (o ChannelFrameCaptureOutputSettingsPtrOutput) ToChannelFrameCaptureOutputS
 
 func (o ChannelFrameCaptureOutputSettingsPtrOutput) ToChannelFrameCaptureOutputSettingsPtrOutputWithContext(ctx context.Context) ChannelFrameCaptureOutputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelFrameCaptureOutputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelFrameCaptureOutputSettings] {
-	return pulumix.Output[*ChannelFrameCaptureOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFrameCaptureOutputSettingsPtrOutput) Elem() ChannelFrameCaptureOutputSettingsOutput {
@@ -12147,12 +10634,6 @@ func (i ChannelFrameCaptureS3SettingsArgs) ToChannelFrameCaptureS3SettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFrameCaptureS3SettingsOutput)
 }
 
-func (i ChannelFrameCaptureS3SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelFrameCaptureS3Settings] {
-	return pulumix.Output[ChannelFrameCaptureS3Settings]{
-		OutputState: i.ToChannelFrameCaptureS3SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelFrameCaptureS3SettingsArgs) ToChannelFrameCaptureS3SettingsPtrOutput() ChannelFrameCaptureS3SettingsPtrOutput {
 	return i.ToChannelFrameCaptureS3SettingsPtrOutputWithContext(context.Background())
 }
@@ -12194,12 +10675,6 @@ func (i *channelFrameCaptureS3SettingsPtrType) ToChannelFrameCaptureS3SettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFrameCaptureS3SettingsPtrOutput)
 }
 
-func (i *channelFrameCaptureS3SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelFrameCaptureS3Settings] {
-	return pulumix.Output[*ChannelFrameCaptureS3Settings]{
-		OutputState: i.ToChannelFrameCaptureS3SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelFrameCaptureS3SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelFrameCaptureS3SettingsOutput) ElementType() reflect.Type {
@@ -12224,12 +10699,6 @@ func (o ChannelFrameCaptureS3SettingsOutput) ToChannelFrameCaptureS3SettingsPtrO
 	}).(ChannelFrameCaptureS3SettingsPtrOutput)
 }
 
-func (o ChannelFrameCaptureS3SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelFrameCaptureS3Settings] {
-	return pulumix.Output[ChannelFrameCaptureS3Settings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelFrameCaptureS3SettingsOutput) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelFrameCaptureS3Settings) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
 }
@@ -12246,12 +10715,6 @@ func (o ChannelFrameCaptureS3SettingsPtrOutput) ToChannelFrameCaptureS3SettingsP
 
 func (o ChannelFrameCaptureS3SettingsPtrOutput) ToChannelFrameCaptureS3SettingsPtrOutputWithContext(ctx context.Context) ChannelFrameCaptureS3SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelFrameCaptureS3SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelFrameCaptureS3Settings] {
-	return pulumix.Output[*ChannelFrameCaptureS3Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFrameCaptureS3SettingsPtrOutput) Elem() ChannelFrameCaptureS3SettingsOutput {
@@ -12308,12 +10771,6 @@ func (i ChannelFrameCaptureSettingsArgs) ToChannelFrameCaptureSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFrameCaptureSettingsOutput)
 }
 
-func (i ChannelFrameCaptureSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelFrameCaptureSettings] {
-	return pulumix.Output[ChannelFrameCaptureSettings]{
-		OutputState: i.ToChannelFrameCaptureSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelFrameCaptureSettingsArgs) ToChannelFrameCaptureSettingsPtrOutput() ChannelFrameCaptureSettingsPtrOutput {
 	return i.ToChannelFrameCaptureSettingsPtrOutputWithContext(context.Background())
 }
@@ -12355,12 +10812,6 @@ func (i *channelFrameCaptureSettingsPtrType) ToChannelFrameCaptureSettingsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFrameCaptureSettingsPtrOutput)
 }
 
-func (i *channelFrameCaptureSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelFrameCaptureSettings] {
-	return pulumix.Output[*ChannelFrameCaptureSettings]{
-		OutputState: i.ToChannelFrameCaptureSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelFrameCaptureSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelFrameCaptureSettingsOutput) ElementType() reflect.Type {
@@ -12383,12 +10834,6 @@ func (o ChannelFrameCaptureSettingsOutput) ToChannelFrameCaptureSettingsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelFrameCaptureSettings) *ChannelFrameCaptureSettings {
 		return &v
 	}).(ChannelFrameCaptureSettingsPtrOutput)
-}
-
-func (o ChannelFrameCaptureSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelFrameCaptureSettings] {
-	return pulumix.Output[ChannelFrameCaptureSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFrameCaptureSettingsOutput) CaptureInterval() pulumi.IntPtrOutput {
@@ -12415,12 +10860,6 @@ func (o ChannelFrameCaptureSettingsPtrOutput) ToChannelFrameCaptureSettingsPtrOu
 
 func (o ChannelFrameCaptureSettingsPtrOutput) ToChannelFrameCaptureSettingsPtrOutputWithContext(ctx context.Context) ChannelFrameCaptureSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelFrameCaptureSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelFrameCaptureSettings] {
-	return pulumix.Output[*ChannelFrameCaptureSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelFrameCaptureSettingsPtrOutput) Elem() ChannelFrameCaptureSettingsOutput {
@@ -12503,12 +10942,6 @@ func (i ChannelGlobalConfigurationArgs) ToChannelGlobalConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelGlobalConfigurationOutput)
 }
 
-func (i ChannelGlobalConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelGlobalConfiguration] {
-	return pulumix.Output[ChannelGlobalConfiguration]{
-		OutputState: i.ToChannelGlobalConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelGlobalConfigurationArgs) ToChannelGlobalConfigurationPtrOutput() ChannelGlobalConfigurationPtrOutput {
 	return i.ToChannelGlobalConfigurationPtrOutputWithContext(context.Background())
 }
@@ -12550,12 +10983,6 @@ func (i *channelGlobalConfigurationPtrType) ToChannelGlobalConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelGlobalConfigurationPtrOutput)
 }
 
-func (i *channelGlobalConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelGlobalConfiguration] {
-	return pulumix.Output[*ChannelGlobalConfiguration]{
-		OutputState: i.ToChannelGlobalConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelGlobalConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ChannelGlobalConfigurationOutput) ElementType() reflect.Type {
@@ -12578,12 +11005,6 @@ func (o ChannelGlobalConfigurationOutput) ToChannelGlobalConfigurationPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelGlobalConfiguration) *ChannelGlobalConfiguration {
 		return &v
 	}).(ChannelGlobalConfigurationPtrOutput)
-}
-
-func (o ChannelGlobalConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelGlobalConfiguration] {
-	return pulumix.Output[ChannelGlobalConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelGlobalConfigurationOutput) InitialAudioGain() pulumi.IntPtrOutput {
@@ -12626,12 +11047,6 @@ func (o ChannelGlobalConfigurationPtrOutput) ToChannelGlobalConfigurationPtrOutp
 
 func (o ChannelGlobalConfigurationPtrOutput) ToChannelGlobalConfigurationPtrOutputWithContext(ctx context.Context) ChannelGlobalConfigurationPtrOutput {
 	return o
-}
-
-func (o ChannelGlobalConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelGlobalConfiguration] {
-	return pulumix.Output[*ChannelGlobalConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelGlobalConfigurationPtrOutput) Elem() ChannelGlobalConfigurationOutput {
@@ -12742,12 +11157,6 @@ func (i ChannelH264ColorSpaceSettingsArgs) ToChannelH264ColorSpaceSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelH264ColorSpaceSettingsOutput)
 }
 
-func (i ChannelH264ColorSpaceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelH264ColorSpaceSettings] {
-	return pulumix.Output[ChannelH264ColorSpaceSettings]{
-		OutputState: i.ToChannelH264ColorSpaceSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelH264ColorSpaceSettingsArgs) ToChannelH264ColorSpaceSettingsPtrOutput() ChannelH264ColorSpaceSettingsPtrOutput {
 	return i.ToChannelH264ColorSpaceSettingsPtrOutputWithContext(context.Background())
 }
@@ -12789,12 +11198,6 @@ func (i *channelH264ColorSpaceSettingsPtrType) ToChannelH264ColorSpaceSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelH264ColorSpaceSettingsPtrOutput)
 }
 
-func (i *channelH264ColorSpaceSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelH264ColorSpaceSettings] {
-	return pulumix.Output[*ChannelH264ColorSpaceSettings]{
-		OutputState: i.ToChannelH264ColorSpaceSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelH264ColorSpaceSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelH264ColorSpaceSettingsOutput) ElementType() reflect.Type {
@@ -12817,12 +11220,6 @@ func (o ChannelH264ColorSpaceSettingsOutput) ToChannelH264ColorSpaceSettingsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelH264ColorSpaceSettings) *ChannelH264ColorSpaceSettings {
 		return &v
 	}).(ChannelH264ColorSpaceSettingsPtrOutput)
-}
-
-func (o ChannelH264ColorSpaceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelH264ColorSpaceSettings] {
-	return pulumix.Output[ChannelH264ColorSpaceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelH264ColorSpaceSettingsOutput) ColorSpacePassthroughSettings() ChannelColorSpacePassthroughSettingsPtrOutput {
@@ -12851,12 +11248,6 @@ func (o ChannelH264ColorSpaceSettingsPtrOutput) ToChannelH264ColorSpaceSettingsP
 
 func (o ChannelH264ColorSpaceSettingsPtrOutput) ToChannelH264ColorSpaceSettingsPtrOutputWithContext(ctx context.Context) ChannelH264ColorSpaceSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelH264ColorSpaceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelH264ColorSpaceSettings] {
-	return pulumix.Output[*ChannelH264ColorSpaceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelH264ColorSpaceSettingsPtrOutput) Elem() ChannelH264ColorSpaceSettingsOutput {
@@ -12927,12 +11318,6 @@ func (i ChannelH264FilterSettingsArgs) ToChannelH264FilterSettingsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelH264FilterSettingsOutput)
 }
 
-func (i ChannelH264FilterSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelH264FilterSettings] {
-	return pulumix.Output[ChannelH264FilterSettings]{
-		OutputState: i.ToChannelH264FilterSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelH264FilterSettingsArgs) ToChannelH264FilterSettingsPtrOutput() ChannelH264FilterSettingsPtrOutput {
 	return i.ToChannelH264FilterSettingsPtrOutputWithContext(context.Background())
 }
@@ -12974,12 +11359,6 @@ func (i *channelH264FilterSettingsPtrType) ToChannelH264FilterSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelH264FilterSettingsPtrOutput)
 }
 
-func (i *channelH264FilterSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelH264FilterSettings] {
-	return pulumix.Output[*ChannelH264FilterSettings]{
-		OutputState: i.ToChannelH264FilterSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelH264FilterSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelH264FilterSettingsOutput) ElementType() reflect.Type {
@@ -13004,12 +11383,6 @@ func (o ChannelH264FilterSettingsOutput) ToChannelH264FilterSettingsPtrOutputWit
 	}).(ChannelH264FilterSettingsPtrOutput)
 }
 
-func (o ChannelH264FilterSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelH264FilterSettings] {
-	return pulumix.Output[ChannelH264FilterSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelH264FilterSettingsOutput) TemporalFilterSettings() ChannelTemporalFilterSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelH264FilterSettings) *ChannelTemporalFilterSettings { return v.TemporalFilterSettings }).(ChannelTemporalFilterSettingsPtrOutput)
 }
@@ -13026,12 +11399,6 @@ func (o ChannelH264FilterSettingsPtrOutput) ToChannelH264FilterSettingsPtrOutput
 
 func (o ChannelH264FilterSettingsPtrOutput) ToChannelH264FilterSettingsPtrOutputWithContext(ctx context.Context) ChannelH264FilterSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelH264FilterSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelH264FilterSettings] {
-	return pulumix.Output[*ChannelH264FilterSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelH264FilterSettingsPtrOutput) Elem() ChannelH264FilterSettingsOutput {
@@ -13166,12 +11533,6 @@ func (i ChannelH264SettingsArgs) ToChannelH264SettingsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelH264SettingsOutput)
 }
 
-func (i ChannelH264SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelH264Settings] {
-	return pulumix.Output[ChannelH264Settings]{
-		OutputState: i.ToChannelH264SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelH264SettingsArgs) ToChannelH264SettingsPtrOutput() ChannelH264SettingsPtrOutput {
 	return i.ToChannelH264SettingsPtrOutputWithContext(context.Background())
 }
@@ -13213,12 +11574,6 @@ func (i *channelH264SettingsPtrType) ToChannelH264SettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelH264SettingsPtrOutput)
 }
 
-func (i *channelH264SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelH264Settings] {
-	return pulumix.Output[*ChannelH264Settings]{
-		OutputState: i.ToChannelH264SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelH264SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelH264SettingsOutput) ElementType() reflect.Type {
@@ -13241,12 +11596,6 @@ func (o ChannelH264SettingsOutput) ToChannelH264SettingsPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelH264Settings) *ChannelH264Settings {
 		return &v
 	}).(ChannelH264SettingsPtrOutput)
-}
-
-func (o ChannelH264SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelH264Settings] {
-	return pulumix.Output[ChannelH264Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelH264SettingsOutput) AdaptiveQuantization() pulumi.StringPtrOutput {
@@ -13429,12 +11778,6 @@ func (o ChannelH264SettingsPtrOutput) ToChannelH264SettingsPtrOutput() ChannelH2
 
 func (o ChannelH264SettingsPtrOutput) ToChannelH264SettingsPtrOutputWithContext(ctx context.Context) ChannelH264SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelH264SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelH264Settings] {
-	return pulumix.Output[*ChannelH264Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelH264SettingsPtrOutput) Elem() ChannelH264SettingsOutput {
@@ -13864,12 +12207,6 @@ func (i ChannelH265ColorSpaceSettingsArgs) ToChannelH265ColorSpaceSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelH265ColorSpaceSettingsOutput)
 }
 
-func (i ChannelH265ColorSpaceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelH265ColorSpaceSettings] {
-	return pulumix.Output[ChannelH265ColorSpaceSettings]{
-		OutputState: i.ToChannelH265ColorSpaceSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelH265ColorSpaceSettingsArgs) ToChannelH265ColorSpaceSettingsPtrOutput() ChannelH265ColorSpaceSettingsPtrOutput {
 	return i.ToChannelH265ColorSpaceSettingsPtrOutputWithContext(context.Background())
 }
@@ -13911,12 +12248,6 @@ func (i *channelH265ColorSpaceSettingsPtrType) ToChannelH265ColorSpaceSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelH265ColorSpaceSettingsPtrOutput)
 }
 
-func (i *channelH265ColorSpaceSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelH265ColorSpaceSettings] {
-	return pulumix.Output[*ChannelH265ColorSpaceSettings]{
-		OutputState: i.ToChannelH265ColorSpaceSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelH265ColorSpaceSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelH265ColorSpaceSettingsOutput) ElementType() reflect.Type {
@@ -13939,12 +12270,6 @@ func (o ChannelH265ColorSpaceSettingsOutput) ToChannelH265ColorSpaceSettingsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelH265ColorSpaceSettings) *ChannelH265ColorSpaceSettings {
 		return &v
 	}).(ChannelH265ColorSpaceSettingsPtrOutput)
-}
-
-func (o ChannelH265ColorSpaceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelH265ColorSpaceSettings] {
-	return pulumix.Output[ChannelH265ColorSpaceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelH265ColorSpaceSettingsOutput) ColorSpacePassthroughSettings() ChannelColorSpacePassthroughSettingsPtrOutput {
@@ -13981,12 +12306,6 @@ func (o ChannelH265ColorSpaceSettingsPtrOutput) ToChannelH265ColorSpaceSettingsP
 
 func (o ChannelH265ColorSpaceSettingsPtrOutput) ToChannelH265ColorSpaceSettingsPtrOutputWithContext(ctx context.Context) ChannelH265ColorSpaceSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelH265ColorSpaceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelH265ColorSpaceSettings] {
-	return pulumix.Output[*ChannelH265ColorSpaceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelH265ColorSpaceSettingsPtrOutput) Elem() ChannelH265ColorSpaceSettingsOutput {
@@ -14075,12 +12394,6 @@ func (i ChannelH265FilterSettingsArgs) ToChannelH265FilterSettingsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelH265FilterSettingsOutput)
 }
 
-func (i ChannelH265FilterSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelH265FilterSettings] {
-	return pulumix.Output[ChannelH265FilterSettings]{
-		OutputState: i.ToChannelH265FilterSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelH265FilterSettingsArgs) ToChannelH265FilterSettingsPtrOutput() ChannelH265FilterSettingsPtrOutput {
 	return i.ToChannelH265FilterSettingsPtrOutputWithContext(context.Background())
 }
@@ -14122,12 +12435,6 @@ func (i *channelH265FilterSettingsPtrType) ToChannelH265FilterSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelH265FilterSettingsPtrOutput)
 }
 
-func (i *channelH265FilterSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelH265FilterSettings] {
-	return pulumix.Output[*ChannelH265FilterSettings]{
-		OutputState: i.ToChannelH265FilterSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelH265FilterSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelH265FilterSettingsOutput) ElementType() reflect.Type {
@@ -14152,12 +12459,6 @@ func (o ChannelH265FilterSettingsOutput) ToChannelH265FilterSettingsPtrOutputWit
 	}).(ChannelH265FilterSettingsPtrOutput)
 }
 
-func (o ChannelH265FilterSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelH265FilterSettings] {
-	return pulumix.Output[ChannelH265FilterSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelH265FilterSettingsOutput) TemporalFilterSettings() ChannelTemporalFilterSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelH265FilterSettings) *ChannelTemporalFilterSettings { return v.TemporalFilterSettings }).(ChannelTemporalFilterSettingsPtrOutput)
 }
@@ -14174,12 +12475,6 @@ func (o ChannelH265FilterSettingsPtrOutput) ToChannelH265FilterSettingsPtrOutput
 
 func (o ChannelH265FilterSettingsPtrOutput) ToChannelH265FilterSettingsPtrOutputWithContext(ctx context.Context) ChannelH265FilterSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelH265FilterSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelH265FilterSettings] {
-	return pulumix.Output[*ChannelH265FilterSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelH265FilterSettingsPtrOutput) Elem() ChannelH265FilterSettingsOutput {
@@ -14290,12 +12585,6 @@ func (i ChannelH265SettingsArgs) ToChannelH265SettingsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelH265SettingsOutput)
 }
 
-func (i ChannelH265SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelH265Settings] {
-	return pulumix.Output[ChannelH265Settings]{
-		OutputState: i.ToChannelH265SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelH265SettingsArgs) ToChannelH265SettingsPtrOutput() ChannelH265SettingsPtrOutput {
 	return i.ToChannelH265SettingsPtrOutputWithContext(context.Background())
 }
@@ -14337,12 +12626,6 @@ func (i *channelH265SettingsPtrType) ToChannelH265SettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelH265SettingsPtrOutput)
 }
 
-func (i *channelH265SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelH265Settings] {
-	return pulumix.Output[*ChannelH265Settings]{
-		OutputState: i.ToChannelH265SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelH265SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelH265SettingsOutput) ElementType() reflect.Type {
@@ -14365,12 +12648,6 @@ func (o ChannelH265SettingsOutput) ToChannelH265SettingsPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelH265Settings) *ChannelH265Settings {
 		return &v
 	}).(ChannelH265SettingsPtrOutput)
-}
-
-func (o ChannelH265SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelH265Settings] {
-	return pulumix.Output[ChannelH265Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelH265SettingsOutput) AdaptiveQuantization() pulumi.StringPtrOutput {
@@ -14505,12 +12782,6 @@ func (o ChannelH265SettingsPtrOutput) ToChannelH265SettingsPtrOutput() ChannelH2
 
 func (o ChannelH265SettingsPtrOutput) ToChannelH265SettingsPtrOutputWithContext(ctx context.Context) ChannelH265SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelH265SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelH265Settings] {
-	return pulumix.Output[*ChannelH265Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelH265SettingsPtrOutput) Elem() ChannelH265SettingsOutput {
@@ -14826,12 +13097,6 @@ func (i ChannelHdr10SettingsArgs) ToChannelHdr10SettingsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHdr10SettingsOutput)
 }
 
-func (i ChannelHdr10SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHdr10Settings] {
-	return pulumix.Output[ChannelHdr10Settings]{
-		OutputState: i.ToChannelHdr10SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHdr10SettingsArgs) ToChannelHdr10SettingsPtrOutput() ChannelHdr10SettingsPtrOutput {
 	return i.ToChannelHdr10SettingsPtrOutputWithContext(context.Background())
 }
@@ -14873,12 +13138,6 @@ func (i *channelHdr10SettingsPtrType) ToChannelHdr10SettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHdr10SettingsPtrOutput)
 }
 
-func (i *channelHdr10SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHdr10Settings] {
-	return pulumix.Output[*ChannelHdr10Settings]{
-		OutputState: i.ToChannelHdr10SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHdr10SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelHdr10SettingsOutput) ElementType() reflect.Type {
@@ -14903,12 +13162,6 @@ func (o ChannelHdr10SettingsOutput) ToChannelHdr10SettingsPtrOutputWithContext(c
 	}).(ChannelHdr10SettingsPtrOutput)
 }
 
-func (o ChannelHdr10SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHdr10Settings] {
-	return pulumix.Output[ChannelHdr10Settings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelHdr10SettingsOutput) MaxCll() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelHdr10Settings) *int { return v.MaxCll }).(pulumi.IntPtrOutput)
 }
@@ -14929,12 +13182,6 @@ func (o ChannelHdr10SettingsPtrOutput) ToChannelHdr10SettingsPtrOutput() Channel
 
 func (o ChannelHdr10SettingsPtrOutput) ToChannelHdr10SettingsPtrOutputWithContext(ctx context.Context) ChannelHdr10SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHdr10SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHdr10Settings] {
-	return pulumix.Output[*ChannelHdr10Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHdr10SettingsPtrOutput) Elem() ChannelHdr10SettingsOutput {
@@ -15008,12 +13255,6 @@ func (i ChannelHlsAkamaiSettingsArgs) ToChannelHlsAkamaiSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsAkamaiSettingsOutput)
 }
 
-func (i ChannelHlsAkamaiSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsAkamaiSettings] {
-	return pulumix.Output[ChannelHlsAkamaiSettings]{
-		OutputState: i.ToChannelHlsAkamaiSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHlsAkamaiSettingsArgs) ToChannelHlsAkamaiSettingsPtrOutput() ChannelHlsAkamaiSettingsPtrOutput {
 	return i.ToChannelHlsAkamaiSettingsPtrOutputWithContext(context.Background())
 }
@@ -15055,12 +13296,6 @@ func (i *channelHlsAkamaiSettingsPtrType) ToChannelHlsAkamaiSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsAkamaiSettingsPtrOutput)
 }
 
-func (i *channelHlsAkamaiSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsAkamaiSettings] {
-	return pulumix.Output[*ChannelHlsAkamaiSettings]{
-		OutputState: i.ToChannelHlsAkamaiSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHlsAkamaiSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsAkamaiSettingsOutput) ElementType() reflect.Type {
@@ -15083,12 +13318,6 @@ func (o ChannelHlsAkamaiSettingsOutput) ToChannelHlsAkamaiSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsAkamaiSettings) *ChannelHlsAkamaiSettings {
 		return &v
 	}).(ChannelHlsAkamaiSettingsPtrOutput)
-}
-
-func (o ChannelHlsAkamaiSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsAkamaiSettings] {
-	return pulumix.Output[ChannelHlsAkamaiSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsAkamaiSettingsOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
@@ -15131,12 +13360,6 @@ func (o ChannelHlsAkamaiSettingsPtrOutput) ToChannelHlsAkamaiSettingsPtrOutput()
 
 func (o ChannelHlsAkamaiSettingsPtrOutput) ToChannelHlsAkamaiSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsAkamaiSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHlsAkamaiSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsAkamaiSettings] {
-	return pulumix.Output[*ChannelHlsAkamaiSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsAkamaiSettingsPtrOutput) Elem() ChannelHlsAkamaiSettingsOutput {
@@ -15249,12 +13472,6 @@ func (i ChannelHlsBasicPutSettingsArgs) ToChannelHlsBasicPutSettingsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsBasicPutSettingsOutput)
 }
 
-func (i ChannelHlsBasicPutSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsBasicPutSettings] {
-	return pulumix.Output[ChannelHlsBasicPutSettings]{
-		OutputState: i.ToChannelHlsBasicPutSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHlsBasicPutSettingsArgs) ToChannelHlsBasicPutSettingsPtrOutput() ChannelHlsBasicPutSettingsPtrOutput {
 	return i.ToChannelHlsBasicPutSettingsPtrOutputWithContext(context.Background())
 }
@@ -15296,12 +13513,6 @@ func (i *channelHlsBasicPutSettingsPtrType) ToChannelHlsBasicPutSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsBasicPutSettingsPtrOutput)
 }
 
-func (i *channelHlsBasicPutSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsBasicPutSettings] {
-	return pulumix.Output[*ChannelHlsBasicPutSettings]{
-		OutputState: i.ToChannelHlsBasicPutSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHlsBasicPutSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsBasicPutSettingsOutput) ElementType() reflect.Type {
@@ -15324,12 +13535,6 @@ func (o ChannelHlsBasicPutSettingsOutput) ToChannelHlsBasicPutSettingsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsBasicPutSettings) *ChannelHlsBasicPutSettings {
 		return &v
 	}).(ChannelHlsBasicPutSettingsPtrOutput)
-}
-
-func (o ChannelHlsBasicPutSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsBasicPutSettings] {
-	return pulumix.Output[ChannelHlsBasicPutSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsBasicPutSettingsOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
@@ -15360,12 +13565,6 @@ func (o ChannelHlsBasicPutSettingsPtrOutput) ToChannelHlsBasicPutSettingsPtrOutp
 
 func (o ChannelHlsBasicPutSettingsPtrOutput) ToChannelHlsBasicPutSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsBasicPutSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHlsBasicPutSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsBasicPutSettings] {
-	return pulumix.Output[*ChannelHlsBasicPutSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsBasicPutSettingsPtrOutput) Elem() ChannelHlsBasicPutSettingsOutput {
@@ -15453,12 +13652,6 @@ func (i ChannelHlsCdnSettingsArgs) ToChannelHlsCdnSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsCdnSettingsOutput)
 }
 
-func (i ChannelHlsCdnSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsCdnSettings] {
-	return pulumix.Output[ChannelHlsCdnSettings]{
-		OutputState: i.ToChannelHlsCdnSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHlsCdnSettingsArgs) ToChannelHlsCdnSettingsPtrOutput() ChannelHlsCdnSettingsPtrOutput {
 	return i.ToChannelHlsCdnSettingsPtrOutputWithContext(context.Background())
 }
@@ -15500,12 +13693,6 @@ func (i *channelHlsCdnSettingsPtrType) ToChannelHlsCdnSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsCdnSettingsPtrOutput)
 }
 
-func (i *channelHlsCdnSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsCdnSettings] {
-	return pulumix.Output[*ChannelHlsCdnSettings]{
-		OutputState: i.ToChannelHlsCdnSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHlsCdnSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsCdnSettingsOutput) ElementType() reflect.Type {
@@ -15528,12 +13715,6 @@ func (o ChannelHlsCdnSettingsOutput) ToChannelHlsCdnSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsCdnSettings) *ChannelHlsCdnSettings {
 		return &v
 	}).(ChannelHlsCdnSettingsPtrOutput)
-}
-
-func (o ChannelHlsCdnSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsCdnSettings] {
-	return pulumix.Output[ChannelHlsCdnSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsCdnSettingsOutput) HlsAkamaiSettings() ChannelHlsAkamaiSettingsPtrOutput {
@@ -15568,12 +13749,6 @@ func (o ChannelHlsCdnSettingsPtrOutput) ToChannelHlsCdnSettingsPtrOutput() Chann
 
 func (o ChannelHlsCdnSettingsPtrOutput) ToChannelHlsCdnSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsCdnSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHlsCdnSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsCdnSettings] {
-	return pulumix.Output[*ChannelHlsCdnSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsCdnSettingsPtrOutput) Elem() ChannelHlsCdnSettingsOutput {
@@ -15746,12 +13921,6 @@ func (i ChannelHlsGroupSettingsArgs) ToChannelHlsGroupSettingsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsGroupSettingsOutput)
 }
 
-func (i ChannelHlsGroupSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsGroupSettings] {
-	return pulumix.Output[ChannelHlsGroupSettings]{
-		OutputState: i.ToChannelHlsGroupSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHlsGroupSettingsArgs) ToChannelHlsGroupSettingsPtrOutput() ChannelHlsGroupSettingsPtrOutput {
 	return i.ToChannelHlsGroupSettingsPtrOutputWithContext(context.Background())
 }
@@ -15793,12 +13962,6 @@ func (i *channelHlsGroupSettingsPtrType) ToChannelHlsGroupSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsGroupSettingsPtrOutput)
 }
 
-func (i *channelHlsGroupSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsGroupSettings] {
-	return pulumix.Output[*ChannelHlsGroupSettings]{
-		OutputState: i.ToChannelHlsGroupSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHlsGroupSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsGroupSettingsOutput) ElementType() reflect.Type {
@@ -15821,12 +13984,6 @@ func (o ChannelHlsGroupSettingsOutput) ToChannelHlsGroupSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsGroupSettings) *ChannelHlsGroupSettings {
 		return &v
 	}).(ChannelHlsGroupSettingsPtrOutput)
-}
-
-func (o ChannelHlsGroupSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsGroupSettings] {
-	return pulumix.Output[ChannelHlsGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsGroupSettingsOutput) AdMarkers() pulumi.StringArrayOutput {
@@ -16013,12 +14170,6 @@ func (o ChannelHlsGroupSettingsPtrOutput) ToChannelHlsGroupSettingsPtrOutput() C
 
 func (o ChannelHlsGroupSettingsPtrOutput) ToChannelHlsGroupSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsGroupSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHlsGroupSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsGroupSettings] {
-	return pulumix.Output[*ChannelHlsGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsGroupSettingsPtrOutput) Elem() ChannelHlsGroupSettingsOutput {
@@ -16457,12 +14608,6 @@ func (i ChannelHlsInputSettingsArgs) ToChannelHlsInputSettingsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsInputSettingsOutput)
 }
 
-func (i ChannelHlsInputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsInputSettings] {
-	return pulumix.Output[ChannelHlsInputSettings]{
-		OutputState: i.ToChannelHlsInputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHlsInputSettingsArgs) ToChannelHlsInputSettingsPtrOutput() ChannelHlsInputSettingsPtrOutput {
 	return i.ToChannelHlsInputSettingsPtrOutputWithContext(context.Background())
 }
@@ -16504,12 +14649,6 @@ func (i *channelHlsInputSettingsPtrType) ToChannelHlsInputSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsInputSettingsPtrOutput)
 }
 
-func (i *channelHlsInputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsInputSettings] {
-	return pulumix.Output[*ChannelHlsInputSettings]{
-		OutputState: i.ToChannelHlsInputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHlsInputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsInputSettingsOutput) ElementType() reflect.Type {
@@ -16532,12 +14671,6 @@ func (o ChannelHlsInputSettingsOutput) ToChannelHlsInputSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsInputSettings) *ChannelHlsInputSettings {
 		return &v
 	}).(ChannelHlsInputSettingsPtrOutput)
-}
-
-func (o ChannelHlsInputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsInputSettings] {
-	return pulumix.Output[ChannelHlsInputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsInputSettingsOutput) Bandwidth() pulumi.IntPtrOutput {
@@ -16572,12 +14705,6 @@ func (o ChannelHlsInputSettingsPtrOutput) ToChannelHlsInputSettingsPtrOutput() C
 
 func (o ChannelHlsInputSettingsPtrOutput) ToChannelHlsInputSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsInputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHlsInputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsInputSettings] {
-	return pulumix.Output[*ChannelHlsInputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsInputSettingsPtrOutput) Elem() ChannelHlsInputSettingsOutput {
@@ -16674,12 +14801,6 @@ func (i ChannelHlsMediaStoreSettingsArgs) ToChannelHlsMediaStoreSettingsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsMediaStoreSettingsOutput)
 }
 
-func (i ChannelHlsMediaStoreSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsMediaStoreSettings] {
-	return pulumix.Output[ChannelHlsMediaStoreSettings]{
-		OutputState: i.ToChannelHlsMediaStoreSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHlsMediaStoreSettingsArgs) ToChannelHlsMediaStoreSettingsPtrOutput() ChannelHlsMediaStoreSettingsPtrOutput {
 	return i.ToChannelHlsMediaStoreSettingsPtrOutputWithContext(context.Background())
 }
@@ -16721,12 +14842,6 @@ func (i *channelHlsMediaStoreSettingsPtrType) ToChannelHlsMediaStoreSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsMediaStoreSettingsPtrOutput)
 }
 
-func (i *channelHlsMediaStoreSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsMediaStoreSettings] {
-	return pulumix.Output[*ChannelHlsMediaStoreSettings]{
-		OutputState: i.ToChannelHlsMediaStoreSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHlsMediaStoreSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsMediaStoreSettingsOutput) ElementType() reflect.Type {
@@ -16749,12 +14864,6 @@ func (o ChannelHlsMediaStoreSettingsOutput) ToChannelHlsMediaStoreSettingsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsMediaStoreSettings) *ChannelHlsMediaStoreSettings {
 		return &v
 	}).(ChannelHlsMediaStoreSettingsPtrOutput)
-}
-
-func (o ChannelHlsMediaStoreSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsMediaStoreSettings] {
-	return pulumix.Output[ChannelHlsMediaStoreSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsMediaStoreSettingsOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
@@ -16789,12 +14898,6 @@ func (o ChannelHlsMediaStoreSettingsPtrOutput) ToChannelHlsMediaStoreSettingsPtr
 
 func (o ChannelHlsMediaStoreSettingsPtrOutput) ToChannelHlsMediaStoreSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsMediaStoreSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHlsMediaStoreSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsMediaStoreSettings] {
-	return pulumix.Output[*ChannelHlsMediaStoreSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsMediaStoreSettingsPtrOutput) Elem() ChannelHlsMediaStoreSettingsOutput {
@@ -16889,12 +14992,6 @@ func (i ChannelHlsOutputSettingsArgs) ToChannelHlsOutputSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsOutputSettingsOutput)
 }
 
-func (i ChannelHlsOutputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsOutputSettings] {
-	return pulumix.Output[ChannelHlsOutputSettings]{
-		OutputState: i.ToChannelHlsOutputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHlsOutputSettingsArgs) ToChannelHlsOutputSettingsPtrOutput() ChannelHlsOutputSettingsPtrOutput {
 	return i.ToChannelHlsOutputSettingsPtrOutputWithContext(context.Background())
 }
@@ -16936,12 +15033,6 @@ func (i *channelHlsOutputSettingsPtrType) ToChannelHlsOutputSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsOutputSettingsPtrOutput)
 }
 
-func (i *channelHlsOutputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsOutputSettings] {
-	return pulumix.Output[*ChannelHlsOutputSettings]{
-		OutputState: i.ToChannelHlsOutputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHlsOutputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsOutputSettingsOutput) ElementType() reflect.Type {
@@ -16964,12 +15055,6 @@ func (o ChannelHlsOutputSettingsOutput) ToChannelHlsOutputSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsOutputSettings) *ChannelHlsOutputSettings {
 		return &v
 	}).(ChannelHlsOutputSettingsPtrOutput)
-}
-
-func (o ChannelHlsOutputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsOutputSettings] {
-	return pulumix.Output[ChannelHlsOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsOutputSettingsOutput) H265PackagingType() pulumi.StringPtrOutput {
@@ -17000,12 +15085,6 @@ func (o ChannelHlsOutputSettingsPtrOutput) ToChannelHlsOutputSettingsPtrOutput()
 
 func (o ChannelHlsOutputSettingsPtrOutput) ToChannelHlsOutputSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsOutputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHlsOutputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsOutputSettings] {
-	return pulumix.Output[*ChannelHlsOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsOutputSettingsPtrOutput) Elem() ChannelHlsOutputSettingsOutput {
@@ -17085,12 +15164,6 @@ func (i ChannelHlsS3SettingsArgs) ToChannelHlsS3SettingsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsS3SettingsOutput)
 }
 
-func (i ChannelHlsS3SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsS3Settings] {
-	return pulumix.Output[ChannelHlsS3Settings]{
-		OutputState: i.ToChannelHlsS3SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHlsS3SettingsArgs) ToChannelHlsS3SettingsPtrOutput() ChannelHlsS3SettingsPtrOutput {
 	return i.ToChannelHlsS3SettingsPtrOutputWithContext(context.Background())
 }
@@ -17132,12 +15205,6 @@ func (i *channelHlsS3SettingsPtrType) ToChannelHlsS3SettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsS3SettingsPtrOutput)
 }
 
-func (i *channelHlsS3SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsS3Settings] {
-	return pulumix.Output[*ChannelHlsS3Settings]{
-		OutputState: i.ToChannelHlsS3SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHlsS3SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsS3SettingsOutput) ElementType() reflect.Type {
@@ -17162,12 +15229,6 @@ func (o ChannelHlsS3SettingsOutput) ToChannelHlsS3SettingsPtrOutputWithContext(c
 	}).(ChannelHlsS3SettingsPtrOutput)
 }
 
-func (o ChannelHlsS3SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsS3Settings] {
-	return pulumix.Output[ChannelHlsS3Settings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelHlsS3SettingsOutput) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelHlsS3Settings) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
 }
@@ -17184,12 +15245,6 @@ func (o ChannelHlsS3SettingsPtrOutput) ToChannelHlsS3SettingsPtrOutput() Channel
 
 func (o ChannelHlsS3SettingsPtrOutput) ToChannelHlsS3SettingsPtrOutputWithContext(ctx context.Context) ChannelHlsS3SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHlsS3SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsS3Settings] {
-	return pulumix.Output[*ChannelHlsS3Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsS3SettingsPtrOutput) Elem() ChannelHlsS3SettingsOutput {
@@ -17248,12 +15303,6 @@ func (i ChannelHlsSettingsArgs) ToChannelHlsSettingsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsSettingsOutput)
 }
 
-func (i ChannelHlsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsSettings] {
-	return pulumix.Output[ChannelHlsSettings]{
-		OutputState: i.ToChannelHlsSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHlsSettingsArgs) ToChannelHlsSettingsPtrOutput() ChannelHlsSettingsPtrOutput {
 	return i.ToChannelHlsSettingsPtrOutputWithContext(context.Background())
 }
@@ -17295,12 +15344,6 @@ func (i *channelHlsSettingsPtrType) ToChannelHlsSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsSettingsPtrOutput)
 }
 
-func (i *channelHlsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsSettings] {
-	return pulumix.Output[*ChannelHlsSettings]{
-		OutputState: i.ToChannelHlsSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHlsSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsSettingsOutput) ElementType() reflect.Type {
@@ -17323,12 +15366,6 @@ func (o ChannelHlsSettingsOutput) ToChannelHlsSettingsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsSettings) *ChannelHlsSettings {
 		return &v
 	}).(ChannelHlsSettingsPtrOutput)
-}
-
-func (o ChannelHlsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsSettings] {
-	return pulumix.Output[ChannelHlsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsSettingsOutput) AudioOnlyHlsSettings() ChannelAudioOnlyHlsSettingsPtrOutput {
@@ -17359,12 +15396,6 @@ func (o ChannelHlsSettingsPtrOutput) ToChannelHlsSettingsPtrOutput() ChannelHlsS
 
 func (o ChannelHlsSettingsPtrOutput) ToChannelHlsSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHlsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsSettings] {
-	return pulumix.Output[*ChannelHlsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsSettingsPtrOutput) Elem() ChannelHlsSettingsOutput {
@@ -17452,12 +15483,6 @@ func (i ChannelHlsWebdavSettingsArgs) ToChannelHlsWebdavSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsWebdavSettingsOutput)
 }
 
-func (i ChannelHlsWebdavSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsWebdavSettings] {
-	return pulumix.Output[ChannelHlsWebdavSettings]{
-		OutputState: i.ToChannelHlsWebdavSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHlsWebdavSettingsArgs) ToChannelHlsWebdavSettingsPtrOutput() ChannelHlsWebdavSettingsPtrOutput {
 	return i.ToChannelHlsWebdavSettingsPtrOutputWithContext(context.Background())
 }
@@ -17499,12 +15524,6 @@ func (i *channelHlsWebdavSettingsPtrType) ToChannelHlsWebdavSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsWebdavSettingsPtrOutput)
 }
 
-func (i *channelHlsWebdavSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsWebdavSettings] {
-	return pulumix.Output[*ChannelHlsWebdavSettings]{
-		OutputState: i.ToChannelHlsWebdavSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHlsWebdavSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsWebdavSettingsOutput) ElementType() reflect.Type {
@@ -17527,12 +15546,6 @@ func (o ChannelHlsWebdavSettingsOutput) ToChannelHlsWebdavSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsWebdavSettings) *ChannelHlsWebdavSettings {
 		return &v
 	}).(ChannelHlsWebdavSettingsPtrOutput)
-}
-
-func (o ChannelHlsWebdavSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsWebdavSettings] {
-	return pulumix.Output[ChannelHlsWebdavSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsWebdavSettingsOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
@@ -17567,12 +15580,6 @@ func (o ChannelHlsWebdavSettingsPtrOutput) ToChannelHlsWebdavSettingsPtrOutput()
 
 func (o ChannelHlsWebdavSettingsPtrOutput) ToChannelHlsWebdavSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsWebdavSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHlsWebdavSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsWebdavSettings] {
-	return pulumix.Output[*ChannelHlsWebdavSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsWebdavSettingsPtrOutput) Elem() ChannelHlsWebdavSettingsOutput {
@@ -17659,12 +15666,6 @@ func (i ChannelHtmlMotionGraphicsSettingsArgs) ToChannelHtmlMotionGraphicsSettin
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHtmlMotionGraphicsSettingsOutput)
 }
 
-func (i ChannelHtmlMotionGraphicsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHtmlMotionGraphicsSettings] {
-	return pulumix.Output[ChannelHtmlMotionGraphicsSettings]{
-		OutputState: i.ToChannelHtmlMotionGraphicsSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHtmlMotionGraphicsSettingsArgs) ToChannelHtmlMotionGraphicsSettingsPtrOutput() ChannelHtmlMotionGraphicsSettingsPtrOutput {
 	return i.ToChannelHtmlMotionGraphicsSettingsPtrOutputWithContext(context.Background())
 }
@@ -17706,12 +15707,6 @@ func (i *channelHtmlMotionGraphicsSettingsPtrType) ToChannelHtmlMotionGraphicsSe
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHtmlMotionGraphicsSettingsPtrOutput)
 }
 
-func (i *channelHtmlMotionGraphicsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHtmlMotionGraphicsSettings] {
-	return pulumix.Output[*ChannelHtmlMotionGraphicsSettings]{
-		OutputState: i.ToChannelHtmlMotionGraphicsSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHtmlMotionGraphicsSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelHtmlMotionGraphicsSettingsOutput) ElementType() reflect.Type {
@@ -17736,12 +15731,6 @@ func (o ChannelHtmlMotionGraphicsSettingsOutput) ToChannelHtmlMotionGraphicsSett
 	}).(ChannelHtmlMotionGraphicsSettingsPtrOutput)
 }
 
-func (o ChannelHtmlMotionGraphicsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHtmlMotionGraphicsSettings] {
-	return pulumix.Output[ChannelHtmlMotionGraphicsSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelHtmlMotionGraphicsSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelHtmlMotionGraphicsSettingsPtrOutput) ElementType() reflect.Type {
@@ -17754,12 +15743,6 @@ func (o ChannelHtmlMotionGraphicsSettingsPtrOutput) ToChannelHtmlMotionGraphicsS
 
 func (o ChannelHtmlMotionGraphicsSettingsPtrOutput) ToChannelHtmlMotionGraphicsSettingsPtrOutputWithContext(ctx context.Context) ChannelHtmlMotionGraphicsSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHtmlMotionGraphicsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHtmlMotionGraphicsSettings] {
-	return pulumix.Output[*ChannelHtmlMotionGraphicsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHtmlMotionGraphicsSettingsPtrOutput) Elem() ChannelHtmlMotionGraphicsSettingsOutput {
@@ -17809,12 +15792,6 @@ func (i ChannelInputAttachmentArgs) ToChannelInputAttachmentOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentOutput)
 }
 
-func (i ChannelInputAttachmentArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelInputAttachment] {
-	return pulumix.Output[ChannelInputAttachment]{
-		OutputState: i.ToChannelInputAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelInputAttachmentArrayInput is an input type that accepts ChannelInputAttachmentArray and ChannelInputAttachmentArrayOutput values.
 // You can construct a concrete instance of `ChannelInputAttachmentArrayInput` via:
 //
@@ -17840,12 +15817,6 @@ func (i ChannelInputAttachmentArray) ToChannelInputAttachmentArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentArrayOutput)
 }
 
-func (i ChannelInputAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelInputAttachment] {
-	return pulumix.Output[[]ChannelInputAttachment]{
-		OutputState: i.ToChannelInputAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelInputAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ChannelInputAttachmentOutput) ElementType() reflect.Type {
@@ -17858,12 +15829,6 @@ func (o ChannelInputAttachmentOutput) ToChannelInputAttachmentOutput() ChannelIn
 
 func (o ChannelInputAttachmentOutput) ToChannelInputAttachmentOutputWithContext(ctx context.Context) ChannelInputAttachmentOutput {
 	return o
-}
-
-func (o ChannelInputAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelInputAttachment] {
-	return pulumix.Output[ChannelInputAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputAttachmentOutput) AutomaticInputFailoverSettings() ChannelAutomaticInputFailoverSettingsPtrOutput {
@@ -17896,12 +15861,6 @@ func (o ChannelInputAttachmentArrayOutput) ToChannelInputAttachmentArrayOutput()
 
 func (o ChannelInputAttachmentArrayOutput) ToChannelInputAttachmentArrayOutputWithContext(ctx context.Context) ChannelInputAttachmentArrayOutput {
 	return o
-}
-
-func (o ChannelInputAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelInputAttachment] {
-	return pulumix.Output[[]ChannelInputAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputAttachmentArrayOutput) Index(i pulumi.IntInput) ChannelInputAttachmentOutput {
@@ -17943,12 +15902,6 @@ func (i ChannelInputChannelLevelArgs) ToChannelInputChannelLevelOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputChannelLevelOutput)
 }
 
-func (i ChannelInputChannelLevelArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelInputChannelLevel] {
-	return pulumix.Output[ChannelInputChannelLevel]{
-		OutputState: i.ToChannelInputChannelLevelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelInputChannelLevelArrayInput is an input type that accepts ChannelInputChannelLevelArray and ChannelInputChannelLevelArrayOutput values.
 // You can construct a concrete instance of `ChannelInputChannelLevelArrayInput` via:
 //
@@ -17974,12 +15927,6 @@ func (i ChannelInputChannelLevelArray) ToChannelInputChannelLevelArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputChannelLevelArrayOutput)
 }
 
-func (i ChannelInputChannelLevelArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelInputChannelLevel] {
-	return pulumix.Output[[]ChannelInputChannelLevel]{
-		OutputState: i.ToChannelInputChannelLevelArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelInputChannelLevelOutput struct{ *pulumi.OutputState }
 
 func (ChannelInputChannelLevelOutput) ElementType() reflect.Type {
@@ -17992,12 +15939,6 @@ func (o ChannelInputChannelLevelOutput) ToChannelInputChannelLevelOutput() Chann
 
 func (o ChannelInputChannelLevelOutput) ToChannelInputChannelLevelOutputWithContext(ctx context.Context) ChannelInputChannelLevelOutput {
 	return o
-}
-
-func (o ChannelInputChannelLevelOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelInputChannelLevel] {
-	return pulumix.Output[ChannelInputChannelLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputChannelLevelOutput) Gain() pulumi.IntPtrOutput {
@@ -18020,12 +15961,6 @@ func (o ChannelInputChannelLevelArrayOutput) ToChannelInputChannelLevelArrayOutp
 
 func (o ChannelInputChannelLevelArrayOutput) ToChannelInputChannelLevelArrayOutputWithContext(ctx context.Context) ChannelInputChannelLevelArrayOutput {
 	return o
-}
-
-func (o ChannelInputChannelLevelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelInputChannelLevel] {
-	return pulumix.Output[[]ChannelInputChannelLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputChannelLevelArrayOutput) Index(i pulumi.IntInput) ChannelInputChannelLevelOutput {
@@ -18069,12 +16004,6 @@ func (i ChannelInputLocationArgs) ToChannelInputLocationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputLocationOutput)
 }
 
-func (i ChannelInputLocationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelInputLocation] {
-	return pulumix.Output[ChannelInputLocation]{
-		OutputState: i.ToChannelInputLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelInputLocationArgs) ToChannelInputLocationPtrOutput() ChannelInputLocationPtrOutput {
 	return i.ToChannelInputLocationPtrOutputWithContext(context.Background())
 }
@@ -18116,12 +16045,6 @@ func (i *channelInputLocationPtrType) ToChannelInputLocationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputLocationPtrOutput)
 }
 
-func (i *channelInputLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelInputLocation] {
-	return pulumix.Output[*ChannelInputLocation]{
-		OutputState: i.ToChannelInputLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelInputLocationOutput struct{ *pulumi.OutputState }
 
 func (ChannelInputLocationOutput) ElementType() reflect.Type {
@@ -18144,12 +16067,6 @@ func (o ChannelInputLocationOutput) ToChannelInputLocationPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelInputLocation) *ChannelInputLocation {
 		return &v
 	}).(ChannelInputLocationPtrOutput)
-}
-
-func (o ChannelInputLocationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelInputLocation] {
-	return pulumix.Output[ChannelInputLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputLocationOutput) PasswordParam() pulumi.StringPtrOutput {
@@ -18176,12 +16093,6 @@ func (o ChannelInputLocationPtrOutput) ToChannelInputLocationPtrOutput() Channel
 
 func (o ChannelInputLocationPtrOutput) ToChannelInputLocationPtrOutputWithContext(ctx context.Context) ChannelInputLocationPtrOutput {
 	return o
-}
-
-func (o ChannelInputLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelInputLocation] {
-	return pulumix.Output[*ChannelInputLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputLocationPtrOutput) Elem() ChannelInputLocationOutput {
@@ -18260,12 +16171,6 @@ func (i ChannelInputLossBehaviorArgs) ToChannelInputLossBehaviorOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputLossBehaviorOutput)
 }
 
-func (i ChannelInputLossBehaviorArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelInputLossBehavior] {
-	return pulumix.Output[ChannelInputLossBehavior]{
-		OutputState: i.ToChannelInputLossBehaviorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelInputLossBehaviorArgs) ToChannelInputLossBehaviorPtrOutput() ChannelInputLossBehaviorPtrOutput {
 	return i.ToChannelInputLossBehaviorPtrOutputWithContext(context.Background())
 }
@@ -18307,12 +16212,6 @@ func (i *channelInputLossBehaviorPtrType) ToChannelInputLossBehaviorPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputLossBehaviorPtrOutput)
 }
 
-func (i *channelInputLossBehaviorPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelInputLossBehavior] {
-	return pulumix.Output[*ChannelInputLossBehavior]{
-		OutputState: i.ToChannelInputLossBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelInputLossBehaviorOutput struct{ *pulumi.OutputState }
 
 func (ChannelInputLossBehaviorOutput) ElementType() reflect.Type {
@@ -18335,12 +16234,6 @@ func (o ChannelInputLossBehaviorOutput) ToChannelInputLossBehaviorPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelInputLossBehavior) *ChannelInputLossBehavior {
 		return &v
 	}).(ChannelInputLossBehaviorPtrOutput)
-}
-
-func (o ChannelInputLossBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelInputLossBehavior] {
-	return pulumix.Output[ChannelInputLossBehavior]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputLossBehaviorOutput) BlackFrameMsec() pulumi.IntPtrOutput {
@@ -18375,12 +16268,6 @@ func (o ChannelInputLossBehaviorPtrOutput) ToChannelInputLossBehaviorPtrOutput()
 
 func (o ChannelInputLossBehaviorPtrOutput) ToChannelInputLossBehaviorPtrOutputWithContext(ctx context.Context) ChannelInputLossBehaviorPtrOutput {
 	return o
-}
-
-func (o ChannelInputLossBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelInputLossBehavior] {
-	return pulumix.Output[*ChannelInputLossBehavior]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputLossBehaviorPtrOutput) Elem() ChannelInputLossBehaviorOutput {
@@ -18469,12 +16356,6 @@ func (i ChannelInputLossFailoverSettingsArgs) ToChannelInputLossFailoverSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputLossFailoverSettingsOutput)
 }
 
-func (i ChannelInputLossFailoverSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelInputLossFailoverSettings] {
-	return pulumix.Output[ChannelInputLossFailoverSettings]{
-		OutputState: i.ToChannelInputLossFailoverSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelInputLossFailoverSettingsArgs) ToChannelInputLossFailoverSettingsPtrOutput() ChannelInputLossFailoverSettingsPtrOutput {
 	return i.ToChannelInputLossFailoverSettingsPtrOutputWithContext(context.Background())
 }
@@ -18516,12 +16397,6 @@ func (i *channelInputLossFailoverSettingsPtrType) ToChannelInputLossFailoverSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputLossFailoverSettingsPtrOutput)
 }
 
-func (i *channelInputLossFailoverSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelInputLossFailoverSettings] {
-	return pulumix.Output[*ChannelInputLossFailoverSettings]{
-		OutputState: i.ToChannelInputLossFailoverSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelInputLossFailoverSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelInputLossFailoverSettingsOutput) ElementType() reflect.Type {
@@ -18546,12 +16421,6 @@ func (o ChannelInputLossFailoverSettingsOutput) ToChannelInputLossFailoverSettin
 	}).(ChannelInputLossFailoverSettingsPtrOutput)
 }
 
-func (o ChannelInputLossFailoverSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelInputLossFailoverSettings] {
-	return pulumix.Output[ChannelInputLossFailoverSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelInputLossFailoverSettingsOutput) InputLossThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputLossFailoverSettings) *int { return v.InputLossThresholdMsec }).(pulumi.IntPtrOutput)
 }
@@ -18568,12 +16437,6 @@ func (o ChannelInputLossFailoverSettingsPtrOutput) ToChannelInputLossFailoverSet
 
 func (o ChannelInputLossFailoverSettingsPtrOutput) ToChannelInputLossFailoverSettingsPtrOutputWithContext(ctx context.Context) ChannelInputLossFailoverSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelInputLossFailoverSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelInputLossFailoverSettings] {
-	return pulumix.Output[*ChannelInputLossFailoverSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputLossFailoverSettingsPtrOutput) Elem() ChannelInputLossFailoverSettingsOutput {
@@ -18646,12 +16509,6 @@ func (i ChannelInputSettingsArgs) ToChannelInputSettingsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputSettingsOutput)
 }
 
-func (i ChannelInputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelInputSettings] {
-	return pulumix.Output[ChannelInputSettings]{
-		OutputState: i.ToChannelInputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelInputSettingsArgs) ToChannelInputSettingsPtrOutput() ChannelInputSettingsPtrOutput {
 	return i.ToChannelInputSettingsPtrOutputWithContext(context.Background())
 }
@@ -18693,12 +16550,6 @@ func (i *channelInputSettingsPtrType) ToChannelInputSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputSettingsPtrOutput)
 }
 
-func (i *channelInputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelInputSettings] {
-	return pulumix.Output[*ChannelInputSettings]{
-		OutputState: i.ToChannelInputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelInputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelInputSettingsOutput) ElementType() reflect.Type {
@@ -18721,12 +16572,6 @@ func (o ChannelInputSettingsOutput) ToChannelInputSettingsPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelInputSettings) *ChannelInputSettings {
 		return &v
 	}).(ChannelInputSettingsPtrOutput)
-}
-
-func (o ChannelInputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelInputSettings] {
-	return pulumix.Output[ChannelInputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputSettingsOutput) AudioSelectors() ChannelAudioSelectorArrayOutput {
@@ -18785,12 +16630,6 @@ func (o ChannelInputSettingsPtrOutput) ToChannelInputSettingsPtrOutput() Channel
 
 func (o ChannelInputSettingsPtrOutput) ToChannelInputSettingsPtrOutputWithContext(ctx context.Context) ChannelInputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelInputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelInputSettings] {
-	return pulumix.Output[*ChannelInputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputSettingsPtrOutput) Elem() ChannelInputSettingsOutput {
@@ -18937,12 +16776,6 @@ func (i ChannelInputSpecificationArgs) ToChannelInputSpecificationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputSpecificationOutput)
 }
 
-func (i ChannelInputSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelInputSpecification] {
-	return pulumix.Output[ChannelInputSpecification]{
-		OutputState: i.ToChannelInputSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelInputSpecificationArgs) ToChannelInputSpecificationPtrOutput() ChannelInputSpecificationPtrOutput {
 	return i.ToChannelInputSpecificationPtrOutputWithContext(context.Background())
 }
@@ -18984,12 +16817,6 @@ func (i *channelInputSpecificationPtrType) ToChannelInputSpecificationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputSpecificationPtrOutput)
 }
 
-func (i *channelInputSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelInputSpecification] {
-	return pulumix.Output[*ChannelInputSpecification]{
-		OutputState: i.ToChannelInputSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelInputSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ChannelInputSpecificationOutput) ElementType() reflect.Type {
@@ -19012,12 +16839,6 @@ func (o ChannelInputSpecificationOutput) ToChannelInputSpecificationPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelInputSpecification) *ChannelInputSpecification {
 		return &v
 	}).(ChannelInputSpecificationPtrOutput)
-}
-
-func (o ChannelInputSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelInputSpecification] {
-	return pulumix.Output[ChannelInputSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputSpecificationOutput) Codec() pulumi.StringPtrOutput {
@@ -19044,12 +16865,6 @@ func (o ChannelInputSpecificationPtrOutput) ToChannelInputSpecificationPtrOutput
 
 func (o ChannelInputSpecificationPtrOutput) ToChannelInputSpecificationPtrOutputWithContext(ctx context.Context) ChannelInputSpecificationPtrOutput {
 	return o
-}
-
-func (o ChannelInputSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelInputSpecification] {
-	return pulumix.Output[*ChannelInputSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelInputSpecificationPtrOutput) Elem() ChannelInputSpecificationOutput {
@@ -19120,12 +16935,6 @@ func (i ChannelKeyProviderSettingsArgs) ToChannelKeyProviderSettingsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelKeyProviderSettingsOutput)
 }
 
-func (i ChannelKeyProviderSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelKeyProviderSettings] {
-	return pulumix.Output[ChannelKeyProviderSettings]{
-		OutputState: i.ToChannelKeyProviderSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelKeyProviderSettingsArgs) ToChannelKeyProviderSettingsPtrOutput() ChannelKeyProviderSettingsPtrOutput {
 	return i.ToChannelKeyProviderSettingsPtrOutputWithContext(context.Background())
 }
@@ -19167,12 +16976,6 @@ func (i *channelKeyProviderSettingsPtrType) ToChannelKeyProviderSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelKeyProviderSettingsPtrOutput)
 }
 
-func (i *channelKeyProviderSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelKeyProviderSettings] {
-	return pulumix.Output[*ChannelKeyProviderSettings]{
-		OutputState: i.ToChannelKeyProviderSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelKeyProviderSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelKeyProviderSettingsOutput) ElementType() reflect.Type {
@@ -19197,12 +17000,6 @@ func (o ChannelKeyProviderSettingsOutput) ToChannelKeyProviderSettingsPtrOutputW
 	}).(ChannelKeyProviderSettingsPtrOutput)
 }
 
-func (o ChannelKeyProviderSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelKeyProviderSettings] {
-	return pulumix.Output[ChannelKeyProviderSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelKeyProviderSettingsOutput) StaticKeySettings() ChannelStaticKeySettingsPtrOutput {
 	return o.ApplyT(func(v ChannelKeyProviderSettings) *ChannelStaticKeySettings { return v.StaticKeySettings }).(ChannelStaticKeySettingsPtrOutput)
 }
@@ -19219,12 +17016,6 @@ func (o ChannelKeyProviderSettingsPtrOutput) ToChannelKeyProviderSettingsPtrOutp
 
 func (o ChannelKeyProviderSettingsPtrOutput) ToChannelKeyProviderSettingsPtrOutputWithContext(ctx context.Context) ChannelKeyProviderSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelKeyProviderSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelKeyProviderSettings] {
-	return pulumix.Output[*ChannelKeyProviderSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelKeyProviderSettingsPtrOutput) Elem() ChannelKeyProviderSettingsOutput {
@@ -19371,12 +17162,6 @@ func (i ChannelM2tsSettingsArgs) ToChannelM2tsSettingsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelM2tsSettingsOutput)
 }
 
-func (i ChannelM2tsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelM2tsSettings] {
-	return pulumix.Output[ChannelM2tsSettings]{
-		OutputState: i.ToChannelM2tsSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelM2tsSettingsArgs) ToChannelM2tsSettingsPtrOutput() ChannelM2tsSettingsPtrOutput {
 	return i.ToChannelM2tsSettingsPtrOutputWithContext(context.Background())
 }
@@ -19418,12 +17203,6 @@ func (i *channelM2tsSettingsPtrType) ToChannelM2tsSettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelM2tsSettingsPtrOutput)
 }
 
-func (i *channelM2tsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelM2tsSettings] {
-	return pulumix.Output[*ChannelM2tsSettings]{
-		OutputState: i.ToChannelM2tsSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelM2tsSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelM2tsSettingsOutput) ElementType() reflect.Type {
@@ -19446,12 +17225,6 @@ func (o ChannelM2tsSettingsOutput) ToChannelM2tsSettingsPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelM2tsSettings) *ChannelM2tsSettings {
 		return &v
 	}).(ChannelM2tsSettingsPtrOutput)
-}
-
-func (o ChannelM2tsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelM2tsSettings] {
-	return pulumix.Output[ChannelM2tsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelM2tsSettingsOutput) AbsentInputAudioBehavior() pulumi.StringPtrOutput {
@@ -19658,12 +17431,6 @@ func (o ChannelM2tsSettingsPtrOutput) ToChannelM2tsSettingsPtrOutput() ChannelM2
 
 func (o ChannelM2tsSettingsPtrOutput) ToChannelM2tsSettingsPtrOutputWithContext(ctx context.Context) ChannelM2tsSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelM2tsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelM2tsSettings] {
-	return pulumix.Output[*ChannelM2tsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelM2tsSettingsPtrOutput) Elem() ChannelM2tsSettingsOutput {
@@ -20175,12 +17942,6 @@ func (i ChannelM3u8SettingsArgs) ToChannelM3u8SettingsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelM3u8SettingsOutput)
 }
 
-func (i ChannelM3u8SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelM3u8Settings] {
-	return pulumix.Output[ChannelM3u8Settings]{
-		OutputState: i.ToChannelM3u8SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelM3u8SettingsArgs) ToChannelM3u8SettingsPtrOutput() ChannelM3u8SettingsPtrOutput {
 	return i.ToChannelM3u8SettingsPtrOutputWithContext(context.Background())
 }
@@ -20222,12 +17983,6 @@ func (i *channelM3u8SettingsPtrType) ToChannelM3u8SettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelM3u8SettingsPtrOutput)
 }
 
-func (i *channelM3u8SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelM3u8Settings] {
-	return pulumix.Output[*ChannelM3u8Settings]{
-		OutputState: i.ToChannelM3u8SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelM3u8SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelM3u8SettingsOutput) ElementType() reflect.Type {
@@ -20250,12 +18005,6 @@ func (o ChannelM3u8SettingsOutput) ToChannelM3u8SettingsPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelM3u8Settings) *ChannelM3u8Settings {
 		return &v
 	}).(ChannelM3u8SettingsPtrOutput)
-}
-
-func (o ChannelM3u8SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelM3u8Settings] {
-	return pulumix.Output[ChannelM3u8Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelM3u8SettingsOutput) AudioFramesPerPes() pulumi.IntPtrOutput {
@@ -20346,12 +18095,6 @@ func (o ChannelM3u8SettingsPtrOutput) ToChannelM3u8SettingsPtrOutput() ChannelM3
 
 func (o ChannelM3u8SettingsPtrOutput) ToChannelM3u8SettingsPtrOutputWithContext(ctx context.Context) ChannelM3u8SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelM3u8SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelM3u8Settings] {
-	return pulumix.Output[*ChannelM3u8Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelM3u8SettingsPtrOutput) Elem() ChannelM3u8SettingsOutput {
@@ -20568,12 +18311,6 @@ func (i ChannelMaintenanceCreateSettingsArgs) ToChannelMaintenanceCreateSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMaintenanceCreateSettingsOutput)
 }
 
-func (i ChannelMaintenanceCreateSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMaintenanceCreateSettings] {
-	return pulumix.Output[ChannelMaintenanceCreateSettings]{
-		OutputState: i.ToChannelMaintenanceCreateSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelMaintenanceCreateSettingsArgs) ToChannelMaintenanceCreateSettingsPtrOutput() ChannelMaintenanceCreateSettingsPtrOutput {
 	return i.ToChannelMaintenanceCreateSettingsPtrOutputWithContext(context.Background())
 }
@@ -20615,12 +18352,6 @@ func (i *channelMaintenanceCreateSettingsPtrType) ToChannelMaintenanceCreateSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMaintenanceCreateSettingsPtrOutput)
 }
 
-func (i *channelMaintenanceCreateSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMaintenanceCreateSettings] {
-	return pulumix.Output[*ChannelMaintenanceCreateSettings]{
-		OutputState: i.ToChannelMaintenanceCreateSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMaintenanceCreateSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMaintenanceCreateSettingsOutput) ElementType() reflect.Type {
@@ -20645,12 +18376,6 @@ func (o ChannelMaintenanceCreateSettingsOutput) ToChannelMaintenanceCreateSettin
 	}).(ChannelMaintenanceCreateSettingsPtrOutput)
 }
 
-func (o ChannelMaintenanceCreateSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMaintenanceCreateSettings] {
-	return pulumix.Output[ChannelMaintenanceCreateSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelMaintenanceCreateSettingsOutput) MaintenanceDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelMaintenanceCreateSettings) *string { return v.MaintenanceDay }).(pulumi.StringPtrOutput)
 }
@@ -20671,12 +18396,6 @@ func (o ChannelMaintenanceCreateSettingsPtrOutput) ToChannelMaintenanceCreateSet
 
 func (o ChannelMaintenanceCreateSettingsPtrOutput) ToChannelMaintenanceCreateSettingsPtrOutputWithContext(ctx context.Context) ChannelMaintenanceCreateSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelMaintenanceCreateSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMaintenanceCreateSettings] {
-	return pulumix.Output[*ChannelMaintenanceCreateSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMaintenanceCreateSettingsPtrOutput) Elem() ChannelMaintenanceCreateSettingsOutput {
@@ -20738,12 +18457,6 @@ func (i ChannelMediaPackageGroupSettingsArgs) ToChannelMediaPackageGroupSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMediaPackageGroupSettingsOutput)
 }
 
-func (i ChannelMediaPackageGroupSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMediaPackageGroupSettings] {
-	return pulumix.Output[ChannelMediaPackageGroupSettings]{
-		OutputState: i.ToChannelMediaPackageGroupSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelMediaPackageGroupSettingsArgs) ToChannelMediaPackageGroupSettingsPtrOutput() ChannelMediaPackageGroupSettingsPtrOutput {
 	return i.ToChannelMediaPackageGroupSettingsPtrOutputWithContext(context.Background())
 }
@@ -20785,12 +18498,6 @@ func (i *channelMediaPackageGroupSettingsPtrType) ToChannelMediaPackageGroupSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMediaPackageGroupSettingsPtrOutput)
 }
 
-func (i *channelMediaPackageGroupSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMediaPackageGroupSettings] {
-	return pulumix.Output[*ChannelMediaPackageGroupSettings]{
-		OutputState: i.ToChannelMediaPackageGroupSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMediaPackageGroupSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMediaPackageGroupSettingsOutput) ElementType() reflect.Type {
@@ -20815,12 +18522,6 @@ func (o ChannelMediaPackageGroupSettingsOutput) ToChannelMediaPackageGroupSettin
 	}).(ChannelMediaPackageGroupSettingsPtrOutput)
 }
 
-func (o ChannelMediaPackageGroupSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMediaPackageGroupSettings] {
-	return pulumix.Output[ChannelMediaPackageGroupSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelMediaPackageGroupSettingsOutput) Destination() ChannelOutputLocationRefPtrOutput {
 	return o.ApplyT(func(v ChannelMediaPackageGroupSettings) *ChannelOutputLocationRef { return v.Destination }).(ChannelOutputLocationRefPtrOutput)
 }
@@ -20837,12 +18538,6 @@ func (o ChannelMediaPackageGroupSettingsPtrOutput) ToChannelMediaPackageGroupSet
 
 func (o ChannelMediaPackageGroupSettingsPtrOutput) ToChannelMediaPackageGroupSettingsPtrOutputWithContext(ctx context.Context) ChannelMediaPackageGroupSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelMediaPackageGroupSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMediaPackageGroupSettings] {
-	return pulumix.Output[*ChannelMediaPackageGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMediaPackageGroupSettingsPtrOutput) Elem() ChannelMediaPackageGroupSettingsOutput {
@@ -20895,12 +18590,6 @@ func (i ChannelMediaPackageOutputDestinationSettingsArgs) ToChannelMediaPackageO
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMediaPackageOutputDestinationSettingsOutput)
 }
 
-func (i ChannelMediaPackageOutputDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMediaPackageOutputDestinationSettings] {
-	return pulumix.Output[ChannelMediaPackageOutputDestinationSettings]{
-		OutputState: i.ToChannelMediaPackageOutputDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelMediaPackageOutputDestinationSettingsArrayInput is an input type that accepts ChannelMediaPackageOutputDestinationSettingsArray and ChannelMediaPackageOutputDestinationSettingsArrayOutput values.
 // You can construct a concrete instance of `ChannelMediaPackageOutputDestinationSettingsArrayInput` via:
 //
@@ -20926,12 +18615,6 @@ func (i ChannelMediaPackageOutputDestinationSettingsArray) ToChannelMediaPackage
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMediaPackageOutputDestinationSettingsArrayOutput)
 }
 
-func (i ChannelMediaPackageOutputDestinationSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelMediaPackageOutputDestinationSettings] {
-	return pulumix.Output[[]ChannelMediaPackageOutputDestinationSettings]{
-		OutputState: i.ToChannelMediaPackageOutputDestinationSettingsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMediaPackageOutputDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMediaPackageOutputDestinationSettingsOutput) ElementType() reflect.Type {
@@ -20944,12 +18627,6 @@ func (o ChannelMediaPackageOutputDestinationSettingsOutput) ToChannelMediaPackag
 
 func (o ChannelMediaPackageOutputDestinationSettingsOutput) ToChannelMediaPackageOutputDestinationSettingsOutputWithContext(ctx context.Context) ChannelMediaPackageOutputDestinationSettingsOutput {
 	return o
-}
-
-func (o ChannelMediaPackageOutputDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMediaPackageOutputDestinationSettings] {
-	return pulumix.Output[ChannelMediaPackageOutputDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMediaPackageOutputDestinationSettingsOutput) ChannelId() pulumi.StringPtrOutput {
@@ -20968,12 +18645,6 @@ func (o ChannelMediaPackageOutputDestinationSettingsArrayOutput) ToChannelMediaP
 
 func (o ChannelMediaPackageOutputDestinationSettingsArrayOutput) ToChannelMediaPackageOutputDestinationSettingsArrayOutputWithContext(ctx context.Context) ChannelMediaPackageOutputDestinationSettingsArrayOutput {
 	return o
-}
-
-func (o ChannelMediaPackageOutputDestinationSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelMediaPackageOutputDestinationSettings] {
-	return pulumix.Output[[]ChannelMediaPackageOutputDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMediaPackageOutputDestinationSettingsArrayOutput) Index(i pulumi.IntInput) ChannelMediaPackageOutputDestinationSettingsOutput {
@@ -21009,12 +18680,6 @@ func (i ChannelMediaPackageOutputSettingsArgs) ToChannelMediaPackageOutputSettin
 
 func (i ChannelMediaPackageOutputSettingsArgs) ToChannelMediaPackageOutputSettingsOutputWithContext(ctx context.Context) ChannelMediaPackageOutputSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMediaPackageOutputSettingsOutput)
-}
-
-func (i ChannelMediaPackageOutputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMediaPackageOutputSettings] {
-	return pulumix.Output[ChannelMediaPackageOutputSettings]{
-		OutputState: i.ToChannelMediaPackageOutputSettingsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ChannelMediaPackageOutputSettingsArgs) ToChannelMediaPackageOutputSettingsPtrOutput() ChannelMediaPackageOutputSettingsPtrOutput {
@@ -21058,12 +18723,6 @@ func (i *channelMediaPackageOutputSettingsPtrType) ToChannelMediaPackageOutputSe
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMediaPackageOutputSettingsPtrOutput)
 }
 
-func (i *channelMediaPackageOutputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMediaPackageOutputSettings] {
-	return pulumix.Output[*ChannelMediaPackageOutputSettings]{
-		OutputState: i.ToChannelMediaPackageOutputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMediaPackageOutputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMediaPackageOutputSettingsOutput) ElementType() reflect.Type {
@@ -21088,12 +18747,6 @@ func (o ChannelMediaPackageOutputSettingsOutput) ToChannelMediaPackageOutputSett
 	}).(ChannelMediaPackageOutputSettingsPtrOutput)
 }
 
-func (o ChannelMediaPackageOutputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMediaPackageOutputSettings] {
-	return pulumix.Output[ChannelMediaPackageOutputSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelMediaPackageOutputSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelMediaPackageOutputSettingsPtrOutput) ElementType() reflect.Type {
@@ -21106,12 +18759,6 @@ func (o ChannelMediaPackageOutputSettingsPtrOutput) ToChannelMediaPackageOutputS
 
 func (o ChannelMediaPackageOutputSettingsPtrOutput) ToChannelMediaPackageOutputSettingsPtrOutputWithContext(ctx context.Context) ChannelMediaPackageOutputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelMediaPackageOutputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMediaPackageOutputSettings] {
-	return pulumix.Output[*ChannelMediaPackageOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMediaPackageOutputSettingsPtrOutput) Elem() ChannelMediaPackageOutputSettingsOutput {
@@ -21157,12 +18804,6 @@ func (i ChannelMotionGraphicsConfigurationArgs) ToChannelMotionGraphicsConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMotionGraphicsConfigurationOutput)
 }
 
-func (i ChannelMotionGraphicsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMotionGraphicsConfiguration] {
-	return pulumix.Output[ChannelMotionGraphicsConfiguration]{
-		OutputState: i.ToChannelMotionGraphicsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelMotionGraphicsConfigurationArgs) ToChannelMotionGraphicsConfigurationPtrOutput() ChannelMotionGraphicsConfigurationPtrOutput {
 	return i.ToChannelMotionGraphicsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -21204,12 +18845,6 @@ func (i *channelMotionGraphicsConfigurationPtrType) ToChannelMotionGraphicsConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMotionGraphicsConfigurationPtrOutput)
 }
 
-func (i *channelMotionGraphicsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMotionGraphicsConfiguration] {
-	return pulumix.Output[*ChannelMotionGraphicsConfiguration]{
-		OutputState: i.ToChannelMotionGraphicsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMotionGraphicsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ChannelMotionGraphicsConfigurationOutput) ElementType() reflect.Type {
@@ -21234,12 +18869,6 @@ func (o ChannelMotionGraphicsConfigurationOutput) ToChannelMotionGraphicsConfigu
 	}).(ChannelMotionGraphicsConfigurationPtrOutput)
 }
 
-func (o ChannelMotionGraphicsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMotionGraphicsConfiguration] {
-	return pulumix.Output[ChannelMotionGraphicsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelMotionGraphicsConfigurationOutput) MotionGraphicsInsertion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelMotionGraphicsConfiguration) *string { return v.MotionGraphicsInsertion }).(pulumi.StringPtrOutput)
 }
@@ -21262,12 +18891,6 @@ func (o ChannelMotionGraphicsConfigurationPtrOutput) ToChannelMotionGraphicsConf
 
 func (o ChannelMotionGraphicsConfigurationPtrOutput) ToChannelMotionGraphicsConfigurationPtrOutputWithContext(ctx context.Context) ChannelMotionGraphicsConfigurationPtrOutput {
 	return o
-}
-
-func (o ChannelMotionGraphicsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMotionGraphicsConfiguration] {
-	return pulumix.Output[*ChannelMotionGraphicsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMotionGraphicsConfigurationPtrOutput) Elem() ChannelMotionGraphicsConfigurationOutput {
@@ -21329,12 +18952,6 @@ func (i ChannelMotionGraphicsSettingsArgs) ToChannelMotionGraphicsSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMotionGraphicsSettingsOutput)
 }
 
-func (i ChannelMotionGraphicsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMotionGraphicsSettings] {
-	return pulumix.Output[ChannelMotionGraphicsSettings]{
-		OutputState: i.ToChannelMotionGraphicsSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelMotionGraphicsSettingsArgs) ToChannelMotionGraphicsSettingsPtrOutput() ChannelMotionGraphicsSettingsPtrOutput {
 	return i.ToChannelMotionGraphicsSettingsPtrOutputWithContext(context.Background())
 }
@@ -21376,12 +18993,6 @@ func (i *channelMotionGraphicsSettingsPtrType) ToChannelMotionGraphicsSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMotionGraphicsSettingsPtrOutput)
 }
 
-func (i *channelMotionGraphicsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMotionGraphicsSettings] {
-	return pulumix.Output[*ChannelMotionGraphicsSettings]{
-		OutputState: i.ToChannelMotionGraphicsSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMotionGraphicsSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMotionGraphicsSettingsOutput) ElementType() reflect.Type {
@@ -21406,12 +19017,6 @@ func (o ChannelMotionGraphicsSettingsOutput) ToChannelMotionGraphicsSettingsPtrO
 	}).(ChannelMotionGraphicsSettingsPtrOutput)
 }
 
-func (o ChannelMotionGraphicsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMotionGraphicsSettings] {
-	return pulumix.Output[ChannelMotionGraphicsSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelMotionGraphicsSettingsOutput) HtmlMotionGraphicsSettings() ChannelHtmlMotionGraphicsSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelMotionGraphicsSettings) *ChannelHtmlMotionGraphicsSettings {
 		return v.HtmlMotionGraphicsSettings
@@ -21430,12 +19035,6 @@ func (o ChannelMotionGraphicsSettingsPtrOutput) ToChannelMotionGraphicsSettingsP
 
 func (o ChannelMotionGraphicsSettingsPtrOutput) ToChannelMotionGraphicsSettingsPtrOutputWithContext(ctx context.Context) ChannelMotionGraphicsSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelMotionGraphicsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMotionGraphicsSettings] {
-	return pulumix.Output[*ChannelMotionGraphicsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMotionGraphicsSettingsPtrOutput) Elem() ChannelMotionGraphicsSettingsOutput {
@@ -21492,12 +19091,6 @@ func (i ChannelMp2SettingsArgs) ToChannelMp2SettingsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMp2SettingsOutput)
 }
 
-func (i ChannelMp2SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMp2Settings] {
-	return pulumix.Output[ChannelMp2Settings]{
-		OutputState: i.ToChannelMp2SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelMp2SettingsArgs) ToChannelMp2SettingsPtrOutput() ChannelMp2SettingsPtrOutput {
 	return i.ToChannelMp2SettingsPtrOutputWithContext(context.Background())
 }
@@ -21539,12 +19132,6 @@ func (i *channelMp2SettingsPtrType) ToChannelMp2SettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMp2SettingsPtrOutput)
 }
 
-func (i *channelMp2SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMp2Settings] {
-	return pulumix.Output[*ChannelMp2Settings]{
-		OutputState: i.ToChannelMp2SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMp2SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMp2SettingsOutput) ElementType() reflect.Type {
@@ -21567,12 +19154,6 @@ func (o ChannelMp2SettingsOutput) ToChannelMp2SettingsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelMp2Settings) *ChannelMp2Settings {
 		return &v
 	}).(ChannelMp2SettingsPtrOutput)
-}
-
-func (o ChannelMp2SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMp2Settings] {
-	return pulumix.Output[ChannelMp2Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMp2SettingsOutput) Bitrate() pulumi.Float64PtrOutput {
@@ -21599,12 +19180,6 @@ func (o ChannelMp2SettingsPtrOutput) ToChannelMp2SettingsPtrOutput() ChannelMp2S
 
 func (o ChannelMp2SettingsPtrOutput) ToChannelMp2SettingsPtrOutputWithContext(ctx context.Context) ChannelMp2SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelMp2SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMp2Settings] {
-	return pulumix.Output[*ChannelMp2Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMp2SettingsPtrOutput) Elem() ChannelMp2SettingsOutput {
@@ -21675,12 +19250,6 @@ func (i ChannelMpeg2FilterSettingsArgs) ToChannelMpeg2FilterSettingsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMpeg2FilterSettingsOutput)
 }
 
-func (i ChannelMpeg2FilterSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMpeg2FilterSettings] {
-	return pulumix.Output[ChannelMpeg2FilterSettings]{
-		OutputState: i.ToChannelMpeg2FilterSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelMpeg2FilterSettingsArgs) ToChannelMpeg2FilterSettingsPtrOutput() ChannelMpeg2FilterSettingsPtrOutput {
 	return i.ToChannelMpeg2FilterSettingsPtrOutputWithContext(context.Background())
 }
@@ -21722,12 +19291,6 @@ func (i *channelMpeg2FilterSettingsPtrType) ToChannelMpeg2FilterSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMpeg2FilterSettingsPtrOutput)
 }
 
-func (i *channelMpeg2FilterSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMpeg2FilterSettings] {
-	return pulumix.Output[*ChannelMpeg2FilterSettings]{
-		OutputState: i.ToChannelMpeg2FilterSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMpeg2FilterSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMpeg2FilterSettingsOutput) ElementType() reflect.Type {
@@ -21752,12 +19315,6 @@ func (o ChannelMpeg2FilterSettingsOutput) ToChannelMpeg2FilterSettingsPtrOutputW
 	}).(ChannelMpeg2FilterSettingsPtrOutput)
 }
 
-func (o ChannelMpeg2FilterSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMpeg2FilterSettings] {
-	return pulumix.Output[ChannelMpeg2FilterSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelMpeg2FilterSettingsOutput) TemporalFilterSettings() ChannelTemporalFilterSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelMpeg2FilterSettings) *ChannelTemporalFilterSettings { return v.TemporalFilterSettings }).(ChannelTemporalFilterSettingsPtrOutput)
 }
@@ -21774,12 +19331,6 @@ func (o ChannelMpeg2FilterSettingsPtrOutput) ToChannelMpeg2FilterSettingsPtrOutp
 
 func (o ChannelMpeg2FilterSettingsPtrOutput) ToChannelMpeg2FilterSettingsPtrOutputWithContext(ctx context.Context) ChannelMpeg2FilterSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelMpeg2FilterSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMpeg2FilterSettings] {
-	return pulumix.Output[*ChannelMpeg2FilterSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMpeg2FilterSettingsPtrOutput) Elem() ChannelMpeg2FilterSettingsOutput {
@@ -21864,12 +19415,6 @@ func (i ChannelMpeg2SettingsArgs) ToChannelMpeg2SettingsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMpeg2SettingsOutput)
 }
 
-func (i ChannelMpeg2SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMpeg2Settings] {
-	return pulumix.Output[ChannelMpeg2Settings]{
-		OutputState: i.ToChannelMpeg2SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelMpeg2SettingsArgs) ToChannelMpeg2SettingsPtrOutput() ChannelMpeg2SettingsPtrOutput {
 	return i.ToChannelMpeg2SettingsPtrOutputWithContext(context.Background())
 }
@@ -21911,12 +19456,6 @@ func (i *channelMpeg2SettingsPtrType) ToChannelMpeg2SettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMpeg2SettingsPtrOutput)
 }
 
-func (i *channelMpeg2SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMpeg2Settings] {
-	return pulumix.Output[*ChannelMpeg2Settings]{
-		OutputState: i.ToChannelMpeg2SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMpeg2SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMpeg2SettingsOutput) ElementType() reflect.Type {
@@ -21939,12 +19478,6 @@ func (o ChannelMpeg2SettingsOutput) ToChannelMpeg2SettingsPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelMpeg2Settings) *ChannelMpeg2Settings {
 		return &v
 	}).(ChannelMpeg2SettingsPtrOutput)
-}
-
-func (o ChannelMpeg2SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMpeg2Settings] {
-	return pulumix.Output[ChannelMpeg2Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMpeg2SettingsOutput) AdaptiveQuantization() pulumi.StringPtrOutput {
@@ -22027,12 +19560,6 @@ func (o ChannelMpeg2SettingsPtrOutput) ToChannelMpeg2SettingsPtrOutput() Channel
 
 func (o ChannelMpeg2SettingsPtrOutput) ToChannelMpeg2SettingsPtrOutputWithContext(ctx context.Context) ChannelMpeg2SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelMpeg2SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMpeg2Settings] {
-	return pulumix.Output[*ChannelMpeg2Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMpeg2SettingsPtrOutput) Elem() ChannelMpeg2SettingsOutput {
@@ -22265,12 +19792,6 @@ func (i ChannelMsSmoothGroupSettingsArgs) ToChannelMsSmoothGroupSettingsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMsSmoothGroupSettingsOutput)
 }
 
-func (i ChannelMsSmoothGroupSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMsSmoothGroupSettings] {
-	return pulumix.Output[ChannelMsSmoothGroupSettings]{
-		OutputState: i.ToChannelMsSmoothGroupSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelMsSmoothGroupSettingsArgs) ToChannelMsSmoothGroupSettingsPtrOutput() ChannelMsSmoothGroupSettingsPtrOutput {
 	return i.ToChannelMsSmoothGroupSettingsPtrOutputWithContext(context.Background())
 }
@@ -22312,12 +19833,6 @@ func (i *channelMsSmoothGroupSettingsPtrType) ToChannelMsSmoothGroupSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMsSmoothGroupSettingsPtrOutput)
 }
 
-func (i *channelMsSmoothGroupSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMsSmoothGroupSettings] {
-	return pulumix.Output[*ChannelMsSmoothGroupSettings]{
-		OutputState: i.ToChannelMsSmoothGroupSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMsSmoothGroupSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMsSmoothGroupSettingsOutput) ElementType() reflect.Type {
@@ -22340,12 +19855,6 @@ func (o ChannelMsSmoothGroupSettingsOutput) ToChannelMsSmoothGroupSettingsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelMsSmoothGroupSettings) *ChannelMsSmoothGroupSettings {
 		return &v
 	}).(ChannelMsSmoothGroupSettingsPtrOutput)
-}
-
-func (o ChannelMsSmoothGroupSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMsSmoothGroupSettings] {
-	return pulumix.Output[ChannelMsSmoothGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMsSmoothGroupSettingsOutput) AcquisitionPointId() pulumi.StringPtrOutput {
@@ -22436,12 +19945,6 @@ func (o ChannelMsSmoothGroupSettingsPtrOutput) ToChannelMsSmoothGroupSettingsPtr
 
 func (o ChannelMsSmoothGroupSettingsPtrOutput) ToChannelMsSmoothGroupSettingsPtrOutputWithContext(ctx context.Context) ChannelMsSmoothGroupSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelMsSmoothGroupSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMsSmoothGroupSettings] {
-	return pulumix.Output[*ChannelMsSmoothGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMsSmoothGroupSettingsPtrOutput) Elem() ChannelMsSmoothGroupSettingsOutput {
@@ -22658,12 +20161,6 @@ func (i ChannelMsSmoothOutputSettingsArgs) ToChannelMsSmoothOutputSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMsSmoothOutputSettingsOutput)
 }
 
-func (i ChannelMsSmoothOutputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMsSmoothOutputSettings] {
-	return pulumix.Output[ChannelMsSmoothOutputSettings]{
-		OutputState: i.ToChannelMsSmoothOutputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelMsSmoothOutputSettingsArgs) ToChannelMsSmoothOutputSettingsPtrOutput() ChannelMsSmoothOutputSettingsPtrOutput {
 	return i.ToChannelMsSmoothOutputSettingsPtrOutputWithContext(context.Background())
 }
@@ -22705,12 +20202,6 @@ func (i *channelMsSmoothOutputSettingsPtrType) ToChannelMsSmoothOutputSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMsSmoothOutputSettingsPtrOutput)
 }
 
-func (i *channelMsSmoothOutputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMsSmoothOutputSettings] {
-	return pulumix.Output[*ChannelMsSmoothOutputSettings]{
-		OutputState: i.ToChannelMsSmoothOutputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMsSmoothOutputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMsSmoothOutputSettingsOutput) ElementType() reflect.Type {
@@ -22735,12 +20226,6 @@ func (o ChannelMsSmoothOutputSettingsOutput) ToChannelMsSmoothOutputSettingsPtrO
 	}).(ChannelMsSmoothOutputSettingsPtrOutput)
 }
 
-func (o ChannelMsSmoothOutputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMsSmoothOutputSettings] {
-	return pulumix.Output[ChannelMsSmoothOutputSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelMsSmoothOutputSettingsOutput) H265PackagingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelMsSmoothOutputSettings) *string { return v.H265PackagingType }).(pulumi.StringPtrOutput)
 }
@@ -22761,12 +20246,6 @@ func (o ChannelMsSmoothOutputSettingsPtrOutput) ToChannelMsSmoothOutputSettingsP
 
 func (o ChannelMsSmoothOutputSettingsPtrOutput) ToChannelMsSmoothOutputSettingsPtrOutputWithContext(ctx context.Context) ChannelMsSmoothOutputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelMsSmoothOutputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMsSmoothOutputSettings] {
-	return pulumix.Output[*ChannelMsSmoothOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMsSmoothOutputSettingsPtrOutput) Elem() ChannelMsSmoothOutputSettingsOutput {
@@ -22826,12 +20305,6 @@ func (i ChannelMultiplexGroupSettingsArgs) ToChannelMultiplexGroupSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultiplexGroupSettingsOutput)
 }
 
-func (i ChannelMultiplexGroupSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMultiplexGroupSettings] {
-	return pulumix.Output[ChannelMultiplexGroupSettings]{
-		OutputState: i.ToChannelMultiplexGroupSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelMultiplexGroupSettingsArgs) ToChannelMultiplexGroupSettingsPtrOutput() ChannelMultiplexGroupSettingsPtrOutput {
 	return i.ToChannelMultiplexGroupSettingsPtrOutputWithContext(context.Background())
 }
@@ -22873,12 +20346,6 @@ func (i *channelMultiplexGroupSettingsPtrType) ToChannelMultiplexGroupSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultiplexGroupSettingsPtrOutput)
 }
 
-func (i *channelMultiplexGroupSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMultiplexGroupSettings] {
-	return pulumix.Output[*ChannelMultiplexGroupSettings]{
-		OutputState: i.ToChannelMultiplexGroupSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMultiplexGroupSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMultiplexGroupSettingsOutput) ElementType() reflect.Type {
@@ -22903,12 +20370,6 @@ func (o ChannelMultiplexGroupSettingsOutput) ToChannelMultiplexGroupSettingsPtrO
 	}).(ChannelMultiplexGroupSettingsPtrOutput)
 }
 
-func (o ChannelMultiplexGroupSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMultiplexGroupSettings] {
-	return pulumix.Output[ChannelMultiplexGroupSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelMultiplexGroupSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelMultiplexGroupSettingsPtrOutput) ElementType() reflect.Type {
@@ -22921,12 +20382,6 @@ func (o ChannelMultiplexGroupSettingsPtrOutput) ToChannelMultiplexGroupSettingsP
 
 func (o ChannelMultiplexGroupSettingsPtrOutput) ToChannelMultiplexGroupSettingsPtrOutputWithContext(ctx context.Context) ChannelMultiplexGroupSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelMultiplexGroupSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMultiplexGroupSettings] {
-	return pulumix.Output[*ChannelMultiplexGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMultiplexGroupSettingsPtrOutput) Elem() ChannelMultiplexGroupSettingsOutput {
@@ -22970,12 +20425,6 @@ func (i ChannelMultiplexOutputSettingsArgs) ToChannelMultiplexOutputSettingsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultiplexOutputSettingsOutput)
 }
 
-func (i ChannelMultiplexOutputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMultiplexOutputSettings] {
-	return pulumix.Output[ChannelMultiplexOutputSettings]{
-		OutputState: i.ToChannelMultiplexOutputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelMultiplexOutputSettingsArgs) ToChannelMultiplexOutputSettingsPtrOutput() ChannelMultiplexOutputSettingsPtrOutput {
 	return i.ToChannelMultiplexOutputSettingsPtrOutputWithContext(context.Background())
 }
@@ -23017,12 +20466,6 @@ func (i *channelMultiplexOutputSettingsPtrType) ToChannelMultiplexOutputSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultiplexOutputSettingsPtrOutput)
 }
 
-func (i *channelMultiplexOutputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMultiplexOutputSettings] {
-	return pulumix.Output[*ChannelMultiplexOutputSettings]{
-		OutputState: i.ToChannelMultiplexOutputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMultiplexOutputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMultiplexOutputSettingsOutput) ElementType() reflect.Type {
@@ -23047,12 +20490,6 @@ func (o ChannelMultiplexOutputSettingsOutput) ToChannelMultiplexOutputSettingsPt
 	}).(ChannelMultiplexOutputSettingsPtrOutput)
 }
 
-func (o ChannelMultiplexOutputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMultiplexOutputSettings] {
-	return pulumix.Output[ChannelMultiplexOutputSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelMultiplexOutputSettingsOutput) Destination() ChannelOutputLocationRefPtrOutput {
 	return o.ApplyT(func(v ChannelMultiplexOutputSettings) *ChannelOutputLocationRef { return v.Destination }).(ChannelOutputLocationRefPtrOutput)
 }
@@ -23069,12 +20506,6 @@ func (o ChannelMultiplexOutputSettingsPtrOutput) ToChannelMultiplexOutputSetting
 
 func (o ChannelMultiplexOutputSettingsPtrOutput) ToChannelMultiplexOutputSettingsPtrOutputWithContext(ctx context.Context) ChannelMultiplexOutputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelMultiplexOutputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMultiplexOutputSettings] {
-	return pulumix.Output[*ChannelMultiplexOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMultiplexOutputSettingsPtrOutput) Elem() ChannelMultiplexOutputSettingsOutput {
@@ -23129,12 +20560,6 @@ func (i ChannelMultiplexProgramChannelDestinationSettingsArgs) ToChannelMultiple
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultiplexProgramChannelDestinationSettingsOutput)
 }
 
-func (i ChannelMultiplexProgramChannelDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelMultiplexProgramChannelDestinationSettings] {
-	return pulumix.Output[ChannelMultiplexProgramChannelDestinationSettings]{
-		OutputState: i.ToChannelMultiplexProgramChannelDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelMultiplexProgramChannelDestinationSettingsArgs) ToChannelMultiplexProgramChannelDestinationSettingsPtrOutput() ChannelMultiplexProgramChannelDestinationSettingsPtrOutput {
 	return i.ToChannelMultiplexProgramChannelDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -23176,12 +20601,6 @@ func (i *channelMultiplexProgramChannelDestinationSettingsPtrType) ToChannelMult
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultiplexProgramChannelDestinationSettingsPtrOutput)
 }
 
-func (i *channelMultiplexProgramChannelDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelMultiplexProgramChannelDestinationSettings] {
-	return pulumix.Output[*ChannelMultiplexProgramChannelDestinationSettings]{
-		OutputState: i.ToChannelMultiplexProgramChannelDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelMultiplexProgramChannelDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelMultiplexProgramChannelDestinationSettingsOutput) ElementType() reflect.Type {
@@ -23206,12 +20625,6 @@ func (o ChannelMultiplexProgramChannelDestinationSettingsOutput) ToChannelMultip
 	}).(ChannelMultiplexProgramChannelDestinationSettingsPtrOutput)
 }
 
-func (o ChannelMultiplexProgramChannelDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelMultiplexProgramChannelDestinationSettings] {
-	return pulumix.Output[ChannelMultiplexProgramChannelDestinationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelMultiplexProgramChannelDestinationSettingsOutput) MultiplexId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelMultiplexProgramChannelDestinationSettings) *string { return v.MultiplexId }).(pulumi.StringPtrOutput)
 }
@@ -23232,12 +20645,6 @@ func (o ChannelMultiplexProgramChannelDestinationSettingsPtrOutput) ToChannelMul
 
 func (o ChannelMultiplexProgramChannelDestinationSettingsPtrOutput) ToChannelMultiplexProgramChannelDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelMultiplexProgramChannelDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelMultiplexProgramChannelDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelMultiplexProgramChannelDestinationSettings] {
-	return pulumix.Output[*ChannelMultiplexProgramChannelDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelMultiplexProgramChannelDestinationSettingsPtrOutput) Elem() ChannelMultiplexProgramChannelDestinationSettingsOutput {
@@ -23301,12 +20708,6 @@ func (i ChannelNetworkInputSettingsArgs) ToChannelNetworkInputSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelNetworkInputSettingsOutput)
 }
 
-func (i ChannelNetworkInputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelNetworkInputSettings] {
-	return pulumix.Output[ChannelNetworkInputSettings]{
-		OutputState: i.ToChannelNetworkInputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelNetworkInputSettingsArgs) ToChannelNetworkInputSettingsPtrOutput() ChannelNetworkInputSettingsPtrOutput {
 	return i.ToChannelNetworkInputSettingsPtrOutputWithContext(context.Background())
 }
@@ -23348,12 +20749,6 @@ func (i *channelNetworkInputSettingsPtrType) ToChannelNetworkInputSettingsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelNetworkInputSettingsPtrOutput)
 }
 
-func (i *channelNetworkInputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelNetworkInputSettings] {
-	return pulumix.Output[*ChannelNetworkInputSettings]{
-		OutputState: i.ToChannelNetworkInputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelNetworkInputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelNetworkInputSettingsOutput) ElementType() reflect.Type {
@@ -23378,12 +20773,6 @@ func (o ChannelNetworkInputSettingsOutput) ToChannelNetworkInputSettingsPtrOutpu
 	}).(ChannelNetworkInputSettingsPtrOutput)
 }
 
-func (o ChannelNetworkInputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelNetworkInputSettings] {
-	return pulumix.Output[ChannelNetworkInputSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelNetworkInputSettingsOutput) HlsInputSettings() ChannelHlsInputSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelNetworkInputSettings) *ChannelHlsInputSettings { return v.HlsInputSettings }).(ChannelHlsInputSettingsPtrOutput)
 }
@@ -23404,12 +20793,6 @@ func (o ChannelNetworkInputSettingsPtrOutput) ToChannelNetworkInputSettingsPtrOu
 
 func (o ChannelNetworkInputSettingsPtrOutput) ToChannelNetworkInputSettingsPtrOutputWithContext(ctx context.Context) ChannelNetworkInputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelNetworkInputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelNetworkInputSettings] {
-	return pulumix.Output[*ChannelNetworkInputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelNetworkInputSettingsPtrOutput) Elem() ChannelNetworkInputSettingsOutput {
@@ -23475,12 +20858,6 @@ func (i ChannelNielsenCbetArgs) ToChannelNielsenCbetOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenCbetOutput)
 }
 
-func (i ChannelNielsenCbetArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelNielsenCbet] {
-	return pulumix.Output[ChannelNielsenCbet]{
-		OutputState: i.ToChannelNielsenCbetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelNielsenCbetArgs) ToChannelNielsenCbetPtrOutput() ChannelNielsenCbetPtrOutput {
 	return i.ToChannelNielsenCbetPtrOutputWithContext(context.Background())
 }
@@ -23522,12 +20899,6 @@ func (i *channelNielsenCbetPtrType) ToChannelNielsenCbetPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenCbetPtrOutput)
 }
 
-func (i *channelNielsenCbetPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelNielsenCbet] {
-	return pulumix.Output[*ChannelNielsenCbet]{
-		OutputState: i.ToChannelNielsenCbetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelNielsenCbetOutput struct{ *pulumi.OutputState }
 
 func (ChannelNielsenCbetOutput) ElementType() reflect.Type {
@@ -23550,12 +20921,6 @@ func (o ChannelNielsenCbetOutput) ToChannelNielsenCbetPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNielsenCbet) *ChannelNielsenCbet {
 		return &v
 	}).(ChannelNielsenCbetPtrOutput)
-}
-
-func (o ChannelNielsenCbetOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelNielsenCbet] {
-	return pulumix.Output[ChannelNielsenCbet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelNielsenCbetOutput) CbetCheckDigitString() pulumi.StringPtrOutput {
@@ -23582,12 +20947,6 @@ func (o ChannelNielsenCbetPtrOutput) ToChannelNielsenCbetPtrOutput() ChannelNiel
 
 func (o ChannelNielsenCbetPtrOutput) ToChannelNielsenCbetPtrOutputWithContext(ctx context.Context) ChannelNielsenCbetPtrOutput {
 	return o
-}
-
-func (o ChannelNielsenCbetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelNielsenCbet] {
-	return pulumix.Output[*ChannelNielsenCbet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelNielsenCbetPtrOutput) Elem() ChannelNielsenCbetOutput {
@@ -23660,12 +21019,6 @@ func (i ChannelNielsenConfigurationArgs) ToChannelNielsenConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenConfigurationOutput)
 }
 
-func (i ChannelNielsenConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelNielsenConfiguration] {
-	return pulumix.Output[ChannelNielsenConfiguration]{
-		OutputState: i.ToChannelNielsenConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelNielsenConfigurationArgs) ToChannelNielsenConfigurationPtrOutput() ChannelNielsenConfigurationPtrOutput {
 	return i.ToChannelNielsenConfigurationPtrOutputWithContext(context.Background())
 }
@@ -23707,12 +21060,6 @@ func (i *channelNielsenConfigurationPtrType) ToChannelNielsenConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenConfigurationPtrOutput)
 }
 
-func (i *channelNielsenConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelNielsenConfiguration] {
-	return pulumix.Output[*ChannelNielsenConfiguration]{
-		OutputState: i.ToChannelNielsenConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelNielsenConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ChannelNielsenConfigurationOutput) ElementType() reflect.Type {
@@ -23737,12 +21084,6 @@ func (o ChannelNielsenConfigurationOutput) ToChannelNielsenConfigurationPtrOutpu
 	}).(ChannelNielsenConfigurationPtrOutput)
 }
 
-func (o ChannelNielsenConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelNielsenConfiguration] {
-	return pulumix.Output[ChannelNielsenConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelNielsenConfigurationOutput) DistributorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelNielsenConfiguration) *string { return v.DistributorId }).(pulumi.StringPtrOutput)
 }
@@ -23763,12 +21104,6 @@ func (o ChannelNielsenConfigurationPtrOutput) ToChannelNielsenConfigurationPtrOu
 
 func (o ChannelNielsenConfigurationPtrOutput) ToChannelNielsenConfigurationPtrOutputWithContext(ctx context.Context) ChannelNielsenConfigurationPtrOutput {
 	return o
-}
-
-func (o ChannelNielsenConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelNielsenConfiguration] {
-	return pulumix.Output[*ChannelNielsenConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelNielsenConfigurationPtrOutput) Elem() ChannelNielsenConfigurationOutput {
@@ -23834,12 +21169,6 @@ func (i ChannelNielsenNaesIiNwArgs) ToChannelNielsenNaesIiNwOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenNaesIiNwOutput)
 }
 
-func (i ChannelNielsenNaesIiNwArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelNielsenNaesIiNw] {
-	return pulumix.Output[ChannelNielsenNaesIiNw]{
-		OutputState: i.ToChannelNielsenNaesIiNwOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelNielsenNaesIiNwArgs) ToChannelNielsenNaesIiNwPtrOutput() ChannelNielsenNaesIiNwPtrOutput {
 	return i.ToChannelNielsenNaesIiNwPtrOutputWithContext(context.Background())
 }
@@ -23881,12 +21210,6 @@ func (i *channelNielsenNaesIiNwPtrType) ToChannelNielsenNaesIiNwPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenNaesIiNwPtrOutput)
 }
 
-func (i *channelNielsenNaesIiNwPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelNielsenNaesIiNw] {
-	return pulumix.Output[*ChannelNielsenNaesIiNw]{
-		OutputState: i.ToChannelNielsenNaesIiNwPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelNielsenNaesIiNwOutput struct{ *pulumi.OutputState }
 
 func (ChannelNielsenNaesIiNwOutput) ElementType() reflect.Type {
@@ -23909,12 +21232,6 @@ func (o ChannelNielsenNaesIiNwOutput) ToChannelNielsenNaesIiNwPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNielsenNaesIiNw) *ChannelNielsenNaesIiNw {
 		return &v
 	}).(ChannelNielsenNaesIiNwPtrOutput)
-}
-
-func (o ChannelNielsenNaesIiNwOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelNielsenNaesIiNw] {
-	return pulumix.Output[ChannelNielsenNaesIiNw]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelNielsenNaesIiNwOutput) CheckDigitString() pulumi.StringPtrOutput {
@@ -23941,12 +21258,6 @@ func (o ChannelNielsenNaesIiNwPtrOutput) ToChannelNielsenNaesIiNwPtrOutput() Cha
 
 func (o ChannelNielsenNaesIiNwPtrOutput) ToChannelNielsenNaesIiNwPtrOutputWithContext(ctx context.Context) ChannelNielsenNaesIiNwPtrOutput {
 	return o
-}
-
-func (o ChannelNielsenNaesIiNwPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelNielsenNaesIiNw] {
-	return pulumix.Output[*ChannelNielsenNaesIiNw]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelNielsenNaesIiNwPtrOutput) Elem() ChannelNielsenNaesIiNwOutput {
@@ -24021,12 +21332,6 @@ func (i ChannelNielsenWatermarksSettingsArgs) ToChannelNielsenWatermarksSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenWatermarksSettingsOutput)
 }
 
-func (i ChannelNielsenWatermarksSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelNielsenWatermarksSettings] {
-	return pulumix.Output[ChannelNielsenWatermarksSettings]{
-		OutputState: i.ToChannelNielsenWatermarksSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelNielsenWatermarksSettingsArgs) ToChannelNielsenWatermarksSettingsPtrOutput() ChannelNielsenWatermarksSettingsPtrOutput {
 	return i.ToChannelNielsenWatermarksSettingsPtrOutputWithContext(context.Background())
 }
@@ -24068,12 +21373,6 @@ func (i *channelNielsenWatermarksSettingsPtrType) ToChannelNielsenWatermarksSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenWatermarksSettingsPtrOutput)
 }
 
-func (i *channelNielsenWatermarksSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelNielsenWatermarksSettings] {
-	return pulumix.Output[*ChannelNielsenWatermarksSettings]{
-		OutputState: i.ToChannelNielsenWatermarksSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelNielsenWatermarksSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelNielsenWatermarksSettingsOutput) ElementType() reflect.Type {
@@ -24096,12 +21395,6 @@ func (o ChannelNielsenWatermarksSettingsOutput) ToChannelNielsenWatermarksSettin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNielsenWatermarksSettings) *ChannelNielsenWatermarksSettings {
 		return &v
 	}).(ChannelNielsenWatermarksSettingsPtrOutput)
-}
-
-func (o ChannelNielsenWatermarksSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelNielsenWatermarksSettings] {
-	return pulumix.Output[ChannelNielsenWatermarksSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelNielsenWatermarksSettingsOutput) NielsenCbetSettings() ChannelNielsenCbetPtrOutput {
@@ -24128,12 +21421,6 @@ func (o ChannelNielsenWatermarksSettingsPtrOutput) ToChannelNielsenWatermarksSet
 
 func (o ChannelNielsenWatermarksSettingsPtrOutput) ToChannelNielsenWatermarksSettingsPtrOutputWithContext(ctx context.Context) ChannelNielsenWatermarksSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelNielsenWatermarksSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelNielsenWatermarksSettings] {
-	return pulumix.Output[*ChannelNielsenWatermarksSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelNielsenWatermarksSettingsPtrOutput) Elem() ChannelNielsenWatermarksSettingsOutput {
@@ -24212,12 +21499,6 @@ func (i ChannelOutputTypeArgs) ToChannelOutputTypeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputTypeOutput)
 }
 
-func (i ChannelOutputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputType] {
-	return pulumix.Output[ChannelOutputType]{
-		OutputState: i.ToChannelOutputTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelOutputTypeArrayInput is an input type that accepts ChannelOutputTypeArray and ChannelOutputTypeArrayOutput values.
 // You can construct a concrete instance of `ChannelOutputTypeArrayInput` via:
 //
@@ -24243,12 +21524,6 @@ func (i ChannelOutputTypeArray) ToChannelOutputTypeArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputTypeArrayOutput)
 }
 
-func (i ChannelOutputTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelOutputType] {
-	return pulumix.Output[[]ChannelOutputType]{
-		OutputState: i.ToChannelOutputTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutputTypeOutput) ElementType() reflect.Type {
@@ -24261,12 +21536,6 @@ func (o ChannelOutputTypeOutput) ToChannelOutputTypeOutput() ChannelOutputTypeOu
 
 func (o ChannelOutputTypeOutput) ToChannelOutputTypeOutputWithContext(ctx context.Context) ChannelOutputTypeOutput {
 	return o
-}
-
-func (o ChannelOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputType] {
-	return pulumix.Output[ChannelOutputType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputTypeOutput) AudioDescriptionNames() pulumi.StringArrayOutput {
@@ -24301,12 +21570,6 @@ func (o ChannelOutputTypeArrayOutput) ToChannelOutputTypeArrayOutput() ChannelOu
 
 func (o ChannelOutputTypeArrayOutput) ToChannelOutputTypeArrayOutputWithContext(ctx context.Context) ChannelOutputTypeArrayOutput {
 	return o
-}
-
-func (o ChannelOutputTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelOutputType] {
-	return pulumix.Output[[]ChannelOutputType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputTypeArrayOutput) Index(i pulumi.IntInput) ChannelOutputTypeOutput {
@@ -24352,12 +21615,6 @@ func (i ChannelOutputDestinationArgs) ToChannelOutputDestinationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputDestinationOutput)
 }
 
-func (i ChannelOutputDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputDestination] {
-	return pulumix.Output[ChannelOutputDestination]{
-		OutputState: i.ToChannelOutputDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelOutputDestinationArrayInput is an input type that accepts ChannelOutputDestinationArray and ChannelOutputDestinationArrayOutput values.
 // You can construct a concrete instance of `ChannelOutputDestinationArrayInput` via:
 //
@@ -24383,12 +21640,6 @@ func (i ChannelOutputDestinationArray) ToChannelOutputDestinationArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputDestinationArrayOutput)
 }
 
-func (i ChannelOutputDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelOutputDestination] {
-	return pulumix.Output[[]ChannelOutputDestination]{
-		OutputState: i.ToChannelOutputDestinationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelOutputDestinationOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutputDestinationOutput) ElementType() reflect.Type {
@@ -24401,12 +21652,6 @@ func (o ChannelOutputDestinationOutput) ToChannelOutputDestinationOutput() Chann
 
 func (o ChannelOutputDestinationOutput) ToChannelOutputDestinationOutputWithContext(ctx context.Context) ChannelOutputDestinationOutput {
 	return o
-}
-
-func (o ChannelOutputDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputDestination] {
-	return pulumix.Output[ChannelOutputDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputDestinationOutput) Id() pulumi.StringPtrOutput {
@@ -24441,12 +21686,6 @@ func (o ChannelOutputDestinationArrayOutput) ToChannelOutputDestinationArrayOutp
 
 func (o ChannelOutputDestinationArrayOutput) ToChannelOutputDestinationArrayOutputWithContext(ctx context.Context) ChannelOutputDestinationArrayOutput {
 	return o
-}
-
-func (o ChannelOutputDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelOutputDestination] {
-	return pulumix.Output[[]ChannelOutputDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputDestinationArrayOutput) Index(i pulumi.IntInput) ChannelOutputDestinationOutput {
@@ -24492,12 +21731,6 @@ func (i ChannelOutputDestinationSettingsArgs) ToChannelOutputDestinationSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputDestinationSettingsOutput)
 }
 
-func (i ChannelOutputDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputDestinationSettings] {
-	return pulumix.Output[ChannelOutputDestinationSettings]{
-		OutputState: i.ToChannelOutputDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelOutputDestinationSettingsArrayInput is an input type that accepts ChannelOutputDestinationSettingsArray and ChannelOutputDestinationSettingsArrayOutput values.
 // You can construct a concrete instance of `ChannelOutputDestinationSettingsArrayInput` via:
 //
@@ -24523,12 +21756,6 @@ func (i ChannelOutputDestinationSettingsArray) ToChannelOutputDestinationSetting
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputDestinationSettingsArrayOutput)
 }
 
-func (i ChannelOutputDestinationSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelOutputDestinationSettings] {
-	return pulumix.Output[[]ChannelOutputDestinationSettings]{
-		OutputState: i.ToChannelOutputDestinationSettingsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelOutputDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutputDestinationSettingsOutput) ElementType() reflect.Type {
@@ -24541,12 +21768,6 @@ func (o ChannelOutputDestinationSettingsOutput) ToChannelOutputDestinationSettin
 
 func (o ChannelOutputDestinationSettingsOutput) ToChannelOutputDestinationSettingsOutputWithContext(ctx context.Context) ChannelOutputDestinationSettingsOutput {
 	return o
-}
-
-func (o ChannelOutputDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputDestinationSettings] {
-	return pulumix.Output[ChannelOutputDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputDestinationSettingsOutput) PasswordParam() pulumi.StringPtrOutput {
@@ -24577,12 +21798,6 @@ func (o ChannelOutputDestinationSettingsArrayOutput) ToChannelOutputDestinationS
 
 func (o ChannelOutputDestinationSettingsArrayOutput) ToChannelOutputDestinationSettingsArrayOutputWithContext(ctx context.Context) ChannelOutputDestinationSettingsArrayOutput {
 	return o
-}
-
-func (o ChannelOutputDestinationSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelOutputDestinationSettings] {
-	return pulumix.Output[[]ChannelOutputDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputDestinationSettingsArrayOutput) Index(i pulumi.IntInput) ChannelOutputDestinationSettingsOutput {
@@ -24626,12 +21841,6 @@ func (i ChannelOutputGroupArgs) ToChannelOutputGroupOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputGroupOutput)
 }
 
-func (i ChannelOutputGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputGroup] {
-	return pulumix.Output[ChannelOutputGroup]{
-		OutputState: i.ToChannelOutputGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelOutputGroupArrayInput is an input type that accepts ChannelOutputGroupArray and ChannelOutputGroupArrayOutput values.
 // You can construct a concrete instance of `ChannelOutputGroupArrayInput` via:
 //
@@ -24657,12 +21866,6 @@ func (i ChannelOutputGroupArray) ToChannelOutputGroupArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputGroupArrayOutput)
 }
 
-func (i ChannelOutputGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelOutputGroup] {
-	return pulumix.Output[[]ChannelOutputGroup]{
-		OutputState: i.ToChannelOutputGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelOutputGroupOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutputGroupOutput) ElementType() reflect.Type {
@@ -24675,12 +21878,6 @@ func (o ChannelOutputGroupOutput) ToChannelOutputGroupOutput() ChannelOutputGrou
 
 func (o ChannelOutputGroupOutput) ToChannelOutputGroupOutputWithContext(ctx context.Context) ChannelOutputGroupOutput {
 	return o
-}
-
-func (o ChannelOutputGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputGroup] {
-	return pulumix.Output[ChannelOutputGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputGroupOutput) Name() pulumi.StringPtrOutput {
@@ -24707,12 +21904,6 @@ func (o ChannelOutputGroupArrayOutput) ToChannelOutputGroupArrayOutput() Channel
 
 func (o ChannelOutputGroupArrayOutput) ToChannelOutputGroupArrayOutputWithContext(ctx context.Context) ChannelOutputGroupArrayOutput {
 	return o
-}
-
-func (o ChannelOutputGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelOutputGroup] {
-	return pulumix.Output[[]ChannelOutputGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputGroupArrayOutput) Index(i pulumi.IntInput) ChannelOutputGroupOutput {
@@ -24766,12 +21957,6 @@ func (i ChannelOutputGroupSettingsArgs) ToChannelOutputGroupSettingsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputGroupSettingsOutput)
 }
 
-func (i ChannelOutputGroupSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputGroupSettings] {
-	return pulumix.Output[ChannelOutputGroupSettings]{
-		OutputState: i.ToChannelOutputGroupSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelOutputGroupSettingsArgs) ToChannelOutputGroupSettingsPtrOutput() ChannelOutputGroupSettingsPtrOutput {
 	return i.ToChannelOutputGroupSettingsPtrOutputWithContext(context.Background())
 }
@@ -24813,12 +21998,6 @@ func (i *channelOutputGroupSettingsPtrType) ToChannelOutputGroupSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputGroupSettingsPtrOutput)
 }
 
-func (i *channelOutputGroupSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelOutputGroupSettings] {
-	return pulumix.Output[*ChannelOutputGroupSettings]{
-		OutputState: i.ToChannelOutputGroupSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelOutputGroupSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutputGroupSettingsOutput) ElementType() reflect.Type {
@@ -24841,12 +22020,6 @@ func (o ChannelOutputGroupSettingsOutput) ToChannelOutputGroupSettingsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelOutputGroupSettings) *ChannelOutputGroupSettings {
 		return &v
 	}).(ChannelOutputGroupSettingsPtrOutput)
-}
-
-func (o ChannelOutputGroupSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputGroupSettings] {
-	return pulumix.Output[ChannelOutputGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputGroupSettingsOutput) ArchiveGroupSettings() ChannelArchiveGroupSettingsPtrOutput {
@@ -24897,12 +22070,6 @@ func (o ChannelOutputGroupSettingsPtrOutput) ToChannelOutputGroupSettingsPtrOutp
 
 func (o ChannelOutputGroupSettingsPtrOutput) ToChannelOutputGroupSettingsPtrOutputWithContext(ctx context.Context) ChannelOutputGroupSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelOutputGroupSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelOutputGroupSettings] {
-	return pulumix.Output[*ChannelOutputGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputGroupSettingsPtrOutput) Elem() ChannelOutputGroupSettingsOutput {
@@ -25018,12 +22185,6 @@ func (i ChannelOutputLocationRefArgs) ToChannelOutputLocationRefOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputLocationRefOutput)
 }
 
-func (i ChannelOutputLocationRefArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputLocationRef] {
-	return pulumix.Output[ChannelOutputLocationRef]{
-		OutputState: i.ToChannelOutputLocationRefOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelOutputLocationRefArgs) ToChannelOutputLocationRefPtrOutput() ChannelOutputLocationRefPtrOutput {
 	return i.ToChannelOutputLocationRefPtrOutputWithContext(context.Background())
 }
@@ -25065,12 +22226,6 @@ func (i *channelOutputLocationRefPtrType) ToChannelOutputLocationRefPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputLocationRefPtrOutput)
 }
 
-func (i *channelOutputLocationRefPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelOutputLocationRef] {
-	return pulumix.Output[*ChannelOutputLocationRef]{
-		OutputState: i.ToChannelOutputLocationRefPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelOutputLocationRefOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutputLocationRefOutput) ElementType() reflect.Type {
@@ -25095,12 +22250,6 @@ func (o ChannelOutputLocationRefOutput) ToChannelOutputLocationRefPtrOutputWithC
 	}).(ChannelOutputLocationRefPtrOutput)
 }
 
-func (o ChannelOutputLocationRefOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputLocationRef] {
-	return pulumix.Output[ChannelOutputLocationRef]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelOutputLocationRefOutput) DestinationRefId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelOutputLocationRef) *string { return v.DestinationRefId }).(pulumi.StringPtrOutput)
 }
@@ -25117,12 +22266,6 @@ func (o ChannelOutputLocationRefPtrOutput) ToChannelOutputLocationRefPtrOutput()
 
 func (o ChannelOutputLocationRefPtrOutput) ToChannelOutputLocationRefPtrOutputWithContext(ctx context.Context) ChannelOutputLocationRefPtrOutput {
 	return o
-}
-
-func (o ChannelOutputLocationRefPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelOutputLocationRef] {
-	return pulumix.Output[*ChannelOutputLocationRef]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputLocationRefPtrOutput) Elem() ChannelOutputLocationRefOutput {
@@ -25177,12 +22320,6 @@ func (i ChannelOutputLockingSettingsArgs) ToChannelOutputLockingSettingsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputLockingSettingsOutput)
 }
 
-func (i ChannelOutputLockingSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputLockingSettings] {
-	return pulumix.Output[ChannelOutputLockingSettings]{
-		OutputState: i.ToChannelOutputLockingSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelOutputLockingSettingsArgs) ToChannelOutputLockingSettingsPtrOutput() ChannelOutputLockingSettingsPtrOutput {
 	return i.ToChannelOutputLockingSettingsPtrOutputWithContext(context.Background())
 }
@@ -25224,12 +22361,6 @@ func (i *channelOutputLockingSettingsPtrType) ToChannelOutputLockingSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputLockingSettingsPtrOutput)
 }
 
-func (i *channelOutputLockingSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelOutputLockingSettings] {
-	return pulumix.Output[*ChannelOutputLockingSettings]{
-		OutputState: i.ToChannelOutputLockingSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelOutputLockingSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutputLockingSettingsOutput) ElementType() reflect.Type {
@@ -25254,12 +22385,6 @@ func (o ChannelOutputLockingSettingsOutput) ToChannelOutputLockingSettingsPtrOut
 	}).(ChannelOutputLockingSettingsPtrOutput)
 }
 
-func (o ChannelOutputLockingSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputLockingSettings] {
-	return pulumix.Output[ChannelOutputLockingSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelOutputLockingSettingsOutput) EpochLockingSettings() ChannelEpochLockingSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelOutputLockingSettings) *ChannelEpochLockingSettings { return v.EpochLockingSettings }).(ChannelEpochLockingSettingsPtrOutput)
 }
@@ -25280,12 +22405,6 @@ func (o ChannelOutputLockingSettingsPtrOutput) ToChannelOutputLockingSettingsPtr
 
 func (o ChannelOutputLockingSettingsPtrOutput) ToChannelOutputLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelOutputLockingSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelOutputLockingSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelOutputLockingSettings] {
-	return pulumix.Output[*ChannelOutputLockingSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputLockingSettingsPtrOutput) Elem() ChannelOutputLockingSettingsOutput {
@@ -25361,12 +22480,6 @@ func (i ChannelOutputSettingsArgs) ToChannelOutputSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputSettingsOutput)
 }
 
-func (i ChannelOutputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputSettings] {
-	return pulumix.Output[ChannelOutputSettings]{
-		OutputState: i.ToChannelOutputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelOutputSettingsArgs) ToChannelOutputSettingsPtrOutput() ChannelOutputSettingsPtrOutput {
 	return i.ToChannelOutputSettingsPtrOutputWithContext(context.Background())
 }
@@ -25408,12 +22521,6 @@ func (i *channelOutputSettingsPtrType) ToChannelOutputSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputSettingsPtrOutput)
 }
 
-func (i *channelOutputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelOutputSettings] {
-	return pulumix.Output[*ChannelOutputSettings]{
-		OutputState: i.ToChannelOutputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelOutputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutputSettingsOutput) ElementType() reflect.Type {
@@ -25436,12 +22543,6 @@ func (o ChannelOutputSettingsOutput) ToChannelOutputSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelOutputSettings) *ChannelOutputSettings {
 		return &v
 	}).(ChannelOutputSettingsPtrOutput)
-}
-
-func (o ChannelOutputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputSettings] {
-	return pulumix.Output[ChannelOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputSettingsOutput) ArchiveOutputSettings() ChannelArchiveOutputSettingsPtrOutput {
@@ -25488,12 +22589,6 @@ func (o ChannelOutputSettingsPtrOutput) ToChannelOutputSettingsPtrOutput() Chann
 
 func (o ChannelOutputSettingsPtrOutput) ToChannelOutputSettingsPtrOutputWithContext(ctx context.Context) ChannelOutputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelOutputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelOutputSettings] {
-	return pulumix.Output[*ChannelOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutputSettingsPtrOutput) Elem() ChannelOutputSettingsOutput {
@@ -25607,12 +22702,6 @@ func (i ChannelPassThroughSettingsArgs) ToChannelPassThroughSettingsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelPassThroughSettingsOutput)
 }
 
-func (i ChannelPassThroughSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelPassThroughSettings] {
-	return pulumix.Output[ChannelPassThroughSettings]{
-		OutputState: i.ToChannelPassThroughSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelPassThroughSettingsArgs) ToChannelPassThroughSettingsPtrOutput() ChannelPassThroughSettingsPtrOutput {
 	return i.ToChannelPassThroughSettingsPtrOutputWithContext(context.Background())
 }
@@ -25654,12 +22743,6 @@ func (i *channelPassThroughSettingsPtrType) ToChannelPassThroughSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelPassThroughSettingsPtrOutput)
 }
 
-func (i *channelPassThroughSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelPassThroughSettings] {
-	return pulumix.Output[*ChannelPassThroughSettings]{
-		OutputState: i.ToChannelPassThroughSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelPassThroughSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelPassThroughSettingsOutput) ElementType() reflect.Type {
@@ -25684,12 +22767,6 @@ func (o ChannelPassThroughSettingsOutput) ToChannelPassThroughSettingsPtrOutputW
 	}).(ChannelPassThroughSettingsPtrOutput)
 }
 
-func (o ChannelPassThroughSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelPassThroughSettings] {
-	return pulumix.Output[ChannelPassThroughSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelPassThroughSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelPassThroughSettingsPtrOutput) ElementType() reflect.Type {
@@ -25702,12 +22779,6 @@ func (o ChannelPassThroughSettingsPtrOutput) ToChannelPassThroughSettingsPtrOutp
 
 func (o ChannelPassThroughSettingsPtrOutput) ToChannelPassThroughSettingsPtrOutputWithContext(ctx context.Context) ChannelPassThroughSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelPassThroughSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelPassThroughSettings] {
-	return pulumix.Output[*ChannelPassThroughSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelPassThroughSettingsPtrOutput) Elem() ChannelPassThroughSettingsOutput {
@@ -25747,12 +22818,6 @@ func (i ChannelPipelineLockingSettingsArgs) ToChannelPipelineLockingSettingsOutp
 
 func (i ChannelPipelineLockingSettingsArgs) ToChannelPipelineLockingSettingsOutputWithContext(ctx context.Context) ChannelPipelineLockingSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelPipelineLockingSettingsOutput)
-}
-
-func (i ChannelPipelineLockingSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelPipelineLockingSettings] {
-	return pulumix.Output[ChannelPipelineLockingSettings]{
-		OutputState: i.ToChannelPipelineLockingSettingsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ChannelPipelineLockingSettingsArgs) ToChannelPipelineLockingSettingsPtrOutput() ChannelPipelineLockingSettingsPtrOutput {
@@ -25796,12 +22861,6 @@ func (i *channelPipelineLockingSettingsPtrType) ToChannelPipelineLockingSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelPipelineLockingSettingsPtrOutput)
 }
 
-func (i *channelPipelineLockingSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelPipelineLockingSettings] {
-	return pulumix.Output[*ChannelPipelineLockingSettings]{
-		OutputState: i.ToChannelPipelineLockingSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelPipelineLockingSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelPipelineLockingSettingsOutput) ElementType() reflect.Type {
@@ -25826,12 +22885,6 @@ func (o ChannelPipelineLockingSettingsOutput) ToChannelPipelineLockingSettingsPt
 	}).(ChannelPipelineLockingSettingsPtrOutput)
 }
 
-func (o ChannelPipelineLockingSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelPipelineLockingSettings] {
-	return pulumix.Output[ChannelPipelineLockingSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelPipelineLockingSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelPipelineLockingSettingsPtrOutput) ElementType() reflect.Type {
@@ -25844,12 +22897,6 @@ func (o ChannelPipelineLockingSettingsPtrOutput) ToChannelPipelineLockingSetting
 
 func (o ChannelPipelineLockingSettingsPtrOutput) ToChannelPipelineLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelPipelineLockingSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelPipelineLockingSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelPipelineLockingSettings] {
-	return pulumix.Output[*ChannelPipelineLockingSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelPipelineLockingSettingsPtrOutput) Elem() ChannelPipelineLockingSettingsOutput {
@@ -25889,12 +22936,6 @@ func (i ChannelRawSettingsArgs) ToChannelRawSettingsOutput() ChannelRawSettingsO
 
 func (i ChannelRawSettingsArgs) ToChannelRawSettingsOutputWithContext(ctx context.Context) ChannelRawSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRawSettingsOutput)
-}
-
-func (i ChannelRawSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelRawSettings] {
-	return pulumix.Output[ChannelRawSettings]{
-		OutputState: i.ToChannelRawSettingsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ChannelRawSettingsArgs) ToChannelRawSettingsPtrOutput() ChannelRawSettingsPtrOutput {
@@ -25938,12 +22979,6 @@ func (i *channelRawSettingsPtrType) ToChannelRawSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRawSettingsPtrOutput)
 }
 
-func (i *channelRawSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelRawSettings] {
-	return pulumix.Output[*ChannelRawSettings]{
-		OutputState: i.ToChannelRawSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelRawSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelRawSettingsOutput) ElementType() reflect.Type {
@@ -25968,12 +23003,6 @@ func (o ChannelRawSettingsOutput) ToChannelRawSettingsPtrOutputWithContext(ctx c
 	}).(ChannelRawSettingsPtrOutput)
 }
 
-func (o ChannelRawSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelRawSettings] {
-	return pulumix.Output[ChannelRawSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelRawSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelRawSettingsPtrOutput) ElementType() reflect.Type {
@@ -25986,12 +23015,6 @@ func (o ChannelRawSettingsPtrOutput) ToChannelRawSettingsPtrOutput() ChannelRawS
 
 func (o ChannelRawSettingsPtrOutput) ToChannelRawSettingsPtrOutputWithContext(ctx context.Context) ChannelRawSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelRawSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelRawSettings] {
-	return pulumix.Output[*ChannelRawSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelRawSettingsPtrOutput) Elem() ChannelRawSettingsOutput {
@@ -26031,12 +23054,6 @@ func (i ChannelRec601SettingsArgs) ToChannelRec601SettingsOutput() ChannelRec601
 
 func (i ChannelRec601SettingsArgs) ToChannelRec601SettingsOutputWithContext(ctx context.Context) ChannelRec601SettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRec601SettingsOutput)
-}
-
-func (i ChannelRec601SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelRec601Settings] {
-	return pulumix.Output[ChannelRec601Settings]{
-		OutputState: i.ToChannelRec601SettingsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ChannelRec601SettingsArgs) ToChannelRec601SettingsPtrOutput() ChannelRec601SettingsPtrOutput {
@@ -26080,12 +23097,6 @@ func (i *channelRec601SettingsPtrType) ToChannelRec601SettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRec601SettingsPtrOutput)
 }
 
-func (i *channelRec601SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelRec601Settings] {
-	return pulumix.Output[*ChannelRec601Settings]{
-		OutputState: i.ToChannelRec601SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelRec601SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelRec601SettingsOutput) ElementType() reflect.Type {
@@ -26110,12 +23121,6 @@ func (o ChannelRec601SettingsOutput) ToChannelRec601SettingsPtrOutputWithContext
 	}).(ChannelRec601SettingsPtrOutput)
 }
 
-func (o ChannelRec601SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelRec601Settings] {
-	return pulumix.Output[ChannelRec601Settings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelRec601SettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelRec601SettingsPtrOutput) ElementType() reflect.Type {
@@ -26128,12 +23133,6 @@ func (o ChannelRec601SettingsPtrOutput) ToChannelRec601SettingsPtrOutput() Chann
 
 func (o ChannelRec601SettingsPtrOutput) ToChannelRec601SettingsPtrOutputWithContext(ctx context.Context) ChannelRec601SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelRec601SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelRec601Settings] {
-	return pulumix.Output[*ChannelRec601Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelRec601SettingsPtrOutput) Elem() ChannelRec601SettingsOutput {
@@ -26173,12 +23172,6 @@ func (i ChannelRec709SettingsArgs) ToChannelRec709SettingsOutput() ChannelRec709
 
 func (i ChannelRec709SettingsArgs) ToChannelRec709SettingsOutputWithContext(ctx context.Context) ChannelRec709SettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRec709SettingsOutput)
-}
-
-func (i ChannelRec709SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelRec709Settings] {
-	return pulumix.Output[ChannelRec709Settings]{
-		OutputState: i.ToChannelRec709SettingsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ChannelRec709SettingsArgs) ToChannelRec709SettingsPtrOutput() ChannelRec709SettingsPtrOutput {
@@ -26222,12 +23215,6 @@ func (i *channelRec709SettingsPtrType) ToChannelRec709SettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRec709SettingsPtrOutput)
 }
 
-func (i *channelRec709SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelRec709Settings] {
-	return pulumix.Output[*ChannelRec709Settings]{
-		OutputState: i.ToChannelRec709SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelRec709SettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelRec709SettingsOutput) ElementType() reflect.Type {
@@ -26252,12 +23239,6 @@ func (o ChannelRec709SettingsOutput) ToChannelRec709SettingsPtrOutputWithContext
 	}).(ChannelRec709SettingsPtrOutput)
 }
 
-func (o ChannelRec709SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelRec709Settings] {
-	return pulumix.Output[ChannelRec709Settings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelRec709SettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelRec709SettingsPtrOutput) ElementType() reflect.Type {
@@ -26270,12 +23251,6 @@ func (o ChannelRec709SettingsPtrOutput) ToChannelRec709SettingsPtrOutput() Chann
 
 func (o ChannelRec709SettingsPtrOutput) ToChannelRec709SettingsPtrOutputWithContext(ctx context.Context) ChannelRec709SettingsPtrOutput {
 	return o
-}
-
-func (o ChannelRec709SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelRec709Settings] {
-	return pulumix.Output[*ChannelRec709Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelRec709SettingsPtrOutput) Elem() ChannelRec709SettingsOutput {
@@ -26323,12 +23298,6 @@ func (i ChannelRemixSettingsArgs) ToChannelRemixSettingsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRemixSettingsOutput)
 }
 
-func (i ChannelRemixSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelRemixSettings] {
-	return pulumix.Output[ChannelRemixSettings]{
-		OutputState: i.ToChannelRemixSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelRemixSettingsArgs) ToChannelRemixSettingsPtrOutput() ChannelRemixSettingsPtrOutput {
 	return i.ToChannelRemixSettingsPtrOutputWithContext(context.Background())
 }
@@ -26370,12 +23339,6 @@ func (i *channelRemixSettingsPtrType) ToChannelRemixSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRemixSettingsPtrOutput)
 }
 
-func (i *channelRemixSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelRemixSettings] {
-	return pulumix.Output[*ChannelRemixSettings]{
-		OutputState: i.ToChannelRemixSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelRemixSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelRemixSettingsOutput) ElementType() reflect.Type {
@@ -26398,12 +23361,6 @@ func (o ChannelRemixSettingsOutput) ToChannelRemixSettingsPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelRemixSettings) *ChannelRemixSettings {
 		return &v
 	}).(ChannelRemixSettingsPtrOutput)
-}
-
-func (o ChannelRemixSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelRemixSettings] {
-	return pulumix.Output[ChannelRemixSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelRemixSettingsOutput) ChannelMappings() ChannelAudioChannelMappingArrayOutput {
@@ -26430,12 +23387,6 @@ func (o ChannelRemixSettingsPtrOutput) ToChannelRemixSettingsPtrOutput() Channel
 
 func (o ChannelRemixSettingsPtrOutput) ToChannelRemixSettingsPtrOutputWithContext(ctx context.Context) ChannelRemixSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelRemixSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelRemixSettings] {
-	return pulumix.Output[*ChannelRemixSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelRemixSettingsPtrOutput) Elem() ChannelRemixSettingsOutput {
@@ -26504,12 +23455,6 @@ func (i ChannelRtmpCaptionInfoDestinationSettingsArgs) ToChannelRtmpCaptionInfoD
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRtmpCaptionInfoDestinationSettingsOutput)
 }
 
-func (i ChannelRtmpCaptionInfoDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelRtmpCaptionInfoDestinationSettings] {
-	return pulumix.Output[ChannelRtmpCaptionInfoDestinationSettings]{
-		OutputState: i.ToChannelRtmpCaptionInfoDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelRtmpCaptionInfoDestinationSettingsArgs) ToChannelRtmpCaptionInfoDestinationSettingsPtrOutput() ChannelRtmpCaptionInfoDestinationSettingsPtrOutput {
 	return i.ToChannelRtmpCaptionInfoDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -26551,12 +23496,6 @@ func (i *channelRtmpCaptionInfoDestinationSettingsPtrType) ToChannelRtmpCaptionI
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRtmpCaptionInfoDestinationSettingsPtrOutput)
 }
 
-func (i *channelRtmpCaptionInfoDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelRtmpCaptionInfoDestinationSettings] {
-	return pulumix.Output[*ChannelRtmpCaptionInfoDestinationSettings]{
-		OutputState: i.ToChannelRtmpCaptionInfoDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelRtmpCaptionInfoDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelRtmpCaptionInfoDestinationSettingsOutput) ElementType() reflect.Type {
@@ -26581,12 +23520,6 @@ func (o ChannelRtmpCaptionInfoDestinationSettingsOutput) ToChannelRtmpCaptionInf
 	}).(ChannelRtmpCaptionInfoDestinationSettingsPtrOutput)
 }
 
-func (o ChannelRtmpCaptionInfoDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelRtmpCaptionInfoDestinationSettings] {
-	return pulumix.Output[ChannelRtmpCaptionInfoDestinationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelRtmpCaptionInfoDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelRtmpCaptionInfoDestinationSettingsPtrOutput) ElementType() reflect.Type {
@@ -26599,12 +23532,6 @@ func (o ChannelRtmpCaptionInfoDestinationSettingsPtrOutput) ToChannelRtmpCaption
 
 func (o ChannelRtmpCaptionInfoDestinationSettingsPtrOutput) ToChannelRtmpCaptionInfoDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelRtmpCaptionInfoDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelRtmpCaptionInfoDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelRtmpCaptionInfoDestinationSettings] {
-	return pulumix.Output[*ChannelRtmpCaptionInfoDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelRtmpCaptionInfoDestinationSettingsPtrOutput) Elem() ChannelRtmpCaptionInfoDestinationSettingsOutput {
@@ -26662,12 +23589,6 @@ func (i ChannelRtmpGroupSettingsArgs) ToChannelRtmpGroupSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRtmpGroupSettingsOutput)
 }
 
-func (i ChannelRtmpGroupSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelRtmpGroupSettings] {
-	return pulumix.Output[ChannelRtmpGroupSettings]{
-		OutputState: i.ToChannelRtmpGroupSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelRtmpGroupSettingsArgs) ToChannelRtmpGroupSettingsPtrOutput() ChannelRtmpGroupSettingsPtrOutput {
 	return i.ToChannelRtmpGroupSettingsPtrOutputWithContext(context.Background())
 }
@@ -26709,12 +23630,6 @@ func (i *channelRtmpGroupSettingsPtrType) ToChannelRtmpGroupSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRtmpGroupSettingsPtrOutput)
 }
 
-func (i *channelRtmpGroupSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelRtmpGroupSettings] {
-	return pulumix.Output[*ChannelRtmpGroupSettings]{
-		OutputState: i.ToChannelRtmpGroupSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelRtmpGroupSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelRtmpGroupSettingsOutput) ElementType() reflect.Type {
@@ -26737,12 +23652,6 @@ func (o ChannelRtmpGroupSettingsOutput) ToChannelRtmpGroupSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelRtmpGroupSettings) *ChannelRtmpGroupSettings {
 		return &v
 	}).(ChannelRtmpGroupSettingsPtrOutput)
-}
-
-func (o ChannelRtmpGroupSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelRtmpGroupSettings] {
-	return pulumix.Output[ChannelRtmpGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelRtmpGroupSettingsOutput) AdMarkers() pulumi.StringArrayOutput {
@@ -26789,12 +23698,6 @@ func (o ChannelRtmpGroupSettingsPtrOutput) ToChannelRtmpGroupSettingsPtrOutput()
 
 func (o ChannelRtmpGroupSettingsPtrOutput) ToChannelRtmpGroupSettingsPtrOutputWithContext(ctx context.Context) ChannelRtmpGroupSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelRtmpGroupSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelRtmpGroupSettings] {
-	return pulumix.Output[*ChannelRtmpGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelRtmpGroupSettingsPtrOutput) Elem() ChannelRtmpGroupSettingsOutput {
@@ -26916,12 +23819,6 @@ func (i ChannelRtmpOutputSettingsArgs) ToChannelRtmpOutputSettingsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRtmpOutputSettingsOutput)
 }
 
-func (i ChannelRtmpOutputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelRtmpOutputSettings] {
-	return pulumix.Output[ChannelRtmpOutputSettings]{
-		OutputState: i.ToChannelRtmpOutputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelRtmpOutputSettingsArgs) ToChannelRtmpOutputSettingsPtrOutput() ChannelRtmpOutputSettingsPtrOutput {
 	return i.ToChannelRtmpOutputSettingsPtrOutputWithContext(context.Background())
 }
@@ -26963,12 +23860,6 @@ func (i *channelRtmpOutputSettingsPtrType) ToChannelRtmpOutputSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRtmpOutputSettingsPtrOutput)
 }
 
-func (i *channelRtmpOutputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelRtmpOutputSettings] {
-	return pulumix.Output[*ChannelRtmpOutputSettings]{
-		OutputState: i.ToChannelRtmpOutputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelRtmpOutputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelRtmpOutputSettingsOutput) ElementType() reflect.Type {
@@ -26991,12 +23882,6 @@ func (o ChannelRtmpOutputSettingsOutput) ToChannelRtmpOutputSettingsPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelRtmpOutputSettings) *ChannelRtmpOutputSettings {
 		return &v
 	}).(ChannelRtmpOutputSettingsPtrOutput)
-}
-
-func (o ChannelRtmpOutputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelRtmpOutputSettings] {
-	return pulumix.Output[ChannelRtmpOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelRtmpOutputSettingsOutput) CertificateMode() pulumi.StringPtrOutput {
@@ -27027,12 +23912,6 @@ func (o ChannelRtmpOutputSettingsPtrOutput) ToChannelRtmpOutputSettingsPtrOutput
 
 func (o ChannelRtmpOutputSettingsPtrOutput) ToChannelRtmpOutputSettingsPtrOutputWithContext(ctx context.Context) ChannelRtmpOutputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelRtmpOutputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelRtmpOutputSettings] {
-	return pulumix.Output[*ChannelRtmpOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelRtmpOutputSettingsPtrOutput) Elem() ChannelRtmpOutputSettingsOutput {
@@ -27110,12 +23989,6 @@ func (i ChannelScte20PlusEmbeddedDestinationSettingsArgs) ToChannelScte20PlusEmb
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelScte20PlusEmbeddedDestinationSettingsOutput)
 }
 
-func (i ChannelScte20PlusEmbeddedDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelScte20PlusEmbeddedDestinationSettings] {
-	return pulumix.Output[ChannelScte20PlusEmbeddedDestinationSettings]{
-		OutputState: i.ToChannelScte20PlusEmbeddedDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelScte20PlusEmbeddedDestinationSettingsArgs) ToChannelScte20PlusEmbeddedDestinationSettingsPtrOutput() ChannelScte20PlusEmbeddedDestinationSettingsPtrOutput {
 	return i.ToChannelScte20PlusEmbeddedDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -27157,12 +24030,6 @@ func (i *channelScte20PlusEmbeddedDestinationSettingsPtrType) ToChannelScte20Plu
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelScte20PlusEmbeddedDestinationSettingsPtrOutput)
 }
 
-func (i *channelScte20PlusEmbeddedDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelScte20PlusEmbeddedDestinationSettings] {
-	return pulumix.Output[*ChannelScte20PlusEmbeddedDestinationSettings]{
-		OutputState: i.ToChannelScte20PlusEmbeddedDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelScte20PlusEmbeddedDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelScte20PlusEmbeddedDestinationSettingsOutput) ElementType() reflect.Type {
@@ -27187,12 +24054,6 @@ func (o ChannelScte20PlusEmbeddedDestinationSettingsOutput) ToChannelScte20PlusE
 	}).(ChannelScte20PlusEmbeddedDestinationSettingsPtrOutput)
 }
 
-func (o ChannelScte20PlusEmbeddedDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelScte20PlusEmbeddedDestinationSettings] {
-	return pulumix.Output[ChannelScte20PlusEmbeddedDestinationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelScte20PlusEmbeddedDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelScte20PlusEmbeddedDestinationSettingsPtrOutput) ElementType() reflect.Type {
@@ -27205,12 +24066,6 @@ func (o ChannelScte20PlusEmbeddedDestinationSettingsPtrOutput) ToChannelScte20Pl
 
 func (o ChannelScte20PlusEmbeddedDestinationSettingsPtrOutput) ToChannelScte20PlusEmbeddedDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelScte20PlusEmbeddedDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelScte20PlusEmbeddedDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelScte20PlusEmbeddedDestinationSettings] {
-	return pulumix.Output[*ChannelScte20PlusEmbeddedDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelScte20PlusEmbeddedDestinationSettingsPtrOutput) Elem() ChannelScte20PlusEmbeddedDestinationSettingsOutput {
@@ -27256,12 +24111,6 @@ func (i ChannelScte20SourceSettingsArgs) ToChannelScte20SourceSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelScte20SourceSettingsOutput)
 }
 
-func (i ChannelScte20SourceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelScte20SourceSettings] {
-	return pulumix.Output[ChannelScte20SourceSettings]{
-		OutputState: i.ToChannelScte20SourceSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelScte20SourceSettingsArgs) ToChannelScte20SourceSettingsPtrOutput() ChannelScte20SourceSettingsPtrOutput {
 	return i.ToChannelScte20SourceSettingsPtrOutputWithContext(context.Background())
 }
@@ -27303,12 +24152,6 @@ func (i *channelScte20SourceSettingsPtrType) ToChannelScte20SourceSettingsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelScte20SourceSettingsPtrOutput)
 }
 
-func (i *channelScte20SourceSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelScte20SourceSettings] {
-	return pulumix.Output[*ChannelScte20SourceSettings]{
-		OutputState: i.ToChannelScte20SourceSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelScte20SourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelScte20SourceSettingsOutput) ElementType() reflect.Type {
@@ -27333,12 +24176,6 @@ func (o ChannelScte20SourceSettingsOutput) ToChannelScte20SourceSettingsPtrOutpu
 	}).(ChannelScte20SourceSettingsPtrOutput)
 }
 
-func (o ChannelScte20SourceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelScte20SourceSettings] {
-	return pulumix.Output[ChannelScte20SourceSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelScte20SourceSettingsOutput) Convert608To708() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelScte20SourceSettings) *string { return v.Convert608To708 }).(pulumi.StringPtrOutput)
 }
@@ -27359,12 +24196,6 @@ func (o ChannelScte20SourceSettingsPtrOutput) ToChannelScte20SourceSettingsPtrOu
 
 func (o ChannelScte20SourceSettingsPtrOutput) ToChannelScte20SourceSettingsPtrOutputWithContext(ctx context.Context) ChannelScte20SourceSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelScte20SourceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelScte20SourceSettings] {
-	return pulumix.Output[*ChannelScte20SourceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelScte20SourceSettingsPtrOutput) Elem() ChannelScte20SourceSettingsOutput {
@@ -27424,12 +24255,6 @@ func (i ChannelScte27DestinationSettingsArgs) ToChannelScte27DestinationSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelScte27DestinationSettingsOutput)
 }
 
-func (i ChannelScte27DestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelScte27DestinationSettings] {
-	return pulumix.Output[ChannelScte27DestinationSettings]{
-		OutputState: i.ToChannelScte27DestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelScte27DestinationSettingsArgs) ToChannelScte27DestinationSettingsPtrOutput() ChannelScte27DestinationSettingsPtrOutput {
 	return i.ToChannelScte27DestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -27471,12 +24296,6 @@ func (i *channelScte27DestinationSettingsPtrType) ToChannelScte27DestinationSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelScte27DestinationSettingsPtrOutput)
 }
 
-func (i *channelScte27DestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelScte27DestinationSettings] {
-	return pulumix.Output[*ChannelScte27DestinationSettings]{
-		OutputState: i.ToChannelScte27DestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelScte27DestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelScte27DestinationSettingsOutput) ElementType() reflect.Type {
@@ -27501,12 +24320,6 @@ func (o ChannelScte27DestinationSettingsOutput) ToChannelScte27DestinationSettin
 	}).(ChannelScte27DestinationSettingsPtrOutput)
 }
 
-func (o ChannelScte27DestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelScte27DestinationSettings] {
-	return pulumix.Output[ChannelScte27DestinationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelScte27DestinationSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelScte27DestinationSettingsPtrOutput) ElementType() reflect.Type {
@@ -27519,12 +24332,6 @@ func (o ChannelScte27DestinationSettingsPtrOutput) ToChannelScte27DestinationSet
 
 func (o ChannelScte27DestinationSettingsPtrOutput) ToChannelScte27DestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelScte27DestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelScte27DestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelScte27DestinationSettings] {
-	return pulumix.Output[*ChannelScte27DestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelScte27DestinationSettingsPtrOutput) Elem() ChannelScte27DestinationSettingsOutput {
@@ -27570,12 +24377,6 @@ func (i ChannelScte27SourceSettingsArgs) ToChannelScte27SourceSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelScte27SourceSettingsOutput)
 }
 
-func (i ChannelScte27SourceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelScte27SourceSettings] {
-	return pulumix.Output[ChannelScte27SourceSettings]{
-		OutputState: i.ToChannelScte27SourceSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelScte27SourceSettingsArgs) ToChannelScte27SourceSettingsPtrOutput() ChannelScte27SourceSettingsPtrOutput {
 	return i.ToChannelScte27SourceSettingsPtrOutputWithContext(context.Background())
 }
@@ -27617,12 +24418,6 @@ func (i *channelScte27SourceSettingsPtrType) ToChannelScte27SourceSettingsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelScte27SourceSettingsPtrOutput)
 }
 
-func (i *channelScte27SourceSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelScte27SourceSettings] {
-	return pulumix.Output[*ChannelScte27SourceSettings]{
-		OutputState: i.ToChannelScte27SourceSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelScte27SourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelScte27SourceSettingsOutput) ElementType() reflect.Type {
@@ -27647,12 +24442,6 @@ func (o ChannelScte27SourceSettingsOutput) ToChannelScte27SourceSettingsPtrOutpu
 	}).(ChannelScte27SourceSettingsPtrOutput)
 }
 
-func (o ChannelScte27SourceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelScte27SourceSettings] {
-	return pulumix.Output[ChannelScte27SourceSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelScte27SourceSettingsOutput) OcrLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelScte27SourceSettings) *string { return v.OcrLanguage }).(pulumi.StringPtrOutput)
 }
@@ -27673,12 +24462,6 @@ func (o ChannelScte27SourceSettingsPtrOutput) ToChannelScte27SourceSettingsPtrOu
 
 func (o ChannelScte27SourceSettingsPtrOutput) ToChannelScte27SourceSettingsPtrOutputWithContext(ctx context.Context) ChannelScte27SourceSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelScte27SourceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelScte27SourceSettings] {
-	return pulumix.Output[*ChannelScte27SourceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelScte27SourceSettingsPtrOutput) Elem() ChannelScte27SourceSettingsOutput {
@@ -27744,12 +24527,6 @@ func (i ChannelScte35SpliceInsertArgs) ToChannelScte35SpliceInsertOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelScte35SpliceInsertOutput)
 }
 
-func (i ChannelScte35SpliceInsertArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelScte35SpliceInsert] {
-	return pulumix.Output[ChannelScte35SpliceInsert]{
-		OutputState: i.ToChannelScte35SpliceInsertOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelScte35SpliceInsertArgs) ToChannelScte35SpliceInsertPtrOutput() ChannelScte35SpliceInsertPtrOutput {
 	return i.ToChannelScte35SpliceInsertPtrOutputWithContext(context.Background())
 }
@@ -27791,12 +24568,6 @@ func (i *channelScte35SpliceInsertPtrType) ToChannelScte35SpliceInsertPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelScte35SpliceInsertPtrOutput)
 }
 
-func (i *channelScte35SpliceInsertPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelScte35SpliceInsert] {
-	return pulumix.Output[*ChannelScte35SpliceInsert]{
-		OutputState: i.ToChannelScte35SpliceInsertPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelScte35SpliceInsertOutput struct{ *pulumi.OutputState }
 
 func (ChannelScte35SpliceInsertOutput) ElementType() reflect.Type {
@@ -27819,12 +24590,6 @@ func (o ChannelScte35SpliceInsertOutput) ToChannelScte35SpliceInsertPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelScte35SpliceInsert) *ChannelScte35SpliceInsert {
 		return &v
 	}).(ChannelScte35SpliceInsertPtrOutput)
-}
-
-func (o ChannelScte35SpliceInsertOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelScte35SpliceInsert] {
-	return pulumix.Output[ChannelScte35SpliceInsert]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelScte35SpliceInsertOutput) AdAvailOffset() pulumi.IntPtrOutput {
@@ -27851,12 +24616,6 @@ func (o ChannelScte35SpliceInsertPtrOutput) ToChannelScte35SpliceInsertPtrOutput
 
 func (o ChannelScte35SpliceInsertPtrOutput) ToChannelScte35SpliceInsertPtrOutputWithContext(ctx context.Context) ChannelScte35SpliceInsertPtrOutput {
 	return o
-}
-
-func (o ChannelScte35SpliceInsertPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelScte35SpliceInsert] {
-	return pulumix.Output[*ChannelScte35SpliceInsert]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelScte35SpliceInsertPtrOutput) Elem() ChannelScte35SpliceInsertOutput {
@@ -27931,12 +24690,6 @@ func (i ChannelScte35TimeSignalAposArgs) ToChannelScte35TimeSignalAposOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelScte35TimeSignalAposOutput)
 }
 
-func (i ChannelScte35TimeSignalAposArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelScte35TimeSignalApos] {
-	return pulumix.Output[ChannelScte35TimeSignalApos]{
-		OutputState: i.ToChannelScte35TimeSignalAposOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelScte35TimeSignalAposArgs) ToChannelScte35TimeSignalAposPtrOutput() ChannelScte35TimeSignalAposPtrOutput {
 	return i.ToChannelScte35TimeSignalAposPtrOutputWithContext(context.Background())
 }
@@ -27978,12 +24731,6 @@ func (i *channelScte35TimeSignalAposPtrType) ToChannelScte35TimeSignalAposPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelScte35TimeSignalAposPtrOutput)
 }
 
-func (i *channelScte35TimeSignalAposPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelScte35TimeSignalApos] {
-	return pulumix.Output[*ChannelScte35TimeSignalApos]{
-		OutputState: i.ToChannelScte35TimeSignalAposPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelScte35TimeSignalAposOutput struct{ *pulumi.OutputState }
 
 func (ChannelScte35TimeSignalAposOutput) ElementType() reflect.Type {
@@ -28006,12 +24753,6 @@ func (o ChannelScte35TimeSignalAposOutput) ToChannelScte35TimeSignalAposPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelScte35TimeSignalApos) *ChannelScte35TimeSignalApos {
 		return &v
 	}).(ChannelScte35TimeSignalAposPtrOutput)
-}
-
-func (o ChannelScte35TimeSignalAposOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelScte35TimeSignalApos] {
-	return pulumix.Output[ChannelScte35TimeSignalApos]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelScte35TimeSignalAposOutput) AdAvailOffset() pulumi.IntPtrOutput {
@@ -28038,12 +24779,6 @@ func (o ChannelScte35TimeSignalAposPtrOutput) ToChannelScte35TimeSignalAposPtrOu
 
 func (o ChannelScte35TimeSignalAposPtrOutput) ToChannelScte35TimeSignalAposPtrOutputWithContext(ctx context.Context) ChannelScte35TimeSignalAposPtrOutput {
 	return o
-}
-
-func (o ChannelScte35TimeSignalAposPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelScte35TimeSignalApos] {
-	return pulumix.Output[*ChannelScte35TimeSignalApos]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelScte35TimeSignalAposPtrOutput) Elem() ChannelScte35TimeSignalAposOutput {
@@ -28112,12 +24847,6 @@ func (i ChannelSmpteTtDestinationSettingsArgs) ToChannelSmpteTtDestinationSettin
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSmpteTtDestinationSettingsOutput)
 }
 
-func (i ChannelSmpteTtDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelSmpteTtDestinationSettings] {
-	return pulumix.Output[ChannelSmpteTtDestinationSettings]{
-		OutputState: i.ToChannelSmpteTtDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelSmpteTtDestinationSettingsArgs) ToChannelSmpteTtDestinationSettingsPtrOutput() ChannelSmpteTtDestinationSettingsPtrOutput {
 	return i.ToChannelSmpteTtDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -28159,12 +24888,6 @@ func (i *channelSmpteTtDestinationSettingsPtrType) ToChannelSmpteTtDestinationSe
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSmpteTtDestinationSettingsPtrOutput)
 }
 
-func (i *channelSmpteTtDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelSmpteTtDestinationSettings] {
-	return pulumix.Output[*ChannelSmpteTtDestinationSettings]{
-		OutputState: i.ToChannelSmpteTtDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelSmpteTtDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelSmpteTtDestinationSettingsOutput) ElementType() reflect.Type {
@@ -28189,12 +24912,6 @@ func (o ChannelSmpteTtDestinationSettingsOutput) ToChannelSmpteTtDestinationSett
 	}).(ChannelSmpteTtDestinationSettingsPtrOutput)
 }
 
-func (o ChannelSmpteTtDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelSmpteTtDestinationSettings] {
-	return pulumix.Output[ChannelSmpteTtDestinationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelSmpteTtDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelSmpteTtDestinationSettingsPtrOutput) ElementType() reflect.Type {
@@ -28207,12 +24924,6 @@ func (o ChannelSmpteTtDestinationSettingsPtrOutput) ToChannelSmpteTtDestinationS
 
 func (o ChannelSmpteTtDestinationSettingsPtrOutput) ToChannelSmpteTtDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelSmpteTtDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelSmpteTtDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelSmpteTtDestinationSettings] {
-	return pulumix.Output[*ChannelSmpteTtDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelSmpteTtDestinationSettingsPtrOutput) Elem() ChannelSmpteTtDestinationSettingsOutput {
@@ -28258,12 +24969,6 @@ func (i ChannelStandardHlsSettingsArgs) ToChannelStandardHlsSettingsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelStandardHlsSettingsOutput)
 }
 
-func (i ChannelStandardHlsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelStandardHlsSettings] {
-	return pulumix.Output[ChannelStandardHlsSettings]{
-		OutputState: i.ToChannelStandardHlsSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelStandardHlsSettingsArgs) ToChannelStandardHlsSettingsPtrOutput() ChannelStandardHlsSettingsPtrOutput {
 	return i.ToChannelStandardHlsSettingsPtrOutputWithContext(context.Background())
 }
@@ -28305,12 +25010,6 @@ func (i *channelStandardHlsSettingsPtrType) ToChannelStandardHlsSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelStandardHlsSettingsPtrOutput)
 }
 
-func (i *channelStandardHlsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelStandardHlsSettings] {
-	return pulumix.Output[*ChannelStandardHlsSettings]{
-		OutputState: i.ToChannelStandardHlsSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelStandardHlsSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelStandardHlsSettingsOutput) ElementType() reflect.Type {
@@ -28335,12 +25034,6 @@ func (o ChannelStandardHlsSettingsOutput) ToChannelStandardHlsSettingsPtrOutputW
 	}).(ChannelStandardHlsSettingsPtrOutput)
 }
 
-func (o ChannelStandardHlsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelStandardHlsSettings] {
-	return pulumix.Output[ChannelStandardHlsSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelStandardHlsSettingsOutput) AudioRenditionSets() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelStandardHlsSettings) *string { return v.AudioRenditionSets }).(pulumi.StringPtrOutput)
 }
@@ -28361,12 +25054,6 @@ func (o ChannelStandardHlsSettingsPtrOutput) ToChannelStandardHlsSettingsPtrOutp
 
 func (o ChannelStandardHlsSettingsPtrOutput) ToChannelStandardHlsSettingsPtrOutputWithContext(ctx context.Context) ChannelStandardHlsSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelStandardHlsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelStandardHlsSettings] {
-	return pulumix.Output[*ChannelStandardHlsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelStandardHlsSettingsPtrOutput) Elem() ChannelStandardHlsSettingsOutput {
@@ -28430,12 +25117,6 @@ func (i ChannelStaticKeySettingsArgs) ToChannelStaticKeySettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelStaticKeySettingsOutput)
 }
 
-func (i ChannelStaticKeySettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelStaticKeySettings] {
-	return pulumix.Output[ChannelStaticKeySettings]{
-		OutputState: i.ToChannelStaticKeySettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelStaticKeySettingsArgs) ToChannelStaticKeySettingsPtrOutput() ChannelStaticKeySettingsPtrOutput {
 	return i.ToChannelStaticKeySettingsPtrOutputWithContext(context.Background())
 }
@@ -28477,12 +25158,6 @@ func (i *channelStaticKeySettingsPtrType) ToChannelStaticKeySettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelStaticKeySettingsPtrOutput)
 }
 
-func (i *channelStaticKeySettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelStaticKeySettings] {
-	return pulumix.Output[*ChannelStaticKeySettings]{
-		OutputState: i.ToChannelStaticKeySettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelStaticKeySettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelStaticKeySettingsOutput) ElementType() reflect.Type {
@@ -28507,12 +25182,6 @@ func (o ChannelStaticKeySettingsOutput) ToChannelStaticKeySettingsPtrOutputWithC
 	}).(ChannelStaticKeySettingsPtrOutput)
 }
 
-func (o ChannelStaticKeySettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelStaticKeySettings] {
-	return pulumix.Output[ChannelStaticKeySettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelStaticKeySettingsOutput) KeyProviderServer() ChannelInputLocationPtrOutput {
 	return o.ApplyT(func(v ChannelStaticKeySettings) *ChannelInputLocation { return v.KeyProviderServer }).(ChannelInputLocationPtrOutput)
 }
@@ -28533,12 +25202,6 @@ func (o ChannelStaticKeySettingsPtrOutput) ToChannelStaticKeySettingsPtrOutput()
 
 func (o ChannelStaticKeySettingsPtrOutput) ToChannelStaticKeySettingsPtrOutputWithContext(ctx context.Context) ChannelStaticKeySettingsPtrOutput {
 	return o
-}
-
-func (o ChannelStaticKeySettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelStaticKeySettings] {
-	return pulumix.Output[*ChannelStaticKeySettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelStaticKeySettingsPtrOutput) Elem() ChannelStaticKeySettingsOutput {
@@ -28598,12 +25261,6 @@ func (i ChannelTeletextDestinationSettingsArgs) ToChannelTeletextDestinationSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeletextDestinationSettingsOutput)
 }
 
-func (i ChannelTeletextDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTeletextDestinationSettings] {
-	return pulumix.Output[ChannelTeletextDestinationSettings]{
-		OutputState: i.ToChannelTeletextDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelTeletextDestinationSettingsArgs) ToChannelTeletextDestinationSettingsPtrOutput() ChannelTeletextDestinationSettingsPtrOutput {
 	return i.ToChannelTeletextDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -28645,12 +25302,6 @@ func (i *channelTeletextDestinationSettingsPtrType) ToChannelTeletextDestination
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeletextDestinationSettingsPtrOutput)
 }
 
-func (i *channelTeletextDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelTeletextDestinationSettings] {
-	return pulumix.Output[*ChannelTeletextDestinationSettings]{
-		OutputState: i.ToChannelTeletextDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelTeletextDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelTeletextDestinationSettingsOutput) ElementType() reflect.Type {
@@ -28675,12 +25326,6 @@ func (o ChannelTeletextDestinationSettingsOutput) ToChannelTeletextDestinationSe
 	}).(ChannelTeletextDestinationSettingsPtrOutput)
 }
 
-func (o ChannelTeletextDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTeletextDestinationSettings] {
-	return pulumix.Output[ChannelTeletextDestinationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ChannelTeletextDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelTeletextDestinationSettingsPtrOutput) ElementType() reflect.Type {
@@ -28693,12 +25338,6 @@ func (o ChannelTeletextDestinationSettingsPtrOutput) ToChannelTeletextDestinatio
 
 func (o ChannelTeletextDestinationSettingsPtrOutput) ToChannelTeletextDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelTeletextDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelTeletextDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelTeletextDestinationSettings] {
-	return pulumix.Output[*ChannelTeletextDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTeletextDestinationSettingsPtrOutput) Elem() ChannelTeletextDestinationSettingsOutput {
@@ -28744,12 +25383,6 @@ func (i ChannelTeletextSourceSettingsArgs) ToChannelTeletextSourceSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeletextSourceSettingsOutput)
 }
 
-func (i ChannelTeletextSourceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTeletextSourceSettings] {
-	return pulumix.Output[ChannelTeletextSourceSettings]{
-		OutputState: i.ToChannelTeletextSourceSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelTeletextSourceSettingsArgs) ToChannelTeletextSourceSettingsPtrOutput() ChannelTeletextSourceSettingsPtrOutput {
 	return i.ToChannelTeletextSourceSettingsPtrOutputWithContext(context.Background())
 }
@@ -28791,12 +25424,6 @@ func (i *channelTeletextSourceSettingsPtrType) ToChannelTeletextSourceSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeletextSourceSettingsPtrOutput)
 }
 
-func (i *channelTeletextSourceSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelTeletextSourceSettings] {
-	return pulumix.Output[*ChannelTeletextSourceSettings]{
-		OutputState: i.ToChannelTeletextSourceSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelTeletextSourceSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelTeletextSourceSettingsOutput) ElementType() reflect.Type {
@@ -28821,12 +25448,6 @@ func (o ChannelTeletextSourceSettingsOutput) ToChannelTeletextSourceSettingsPtrO
 	}).(ChannelTeletextSourceSettingsPtrOutput)
 }
 
-func (o ChannelTeletextSourceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTeletextSourceSettings] {
-	return pulumix.Output[ChannelTeletextSourceSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelTeletextSourceSettingsOutput) OutputRectangle() ChannelCaptionRectanglePtrOutput {
 	return o.ApplyT(func(v ChannelTeletextSourceSettings) *ChannelCaptionRectangle { return v.OutputRectangle }).(ChannelCaptionRectanglePtrOutput)
 }
@@ -28847,12 +25468,6 @@ func (o ChannelTeletextSourceSettingsPtrOutput) ToChannelTeletextSourceSettingsP
 
 func (o ChannelTeletextSourceSettingsPtrOutput) ToChannelTeletextSourceSettingsPtrOutputWithContext(ctx context.Context) ChannelTeletextSourceSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelTeletextSourceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelTeletextSourceSettings] {
-	return pulumix.Output[*ChannelTeletextSourceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTeletextSourceSettingsPtrOutput) Elem() ChannelTeletextSourceSettingsOutput {
@@ -28916,12 +25531,6 @@ func (i ChannelTemporalFilterSettingsArgs) ToChannelTemporalFilterSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTemporalFilterSettingsOutput)
 }
 
-func (i ChannelTemporalFilterSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTemporalFilterSettings] {
-	return pulumix.Output[ChannelTemporalFilterSettings]{
-		OutputState: i.ToChannelTemporalFilterSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelTemporalFilterSettingsArgs) ToChannelTemporalFilterSettingsPtrOutput() ChannelTemporalFilterSettingsPtrOutput {
 	return i.ToChannelTemporalFilterSettingsPtrOutputWithContext(context.Background())
 }
@@ -28963,12 +25572,6 @@ func (i *channelTemporalFilterSettingsPtrType) ToChannelTemporalFilterSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTemporalFilterSettingsPtrOutput)
 }
 
-func (i *channelTemporalFilterSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelTemporalFilterSettings] {
-	return pulumix.Output[*ChannelTemporalFilterSettings]{
-		OutputState: i.ToChannelTemporalFilterSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelTemporalFilterSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelTemporalFilterSettingsOutput) ElementType() reflect.Type {
@@ -28993,12 +25596,6 @@ func (o ChannelTemporalFilterSettingsOutput) ToChannelTemporalFilterSettingsPtrO
 	}).(ChannelTemporalFilterSettingsPtrOutput)
 }
 
-func (o ChannelTemporalFilterSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTemporalFilterSettings] {
-	return pulumix.Output[ChannelTemporalFilterSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelTemporalFilterSettingsOutput) PostFilterSharpening() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelTemporalFilterSettings) *string { return v.PostFilterSharpening }).(pulumi.StringPtrOutput)
 }
@@ -29019,12 +25616,6 @@ func (o ChannelTemporalFilterSettingsPtrOutput) ToChannelTemporalFilterSettingsP
 
 func (o ChannelTemporalFilterSettingsPtrOutput) ToChannelTemporalFilterSettingsPtrOutputWithContext(ctx context.Context) ChannelTemporalFilterSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelTemporalFilterSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelTemporalFilterSettings] {
-	return pulumix.Output[*ChannelTemporalFilterSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTemporalFilterSettingsPtrOutput) Elem() ChannelTemporalFilterSettingsOutput {
@@ -29086,12 +25677,6 @@ func (i ChannelThumbnailConfigurationArgs) ToChannelThumbnailConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelThumbnailConfigurationOutput)
 }
 
-func (i ChannelThumbnailConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelThumbnailConfiguration] {
-	return pulumix.Output[ChannelThumbnailConfiguration]{
-		OutputState: i.ToChannelThumbnailConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelThumbnailConfigurationArgs) ToChannelThumbnailConfigurationPtrOutput() ChannelThumbnailConfigurationPtrOutput {
 	return i.ToChannelThumbnailConfigurationPtrOutputWithContext(context.Background())
 }
@@ -29133,12 +25718,6 @@ func (i *channelThumbnailConfigurationPtrType) ToChannelThumbnailConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelThumbnailConfigurationPtrOutput)
 }
 
-func (i *channelThumbnailConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelThumbnailConfiguration] {
-	return pulumix.Output[*ChannelThumbnailConfiguration]{
-		OutputState: i.ToChannelThumbnailConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelThumbnailConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ChannelThumbnailConfigurationOutput) ElementType() reflect.Type {
@@ -29163,12 +25742,6 @@ func (o ChannelThumbnailConfigurationOutput) ToChannelThumbnailConfigurationPtrO
 	}).(ChannelThumbnailConfigurationPtrOutput)
 }
 
-func (o ChannelThumbnailConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelThumbnailConfiguration] {
-	return pulumix.Output[ChannelThumbnailConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelThumbnailConfigurationOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelThumbnailConfiguration) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -29185,12 +25758,6 @@ func (o ChannelThumbnailConfigurationPtrOutput) ToChannelThumbnailConfigurationP
 
 func (o ChannelThumbnailConfigurationPtrOutput) ToChannelThumbnailConfigurationPtrOutputWithContext(ctx context.Context) ChannelThumbnailConfigurationPtrOutput {
 	return o
-}
-
-func (o ChannelThumbnailConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelThumbnailConfiguration] {
-	return pulumix.Output[*ChannelThumbnailConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelThumbnailConfigurationPtrOutput) Elem() ChannelThumbnailConfigurationOutput {
@@ -29247,12 +25814,6 @@ func (i ChannelTimecodeBurninSettingsArgs) ToChannelTimecodeBurninSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTimecodeBurninSettingsOutput)
 }
 
-func (i ChannelTimecodeBurninSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTimecodeBurninSettings] {
-	return pulumix.Output[ChannelTimecodeBurninSettings]{
-		OutputState: i.ToChannelTimecodeBurninSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelTimecodeBurninSettingsArgs) ToChannelTimecodeBurninSettingsPtrOutput() ChannelTimecodeBurninSettingsPtrOutput {
 	return i.ToChannelTimecodeBurninSettingsPtrOutputWithContext(context.Background())
 }
@@ -29294,12 +25855,6 @@ func (i *channelTimecodeBurninSettingsPtrType) ToChannelTimecodeBurninSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTimecodeBurninSettingsPtrOutput)
 }
 
-func (i *channelTimecodeBurninSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelTimecodeBurninSettings] {
-	return pulumix.Output[*ChannelTimecodeBurninSettings]{
-		OutputState: i.ToChannelTimecodeBurninSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelTimecodeBurninSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelTimecodeBurninSettingsOutput) ElementType() reflect.Type {
@@ -29322,12 +25877,6 @@ func (o ChannelTimecodeBurninSettingsOutput) ToChannelTimecodeBurninSettingsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelTimecodeBurninSettings) *ChannelTimecodeBurninSettings {
 		return &v
 	}).(ChannelTimecodeBurninSettingsPtrOutput)
-}
-
-func (o ChannelTimecodeBurninSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTimecodeBurninSettings] {
-	return pulumix.Output[ChannelTimecodeBurninSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTimecodeBurninSettingsOutput) FontSize() pulumi.StringPtrOutput {
@@ -29354,12 +25903,6 @@ func (o ChannelTimecodeBurninSettingsPtrOutput) ToChannelTimecodeBurninSettingsP
 
 func (o ChannelTimecodeBurninSettingsPtrOutput) ToChannelTimecodeBurninSettingsPtrOutputWithContext(ctx context.Context) ChannelTimecodeBurninSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelTimecodeBurninSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelTimecodeBurninSettings] {
-	return pulumix.Output[*ChannelTimecodeBurninSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTimecodeBurninSettingsPtrOutput) Elem() ChannelTimecodeBurninSettingsOutput {
@@ -29432,12 +25975,6 @@ func (i ChannelTimecodeConfigArgs) ToChannelTimecodeConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTimecodeConfigOutput)
 }
 
-func (i ChannelTimecodeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTimecodeConfig] {
-	return pulumix.Output[ChannelTimecodeConfig]{
-		OutputState: i.ToChannelTimecodeConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelTimecodeConfigArgs) ToChannelTimecodeConfigPtrOutput() ChannelTimecodeConfigPtrOutput {
 	return i.ToChannelTimecodeConfigPtrOutputWithContext(context.Background())
 }
@@ -29479,12 +26016,6 @@ func (i *channelTimecodeConfigPtrType) ToChannelTimecodeConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTimecodeConfigPtrOutput)
 }
 
-func (i *channelTimecodeConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelTimecodeConfig] {
-	return pulumix.Output[*ChannelTimecodeConfig]{
-		OutputState: i.ToChannelTimecodeConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelTimecodeConfigOutput struct{ *pulumi.OutputState }
 
 func (ChannelTimecodeConfigOutput) ElementType() reflect.Type {
@@ -29509,12 +26040,6 @@ func (o ChannelTimecodeConfigOutput) ToChannelTimecodeConfigPtrOutputWithContext
 	}).(ChannelTimecodeConfigPtrOutput)
 }
 
-func (o ChannelTimecodeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTimecodeConfig] {
-	return pulumix.Output[ChannelTimecodeConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelTimecodeConfigOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelTimecodeConfig) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
@@ -29535,12 +26060,6 @@ func (o ChannelTimecodeConfigPtrOutput) ToChannelTimecodeConfigPtrOutput() Chann
 
 func (o ChannelTimecodeConfigPtrOutput) ToChannelTimecodeConfigPtrOutputWithContext(ctx context.Context) ChannelTimecodeConfigPtrOutput {
 	return o
-}
-
-func (o ChannelTimecodeConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelTimecodeConfig] {
-	return pulumix.Output[*ChannelTimecodeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTimecodeConfigPtrOutput) Elem() ChannelTimecodeConfigOutput {
@@ -29602,12 +26121,6 @@ func (i ChannelTtmlDestinationSettingsArgs) ToChannelTtmlDestinationSettingsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTtmlDestinationSettingsOutput)
 }
 
-func (i ChannelTtmlDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTtmlDestinationSettings] {
-	return pulumix.Output[ChannelTtmlDestinationSettings]{
-		OutputState: i.ToChannelTtmlDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelTtmlDestinationSettingsArgs) ToChannelTtmlDestinationSettingsPtrOutput() ChannelTtmlDestinationSettingsPtrOutput {
 	return i.ToChannelTtmlDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -29649,12 +26162,6 @@ func (i *channelTtmlDestinationSettingsPtrType) ToChannelTtmlDestinationSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTtmlDestinationSettingsPtrOutput)
 }
 
-func (i *channelTtmlDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelTtmlDestinationSettings] {
-	return pulumix.Output[*ChannelTtmlDestinationSettings]{
-		OutputState: i.ToChannelTtmlDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelTtmlDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelTtmlDestinationSettingsOutput) ElementType() reflect.Type {
@@ -29679,12 +26186,6 @@ func (o ChannelTtmlDestinationSettingsOutput) ToChannelTtmlDestinationSettingsPt
 	}).(ChannelTtmlDestinationSettingsPtrOutput)
 }
 
-func (o ChannelTtmlDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTtmlDestinationSettings] {
-	return pulumix.Output[ChannelTtmlDestinationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelTtmlDestinationSettingsOutput) StyleControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelTtmlDestinationSettings) *string { return v.StyleControl }).(pulumi.StringPtrOutput)
 }
@@ -29701,12 +26202,6 @@ func (o ChannelTtmlDestinationSettingsPtrOutput) ToChannelTtmlDestinationSetting
 
 func (o ChannelTtmlDestinationSettingsPtrOutput) ToChannelTtmlDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelTtmlDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelTtmlDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelTtmlDestinationSettings] {
-	return pulumix.Output[*ChannelTtmlDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTtmlDestinationSettingsPtrOutput) Elem() ChannelTtmlDestinationSettingsOutput {
@@ -29759,12 +26254,6 @@ func (i ChannelUdpContainerSettingsArgs) ToChannelUdpContainerSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelUdpContainerSettingsOutput)
 }
 
-func (i ChannelUdpContainerSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelUdpContainerSettings] {
-	return pulumix.Output[ChannelUdpContainerSettings]{
-		OutputState: i.ToChannelUdpContainerSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelUdpContainerSettingsArgs) ToChannelUdpContainerSettingsPtrOutput() ChannelUdpContainerSettingsPtrOutput {
 	return i.ToChannelUdpContainerSettingsPtrOutputWithContext(context.Background())
 }
@@ -29806,12 +26295,6 @@ func (i *channelUdpContainerSettingsPtrType) ToChannelUdpContainerSettingsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelUdpContainerSettingsPtrOutput)
 }
 
-func (i *channelUdpContainerSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelUdpContainerSettings] {
-	return pulumix.Output[*ChannelUdpContainerSettings]{
-		OutputState: i.ToChannelUdpContainerSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelUdpContainerSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelUdpContainerSettingsOutput) ElementType() reflect.Type {
@@ -29836,12 +26319,6 @@ func (o ChannelUdpContainerSettingsOutput) ToChannelUdpContainerSettingsPtrOutpu
 	}).(ChannelUdpContainerSettingsPtrOutput)
 }
 
-func (o ChannelUdpContainerSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelUdpContainerSettings] {
-	return pulumix.Output[ChannelUdpContainerSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelUdpContainerSettingsOutput) M2tsSettings() ChannelM2tsSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelUdpContainerSettings) *ChannelM2tsSettings { return v.M2tsSettings }).(ChannelM2tsSettingsPtrOutput)
 }
@@ -29858,12 +26335,6 @@ func (o ChannelUdpContainerSettingsPtrOutput) ToChannelUdpContainerSettingsPtrOu
 
 func (o ChannelUdpContainerSettingsPtrOutput) ToChannelUdpContainerSettingsPtrOutputWithContext(ctx context.Context) ChannelUdpContainerSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelUdpContainerSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelUdpContainerSettings] {
-	return pulumix.Output[*ChannelUdpContainerSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelUdpContainerSettingsPtrOutput) Elem() ChannelUdpContainerSettingsOutput {
@@ -29920,12 +26391,6 @@ func (i ChannelUdpGroupSettingsArgs) ToChannelUdpGroupSettingsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelUdpGroupSettingsOutput)
 }
 
-func (i ChannelUdpGroupSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelUdpGroupSettings] {
-	return pulumix.Output[ChannelUdpGroupSettings]{
-		OutputState: i.ToChannelUdpGroupSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelUdpGroupSettingsArgs) ToChannelUdpGroupSettingsPtrOutput() ChannelUdpGroupSettingsPtrOutput {
 	return i.ToChannelUdpGroupSettingsPtrOutputWithContext(context.Background())
 }
@@ -29967,12 +26432,6 @@ func (i *channelUdpGroupSettingsPtrType) ToChannelUdpGroupSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelUdpGroupSettingsPtrOutput)
 }
 
-func (i *channelUdpGroupSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelUdpGroupSettings] {
-	return pulumix.Output[*ChannelUdpGroupSettings]{
-		OutputState: i.ToChannelUdpGroupSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelUdpGroupSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelUdpGroupSettingsOutput) ElementType() reflect.Type {
@@ -29995,12 +26454,6 @@ func (o ChannelUdpGroupSettingsOutput) ToChannelUdpGroupSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelUdpGroupSettings) *ChannelUdpGroupSettings {
 		return &v
 	}).(ChannelUdpGroupSettingsPtrOutput)
-}
-
-func (o ChannelUdpGroupSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelUdpGroupSettings] {
-	return pulumix.Output[ChannelUdpGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelUdpGroupSettingsOutput) InputLossAction() pulumi.StringPtrOutput {
@@ -30027,12 +26480,6 @@ func (o ChannelUdpGroupSettingsPtrOutput) ToChannelUdpGroupSettingsPtrOutput() C
 
 func (o ChannelUdpGroupSettingsPtrOutput) ToChannelUdpGroupSettingsPtrOutputWithContext(ctx context.Context) ChannelUdpGroupSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelUdpGroupSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelUdpGroupSettings] {
-	return pulumix.Output[*ChannelUdpGroupSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelUdpGroupSettingsPtrOutput) Elem() ChannelUdpGroupSettingsOutput {
@@ -30109,12 +26556,6 @@ func (i ChannelUdpOutputSettingsArgs) ToChannelUdpOutputSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelUdpOutputSettingsOutput)
 }
 
-func (i ChannelUdpOutputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelUdpOutputSettings] {
-	return pulumix.Output[ChannelUdpOutputSettings]{
-		OutputState: i.ToChannelUdpOutputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelUdpOutputSettingsArgs) ToChannelUdpOutputSettingsPtrOutput() ChannelUdpOutputSettingsPtrOutput {
 	return i.ToChannelUdpOutputSettingsPtrOutputWithContext(context.Background())
 }
@@ -30156,12 +26597,6 @@ func (i *channelUdpOutputSettingsPtrType) ToChannelUdpOutputSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelUdpOutputSettingsPtrOutput)
 }
 
-func (i *channelUdpOutputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelUdpOutputSettings] {
-	return pulumix.Output[*ChannelUdpOutputSettings]{
-		OutputState: i.ToChannelUdpOutputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelUdpOutputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelUdpOutputSettingsOutput) ElementType() reflect.Type {
@@ -30184,12 +26619,6 @@ func (o ChannelUdpOutputSettingsOutput) ToChannelUdpOutputSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelUdpOutputSettings) *ChannelUdpOutputSettings {
 		return &v
 	}).(ChannelUdpOutputSettingsPtrOutput)
-}
-
-func (o ChannelUdpOutputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelUdpOutputSettings] {
-	return pulumix.Output[ChannelUdpOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelUdpOutputSettingsOutput) BufferMsec() pulumi.IntPtrOutput {
@@ -30220,12 +26649,6 @@ func (o ChannelUdpOutputSettingsPtrOutput) ToChannelUdpOutputSettingsPtrOutput()
 
 func (o ChannelUdpOutputSettingsPtrOutput) ToChannelUdpOutputSettingsPtrOutputWithContext(ctx context.Context) ChannelUdpOutputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelUdpOutputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelUdpOutputSettings] {
-	return pulumix.Output[*ChannelUdpOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelUdpOutputSettingsPtrOutput) Elem() ChannelUdpOutputSettingsOutput {
@@ -30307,12 +26730,6 @@ func (i ChannelVideoBlackFailoverSettingsArgs) ToChannelVideoBlackFailoverSettin
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoBlackFailoverSettingsOutput)
 }
 
-func (i ChannelVideoBlackFailoverSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoBlackFailoverSettings] {
-	return pulumix.Output[ChannelVideoBlackFailoverSettings]{
-		OutputState: i.ToChannelVideoBlackFailoverSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelVideoBlackFailoverSettingsArgs) ToChannelVideoBlackFailoverSettingsPtrOutput() ChannelVideoBlackFailoverSettingsPtrOutput {
 	return i.ToChannelVideoBlackFailoverSettingsPtrOutputWithContext(context.Background())
 }
@@ -30354,12 +26771,6 @@ func (i *channelVideoBlackFailoverSettingsPtrType) ToChannelVideoBlackFailoverSe
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoBlackFailoverSettingsPtrOutput)
 }
 
-func (i *channelVideoBlackFailoverSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoBlackFailoverSettings] {
-	return pulumix.Output[*ChannelVideoBlackFailoverSettings]{
-		OutputState: i.ToChannelVideoBlackFailoverSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelVideoBlackFailoverSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelVideoBlackFailoverSettingsOutput) ElementType() reflect.Type {
@@ -30384,12 +26795,6 @@ func (o ChannelVideoBlackFailoverSettingsOutput) ToChannelVideoBlackFailoverSett
 	}).(ChannelVideoBlackFailoverSettingsPtrOutput)
 }
 
-func (o ChannelVideoBlackFailoverSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoBlackFailoverSettings] {
-	return pulumix.Output[ChannelVideoBlackFailoverSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelVideoBlackFailoverSettingsOutput) BlackDetectThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ChannelVideoBlackFailoverSettings) *float64 { return v.BlackDetectThreshold }).(pulumi.Float64PtrOutput)
 }
@@ -30410,12 +26815,6 @@ func (o ChannelVideoBlackFailoverSettingsPtrOutput) ToChannelVideoBlackFailoverS
 
 func (o ChannelVideoBlackFailoverSettingsPtrOutput) ToChannelVideoBlackFailoverSettingsPtrOutputWithContext(ctx context.Context) ChannelVideoBlackFailoverSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelVideoBlackFailoverSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoBlackFailoverSettings] {
-	return pulumix.Output[*ChannelVideoBlackFailoverSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVideoBlackFailoverSettingsPtrOutput) Elem() ChannelVideoBlackFailoverSettingsOutput {
@@ -30483,12 +26882,6 @@ func (i ChannelVideoCodecSettingsArgs) ToChannelVideoCodecSettingsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoCodecSettingsOutput)
 }
 
-func (i ChannelVideoCodecSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoCodecSettings] {
-	return pulumix.Output[ChannelVideoCodecSettings]{
-		OutputState: i.ToChannelVideoCodecSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelVideoCodecSettingsArgs) ToChannelVideoCodecSettingsPtrOutput() ChannelVideoCodecSettingsPtrOutput {
 	return i.ToChannelVideoCodecSettingsPtrOutputWithContext(context.Background())
 }
@@ -30530,12 +26923,6 @@ func (i *channelVideoCodecSettingsPtrType) ToChannelVideoCodecSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoCodecSettingsPtrOutput)
 }
 
-func (i *channelVideoCodecSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoCodecSettings] {
-	return pulumix.Output[*ChannelVideoCodecSettings]{
-		OutputState: i.ToChannelVideoCodecSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelVideoCodecSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelVideoCodecSettingsOutput) ElementType() reflect.Type {
@@ -30558,12 +26945,6 @@ func (o ChannelVideoCodecSettingsOutput) ToChannelVideoCodecSettingsPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelVideoCodecSettings) *ChannelVideoCodecSettings {
 		return &v
 	}).(ChannelVideoCodecSettingsPtrOutput)
-}
-
-func (o ChannelVideoCodecSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoCodecSettings] {
-	return pulumix.Output[ChannelVideoCodecSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVideoCodecSettingsOutput) FrameCaptureSettings() ChannelFrameCaptureSettingsPtrOutput {
@@ -30594,12 +26975,6 @@ func (o ChannelVideoCodecSettingsPtrOutput) ToChannelVideoCodecSettingsPtrOutput
 
 func (o ChannelVideoCodecSettingsPtrOutput) ToChannelVideoCodecSettingsPtrOutputWithContext(ctx context.Context) ChannelVideoCodecSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelVideoCodecSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoCodecSettings] {
-	return pulumix.Output[*ChannelVideoCodecSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVideoCodecSettingsPtrOutput) Elem() ChannelVideoCodecSettingsOutput {
@@ -30691,12 +27066,6 @@ func (i ChannelVideoDescriptionArgs) ToChannelVideoDescriptionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoDescriptionOutput)
 }
 
-func (i ChannelVideoDescriptionArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoDescription] {
-	return pulumix.Output[ChannelVideoDescription]{
-		OutputState: i.ToChannelVideoDescriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelVideoDescriptionArrayInput is an input type that accepts ChannelVideoDescriptionArray and ChannelVideoDescriptionArrayOutput values.
 // You can construct a concrete instance of `ChannelVideoDescriptionArrayInput` via:
 //
@@ -30722,12 +27091,6 @@ func (i ChannelVideoDescriptionArray) ToChannelVideoDescriptionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoDescriptionArrayOutput)
 }
 
-func (i ChannelVideoDescriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelVideoDescription] {
-	return pulumix.Output[[]ChannelVideoDescription]{
-		OutputState: i.ToChannelVideoDescriptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelVideoDescriptionOutput struct{ *pulumi.OutputState }
 
 func (ChannelVideoDescriptionOutput) ElementType() reflect.Type {
@@ -30740,12 +27103,6 @@ func (o ChannelVideoDescriptionOutput) ToChannelVideoDescriptionOutput() Channel
 
 func (o ChannelVideoDescriptionOutput) ToChannelVideoDescriptionOutputWithContext(ctx context.Context) ChannelVideoDescriptionOutput {
 	return o
-}
-
-func (o ChannelVideoDescriptionOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoDescription] {
-	return pulumix.Output[ChannelVideoDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVideoDescriptionOutput) CodecSettings() ChannelVideoCodecSettingsPtrOutput {
@@ -30788,12 +27145,6 @@ func (o ChannelVideoDescriptionArrayOutput) ToChannelVideoDescriptionArrayOutput
 
 func (o ChannelVideoDescriptionArrayOutput) ToChannelVideoDescriptionArrayOutputWithContext(ctx context.Context) ChannelVideoDescriptionArrayOutput {
 	return o
-}
-
-func (o ChannelVideoDescriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelVideoDescription] {
-	return pulumix.Output[[]ChannelVideoDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVideoDescriptionArrayOutput) Index(i pulumi.IntInput) ChannelVideoDescriptionOutput {
@@ -30839,12 +27190,6 @@ func (i ChannelVideoSelectorArgs) ToChannelVideoSelectorOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoSelectorOutput)
 }
 
-func (i ChannelVideoSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoSelector] {
-	return pulumix.Output[ChannelVideoSelector]{
-		OutputState: i.ToChannelVideoSelectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelVideoSelectorArgs) ToChannelVideoSelectorPtrOutput() ChannelVideoSelectorPtrOutput {
 	return i.ToChannelVideoSelectorPtrOutputWithContext(context.Background())
 }
@@ -30886,12 +27231,6 @@ func (i *channelVideoSelectorPtrType) ToChannelVideoSelectorPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoSelectorPtrOutput)
 }
 
-func (i *channelVideoSelectorPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoSelector] {
-	return pulumix.Output[*ChannelVideoSelector]{
-		OutputState: i.ToChannelVideoSelectorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelVideoSelectorOutput struct{ *pulumi.OutputState }
 
 func (ChannelVideoSelectorOutput) ElementType() reflect.Type {
@@ -30914,12 +27253,6 @@ func (o ChannelVideoSelectorOutput) ToChannelVideoSelectorPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelVideoSelector) *ChannelVideoSelector {
 		return &v
 	}).(ChannelVideoSelectorPtrOutput)
-}
-
-func (o ChannelVideoSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoSelector] {
-	return pulumix.Output[ChannelVideoSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVideoSelectorOutput) ColorSpace() pulumi.StringPtrOutput {
@@ -30950,12 +27283,6 @@ func (o ChannelVideoSelectorPtrOutput) ToChannelVideoSelectorPtrOutput() Channel
 
 func (o ChannelVideoSelectorPtrOutput) ToChannelVideoSelectorPtrOutputWithContext(ctx context.Context) ChannelVideoSelectorPtrOutput {
 	return o
-}
-
-func (o ChannelVideoSelectorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoSelector] {
-	return pulumix.Output[*ChannelVideoSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVideoSelectorPtrOutput) Elem() ChannelVideoSelectorOutput {
@@ -31035,12 +27362,6 @@ func (i ChannelVideoSelectorColorSpaceSettingsArgs) ToChannelVideoSelectorColorS
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoSelectorColorSpaceSettingsOutput)
 }
 
-func (i ChannelVideoSelectorColorSpaceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoSelectorColorSpaceSettings] {
-	return pulumix.Output[ChannelVideoSelectorColorSpaceSettings]{
-		OutputState: i.ToChannelVideoSelectorColorSpaceSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelVideoSelectorColorSpaceSettingsArgs) ToChannelVideoSelectorColorSpaceSettingsPtrOutput() ChannelVideoSelectorColorSpaceSettingsPtrOutput {
 	return i.ToChannelVideoSelectorColorSpaceSettingsPtrOutputWithContext(context.Background())
 }
@@ -31082,12 +27403,6 @@ func (i *channelVideoSelectorColorSpaceSettingsPtrType) ToChannelVideoSelectorCo
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoSelectorColorSpaceSettingsPtrOutput)
 }
 
-func (i *channelVideoSelectorColorSpaceSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoSelectorColorSpaceSettings] {
-	return pulumix.Output[*ChannelVideoSelectorColorSpaceSettings]{
-		OutputState: i.ToChannelVideoSelectorColorSpaceSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelVideoSelectorColorSpaceSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelVideoSelectorColorSpaceSettingsOutput) ElementType() reflect.Type {
@@ -31112,12 +27427,6 @@ func (o ChannelVideoSelectorColorSpaceSettingsOutput) ToChannelVideoSelectorColo
 	}).(ChannelVideoSelectorColorSpaceSettingsPtrOutput)
 }
 
-func (o ChannelVideoSelectorColorSpaceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoSelectorColorSpaceSettings] {
-	return pulumix.Output[ChannelVideoSelectorColorSpaceSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelVideoSelectorColorSpaceSettingsOutput) Hdr10Settings() ChannelHdr10SettingsPtrOutput {
 	return o.ApplyT(func(v ChannelVideoSelectorColorSpaceSettings) *ChannelHdr10Settings { return v.Hdr10Settings }).(ChannelHdr10SettingsPtrOutput)
 }
@@ -31134,12 +27443,6 @@ func (o ChannelVideoSelectorColorSpaceSettingsPtrOutput) ToChannelVideoSelectorC
 
 func (o ChannelVideoSelectorColorSpaceSettingsPtrOutput) ToChannelVideoSelectorColorSpaceSettingsPtrOutputWithContext(ctx context.Context) ChannelVideoSelectorColorSpaceSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelVideoSelectorColorSpaceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoSelectorColorSpaceSettings] {
-	return pulumix.Output[*ChannelVideoSelectorColorSpaceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVideoSelectorColorSpaceSettingsPtrOutput) Elem() ChannelVideoSelectorColorSpaceSettingsOutput {
@@ -31192,12 +27495,6 @@ func (i ChannelVideoSelectorPidArgs) ToChannelVideoSelectorPidOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoSelectorPidOutput)
 }
 
-func (i ChannelVideoSelectorPidArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoSelectorPid] {
-	return pulumix.Output[ChannelVideoSelectorPid]{
-		OutputState: i.ToChannelVideoSelectorPidOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelVideoSelectorPidArgs) ToChannelVideoSelectorPidPtrOutput() ChannelVideoSelectorPidPtrOutput {
 	return i.ToChannelVideoSelectorPidPtrOutputWithContext(context.Background())
 }
@@ -31239,12 +27536,6 @@ func (i *channelVideoSelectorPidPtrType) ToChannelVideoSelectorPidPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoSelectorPidPtrOutput)
 }
 
-func (i *channelVideoSelectorPidPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoSelectorPid] {
-	return pulumix.Output[*ChannelVideoSelectorPid]{
-		OutputState: i.ToChannelVideoSelectorPidPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelVideoSelectorPidOutput struct{ *pulumi.OutputState }
 
 func (ChannelVideoSelectorPidOutput) ElementType() reflect.Type {
@@ -31269,12 +27560,6 @@ func (o ChannelVideoSelectorPidOutput) ToChannelVideoSelectorPidPtrOutputWithCon
 	}).(ChannelVideoSelectorPidPtrOutput)
 }
 
-func (o ChannelVideoSelectorPidOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoSelectorPid] {
-	return pulumix.Output[ChannelVideoSelectorPid]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelVideoSelectorPidOutput) Pid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelVideoSelectorPid) *int { return v.Pid }).(pulumi.IntPtrOutput)
 }
@@ -31291,12 +27576,6 @@ func (o ChannelVideoSelectorPidPtrOutput) ToChannelVideoSelectorPidPtrOutput() C
 
 func (o ChannelVideoSelectorPidPtrOutput) ToChannelVideoSelectorPidPtrOutputWithContext(ctx context.Context) ChannelVideoSelectorPidPtrOutput {
 	return o
-}
-
-func (o ChannelVideoSelectorPidPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoSelectorPid] {
-	return pulumix.Output[*ChannelVideoSelectorPid]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVideoSelectorPidPtrOutput) Elem() ChannelVideoSelectorPidOutput {
@@ -31349,12 +27628,6 @@ func (i ChannelVideoSelectorProgramIdArgs) ToChannelVideoSelectorProgramIdOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoSelectorProgramIdOutput)
 }
 
-func (i ChannelVideoSelectorProgramIdArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoSelectorProgramId] {
-	return pulumix.Output[ChannelVideoSelectorProgramId]{
-		OutputState: i.ToChannelVideoSelectorProgramIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelVideoSelectorProgramIdArgs) ToChannelVideoSelectorProgramIdPtrOutput() ChannelVideoSelectorProgramIdPtrOutput {
 	return i.ToChannelVideoSelectorProgramIdPtrOutputWithContext(context.Background())
 }
@@ -31396,12 +27669,6 @@ func (i *channelVideoSelectorProgramIdPtrType) ToChannelVideoSelectorProgramIdPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoSelectorProgramIdPtrOutput)
 }
 
-func (i *channelVideoSelectorProgramIdPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoSelectorProgramId] {
-	return pulumix.Output[*ChannelVideoSelectorProgramId]{
-		OutputState: i.ToChannelVideoSelectorProgramIdPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelVideoSelectorProgramIdOutput struct{ *pulumi.OutputState }
 
 func (ChannelVideoSelectorProgramIdOutput) ElementType() reflect.Type {
@@ -31426,12 +27693,6 @@ func (o ChannelVideoSelectorProgramIdOutput) ToChannelVideoSelectorProgramIdPtrO
 	}).(ChannelVideoSelectorProgramIdPtrOutput)
 }
 
-func (o ChannelVideoSelectorProgramIdOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoSelectorProgramId] {
-	return pulumix.Output[ChannelVideoSelectorProgramId]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelVideoSelectorProgramIdOutput) ProgramId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelVideoSelectorProgramId) *int { return v.ProgramId }).(pulumi.IntPtrOutput)
 }
@@ -31448,12 +27709,6 @@ func (o ChannelVideoSelectorProgramIdPtrOutput) ToChannelVideoSelectorProgramIdP
 
 func (o ChannelVideoSelectorProgramIdPtrOutput) ToChannelVideoSelectorProgramIdPtrOutputWithContext(ctx context.Context) ChannelVideoSelectorProgramIdPtrOutput {
 	return o
-}
-
-func (o ChannelVideoSelectorProgramIdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoSelectorProgramId] {
-	return pulumix.Output[*ChannelVideoSelectorProgramId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVideoSelectorProgramIdPtrOutput) Elem() ChannelVideoSelectorProgramIdOutput {
@@ -31508,12 +27763,6 @@ func (i ChannelVideoSelectorSettingsArgs) ToChannelVideoSelectorSettingsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoSelectorSettingsOutput)
 }
 
-func (i ChannelVideoSelectorSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoSelectorSettings] {
-	return pulumix.Output[ChannelVideoSelectorSettings]{
-		OutputState: i.ToChannelVideoSelectorSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelVideoSelectorSettingsArgs) ToChannelVideoSelectorSettingsPtrOutput() ChannelVideoSelectorSettingsPtrOutput {
 	return i.ToChannelVideoSelectorSettingsPtrOutputWithContext(context.Background())
 }
@@ -31555,12 +27804,6 @@ func (i *channelVideoSelectorSettingsPtrType) ToChannelVideoSelectorSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVideoSelectorSettingsPtrOutput)
 }
 
-func (i *channelVideoSelectorSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoSelectorSettings] {
-	return pulumix.Output[*ChannelVideoSelectorSettings]{
-		OutputState: i.ToChannelVideoSelectorSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelVideoSelectorSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelVideoSelectorSettingsOutput) ElementType() reflect.Type {
@@ -31585,12 +27828,6 @@ func (o ChannelVideoSelectorSettingsOutput) ToChannelVideoSelectorSettingsPtrOut
 	}).(ChannelVideoSelectorSettingsPtrOutput)
 }
 
-func (o ChannelVideoSelectorSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelVideoSelectorSettings] {
-	return pulumix.Output[ChannelVideoSelectorSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelVideoSelectorSettingsOutput) VideoSelectorPid() ChannelVideoSelectorPidPtrOutput {
 	return o.ApplyT(func(v ChannelVideoSelectorSettings) *ChannelVideoSelectorPid { return v.VideoSelectorPid }).(ChannelVideoSelectorPidPtrOutput)
 }
@@ -31611,12 +27848,6 @@ func (o ChannelVideoSelectorSettingsPtrOutput) ToChannelVideoSelectorSettingsPtr
 
 func (o ChannelVideoSelectorSettingsPtrOutput) ToChannelVideoSelectorSettingsPtrOutputWithContext(ctx context.Context) ChannelVideoSelectorSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelVideoSelectorSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelVideoSelectorSettings] {
-	return pulumix.Output[*ChannelVideoSelectorSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVideoSelectorSettingsPtrOutput) Elem() ChannelVideoSelectorSettingsOutput {
@@ -31682,12 +27913,6 @@ func (i ChannelVpcOutputSettingsArgs) ToChannelVpcOutputSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVpcOutputSettingsOutput)
 }
 
-func (i ChannelVpcOutputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelVpcOutputSettings] {
-	return pulumix.Output[ChannelVpcOutputSettings]{
-		OutputState: i.ToChannelVpcOutputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelVpcOutputSettingsArgs) ToChannelVpcOutputSettingsPtrOutput() ChannelVpcOutputSettingsPtrOutput {
 	return i.ToChannelVpcOutputSettingsPtrOutputWithContext(context.Background())
 }
@@ -31729,12 +27954,6 @@ func (i *channelVpcOutputSettingsPtrType) ToChannelVpcOutputSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelVpcOutputSettingsPtrOutput)
 }
 
-func (i *channelVpcOutputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelVpcOutputSettings] {
-	return pulumix.Output[*ChannelVpcOutputSettings]{
-		OutputState: i.ToChannelVpcOutputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelVpcOutputSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelVpcOutputSettingsOutput) ElementType() reflect.Type {
@@ -31757,12 +27976,6 @@ func (o ChannelVpcOutputSettingsOutput) ToChannelVpcOutputSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelVpcOutputSettings) *ChannelVpcOutputSettings {
 		return &v
 	}).(ChannelVpcOutputSettingsPtrOutput)
-}
-
-func (o ChannelVpcOutputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelVpcOutputSettings] {
-	return pulumix.Output[ChannelVpcOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVpcOutputSettingsOutput) PublicAddressAllocationIds() pulumi.StringArrayOutput {
@@ -31789,12 +28002,6 @@ func (o ChannelVpcOutputSettingsPtrOutput) ToChannelVpcOutputSettingsPtrOutput()
 
 func (o ChannelVpcOutputSettingsPtrOutput) ToChannelVpcOutputSettingsPtrOutputWithContext(ctx context.Context) ChannelVpcOutputSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelVpcOutputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelVpcOutputSettings] {
-	return pulumix.Output[*ChannelVpcOutputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelVpcOutputSettingsPtrOutput) Elem() ChannelVpcOutputSettingsOutput {
@@ -31869,12 +28076,6 @@ func (i ChannelWavSettingsArgs) ToChannelWavSettingsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelWavSettingsOutput)
 }
 
-func (i ChannelWavSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelWavSettings] {
-	return pulumix.Output[ChannelWavSettings]{
-		OutputState: i.ToChannelWavSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelWavSettingsArgs) ToChannelWavSettingsPtrOutput() ChannelWavSettingsPtrOutput {
 	return i.ToChannelWavSettingsPtrOutputWithContext(context.Background())
 }
@@ -31916,12 +28117,6 @@ func (i *channelWavSettingsPtrType) ToChannelWavSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelWavSettingsPtrOutput)
 }
 
-func (i *channelWavSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelWavSettings] {
-	return pulumix.Output[*ChannelWavSettings]{
-		OutputState: i.ToChannelWavSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelWavSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelWavSettingsOutput) ElementType() reflect.Type {
@@ -31944,12 +28139,6 @@ func (o ChannelWavSettingsOutput) ToChannelWavSettingsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelWavSettings) *ChannelWavSettings {
 		return &v
 	}).(ChannelWavSettingsPtrOutput)
-}
-
-func (o ChannelWavSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelWavSettings] {
-	return pulumix.Output[ChannelWavSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelWavSettingsOutput) BitDepth() pulumi.Float64PtrOutput {
@@ -31976,12 +28165,6 @@ func (o ChannelWavSettingsPtrOutput) ToChannelWavSettingsPtrOutput() ChannelWavS
 
 func (o ChannelWavSettingsPtrOutput) ToChannelWavSettingsPtrOutputWithContext(ctx context.Context) ChannelWavSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelWavSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelWavSettings] {
-	return pulumix.Output[*ChannelWavSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelWavSettingsPtrOutput) Elem() ChannelWavSettingsOutput {
@@ -32052,12 +28235,6 @@ func (i ChannelWebvttDestinationSettingsArgs) ToChannelWebvttDestinationSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelWebvttDestinationSettingsOutput)
 }
 
-func (i ChannelWebvttDestinationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelWebvttDestinationSettings] {
-	return pulumix.Output[ChannelWebvttDestinationSettings]{
-		OutputState: i.ToChannelWebvttDestinationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelWebvttDestinationSettingsArgs) ToChannelWebvttDestinationSettingsPtrOutput() ChannelWebvttDestinationSettingsPtrOutput {
 	return i.ToChannelWebvttDestinationSettingsPtrOutputWithContext(context.Background())
 }
@@ -32099,12 +28276,6 @@ func (i *channelWebvttDestinationSettingsPtrType) ToChannelWebvttDestinationSett
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelWebvttDestinationSettingsPtrOutput)
 }
 
-func (i *channelWebvttDestinationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelWebvttDestinationSettings] {
-	return pulumix.Output[*ChannelWebvttDestinationSettings]{
-		OutputState: i.ToChannelWebvttDestinationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelWebvttDestinationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ChannelWebvttDestinationSettingsOutput) ElementType() reflect.Type {
@@ -32129,12 +28300,6 @@ func (o ChannelWebvttDestinationSettingsOutput) ToChannelWebvttDestinationSettin
 	}).(ChannelWebvttDestinationSettingsPtrOutput)
 }
 
-func (o ChannelWebvttDestinationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelWebvttDestinationSettings] {
-	return pulumix.Output[ChannelWebvttDestinationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelWebvttDestinationSettingsOutput) StyleControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelWebvttDestinationSettings) *string { return v.StyleControl }).(pulumi.StringPtrOutput)
 }
@@ -32151,12 +28316,6 @@ func (o ChannelWebvttDestinationSettingsPtrOutput) ToChannelWebvttDestinationSet
 
 func (o ChannelWebvttDestinationSettingsPtrOutput) ToChannelWebvttDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelWebvttDestinationSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelWebvttDestinationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelWebvttDestinationSettings] {
-	return pulumix.Output[*ChannelWebvttDestinationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelWebvttDestinationSettingsPtrOutput) Elem() ChannelWebvttDestinationSettingsOutput {
@@ -32209,12 +28368,6 @@ func (i InputDestinationRequestArgs) ToInputDestinationRequestOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(InputDestinationRequestOutput)
 }
 
-func (i InputDestinationRequestArgs) ToOutput(ctx context.Context) pulumix.Output[InputDestinationRequest] {
-	return pulumix.Output[InputDestinationRequest]{
-		OutputState: i.ToInputDestinationRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InputDestinationRequestArrayInput is an input type that accepts InputDestinationRequestArray and InputDestinationRequestArrayOutput values.
 // You can construct a concrete instance of `InputDestinationRequestArrayInput` via:
 //
@@ -32240,12 +28393,6 @@ func (i InputDestinationRequestArray) ToInputDestinationRequestArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InputDestinationRequestArrayOutput)
 }
 
-func (i InputDestinationRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]InputDestinationRequest] {
-	return pulumix.Output[[]InputDestinationRequest]{
-		OutputState: i.ToInputDestinationRequestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InputDestinationRequestOutput struct{ *pulumi.OutputState }
 
 func (InputDestinationRequestOutput) ElementType() reflect.Type {
@@ -32258,12 +28405,6 @@ func (o InputDestinationRequestOutput) ToInputDestinationRequestOutput() InputDe
 
 func (o InputDestinationRequestOutput) ToInputDestinationRequestOutputWithContext(ctx context.Context) InputDestinationRequestOutput {
 	return o
-}
-
-func (o InputDestinationRequestOutput) ToOutput(ctx context.Context) pulumix.Output[InputDestinationRequest] {
-	return pulumix.Output[InputDestinationRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputDestinationRequestOutput) StreamName() pulumi.StringPtrOutput {
@@ -32282,12 +28423,6 @@ func (o InputDestinationRequestArrayOutput) ToInputDestinationRequestArrayOutput
 
 func (o InputDestinationRequestArrayOutput) ToInputDestinationRequestArrayOutputWithContext(ctx context.Context) InputDestinationRequestArrayOutput {
 	return o
-}
-
-func (o InputDestinationRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InputDestinationRequest] {
-	return pulumix.Output[[]InputDestinationRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputDestinationRequestArrayOutput) Index(i pulumi.IntInput) InputDestinationRequestOutput {
@@ -32327,12 +28462,6 @@ func (i InputDeviceSettingsArgs) ToInputDeviceSettingsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(InputDeviceSettingsOutput)
 }
 
-func (i InputDeviceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[InputDeviceSettings] {
-	return pulumix.Output[InputDeviceSettings]{
-		OutputState: i.ToInputDeviceSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InputDeviceSettingsArrayInput is an input type that accepts InputDeviceSettingsArray and InputDeviceSettingsArrayOutput values.
 // You can construct a concrete instance of `InputDeviceSettingsArrayInput` via:
 //
@@ -32358,12 +28487,6 @@ func (i InputDeviceSettingsArray) ToInputDeviceSettingsArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(InputDeviceSettingsArrayOutput)
 }
 
-func (i InputDeviceSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]InputDeviceSettings] {
-	return pulumix.Output[[]InputDeviceSettings]{
-		OutputState: i.ToInputDeviceSettingsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InputDeviceSettingsOutput struct{ *pulumi.OutputState }
 
 func (InputDeviceSettingsOutput) ElementType() reflect.Type {
@@ -32376,12 +28499,6 @@ func (o InputDeviceSettingsOutput) ToInputDeviceSettingsOutput() InputDeviceSett
 
 func (o InputDeviceSettingsOutput) ToInputDeviceSettingsOutputWithContext(ctx context.Context) InputDeviceSettingsOutput {
 	return o
-}
-
-func (o InputDeviceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[InputDeviceSettings] {
-	return pulumix.Output[InputDeviceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputDeviceSettingsOutput) Id() pulumi.StringPtrOutput {
@@ -32400,12 +28517,6 @@ func (o InputDeviceSettingsArrayOutput) ToInputDeviceSettingsArrayOutput() Input
 
 func (o InputDeviceSettingsArrayOutput) ToInputDeviceSettingsArrayOutputWithContext(ctx context.Context) InputDeviceSettingsArrayOutput {
 	return o
-}
-
-func (o InputDeviceSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InputDeviceSettings] {
-	return pulumix.Output[[]InputDeviceSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputDeviceSettingsArrayOutput) Index(i pulumi.IntInput) InputDeviceSettingsOutput {
@@ -32445,12 +28556,6 @@ func (i InputMediaConnectFlowRequestArgs) ToInputMediaConnectFlowRequestOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InputMediaConnectFlowRequestOutput)
 }
 
-func (i InputMediaConnectFlowRequestArgs) ToOutput(ctx context.Context) pulumix.Output[InputMediaConnectFlowRequest] {
-	return pulumix.Output[InputMediaConnectFlowRequest]{
-		OutputState: i.ToInputMediaConnectFlowRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InputMediaConnectFlowRequestArrayInput is an input type that accepts InputMediaConnectFlowRequestArray and InputMediaConnectFlowRequestArrayOutput values.
 // You can construct a concrete instance of `InputMediaConnectFlowRequestArrayInput` via:
 //
@@ -32476,12 +28581,6 @@ func (i InputMediaConnectFlowRequestArray) ToInputMediaConnectFlowRequestArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(InputMediaConnectFlowRequestArrayOutput)
 }
 
-func (i InputMediaConnectFlowRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]InputMediaConnectFlowRequest] {
-	return pulumix.Output[[]InputMediaConnectFlowRequest]{
-		OutputState: i.ToInputMediaConnectFlowRequestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InputMediaConnectFlowRequestOutput struct{ *pulumi.OutputState }
 
 func (InputMediaConnectFlowRequestOutput) ElementType() reflect.Type {
@@ -32494,12 +28593,6 @@ func (o InputMediaConnectFlowRequestOutput) ToInputMediaConnectFlowRequestOutput
 
 func (o InputMediaConnectFlowRequestOutput) ToInputMediaConnectFlowRequestOutputWithContext(ctx context.Context) InputMediaConnectFlowRequestOutput {
 	return o
-}
-
-func (o InputMediaConnectFlowRequestOutput) ToOutput(ctx context.Context) pulumix.Output[InputMediaConnectFlowRequest] {
-	return pulumix.Output[InputMediaConnectFlowRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputMediaConnectFlowRequestOutput) FlowArn() pulumi.StringPtrOutput {
@@ -32518,12 +28611,6 @@ func (o InputMediaConnectFlowRequestArrayOutput) ToInputMediaConnectFlowRequestA
 
 func (o InputMediaConnectFlowRequestArrayOutput) ToInputMediaConnectFlowRequestArrayOutputWithContext(ctx context.Context) InputMediaConnectFlowRequestArrayOutput {
 	return o
-}
-
-func (o InputMediaConnectFlowRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InputMediaConnectFlowRequest] {
-	return pulumix.Output[[]InputMediaConnectFlowRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputMediaConnectFlowRequestArrayOutput) Index(i pulumi.IntInput) InputMediaConnectFlowRequestOutput {
@@ -32563,12 +28650,6 @@ func (i InputSecurityGroupInputWhitelistRuleCidrArgs) ToInputSecurityGroupInputW
 	return pulumi.ToOutputWithContext(ctx, i).(InputSecurityGroupInputWhitelistRuleCidrOutput)
 }
 
-func (i InputSecurityGroupInputWhitelistRuleCidrArgs) ToOutput(ctx context.Context) pulumix.Output[InputSecurityGroupInputWhitelistRuleCidr] {
-	return pulumix.Output[InputSecurityGroupInputWhitelistRuleCidr]{
-		OutputState: i.ToInputSecurityGroupInputWhitelistRuleCidrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InputSecurityGroupInputWhitelistRuleCidrArrayInput is an input type that accepts InputSecurityGroupInputWhitelistRuleCidrArray and InputSecurityGroupInputWhitelistRuleCidrArrayOutput values.
 // You can construct a concrete instance of `InputSecurityGroupInputWhitelistRuleCidrArrayInput` via:
 //
@@ -32594,12 +28675,6 @@ func (i InputSecurityGroupInputWhitelistRuleCidrArray) ToInputSecurityGroupInput
 	return pulumi.ToOutputWithContext(ctx, i).(InputSecurityGroupInputWhitelistRuleCidrArrayOutput)
 }
 
-func (i InputSecurityGroupInputWhitelistRuleCidrArray) ToOutput(ctx context.Context) pulumix.Output[[]InputSecurityGroupInputWhitelistRuleCidr] {
-	return pulumix.Output[[]InputSecurityGroupInputWhitelistRuleCidr]{
-		OutputState: i.ToInputSecurityGroupInputWhitelistRuleCidrArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InputSecurityGroupInputWhitelistRuleCidrOutput struct{ *pulumi.OutputState }
 
 func (InputSecurityGroupInputWhitelistRuleCidrOutput) ElementType() reflect.Type {
@@ -32612,12 +28687,6 @@ func (o InputSecurityGroupInputWhitelistRuleCidrOutput) ToInputSecurityGroupInpu
 
 func (o InputSecurityGroupInputWhitelistRuleCidrOutput) ToInputSecurityGroupInputWhitelistRuleCidrOutputWithContext(ctx context.Context) InputSecurityGroupInputWhitelistRuleCidrOutput {
 	return o
-}
-
-func (o InputSecurityGroupInputWhitelistRuleCidrOutput) ToOutput(ctx context.Context) pulumix.Output[InputSecurityGroupInputWhitelistRuleCidr] {
-	return pulumix.Output[InputSecurityGroupInputWhitelistRuleCidr]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputSecurityGroupInputWhitelistRuleCidrOutput) Cidr() pulumi.StringPtrOutput {
@@ -32636,12 +28705,6 @@ func (o InputSecurityGroupInputWhitelistRuleCidrArrayOutput) ToInputSecurityGrou
 
 func (o InputSecurityGroupInputWhitelistRuleCidrArrayOutput) ToInputSecurityGroupInputWhitelistRuleCidrArrayOutputWithContext(ctx context.Context) InputSecurityGroupInputWhitelistRuleCidrArrayOutput {
 	return o
-}
-
-func (o InputSecurityGroupInputWhitelistRuleCidrArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InputSecurityGroupInputWhitelistRuleCidr] {
-	return pulumix.Output[[]InputSecurityGroupInputWhitelistRuleCidr]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputSecurityGroupInputWhitelistRuleCidrArrayOutput) Index(i pulumi.IntInput) InputSecurityGroupInputWhitelistRuleCidrOutput {
@@ -32685,12 +28748,6 @@ func (i InputSourceRequestArgs) ToInputSourceRequestOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(InputSourceRequestOutput)
 }
 
-func (i InputSourceRequestArgs) ToOutput(ctx context.Context) pulumix.Output[InputSourceRequest] {
-	return pulumix.Output[InputSourceRequest]{
-		OutputState: i.ToInputSourceRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InputSourceRequestArrayInput is an input type that accepts InputSourceRequestArray and InputSourceRequestArrayOutput values.
 // You can construct a concrete instance of `InputSourceRequestArrayInput` via:
 //
@@ -32716,12 +28773,6 @@ func (i InputSourceRequestArray) ToInputSourceRequestArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(InputSourceRequestArrayOutput)
 }
 
-func (i InputSourceRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]InputSourceRequest] {
-	return pulumix.Output[[]InputSourceRequest]{
-		OutputState: i.ToInputSourceRequestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InputSourceRequestOutput struct{ *pulumi.OutputState }
 
 func (InputSourceRequestOutput) ElementType() reflect.Type {
@@ -32734,12 +28785,6 @@ func (o InputSourceRequestOutput) ToInputSourceRequestOutput() InputSourceReques
 
 func (o InputSourceRequestOutput) ToInputSourceRequestOutputWithContext(ctx context.Context) InputSourceRequestOutput {
 	return o
-}
-
-func (o InputSourceRequestOutput) ToOutput(ctx context.Context) pulumix.Output[InputSourceRequest] {
-	return pulumix.Output[InputSourceRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputSourceRequestOutput) PasswordParam() pulumi.StringPtrOutput {
@@ -32766,12 +28811,6 @@ func (o InputSourceRequestArrayOutput) ToInputSourceRequestArrayOutput() InputSo
 
 func (o InputSourceRequestArrayOutput) ToInputSourceRequestArrayOutputWithContext(ctx context.Context) InputSourceRequestArrayOutput {
 	return o
-}
-
-func (o InputSourceRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InputSourceRequest] {
-	return pulumix.Output[[]InputSourceRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputSourceRequestArrayOutput) Index(i pulumi.IntInput) InputSourceRequestOutput {
@@ -32811,12 +28850,6 @@ func (i InputVpcRequestArgs) ToInputVpcRequestOutput() InputVpcRequestOutput {
 
 func (i InputVpcRequestArgs) ToInputVpcRequestOutputWithContext(ctx context.Context) InputVpcRequestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InputVpcRequestOutput)
-}
-
-func (i InputVpcRequestArgs) ToOutput(ctx context.Context) pulumix.Output[InputVpcRequest] {
-	return pulumix.Output[InputVpcRequest]{
-		OutputState: i.ToInputVpcRequestOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i InputVpcRequestArgs) ToInputVpcRequestPtrOutput() InputVpcRequestPtrOutput {
@@ -32860,12 +28893,6 @@ func (i *inputVpcRequestPtrType) ToInputVpcRequestPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(InputVpcRequestPtrOutput)
 }
 
-func (i *inputVpcRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*InputVpcRequest] {
-	return pulumix.Output[*InputVpcRequest]{
-		OutputState: i.ToInputVpcRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InputVpcRequestOutput struct{ *pulumi.OutputState }
 
 func (InputVpcRequestOutput) ElementType() reflect.Type {
@@ -32890,12 +28917,6 @@ func (o InputVpcRequestOutput) ToInputVpcRequestPtrOutputWithContext(ctx context
 	}).(InputVpcRequestPtrOutput)
 }
 
-func (o InputVpcRequestOutput) ToOutput(ctx context.Context) pulumix.Output[InputVpcRequest] {
-	return pulumix.Output[InputVpcRequest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InputVpcRequestOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputVpcRequest) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -32916,12 +28937,6 @@ func (o InputVpcRequestPtrOutput) ToInputVpcRequestPtrOutput() InputVpcRequestPt
 
 func (o InputVpcRequestPtrOutput) ToInputVpcRequestPtrOutputWithContext(ctx context.Context) InputVpcRequestPtrOutput {
 	return o
-}
-
-func (o InputVpcRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InputVpcRequest] {
-	return pulumix.Output[*InputVpcRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputVpcRequestPtrOutput) Elem() InputVpcRequestOutput {
@@ -32987,12 +29002,6 @@ func (i MultiplexOutputDestinationArgs) ToMultiplexOutputDestinationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexOutputDestinationOutput)
 }
 
-func (i MultiplexOutputDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[MultiplexOutputDestination] {
-	return pulumix.Output[MultiplexOutputDestination]{
-		OutputState: i.ToMultiplexOutputDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MultiplexOutputDestinationArrayInput is an input type that accepts MultiplexOutputDestinationArray and MultiplexOutputDestinationArrayOutput values.
 // You can construct a concrete instance of `MultiplexOutputDestinationArrayInput` via:
 //
@@ -33018,12 +29027,6 @@ func (i MultiplexOutputDestinationArray) ToMultiplexOutputDestinationArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexOutputDestinationArrayOutput)
 }
 
-func (i MultiplexOutputDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]MultiplexOutputDestination] {
-	return pulumix.Output[[]MultiplexOutputDestination]{
-		OutputState: i.ToMultiplexOutputDestinationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Multiplex MediaConnect output destination settings.
 type MultiplexOutputDestinationOutput struct{ *pulumi.OutputState }
 
@@ -33037,12 +29040,6 @@ func (o MultiplexOutputDestinationOutput) ToMultiplexOutputDestinationOutput() M
 
 func (o MultiplexOutputDestinationOutput) ToMultiplexOutputDestinationOutputWithContext(ctx context.Context) MultiplexOutputDestinationOutput {
 	return o
-}
-
-func (o MultiplexOutputDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexOutputDestination] {
-	return pulumix.Output[MultiplexOutputDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Multiplex MediaConnect output destination settings.
@@ -33064,12 +29061,6 @@ func (o MultiplexOutputDestinationArrayOutput) ToMultiplexOutputDestinationArray
 
 func (o MultiplexOutputDestinationArrayOutput) ToMultiplexOutputDestinationArrayOutputWithContext(ctx context.Context) MultiplexOutputDestinationArrayOutput {
 	return o
-}
-
-func (o MultiplexOutputDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MultiplexOutputDestination] {
-	return pulumix.Output[[]MultiplexOutputDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexOutputDestinationArrayOutput) Index(i pulumi.IntInput) MultiplexOutputDestinationOutput {
@@ -33113,12 +29104,6 @@ func (i MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettings
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesOutput)
 }
 
-func (i MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties] {
-	return pulumix.Output[MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties]{
-		OutputState: i.ToMultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs) ToMultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrOutput() MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrOutput {
 	return i.ToMultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrOutputWithContext(context.Background())
 }
@@ -33160,12 +29145,6 @@ func (i *multiplexOutputDestinationMultiplexMediaConnectOutputDestinationSetting
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrOutput)
 }
 
-func (i *multiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties] {
-	return pulumix.Output[*MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties]{
-		OutputState: i.ToMultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Multiplex MediaConnect output destination settings.
 type MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -33191,12 +29170,6 @@ func (o MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettings
 	}).(MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrOutput)
 }
 
-func (o MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties] {
-	return pulumix.Output[MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The MediaConnect entitlement ARN available as a Flow source.
 func (o MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesOutput) EntitlementArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties) *string {
@@ -33216,12 +29189,6 @@ func (o MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettings
 
 func (o MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrOutput) ToMultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrOutputWithContext(ctx context.Context) MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrOutput {
 	return o
-}
-
-func (o MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties] {
-	return pulumix.Output[*MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrOutput) Elem() MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesOutput {
@@ -33291,12 +29258,6 @@ func (i MultiplexSettingsArgs) ToMultiplexSettingsOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexSettingsOutput)
 }
 
-func (i MultiplexSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[MultiplexSettings] {
-	return pulumix.Output[MultiplexSettings]{
-		OutputState: i.ToMultiplexSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type MultiplexSettingsOutput struct{ *pulumi.OutputState }
 
@@ -33310,12 +29271,6 @@ func (o MultiplexSettingsOutput) ToMultiplexSettingsOutput() MultiplexSettingsOu
 
 func (o MultiplexSettingsOutput) ToMultiplexSettingsOutputWithContext(ctx context.Context) MultiplexSettingsOutput {
 	return o
-}
-
-func (o MultiplexSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexSettings] {
-	return pulumix.Output[MultiplexSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Maximum video buffer delay in milliseconds.
@@ -33350,12 +29305,6 @@ func (o MultiplexSettingsPtrOutput) ToMultiplexSettingsPtrOutput() MultiplexSett
 
 func (o MultiplexSettingsPtrOutput) ToMultiplexSettingsPtrOutputWithContext(ctx context.Context) MultiplexSettingsPtrOutput {
 	return o
-}
-
-func (o MultiplexSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiplexSettings] {
-	return pulumix.Output[*MultiplexSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexSettingsPtrOutput) Elem() MultiplexSettingsOutput {
@@ -33443,12 +29392,6 @@ func (i MultiplexTagsArgs) ToMultiplexTagsOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexTagsOutput)
 }
 
-func (i MultiplexTagsArgs) ToOutput(ctx context.Context) pulumix.Output[MultiplexTags] {
-	return pulumix.Output[MultiplexTags]{
-		OutputState: i.ToMultiplexTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MultiplexTagsArrayInput is an input type that accepts MultiplexTagsArray and MultiplexTagsArrayOutput values.
 // You can construct a concrete instance of `MultiplexTagsArrayInput` via:
 //
@@ -33474,12 +29417,6 @@ func (i MultiplexTagsArray) ToMultiplexTagsArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexTagsArrayOutput)
 }
 
-func (i MultiplexTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]MultiplexTags] {
-	return pulumix.Output[[]MultiplexTags]{
-		OutputState: i.ToMultiplexTagsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type MultiplexTagsOutput struct{ *pulumi.OutputState }
 
@@ -33493,12 +29430,6 @@ func (o MultiplexTagsOutput) ToMultiplexTagsOutput() MultiplexTagsOutput {
 
 func (o MultiplexTagsOutput) ToMultiplexTagsOutputWithContext(ctx context.Context) MultiplexTagsOutput {
 	return o
-}
-
-func (o MultiplexTagsOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexTags] {
-	return pulumix.Output[MultiplexTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexTagsOutput) Key() pulumi.StringPtrOutput {
@@ -33521,12 +29452,6 @@ func (o MultiplexTagsArrayOutput) ToMultiplexTagsArrayOutput() MultiplexTagsArra
 
 func (o MultiplexTagsArrayOutput) ToMultiplexTagsArrayOutputWithContext(ctx context.Context) MultiplexTagsArrayOutput {
 	return o
-}
-
-func (o MultiplexTagsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MultiplexTags] {
-	return pulumix.Output[[]MultiplexTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexTagsArrayOutput) Index(i pulumi.IntInput) MultiplexTagsOutput {
@@ -33592,12 +29517,6 @@ func (i MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs) ToMultiplexpro
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexProgramPacketIdentifiersMapOutput)
 }
 
-func (i MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs) ToOutput(ctx context.Context) pulumix.Output[MultiplexprogramMultiplexProgramPacketIdentifiersMap] {
-	return pulumix.Output[MultiplexprogramMultiplexProgramPacketIdentifiersMap]{
-		OutputState: i.ToMultiplexprogramMultiplexProgramPacketIdentifiersMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs) ToMultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutput() MultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutput {
 	return i.ToMultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutputWithContext(context.Background())
 }
@@ -33639,12 +29558,6 @@ func (i *multiplexprogramMultiplexProgramPacketIdentifiersMapPtrType) ToMultiple
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutput)
 }
 
-func (i *multiplexprogramMultiplexProgramPacketIdentifiersMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*MultiplexprogramMultiplexProgramPacketIdentifiersMap] {
-	return pulumix.Output[*MultiplexprogramMultiplexProgramPacketIdentifiersMap]{
-		OutputState: i.ToMultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Packet identifiers map for a given Multiplex program.
 type MultiplexprogramMultiplexProgramPacketIdentifiersMapOutput struct{ *pulumi.OutputState }
 
@@ -33668,12 +29581,6 @@ func (o MultiplexprogramMultiplexProgramPacketIdentifiersMapOutput) ToMultiplexp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexprogramMultiplexProgramPacketIdentifiersMap) *MultiplexprogramMultiplexProgramPacketIdentifiersMap {
 		return &v
 	}).(MultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutput)
-}
-
-func (o MultiplexprogramMultiplexProgramPacketIdentifiersMapOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexprogramMultiplexProgramPacketIdentifiersMap] {
-	return pulumix.Output[MultiplexprogramMultiplexProgramPacketIdentifiersMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexprogramMultiplexProgramPacketIdentifiersMapOutput) AudioPids() pulumi.IntArrayOutput {
@@ -33740,12 +29647,6 @@ func (o MultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutput) ToMultipl
 
 func (o MultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutput) ToMultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutputWithContext(ctx context.Context) MultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutput {
 	return o
-}
-
-func (o MultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiplexprogramMultiplexProgramPacketIdentifiersMap] {
-	return pulumix.Output[*MultiplexprogramMultiplexProgramPacketIdentifiersMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutput) Elem() MultiplexprogramMultiplexProgramPacketIdentifiersMapOutput {
@@ -33914,12 +29815,6 @@ func (i MultiplexprogramMultiplexProgramPipelineDetailArgs) ToMultiplexprogramMu
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexProgramPipelineDetailOutput)
 }
 
-func (i MultiplexprogramMultiplexProgramPipelineDetailArgs) ToOutput(ctx context.Context) pulumix.Output[MultiplexprogramMultiplexProgramPipelineDetail] {
-	return pulumix.Output[MultiplexprogramMultiplexProgramPipelineDetail]{
-		OutputState: i.ToMultiplexprogramMultiplexProgramPipelineDetailOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MultiplexprogramMultiplexProgramPipelineDetailArrayInput is an input type that accepts MultiplexprogramMultiplexProgramPipelineDetailArray and MultiplexprogramMultiplexProgramPipelineDetailArrayOutput values.
 // You can construct a concrete instance of `MultiplexprogramMultiplexProgramPipelineDetailArrayInput` via:
 //
@@ -33945,12 +29840,6 @@ func (i MultiplexprogramMultiplexProgramPipelineDetailArray) ToMultiplexprogramM
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexProgramPipelineDetailArrayOutput)
 }
 
-func (i MultiplexprogramMultiplexProgramPipelineDetailArray) ToOutput(ctx context.Context) pulumix.Output[[]MultiplexprogramMultiplexProgramPipelineDetail] {
-	return pulumix.Output[[]MultiplexprogramMultiplexProgramPipelineDetail]{
-		OutputState: i.ToMultiplexprogramMultiplexProgramPipelineDetailArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The current source for one of the pipelines in the multiplex.
 type MultiplexprogramMultiplexProgramPipelineDetailOutput struct{ *pulumi.OutputState }
 
@@ -33964,12 +29853,6 @@ func (o MultiplexprogramMultiplexProgramPipelineDetailOutput) ToMultiplexprogram
 
 func (o MultiplexprogramMultiplexProgramPipelineDetailOutput) ToMultiplexprogramMultiplexProgramPipelineDetailOutputWithContext(ctx context.Context) MultiplexprogramMultiplexProgramPipelineDetailOutput {
 	return o
-}
-
-func (o MultiplexprogramMultiplexProgramPipelineDetailOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexprogramMultiplexProgramPipelineDetail] {
-	return pulumix.Output[MultiplexprogramMultiplexProgramPipelineDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
@@ -33994,12 +29877,6 @@ func (o MultiplexprogramMultiplexProgramPipelineDetailArrayOutput) ToMultiplexpr
 
 func (o MultiplexprogramMultiplexProgramPipelineDetailArrayOutput) ToMultiplexprogramMultiplexProgramPipelineDetailArrayOutputWithContext(ctx context.Context) MultiplexprogramMultiplexProgramPipelineDetailArrayOutput {
 	return o
-}
-
-func (o MultiplexprogramMultiplexProgramPipelineDetailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MultiplexprogramMultiplexProgramPipelineDetail] {
-	return pulumix.Output[[]MultiplexprogramMultiplexProgramPipelineDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexprogramMultiplexProgramPipelineDetailArrayOutput) Index(i pulumi.IntInput) MultiplexprogramMultiplexProgramPipelineDetailOutput {
@@ -34047,12 +29924,6 @@ func (i MultiplexprogramMultiplexProgramServiceDescriptorArgs) ToMultiplexprogra
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexProgramServiceDescriptorOutput)
 }
 
-func (i MultiplexprogramMultiplexProgramServiceDescriptorArgs) ToOutput(ctx context.Context) pulumix.Output[MultiplexprogramMultiplexProgramServiceDescriptor] {
-	return pulumix.Output[MultiplexprogramMultiplexProgramServiceDescriptor]{
-		OutputState: i.ToMultiplexprogramMultiplexProgramServiceDescriptorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MultiplexprogramMultiplexProgramServiceDescriptorArgs) ToMultiplexprogramMultiplexProgramServiceDescriptorPtrOutput() MultiplexprogramMultiplexProgramServiceDescriptorPtrOutput {
 	return i.ToMultiplexprogramMultiplexProgramServiceDescriptorPtrOutputWithContext(context.Background())
 }
@@ -34094,12 +29965,6 @@ func (i *multiplexprogramMultiplexProgramServiceDescriptorPtrType) ToMultiplexpr
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexProgramServiceDescriptorPtrOutput)
 }
 
-func (i *multiplexprogramMultiplexProgramServiceDescriptorPtrType) ToOutput(ctx context.Context) pulumix.Output[*MultiplexprogramMultiplexProgramServiceDescriptor] {
-	return pulumix.Output[*MultiplexprogramMultiplexProgramServiceDescriptor]{
-		OutputState: i.ToMultiplexprogramMultiplexProgramServiceDescriptorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Transport stream service descriptor configuration for the Multiplex program.
 type MultiplexprogramMultiplexProgramServiceDescriptorOutput struct{ *pulumi.OutputState }
 
@@ -34125,12 +29990,6 @@ func (o MultiplexprogramMultiplexProgramServiceDescriptorOutput) ToMultiplexprog
 	}).(MultiplexprogramMultiplexProgramServiceDescriptorPtrOutput)
 }
 
-func (o MultiplexprogramMultiplexProgramServiceDescriptorOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexprogramMultiplexProgramServiceDescriptor] {
-	return pulumix.Output[MultiplexprogramMultiplexProgramServiceDescriptor]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Name of the provider.
 func (o MultiplexprogramMultiplexProgramServiceDescriptorOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiplexprogramMultiplexProgramServiceDescriptor) string { return v.ProviderName }).(pulumi.StringOutput)
@@ -34153,12 +30012,6 @@ func (o MultiplexprogramMultiplexProgramServiceDescriptorPtrOutput) ToMultiplexp
 
 func (o MultiplexprogramMultiplexProgramServiceDescriptorPtrOutput) ToMultiplexprogramMultiplexProgramServiceDescriptorPtrOutputWithContext(ctx context.Context) MultiplexprogramMultiplexProgramServiceDescriptorPtrOutput {
 	return o
-}
-
-func (o MultiplexprogramMultiplexProgramServiceDescriptorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiplexprogramMultiplexProgramServiceDescriptor] {
-	return pulumix.Output[*MultiplexprogramMultiplexProgramServiceDescriptor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexprogramMultiplexProgramServiceDescriptorPtrOutput) Elem() MultiplexprogramMultiplexProgramServiceDescriptorOutput {
@@ -34236,12 +30089,6 @@ func (i MultiplexprogramMultiplexProgramSettingsArgs) ToMultiplexprogramMultiple
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexProgramSettingsOutput)
 }
 
-func (i MultiplexprogramMultiplexProgramSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[MultiplexprogramMultiplexProgramSettings] {
-	return pulumix.Output[MultiplexprogramMultiplexProgramSettings]{
-		OutputState: i.ToMultiplexprogramMultiplexProgramSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MultiplexprogramMultiplexProgramSettingsArgs) ToMultiplexprogramMultiplexProgramSettingsPtrOutput() MultiplexprogramMultiplexProgramSettingsPtrOutput {
 	return i.ToMultiplexprogramMultiplexProgramSettingsPtrOutputWithContext(context.Background())
 }
@@ -34283,12 +30130,6 @@ func (i *multiplexprogramMultiplexProgramSettingsPtrType) ToMultiplexprogramMult
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexProgramSettingsPtrOutput)
 }
 
-func (i *multiplexprogramMultiplexProgramSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*MultiplexprogramMultiplexProgramSettings] {
-	return pulumix.Output[*MultiplexprogramMultiplexProgramSettings]{
-		OutputState: i.ToMultiplexprogramMultiplexProgramSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Multiplex Program settings configuration.
 type MultiplexprogramMultiplexProgramSettingsOutput struct{ *pulumi.OutputState }
 
@@ -34312,12 +30153,6 @@ func (o MultiplexprogramMultiplexProgramSettingsOutput) ToMultiplexprogramMultip
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexprogramMultiplexProgramSettings) *MultiplexprogramMultiplexProgramSettings {
 		return &v
 	}).(MultiplexprogramMultiplexProgramSettingsPtrOutput)
-}
-
-func (o MultiplexprogramMultiplexProgramSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexprogramMultiplexProgramSettings] {
-	return pulumix.Output[MultiplexprogramMultiplexProgramSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexprogramMultiplexProgramSettingsOutput) PreferredChannelPipeline() MultiplexprogramPreferredChannelPipelinePtrOutput {
@@ -34357,12 +30192,6 @@ func (o MultiplexprogramMultiplexProgramSettingsPtrOutput) ToMultiplexprogramMul
 
 func (o MultiplexprogramMultiplexProgramSettingsPtrOutput) ToMultiplexprogramMultiplexProgramSettingsPtrOutputWithContext(ctx context.Context) MultiplexprogramMultiplexProgramSettingsPtrOutput {
 	return o
-}
-
-func (o MultiplexprogramMultiplexProgramSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiplexprogramMultiplexProgramSettings] {
-	return pulumix.Output[*MultiplexprogramMultiplexProgramSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexprogramMultiplexProgramSettingsPtrOutput) Elem() MultiplexprogramMultiplexProgramSettingsOutput {
@@ -34445,12 +30274,6 @@ func (i MultiplexprogramMultiplexVideoSettingsArgs) ToMultiplexprogramMultiplexV
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexVideoSettingsOutput)
 }
 
-func (i MultiplexprogramMultiplexVideoSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[MultiplexprogramMultiplexVideoSettings] {
-	return pulumix.Output[MultiplexprogramMultiplexVideoSettings]{
-		OutputState: i.ToMultiplexprogramMultiplexVideoSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MultiplexprogramMultiplexVideoSettingsArgs) ToMultiplexprogramMultiplexVideoSettingsPtrOutput() MultiplexprogramMultiplexVideoSettingsPtrOutput {
 	return i.ToMultiplexprogramMultiplexVideoSettingsPtrOutputWithContext(context.Background())
 }
@@ -34492,12 +30315,6 @@ func (i *multiplexprogramMultiplexVideoSettingsPtrType) ToMultiplexprogramMultip
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexVideoSettingsPtrOutput)
 }
 
-func (i *multiplexprogramMultiplexVideoSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*MultiplexprogramMultiplexVideoSettings] {
-	return pulumix.Output[*MultiplexprogramMultiplexVideoSettings]{
-		OutputState: i.ToMultiplexprogramMultiplexVideoSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The video configuration for each program in a multiplex.
 type MultiplexprogramMultiplexVideoSettingsOutput struct{ *pulumi.OutputState }
 
@@ -34523,12 +30340,6 @@ func (o MultiplexprogramMultiplexVideoSettingsOutput) ToMultiplexprogramMultiple
 	}).(MultiplexprogramMultiplexVideoSettingsPtrOutput)
 }
 
-func (o MultiplexprogramMultiplexVideoSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexprogramMultiplexVideoSettings] {
-	return pulumix.Output[MultiplexprogramMultiplexVideoSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 type MultiplexprogramMultiplexVideoSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (MultiplexprogramMultiplexVideoSettingsPtrOutput) ElementType() reflect.Type {
@@ -34541,12 +30352,6 @@ func (o MultiplexprogramMultiplexVideoSettingsPtrOutput) ToMultiplexprogramMulti
 
 func (o MultiplexprogramMultiplexVideoSettingsPtrOutput) ToMultiplexprogramMultiplexVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexprogramMultiplexVideoSettingsPtrOutput {
 	return o
-}
-
-func (o MultiplexprogramMultiplexVideoSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiplexprogramMultiplexVideoSettings] {
-	return pulumix.Output[*MultiplexprogramMultiplexVideoSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexprogramMultiplexVideoSettingsPtrOutput) Elem() MultiplexprogramMultiplexVideoSettingsOutput {

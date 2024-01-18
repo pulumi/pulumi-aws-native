@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS Ground Station config resource type for CloudFormation.
@@ -102,12 +101,6 @@ func (i *Config) ToConfigOutputWithContext(ctx context.Context) ConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigOutput)
 }
 
-func (i *Config) ToOutput(ctx context.Context) pulumix.Output[*Config] {
-	return pulumix.Output[*Config]{
-		OutputState: i.ToConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigOutput struct{ *pulumi.OutputState }
 
 func (ConfigOutput) ElementType() reflect.Type {
@@ -120,12 +113,6 @@ func (o ConfigOutput) ToConfigOutput() ConfigOutput {
 
 func (o ConfigOutput) ToConfigOutputWithContext(ctx context.Context) ConfigOutput {
 	return o
-}
-
-func (o ConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*Config] {
-	return pulumix.Output[*Config]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigOutput) Arn() pulumi.StringOutput {

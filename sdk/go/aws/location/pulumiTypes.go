@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i ApiKeyRestrictionsArgs) ToApiKeyRestrictionsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyRestrictionsOutput)
 }
 
-func (i ApiKeyRestrictionsArgs) ToOutput(ctx context.Context) pulumix.Output[ApiKeyRestrictions] {
-	return pulumix.Output[ApiKeyRestrictions]{
-		OutputState: i.ToApiKeyRestrictionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiKeyRestrictionsOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyRestrictionsOutput) ElementType() reflect.Type {
@@ -67,12 +60,6 @@ func (o ApiKeyRestrictionsOutput) ToApiKeyRestrictionsOutput() ApiKeyRestriction
 
 func (o ApiKeyRestrictionsOutput) ToApiKeyRestrictionsOutputWithContext(ctx context.Context) ApiKeyRestrictionsOutput {
 	return o
-}
-
-func (o ApiKeyRestrictionsOutput) ToOutput(ctx context.Context) pulumix.Output[ApiKeyRestrictions] {
-	return pulumix.Output[ApiKeyRestrictions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiKeyRestrictionsOutput) AllowActions() pulumi.StringArrayOutput {
@@ -99,12 +86,6 @@ func (o ApiKeyRestrictionsPtrOutput) ToApiKeyRestrictionsPtrOutput() ApiKeyRestr
 
 func (o ApiKeyRestrictionsPtrOutput) ToApiKeyRestrictionsPtrOutputWithContext(ctx context.Context) ApiKeyRestrictionsPtrOutput {
 	return o
-}
-
-func (o ApiKeyRestrictionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiKeyRestrictions] {
-	return pulumix.Output[*ApiKeyRestrictions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiKeyRestrictionsPtrOutput) Elem() ApiKeyRestrictionsOutput {
@@ -183,12 +164,6 @@ func (i ApiKeyTagArgs) ToApiKeyTagOutputWithContext(ctx context.Context) ApiKeyT
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyTagOutput)
 }
 
-func (i ApiKeyTagArgs) ToOutput(ctx context.Context) pulumix.Output[ApiKeyTag] {
-	return pulumix.Output[ApiKeyTag]{
-		OutputState: i.ToApiKeyTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApiKeyTagArrayInput is an input type that accepts ApiKeyTagArray and ApiKeyTagArrayOutput values.
 // You can construct a concrete instance of `ApiKeyTagArrayInput` via:
 //
@@ -214,12 +189,6 @@ func (i ApiKeyTagArray) ToApiKeyTagArrayOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyTagArrayOutput)
 }
 
-func (i ApiKeyTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiKeyTag] {
-	return pulumix.Output[[]ApiKeyTag]{
-		OutputState: i.ToApiKeyTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type ApiKeyTagOutput struct{ *pulumi.OutputState }
 
@@ -233,12 +202,6 @@ func (o ApiKeyTagOutput) ToApiKeyTagOutput() ApiKeyTagOutput {
 
 func (o ApiKeyTagOutput) ToApiKeyTagOutputWithContext(ctx context.Context) ApiKeyTagOutput {
 	return o
-}
-
-func (o ApiKeyTagOutput) ToOutput(ctx context.Context) pulumix.Output[ApiKeyTag] {
-	return pulumix.Output[ApiKeyTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -263,12 +226,6 @@ func (o ApiKeyTagArrayOutput) ToApiKeyTagArrayOutput() ApiKeyTagArrayOutput {
 
 func (o ApiKeyTagArrayOutput) ToApiKeyTagArrayOutputWithContext(ctx context.Context) ApiKeyTagArrayOutput {
 	return o
-}
-
-func (o ApiKeyTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiKeyTag] {
-	return pulumix.Output[[]ApiKeyTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiKeyTagArrayOutput) Index(i pulumi.IntInput) ApiKeyTagOutput {
@@ -316,12 +273,6 @@ func (i GeofenceCollectionTagArgs) ToGeofenceCollectionTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GeofenceCollectionTagOutput)
 }
 
-func (i GeofenceCollectionTagArgs) ToOutput(ctx context.Context) pulumix.Output[GeofenceCollectionTag] {
-	return pulumix.Output[GeofenceCollectionTag]{
-		OutputState: i.ToGeofenceCollectionTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GeofenceCollectionTagArrayInput is an input type that accepts GeofenceCollectionTagArray and GeofenceCollectionTagArrayOutput values.
 // You can construct a concrete instance of `GeofenceCollectionTagArrayInput` via:
 //
@@ -347,12 +298,6 @@ func (i GeofenceCollectionTagArray) ToGeofenceCollectionTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GeofenceCollectionTagArrayOutput)
 }
 
-func (i GeofenceCollectionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GeofenceCollectionTag] {
-	return pulumix.Output[[]GeofenceCollectionTag]{
-		OutputState: i.ToGeofenceCollectionTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type GeofenceCollectionTagOutput struct{ *pulumi.OutputState }
 
@@ -366,12 +311,6 @@ func (o GeofenceCollectionTagOutput) ToGeofenceCollectionTagOutput() GeofenceCol
 
 func (o GeofenceCollectionTagOutput) ToGeofenceCollectionTagOutputWithContext(ctx context.Context) GeofenceCollectionTagOutput {
 	return o
-}
-
-func (o GeofenceCollectionTagOutput) ToOutput(ctx context.Context) pulumix.Output[GeofenceCollectionTag] {
-	return pulumix.Output[GeofenceCollectionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -396,12 +335,6 @@ func (o GeofenceCollectionTagArrayOutput) ToGeofenceCollectionTagArrayOutput() G
 
 func (o GeofenceCollectionTagArrayOutput) ToGeofenceCollectionTagArrayOutputWithContext(ctx context.Context) GeofenceCollectionTagArrayOutput {
 	return o
-}
-
-func (o GeofenceCollectionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GeofenceCollectionTag] {
-	return pulumix.Output[[]GeofenceCollectionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GeofenceCollectionTagArrayOutput) Index(i pulumi.IntInput) GeofenceCollectionTagOutput {
@@ -443,12 +376,6 @@ func (i MapConfigurationArgs) ToMapConfigurationOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MapConfigurationOutput)
 }
 
-func (i MapConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MapConfiguration] {
-	return pulumix.Output[MapConfiguration]{
-		OutputState: i.ToMapConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MapConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MapConfigurationOutput) ElementType() reflect.Type {
@@ -461,12 +388,6 @@ func (o MapConfigurationOutput) ToMapConfigurationOutput() MapConfigurationOutpu
 
 func (o MapConfigurationOutput) ToMapConfigurationOutputWithContext(ctx context.Context) MapConfigurationOutput {
 	return o
-}
-
-func (o MapConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MapConfiguration] {
-	return pulumix.Output[MapConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MapConfigurationOutput) PoliticalView() pulumi.StringPtrOutput {
@@ -516,12 +437,6 @@ func (i MapTagArgs) ToMapTagOutputWithContext(ctx context.Context) MapTagOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MapTagOutput)
 }
 
-func (i MapTagArgs) ToOutput(ctx context.Context) pulumix.Output[MapTag] {
-	return pulumix.Output[MapTag]{
-		OutputState: i.ToMapTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MapTagArrayInput is an input type that accepts MapTagArray and MapTagArrayOutput values.
 // You can construct a concrete instance of `MapTagArrayInput` via:
 //
@@ -547,12 +462,6 @@ func (i MapTagArray) ToMapTagArrayOutputWithContext(ctx context.Context) MapTagA
 	return pulumi.ToOutputWithContext(ctx, i).(MapTagArrayOutput)
 }
 
-func (i MapTagArray) ToOutput(ctx context.Context) pulumix.Output[[]MapTag] {
-	return pulumix.Output[[]MapTag]{
-		OutputState: i.ToMapTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type MapTagOutput struct{ *pulumi.OutputState }
 
@@ -566,12 +475,6 @@ func (o MapTagOutput) ToMapTagOutput() MapTagOutput {
 
 func (o MapTagOutput) ToMapTagOutputWithContext(ctx context.Context) MapTagOutput {
 	return o
-}
-
-func (o MapTagOutput) ToOutput(ctx context.Context) pulumix.Output[MapTag] {
-	return pulumix.Output[MapTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -596,12 +499,6 @@ func (o MapTagArrayOutput) ToMapTagArrayOutput() MapTagArrayOutput {
 
 func (o MapTagArrayOutput) ToMapTagArrayOutputWithContext(ctx context.Context) MapTagArrayOutput {
 	return o
-}
-
-func (o MapTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MapTag] {
-	return pulumix.Output[[]MapTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MapTagArrayOutput) Index(i pulumi.IntInput) MapTagOutput {
@@ -639,12 +536,6 @@ func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurati
 
 func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurationOutputWithContext(ctx context.Context) PlaceIndexDataSourceConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexDataSourceConfigurationOutput)
-}
-
-func (i PlaceIndexDataSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PlaceIndexDataSourceConfiguration] {
-	return pulumix.Output[PlaceIndexDataSourceConfiguration]{
-		OutputState: i.ToPlaceIndexDataSourceConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurationPtrOutput() PlaceIndexDataSourceConfigurationPtrOutput {
@@ -688,12 +579,6 @@ func (i *placeIndexDataSourceConfigurationPtrType) ToPlaceIndexDataSourceConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
-func (i *placeIndexDataSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndexDataSourceConfiguration] {
-	return pulumix.Output[*PlaceIndexDataSourceConfiguration]{
-		OutputState: i.ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlaceIndexDataSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PlaceIndexDataSourceConfigurationOutput) ElementType() reflect.Type {
@@ -718,12 +603,6 @@ func (o PlaceIndexDataSourceConfigurationOutput) ToPlaceIndexDataSourceConfigura
 	}).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
-func (o PlaceIndexDataSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PlaceIndexDataSourceConfiguration] {
-	return pulumix.Output[PlaceIndexDataSourceConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PlaceIndexDataSourceConfigurationOutput) IntendedUse() PlaceIndexIntendedUsePtrOutput {
 	return o.ApplyT(func(v PlaceIndexDataSourceConfiguration) *PlaceIndexIntendedUse { return v.IntendedUse }).(PlaceIndexIntendedUsePtrOutput)
 }
@@ -740,12 +619,6 @@ func (o PlaceIndexDataSourceConfigurationPtrOutput) ToPlaceIndexDataSourceConfig
 
 func (o PlaceIndexDataSourceConfigurationPtrOutput) ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(ctx context.Context) PlaceIndexDataSourceConfigurationPtrOutput {
 	return o
-}
-
-func (o PlaceIndexDataSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndexDataSourceConfiguration] {
-	return pulumix.Output[*PlaceIndexDataSourceConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaceIndexDataSourceConfigurationPtrOutput) Elem() PlaceIndexDataSourceConfigurationOutput {
@@ -806,12 +679,6 @@ func (i PlaceIndexTagArgs) ToPlaceIndexTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexTagOutput)
 }
 
-func (i PlaceIndexTagArgs) ToOutput(ctx context.Context) pulumix.Output[PlaceIndexTag] {
-	return pulumix.Output[PlaceIndexTag]{
-		OutputState: i.ToPlaceIndexTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PlaceIndexTagArrayInput is an input type that accepts PlaceIndexTagArray and PlaceIndexTagArrayOutput values.
 // You can construct a concrete instance of `PlaceIndexTagArrayInput` via:
 //
@@ -837,12 +704,6 @@ func (i PlaceIndexTagArray) ToPlaceIndexTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexTagArrayOutput)
 }
 
-func (i PlaceIndexTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PlaceIndexTag] {
-	return pulumix.Output[[]PlaceIndexTag]{
-		OutputState: i.ToPlaceIndexTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type PlaceIndexTagOutput struct{ *pulumi.OutputState }
 
@@ -856,12 +717,6 @@ func (o PlaceIndexTagOutput) ToPlaceIndexTagOutput() PlaceIndexTagOutput {
 
 func (o PlaceIndexTagOutput) ToPlaceIndexTagOutputWithContext(ctx context.Context) PlaceIndexTagOutput {
 	return o
-}
-
-func (o PlaceIndexTagOutput) ToOutput(ctx context.Context) pulumix.Output[PlaceIndexTag] {
-	return pulumix.Output[PlaceIndexTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -886,12 +741,6 @@ func (o PlaceIndexTagArrayOutput) ToPlaceIndexTagArrayOutput() PlaceIndexTagArra
 
 func (o PlaceIndexTagArrayOutput) ToPlaceIndexTagArrayOutputWithContext(ctx context.Context) PlaceIndexTagArrayOutput {
 	return o
-}
-
-func (o PlaceIndexTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PlaceIndexTag] {
-	return pulumix.Output[[]PlaceIndexTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaceIndexTagArrayOutput) Index(i pulumi.IntInput) PlaceIndexTagOutput {
@@ -939,12 +788,6 @@ func (i RouteCalculatorTagArgs) ToRouteCalculatorTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RouteCalculatorTagOutput)
 }
 
-func (i RouteCalculatorTagArgs) ToOutput(ctx context.Context) pulumix.Output[RouteCalculatorTag] {
-	return pulumix.Output[RouteCalculatorTag]{
-		OutputState: i.ToRouteCalculatorTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RouteCalculatorTagArrayInput is an input type that accepts RouteCalculatorTagArray and RouteCalculatorTagArrayOutput values.
 // You can construct a concrete instance of `RouteCalculatorTagArrayInput` via:
 //
@@ -970,12 +813,6 @@ func (i RouteCalculatorTagArray) ToRouteCalculatorTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RouteCalculatorTagArrayOutput)
 }
 
-func (i RouteCalculatorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RouteCalculatorTag] {
-	return pulumix.Output[[]RouteCalculatorTag]{
-		OutputState: i.ToRouteCalculatorTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type RouteCalculatorTagOutput struct{ *pulumi.OutputState }
 
@@ -989,12 +826,6 @@ func (o RouteCalculatorTagOutput) ToRouteCalculatorTagOutput() RouteCalculatorTa
 
 func (o RouteCalculatorTagOutput) ToRouteCalculatorTagOutputWithContext(ctx context.Context) RouteCalculatorTagOutput {
 	return o
-}
-
-func (o RouteCalculatorTagOutput) ToOutput(ctx context.Context) pulumix.Output[RouteCalculatorTag] {
-	return pulumix.Output[RouteCalculatorTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1019,12 +850,6 @@ func (o RouteCalculatorTagArrayOutput) ToRouteCalculatorTagArrayOutput() RouteCa
 
 func (o RouteCalculatorTagArrayOutput) ToRouteCalculatorTagArrayOutputWithContext(ctx context.Context) RouteCalculatorTagArrayOutput {
 	return o
-}
-
-func (o RouteCalculatorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RouteCalculatorTag] {
-	return pulumix.Output[[]RouteCalculatorTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RouteCalculatorTagArrayOutput) Index(i pulumi.IntInput) RouteCalculatorTagOutput {
@@ -1072,12 +897,6 @@ func (i TrackerTagArgs) ToTrackerTagOutputWithContext(ctx context.Context) Track
 	return pulumi.ToOutputWithContext(ctx, i).(TrackerTagOutput)
 }
 
-func (i TrackerTagArgs) ToOutput(ctx context.Context) pulumix.Output[TrackerTag] {
-	return pulumix.Output[TrackerTag]{
-		OutputState: i.ToTrackerTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrackerTagArrayInput is an input type that accepts TrackerTagArray and TrackerTagArrayOutput values.
 // You can construct a concrete instance of `TrackerTagArrayInput` via:
 //
@@ -1103,12 +922,6 @@ func (i TrackerTagArray) ToTrackerTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(TrackerTagArrayOutput)
 }
 
-func (i TrackerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TrackerTag] {
-	return pulumix.Output[[]TrackerTag]{
-		OutputState: i.ToTrackerTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type TrackerTagOutput struct{ *pulumi.OutputState }
 
@@ -1122,12 +935,6 @@ func (o TrackerTagOutput) ToTrackerTagOutput() TrackerTagOutput {
 
 func (o TrackerTagOutput) ToTrackerTagOutputWithContext(ctx context.Context) TrackerTagOutput {
 	return o
-}
-
-func (o TrackerTagOutput) ToOutput(ctx context.Context) pulumix.Output[TrackerTag] {
-	return pulumix.Output[TrackerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1152,12 +959,6 @@ func (o TrackerTagArrayOutput) ToTrackerTagArrayOutput() TrackerTagArrayOutput {
 
 func (o TrackerTagArrayOutput) ToTrackerTagArrayOutputWithContext(ctx context.Context) TrackerTagArrayOutput {
 	return o
-}
-
-func (o TrackerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TrackerTag] {
-	return pulumix.Output[[]TrackerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrackerTagArrayOutput) Index(i pulumi.IntInput) TrackerTagOutput {

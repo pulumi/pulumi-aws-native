@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AutoScalingPlans::ScalingPlan
@@ -104,12 +103,6 @@ func (i *ScalingPlan) ToScalingPlanOutputWithContext(ctx context.Context) Scalin
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanOutput)
 }
 
-func (i *ScalingPlan) ToOutput(ctx context.Context) pulumix.Output[*ScalingPlan] {
-	return pulumix.Output[*ScalingPlan]{
-		OutputState: i.ToScalingPlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPlanOutput struct{ *pulumi.OutputState }
 
 func (ScalingPlanOutput) ElementType() reflect.Type {
@@ -122,12 +115,6 @@ func (o ScalingPlanOutput) ToScalingPlanOutput() ScalingPlanOutput {
 
 func (o ScalingPlanOutput) ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput {
 	return o
-}
-
-func (o ScalingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPlan] {
-	return pulumix.Output[*ScalingPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPlanOutput) ApplicationSource() ScalingPlanApplicationSourceOutput {

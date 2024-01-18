@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppConfig::Extension
@@ -70,12 +69,6 @@ func (o LookupExtensionResultOutput) ToLookupExtensionResultOutput() LookupExten
 
 func (o LookupExtensionResultOutput) ToLookupExtensionResultOutputWithContext(ctx context.Context) LookupExtensionResultOutput {
 	return o
-}
-
-func (o LookupExtensionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupExtensionResult] {
-	return pulumix.Output[LookupExtensionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupExtensionResultOutput) Actions() pulumi.AnyOutput {

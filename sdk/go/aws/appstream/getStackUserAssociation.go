@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::StackUserAssociation
@@ -64,12 +63,6 @@ func (o LookupStackUserAssociationResultOutput) ToLookupStackUserAssociationResu
 
 func (o LookupStackUserAssociationResultOutput) ToLookupStackUserAssociationResultOutputWithContext(ctx context.Context) LookupStackUserAssociationResultOutput {
 	return o
-}
-
-func (o LookupStackUserAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStackUserAssociationResult] {
-	return pulumix.Output[LookupStackUserAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupStackUserAssociationResultOutput) Id() pulumi.StringPtrOutput {

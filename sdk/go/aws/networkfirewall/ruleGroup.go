@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::NetworkFirewall::RuleGroup
@@ -120,12 +119,6 @@ func (i *RuleGroup) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOutput)
 }
 
-func (i *RuleGroup) ToOutput(ctx context.Context) pulumix.Output[*RuleGroup] {
-	return pulumix.Output[*RuleGroup]{
-		OutputState: i.ToRuleGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RuleGroupOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o RuleGroupOutput) ToRuleGroupOutput() RuleGroupOutput {
 
 func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupOutput {
 	return o
-}
-
-func (o RuleGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroup] {
-	return pulumix.Output[*RuleGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RuleGroupOutput) Capacity() pulumi.IntOutput {

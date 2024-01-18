@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationEFS.
@@ -71,12 +70,6 @@ func (o LookupLocationEfsResultOutput) ToLookupLocationEfsResultOutput() LookupL
 
 func (o LookupLocationEfsResultOutput) ToLookupLocationEfsResultOutputWithContext(ctx context.Context) LookupLocationEfsResultOutput {
 	return o
-}
-
-func (o LookupLocationEfsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocationEfsResult] {
-	return pulumix.Output[LookupLocationEfsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.

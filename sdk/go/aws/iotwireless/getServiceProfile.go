@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -75,12 +74,6 @@ func (o LookupServiceProfileResultOutput) ToLookupServiceProfileResultOutput() L
 
 func (o LookupServiceProfileResultOutput) ToLookupServiceProfileResultOutputWithContext(ctx context.Context) LookupServiceProfileResultOutput {
 	return o
-}
-
-func (o LookupServiceProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceProfileResult] {
-	return pulumix.Output[LookupServiceProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Service profile Arn. Returned after successful create.

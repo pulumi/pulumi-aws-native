@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Route53::RecordSet
@@ -147,12 +146,6 @@ func (i *RecordSet) ToRecordSetOutputWithContext(ctx context.Context) RecordSetO
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetOutput)
 }
 
-func (i *RecordSet) ToOutput(ctx context.Context) pulumix.Output[*RecordSet] {
-	return pulumix.Output[*RecordSet]{
-		OutputState: i.ToRecordSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordSetOutput struct{ *pulumi.OutputState }
 
 func (RecordSetOutput) ElementType() reflect.Type {
@@ -165,12 +158,6 @@ func (o RecordSetOutput) ToRecordSetOutput() RecordSetOutput {
 
 func (o RecordSetOutput) ToRecordSetOutputWithContext(ctx context.Context) RecordSetOutput {
 	return o
-}
-
-func (o RecordSetOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordSet] {
-	return pulumix.Output[*RecordSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetOutput) AliasTarget() RecordSetAliasTargetPtrOutput {

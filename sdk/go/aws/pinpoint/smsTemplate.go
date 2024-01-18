@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::SmsTemplate
@@ -116,12 +115,6 @@ func (i *SmsTemplate) ToSmsTemplateOutputWithContext(ctx context.Context) SmsTem
 	return pulumi.ToOutputWithContext(ctx, i).(SmsTemplateOutput)
 }
 
-func (i *SmsTemplate) ToOutput(ctx context.Context) pulumix.Output[*SmsTemplate] {
-	return pulumix.Output[*SmsTemplate]{
-		OutputState: i.ToSmsTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SmsTemplateOutput struct{ *pulumi.OutputState }
 
 func (SmsTemplateOutput) ElementType() reflect.Type {
@@ -134,12 +127,6 @@ func (o SmsTemplateOutput) ToSmsTemplateOutput() SmsTemplateOutput {
 
 func (o SmsTemplateOutput) ToSmsTemplateOutputWithContext(ctx context.Context) SmsTemplateOutput {
 	return o
-}
-
-func (o SmsTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*SmsTemplate] {
-	return pulumix.Output[*SmsTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SmsTemplateOutput) Arn() pulumi.StringOutput {

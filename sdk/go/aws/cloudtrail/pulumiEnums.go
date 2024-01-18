@@ -78,12 +78,6 @@ func (o ChannelDestinationTypeOutput) ToChannelDestinationTypePtrOutputWithConte
 	}).(ChannelDestinationTypePtrOutput)
 }
 
-func (o ChannelDestinationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelDestinationType] {
-	return pulumix.Output[ChannelDestinationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelDestinationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o ChannelDestinationTypePtrOutput) ToChannelDestinationTypePtrOutputWithCo
 	return o
 }
 
-func (o ChannelDestinationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelDestinationType] {
-	return pulumix.Output[*ChannelDestinationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelDestinationTypePtrOutput) Elem() ChannelDestinationTypeOutput {
 	return o.ApplyT(func(v *ChannelDestinationType) ChannelDestinationType {
 		if v != nil {
@@ -149,10 +137,10 @@ func (o ChannelDestinationTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ChannelDestinationTypeInput is an input type that accepts ChannelDestinationTypeArgs and ChannelDestinationTypeOutput values.
-// You can construct a concrete instance of `ChannelDestinationTypeInput` via:
+// ChannelDestinationTypeInput is an input type that accepts values of the ChannelDestinationType enum
+// A concrete instance of `ChannelDestinationTypeInput` can be one of the following:
 //
-//	ChannelDestinationTypeArgs{...}
+//	ChannelDestinationTypeEventDataStore
 type ChannelDestinationTypeInput interface {
 	pulumi.Input
 
@@ -262,12 +250,6 @@ func (o TrailEventSelectorReadWriteTypeOutput) ToTrailEventSelectorReadWriteType
 	}).(TrailEventSelectorReadWriteTypePtrOutput)
 }
 
-func (o TrailEventSelectorReadWriteTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TrailEventSelectorReadWriteType] {
-	return pulumix.Output[TrailEventSelectorReadWriteType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrailEventSelectorReadWriteTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +285,6 @@ func (o TrailEventSelectorReadWriteTypePtrOutput) ToTrailEventSelectorReadWriteT
 	return o
 }
 
-func (o TrailEventSelectorReadWriteTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrailEventSelectorReadWriteType] {
-	return pulumix.Output[*TrailEventSelectorReadWriteType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrailEventSelectorReadWriteTypePtrOutput) Elem() TrailEventSelectorReadWriteTypeOutput {
 	return o.ApplyT(func(v *TrailEventSelectorReadWriteType) TrailEventSelectorReadWriteType {
 		if v != nil {
@@ -333,10 +309,12 @@ func (o TrailEventSelectorReadWriteTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TrailEventSelectorReadWriteTypeInput is an input type that accepts TrailEventSelectorReadWriteTypeArgs and TrailEventSelectorReadWriteTypeOutput values.
-// You can construct a concrete instance of `TrailEventSelectorReadWriteTypeInput` via:
+// TrailEventSelectorReadWriteTypeInput is an input type that accepts values of the TrailEventSelectorReadWriteType enum
+// A concrete instance of `TrailEventSelectorReadWriteTypeInput` can be one of the following:
 //
-//	TrailEventSelectorReadWriteTypeArgs{...}
+//	TrailEventSelectorReadWriteTypeAll
+//	TrailEventSelectorReadWriteTypeReadOnly
+//	TrailEventSelectorReadWriteTypeWriteOnly
 type TrailEventSelectorReadWriteTypeInput interface {
 	pulumi.Input
 

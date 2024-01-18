@@ -82,12 +82,6 @@ func (o TopicLoggingConfigProtocolOutput) ToTopicLoggingConfigProtocolPtrOutputW
 	}).(TopicLoggingConfigProtocolPtrOutput)
 }
 
-func (o TopicLoggingConfigProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[TopicLoggingConfigProtocol] {
-	return pulumix.Output[TopicLoggingConfigProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicLoggingConfigProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -123,12 +117,6 @@ func (o TopicLoggingConfigProtocolPtrOutput) ToTopicLoggingConfigProtocolPtrOutp
 	return o
 }
 
-func (o TopicLoggingConfigProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicLoggingConfigProtocol] {
-	return pulumix.Output[*TopicLoggingConfigProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicLoggingConfigProtocolPtrOutput) Elem() TopicLoggingConfigProtocolOutput {
 	return o.ApplyT(func(v *TopicLoggingConfigProtocol) TopicLoggingConfigProtocol {
 		if v != nil {
@@ -153,10 +141,14 @@ func (o TopicLoggingConfigProtocolPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicLoggingConfigProtocolInput is an input type that accepts TopicLoggingConfigProtocolArgs and TopicLoggingConfigProtocolOutput values.
-// You can construct a concrete instance of `TopicLoggingConfigProtocolInput` via:
+// TopicLoggingConfigProtocolInput is an input type that accepts values of the TopicLoggingConfigProtocol enum
+// A concrete instance of `TopicLoggingConfigProtocolInput` can be one of the following:
 //
-//	TopicLoggingConfigProtocolArgs{...}
+//	TopicLoggingConfigProtocolHttps
+//	TopicLoggingConfigProtocolSqs
+//	TopicLoggingConfigProtocolLambda
+//	TopicLoggingConfigProtocolFirehose
+//	TopicLoggingConfigProtocolApplication
 type TopicLoggingConfigProtocolInput interface {
 	pulumi.Input
 

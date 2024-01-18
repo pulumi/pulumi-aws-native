@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFormation::CustomResource
@@ -64,12 +63,6 @@ func (o LookupCustomResourceResultOutput) ToLookupCustomResourceResultOutput() L
 
 func (o LookupCustomResourceResultOutput) ToLookupCustomResourceResultOutputWithContext(ctx context.Context) LookupCustomResourceResultOutput {
 	return o
-}
-
-func (o LookupCustomResourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCustomResourceResult] {
-	return pulumix.Output[LookupCustomResourceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCustomResourceResultOutput) Id() pulumi.StringPtrOutput {

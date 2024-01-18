@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -81,12 +80,6 @@ func (i ComputeEnvironmentComputeResourcesArgs) ToComputeEnvironmentComputeResou
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesOutput)
 }
 
-func (i ComputeEnvironmentComputeResourcesArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentComputeResources] {
-	return pulumix.Output[ComputeEnvironmentComputeResources]{
-		OutputState: i.ToComputeEnvironmentComputeResourcesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ComputeEnvironmentComputeResourcesArgs) ToComputeEnvironmentComputeResourcesPtrOutput() ComputeEnvironmentComputeResourcesPtrOutput {
 	return i.ToComputeEnvironmentComputeResourcesPtrOutputWithContext(context.Background())
 }
@@ -128,12 +121,6 @@ func (i *computeEnvironmentComputeResourcesPtrType) ToComputeEnvironmentComputeR
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesPtrOutput)
 }
 
-func (i *computeEnvironmentComputeResourcesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentComputeResources] {
-	return pulumix.Output[*ComputeEnvironmentComputeResources]{
-		OutputState: i.ToComputeEnvironmentComputeResourcesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComputeEnvironmentComputeResourcesOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentComputeResourcesOutput) ElementType() reflect.Type {
@@ -156,12 +143,6 @@ func (o ComputeEnvironmentComputeResourcesOutput) ToComputeEnvironmentComputeRes
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResources {
 		return &v
 	}).(ComputeEnvironmentComputeResourcesPtrOutput)
-}
-
-func (o ComputeEnvironmentComputeResourcesOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentComputeResources] {
-	return pulumix.Output[ComputeEnvironmentComputeResources]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComputeEnvironmentComputeResourcesOutput) AllocationStrategy() pulumi.StringPtrOutput {
@@ -253,12 +234,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) ToComputeEnvironmentCompute
 
 func (o ComputeEnvironmentComputeResourcesPtrOutput) ToComputeEnvironmentComputeResourcesPtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesPtrOutput {
 	return o
-}
-
-func (o ComputeEnvironmentComputeResourcesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentComputeResources] {
-	return pulumix.Output[*ComputeEnvironmentComputeResources]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Elem() ComputeEnvironmentComputeResourcesOutput {
@@ -469,12 +444,6 @@ func (i ComputeEnvironmentEc2ConfigurationObjectArgs) ToComputeEnvironmentEc2Con
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEc2ConfigurationObjectOutput)
 }
 
-func (i ComputeEnvironmentEc2ConfigurationObjectArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentEc2ConfigurationObject] {
-	return pulumix.Output[ComputeEnvironmentEc2ConfigurationObject]{
-		OutputState: i.ToComputeEnvironmentEc2ConfigurationObjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ComputeEnvironmentEc2ConfigurationObjectArrayInput is an input type that accepts ComputeEnvironmentEc2ConfigurationObjectArray and ComputeEnvironmentEc2ConfigurationObjectArrayOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentEc2ConfigurationObjectArrayInput` via:
 //
@@ -500,12 +469,6 @@ func (i ComputeEnvironmentEc2ConfigurationObjectArray) ToComputeEnvironmentEc2Co
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEc2ConfigurationObjectArrayOutput)
 }
 
-func (i ComputeEnvironmentEc2ConfigurationObjectArray) ToOutput(ctx context.Context) pulumix.Output[[]ComputeEnvironmentEc2ConfigurationObject] {
-	return pulumix.Output[[]ComputeEnvironmentEc2ConfigurationObject]{
-		OutputState: i.ToComputeEnvironmentEc2ConfigurationObjectArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComputeEnvironmentEc2ConfigurationObjectOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentEc2ConfigurationObjectOutput) ElementType() reflect.Type {
@@ -518,12 +481,6 @@ func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ToComputeEnvironmentEc2C
 
 func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ToComputeEnvironmentEc2ConfigurationObjectOutputWithContext(ctx context.Context) ComputeEnvironmentEc2ConfigurationObjectOutput {
 	return o
-}
-
-func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentEc2ConfigurationObject] {
-	return pulumix.Output[ComputeEnvironmentEc2ConfigurationObject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ImageIdOverride() pulumi.StringPtrOutput {
@@ -550,12 +507,6 @@ func (o ComputeEnvironmentEc2ConfigurationObjectArrayOutput) ToComputeEnvironmen
 
 func (o ComputeEnvironmentEc2ConfigurationObjectArrayOutput) ToComputeEnvironmentEc2ConfigurationObjectArrayOutputWithContext(ctx context.Context) ComputeEnvironmentEc2ConfigurationObjectArrayOutput {
 	return o
-}
-
-func (o ComputeEnvironmentEc2ConfigurationObjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ComputeEnvironmentEc2ConfigurationObject] {
-	return pulumix.Output[[]ComputeEnvironmentEc2ConfigurationObject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComputeEnvironmentEc2ConfigurationObjectArrayOutput) Index(i pulumi.IntInput) ComputeEnvironmentEc2ConfigurationObjectOutput {
@@ -595,12 +546,6 @@ func (i ComputeEnvironmentEksConfigurationArgs) ToComputeEnvironmentEksConfigura
 
 func (i ComputeEnvironmentEksConfigurationArgs) ToComputeEnvironmentEksConfigurationOutputWithContext(ctx context.Context) ComputeEnvironmentEksConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEksConfigurationOutput)
-}
-
-func (i ComputeEnvironmentEksConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentEksConfiguration] {
-	return pulumix.Output[ComputeEnvironmentEksConfiguration]{
-		OutputState: i.ToComputeEnvironmentEksConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ComputeEnvironmentEksConfigurationArgs) ToComputeEnvironmentEksConfigurationPtrOutput() ComputeEnvironmentEksConfigurationPtrOutput {
@@ -644,12 +589,6 @@ func (i *computeEnvironmentEksConfigurationPtrType) ToComputeEnvironmentEksConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEksConfigurationPtrOutput)
 }
 
-func (i *computeEnvironmentEksConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentEksConfiguration] {
-	return pulumix.Output[*ComputeEnvironmentEksConfiguration]{
-		OutputState: i.ToComputeEnvironmentEksConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComputeEnvironmentEksConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentEksConfigurationOutput) ElementType() reflect.Type {
@@ -674,12 +613,6 @@ func (o ComputeEnvironmentEksConfigurationOutput) ToComputeEnvironmentEksConfigu
 	}).(ComputeEnvironmentEksConfigurationPtrOutput)
 }
 
-func (o ComputeEnvironmentEksConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentEksConfiguration] {
-	return pulumix.Output[ComputeEnvironmentEksConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComputeEnvironmentEksConfigurationOutput) EksClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentEksConfiguration) string { return v.EksClusterArn }).(pulumi.StringOutput)
 }
@@ -700,12 +633,6 @@ func (o ComputeEnvironmentEksConfigurationPtrOutput) ToComputeEnvironmentEksConf
 
 func (o ComputeEnvironmentEksConfigurationPtrOutput) ToComputeEnvironmentEksConfigurationPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksConfigurationPtrOutput {
 	return o
-}
-
-func (o ComputeEnvironmentEksConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentEksConfiguration] {
-	return pulumix.Output[*ComputeEnvironmentEksConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComputeEnvironmentEksConfigurationPtrOutput) Elem() ComputeEnvironmentEksConfigurationOutput {
@@ -771,12 +698,6 @@ func (i ComputeEnvironmentLaunchTemplateSpecificationArgs) ToComputeEnvironmentL
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentLaunchTemplateSpecificationOutput)
 }
 
-func (i ComputeEnvironmentLaunchTemplateSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentLaunchTemplateSpecification] {
-	return pulumix.Output[ComputeEnvironmentLaunchTemplateSpecification]{
-		OutputState: i.ToComputeEnvironmentLaunchTemplateSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ComputeEnvironmentLaunchTemplateSpecificationArgs) ToComputeEnvironmentLaunchTemplateSpecificationPtrOutput() ComputeEnvironmentLaunchTemplateSpecificationPtrOutput {
 	return i.ToComputeEnvironmentLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
 }
@@ -818,12 +739,6 @@ func (i *computeEnvironmentLaunchTemplateSpecificationPtrType) ToComputeEnvironm
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentLaunchTemplateSpecificationPtrOutput)
 }
 
-func (i *computeEnvironmentLaunchTemplateSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentLaunchTemplateSpecification] {
-	return pulumix.Output[*ComputeEnvironmentLaunchTemplateSpecification]{
-		OutputState: i.ToComputeEnvironmentLaunchTemplateSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComputeEnvironmentLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
@@ -846,12 +761,6 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationOutput) ToComputeEnvironmen
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentLaunchTemplateSpecification) *ComputeEnvironmentLaunchTemplateSpecification {
 		return &v
 	}).(ComputeEnvironmentLaunchTemplateSpecificationPtrOutput)
-}
-
-func (o ComputeEnvironmentLaunchTemplateSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentLaunchTemplateSpecification] {
-	return pulumix.Output[ComputeEnvironmentLaunchTemplateSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComputeEnvironmentLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
@@ -878,12 +787,6 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) ToComputeEnviron
 
 func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) ToComputeEnvironmentLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationPtrOutput {
 	return o
-}
-
-func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentLaunchTemplateSpecification] {
-	return pulumix.Output[*ComputeEnvironmentLaunchTemplateSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) Elem() ComputeEnvironmentLaunchTemplateSpecificationOutput {
@@ -956,12 +859,6 @@ func (i ComputeEnvironmentUpdatePolicyArgs) ToComputeEnvironmentUpdatePolicyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentUpdatePolicyOutput)
 }
 
-func (i ComputeEnvironmentUpdatePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentUpdatePolicy] {
-	return pulumix.Output[ComputeEnvironmentUpdatePolicy]{
-		OutputState: i.ToComputeEnvironmentUpdatePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ComputeEnvironmentUpdatePolicyArgs) ToComputeEnvironmentUpdatePolicyPtrOutput() ComputeEnvironmentUpdatePolicyPtrOutput {
 	return i.ToComputeEnvironmentUpdatePolicyPtrOutputWithContext(context.Background())
 }
@@ -1003,12 +900,6 @@ func (i *computeEnvironmentUpdatePolicyPtrType) ToComputeEnvironmentUpdatePolicy
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentUpdatePolicyPtrOutput)
 }
 
-func (i *computeEnvironmentUpdatePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentUpdatePolicy] {
-	return pulumix.Output[*ComputeEnvironmentUpdatePolicy]{
-		OutputState: i.ToComputeEnvironmentUpdatePolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComputeEnvironmentUpdatePolicyOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentUpdatePolicyOutput) ElementType() reflect.Type {
@@ -1033,12 +924,6 @@ func (o ComputeEnvironmentUpdatePolicyOutput) ToComputeEnvironmentUpdatePolicyPt
 	}).(ComputeEnvironmentUpdatePolicyPtrOutput)
 }
 
-func (o ComputeEnvironmentUpdatePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentUpdatePolicy] {
-	return pulumix.Output[ComputeEnvironmentUpdatePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComputeEnvironmentUpdatePolicyOutput) JobExecutionTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *int { return v.JobExecutionTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
@@ -1059,12 +944,6 @@ func (o ComputeEnvironmentUpdatePolicyPtrOutput) ToComputeEnvironmentUpdatePolic
 
 func (o ComputeEnvironmentUpdatePolicyPtrOutput) ToComputeEnvironmentUpdatePolicyPtrOutputWithContext(ctx context.Context) ComputeEnvironmentUpdatePolicyPtrOutput {
 	return o
-}
-
-func (o ComputeEnvironmentUpdatePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentUpdatePolicy] {
-	return pulumix.Output[*ComputeEnvironmentUpdatePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComputeEnvironmentUpdatePolicyPtrOutput) Elem() ComputeEnvironmentUpdatePolicyOutput {
@@ -1168,12 +1047,6 @@ func (i JobDefinitionContainerPropertiesArgs) ToJobDefinitionContainerProperties
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesOutput)
 }
 
-func (i JobDefinitionContainerPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerProperties] {
-	return pulumix.Output[JobDefinitionContainerProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionContainerPropertiesArgs) ToJobDefinitionContainerPropertiesPtrOutput() JobDefinitionContainerPropertiesPtrOutput {
 	return i.ToJobDefinitionContainerPropertiesPtrOutputWithContext(context.Background())
 }
@@ -1215,12 +1088,6 @@ func (i *jobDefinitionContainerPropertiesPtrType) ToJobDefinitionContainerProper
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesPtrOutput)
 }
 
-func (i *jobDefinitionContainerPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerProperties] {
-	return pulumix.Output[*JobDefinitionContainerProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionContainerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionContainerPropertiesOutput) ElementType() reflect.Type {
@@ -1243,12 +1110,6 @@ func (o JobDefinitionContainerPropertiesOutput) ToJobDefinitionContainerProperti
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionContainerProperties) *JobDefinitionContainerProperties {
 		return &v
 	}).(JobDefinitionContainerPropertiesPtrOutput)
-}
-
-func (o JobDefinitionContainerPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerProperties] {
-	return pulumix.Output[JobDefinitionContainerProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionContainerPropertiesOutput) Command() pulumi.StringArrayOutput {
@@ -1365,12 +1226,6 @@ func (o JobDefinitionContainerPropertiesPtrOutput) ToJobDefinitionContainerPrope
 
 func (o JobDefinitionContainerPropertiesPtrOutput) ToJobDefinitionContainerPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesPtrOutput {
 	return o
-}
-
-func (o JobDefinitionContainerPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerProperties] {
-	return pulumix.Output[*JobDefinitionContainerProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionContainerPropertiesPtrOutput) Elem() JobDefinitionContainerPropertiesOutput {
@@ -1612,12 +1467,6 @@ func (i JobDefinitionContainerPropertiesEphemeralStoragePropertiesArgs) ToJobDef
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesEphemeralStoragePropertiesOutput)
 }
 
-func (i JobDefinitionContainerPropertiesEphemeralStoragePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerPropertiesEphemeralStorageProperties] {
-	return pulumix.Output[JobDefinitionContainerPropertiesEphemeralStorageProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesEphemeralStoragePropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionContainerPropertiesEphemeralStoragePropertiesArgs) ToJobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrOutput() JobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrOutput {
 	return i.ToJobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrOutputWithContext(context.Background())
 }
@@ -1659,12 +1508,6 @@ func (i *jobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrType) ToJo
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrOutput)
 }
 
-func (i *jobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerPropertiesEphemeralStorageProperties] {
-	return pulumix.Output[*JobDefinitionContainerPropertiesEphemeralStorageProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionContainerPropertiesEphemeralStoragePropertiesOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionContainerPropertiesEphemeralStoragePropertiesOutput) ElementType() reflect.Type {
@@ -1689,12 +1532,6 @@ func (o JobDefinitionContainerPropertiesEphemeralStoragePropertiesOutput) ToJobD
 	}).(JobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrOutput)
 }
 
-func (o JobDefinitionContainerPropertiesEphemeralStoragePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerPropertiesEphemeralStorageProperties] {
-	return pulumix.Output[JobDefinitionContainerPropertiesEphemeralStorageProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionContainerPropertiesEphemeralStoragePropertiesOutput) SizeInGiB() pulumi.IntOutput {
 	return o.ApplyT(func(v JobDefinitionContainerPropertiesEphemeralStorageProperties) int { return v.SizeInGiB }).(pulumi.IntOutput)
 }
@@ -1711,12 +1548,6 @@ func (o JobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrOutput) ToJ
 
 func (o JobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrOutput) ToJobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrOutput {
 	return o
-}
-
-func (o JobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerPropertiesEphemeralStorageProperties] {
-	return pulumix.Output[*JobDefinitionContainerPropertiesEphemeralStorageProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionContainerPropertiesEphemeralStoragePropertiesPtrOutput) Elem() JobDefinitionContainerPropertiesEphemeralStoragePropertiesOutput {
@@ -1769,12 +1600,6 @@ func (i JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesAr
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput)
 }
 
-func (i JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties] {
-	return pulumix.Output[JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput {
 	return i.ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutputWithContext(context.Background())
 }
@@ -1816,12 +1641,6 @@ func (i *jobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesP
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput)
 }
 
-func (i *jobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties] {
-	return pulumix.Output[*JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -1846,12 +1665,6 @@ func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOu
 	}).(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput)
 }
 
-func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties] {
-	return pulumix.Output[JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties) *string {
 		return v.PlatformVersion
@@ -1870,12 +1683,6 @@ func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPt
 
 func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput {
 	return o
-}
-
-func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties] {
-	return pulumix.Output[*JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput) Elem() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput {
@@ -1938,12 +1745,6 @@ func (i JobDefinitionContainerPropertiesLinuxParametersPropertiesArgs) ToJobDefi
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesLinuxParametersPropertiesOutput)
 }
 
-func (i JobDefinitionContainerPropertiesLinuxParametersPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerPropertiesLinuxParametersProperties] {
-	return pulumix.Output[JobDefinitionContainerPropertiesLinuxParametersProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesLinuxParametersPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionContainerPropertiesLinuxParametersPropertiesArgs) ToJobDefinitionContainerPropertiesLinuxParametersPropertiesPtrOutput() JobDefinitionContainerPropertiesLinuxParametersPropertiesPtrOutput {
 	return i.ToJobDefinitionContainerPropertiesLinuxParametersPropertiesPtrOutputWithContext(context.Background())
 }
@@ -1985,12 +1786,6 @@ func (i *jobDefinitionContainerPropertiesLinuxParametersPropertiesPtrType) ToJob
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesLinuxParametersPropertiesPtrOutput)
 }
 
-func (i *jobDefinitionContainerPropertiesLinuxParametersPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerPropertiesLinuxParametersProperties] {
-	return pulumix.Output[*JobDefinitionContainerPropertiesLinuxParametersProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesLinuxParametersPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionContainerPropertiesLinuxParametersPropertiesOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionContainerPropertiesLinuxParametersPropertiesOutput) ElementType() reflect.Type {
@@ -2013,12 +1808,6 @@ func (o JobDefinitionContainerPropertiesLinuxParametersPropertiesOutput) ToJobDe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionContainerPropertiesLinuxParametersProperties) *JobDefinitionContainerPropertiesLinuxParametersProperties {
 		return &v
 	}).(JobDefinitionContainerPropertiesLinuxParametersPropertiesPtrOutput)
-}
-
-func (o JobDefinitionContainerPropertiesLinuxParametersPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerPropertiesLinuxParametersProperties] {
-	return pulumix.Output[JobDefinitionContainerPropertiesLinuxParametersProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionContainerPropertiesLinuxParametersPropertiesOutput) Devices() JobDefinitionDeviceArrayOutput {
@@ -2059,12 +1848,6 @@ func (o JobDefinitionContainerPropertiesLinuxParametersPropertiesPtrOutput) ToJo
 
 func (o JobDefinitionContainerPropertiesLinuxParametersPropertiesPtrOutput) ToJobDefinitionContainerPropertiesLinuxParametersPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesLinuxParametersPropertiesPtrOutput {
 	return o
-}
-
-func (o JobDefinitionContainerPropertiesLinuxParametersPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerPropertiesLinuxParametersProperties] {
-	return pulumix.Output[*JobDefinitionContainerPropertiesLinuxParametersProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionContainerPropertiesLinuxParametersPropertiesPtrOutput) Elem() JobDefinitionContainerPropertiesLinuxParametersPropertiesOutput {
@@ -2166,12 +1949,6 @@ func (i JobDefinitionContainerPropertiesLogConfigurationPropertiesArgs) ToJobDef
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesLogConfigurationPropertiesOutput)
 }
 
-func (i JobDefinitionContainerPropertiesLogConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerPropertiesLogConfigurationProperties] {
-	return pulumix.Output[JobDefinitionContainerPropertiesLogConfigurationProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesLogConfigurationPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionContainerPropertiesLogConfigurationPropertiesArgs) ToJobDefinitionContainerPropertiesLogConfigurationPropertiesPtrOutput() JobDefinitionContainerPropertiesLogConfigurationPropertiesPtrOutput {
 	return i.ToJobDefinitionContainerPropertiesLogConfigurationPropertiesPtrOutputWithContext(context.Background())
 }
@@ -2213,12 +1990,6 @@ func (i *jobDefinitionContainerPropertiesLogConfigurationPropertiesPtrType) ToJo
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesLogConfigurationPropertiesPtrOutput)
 }
 
-func (i *jobDefinitionContainerPropertiesLogConfigurationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerPropertiesLogConfigurationProperties] {
-	return pulumix.Output[*JobDefinitionContainerPropertiesLogConfigurationProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesLogConfigurationPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionContainerPropertiesLogConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionContainerPropertiesLogConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -2241,12 +2012,6 @@ func (o JobDefinitionContainerPropertiesLogConfigurationPropertiesOutput) ToJobD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionContainerPropertiesLogConfigurationProperties) *JobDefinitionContainerPropertiesLogConfigurationProperties {
 		return &v
 	}).(JobDefinitionContainerPropertiesLogConfigurationPropertiesPtrOutput)
-}
-
-func (o JobDefinitionContainerPropertiesLogConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerPropertiesLogConfigurationProperties] {
-	return pulumix.Output[JobDefinitionContainerPropertiesLogConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionContainerPropertiesLogConfigurationPropertiesOutput) LogDriver() pulumi.StringOutput {
@@ -2275,12 +2040,6 @@ func (o JobDefinitionContainerPropertiesLogConfigurationPropertiesPtrOutput) ToJ
 
 func (o JobDefinitionContainerPropertiesLogConfigurationPropertiesPtrOutput) ToJobDefinitionContainerPropertiesLogConfigurationPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesLogConfigurationPropertiesPtrOutput {
 	return o
-}
-
-func (o JobDefinitionContainerPropertiesLogConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerPropertiesLogConfigurationProperties] {
-	return pulumix.Output[*JobDefinitionContainerPropertiesLogConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionContainerPropertiesLogConfigurationPropertiesPtrOutput) Elem() JobDefinitionContainerPropertiesLogConfigurationPropertiesOutput {
@@ -2351,12 +2110,6 @@ func (i JobDefinitionContainerPropertiesNetworkConfigurationPropertiesArgs) ToJo
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesNetworkConfigurationPropertiesOutput)
 }
 
-func (i JobDefinitionContainerPropertiesNetworkConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerPropertiesNetworkConfigurationProperties] {
-	return pulumix.Output[JobDefinitionContainerPropertiesNetworkConfigurationProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesNetworkConfigurationPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionContainerPropertiesNetworkConfigurationPropertiesArgs) ToJobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrOutput() JobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrOutput {
 	return i.ToJobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrOutputWithContext(context.Background())
 }
@@ -2398,12 +2151,6 @@ func (i *jobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrOutput)
 }
 
-func (i *jobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerPropertiesNetworkConfigurationProperties] {
-	return pulumix.Output[*JobDefinitionContainerPropertiesNetworkConfigurationProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionContainerPropertiesNetworkConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionContainerPropertiesNetworkConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -2428,12 +2175,6 @@ func (o JobDefinitionContainerPropertiesNetworkConfigurationPropertiesOutput) To
 	}).(JobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrOutput)
 }
 
-func (o JobDefinitionContainerPropertiesNetworkConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerPropertiesNetworkConfigurationProperties] {
-	return pulumix.Output[JobDefinitionContainerPropertiesNetworkConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionContainerPropertiesNetworkConfigurationPropertiesOutput) AssignPublicIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionContainerPropertiesNetworkConfigurationProperties) *string {
 		return v.AssignPublicIp
@@ -2452,12 +2193,6 @@ func (o JobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrOutput)
 
 func (o JobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrOutput) ToJobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrOutput {
 	return o
-}
-
-func (o JobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerPropertiesNetworkConfigurationProperties] {
-	return pulumix.Output[*JobDefinitionContainerPropertiesNetworkConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionContainerPropertiesNetworkConfigurationPropertiesPtrOutput) Elem() JobDefinitionContainerPropertiesNetworkConfigurationPropertiesOutput {
@@ -2512,12 +2247,6 @@ func (i JobDefinitionContainerPropertiesRuntimePlatformPropertiesArgs) ToJobDefi
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesRuntimePlatformPropertiesOutput)
 }
 
-func (i JobDefinitionContainerPropertiesRuntimePlatformPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerPropertiesRuntimePlatformProperties] {
-	return pulumix.Output[JobDefinitionContainerPropertiesRuntimePlatformProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesRuntimePlatformPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionContainerPropertiesRuntimePlatformPropertiesArgs) ToJobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrOutput() JobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrOutput {
 	return i.ToJobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrOutputWithContext(context.Background())
 }
@@ -2559,12 +2288,6 @@ func (i *jobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrType) ToJob
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrOutput)
 }
 
-func (i *jobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerPropertiesRuntimePlatformProperties] {
-	return pulumix.Output[*JobDefinitionContainerPropertiesRuntimePlatformProperties]{
-		OutputState: i.ToJobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionContainerPropertiesRuntimePlatformPropertiesOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionContainerPropertiesRuntimePlatformPropertiesOutput) ElementType() reflect.Type {
@@ -2589,12 +2312,6 @@ func (o JobDefinitionContainerPropertiesRuntimePlatformPropertiesOutput) ToJobDe
 	}).(JobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrOutput)
 }
 
-func (o JobDefinitionContainerPropertiesRuntimePlatformPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionContainerPropertiesRuntimePlatformProperties] {
-	return pulumix.Output[JobDefinitionContainerPropertiesRuntimePlatformProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionContainerPropertiesRuntimePlatformPropertiesOutput) CpuArchitecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionContainerPropertiesRuntimePlatformProperties) *string { return v.CpuArchitecture }).(pulumi.StringPtrOutput)
 }
@@ -2617,12 +2334,6 @@ func (o JobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrOutput) ToJo
 
 func (o JobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrOutput) ToJobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrOutput {
 	return o
-}
-
-func (o JobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionContainerPropertiesRuntimePlatformProperties] {
-	return pulumix.Output[*JobDefinitionContainerPropertiesRuntimePlatformProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionContainerPropertiesRuntimePlatformPropertiesPtrOutput) Elem() JobDefinitionContainerPropertiesRuntimePlatformPropertiesOutput {
@@ -2688,12 +2399,6 @@ func (i JobDefinitionDeviceArgs) ToJobDefinitionDeviceOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionDeviceOutput)
 }
 
-func (i JobDefinitionDeviceArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionDevice] {
-	return pulumix.Output[JobDefinitionDevice]{
-		OutputState: i.ToJobDefinitionDeviceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionDeviceArrayInput is an input type that accepts JobDefinitionDeviceArray and JobDefinitionDeviceArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionDeviceArrayInput` via:
 //
@@ -2719,12 +2424,6 @@ func (i JobDefinitionDeviceArray) ToJobDefinitionDeviceArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionDeviceArrayOutput)
 }
 
-func (i JobDefinitionDeviceArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionDevice] {
-	return pulumix.Output[[]JobDefinitionDevice]{
-		OutputState: i.ToJobDefinitionDeviceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionDeviceOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionDeviceOutput) ElementType() reflect.Type {
@@ -2737,12 +2436,6 @@ func (o JobDefinitionDeviceOutput) ToJobDefinitionDeviceOutput() JobDefinitionDe
 
 func (o JobDefinitionDeviceOutput) ToJobDefinitionDeviceOutputWithContext(ctx context.Context) JobDefinitionDeviceOutput {
 	return o
-}
-
-func (o JobDefinitionDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionDevice] {
-	return pulumix.Output[JobDefinitionDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionDeviceOutput) ContainerPath() pulumi.StringPtrOutput {
@@ -2769,12 +2462,6 @@ func (o JobDefinitionDeviceArrayOutput) ToJobDefinitionDeviceArrayOutput() JobDe
 
 func (o JobDefinitionDeviceArrayOutput) ToJobDefinitionDeviceArrayOutputWithContext(ctx context.Context) JobDefinitionDeviceArrayOutput {
 	return o
-}
-
-func (o JobDefinitionDeviceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionDevice] {
-	return pulumix.Output[[]JobDefinitionDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionDeviceArrayOutput) Index(i pulumi.IntInput) JobDefinitionDeviceOutput {
@@ -2814,12 +2501,6 @@ func (i JobDefinitionEfsAuthorizationConfigArgs) ToJobDefinitionEfsAuthorization
 
 func (i JobDefinitionEfsAuthorizationConfigArgs) ToJobDefinitionEfsAuthorizationConfigOutputWithContext(ctx context.Context) JobDefinitionEfsAuthorizationConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEfsAuthorizationConfigOutput)
-}
-
-func (i JobDefinitionEfsAuthorizationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEfsAuthorizationConfig] {
-	return pulumix.Output[JobDefinitionEfsAuthorizationConfig]{
-		OutputState: i.ToJobDefinitionEfsAuthorizationConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i JobDefinitionEfsAuthorizationConfigArgs) ToJobDefinitionEfsAuthorizationConfigPtrOutput() JobDefinitionEfsAuthorizationConfigPtrOutput {
@@ -2863,12 +2544,6 @@ func (i *jobDefinitionEfsAuthorizationConfigPtrType) ToJobDefinitionEfsAuthoriza
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEfsAuthorizationConfigPtrOutput)
 }
 
-func (i *jobDefinitionEfsAuthorizationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEfsAuthorizationConfig] {
-	return pulumix.Output[*JobDefinitionEfsAuthorizationConfig]{
-		OutputState: i.ToJobDefinitionEfsAuthorizationConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEfsAuthorizationConfigOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEfsAuthorizationConfigOutput) ElementType() reflect.Type {
@@ -2893,12 +2568,6 @@ func (o JobDefinitionEfsAuthorizationConfigOutput) ToJobDefinitionEfsAuthorizati
 	}).(JobDefinitionEfsAuthorizationConfigPtrOutput)
 }
 
-func (o JobDefinitionEfsAuthorizationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEfsAuthorizationConfig] {
-	return pulumix.Output[JobDefinitionEfsAuthorizationConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionEfsAuthorizationConfigOutput) AccessPointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEfsAuthorizationConfig) *string { return v.AccessPointId }).(pulumi.StringPtrOutput)
 }
@@ -2919,12 +2588,6 @@ func (o JobDefinitionEfsAuthorizationConfigPtrOutput) ToJobDefinitionEfsAuthoriz
 
 func (o JobDefinitionEfsAuthorizationConfigPtrOutput) ToJobDefinitionEfsAuthorizationConfigPtrOutputWithContext(ctx context.Context) JobDefinitionEfsAuthorizationConfigPtrOutput {
 	return o
-}
-
-func (o JobDefinitionEfsAuthorizationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEfsAuthorizationConfig] {
-	return pulumix.Output[*JobDefinitionEfsAuthorizationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEfsAuthorizationConfigPtrOutput) Elem() JobDefinitionEfsAuthorizationConfigOutput {
@@ -2994,12 +2657,6 @@ func (i JobDefinitionEfsVolumeConfigurationArgs) ToJobDefinitionEfsVolumeConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEfsVolumeConfigurationOutput)
 }
 
-func (i JobDefinitionEfsVolumeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEfsVolumeConfiguration] {
-	return pulumix.Output[JobDefinitionEfsVolumeConfiguration]{
-		OutputState: i.ToJobDefinitionEfsVolumeConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionEfsVolumeConfigurationArgs) ToJobDefinitionEfsVolumeConfigurationPtrOutput() JobDefinitionEfsVolumeConfigurationPtrOutput {
 	return i.ToJobDefinitionEfsVolumeConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3041,12 +2698,6 @@ func (i *jobDefinitionEfsVolumeConfigurationPtrType) ToJobDefinitionEfsVolumeCon
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEfsVolumeConfigurationPtrOutput)
 }
 
-func (i *jobDefinitionEfsVolumeConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEfsVolumeConfiguration] {
-	return pulumix.Output[*JobDefinitionEfsVolumeConfiguration]{
-		OutputState: i.ToJobDefinitionEfsVolumeConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEfsVolumeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEfsVolumeConfigurationOutput) ElementType() reflect.Type {
@@ -3069,12 +2720,6 @@ func (o JobDefinitionEfsVolumeConfigurationOutput) ToJobDefinitionEfsVolumeConfi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEfsVolumeConfiguration) *JobDefinitionEfsVolumeConfiguration {
 		return &v
 	}).(JobDefinitionEfsVolumeConfigurationPtrOutput)
-}
-
-func (o JobDefinitionEfsVolumeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEfsVolumeConfiguration] {
-	return pulumix.Output[JobDefinitionEfsVolumeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEfsVolumeConfigurationOutput) AuthorizationConfig() JobDefinitionEfsAuthorizationConfigPtrOutput {
@@ -3111,12 +2756,6 @@ func (o JobDefinitionEfsVolumeConfigurationPtrOutput) ToJobDefinitionEfsVolumeCo
 
 func (o JobDefinitionEfsVolumeConfigurationPtrOutput) ToJobDefinitionEfsVolumeConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionEfsVolumeConfigurationPtrOutput {
 	return o
-}
-
-func (o JobDefinitionEfsVolumeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEfsVolumeConfiguration] {
-	return pulumix.Output[*JobDefinitionEfsVolumeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEfsVolumeConfigurationPtrOutput) Elem() JobDefinitionEfsVolumeConfigurationOutput {
@@ -3221,12 +2860,6 @@ func (i JobDefinitionEksContainerArgs) ToJobDefinitionEksContainerOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerOutput)
 }
 
-func (i JobDefinitionEksContainerArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksContainer] {
-	return pulumix.Output[JobDefinitionEksContainer]{
-		OutputState: i.ToJobDefinitionEksContainerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionEksContainerArrayInput is an input type that accepts JobDefinitionEksContainerArray and JobDefinitionEksContainerArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionEksContainerArrayInput` via:
 //
@@ -3252,12 +2885,6 @@ func (i JobDefinitionEksContainerArray) ToJobDefinitionEksContainerArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerArrayOutput)
 }
 
-func (i JobDefinitionEksContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionEksContainer] {
-	return pulumix.Output[[]JobDefinitionEksContainer]{
-		OutputState: i.ToJobDefinitionEksContainerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEksContainerOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEksContainerOutput) ElementType() reflect.Type {
@@ -3270,12 +2897,6 @@ func (o JobDefinitionEksContainerOutput) ToJobDefinitionEksContainerOutput() Job
 
 func (o JobDefinitionEksContainerOutput) ToJobDefinitionEksContainerOutputWithContext(ctx context.Context) JobDefinitionEksContainerOutput {
 	return o
-}
-
-func (o JobDefinitionEksContainerOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksContainer] {
-	return pulumix.Output[JobDefinitionEksContainer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksContainerOutput) Args() pulumi.StringArrayOutput {
@@ -3328,12 +2949,6 @@ func (o JobDefinitionEksContainerArrayOutput) ToJobDefinitionEksContainerArrayOu
 	return o
 }
 
-func (o JobDefinitionEksContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionEksContainer] {
-	return pulumix.Output[[]JobDefinitionEksContainer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionEksContainerArrayOutput) Index(i pulumi.IntInput) JobDefinitionEksContainerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionEksContainer {
 		return vs[0].([]JobDefinitionEksContainer)[vs[1].(int)]
@@ -3373,12 +2988,6 @@ func (i JobDefinitionEksContainerEnvironmentVariableArgs) ToJobDefinitionEksCont
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerEnvironmentVariableOutput)
 }
 
-func (i JobDefinitionEksContainerEnvironmentVariableArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksContainerEnvironmentVariable] {
-	return pulumix.Output[JobDefinitionEksContainerEnvironmentVariable]{
-		OutputState: i.ToJobDefinitionEksContainerEnvironmentVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionEksContainerEnvironmentVariableArrayInput is an input type that accepts JobDefinitionEksContainerEnvironmentVariableArray and JobDefinitionEksContainerEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionEksContainerEnvironmentVariableArrayInput` via:
 //
@@ -3404,12 +3013,6 @@ func (i JobDefinitionEksContainerEnvironmentVariableArray) ToJobDefinitionEksCon
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerEnvironmentVariableArrayOutput)
 }
 
-func (i JobDefinitionEksContainerEnvironmentVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionEksContainerEnvironmentVariable] {
-	return pulumix.Output[[]JobDefinitionEksContainerEnvironmentVariable]{
-		OutputState: i.ToJobDefinitionEksContainerEnvironmentVariableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEksContainerEnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEksContainerEnvironmentVariableOutput) ElementType() reflect.Type {
@@ -3422,12 +3025,6 @@ func (o JobDefinitionEksContainerEnvironmentVariableOutput) ToJobDefinitionEksCo
 
 func (o JobDefinitionEksContainerEnvironmentVariableOutput) ToJobDefinitionEksContainerEnvironmentVariableOutputWithContext(ctx context.Context) JobDefinitionEksContainerEnvironmentVariableOutput {
 	return o
-}
-
-func (o JobDefinitionEksContainerEnvironmentVariableOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksContainerEnvironmentVariable] {
-	return pulumix.Output[JobDefinitionEksContainerEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksContainerEnvironmentVariableOutput) Name() pulumi.StringOutput {
@@ -3450,12 +3047,6 @@ func (o JobDefinitionEksContainerEnvironmentVariableArrayOutput) ToJobDefinition
 
 func (o JobDefinitionEksContainerEnvironmentVariableArrayOutput) ToJobDefinitionEksContainerEnvironmentVariableArrayOutputWithContext(ctx context.Context) JobDefinitionEksContainerEnvironmentVariableArrayOutput {
 	return o
-}
-
-func (o JobDefinitionEksContainerEnvironmentVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionEksContainerEnvironmentVariable] {
-	return pulumix.Output[[]JobDefinitionEksContainerEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksContainerEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) JobDefinitionEksContainerEnvironmentVariableOutput {
@@ -3495,12 +3086,6 @@ func (i JobDefinitionEksContainerResourceRequirementsArgs) ToJobDefinitionEksCon
 
 func (i JobDefinitionEksContainerResourceRequirementsArgs) ToJobDefinitionEksContainerResourceRequirementsOutputWithContext(ctx context.Context) JobDefinitionEksContainerResourceRequirementsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerResourceRequirementsOutput)
-}
-
-func (i JobDefinitionEksContainerResourceRequirementsArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksContainerResourceRequirements] {
-	return pulumix.Output[JobDefinitionEksContainerResourceRequirements]{
-		OutputState: i.ToJobDefinitionEksContainerResourceRequirementsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i JobDefinitionEksContainerResourceRequirementsArgs) ToJobDefinitionEksContainerResourceRequirementsPtrOutput() JobDefinitionEksContainerResourceRequirementsPtrOutput {
@@ -3544,12 +3129,6 @@ func (i *jobDefinitionEksContainerResourceRequirementsPtrType) ToJobDefinitionEk
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerResourceRequirementsPtrOutput)
 }
 
-func (i *jobDefinitionEksContainerResourceRequirementsPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksContainerResourceRequirements] {
-	return pulumix.Output[*JobDefinitionEksContainerResourceRequirements]{
-		OutputState: i.ToJobDefinitionEksContainerResourceRequirementsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEksContainerResourceRequirementsOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEksContainerResourceRequirementsOutput) ElementType() reflect.Type {
@@ -3574,12 +3153,6 @@ func (o JobDefinitionEksContainerResourceRequirementsOutput) ToJobDefinitionEksC
 	}).(JobDefinitionEksContainerResourceRequirementsPtrOutput)
 }
 
-func (o JobDefinitionEksContainerResourceRequirementsOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksContainerResourceRequirements] {
-	return pulumix.Output[JobDefinitionEksContainerResourceRequirements]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionEksContainerResourceRequirementsOutput) Limits() pulumi.AnyOutput {
 	return o.ApplyT(func(v JobDefinitionEksContainerResourceRequirements) interface{} { return v.Limits }).(pulumi.AnyOutput)
 }
@@ -3600,12 +3173,6 @@ func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) ToJobDefinitionE
 
 func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) ToJobDefinitionEksContainerResourceRequirementsPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerResourceRequirementsPtrOutput {
 	return o
-}
-
-func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksContainerResourceRequirements] {
-	return pulumix.Output[*JobDefinitionEksContainerResourceRequirements]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) Elem() JobDefinitionEksContainerResourceRequirementsOutput {
@@ -3675,12 +3242,6 @@ func (i JobDefinitionEksContainerSecurityContextArgs) ToJobDefinitionEksContaine
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerSecurityContextOutput)
 }
 
-func (i JobDefinitionEksContainerSecurityContextArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksContainerSecurityContext] {
-	return pulumix.Output[JobDefinitionEksContainerSecurityContext]{
-		OutputState: i.ToJobDefinitionEksContainerSecurityContextOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionEksContainerSecurityContextArgs) ToJobDefinitionEksContainerSecurityContextPtrOutput() JobDefinitionEksContainerSecurityContextPtrOutput {
 	return i.ToJobDefinitionEksContainerSecurityContextPtrOutputWithContext(context.Background())
 }
@@ -3722,12 +3283,6 @@ func (i *jobDefinitionEksContainerSecurityContextPtrType) ToJobDefinitionEksCont
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerSecurityContextPtrOutput)
 }
 
-func (i *jobDefinitionEksContainerSecurityContextPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksContainerSecurityContext] {
-	return pulumix.Output[*JobDefinitionEksContainerSecurityContext]{
-		OutputState: i.ToJobDefinitionEksContainerSecurityContextPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEksContainerSecurityContextOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEksContainerSecurityContextOutput) ElementType() reflect.Type {
@@ -3750,12 +3305,6 @@ func (o JobDefinitionEksContainerSecurityContextOutput) ToJobDefinitionEksContai
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksContainerSecurityContext) *JobDefinitionEksContainerSecurityContext {
 		return &v
 	}).(JobDefinitionEksContainerSecurityContextPtrOutput)
-}
-
-func (o JobDefinitionEksContainerSecurityContextOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksContainerSecurityContext] {
-	return pulumix.Output[JobDefinitionEksContainerSecurityContext]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksContainerSecurityContextOutput) Privileged() pulumi.BoolPtrOutput {
@@ -3790,12 +3339,6 @@ func (o JobDefinitionEksContainerSecurityContextPtrOutput) ToJobDefinitionEksCon
 
 func (o JobDefinitionEksContainerSecurityContextPtrOutput) ToJobDefinitionEksContainerSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerSecurityContextPtrOutput {
 	return o
-}
-
-func (o JobDefinitionEksContainerSecurityContextPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksContainerSecurityContext] {
-	return pulumix.Output[*JobDefinitionEksContainerSecurityContext]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksContainerSecurityContextPtrOutput) Elem() JobDefinitionEksContainerSecurityContextOutput {
@@ -3888,12 +3431,6 @@ func (i JobDefinitionEksContainerVolumeMountArgs) ToJobDefinitionEksContainerVol
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerVolumeMountOutput)
 }
 
-func (i JobDefinitionEksContainerVolumeMountArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksContainerVolumeMount] {
-	return pulumix.Output[JobDefinitionEksContainerVolumeMount]{
-		OutputState: i.ToJobDefinitionEksContainerVolumeMountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionEksContainerVolumeMountArrayInput is an input type that accepts JobDefinitionEksContainerVolumeMountArray and JobDefinitionEksContainerVolumeMountArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionEksContainerVolumeMountArrayInput` via:
 //
@@ -3919,12 +3456,6 @@ func (i JobDefinitionEksContainerVolumeMountArray) ToJobDefinitionEksContainerVo
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerVolumeMountArrayOutput)
 }
 
-func (i JobDefinitionEksContainerVolumeMountArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionEksContainerVolumeMount] {
-	return pulumix.Output[[]JobDefinitionEksContainerVolumeMount]{
-		OutputState: i.ToJobDefinitionEksContainerVolumeMountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEksContainerVolumeMountOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEksContainerVolumeMountOutput) ElementType() reflect.Type {
@@ -3937,12 +3468,6 @@ func (o JobDefinitionEksContainerVolumeMountOutput) ToJobDefinitionEksContainerV
 
 func (o JobDefinitionEksContainerVolumeMountOutput) ToJobDefinitionEksContainerVolumeMountOutputWithContext(ctx context.Context) JobDefinitionEksContainerVolumeMountOutput {
 	return o
-}
-
-func (o JobDefinitionEksContainerVolumeMountOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksContainerVolumeMount] {
-	return pulumix.Output[JobDefinitionEksContainerVolumeMount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksContainerVolumeMountOutput) MountPath() pulumi.StringPtrOutput {
@@ -3969,12 +3494,6 @@ func (o JobDefinitionEksContainerVolumeMountArrayOutput) ToJobDefinitionEksConta
 
 func (o JobDefinitionEksContainerVolumeMountArrayOutput) ToJobDefinitionEksContainerVolumeMountArrayOutputWithContext(ctx context.Context) JobDefinitionEksContainerVolumeMountArrayOutput {
 	return o
-}
-
-func (o JobDefinitionEksContainerVolumeMountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionEksContainerVolumeMount] {
-	return pulumix.Output[[]JobDefinitionEksContainerVolumeMount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) JobDefinitionEksContainerVolumeMountOutput {
@@ -4014,12 +3533,6 @@ func (i JobDefinitionEksEmptyDirArgs) ToJobDefinitionEksEmptyDirOutput() JobDefi
 
 func (i JobDefinitionEksEmptyDirArgs) ToJobDefinitionEksEmptyDirOutputWithContext(ctx context.Context) JobDefinitionEksEmptyDirOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksEmptyDirOutput)
-}
-
-func (i JobDefinitionEksEmptyDirArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksEmptyDir] {
-	return pulumix.Output[JobDefinitionEksEmptyDir]{
-		OutputState: i.ToJobDefinitionEksEmptyDirOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i JobDefinitionEksEmptyDirArgs) ToJobDefinitionEksEmptyDirPtrOutput() JobDefinitionEksEmptyDirPtrOutput {
@@ -4063,12 +3576,6 @@ func (i *jobDefinitionEksEmptyDirPtrType) ToJobDefinitionEksEmptyDirPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksEmptyDirPtrOutput)
 }
 
-func (i *jobDefinitionEksEmptyDirPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksEmptyDir] {
-	return pulumix.Output[*JobDefinitionEksEmptyDir]{
-		OutputState: i.ToJobDefinitionEksEmptyDirPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEksEmptyDirOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEksEmptyDirOutput) ElementType() reflect.Type {
@@ -4093,12 +3600,6 @@ func (o JobDefinitionEksEmptyDirOutput) ToJobDefinitionEksEmptyDirPtrOutputWithC
 	}).(JobDefinitionEksEmptyDirPtrOutput)
 }
 
-func (o JobDefinitionEksEmptyDirOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksEmptyDir] {
-	return pulumix.Output[JobDefinitionEksEmptyDir]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionEksEmptyDirOutput) Medium() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksEmptyDir) *string { return v.Medium }).(pulumi.StringPtrOutput)
 }
@@ -4119,12 +3620,6 @@ func (o JobDefinitionEksEmptyDirPtrOutput) ToJobDefinitionEksEmptyDirPtrOutput()
 
 func (o JobDefinitionEksEmptyDirPtrOutput) ToJobDefinitionEksEmptyDirPtrOutputWithContext(ctx context.Context) JobDefinitionEksEmptyDirPtrOutput {
 	return o
-}
-
-func (o JobDefinitionEksEmptyDirPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksEmptyDir] {
-	return pulumix.Output[*JobDefinitionEksEmptyDir]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksEmptyDirPtrOutput) Elem() JobDefinitionEksEmptyDirOutput {
@@ -4186,12 +3681,6 @@ func (i JobDefinitionEksHostPathArgs) ToJobDefinitionEksHostPathOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksHostPathOutput)
 }
 
-func (i JobDefinitionEksHostPathArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksHostPath] {
-	return pulumix.Output[JobDefinitionEksHostPath]{
-		OutputState: i.ToJobDefinitionEksHostPathOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionEksHostPathArgs) ToJobDefinitionEksHostPathPtrOutput() JobDefinitionEksHostPathPtrOutput {
 	return i.ToJobDefinitionEksHostPathPtrOutputWithContext(context.Background())
 }
@@ -4233,12 +3722,6 @@ func (i *jobDefinitionEksHostPathPtrType) ToJobDefinitionEksHostPathPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksHostPathPtrOutput)
 }
 
-func (i *jobDefinitionEksHostPathPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksHostPath] {
-	return pulumix.Output[*JobDefinitionEksHostPath]{
-		OutputState: i.ToJobDefinitionEksHostPathPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEksHostPathOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEksHostPathOutput) ElementType() reflect.Type {
@@ -4263,12 +3746,6 @@ func (o JobDefinitionEksHostPathOutput) ToJobDefinitionEksHostPathPtrOutputWithC
 	}).(JobDefinitionEksHostPathPtrOutput)
 }
 
-func (o JobDefinitionEksHostPathOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksHostPath] {
-	return pulumix.Output[JobDefinitionEksHostPath]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionEksHostPathOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksHostPath) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -4285,12 +3762,6 @@ func (o JobDefinitionEksHostPathPtrOutput) ToJobDefinitionEksHostPathPtrOutput()
 
 func (o JobDefinitionEksHostPathPtrOutput) ToJobDefinitionEksHostPathPtrOutputWithContext(ctx context.Context) JobDefinitionEksHostPathPtrOutput {
 	return o
-}
-
-func (o JobDefinitionEksHostPathPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksHostPath] {
-	return pulumix.Output[*JobDefinitionEksHostPath]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksHostPathPtrOutput) Elem() JobDefinitionEksHostPathOutput {
@@ -4343,12 +3814,6 @@ func (i JobDefinitionEksMetadataArgs) ToJobDefinitionEksMetadataOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksMetadataOutput)
 }
 
-func (i JobDefinitionEksMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksMetadata] {
-	return pulumix.Output[JobDefinitionEksMetadata]{
-		OutputState: i.ToJobDefinitionEksMetadataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionEksMetadataArgs) ToJobDefinitionEksMetadataPtrOutput() JobDefinitionEksMetadataPtrOutput {
 	return i.ToJobDefinitionEksMetadataPtrOutputWithContext(context.Background())
 }
@@ -4390,12 +3855,6 @@ func (i *jobDefinitionEksMetadataPtrType) ToJobDefinitionEksMetadataPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksMetadataPtrOutput)
 }
 
-func (i *jobDefinitionEksMetadataPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksMetadata] {
-	return pulumix.Output[*JobDefinitionEksMetadata]{
-		OutputState: i.ToJobDefinitionEksMetadataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEksMetadataOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEksMetadataOutput) ElementType() reflect.Type {
@@ -4420,12 +3879,6 @@ func (o JobDefinitionEksMetadataOutput) ToJobDefinitionEksMetadataPtrOutputWithC
 	}).(JobDefinitionEksMetadataPtrOutput)
 }
 
-func (o JobDefinitionEksMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksMetadata] {
-	return pulumix.Output[JobDefinitionEksMetadata]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionEksMetadataOutput) Labels() pulumi.AnyOutput {
 	return o.ApplyT(func(v JobDefinitionEksMetadata) interface{} { return v.Labels }).(pulumi.AnyOutput)
 }
@@ -4442,12 +3895,6 @@ func (o JobDefinitionEksMetadataPtrOutput) ToJobDefinitionEksMetadataPtrOutput()
 
 func (o JobDefinitionEksMetadataPtrOutput) ToJobDefinitionEksMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionEksMetadataPtrOutput {
 	return o
-}
-
-func (o JobDefinitionEksMetadataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksMetadata] {
-	return pulumix.Output[*JobDefinitionEksMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksMetadataPtrOutput) Elem() JobDefinitionEksMetadataOutput {
@@ -4510,12 +3957,6 @@ func (i JobDefinitionEksPodPropertiesArgs) ToJobDefinitionEksPodPropertiesOutput
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPodPropertiesOutput)
 }
 
-func (i JobDefinitionEksPodPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksPodProperties] {
-	return pulumix.Output[JobDefinitionEksPodProperties]{
-		OutputState: i.ToJobDefinitionEksPodPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionEksPodPropertiesArgs) ToJobDefinitionEksPodPropertiesPtrOutput() JobDefinitionEksPodPropertiesPtrOutput {
 	return i.ToJobDefinitionEksPodPropertiesPtrOutputWithContext(context.Background())
 }
@@ -4557,12 +3998,6 @@ func (i *jobDefinitionEksPodPropertiesPtrType) ToJobDefinitionEksPodPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPodPropertiesPtrOutput)
 }
 
-func (i *jobDefinitionEksPodPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksPodProperties] {
-	return pulumix.Output[*JobDefinitionEksPodProperties]{
-		OutputState: i.ToJobDefinitionEksPodPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEksPodPropertiesOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEksPodPropertiesOutput) ElementType() reflect.Type {
@@ -4585,12 +4020,6 @@ func (o JobDefinitionEksPodPropertiesOutput) ToJobDefinitionEksPodPropertiesPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksPodProperties) *JobDefinitionEksPodProperties {
 		return &v
 	}).(JobDefinitionEksPodPropertiesPtrOutput)
-}
-
-func (o JobDefinitionEksPodPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksPodProperties] {
-	return pulumix.Output[JobDefinitionEksPodProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksPodPropertiesOutput) Containers() JobDefinitionEksContainerArrayOutput {
@@ -4629,12 +4058,6 @@ func (o JobDefinitionEksPodPropertiesPtrOutput) ToJobDefinitionEksPodPropertiesP
 
 func (o JobDefinitionEksPodPropertiesPtrOutput) ToJobDefinitionEksPodPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionEksPodPropertiesPtrOutput {
 	return o
-}
-
-func (o JobDefinitionEksPodPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksPodProperties] {
-	return pulumix.Output[*JobDefinitionEksPodProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksPodPropertiesPtrOutput) Elem() JobDefinitionEksPodPropertiesOutput {
@@ -4732,12 +4155,6 @@ func (i JobDefinitionEksPropertiesArgs) ToJobDefinitionEksPropertiesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesOutput)
 }
 
-func (i JobDefinitionEksPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksProperties] {
-	return pulumix.Output[JobDefinitionEksProperties]{
-		OutputState: i.ToJobDefinitionEksPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionEksPropertiesArgs) ToJobDefinitionEksPropertiesPtrOutput() JobDefinitionEksPropertiesPtrOutput {
 	return i.ToJobDefinitionEksPropertiesPtrOutputWithContext(context.Background())
 }
@@ -4779,12 +4196,6 @@ func (i *jobDefinitionEksPropertiesPtrType) ToJobDefinitionEksPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPtrOutput)
 }
 
-func (i *jobDefinitionEksPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksProperties] {
-	return pulumix.Output[*JobDefinitionEksProperties]{
-		OutputState: i.ToJobDefinitionEksPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEksPropertiesOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEksPropertiesOutput) ElementType() reflect.Type {
@@ -4809,12 +4220,6 @@ func (o JobDefinitionEksPropertiesOutput) ToJobDefinitionEksPropertiesPtrOutputW
 	}).(JobDefinitionEksPropertiesPtrOutput)
 }
 
-func (o JobDefinitionEksPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksProperties] {
-	return pulumix.Output[JobDefinitionEksProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionEksPropertiesOutput) PodProperties() JobDefinitionEksPodPropertiesPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksProperties) *JobDefinitionEksPodProperties { return v.PodProperties }).(JobDefinitionEksPodPropertiesPtrOutput)
 }
@@ -4831,12 +4236,6 @@ func (o JobDefinitionEksPropertiesPtrOutput) ToJobDefinitionEksPropertiesPtrOutp
 
 func (o JobDefinitionEksPropertiesPtrOutput) ToJobDefinitionEksPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPtrOutput {
 	return o
-}
-
-func (o JobDefinitionEksPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksProperties] {
-	return pulumix.Output[*JobDefinitionEksProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksPropertiesPtrOutput) Elem() JobDefinitionEksPropertiesOutput {
@@ -4891,12 +4290,6 @@ func (i JobDefinitionEksSecretArgs) ToJobDefinitionEksSecretOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksSecretOutput)
 }
 
-func (i JobDefinitionEksSecretArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksSecret] {
-	return pulumix.Output[JobDefinitionEksSecret]{
-		OutputState: i.ToJobDefinitionEksSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionEksSecretArgs) ToJobDefinitionEksSecretPtrOutput() JobDefinitionEksSecretPtrOutput {
 	return i.ToJobDefinitionEksSecretPtrOutputWithContext(context.Background())
 }
@@ -4938,12 +4331,6 @@ func (i *jobDefinitionEksSecretPtrType) ToJobDefinitionEksSecretPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksSecretPtrOutput)
 }
 
-func (i *jobDefinitionEksSecretPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksSecret] {
-	return pulumix.Output[*JobDefinitionEksSecret]{
-		OutputState: i.ToJobDefinitionEksSecretPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEksSecretOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEksSecretOutput) ElementType() reflect.Type {
@@ -4968,12 +4355,6 @@ func (o JobDefinitionEksSecretOutput) ToJobDefinitionEksSecretPtrOutputWithConte
 	}).(JobDefinitionEksSecretPtrOutput)
 }
 
-func (o JobDefinitionEksSecretOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksSecret] {
-	return pulumix.Output[JobDefinitionEksSecret]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionEksSecretOutput) Optional() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksSecret) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
 }
@@ -4994,12 +4375,6 @@ func (o JobDefinitionEksSecretPtrOutput) ToJobDefinitionEksSecretPtrOutput() Job
 
 func (o JobDefinitionEksSecretPtrOutput) ToJobDefinitionEksSecretPtrOutputWithContext(ctx context.Context) JobDefinitionEksSecretPtrOutput {
 	return o
-}
-
-func (o JobDefinitionEksSecretPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionEksSecret] {
-	return pulumix.Output[*JobDefinitionEksSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksSecretPtrOutput) Elem() JobDefinitionEksSecretOutput {
@@ -5067,12 +4442,6 @@ func (i JobDefinitionEksVolumeArgs) ToJobDefinitionEksVolumeOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksVolumeOutput)
 }
 
-func (i JobDefinitionEksVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksVolume] {
-	return pulumix.Output[JobDefinitionEksVolume]{
-		OutputState: i.ToJobDefinitionEksVolumeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionEksVolumeArrayInput is an input type that accepts JobDefinitionEksVolumeArray and JobDefinitionEksVolumeArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionEksVolumeArrayInput` via:
 //
@@ -5098,12 +4467,6 @@ func (i JobDefinitionEksVolumeArray) ToJobDefinitionEksVolumeArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksVolumeArrayOutput)
 }
 
-func (i JobDefinitionEksVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionEksVolume] {
-	return pulumix.Output[[]JobDefinitionEksVolume]{
-		OutputState: i.ToJobDefinitionEksVolumeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEksVolumeOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEksVolumeOutput) ElementType() reflect.Type {
@@ -5116,12 +4479,6 @@ func (o JobDefinitionEksVolumeOutput) ToJobDefinitionEksVolumeOutput() JobDefini
 
 func (o JobDefinitionEksVolumeOutput) ToJobDefinitionEksVolumeOutputWithContext(ctx context.Context) JobDefinitionEksVolumeOutput {
 	return o
-}
-
-func (o JobDefinitionEksVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEksVolume] {
-	return pulumix.Output[JobDefinitionEksVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksVolumeOutput) EmptyDir() JobDefinitionEksEmptyDirPtrOutput {
@@ -5152,12 +4509,6 @@ func (o JobDefinitionEksVolumeArrayOutput) ToJobDefinitionEksVolumeArrayOutput()
 
 func (o JobDefinitionEksVolumeArrayOutput) ToJobDefinitionEksVolumeArrayOutputWithContext(ctx context.Context) JobDefinitionEksVolumeArrayOutput {
 	return o
-}
-
-func (o JobDefinitionEksVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionEksVolume] {
-	return pulumix.Output[[]JobDefinitionEksVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEksVolumeArrayOutput) Index(i pulumi.IntInput) JobDefinitionEksVolumeOutput {
@@ -5199,12 +4550,6 @@ func (i JobDefinitionEnvironmentArgs) ToJobDefinitionEnvironmentOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEnvironmentOutput)
 }
 
-func (i JobDefinitionEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEnvironment] {
-	return pulumix.Output[JobDefinitionEnvironment]{
-		OutputState: i.ToJobDefinitionEnvironmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionEnvironmentArrayInput is an input type that accepts JobDefinitionEnvironmentArray and JobDefinitionEnvironmentArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionEnvironmentArrayInput` via:
 //
@@ -5230,12 +4575,6 @@ func (i JobDefinitionEnvironmentArray) ToJobDefinitionEnvironmentArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEnvironmentArrayOutput)
 }
 
-func (i JobDefinitionEnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionEnvironment] {
-	return pulumix.Output[[]JobDefinitionEnvironment]{
-		OutputState: i.ToJobDefinitionEnvironmentArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEnvironmentOutput) ElementType() reflect.Type {
@@ -5248,12 +4587,6 @@ func (o JobDefinitionEnvironmentOutput) ToJobDefinitionEnvironmentOutput() JobDe
 
 func (o JobDefinitionEnvironmentOutput) ToJobDefinitionEnvironmentOutputWithContext(ctx context.Context) JobDefinitionEnvironmentOutput {
 	return o
-}
-
-func (o JobDefinitionEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEnvironment] {
-	return pulumix.Output[JobDefinitionEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEnvironmentOutput) Name() pulumi.StringPtrOutput {
@@ -5276,12 +4609,6 @@ func (o JobDefinitionEnvironmentArrayOutput) ToJobDefinitionEnvironmentArrayOutp
 
 func (o JobDefinitionEnvironmentArrayOutput) ToJobDefinitionEnvironmentArrayOutputWithContext(ctx context.Context) JobDefinitionEnvironmentArrayOutput {
 	return o
-}
-
-func (o JobDefinitionEnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionEnvironment] {
-	return pulumix.Output[[]JobDefinitionEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEnvironmentArrayOutput) Index(i pulumi.IntInput) JobDefinitionEnvironmentOutput {
@@ -5327,12 +4654,6 @@ func (i JobDefinitionEvaluateOnExitArgs) ToJobDefinitionEvaluateOnExitOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEvaluateOnExitOutput)
 }
 
-func (i JobDefinitionEvaluateOnExitArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEvaluateOnExit] {
-	return pulumix.Output[JobDefinitionEvaluateOnExit]{
-		OutputState: i.ToJobDefinitionEvaluateOnExitOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionEvaluateOnExitArrayInput is an input type that accepts JobDefinitionEvaluateOnExitArray and JobDefinitionEvaluateOnExitArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionEvaluateOnExitArrayInput` via:
 //
@@ -5358,12 +4679,6 @@ func (i JobDefinitionEvaluateOnExitArray) ToJobDefinitionEvaluateOnExitArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEvaluateOnExitArrayOutput)
 }
 
-func (i JobDefinitionEvaluateOnExitArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionEvaluateOnExit] {
-	return pulumix.Output[[]JobDefinitionEvaluateOnExit]{
-		OutputState: i.ToJobDefinitionEvaluateOnExitArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionEvaluateOnExitOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionEvaluateOnExitOutput) ElementType() reflect.Type {
@@ -5376,12 +4691,6 @@ func (o JobDefinitionEvaluateOnExitOutput) ToJobDefinitionEvaluateOnExitOutput()
 
 func (o JobDefinitionEvaluateOnExitOutput) ToJobDefinitionEvaluateOnExitOutputWithContext(ctx context.Context) JobDefinitionEvaluateOnExitOutput {
 	return o
-}
-
-func (o JobDefinitionEvaluateOnExitOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionEvaluateOnExit] {
-	return pulumix.Output[JobDefinitionEvaluateOnExit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEvaluateOnExitOutput) Action() pulumi.StringOutput {
@@ -5412,12 +4721,6 @@ func (o JobDefinitionEvaluateOnExitArrayOutput) ToJobDefinitionEvaluateOnExitArr
 
 func (o JobDefinitionEvaluateOnExitArrayOutput) ToJobDefinitionEvaluateOnExitArrayOutputWithContext(ctx context.Context) JobDefinitionEvaluateOnExitArrayOutput {
 	return o
-}
-
-func (o JobDefinitionEvaluateOnExitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionEvaluateOnExit] {
-	return pulumix.Output[[]JobDefinitionEvaluateOnExit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionEvaluateOnExitArrayOutput) Index(i pulumi.IntInput) JobDefinitionEvaluateOnExitOutput {
@@ -5455,12 +4758,6 @@ func (i JobDefinitionHostArgs) ToJobDefinitionHostOutput() JobDefinitionHostOutp
 
 func (i JobDefinitionHostArgs) ToJobDefinitionHostOutputWithContext(ctx context.Context) JobDefinitionHostOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionHostOutput)
-}
-
-func (i JobDefinitionHostArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionHost] {
-	return pulumix.Output[JobDefinitionHost]{
-		OutputState: i.ToJobDefinitionHostOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i JobDefinitionHostArgs) ToJobDefinitionHostPtrOutput() JobDefinitionHostPtrOutput {
@@ -5504,12 +4801,6 @@ func (i *jobDefinitionHostPtrType) ToJobDefinitionHostPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionHostPtrOutput)
 }
 
-func (i *jobDefinitionHostPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionHost] {
-	return pulumix.Output[*JobDefinitionHost]{
-		OutputState: i.ToJobDefinitionHostPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionHostOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionHostOutput) ElementType() reflect.Type {
@@ -5534,12 +4825,6 @@ func (o JobDefinitionHostOutput) ToJobDefinitionHostPtrOutputWithContext(ctx con
 	}).(JobDefinitionHostPtrOutput)
 }
 
-func (o JobDefinitionHostOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionHost] {
-	return pulumix.Output[JobDefinitionHost]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionHostOutput) SourcePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionHost) *string { return v.SourcePath }).(pulumi.StringPtrOutput)
 }
@@ -5556,12 +4841,6 @@ func (o JobDefinitionHostPtrOutput) ToJobDefinitionHostPtrOutput() JobDefinition
 
 func (o JobDefinitionHostPtrOutput) ToJobDefinitionHostPtrOutputWithContext(ctx context.Context) JobDefinitionHostPtrOutput {
 	return o
-}
-
-func (o JobDefinitionHostPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionHost] {
-	return pulumix.Output[*JobDefinitionHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionHostPtrOutput) Elem() JobDefinitionHostOutput {
@@ -5614,12 +4893,6 @@ func (i JobDefinitionJobTimeoutArgs) ToJobDefinitionJobTimeoutOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionJobTimeoutOutput)
 }
 
-func (i JobDefinitionJobTimeoutArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionJobTimeout] {
-	return pulumix.Output[JobDefinitionJobTimeout]{
-		OutputState: i.ToJobDefinitionJobTimeoutOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionJobTimeoutArgs) ToJobDefinitionJobTimeoutPtrOutput() JobDefinitionJobTimeoutPtrOutput {
 	return i.ToJobDefinitionJobTimeoutPtrOutputWithContext(context.Background())
 }
@@ -5661,12 +4934,6 @@ func (i *jobDefinitionJobTimeoutPtrType) ToJobDefinitionJobTimeoutPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionJobTimeoutPtrOutput)
 }
 
-func (i *jobDefinitionJobTimeoutPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionJobTimeout] {
-	return pulumix.Output[*JobDefinitionJobTimeout]{
-		OutputState: i.ToJobDefinitionJobTimeoutPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionJobTimeoutOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionJobTimeoutOutput) ElementType() reflect.Type {
@@ -5691,12 +4958,6 @@ func (o JobDefinitionJobTimeoutOutput) ToJobDefinitionJobTimeoutPtrOutputWithCon
 	}).(JobDefinitionJobTimeoutPtrOutput)
 }
 
-func (o JobDefinitionJobTimeoutOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionJobTimeout] {
-	return pulumix.Output[JobDefinitionJobTimeout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionJobTimeoutOutput) AttemptDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionJobTimeout) *int { return v.AttemptDurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -5713,12 +4974,6 @@ func (o JobDefinitionJobTimeoutPtrOutput) ToJobDefinitionJobTimeoutPtrOutput() J
 
 func (o JobDefinitionJobTimeoutPtrOutput) ToJobDefinitionJobTimeoutPtrOutputWithContext(ctx context.Context) JobDefinitionJobTimeoutPtrOutput {
 	return o
-}
-
-func (o JobDefinitionJobTimeoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionJobTimeout] {
-	return pulumix.Output[*JobDefinitionJobTimeout]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionJobTimeoutPtrOutput) Elem() JobDefinitionJobTimeoutOutput {
@@ -5775,12 +5030,6 @@ func (i JobDefinitionMountPointArgs) ToJobDefinitionMountPointOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMountPointOutput)
 }
 
-func (i JobDefinitionMountPointArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionMountPoint] {
-	return pulumix.Output[JobDefinitionMountPoint]{
-		OutputState: i.ToJobDefinitionMountPointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionMountPointArrayInput is an input type that accepts JobDefinitionMountPointArray and JobDefinitionMountPointArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionMountPointArrayInput` via:
 //
@@ -5806,12 +5055,6 @@ func (i JobDefinitionMountPointArray) ToJobDefinitionMountPointArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMountPointArrayOutput)
 }
 
-func (i JobDefinitionMountPointArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionMountPoint] {
-	return pulumix.Output[[]JobDefinitionMountPoint]{
-		OutputState: i.ToJobDefinitionMountPointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionMountPointOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionMountPointOutput) ElementType() reflect.Type {
@@ -5824,12 +5067,6 @@ func (o JobDefinitionMountPointOutput) ToJobDefinitionMountPointOutput() JobDefi
 
 func (o JobDefinitionMountPointOutput) ToJobDefinitionMountPointOutputWithContext(ctx context.Context) JobDefinitionMountPointOutput {
 	return o
-}
-
-func (o JobDefinitionMountPointOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionMountPoint] {
-	return pulumix.Output[JobDefinitionMountPoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionMountPointOutput) ContainerPath() pulumi.StringPtrOutput {
@@ -5856,12 +5093,6 @@ func (o JobDefinitionMountPointArrayOutput) ToJobDefinitionMountPointArrayOutput
 
 func (o JobDefinitionMountPointArrayOutput) ToJobDefinitionMountPointArrayOutputWithContext(ctx context.Context) JobDefinitionMountPointArrayOutput {
 	return o
-}
-
-func (o JobDefinitionMountPointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionMountPoint] {
-	return pulumix.Output[[]JobDefinitionMountPoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionMountPointArrayOutput) Index(i pulumi.IntInput) JobDefinitionMountPointOutput {
@@ -5905,12 +5136,6 @@ func (i JobDefinitionNodePropertiesArgs) ToJobDefinitionNodePropertiesOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionNodePropertiesOutput)
 }
 
-func (i JobDefinitionNodePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionNodeProperties] {
-	return pulumix.Output[JobDefinitionNodeProperties]{
-		OutputState: i.ToJobDefinitionNodePropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionNodePropertiesArgs) ToJobDefinitionNodePropertiesPtrOutput() JobDefinitionNodePropertiesPtrOutput {
 	return i.ToJobDefinitionNodePropertiesPtrOutputWithContext(context.Background())
 }
@@ -5952,12 +5177,6 @@ func (i *jobDefinitionNodePropertiesPtrType) ToJobDefinitionNodePropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionNodePropertiesPtrOutput)
 }
 
-func (i *jobDefinitionNodePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionNodeProperties] {
-	return pulumix.Output[*JobDefinitionNodeProperties]{
-		OutputState: i.ToJobDefinitionNodePropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionNodePropertiesOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionNodePropertiesOutput) ElementType() reflect.Type {
@@ -5980,12 +5199,6 @@ func (o JobDefinitionNodePropertiesOutput) ToJobDefinitionNodePropertiesPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionNodeProperties) *JobDefinitionNodeProperties {
 		return &v
 	}).(JobDefinitionNodePropertiesPtrOutput)
-}
-
-func (o JobDefinitionNodePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionNodeProperties] {
-	return pulumix.Output[JobDefinitionNodeProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionNodePropertiesOutput) MainNode() pulumi.IntOutput {
@@ -6012,12 +5225,6 @@ func (o JobDefinitionNodePropertiesPtrOutput) ToJobDefinitionNodePropertiesPtrOu
 
 func (o JobDefinitionNodePropertiesPtrOutput) ToJobDefinitionNodePropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionNodePropertiesPtrOutput {
 	return o
-}
-
-func (o JobDefinitionNodePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionNodeProperties] {
-	return pulumix.Output[*JobDefinitionNodeProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionNodePropertiesPtrOutput) Elem() JobDefinitionNodePropertiesOutput {
@@ -6090,12 +5297,6 @@ func (i JobDefinitionNodeRangePropertyArgs) ToJobDefinitionNodeRangePropertyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionNodeRangePropertyOutput)
 }
 
-func (i JobDefinitionNodeRangePropertyArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionNodeRangeProperty] {
-	return pulumix.Output[JobDefinitionNodeRangeProperty]{
-		OutputState: i.ToJobDefinitionNodeRangePropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionNodeRangePropertyArrayInput is an input type that accepts JobDefinitionNodeRangePropertyArray and JobDefinitionNodeRangePropertyArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionNodeRangePropertyArrayInput` via:
 //
@@ -6121,12 +5322,6 @@ func (i JobDefinitionNodeRangePropertyArray) ToJobDefinitionNodeRangePropertyArr
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionNodeRangePropertyArrayOutput)
 }
 
-func (i JobDefinitionNodeRangePropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionNodeRangeProperty] {
-	return pulumix.Output[[]JobDefinitionNodeRangeProperty]{
-		OutputState: i.ToJobDefinitionNodeRangePropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionNodeRangePropertyOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionNodeRangePropertyOutput) ElementType() reflect.Type {
@@ -6139,12 +5334,6 @@ func (o JobDefinitionNodeRangePropertyOutput) ToJobDefinitionNodeRangePropertyOu
 
 func (o JobDefinitionNodeRangePropertyOutput) ToJobDefinitionNodeRangePropertyOutputWithContext(ctx context.Context) JobDefinitionNodeRangePropertyOutput {
 	return o
-}
-
-func (o JobDefinitionNodeRangePropertyOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionNodeRangeProperty] {
-	return pulumix.Output[JobDefinitionNodeRangeProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionNodeRangePropertyOutput) Container() JobDefinitionContainerPropertiesPtrOutput {
@@ -6167,12 +5356,6 @@ func (o JobDefinitionNodeRangePropertyArrayOutput) ToJobDefinitionNodeRangePrope
 
 func (o JobDefinitionNodeRangePropertyArrayOutput) ToJobDefinitionNodeRangePropertyArrayOutputWithContext(ctx context.Context) JobDefinitionNodeRangePropertyArrayOutput {
 	return o
-}
-
-func (o JobDefinitionNodeRangePropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionNodeRangeProperty] {
-	return pulumix.Output[[]JobDefinitionNodeRangeProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionNodeRangePropertyArrayOutput) Index(i pulumi.IntInput) JobDefinitionNodeRangePropertyOutput {
@@ -6214,12 +5397,6 @@ func (i JobDefinitionResourceRequirementArgs) ToJobDefinitionResourceRequirement
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionResourceRequirementOutput)
 }
 
-func (i JobDefinitionResourceRequirementArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionResourceRequirement] {
-	return pulumix.Output[JobDefinitionResourceRequirement]{
-		OutputState: i.ToJobDefinitionResourceRequirementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionResourceRequirementArrayInput is an input type that accepts JobDefinitionResourceRequirementArray and JobDefinitionResourceRequirementArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionResourceRequirementArrayInput` via:
 //
@@ -6245,12 +5422,6 @@ func (i JobDefinitionResourceRequirementArray) ToJobDefinitionResourceRequiremen
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionResourceRequirementArrayOutput)
 }
 
-func (i JobDefinitionResourceRequirementArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionResourceRequirement] {
-	return pulumix.Output[[]JobDefinitionResourceRequirement]{
-		OutputState: i.ToJobDefinitionResourceRequirementArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionResourceRequirementOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionResourceRequirementOutput) ElementType() reflect.Type {
@@ -6263,12 +5434,6 @@ func (o JobDefinitionResourceRequirementOutput) ToJobDefinitionResourceRequireme
 
 func (o JobDefinitionResourceRequirementOutput) ToJobDefinitionResourceRequirementOutputWithContext(ctx context.Context) JobDefinitionResourceRequirementOutput {
 	return o
-}
-
-func (o JobDefinitionResourceRequirementOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionResourceRequirement] {
-	return pulumix.Output[JobDefinitionResourceRequirement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionResourceRequirementOutput) Type() pulumi.StringPtrOutput {
@@ -6291,12 +5456,6 @@ func (o JobDefinitionResourceRequirementArrayOutput) ToJobDefinitionResourceRequ
 
 func (o JobDefinitionResourceRequirementArrayOutput) ToJobDefinitionResourceRequirementArrayOutputWithContext(ctx context.Context) JobDefinitionResourceRequirementArrayOutput {
 	return o
-}
-
-func (o JobDefinitionResourceRequirementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionResourceRequirement] {
-	return pulumix.Output[[]JobDefinitionResourceRequirement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionResourceRequirementArrayOutput) Index(i pulumi.IntInput) JobDefinitionResourceRequirementOutput {
@@ -6336,12 +5495,6 @@ func (i JobDefinitionRetryStrategyArgs) ToJobDefinitionRetryStrategyOutput() Job
 
 func (i JobDefinitionRetryStrategyArgs) ToJobDefinitionRetryStrategyOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRetryStrategyOutput)
-}
-
-func (i JobDefinitionRetryStrategyArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionRetryStrategy] {
-	return pulumix.Output[JobDefinitionRetryStrategy]{
-		OutputState: i.ToJobDefinitionRetryStrategyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i JobDefinitionRetryStrategyArgs) ToJobDefinitionRetryStrategyPtrOutput() JobDefinitionRetryStrategyPtrOutput {
@@ -6385,12 +5538,6 @@ func (i *jobDefinitionRetryStrategyPtrType) ToJobDefinitionRetryStrategyPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRetryStrategyPtrOutput)
 }
 
-func (i *jobDefinitionRetryStrategyPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionRetryStrategy] {
-	return pulumix.Output[*JobDefinitionRetryStrategy]{
-		OutputState: i.ToJobDefinitionRetryStrategyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionRetryStrategyOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionRetryStrategyOutput) ElementType() reflect.Type {
@@ -6415,12 +5562,6 @@ func (o JobDefinitionRetryStrategyOutput) ToJobDefinitionRetryStrategyPtrOutputW
 	}).(JobDefinitionRetryStrategyPtrOutput)
 }
 
-func (o JobDefinitionRetryStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionRetryStrategy] {
-	return pulumix.Output[JobDefinitionRetryStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionRetryStrategyOutput) Attempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionRetryStrategy) *int { return v.Attempts }).(pulumi.IntPtrOutput)
 }
@@ -6441,12 +5582,6 @@ func (o JobDefinitionRetryStrategyPtrOutput) ToJobDefinitionRetryStrategyPtrOutp
 
 func (o JobDefinitionRetryStrategyPtrOutput) ToJobDefinitionRetryStrategyPtrOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyPtrOutput {
 	return o
-}
-
-func (o JobDefinitionRetryStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionRetryStrategy] {
-	return pulumix.Output[*JobDefinitionRetryStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionRetryStrategyPtrOutput) Elem() JobDefinitionRetryStrategyOutput {
@@ -6510,12 +5645,6 @@ func (i JobDefinitionSecretArgs) ToJobDefinitionSecretOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionSecretOutput)
 }
 
-func (i JobDefinitionSecretArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionSecret] {
-	return pulumix.Output[JobDefinitionSecret]{
-		OutputState: i.ToJobDefinitionSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionSecretArrayInput is an input type that accepts JobDefinitionSecretArray and JobDefinitionSecretArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionSecretArrayInput` via:
 //
@@ -6541,12 +5670,6 @@ func (i JobDefinitionSecretArray) ToJobDefinitionSecretArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionSecretArrayOutput)
 }
 
-func (i JobDefinitionSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionSecret] {
-	return pulumix.Output[[]JobDefinitionSecret]{
-		OutputState: i.ToJobDefinitionSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionSecretOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionSecretOutput) ElementType() reflect.Type {
@@ -6559,12 +5682,6 @@ func (o JobDefinitionSecretOutput) ToJobDefinitionSecretOutput() JobDefinitionSe
 
 func (o JobDefinitionSecretOutput) ToJobDefinitionSecretOutputWithContext(ctx context.Context) JobDefinitionSecretOutput {
 	return o
-}
-
-func (o JobDefinitionSecretOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionSecret] {
-	return pulumix.Output[JobDefinitionSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionSecretOutput) Name() pulumi.StringOutput {
@@ -6587,12 +5704,6 @@ func (o JobDefinitionSecretArrayOutput) ToJobDefinitionSecretArrayOutput() JobDe
 
 func (o JobDefinitionSecretArrayOutput) ToJobDefinitionSecretArrayOutputWithContext(ctx context.Context) JobDefinitionSecretArrayOutput {
 	return o
-}
-
-func (o JobDefinitionSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionSecret] {
-	return pulumix.Output[[]JobDefinitionSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionSecretArrayOutput) Index(i pulumi.IntInput) JobDefinitionSecretOutput {
@@ -6636,12 +5747,6 @@ func (i JobDefinitionTmpfsArgs) ToJobDefinitionTmpfsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTmpfsOutput)
 }
 
-func (i JobDefinitionTmpfsArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionTmpfs] {
-	return pulumix.Output[JobDefinitionTmpfs]{
-		OutputState: i.ToJobDefinitionTmpfsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionTmpfsArrayInput is an input type that accepts JobDefinitionTmpfsArray and JobDefinitionTmpfsArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionTmpfsArrayInput` via:
 //
@@ -6667,12 +5772,6 @@ func (i JobDefinitionTmpfsArray) ToJobDefinitionTmpfsArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTmpfsArrayOutput)
 }
 
-func (i JobDefinitionTmpfsArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionTmpfs] {
-	return pulumix.Output[[]JobDefinitionTmpfs]{
-		OutputState: i.ToJobDefinitionTmpfsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionTmpfsOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionTmpfsOutput) ElementType() reflect.Type {
@@ -6685,12 +5784,6 @@ func (o JobDefinitionTmpfsOutput) ToJobDefinitionTmpfsOutput() JobDefinitionTmpf
 
 func (o JobDefinitionTmpfsOutput) ToJobDefinitionTmpfsOutputWithContext(ctx context.Context) JobDefinitionTmpfsOutput {
 	return o
-}
-
-func (o JobDefinitionTmpfsOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionTmpfs] {
-	return pulumix.Output[JobDefinitionTmpfs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionTmpfsOutput) ContainerPath() pulumi.StringOutput {
@@ -6717,12 +5810,6 @@ func (o JobDefinitionTmpfsArrayOutput) ToJobDefinitionTmpfsArrayOutput() JobDefi
 
 func (o JobDefinitionTmpfsArrayOutput) ToJobDefinitionTmpfsArrayOutputWithContext(ctx context.Context) JobDefinitionTmpfsArrayOutput {
 	return o
-}
-
-func (o JobDefinitionTmpfsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionTmpfs] {
-	return pulumix.Output[[]JobDefinitionTmpfs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionTmpfsArrayOutput) Index(i pulumi.IntInput) JobDefinitionTmpfsOutput {
@@ -6766,12 +5853,6 @@ func (i JobDefinitionUlimitArgs) ToJobDefinitionUlimitOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionUlimitOutput)
 }
 
-func (i JobDefinitionUlimitArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionUlimit] {
-	return pulumix.Output[JobDefinitionUlimit]{
-		OutputState: i.ToJobDefinitionUlimitOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionUlimitArrayInput is an input type that accepts JobDefinitionUlimitArray and JobDefinitionUlimitArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionUlimitArrayInput` via:
 //
@@ -6797,12 +5878,6 @@ func (i JobDefinitionUlimitArray) ToJobDefinitionUlimitArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionUlimitArrayOutput)
 }
 
-func (i JobDefinitionUlimitArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionUlimit] {
-	return pulumix.Output[[]JobDefinitionUlimit]{
-		OutputState: i.ToJobDefinitionUlimitArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionUlimitOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionUlimitOutput) ElementType() reflect.Type {
@@ -6815,12 +5890,6 @@ func (o JobDefinitionUlimitOutput) ToJobDefinitionUlimitOutput() JobDefinitionUl
 
 func (o JobDefinitionUlimitOutput) ToJobDefinitionUlimitOutputWithContext(ctx context.Context) JobDefinitionUlimitOutput {
 	return o
-}
-
-func (o JobDefinitionUlimitOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionUlimit] {
-	return pulumix.Output[JobDefinitionUlimit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionUlimitOutput) HardLimit() pulumi.IntOutput {
@@ -6847,12 +5916,6 @@ func (o JobDefinitionUlimitArrayOutput) ToJobDefinitionUlimitArrayOutput() JobDe
 
 func (o JobDefinitionUlimitArrayOutput) ToJobDefinitionUlimitArrayOutputWithContext(ctx context.Context) JobDefinitionUlimitArrayOutput {
 	return o
-}
-
-func (o JobDefinitionUlimitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionUlimit] {
-	return pulumix.Output[[]JobDefinitionUlimit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionUlimitArrayOutput) Index(i pulumi.IntInput) JobDefinitionUlimitOutput {
@@ -6896,12 +5959,6 @@ func (i JobDefinitionVolumeArgs) ToJobDefinitionVolumeOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionVolumeOutput)
 }
 
-func (i JobDefinitionVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionVolume] {
-	return pulumix.Output[JobDefinitionVolume]{
-		OutputState: i.ToJobDefinitionVolumeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionVolumeArrayInput is an input type that accepts JobDefinitionVolumeArray and JobDefinitionVolumeArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionVolumeArrayInput` via:
 //
@@ -6927,12 +5984,6 @@ func (i JobDefinitionVolumeArray) ToJobDefinitionVolumeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionVolumeArrayOutput)
 }
 
-func (i JobDefinitionVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionVolume] {
-	return pulumix.Output[[]JobDefinitionVolume]{
-		OutputState: i.ToJobDefinitionVolumeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionVolumeOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionVolumeOutput) ElementType() reflect.Type {
@@ -6945,12 +5996,6 @@ func (o JobDefinitionVolumeOutput) ToJobDefinitionVolumeOutput() JobDefinitionVo
 
 func (o JobDefinitionVolumeOutput) ToJobDefinitionVolumeOutputWithContext(ctx context.Context) JobDefinitionVolumeOutput {
 	return o
-}
-
-func (o JobDefinitionVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionVolume] {
-	return pulumix.Output[JobDefinitionVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionVolumeOutput) EfsVolumeConfiguration() JobDefinitionEfsVolumeConfigurationPtrOutput {
@@ -6977,12 +6022,6 @@ func (o JobDefinitionVolumeArrayOutput) ToJobDefinitionVolumeArrayOutput() JobDe
 
 func (o JobDefinitionVolumeArrayOutput) ToJobDefinitionVolumeArrayOutputWithContext(ctx context.Context) JobDefinitionVolumeArrayOutput {
 	return o
-}
-
-func (o JobDefinitionVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionVolume] {
-	return pulumix.Output[[]JobDefinitionVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionVolumeArrayOutput) Index(i pulumi.IntInput) JobDefinitionVolumeOutput {
@@ -7024,12 +6063,6 @@ func (i JobQueueComputeEnvironmentOrderArgs) ToJobQueueComputeEnvironmentOrderOu
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueComputeEnvironmentOrderOutput)
 }
 
-func (i JobQueueComputeEnvironmentOrderArgs) ToOutput(ctx context.Context) pulumix.Output[JobQueueComputeEnvironmentOrder] {
-	return pulumix.Output[JobQueueComputeEnvironmentOrder]{
-		OutputState: i.ToJobQueueComputeEnvironmentOrderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobQueueComputeEnvironmentOrderArrayInput is an input type that accepts JobQueueComputeEnvironmentOrderArray and JobQueueComputeEnvironmentOrderArrayOutput values.
 // You can construct a concrete instance of `JobQueueComputeEnvironmentOrderArrayInput` via:
 //
@@ -7055,12 +6088,6 @@ func (i JobQueueComputeEnvironmentOrderArray) ToJobQueueComputeEnvironmentOrderA
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueComputeEnvironmentOrderArrayOutput)
 }
 
-func (i JobQueueComputeEnvironmentOrderArray) ToOutput(ctx context.Context) pulumix.Output[[]JobQueueComputeEnvironmentOrder] {
-	return pulumix.Output[[]JobQueueComputeEnvironmentOrder]{
-		OutputState: i.ToJobQueueComputeEnvironmentOrderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobQueueComputeEnvironmentOrderOutput struct{ *pulumi.OutputState }
 
 func (JobQueueComputeEnvironmentOrderOutput) ElementType() reflect.Type {
@@ -7073,12 +6100,6 @@ func (o JobQueueComputeEnvironmentOrderOutput) ToJobQueueComputeEnvironmentOrder
 
 func (o JobQueueComputeEnvironmentOrderOutput) ToJobQueueComputeEnvironmentOrderOutputWithContext(ctx context.Context) JobQueueComputeEnvironmentOrderOutput {
 	return o
-}
-
-func (o JobQueueComputeEnvironmentOrderOutput) ToOutput(ctx context.Context) pulumix.Output[JobQueueComputeEnvironmentOrder] {
-	return pulumix.Output[JobQueueComputeEnvironmentOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobQueueComputeEnvironmentOrderOutput) ComputeEnvironment() pulumi.StringOutput {
@@ -7101,12 +6122,6 @@ func (o JobQueueComputeEnvironmentOrderArrayOutput) ToJobQueueComputeEnvironment
 
 func (o JobQueueComputeEnvironmentOrderArrayOutput) ToJobQueueComputeEnvironmentOrderArrayOutputWithContext(ctx context.Context) JobQueueComputeEnvironmentOrderArrayOutput {
 	return o
-}
-
-func (o JobQueueComputeEnvironmentOrderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobQueueComputeEnvironmentOrder] {
-	return pulumix.Output[[]JobQueueComputeEnvironmentOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobQueueComputeEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) JobQueueComputeEnvironmentOrderOutput {
@@ -7154,12 +6169,6 @@ func (i SchedulingPolicyFairsharePolicyArgs) ToSchedulingPolicyFairsharePolicyOu
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyFairsharePolicyOutput)
 }
 
-func (i SchedulingPolicyFairsharePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[SchedulingPolicyFairsharePolicy] {
-	return pulumix.Output[SchedulingPolicyFairsharePolicy]{
-		OutputState: i.ToSchedulingPolicyFairsharePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SchedulingPolicyFairsharePolicyArgs) ToSchedulingPolicyFairsharePolicyPtrOutput() SchedulingPolicyFairsharePolicyPtrOutput {
 	return i.ToSchedulingPolicyFairsharePolicyPtrOutputWithContext(context.Background())
 }
@@ -7201,12 +6210,6 @@ func (i *schedulingPolicyFairsharePolicyPtrType) ToSchedulingPolicyFairsharePoli
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyFairsharePolicyPtrOutput)
 }
 
-func (i *schedulingPolicyFairsharePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchedulingPolicyFairsharePolicy] {
-	return pulumix.Output[*SchedulingPolicyFairsharePolicy]{
-		OutputState: i.ToSchedulingPolicyFairsharePolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Fair Share Policy for the Job Queue.
 type SchedulingPolicyFairsharePolicyOutput struct{ *pulumi.OutputState }
 
@@ -7230,12 +6233,6 @@ func (o SchedulingPolicyFairsharePolicyOutput) ToSchedulingPolicyFairsharePolicy
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchedulingPolicyFairsharePolicy) *SchedulingPolicyFairsharePolicy {
 		return &v
 	}).(SchedulingPolicyFairsharePolicyPtrOutput)
-}
-
-func (o SchedulingPolicyFairsharePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulingPolicyFairsharePolicy] {
-	return pulumix.Output[SchedulingPolicyFairsharePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchedulingPolicyFairsharePolicyOutput) ComputeReservation() pulumi.Float64PtrOutput {
@@ -7263,12 +6260,6 @@ func (o SchedulingPolicyFairsharePolicyPtrOutput) ToSchedulingPolicyFairsharePol
 
 func (o SchedulingPolicyFairsharePolicyPtrOutput) ToSchedulingPolicyFairsharePolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyFairsharePolicyPtrOutput {
 	return o
-}
-
-func (o SchedulingPolicyFairsharePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulingPolicyFairsharePolicy] {
-	return pulumix.Output[*SchedulingPolicyFairsharePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchedulingPolicyFairsharePolicyPtrOutput) Elem() SchedulingPolicyFairsharePolicyOutput {
@@ -7342,12 +6333,6 @@ func (i SchedulingPolicyShareAttributesArgs) ToSchedulingPolicyShareAttributesOu
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyShareAttributesOutput)
 }
 
-func (i SchedulingPolicyShareAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[SchedulingPolicyShareAttributes] {
-	return pulumix.Output[SchedulingPolicyShareAttributes]{
-		OutputState: i.ToSchedulingPolicyShareAttributesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SchedulingPolicyShareAttributesArrayInput is an input type that accepts SchedulingPolicyShareAttributesArray and SchedulingPolicyShareAttributesArrayOutput values.
 // You can construct a concrete instance of `SchedulingPolicyShareAttributesArrayInput` via:
 //
@@ -7373,12 +6358,6 @@ func (i SchedulingPolicyShareAttributesArray) ToSchedulingPolicyShareAttributesA
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyShareAttributesArrayOutput)
 }
 
-func (i SchedulingPolicyShareAttributesArray) ToOutput(ctx context.Context) pulumix.Output[[]SchedulingPolicyShareAttributes] {
-	return pulumix.Output[[]SchedulingPolicyShareAttributes]{
-		OutputState: i.ToSchedulingPolicyShareAttributesArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SchedulingPolicyShareAttributesOutput struct{ *pulumi.OutputState }
 
 func (SchedulingPolicyShareAttributesOutput) ElementType() reflect.Type {
@@ -7391,12 +6370,6 @@ func (o SchedulingPolicyShareAttributesOutput) ToSchedulingPolicyShareAttributes
 
 func (o SchedulingPolicyShareAttributesOutput) ToSchedulingPolicyShareAttributesOutputWithContext(ctx context.Context) SchedulingPolicyShareAttributesOutput {
 	return o
-}
-
-func (o SchedulingPolicyShareAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulingPolicyShareAttributes] {
-	return pulumix.Output[SchedulingPolicyShareAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchedulingPolicyShareAttributesOutput) ShareIdentifier() pulumi.StringPtrOutput {
@@ -7419,12 +6392,6 @@ func (o SchedulingPolicyShareAttributesArrayOutput) ToSchedulingPolicyShareAttri
 
 func (o SchedulingPolicyShareAttributesArrayOutput) ToSchedulingPolicyShareAttributesArrayOutputWithContext(ctx context.Context) SchedulingPolicyShareAttributesArrayOutput {
 	return o
-}
-
-func (o SchedulingPolicyShareAttributesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SchedulingPolicyShareAttributes] {
-	return pulumix.Output[[]SchedulingPolicyShareAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchedulingPolicyShareAttributesArrayOutput) Index(i pulumi.IntInput) SchedulingPolicyShareAttributesOutput {

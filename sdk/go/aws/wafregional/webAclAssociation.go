@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAFRegional::WebACLAssociation
@@ -107,12 +106,6 @@ func (i *WebAclAssociation) ToWebAclAssociationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclAssociationOutput)
 }
 
-func (i *WebAclAssociation) ToOutput(ctx context.Context) pulumix.Output[*WebAclAssociation] {
-	return pulumix.Output[*WebAclAssociation]{
-		OutputState: i.ToWebAclAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WebAclAssociationOutput struct{ *pulumi.OutputState }
 
 func (WebAclAssociationOutput) ElementType() reflect.Type {
@@ -125,12 +118,6 @@ func (o WebAclAssociationOutput) ToWebAclAssociationOutput() WebAclAssociationOu
 
 func (o WebAclAssociationOutput) ToWebAclAssociationOutputWithContext(ctx context.Context) WebAclAssociationOutput {
 	return o
-}
-
-func (o WebAclAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclAssociation] {
-	return pulumix.Output[*WebAclAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WebAclAssociationOutput) ResourceArn() pulumi.StringOutput {

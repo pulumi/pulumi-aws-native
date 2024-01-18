@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This schema is for testing purpose only.
@@ -126,12 +125,6 @@ func (i *RobotApplication) ToRobotApplicationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationOutput)
 }
 
-func (i *RobotApplication) ToOutput(ctx context.Context) pulumix.Output[*RobotApplication] {
-	return pulumix.Output[*RobotApplication]{
-		OutputState: i.ToRobotApplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RobotApplicationOutput struct{ *pulumi.OutputState }
 
 func (RobotApplicationOutput) ElementType() reflect.Type {
@@ -144,12 +137,6 @@ func (o RobotApplicationOutput) ToRobotApplicationOutput() RobotApplicationOutpu
 
 func (o RobotApplicationOutput) ToRobotApplicationOutputWithContext(ctx context.Context) RobotApplicationOutput {
 	return o
-}
-
-func (o RobotApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotApplication] {
-	return pulumix.Output[*RobotApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RobotApplicationOutput) Arn() pulumi.StringOutput {

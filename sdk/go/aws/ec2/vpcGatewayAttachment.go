@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCGatewayAttachment
@@ -115,12 +114,6 @@ func (i *VpcGatewayAttachment) ToVpcGatewayAttachmentOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VpcGatewayAttachmentOutput)
 }
 
-func (i *VpcGatewayAttachment) ToOutput(ctx context.Context) pulumix.Output[*VpcGatewayAttachment] {
-	return pulumix.Output[*VpcGatewayAttachment]{
-		OutputState: i.ToVpcGatewayAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpcGatewayAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VpcGatewayAttachmentOutput) ElementType() reflect.Type {
@@ -133,12 +126,6 @@ func (o VpcGatewayAttachmentOutput) ToVpcGatewayAttachmentOutput() VpcGatewayAtt
 
 func (o VpcGatewayAttachmentOutput) ToVpcGatewayAttachmentOutputWithContext(ctx context.Context) VpcGatewayAttachmentOutput {
 	return o
-}
-
-func (o VpcGatewayAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcGatewayAttachment] {
-	return pulumix.Output[*VpcGatewayAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment

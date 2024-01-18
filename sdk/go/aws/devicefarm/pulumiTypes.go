@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -57,12 +56,6 @@ func (i DevicePoolRuleArgs) ToDevicePoolRuleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolRuleOutput)
 }
 
-func (i DevicePoolRuleArgs) ToOutput(ctx context.Context) pulumix.Output[DevicePoolRule] {
-	return pulumix.Output[DevicePoolRule]{
-		OutputState: i.ToDevicePoolRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DevicePoolRuleArrayInput is an input type that accepts DevicePoolRuleArray and DevicePoolRuleArrayOutput values.
 // You can construct a concrete instance of `DevicePoolRuleArrayInput` via:
 //
@@ -88,12 +81,6 @@ func (i DevicePoolRuleArray) ToDevicePoolRuleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolRuleArrayOutput)
 }
 
-func (i DevicePoolRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]DevicePoolRule] {
-	return pulumix.Output[[]DevicePoolRule]{
-		OutputState: i.ToDevicePoolRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Represents a condition for a device pool.
 type DevicePoolRuleOutput struct{ *pulumi.OutputState }
 
@@ -107,12 +94,6 @@ func (o DevicePoolRuleOutput) ToDevicePoolRuleOutput() DevicePoolRuleOutput {
 
 func (o DevicePoolRuleOutput) ToDevicePoolRuleOutputWithContext(ctx context.Context) DevicePoolRuleOutput {
 	return o
-}
-
-func (o DevicePoolRuleOutput) ToOutput(ctx context.Context) pulumix.Output[DevicePoolRule] {
-	return pulumix.Output[DevicePoolRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The rule's stringified attribute.
@@ -142,12 +123,6 @@ func (o DevicePoolRuleArrayOutput) ToDevicePoolRuleArrayOutput() DevicePoolRuleA
 
 func (o DevicePoolRuleArrayOutput) ToDevicePoolRuleArrayOutputWithContext(ctx context.Context) DevicePoolRuleArrayOutput {
 	return o
-}
-
-func (o DevicePoolRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DevicePoolRule] {
-	return pulumix.Output[[]DevicePoolRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevicePoolRuleArrayOutput) Index(i pulumi.IntInput) DevicePoolRuleOutput {
@@ -189,12 +164,6 @@ func (i DevicePoolTagArgs) ToDevicePoolTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolTagOutput)
 }
 
-func (i DevicePoolTagArgs) ToOutput(ctx context.Context) pulumix.Output[DevicePoolTag] {
-	return pulumix.Output[DevicePoolTag]{
-		OutputState: i.ToDevicePoolTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DevicePoolTagArrayInput is an input type that accepts DevicePoolTagArray and DevicePoolTagArrayOutput values.
 // You can construct a concrete instance of `DevicePoolTagArrayInput` via:
 //
@@ -220,12 +189,6 @@ func (i DevicePoolTagArray) ToDevicePoolTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolTagArrayOutput)
 }
 
-func (i DevicePoolTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DevicePoolTag] {
-	return pulumix.Output[[]DevicePoolTag]{
-		OutputState: i.ToDevicePoolTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DevicePoolTagOutput struct{ *pulumi.OutputState }
 
 func (DevicePoolTagOutput) ElementType() reflect.Type {
@@ -238,12 +201,6 @@ func (o DevicePoolTagOutput) ToDevicePoolTagOutput() DevicePoolTagOutput {
 
 func (o DevicePoolTagOutput) ToDevicePoolTagOutputWithContext(ctx context.Context) DevicePoolTagOutput {
 	return o
-}
-
-func (o DevicePoolTagOutput) ToOutput(ctx context.Context) pulumix.Output[DevicePoolTag] {
-	return pulumix.Output[DevicePoolTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevicePoolTagOutput) Key() pulumi.StringOutput {
@@ -266,12 +223,6 @@ func (o DevicePoolTagArrayOutput) ToDevicePoolTagArrayOutput() DevicePoolTagArra
 
 func (o DevicePoolTagArrayOutput) ToDevicePoolTagArrayOutputWithContext(ctx context.Context) DevicePoolTagArrayOutput {
 	return o
-}
-
-func (o DevicePoolTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DevicePoolTag] {
-	return pulumix.Output[[]DevicePoolTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevicePoolTagArrayOutput) Index(i pulumi.IntInput) DevicePoolTagOutput {
@@ -313,12 +264,6 @@ func (i InstanceProfileTagArgs) ToInstanceProfileTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileTagOutput)
 }
 
-func (i InstanceProfileTagArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceProfileTag] {
-	return pulumix.Output[InstanceProfileTag]{
-		OutputState: i.ToInstanceProfileTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceProfileTagArrayInput is an input type that accepts InstanceProfileTagArray and InstanceProfileTagArrayOutput values.
 // You can construct a concrete instance of `InstanceProfileTagArrayInput` via:
 //
@@ -344,12 +289,6 @@ func (i InstanceProfileTagArray) ToInstanceProfileTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileTagArrayOutput)
 }
 
-func (i InstanceProfileTagArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceProfileTag] {
-	return pulumix.Output[[]InstanceProfileTag]{
-		OutputState: i.ToInstanceProfileTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceProfileTagOutput struct{ *pulumi.OutputState }
 
 func (InstanceProfileTagOutput) ElementType() reflect.Type {
@@ -362,12 +301,6 @@ func (o InstanceProfileTagOutput) ToInstanceProfileTagOutput() InstanceProfileTa
 
 func (o InstanceProfileTagOutput) ToInstanceProfileTagOutputWithContext(ctx context.Context) InstanceProfileTagOutput {
 	return o
-}
-
-func (o InstanceProfileTagOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceProfileTag] {
-	return pulumix.Output[InstanceProfileTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceProfileTagOutput) Key() pulumi.StringOutput {
@@ -390,12 +323,6 @@ func (o InstanceProfileTagArrayOutput) ToInstanceProfileTagArrayOutput() Instanc
 
 func (o InstanceProfileTagArrayOutput) ToInstanceProfileTagArrayOutputWithContext(ctx context.Context) InstanceProfileTagArrayOutput {
 	return o
-}
-
-func (o InstanceProfileTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceProfileTag] {
-	return pulumix.Output[[]InstanceProfileTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceProfileTagArrayOutput) Index(i pulumi.IntInput) InstanceProfileTagOutput {
@@ -437,12 +364,6 @@ func (i NetworkProfileTagArgs) ToNetworkProfileTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileTagOutput)
 }
 
-func (i NetworkProfileTagArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkProfileTag] {
-	return pulumix.Output[NetworkProfileTag]{
-		OutputState: i.ToNetworkProfileTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkProfileTagArrayInput is an input type that accepts NetworkProfileTagArray and NetworkProfileTagArrayOutput values.
 // You can construct a concrete instance of `NetworkProfileTagArrayInput` via:
 //
@@ -468,12 +389,6 @@ func (i NetworkProfileTagArray) ToNetworkProfileTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileTagArrayOutput)
 }
 
-func (i NetworkProfileTagArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkProfileTag] {
-	return pulumix.Output[[]NetworkProfileTag]{
-		OutputState: i.ToNetworkProfileTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkProfileTagOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileTagOutput) ElementType() reflect.Type {
@@ -486,12 +401,6 @@ func (o NetworkProfileTagOutput) ToNetworkProfileTagOutput() NetworkProfileTagOu
 
 func (o NetworkProfileTagOutput) ToNetworkProfileTagOutputWithContext(ctx context.Context) NetworkProfileTagOutput {
 	return o
-}
-
-func (o NetworkProfileTagOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkProfileTag] {
-	return pulumix.Output[NetworkProfileTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkProfileTagOutput) Key() pulumi.StringOutput {
@@ -514,12 +423,6 @@ func (o NetworkProfileTagArrayOutput) ToNetworkProfileTagArrayOutput() NetworkPr
 
 func (o NetworkProfileTagArrayOutput) ToNetworkProfileTagArrayOutputWithContext(ctx context.Context) NetworkProfileTagArrayOutput {
 	return o
-}
-
-func (o NetworkProfileTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkProfileTag] {
-	return pulumix.Output[[]NetworkProfileTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkProfileTagArrayOutput) Index(i pulumi.IntInput) NetworkProfileTagOutput {
@@ -561,12 +464,6 @@ func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) Proje
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagOutput)
 }
 
-func (i ProjectTagArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectTag] {
-	return pulumix.Output[ProjectTag]{
-		OutputState: i.ToProjectTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
 // You can construct a concrete instance of `ProjectTagArrayInput` via:
 //
@@ -592,12 +489,6 @@ func (i ProjectTagArray) ToProjectTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagArrayOutput)
 }
 
-func (i ProjectTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ProjectTag] {
-	return pulumix.Output[[]ProjectTag]{
-		OutputState: i.ToProjectTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProjectTagOutput struct{ *pulumi.OutputState }
 
 func (ProjectTagOutput) ElementType() reflect.Type {
@@ -610,12 +501,6 @@ func (o ProjectTagOutput) ToProjectTagOutput() ProjectTagOutput {
 
 func (o ProjectTagOutput) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
 	return o
-}
-
-func (o ProjectTagOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectTag] {
-	return pulumix.Output[ProjectTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProjectTagOutput) Key() pulumi.StringOutput {
@@ -638,12 +523,6 @@ func (o ProjectTagArrayOutput) ToProjectTagArrayOutput() ProjectTagArrayOutput {
 
 func (o ProjectTagArrayOutput) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
 	return o
-}
-
-func (o ProjectTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProjectTag] {
-	return pulumix.Output[[]ProjectTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
@@ -695,12 +574,6 @@ func (i ProjectVpcConfigArgs) ToProjectVpcConfigOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectVpcConfigOutput)
 }
 
-func (i ProjectVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectVpcConfig] {
-	return pulumix.Output[ProjectVpcConfig]{
-		OutputState: i.ToProjectVpcConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ProjectVpcConfigArgs) ToProjectVpcConfigPtrOutput() ProjectVpcConfigPtrOutput {
 	return i.ToProjectVpcConfigPtrOutputWithContext(context.Background())
 }
@@ -742,12 +615,6 @@ func (i *projectVpcConfigPtrType) ToProjectVpcConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectVpcConfigPtrOutput)
 }
 
-func (i *projectVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectVpcConfig] {
-	return pulumix.Output[*ProjectVpcConfig]{
-		OutputState: i.ToProjectVpcConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The VPC security groups and subnets that are attached to a project
 type ProjectVpcConfigOutput struct{ *pulumi.OutputState }
 
@@ -771,12 +638,6 @@ func (o ProjectVpcConfigOutput) ToProjectVpcConfigPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectVpcConfig) *ProjectVpcConfig {
 		return &v
 	}).(ProjectVpcConfigPtrOutput)
-}
-
-func (o ProjectVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectVpcConfig] {
-	return pulumix.Output[ProjectVpcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An array of security group Ids in your Amazon VPC
@@ -806,12 +667,6 @@ func (o ProjectVpcConfigPtrOutput) ToProjectVpcConfigPtrOutput() ProjectVpcConfi
 
 func (o ProjectVpcConfigPtrOutput) ToProjectVpcConfigPtrOutputWithContext(ctx context.Context) ProjectVpcConfigPtrOutput {
 	return o
-}
-
-func (o ProjectVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectVpcConfig] {
-	return pulumix.Output[*ProjectVpcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProjectVpcConfigPtrOutput) Elem() ProjectVpcConfigOutput {
@@ -887,12 +742,6 @@ func (i TestGridProjectTagArgs) ToTestGridProjectTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectTagOutput)
 }
 
-func (i TestGridProjectTagArgs) ToOutput(ctx context.Context) pulumix.Output[TestGridProjectTag] {
-	return pulumix.Output[TestGridProjectTag]{
-		OutputState: i.ToTestGridProjectTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TestGridProjectTagArrayInput is an input type that accepts TestGridProjectTagArray and TestGridProjectTagArrayOutput values.
 // You can construct a concrete instance of `TestGridProjectTagArrayInput` via:
 //
@@ -918,12 +767,6 @@ func (i TestGridProjectTagArray) ToTestGridProjectTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectTagArrayOutput)
 }
 
-func (i TestGridProjectTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TestGridProjectTag] {
-	return pulumix.Output[[]TestGridProjectTag]{
-		OutputState: i.ToTestGridProjectTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TestGridProjectTagOutput struct{ *pulumi.OutputState }
 
 func (TestGridProjectTagOutput) ElementType() reflect.Type {
@@ -936,12 +779,6 @@ func (o TestGridProjectTagOutput) ToTestGridProjectTagOutput() TestGridProjectTa
 
 func (o TestGridProjectTagOutput) ToTestGridProjectTagOutputWithContext(ctx context.Context) TestGridProjectTagOutput {
 	return o
-}
-
-func (o TestGridProjectTagOutput) ToOutput(ctx context.Context) pulumix.Output[TestGridProjectTag] {
-	return pulumix.Output[TestGridProjectTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TestGridProjectTagOutput) Key() pulumi.StringOutput {
@@ -964,12 +801,6 @@ func (o TestGridProjectTagArrayOutput) ToTestGridProjectTagArrayOutput() TestGri
 
 func (o TestGridProjectTagArrayOutput) ToTestGridProjectTagArrayOutputWithContext(ctx context.Context) TestGridProjectTagArrayOutput {
 	return o
-}
-
-func (o TestGridProjectTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TestGridProjectTag] {
-	return pulumix.Output[[]TestGridProjectTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TestGridProjectTagArrayOutput) Index(i pulumi.IntInput) TestGridProjectTagOutput {
@@ -1019,12 +850,6 @@ func (i TestGridProjectVpcConfigArgs) ToTestGridProjectVpcConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectVpcConfigOutput)
 }
 
-func (i TestGridProjectVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[TestGridProjectVpcConfig] {
-	return pulumix.Output[TestGridProjectVpcConfig]{
-		OutputState: i.ToTestGridProjectVpcConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TestGridProjectVpcConfigArgs) ToTestGridProjectVpcConfigPtrOutput() TestGridProjectVpcConfigPtrOutput {
 	return i.ToTestGridProjectVpcConfigPtrOutputWithContext(context.Background())
 }
@@ -1066,12 +891,6 @@ func (i *testGridProjectVpcConfigPtrType) ToTestGridProjectVpcConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectVpcConfigPtrOutput)
 }
 
-func (i *testGridProjectVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*TestGridProjectVpcConfig] {
-	return pulumix.Output[*TestGridProjectVpcConfig]{
-		OutputState: i.ToTestGridProjectVpcConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The VPC security groups and subnets that are attached to a TestGrid project.
 type TestGridProjectVpcConfigOutput struct{ *pulumi.OutputState }
 
@@ -1095,12 +914,6 @@ func (o TestGridProjectVpcConfigOutput) ToTestGridProjectVpcConfigPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestGridProjectVpcConfig) *TestGridProjectVpcConfig {
 		return &v
 	}).(TestGridProjectVpcConfigPtrOutput)
-}
-
-func (o TestGridProjectVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[TestGridProjectVpcConfig] {
-	return pulumix.Output[TestGridProjectVpcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of VPC security group IDs in your Amazon VPC.
@@ -1129,12 +942,6 @@ func (o TestGridProjectVpcConfigPtrOutput) ToTestGridProjectVpcConfigPtrOutput()
 
 func (o TestGridProjectVpcConfigPtrOutput) ToTestGridProjectVpcConfigPtrOutputWithContext(ctx context.Context) TestGridProjectVpcConfigPtrOutput {
 	return o
-}
-
-func (o TestGridProjectVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TestGridProjectVpcConfig] {
-	return pulumix.Output[*TestGridProjectVpcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TestGridProjectVpcConfigPtrOutput) Elem() TestGridProjectVpcConfigOutput {
@@ -1209,12 +1016,6 @@ func (i VpceConfigurationTagArgs) ToVpceConfigurationTagOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VpceConfigurationTagOutput)
 }
 
-func (i VpceConfigurationTagArgs) ToOutput(ctx context.Context) pulumix.Output[VpceConfigurationTag] {
-	return pulumix.Output[VpceConfigurationTag]{
-		OutputState: i.ToVpceConfigurationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpceConfigurationTagArrayInput is an input type that accepts VpceConfigurationTagArray and VpceConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `VpceConfigurationTagArrayInput` via:
 //
@@ -1240,12 +1041,6 @@ func (i VpceConfigurationTagArray) ToVpceConfigurationTagArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VpceConfigurationTagArrayOutput)
 }
 
-func (i VpceConfigurationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VpceConfigurationTag] {
-	return pulumix.Output[[]VpceConfigurationTag]{
-		OutputState: i.ToVpceConfigurationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpceConfigurationTagOutput struct{ *pulumi.OutputState }
 
 func (VpceConfigurationTagOutput) ElementType() reflect.Type {
@@ -1258,12 +1053,6 @@ func (o VpceConfigurationTagOutput) ToVpceConfigurationTagOutput() VpceConfigura
 
 func (o VpceConfigurationTagOutput) ToVpceConfigurationTagOutputWithContext(ctx context.Context) VpceConfigurationTagOutput {
 	return o
-}
-
-func (o VpceConfigurationTagOutput) ToOutput(ctx context.Context) pulumix.Output[VpceConfigurationTag] {
-	return pulumix.Output[VpceConfigurationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpceConfigurationTagOutput) Key() pulumi.StringOutput {
@@ -1286,12 +1075,6 @@ func (o VpceConfigurationTagArrayOutput) ToVpceConfigurationTagArrayOutput() Vpc
 
 func (o VpceConfigurationTagArrayOutput) ToVpceConfigurationTagArrayOutputWithContext(ctx context.Context) VpceConfigurationTagArrayOutput {
 	return o
-}
-
-func (o VpceConfigurationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VpceConfigurationTag] {
-	return pulumix.Output[[]VpceConfigurationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpceConfigurationTagArrayOutput) Index(i pulumi.IntInput) VpceConfigurationTagOutput {

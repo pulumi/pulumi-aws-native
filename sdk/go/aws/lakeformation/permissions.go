@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::LakeFormation::Permissions
@@ -113,12 +112,6 @@ func (i *Permissions) ToPermissionsOutputWithContext(ctx context.Context) Permis
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsOutput)
 }
 
-func (i *Permissions) ToOutput(ctx context.Context) pulumix.Output[*Permissions] {
-	return pulumix.Output[*Permissions]{
-		OutputState: i.ToPermissionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionsOutput struct{ *pulumi.OutputState }
 
 func (PermissionsOutput) ElementType() reflect.Type {
@@ -131,12 +124,6 @@ func (o PermissionsOutput) ToPermissionsOutput() PermissionsOutput {
 
 func (o PermissionsOutput) ToPermissionsOutputWithContext(ctx context.Context) PermissionsOutput {
 	return o
-}
-
-func (o PermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*Permissions] {
-	return pulumix.Output[*Permissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionsOutput) DataLakePrincipal() PermissionsDataLakePrincipalOutput {

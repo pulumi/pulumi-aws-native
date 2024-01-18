@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i SimulationS3LocationArgs) ToSimulationS3LocationOutput() SimulationS3Loc
 
 func (i SimulationS3LocationArgs) ToSimulationS3LocationOutputWithContext(ctx context.Context) SimulationS3LocationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationS3LocationOutput)
-}
-
-func (i SimulationS3LocationArgs) ToOutput(ctx context.Context) pulumix.Output[SimulationS3Location] {
-	return pulumix.Output[SimulationS3Location]{
-		OutputState: i.ToSimulationS3LocationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i SimulationS3LocationArgs) ToSimulationS3LocationPtrOutput() SimulationS3LocationPtrOutput {
@@ -98,12 +91,6 @@ func (i *simulationS3LocationPtrType) ToSimulationS3LocationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationS3LocationPtrOutput)
 }
 
-func (i *simulationS3LocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SimulationS3Location] {
-	return pulumix.Output[*SimulationS3Location]{
-		OutputState: i.ToSimulationS3LocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SimulationS3LocationOutput struct{ *pulumi.OutputState }
 
 func (SimulationS3LocationOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o SimulationS3LocationOutput) ToSimulationS3LocationPtrOutputWithContext(c
 	}).(SimulationS3LocationPtrOutput)
 }
 
-func (o SimulationS3LocationOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationS3Location] {
-	return pulumix.Output[SimulationS3Location]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Schema S3 bucket name.
 func (o SimulationS3LocationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v SimulationS3Location) string { return v.BucketName }).(pulumi.StringOutput)
@@ -156,12 +137,6 @@ func (o SimulationS3LocationPtrOutput) ToSimulationS3LocationPtrOutput() Simulat
 
 func (o SimulationS3LocationPtrOutput) ToSimulationS3LocationPtrOutputWithContext(ctx context.Context) SimulationS3LocationPtrOutput {
 	return o
-}
-
-func (o SimulationS3LocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationS3Location] {
-	return pulumix.Output[*SimulationS3Location]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SimulationS3LocationPtrOutput) Elem() SimulationS3LocationOutput {

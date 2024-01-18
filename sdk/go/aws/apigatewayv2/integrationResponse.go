@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGatewayV2::IntegrationResponse“ resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
@@ -154,12 +153,6 @@ func (i *IntegrationResponse) ToIntegrationResponseOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseOutput)
 }
 
-func (i *IntegrationResponse) ToOutput(ctx context.Context) pulumix.Output[*IntegrationResponse] {
-	return pulumix.Output[*IntegrationResponse]{
-		OutputState: i.ToIntegrationResponseOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationResponseOutput) ElementType() reflect.Type {
@@ -172,12 +165,6 @@ func (o IntegrationResponseOutput) ToIntegrationResponseOutput() IntegrationResp
 
 func (o IntegrationResponseOutput) ToIntegrationResponseOutputWithContext(ctx context.Context) IntegrationResponseOutput {
 	return o
-}
-
-func (o IntegrationResponseOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationResponse] {
-	return pulumix.Output[*IntegrationResponse]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The API identifier.

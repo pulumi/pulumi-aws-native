@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::BaiduChannel
@@ -115,12 +114,6 @@ func (i *BaiduChannel) ToBaiduChannelOutputWithContext(ctx context.Context) Baid
 	return pulumi.ToOutputWithContext(ctx, i).(BaiduChannelOutput)
 }
 
-func (i *BaiduChannel) ToOutput(ctx context.Context) pulumix.Output[*BaiduChannel] {
-	return pulumix.Output[*BaiduChannel]{
-		OutputState: i.ToBaiduChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BaiduChannelOutput struct{ *pulumi.OutputState }
 
 func (BaiduChannelOutput) ElementType() reflect.Type {
@@ -133,12 +126,6 @@ func (o BaiduChannelOutput) ToBaiduChannelOutput() BaiduChannelOutput {
 
 func (o BaiduChannelOutput) ToBaiduChannelOutputWithContext(ctx context.Context) BaiduChannelOutput {
 	return o
-}
-
-func (o BaiduChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*BaiduChannel] {
-	return pulumix.Output[*BaiduChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BaiduChannelOutput) ApiKey() pulumi.StringOutput {

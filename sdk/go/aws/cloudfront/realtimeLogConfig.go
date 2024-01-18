@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::RealtimeLogConfig
@@ -114,12 +113,6 @@ func (i *RealtimeLogConfig) ToRealtimeLogConfigOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigOutput)
 }
 
-func (i *RealtimeLogConfig) ToOutput(ctx context.Context) pulumix.Output[*RealtimeLogConfig] {
-	return pulumix.Output[*RealtimeLogConfig]{
-		OutputState: i.ToRealtimeLogConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RealtimeLogConfigOutput struct{ *pulumi.OutputState }
 
 func (RealtimeLogConfigOutput) ElementType() reflect.Type {
@@ -132,12 +125,6 @@ func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutput() RealtimeLogConfigOu
 
 func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutputWithContext(ctx context.Context) RealtimeLogConfigOutput {
 	return o
-}
-
-func (o RealtimeLogConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*RealtimeLogConfig] {
-	return pulumix.Output[*RealtimeLogConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RealtimeLogConfigOutput) Arn() pulumi.StringOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Config::AggregationAuthorization
@@ -119,12 +118,6 @@ func (i *AggregationAuthorization) ToAggregationAuthorizationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AggregationAuthorizationOutput)
 }
 
-func (i *AggregationAuthorization) ToOutput(ctx context.Context) pulumix.Output[*AggregationAuthorization] {
-	return pulumix.Output[*AggregationAuthorization]{
-		OutputState: i.ToAggregationAuthorizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AggregationAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AggregationAuthorizationOutput) ElementType() reflect.Type {
@@ -137,12 +130,6 @@ func (o AggregationAuthorizationOutput) ToAggregationAuthorizationOutput() Aggre
 
 func (o AggregationAuthorizationOutput) ToAggregationAuthorizationOutputWithContext(ctx context.Context) AggregationAuthorizationOutput {
 	return o
-}
-
-func (o AggregationAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[*AggregationAuthorization] {
-	return pulumix.Output[*AggregationAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the AggregationAuthorization.

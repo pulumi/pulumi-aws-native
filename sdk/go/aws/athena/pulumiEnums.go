@@ -46,12 +46,6 @@ func (o CapacityReservationStatusOutput) ToCapacityReservationStatusPtrOutputWit
 	}).(CapacityReservationStatusPtrOutput)
 }
 
-func (o CapacityReservationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationStatus] {
-	return pulumix.Output[CapacityReservationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CapacityReservationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -85,12 +79,6 @@ func (o CapacityReservationStatusPtrOutput) ToCapacityReservationStatusPtrOutput
 
 func (o CapacityReservationStatusPtrOutput) ToCapacityReservationStatusPtrOutputWithContext(ctx context.Context) CapacityReservationStatusPtrOutput {
 	return o
-}
-
-func (o CapacityReservationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationStatus] {
-	return pulumix.Output[*CapacityReservationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapacityReservationStatusPtrOutput) Elem() CapacityReservationStatusOutput {
@@ -186,12 +174,6 @@ func (o DataCatalogTypeOutput) ToDataCatalogTypePtrOutputWithContext(ctx context
 	}).(DataCatalogTypePtrOutput)
 }
 
-func (o DataCatalogTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataCatalogType] {
-	return pulumix.Output[DataCatalogType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataCatalogTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -227,12 +209,6 @@ func (o DataCatalogTypePtrOutput) ToDataCatalogTypePtrOutputWithContext(ctx cont
 	return o
 }
 
-func (o DataCatalogTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCatalogType] {
-	return pulumix.Output[*DataCatalogType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataCatalogTypePtrOutput) Elem() DataCatalogTypeOutput {
 	return o.ApplyT(func(v *DataCatalogType) DataCatalogType {
 		if v != nil {
@@ -257,10 +233,12 @@ func (o DataCatalogTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataCatalogTypeInput is an input type that accepts DataCatalogTypeArgs and DataCatalogTypeOutput values.
-// You can construct a concrete instance of `DataCatalogTypeInput` via:
+// DataCatalogTypeInput is an input type that accepts values of the DataCatalogType enum
+// A concrete instance of `DataCatalogTypeInput` can be one of the following:
 //
-//	DataCatalogTypeArgs{...}
+//	DataCatalogTypeLambda
+//	DataCatalogTypeGlue
+//	DataCatalogTypeHive
 type DataCatalogTypeInput interface {
 	pulumi.Input
 
@@ -370,12 +348,6 @@ func (o WorkGroupEncryptionOptionOutput) ToWorkGroupEncryptionOptionPtrOutputWit
 	}).(WorkGroupEncryptionOptionPtrOutput)
 }
 
-func (o WorkGroupEncryptionOptionOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupEncryptionOption] {
-	return pulumix.Output[WorkGroupEncryptionOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkGroupEncryptionOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -411,12 +383,6 @@ func (o WorkGroupEncryptionOptionPtrOutput) ToWorkGroupEncryptionOptionPtrOutput
 	return o
 }
 
-func (o WorkGroupEncryptionOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupEncryptionOption] {
-	return pulumix.Output[*WorkGroupEncryptionOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkGroupEncryptionOptionPtrOutput) Elem() WorkGroupEncryptionOptionOutput {
 	return o.ApplyT(func(v *WorkGroupEncryptionOption) WorkGroupEncryptionOption {
 		if v != nil {
@@ -441,10 +407,12 @@ func (o WorkGroupEncryptionOptionPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkGroupEncryptionOptionInput is an input type that accepts WorkGroupEncryptionOptionArgs and WorkGroupEncryptionOptionOutput values.
-// You can construct a concrete instance of `WorkGroupEncryptionOptionInput` via:
+// WorkGroupEncryptionOptionInput is an input type that accepts values of the WorkGroupEncryptionOption enum
+// A concrete instance of `WorkGroupEncryptionOptionInput` can be one of the following:
 //
-//	WorkGroupEncryptionOptionArgs{...}
+//	WorkGroupEncryptionOptionSseS3
+//	WorkGroupEncryptionOptionSseKms
+//	WorkGroupEncryptionOptionCseKms
 type WorkGroupEncryptionOptionInput interface {
 	pulumi.Input
 
@@ -552,12 +520,6 @@ func (o WorkGroupS3AclOptionOutput) ToWorkGroupS3AclOptionPtrOutputWithContext(c
 	}).(WorkGroupS3AclOptionPtrOutput)
 }
 
-func (o WorkGroupS3AclOptionOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupS3AclOption] {
-	return pulumix.Output[WorkGroupS3AclOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkGroupS3AclOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -593,12 +555,6 @@ func (o WorkGroupS3AclOptionPtrOutput) ToWorkGroupS3AclOptionPtrOutputWithContex
 	return o
 }
 
-func (o WorkGroupS3AclOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupS3AclOption] {
-	return pulumix.Output[*WorkGroupS3AclOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkGroupS3AclOptionPtrOutput) Elem() WorkGroupS3AclOptionOutput {
 	return o.ApplyT(func(v *WorkGroupS3AclOption) WorkGroupS3AclOption {
 		if v != nil {
@@ -623,10 +579,10 @@ func (o WorkGroupS3AclOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkGroupS3AclOptionInput is an input type that accepts WorkGroupS3AclOptionArgs and WorkGroupS3AclOptionOutput values.
-// You can construct a concrete instance of `WorkGroupS3AclOptionInput` via:
+// WorkGroupS3AclOptionInput is an input type that accepts values of the WorkGroupS3AclOption enum
+// A concrete instance of `WorkGroupS3AclOptionInput` can be one of the following:
 //
-//	WorkGroupS3AclOptionArgs{...}
+//	WorkGroupS3AclOptionBucketOwnerFullControl
 type WorkGroupS3AclOptionInput interface {
 	pulumi.Input
 
@@ -735,12 +691,6 @@ func (o WorkGroupStateEnumOutput) ToWorkGroupStateEnumPtrOutputWithContext(ctx c
 	}).(WorkGroupStateEnumPtrOutput)
 }
 
-func (o WorkGroupStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupStateEnum] {
-	return pulumix.Output[WorkGroupStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkGroupStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -776,12 +726,6 @@ func (o WorkGroupStateEnumPtrOutput) ToWorkGroupStateEnumPtrOutputWithContext(ct
 	return o
 }
 
-func (o WorkGroupStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupStateEnum] {
-	return pulumix.Output[*WorkGroupStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkGroupStateEnumPtrOutput) Elem() WorkGroupStateEnumOutput {
 	return o.ApplyT(func(v *WorkGroupStateEnum) WorkGroupStateEnum {
 		if v != nil {
@@ -806,10 +750,11 @@ func (o WorkGroupStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkGroupStateEnumInput is an input type that accepts WorkGroupStateEnumArgs and WorkGroupStateEnumOutput values.
-// You can construct a concrete instance of `WorkGroupStateEnumInput` via:
+// WorkGroupStateEnumInput is an input type that accepts values of the WorkGroupStateEnum enum
+// A concrete instance of `WorkGroupStateEnumInput` can be one of the following:
 //
-//	WorkGroupStateEnumArgs{...}
+//	WorkGroupStateEnumEnabled
+//	WorkGroupStateEnumDisabled
 type WorkGroupStateEnumInput interface {
 	pulumi.Input
 

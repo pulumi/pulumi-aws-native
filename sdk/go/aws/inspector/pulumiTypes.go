@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i AssessmentTemplateTagArgs) ToAssessmentTemplateTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplateTagOutput)
 }
 
-func (i AssessmentTemplateTagArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentTemplateTag] {
-	return pulumix.Output[AssessmentTemplateTag]{
-		OutputState: i.ToAssessmentTemplateTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssessmentTemplateTagArrayInput is an input type that accepts AssessmentTemplateTagArray and AssessmentTemplateTagArrayOutput values.
 // You can construct a concrete instance of `AssessmentTemplateTagArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i AssessmentTemplateTagArray) ToAssessmentTemplateTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplateTagArrayOutput)
 }
 
-func (i AssessmentTemplateTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentTemplateTag] {
-	return pulumix.Output[[]AssessmentTemplateTag]{
-		OutputState: i.ToAssessmentTemplateTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssessmentTemplateTagOutput struct{ *pulumi.OutputState }
 
 func (AssessmentTemplateTagOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o AssessmentTemplateTagOutput) ToAssessmentTemplateTagOutput() AssessmentT
 
 func (o AssessmentTemplateTagOutput) ToAssessmentTemplateTagOutputWithContext(ctx context.Context) AssessmentTemplateTagOutput {
 	return o
-}
-
-func (o AssessmentTemplateTagOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentTemplateTag] {
-	return pulumix.Output[AssessmentTemplateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentTemplateTagOutput) Key() pulumi.StringOutput {
@@ -124,12 +105,6 @@ func (o AssessmentTemplateTagArrayOutput) ToAssessmentTemplateTagArrayOutput() A
 
 func (o AssessmentTemplateTagArrayOutput) ToAssessmentTemplateTagArrayOutputWithContext(ctx context.Context) AssessmentTemplateTagArrayOutput {
 	return o
-}
-
-func (o AssessmentTemplateTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentTemplateTag] {
-	return pulumix.Output[[]AssessmentTemplateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentTemplateTagArrayOutput) Index(i pulumi.IntInput) AssessmentTemplateTagOutput {
@@ -171,12 +146,6 @@ func (i ResourceGroupTagArgs) ToResourceGroupTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTagOutput)
 }
 
-func (i ResourceGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupTag] {
-	return pulumix.Output[ResourceGroupTag]{
-		OutputState: i.ToResourceGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceGroupTagArrayInput is an input type that accepts ResourceGroupTagArray and ResourceGroupTagArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupTagArrayInput` via:
 //
@@ -202,12 +171,6 @@ func (i ResourceGroupTagArray) ToResourceGroupTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTagArrayOutput)
 }
 
-func (i ResourceGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupTag] {
-	return pulumix.Output[[]ResourceGroupTag]{
-		OutputState: i.ToResourceGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceGroupTagOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupTagOutput) ElementType() reflect.Type {
@@ -220,12 +183,6 @@ func (o ResourceGroupTagOutput) ToResourceGroupTagOutput() ResourceGroupTagOutpu
 
 func (o ResourceGroupTagOutput) ToResourceGroupTagOutputWithContext(ctx context.Context) ResourceGroupTagOutput {
 	return o
-}
-
-func (o ResourceGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupTag] {
-	return pulumix.Output[ResourceGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceGroupTagOutput) Key() pulumi.StringOutput {
@@ -248,12 +205,6 @@ func (o ResourceGroupTagArrayOutput) ToResourceGroupTagArrayOutput() ResourceGro
 
 func (o ResourceGroupTagArrayOutput) ToResourceGroupTagArrayOutputWithContext(ctx context.Context) ResourceGroupTagArrayOutput {
 	return o
-}
-
-func (o ResourceGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupTag] {
-	return pulumix.Output[[]ResourceGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceGroupTagArrayOutput) Index(i pulumi.IntInput) ResourceGroupTagOutput {

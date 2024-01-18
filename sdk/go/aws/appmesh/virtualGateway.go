@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppMesh::VirtualGateway
@@ -120,12 +119,6 @@ func (i *VirtualGateway) ToVirtualGatewayOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayOutput)
 }
 
-func (i *VirtualGateway) ToOutput(ctx context.Context) pulumix.Output[*VirtualGateway] {
-	return pulumix.Output[*VirtualGateway]{
-		OutputState: i.ToVirtualGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualGatewayOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o VirtualGatewayOutput) ToVirtualGatewayOutput() VirtualGatewayOutput {
 
 func (o VirtualGatewayOutput) ToVirtualGatewayOutputWithContext(ctx context.Context) VirtualGatewayOutput {
 	return o
-}
-
-func (o VirtualGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGateway] {
-	return pulumix.Output[*VirtualGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualGatewayOutput) Arn() pulumi.StringOutput {
