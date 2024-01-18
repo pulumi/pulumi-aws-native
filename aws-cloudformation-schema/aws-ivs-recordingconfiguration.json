@@ -158,6 +158,13 @@
     }
   },
   "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "required" : [ "DestinationConfiguration" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/State" ],

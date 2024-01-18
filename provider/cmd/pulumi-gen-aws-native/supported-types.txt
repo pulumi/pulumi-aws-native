@@ -157,6 +157,7 @@ AWS::CodeStarConnections::SyncConfiguration
 AWS::CodeStarNotifications::NotificationRule
 AWS::Cognito::IdentityPool
 AWS::Cognito::IdentityPoolPrincipalTag
+AWS::Cognito::IdentityPoolRoleAttachment
 AWS::Cognito::LogDeliveryConfiguration
 AWS::Cognito::UserPool
 AWS::Cognito::UserPoolClient
@@ -227,6 +228,13 @@ AWS::DataSync::LocationS3
 AWS::DataSync::LocationSMB
 AWS::DataSync::StorageSystem
 AWS::DataSync::Task
+AWS::DataZone::DataSource
+AWS::DataZone::Domain
+AWS::DataZone::Environment
+AWS::DataZone::EnvironmentBlueprintConfiguration
+AWS::DataZone::EnvironmentProfile
+AWS::DataZone::Project
+AWS::DataZone::SubscriptionTarget
 AWS::Detective::Graph
 AWS::Detective::MemberInvitation
 AWS::Detective::OrganizationAdmin
