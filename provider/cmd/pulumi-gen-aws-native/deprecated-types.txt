@@ -1,3 +1,4 @@
+AWS::Batch::JobDefinition
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::SNS::TopicPolicy

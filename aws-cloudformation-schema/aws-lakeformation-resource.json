@@ -12,6 +12,9 @@
     "Id" : {
       "type" : "string"
     },
+    "HybridAccessEnabled" : {
+      "type" : "boolean"
+    },
     "UseServiceLinkedRole" : {
       "type" : "boolean"
     },
