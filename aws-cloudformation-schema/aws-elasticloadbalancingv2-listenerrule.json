@@ -1,6 +1,7 @@
 {
   "typeName" : "AWS::ElasticLoadBalancingV2::ListenerRule",
   "description" : "Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-elasticloadbalancingv2",
   "additionalProperties" : false,
   "properties" : {
     "ListenerArn" : {
@@ -12,6 +13,7 @@
     "Actions" : {
       "type" : "array",
       "uniqueItems" : true,
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Action"
       }
@@ -22,6 +24,7 @@
     "Conditions" : {
       "type" : "array",
       "uniqueItems" : true,
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/RuleCondition"
       }
@@ -84,6 +87,7 @@
         "Values" : {
           "type" : "array",
           "uniqueItems" : true,
+          "insertionOrder" : false,
           "items" : {
             "type" : "string"
           }
@@ -115,6 +119,7 @@
         "Values" : {
           "type" : "array",
           "uniqueItems" : true,
+          "insertionOrder" : false,
           "items" : {
             "$ref" : "#/definitions/QueryStringKeyValue"
           }
@@ -140,6 +145,7 @@
         "Values" : {
           "type" : "array",
           "uniqueItems" : true,
+          "insertionOrder" : false,
           "items" : {
             "type" : "string"
           }
@@ -169,6 +175,7 @@
         "Values" : {
           "type" : "array",
           "uniqueItems" : true,
+          "insertionOrder" : false,
           "items" : {
             "type" : "string"
           }
@@ -262,6 +269,7 @@
         "TargetGroups" : {
           "type" : "array",
           "uniqueItems" : true,
+          "insertionOrder" : false,
           "items" : {
             "$ref" : "#/definitions/TargetGroupTuple"
           }
@@ -275,6 +283,7 @@
         "Values" : {
           "type" : "array",
           "uniqueItems" : true,
+          "insertionOrder" : false,
           "items" : {
             "type" : "string"
           }
@@ -288,6 +297,7 @@
         "Values" : {
           "type" : "array",
           "uniqueItems" : true,
+          "insertionOrder" : false,
           "items" : {
             "type" : "string"
           }
@@ -350,6 +360,7 @@
         "Values" : {
           "type" : "array",
           "uniqueItems" : true,
+          "insertionOrder" : false,
           "items" : {
             "type" : "string"
           }
@@ -362,15 +373,40 @@
   "primaryIdentifier" : [ "/properties/RuleArn" ],
   "readOnlyProperties" : [ "/properties/RuleArn", "/properties/IsDefault" ],
   "writeOnlyProperties" : [ "/properties/Actions/*/AuthenticateOidcConfig/ClientSecret", "/properties/ListenerArn" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "elasticloadbalancing:CreateRule", "elasticloadbalancing:DescribeRules" ]
+      "permissions" : [ "elasticloadbalancing:CreateRule", "elasticloadbalancing:DescribeRules", "cognito-idp:DescribeUserPoolClient" ]
     },
     "delete" : {
-      "permissions" : [ "elasticloadbalancing:DeleteRule" ]
+      "permissions" : [ "elasticloadbalancing:DeleteRule", "elasticloadbalancing:DescribeRules" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "ListenerArn" : {
+            "$ref" : "resource-schema.json#/properties/ListenerArn"
+          },
+          "RuleArns" : {
+            "type" : "array",
+            "uniqueItems" : false,
+            "insertionOrder" : false,
+            "items" : {
+              "$ref" : "resource-schema.json#/properties/RuleArn"
+            }
+          }
+        },
+        "oneOf" : [ {
+          "required" : [ "ListenerArn" ]
+        }, {
+          "required" : [ "RuleArns" ]
+        } ]
+      },
       "permissions" : [ "elasticloadbalancing:DescribeRules" ]
     },
     "read" : {
