@@ -146,6 +146,7 @@ AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
 AWS::CodeArtifact::Domain
 AWS::CodeArtifact::Repository
+AWS::CodeBuild::Fleet
 AWS::CodeDeploy::Application
 AWS::CodeDeploy::DeploymentConfig
 AWS::CodeGuruProfiler::ProfilingGroup
@@ -157,10 +158,15 @@ AWS::CodeStarConnections::SyncConfiguration
 AWS::CodeStarNotifications::NotificationRule
 AWS::Cognito::IdentityPool
 AWS::Cognito::IdentityPoolPrincipalTag
+AWS::Cognito::IdentityPoolRoleAttachment
 AWS::Cognito::LogDeliveryConfiguration
 AWS::Cognito::UserPool
 AWS::Cognito::UserPoolClient
+AWS::Cognito::UserPoolDomain
 AWS::Cognito::UserPoolGroup
+AWS::Cognito::UserPoolIdentityProvider
+AWS::Cognito::UserPoolResourceServer
+AWS::Cognito::UserPoolUICustomizationAttachment
 AWS::Cognito::UserPoolUser
 AWS::Cognito::UserPoolUserToGroupAttachment
 AWS::Comprehend::DocumentClassifier
@@ -227,6 +233,13 @@ AWS::DataSync::LocationS3
 AWS::DataSync::LocationSMB
 AWS::DataSync::StorageSystem
 AWS::DataSync::Task
+AWS::DataZone::DataSource
+AWS::DataZone::Domain
+AWS::DataZone::Environment
+AWS::DataZone::EnvironmentBlueprintConfiguration
+AWS::DataZone::EnvironmentProfile
+AWS::DataZone::Project
+AWS::DataZone::SubscriptionTarget
 AWS::Detective::Graph
 AWS::Detective::MemberInvitation
 AWS::Detective::OrganizationAdmin
@@ -810,6 +823,7 @@ AWS::SSMContacts::Contact
 AWS::SSMContacts::ContactChannel
 AWS::SSMContacts::Plan
 AWS::SSMContacts::Rotation
+AWS::SSMGuiConnect::Preferences
 AWS::SSMIncidents::ReplicationSet
 AWS::SSMIncidents::ResponsePlan
 AWS::SSO::Assignment
