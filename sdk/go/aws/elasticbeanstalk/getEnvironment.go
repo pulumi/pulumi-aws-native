@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticBeanstalk::Environment
@@ -78,12 +77,6 @@ func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutput() LookupE
 
 func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutputWithContext(ctx context.Context) LookupEnvironmentResultOutput {
 	return o
-}
-
-func (o LookupEnvironmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEnvironmentResult] {
-	return pulumix.Output[LookupEnvironmentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Your description for this environment.

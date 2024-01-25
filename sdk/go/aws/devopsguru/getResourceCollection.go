@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
@@ -68,12 +67,6 @@ func (o LookupResourceCollectionResultOutput) ToLookupResourceCollectionResultOu
 
 func (o LookupResourceCollectionResultOutput) ToLookupResourceCollectionResultOutputWithContext(ctx context.Context) LookupResourceCollectionResultOutput {
 	return o
-}
-
-func (o LookupResourceCollectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResourceCollectionResult] {
-	return pulumix.Output[LookupResourceCollectionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupResourceCollectionResultOutput) ResourceCollectionFilter() ResourceCollectionFilterPtrOutput {

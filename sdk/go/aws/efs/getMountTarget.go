@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EFS::MountTarget
@@ -65,12 +64,6 @@ func (o LookupMountTargetResultOutput) ToLookupMountTargetResultOutput() LookupM
 
 func (o LookupMountTargetResultOutput) ToLookupMountTargetResultOutputWithContext(ctx context.Context) LookupMountTargetResultOutput {
 	return o
-}
-
-func (o LookupMountTargetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMountTargetResult] {
-	return pulumix.Output[LookupMountTargetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupMountTargetResultOutput) Id() pulumi.StringPtrOutput {

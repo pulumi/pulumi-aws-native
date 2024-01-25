@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::InstanceStorageConfig
@@ -75,12 +74,6 @@ func (o LookupInstanceStorageConfigResultOutput) ToLookupInstanceStorageConfigRe
 
 func (o LookupInstanceStorageConfigResultOutput) ToLookupInstanceStorageConfigResultOutputWithContext(ctx context.Context) LookupInstanceStorageConfigResultOutput {
 	return o
-}
-
-func (o LookupInstanceStorageConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInstanceStorageConfigResult] {
-	return pulumix.Output[LookupInstanceStorageConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupInstanceStorageConfigResultOutput) AssociationId() pulumi.StringPtrOutput {

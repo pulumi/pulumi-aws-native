@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i DomainServerSideEncryptionConfigurationArgs) ToDomainServerSideEncryptio
 	return pulumi.ToOutputWithContext(ctx, i).(DomainServerSideEncryptionConfigurationOutput)
 }
 
-func (i DomainServerSideEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DomainServerSideEncryptionConfiguration] {
-	return pulumix.Output[DomainServerSideEncryptionConfiguration]{
-		OutputState: i.ToDomainServerSideEncryptionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainServerSideEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DomainServerSideEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -63,12 +56,6 @@ func (o DomainServerSideEncryptionConfigurationOutput) ToDomainServerSideEncrypt
 
 func (o DomainServerSideEncryptionConfigurationOutput) ToDomainServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) DomainServerSideEncryptionConfigurationOutput {
 	return o
-}
-
-func (o DomainServerSideEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DomainServerSideEncryptionConfiguration] {
-	return pulumix.Output[DomainServerSideEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
@@ -108,12 +95,6 @@ func (i DomainTagArgs) ToDomainTagOutputWithContext(ctx context.Context) DomainT
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTagOutput)
 }
 
-func (i DomainTagArgs) ToOutput(ctx context.Context) pulumix.Output[DomainTag] {
-	return pulumix.Output[DomainTag]{
-		OutputState: i.ToDomainTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DomainTagArrayInput is an input type that accepts DomainTagArray and DomainTagArrayOutput values.
 // You can construct a concrete instance of `DomainTagArrayInput` via:
 //
@@ -139,12 +120,6 @@ func (i DomainTagArray) ToDomainTagArrayOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTagArrayOutput)
 }
 
-func (i DomainTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainTag] {
-	return pulumix.Output[[]DomainTag]{
-		OutputState: i.ToDomainTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainTagOutput struct{ *pulumi.OutputState }
 
 func (DomainTagOutput) ElementType() reflect.Type {
@@ -157,12 +132,6 @@ func (o DomainTagOutput) ToDomainTagOutput() DomainTagOutput {
 
 func (o DomainTagOutput) ToDomainTagOutputWithContext(ctx context.Context) DomainTagOutput {
 	return o
-}
-
-func (o DomainTagOutput) ToOutput(ctx context.Context) pulumix.Output[DomainTag] {
-	return pulumix.Output[DomainTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainTagOutput) Key() pulumi.StringOutput {
@@ -185,12 +154,6 @@ func (o DomainTagArrayOutput) ToDomainTagArrayOutput() DomainTagArrayOutput {
 
 func (o DomainTagArrayOutput) ToDomainTagArrayOutputWithContext(ctx context.Context) DomainTagArrayOutput {
 	return o
-}
-
-func (o DomainTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainTag] {
-	return pulumix.Output[[]DomainTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {

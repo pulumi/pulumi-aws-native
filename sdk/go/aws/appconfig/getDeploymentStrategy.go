@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppConfig::DeploymentStrategy
@@ -70,12 +69,6 @@ func (o LookupDeploymentStrategyResultOutput) ToLookupDeploymentStrategyResultOu
 
 func (o LookupDeploymentStrategyResultOutput) ToLookupDeploymentStrategyResultOutputWithContext(ctx context.Context) LookupDeploymentStrategyResultOutput {
 	return o
-}
-
-func (o LookupDeploymentStrategyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeploymentStrategyResult] {
-	return pulumix.Output[LookupDeploymentStrategyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDeploymentStrategyResultOutput) DeploymentDurationInMinutes() pulumi.Float64PtrOutput {

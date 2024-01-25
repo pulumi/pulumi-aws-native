@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
@@ -69,12 +68,6 @@ func (o LookupParameterGroupResultOutput) ToLookupParameterGroupResultOutput() L
 
 func (o LookupParameterGroupResultOutput) ToLookupParameterGroupResultOutputWithContext(ctx context.Context) LookupParameterGroupResultOutput {
 	return o
-}
-
-func (o LookupParameterGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupParameterGroupResult] {
-	return pulumix.Output[LookupParameterGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the parameter group.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
@@ -111,12 +110,6 @@ func (i *Registry) ToRegistryOutputWithContext(ctx context.Context) RegistryOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryOutput)
 }
 
-func (i *Registry) ToOutput(ctx context.Context) pulumix.Output[*Registry] {
-	return pulumix.Output[*Registry]{
-		OutputState: i.ToRegistryOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RegistryOutput struct{ *pulumi.OutputState }
 
 func (RegistryOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o RegistryOutput) ToRegistryOutput() RegistryOutput {
 
 func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) RegistryOutput {
 	return o
-}
-
-func (o RegistryOutput) ToOutput(ctx context.Context) pulumix.Output[*Registry] {
-	return pulumix.Output[*Registry]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name for the created Registry.

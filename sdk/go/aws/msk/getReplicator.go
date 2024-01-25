@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MSK::Replicator
@@ -73,12 +72,6 @@ func (o LookupReplicatorResultOutput) ToLookupReplicatorResultOutput() LookupRep
 
 func (o LookupReplicatorResultOutput) ToLookupReplicatorResultOutputWithContext(ctx context.Context) LookupReplicatorResultOutput {
 	return o
-}
-
-func (o LookupReplicatorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicatorResult] {
-	return pulumix.Output[LookupReplicatorResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The current version of the MSK replicator.

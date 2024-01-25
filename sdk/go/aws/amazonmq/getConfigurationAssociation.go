@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AmazonMQ::ConfigurationAssociation
@@ -65,12 +64,6 @@ func (o LookupConfigurationAssociationResultOutput) ToLookupConfigurationAssocia
 
 func (o LookupConfigurationAssociationResultOutput) ToLookupConfigurationAssociationResultOutputWithContext(ctx context.Context) LookupConfigurationAssociationResultOutput {
 	return o
-}
-
-func (o LookupConfigurationAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigurationAssociationResult] {
-	return pulumix.Output[LookupConfigurationAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupConfigurationAssociationResultOutput) Configuration() ConfigurationAssociationConfigurationIdPtrOutput {

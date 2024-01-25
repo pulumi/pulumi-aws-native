@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
@@ -65,12 +64,6 @@ func (o LookupRobotResultOutput) ToLookupRobotResultOutput() LookupRobotResultOu
 
 func (o LookupRobotResultOutput) ToLookupRobotResultOutputWithContext(ctx context.Context) LookupRobotResultOutput {
 	return o
-}
-
-func (o LookupRobotResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRobotResult] {
-	return pulumix.Output[LookupRobotResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRobotResultOutput) Arn() pulumi.StringPtrOutput {

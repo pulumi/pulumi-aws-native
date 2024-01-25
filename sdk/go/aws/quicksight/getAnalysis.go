@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of the AWS::QuickSight::Analysis Resource Type.
@@ -75,12 +74,6 @@ func (o LookupAnalysisResultOutput) ToLookupAnalysisResultOutput() LookupAnalysi
 
 func (o LookupAnalysisResultOutput) ToLookupAnalysisResultOutputWithContext(ctx context.Context) LookupAnalysisResultOutput {
 	return o
-}
-
-func (o LookupAnalysisResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAnalysisResult] {
-	return pulumix.Output[LookupAnalysisResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAnalysisResultOutput) Arn() pulumi.StringPtrOutput {

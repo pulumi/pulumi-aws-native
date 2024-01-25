@@ -78,12 +78,6 @@ func (o AccessPolicyTypeOutput) ToAccessPolicyTypePtrOutputWithContext(ctx conte
 	}).(AccessPolicyTypePtrOutput)
 }
 
-func (o AccessPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyType] {
-	return pulumix.Output[AccessPolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o AccessPolicyTypePtrOutput) ToAccessPolicyTypePtrOutputWithContext(ctx co
 	return o
 }
 
-func (o AccessPolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyType] {
-	return pulumix.Output[*AccessPolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessPolicyTypePtrOutput) Elem() AccessPolicyTypeOutput {
 	return o.ApplyT(func(v *AccessPolicyType) AccessPolicyType {
 		if v != nil {
@@ -149,10 +137,10 @@ func (o AccessPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AccessPolicyTypeInput is an input type that accepts AccessPolicyTypeArgs and AccessPolicyTypeOutput values.
-// You can construct a concrete instance of `AccessPolicyTypeInput` via:
+// AccessPolicyTypeInput is an input type that accepts values of the AccessPolicyType enum
+// A concrete instance of `AccessPolicyTypeInput` can be one of the following:
 //
-//	AccessPolicyTypeArgs{...}
+//	AccessPolicyTypeData
 type AccessPolicyTypeInput interface {
 	pulumi.Input
 
@@ -261,12 +249,6 @@ func (o CollectionStandbyReplicasOutput) ToCollectionStandbyReplicasPtrOutputWit
 	}).(CollectionStandbyReplicasPtrOutput)
 }
 
-func (o CollectionStandbyReplicasOutput) ToOutput(ctx context.Context) pulumix.Output[CollectionStandbyReplicas] {
-	return pulumix.Output[CollectionStandbyReplicas]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollectionStandbyReplicasOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o CollectionStandbyReplicasPtrOutput) ToCollectionStandbyReplicasPtrOutput
 	return o
 }
 
-func (o CollectionStandbyReplicasPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollectionStandbyReplicas] {
-	return pulumix.Output[*CollectionStandbyReplicas]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollectionStandbyReplicasPtrOutput) Elem() CollectionStandbyReplicasOutput {
 	return o.ApplyT(func(v *CollectionStandbyReplicas) CollectionStandbyReplicas {
 		if v != nil {
@@ -332,10 +308,11 @@ func (o CollectionStandbyReplicasPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// CollectionStandbyReplicasInput is an input type that accepts CollectionStandbyReplicasArgs and CollectionStandbyReplicasOutput values.
-// You can construct a concrete instance of `CollectionStandbyReplicasInput` via:
+// CollectionStandbyReplicasInput is an input type that accepts values of the CollectionStandbyReplicas enum
+// A concrete instance of `CollectionStandbyReplicasInput` can be one of the following:
 //
-//	CollectionStandbyReplicasArgs{...}
+//	CollectionStandbyReplicasEnabled
+//	CollectionStandbyReplicasDisabled
 type CollectionStandbyReplicasInput interface {
 	pulumi.Input
 
@@ -445,12 +422,6 @@ func (o CollectionTypeOutput) ToCollectionTypePtrOutputWithContext(ctx context.C
 	}).(CollectionTypePtrOutput)
 }
 
-func (o CollectionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[CollectionType] {
-	return pulumix.Output[CollectionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollectionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -486,12 +457,6 @@ func (o CollectionTypePtrOutput) ToCollectionTypePtrOutputWithContext(ctx contex
 	return o
 }
 
-func (o CollectionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollectionType] {
-	return pulumix.Output[*CollectionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollectionTypePtrOutput) Elem() CollectionTypeOutput {
 	return o.ApplyT(func(v *CollectionType) CollectionType {
 		if v != nil {
@@ -516,10 +481,12 @@ func (o CollectionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// CollectionTypeInput is an input type that accepts CollectionTypeArgs and CollectionTypeOutput values.
-// You can construct a concrete instance of `CollectionTypeInput` via:
+// CollectionTypeInput is an input type that accepts values of the CollectionType enum
+// A concrete instance of `CollectionTypeInput` can be one of the following:
 //
-//	CollectionTypeArgs{...}
+//	CollectionTypeSearch
+//	CollectionTypeTimeseries
+//	CollectionTypeVectorsearch
 type CollectionTypeInput interface {
 	pulumi.Input
 
@@ -627,12 +594,6 @@ func (o LifecyclePolicyTypeOutput) ToLifecyclePolicyTypePtrOutputWithContext(ctx
 	}).(LifecyclePolicyTypePtrOutput)
 }
 
-func (o LifecyclePolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyType] {
-	return pulumix.Output[LifecyclePolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -668,12 +629,6 @@ func (o LifecyclePolicyTypePtrOutput) ToLifecyclePolicyTypePtrOutputWithContext(
 	return o
 }
 
-func (o LifecyclePolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyType] {
-	return pulumix.Output[*LifecyclePolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyTypePtrOutput) Elem() LifecyclePolicyTypeOutput {
 	return o.ApplyT(func(v *LifecyclePolicyType) LifecyclePolicyType {
 		if v != nil {
@@ -698,10 +653,10 @@ func (o LifecyclePolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// LifecyclePolicyTypeInput is an input type that accepts LifecyclePolicyTypeArgs and LifecyclePolicyTypeOutput values.
-// You can construct a concrete instance of `LifecyclePolicyTypeInput` via:
+// LifecyclePolicyTypeInput is an input type that accepts values of the LifecyclePolicyType enum
+// A concrete instance of `LifecyclePolicyTypeInput` can be one of the following:
 //
-//	LifecyclePolicyTypeArgs{...}
+//	LifecyclePolicyTypeRetention
 type LifecyclePolicyTypeInput interface {
 	pulumi.Input
 
@@ -809,12 +764,6 @@ func (o SecurityConfigTypeOutput) ToSecurityConfigTypePtrOutputWithContext(ctx c
 	}).(SecurityConfigTypePtrOutput)
 }
 
-func (o SecurityConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SecurityConfigType] {
-	return pulumix.Output[SecurityConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecurityConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -850,12 +799,6 @@ func (o SecurityConfigTypePtrOutput) ToSecurityConfigTypePtrOutputWithContext(ct
 	return o
 }
 
-func (o SecurityConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityConfigType] {
-	return pulumix.Output[*SecurityConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecurityConfigTypePtrOutput) Elem() SecurityConfigTypeOutput {
 	return o.ApplyT(func(v *SecurityConfigType) SecurityConfigType {
 		if v != nil {
@@ -880,10 +823,10 @@ func (o SecurityConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// SecurityConfigTypeInput is an input type that accepts SecurityConfigTypeArgs and SecurityConfigTypeOutput values.
-// You can construct a concrete instance of `SecurityConfigTypeInput` via:
+// SecurityConfigTypeInput is an input type that accepts values of the SecurityConfigType enum
+// A concrete instance of `SecurityConfigTypeInput` can be one of the following:
 //
-//	SecurityConfigTypeArgs{...}
+//	SecurityConfigTypeSaml
 type SecurityConfigTypeInput interface {
 	pulumi.Input
 
@@ -992,12 +935,6 @@ func (o SecurityPolicyTypeOutput) ToSecurityPolicyTypePtrOutputWithContext(ctx c
 	}).(SecurityPolicyTypePtrOutput)
 }
 
-func (o SecurityPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SecurityPolicyType] {
-	return pulumix.Output[SecurityPolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecurityPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1033,12 +970,6 @@ func (o SecurityPolicyTypePtrOutput) ToSecurityPolicyTypePtrOutputWithContext(ct
 	return o
 }
 
-func (o SecurityPolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityPolicyType] {
-	return pulumix.Output[*SecurityPolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecurityPolicyTypePtrOutput) Elem() SecurityPolicyTypeOutput {
 	return o.ApplyT(func(v *SecurityPolicyType) SecurityPolicyType {
 		if v != nil {
@@ -1063,10 +994,11 @@ func (o SecurityPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// SecurityPolicyTypeInput is an input type that accepts SecurityPolicyTypeArgs and SecurityPolicyTypeOutput values.
-// You can construct a concrete instance of `SecurityPolicyTypeInput` via:
+// SecurityPolicyTypeInput is an input type that accepts values of the SecurityPolicyType enum
+// A concrete instance of `SecurityPolicyTypeInput` can be one of the following:
 //
-//	SecurityPolicyTypeArgs{...}
+//	SecurityPolicyTypeEncryption
+//	SecurityPolicyTypeNetwork
 type SecurityPolicyTypeInput interface {
 	pulumi.Input
 

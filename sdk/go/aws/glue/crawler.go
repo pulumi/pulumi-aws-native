@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::Crawler
@@ -139,12 +138,6 @@ func (i *Crawler) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerOutput)
 }
 
-func (i *Crawler) ToOutput(ctx context.Context) pulumix.Output[*Crawler] {
-	return pulumix.Output[*Crawler]{
-		OutputState: i.ToCrawlerOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CrawlerOutput struct{ *pulumi.OutputState }
 
 func (CrawlerOutput) ElementType() reflect.Type {
@@ -157,12 +150,6 @@ func (o CrawlerOutput) ToCrawlerOutput() CrawlerOutput {
 
 func (o CrawlerOutput) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput {
 	return o
-}
-
-func (o CrawlerOutput) ToOutput(ctx context.Context) pulumix.Output[*Crawler] {
-	return pulumix.Output[*Crawler]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CrawlerOutput) Classifiers() pulumi.StringArrayOutput {

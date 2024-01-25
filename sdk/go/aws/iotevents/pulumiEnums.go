@@ -83,12 +83,6 @@ func (o AlarmModelSimpleRuleComparisonOperatorOutput) ToAlarmModelSimpleRuleComp
 	}).(AlarmModelSimpleRuleComparisonOperatorPtrOutput)
 }
 
-func (o AlarmModelSimpleRuleComparisonOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelSimpleRuleComparisonOperator] {
-	return pulumix.Output[AlarmModelSimpleRuleComparisonOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlarmModelSimpleRuleComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -124,12 +118,6 @@ func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) ToAlarmModelSimpleRuleC
 	return o
 }
 
-func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelSimpleRuleComparisonOperator] {
-	return pulumix.Output[*AlarmModelSimpleRuleComparisonOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) Elem() AlarmModelSimpleRuleComparisonOperatorOutput {
 	return o.ApplyT(func(v *AlarmModelSimpleRuleComparisonOperator) AlarmModelSimpleRuleComparisonOperator {
 		if v != nil {
@@ -154,10 +142,15 @@ func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// AlarmModelSimpleRuleComparisonOperatorInput is an input type that accepts AlarmModelSimpleRuleComparisonOperatorArgs and AlarmModelSimpleRuleComparisonOperatorOutput values.
-// You can construct a concrete instance of `AlarmModelSimpleRuleComparisonOperatorInput` via:
+// AlarmModelSimpleRuleComparisonOperatorInput is an input type that accepts values of the AlarmModelSimpleRuleComparisonOperator enum
+// A concrete instance of `AlarmModelSimpleRuleComparisonOperatorInput` can be one of the following:
 //
-//	AlarmModelSimpleRuleComparisonOperatorArgs{...}
+//	AlarmModelSimpleRuleComparisonOperatorGreater
+//	AlarmModelSimpleRuleComparisonOperatorGreaterOrEqual
+//	AlarmModelSimpleRuleComparisonOperatorLess
+//	AlarmModelSimpleRuleComparisonOperatorLessOrEqual
+//	AlarmModelSimpleRuleComparisonOperatorEqual
+//	AlarmModelSimpleRuleComparisonOperatorNotEqual
 type AlarmModelSimpleRuleComparisonOperatorInput interface {
 	pulumi.Input
 
@@ -266,12 +259,6 @@ func (o DetectorModelEvaluationMethodOutput) ToDetectorModelEvaluationMethodPtrO
 	}).(DetectorModelEvaluationMethodPtrOutput)
 }
 
-func (o DetectorModelEvaluationMethodOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelEvaluationMethod] {
-	return pulumix.Output[DetectorModelEvaluationMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorModelEvaluationMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -307,12 +294,6 @@ func (o DetectorModelEvaluationMethodPtrOutput) ToDetectorModelEvaluationMethodP
 	return o
 }
 
-func (o DetectorModelEvaluationMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelEvaluationMethod] {
-	return pulumix.Output[*DetectorModelEvaluationMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorModelEvaluationMethodPtrOutput) Elem() DetectorModelEvaluationMethodOutput {
 	return o.ApplyT(func(v *DetectorModelEvaluationMethod) DetectorModelEvaluationMethod {
 		if v != nil {
@@ -337,10 +318,11 @@ func (o DetectorModelEvaluationMethodPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DetectorModelEvaluationMethodInput is an input type that accepts DetectorModelEvaluationMethodArgs and DetectorModelEvaluationMethodOutput values.
-// You can construct a concrete instance of `DetectorModelEvaluationMethodInput` via:
+// DetectorModelEvaluationMethodInput is an input type that accepts values of the DetectorModelEvaluationMethod enum
+// A concrete instance of `DetectorModelEvaluationMethodInput` can be one of the following:
 //
-//	DetectorModelEvaluationMethodArgs{...}
+//	DetectorModelEvaluationMethodBatch
+//	DetectorModelEvaluationMethodSerial
 type DetectorModelEvaluationMethodInput interface {
 	pulumi.Input
 

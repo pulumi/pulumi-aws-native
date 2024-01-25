@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An object representing an Amazon EKS PodIdentityAssociation.
@@ -73,12 +72,6 @@ func (o LookupPodIdentityAssociationResultOutput) ToLookupPodIdentityAssociation
 
 func (o LookupPodIdentityAssociationResultOutput) ToLookupPodIdentityAssociationResultOutputWithContext(ctx context.Context) LookupPodIdentityAssociationResultOutput {
 	return o
-}
-
-func (o LookupPodIdentityAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPodIdentityAssociationResult] {
-	return pulumix.Output[LookupPodIdentityAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the pod identity association.

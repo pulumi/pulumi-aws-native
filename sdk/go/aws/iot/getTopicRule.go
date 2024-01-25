@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoT::TopicRule
@@ -66,12 +65,6 @@ func (o LookupTopicRuleResultOutput) ToLookupTopicRuleResultOutput() LookupTopic
 
 func (o LookupTopicRuleResultOutput) ToLookupTopicRuleResultOutputWithContext(ctx context.Context) LookupTopicRuleResultOutput {
 	return o
-}
-
-func (o LookupTopicRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTopicRuleResult] {
-	return pulumix.Output[LookupTopicRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTopicRuleResultOutput) Arn() pulumi.StringPtrOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::IoTFleetWise::Vehicle Resource Type
@@ -121,12 +120,6 @@ func (i *Vehicle) ToVehicleOutputWithContext(ctx context.Context) VehicleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(VehicleOutput)
 }
 
-func (i *Vehicle) ToOutput(ctx context.Context) pulumix.Output[*Vehicle] {
-	return pulumix.Output[*Vehicle]{
-		OutputState: i.ToVehicleOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VehicleOutput struct{ *pulumi.OutputState }
 
 func (VehicleOutput) ElementType() reflect.Type {
@@ -139,12 +132,6 @@ func (o VehicleOutput) ToVehicleOutput() VehicleOutput {
 
 func (o VehicleOutput) ToVehicleOutputWithContext(ctx context.Context) VehicleOutput {
 	return o
-}
-
-func (o VehicleOutput) ToOutput(ctx context.Context) pulumix.Output[*Vehicle] {
-	return pulumix.Output[*Vehicle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VehicleOutput) Arn() pulumi.StringOutput {

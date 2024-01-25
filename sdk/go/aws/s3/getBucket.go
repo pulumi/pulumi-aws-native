@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::S3::Bucket
@@ -105,12 +104,6 @@ func (o LookupBucketResultOutput) ToLookupBucketResultOutput() LookupBucketResul
 
 func (o LookupBucketResultOutput) ToLookupBucketResultOutputWithContext(ctx context.Context) LookupBucketResultOutput {
 	return o
-}
-
-func (o LookupBucketResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBucketResult] {
-	return pulumix.Output[LookupBucketResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration for the transfer acceleration state.

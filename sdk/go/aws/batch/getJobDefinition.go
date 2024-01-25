@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Batch::JobDefinition
@@ -69,12 +68,6 @@ func (o LookupJobDefinitionResultOutput) ToLookupJobDefinitionResultOutput() Loo
 
 func (o LookupJobDefinitionResultOutput) ToLookupJobDefinitionResultOutputWithContext(ctx context.Context) LookupJobDefinitionResultOutput {
 	return o
-}
-
-func (o LookupJobDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupJobDefinitionResult] {
-	return pulumix.Output[LookupJobDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupJobDefinitionResultOutput) ContainerOrchestrationType() pulumi.StringPtrOutput {

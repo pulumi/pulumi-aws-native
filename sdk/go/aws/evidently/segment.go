@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Evidently::Segment
@@ -103,12 +102,6 @@ func (i *Segment) ToSegmentOutputWithContext(ctx context.Context) SegmentOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentOutput)
 }
 
-func (i *Segment) ToOutput(ctx context.Context) pulumix.Output[*Segment] {
-	return pulumix.Output[*Segment]{
-		OutputState: i.ToSegmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SegmentOutput struct{ *pulumi.OutputState }
 
 func (SegmentOutput) ElementType() reflect.Type {
@@ -121,12 +114,6 @@ func (o SegmentOutput) ToSegmentOutput() SegmentOutput {
 
 func (o SegmentOutput) ToSegmentOutputWithContext(ctx context.Context) SegmentOutput {
 	return o
-}
-
-func (o SegmentOutput) ToOutput(ctx context.Context) pulumix.Output[*Segment] {
-	return pulumix.Output[*Segment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentOutput) Arn() pulumi.StringOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type Definition for AWS::S3Outposts::Endpoint
@@ -150,12 +149,6 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
 }
 
-func (i *Endpoint) ToOutput(ctx context.Context) pulumix.Output[*Endpoint] {
-	return pulumix.Output[*Endpoint]{
-		OutputState: i.ToEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointOutput struct{ *pulumi.OutputState }
 
 func (EndpointOutput) ElementType() reflect.Type {
@@ -168,12 +161,6 @@ func (o EndpointOutput) ToEndpointOutput() EndpointOutput {
 
 func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) EndpointOutput {
 	return o
-}
-
-func (o EndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*Endpoint] {
-	return pulumix.Output[*Endpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::UserAccessLoggingSettings Resource Type
@@ -102,12 +101,6 @@ func (i *UserAccessLoggingSettings) ToUserAccessLoggingSettingsOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(UserAccessLoggingSettingsOutput)
 }
 
-func (i *UserAccessLoggingSettings) ToOutput(ctx context.Context) pulumix.Output[*UserAccessLoggingSettings] {
-	return pulumix.Output[*UserAccessLoggingSettings]{
-		OutputState: i.ToUserAccessLoggingSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserAccessLoggingSettingsOutput struct{ *pulumi.OutputState }
 
 func (UserAccessLoggingSettingsOutput) ElementType() reflect.Type {
@@ -120,12 +113,6 @@ func (o UserAccessLoggingSettingsOutput) ToUserAccessLoggingSettingsOutput() Use
 
 func (o UserAccessLoggingSettingsOutput) ToUserAccessLoggingSettingsOutputWithContext(ctx context.Context) UserAccessLoggingSettingsOutput {
 	return o
-}
-
-func (o UserAccessLoggingSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*UserAccessLoggingSettings] {
-	return pulumix.Output[*UserAccessLoggingSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserAccessLoggingSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {

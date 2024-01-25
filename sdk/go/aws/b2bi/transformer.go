@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::B2BI::Transformer Resource Type
@@ -127,12 +126,6 @@ func (i *Transformer) ToTransformerOutputWithContext(ctx context.Context) Transf
 	return pulumi.ToOutputWithContext(ctx, i).(TransformerOutput)
 }
 
-func (i *Transformer) ToOutput(ctx context.Context) pulumix.Output[*Transformer] {
-	return pulumix.Output[*Transformer]{
-		OutputState: i.ToTransformerOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformerOutput struct{ *pulumi.OutputState }
 
 func (TransformerOutput) ElementType() reflect.Type {
@@ -145,12 +138,6 @@ func (o TransformerOutput) ToTransformerOutput() TransformerOutput {
 
 func (o TransformerOutput) ToTransformerOutputWithContext(ctx context.Context) TransformerOutput {
 	return o
-}
-
-func (o TransformerOutput) ToOutput(ctx context.Context) pulumix.Output[*Transformer] {
-	return pulumix.Output[*Transformer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformerOutput) CreatedAt() pulumi.StringOutput {

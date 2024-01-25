@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::OIDCProvider
@@ -109,12 +108,6 @@ func (i *OidcProvider) ToOidcProviderOutputWithContext(ctx context.Context) Oidc
 	return pulumi.ToOutputWithContext(ctx, i).(OidcProviderOutput)
 }
 
-func (i *OidcProvider) ToOutput(ctx context.Context) pulumix.Output[*OidcProvider] {
-	return pulumix.Output[*OidcProvider]{
-		OutputState: i.ToOidcProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OidcProviderOutput struct{ *pulumi.OutputState }
 
 func (OidcProviderOutput) ElementType() reflect.Type {
@@ -127,12 +120,6 @@ func (o OidcProviderOutput) ToOidcProviderOutput() OidcProviderOutput {
 
 func (o OidcProviderOutput) ToOidcProviderOutputWithContext(ctx context.Context) OidcProviderOutput {
 	return o
-}
-
-func (o OidcProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*OidcProvider] {
-	return pulumix.Output[*OidcProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the OIDC provider

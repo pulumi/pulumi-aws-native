@@ -41,12 +41,6 @@ func (o IdentitySourceOpenIdIssuerOutput) ToIdentitySourceOpenIdIssuerPtrOutputW
 	}).(IdentitySourceOpenIdIssuerPtrOutput)
 }
 
-func (o IdentitySourceOpenIdIssuerOutput) ToOutput(ctx context.Context) pulumix.Output[IdentitySourceOpenIdIssuer] {
-	return pulumix.Output[IdentitySourceOpenIdIssuer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentitySourceOpenIdIssuerOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -80,12 +74,6 @@ func (o IdentitySourceOpenIdIssuerPtrOutput) ToIdentitySourceOpenIdIssuerPtrOutp
 
 func (o IdentitySourceOpenIdIssuerPtrOutput) ToIdentitySourceOpenIdIssuerPtrOutputWithContext(ctx context.Context) IdentitySourceOpenIdIssuerPtrOutput {
 	return o
-}
-
-func (o IdentitySourceOpenIdIssuerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentitySourceOpenIdIssuer] {
-	return pulumix.Output[*IdentitySourceOpenIdIssuer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentitySourceOpenIdIssuerPtrOutput) Elem() IdentitySourceOpenIdIssuerOutput {
@@ -179,12 +167,6 @@ func (o PolicyStoreValidationModeOutput) ToPolicyStoreValidationModePtrOutputWit
 	}).(PolicyStoreValidationModePtrOutput)
 }
 
-func (o PolicyStoreValidationModeOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyStoreValidationMode] {
-	return pulumix.Output[PolicyStoreValidationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyStoreValidationModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -220,12 +202,6 @@ func (o PolicyStoreValidationModePtrOutput) ToPolicyStoreValidationModePtrOutput
 	return o
 }
 
-func (o PolicyStoreValidationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyStoreValidationMode] {
-	return pulumix.Output[*PolicyStoreValidationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyStoreValidationModePtrOutput) Elem() PolicyStoreValidationModeOutput {
 	return o.ApplyT(func(v *PolicyStoreValidationMode) PolicyStoreValidationMode {
 		if v != nil {
@@ -250,10 +226,11 @@ func (o PolicyStoreValidationModePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// PolicyStoreValidationModeInput is an input type that accepts PolicyStoreValidationModeArgs and PolicyStoreValidationModeOutput values.
-// You can construct a concrete instance of `PolicyStoreValidationModeInput` via:
+// PolicyStoreValidationModeInput is an input type that accepts values of the PolicyStoreValidationMode enum
+// A concrete instance of `PolicyStoreValidationModeInput` can be one of the following:
 //
-//	PolicyStoreValidationModeArgs{...}
+//	PolicyStoreValidationModeOff
+//	PolicyStoreValidationModeStrict
 type PolicyStoreValidationModeInput interface {
 	pulumi.Input
 
@@ -325,12 +302,6 @@ func (o PolicyTypeOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) 
 	}).(PolicyTypePtrOutput)
 }
 
-func (o PolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyType] {
-	return pulumix.Output[PolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -364,12 +335,6 @@ func (o PolicyTypePtrOutput) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
 
 func (o PolicyTypePtrOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
 	return o
-}
-
-func (o PolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyType] {
-	return pulumix.Output[*PolicyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyTypePtrOutput) Elem() PolicyTypeOutput {

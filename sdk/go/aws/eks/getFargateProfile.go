@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::EKS::FargateProfile
@@ -72,12 +71,6 @@ func (o LookupFargateProfileResultOutput) ToLookupFargateProfileResultOutput() L
 
 func (o LookupFargateProfileResultOutput) ToLookupFargateProfileResultOutputWithContext(ctx context.Context) LookupFargateProfileResultOutput {
 	return o
-}
-
-func (o LookupFargateProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFargateProfileResult] {
-	return pulumix.Output[LookupFargateProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFargateProfileResultOutput) Arn() pulumi.StringPtrOutput {

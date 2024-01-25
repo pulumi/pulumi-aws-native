@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Events::Connection.
@@ -72,12 +71,6 @@ func (o LookupConnectionResultOutput) ToLookupConnectionResultOutput() LookupCon
 
 func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(ctx context.Context) LookupConnectionResultOutput {
 	return o
-}
-
-func (o LookupConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConnectionResult] {
-	return pulumix.Output[LookupConnectionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The arn of the connection resource.

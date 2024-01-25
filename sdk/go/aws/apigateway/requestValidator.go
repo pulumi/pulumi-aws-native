@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::RequestValidator“ resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
@@ -121,12 +120,6 @@ func (i *RequestValidator) ToRequestValidatorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RequestValidatorOutput)
 }
 
-func (i *RequestValidator) ToOutput(ctx context.Context) pulumix.Output[*RequestValidator] {
-	return pulumix.Output[*RequestValidator]{
-		OutputState: i.ToRequestValidatorOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RequestValidatorOutput struct{ *pulumi.OutputState }
 
 func (RequestValidatorOutput) ElementType() reflect.Type {
@@ -139,12 +132,6 @@ func (o RequestValidatorOutput) ToRequestValidatorOutput() RequestValidatorOutpu
 
 func (o RequestValidatorOutput) ToRequestValidatorOutputWithContext(ctx context.Context) RequestValidatorOutput {
 	return o
-}
-
-func (o RequestValidatorOutput) ToOutput(ctx context.Context) pulumix.Output[*RequestValidator] {
-	return pulumix.Output[*RequestValidator]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of this RequestValidator

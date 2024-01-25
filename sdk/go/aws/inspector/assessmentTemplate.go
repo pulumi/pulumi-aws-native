@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Inspector::AssessmentTemplate
@@ -121,12 +120,6 @@ func (i *AssessmentTemplate) ToAssessmentTemplateOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplateOutput)
 }
 
-func (i *AssessmentTemplate) ToOutput(ctx context.Context) pulumix.Output[*AssessmentTemplate] {
-	return pulumix.Output[*AssessmentTemplate]{
-		OutputState: i.ToAssessmentTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssessmentTemplateOutput struct{ *pulumi.OutputState }
 
 func (AssessmentTemplateOutput) ElementType() reflect.Type {
@@ -139,12 +132,6 @@ func (o AssessmentTemplateOutput) ToAssessmentTemplateOutput() AssessmentTemplat
 
 func (o AssessmentTemplateOutput) ToAssessmentTemplateOutputWithContext(ctx context.Context) AssessmentTemplateOutput {
 	return o
-}
-
-func (o AssessmentTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentTemplate] {
-	return pulumix.Output[*AssessmentTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentTemplateOutput) Arn() pulumi.StringOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i ApplicationAlarmArgs) ToApplicationAlarmOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAlarmOutput)
 }
 
-func (i ApplicationAlarmArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationAlarm] {
-	return pulumix.Output[ApplicationAlarm]{
-		OutputState: i.ToApplicationAlarmOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationAlarmArrayInput is an input type that accepts ApplicationAlarmArray and ApplicationAlarmArrayOutput values.
 // You can construct a concrete instance of `ApplicationAlarmArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i ApplicationAlarmArray) ToApplicationAlarmArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAlarmArrayOutput)
 }
 
-func (i ApplicationAlarmArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationAlarm] {
-	return pulumix.Output[[]ApplicationAlarm]{
-		OutputState: i.ToApplicationAlarmArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A CloudWatch alarm to be monitored for the component.
 type ApplicationAlarmOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o ApplicationAlarmOutput) ToApplicationAlarmOutput() ApplicationAlarmOutpu
 
 func (o ApplicationAlarmOutput) ToApplicationAlarmOutputWithContext(ctx context.Context) ApplicationAlarmOutput {
 	return o
-}
-
-func (o ApplicationAlarmOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationAlarm] {
-	return pulumix.Output[ApplicationAlarm]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the CloudWatch alarm to be monitored for the component.
@@ -133,12 +114,6 @@ func (o ApplicationAlarmArrayOutput) ToApplicationAlarmArrayOutput() Application
 
 func (o ApplicationAlarmArrayOutput) ToApplicationAlarmArrayOutputWithContext(ctx context.Context) ApplicationAlarmArrayOutput {
 	return o
-}
-
-func (o ApplicationAlarmArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationAlarm] {
-	return pulumix.Output[[]ApplicationAlarm]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationAlarmArrayOutput) Index(i pulumi.IntInput) ApplicationAlarmOutput {
@@ -182,12 +157,6 @@ func (i ApplicationAlarmMetricArgs) ToApplicationAlarmMetricOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAlarmMetricOutput)
 }
 
-func (i ApplicationAlarmMetricArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationAlarmMetric] {
-	return pulumix.Output[ApplicationAlarmMetric]{
-		OutputState: i.ToApplicationAlarmMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationAlarmMetricArrayInput is an input type that accepts ApplicationAlarmMetricArray and ApplicationAlarmMetricArrayOutput values.
 // You can construct a concrete instance of `ApplicationAlarmMetricArrayInput` via:
 //
@@ -213,12 +182,6 @@ func (i ApplicationAlarmMetricArray) ToApplicationAlarmMetricArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAlarmMetricArrayOutput)
 }
 
-func (i ApplicationAlarmMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationAlarmMetric] {
-	return pulumix.Output[[]ApplicationAlarmMetric]{
-		OutputState: i.ToApplicationAlarmMetricArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A metric to be monitored for the component.
 type ApplicationAlarmMetricOutput struct{ *pulumi.OutputState }
 
@@ -232,12 +195,6 @@ func (o ApplicationAlarmMetricOutput) ToApplicationAlarmMetricOutput() Applicati
 
 func (o ApplicationAlarmMetricOutput) ToApplicationAlarmMetricOutputWithContext(ctx context.Context) ApplicationAlarmMetricOutput {
 	return o
-}
-
-func (o ApplicationAlarmMetricOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationAlarmMetric] {
-	return pulumix.Output[ApplicationAlarmMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the metric to be monitored for the component.
@@ -257,12 +214,6 @@ func (o ApplicationAlarmMetricArrayOutput) ToApplicationAlarmMetricArrayOutput()
 
 func (o ApplicationAlarmMetricArrayOutput) ToApplicationAlarmMetricArrayOutputWithContext(ctx context.Context) ApplicationAlarmMetricArrayOutput {
 	return o
-}
-
-func (o ApplicationAlarmMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationAlarmMetric] {
-	return pulumix.Output[[]ApplicationAlarmMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationAlarmMetricArrayOutput) Index(i pulumi.IntInput) ApplicationAlarmMetricOutput {
@@ -310,12 +261,6 @@ func (i ApplicationComponentConfigurationArgs) ToApplicationComponentConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationComponentConfigurationOutput)
 }
 
-func (i ApplicationComponentConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationComponentConfiguration] {
-	return pulumix.Output[ApplicationComponentConfiguration]{
-		OutputState: i.ToApplicationComponentConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ApplicationComponentConfigurationArgs) ToApplicationComponentConfigurationPtrOutput() ApplicationComponentConfigurationPtrOutput {
 	return i.ToApplicationComponentConfigurationPtrOutputWithContext(context.Background())
 }
@@ -357,12 +302,6 @@ func (i *applicationComponentConfigurationPtrType) ToApplicationComponentConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationComponentConfigurationPtrOutput)
 }
 
-func (i *applicationComponentConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationComponentConfiguration] {
-	return pulumix.Output[*ApplicationComponentConfiguration]{
-		OutputState: i.ToApplicationComponentConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration settings of the component.
 type ApplicationComponentConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -386,12 +325,6 @@ func (o ApplicationComponentConfigurationOutput) ToApplicationComponentConfigura
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationComponentConfiguration) *ApplicationComponentConfiguration {
 		return &v
 	}).(ApplicationComponentConfigurationPtrOutput)
-}
-
-func (o ApplicationComponentConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationComponentConfiguration] {
-	return pulumix.Output[ApplicationComponentConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The configuration settings
@@ -420,12 +353,6 @@ func (o ApplicationComponentConfigurationPtrOutput) ToApplicationComponentConfig
 
 func (o ApplicationComponentConfigurationPtrOutput) ToApplicationComponentConfigurationPtrOutputWithContext(ctx context.Context) ApplicationComponentConfigurationPtrOutput {
 	return o
-}
-
-func (o ApplicationComponentConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationComponentConfiguration] {
-	return pulumix.Output[*ApplicationComponentConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationComponentConfigurationPtrOutput) Elem() ApplicationComponentConfigurationOutput {
@@ -513,12 +440,6 @@ func (i ApplicationComponentMonitoringSettingArgs) ToApplicationComponentMonitor
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationComponentMonitoringSettingOutput)
 }
 
-func (i ApplicationComponentMonitoringSettingArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationComponentMonitoringSetting] {
-	return pulumix.Output[ApplicationComponentMonitoringSetting]{
-		OutputState: i.ToApplicationComponentMonitoringSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationComponentMonitoringSettingArrayInput is an input type that accepts ApplicationComponentMonitoringSettingArray and ApplicationComponentMonitoringSettingArrayOutput values.
 // You can construct a concrete instance of `ApplicationComponentMonitoringSettingArrayInput` via:
 //
@@ -544,12 +465,6 @@ func (i ApplicationComponentMonitoringSettingArray) ToApplicationComponentMonito
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationComponentMonitoringSettingArrayOutput)
 }
 
-func (i ApplicationComponentMonitoringSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationComponentMonitoringSetting] {
-	return pulumix.Output[[]ApplicationComponentMonitoringSetting]{
-		OutputState: i.ToApplicationComponentMonitoringSettingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The monitoring setting of the component.
 type ApplicationComponentMonitoringSettingOutput struct{ *pulumi.OutputState }
 
@@ -563,12 +478,6 @@ func (o ApplicationComponentMonitoringSettingOutput) ToApplicationComponentMonit
 
 func (o ApplicationComponentMonitoringSettingOutput) ToApplicationComponentMonitoringSettingOutputWithContext(ctx context.Context) ApplicationComponentMonitoringSettingOutput {
 	return o
-}
-
-func (o ApplicationComponentMonitoringSettingOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationComponentMonitoringSetting] {
-	return pulumix.Output[ApplicationComponentMonitoringSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the compnonent.
@@ -619,12 +528,6 @@ func (o ApplicationComponentMonitoringSettingArrayOutput) ToApplicationComponent
 
 func (o ApplicationComponentMonitoringSettingArrayOutput) ToApplicationComponentMonitoringSettingArrayOutputWithContext(ctx context.Context) ApplicationComponentMonitoringSettingArrayOutput {
 	return o
-}
-
-func (o ApplicationComponentMonitoringSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationComponentMonitoringSetting] {
-	return pulumix.Output[[]ApplicationComponentMonitoringSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationComponentMonitoringSettingArrayOutput) Index(i pulumi.IntInput) ApplicationComponentMonitoringSettingOutput {
@@ -692,12 +595,6 @@ func (i ApplicationConfigurationDetailsArgs) ToApplicationConfigurationDetailsOu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigurationDetailsOutput)
 }
 
-func (i ApplicationConfigurationDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationConfigurationDetails] {
-	return pulumix.Output[ApplicationConfigurationDetails]{
-		OutputState: i.ToApplicationConfigurationDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ApplicationConfigurationDetailsArgs) ToApplicationConfigurationDetailsPtrOutput() ApplicationConfigurationDetailsPtrOutput {
 	return i.ToApplicationConfigurationDetailsPtrOutputWithContext(context.Background())
 }
@@ -739,12 +636,6 @@ func (i *applicationConfigurationDetailsPtrType) ToApplicationConfigurationDetai
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigurationDetailsPtrOutput)
 }
 
-func (i *applicationConfigurationDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationConfigurationDetails] {
-	return pulumix.Output[*ApplicationConfigurationDetails]{
-		OutputState: i.ToApplicationConfigurationDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration settings.
 type ApplicationConfigurationDetailsOutput struct{ *pulumi.OutputState }
 
@@ -768,12 +659,6 @@ func (o ApplicationConfigurationDetailsOutput) ToApplicationConfigurationDetails
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationConfigurationDetails) *ApplicationConfigurationDetails {
 		return &v
 	}).(ApplicationConfigurationDetailsPtrOutput)
-}
-
-func (o ApplicationConfigurationDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationConfigurationDetails] {
-	return pulumix.Output[ApplicationConfigurationDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of metrics to monitor for the component.
@@ -829,12 +714,6 @@ func (o ApplicationConfigurationDetailsPtrOutput) ToApplicationConfigurationDeta
 
 func (o ApplicationConfigurationDetailsPtrOutput) ToApplicationConfigurationDetailsPtrOutputWithContext(ctx context.Context) ApplicationConfigurationDetailsPtrOutput {
 	return o
-}
-
-func (o ApplicationConfigurationDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationConfigurationDetails] {
-	return pulumix.Output[*ApplicationConfigurationDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationConfigurationDetailsPtrOutput) Elem() ApplicationConfigurationDetailsOutput {
@@ -956,12 +835,6 @@ func (i ApplicationCustomComponentArgs) ToApplicationCustomComponentOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCustomComponentOutput)
 }
 
-func (i ApplicationCustomComponentArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationCustomComponent] {
-	return pulumix.Output[ApplicationCustomComponent]{
-		OutputState: i.ToApplicationCustomComponentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationCustomComponentArrayInput is an input type that accepts ApplicationCustomComponentArray and ApplicationCustomComponentArrayOutput values.
 // You can construct a concrete instance of `ApplicationCustomComponentArrayInput` via:
 //
@@ -987,12 +860,6 @@ func (i ApplicationCustomComponentArray) ToApplicationCustomComponentArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCustomComponentArrayOutput)
 }
 
-func (i ApplicationCustomComponentArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationCustomComponent] {
-	return pulumix.Output[[]ApplicationCustomComponent]{
-		OutputState: i.ToApplicationCustomComponentArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The custom grouped component.
 type ApplicationCustomComponentOutput struct{ *pulumi.OutputState }
 
@@ -1006,12 +873,6 @@ func (o ApplicationCustomComponentOutput) ToApplicationCustomComponentOutput() A
 
 func (o ApplicationCustomComponentOutput) ToApplicationCustomComponentOutputWithContext(ctx context.Context) ApplicationCustomComponentOutput {
 	return o
-}
-
-func (o ApplicationCustomComponentOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCustomComponent] {
-	return pulumix.Output[ApplicationCustomComponent]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the component.
@@ -1036,12 +897,6 @@ func (o ApplicationCustomComponentArrayOutput) ToApplicationCustomComponentArray
 
 func (o ApplicationCustomComponentArrayOutput) ToApplicationCustomComponentArrayOutputWithContext(ctx context.Context) ApplicationCustomComponentArrayOutput {
 	return o
-}
-
-func (o ApplicationCustomComponentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationCustomComponent] {
-	return pulumix.Output[[]ApplicationCustomComponent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationCustomComponentArrayOutput) Index(i pulumi.IntInput) ApplicationCustomComponentOutput {
@@ -1085,12 +940,6 @@ func (i ApplicationHaClusterPrometheusExporterArgs) ToApplicationHaClusterPromet
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHaClusterPrometheusExporterOutput)
 }
 
-func (i ApplicationHaClusterPrometheusExporterArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationHaClusterPrometheusExporter] {
-	return pulumix.Output[ApplicationHaClusterPrometheusExporter]{
-		OutputState: i.ToApplicationHaClusterPrometheusExporterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ApplicationHaClusterPrometheusExporterArgs) ToApplicationHaClusterPrometheusExporterPtrOutput() ApplicationHaClusterPrometheusExporterPtrOutput {
 	return i.ToApplicationHaClusterPrometheusExporterPtrOutputWithContext(context.Background())
 }
@@ -1132,12 +981,6 @@ func (i *applicationHaClusterPrometheusExporterPtrType) ToApplicationHaClusterPr
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHaClusterPrometheusExporterPtrOutput)
 }
 
-func (i *applicationHaClusterPrometheusExporterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationHaClusterPrometheusExporter] {
-	return pulumix.Output[*ApplicationHaClusterPrometheusExporter]{
-		OutputState: i.ToApplicationHaClusterPrometheusExporterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The HA cluster Prometheus Exporter settings.
 type ApplicationHaClusterPrometheusExporterOutput struct{ *pulumi.OutputState }
 
@@ -1163,12 +1006,6 @@ func (o ApplicationHaClusterPrometheusExporterOutput) ToApplicationHaClusterProm
 	}).(ApplicationHaClusterPrometheusExporterPtrOutput)
 }
 
-func (o ApplicationHaClusterPrometheusExporterOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationHaClusterPrometheusExporter] {
-	return pulumix.Output[ApplicationHaClusterPrometheusExporter]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Prometheus exporter port.
 func (o ApplicationHaClusterPrometheusExporterOutput) PrometheusPort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationHaClusterPrometheusExporter) *string { return v.PrometheusPort }).(pulumi.StringPtrOutput)
@@ -1186,12 +1023,6 @@ func (o ApplicationHaClusterPrometheusExporterPtrOutput) ToApplicationHaClusterP
 
 func (o ApplicationHaClusterPrometheusExporterPtrOutput) ToApplicationHaClusterPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHaClusterPrometheusExporterPtrOutput {
 	return o
-}
-
-func (o ApplicationHaClusterPrometheusExporterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationHaClusterPrometheusExporter] {
-	return pulumix.Output[*ApplicationHaClusterPrometheusExporter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationHaClusterPrometheusExporterPtrOutput) Elem() ApplicationHaClusterPrometheusExporterOutput {
@@ -1271,12 +1102,6 @@ func (i ApplicationHanaPrometheusExporterArgs) ToApplicationHanaPrometheusExport
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHanaPrometheusExporterOutput)
 }
 
-func (i ApplicationHanaPrometheusExporterArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationHanaPrometheusExporter] {
-	return pulumix.Output[ApplicationHanaPrometheusExporter]{
-		OutputState: i.ToApplicationHanaPrometheusExporterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ApplicationHanaPrometheusExporterArgs) ToApplicationHanaPrometheusExporterPtrOutput() ApplicationHanaPrometheusExporterPtrOutput {
 	return i.ToApplicationHanaPrometheusExporterPtrOutputWithContext(context.Background())
 }
@@ -1318,12 +1143,6 @@ func (i *applicationHanaPrometheusExporterPtrType) ToApplicationHanaPrometheusEx
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHanaPrometheusExporterPtrOutput)
 }
 
-func (i *applicationHanaPrometheusExporterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationHanaPrometheusExporter] {
-	return pulumix.Output[*ApplicationHanaPrometheusExporter]{
-		OutputState: i.ToApplicationHanaPrometheusExporterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The HANA DB Prometheus Exporter settings.
 type ApplicationHanaPrometheusExporterOutput struct{ *pulumi.OutputState }
 
@@ -1347,12 +1166,6 @@ func (o ApplicationHanaPrometheusExporterOutput) ToApplicationHanaPrometheusExpo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationHanaPrometheusExporter) *ApplicationHanaPrometheusExporter {
 		return &v
 	}).(ApplicationHanaPrometheusExporterPtrOutput)
-}
-
-func (o ApplicationHanaPrometheusExporterOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationHanaPrometheusExporter] {
-	return pulumix.Output[ApplicationHanaPrometheusExporter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A flag which indicates agreeing to install SAP HANA DB client.
@@ -1395,12 +1208,6 @@ func (o ApplicationHanaPrometheusExporterPtrOutput) ToApplicationHanaPrometheusE
 
 func (o ApplicationHanaPrometheusExporterPtrOutput) ToApplicationHanaPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationHanaPrometheusExporterPtrOutput {
 	return o
-}
-
-func (o ApplicationHanaPrometheusExporterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationHanaPrometheusExporter] {
-	return pulumix.Output[*ApplicationHanaPrometheusExporter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationHanaPrometheusExporterPtrOutput) Elem() ApplicationHanaPrometheusExporterOutput {
@@ -1509,12 +1316,6 @@ func (i ApplicationJmxPrometheusExporterArgs) ToApplicationJmxPrometheusExporter
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJmxPrometheusExporterOutput)
 }
 
-func (i ApplicationJmxPrometheusExporterArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationJmxPrometheusExporter] {
-	return pulumix.Output[ApplicationJmxPrometheusExporter]{
-		OutputState: i.ToApplicationJmxPrometheusExporterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ApplicationJmxPrometheusExporterArgs) ToApplicationJmxPrometheusExporterPtrOutput() ApplicationJmxPrometheusExporterPtrOutput {
 	return i.ToApplicationJmxPrometheusExporterPtrOutputWithContext(context.Background())
 }
@@ -1556,12 +1357,6 @@ func (i *applicationJmxPrometheusExporterPtrType) ToApplicationJmxPrometheusExpo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJmxPrometheusExporterPtrOutput)
 }
 
-func (i *applicationJmxPrometheusExporterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationJmxPrometheusExporter] {
-	return pulumix.Output[*ApplicationJmxPrometheusExporter]{
-		OutputState: i.ToApplicationJmxPrometheusExporterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The JMX Prometheus Exporter settings.
 type ApplicationJmxPrometheusExporterOutput struct{ *pulumi.OutputState }
 
@@ -1585,12 +1380,6 @@ func (o ApplicationJmxPrometheusExporterOutput) ToApplicationJmxPrometheusExport
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationJmxPrometheusExporter) *ApplicationJmxPrometheusExporter {
 		return &v
 	}).(ApplicationJmxPrometheusExporterPtrOutput)
-}
-
-func (o ApplicationJmxPrometheusExporterOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationJmxPrometheusExporter] {
-	return pulumix.Output[ApplicationJmxPrometheusExporter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Java agent host port
@@ -1620,12 +1409,6 @@ func (o ApplicationJmxPrometheusExporterPtrOutput) ToApplicationJmxPrometheusExp
 
 func (o ApplicationJmxPrometheusExporterPtrOutput) ToApplicationJmxPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationJmxPrometheusExporterPtrOutput {
 	return o
-}
-
-func (o ApplicationJmxPrometheusExporterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationJmxPrometheusExporter] {
-	return pulumix.Output[*ApplicationJmxPrometheusExporter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationJmxPrometheusExporterPtrOutput) Elem() ApplicationJmxPrometheusExporterOutput {
@@ -1719,12 +1502,6 @@ func (i ApplicationLogArgs) ToApplicationLogOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogOutput)
 }
 
-func (i ApplicationLogArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationLog] {
-	return pulumix.Output[ApplicationLog]{
-		OutputState: i.ToApplicationLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationLogArrayInput is an input type that accepts ApplicationLogArray and ApplicationLogArrayOutput values.
 // You can construct a concrete instance of `ApplicationLogArrayInput` via:
 //
@@ -1750,12 +1527,6 @@ func (i ApplicationLogArray) ToApplicationLogArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogArrayOutput)
 }
 
-func (i ApplicationLogArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationLog] {
-	return pulumix.Output[[]ApplicationLog]{
-		OutputState: i.ToApplicationLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A log to be monitored for the component.
 type ApplicationLogOutput struct{ *pulumi.OutputState }
 
@@ -1769,12 +1540,6 @@ func (o ApplicationLogOutput) ToApplicationLogOutput() ApplicationLogOutput {
 
 func (o ApplicationLogOutput) ToApplicationLogOutputWithContext(ctx context.Context) ApplicationLogOutput {
 	return o
-}
-
-func (o ApplicationLogOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationLog] {
-	return pulumix.Output[ApplicationLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The type of encoding of the logs to be monitored.
@@ -1814,12 +1579,6 @@ func (o ApplicationLogArrayOutput) ToApplicationLogArrayOutput() ApplicationLogA
 
 func (o ApplicationLogArrayOutput) ToApplicationLogArrayOutputWithContext(ctx context.Context) ApplicationLogArrayOutput {
 	return o
-}
-
-func (o ApplicationLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationLog] {
-	return pulumix.Output[[]ApplicationLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationLogArrayOutput) Index(i pulumi.IntInput) ApplicationLogOutput {
@@ -1871,12 +1630,6 @@ func (i ApplicationLogPatternArgs) ToApplicationLogPatternOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogPatternOutput)
 }
 
-func (i ApplicationLogPatternArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationLogPattern] {
-	return pulumix.Output[ApplicationLogPattern]{
-		OutputState: i.ToApplicationLogPatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationLogPatternArrayInput is an input type that accepts ApplicationLogPatternArray and ApplicationLogPatternArrayOutput values.
 // You can construct a concrete instance of `ApplicationLogPatternArrayInput` via:
 //
@@ -1902,12 +1655,6 @@ func (i ApplicationLogPatternArray) ToApplicationLogPatternArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogPatternArrayOutput)
 }
 
-func (i ApplicationLogPatternArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationLogPattern] {
-	return pulumix.Output[[]ApplicationLogPattern]{
-		OutputState: i.ToApplicationLogPatternArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The log pattern.
 type ApplicationLogPatternOutput struct{ *pulumi.OutputState }
 
@@ -1921,12 +1668,6 @@ func (o ApplicationLogPatternOutput) ToApplicationLogPatternOutput() Application
 
 func (o ApplicationLogPatternOutput) ToApplicationLogPatternOutputWithContext(ctx context.Context) ApplicationLogPatternOutput {
 	return o
-}
-
-func (o ApplicationLogPatternOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationLogPattern] {
-	return pulumix.Output[ApplicationLogPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The log pattern.
@@ -1956,12 +1697,6 @@ func (o ApplicationLogPatternArrayOutput) ToApplicationLogPatternArrayOutput() A
 
 func (o ApplicationLogPatternArrayOutput) ToApplicationLogPatternArrayOutputWithContext(ctx context.Context) ApplicationLogPatternArrayOutput {
 	return o
-}
-
-func (o ApplicationLogPatternArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationLogPattern] {
-	return pulumix.Output[[]ApplicationLogPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationLogPatternArrayOutput) Index(i pulumi.IntInput) ApplicationLogPatternOutput {
@@ -2009,12 +1744,6 @@ func (i ApplicationLogPatternSetArgs) ToApplicationLogPatternSetOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogPatternSetOutput)
 }
 
-func (i ApplicationLogPatternSetArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationLogPatternSet] {
-	return pulumix.Output[ApplicationLogPatternSet]{
-		OutputState: i.ToApplicationLogPatternSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationLogPatternSetArrayInput is an input type that accepts ApplicationLogPatternSetArray and ApplicationLogPatternSetArrayOutput values.
 // You can construct a concrete instance of `ApplicationLogPatternSetArrayInput` via:
 //
@@ -2040,12 +1769,6 @@ func (i ApplicationLogPatternSetArray) ToApplicationLogPatternSetArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogPatternSetArrayOutput)
 }
 
-func (i ApplicationLogPatternSetArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationLogPatternSet] {
-	return pulumix.Output[[]ApplicationLogPatternSet]{
-		OutputState: i.ToApplicationLogPatternSetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The log pattern set.
 type ApplicationLogPatternSetOutput struct{ *pulumi.OutputState }
 
@@ -2059,12 +1782,6 @@ func (o ApplicationLogPatternSetOutput) ToApplicationLogPatternSetOutput() Appli
 
 func (o ApplicationLogPatternSetOutput) ToApplicationLogPatternSetOutputWithContext(ctx context.Context) ApplicationLogPatternSetOutput {
 	return o
-}
-
-func (o ApplicationLogPatternSetOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationLogPatternSet] {
-	return pulumix.Output[ApplicationLogPatternSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The log patterns of a set.
@@ -2089,12 +1806,6 @@ func (o ApplicationLogPatternSetArrayOutput) ToApplicationLogPatternSetArrayOutp
 
 func (o ApplicationLogPatternSetArrayOutput) ToApplicationLogPatternSetArrayOutputWithContext(ctx context.Context) ApplicationLogPatternSetArrayOutput {
 	return o
-}
-
-func (o ApplicationLogPatternSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationLogPatternSet] {
-	return pulumix.Output[[]ApplicationLogPatternSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationLogPatternSetArrayOutput) Index(i pulumi.IntInput) ApplicationLogPatternSetOutput {
@@ -2146,12 +1857,6 @@ func (i ApplicationSubComponentConfigurationDetailsArgs) ToApplicationSubCompone
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSubComponentConfigurationDetailsOutput)
 }
 
-func (i ApplicationSubComponentConfigurationDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationSubComponentConfigurationDetails] {
-	return pulumix.Output[ApplicationSubComponentConfigurationDetails]{
-		OutputState: i.ToApplicationSubComponentConfigurationDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration settings of sub components.
 type ApplicationSubComponentConfigurationDetailsOutput struct{ *pulumi.OutputState }
 
@@ -2165,12 +1870,6 @@ func (o ApplicationSubComponentConfigurationDetailsOutput) ToApplicationSubCompo
 
 func (o ApplicationSubComponentConfigurationDetailsOutput) ToApplicationSubComponentConfigurationDetailsOutputWithContext(ctx context.Context) ApplicationSubComponentConfigurationDetailsOutput {
 	return o
-}
-
-func (o ApplicationSubComponentConfigurationDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationSubComponentConfigurationDetails] {
-	return pulumix.Output[ApplicationSubComponentConfigurationDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of metrics to monitor for the component.
@@ -2227,12 +1926,6 @@ func (i ApplicationSubComponentTypeConfigurationArgs) ToApplicationSubComponentT
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSubComponentTypeConfigurationOutput)
 }
 
-func (i ApplicationSubComponentTypeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationSubComponentTypeConfiguration] {
-	return pulumix.Output[ApplicationSubComponentTypeConfiguration]{
-		OutputState: i.ToApplicationSubComponentTypeConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationSubComponentTypeConfigurationArrayInput is an input type that accepts ApplicationSubComponentTypeConfigurationArray and ApplicationSubComponentTypeConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationSubComponentTypeConfigurationArrayInput` via:
 //
@@ -2258,12 +1951,6 @@ func (i ApplicationSubComponentTypeConfigurationArray) ToApplicationSubComponent
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSubComponentTypeConfigurationArrayOutput)
 }
 
-func (i ApplicationSubComponentTypeConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationSubComponentTypeConfiguration] {
-	return pulumix.Output[[]ApplicationSubComponentTypeConfiguration]{
-		OutputState: i.ToApplicationSubComponentTypeConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // One type sub component configurations for the component.
 type ApplicationSubComponentTypeConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2277,12 +1964,6 @@ func (o ApplicationSubComponentTypeConfigurationOutput) ToApplicationSubComponen
 
 func (o ApplicationSubComponentTypeConfigurationOutput) ToApplicationSubComponentTypeConfigurationOutputWithContext(ctx context.Context) ApplicationSubComponentTypeConfigurationOutput {
 	return o
-}
-
-func (o ApplicationSubComponentTypeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationSubComponentTypeConfiguration] {
-	return pulumix.Output[ApplicationSubComponentTypeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The configuration settings of sub components.
@@ -2311,12 +1992,6 @@ func (o ApplicationSubComponentTypeConfigurationArrayOutput) ToApplicationSubCom
 
 func (o ApplicationSubComponentTypeConfigurationArrayOutput) ToApplicationSubComponentTypeConfigurationArrayOutputWithContext(ctx context.Context) ApplicationSubComponentTypeConfigurationArrayOutput {
 	return o
-}
-
-func (o ApplicationSubComponentTypeConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationSubComponentTypeConfiguration] {
-	return pulumix.Output[[]ApplicationSubComponentTypeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationSubComponentTypeConfigurationArrayOutput) Index(i pulumi.IntInput) ApplicationSubComponentTypeConfigurationOutput {
@@ -2364,12 +2039,6 @@ func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagOutput)
 }
 
-func (i ApplicationTagArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationTag] {
-	return pulumix.Output[ApplicationTag]{
-		OutputState: i.ToApplicationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
 // You can construct a concrete instance of `ApplicationTagArrayInput` via:
 //
@@ -2395,12 +2064,6 @@ func (i ApplicationTagArray) ToApplicationTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagArrayOutput)
 }
 
-func (i ApplicationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationTag] {
-	return pulumix.Output[[]ApplicationTag]{
-		OutputState: i.ToApplicationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type ApplicationTagOutput struct{ *pulumi.OutputState }
 
@@ -2414,12 +2077,6 @@ func (o ApplicationTagOutput) ToApplicationTagOutput() ApplicationTagOutput {
 
 func (o ApplicationTagOutput) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
 	return o
-}
-
-func (o ApplicationTagOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationTag] {
-	return pulumix.Output[ApplicationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2444,12 +2101,6 @@ func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutput() ApplicationTagA
 
 func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
 	return o
-}
-
-func (o ApplicationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationTag] {
-	return pulumix.Output[[]ApplicationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput {
@@ -2505,12 +2156,6 @@ func (i ApplicationWindowsEventArgs) ToApplicationWindowsEventOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWindowsEventOutput)
 }
 
-func (i ApplicationWindowsEventArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationWindowsEvent] {
-	return pulumix.Output[ApplicationWindowsEvent]{
-		OutputState: i.ToApplicationWindowsEventOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationWindowsEventArrayInput is an input type that accepts ApplicationWindowsEventArray and ApplicationWindowsEventArrayOutput values.
 // You can construct a concrete instance of `ApplicationWindowsEventArrayInput` via:
 //
@@ -2536,12 +2181,6 @@ func (i ApplicationWindowsEventArray) ToApplicationWindowsEventArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWindowsEventArrayOutput)
 }
 
-func (i ApplicationWindowsEventArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationWindowsEvent] {
-	return pulumix.Output[[]ApplicationWindowsEvent]{
-		OutputState: i.ToApplicationWindowsEventArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Windows Event to be monitored for the component.
 type ApplicationWindowsEventOutput struct{ *pulumi.OutputState }
 
@@ -2555,12 +2194,6 @@ func (o ApplicationWindowsEventOutput) ToApplicationWindowsEventOutput() Applica
 
 func (o ApplicationWindowsEventOutput) ToApplicationWindowsEventOutputWithContext(ctx context.Context) ApplicationWindowsEventOutput {
 	return o
-}
-
-func (o ApplicationWindowsEventOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationWindowsEvent] {
-	return pulumix.Output[ApplicationWindowsEvent]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The levels of event to log.
@@ -2595,12 +2228,6 @@ func (o ApplicationWindowsEventArrayOutput) ToApplicationWindowsEventArrayOutput
 
 func (o ApplicationWindowsEventArrayOutput) ToApplicationWindowsEventArrayOutputWithContext(ctx context.Context) ApplicationWindowsEventArrayOutput {
 	return o
-}
-
-func (o ApplicationWindowsEventArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationWindowsEvent] {
-	return pulumix.Output[[]ApplicationWindowsEvent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationWindowsEventArrayOutput) Index(i pulumi.IntInput) ApplicationWindowsEventOutput {

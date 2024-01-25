@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
@@ -127,12 +126,6 @@ func (i *KeySigningKey) ToKeySigningKeyOutputWithContext(ctx context.Context) Ke
 	return pulumi.ToOutputWithContext(ctx, i).(KeySigningKeyOutput)
 }
 
-func (i *KeySigningKey) ToOutput(ctx context.Context) pulumix.Output[*KeySigningKey] {
-	return pulumix.Output[*KeySigningKey]{
-		OutputState: i.ToKeySigningKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KeySigningKeyOutput struct{ *pulumi.OutputState }
 
 func (KeySigningKeyOutput) ElementType() reflect.Type {
@@ -145,12 +138,6 @@ func (o KeySigningKeyOutput) ToKeySigningKeyOutput() KeySigningKeyOutput {
 
 func (o KeySigningKeyOutput) ToKeySigningKeyOutputWithContext(ctx context.Context) KeySigningKeyOutput {
 	return o
-}
-
-func (o KeySigningKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*KeySigningKey] {
-	return pulumix.Output[*KeySigningKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The unique string (ID) used to identify a hosted zone.

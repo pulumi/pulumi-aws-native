@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DMS::Certificate
@@ -64,12 +63,6 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutput() LookupC
 
 func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContext(ctx context.Context) LookupCertificateResultOutput {
 	return o
-}
-
-func (o LookupCertificateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCertificateResult] {
-	return pulumix.Output[LookupCertificateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCertificateResultOutput) Id() pulumi.StringPtrOutput {

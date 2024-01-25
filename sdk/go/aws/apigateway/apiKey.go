@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::ApiKey“ resource creates a unique key that you can distribute to clients who are executing API Gateway “Method“ resources that require an API key. To specify which API key clients must use, map the API key with the “RestApi“ and “Stage“ resources that include the methods that require a key.
@@ -145,12 +144,6 @@ func (i *ApiKey) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyOutput)
 }
 
-func (i *ApiKey) ToOutput(ctx context.Context) pulumix.Output[*ApiKey] {
-	return pulumix.Output[*ApiKey]{
-		OutputState: i.ToApiKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiKeyOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyOutput) ElementType() reflect.Type {
@@ -163,12 +156,6 @@ func (o ApiKeyOutput) ToApiKeyOutput() ApiKeyOutput {
 
 func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput {
 	return o
-}
-
-func (o ApiKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiKey] {
-	return pulumix.Output[*ApiKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiKeyOutput) ApiKeyId() pulumi.StringOutput {

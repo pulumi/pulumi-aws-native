@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Proton::EnvironmentTemplate Resource Type
@@ -75,12 +74,6 @@ func (o LookupEnvironmentTemplateResultOutput) ToLookupEnvironmentTemplateResult
 
 func (o LookupEnvironmentTemplateResultOutput) ToLookupEnvironmentTemplateResultOutputWithContext(ctx context.Context) LookupEnvironmentTemplateResultOutput {
 	return o
-}
-
-func (o LookupEnvironmentTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEnvironmentTemplateResult] {
-	return pulumix.Output[LookupEnvironmentTemplateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The Amazon Resource Name (ARN) of the environment template.</p>

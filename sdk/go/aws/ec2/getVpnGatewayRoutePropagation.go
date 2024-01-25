@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation
@@ -66,12 +65,6 @@ func (o LookupVpnGatewayRoutePropagationResultOutput) ToLookupVpnGatewayRoutePro
 
 func (o LookupVpnGatewayRoutePropagationResultOutput) ToLookupVpnGatewayRoutePropagationResultOutputWithContext(ctx context.Context) LookupVpnGatewayRoutePropagationResultOutput {
 	return o
-}
-
-func (o LookupVpnGatewayRoutePropagationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpnGatewayRoutePropagationResult] {
-	return pulumix.Output[LookupVpnGatewayRoutePropagationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVpnGatewayRoutePropagationResultOutput) Id() pulumi.StringPtrOutput {

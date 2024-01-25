@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::AutoScaling::WarmPool.
@@ -110,12 +109,6 @@ func (i *WarmPool) ToWarmPoolOutputWithContext(ctx context.Context) WarmPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WarmPoolOutput)
 }
 
-func (i *WarmPool) ToOutput(ctx context.Context) pulumix.Output[*WarmPool] {
-	return pulumix.Output[*WarmPool]{
-		OutputState: i.ToWarmPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WarmPoolOutput struct{ *pulumi.OutputState }
 
 func (WarmPoolOutput) ElementType() reflect.Type {
@@ -128,12 +121,6 @@ func (o WarmPoolOutput) ToWarmPoolOutput() WarmPoolOutput {
 
 func (o WarmPoolOutput) ToWarmPoolOutputWithContext(ctx context.Context) WarmPoolOutput {
 	return o
-}
-
-func (o WarmPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*WarmPool] {
-	return pulumix.Output[*WarmPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WarmPoolOutput) AutoScalingGroupName() pulumi.StringOutput {

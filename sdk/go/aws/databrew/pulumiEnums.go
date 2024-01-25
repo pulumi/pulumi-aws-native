@@ -79,12 +79,6 @@ func (o DatasetFilesLimitOrderOutput) ToDatasetFilesLimitOrderPtrOutputWithConte
 	}).(DatasetFilesLimitOrderPtrOutput)
 }
 
-func (o DatasetFilesLimitOrderOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetFilesLimitOrder] {
-	return pulumix.Output[DatasetFilesLimitOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetFilesLimitOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o DatasetFilesLimitOrderPtrOutput) ToDatasetFilesLimitOrderPtrOutputWithCo
 	return o
 }
 
-func (o DatasetFilesLimitOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetFilesLimitOrder] {
-	return pulumix.Output[*DatasetFilesLimitOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetFilesLimitOrderPtrOutput) Elem() DatasetFilesLimitOrderOutput {
 	return o.ApplyT(func(v *DatasetFilesLimitOrder) DatasetFilesLimitOrder {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o DatasetFilesLimitOrderPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasetFilesLimitOrderInput is an input type that accepts DatasetFilesLimitOrderArgs and DatasetFilesLimitOrderOutput values.
-// You can construct a concrete instance of `DatasetFilesLimitOrderInput` via:
+// DatasetFilesLimitOrderInput is an input type that accepts values of the DatasetFilesLimitOrder enum
+// A concrete instance of `DatasetFilesLimitOrderInput` can be one of the following:
 //
-//	DatasetFilesLimitOrderArgs{...}
+//	DatasetFilesLimitOrderAscending
+//	DatasetFilesLimitOrderDescending
 type DatasetFilesLimitOrderInput interface {
 	pulumi.Input
 
@@ -261,12 +250,6 @@ func (o DatasetFilesLimitOrderedByOutput) ToDatasetFilesLimitOrderedByPtrOutputW
 	}).(DatasetFilesLimitOrderedByPtrOutput)
 }
 
-func (o DatasetFilesLimitOrderedByOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetFilesLimitOrderedBy] {
-	return pulumix.Output[DatasetFilesLimitOrderedBy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetFilesLimitOrderedByOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +285,6 @@ func (o DatasetFilesLimitOrderedByPtrOutput) ToDatasetFilesLimitOrderedByPtrOutp
 	return o
 }
 
-func (o DatasetFilesLimitOrderedByPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetFilesLimitOrderedBy] {
-	return pulumix.Output[*DatasetFilesLimitOrderedBy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetFilesLimitOrderedByPtrOutput) Elem() DatasetFilesLimitOrderedByOutput {
 	return o.ApplyT(func(v *DatasetFilesLimitOrderedBy) DatasetFilesLimitOrderedBy {
 		if v != nil {
@@ -332,10 +309,10 @@ func (o DatasetFilesLimitOrderedByPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasetFilesLimitOrderedByInput is an input type that accepts DatasetFilesLimitOrderedByArgs and DatasetFilesLimitOrderedByOutput values.
-// You can construct a concrete instance of `DatasetFilesLimitOrderedByInput` via:
+// DatasetFilesLimitOrderedByInput is an input type that accepts values of the DatasetFilesLimitOrderedBy enum
+// A concrete instance of `DatasetFilesLimitOrderedByInput` can be one of the following:
 //
-//	DatasetFilesLimitOrderedByArgs{...}
+//	DatasetFilesLimitOrderedByLastModifiedDate
 type DatasetFilesLimitOrderedByInput interface {
 	pulumi.Input
 
@@ -447,12 +424,6 @@ func (o DatasetFormatOutput) ToDatasetFormatPtrOutputWithContext(ctx context.Con
 	}).(DatasetFormatPtrOutput)
 }
 
-func (o DatasetFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetFormat] {
-	return pulumix.Output[DatasetFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -488,12 +459,6 @@ func (o DatasetFormatPtrOutput) ToDatasetFormatPtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o DatasetFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetFormat] {
-	return pulumix.Output[*DatasetFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetFormatPtrOutput) Elem() DatasetFormatOutput {
 	return o.ApplyT(func(v *DatasetFormat) DatasetFormat {
 		if v != nil {
@@ -518,10 +483,14 @@ func (o DatasetFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasetFormatInput is an input type that accepts DatasetFormatArgs and DatasetFormatOutput values.
-// You can construct a concrete instance of `DatasetFormatInput` via:
+// DatasetFormatInput is an input type that accepts values of the DatasetFormat enum
+// A concrete instance of `DatasetFormatInput` can be one of the following:
 //
-//	DatasetFormatArgs{...}
+//	DatasetFormatCsv
+//	DatasetFormatJson
+//	DatasetFormatParquet
+//	DatasetFormatExcel
+//	DatasetFormatOrc
 type DatasetFormatInput interface {
 	pulumi.Input
 
@@ -631,12 +600,6 @@ func (o DatasetParameterTypeOutput) ToDatasetParameterTypePtrOutputWithContext(c
 	}).(DatasetParameterTypePtrOutput)
 }
 
-func (o DatasetParameterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetParameterType] {
-	return pulumix.Output[DatasetParameterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -672,12 +635,6 @@ func (o DatasetParameterTypePtrOutput) ToDatasetParameterTypePtrOutputWithContex
 	return o
 }
 
-func (o DatasetParameterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetParameterType] {
-	return pulumix.Output[*DatasetParameterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetParameterTypePtrOutput) Elem() DatasetParameterTypeOutput {
 	return o.ApplyT(func(v *DatasetParameterType) DatasetParameterType {
 		if v != nil {
@@ -702,10 +659,12 @@ func (o DatasetParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasetParameterTypeInput is an input type that accepts DatasetParameterTypeArgs and DatasetParameterTypeOutput values.
-// You can construct a concrete instance of `DatasetParameterTypeInput` via:
+// DatasetParameterTypeInput is an input type that accepts values of the DatasetParameterType enum
+// A concrete instance of `DatasetParameterTypeInput` can be one of the following:
 //
-//	DatasetParameterTypeArgs{...}
+//	DatasetParameterTypeString
+//	DatasetParameterTypeNumber
+//	DatasetParameterTypeDatetime
 type DatasetParameterTypeInput interface {
 	pulumi.Input
 
@@ -813,12 +772,6 @@ func (o JobDatabaseOutputDatabaseOutputModeOutput) ToJobDatabaseOutputDatabaseOu
 	}).(JobDatabaseOutputDatabaseOutputModePtrOutput)
 }
 
-func (o JobDatabaseOutputDatabaseOutputModeOutput) ToOutput(ctx context.Context) pulumix.Output[JobDatabaseOutputDatabaseOutputMode] {
-	return pulumix.Output[JobDatabaseOutputDatabaseOutputMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDatabaseOutputDatabaseOutputModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -854,12 +807,6 @@ func (o JobDatabaseOutputDatabaseOutputModePtrOutput) ToJobDatabaseOutputDatabas
 	return o
 }
 
-func (o JobDatabaseOutputDatabaseOutputModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDatabaseOutputDatabaseOutputMode] {
-	return pulumix.Output[*JobDatabaseOutputDatabaseOutputMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDatabaseOutputDatabaseOutputModePtrOutput) Elem() JobDatabaseOutputDatabaseOutputModeOutput {
 	return o.ApplyT(func(v *JobDatabaseOutputDatabaseOutputMode) JobDatabaseOutputDatabaseOutputMode {
 		if v != nil {
@@ -884,10 +831,10 @@ func (o JobDatabaseOutputDatabaseOutputModePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobDatabaseOutputDatabaseOutputModeInput is an input type that accepts JobDatabaseOutputDatabaseOutputModeArgs and JobDatabaseOutputDatabaseOutputModeOutput values.
-// You can construct a concrete instance of `JobDatabaseOutputDatabaseOutputModeInput` via:
+// JobDatabaseOutputDatabaseOutputModeInput is an input type that accepts values of the JobDatabaseOutputDatabaseOutputMode enum
+// A concrete instance of `JobDatabaseOutputDatabaseOutputModeInput` can be one of the following:
 //
-//	JobDatabaseOutputDatabaseOutputModeArgs{...}
+//	JobDatabaseOutputDatabaseOutputModeNewTable
 type JobDatabaseOutputDatabaseOutputModeInput interface {
 	pulumi.Input
 
@@ -996,12 +943,6 @@ func (o JobEncryptionModeOutput) ToJobEncryptionModePtrOutputWithContext(ctx con
 	}).(JobEncryptionModePtrOutput)
 }
 
-func (o JobEncryptionModeOutput) ToOutput(ctx context.Context) pulumix.Output[JobEncryptionMode] {
-	return pulumix.Output[JobEncryptionMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobEncryptionModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1037,12 +978,6 @@ func (o JobEncryptionModePtrOutput) ToJobEncryptionModePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o JobEncryptionModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobEncryptionMode] {
-	return pulumix.Output[*JobEncryptionMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobEncryptionModePtrOutput) Elem() JobEncryptionModeOutput {
 	return o.ApplyT(func(v *JobEncryptionMode) JobEncryptionMode {
 		if v != nil {
@@ -1067,10 +1002,11 @@ func (o JobEncryptionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobEncryptionModeInput is an input type that accepts JobEncryptionModeArgs and JobEncryptionModeOutput values.
-// You can construct a concrete instance of `JobEncryptionModeInput` via:
+// JobEncryptionModeInput is an input type that accepts values of the JobEncryptionMode enum
+// A concrete instance of `JobEncryptionModeInput` can be one of the following:
 //
-//	JobEncryptionModeArgs{...}
+//	JobEncryptionModeSseKms
+//	JobEncryptionModeSseS3
 type JobEncryptionModeInput interface {
 	pulumi.Input
 
@@ -1179,12 +1115,6 @@ func (o JobLogSubscriptionOutput) ToJobLogSubscriptionPtrOutputWithContext(ctx c
 	}).(JobLogSubscriptionPtrOutput)
 }
 
-func (o JobLogSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[JobLogSubscription] {
-	return pulumix.Output[JobLogSubscription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobLogSubscriptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1220,12 +1150,6 @@ func (o JobLogSubscriptionPtrOutput) ToJobLogSubscriptionPtrOutputWithContext(ct
 	return o
 }
 
-func (o JobLogSubscriptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobLogSubscription] {
-	return pulumix.Output[*JobLogSubscription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobLogSubscriptionPtrOutput) Elem() JobLogSubscriptionOutput {
 	return o.ApplyT(func(v *JobLogSubscription) JobLogSubscription {
 		if v != nil {
@@ -1250,10 +1174,11 @@ func (o JobLogSubscriptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobLogSubscriptionInput is an input type that accepts JobLogSubscriptionArgs and JobLogSubscriptionOutput values.
-// You can construct a concrete instance of `JobLogSubscriptionInput` via:
+// JobLogSubscriptionInput is an input type that accepts values of the JobLogSubscription enum
+// A concrete instance of `JobLogSubscriptionInput` can be one of the following:
 //
-//	JobLogSubscriptionArgs{...}
+//	JobLogSubscriptionEnable
+//	JobLogSubscriptionDisable
 type JobLogSubscriptionInput interface {
 	pulumi.Input
 
@@ -1368,12 +1293,6 @@ func (o JobOutputCompressionFormatOutput) ToJobOutputCompressionFormatPtrOutputW
 	}).(JobOutputCompressionFormatPtrOutput)
 }
 
-func (o JobOutputCompressionFormatOutput) ToOutput(ctx context.Context) pulumix.Output[JobOutputCompressionFormat] {
-	return pulumix.Output[JobOutputCompressionFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobOutputCompressionFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1409,12 +1328,6 @@ func (o JobOutputCompressionFormatPtrOutput) ToJobOutputCompressionFormatPtrOutp
 	return o
 }
 
-func (o JobOutputCompressionFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobOutputCompressionFormat] {
-	return pulumix.Output[*JobOutputCompressionFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobOutputCompressionFormatPtrOutput) Elem() JobOutputCompressionFormatOutput {
 	return o.ApplyT(func(v *JobOutputCompressionFormat) JobOutputCompressionFormat {
 		if v != nil {
@@ -1439,10 +1352,18 @@ func (o JobOutputCompressionFormatPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobOutputCompressionFormatInput is an input type that accepts JobOutputCompressionFormatArgs and JobOutputCompressionFormatOutput values.
-// You can construct a concrete instance of `JobOutputCompressionFormatInput` via:
+// JobOutputCompressionFormatInput is an input type that accepts values of the JobOutputCompressionFormat enum
+// A concrete instance of `JobOutputCompressionFormatInput` can be one of the following:
 //
-//	JobOutputCompressionFormatArgs{...}
+//	JobOutputCompressionFormatGzip
+//	JobOutputCompressionFormatLz4
+//	JobOutputCompressionFormatSnappy
+//	JobOutputCompressionFormatBzip2
+//	JobOutputCompressionFormatDeflate
+//	JobOutputCompressionFormatLzo
+//	JobOutputCompressionFormatBrotli
+//	JobOutputCompressionFormatZstd
+//	JobOutputCompressionFormatZlib
 type JobOutputCompressionFormatInput interface {
 	pulumi.Input
 
@@ -1556,12 +1477,6 @@ func (o JobOutputFormatOutput) ToJobOutputFormatPtrOutputWithContext(ctx context
 	}).(JobOutputFormatPtrOutput)
 }
 
-func (o JobOutputFormatOutput) ToOutput(ctx context.Context) pulumix.Output[JobOutputFormat] {
-	return pulumix.Output[JobOutputFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobOutputFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1597,12 +1512,6 @@ func (o JobOutputFormatPtrOutput) ToJobOutputFormatPtrOutputWithContext(ctx cont
 	return o
 }
 
-func (o JobOutputFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobOutputFormat] {
-	return pulumix.Output[*JobOutputFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobOutputFormatPtrOutput) Elem() JobOutputFormatOutput {
 	return o.ApplyT(func(v *JobOutputFormat) JobOutputFormat {
 		if v != nil {
@@ -1627,10 +1536,17 @@ func (o JobOutputFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobOutputFormatInput is an input type that accepts JobOutputFormatArgs and JobOutputFormatOutput values.
-// You can construct a concrete instance of `JobOutputFormatInput` via:
+// JobOutputFormatInput is an input type that accepts values of the JobOutputFormat enum
+// A concrete instance of `JobOutputFormatInput` can be one of the following:
 //
-//	JobOutputFormatArgs{...}
+//	JobOutputFormatCsv
+//	JobOutputFormatJson
+//	JobOutputFormatParquet
+//	JobOutputFormatGlueparquet
+//	JobOutputFormatAvro
+//	JobOutputFormatOrc
+//	JobOutputFormatXml
+//	JobOutputFormatTableauhyper
 type JobOutputFormatInput interface {
 	pulumi.Input
 
@@ -1739,12 +1655,6 @@ func (o JobSampleModeOutput) ToJobSampleModePtrOutputWithContext(ctx context.Con
 	}).(JobSampleModePtrOutput)
 }
 
-func (o JobSampleModeOutput) ToOutput(ctx context.Context) pulumix.Output[JobSampleMode] {
-	return pulumix.Output[JobSampleMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobSampleModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1780,12 +1690,6 @@ func (o JobSampleModePtrOutput) ToJobSampleModePtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o JobSampleModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobSampleMode] {
-	return pulumix.Output[*JobSampleMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobSampleModePtrOutput) Elem() JobSampleModeOutput {
 	return o.ApplyT(func(v *JobSampleMode) JobSampleMode {
 		if v != nil {
@@ -1810,10 +1714,11 @@ func (o JobSampleModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobSampleModeInput is an input type that accepts JobSampleModeArgs and JobSampleModeOutput values.
-// You can construct a concrete instance of `JobSampleModeInput` via:
+// JobSampleModeInput is an input type that accepts values of the JobSampleMode enum
+// A concrete instance of `JobSampleModeInput` can be one of the following:
 //
-//	JobSampleModeArgs{...}
+//	JobSampleModeFullDataset
+//	JobSampleModeCustomRows
 type JobSampleModeInput interface {
 	pulumi.Input
 
@@ -1922,12 +1827,6 @@ func (o JobTypeOutput) ToJobTypePtrOutputWithContext(ctx context.Context) JobTyp
 	}).(JobTypePtrOutput)
 }
 
-func (o JobTypeOutput) ToOutput(ctx context.Context) pulumix.Output[JobType] {
-	return pulumix.Output[JobType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1963,12 +1862,6 @@ func (o JobTypePtrOutput) ToJobTypePtrOutputWithContext(ctx context.Context) Job
 	return o
 }
 
-func (o JobTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobType] {
-	return pulumix.Output[*JobType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobTypePtrOutput) Elem() JobTypeOutput {
 	return o.ApplyT(func(v *JobType) JobType {
 		if v != nil {
@@ -1993,10 +1886,11 @@ func (o JobTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobTypeInput is an input type that accepts JobTypeArgs and JobTypeOutput values.
-// You can construct a concrete instance of `JobTypeInput` via:
+// JobTypeInput is an input type that accepts values of the JobType enum
+// A concrete instance of `JobTypeInput` can be one of the following:
 //
-//	JobTypeArgs{...}
+//	JobTypeProfile
+//	JobTypeRecipe
 type JobTypeInput interface {
 	pulumi.Input
 
@@ -2103,12 +1997,6 @@ func (o JobValidationModeOutput) ToJobValidationModePtrOutputWithContext(ctx con
 	}).(JobValidationModePtrOutput)
 }
 
-func (o JobValidationModeOutput) ToOutput(ctx context.Context) pulumix.Output[JobValidationMode] {
-	return pulumix.Output[JobValidationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobValidationModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2144,12 +2032,6 @@ func (o JobValidationModePtrOutput) ToJobValidationModePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o JobValidationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobValidationMode] {
-	return pulumix.Output[*JobValidationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobValidationModePtrOutput) Elem() JobValidationModeOutput {
 	return o.ApplyT(func(v *JobValidationMode) JobValidationMode {
 		if v != nil {
@@ -2174,10 +2056,10 @@ func (o JobValidationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobValidationModeInput is an input type that accepts JobValidationModeArgs and JobValidationModeOutput values.
-// You can construct a concrete instance of `JobValidationModeInput` via:
+// JobValidationModeInput is an input type that accepts values of the JobValidationMode enum
+// A concrete instance of `JobValidationModeInput` can be one of the following:
 //
-//	JobValidationModeArgs{...}
+//	JobValidationModeCheckAll
 type JobValidationModeInput interface {
 	pulumi.Input
 
@@ -2287,12 +2169,6 @@ func (o ProjectSampleTypeOutput) ToProjectSampleTypePtrOutputWithContext(ctx con
 	}).(ProjectSampleTypePtrOutput)
 }
 
-func (o ProjectSampleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectSampleType] {
-	return pulumix.Output[ProjectSampleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProjectSampleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2328,12 +2204,6 @@ func (o ProjectSampleTypePtrOutput) ToProjectSampleTypePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o ProjectSampleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectSampleType] {
-	return pulumix.Output[*ProjectSampleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProjectSampleTypePtrOutput) Elem() ProjectSampleTypeOutput {
 	return o.ApplyT(func(v *ProjectSampleType) ProjectSampleType {
 		if v != nil {
@@ -2358,10 +2228,12 @@ func (o ProjectSampleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProjectSampleTypeInput is an input type that accepts ProjectSampleTypeArgs and ProjectSampleTypeOutput values.
-// You can construct a concrete instance of `ProjectSampleTypeInput` via:
+// ProjectSampleTypeInput is an input type that accepts values of the ProjectSampleType enum
+// A concrete instance of `ProjectSampleTypeInput` can be one of the following:
 //
-//	ProjectSampleTypeArgs{...}
+//	ProjectSampleTypeFirstN
+//	ProjectSampleTypeLastN
+//	ProjectSampleTypeRandom
 type ProjectSampleTypeInput interface {
 	pulumi.Input
 
@@ -2472,12 +2344,6 @@ func (o RulesetThresholdTypeOutput) ToRulesetThresholdTypePtrOutputWithContext(c
 	}).(RulesetThresholdTypePtrOutput)
 }
 
-func (o RulesetThresholdTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetThresholdType] {
-	return pulumix.Output[RulesetThresholdType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RulesetThresholdTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2513,12 +2379,6 @@ func (o RulesetThresholdTypePtrOutput) ToRulesetThresholdTypePtrOutputWithContex
 	return o
 }
 
-func (o RulesetThresholdTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RulesetThresholdType] {
-	return pulumix.Output[*RulesetThresholdType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RulesetThresholdTypePtrOutput) Elem() RulesetThresholdTypeOutput {
 	return o.ApplyT(func(v *RulesetThresholdType) RulesetThresholdType {
 		if v != nil {
@@ -2543,10 +2403,13 @@ func (o RulesetThresholdTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// RulesetThresholdTypeInput is an input type that accepts RulesetThresholdTypeArgs and RulesetThresholdTypeOutput values.
-// You can construct a concrete instance of `RulesetThresholdTypeInput` via:
+// RulesetThresholdTypeInput is an input type that accepts values of the RulesetThresholdType enum
+// A concrete instance of `RulesetThresholdTypeInput` can be one of the following:
 //
-//	RulesetThresholdTypeArgs{...}
+//	RulesetThresholdTypeGreaterThanOrEqual
+//	RulesetThresholdTypeLessThanOrEqual
+//	RulesetThresholdTypeGreaterThan
+//	RulesetThresholdTypeLessThan
 type RulesetThresholdTypeInput interface {
 	pulumi.Input
 
@@ -2655,12 +2518,6 @@ func (o RulesetThresholdUnitOutput) ToRulesetThresholdUnitPtrOutputWithContext(c
 	}).(RulesetThresholdUnitPtrOutput)
 }
 
-func (o RulesetThresholdUnitOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetThresholdUnit] {
-	return pulumix.Output[RulesetThresholdUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RulesetThresholdUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2696,12 +2553,6 @@ func (o RulesetThresholdUnitPtrOutput) ToRulesetThresholdUnitPtrOutputWithContex
 	return o
 }
 
-func (o RulesetThresholdUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RulesetThresholdUnit] {
-	return pulumix.Output[*RulesetThresholdUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RulesetThresholdUnitPtrOutput) Elem() RulesetThresholdUnitOutput {
 	return o.ApplyT(func(v *RulesetThresholdUnit) RulesetThresholdUnit {
 		if v != nil {
@@ -2726,10 +2577,11 @@ func (o RulesetThresholdUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// RulesetThresholdUnitInput is an input type that accepts RulesetThresholdUnitArgs and RulesetThresholdUnitOutput values.
-// You can construct a concrete instance of `RulesetThresholdUnitInput` via:
+// RulesetThresholdUnitInput is an input type that accepts values of the RulesetThresholdUnit enum
+// A concrete instance of `RulesetThresholdUnitInput` can be one of the following:
 //
-//	RulesetThresholdUnitArgs{...}
+//	RulesetThresholdUnitCount
+//	RulesetThresholdUnitPercentage
 type RulesetThresholdUnitInput interface {
 	pulumi.Input
 

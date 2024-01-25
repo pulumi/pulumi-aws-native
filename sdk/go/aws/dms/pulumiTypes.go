@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i DataProviderTagArgs) ToDataProviderTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataProviderTagOutput)
 }
 
-func (i DataProviderTagArgs) ToOutput(ctx context.Context) pulumix.Output[DataProviderTag] {
-	return pulumix.Output[DataProviderTag]{
-		OutputState: i.ToDataProviderTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataProviderTagArrayInput is an input type that accepts DataProviderTagArray and DataProviderTagArrayOutput values.
 // You can construct a concrete instance of `DataProviderTagArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i DataProviderTagArray) ToDataProviderTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DataProviderTagArrayOutput)
 }
 
-func (i DataProviderTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DataProviderTag] {
-	return pulumix.Output[[]DataProviderTag]{
-		OutputState: i.ToDataProviderTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type DataProviderTagOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o DataProviderTagOutput) ToDataProviderTagOutput() DataProviderTagOutput {
 
 func (o DataProviderTagOutput) ToDataProviderTagOutputWithContext(ctx context.Context) DataProviderTagOutput {
 	return o
-}
-
-func (o DataProviderTagOutput) ToOutput(ctx context.Context) pulumix.Output[DataProviderTag] {
-	return pulumix.Output[DataProviderTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -133,12 +114,6 @@ func (o DataProviderTagArrayOutput) ToDataProviderTagArrayOutput() DataProviderT
 
 func (o DataProviderTagArrayOutput) ToDataProviderTagArrayOutputWithContext(ctx context.Context) DataProviderTagArrayOutput {
 	return o
-}
-
-func (o DataProviderTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataProviderTag] {
-	return pulumix.Output[[]DataProviderTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataProviderTagArrayOutput) Index(i pulumi.IntInput) DataProviderTagOutput {
@@ -186,12 +161,6 @@ func (i EndpointDocDbSettingsArgs) ToEndpointDocDbSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointDocDbSettingsOutput)
 }
 
-func (i EndpointDocDbSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointDocDbSettings] {
-	return pulumix.Output[EndpointDocDbSettings]{
-		OutputState: i.ToEndpointDocDbSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointDocDbSettingsArgs) ToEndpointDocDbSettingsPtrOutput() EndpointDocDbSettingsPtrOutput {
 	return i.ToEndpointDocDbSettingsPtrOutputWithContext(context.Background())
 }
@@ -233,12 +202,6 @@ func (i *endpointDocDbSettingsPtrType) ToEndpointDocDbSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointDocDbSettingsPtrOutput)
 }
 
-func (i *endpointDocDbSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointDocDbSettings] {
-	return pulumix.Output[*EndpointDocDbSettings]{
-		OutputState: i.ToEndpointDocDbSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointDocDbSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointDocDbSettingsOutput) ElementType() reflect.Type {
@@ -261,12 +224,6 @@ func (o EndpointDocDbSettingsOutput) ToEndpointDocDbSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDocDbSettings) *EndpointDocDbSettings {
 		return &v
 	}).(EndpointDocDbSettingsPtrOutput)
-}
-
-func (o EndpointDocDbSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointDocDbSettings] {
-	return pulumix.Output[EndpointDocDbSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointDocDbSettingsOutput) DocsToInvestigate() pulumi.IntPtrOutput {
@@ -301,12 +258,6 @@ func (o EndpointDocDbSettingsPtrOutput) ToEndpointDocDbSettingsPtrOutput() Endpo
 
 func (o EndpointDocDbSettingsPtrOutput) ToEndpointDocDbSettingsPtrOutputWithContext(ctx context.Context) EndpointDocDbSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointDocDbSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointDocDbSettings] {
-	return pulumix.Output[*EndpointDocDbSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointDocDbSettingsPtrOutput) Elem() EndpointDocDbSettingsOutput {
@@ -395,12 +346,6 @@ func (i EndpointDynamoDbSettingsArgs) ToEndpointDynamoDbSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointDynamoDbSettingsOutput)
 }
 
-func (i EndpointDynamoDbSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointDynamoDbSettings] {
-	return pulumix.Output[EndpointDynamoDbSettings]{
-		OutputState: i.ToEndpointDynamoDbSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointDynamoDbSettingsArgs) ToEndpointDynamoDbSettingsPtrOutput() EndpointDynamoDbSettingsPtrOutput {
 	return i.ToEndpointDynamoDbSettingsPtrOutputWithContext(context.Background())
 }
@@ -442,12 +387,6 @@ func (i *endpointDynamoDbSettingsPtrType) ToEndpointDynamoDbSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointDynamoDbSettingsPtrOutput)
 }
 
-func (i *endpointDynamoDbSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointDynamoDbSettings] {
-	return pulumix.Output[*EndpointDynamoDbSettings]{
-		OutputState: i.ToEndpointDynamoDbSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointDynamoDbSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointDynamoDbSettingsOutput) ElementType() reflect.Type {
@@ -472,12 +411,6 @@ func (o EndpointDynamoDbSettingsOutput) ToEndpointDynamoDbSettingsPtrOutputWithC
 	}).(EndpointDynamoDbSettingsPtrOutput)
 }
 
-func (o EndpointDynamoDbSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointDynamoDbSettings] {
-	return pulumix.Output[EndpointDynamoDbSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointDynamoDbSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointDynamoDbSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -494,12 +427,6 @@ func (o EndpointDynamoDbSettingsPtrOutput) ToEndpointDynamoDbSettingsPtrOutput()
 
 func (o EndpointDynamoDbSettingsPtrOutput) ToEndpointDynamoDbSettingsPtrOutputWithContext(ctx context.Context) EndpointDynamoDbSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointDynamoDbSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointDynamoDbSettings] {
-	return pulumix.Output[*EndpointDynamoDbSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointDynamoDbSettingsPtrOutput) Elem() EndpointDynamoDbSettingsOutput {
@@ -558,12 +485,6 @@ func (i EndpointElasticsearchSettingsArgs) ToEndpointElasticsearchSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointElasticsearchSettingsOutput)
 }
 
-func (i EndpointElasticsearchSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointElasticsearchSettings] {
-	return pulumix.Output[EndpointElasticsearchSettings]{
-		OutputState: i.ToEndpointElasticsearchSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointElasticsearchSettingsArgs) ToEndpointElasticsearchSettingsPtrOutput() EndpointElasticsearchSettingsPtrOutput {
 	return i.ToEndpointElasticsearchSettingsPtrOutputWithContext(context.Background())
 }
@@ -605,12 +526,6 @@ func (i *endpointElasticsearchSettingsPtrType) ToEndpointElasticsearchSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointElasticsearchSettingsPtrOutput)
 }
 
-func (i *endpointElasticsearchSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointElasticsearchSettings] {
-	return pulumix.Output[*EndpointElasticsearchSettings]{
-		OutputState: i.ToEndpointElasticsearchSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointElasticsearchSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointElasticsearchSettingsOutput) ElementType() reflect.Type {
@@ -633,12 +548,6 @@ func (o EndpointElasticsearchSettingsOutput) ToEndpointElasticsearchSettingsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointElasticsearchSettings) *EndpointElasticsearchSettings {
 		return &v
 	}).(EndpointElasticsearchSettingsPtrOutput)
-}
-
-func (o EndpointElasticsearchSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointElasticsearchSettings] {
-	return pulumix.Output[EndpointElasticsearchSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointElasticsearchSettingsOutput) EndpointUri() pulumi.StringPtrOutput {
@@ -669,12 +578,6 @@ func (o EndpointElasticsearchSettingsPtrOutput) ToEndpointElasticsearchSettingsP
 
 func (o EndpointElasticsearchSettingsPtrOutput) ToEndpointElasticsearchSettingsPtrOutputWithContext(ctx context.Context) EndpointElasticsearchSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointElasticsearchSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointElasticsearchSettings] {
-	return pulumix.Output[*EndpointElasticsearchSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointElasticsearchSettingsPtrOutput) Elem() EndpointElasticsearchSettingsOutput {
@@ -778,12 +681,6 @@ func (i EndpointGcpMySqlSettingsArgs) ToEndpointGcpMySqlSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGcpMySqlSettingsOutput)
 }
 
-func (i EndpointGcpMySqlSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointGcpMySqlSettings] {
-	return pulumix.Output[EndpointGcpMySqlSettings]{
-		OutputState: i.ToEndpointGcpMySqlSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointGcpMySqlSettingsArgs) ToEndpointGcpMySqlSettingsPtrOutput() EndpointGcpMySqlSettingsPtrOutput {
 	return i.ToEndpointGcpMySqlSettingsPtrOutputWithContext(context.Background())
 }
@@ -825,12 +722,6 @@ func (i *endpointGcpMySqlSettingsPtrType) ToEndpointGcpMySqlSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGcpMySqlSettingsPtrOutput)
 }
 
-func (i *endpointGcpMySqlSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointGcpMySqlSettings] {
-	return pulumix.Output[*EndpointGcpMySqlSettings]{
-		OutputState: i.ToEndpointGcpMySqlSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointGcpMySqlSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointGcpMySqlSettingsOutput) ElementType() reflect.Type {
@@ -853,12 +744,6 @@ func (o EndpointGcpMySqlSettingsOutput) ToEndpointGcpMySqlSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointGcpMySqlSettings) *EndpointGcpMySqlSettings {
 		return &v
 	}).(EndpointGcpMySqlSettingsPtrOutput)
-}
-
-func (o EndpointGcpMySqlSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointGcpMySqlSettings] {
-	return pulumix.Output[EndpointGcpMySqlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointGcpMySqlSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
@@ -925,12 +810,6 @@ func (o EndpointGcpMySqlSettingsPtrOutput) ToEndpointGcpMySqlSettingsPtrOutput()
 
 func (o EndpointGcpMySqlSettingsPtrOutput) ToEndpointGcpMySqlSettingsPtrOutputWithContext(ctx context.Context) EndpointGcpMySqlSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointGcpMySqlSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointGcpMySqlSettings] {
-	return pulumix.Output[*EndpointGcpMySqlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointGcpMySqlSettingsPtrOutput) Elem() EndpointGcpMySqlSettingsOutput {
@@ -1107,12 +986,6 @@ func (i EndpointIbmDb2SettingsArgs) ToEndpointIbmDb2SettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointIbmDb2SettingsOutput)
 }
 
-func (i EndpointIbmDb2SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointIbmDb2Settings] {
-	return pulumix.Output[EndpointIbmDb2Settings]{
-		OutputState: i.ToEndpointIbmDb2SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointIbmDb2SettingsArgs) ToEndpointIbmDb2SettingsPtrOutput() EndpointIbmDb2SettingsPtrOutput {
 	return i.ToEndpointIbmDb2SettingsPtrOutputWithContext(context.Background())
 }
@@ -1154,12 +1027,6 @@ func (i *endpointIbmDb2SettingsPtrType) ToEndpointIbmDb2SettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointIbmDb2SettingsPtrOutput)
 }
 
-func (i *endpointIbmDb2SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointIbmDb2Settings] {
-	return pulumix.Output[*EndpointIbmDb2Settings]{
-		OutputState: i.ToEndpointIbmDb2SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointIbmDb2SettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointIbmDb2SettingsOutput) ElementType() reflect.Type {
@@ -1182,12 +1049,6 @@ func (o EndpointIbmDb2SettingsOutput) ToEndpointIbmDb2SettingsPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointIbmDb2Settings) *EndpointIbmDb2Settings {
 		return &v
 	}).(EndpointIbmDb2SettingsPtrOutput)
-}
-
-func (o EndpointIbmDb2SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointIbmDb2Settings] {
-	return pulumix.Output[EndpointIbmDb2Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointIbmDb2SettingsOutput) CurrentLsn() pulumi.StringPtrOutput {
@@ -1238,12 +1099,6 @@ func (o EndpointIbmDb2SettingsPtrOutput) ToEndpointIbmDb2SettingsPtrOutput() End
 
 func (o EndpointIbmDb2SettingsPtrOutput) ToEndpointIbmDb2SettingsPtrOutputWithContext(ctx context.Context) EndpointIbmDb2SettingsPtrOutput {
 	return o
-}
-
-func (o EndpointIbmDb2SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointIbmDb2Settings] {
-	return pulumix.Output[*EndpointIbmDb2Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointIbmDb2SettingsPtrOutput) Elem() EndpointIbmDb2SettingsOutput {
@@ -1402,12 +1257,6 @@ func (i EndpointKafkaSettingsArgs) ToEndpointKafkaSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointKafkaSettingsOutput)
 }
 
-func (i EndpointKafkaSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointKafkaSettings] {
-	return pulumix.Output[EndpointKafkaSettings]{
-		OutputState: i.ToEndpointKafkaSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointKafkaSettingsArgs) ToEndpointKafkaSettingsPtrOutput() EndpointKafkaSettingsPtrOutput {
 	return i.ToEndpointKafkaSettingsPtrOutputWithContext(context.Background())
 }
@@ -1449,12 +1298,6 @@ func (i *endpointKafkaSettingsPtrType) ToEndpointKafkaSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointKafkaSettingsPtrOutput)
 }
 
-func (i *endpointKafkaSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointKafkaSettings] {
-	return pulumix.Output[*EndpointKafkaSettings]{
-		OutputState: i.ToEndpointKafkaSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointKafkaSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointKafkaSettingsOutput) ElementType() reflect.Type {
@@ -1477,12 +1320,6 @@ func (o EndpointKafkaSettingsOutput) ToEndpointKafkaSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointKafkaSettings) *EndpointKafkaSettings {
 		return &v
 	}).(EndpointKafkaSettingsPtrOutput)
-}
-
-func (o EndpointKafkaSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointKafkaSettings] {
-	return pulumix.Output[EndpointKafkaSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointKafkaSettingsOutput) Broker() pulumi.StringPtrOutput {
@@ -1569,12 +1406,6 @@ func (o EndpointKafkaSettingsPtrOutput) ToEndpointKafkaSettingsPtrOutput() Endpo
 
 func (o EndpointKafkaSettingsPtrOutput) ToEndpointKafkaSettingsPtrOutputWithContext(ctx context.Context) EndpointKafkaSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointKafkaSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointKafkaSettings] {
-	return pulumix.Output[*EndpointKafkaSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointKafkaSettingsPtrOutput) Elem() EndpointKafkaSettingsOutput {
@@ -1798,12 +1629,6 @@ func (i EndpointKinesisSettingsArgs) ToEndpointKinesisSettingsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointKinesisSettingsOutput)
 }
 
-func (i EndpointKinesisSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointKinesisSettings] {
-	return pulumix.Output[EndpointKinesisSettings]{
-		OutputState: i.ToEndpointKinesisSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointKinesisSettingsArgs) ToEndpointKinesisSettingsPtrOutput() EndpointKinesisSettingsPtrOutput {
 	return i.ToEndpointKinesisSettingsPtrOutputWithContext(context.Background())
 }
@@ -1845,12 +1670,6 @@ func (i *endpointKinesisSettingsPtrType) ToEndpointKinesisSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointKinesisSettingsPtrOutput)
 }
 
-func (i *endpointKinesisSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointKinesisSettings] {
-	return pulumix.Output[*EndpointKinesisSettings]{
-		OutputState: i.ToEndpointKinesisSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointKinesisSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointKinesisSettingsOutput) ElementType() reflect.Type {
@@ -1873,12 +1692,6 @@ func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointKinesisSettings) *EndpointKinesisSettings {
 		return &v
 	}).(EndpointKinesisSettingsPtrOutput)
-}
-
-func (o EndpointKinesisSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointKinesisSettings] {
-	return pulumix.Output[EndpointKinesisSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointKinesisSettingsOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
@@ -1933,12 +1746,6 @@ func (o EndpointKinesisSettingsPtrOutput) ToEndpointKinesisSettingsPtrOutput() E
 
 func (o EndpointKinesisSettingsPtrOutput) ToEndpointKinesisSettingsPtrOutputWithContext(ctx context.Context) EndpointKinesisSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointKinesisSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointKinesisSettings] {
-	return pulumix.Output[*EndpointKinesisSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointKinesisSettingsPtrOutput) Elem() EndpointKinesisSettingsOutput {
@@ -2104,12 +1911,6 @@ func (i EndpointMicrosoftSqlServerSettingsArgs) ToEndpointMicrosoftSqlServerSett
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMicrosoftSqlServerSettingsOutput)
 }
 
-func (i EndpointMicrosoftSqlServerSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointMicrosoftSqlServerSettings] {
-	return pulumix.Output[EndpointMicrosoftSqlServerSettings]{
-		OutputState: i.ToEndpointMicrosoftSqlServerSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointMicrosoftSqlServerSettingsArgs) ToEndpointMicrosoftSqlServerSettingsPtrOutput() EndpointMicrosoftSqlServerSettingsPtrOutput {
 	return i.ToEndpointMicrosoftSqlServerSettingsPtrOutputWithContext(context.Background())
 }
@@ -2151,12 +1952,6 @@ func (i *endpointMicrosoftSqlServerSettingsPtrType) ToEndpointMicrosoftSqlServer
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMicrosoftSqlServerSettingsPtrOutput)
 }
 
-func (i *endpointMicrosoftSqlServerSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointMicrosoftSqlServerSettings] {
-	return pulumix.Output[*EndpointMicrosoftSqlServerSettings]{
-		OutputState: i.ToEndpointMicrosoftSqlServerSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointMicrosoftSqlServerSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointMicrosoftSqlServerSettingsOutput) ElementType() reflect.Type {
@@ -2179,12 +1974,6 @@ func (o EndpointMicrosoftSqlServerSettingsOutput) ToEndpointMicrosoftSqlServerSe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointMicrosoftSqlServerSettings) *EndpointMicrosoftSqlServerSettings {
 		return &v
 	}).(EndpointMicrosoftSqlServerSettingsPtrOutput)
-}
-
-func (o EndpointMicrosoftSqlServerSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointMicrosoftSqlServerSettings] {
-	return pulumix.Output[EndpointMicrosoftSqlServerSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointMicrosoftSqlServerSettingsOutput) BcpPacketSize() pulumi.IntPtrOutput {
@@ -2267,12 +2056,6 @@ func (o EndpointMicrosoftSqlServerSettingsPtrOutput) ToEndpointMicrosoftSqlServe
 
 func (o EndpointMicrosoftSqlServerSettingsPtrOutput) ToEndpointMicrosoftSqlServerSettingsPtrOutputWithContext(ctx context.Context) EndpointMicrosoftSqlServerSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointMicrosoftSqlServerSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointMicrosoftSqlServerSettings] {
-	return pulumix.Output[*EndpointMicrosoftSqlServerSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointMicrosoftSqlServerSettingsPtrOutput) Elem() EndpointMicrosoftSqlServerSettingsOutput {
@@ -2493,12 +2276,6 @@ func (i EndpointMongoDbSettingsArgs) ToEndpointMongoDbSettingsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMongoDbSettingsOutput)
 }
 
-func (i EndpointMongoDbSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointMongoDbSettings] {
-	return pulumix.Output[EndpointMongoDbSettings]{
-		OutputState: i.ToEndpointMongoDbSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointMongoDbSettingsArgs) ToEndpointMongoDbSettingsPtrOutput() EndpointMongoDbSettingsPtrOutput {
 	return i.ToEndpointMongoDbSettingsPtrOutputWithContext(context.Background())
 }
@@ -2540,12 +2317,6 @@ func (i *endpointMongoDbSettingsPtrType) ToEndpointMongoDbSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMongoDbSettingsPtrOutput)
 }
 
-func (i *endpointMongoDbSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointMongoDbSettings] {
-	return pulumix.Output[*EndpointMongoDbSettings]{
-		OutputState: i.ToEndpointMongoDbSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointMongoDbSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointMongoDbSettingsOutput) ElementType() reflect.Type {
@@ -2568,12 +2339,6 @@ func (o EndpointMongoDbSettingsOutput) ToEndpointMongoDbSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointMongoDbSettings) *EndpointMongoDbSettings {
 		return &v
 	}).(EndpointMongoDbSettingsPtrOutput)
-}
-
-func (o EndpointMongoDbSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointMongoDbSettings] {
-	return pulumix.Output[EndpointMongoDbSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointMongoDbSettingsOutput) AuthMechanism() pulumi.StringPtrOutput {
@@ -2640,12 +2405,6 @@ func (o EndpointMongoDbSettingsPtrOutput) ToEndpointMongoDbSettingsPtrOutput() E
 
 func (o EndpointMongoDbSettingsPtrOutput) ToEndpointMongoDbSettingsPtrOutputWithContext(ctx context.Context) EndpointMongoDbSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointMongoDbSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointMongoDbSettings] {
-	return pulumix.Output[*EndpointMongoDbSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointMongoDbSettingsPtrOutput) Elem() EndpointMongoDbSettingsOutput {
@@ -2822,12 +2581,6 @@ func (i EndpointMySqlSettingsArgs) ToEndpointMySqlSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMySqlSettingsOutput)
 }
 
-func (i EndpointMySqlSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointMySqlSettings] {
-	return pulumix.Output[EndpointMySqlSettings]{
-		OutputState: i.ToEndpointMySqlSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointMySqlSettingsArgs) ToEndpointMySqlSettingsPtrOutput() EndpointMySqlSettingsPtrOutput {
 	return i.ToEndpointMySqlSettingsPtrOutputWithContext(context.Background())
 }
@@ -2869,12 +2622,6 @@ func (i *endpointMySqlSettingsPtrType) ToEndpointMySqlSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMySqlSettingsPtrOutput)
 }
 
-func (i *endpointMySqlSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointMySqlSettings] {
-	return pulumix.Output[*EndpointMySqlSettings]{
-		OutputState: i.ToEndpointMySqlSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointMySqlSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointMySqlSettingsOutput) ElementType() reflect.Type {
@@ -2897,12 +2644,6 @@ func (o EndpointMySqlSettingsOutput) ToEndpointMySqlSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointMySqlSettings) *EndpointMySqlSettings {
 		return &v
 	}).(EndpointMySqlSettingsPtrOutput)
-}
-
-func (o EndpointMySqlSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointMySqlSettings] {
-	return pulumix.Output[EndpointMySqlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointMySqlSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
@@ -2953,12 +2694,6 @@ func (o EndpointMySqlSettingsPtrOutput) ToEndpointMySqlSettingsPtrOutput() Endpo
 
 func (o EndpointMySqlSettingsPtrOutput) ToEndpointMySqlSettingsPtrOutputWithContext(ctx context.Context) EndpointMySqlSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointMySqlSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointMySqlSettings] {
-	return pulumix.Output[*EndpointMySqlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointMySqlSettingsPtrOutput) Elem() EndpointMySqlSettingsOutput {
@@ -3095,12 +2830,6 @@ func (i EndpointNeptuneSettingsArgs) ToEndpointNeptuneSettingsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointNeptuneSettingsOutput)
 }
 
-func (i EndpointNeptuneSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointNeptuneSettings] {
-	return pulumix.Output[EndpointNeptuneSettings]{
-		OutputState: i.ToEndpointNeptuneSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointNeptuneSettingsArgs) ToEndpointNeptuneSettingsPtrOutput() EndpointNeptuneSettingsPtrOutput {
 	return i.ToEndpointNeptuneSettingsPtrOutputWithContext(context.Background())
 }
@@ -3142,12 +2871,6 @@ func (i *endpointNeptuneSettingsPtrType) ToEndpointNeptuneSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointNeptuneSettingsPtrOutput)
 }
 
-func (i *endpointNeptuneSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointNeptuneSettings] {
-	return pulumix.Output[*EndpointNeptuneSettings]{
-		OutputState: i.ToEndpointNeptuneSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointNeptuneSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointNeptuneSettingsOutput) ElementType() reflect.Type {
@@ -3170,12 +2893,6 @@ func (o EndpointNeptuneSettingsOutput) ToEndpointNeptuneSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointNeptuneSettings) *EndpointNeptuneSettings {
 		return &v
 	}).(EndpointNeptuneSettingsPtrOutput)
-}
-
-func (o EndpointNeptuneSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointNeptuneSettings] {
-	return pulumix.Output[EndpointNeptuneSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointNeptuneSettingsOutput) ErrorRetryDuration() pulumi.IntPtrOutput {
@@ -3218,12 +2935,6 @@ func (o EndpointNeptuneSettingsPtrOutput) ToEndpointNeptuneSettingsPtrOutput() E
 
 func (o EndpointNeptuneSettingsPtrOutput) ToEndpointNeptuneSettingsPtrOutputWithContext(ctx context.Context) EndpointNeptuneSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointNeptuneSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointNeptuneSettings] {
-	return pulumix.Output[*EndpointNeptuneSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointNeptuneSettingsPtrOutput) Elem() EndpointNeptuneSettingsOutput {
@@ -3398,12 +3109,6 @@ func (i EndpointOracleSettingsArgs) ToEndpointOracleSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOracleSettingsOutput)
 }
 
-func (i EndpointOracleSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointOracleSettings] {
-	return pulumix.Output[EndpointOracleSettings]{
-		OutputState: i.ToEndpointOracleSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointOracleSettingsArgs) ToEndpointOracleSettingsPtrOutput() EndpointOracleSettingsPtrOutput {
 	return i.ToEndpointOracleSettingsPtrOutputWithContext(context.Background())
 }
@@ -3445,12 +3150,6 @@ func (i *endpointOracleSettingsPtrType) ToEndpointOracleSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOracleSettingsPtrOutput)
 }
 
-func (i *endpointOracleSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointOracleSettings] {
-	return pulumix.Output[*EndpointOracleSettings]{
-		OutputState: i.ToEndpointOracleSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointOracleSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointOracleSettingsOutput) ElementType() reflect.Type {
@@ -3473,12 +3172,6 @@ func (o EndpointOracleSettingsOutput) ToEndpointOracleSettingsPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointOracleSettings) *EndpointOracleSettings {
 		return &v
 	}).(EndpointOracleSettingsPtrOutput)
-}
-
-func (o EndpointOracleSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointOracleSettings] {
-	return pulumix.Output[EndpointOracleSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointOracleSettingsOutput) AccessAlternateDirectly() pulumi.BoolPtrOutput {
@@ -3633,12 +3326,6 @@ func (o EndpointOracleSettingsPtrOutput) ToEndpointOracleSettingsPtrOutput() End
 
 func (o EndpointOracleSettingsPtrOutput) ToEndpointOracleSettingsPtrOutputWithContext(ctx context.Context) EndpointOracleSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointOracleSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointOracleSettings] {
-	return pulumix.Output[*EndpointOracleSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointOracleSettingsPtrOutput) Elem() EndpointOracleSettingsOutput {
@@ -4027,12 +3714,6 @@ func (i EndpointPostgreSqlSettingsArgs) ToEndpointPostgreSqlSettingsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPostgreSqlSettingsOutput)
 }
 
-func (i EndpointPostgreSqlSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointPostgreSqlSettings] {
-	return pulumix.Output[EndpointPostgreSqlSettings]{
-		OutputState: i.ToEndpointPostgreSqlSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointPostgreSqlSettingsArgs) ToEndpointPostgreSqlSettingsPtrOutput() EndpointPostgreSqlSettingsPtrOutput {
 	return i.ToEndpointPostgreSqlSettingsPtrOutputWithContext(context.Background())
 }
@@ -4074,12 +3755,6 @@ func (i *endpointPostgreSqlSettingsPtrType) ToEndpointPostgreSqlSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPostgreSqlSettingsPtrOutput)
 }
 
-func (i *endpointPostgreSqlSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointPostgreSqlSettings] {
-	return pulumix.Output[*EndpointPostgreSqlSettings]{
-		OutputState: i.ToEndpointPostgreSqlSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointPostgreSqlSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointPostgreSqlSettingsOutput) ElementType() reflect.Type {
@@ -4102,12 +3777,6 @@ func (o EndpointPostgreSqlSettingsOutput) ToEndpointPostgreSqlSettingsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPostgreSqlSettings) *EndpointPostgreSqlSettings {
 		return &v
 	}).(EndpointPostgreSqlSettingsPtrOutput)
-}
-
-func (o EndpointPostgreSqlSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointPostgreSqlSettings] {
-	return pulumix.Output[EndpointPostgreSqlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointPostgreSqlSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
@@ -4186,12 +3855,6 @@ func (o EndpointPostgreSqlSettingsPtrOutput) ToEndpointPostgreSqlSettingsPtrOutp
 
 func (o EndpointPostgreSqlSettingsPtrOutput) ToEndpointPostgreSqlSettingsPtrOutputWithContext(ctx context.Context) EndpointPostgreSqlSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointPostgreSqlSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointPostgreSqlSettings] {
-	return pulumix.Output[*EndpointPostgreSqlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointPostgreSqlSettingsPtrOutput) Elem() EndpointPostgreSqlSettingsOutput {
@@ -4391,12 +4054,6 @@ func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedisSettingsOutput)
 }
 
-func (i EndpointRedisSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointRedisSettings] {
-	return pulumix.Output[EndpointRedisSettings]{
-		OutputState: i.ToEndpointRedisSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput {
 	return i.ToEndpointRedisSettingsPtrOutputWithContext(context.Background())
 }
@@ -4438,12 +4095,6 @@ func (i *endpointRedisSettingsPtrType) ToEndpointRedisSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedisSettingsPtrOutput)
 }
 
-func (i *endpointRedisSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointRedisSettings] {
-	return pulumix.Output[*EndpointRedisSettings]{
-		OutputState: i.ToEndpointRedisSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointRedisSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointRedisSettingsOutput) ElementType() reflect.Type {
@@ -4466,12 +4117,6 @@ func (o EndpointRedisSettingsOutput) ToEndpointRedisSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRedisSettings) *EndpointRedisSettings {
 		return &v
 	}).(EndpointRedisSettingsPtrOutput)
-}
-
-func (o EndpointRedisSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointRedisSettings] {
-	return pulumix.Output[EndpointRedisSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointRedisSettingsOutput) AuthPassword() pulumi.StringPtrOutput {
@@ -4514,12 +4159,6 @@ func (o EndpointRedisSettingsPtrOutput) ToEndpointRedisSettingsPtrOutput() Endpo
 
 func (o EndpointRedisSettingsPtrOutput) ToEndpointRedisSettingsPtrOutputWithContext(ctx context.Context) EndpointRedisSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointRedisSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointRedisSettings] {
-	return pulumix.Output[*EndpointRedisSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointRedisSettingsPtrOutput) Elem() EndpointRedisSettingsOutput {
@@ -4676,12 +4315,6 @@ func (i EndpointRedshiftSettingsArgs) ToEndpointRedshiftSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedshiftSettingsOutput)
 }
 
-func (i EndpointRedshiftSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointRedshiftSettings] {
-	return pulumix.Output[EndpointRedshiftSettings]{
-		OutputState: i.ToEndpointRedshiftSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointRedshiftSettingsArgs) ToEndpointRedshiftSettingsPtrOutput() EndpointRedshiftSettingsPtrOutput {
 	return i.ToEndpointRedshiftSettingsPtrOutputWithContext(context.Background())
 }
@@ -4723,12 +4356,6 @@ func (i *endpointRedshiftSettingsPtrType) ToEndpointRedshiftSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedshiftSettingsPtrOutput)
 }
 
-func (i *endpointRedshiftSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointRedshiftSettings] {
-	return pulumix.Output[*EndpointRedshiftSettings]{
-		OutputState: i.ToEndpointRedshiftSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointRedshiftSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointRedshiftSettingsOutput) ElementType() reflect.Type {
@@ -4751,12 +4378,6 @@ func (o EndpointRedshiftSettingsOutput) ToEndpointRedshiftSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRedshiftSettings) *EndpointRedshiftSettings {
 		return &v
 	}).(EndpointRedshiftSettingsPtrOutput)
-}
-
-func (o EndpointRedshiftSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointRedshiftSettings] {
-	return pulumix.Output[EndpointRedshiftSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointRedshiftSettingsOutput) AcceptAnyDate() pulumi.BoolPtrOutput {
@@ -4875,12 +4496,6 @@ func (o EndpointRedshiftSettingsPtrOutput) ToEndpointRedshiftSettingsPtrOutput()
 
 func (o EndpointRedshiftSettingsPtrOutput) ToEndpointRedshiftSettingsPtrOutputWithContext(ctx context.Context) EndpointRedshiftSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointRedshiftSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointRedshiftSettings] {
-	return pulumix.Output[*EndpointRedshiftSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointRedshiftSettingsPtrOutput) Elem() EndpointRedshiftSettingsOutput {
@@ -5238,12 +4853,6 @@ func (i EndpointS3SettingsArgs) ToEndpointS3SettingsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointS3SettingsOutput)
 }
 
-func (i EndpointS3SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointS3Settings] {
-	return pulumix.Output[EndpointS3Settings]{
-		OutputState: i.ToEndpointS3SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointS3SettingsArgs) ToEndpointS3SettingsPtrOutput() EndpointS3SettingsPtrOutput {
 	return i.ToEndpointS3SettingsPtrOutputWithContext(context.Background())
 }
@@ -5285,12 +4894,6 @@ func (i *endpointS3SettingsPtrType) ToEndpointS3SettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointS3SettingsPtrOutput)
 }
 
-func (i *endpointS3SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointS3Settings] {
-	return pulumix.Output[*EndpointS3Settings]{
-		OutputState: i.ToEndpointS3SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointS3SettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointS3SettingsOutput) ElementType() reflect.Type {
@@ -5313,12 +4916,6 @@ func (o EndpointS3SettingsOutput) ToEndpointS3SettingsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointS3Settings) *EndpointS3Settings {
 		return &v
 	}).(EndpointS3SettingsPtrOutput)
-}
-
-func (o EndpointS3SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointS3Settings] {
-	return pulumix.Output[EndpointS3Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointS3SettingsOutput) AddColumnName() pulumi.BoolPtrOutput {
@@ -5497,12 +5094,6 @@ func (o EndpointS3SettingsPtrOutput) ToEndpointS3SettingsPtrOutput() EndpointS3S
 
 func (o EndpointS3SettingsPtrOutput) ToEndpointS3SettingsPtrOutputWithContext(ctx context.Context) EndpointS3SettingsPtrOutput {
 	return o
-}
-
-func (o EndpointS3SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointS3Settings] {
-	return pulumix.Output[*EndpointS3Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointS3SettingsPtrOutput) Elem() EndpointS3SettingsOutput {
@@ -5917,12 +5508,6 @@ func (i EndpointSybaseSettingsArgs) ToEndpointSybaseSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointSybaseSettingsOutput)
 }
 
-func (i EndpointSybaseSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointSybaseSettings] {
-	return pulumix.Output[EndpointSybaseSettings]{
-		OutputState: i.ToEndpointSybaseSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointSybaseSettingsArgs) ToEndpointSybaseSettingsPtrOutput() EndpointSybaseSettingsPtrOutput {
 	return i.ToEndpointSybaseSettingsPtrOutputWithContext(context.Background())
 }
@@ -5964,12 +5549,6 @@ func (i *endpointSybaseSettingsPtrType) ToEndpointSybaseSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointSybaseSettingsPtrOutput)
 }
 
-func (i *endpointSybaseSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointSybaseSettings] {
-	return pulumix.Output[*EndpointSybaseSettings]{
-		OutputState: i.ToEndpointSybaseSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointSybaseSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointSybaseSettingsOutput) ElementType() reflect.Type {
@@ -5994,12 +5573,6 @@ func (o EndpointSybaseSettingsOutput) ToEndpointSybaseSettingsPtrOutputWithConte
 	}).(EndpointSybaseSettingsPtrOutput)
 }
 
-func (o EndpointSybaseSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointSybaseSettings] {
-	return pulumix.Output[EndpointSybaseSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointSybaseSettingsOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointSybaseSettings) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -6020,12 +5593,6 @@ func (o EndpointSybaseSettingsPtrOutput) ToEndpointSybaseSettingsPtrOutput() End
 
 func (o EndpointSybaseSettingsPtrOutput) ToEndpointSybaseSettingsPtrOutputWithContext(ctx context.Context) EndpointSybaseSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointSybaseSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointSybaseSettings] {
-	return pulumix.Output[*EndpointSybaseSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointSybaseSettingsPtrOutput) Elem() EndpointSybaseSettingsOutput {
@@ -6089,12 +5656,6 @@ func (i EndpointTagArgs) ToEndpointTagOutputWithContext(ctx context.Context) End
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointTagOutput)
 }
 
-func (i EndpointTagArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointTag] {
-	return pulumix.Output[EndpointTag]{
-		OutputState: i.ToEndpointTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointTagArrayInput is an input type that accepts EndpointTagArray and EndpointTagArrayOutput values.
 // You can construct a concrete instance of `EndpointTagArrayInput` via:
 //
@@ -6120,12 +5681,6 @@ func (i EndpointTagArray) ToEndpointTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointTagArrayOutput)
 }
 
-func (i EndpointTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointTag] {
-	return pulumix.Output[[]EndpointTag]{
-		OutputState: i.ToEndpointTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointTagOutput struct{ *pulumi.OutputState }
 
 func (EndpointTagOutput) ElementType() reflect.Type {
@@ -6138,12 +5693,6 @@ func (o EndpointTagOutput) ToEndpointTagOutput() EndpointTagOutput {
 
 func (o EndpointTagOutput) ToEndpointTagOutputWithContext(ctx context.Context) EndpointTagOutput {
 	return o
-}
-
-func (o EndpointTagOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointTag] {
-	return pulumix.Output[EndpointTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointTagOutput) Key() pulumi.StringOutput {
@@ -6166,12 +5715,6 @@ func (o EndpointTagArrayOutput) ToEndpointTagArrayOutput() EndpointTagArrayOutpu
 
 func (o EndpointTagArrayOutput) ToEndpointTagArrayOutputWithContext(ctx context.Context) EndpointTagArrayOutput {
 	return o
-}
-
-func (o EndpointTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointTag] {
-	return pulumix.Output[[]EndpointTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointTagArrayOutput) Index(i pulumi.IntInput) EndpointTagOutput {
@@ -6213,12 +5756,6 @@ func (i EventSubscriptionTagArgs) ToEventSubscriptionTagOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTagOutput)
 }
 
-func (i EventSubscriptionTagArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionTag] {
-	return pulumix.Output[EventSubscriptionTag]{
-		OutputState: i.ToEventSubscriptionTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionTagArrayInput is an input type that accepts EventSubscriptionTagArray and EventSubscriptionTagArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionTagArrayInput` via:
 //
@@ -6244,12 +5781,6 @@ func (i EventSubscriptionTagArray) ToEventSubscriptionTagArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTagArrayOutput)
 }
 
-func (i EventSubscriptionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionTag] {
-	return pulumix.Output[[]EventSubscriptionTag]{
-		OutputState: i.ToEventSubscriptionTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionTagOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionTagOutput) ElementType() reflect.Type {
@@ -6262,12 +5793,6 @@ func (o EventSubscriptionTagOutput) ToEventSubscriptionTagOutput() EventSubscrip
 
 func (o EventSubscriptionTagOutput) ToEventSubscriptionTagOutputWithContext(ctx context.Context) EventSubscriptionTagOutput {
 	return o
-}
-
-func (o EventSubscriptionTagOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionTag] {
-	return pulumix.Output[EventSubscriptionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionTagOutput) Key() pulumi.StringOutput {
@@ -6290,12 +5815,6 @@ func (o EventSubscriptionTagArrayOutput) ToEventSubscriptionTagArrayOutput() Eve
 
 func (o EventSubscriptionTagArrayOutput) ToEventSubscriptionTagArrayOutputWithContext(ctx context.Context) EventSubscriptionTagArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionTag] {
-	return pulumix.Output[[]EventSubscriptionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionTagArrayOutput) Index(i pulumi.IntInput) EventSubscriptionTagOutput {
@@ -6343,12 +5862,6 @@ func (i InstanceProfileTagArgs) ToInstanceProfileTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileTagOutput)
 }
 
-func (i InstanceProfileTagArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceProfileTag] {
-	return pulumix.Output[InstanceProfileTag]{
-		OutputState: i.ToInstanceProfileTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceProfileTagArrayInput is an input type that accepts InstanceProfileTagArray and InstanceProfileTagArrayOutput values.
 // You can construct a concrete instance of `InstanceProfileTagArrayInput` via:
 //
@@ -6374,12 +5887,6 @@ func (i InstanceProfileTagArray) ToInstanceProfileTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileTagArrayOutput)
 }
 
-func (i InstanceProfileTagArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceProfileTag] {
-	return pulumix.Output[[]InstanceProfileTag]{
-		OutputState: i.ToInstanceProfileTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type InstanceProfileTagOutput struct{ *pulumi.OutputState }
 
@@ -6393,12 +5900,6 @@ func (o InstanceProfileTagOutput) ToInstanceProfileTagOutput() InstanceProfileTa
 
 func (o InstanceProfileTagOutput) ToInstanceProfileTagOutputWithContext(ctx context.Context) InstanceProfileTagOutput {
 	return o
-}
-
-func (o InstanceProfileTagOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceProfileTag] {
-	return pulumix.Output[InstanceProfileTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -6423,12 +5924,6 @@ func (o InstanceProfileTagArrayOutput) ToInstanceProfileTagArrayOutput() Instanc
 
 func (o InstanceProfileTagArrayOutput) ToInstanceProfileTagArrayOutputWithContext(ctx context.Context) InstanceProfileTagArrayOutput {
 	return o
-}
-
-func (o InstanceProfileTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceProfileTag] {
-	return pulumix.Output[[]InstanceProfileTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceProfileTagArrayOutput) Index(i pulumi.IntInput) InstanceProfileTagOutput {
@@ -6478,12 +5973,6 @@ func (i MigrationProjectDataProviderDescriptorArgs) ToMigrationProjectDataProvid
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectDataProviderDescriptorOutput)
 }
 
-func (i MigrationProjectDataProviderDescriptorArgs) ToOutput(ctx context.Context) pulumix.Output[MigrationProjectDataProviderDescriptor] {
-	return pulumix.Output[MigrationProjectDataProviderDescriptor]{
-		OutputState: i.ToMigrationProjectDataProviderDescriptorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MigrationProjectDataProviderDescriptorArrayInput is an input type that accepts MigrationProjectDataProviderDescriptorArray and MigrationProjectDataProviderDescriptorArrayOutput values.
 // You can construct a concrete instance of `MigrationProjectDataProviderDescriptorArrayInput` via:
 //
@@ -6509,12 +5998,6 @@ func (i MigrationProjectDataProviderDescriptorArray) ToMigrationProjectDataProvi
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectDataProviderDescriptorArrayOutput)
 }
 
-func (i MigrationProjectDataProviderDescriptorArray) ToOutput(ctx context.Context) pulumix.Output[[]MigrationProjectDataProviderDescriptor] {
-	return pulumix.Output[[]MigrationProjectDataProviderDescriptor]{
-		OutputState: i.ToMigrationProjectDataProviderDescriptorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
 type MigrationProjectDataProviderDescriptorOutput struct{ *pulumi.OutputState }
 
@@ -6528,12 +6011,6 @@ func (o MigrationProjectDataProviderDescriptorOutput) ToMigrationProjectDataProv
 
 func (o MigrationProjectDataProviderDescriptorOutput) ToMigrationProjectDataProviderDescriptorOutputWithContext(ctx context.Context) MigrationProjectDataProviderDescriptorOutput {
 	return o
-}
-
-func (o MigrationProjectDataProviderDescriptorOutput) ToOutput(ctx context.Context) pulumix.Output[MigrationProjectDataProviderDescriptor] {
-	return pulumix.Output[MigrationProjectDataProviderDescriptor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MigrationProjectDataProviderDescriptorOutput) DataProviderArn() pulumi.StringPtrOutput {
@@ -6568,12 +6045,6 @@ func (o MigrationProjectDataProviderDescriptorArrayOutput) ToMigrationProjectDat
 
 func (o MigrationProjectDataProviderDescriptorArrayOutput) ToMigrationProjectDataProviderDescriptorArrayOutputWithContext(ctx context.Context) MigrationProjectDataProviderDescriptorArrayOutput {
 	return o
-}
-
-func (o MigrationProjectDataProviderDescriptorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MigrationProjectDataProviderDescriptor] {
-	return pulumix.Output[[]MigrationProjectDataProviderDescriptor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MigrationProjectDataProviderDescriptorArrayOutput) Index(i pulumi.IntInput) MigrationProjectDataProviderDescriptorOutput {
@@ -6621,12 +6092,6 @@ func (i MigrationProjectTagArgs) ToMigrationProjectTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectTagOutput)
 }
 
-func (i MigrationProjectTagArgs) ToOutput(ctx context.Context) pulumix.Output[MigrationProjectTag] {
-	return pulumix.Output[MigrationProjectTag]{
-		OutputState: i.ToMigrationProjectTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MigrationProjectTagArrayInput is an input type that accepts MigrationProjectTagArray and MigrationProjectTagArrayOutput values.
 // You can construct a concrete instance of `MigrationProjectTagArrayInput` via:
 //
@@ -6652,12 +6117,6 @@ func (i MigrationProjectTagArray) ToMigrationProjectTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectTagArrayOutput)
 }
 
-func (i MigrationProjectTagArray) ToOutput(ctx context.Context) pulumix.Output[[]MigrationProjectTag] {
-	return pulumix.Output[[]MigrationProjectTag]{
-		OutputState: i.ToMigrationProjectTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type MigrationProjectTagOutput struct{ *pulumi.OutputState }
 
@@ -6671,12 +6130,6 @@ func (o MigrationProjectTagOutput) ToMigrationProjectTagOutput() MigrationProjec
 
 func (o MigrationProjectTagOutput) ToMigrationProjectTagOutputWithContext(ctx context.Context) MigrationProjectTagOutput {
 	return o
-}
-
-func (o MigrationProjectTagOutput) ToOutput(ctx context.Context) pulumix.Output[MigrationProjectTag] {
-	return pulumix.Output[MigrationProjectTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
@@ -6701,12 +6154,6 @@ func (o MigrationProjectTagArrayOutput) ToMigrationProjectTagArrayOutput() Migra
 
 func (o MigrationProjectTagArrayOutput) ToMigrationProjectTagArrayOutputWithContext(ctx context.Context) MigrationProjectTagArrayOutput {
 	return o
-}
-
-func (o MigrationProjectTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MigrationProjectTag] {
-	return pulumix.Output[[]MigrationProjectTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MigrationProjectTagArrayOutput) Index(i pulumi.IntInput) MigrationProjectTagOutput {
@@ -6764,12 +6211,6 @@ func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigOutput)
 }
 
-func (i ReplicationConfigComputeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigComputeConfig] {
-	return pulumix.Output[ReplicationConfigComputeConfig]{
-		OutputState: i.ToReplicationConfigComputeConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
 	return i.ToReplicationConfigComputeConfigPtrOutputWithContext(context.Background())
 }
@@ -6811,12 +6252,6 @@ func (i *replicationConfigComputeConfigPtrType) ToReplicationConfigComputeConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigPtrOutput)
 }
 
-func (i *replicationConfigComputeConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigComputeConfig] {
-	return pulumix.Output[*ReplicationConfigComputeConfig]{
-		OutputState: i.ToReplicationConfigComputeConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configuration parameters for provisioning a AWS DMS Serverless replication
 type ReplicationConfigComputeConfigOutput struct{ *pulumi.OutputState }
 
@@ -6840,12 +6275,6 @@ func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigComputeConfig) *ReplicationConfigComputeConfig {
 		return &v
 	}).(ReplicationConfigComputeConfigPtrOutput)
-}
-
-func (o ReplicationConfigComputeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigComputeConfig] {
-	return pulumix.Output[ReplicationConfigComputeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationConfigComputeConfigOutput) AvailabilityZone() pulumi.StringPtrOutput {
@@ -6896,12 +6325,6 @@ func (o ReplicationConfigComputeConfigPtrOutput) ToReplicationConfigComputeConfi
 
 func (o ReplicationConfigComputeConfigPtrOutput) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
 	return o
-}
-
-func (o ReplicationConfigComputeConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigComputeConfig] {
-	return pulumix.Output[*ReplicationConfigComputeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationConfigComputeConfigPtrOutput) Elem() ReplicationConfigComputeConfigOutput {
@@ -7038,12 +6461,6 @@ func (i ReplicationConfigTagArgs) ToReplicationConfigTagOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigTagOutput)
 }
 
-func (i ReplicationConfigTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigTag] {
-	return pulumix.Output[ReplicationConfigTag]{
-		OutputState: i.ToReplicationConfigTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationConfigTagArrayInput is an input type that accepts ReplicationConfigTagArray and ReplicationConfigTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigTagArrayInput` via:
 //
@@ -7069,12 +6486,6 @@ func (i ReplicationConfigTagArray) ToReplicationConfigTagArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigTagArrayOutput)
 }
 
-func (i ReplicationConfigTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigTag] {
-	return pulumix.Output[[]ReplicationConfigTag]{
-		OutputState: i.ToReplicationConfigTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
 //
 //	resource.</p>
@@ -7090,12 +6501,6 @@ func (o ReplicationConfigTagOutput) ToReplicationConfigTagOutput() ReplicationCo
 
 func (o ReplicationConfigTagOutput) ToReplicationConfigTagOutputWithContext(ctx context.Context) ReplicationConfigTagOutput {
 	return o
-}
-
-func (o ReplicationConfigTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigTag] {
-	return pulumix.Output[ReplicationConfigTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>Tag key.</p>
@@ -7120,12 +6525,6 @@ func (o ReplicationConfigTagArrayOutput) ToReplicationConfigTagArrayOutput() Rep
 
 func (o ReplicationConfigTagArrayOutput) ToReplicationConfigTagArrayOutputWithContext(ctx context.Context) ReplicationConfigTagArrayOutput {
 	return o
-}
-
-func (o ReplicationConfigTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigTag] {
-	return pulumix.Output[[]ReplicationConfigTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationConfigTagArrayOutput) Index(i pulumi.IntInput) ReplicationConfigTagOutput {
@@ -7167,12 +6566,6 @@ func (i ReplicationInstanceTagArgs) ToReplicationInstanceTagOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceTagOutput)
 }
 
-func (i ReplicationInstanceTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationInstanceTag] {
-	return pulumix.Output[ReplicationInstanceTag]{
-		OutputState: i.ToReplicationInstanceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationInstanceTagArrayInput is an input type that accepts ReplicationInstanceTagArray and ReplicationInstanceTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationInstanceTagArrayInput` via:
 //
@@ -7198,12 +6591,6 @@ func (i ReplicationInstanceTagArray) ToReplicationInstanceTagArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceTagArrayOutput)
 }
 
-func (i ReplicationInstanceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationInstanceTag] {
-	return pulumix.Output[[]ReplicationInstanceTag]{
-		OutputState: i.ToReplicationInstanceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationInstanceTagOutput struct{ *pulumi.OutputState }
 
 func (ReplicationInstanceTagOutput) ElementType() reflect.Type {
@@ -7216,12 +6603,6 @@ func (o ReplicationInstanceTagOutput) ToReplicationInstanceTagOutput() Replicati
 
 func (o ReplicationInstanceTagOutput) ToReplicationInstanceTagOutputWithContext(ctx context.Context) ReplicationInstanceTagOutput {
 	return o
-}
-
-func (o ReplicationInstanceTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationInstanceTag] {
-	return pulumix.Output[ReplicationInstanceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationInstanceTagOutput) Key() pulumi.StringOutput {
@@ -7244,12 +6625,6 @@ func (o ReplicationInstanceTagArrayOutput) ToReplicationInstanceTagArrayOutput()
 
 func (o ReplicationInstanceTagArrayOutput) ToReplicationInstanceTagArrayOutputWithContext(ctx context.Context) ReplicationInstanceTagArrayOutput {
 	return o
-}
-
-func (o ReplicationInstanceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationInstanceTag] {
-	return pulumix.Output[[]ReplicationInstanceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationInstanceTagArrayOutput) Index(i pulumi.IntInput) ReplicationInstanceTagOutput {
@@ -7291,12 +6666,6 @@ func (i ReplicationSubnetGroupTagArgs) ToReplicationSubnetGroupTagOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupTagOutput)
 }
 
-func (i ReplicationSubnetGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationSubnetGroupTag] {
-	return pulumix.Output[ReplicationSubnetGroupTag]{
-		OutputState: i.ToReplicationSubnetGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationSubnetGroupTagArrayInput is an input type that accepts ReplicationSubnetGroupTagArray and ReplicationSubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationSubnetGroupTagArrayInput` via:
 //
@@ -7322,12 +6691,6 @@ func (i ReplicationSubnetGroupTagArray) ToReplicationSubnetGroupTagArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupTagArrayOutput)
 }
 
-func (i ReplicationSubnetGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationSubnetGroupTag] {
-	return pulumix.Output[[]ReplicationSubnetGroupTag]{
-		OutputState: i.ToReplicationSubnetGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationSubnetGroupTagOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSubnetGroupTagOutput) ElementType() reflect.Type {
@@ -7340,12 +6703,6 @@ func (o ReplicationSubnetGroupTagOutput) ToReplicationSubnetGroupTagOutput() Rep
 
 func (o ReplicationSubnetGroupTagOutput) ToReplicationSubnetGroupTagOutputWithContext(ctx context.Context) ReplicationSubnetGroupTagOutput {
 	return o
-}
-
-func (o ReplicationSubnetGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationSubnetGroupTag] {
-	return pulumix.Output[ReplicationSubnetGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationSubnetGroupTagOutput) Key() pulumi.StringOutput {
@@ -7368,12 +6725,6 @@ func (o ReplicationSubnetGroupTagArrayOutput) ToReplicationSubnetGroupTagArrayOu
 
 func (o ReplicationSubnetGroupTagArrayOutput) ToReplicationSubnetGroupTagArrayOutputWithContext(ctx context.Context) ReplicationSubnetGroupTagArrayOutput {
 	return o
-}
-
-func (o ReplicationSubnetGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationSubnetGroupTag] {
-	return pulumix.Output[[]ReplicationSubnetGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationSubnetGroupTagArrayOutput) Index(i pulumi.IntInput) ReplicationSubnetGroupTagOutput {
@@ -7415,12 +6766,6 @@ func (i ReplicationTaskTagArgs) ToReplicationTaskTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationTaskTagOutput)
 }
 
-func (i ReplicationTaskTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationTaskTag] {
-	return pulumix.Output[ReplicationTaskTag]{
-		OutputState: i.ToReplicationTaskTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationTaskTagArrayInput is an input type that accepts ReplicationTaskTagArray and ReplicationTaskTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationTaskTagArrayInput` via:
 //
@@ -7446,12 +6791,6 @@ func (i ReplicationTaskTagArray) ToReplicationTaskTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationTaskTagArrayOutput)
 }
 
-func (i ReplicationTaskTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationTaskTag] {
-	return pulumix.Output[[]ReplicationTaskTag]{
-		OutputState: i.ToReplicationTaskTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationTaskTagOutput struct{ *pulumi.OutputState }
 
 func (ReplicationTaskTagOutput) ElementType() reflect.Type {
@@ -7464,12 +6803,6 @@ func (o ReplicationTaskTagOutput) ToReplicationTaskTagOutput() ReplicationTaskTa
 
 func (o ReplicationTaskTagOutput) ToReplicationTaskTagOutputWithContext(ctx context.Context) ReplicationTaskTagOutput {
 	return o
-}
-
-func (o ReplicationTaskTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationTaskTag] {
-	return pulumix.Output[ReplicationTaskTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationTaskTagOutput) Key() pulumi.StringOutput {
@@ -7492,12 +6825,6 @@ func (o ReplicationTaskTagArrayOutput) ToReplicationTaskTagArrayOutput() Replica
 
 func (o ReplicationTaskTagArrayOutput) ToReplicationTaskTagArrayOutputWithContext(ctx context.Context) ReplicationTaskTagArrayOutput {
 	return o
-}
-
-func (o ReplicationTaskTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationTaskTag] {
-	return pulumix.Output[[]ReplicationTaskTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationTaskTagArrayOutput) Index(i pulumi.IntInput) ReplicationTaskTagOutput {
@@ -7541,12 +6868,6 @@ func (i SchemaConversionApplicationAttributesPropertiesArgs) ToSchemaConversionA
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaConversionApplicationAttributesPropertiesOutput)
 }
 
-func (i SchemaConversionApplicationAttributesPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaConversionApplicationAttributesProperties] {
-	return pulumix.Output[SchemaConversionApplicationAttributesProperties]{
-		OutputState: i.ToSchemaConversionApplicationAttributesPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SchemaConversionApplicationAttributesPropertiesArgs) ToSchemaConversionApplicationAttributesPropertiesPtrOutput() SchemaConversionApplicationAttributesPropertiesPtrOutput {
 	return i.ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(context.Background())
 }
@@ -7588,12 +6909,6 @@ func (i *schemaConversionApplicationAttributesPropertiesPtrType) ToSchemaConvers
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaConversionApplicationAttributesPropertiesPtrOutput)
 }
 
-func (i *schemaConversionApplicationAttributesPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaConversionApplicationAttributesProperties] {
-	return pulumix.Output[*SchemaConversionApplicationAttributesProperties]{
-		OutputState: i.ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The property describes schema conversion application attributes for the migration project.
 type SchemaConversionApplicationAttributesPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -7619,12 +6934,6 @@ func (o SchemaConversionApplicationAttributesPropertiesOutput) ToSchemaConversio
 	}).(SchemaConversionApplicationAttributesPropertiesPtrOutput)
 }
 
-func (o SchemaConversionApplicationAttributesPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaConversionApplicationAttributesProperties] {
-	return pulumix.Output[SchemaConversionApplicationAttributesProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaConversionApplicationAttributesPropertiesOutput) S3BucketPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaConversionApplicationAttributesProperties) *string { return v.S3BucketPath }).(pulumi.StringPtrOutput)
 }
@@ -7645,12 +6954,6 @@ func (o SchemaConversionApplicationAttributesPropertiesPtrOutput) ToSchemaConver
 
 func (o SchemaConversionApplicationAttributesPropertiesPtrOutput) ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(ctx context.Context) SchemaConversionApplicationAttributesPropertiesPtrOutput {
 	return o
-}
-
-func (o SchemaConversionApplicationAttributesPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaConversionApplicationAttributesProperties] {
-	return pulumix.Output[*SchemaConversionApplicationAttributesProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchemaConversionApplicationAttributesPropertiesPtrOutput) Elem() SchemaConversionApplicationAttributesPropertiesOutput {
@@ -7686,6 +6989,139 @@ type Settings0Properties struct {
 	PostgreSqlSettings *Settings0PropertiesPostgreSqlSettingsProperties `pulumi:"postgreSqlSettings"`
 }
 
+// Settings0PropertiesInput is an input type that accepts Settings0PropertiesArgs and Settings0PropertiesOutput values.
+// You can construct a concrete instance of `Settings0PropertiesInput` via:
+//
+//	Settings0PropertiesArgs{...}
+type Settings0PropertiesInput interface {
+	pulumi.Input
+
+	ToSettings0PropertiesOutput() Settings0PropertiesOutput
+	ToSettings0PropertiesOutputWithContext(context.Context) Settings0PropertiesOutput
+}
+
+// PostgreSqlSettings property identifier.
+type Settings0PropertiesArgs struct {
+	PostgreSqlSettings Settings0PropertiesPostgreSqlSettingsPropertiesPtrInput `pulumi:"postgreSqlSettings"`
+}
+
+func (Settings0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings0Properties)(nil)).Elem()
+}
+
+func (i Settings0PropertiesArgs) ToSettings0PropertiesOutput() Settings0PropertiesOutput {
+	return i.ToSettings0PropertiesOutputWithContext(context.Background())
+}
+
+func (i Settings0PropertiesArgs) ToSettings0PropertiesOutputWithContext(ctx context.Context) Settings0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings0PropertiesOutput)
+}
+
+func (i Settings0PropertiesArgs) ToSettings0PropertiesPtrOutput() Settings0PropertiesPtrOutput {
+	return i.ToSettings0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i Settings0PropertiesArgs) ToSettings0PropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings0PropertiesOutput).ToSettings0PropertiesPtrOutputWithContext(ctx)
+}
+
+// Settings0PropertiesPtrInput is an input type that accepts Settings0PropertiesArgs, Settings0PropertiesPtr and Settings0PropertiesPtrOutput values.
+// You can construct a concrete instance of `Settings0PropertiesPtrInput` via:
+//
+//	        Settings0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type Settings0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettings0PropertiesPtrOutput() Settings0PropertiesPtrOutput
+	ToSettings0PropertiesPtrOutputWithContext(context.Context) Settings0PropertiesPtrOutput
+}
+
+type settings0PropertiesPtrType Settings0PropertiesArgs
+
+func Settings0PropertiesPtr(v *Settings0PropertiesArgs) Settings0PropertiesPtrInput {
+	return (*settings0PropertiesPtrType)(v)
+}
+
+func (*settings0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings0Properties)(nil)).Elem()
+}
+
+func (i *settings0PropertiesPtrType) ToSettings0PropertiesPtrOutput() Settings0PropertiesPtrOutput {
+	return i.ToSettings0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settings0PropertiesPtrType) ToSettings0PropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings0PropertiesPtrOutput)
+}
+
+// PostgreSqlSettings property identifier.
+type Settings0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (Settings0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings0Properties)(nil)).Elem()
+}
+
+func (o Settings0PropertiesOutput) ToSettings0PropertiesOutput() Settings0PropertiesOutput {
+	return o
+}
+
+func (o Settings0PropertiesOutput) ToSettings0PropertiesOutputWithContext(ctx context.Context) Settings0PropertiesOutput {
+	return o
+}
+
+func (o Settings0PropertiesOutput) ToSettings0PropertiesPtrOutput() Settings0PropertiesPtrOutput {
+	return o.ToSettings0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o Settings0PropertiesOutput) ToSettings0PropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings0Properties) *Settings0Properties {
+		return &v
+	}).(Settings0PropertiesPtrOutput)
+}
+
+func (o Settings0PropertiesOutput) PostgreSqlSettings() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v Settings0Properties) *Settings0PropertiesPostgreSqlSettingsProperties {
+		return v.PostgreSqlSettings
+	}).(Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput)
+}
+
+type Settings0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (Settings0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings0Properties)(nil)).Elem()
+}
+
+func (o Settings0PropertiesPtrOutput) ToSettings0PropertiesPtrOutput() Settings0PropertiesPtrOutput {
+	return o
+}
+
+func (o Settings0PropertiesPtrOutput) ToSettings0PropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPtrOutput {
+	return o
+}
+
+func (o Settings0PropertiesPtrOutput) Elem() Settings0PropertiesOutput {
+	return o.ApplyT(func(v *Settings0Properties) Settings0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret Settings0Properties
+		return ret
+	}).(Settings0PropertiesOutput)
+}
+
+func (o Settings0PropertiesPtrOutput) PostgreSqlSettings() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *Settings0Properties) *Settings0PropertiesPostgreSqlSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.PostgreSqlSettings
+	}).(Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput)
+}
+
 type Settings0PropertiesPostgreSqlSettingsProperties struct {
 	CertificateArn *string                      `pulumi:"certificateArn"`
 	DatabaseName   *string                      `pulumi:"databaseName"`
@@ -7694,9 +7130,325 @@ type Settings0PropertiesPostgreSqlSettingsProperties struct {
 	SslMode        *DataProviderDmsSslModeValue `pulumi:"sslMode"`
 }
 
+// Settings0PropertiesPostgreSqlSettingsPropertiesInput is an input type that accepts Settings0PropertiesPostgreSqlSettingsPropertiesArgs and Settings0PropertiesPostgreSqlSettingsPropertiesOutput values.
+// You can construct a concrete instance of `Settings0PropertiesPostgreSqlSettingsPropertiesInput` via:
+//
+//	Settings0PropertiesPostgreSqlSettingsPropertiesArgs{...}
+type Settings0PropertiesPostgreSqlSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToSettings0PropertiesPostgreSqlSettingsPropertiesOutput() Settings0PropertiesPostgreSqlSettingsPropertiesOutput
+	ToSettings0PropertiesPostgreSqlSettingsPropertiesOutputWithContext(context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesOutput
+}
+
+type Settings0PropertiesPostgreSqlSettingsPropertiesArgs struct {
+	CertificateArn pulumi.StringPtrInput               `pulumi:"certificateArn"`
+	DatabaseName   pulumi.StringPtrInput               `pulumi:"databaseName"`
+	Port           pulumi.IntPtrInput                  `pulumi:"port"`
+	ServerName     pulumi.StringPtrInput               `pulumi:"serverName"`
+	SslMode        DataProviderDmsSslModeValuePtrInput `pulumi:"sslMode"`
+}
+
+func (Settings0PropertiesPostgreSqlSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings0PropertiesPostgreSqlSettingsProperties)(nil)).Elem()
+}
+
+func (i Settings0PropertiesPostgreSqlSettingsPropertiesArgs) ToSettings0PropertiesPostgreSqlSettingsPropertiesOutput() Settings0PropertiesPostgreSqlSettingsPropertiesOutput {
+	return i.ToSettings0PropertiesPostgreSqlSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i Settings0PropertiesPostgreSqlSettingsPropertiesArgs) ToSettings0PropertiesPostgreSqlSettingsPropertiesOutputWithContext(ctx context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings0PropertiesPostgreSqlSettingsPropertiesOutput)
+}
+
+func (i Settings0PropertiesPostgreSqlSettingsPropertiesArgs) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutput() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return i.ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i Settings0PropertiesPostgreSqlSettingsPropertiesArgs) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings0PropertiesPostgreSqlSettingsPropertiesOutput).ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// Settings0PropertiesPostgreSqlSettingsPropertiesPtrInput is an input type that accepts Settings0PropertiesPostgreSqlSettingsPropertiesArgs, Settings0PropertiesPostgreSqlSettingsPropertiesPtr and Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `Settings0PropertiesPostgreSqlSettingsPropertiesPtrInput` via:
+//
+//	        Settings0PropertiesPostgreSqlSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type Settings0PropertiesPostgreSqlSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutput() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput
+	ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput
+}
+
+type settings0PropertiesPostgreSqlSettingsPropertiesPtrType Settings0PropertiesPostgreSqlSettingsPropertiesArgs
+
+func Settings0PropertiesPostgreSqlSettingsPropertiesPtr(v *Settings0PropertiesPostgreSqlSettingsPropertiesArgs) Settings0PropertiesPostgreSqlSettingsPropertiesPtrInput {
+	return (*settings0PropertiesPostgreSqlSettingsPropertiesPtrType)(v)
+}
+
+func (*settings0PropertiesPostgreSqlSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings0PropertiesPostgreSqlSettingsProperties)(nil)).Elem()
+}
+
+func (i *settings0PropertiesPostgreSqlSettingsPropertiesPtrType) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutput() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return i.ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settings0PropertiesPostgreSqlSettingsPropertiesPtrType) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput)
+}
+
+type Settings0PropertiesPostgreSqlSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (Settings0PropertiesPostgreSqlSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings0PropertiesPostgreSqlSettingsProperties)(nil)).Elem()
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) ToSettings0PropertiesPostgreSqlSettingsPropertiesOutput() Settings0PropertiesPostgreSqlSettingsPropertiesOutput {
+	return o
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) ToSettings0PropertiesPostgreSqlSettingsPropertiesOutputWithContext(ctx context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesOutput {
+	return o
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutput() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return o.ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings0PropertiesPostgreSqlSettingsProperties) *Settings0PropertiesPostgreSqlSettingsProperties {
+		return &v
+	}).(Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput)
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings0PropertiesPostgreSqlSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings0PropertiesPostgreSqlSettingsProperties) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Settings0PropertiesPostgreSqlSettingsProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings0PropertiesPostgreSqlSettingsProperties) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v Settings0PropertiesPostgreSqlSettingsProperties) *DataProviderDmsSslModeValue { return v.SslMode }).(DataProviderDmsSslModeValuePtrOutput)
+}
+
+type Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings0PropertiesPostgreSqlSettingsProperties)(nil)).Elem()
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutput() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) Elem() Settings0PropertiesPostgreSqlSettingsPropertiesOutput {
+	return o.ApplyT(func(v *Settings0PropertiesPostgreSqlSettingsProperties) Settings0PropertiesPostgreSqlSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret Settings0PropertiesPostgreSqlSettingsProperties
+		return ret
+	}).(Settings0PropertiesPostgreSqlSettingsPropertiesOutput)
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings0PropertiesPostgreSqlSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings0PropertiesPostgreSqlSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Settings0PropertiesPostgreSqlSettingsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings0PropertiesPostgreSqlSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v *Settings0PropertiesPostgreSqlSettingsProperties) *DataProviderDmsSslModeValue {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(DataProviderDmsSslModeValuePtrOutput)
+}
+
 // MySqlSettings property identifier.
 type Settings1Properties struct {
 	MySqlSettings *Settings1PropertiesMySqlSettingsProperties `pulumi:"mySqlSettings"`
+}
+
+// Settings1PropertiesInput is an input type that accepts Settings1PropertiesArgs and Settings1PropertiesOutput values.
+// You can construct a concrete instance of `Settings1PropertiesInput` via:
+//
+//	Settings1PropertiesArgs{...}
+type Settings1PropertiesInput interface {
+	pulumi.Input
+
+	ToSettings1PropertiesOutput() Settings1PropertiesOutput
+	ToSettings1PropertiesOutputWithContext(context.Context) Settings1PropertiesOutput
+}
+
+// MySqlSettings property identifier.
+type Settings1PropertiesArgs struct {
+	MySqlSettings Settings1PropertiesMySqlSettingsPropertiesPtrInput `pulumi:"mySqlSettings"`
+}
+
+func (Settings1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings1Properties)(nil)).Elem()
+}
+
+func (i Settings1PropertiesArgs) ToSettings1PropertiesOutput() Settings1PropertiesOutput {
+	return i.ToSettings1PropertiesOutputWithContext(context.Background())
+}
+
+func (i Settings1PropertiesArgs) ToSettings1PropertiesOutputWithContext(ctx context.Context) Settings1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings1PropertiesOutput)
+}
+
+func (i Settings1PropertiesArgs) ToSettings1PropertiesPtrOutput() Settings1PropertiesPtrOutput {
+	return i.ToSettings1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i Settings1PropertiesArgs) ToSettings1PropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings1PropertiesOutput).ToSettings1PropertiesPtrOutputWithContext(ctx)
+}
+
+// Settings1PropertiesPtrInput is an input type that accepts Settings1PropertiesArgs, Settings1PropertiesPtr and Settings1PropertiesPtrOutput values.
+// You can construct a concrete instance of `Settings1PropertiesPtrInput` via:
+//
+//	        Settings1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type Settings1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettings1PropertiesPtrOutput() Settings1PropertiesPtrOutput
+	ToSettings1PropertiesPtrOutputWithContext(context.Context) Settings1PropertiesPtrOutput
+}
+
+type settings1PropertiesPtrType Settings1PropertiesArgs
+
+func Settings1PropertiesPtr(v *Settings1PropertiesArgs) Settings1PropertiesPtrInput {
+	return (*settings1PropertiesPtrType)(v)
+}
+
+func (*settings1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings1Properties)(nil)).Elem()
+}
+
+func (i *settings1PropertiesPtrType) ToSettings1PropertiesPtrOutput() Settings1PropertiesPtrOutput {
+	return i.ToSettings1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settings1PropertiesPtrType) ToSettings1PropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings1PropertiesPtrOutput)
+}
+
+// MySqlSettings property identifier.
+type Settings1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (Settings1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings1Properties)(nil)).Elem()
+}
+
+func (o Settings1PropertiesOutput) ToSettings1PropertiesOutput() Settings1PropertiesOutput {
+	return o
+}
+
+func (o Settings1PropertiesOutput) ToSettings1PropertiesOutputWithContext(ctx context.Context) Settings1PropertiesOutput {
+	return o
+}
+
+func (o Settings1PropertiesOutput) ToSettings1PropertiesPtrOutput() Settings1PropertiesPtrOutput {
+	return o.ToSettings1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o Settings1PropertiesOutput) ToSettings1PropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings1Properties) *Settings1Properties {
+		return &v
+	}).(Settings1PropertiesPtrOutput)
+}
+
+func (o Settings1PropertiesOutput) MySqlSettings() Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v Settings1Properties) *Settings1PropertiesMySqlSettingsProperties { return v.MySqlSettings }).(Settings1PropertiesMySqlSettingsPropertiesPtrOutput)
+}
+
+type Settings1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (Settings1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings1Properties)(nil)).Elem()
+}
+
+func (o Settings1PropertiesPtrOutput) ToSettings1PropertiesPtrOutput() Settings1PropertiesPtrOutput {
+	return o
+}
+
+func (o Settings1PropertiesPtrOutput) ToSettings1PropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesPtrOutput {
+	return o
+}
+
+func (o Settings1PropertiesPtrOutput) Elem() Settings1PropertiesOutput {
+	return o.ApplyT(func(v *Settings1Properties) Settings1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret Settings1Properties
+		return ret
+	}).(Settings1PropertiesOutput)
+}
+
+func (o Settings1PropertiesPtrOutput) MySqlSettings() Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *Settings1Properties) *Settings1PropertiesMySqlSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.MySqlSettings
+	}).(Settings1PropertiesMySqlSettingsPropertiesPtrOutput)
 }
 
 type Settings1PropertiesMySqlSettingsProperties struct {
@@ -7706,9 +7458,311 @@ type Settings1PropertiesMySqlSettingsProperties struct {
 	SslMode        *DataProviderDmsSslModeValue `pulumi:"sslMode"`
 }
 
+// Settings1PropertiesMySqlSettingsPropertiesInput is an input type that accepts Settings1PropertiesMySqlSettingsPropertiesArgs and Settings1PropertiesMySqlSettingsPropertiesOutput values.
+// You can construct a concrete instance of `Settings1PropertiesMySqlSettingsPropertiesInput` via:
+//
+//	Settings1PropertiesMySqlSettingsPropertiesArgs{...}
+type Settings1PropertiesMySqlSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToSettings1PropertiesMySqlSettingsPropertiesOutput() Settings1PropertiesMySqlSettingsPropertiesOutput
+	ToSettings1PropertiesMySqlSettingsPropertiesOutputWithContext(context.Context) Settings1PropertiesMySqlSettingsPropertiesOutput
+}
+
+type Settings1PropertiesMySqlSettingsPropertiesArgs struct {
+	CertificateArn pulumi.StringPtrInput               `pulumi:"certificateArn"`
+	Port           pulumi.IntPtrInput                  `pulumi:"port"`
+	ServerName     pulumi.StringPtrInput               `pulumi:"serverName"`
+	SslMode        DataProviderDmsSslModeValuePtrInput `pulumi:"sslMode"`
+}
+
+func (Settings1PropertiesMySqlSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings1PropertiesMySqlSettingsProperties)(nil)).Elem()
+}
+
+func (i Settings1PropertiesMySqlSettingsPropertiesArgs) ToSettings1PropertiesMySqlSettingsPropertiesOutput() Settings1PropertiesMySqlSettingsPropertiesOutput {
+	return i.ToSettings1PropertiesMySqlSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i Settings1PropertiesMySqlSettingsPropertiesArgs) ToSettings1PropertiesMySqlSettingsPropertiesOutputWithContext(ctx context.Context) Settings1PropertiesMySqlSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings1PropertiesMySqlSettingsPropertiesOutput)
+}
+
+func (i Settings1PropertiesMySqlSettingsPropertiesArgs) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutput() Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
+	return i.ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i Settings1PropertiesMySqlSettingsPropertiesArgs) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings1PropertiesMySqlSettingsPropertiesOutput).ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// Settings1PropertiesMySqlSettingsPropertiesPtrInput is an input type that accepts Settings1PropertiesMySqlSettingsPropertiesArgs, Settings1PropertiesMySqlSettingsPropertiesPtr and Settings1PropertiesMySqlSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `Settings1PropertiesMySqlSettingsPropertiesPtrInput` via:
+//
+//	        Settings1PropertiesMySqlSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type Settings1PropertiesMySqlSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettings1PropertiesMySqlSettingsPropertiesPtrOutput() Settings1PropertiesMySqlSettingsPropertiesPtrOutput
+	ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(context.Context) Settings1PropertiesMySqlSettingsPropertiesPtrOutput
+}
+
+type settings1PropertiesMySqlSettingsPropertiesPtrType Settings1PropertiesMySqlSettingsPropertiesArgs
+
+func Settings1PropertiesMySqlSettingsPropertiesPtr(v *Settings1PropertiesMySqlSettingsPropertiesArgs) Settings1PropertiesMySqlSettingsPropertiesPtrInput {
+	return (*settings1PropertiesMySqlSettingsPropertiesPtrType)(v)
+}
+
+func (*settings1PropertiesMySqlSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings1PropertiesMySqlSettingsProperties)(nil)).Elem()
+}
+
+func (i *settings1PropertiesMySqlSettingsPropertiesPtrType) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutput() Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
+	return i.ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settings1PropertiesMySqlSettingsPropertiesPtrType) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings1PropertiesMySqlSettingsPropertiesPtrOutput)
+}
+
+type Settings1PropertiesMySqlSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (Settings1PropertiesMySqlSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings1PropertiesMySqlSettingsProperties)(nil)).Elem()
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesOutput) ToSettings1PropertiesMySqlSettingsPropertiesOutput() Settings1PropertiesMySqlSettingsPropertiesOutput {
+	return o
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesOutput) ToSettings1PropertiesMySqlSettingsPropertiesOutputWithContext(ctx context.Context) Settings1PropertiesMySqlSettingsPropertiesOutput {
+	return o
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesOutput) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutput() Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
+	return o.ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesOutput) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings1PropertiesMySqlSettingsProperties) *Settings1PropertiesMySqlSettingsProperties {
+		return &v
+	}).(Settings1PropertiesMySqlSettingsPropertiesPtrOutput)
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings1PropertiesMySqlSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Settings1PropertiesMySqlSettingsProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings1PropertiesMySqlSettingsProperties) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v Settings1PropertiesMySqlSettingsProperties) *DataProviderDmsSslModeValue { return v.SslMode }).(DataProviderDmsSslModeValuePtrOutput)
+}
+
+type Settings1PropertiesMySqlSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (Settings1PropertiesMySqlSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings1PropertiesMySqlSettingsProperties)(nil)).Elem()
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutput() Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) Elem() Settings1PropertiesMySqlSettingsPropertiesOutput {
+	return o.ApplyT(func(v *Settings1PropertiesMySqlSettingsProperties) Settings1PropertiesMySqlSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret Settings1PropertiesMySqlSettingsProperties
+		return ret
+	}).(Settings1PropertiesMySqlSettingsPropertiesOutput)
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings1PropertiesMySqlSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Settings1PropertiesMySqlSettingsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings1PropertiesMySqlSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v *Settings1PropertiesMySqlSettingsProperties) *DataProviderDmsSslModeValue {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(DataProviderDmsSslModeValuePtrOutput)
+}
+
 // OracleSettings property identifier.
 type Settings2Properties struct {
 	OracleSettings *Settings2PropertiesOracleSettingsProperties `pulumi:"oracleSettings"`
+}
+
+// Settings2PropertiesInput is an input type that accepts Settings2PropertiesArgs and Settings2PropertiesOutput values.
+// You can construct a concrete instance of `Settings2PropertiesInput` via:
+//
+//	Settings2PropertiesArgs{...}
+type Settings2PropertiesInput interface {
+	pulumi.Input
+
+	ToSettings2PropertiesOutput() Settings2PropertiesOutput
+	ToSettings2PropertiesOutputWithContext(context.Context) Settings2PropertiesOutput
+}
+
+// OracleSettings property identifier.
+type Settings2PropertiesArgs struct {
+	OracleSettings Settings2PropertiesOracleSettingsPropertiesPtrInput `pulumi:"oracleSettings"`
+}
+
+func (Settings2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings2Properties)(nil)).Elem()
+}
+
+func (i Settings2PropertiesArgs) ToSettings2PropertiesOutput() Settings2PropertiesOutput {
+	return i.ToSettings2PropertiesOutputWithContext(context.Background())
+}
+
+func (i Settings2PropertiesArgs) ToSettings2PropertiesOutputWithContext(ctx context.Context) Settings2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings2PropertiesOutput)
+}
+
+func (i Settings2PropertiesArgs) ToSettings2PropertiesPtrOutput() Settings2PropertiesPtrOutput {
+	return i.ToSettings2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i Settings2PropertiesArgs) ToSettings2PropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings2PropertiesOutput).ToSettings2PropertiesPtrOutputWithContext(ctx)
+}
+
+// Settings2PropertiesPtrInput is an input type that accepts Settings2PropertiesArgs, Settings2PropertiesPtr and Settings2PropertiesPtrOutput values.
+// You can construct a concrete instance of `Settings2PropertiesPtrInput` via:
+//
+//	        Settings2PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type Settings2PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettings2PropertiesPtrOutput() Settings2PropertiesPtrOutput
+	ToSettings2PropertiesPtrOutputWithContext(context.Context) Settings2PropertiesPtrOutput
+}
+
+type settings2PropertiesPtrType Settings2PropertiesArgs
+
+func Settings2PropertiesPtr(v *Settings2PropertiesArgs) Settings2PropertiesPtrInput {
+	return (*settings2PropertiesPtrType)(v)
+}
+
+func (*settings2PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings2Properties)(nil)).Elem()
+}
+
+func (i *settings2PropertiesPtrType) ToSettings2PropertiesPtrOutput() Settings2PropertiesPtrOutput {
+	return i.ToSettings2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settings2PropertiesPtrType) ToSettings2PropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings2PropertiesPtrOutput)
+}
+
+// OracleSettings property identifier.
+type Settings2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (Settings2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings2Properties)(nil)).Elem()
+}
+
+func (o Settings2PropertiesOutput) ToSettings2PropertiesOutput() Settings2PropertiesOutput {
+	return o
+}
+
+func (o Settings2PropertiesOutput) ToSettings2PropertiesOutputWithContext(ctx context.Context) Settings2PropertiesOutput {
+	return o
+}
+
+func (o Settings2PropertiesOutput) ToSettings2PropertiesPtrOutput() Settings2PropertiesPtrOutput {
+	return o.ToSettings2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o Settings2PropertiesOutput) ToSettings2PropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings2Properties) *Settings2Properties {
+		return &v
+	}).(Settings2PropertiesPtrOutput)
+}
+
+func (o Settings2PropertiesOutput) OracleSettings() Settings2PropertiesOracleSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v Settings2Properties) *Settings2PropertiesOracleSettingsProperties { return v.OracleSettings }).(Settings2PropertiesOracleSettingsPropertiesPtrOutput)
+}
+
+type Settings2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (Settings2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings2Properties)(nil)).Elem()
+}
+
+func (o Settings2PropertiesPtrOutput) ToSettings2PropertiesPtrOutput() Settings2PropertiesPtrOutput {
+	return o
+}
+
+func (o Settings2PropertiesPtrOutput) ToSettings2PropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesPtrOutput {
+	return o
+}
+
+func (o Settings2PropertiesPtrOutput) Elem() Settings2PropertiesOutput {
+	return o.ApplyT(func(v *Settings2Properties) Settings2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret Settings2Properties
+		return ret
+	}).(Settings2PropertiesOutput)
+}
+
+func (o Settings2PropertiesPtrOutput) OracleSettings() Settings2PropertiesOracleSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *Settings2Properties) *Settings2PropertiesOracleSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.OracleSettings
+	}).(Settings2PropertiesOracleSettingsPropertiesPtrOutput)
 }
 
 type Settings2PropertiesOracleSettingsProperties struct {
@@ -7724,9 +7778,403 @@ type Settings2PropertiesOracleSettingsProperties struct {
 	SslMode                                         *DataProviderDmsSslModeValue `pulumi:"sslMode"`
 }
 
+// Settings2PropertiesOracleSettingsPropertiesInput is an input type that accepts Settings2PropertiesOracleSettingsPropertiesArgs and Settings2PropertiesOracleSettingsPropertiesOutput values.
+// You can construct a concrete instance of `Settings2PropertiesOracleSettingsPropertiesInput` via:
+//
+//	Settings2PropertiesOracleSettingsPropertiesArgs{...}
+type Settings2PropertiesOracleSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToSettings2PropertiesOracleSettingsPropertiesOutput() Settings2PropertiesOracleSettingsPropertiesOutput
+	ToSettings2PropertiesOracleSettingsPropertiesOutputWithContext(context.Context) Settings2PropertiesOracleSettingsPropertiesOutput
+}
+
+type Settings2PropertiesOracleSettingsPropertiesArgs struct {
+	AsmServer                                       pulumi.StringPtrInput               `pulumi:"asmServer"`
+	CertificateArn                                  pulumi.StringPtrInput               `pulumi:"certificateArn"`
+	DatabaseName                                    pulumi.StringPtrInput               `pulumi:"databaseName"`
+	Port                                            pulumi.IntPtrInput                  `pulumi:"port"`
+	SecretsManagerOracleAsmAccessRoleArn            pulumi.StringPtrInput               `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
+	SecretsManagerOracleAsmSecretId                 pulumi.StringPtrInput               `pulumi:"secretsManagerOracleAsmSecretId"`
+	SecretsManagerSecurityDbEncryptionAccessRoleArn pulumi.StringPtrInput               `pulumi:"secretsManagerSecurityDbEncryptionAccessRoleArn"`
+	SecretsManagerSecurityDbEncryptionSecretId      pulumi.StringPtrInput               `pulumi:"secretsManagerSecurityDbEncryptionSecretId"`
+	ServerName                                      pulumi.StringPtrInput               `pulumi:"serverName"`
+	SslMode                                         DataProviderDmsSslModeValuePtrInput `pulumi:"sslMode"`
+}
+
+func (Settings2PropertiesOracleSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings2PropertiesOracleSettingsProperties)(nil)).Elem()
+}
+
+func (i Settings2PropertiesOracleSettingsPropertiesArgs) ToSettings2PropertiesOracleSettingsPropertiesOutput() Settings2PropertiesOracleSettingsPropertiesOutput {
+	return i.ToSettings2PropertiesOracleSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i Settings2PropertiesOracleSettingsPropertiesArgs) ToSettings2PropertiesOracleSettingsPropertiesOutputWithContext(ctx context.Context) Settings2PropertiesOracleSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings2PropertiesOracleSettingsPropertiesOutput)
+}
+
+func (i Settings2PropertiesOracleSettingsPropertiesArgs) ToSettings2PropertiesOracleSettingsPropertiesPtrOutput() Settings2PropertiesOracleSettingsPropertiesPtrOutput {
+	return i.ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i Settings2PropertiesOracleSettingsPropertiesArgs) ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesOracleSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings2PropertiesOracleSettingsPropertiesOutput).ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// Settings2PropertiesOracleSettingsPropertiesPtrInput is an input type that accepts Settings2PropertiesOracleSettingsPropertiesArgs, Settings2PropertiesOracleSettingsPropertiesPtr and Settings2PropertiesOracleSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `Settings2PropertiesOracleSettingsPropertiesPtrInput` via:
+//
+//	        Settings2PropertiesOracleSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type Settings2PropertiesOracleSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettings2PropertiesOracleSettingsPropertiesPtrOutput() Settings2PropertiesOracleSettingsPropertiesPtrOutput
+	ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(context.Context) Settings2PropertiesOracleSettingsPropertiesPtrOutput
+}
+
+type settings2PropertiesOracleSettingsPropertiesPtrType Settings2PropertiesOracleSettingsPropertiesArgs
+
+func Settings2PropertiesOracleSettingsPropertiesPtr(v *Settings2PropertiesOracleSettingsPropertiesArgs) Settings2PropertiesOracleSettingsPropertiesPtrInput {
+	return (*settings2PropertiesOracleSettingsPropertiesPtrType)(v)
+}
+
+func (*settings2PropertiesOracleSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings2PropertiesOracleSettingsProperties)(nil)).Elem()
+}
+
+func (i *settings2PropertiesOracleSettingsPropertiesPtrType) ToSettings2PropertiesOracleSettingsPropertiesPtrOutput() Settings2PropertiesOracleSettingsPropertiesPtrOutput {
+	return i.ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settings2PropertiesOracleSettingsPropertiesPtrType) ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesOracleSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings2PropertiesOracleSettingsPropertiesPtrOutput)
+}
+
+type Settings2PropertiesOracleSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (Settings2PropertiesOracleSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings2PropertiesOracleSettingsProperties)(nil)).Elem()
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) ToSettings2PropertiesOracleSettingsPropertiesOutput() Settings2PropertiesOracleSettingsPropertiesOutput {
+	return o
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) ToSettings2PropertiesOracleSettingsPropertiesOutputWithContext(ctx context.Context) Settings2PropertiesOracleSettingsPropertiesOutput {
+	return o
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) ToSettings2PropertiesOracleSettingsPropertiesPtrOutput() Settings2PropertiesOracleSettingsPropertiesPtrOutput {
+	return o.ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesOracleSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings2PropertiesOracleSettingsProperties) *Settings2PropertiesOracleSettingsProperties {
+		return &v
+	}).(Settings2PropertiesOracleSettingsPropertiesPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) AsmServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string { return v.AsmServer }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) SecretsManagerOracleAsmAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string {
+		return v.SecretsManagerOracleAsmAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) SecretsManagerOracleAsmSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string { return v.SecretsManagerOracleAsmSecretId }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) SecretsManagerSecurityDbEncryptionAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string {
+		return v.SecretsManagerSecurityDbEncryptionAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) SecretsManagerSecurityDbEncryptionSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string {
+		return v.SecretsManagerSecurityDbEncryptionSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *DataProviderDmsSslModeValue { return v.SslMode }).(DataProviderDmsSslModeValuePtrOutput)
+}
+
+type Settings2PropertiesOracleSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (Settings2PropertiesOracleSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings2PropertiesOracleSettingsProperties)(nil)).Elem()
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) ToSettings2PropertiesOracleSettingsPropertiesPtrOutput() Settings2PropertiesOracleSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesOracleSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) Elem() Settings2PropertiesOracleSettingsPropertiesOutput {
+	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) Settings2PropertiesOracleSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret Settings2PropertiesOracleSettingsProperties
+		return ret
+	}).(Settings2PropertiesOracleSettingsPropertiesOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) AsmServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AsmServer
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerOracleAsmAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerOracleAsmAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerOracleAsmSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerOracleAsmSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerSecurityDbEncryptionAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerSecurityDbEncryptionAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerSecurityDbEncryptionSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerSecurityDbEncryptionSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *DataProviderDmsSslModeValue {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(DataProviderDmsSslModeValuePtrOutput)
+}
+
 // MicrosoftSqlServerSettings property identifier.
 type Settings3Properties struct {
 	MicrosoftSqlServerSettings *Settings3PropertiesMicrosoftSqlServerSettingsProperties `pulumi:"microsoftSqlServerSettings"`
+}
+
+// Settings3PropertiesInput is an input type that accepts Settings3PropertiesArgs and Settings3PropertiesOutput values.
+// You can construct a concrete instance of `Settings3PropertiesInput` via:
+//
+//	Settings3PropertiesArgs{...}
+type Settings3PropertiesInput interface {
+	pulumi.Input
+
+	ToSettings3PropertiesOutput() Settings3PropertiesOutput
+	ToSettings3PropertiesOutputWithContext(context.Context) Settings3PropertiesOutput
+}
+
+// MicrosoftSqlServerSettings property identifier.
+type Settings3PropertiesArgs struct {
+	MicrosoftSqlServerSettings Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrInput `pulumi:"microsoftSqlServerSettings"`
+}
+
+func (Settings3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings3Properties)(nil)).Elem()
+}
+
+func (i Settings3PropertiesArgs) ToSettings3PropertiesOutput() Settings3PropertiesOutput {
+	return i.ToSettings3PropertiesOutputWithContext(context.Background())
+}
+
+func (i Settings3PropertiesArgs) ToSettings3PropertiesOutputWithContext(ctx context.Context) Settings3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings3PropertiesOutput)
+}
+
+func (i Settings3PropertiesArgs) ToSettings3PropertiesPtrOutput() Settings3PropertiesPtrOutput {
+	return i.ToSettings3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i Settings3PropertiesArgs) ToSettings3PropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings3PropertiesOutput).ToSettings3PropertiesPtrOutputWithContext(ctx)
+}
+
+// Settings3PropertiesPtrInput is an input type that accepts Settings3PropertiesArgs, Settings3PropertiesPtr and Settings3PropertiesPtrOutput values.
+// You can construct a concrete instance of `Settings3PropertiesPtrInput` via:
+//
+//	        Settings3PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type Settings3PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettings3PropertiesPtrOutput() Settings3PropertiesPtrOutput
+	ToSettings3PropertiesPtrOutputWithContext(context.Context) Settings3PropertiesPtrOutput
+}
+
+type settings3PropertiesPtrType Settings3PropertiesArgs
+
+func Settings3PropertiesPtr(v *Settings3PropertiesArgs) Settings3PropertiesPtrInput {
+	return (*settings3PropertiesPtrType)(v)
+}
+
+func (*settings3PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings3Properties)(nil)).Elem()
+}
+
+func (i *settings3PropertiesPtrType) ToSettings3PropertiesPtrOutput() Settings3PropertiesPtrOutput {
+	return i.ToSettings3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settings3PropertiesPtrType) ToSettings3PropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings3PropertiesPtrOutput)
+}
+
+// MicrosoftSqlServerSettings property identifier.
+type Settings3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (Settings3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings3Properties)(nil)).Elem()
+}
+
+func (o Settings3PropertiesOutput) ToSettings3PropertiesOutput() Settings3PropertiesOutput {
+	return o
+}
+
+func (o Settings3PropertiesOutput) ToSettings3PropertiesOutputWithContext(ctx context.Context) Settings3PropertiesOutput {
+	return o
+}
+
+func (o Settings3PropertiesOutput) ToSettings3PropertiesPtrOutput() Settings3PropertiesPtrOutput {
+	return o.ToSettings3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o Settings3PropertiesOutput) ToSettings3PropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings3Properties) *Settings3Properties {
+		return &v
+	}).(Settings3PropertiesPtrOutput)
+}
+
+func (o Settings3PropertiesOutput) MicrosoftSqlServerSettings() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v Settings3Properties) *Settings3PropertiesMicrosoftSqlServerSettingsProperties {
+		return v.MicrosoftSqlServerSettings
+	}).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
+}
+
+type Settings3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (Settings3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings3Properties)(nil)).Elem()
+}
+
+func (o Settings3PropertiesPtrOutput) ToSettings3PropertiesPtrOutput() Settings3PropertiesPtrOutput {
+	return o
+}
+
+func (o Settings3PropertiesPtrOutput) ToSettings3PropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesPtrOutput {
+	return o
+}
+
+func (o Settings3PropertiesPtrOutput) Elem() Settings3PropertiesOutput {
+	return o.ApplyT(func(v *Settings3Properties) Settings3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret Settings3Properties
+		return ret
+	}).(Settings3PropertiesOutput)
+}
+
+func (o Settings3PropertiesPtrOutput) MicrosoftSqlServerSettings() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *Settings3Properties) *Settings3PropertiesMicrosoftSqlServerSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.MicrosoftSqlServerSettings
+	}).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
 }
 
 type Settings3PropertiesMicrosoftSqlServerSettingsProperties struct {
@@ -7735,6 +8183,193 @@ type Settings3PropertiesMicrosoftSqlServerSettingsProperties struct {
 	Port           *int                         `pulumi:"port"`
 	ServerName     *string                      `pulumi:"serverName"`
 	SslMode        *DataProviderDmsSslModeValue `pulumi:"sslMode"`
+}
+
+// Settings3PropertiesMicrosoftSqlServerSettingsPropertiesInput is an input type that accepts Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs and Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput values.
+// You can construct a concrete instance of `Settings3PropertiesMicrosoftSqlServerSettingsPropertiesInput` via:
+//
+//	Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs{...}
+type Settings3PropertiesMicrosoftSqlServerSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput
+	ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutputWithContext(context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput
+}
+
+type Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs struct {
+	CertificateArn pulumi.StringPtrInput               `pulumi:"certificateArn"`
+	DatabaseName   pulumi.StringPtrInput               `pulumi:"databaseName"`
+	Port           pulumi.IntPtrInput                  `pulumi:"port"`
+	ServerName     pulumi.StringPtrInput               `pulumi:"serverName"`
+	SslMode        DataProviderDmsSslModeValuePtrInput `pulumi:"sslMode"`
+}
+
+func (Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings3PropertiesMicrosoftSqlServerSettingsProperties)(nil)).Elem()
+}
+
+func (i Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput {
+	return i.ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutputWithContext(ctx context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput)
+}
+
+func (i Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return i.ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput).ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrInput is an input type that accepts Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs, Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtr and Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrInput` via:
+//
+//	        Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput
+	ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput
+}
+
+type settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrType Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs
+
+func Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtr(v *Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrInput {
+	return (*settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrType)(v)
+}
+
+func (*settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings3PropertiesMicrosoftSqlServerSettingsProperties)(nil)).Elem()
+}
+
+func (i *settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrType) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return i.ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrType) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
+}
+
+type Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Settings3PropertiesMicrosoftSqlServerSettingsProperties)(nil)).Elem()
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput {
+	return o
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutputWithContext(ctx context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput {
+	return o
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return o.ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings3PropertiesMicrosoftSqlServerSettingsProperties) *Settings3PropertiesMicrosoftSqlServerSettingsProperties {
+		return &v
+	}).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings3PropertiesMicrosoftSqlServerSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings3PropertiesMicrosoftSqlServerSettingsProperties) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Settings3PropertiesMicrosoftSqlServerSettingsProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Settings3PropertiesMicrosoftSqlServerSettingsProperties) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v Settings3PropertiesMicrosoftSqlServerSettingsProperties) *DataProviderDmsSslModeValue {
+		return v.SslMode
+	}).(DataProviderDmsSslModeValuePtrOutput)
+}
+
+type Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Settings3PropertiesMicrosoftSqlServerSettingsProperties)(nil)).Elem()
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) Elem() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput {
+	return o.ApplyT(func(v *Settings3PropertiesMicrosoftSqlServerSettingsProperties) Settings3PropertiesMicrosoftSqlServerSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret Settings3PropertiesMicrosoftSqlServerSettingsProperties
+		return ret
+	}).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput)
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings3PropertiesMicrosoftSqlServerSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings3PropertiesMicrosoftSqlServerSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Settings3PropertiesMicrosoftSqlServerSettingsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Settings3PropertiesMicrosoftSqlServerSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v *Settings3PropertiesMicrosoftSqlServerSettingsProperties) *DataProviderDmsSslModeValue {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(DataProviderDmsSslModeValuePtrOutput)
 }
 
 func init() {
@@ -7796,6 +8431,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationTaskTagArrayInput)(nil)).Elem(), ReplicationTaskTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaConversionApplicationAttributesPropertiesInput)(nil)).Elem(), SchemaConversionApplicationAttributesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaConversionApplicationAttributesPropertiesPtrInput)(nil)).Elem(), SchemaConversionApplicationAttributesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings0PropertiesInput)(nil)).Elem(), Settings0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings0PropertiesPtrInput)(nil)).Elem(), Settings0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings0PropertiesPostgreSqlSettingsPropertiesInput)(nil)).Elem(), Settings0PropertiesPostgreSqlSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings0PropertiesPostgreSqlSettingsPropertiesPtrInput)(nil)).Elem(), Settings0PropertiesPostgreSqlSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings1PropertiesInput)(nil)).Elem(), Settings1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings1PropertiesPtrInput)(nil)).Elem(), Settings1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings1PropertiesMySqlSettingsPropertiesInput)(nil)).Elem(), Settings1PropertiesMySqlSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings1PropertiesMySqlSettingsPropertiesPtrInput)(nil)).Elem(), Settings1PropertiesMySqlSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings2PropertiesInput)(nil)).Elem(), Settings2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings2PropertiesPtrInput)(nil)).Elem(), Settings2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings2PropertiesOracleSettingsPropertiesInput)(nil)).Elem(), Settings2PropertiesOracleSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings2PropertiesOracleSettingsPropertiesPtrInput)(nil)).Elem(), Settings2PropertiesOracleSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings3PropertiesInput)(nil)).Elem(), Settings3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings3PropertiesPtrInput)(nil)).Elem(), Settings3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings3PropertiesMicrosoftSqlServerSettingsPropertiesInput)(nil)).Elem(), Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrInput)(nil)).Elem(), Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs{})
 	pulumi.RegisterOutputType(DataProviderTagOutput{})
 	pulumi.RegisterOutputType(DataProviderTagArrayOutput{})
 	pulumi.RegisterOutputType(EndpointDocDbSettingsOutput{})
@@ -7854,4 +8505,20 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationTaskTagArrayOutput{})
 	pulumi.RegisterOutputType(SchemaConversionApplicationAttributesPropertiesOutput{})
 	pulumi.RegisterOutputType(SchemaConversionApplicationAttributesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(Settings0PropertiesOutput{})
+	pulumi.RegisterOutputType(Settings0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(Settings0PropertiesPostgreSqlSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(Settings1PropertiesOutput{})
+	pulumi.RegisterOutputType(Settings1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(Settings1PropertiesMySqlSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(Settings1PropertiesMySqlSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(Settings2PropertiesOutput{})
+	pulumi.RegisterOutputType(Settings2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(Settings2PropertiesOracleSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(Settings2PropertiesOracleSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(Settings3PropertiesOutput{})
+	pulumi.RegisterOutputType(Settings3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput{})
 }

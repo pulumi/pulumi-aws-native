@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::EKS::Nodegroup
@@ -81,12 +80,6 @@ func (o LookupNodegroupResultOutput) ToLookupNodegroupResultOutput() LookupNodeg
 
 func (o LookupNodegroupResultOutput) ToLookupNodegroupResultOutputWithContext(ctx context.Context) LookupNodegroupResultOutput {
 	return o
-}
-
-func (o LookupNodegroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNodegroupResult] {
-	return pulumix.Output[LookupNodegroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupNodegroupResultOutput) Arn() pulumi.StringPtrOutput {

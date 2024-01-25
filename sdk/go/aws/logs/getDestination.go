@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
@@ -72,12 +71,6 @@ func (o LookupDestinationResultOutput) ToLookupDestinationResultOutput() LookupD
 
 func (o LookupDestinationResultOutput) ToLookupDestinationResultOutputWithContext(ctx context.Context) LookupDestinationResultOutput {
 	return o
-}
-
-func (o LookupDestinationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDestinationResult] {
-	return pulumix.Output[LookupDestinationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDestinationResultOutput) Arn() pulumi.StringPtrOutput {

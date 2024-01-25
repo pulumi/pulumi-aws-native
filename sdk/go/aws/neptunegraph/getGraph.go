@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.
@@ -87,12 +86,6 @@ func (o LookupGraphResultOutput) ToLookupGraphResultOutput() LookupGraphResultOu
 
 func (o LookupGraphResultOutput) ToLookupGraphResultOutputWithContext(ctx context.Context) LookupGraphResultOutput {
 	return o
-}
-
-func (o LookupGraphResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGraphResult] {
-	return pulumix.Output[LookupGraphResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.

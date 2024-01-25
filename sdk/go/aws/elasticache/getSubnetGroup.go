@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElastiCache::SubnetGroup
@@ -70,12 +69,6 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutput() LookupS
 
 func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContext(ctx context.Context) LookupSubnetGroupResultOutput {
 	return o
-}
-
-func (o LookupSubnetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubnetGroupResult] {
-	return pulumix.Output[LookupSubnetGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description for the cache subnet group.

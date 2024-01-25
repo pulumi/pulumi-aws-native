@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i HookVersionLoggingConfigArgs) ToHookVersionLoggingConfigOutput() HookVer
 
 func (i HookVersionLoggingConfigArgs) ToHookVersionLoggingConfigOutputWithContext(ctx context.Context) HookVersionLoggingConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HookVersionLoggingConfigOutput)
-}
-
-func (i HookVersionLoggingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[HookVersionLoggingConfig] {
-	return pulumix.Output[HookVersionLoggingConfig]{
-		OutputState: i.ToHookVersionLoggingConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i HookVersionLoggingConfigArgs) ToHookVersionLoggingConfigPtrOutput() HookVersionLoggingConfigPtrOutput {
@@ -98,12 +91,6 @@ func (i *hookVersionLoggingConfigPtrType) ToHookVersionLoggingConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(HookVersionLoggingConfigPtrOutput)
 }
 
-func (i *hookVersionLoggingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*HookVersionLoggingConfig] {
-	return pulumix.Output[*HookVersionLoggingConfig]{
-		OutputState: i.ToHookVersionLoggingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HookVersionLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (HookVersionLoggingConfigOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o HookVersionLoggingConfigOutput) ToHookVersionLoggingConfigPtrOutputWithC
 	}).(HookVersionLoggingConfigPtrOutput)
 }
 
-func (o HookVersionLoggingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[HookVersionLoggingConfig] {
-	return pulumix.Output[HookVersionLoggingConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 func (o HookVersionLoggingConfigOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HookVersionLoggingConfig) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
@@ -156,12 +137,6 @@ func (o HookVersionLoggingConfigPtrOutput) ToHookVersionLoggingConfigPtrOutput()
 
 func (o HookVersionLoggingConfigPtrOutput) ToHookVersionLoggingConfigPtrOutputWithContext(ctx context.Context) HookVersionLoggingConfigPtrOutput {
 	return o
-}
-
-func (o HookVersionLoggingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HookVersionLoggingConfig] {
-	return pulumix.Output[*HookVersionLoggingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HookVersionLoggingConfigPtrOutput) Elem() HookVersionLoggingConfigOutput {
@@ -227,12 +202,6 @@ func (i ManagedExecutionPropertiesArgs) ToManagedExecutionPropertiesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedExecutionPropertiesOutput)
 }
 
-func (i ManagedExecutionPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedExecutionProperties] {
-	return pulumix.Output[ManagedExecutionProperties]{
-		OutputState: i.ToManagedExecutionPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ManagedExecutionPropertiesArgs) ToManagedExecutionPropertiesPtrOutput() ManagedExecutionPropertiesPtrOutput {
 	return i.ToManagedExecutionPropertiesPtrOutputWithContext(context.Background())
 }
@@ -274,12 +243,6 @@ func (i *managedExecutionPropertiesPtrType) ToManagedExecutionPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedExecutionPropertiesPtrOutput)
 }
 
-func (i *managedExecutionPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagedExecutionProperties] {
-	return pulumix.Output[*ManagedExecutionProperties]{
-		OutputState: i.ToManagedExecutionPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 type ManagedExecutionPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -305,12 +268,6 @@ func (o ManagedExecutionPropertiesOutput) ToManagedExecutionPropertiesPtrOutputW
 	}).(ManagedExecutionPropertiesPtrOutput)
 }
 
-func (o ManagedExecutionPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedExecutionProperties] {
-	return pulumix.Output[ManagedExecutionProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedExecutionPropertiesOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedExecutionProperties) *bool { return v.Active }).(pulumi.BoolPtrOutput)
 }
@@ -327,12 +284,6 @@ func (o ManagedExecutionPropertiesPtrOutput) ToManagedExecutionPropertiesPtrOutp
 
 func (o ManagedExecutionPropertiesPtrOutput) ToManagedExecutionPropertiesPtrOutputWithContext(ctx context.Context) ManagedExecutionPropertiesPtrOutput {
 	return o
-}
-
-func (o ManagedExecutionPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedExecutionProperties] {
-	return pulumix.Output[*ManagedExecutionProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedExecutionPropertiesPtrOutput) Elem() ManagedExecutionPropertiesOutput {
@@ -391,12 +342,6 @@ func (i ResourceVersionLoggingConfigArgs) ToResourceVersionLoggingConfigOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceVersionLoggingConfigOutput)
 }
 
-func (i ResourceVersionLoggingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceVersionLoggingConfig] {
-	return pulumix.Output[ResourceVersionLoggingConfig]{
-		OutputState: i.ToResourceVersionLoggingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceVersionLoggingConfigArgs) ToResourceVersionLoggingConfigPtrOutput() ResourceVersionLoggingConfigPtrOutput {
 	return i.ToResourceVersionLoggingConfigPtrOutputWithContext(context.Background())
 }
@@ -438,12 +383,6 @@ func (i *resourceVersionLoggingConfigPtrType) ToResourceVersionLoggingConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceVersionLoggingConfigPtrOutput)
 }
 
-func (i *resourceVersionLoggingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceVersionLoggingConfig] {
-	return pulumix.Output[*ResourceVersionLoggingConfig]{
-		OutputState: i.ToResourceVersionLoggingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceVersionLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (ResourceVersionLoggingConfigOutput) ElementType() reflect.Type {
@@ -468,12 +407,6 @@ func (o ResourceVersionLoggingConfigOutput) ToResourceVersionLoggingConfigPtrOut
 	}).(ResourceVersionLoggingConfigPtrOutput)
 }
 
-func (o ResourceVersionLoggingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceVersionLoggingConfig] {
-	return pulumix.Output[ResourceVersionLoggingConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 func (o ResourceVersionLoggingConfigOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceVersionLoggingConfig) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
@@ -496,12 +429,6 @@ func (o ResourceVersionLoggingConfigPtrOutput) ToResourceVersionLoggingConfigPtr
 
 func (o ResourceVersionLoggingConfigPtrOutput) ToResourceVersionLoggingConfigPtrOutputWithContext(ctx context.Context) ResourceVersionLoggingConfigPtrOutput {
 	return o
-}
-
-func (o ResourceVersionLoggingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceVersionLoggingConfig] {
-	return pulumix.Output[*ResourceVersionLoggingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceVersionLoggingConfigPtrOutput) Elem() ResourceVersionLoggingConfigOutput {
@@ -555,12 +482,6 @@ func (o StackOutputTypeOutput) ToStackOutputTypeOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o StackOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StackOutputType] {
-	return pulumix.Output[StackOutputType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackOutputTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackOutputType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -589,12 +510,6 @@ func (o StackOutputTypeArrayOutput) ToStackOutputTypeArrayOutput() StackOutputTy
 
 func (o StackOutputTypeArrayOutput) ToStackOutputTypeArrayOutputWithContext(ctx context.Context) StackOutputTypeArrayOutput {
 	return o
-}
-
-func (o StackOutputTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackOutputType] {
-	return pulumix.Output[[]StackOutputType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackOutputTypeArrayOutput) Index(i pulumi.IntInput) StackOutputTypeOutput {
@@ -640,12 +555,6 @@ func (i StackSetAutoDeploymentArgs) ToStackSetAutoDeploymentOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetAutoDeploymentOutput)
 }
 
-func (i StackSetAutoDeploymentArgs) ToOutput(ctx context.Context) pulumix.Output[StackSetAutoDeployment] {
-	return pulumix.Output[StackSetAutoDeployment]{
-		OutputState: i.ToStackSetAutoDeploymentOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StackSetAutoDeploymentArgs) ToStackSetAutoDeploymentPtrOutput() StackSetAutoDeploymentPtrOutput {
 	return i.ToStackSetAutoDeploymentPtrOutputWithContext(context.Background())
 }
@@ -687,12 +596,6 @@ func (i *stackSetAutoDeploymentPtrType) ToStackSetAutoDeploymentPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetAutoDeploymentPtrOutput)
 }
 
-func (i *stackSetAutoDeploymentPtrType) ToOutput(ctx context.Context) pulumix.Output[*StackSetAutoDeployment] {
-	return pulumix.Output[*StackSetAutoDeployment]{
-		OutputState: i.ToStackSetAutoDeploymentPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackSetAutoDeploymentOutput struct{ *pulumi.OutputState }
 
 func (StackSetAutoDeploymentOutput) ElementType() reflect.Type {
@@ -717,12 +620,6 @@ func (o StackSetAutoDeploymentOutput) ToStackSetAutoDeploymentPtrOutputWithConte
 	}).(StackSetAutoDeploymentPtrOutput)
 }
 
-func (o StackSetAutoDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetAutoDeployment] {
-	return pulumix.Output[StackSetAutoDeployment]{
-		OutputState: o.OutputState,
-	}
-}
-
 // If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
 func (o StackSetAutoDeploymentOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StackSetAutoDeployment) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -745,12 +642,6 @@ func (o StackSetAutoDeploymentPtrOutput) ToStackSetAutoDeploymentPtrOutput() Sta
 
 func (o StackSetAutoDeploymentPtrOutput) ToStackSetAutoDeploymentPtrOutputWithContext(ctx context.Context) StackSetAutoDeploymentPtrOutput {
 	return o
-}
-
-func (o StackSetAutoDeploymentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetAutoDeployment] {
-	return pulumix.Output[*StackSetAutoDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackSetAutoDeploymentPtrOutput) Elem() StackSetAutoDeploymentOutput {
@@ -830,12 +721,6 @@ func (i StackSetDeploymentTargetsArgs) ToStackSetDeploymentTargetsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetDeploymentTargetsOutput)
 }
 
-func (i StackSetDeploymentTargetsArgs) ToOutput(ctx context.Context) pulumix.Output[StackSetDeploymentTargets] {
-	return pulumix.Output[StackSetDeploymentTargets]{
-		OutputState: i.ToStackSetDeploymentTargetsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
 type StackSetDeploymentTargetsOutput struct{ *pulumi.OutputState }
 
@@ -849,12 +734,6 @@ func (o StackSetDeploymentTargetsOutput) ToStackSetDeploymentTargetsOutput() Sta
 
 func (o StackSetDeploymentTargetsOutput) ToStackSetDeploymentTargetsOutputWithContext(ctx context.Context) StackSetDeploymentTargetsOutput {
 	return o
-}
-
-func (o StackSetDeploymentTargetsOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetDeploymentTargets] {
-	return pulumix.Output[StackSetDeploymentTargets]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The filter type you want to apply on organizational units and accounts.
@@ -922,12 +801,6 @@ func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetOperationPreferencesOutput)
 }
 
-func (i StackSetOperationPreferencesArgs) ToOutput(ctx context.Context) pulumix.Output[StackSetOperationPreferences] {
-	return pulumix.Output[StackSetOperationPreferences]{
-		OutputState: i.ToStackSetOperationPreferencesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesPtrOutput() StackSetOperationPreferencesPtrOutput {
 	return i.ToStackSetOperationPreferencesPtrOutputWithContext(context.Background())
 }
@@ -969,12 +842,6 @@ func (i *stackSetOperationPreferencesPtrType) ToStackSetOperationPreferencesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetOperationPreferencesPtrOutput)
 }
 
-func (i *stackSetOperationPreferencesPtrType) ToOutput(ctx context.Context) pulumix.Output[*StackSetOperationPreferences] {
-	return pulumix.Output[*StackSetOperationPreferences]{
-		OutputState: i.ToStackSetOperationPreferencesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The user-specified preferences for how AWS CloudFormation performs a stack set operation.
 type StackSetOperationPreferencesOutput struct{ *pulumi.OutputState }
 
@@ -998,12 +865,6 @@ func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSetOperationPreferences) *StackSetOperationPreferences {
 		return &v
 	}).(StackSetOperationPreferencesPtrOutput)
-}
-
-func (o StackSetOperationPreferencesOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetOperationPreferences] {
-	return pulumix.Output[StackSetOperationPreferences]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackSetOperationPreferencesOutput) FailureToleranceCount() pulumi.IntPtrOutput {
@@ -1042,12 +903,6 @@ func (o StackSetOperationPreferencesPtrOutput) ToStackSetOperationPreferencesPtr
 
 func (o StackSetOperationPreferencesPtrOutput) ToStackSetOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetOperationPreferencesPtrOutput {
 	return o
-}
-
-func (o StackSetOperationPreferencesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetOperationPreferences] {
-	return pulumix.Output[*StackSetOperationPreferences]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackSetOperationPreferencesPtrOutput) Elem() StackSetOperationPreferencesOutput {
@@ -1151,12 +1006,6 @@ func (i StackSetParameterArgs) ToStackSetParameterOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetParameterOutput)
 }
 
-func (i StackSetParameterArgs) ToOutput(ctx context.Context) pulumix.Output[StackSetParameter] {
-	return pulumix.Output[StackSetParameter]{
-		OutputState: i.ToStackSetParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StackSetParameterArrayInput is an input type that accepts StackSetParameterArray and StackSetParameterArrayOutput values.
 // You can construct a concrete instance of `StackSetParameterArrayInput` via:
 //
@@ -1182,12 +1031,6 @@ func (i StackSetParameterArray) ToStackSetParameterArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetParameterArrayOutput)
 }
 
-func (i StackSetParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]StackSetParameter] {
-	return pulumix.Output[[]StackSetParameter]{
-		OutputState: i.ToStackSetParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackSetParameterOutput struct{ *pulumi.OutputState }
 
 func (StackSetParameterOutput) ElementType() reflect.Type {
@@ -1200,12 +1043,6 @@ func (o StackSetParameterOutput) ToStackSetParameterOutput() StackSetParameterOu
 
 func (o StackSetParameterOutput) ToStackSetParameterOutputWithContext(ctx context.Context) StackSetParameterOutput {
 	return o
-}
-
-func (o StackSetParameterOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetParameter] {
-	return pulumix.Output[StackSetParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
@@ -1230,12 +1067,6 @@ func (o StackSetParameterArrayOutput) ToStackSetParameterArrayOutput() StackSetP
 
 func (o StackSetParameterArrayOutput) ToStackSetParameterArrayOutputWithContext(ctx context.Context) StackSetParameterArrayOutput {
 	return o
-}
-
-func (o StackSetParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackSetParameter] {
-	return pulumix.Output[[]StackSetParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackSetParameterArrayOutput) Index(i pulumi.IntInput) StackSetParameterOutput {
@@ -1285,12 +1116,6 @@ func (i StackSetStackInstancesArgs) ToStackSetStackInstancesOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetStackInstancesOutput)
 }
 
-func (i StackSetStackInstancesArgs) ToOutput(ctx context.Context) pulumix.Output[StackSetStackInstances] {
-	return pulumix.Output[StackSetStackInstances]{
-		OutputState: i.ToStackSetStackInstancesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StackSetStackInstancesArrayInput is an input type that accepts StackSetStackInstancesArray and StackSetStackInstancesArrayOutput values.
 // You can construct a concrete instance of `StackSetStackInstancesArrayInput` via:
 //
@@ -1316,12 +1141,6 @@ func (i StackSetStackInstancesArray) ToStackSetStackInstancesArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetStackInstancesArrayOutput)
 }
 
-func (i StackSetStackInstancesArray) ToOutput(ctx context.Context) pulumix.Output[[]StackSetStackInstances] {
-	return pulumix.Output[[]StackSetStackInstances]{
-		OutputState: i.ToStackSetStackInstancesArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Stack instances in some specific accounts and Regions.
 type StackSetStackInstancesOutput struct{ *pulumi.OutputState }
 
@@ -1335,12 +1154,6 @@ func (o StackSetStackInstancesOutput) ToStackSetStackInstancesOutput() StackSetS
 
 func (o StackSetStackInstancesOutput) ToStackSetStackInstancesOutputWithContext(ctx context.Context) StackSetStackInstancesOutput {
 	return o
-}
-
-func (o StackSetStackInstancesOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetStackInstances] {
-	return pulumix.Output[StackSetStackInstances]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackSetStackInstancesOutput) DeploymentTargets() StackSetDeploymentTargetsOutput {
@@ -1369,12 +1182,6 @@ func (o StackSetStackInstancesArrayOutput) ToStackSetStackInstancesArrayOutput()
 
 func (o StackSetStackInstancesArrayOutput) ToStackSetStackInstancesArrayOutputWithContext(ctx context.Context) StackSetStackInstancesArrayOutput {
 	return o
-}
-
-func (o StackSetStackInstancesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackSetStackInstances] {
-	return pulumix.Output[[]StackSetStackInstances]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackSetStackInstancesArrayOutput) Index(i pulumi.IntInput) StackSetStackInstancesOutput {
@@ -1422,12 +1229,6 @@ func (i StackSetTagArgs) ToStackSetTagOutputWithContext(ctx context.Context) Sta
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetTagOutput)
 }
 
-func (i StackSetTagArgs) ToOutput(ctx context.Context) pulumix.Output[StackSetTag] {
-	return pulumix.Output[StackSetTag]{
-		OutputState: i.ToStackSetTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StackSetTagArrayInput is an input type that accepts StackSetTagArray and StackSetTagArrayOutput values.
 // You can construct a concrete instance of `StackSetTagArrayInput` via:
 //
@@ -1453,12 +1254,6 @@ func (i StackSetTagArray) ToStackSetTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetTagArrayOutput)
 }
 
-func (i StackSetTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StackSetTag] {
-	return pulumix.Output[[]StackSetTag]{
-		OutputState: i.ToStackSetTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation StackSet.
 type StackSetTagOutput struct{ *pulumi.OutputState }
 
@@ -1472,12 +1267,6 @@ func (o StackSetTagOutput) ToStackSetTagOutput() StackSetTagOutput {
 
 func (o StackSetTagOutput) ToStackSetTagOutputWithContext(ctx context.Context) StackSetTagOutput {
 	return o
-}
-
-func (o StackSetTagOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetTag] {
-	return pulumix.Output[StackSetTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
@@ -1502,12 +1291,6 @@ func (o StackSetTagArrayOutput) ToStackSetTagArrayOutput() StackSetTagArrayOutpu
 
 func (o StackSetTagArrayOutput) ToStackSetTagArrayOutputWithContext(ctx context.Context) StackSetTagArrayOutput {
 	return o
-}
-
-func (o StackSetTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackSetTag] {
-	return pulumix.Output[[]StackSetTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackSetTagArrayOutput) Index(i pulumi.IntInput) StackSetTagOutput {
@@ -1549,12 +1332,6 @@ func (i StackTagArgs) ToStackTagOutputWithContext(ctx context.Context) StackTagO
 	return pulumi.ToOutputWithContext(ctx, i).(StackTagOutput)
 }
 
-func (i StackTagArgs) ToOutput(ctx context.Context) pulumix.Output[StackTag] {
-	return pulumix.Output[StackTag]{
-		OutputState: i.ToStackTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StackTagArrayInput is an input type that accepts StackTagArray and StackTagArrayOutput values.
 // You can construct a concrete instance of `StackTagArrayInput` via:
 //
@@ -1580,12 +1357,6 @@ func (i StackTagArray) ToStackTagArrayOutputWithContext(ctx context.Context) Sta
 	return pulumi.ToOutputWithContext(ctx, i).(StackTagArrayOutput)
 }
 
-func (i StackTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StackTag] {
-	return pulumix.Output[[]StackTag]{
-		OutputState: i.ToStackTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackTagOutput struct{ *pulumi.OutputState }
 
 func (StackTagOutput) ElementType() reflect.Type {
@@ -1598,12 +1369,6 @@ func (o StackTagOutput) ToStackTagOutput() StackTagOutput {
 
 func (o StackTagOutput) ToStackTagOutputWithContext(ctx context.Context) StackTagOutput {
 	return o
-}
-
-func (o StackTagOutput) ToOutput(ctx context.Context) pulumix.Output[StackTag] {
-	return pulumix.Output[StackTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackTagOutput) Key() pulumi.StringOutput {
@@ -1626,12 +1391,6 @@ func (o StackTagArrayOutput) ToStackTagArrayOutput() StackTagArrayOutput {
 
 func (o StackTagArrayOutput) ToStackTagArrayOutputWithContext(ctx context.Context) StackTagArrayOutput {
 	return o
-}
-
-func (o StackTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackTag] {
-	return pulumix.Output[[]StackTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackTagArrayOutput) Index(i pulumi.IntInput) StackTagOutput {
@@ -1677,12 +1436,6 @@ func (i TypeActivationLoggingConfigArgs) ToTypeActivationLoggingConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TypeActivationLoggingConfigOutput)
 }
 
-func (i TypeActivationLoggingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[TypeActivationLoggingConfig] {
-	return pulumix.Output[TypeActivationLoggingConfig]{
-		OutputState: i.ToTypeActivationLoggingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TypeActivationLoggingConfigArgs) ToTypeActivationLoggingConfigPtrOutput() TypeActivationLoggingConfigPtrOutput {
 	return i.ToTypeActivationLoggingConfigPtrOutputWithContext(context.Background())
 }
@@ -1724,12 +1477,6 @@ func (i *typeActivationLoggingConfigPtrType) ToTypeActivationLoggingConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TypeActivationLoggingConfigPtrOutput)
 }
 
-func (i *typeActivationLoggingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*TypeActivationLoggingConfig] {
-	return pulumix.Output[*TypeActivationLoggingConfig]{
-		OutputState: i.ToTypeActivationLoggingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TypeActivationLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (TypeActivationLoggingConfigOutput) ElementType() reflect.Type {
@@ -1754,12 +1501,6 @@ func (o TypeActivationLoggingConfigOutput) ToTypeActivationLoggingConfigPtrOutpu
 	}).(TypeActivationLoggingConfigPtrOutput)
 }
 
-func (o TypeActivationLoggingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[TypeActivationLoggingConfig] {
-	return pulumix.Output[TypeActivationLoggingConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 func (o TypeActivationLoggingConfigOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TypeActivationLoggingConfig) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
@@ -1782,12 +1523,6 @@ func (o TypeActivationLoggingConfigPtrOutput) ToTypeActivationLoggingConfigPtrOu
 
 func (o TypeActivationLoggingConfigPtrOutput) ToTypeActivationLoggingConfigPtrOutputWithContext(ctx context.Context) TypeActivationLoggingConfigPtrOutput {
 	return o
-}
-
-func (o TypeActivationLoggingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TypeActivationLoggingConfig] {
-	return pulumix.Output[*TypeActivationLoggingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TypeActivationLoggingConfigPtrOutput) Elem() TypeActivationLoggingConfigOutput {

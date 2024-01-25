@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::NetworkInterface resource creates network interface
@@ -100,12 +99,6 @@ func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutput
 
 func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutputWithContext(ctx context.Context) LookupNetworkInterfaceResultOutput {
 	return o
-}
-
-func (o LookupNetworkInterfaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkInterfaceResult] {
-	return pulumix.Output[LookupNetworkInterfaceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupNetworkInterfaceResultOutput) ConnectionTrackingSpecification() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {

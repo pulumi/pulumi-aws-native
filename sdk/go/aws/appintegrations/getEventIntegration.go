@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppIntegrations::EventIntegration
@@ -71,12 +70,6 @@ func (o LookupEventIntegrationResultOutput) ToLookupEventIntegrationResultOutput
 
 func (o LookupEventIntegrationResultOutput) ToLookupEventIntegrationResultOutputWithContext(ctx context.Context) LookupEventIntegrationResultOutput {
 	return o
-}
-
-func (o LookupEventIntegrationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEventIntegrationResult] {
-	return pulumix.Output[LookupEventIntegrationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The event integration description.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::MediaPackageV2::Channel Resource Type
@@ -108,12 +107,6 @@ func (i *Channel) ToChannelOutputWithContext(ctx context.Context) ChannelOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutput)
 }
 
-func (i *Channel) ToOutput(ctx context.Context) pulumix.Output[*Channel] {
-	return pulumix.Output[*Channel]{
-		OutputState: i.ToChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutput) ElementType() reflect.Type {
@@ -126,12 +119,6 @@ func (o ChannelOutput) ToChannelOutput() ChannelOutput {
 
 func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOutput {
 	return o
-}
-
-func (o ChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*Channel] {
-	return pulumix.Output[*Channel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelOutput) Arn() pulumi.StringOutput {

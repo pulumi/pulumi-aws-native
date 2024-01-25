@@ -79,12 +79,6 @@ func (o ConfigBandwidthUnitsOutput) ToConfigBandwidthUnitsPtrOutputWithContext(c
 	}).(ConfigBandwidthUnitsPtrOutput)
 }
 
-func (o ConfigBandwidthUnitsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigBandwidthUnits] {
-	return pulumix.Output[ConfigBandwidthUnits]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigBandwidthUnitsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o ConfigBandwidthUnitsPtrOutput) ToConfigBandwidthUnitsPtrOutputWithContex
 	return o
 }
 
-func (o ConfigBandwidthUnitsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigBandwidthUnits] {
-	return pulumix.Output[*ConfigBandwidthUnits]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigBandwidthUnitsPtrOutput) Elem() ConfigBandwidthUnitsOutput {
 	return o.ApplyT(func(v *ConfigBandwidthUnits) ConfigBandwidthUnits {
 		if v != nil {
@@ -150,10 +138,12 @@ func (o ConfigBandwidthUnitsPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConfigBandwidthUnitsInput is an input type that accepts ConfigBandwidthUnitsArgs and ConfigBandwidthUnitsOutput values.
-// You can construct a concrete instance of `ConfigBandwidthUnitsInput` via:
+// ConfigBandwidthUnitsInput is an input type that accepts values of the ConfigBandwidthUnits enum
+// A concrete instance of `ConfigBandwidthUnitsInput` can be one of the following:
 //
-//	ConfigBandwidthUnitsArgs{...}
+//	ConfigBandwidthUnitsGHz
+//	ConfigBandwidthUnitsMHz
+//	ConfigBandwidthUnitsKHz
 type ConfigBandwidthUnitsInput interface {
 	pulumi.Input
 
@@ -260,12 +250,6 @@ func (o ConfigEirpUnitsOutput) ToConfigEirpUnitsPtrOutputWithContext(ctx context
 	}).(ConfigEirpUnitsPtrOutput)
 }
 
-func (o ConfigEirpUnitsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigEirpUnits] {
-	return pulumix.Output[ConfigEirpUnits]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigEirpUnitsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +285,6 @@ func (o ConfigEirpUnitsPtrOutput) ToConfigEirpUnitsPtrOutputWithContext(ctx cont
 	return o
 }
 
-func (o ConfigEirpUnitsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigEirpUnits] {
-	return pulumix.Output[*ConfigEirpUnits]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigEirpUnitsPtrOutput) Elem() ConfigEirpUnitsOutput {
 	return o.ApplyT(func(v *ConfigEirpUnits) ConfigEirpUnits {
 		if v != nil {
@@ -331,10 +309,10 @@ func (o ConfigEirpUnitsPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConfigEirpUnitsInput is an input type that accepts ConfigEirpUnitsArgs and ConfigEirpUnitsOutput values.
-// You can construct a concrete instance of `ConfigEirpUnitsInput` via:
+// ConfigEirpUnitsInput is an input type that accepts values of the ConfigEirpUnits enum
+// A concrete instance of `ConfigEirpUnitsInput` can be one of the following:
 //
-//	ConfigEirpUnitsArgs{...}
+//	ConfigEirpUnitsDbw
 type ConfigEirpUnitsInput interface {
 	pulumi.Input
 
@@ -443,12 +421,6 @@ func (o ConfigFrequencyUnitsOutput) ToConfigFrequencyUnitsPtrOutputWithContext(c
 	}).(ConfigFrequencyUnitsPtrOutput)
 }
 
-func (o ConfigFrequencyUnitsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigFrequencyUnits] {
-	return pulumix.Output[ConfigFrequencyUnits]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigFrequencyUnitsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -484,12 +456,6 @@ func (o ConfigFrequencyUnitsPtrOutput) ToConfigFrequencyUnitsPtrOutputWithContex
 	return o
 }
 
-func (o ConfigFrequencyUnitsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigFrequencyUnits] {
-	return pulumix.Output[*ConfigFrequencyUnits]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigFrequencyUnitsPtrOutput) Elem() ConfigFrequencyUnitsOutput {
 	return o.ApplyT(func(v *ConfigFrequencyUnits) ConfigFrequencyUnits {
 		if v != nil {
@@ -514,10 +480,12 @@ func (o ConfigFrequencyUnitsPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConfigFrequencyUnitsInput is an input type that accepts ConfigFrequencyUnitsArgs and ConfigFrequencyUnitsOutput values.
-// You can construct a concrete instance of `ConfigFrequencyUnitsInput` via:
+// ConfigFrequencyUnitsInput is an input type that accepts values of the ConfigFrequencyUnits enum
+// A concrete instance of `ConfigFrequencyUnitsInput` can be one of the following:
 //
-//	ConfigFrequencyUnitsArgs{...}
+//	ConfigFrequencyUnitsGHz
+//	ConfigFrequencyUnitsMHz
+//	ConfigFrequencyUnitsKHz
 type ConfigFrequencyUnitsInput interface {
 	pulumi.Input
 
@@ -626,12 +594,6 @@ func (o ConfigPolarizationOutput) ToConfigPolarizationPtrOutputWithContext(ctx c
 	}).(ConfigPolarizationPtrOutput)
 }
 
-func (o ConfigPolarizationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigPolarization] {
-	return pulumix.Output[ConfigPolarization]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigPolarizationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -667,12 +629,6 @@ func (o ConfigPolarizationPtrOutput) ToConfigPolarizationPtrOutputWithContext(ct
 	return o
 }
 
-func (o ConfigPolarizationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigPolarization] {
-	return pulumix.Output[*ConfigPolarization]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigPolarizationPtrOutput) Elem() ConfigPolarizationOutput {
 	return o.ApplyT(func(v *ConfigPolarization) ConfigPolarization {
 		if v != nil {
@@ -697,10 +653,12 @@ func (o ConfigPolarizationPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConfigPolarizationInput is an input type that accepts ConfigPolarizationArgs and ConfigPolarizationOutput values.
-// You can construct a concrete instance of `ConfigPolarizationInput` via:
+// ConfigPolarizationInput is an input type that accepts values of the ConfigPolarization enum
+// A concrete instance of `ConfigPolarizationInput` can be one of the following:
 //
-//	ConfigPolarizationArgs{...}
+//	ConfigPolarizationLeftHand
+//	ConfigPolarizationRightHand
+//	ConfigPolarizationNone
 type ConfigPolarizationInput interface {
 	pulumi.Input
 
@@ -809,12 +767,6 @@ func (o ConfigTrackingConfigAutotrackOutput) ToConfigTrackingConfigAutotrackPtrO
 	}).(ConfigTrackingConfigAutotrackPtrOutput)
 }
 
-func (o ConfigTrackingConfigAutotrackOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigTrackingConfigAutotrack] {
-	return pulumix.Output[ConfigTrackingConfigAutotrack]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigTrackingConfigAutotrackOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -850,12 +802,6 @@ func (o ConfigTrackingConfigAutotrackPtrOutput) ToConfigTrackingConfigAutotrackP
 	return o
 }
 
-func (o ConfigTrackingConfigAutotrackPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigTrackingConfigAutotrack] {
-	return pulumix.Output[*ConfigTrackingConfigAutotrack]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigTrackingConfigAutotrackPtrOutput) Elem() ConfigTrackingConfigAutotrackOutput {
 	return o.ApplyT(func(v *ConfigTrackingConfigAutotrack) ConfigTrackingConfigAutotrack {
 		if v != nil {
@@ -880,10 +826,12 @@ func (o ConfigTrackingConfigAutotrackPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConfigTrackingConfigAutotrackInput is an input type that accepts ConfigTrackingConfigAutotrackArgs and ConfigTrackingConfigAutotrackOutput values.
-// You can construct a concrete instance of `ConfigTrackingConfigAutotrackInput` via:
+// ConfigTrackingConfigAutotrackInput is an input type that accepts values of the ConfigTrackingConfigAutotrack enum
+// A concrete instance of `ConfigTrackingConfigAutotrackInput` can be one of the following:
 //
-//	ConfigTrackingConfigAutotrackArgs{...}
+//	ConfigTrackingConfigAutotrackRequired
+//	ConfigTrackingConfigAutotrackPreferred
+//	ConfigTrackingConfigAutotrackRemoved
 type ConfigTrackingConfigAutotrackInput interface {
 	pulumi.Input
 
@@ -994,12 +942,6 @@ func (o DataflowEndpointGroupAgentStatusOutput) ToDataflowEndpointGroupAgentStat
 	}).(DataflowEndpointGroupAgentStatusPtrOutput)
 }
 
-func (o DataflowEndpointGroupAgentStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupAgentStatus] {
-	return pulumix.Output[DataflowEndpointGroupAgentStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataflowEndpointGroupAgentStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1035,12 +977,6 @@ func (o DataflowEndpointGroupAgentStatusPtrOutput) ToDataflowEndpointGroupAgentS
 	return o
 }
 
-func (o DataflowEndpointGroupAgentStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupAgentStatus] {
-	return pulumix.Output[*DataflowEndpointGroupAgentStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataflowEndpointGroupAgentStatusPtrOutput) Elem() DataflowEndpointGroupAgentStatusOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupAgentStatus) DataflowEndpointGroupAgentStatus {
 		if v != nil {
@@ -1065,10 +1001,13 @@ func (o DataflowEndpointGroupAgentStatusPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataflowEndpointGroupAgentStatusInput is an input type that accepts DataflowEndpointGroupAgentStatusArgs and DataflowEndpointGroupAgentStatusOutput values.
-// You can construct a concrete instance of `DataflowEndpointGroupAgentStatusInput` via:
+// DataflowEndpointGroupAgentStatusInput is an input type that accepts values of the DataflowEndpointGroupAgentStatus enum
+// A concrete instance of `DataflowEndpointGroupAgentStatusInput` can be one of the following:
 //
-//	DataflowEndpointGroupAgentStatusArgs{...}
+//	DataflowEndpointGroupAgentStatusSuccess
+//	DataflowEndpointGroupAgentStatusFailed
+//	DataflowEndpointGroupAgentStatusActive
+//	DataflowEndpointGroupAgentStatusInactive
 type DataflowEndpointGroupAgentStatusInput interface {
 	pulumi.Input
 
@@ -1177,12 +1116,6 @@ func (o DataflowEndpointGroupAuditResultsOutput) ToDataflowEndpointGroupAuditRes
 	}).(DataflowEndpointGroupAuditResultsPtrOutput)
 }
 
-func (o DataflowEndpointGroupAuditResultsOutput) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupAuditResults] {
-	return pulumix.Output[DataflowEndpointGroupAuditResults]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataflowEndpointGroupAuditResultsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1218,12 +1151,6 @@ func (o DataflowEndpointGroupAuditResultsPtrOutput) ToDataflowEndpointGroupAudit
 	return o
 }
 
-func (o DataflowEndpointGroupAuditResultsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupAuditResults] {
-	return pulumix.Output[*DataflowEndpointGroupAuditResults]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataflowEndpointGroupAuditResultsPtrOutput) Elem() DataflowEndpointGroupAuditResultsOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupAuditResults) DataflowEndpointGroupAuditResults {
 		if v != nil {
@@ -1248,10 +1175,11 @@ func (o DataflowEndpointGroupAuditResultsPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataflowEndpointGroupAuditResultsInput is an input type that accepts DataflowEndpointGroupAuditResultsArgs and DataflowEndpointGroupAuditResultsOutput values.
-// You can construct a concrete instance of `DataflowEndpointGroupAuditResultsInput` via:
+// DataflowEndpointGroupAuditResultsInput is an input type that accepts values of the DataflowEndpointGroupAuditResults enum
+// A concrete instance of `DataflowEndpointGroupAuditResultsInput` can be one of the following:
 //
-//	DataflowEndpointGroupAuditResultsArgs{...}
+//	DataflowEndpointGroupAuditResultsHealthy
+//	DataflowEndpointGroupAuditResultsUnhealthy
 type DataflowEndpointGroupAuditResultsInput interface {
 	pulumi.Input
 

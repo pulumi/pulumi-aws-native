@@ -79,12 +79,6 @@ func (o AcceleratorIpAddressTypeOutput) ToAcceleratorIpAddressTypePtrOutputWithC
 	}).(AcceleratorIpAddressTypePtrOutput)
 }
 
-func (o AcceleratorIpAddressTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AcceleratorIpAddressType] {
-	return pulumix.Output[AcceleratorIpAddressType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AcceleratorIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o AcceleratorIpAddressTypePtrOutput) ToAcceleratorIpAddressTypePtrOutputWi
 	return o
 }
 
-func (o AcceleratorIpAddressTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AcceleratorIpAddressType] {
-	return pulumix.Output[*AcceleratorIpAddressType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AcceleratorIpAddressTypePtrOutput) Elem() AcceleratorIpAddressTypeOutput {
 	return o.ApplyT(func(v *AcceleratorIpAddressType) AcceleratorIpAddressType {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o AcceleratorIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AcceleratorIpAddressTypeInput is an input type that accepts AcceleratorIpAddressTypeArgs and AcceleratorIpAddressTypeOutput values.
-// You can construct a concrete instance of `AcceleratorIpAddressTypeInput` via:
+// AcceleratorIpAddressTypeInput is an input type that accepts values of the AcceleratorIpAddressType enum
+// A concrete instance of `AcceleratorIpAddressTypeInput` can be one of the following:
 //
-//	AcceleratorIpAddressTypeArgs{...}
+//	AcceleratorIpAddressTypeIpv4
+//	AcceleratorIpAddressTypeDualStack
 type AcceleratorIpAddressTypeInput interface {
 	pulumi.Input
 
@@ -263,12 +252,6 @@ func (o EndpointGroupHealthCheckProtocolOutput) ToEndpointGroupHealthCheckProtoc
 	}).(EndpointGroupHealthCheckProtocolPtrOutput)
 }
 
-func (o EndpointGroupHealthCheckProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointGroupHealthCheckProtocol] {
-	return pulumix.Output[EndpointGroupHealthCheckProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointGroupHealthCheckProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -304,12 +287,6 @@ func (o EndpointGroupHealthCheckProtocolPtrOutput) ToEndpointGroupHealthCheckPro
 	return o
 }
 
-func (o EndpointGroupHealthCheckProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointGroupHealthCheckProtocol] {
-	return pulumix.Output[*EndpointGroupHealthCheckProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointGroupHealthCheckProtocolPtrOutput) Elem() EndpointGroupHealthCheckProtocolOutput {
 	return o.ApplyT(func(v *EndpointGroupHealthCheckProtocol) EndpointGroupHealthCheckProtocol {
 		if v != nil {
@@ -334,10 +311,12 @@ func (o EndpointGroupHealthCheckProtocolPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// EndpointGroupHealthCheckProtocolInput is an input type that accepts EndpointGroupHealthCheckProtocolArgs and EndpointGroupHealthCheckProtocolOutput values.
-// You can construct a concrete instance of `EndpointGroupHealthCheckProtocolInput` via:
+// EndpointGroupHealthCheckProtocolInput is an input type that accepts values of the EndpointGroupHealthCheckProtocol enum
+// A concrete instance of `EndpointGroupHealthCheckProtocolInput` can be one of the following:
 //
-//	EndpointGroupHealthCheckProtocolArgs{...}
+//	EndpointGroupHealthCheckProtocolTcp
+//	EndpointGroupHealthCheckProtocolHttp
+//	EndpointGroupHealthCheckProtocolHttps
 type EndpointGroupHealthCheckProtocolInput interface {
 	pulumi.Input
 
@@ -446,12 +425,6 @@ func (o ListenerClientAffinityOutput) ToListenerClientAffinityPtrOutputWithConte
 	}).(ListenerClientAffinityPtrOutput)
 }
 
-func (o ListenerClientAffinityOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerClientAffinity] {
-	return pulumix.Output[ListenerClientAffinity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerClientAffinityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -487,12 +460,6 @@ func (o ListenerClientAffinityPtrOutput) ToListenerClientAffinityPtrOutputWithCo
 	return o
 }
 
-func (o ListenerClientAffinityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerClientAffinity] {
-	return pulumix.Output[*ListenerClientAffinity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerClientAffinityPtrOutput) Elem() ListenerClientAffinityOutput {
 	return o.ApplyT(func(v *ListenerClientAffinity) ListenerClientAffinity {
 		if v != nil {
@@ -517,10 +484,11 @@ func (o ListenerClientAffinityPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ListenerClientAffinityInput is an input type that accepts ListenerClientAffinityArgs and ListenerClientAffinityOutput values.
-// You can construct a concrete instance of `ListenerClientAffinityInput` via:
+// ListenerClientAffinityInput is an input type that accepts values of the ListenerClientAffinity enum
+// A concrete instance of `ListenerClientAffinityInput` can be one of the following:
 //
-//	ListenerClientAffinityArgs{...}
+//	ListenerClientAffinityNone
+//	ListenerClientAffinitySourceIp
 type ListenerClientAffinityInput interface {
 	pulumi.Input
 
@@ -629,12 +597,6 @@ func (o ListenerProtocolOutput) ToListenerProtocolPtrOutputWithContext(ctx conte
 	}).(ListenerProtocolPtrOutput)
 }
 
-func (o ListenerProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerProtocol] {
-	return pulumix.Output[ListenerProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -670,12 +632,6 @@ func (o ListenerProtocolPtrOutput) ToListenerProtocolPtrOutputWithContext(ctx co
 	return o
 }
 
-func (o ListenerProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerProtocol] {
-	return pulumix.Output[*ListenerProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerProtocolPtrOutput) Elem() ListenerProtocolOutput {
 	return o.ApplyT(func(v *ListenerProtocol) ListenerProtocol {
 		if v != nil {
@@ -700,10 +656,11 @@ func (o ListenerProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ListenerProtocolInput is an input type that accepts ListenerProtocolArgs and ListenerProtocolOutput values.
-// You can construct a concrete instance of `ListenerProtocolInput` via:
+// ListenerProtocolInput is an input type that accepts values of the ListenerProtocol enum
+// A concrete instance of `ListenerProtocolInput` can be one of the following:
 //
-//	ListenerProtocolArgs{...}
+//	ListenerProtocolTcp
+//	ListenerProtocolUdp
 type ListenerProtocolInput interface {
 	pulumi.Input
 

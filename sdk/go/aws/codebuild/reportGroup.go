@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CodeBuild::ReportGroup
@@ -117,12 +116,6 @@ func (i *ReportGroup) ToReportGroupOutputWithContext(ctx context.Context) Report
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupOutput)
 }
 
-func (i *ReportGroup) ToOutput(ctx context.Context) pulumix.Output[*ReportGroup] {
-	return pulumix.Output[*ReportGroup]{
-		OutputState: i.ToReportGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReportGroupOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupOutput) ElementType() reflect.Type {
@@ -135,12 +128,6 @@ func (o ReportGroupOutput) ToReportGroupOutput() ReportGroupOutput {
 
 func (o ReportGroupOutput) ToReportGroupOutputWithContext(ctx context.Context) ReportGroupOutput {
 	return o
-}
-
-func (o ReportGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportGroup] {
-	return pulumix.Output[*ReportGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReportGroupOutput) Arn() pulumi.StringOutput {

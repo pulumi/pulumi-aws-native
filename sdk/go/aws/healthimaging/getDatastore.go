@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::HealthImaging::Datastore Resource Type
@@ -68,12 +67,6 @@ func (o LookupDatastoreResultOutput) ToLookupDatastoreResultOutput() LookupDatas
 
 func (o LookupDatastoreResultOutput) ToLookupDatastoreResultOutputWithContext(ctx context.Context) LookupDatastoreResultOutput {
 	return o
-}
-
-func (o LookupDatastoreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDatastoreResult] {
-	return pulumix.Output[LookupDatastoreResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDatastoreResultOutput) CreatedAt() pulumi.StringPtrOutput {

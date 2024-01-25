@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lambda::EventSourceMapping
@@ -101,12 +100,6 @@ func (o LookupEventSourceMappingResultOutput) ToLookupEventSourceMappingResultOu
 
 func (o LookupEventSourceMappingResultOutput) ToLookupEventSourceMappingResultOutputWithContext(ctx context.Context) LookupEventSourceMappingResultOutput {
 	return o
-}
-
-func (o LookupEventSourceMappingResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEventSourceMappingResult] {
-	return pulumix.Output[LookupEventSourceMappingResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The maximum number of items to retrieve in a single batch.

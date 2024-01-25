@@ -78,12 +78,6 @@ func (o AnomalyMonitorMonitorDimensionOutput) ToAnomalyMonitorMonitorDimensionPt
 	}).(AnomalyMonitorMonitorDimensionPtrOutput)
 }
 
-func (o AnomalyMonitorMonitorDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyMonitorMonitorDimension] {
-	return pulumix.Output[AnomalyMonitorMonitorDimension]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalyMonitorMonitorDimensionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o AnomalyMonitorMonitorDimensionPtrOutput) ToAnomalyMonitorMonitorDimensio
 	return o
 }
 
-func (o AnomalyMonitorMonitorDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyMonitorMonitorDimension] {
-	return pulumix.Output[*AnomalyMonitorMonitorDimension]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalyMonitorMonitorDimensionPtrOutput) Elem() AnomalyMonitorMonitorDimensionOutput {
 	return o.ApplyT(func(v *AnomalyMonitorMonitorDimension) AnomalyMonitorMonitorDimension {
 		if v != nil {
@@ -149,10 +137,10 @@ func (o AnomalyMonitorMonitorDimensionPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnomalyMonitorMonitorDimensionInput is an input type that accepts AnomalyMonitorMonitorDimensionArgs and AnomalyMonitorMonitorDimensionOutput values.
-// You can construct a concrete instance of `AnomalyMonitorMonitorDimensionInput` via:
+// AnomalyMonitorMonitorDimensionInput is an input type that accepts values of the AnomalyMonitorMonitorDimension enum
+// A concrete instance of `AnomalyMonitorMonitorDimensionInput` can be one of the following:
 //
-//	AnomalyMonitorMonitorDimensionArgs{...}
+//	AnomalyMonitorMonitorDimensionService
 type AnomalyMonitorMonitorDimensionInput interface {
 	pulumi.Input
 
@@ -260,12 +248,6 @@ func (o AnomalyMonitorMonitorTypeOutput) ToAnomalyMonitorMonitorTypePtrOutputWit
 	}).(AnomalyMonitorMonitorTypePtrOutput)
 }
 
-func (o AnomalyMonitorMonitorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyMonitorMonitorType] {
-	return pulumix.Output[AnomalyMonitorMonitorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalyMonitorMonitorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o AnomalyMonitorMonitorTypePtrOutput) ToAnomalyMonitorMonitorTypePtrOutput
 	return o
 }
 
-func (o AnomalyMonitorMonitorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyMonitorMonitorType] {
-	return pulumix.Output[*AnomalyMonitorMonitorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalyMonitorMonitorTypePtrOutput) Elem() AnomalyMonitorMonitorTypeOutput {
 	return o.ApplyT(func(v *AnomalyMonitorMonitorType) AnomalyMonitorMonitorType {
 		if v != nil {
@@ -331,10 +307,11 @@ func (o AnomalyMonitorMonitorTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnomalyMonitorMonitorTypeInput is an input type that accepts AnomalyMonitorMonitorTypeArgs and AnomalyMonitorMonitorTypeOutput values.
-// You can construct a concrete instance of `AnomalyMonitorMonitorTypeInput` via:
+// AnomalyMonitorMonitorTypeInput is an input type that accepts values of the AnomalyMonitorMonitorType enum
+// A concrete instance of `AnomalyMonitorMonitorTypeInput` can be one of the following:
 //
-//	AnomalyMonitorMonitorTypeArgs{...}
+//	AnomalyMonitorMonitorTypeDimensional
+//	AnomalyMonitorMonitorTypeCustom
 type AnomalyMonitorMonitorTypeInput interface {
 	pulumi.Input
 
@@ -444,12 +421,6 @@ func (o AnomalySubscriptionFrequencyOutput) ToAnomalySubscriptionFrequencyPtrOut
 	}).(AnomalySubscriptionFrequencyPtrOutput)
 }
 
-func (o AnomalySubscriptionFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionFrequency] {
-	return pulumix.Output[AnomalySubscriptionFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalySubscriptionFrequencyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -485,12 +456,6 @@ func (o AnomalySubscriptionFrequencyPtrOutput) ToAnomalySubscriptionFrequencyPtr
 	return o
 }
 
-func (o AnomalySubscriptionFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionFrequency] {
-	return pulumix.Output[*AnomalySubscriptionFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalySubscriptionFrequencyPtrOutput) Elem() AnomalySubscriptionFrequencyOutput {
 	return o.ApplyT(func(v *AnomalySubscriptionFrequency) AnomalySubscriptionFrequency {
 		if v != nil {
@@ -515,10 +480,12 @@ func (o AnomalySubscriptionFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnomalySubscriptionFrequencyInput is an input type that accepts AnomalySubscriptionFrequencyArgs and AnomalySubscriptionFrequencyOutput values.
-// You can construct a concrete instance of `AnomalySubscriptionFrequencyInput` via:
+// AnomalySubscriptionFrequencyInput is an input type that accepts values of the AnomalySubscriptionFrequency enum
+// A concrete instance of `AnomalySubscriptionFrequencyInput` can be one of the following:
 //
-//	AnomalySubscriptionFrequencyArgs{...}
+//	AnomalySubscriptionFrequencyDaily
+//	AnomalySubscriptionFrequencyImmediate
+//	AnomalySubscriptionFrequencyWeekly
 type AnomalySubscriptionFrequencyInput interface {
 	pulumi.Input
 
@@ -626,12 +593,6 @@ func (o AnomalySubscriptionSubscriberStatusOutput) ToAnomalySubscriptionSubscrib
 	}).(AnomalySubscriptionSubscriberStatusPtrOutput)
 }
 
-func (o AnomalySubscriptionSubscriberStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionSubscriberStatus] {
-	return pulumix.Output[AnomalySubscriptionSubscriberStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalySubscriptionSubscriberStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -667,12 +628,6 @@ func (o AnomalySubscriptionSubscriberStatusPtrOutput) ToAnomalySubscriptionSubsc
 	return o
 }
 
-func (o AnomalySubscriptionSubscriberStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionSubscriberStatus] {
-	return pulumix.Output[*AnomalySubscriptionSubscriberStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalySubscriptionSubscriberStatusPtrOutput) Elem() AnomalySubscriptionSubscriberStatusOutput {
 	return o.ApplyT(func(v *AnomalySubscriptionSubscriberStatus) AnomalySubscriptionSubscriberStatus {
 		if v != nil {
@@ -697,10 +652,11 @@ func (o AnomalySubscriptionSubscriberStatusPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnomalySubscriptionSubscriberStatusInput is an input type that accepts AnomalySubscriptionSubscriberStatusArgs and AnomalySubscriptionSubscriberStatusOutput values.
-// You can construct a concrete instance of `AnomalySubscriptionSubscriberStatusInput` via:
+// AnomalySubscriptionSubscriberStatusInput is an input type that accepts values of the AnomalySubscriptionSubscriberStatus enum
+// A concrete instance of `AnomalySubscriptionSubscriberStatusInput` can be one of the following:
 //
-//	AnomalySubscriptionSubscriberStatusArgs{...}
+//	AnomalySubscriptionSubscriberStatusConfirmed
+//	AnomalySubscriptionSubscriberStatusDeclined
 type AnomalySubscriptionSubscriberStatusInput interface {
 	pulumi.Input
 
@@ -808,12 +764,6 @@ func (o AnomalySubscriptionSubscriberTypeOutput) ToAnomalySubscriptionSubscriber
 	}).(AnomalySubscriptionSubscriberTypePtrOutput)
 }
 
-func (o AnomalySubscriptionSubscriberTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionSubscriberType] {
-	return pulumix.Output[AnomalySubscriptionSubscriberType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalySubscriptionSubscriberTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -849,12 +799,6 @@ func (o AnomalySubscriptionSubscriberTypePtrOutput) ToAnomalySubscriptionSubscri
 	return o
 }
 
-func (o AnomalySubscriptionSubscriberTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionSubscriberType] {
-	return pulumix.Output[*AnomalySubscriptionSubscriberType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalySubscriptionSubscriberTypePtrOutput) Elem() AnomalySubscriptionSubscriberTypeOutput {
 	return o.ApplyT(func(v *AnomalySubscriptionSubscriberType) AnomalySubscriptionSubscriberType {
 		if v != nil {
@@ -879,10 +823,11 @@ func (o AnomalySubscriptionSubscriberTypePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnomalySubscriptionSubscriberTypeInput is an input type that accepts AnomalySubscriptionSubscriberTypeArgs and AnomalySubscriptionSubscriberTypeOutput values.
-// You can construct a concrete instance of `AnomalySubscriptionSubscriberTypeInput` via:
+// AnomalySubscriptionSubscriberTypeInput is an input type that accepts values of the AnomalySubscriptionSubscriberType enum
+// A concrete instance of `AnomalySubscriptionSubscriberTypeInput` can be one of the following:
 //
-//	AnomalySubscriptionSubscriberTypeArgs{...}
+//	AnomalySubscriptionSubscriberTypeEmail
+//	AnomalySubscriptionSubscriberTypeSns
 type AnomalySubscriptionSubscriberTypeInput interface {
 	pulumi.Input
 
@@ -989,12 +934,6 @@ func (o CostCategoryRuleVersionOutput) ToCostCategoryRuleVersionPtrOutputWithCon
 	}).(CostCategoryRuleVersionPtrOutput)
 }
 
-func (o CostCategoryRuleVersionOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleVersion] {
-	return pulumix.Output[CostCategoryRuleVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CostCategoryRuleVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1030,12 +969,6 @@ func (o CostCategoryRuleVersionPtrOutput) ToCostCategoryRuleVersionPtrOutputWith
 	return o
 }
 
-func (o CostCategoryRuleVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleVersion] {
-	return pulumix.Output[*CostCategoryRuleVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CostCategoryRuleVersionPtrOutput) Elem() CostCategoryRuleVersionOutput {
 	return o.ApplyT(func(v *CostCategoryRuleVersion) CostCategoryRuleVersion {
 		if v != nil {
@@ -1060,10 +993,10 @@ func (o CostCategoryRuleVersionPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// CostCategoryRuleVersionInput is an input type that accepts CostCategoryRuleVersionArgs and CostCategoryRuleVersionOutput values.
-// You can construct a concrete instance of `CostCategoryRuleVersionInput` via:
+// CostCategoryRuleVersionInput is an input type that accepts values of the CostCategoryRuleVersion enum
+// A concrete instance of `CostCategoryRuleVersionInput` can be one of the following:
 //
-//	CostCategoryRuleVersionArgs{...}
+//	CostCategoryRuleVersionCostCategoryExpressionV1
 type CostCategoryRuleVersionInput interface {
 	pulumi.Input
 

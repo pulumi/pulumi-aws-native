@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::AppFlow::Connector
@@ -73,12 +72,6 @@ func (o LookupConnectorResultOutput) ToLookupConnectorResultOutput() LookupConne
 
 func (o LookupConnectorResultOutput) ToLookupConnectorResultOutputWithContext(ctx context.Context) LookupConnectorResultOutput {
 	return o
-}
-
-func (o LookupConnectorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConnectorResult] {
-	return pulumix.Output[LookupConnectorResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The arn of the connector. The arn is unique for each ConnectorRegistration in your AWS account.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::NetworkPerformanceMetricSubscription
@@ -131,12 +130,6 @@ func (i *NetworkPerformanceMetricSubscription) ToNetworkPerformanceMetricSubscri
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPerformanceMetricSubscriptionOutput)
 }
 
-func (i *NetworkPerformanceMetricSubscription) ToOutput(ctx context.Context) pulumix.Output[*NetworkPerformanceMetricSubscription] {
-	return pulumix.Output[*NetworkPerformanceMetricSubscription]{
-		OutputState: i.ToNetworkPerformanceMetricSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkPerformanceMetricSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (NetworkPerformanceMetricSubscriptionOutput) ElementType() reflect.Type {
@@ -149,12 +142,6 @@ func (o NetworkPerformanceMetricSubscriptionOutput) ToNetworkPerformanceMetricSu
 
 func (o NetworkPerformanceMetricSubscriptionOutput) ToNetworkPerformanceMetricSubscriptionOutputWithContext(ctx context.Context) NetworkPerformanceMetricSubscriptionOutput {
 	return o
-}
-
-func (o NetworkPerformanceMetricSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkPerformanceMetricSubscription] {
-	return pulumix.Output[*NetworkPerformanceMetricSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The target Region or Availability Zone for the metric to subscribe to.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoT1Click::Placement
@@ -111,12 +110,6 @@ func (i *Placement) ToPlacementOutputWithContext(ctx context.Context) PlacementO
 	return pulumi.ToOutputWithContext(ctx, i).(PlacementOutput)
 }
 
-func (i *Placement) ToOutput(ctx context.Context) pulumix.Output[*Placement] {
-	return pulumix.Output[*Placement]{
-		OutputState: i.ToPlacementOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlacementOutput struct{ *pulumi.OutputState }
 
 func (PlacementOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o PlacementOutput) ToPlacementOutput() PlacementOutput {
 
 func (o PlacementOutput) ToPlacementOutputWithContext(ctx context.Context) PlacementOutput {
 	return o
-}
-
-func (o PlacementOutput) ToOutput(ctx context.Context) pulumix.Output[*Placement] {
-	return pulumix.Output[*Placement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlacementOutput) AssociatedDevices() pulumi.AnyOutput {

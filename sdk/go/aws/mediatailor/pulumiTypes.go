@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -61,12 +60,6 @@ func (i ChannelDashPlaylistSettingsArgs) ToChannelDashPlaylistSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDashPlaylistSettingsOutput)
 }
 
-func (i ChannelDashPlaylistSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelDashPlaylistSettings] {
-	return pulumix.Output[ChannelDashPlaylistSettings]{
-		OutputState: i.ToChannelDashPlaylistSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelDashPlaylistSettingsArgs) ToChannelDashPlaylistSettingsPtrOutput() ChannelDashPlaylistSettingsPtrOutput {
 	return i.ToChannelDashPlaylistSettingsPtrOutputWithContext(context.Background())
 }
@@ -108,12 +101,6 @@ func (i *channelDashPlaylistSettingsPtrType) ToChannelDashPlaylistSettingsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDashPlaylistSettingsPtrOutput)
 }
 
-func (i *channelDashPlaylistSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelDashPlaylistSettings] {
-	return pulumix.Output[*ChannelDashPlaylistSettings]{
-		OutputState: i.ToChannelDashPlaylistSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Dash manifest configuration parameters.</p>
 type ChannelDashPlaylistSettingsOutput struct{ *pulumi.OutputState }
 
@@ -137,12 +124,6 @@ func (o ChannelDashPlaylistSettingsOutput) ToChannelDashPlaylistSettingsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelDashPlaylistSettings) *ChannelDashPlaylistSettings {
 		return &v
 	}).(ChannelDashPlaylistSettingsPtrOutput)
-}
-
-func (o ChannelDashPlaylistSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelDashPlaylistSettings] {
-	return pulumix.Output[ChannelDashPlaylistSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
@@ -177,12 +158,6 @@ func (o ChannelDashPlaylistSettingsPtrOutput) ToChannelDashPlaylistSettingsPtrOu
 
 func (o ChannelDashPlaylistSettingsPtrOutput) ToChannelDashPlaylistSettingsPtrOutputWithContext(ctx context.Context) ChannelDashPlaylistSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelDashPlaylistSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelDashPlaylistSettings] {
-	return pulumix.Output[*ChannelDashPlaylistSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelDashPlaylistSettingsPtrOutput) Elem() ChannelDashPlaylistSettingsOutput {
@@ -274,12 +249,6 @@ func (i ChannelHlsPlaylistSettingsArgs) ToChannelHlsPlaylistSettingsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsPlaylistSettingsOutput)
 }
 
-func (i ChannelHlsPlaylistSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsPlaylistSettings] {
-	return pulumix.Output[ChannelHlsPlaylistSettings]{
-		OutputState: i.ToChannelHlsPlaylistSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHlsPlaylistSettingsArgs) ToChannelHlsPlaylistSettingsPtrOutput() ChannelHlsPlaylistSettingsPtrOutput {
 	return i.ToChannelHlsPlaylistSettingsPtrOutputWithContext(context.Background())
 }
@@ -321,12 +290,6 @@ func (i *channelHlsPlaylistSettingsPtrType) ToChannelHlsPlaylistSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsPlaylistSettingsPtrOutput)
 }
 
-func (i *channelHlsPlaylistSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsPlaylistSettings] {
-	return pulumix.Output[*ChannelHlsPlaylistSettings]{
-		OutputState: i.ToChannelHlsPlaylistSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>HLS playlist configuration parameters.</p>
 type ChannelHlsPlaylistSettingsOutput struct{ *pulumi.OutputState }
 
@@ -352,12 +315,6 @@ func (o ChannelHlsPlaylistSettingsOutput) ToChannelHlsPlaylistSettingsPtrOutputW
 	}).(ChannelHlsPlaylistSettingsPtrOutput)
 }
 
-func (o ChannelHlsPlaylistSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsPlaylistSettings] {
-	return pulumix.Output[ChannelHlsPlaylistSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
 func (o ChannelHlsPlaylistSettingsOutput) AdMarkupType() ChannelAdMarkupTypeArrayOutput {
 	return o.ApplyT(func(v ChannelHlsPlaylistSettings) []ChannelAdMarkupType { return v.AdMarkupType }).(ChannelAdMarkupTypeArrayOutput)
@@ -380,12 +337,6 @@ func (o ChannelHlsPlaylistSettingsPtrOutput) ToChannelHlsPlaylistSettingsPtrOutp
 
 func (o ChannelHlsPlaylistSettingsPtrOutput) ToChannelHlsPlaylistSettingsPtrOutputWithContext(ctx context.Context) ChannelHlsPlaylistSettingsPtrOutput {
 	return o
-}
-
-func (o ChannelHlsPlaylistSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsPlaylistSettings] {
-	return pulumix.Output[*ChannelHlsPlaylistSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsPlaylistSettingsPtrOutput) Elem() ChannelHlsPlaylistSettingsOutput {
@@ -453,12 +404,6 @@ func (i ChannelLogConfigurationForChannelArgs) ToChannelLogConfigurationForChann
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogConfigurationForChannelOutput)
 }
 
-func (i ChannelLogConfigurationForChannelArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelLogConfigurationForChannel] {
-	return pulumix.Output[ChannelLogConfigurationForChannel]{
-		OutputState: i.ToChannelLogConfigurationForChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelLogConfigurationForChannelArgs) ToChannelLogConfigurationForChannelPtrOutput() ChannelLogConfigurationForChannelPtrOutput {
 	return i.ToChannelLogConfigurationForChannelPtrOutputWithContext(context.Background())
 }
@@ -500,12 +445,6 @@ func (i *channelLogConfigurationForChannelPtrType) ToChannelLogConfigurationForC
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogConfigurationForChannelPtrOutput)
 }
 
-func (i *channelLogConfigurationForChannelPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelLogConfigurationForChannel] {
-	return pulumix.Output[*ChannelLogConfigurationForChannel]{
-		OutputState: i.ToChannelLogConfigurationForChannelPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The log configuration for the channel.</p>
 type ChannelLogConfigurationForChannelOutput struct{ *pulumi.OutputState }
 
@@ -531,12 +470,6 @@ func (o ChannelLogConfigurationForChannelOutput) ToChannelLogConfigurationForCha
 	}).(ChannelLogConfigurationForChannelPtrOutput)
 }
 
-func (o ChannelLogConfigurationForChannelOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelLogConfigurationForChannel] {
-	return pulumix.Output[ChannelLogConfigurationForChannel]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The log types.</p>
 func (o ChannelLogConfigurationForChannelOutput) LogTypes() ChannelLogTypeArrayOutput {
 	return o.ApplyT(func(v ChannelLogConfigurationForChannel) []ChannelLogType { return v.LogTypes }).(ChannelLogTypeArrayOutput)
@@ -554,12 +487,6 @@ func (o ChannelLogConfigurationForChannelPtrOutput) ToChannelLogConfigurationFor
 
 func (o ChannelLogConfigurationForChannelPtrOutput) ToChannelLogConfigurationForChannelPtrOutputWithContext(ctx context.Context) ChannelLogConfigurationForChannelPtrOutput {
 	return o
-}
-
-func (o ChannelLogConfigurationForChannelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelLogConfigurationForChannel] {
-	return pulumix.Output[*ChannelLogConfigurationForChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelLogConfigurationForChannelPtrOutput) Elem() ChannelLogConfigurationForChannelOutput {
@@ -625,12 +552,6 @@ func (i ChannelRequestOutputItemArgs) ToChannelRequestOutputItemOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRequestOutputItemOutput)
 }
 
-func (i ChannelRequestOutputItemArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelRequestOutputItem] {
-	return pulumix.Output[ChannelRequestOutputItem]{
-		OutputState: i.ToChannelRequestOutputItemOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelRequestOutputItemArrayInput is an input type that accepts ChannelRequestOutputItemArray and ChannelRequestOutputItemArrayOutput values.
 // You can construct a concrete instance of `ChannelRequestOutputItemArrayInput` via:
 //
@@ -656,12 +577,6 @@ func (i ChannelRequestOutputItemArray) ToChannelRequestOutputItemArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelRequestOutputItemArrayOutput)
 }
 
-func (i ChannelRequestOutputItemArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelRequestOutputItem] {
-	return pulumix.Output[[]ChannelRequestOutputItem]{
-		OutputState: i.ToChannelRequestOutputItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The output configuration for this channel.</p>
 type ChannelRequestOutputItemOutput struct{ *pulumi.OutputState }
 
@@ -675,12 +590,6 @@ func (o ChannelRequestOutputItemOutput) ToChannelRequestOutputItemOutput() Chann
 
 func (o ChannelRequestOutputItemOutput) ToChannelRequestOutputItemOutputWithContext(ctx context.Context) ChannelRequestOutputItemOutput {
 	return o
-}
-
-func (o ChannelRequestOutputItemOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelRequestOutputItem] {
-	return pulumix.Output[ChannelRequestOutputItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelRequestOutputItemOutput) DashPlaylistSettings() ChannelDashPlaylistSettingsPtrOutput {
@@ -713,12 +622,6 @@ func (o ChannelRequestOutputItemArrayOutput) ToChannelRequestOutputItemArrayOutp
 
 func (o ChannelRequestOutputItemArrayOutput) ToChannelRequestOutputItemArrayOutputWithContext(ctx context.Context) ChannelRequestOutputItemArrayOutput {
 	return o
-}
-
-func (o ChannelRequestOutputItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelRequestOutputItem] {
-	return pulumix.Output[[]ChannelRequestOutputItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelRequestOutputItemArrayOutput) Index(i pulumi.IntInput) ChannelRequestOutputItemOutput {
@@ -766,12 +669,6 @@ func (i ChannelSlateSourceArgs) ToChannelSlateSourceOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlateSourceOutput)
 }
 
-func (i ChannelSlateSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelSlateSource] {
-	return pulumix.Output[ChannelSlateSource]{
-		OutputState: i.ToChannelSlateSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelSlateSourceArgs) ToChannelSlateSourcePtrOutput() ChannelSlateSourcePtrOutput {
 	return i.ToChannelSlateSourcePtrOutputWithContext(context.Background())
 }
@@ -813,12 +710,6 @@ func (i *channelSlateSourcePtrType) ToChannelSlateSourcePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlateSourcePtrOutput)
 }
 
-func (i *channelSlateSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelSlateSource] {
-	return pulumix.Output[*ChannelSlateSource]{
-		OutputState: i.ToChannelSlateSourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Slate VOD source configuration.</p>
 type ChannelSlateSourceOutput struct{ *pulumi.OutputState }
 
@@ -844,12 +735,6 @@ func (o ChannelSlateSourceOutput) ToChannelSlateSourcePtrOutputWithContext(ctx c
 	}).(ChannelSlateSourcePtrOutput)
 }
 
-func (o ChannelSlateSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelSlateSource] {
-	return pulumix.Output[ChannelSlateSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The name of the source location where the slate VOD source is stored.</p>
 func (o ChannelSlateSourceOutput) SourceLocationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelSlateSource) *string { return v.SourceLocationName }).(pulumi.StringPtrOutput)
@@ -872,12 +757,6 @@ func (o ChannelSlateSourcePtrOutput) ToChannelSlateSourcePtrOutput() ChannelSlat
 
 func (o ChannelSlateSourcePtrOutput) ToChannelSlateSourcePtrOutputWithContext(ctx context.Context) ChannelSlateSourcePtrOutput {
 	return o
-}
-
-func (o ChannelSlateSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelSlateSource] {
-	return pulumix.Output[*ChannelSlateSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelSlateSourcePtrOutput) Elem() ChannelSlateSourceOutput {
@@ -943,12 +822,6 @@ func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) Chann
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
 }
 
-func (i ChannelTagArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTag] {
-	return pulumix.Output[ChannelTag]{
-		OutputState: i.ToChannelTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
 // You can construct a concrete instance of `ChannelTagArrayInput` via:
 //
@@ -974,12 +847,6 @@ func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
 }
 
-func (i ChannelTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelTag] {
-	return pulumix.Output[[]ChannelTag]{
-		OutputState: i.ToChannelTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelTagOutput struct{ *pulumi.OutputState }
 
 func (ChannelTagOutput) ElementType() reflect.Type {
@@ -992,12 +859,6 @@ func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
 
 func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
 	return o
-}
-
-func (o ChannelTagOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTag] {
-	return pulumix.Output[ChannelTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTagOutput) Key() pulumi.StringOutput {
@@ -1020,12 +881,6 @@ func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
 
 func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
 	return o
-}
-
-func (o ChannelTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelTag] {
-	return pulumix.Output[[]ChannelTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
@@ -1069,12 +924,6 @@ func (i ChannelTimeShiftConfigurationArgs) ToChannelTimeShiftConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTimeShiftConfigurationOutput)
 }
 
-func (i ChannelTimeShiftConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTimeShiftConfiguration] {
-	return pulumix.Output[ChannelTimeShiftConfiguration]{
-		OutputState: i.ToChannelTimeShiftConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelTimeShiftConfigurationArgs) ToChannelTimeShiftConfigurationPtrOutput() ChannelTimeShiftConfigurationPtrOutput {
 	return i.ToChannelTimeShiftConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1116,12 +965,6 @@ func (i *channelTimeShiftConfigurationPtrType) ToChannelTimeShiftConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTimeShiftConfigurationPtrOutput)
 }
 
-func (i *channelTimeShiftConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelTimeShiftConfiguration] {
-	return pulumix.Output[*ChannelTimeShiftConfiguration]{
-		OutputState: i.ToChannelTimeShiftConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The configuration for time-shifted viewing.</p>
 type ChannelTimeShiftConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1147,12 +990,6 @@ func (o ChannelTimeShiftConfigurationOutput) ToChannelTimeShiftConfigurationPtrO
 	}).(ChannelTimeShiftConfigurationPtrOutput)
 }
 
-func (o ChannelTimeShiftConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTimeShiftConfiguration] {
-	return pulumix.Output[ChannelTimeShiftConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
 func (o ChannelTimeShiftConfigurationOutput) MaxTimeDelaySeconds() pulumi.Float64Output {
 	return o.ApplyT(func(v ChannelTimeShiftConfiguration) float64 { return v.MaxTimeDelaySeconds }).(pulumi.Float64Output)
@@ -1170,12 +1007,6 @@ func (o ChannelTimeShiftConfigurationPtrOutput) ToChannelTimeShiftConfigurationP
 
 func (o ChannelTimeShiftConfigurationPtrOutput) ToChannelTimeShiftConfigurationPtrOutputWithContext(ctx context.Context) ChannelTimeShiftConfigurationPtrOutput {
 	return o
-}
-
-func (o ChannelTimeShiftConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelTimeShiftConfiguration] {
-	return pulumix.Output[*ChannelTimeShiftConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTimeShiftConfigurationPtrOutput) Elem() ChannelTimeShiftConfigurationOutput {
@@ -1239,12 +1070,6 @@ func (i LiveSourceHttpPackageConfigurationArgs) ToLiveSourceHttpPackageConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(LiveSourceHttpPackageConfigurationOutput)
 }
 
-func (i LiveSourceHttpPackageConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LiveSourceHttpPackageConfiguration] {
-	return pulumix.Output[LiveSourceHttpPackageConfiguration]{
-		OutputState: i.ToLiveSourceHttpPackageConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LiveSourceHttpPackageConfigurationArrayInput is an input type that accepts LiveSourceHttpPackageConfigurationArray and LiveSourceHttpPackageConfigurationArrayOutput values.
 // You can construct a concrete instance of `LiveSourceHttpPackageConfigurationArrayInput` via:
 //
@@ -1270,12 +1095,6 @@ func (i LiveSourceHttpPackageConfigurationArray) ToLiveSourceHttpPackageConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(LiveSourceHttpPackageConfigurationArrayOutput)
 }
 
-func (i LiveSourceHttpPackageConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]LiveSourceHttpPackageConfiguration] {
-	return pulumix.Output[[]LiveSourceHttpPackageConfiguration]{
-		OutputState: i.ToLiveSourceHttpPackageConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The HTTP package configuration properties for the requested VOD source.</p>
 type LiveSourceHttpPackageConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1289,12 +1108,6 @@ func (o LiveSourceHttpPackageConfigurationOutput) ToLiveSourceHttpPackageConfigu
 
 func (o LiveSourceHttpPackageConfigurationOutput) ToLiveSourceHttpPackageConfigurationOutputWithContext(ctx context.Context) LiveSourceHttpPackageConfigurationOutput {
 	return o
-}
-
-func (o LiveSourceHttpPackageConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LiveSourceHttpPackageConfiguration] {
-	return pulumix.Output[LiveSourceHttpPackageConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
@@ -1323,12 +1136,6 @@ func (o LiveSourceHttpPackageConfigurationArrayOutput) ToLiveSourceHttpPackageCo
 
 func (o LiveSourceHttpPackageConfigurationArrayOutput) ToLiveSourceHttpPackageConfigurationArrayOutputWithContext(ctx context.Context) LiveSourceHttpPackageConfigurationArrayOutput {
 	return o
-}
-
-func (o LiveSourceHttpPackageConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LiveSourceHttpPackageConfiguration] {
-	return pulumix.Output[[]LiveSourceHttpPackageConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveSourceHttpPackageConfigurationArrayOutput) Index(i pulumi.IntInput) LiveSourceHttpPackageConfigurationOutput {
@@ -1370,12 +1177,6 @@ func (i LiveSourceTagArgs) ToLiveSourceTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LiveSourceTagOutput)
 }
 
-func (i LiveSourceTagArgs) ToOutput(ctx context.Context) pulumix.Output[LiveSourceTag] {
-	return pulumix.Output[LiveSourceTag]{
-		OutputState: i.ToLiveSourceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LiveSourceTagArrayInput is an input type that accepts LiveSourceTagArray and LiveSourceTagArrayOutput values.
 // You can construct a concrete instance of `LiveSourceTagArrayInput` via:
 //
@@ -1401,12 +1202,6 @@ func (i LiveSourceTagArray) ToLiveSourceTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(LiveSourceTagArrayOutput)
 }
 
-func (i LiveSourceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LiveSourceTag] {
-	return pulumix.Output[[]LiveSourceTag]{
-		OutputState: i.ToLiveSourceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LiveSourceTagOutput struct{ *pulumi.OutputState }
 
 func (LiveSourceTagOutput) ElementType() reflect.Type {
@@ -1419,12 +1214,6 @@ func (o LiveSourceTagOutput) ToLiveSourceTagOutput() LiveSourceTagOutput {
 
 func (o LiveSourceTagOutput) ToLiveSourceTagOutputWithContext(ctx context.Context) LiveSourceTagOutput {
 	return o
-}
-
-func (o LiveSourceTagOutput) ToOutput(ctx context.Context) pulumix.Output[LiveSourceTag] {
-	return pulumix.Output[LiveSourceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveSourceTagOutput) Key() pulumi.StringOutput {
@@ -1447,12 +1236,6 @@ func (o LiveSourceTagArrayOutput) ToLiveSourceTagArrayOutput() LiveSourceTagArra
 
 func (o LiveSourceTagArrayOutput) ToLiveSourceTagArrayOutputWithContext(ctx context.Context) LiveSourceTagArrayOutput {
 	return o
-}
-
-func (o LiveSourceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LiveSourceTag] {
-	return pulumix.Output[[]LiveSourceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveSourceTagArrayOutput) Index(i pulumi.IntInput) LiveSourceTagOutput {
@@ -1496,12 +1279,6 @@ func (i PlaybackConfigurationAdMarkerPassthroughArgs) ToPlaybackConfigurationAdM
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdMarkerPassthroughOutput)
 }
 
-func (i PlaybackConfigurationAdMarkerPassthroughArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationAdMarkerPassthrough] {
-	return pulumix.Output[PlaybackConfigurationAdMarkerPassthrough]{
-		OutputState: i.ToPlaybackConfigurationAdMarkerPassthroughOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PlaybackConfigurationAdMarkerPassthroughArgs) ToPlaybackConfigurationAdMarkerPassthroughPtrOutput() PlaybackConfigurationAdMarkerPassthroughPtrOutput {
 	return i.ToPlaybackConfigurationAdMarkerPassthroughPtrOutputWithContext(context.Background())
 }
@@ -1543,12 +1320,6 @@ func (i *playbackConfigurationAdMarkerPassthroughPtrType) ToPlaybackConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdMarkerPassthroughPtrOutput)
 }
 
-func (i *playbackConfigurationAdMarkerPassthroughPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAdMarkerPassthrough] {
-	return pulumix.Output[*PlaybackConfigurationAdMarkerPassthrough]{
-		OutputState: i.ToPlaybackConfigurationAdMarkerPassthroughPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
 type PlaybackConfigurationAdMarkerPassthroughOutput struct{ *pulumi.OutputState }
 
@@ -1574,12 +1345,6 @@ func (o PlaybackConfigurationAdMarkerPassthroughOutput) ToPlaybackConfigurationA
 	}).(PlaybackConfigurationAdMarkerPassthroughPtrOutput)
 }
 
-func (o PlaybackConfigurationAdMarkerPassthroughOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationAdMarkerPassthrough] {
-	return pulumix.Output[PlaybackConfigurationAdMarkerPassthrough]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Enables ad marker passthrough for your configuration.
 func (o PlaybackConfigurationAdMarkerPassthroughOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationAdMarkerPassthrough) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -1597,12 +1362,6 @@ func (o PlaybackConfigurationAdMarkerPassthroughPtrOutput) ToPlaybackConfigurati
 
 func (o PlaybackConfigurationAdMarkerPassthroughPtrOutput) ToPlaybackConfigurationAdMarkerPassthroughPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdMarkerPassthroughPtrOutput {
 	return o
-}
-
-func (o PlaybackConfigurationAdMarkerPassthroughPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAdMarkerPassthrough] {
-	return pulumix.Output[*PlaybackConfigurationAdMarkerPassthrough]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaybackConfigurationAdMarkerPassthroughPtrOutput) Elem() PlaybackConfigurationAdMarkerPassthroughOutput {
@@ -1664,12 +1423,6 @@ func (i PlaybackConfigurationAvailSuppressionArgs) ToPlaybackConfigurationAvailS
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAvailSuppressionOutput)
 }
 
-func (i PlaybackConfigurationAvailSuppressionArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationAvailSuppression] {
-	return pulumix.Output[PlaybackConfigurationAvailSuppression]{
-		OutputState: i.ToPlaybackConfigurationAvailSuppressionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PlaybackConfigurationAvailSuppressionArgs) ToPlaybackConfigurationAvailSuppressionPtrOutput() PlaybackConfigurationAvailSuppressionPtrOutput {
 	return i.ToPlaybackConfigurationAvailSuppressionPtrOutputWithContext(context.Background())
 }
@@ -1711,12 +1464,6 @@ func (i *playbackConfigurationAvailSuppressionPtrType) ToPlaybackConfigurationAv
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAvailSuppressionPtrOutput)
 }
 
-func (i *playbackConfigurationAvailSuppressionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAvailSuppression] {
-	return pulumix.Output[*PlaybackConfigurationAvailSuppression]{
-		OutputState: i.ToPlaybackConfigurationAvailSuppressionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
 type PlaybackConfigurationAvailSuppressionOutput struct{ *pulumi.OutputState }
 
@@ -1740,12 +1487,6 @@ func (o PlaybackConfigurationAvailSuppressionOutput) ToPlaybackConfigurationAvai
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationAvailSuppression) *PlaybackConfigurationAvailSuppression {
 		return &v
 	}).(PlaybackConfigurationAvailSuppressionPtrOutput)
-}
-
-func (o PlaybackConfigurationAvailSuppressionOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationAvailSuppression] {
-	return pulumix.Output[PlaybackConfigurationAvailSuppression]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
@@ -1772,12 +1513,6 @@ func (o PlaybackConfigurationAvailSuppressionPtrOutput) ToPlaybackConfigurationA
 
 func (o PlaybackConfigurationAvailSuppressionPtrOutput) ToPlaybackConfigurationAvailSuppressionPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAvailSuppressionPtrOutput {
 	return o
-}
-
-func (o PlaybackConfigurationAvailSuppressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAvailSuppression] {
-	return pulumix.Output[*PlaybackConfigurationAvailSuppression]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaybackConfigurationAvailSuppressionPtrOutput) Elem() PlaybackConfigurationAvailSuppressionOutput {
@@ -1849,12 +1584,6 @@ func (i PlaybackConfigurationBumperArgs) ToPlaybackConfigurationBumperOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationBumperOutput)
 }
 
-func (i PlaybackConfigurationBumperArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationBumper] {
-	return pulumix.Output[PlaybackConfigurationBumper]{
-		OutputState: i.ToPlaybackConfigurationBumperOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PlaybackConfigurationBumperArgs) ToPlaybackConfigurationBumperPtrOutput() PlaybackConfigurationBumperPtrOutput {
 	return i.ToPlaybackConfigurationBumperPtrOutputWithContext(context.Background())
 }
@@ -1896,12 +1625,6 @@ func (i *playbackConfigurationBumperPtrType) ToPlaybackConfigurationBumperPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationBumperPtrOutput)
 }
 
-func (i *playbackConfigurationBumperPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationBumper] {
-	return pulumix.Output[*PlaybackConfigurationBumper]{
-		OutputState: i.ToPlaybackConfigurationBumperPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
 type PlaybackConfigurationBumperOutput struct{ *pulumi.OutputState }
 
@@ -1927,12 +1650,6 @@ func (o PlaybackConfigurationBumperOutput) ToPlaybackConfigurationBumperPtrOutpu
 	}).(PlaybackConfigurationBumperPtrOutput)
 }
 
-func (o PlaybackConfigurationBumperOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationBumper] {
-	return pulumix.Output[PlaybackConfigurationBumper]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The URL for the end bumper asset.
 func (o PlaybackConfigurationBumperOutput) EndUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationBumper) *string { return v.EndUrl }).(pulumi.StringPtrOutput)
@@ -1955,12 +1672,6 @@ func (o PlaybackConfigurationBumperPtrOutput) ToPlaybackConfigurationBumperPtrOu
 
 func (o PlaybackConfigurationBumperPtrOutput) ToPlaybackConfigurationBumperPtrOutputWithContext(ctx context.Context) PlaybackConfigurationBumperPtrOutput {
 	return o
-}
-
-func (o PlaybackConfigurationBumperPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationBumper] {
-	return pulumix.Output[*PlaybackConfigurationBumper]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaybackConfigurationBumperPtrOutput) Elem() PlaybackConfigurationBumperOutput {
@@ -2032,12 +1743,6 @@ func (i PlaybackConfigurationCdnConfigurationArgs) ToPlaybackConfigurationCdnCon
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationCdnConfigurationOutput)
 }
 
-func (i PlaybackConfigurationCdnConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationCdnConfiguration] {
-	return pulumix.Output[PlaybackConfigurationCdnConfiguration]{
-		OutputState: i.ToPlaybackConfigurationCdnConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PlaybackConfigurationCdnConfigurationArgs) ToPlaybackConfigurationCdnConfigurationPtrOutput() PlaybackConfigurationCdnConfigurationPtrOutput {
 	return i.ToPlaybackConfigurationCdnConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2079,12 +1784,6 @@ func (i *playbackConfigurationCdnConfigurationPtrType) ToPlaybackConfigurationCd
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationCdnConfigurationPtrOutput)
 }
 
-func (i *playbackConfigurationCdnConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationCdnConfiguration] {
-	return pulumix.Output[*PlaybackConfigurationCdnConfiguration]{
-		OutputState: i.ToPlaybackConfigurationCdnConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
 type PlaybackConfigurationCdnConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2110,12 +1809,6 @@ func (o PlaybackConfigurationCdnConfigurationOutput) ToPlaybackConfigurationCdnC
 	}).(PlaybackConfigurationCdnConfigurationPtrOutput)
 }
 
-func (o PlaybackConfigurationCdnConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationCdnConfiguration] {
-	return pulumix.Output[PlaybackConfigurationCdnConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
 func (o PlaybackConfigurationCdnConfigurationOutput) AdSegmentUrlPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationCdnConfiguration) *string { return v.AdSegmentUrlPrefix }).(pulumi.StringPtrOutput)
@@ -2138,12 +1831,6 @@ func (o PlaybackConfigurationCdnConfigurationPtrOutput) ToPlaybackConfigurationC
 
 func (o PlaybackConfigurationCdnConfigurationPtrOutput) ToPlaybackConfigurationCdnConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationCdnConfigurationPtrOutput {
 	return o
-}
-
-func (o PlaybackConfigurationCdnConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationCdnConfiguration] {
-	return pulumix.Output[*PlaybackConfigurationCdnConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaybackConfigurationCdnConfigurationPtrOutput) Elem() PlaybackConfigurationCdnConfigurationOutput {
@@ -2219,12 +1906,6 @@ func (i PlaybackConfigurationDashConfigurationArgs) ToPlaybackConfigurationDashC
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationDashConfigurationOutput)
 }
 
-func (i PlaybackConfigurationDashConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationDashConfiguration] {
-	return pulumix.Output[PlaybackConfigurationDashConfiguration]{
-		OutputState: i.ToPlaybackConfigurationDashConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PlaybackConfigurationDashConfigurationArgs) ToPlaybackConfigurationDashConfigurationPtrOutput() PlaybackConfigurationDashConfigurationPtrOutput {
 	return i.ToPlaybackConfigurationDashConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2266,12 +1947,6 @@ func (i *playbackConfigurationDashConfigurationPtrType) ToPlaybackConfigurationD
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationDashConfigurationPtrOutput)
 }
 
-func (i *playbackConfigurationDashConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationDashConfiguration] {
-	return pulumix.Output[*PlaybackConfigurationDashConfiguration]{
-		OutputState: i.ToPlaybackConfigurationDashConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration for DASH PUT operations.
 type PlaybackConfigurationDashConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2295,12 +1970,6 @@ func (o PlaybackConfigurationDashConfigurationOutput) ToPlaybackConfigurationDas
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationDashConfiguration) *PlaybackConfigurationDashConfiguration {
 		return &v
 	}).(PlaybackConfigurationDashConfigurationPtrOutput)
-}
-
-func (o PlaybackConfigurationDashConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationDashConfiguration] {
-	return pulumix.Output[PlaybackConfigurationDashConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The URL generated by MediaTailor to initiate a DASH playback session. The session uses server-side reporting.
@@ -2332,12 +2001,6 @@ func (o PlaybackConfigurationDashConfigurationPtrOutput) ToPlaybackConfiguration
 
 func (o PlaybackConfigurationDashConfigurationPtrOutput) ToPlaybackConfigurationDashConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationPtrOutput {
 	return o
-}
-
-func (o PlaybackConfigurationDashConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationDashConfiguration] {
-	return pulumix.Output[*PlaybackConfigurationDashConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaybackConfigurationDashConfigurationPtrOutput) Elem() PlaybackConfigurationDashConfigurationOutput {
@@ -2413,12 +2076,6 @@ func (i PlaybackConfigurationHlsConfigurationArgs) ToPlaybackConfigurationHlsCon
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationHlsConfigurationOutput)
 }
 
-func (i PlaybackConfigurationHlsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationHlsConfiguration] {
-	return pulumix.Output[PlaybackConfigurationHlsConfiguration]{
-		OutputState: i.ToPlaybackConfigurationHlsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PlaybackConfigurationHlsConfigurationArgs) ToPlaybackConfigurationHlsConfigurationPtrOutput() PlaybackConfigurationHlsConfigurationPtrOutput {
 	return i.ToPlaybackConfigurationHlsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2460,12 +2117,6 @@ func (i *playbackConfigurationHlsConfigurationPtrType) ToPlaybackConfigurationHl
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationHlsConfigurationPtrOutput)
 }
 
-func (i *playbackConfigurationHlsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationHlsConfiguration] {
-	return pulumix.Output[*PlaybackConfigurationHlsConfiguration]{
-		OutputState: i.ToPlaybackConfigurationHlsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlaybackConfigurationHlsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PlaybackConfigurationHlsConfigurationOutput) ElementType() reflect.Type {
@@ -2490,12 +2141,6 @@ func (o PlaybackConfigurationHlsConfigurationOutput) ToPlaybackConfigurationHlsC
 	}).(PlaybackConfigurationHlsConfigurationPtrOutput)
 }
 
-func (o PlaybackConfigurationHlsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationHlsConfiguration] {
-	return pulumix.Output[PlaybackConfigurationHlsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The URL that is used to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.
 func (o PlaybackConfigurationHlsConfigurationOutput) ManifestEndpointPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationHlsConfiguration) *string { return v.ManifestEndpointPrefix }).(pulumi.StringPtrOutput)
@@ -2513,12 +2158,6 @@ func (o PlaybackConfigurationHlsConfigurationPtrOutput) ToPlaybackConfigurationH
 
 func (o PlaybackConfigurationHlsConfigurationPtrOutput) ToPlaybackConfigurationHlsConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHlsConfigurationPtrOutput {
 	return o
-}
-
-func (o PlaybackConfigurationHlsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationHlsConfiguration] {
-	return pulumix.Output[*PlaybackConfigurationHlsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaybackConfigurationHlsConfigurationPtrOutput) Elem() PlaybackConfigurationHlsConfigurationOutput {
@@ -2580,12 +2219,6 @@ func (i PlaybackConfigurationLivePreRollConfigurationArgs) ToPlaybackConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationLivePreRollConfigurationOutput)
 }
 
-func (i PlaybackConfigurationLivePreRollConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationLivePreRollConfiguration] {
-	return pulumix.Output[PlaybackConfigurationLivePreRollConfiguration]{
-		OutputState: i.ToPlaybackConfigurationLivePreRollConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PlaybackConfigurationLivePreRollConfigurationArgs) ToPlaybackConfigurationLivePreRollConfigurationPtrOutput() PlaybackConfigurationLivePreRollConfigurationPtrOutput {
 	return i.ToPlaybackConfigurationLivePreRollConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2627,12 +2260,6 @@ func (i *playbackConfigurationLivePreRollConfigurationPtrType) ToPlaybackConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationLivePreRollConfigurationPtrOutput)
 }
 
-func (i *playbackConfigurationLivePreRollConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationLivePreRollConfiguration] {
-	return pulumix.Output[*PlaybackConfigurationLivePreRollConfiguration]{
-		OutputState: i.ToPlaybackConfigurationLivePreRollConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration for pre-roll ad insertion.
 type PlaybackConfigurationLivePreRollConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2658,12 +2285,6 @@ func (o PlaybackConfigurationLivePreRollConfigurationOutput) ToPlaybackConfigura
 	}).(PlaybackConfigurationLivePreRollConfigurationPtrOutput)
 }
 
-func (o PlaybackConfigurationLivePreRollConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationLivePreRollConfiguration] {
-	return pulumix.Output[PlaybackConfigurationLivePreRollConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
 func (o PlaybackConfigurationLivePreRollConfigurationOutput) AdDecisionServerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationLivePreRollConfiguration) *string { return v.AdDecisionServerUrl }).(pulumi.StringPtrOutput)
@@ -2686,12 +2307,6 @@ func (o PlaybackConfigurationLivePreRollConfigurationPtrOutput) ToPlaybackConfig
 
 func (o PlaybackConfigurationLivePreRollConfigurationPtrOutput) ToPlaybackConfigurationLivePreRollConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationLivePreRollConfigurationPtrOutput {
 	return o
-}
-
-func (o PlaybackConfigurationLivePreRollConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationLivePreRollConfiguration] {
-	return pulumix.Output[*PlaybackConfigurationLivePreRollConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaybackConfigurationLivePreRollConfigurationPtrOutput) Elem() PlaybackConfigurationLivePreRollConfigurationOutput {
@@ -2759,12 +2374,6 @@ func (i PlaybackConfigurationManifestProcessingRulesArgs) ToPlaybackConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationManifestProcessingRulesOutput)
 }
 
-func (i PlaybackConfigurationManifestProcessingRulesArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationManifestProcessingRules] {
-	return pulumix.Output[PlaybackConfigurationManifestProcessingRules]{
-		OutputState: i.ToPlaybackConfigurationManifestProcessingRulesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PlaybackConfigurationManifestProcessingRulesArgs) ToPlaybackConfigurationManifestProcessingRulesPtrOutput() PlaybackConfigurationManifestProcessingRulesPtrOutput {
 	return i.ToPlaybackConfigurationManifestProcessingRulesPtrOutputWithContext(context.Background())
 }
@@ -2806,12 +2415,6 @@ func (i *playbackConfigurationManifestProcessingRulesPtrType) ToPlaybackConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationManifestProcessingRulesPtrOutput)
 }
 
-func (i *playbackConfigurationManifestProcessingRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationManifestProcessingRules] {
-	return pulumix.Output[*PlaybackConfigurationManifestProcessingRules]{
-		OutputState: i.ToPlaybackConfigurationManifestProcessingRulesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
 type PlaybackConfigurationManifestProcessingRulesOutput struct{ *pulumi.OutputState }
 
@@ -2837,12 +2440,6 @@ func (o PlaybackConfigurationManifestProcessingRulesOutput) ToPlaybackConfigurat
 	}).(PlaybackConfigurationManifestProcessingRulesPtrOutput)
 }
 
-func (o PlaybackConfigurationManifestProcessingRulesOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationManifestProcessingRules] {
-	return pulumix.Output[PlaybackConfigurationManifestProcessingRules]{
-		OutputState: o.OutputState,
-	}
-}
-
 // For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
 func (o PlaybackConfigurationManifestProcessingRulesOutput) AdMarkerPassthrough() PlaybackConfigurationAdMarkerPassthroughPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationManifestProcessingRules) *PlaybackConfigurationAdMarkerPassthrough {
@@ -2862,12 +2459,6 @@ func (o PlaybackConfigurationManifestProcessingRulesPtrOutput) ToPlaybackConfigu
 
 func (o PlaybackConfigurationManifestProcessingRulesPtrOutput) ToPlaybackConfigurationManifestProcessingRulesPtrOutputWithContext(ctx context.Context) PlaybackConfigurationManifestProcessingRulesPtrOutput {
 	return o
-}
-
-func (o PlaybackConfigurationManifestProcessingRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationManifestProcessingRules] {
-	return pulumix.Output[*PlaybackConfigurationManifestProcessingRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaybackConfigurationManifestProcessingRulesPtrOutput) Elem() PlaybackConfigurationManifestProcessingRulesOutput {
@@ -2923,12 +2514,6 @@ func (i PlaybackConfigurationTagArgs) ToPlaybackConfigurationTagOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationTagOutput)
 }
 
-func (i PlaybackConfigurationTagArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationTag] {
-	return pulumix.Output[PlaybackConfigurationTag]{
-		OutputState: i.ToPlaybackConfigurationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PlaybackConfigurationTagArrayInput is an input type that accepts PlaybackConfigurationTagArray and PlaybackConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationTagArrayInput` via:
 //
@@ -2954,12 +2539,6 @@ func (i PlaybackConfigurationTagArray) ToPlaybackConfigurationTagArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationTagArrayOutput)
 }
 
-func (i PlaybackConfigurationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PlaybackConfigurationTag] {
-	return pulumix.Output[[]PlaybackConfigurationTag]{
-		OutputState: i.ToPlaybackConfigurationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlaybackConfigurationTagOutput struct{ *pulumi.OutputState }
 
 func (PlaybackConfigurationTagOutput) ElementType() reflect.Type {
@@ -2972,12 +2551,6 @@ func (o PlaybackConfigurationTagOutput) ToPlaybackConfigurationTagOutput() Playb
 
 func (o PlaybackConfigurationTagOutput) ToPlaybackConfigurationTagOutputWithContext(ctx context.Context) PlaybackConfigurationTagOutput {
 	return o
-}
-
-func (o PlaybackConfigurationTagOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationTag] {
-	return pulumix.Output[PlaybackConfigurationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaybackConfigurationTagOutput) Key() pulumi.StringOutput {
@@ -3000,12 +2573,6 @@ func (o PlaybackConfigurationTagArrayOutput) ToPlaybackConfigurationTagArrayOutp
 
 func (o PlaybackConfigurationTagArrayOutput) ToPlaybackConfigurationTagArrayOutputWithContext(ctx context.Context) PlaybackConfigurationTagArrayOutput {
 	return o
-}
-
-func (o PlaybackConfigurationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PlaybackConfigurationTag] {
-	return pulumix.Output[[]PlaybackConfigurationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaybackConfigurationTagArrayOutput) Index(i pulumi.IntInput) PlaybackConfigurationTagOutput {
@@ -3049,12 +2616,6 @@ func (i SourceLocationAccessConfigurationArgs) ToSourceLocationAccessConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationAccessConfigurationOutput)
 }
 
-func (i SourceLocationAccessConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[SourceLocationAccessConfiguration] {
-	return pulumix.Output[SourceLocationAccessConfiguration]{
-		OutputState: i.ToSourceLocationAccessConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SourceLocationAccessConfigurationArgs) ToSourceLocationAccessConfigurationPtrOutput() SourceLocationAccessConfigurationPtrOutput {
 	return i.ToSourceLocationAccessConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3096,12 +2657,6 @@ func (i *sourceLocationAccessConfigurationPtrType) ToSourceLocationAccessConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationAccessConfigurationPtrOutput)
 }
 
-func (i *sourceLocationAccessConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SourceLocationAccessConfiguration] {
-	return pulumix.Output[*SourceLocationAccessConfiguration]{
-		OutputState: i.ToSourceLocationAccessConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Access configuration parameters.</p>
 type SourceLocationAccessConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3127,12 +2682,6 @@ func (o SourceLocationAccessConfigurationOutput) ToSourceLocationAccessConfigura
 	}).(SourceLocationAccessConfigurationPtrOutput)
 }
 
-func (o SourceLocationAccessConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[SourceLocationAccessConfiguration] {
-	return pulumix.Output[SourceLocationAccessConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SourceLocationAccessConfigurationOutput) AccessType() SourceLocationAccessTypePtrOutput {
 	return o.ApplyT(func(v SourceLocationAccessConfiguration) *SourceLocationAccessType { return v.AccessType }).(SourceLocationAccessTypePtrOutput)
 }
@@ -3155,12 +2704,6 @@ func (o SourceLocationAccessConfigurationPtrOutput) ToSourceLocationAccessConfig
 
 func (o SourceLocationAccessConfigurationPtrOutput) ToSourceLocationAccessConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationAccessConfigurationPtrOutput {
 	return o
-}
-
-func (o SourceLocationAccessConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceLocationAccessConfiguration] {
-	return pulumix.Output[*SourceLocationAccessConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceLocationAccessConfigurationPtrOutput) Elem() SourceLocationAccessConfigurationOutput {
@@ -3226,12 +2769,6 @@ func (i SourceLocationDefaultSegmentDeliveryConfigurationArgs) ToSourceLocationD
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationDefaultSegmentDeliveryConfigurationOutput)
 }
 
-func (i SourceLocationDefaultSegmentDeliveryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[SourceLocationDefaultSegmentDeliveryConfiguration] {
-	return pulumix.Output[SourceLocationDefaultSegmentDeliveryConfiguration]{
-		OutputState: i.ToSourceLocationDefaultSegmentDeliveryConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SourceLocationDefaultSegmentDeliveryConfigurationArgs) ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutput() SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
 	return i.ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3273,12 +2810,6 @@ func (i *sourceLocationDefaultSegmentDeliveryConfigurationPtrType) ToSourceLocat
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput)
 }
 
-func (i *sourceLocationDefaultSegmentDeliveryConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SourceLocationDefaultSegmentDeliveryConfiguration] {
-	return pulumix.Output[*SourceLocationDefaultSegmentDeliveryConfiguration]{
-		OutputState: i.ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
 type SourceLocationDefaultSegmentDeliveryConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3304,12 +2835,6 @@ func (o SourceLocationDefaultSegmentDeliveryConfigurationOutput) ToSourceLocatio
 	}).(SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput)
 }
 
-func (o SourceLocationDefaultSegmentDeliveryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[SourceLocationDefaultSegmentDeliveryConfiguration] {
-	return pulumix.Output[SourceLocationDefaultSegmentDeliveryConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
 func (o SourceLocationDefaultSegmentDeliveryConfigurationOutput) BaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceLocationDefaultSegmentDeliveryConfiguration) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
@@ -3327,12 +2852,6 @@ func (o SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput) ToSourceLoca
 
 func (o SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput) ToSourceLocationDefaultSegmentDeliveryConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
 	return o
-}
-
-func (o SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceLocationDefaultSegmentDeliveryConfiguration] {
-	return pulumix.Output[*SourceLocationDefaultSegmentDeliveryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput) Elem() SourceLocationDefaultSegmentDeliveryConfigurationOutput {
@@ -3390,12 +2909,6 @@ func (i SourceLocationHttpConfigurationArgs) ToSourceLocationHttpConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationHttpConfigurationOutput)
 }
 
-func (i SourceLocationHttpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[SourceLocationHttpConfiguration] {
-	return pulumix.Output[SourceLocationHttpConfiguration]{
-		OutputState: i.ToSourceLocationHttpConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The HTTP configuration for the source location.</p>
 type SourceLocationHttpConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3409,12 +2922,6 @@ func (o SourceLocationHttpConfigurationOutput) ToSourceLocationHttpConfiguration
 
 func (o SourceLocationHttpConfigurationOutput) ToSourceLocationHttpConfigurationOutputWithContext(ctx context.Context) SourceLocationHttpConfigurationOutput {
 	return o
-}
-
-func (o SourceLocationHttpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[SourceLocationHttpConfiguration] {
-	return pulumix.Output[SourceLocationHttpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
@@ -3434,12 +2941,6 @@ func (o SourceLocationHttpConfigurationPtrOutput) ToSourceLocationHttpConfigurat
 
 func (o SourceLocationHttpConfigurationPtrOutput) ToSourceLocationHttpConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationHttpConfigurationPtrOutput {
 	return o
-}
-
-func (o SourceLocationHttpConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceLocationHttpConfiguration] {
-	return pulumix.Output[*SourceLocationHttpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceLocationHttpConfigurationPtrOutput) Elem() SourceLocationHttpConfigurationOutput {
@@ -3505,12 +3006,6 @@ func (i SourceLocationSecretsManagerAccessTokenConfigurationArgs) ToSourceLocati
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationSecretsManagerAccessTokenConfigurationOutput)
 }
 
-func (i SourceLocationSecretsManagerAccessTokenConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[SourceLocationSecretsManagerAccessTokenConfiguration] {
-	return pulumix.Output[SourceLocationSecretsManagerAccessTokenConfiguration]{
-		OutputState: i.ToSourceLocationSecretsManagerAccessTokenConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SourceLocationSecretsManagerAccessTokenConfigurationArgs) ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutput() SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
 	return i.ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3552,12 +3047,6 @@ func (i *sourceLocationSecretsManagerAccessTokenConfigurationPtrType) ToSourceLo
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput)
 }
 
-func (i *sourceLocationSecretsManagerAccessTokenConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SourceLocationSecretsManagerAccessTokenConfiguration] {
-	return pulumix.Output[*SourceLocationSecretsManagerAccessTokenConfiguration]{
-		OutputState: i.ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
 type SourceLocationSecretsManagerAccessTokenConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3581,12 +3070,6 @@ func (o SourceLocationSecretsManagerAccessTokenConfigurationOutput) ToSourceLoca
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceLocationSecretsManagerAccessTokenConfiguration) *SourceLocationSecretsManagerAccessTokenConfiguration {
 		return &v
 	}).(SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput)
-}
-
-func (o SourceLocationSecretsManagerAccessTokenConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[SourceLocationSecretsManagerAccessTokenConfiguration] {
-	return pulumix.Output[SourceLocationSecretsManagerAccessTokenConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
@@ -3616,12 +3099,6 @@ func (o SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput) ToSourceL
 
 func (o SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput) ToSourceLocationSecretsManagerAccessTokenConfigurationPtrOutputWithContext(ctx context.Context) SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
 	return o
-}
-
-func (o SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceLocationSecretsManagerAccessTokenConfiguration] {
-	return pulumix.Output[*SourceLocationSecretsManagerAccessTokenConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput) Elem() SourceLocationSecretsManagerAccessTokenConfigurationOutput {
@@ -3703,12 +3180,6 @@ func (i SourceLocationSegmentDeliveryConfigurationArgs) ToSourceLocationSegmentD
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationSegmentDeliveryConfigurationOutput)
 }
 
-func (i SourceLocationSegmentDeliveryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[SourceLocationSegmentDeliveryConfiguration] {
-	return pulumix.Output[SourceLocationSegmentDeliveryConfiguration]{
-		OutputState: i.ToSourceLocationSegmentDeliveryConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SourceLocationSegmentDeliveryConfigurationArrayInput is an input type that accepts SourceLocationSegmentDeliveryConfigurationArray and SourceLocationSegmentDeliveryConfigurationArrayOutput values.
 // You can construct a concrete instance of `SourceLocationSegmentDeliveryConfigurationArrayInput` via:
 //
@@ -3734,12 +3205,6 @@ func (i SourceLocationSegmentDeliveryConfigurationArray) ToSourceLocationSegment
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationSegmentDeliveryConfigurationArrayOutput)
 }
 
-func (i SourceLocationSegmentDeliveryConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]SourceLocationSegmentDeliveryConfiguration] {
-	return pulumix.Output[[]SourceLocationSegmentDeliveryConfiguration]{
-		OutputState: i.ToSourceLocationSegmentDeliveryConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The segment delivery configuration settings.</p>
 type SourceLocationSegmentDeliveryConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3753,12 +3218,6 @@ func (o SourceLocationSegmentDeliveryConfigurationOutput) ToSourceLocationSegmen
 
 func (o SourceLocationSegmentDeliveryConfigurationOutput) ToSourceLocationSegmentDeliveryConfigurationOutputWithContext(ctx context.Context) SourceLocationSegmentDeliveryConfigurationOutput {
 	return o
-}
-
-func (o SourceLocationSegmentDeliveryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[SourceLocationSegmentDeliveryConfiguration] {
-	return pulumix.Output[SourceLocationSegmentDeliveryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
@@ -3783,12 +3242,6 @@ func (o SourceLocationSegmentDeliveryConfigurationArrayOutput) ToSourceLocationS
 
 func (o SourceLocationSegmentDeliveryConfigurationArrayOutput) ToSourceLocationSegmentDeliveryConfigurationArrayOutputWithContext(ctx context.Context) SourceLocationSegmentDeliveryConfigurationArrayOutput {
 	return o
-}
-
-func (o SourceLocationSegmentDeliveryConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SourceLocationSegmentDeliveryConfiguration] {
-	return pulumix.Output[[]SourceLocationSegmentDeliveryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceLocationSegmentDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) SourceLocationSegmentDeliveryConfigurationOutput {
@@ -3830,12 +3283,6 @@ func (i SourceLocationTagArgs) ToSourceLocationTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationTagOutput)
 }
 
-func (i SourceLocationTagArgs) ToOutput(ctx context.Context) pulumix.Output[SourceLocationTag] {
-	return pulumix.Output[SourceLocationTag]{
-		OutputState: i.ToSourceLocationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SourceLocationTagArrayInput is an input type that accepts SourceLocationTagArray and SourceLocationTagArrayOutput values.
 // You can construct a concrete instance of `SourceLocationTagArrayInput` via:
 //
@@ -3861,12 +3308,6 @@ func (i SourceLocationTagArray) ToSourceLocationTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationTagArrayOutput)
 }
 
-func (i SourceLocationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SourceLocationTag] {
-	return pulumix.Output[[]SourceLocationTag]{
-		OutputState: i.ToSourceLocationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SourceLocationTagOutput struct{ *pulumi.OutputState }
 
 func (SourceLocationTagOutput) ElementType() reflect.Type {
@@ -3879,12 +3320,6 @@ func (o SourceLocationTagOutput) ToSourceLocationTagOutput() SourceLocationTagOu
 
 func (o SourceLocationTagOutput) ToSourceLocationTagOutputWithContext(ctx context.Context) SourceLocationTagOutput {
 	return o
-}
-
-func (o SourceLocationTagOutput) ToOutput(ctx context.Context) pulumix.Output[SourceLocationTag] {
-	return pulumix.Output[SourceLocationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceLocationTagOutput) Key() pulumi.StringOutput {
@@ -3907,12 +3342,6 @@ func (o SourceLocationTagArrayOutput) ToSourceLocationTagArrayOutput() SourceLoc
 
 func (o SourceLocationTagArrayOutput) ToSourceLocationTagArrayOutputWithContext(ctx context.Context) SourceLocationTagArrayOutput {
 	return o
-}
-
-func (o SourceLocationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SourceLocationTag] {
-	return pulumix.Output[[]SourceLocationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceLocationTagArrayOutput) Index(i pulumi.IntInput) SourceLocationTagOutput {
@@ -3962,12 +3391,6 @@ func (i VodSourceHttpPackageConfigurationArgs) ToVodSourceHttpPackageConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(VodSourceHttpPackageConfigurationOutput)
 }
 
-func (i VodSourceHttpPackageConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[VodSourceHttpPackageConfiguration] {
-	return pulumix.Output[VodSourceHttpPackageConfiguration]{
-		OutputState: i.ToVodSourceHttpPackageConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VodSourceHttpPackageConfigurationArrayInput is an input type that accepts VodSourceHttpPackageConfigurationArray and VodSourceHttpPackageConfigurationArrayOutput values.
 // You can construct a concrete instance of `VodSourceHttpPackageConfigurationArrayInput` via:
 //
@@ -3993,12 +3416,6 @@ func (i VodSourceHttpPackageConfigurationArray) ToVodSourceHttpPackageConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(VodSourceHttpPackageConfigurationArrayOutput)
 }
 
-func (i VodSourceHttpPackageConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]VodSourceHttpPackageConfiguration] {
-	return pulumix.Output[[]VodSourceHttpPackageConfiguration]{
-		OutputState: i.ToVodSourceHttpPackageConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The HTTP package configuration properties for the requested VOD source.</p>
 type VodSourceHttpPackageConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -4012,12 +3429,6 @@ func (o VodSourceHttpPackageConfigurationOutput) ToVodSourceHttpPackageConfigura
 
 func (o VodSourceHttpPackageConfigurationOutput) ToVodSourceHttpPackageConfigurationOutputWithContext(ctx context.Context) VodSourceHttpPackageConfigurationOutput {
 	return o
-}
-
-func (o VodSourceHttpPackageConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[VodSourceHttpPackageConfiguration] {
-	return pulumix.Output[VodSourceHttpPackageConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
@@ -4046,12 +3457,6 @@ func (o VodSourceHttpPackageConfigurationArrayOutput) ToVodSourceHttpPackageConf
 
 func (o VodSourceHttpPackageConfigurationArrayOutput) ToVodSourceHttpPackageConfigurationArrayOutputWithContext(ctx context.Context) VodSourceHttpPackageConfigurationArrayOutput {
 	return o
-}
-
-func (o VodSourceHttpPackageConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VodSourceHttpPackageConfiguration] {
-	return pulumix.Output[[]VodSourceHttpPackageConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VodSourceHttpPackageConfigurationArrayOutput) Index(i pulumi.IntInput) VodSourceHttpPackageConfigurationOutput {
@@ -4093,12 +3498,6 @@ func (i VodSourceTagArgs) ToVodSourceTagOutputWithContext(ctx context.Context) V
 	return pulumi.ToOutputWithContext(ctx, i).(VodSourceTagOutput)
 }
 
-func (i VodSourceTagArgs) ToOutput(ctx context.Context) pulumix.Output[VodSourceTag] {
-	return pulumix.Output[VodSourceTag]{
-		OutputState: i.ToVodSourceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VodSourceTagArrayInput is an input type that accepts VodSourceTagArray and VodSourceTagArrayOutput values.
 // You can construct a concrete instance of `VodSourceTagArrayInput` via:
 //
@@ -4124,12 +3523,6 @@ func (i VodSourceTagArray) ToVodSourceTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VodSourceTagArrayOutput)
 }
 
-func (i VodSourceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VodSourceTag] {
-	return pulumix.Output[[]VodSourceTag]{
-		OutputState: i.ToVodSourceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VodSourceTagOutput struct{ *pulumi.OutputState }
 
 func (VodSourceTagOutput) ElementType() reflect.Type {
@@ -4142,12 +3535,6 @@ func (o VodSourceTagOutput) ToVodSourceTagOutput() VodSourceTagOutput {
 
 func (o VodSourceTagOutput) ToVodSourceTagOutputWithContext(ctx context.Context) VodSourceTagOutput {
 	return o
-}
-
-func (o VodSourceTagOutput) ToOutput(ctx context.Context) pulumix.Output[VodSourceTag] {
-	return pulumix.Output[VodSourceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VodSourceTagOutput) Key() pulumi.StringOutput {
@@ -4170,12 +3557,6 @@ func (o VodSourceTagArrayOutput) ToVodSourceTagArrayOutput() VodSourceTagArrayOu
 
 func (o VodSourceTagArrayOutput) ToVodSourceTagArrayOutputWithContext(ctx context.Context) VodSourceTagArrayOutput {
 	return o
-}
-
-func (o VodSourceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VodSourceTag] {
-	return pulumix.Output[[]VodSourceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VodSourceTagArrayOutput) Index(i pulumi.IntInput) VodSourceTagOutput {
