@@ -1,4 +1,11 @@
 {
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "tagProperty" : "/properties/Tags",
+    "cloudFormationSystemTags" : true
+  },
   "handlers" : {
     "read" : {
       "permissions" : [ "ec2:DescribeDhcpOptions", "ec2:DescribeTags" ]
@@ -16,7 +23,6 @@
       "permissions" : [ "ec2:DeleteDhcpOptions", "ec2:DeleteTags", "ec2:DescribeDhcpOptions" ]
     }
   },
-  "taggable" : true,
   "typeName" : "AWS::EC2::DHCPOptions",
   "readOnlyProperties" : [ "/properties/DhcpOptionsId" ],
   "description" : "Resource Type definition for AWS::EC2::DHCPOptions",

@@ -1013,6 +1013,19 @@
         }
       }
     },
+    "ColorCorrectionSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "GlobalColorCorrections" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/ColorCorrection"
+          }
+        }
+      }
+    },
     "CdiInputSpecification" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -1285,6 +1298,21 @@
       "type" : "object",
       "additionalProperties" : false
     },
+    "ColorCorrection" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "OutputColorSpace" : {
+          "type" : "string"
+        },
+        "InputColorSpace" : {
+          "type" : "string"
+        },
+        "Uri" : {
+          "type" : "string"
+        }
+      }
+    },
     "WebvttDestinationSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -1351,6 +1379,9 @@
         },
         "AvailConfiguration" : {
           "$ref" : "#/definitions/AvailConfiguration"
+        },
+        "ColorCorrectionSettings" : {
+          "$ref" : "#/definitions/ColorCorrectionSettings"
         },
         "OutputGroups" : {
           "type" : "array",

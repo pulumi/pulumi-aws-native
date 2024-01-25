@@ -339,6 +339,9 @@
             "$ref" : "#/definitions/EnvironmentVariable"
           }
         },
+        "Fleet" : {
+          "$ref" : "#/definitions/ProjectFleet"
+        },
         "PrivilegedMode" : {
           "type" : "boolean"
         },
@@ -358,7 +361,7 @@
           "type" : "string"
         }
       },
-      "required" : [ "Image" ]
+      "required" : [ "Type", "Image", "ComputeType" ]
     },
     "EnvironmentVariable" : {
       "type" : "object",
@@ -467,6 +470,15 @@
         }
       },
       "required" : [ "Status" ]
+    },
+    "ProjectFleet" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "FleetArn" : {
+          "type" : "string"
+        }
+      }
     }
   },
   "required" : [ "Artifacts", "ServiceRole", "Environment", "Source" ],
