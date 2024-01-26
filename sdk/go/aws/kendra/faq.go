@@ -23,7 +23,8 @@ type Faq struct {
 	// FAQ file format
 	FileFormat FaqFileFormatPtrOutput `pulumi:"fileFormat"`
 	// Index ID
-	IndexId pulumi.StringOutput `pulumi:"indexId"`
+	IndexId      pulumi.StringOutput    `pulumi:"indexId"`
+	LanguageCode pulumi.StringPtrOutput `pulumi:"languageCode"`
 	// FAQ name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// FAQ role ARN
@@ -97,7 +98,8 @@ type faqArgs struct {
 	// FAQ file format
 	FileFormat *FaqFileFormat `pulumi:"fileFormat"`
 	// Index ID
-	IndexId string `pulumi:"indexId"`
+	IndexId      string  `pulumi:"indexId"`
+	LanguageCode *string `pulumi:"languageCode"`
 	// FAQ name
 	Name *string `pulumi:"name"`
 	// FAQ role ARN
@@ -115,7 +117,8 @@ type FaqArgs struct {
 	// FAQ file format
 	FileFormat FaqFileFormatPtrInput
 	// Index ID
-	IndexId pulumi.StringInput
+	IndexId      pulumi.StringInput
+	LanguageCode pulumi.StringPtrInput
 	// FAQ name
 	Name pulumi.StringPtrInput
 	// FAQ role ARN
@@ -192,6 +195,10 @@ func (o FaqOutput) FileFormat() FaqFileFormatPtrOutput {
 // Index ID
 func (o FaqOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
+}
+
+func (o FaqOutput) LanguageCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
 
 // FAQ name

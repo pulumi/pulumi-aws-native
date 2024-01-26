@@ -2815,7 +2815,7 @@ type ServerlessCacheEndpoint struct {
 	// Endpoint address.
 	Address *string `pulumi:"address"`
 	// Endpoint port.
-	Port *int `pulumi:"port"`
+	Port *string `pulumi:"port"`
 }
 
 // ServerlessCacheEndpointInput is an input type that accepts ServerlessCacheEndpointArgs and ServerlessCacheEndpointOutput values.
@@ -2834,7 +2834,7 @@ type ServerlessCacheEndpointArgs struct {
 	// Endpoint address.
 	Address pulumi.StringPtrInput `pulumi:"address"`
 	// Endpoint port.
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port pulumi.StringPtrInput `pulumi:"port"`
 }
 
 func (ServerlessCacheEndpointArgs) ElementType() reflect.Type {
@@ -2939,8 +2939,8 @@ func (o ServerlessCacheEndpointOutput) Address() pulumi.StringPtrOutput {
 }
 
 // Endpoint port.
-func (o ServerlessCacheEndpointOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServerlessCacheEndpoint) *int { return v.Port }).(pulumi.IntPtrOutput)
+func (o ServerlessCacheEndpointOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCacheEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
 type ServerlessCacheEndpointPtrOutput struct{ *pulumi.OutputState }
@@ -2984,13 +2984,13 @@ func (o ServerlessCacheEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 }
 
 // Endpoint port.
-func (o ServerlessCacheEndpointPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServerlessCacheEndpoint) *int {
+func (o ServerlessCacheEndpointPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCacheEndpoint) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Port
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with Serverless Cache.

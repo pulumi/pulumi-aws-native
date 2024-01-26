@@ -29,6 +29,7 @@ type DeliveryStream struct {
 	MskSourceConfiguration                             DeliveryStreamMskSourceConfigurationPtrOutput                             `pulumi:"mskSourceConfiguration"`
 	RedshiftDestinationConfiguration                   DeliveryStreamRedshiftDestinationConfigurationPtrOutput                   `pulumi:"redshiftDestinationConfiguration"`
 	S3DestinationConfiguration                         DeliveryStreamS3DestinationConfigurationPtrOutput                         `pulumi:"s3DestinationConfiguration"`
+	SnowflakeDestinationConfiguration                  DeliveryStreamSnowflakeDestinationConfigurationPtrOutput                  `pulumi:"snowflakeDestinationConfiguration"`
 	SplunkDestinationConfiguration                     DeliveryStreamSplunkDestinationConfigurationPtrOutput                     `pulumi:"splunkDestinationConfiguration"`
 	Tags                                               DeliveryStreamTagArrayOutput                                              `pulumi:"tags"`
 }
@@ -48,6 +49,7 @@ func NewDeliveryStream(ctx *pulumi.Context,
 		"elasticsearchDestinationConfiguration.vpcConfiguration",
 		"kinesisStreamSourceConfiguration",
 		"mskSourceConfiguration",
+		"snowflakeDestinationConfiguration.snowflakeVpcConfiguration",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -95,6 +97,7 @@ type deliveryStreamArgs struct {
 	MskSourceConfiguration                             *DeliveryStreamMskSourceConfiguration                             `pulumi:"mskSourceConfiguration"`
 	RedshiftDestinationConfiguration                   *DeliveryStreamRedshiftDestinationConfiguration                   `pulumi:"redshiftDestinationConfiguration"`
 	S3DestinationConfiguration                         *DeliveryStreamS3DestinationConfiguration                         `pulumi:"s3DestinationConfiguration"`
+	SnowflakeDestinationConfiguration                  *DeliveryStreamSnowflakeDestinationConfiguration                  `pulumi:"snowflakeDestinationConfiguration"`
 	SplunkDestinationConfiguration                     *DeliveryStreamSplunkDestinationConfiguration                     `pulumi:"splunkDestinationConfiguration"`
 	Tags                                               []DeliveryStreamTag                                               `pulumi:"tags"`
 }
@@ -113,6 +116,7 @@ type DeliveryStreamArgs struct {
 	MskSourceConfiguration                             DeliveryStreamMskSourceConfigurationPtrInput
 	RedshiftDestinationConfiguration                   DeliveryStreamRedshiftDestinationConfigurationPtrInput
 	S3DestinationConfiguration                         DeliveryStreamS3DestinationConfigurationPtrInput
+	SnowflakeDestinationConfiguration                  DeliveryStreamSnowflakeDestinationConfigurationPtrInput
 	SplunkDestinationConfiguration                     DeliveryStreamSplunkDestinationConfigurationPtrInput
 	Tags                                               DeliveryStreamTagArrayInput
 }
@@ -234,6 +238,12 @@ func (o DeliveryStreamOutput) S3DestinationConfiguration() DeliveryStreamS3Desti
 	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamS3DestinationConfigurationPtrOutput {
 		return v.S3DestinationConfiguration
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamOutput) SnowflakeDestinationConfiguration() DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
+		return v.SnowflakeDestinationConfiguration
+	}).(DeliveryStreamSnowflakeDestinationConfigurationPtrOutput)
 }
 
 func (o DeliveryStreamOutput) SplunkDestinationConfiguration() DeliveryStreamSplunkDestinationConfigurationPtrOutput {

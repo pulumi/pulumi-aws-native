@@ -20,6 +20,8 @@ __all__ = [
     'DeliveryStreamProcessorType',
     'DeliveryStreamRedshiftDestinationConfigurationS3BackupMode',
     'DeliveryStreamS3DestinationConfigurationCompressionFormat',
+    'DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption',
+    'DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode',
     'DeliveryStreamSplunkDestinationConfigurationHecEndpointType',
     'DeliveryStreamType',
 ]
@@ -112,6 +114,17 @@ class DeliveryStreamS3DestinationConfigurationCompressionFormat(str, Enum):
     ZIP = "ZIP"
     SNAPPY = "Snappy"
     HADOOP_SNAPPY = "HADOOP_SNAPPY"
+
+
+class DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption(str, Enum):
+    JSON_MAPPING = "JSON_MAPPING"
+    VARIANT_CONTENT_MAPPING = "VARIANT_CONTENT_MAPPING"
+    VARIANT_CONTENT_AND_METADATA_MAPPING = "VARIANT_CONTENT_AND_METADATA_MAPPING"
+
+
+class DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode(str, Enum):
+    FAILED_DATA_ONLY = "FailedDataOnly"
+    ALL_DATA = "AllData"
 
 
 class DeliveryStreamSplunkDestinationConfigurationHecEndpointType(str, Enum):

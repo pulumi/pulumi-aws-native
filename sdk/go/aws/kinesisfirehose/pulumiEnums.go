@@ -2755,6 +2755,371 @@ func (in *deliveryStreamS3DestinationConfigurationCompressionFormatPtr) ToOutput
 	}
 }
 
+type DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption string
+
+const (
+	DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionJsonMapping                      = DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption("JSON_MAPPING")
+	DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionVariantContentMapping            = DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption("VARIANT_CONTENT_MAPPING")
+	DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionVariantContentAndMetadataMapping = DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption("VARIANT_CONTENT_AND_METADATA_MAPPING")
+)
+
+func (DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption)(nil)).Elem()
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput() DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput {
+	return pulumi.ToOutput(e).(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput)
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput)
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput() DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput {
+	return e.ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput {
+	return DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption(e).ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutputWithContext(ctx).ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutputWithContext(ctx)
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput() DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput() DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput {
+	return o.ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) *DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption {
+		return &v
+	}).(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption] {
+	return pulumix.Output[DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput() DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption] {
+	return pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput) Elem() DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption
+		return ret
+	}).(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionInput is an input type that accepts DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionArgs and DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput values.
+// You can construct a concrete instance of `DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionInput` via:
+//
+//	DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionArgs{...}
+type DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput() DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput
+	ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutputWithContext(context.Context) DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput
+}
+
+var deliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrType = reflect.TypeOf((**DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption)(nil)).Elem()
+
+type DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput() DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput
+	ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutputWithContext(context.Context) DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput
+}
+
+type deliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtr string
+
+func DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtr(v string) DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrInput {
+	return (*deliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtr)(&v)
+}
+
+func (*deliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtr) ElementType() reflect.Type {
+	return deliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrType
+}
+
+func (in *deliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtr) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput() DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput {
+	return pulumi.ToOutput(in).(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput)
+}
+
+func (in *deliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtr) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput)
+}
+
+func (in *deliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption] {
+	return pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption]{
+		OutputState: in.ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode string
+
+const (
+	DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeFailedDataOnly = DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode("FailedDataOnly")
+	DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeAllData        = DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode("AllData")
+)
+
+func (DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode)(nil)).Elem()
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput() DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput {
+	return pulumi.ToOutput(e).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput)
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput)
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput() DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput {
+	return e.ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput {
+	return DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode(e).ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutputWithContext(ctx).ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutputWithContext(ctx)
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput() DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput() DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput {
+	return o.ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) *DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode {
+		return &v
+	}).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput() DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode
+		return ret
+	}).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeInput is an input type that accepts DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeArgs and DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput values.
+// You can construct a concrete instance of `DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeInput` via:
+//
+//	DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeArgs{...}
+type DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput() DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput
+	ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutputWithContext(context.Context) DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput
+}
+
+var deliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrType = reflect.TypeOf((**DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode)(nil)).Elem()
+
+type DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput() DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput
+	ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutputWithContext(context.Context) DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput
+}
+
+type deliveryStreamSnowflakeDestinationConfigurationS3BackupModePtr string
+
+func DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtr(v string) DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrInput {
+	return (*deliveryStreamSnowflakeDestinationConfigurationS3BackupModePtr)(&v)
+}
+
+func (*deliveryStreamSnowflakeDestinationConfigurationS3BackupModePtr) ElementType() reflect.Type {
+	return deliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrType
+}
+
+func (in *deliveryStreamSnowflakeDestinationConfigurationS3BackupModePtr) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput() DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput {
+	return pulumi.ToOutput(in).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (in *deliveryStreamSnowflakeDestinationConfigurationS3BackupModePtr) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (in *deliveryStreamSnowflakeDestinationConfigurationS3BackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode] {
+	return pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode]{
+		OutputState: in.ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamSplunkDestinationConfigurationHecEndpointType string
 
 const (
@@ -3151,6 +3516,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrInput)(nil)).Elem(), DeliveryStreamRedshiftDestinationConfigurationS3BackupMode("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamS3DestinationConfigurationCompressionFormatInput)(nil)).Elem(), DeliveryStreamS3DestinationConfigurationCompressionFormat("UNCOMPRESSED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamS3DestinationConfigurationCompressionFormatPtrInput)(nil)).Elem(), DeliveryStreamS3DestinationConfigurationCompressionFormat("UNCOMPRESSED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionInput)(nil)).Elem(), DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption("JSON_MAPPING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrInput)(nil)).Elem(), DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption("JSON_MAPPING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeInput)(nil)).Elem(), DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode("FailedDataOnly"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrInput)(nil)).Elem(), DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode("FailedDataOnly"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationHecEndpointType("Raw"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationHecEndpointType("Raw"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTypeInput)(nil)).Elem(), DeliveryStreamType("DirectPut"))
@@ -3185,6 +3554,10 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamS3DestinationConfigurationCompressionFormatOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamTypeOutput{})

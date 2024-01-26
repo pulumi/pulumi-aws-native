@@ -141,8 +141,11 @@ class GeofenceCollectionTagArgs:
 class MapConfigurationArgs:
     def __init__(__self__, *,
                  style: pulumi.Input[str],
+                 custom_layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  political_view: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "style", style)
+        if custom_layers is not None:
+            pulumi.set(__self__, "custom_layers", custom_layers)
         if political_view is not None:
             pulumi.set(__self__, "political_view", political_view)
 
@@ -154,6 +157,15 @@ class MapConfigurationArgs:
     @style.setter
     def style(self, value: pulumi.Input[str]):
         pulumi.set(self, "style", value)
+
+    @property
+    @pulumi.getter(name="customLayers")
+    def custom_layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "custom_layers")
+
+    @custom_layers.setter
+    def custom_layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_layers", value)
 
     @property
     @pulumi.getter(name="politicalView")

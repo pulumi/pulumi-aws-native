@@ -411,8 +411,9 @@ func (o GeofenceCollectionTagArrayOutput) Index(i pulumi.IntInput) GeofenceColle
 }
 
 type MapConfiguration struct {
-	PoliticalView *string `pulumi:"politicalView"`
-	Style         string  `pulumi:"style"`
+	CustomLayers  []string `pulumi:"customLayers"`
+	PoliticalView *string  `pulumi:"politicalView"`
+	Style         string   `pulumi:"style"`
 }
 
 // MapConfigurationInput is an input type that accepts MapConfigurationArgs and MapConfigurationOutput values.
@@ -427,8 +428,9 @@ type MapConfigurationInput interface {
 }
 
 type MapConfigurationArgs struct {
-	PoliticalView pulumi.StringPtrInput `pulumi:"politicalView"`
-	Style         pulumi.StringInput    `pulumi:"style"`
+	CustomLayers  pulumi.StringArrayInput `pulumi:"customLayers"`
+	PoliticalView pulumi.StringPtrInput   `pulumi:"politicalView"`
+	Style         pulumi.StringInput      `pulumi:"style"`
 }
 
 func (MapConfigurationArgs) ElementType() reflect.Type {
@@ -467,6 +469,10 @@ func (o MapConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[Map
 	return pulumix.Output[MapConfiguration]{
 		OutputState: o.OutputState,
 	}
+}
+
+func (o MapConfigurationOutput) CustomLayers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MapConfiguration) []string { return v.CustomLayers }).(pulumi.StringArrayOutput)
 }
 
 func (o MapConfigurationOutput) PoliticalView() pulumi.StringPtrOutput {

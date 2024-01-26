@@ -25,6 +25,11 @@ export const getRecordingConfiguration: typeof import("./getRecordingConfigurati
 export const getRecordingConfigurationOutput: typeof import("./getRecordingConfiguration").getRecordingConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getRecordingConfiguration","getRecordingConfigurationOutput"], () => require("./getRecordingConfiguration"));
 
+export { GetStageArgs, GetStageResult, GetStageOutputArgs } from "./getStage";
+export const getStage: typeof import("./getStage").getStage = null as any;
+export const getStageOutput: typeof import("./getStage").getStageOutput = null as any;
+utilities.lazyLoad(exports, ["getStage","getStageOutput"], () => require("./getStage"));
+
 export { GetStreamKeyArgs, GetStreamKeyResult, GetStreamKeyOutputArgs } from "./getStreamKey";
 export const getStreamKey: typeof import("./getStreamKey").getStreamKey = null as any;
 export const getStreamKeyOutput: typeof import("./getStreamKey").getStreamKeyOutput = null as any;
@@ -39,6 +44,11 @@ export { RecordingConfigurationArgs } from "./recordingConfiguration";
 export type RecordingConfiguration = import("./recordingConfiguration").RecordingConfiguration;
 export const RecordingConfiguration: typeof import("./recordingConfiguration").RecordingConfiguration = null as any;
 utilities.lazyLoad(exports, ["RecordingConfiguration"], () => require("./recordingConfiguration"));
+
+export { StageArgs } from "./stage";
+export type Stage = import("./stage").Stage;
+export const Stage: typeof import("./stage").Stage = null as any;
+utilities.lazyLoad(exports, ["Stage"], () => require("./stage"));
 
 export { StreamKeyArgs } from "./streamKey";
 export type StreamKey = import("./streamKey").StreamKey;
@@ -59,6 +69,8 @@ const _module = {
                 return new PlaybackKeyPair(name, <any>undefined, { urn })
             case "aws-native:ivs:RecordingConfiguration":
                 return new RecordingConfiguration(name, <any>undefined, { urn })
+            case "aws-native:ivs:Stage":
+                return new Stage(name, <any>undefined, { urn })
             case "aws-native:ivs:StreamKey":
                 return new StreamKey(name, <any>undefined, { urn })
             default:

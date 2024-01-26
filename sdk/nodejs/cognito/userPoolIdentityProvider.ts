@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
- *
- * @deprecated UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class UserPoolIdentityProvider extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): UserPoolIdentityProvider {
-        pulumi.log.warn("UserPoolIdentityProvider is deprecated: UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new UserPoolIdentityProvider(name, undefined as any, { ...opts, id: id });
     }
 
@@ -39,7 +36,7 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
 
     public readonly attributeMapping!: pulumi.Output<any | undefined>;
     public readonly idpIdentifiers!: pulumi.Output<string[] | undefined>;
-    public readonly providerDetails!: pulumi.Output<any | undefined>;
+    public readonly providerDetails!: pulumi.Output<any>;
     public readonly providerName!: pulumi.Output<string>;
     public readonly providerType!: pulumi.Output<string>;
     public readonly userPoolId!: pulumi.Output<string>;
@@ -51,12 +48,13 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UserPoolIdentityProviderArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("UserPoolIdentityProvider is deprecated: UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.providerDetails === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'providerDetails'");
+            }
             if ((!args || args.providerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
@@ -93,7 +91,7 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
 export interface UserPoolIdentityProviderArgs {
     attributeMapping?: any;
     idpIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
-    providerDetails?: any;
+    providerDetails: any;
     providerName: pulumi.Input<string>;
     providerType: pulumi.Input<string>;
     userPoolId: pulumi.Input<string>;

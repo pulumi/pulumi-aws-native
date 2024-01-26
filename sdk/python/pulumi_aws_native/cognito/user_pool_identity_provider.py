@@ -14,15 +14,16 @@ __all__ = ['UserPoolIdentityProviderArgs', 'UserPoolIdentityProvider']
 @pulumi.input_type
 class UserPoolIdentityProviderArgs:
     def __init__(__self__, *,
+                 provider_details: Any,
                  provider_name: pulumi.Input[str],
                  provider_type: pulumi.Input[str],
                  user_pool_id: pulumi.Input[str],
                  attribute_mapping: Optional[Any] = None,
-                 idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 provider_details: Optional[Any] = None):
+                 idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a UserPoolIdentityProvider resource.
         """
+        pulumi.set(__self__, "provider_details", provider_details)
         pulumi.set(__self__, "provider_name", provider_name)
         pulumi.set(__self__, "provider_type", provider_type)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -30,8 +31,15 @@ class UserPoolIdentityProviderArgs:
             pulumi.set(__self__, "attribute_mapping", attribute_mapping)
         if idp_identifiers is not None:
             pulumi.set(__self__, "idp_identifiers", idp_identifiers)
-        if provider_details is not None:
-            pulumi.set(__self__, "provider_details", provider_details)
+
+    @property
+    @pulumi.getter(name="providerDetails")
+    def provider_details(self) -> Any:
+        return pulumi.get(self, "provider_details")
+
+    @provider_details.setter
+    def provider_details(self, value: Any):
+        pulumi.set(self, "provider_details", value)
 
     @property
     @pulumi.getter(name="providerName")
@@ -78,22 +86,8 @@ class UserPoolIdentityProviderArgs:
     def idp_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "idp_identifiers", value)
 
-    @property
-    @pulumi.getter(name="providerDetails")
-    def provider_details(self) -> Optional[Any]:
-        return pulumi.get(self, "provider_details")
-
-    @provider_details.setter
-    def provider_details(self, value: Optional[Any]):
-        pulumi.set(self, "provider_details", value)
-
-
-warnings.warn("""UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
 
 class UserPoolIdentityProvider(pulumi.CustomResource):
-    warnings.warn("""UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -142,7 +136,6 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
                  provider_type: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""UserPoolIdentityProvider is deprecated: UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -153,6 +146,8 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
 
             __props__.__dict__["attribute_mapping"] = attribute_mapping
             __props__.__dict__["idp_identifiers"] = idp_identifiers
+            if provider_details is None and not opts.urn:
+                raise TypeError("Missing required property 'provider_details'")
             __props__.__dict__["provider_details"] = provider_details
             if provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_name'")
@@ -207,7 +202,7 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerDetails")
-    def provider_details(self) -> pulumi.Output[Optional[Any]]:
+    def provider_details(self) -> pulumi.Output[Any]:
         return pulumi.get(self, "provider_details")
 
     @property

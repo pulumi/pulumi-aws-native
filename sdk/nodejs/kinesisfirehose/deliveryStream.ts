@@ -50,6 +50,7 @@ export class DeliveryStream extends pulumi.CustomResource {
     public readonly mskSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamMskSourceConfiguration | undefined>;
     public readonly redshiftDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfiguration | undefined>;
     public readonly s3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration | undefined>;
+    public readonly snowflakeDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfiguration | undefined>;
     public readonly splunkDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration | undefined>;
     public readonly tags!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamTag[] | undefined>;
 
@@ -76,6 +77,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["mskSourceConfiguration"] = args ? args.mskSourceConfiguration : undefined;
             resourceInputs["redshiftDestinationConfiguration"] = args ? args.redshiftDestinationConfiguration : undefined;
             resourceInputs["s3DestinationConfiguration"] = args ? args.s3DestinationConfiguration : undefined;
+            resourceInputs["snowflakeDestinationConfiguration"] = args ? args.snowflakeDestinationConfiguration : undefined;
             resourceInputs["splunkDestinationConfiguration"] = args ? args.splunkDestinationConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -93,11 +95,12 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["mskSourceConfiguration"] = undefined /*out*/;
             resourceInputs["redshiftDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["s3DestinationConfiguration"] = undefined /*out*/;
+            resourceInputs["snowflakeDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["splunkDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeliveryStream.__pulumiType, name, resourceInputs, opts);
     }
@@ -119,6 +122,7 @@ export interface DeliveryStreamArgs {
     mskSourceConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamMskSourceConfigurationArgs>;
     redshiftDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfigurationArgs>;
     s3DestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
+    snowflakeDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfigurationArgs>;
     splunkDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.kinesisfirehose.DeliveryStreamTagArgs>[]>;
 }

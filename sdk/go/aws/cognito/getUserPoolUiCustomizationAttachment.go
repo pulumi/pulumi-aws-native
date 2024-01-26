@@ -24,12 +24,12 @@ func LookupUserPoolUiCustomizationAttachment(ctx *pulumi.Context, args *LookupUs
 }
 
 type LookupUserPoolUiCustomizationAttachmentArgs struct {
-	Id string `pulumi:"id"`
+	ClientId   string `pulumi:"clientId"`
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolUiCustomizationAttachmentResult struct {
 	Css *string `pulumi:"css"`
-	Id  *string `pulumi:"id"`
 }
 
 func LookupUserPoolUiCustomizationAttachmentOutput(ctx *pulumi.Context, args LookupUserPoolUiCustomizationAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolUiCustomizationAttachmentResultOutput {
@@ -46,7 +46,8 @@ func LookupUserPoolUiCustomizationAttachmentOutput(ctx *pulumi.Context, args Loo
 }
 
 type LookupUserPoolUiCustomizationAttachmentOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ClientId   pulumi.StringInput `pulumi:"clientId"`
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
 func (LookupUserPoolUiCustomizationAttachmentOutputArgs) ElementType() reflect.Type {
@@ -75,10 +76,6 @@ func (o LookupUserPoolUiCustomizationAttachmentResultOutput) ToOutput(ctx contex
 
 func (o LookupUserPoolUiCustomizationAttachmentResultOutput) Css() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolUiCustomizationAttachmentResult) *string { return v.Css }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupUserPoolUiCustomizationAttachmentResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolUiCustomizationAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -49,6 +49,8 @@ __all__ = [
     'ChannelCaptionSelectorSettingsArgs',
     'ChannelCaptionSelectorArgs',
     'ChannelCdiInputSpecificationArgs',
+    'ChannelColorCorrectionSettingsArgs',
+    'ChannelColorCorrectionArgs',
     'ChannelColorSpacePassthroughSettingsArgs',
     'ChannelDolbyVision81SettingsArgs',
     'ChannelDvbNitSettingsArgs',
@@ -2085,6 +2087,64 @@ class ChannelCdiInputSpecificationArgs:
 
 
 @pulumi.input_type
+class ChannelColorCorrectionSettingsArgs:
+    def __init__(__self__, *,
+                 global_color_corrections: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelColorCorrectionArgs']]]] = None):
+        if global_color_corrections is not None:
+            pulumi.set(__self__, "global_color_corrections", global_color_corrections)
+
+    @property
+    @pulumi.getter(name="globalColorCorrections")
+    def global_color_corrections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelColorCorrectionArgs']]]]:
+        return pulumi.get(self, "global_color_corrections")
+
+    @global_color_corrections.setter
+    def global_color_corrections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelColorCorrectionArgs']]]]):
+        pulumi.set(self, "global_color_corrections", value)
+
+
+@pulumi.input_type
+class ChannelColorCorrectionArgs:
+    def __init__(__self__, *,
+                 input_color_space: Optional[pulumi.Input[str]] = None,
+                 output_color_space: Optional[pulumi.Input[str]] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
+        if input_color_space is not None:
+            pulumi.set(__self__, "input_color_space", input_color_space)
+        if output_color_space is not None:
+            pulumi.set(__self__, "output_color_space", output_color_space)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="inputColorSpace")
+    def input_color_space(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "input_color_space")
+
+    @input_color_space.setter
+    def input_color_space(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "input_color_space", value)
+
+    @property
+    @pulumi.getter(name="outputColorSpace")
+    def output_color_space(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "output_color_space")
+
+    @output_color_space.setter
+    def output_color_space(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_color_space", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
 class ChannelColorSpacePassthroughSettingsArgs:
     def __init__(__self__):
         pass
@@ -2905,6 +2965,7 @@ class ChannelEncoderSettingsArgs:
                  avail_configuration: Optional[pulumi.Input['ChannelAvailConfigurationArgs']] = None,
                  blackout_slate: Optional[pulumi.Input['ChannelBlackoutSlateArgs']] = None,
                  caption_descriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelCaptionDescriptionArgs']]]] = None,
+                 color_correction_settings: Optional[pulumi.Input['ChannelColorCorrectionSettingsArgs']] = None,
                  feature_activations: Optional[pulumi.Input['ChannelFeatureActivationsArgs']] = None,
                  global_configuration: Optional[pulumi.Input['ChannelGlobalConfigurationArgs']] = None,
                  motion_graphics_configuration: Optional[pulumi.Input['ChannelMotionGraphicsConfigurationArgs']] = None,
@@ -2923,6 +2984,8 @@ class ChannelEncoderSettingsArgs:
             pulumi.set(__self__, "blackout_slate", blackout_slate)
         if caption_descriptions is not None:
             pulumi.set(__self__, "caption_descriptions", caption_descriptions)
+        if color_correction_settings is not None:
+            pulumi.set(__self__, "color_correction_settings", color_correction_settings)
         if feature_activations is not None:
             pulumi.set(__self__, "feature_activations", feature_activations)
         if global_configuration is not None:
@@ -2984,6 +3047,15 @@ class ChannelEncoderSettingsArgs:
     @caption_descriptions.setter
     def caption_descriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelCaptionDescriptionArgs']]]]):
         pulumi.set(self, "caption_descriptions", value)
+
+    @property
+    @pulumi.getter(name="colorCorrectionSettings")
+    def color_correction_settings(self) -> Optional[pulumi.Input['ChannelColorCorrectionSettingsArgs']]:
+        return pulumi.get(self, "color_correction_settings")
+
+    @color_correction_settings.setter
+    def color_correction_settings(self, value: Optional[pulumi.Input['ChannelColorCorrectionSettingsArgs']]):
+        pulumi.set(self, "color_correction_settings", value)
 
     @property
     @pulumi.getter(name="featureActivations")

@@ -37,6 +37,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
             set => _captionDescriptions = value;
         }
 
+        [Input("colorCorrectionSettings")]
+        public Input<Inputs.ChannelColorCorrectionSettingsArgs>? ColorCorrectionSettings { get; set; }
+
         [Input("featureActivations")]
         public Input<Inputs.ChannelFeatureActivationsArgs>? FeatureActivations { get; set; }
 

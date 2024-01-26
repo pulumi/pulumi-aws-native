@@ -51,6 +51,12 @@ namespace Pulumi.AwsNative.Logs
         [Output("scope")]
         public Output<Pulumi.AwsNative.Logs.AccountPolicyScope?> Scope { get; private set; } = null!;
 
+        /// <summary>
+        /// Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+        /// </summary>
+        [Output("selectionCriteria")]
+        public Output<string?> SelectionCriteria { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a AccountPolicy resource with the given unique name, arguments, and options.
@@ -130,6 +136,12 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Input("scope")]
         public Input<Pulumi.AwsNative.Logs.AccountPolicyScope>? Scope { get; set; }
+
+        /// <summary>
+        /// Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+        /// </summary>
+        [Input("selectionCriteria")]
+        public Input<string>? SelectionCriteria { get; set; }
 
         public AccountPolicyArgs()
         {

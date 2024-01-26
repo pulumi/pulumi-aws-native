@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetFilterArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("detectorId", required: true)]
+        public string DetectorId { get; set; } = null!;
+
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetFilterArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetFilterInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("detectorId", required: true)]
+        public Input<string> DetectorId { get; set; } = null!;
+
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetFilterInvokeArgs()
         {
@@ -54,9 +60,8 @@ namespace Pulumi.AwsNative.GuardDuty
         public readonly string? Action;
         public readonly string? Description;
         public readonly Outputs.FilterFindingCriteria? FindingCriteria;
-        public readonly string? Id;
         public readonly int? Rank;
-        public readonly ImmutableArray<Outputs.FilterTag> Tags;
+        public readonly ImmutableArray<Outputs.FilterTagItem> Tags;
 
         [OutputConstructor]
         private GetFilterResult(
@@ -66,16 +71,13 @@ namespace Pulumi.AwsNative.GuardDuty
 
             Outputs.FilterFindingCriteria? findingCriteria,
 
-            string? id,
-
             int? rank,
 
-            ImmutableArray<Outputs.FilterTag> tags)
+            ImmutableArray<Outputs.FilterTagItem> tags)
         {
             Action = action;
             Description = description;
             FindingCriteria = findingCriteria;
-            Id = id;
             Rank = rank;
             Tags = tags;
         }

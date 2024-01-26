@@ -156,6 +156,7 @@ namespace Pulumi.AwsNative.Ssm
         public static DocumentType ProblemAnalysis { get; } = new DocumentType("ProblemAnalysis");
         public static DocumentType ProblemAnalysisTemplate { get; } = new DocumentType("ProblemAnalysisTemplate");
         public static DocumentType Session { get; } = new DocumentType("Session");
+        public static DocumentType OpsPack { get; } = new DocumentType("OpsPack");
 
         public static bool operator ==(DocumentType left, DocumentType right) => left.Equals(right);
         public static bool operator !=(DocumentType left, DocumentType right) => !left.Equals(right);

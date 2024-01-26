@@ -37,24 +37,17 @@ export class JobDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === JobDefinition.__pulumiType;
     }
 
-    public /*out*/ readonly containerOrchestrationType!: pulumi.Output<string>;
     public readonly containerProperties!: pulumi.Output<outputs.batch.JobDefinitionContainerProperties | undefined>;
     public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
-    public /*out*/ readonly jobDefinitionArn!: pulumi.Output<string>;
     public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
     public readonly nodeProperties!: pulumi.Output<outputs.batch.JobDefinitionNodeProperties | undefined>;
     public readonly parameters!: pulumi.Output<any | undefined>;
     public readonly platformCapabilities!: pulumi.Output<string[] | undefined>;
     public readonly propagateTags!: pulumi.Output<boolean | undefined>;
     public readonly retryStrategy!: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
-    public /*out*/ readonly revision!: pulumi.Output<number>;
     public readonly schedulingPriority!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * A key-value pair to associate with a resource.
-     */
     public readonly tags!: pulumi.Output<any | undefined>;
-    public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionJobTimeout | undefined>;
+    public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -83,30 +76,22 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["containerOrchestrationType"] = undefined /*out*/;
-            resourceInputs["jobDefinitionArn"] = undefined /*out*/;
-            resourceInputs["revision"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
         } else {
-            resourceInputs["containerOrchestrationType"] = undefined /*out*/;
             resourceInputs["containerProperties"] = undefined /*out*/;
             resourceInputs["eksProperties"] = undefined /*out*/;
-            resourceInputs["jobDefinitionArn"] = undefined /*out*/;
             resourceInputs["jobDefinitionName"] = undefined /*out*/;
             resourceInputs["nodeProperties"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["platformCapabilities"] = undefined /*out*/;
             resourceInputs["propagateTags"] = undefined /*out*/;
             resourceInputs["retryStrategy"] = undefined /*out*/;
-            resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["schedulingPriority"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeout"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["containerProperties", "eksProperties", "jobDefinitionName", "nodeProperties", "parameters", "platformCapabilities[*]", "propagateTags", "retryStrategy", "schedulingPriority", "timeout", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["jobDefinitionName", "tags"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(JobDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -125,10 +110,7 @@ export interface JobDefinitionArgs {
     propagateTags?: pulumi.Input<boolean>;
     retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategyArgs>;
     schedulingPriority?: pulumi.Input<number>;
-    /**
-     * A key-value pair to associate with a resource.
-     */
     tags?: any;
-    timeout?: pulumi.Input<inputs.batch.JobDefinitionJobTimeoutArgs>;
+    timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeoutArgs>;
     type: pulumi.Input<string>;
 }

@@ -34,7 +34,7 @@ export interface GetFleetMetricResult {
     /**
      * The creation date of a fleet metric
      */
-    readonly creationDate?: number;
+    readonly creationDate?: string;
     /**
      * The description of a fleet metric
      */
@@ -46,7 +46,7 @@ export interface GetFleetMetricResult {
     /**
      * The last modified date of a fleet metric
      */
-    readonly lastModifiedDate?: number;
+    readonly lastModifiedDate?: string;
     /**
      * The Amazon Resource Number (ARN) of a fleet metric metric
      */

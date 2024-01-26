@@ -715,11 +715,11 @@ class ServerlessCacheEcpuPerSecondArgs:
 class ServerlessCacheEndpointArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None):
+                 port: Optional[pulumi.Input[str]] = None):
         """
         The address and the port.
         :param pulumi.Input[str] address: Endpoint address.
-        :param pulumi.Input[int] port: Endpoint port.
+        :param pulumi.Input[str] port: Endpoint port.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -740,14 +740,14 @@ class ServerlessCacheEndpointArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
+    def port(self) -> Optional[pulumi.Input[str]]:
         """
         Endpoint port.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
+    def port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "port", value)
 
 

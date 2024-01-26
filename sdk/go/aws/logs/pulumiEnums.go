@@ -15,7 +15,8 @@ import (
 type AccountPolicyPolicyType string
 
 const (
-	AccountPolicyPolicyTypeDataProtectionPolicy = AccountPolicyPolicyType("DATA_PROTECTION_POLICY")
+	AccountPolicyPolicyTypeDataProtectionPolicy     = AccountPolicyPolicyType("DATA_PROTECTION_POLICY")
+	AccountPolicyPolicyTypeSubscriptionFilterPolicy = AccountPolicyPolicyType("SUBSCRIPTION_FILTER_POLICY")
 )
 
 func (AccountPolicyPolicyType) ElementType() reflect.Type {

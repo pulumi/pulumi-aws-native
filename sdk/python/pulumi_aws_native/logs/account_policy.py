@@ -18,7 +18,8 @@ class AccountPolicyArgs:
                  policy_document: pulumi.Input[str],
                  policy_name: pulumi.Input[str],
                  policy_type: pulumi.Input['AccountPolicyPolicyType'],
-                 scope: Optional[pulumi.Input['AccountPolicyScope']] = None):
+                 scope: Optional[pulumi.Input['AccountPolicyScope']] = None,
+                 selection_criteria: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccountPolicy resource.
         :param pulumi.Input[str] policy_document: The body of the policy document you want to use for this topic.
@@ -31,12 +32,15 @@ class AccountPolicyArgs:
         :param pulumi.Input[str] policy_name: The name of the account policy
         :param pulumi.Input['AccountPolicyPolicyType'] policy_type: Type of the policy.
         :param pulumi.Input['AccountPolicyScope'] scope: Scope for policy application
+        :param pulumi.Input[str] selection_criteria: Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
         """
         pulumi.set(__self__, "policy_document", policy_document)
         pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "policy_type", policy_type)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if selection_criteria is not None:
+            pulumi.set(__self__, "selection_criteria", selection_criteria)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -92,6 +96,18 @@ class AccountPolicyArgs:
     def scope(self, value: Optional[pulumi.Input['AccountPolicyScope']]):
         pulumi.set(self, "scope", value)
 
+    @property
+    @pulumi.getter(name="selectionCriteria")
+    def selection_criteria(self) -> Optional[pulumi.Input[str]]:
+        """
+        Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+        """
+        return pulumi.get(self, "selection_criteria")
+
+    @selection_criteria.setter
+    def selection_criteria(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "selection_criteria", value)
+
 
 class AccountPolicy(pulumi.CustomResource):
     @overload
@@ -102,6 +118,7 @@ class AccountPolicy(pulumi.CustomResource):
                  policy_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input['AccountPolicyPolicyType']] = None,
                  scope: Optional[pulumi.Input['AccountPolicyScope']] = None,
+                 selection_criteria: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
@@ -118,6 +135,7 @@ class AccountPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] policy_name: The name of the account policy
         :param pulumi.Input['AccountPolicyPolicyType'] policy_type: Type of the policy.
         :param pulumi.Input['AccountPolicyScope'] scope: Scope for policy application
+        :param pulumi.Input[str] selection_criteria: Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
         """
         ...
     @overload
@@ -147,6 +165,7 @@ class AccountPolicy(pulumi.CustomResource):
                  policy_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input['AccountPolicyPolicyType']] = None,
                  scope: Optional[pulumi.Input['AccountPolicyScope']] = None,
+                 selection_criteria: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,6 +185,7 @@ class AccountPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_type'")
             __props__.__dict__["policy_type"] = policy_type
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["selection_criteria"] = selection_criteria
             __props__.__dict__["account_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policy_name", "policy_type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -196,6 +216,7 @@ class AccountPolicy(pulumi.CustomResource):
         __props__.__dict__["policy_name"] = None
         __props__.__dict__["policy_type"] = None
         __props__.__dict__["scope"] = None
+        __props__.__dict__["selection_criteria"] = None
         return AccountPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -243,4 +264,12 @@ class AccountPolicy(pulumi.CustomResource):
         Scope for policy application
         """
         return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="selectionCriteria")
+    def selection_criteria(self) -> pulumi.Output[Optional[str]]:
+        """
+        Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+        """
+        return pulumi.get(self, "selection_criteria")
 

@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Cognito
     /// <summary>
     /// Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
     /// </summary>
-    [Obsolete(@"UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:UserPoolIdentityProvider")]
     public partial class UserPoolIdentityProvider : global::Pulumi.CustomResource
     {
@@ -23,7 +22,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<ImmutableArray<string>> IdpIdentifiers { get; private set; } = null!;
 
         [Output("providerDetails")]
-        public Output<object?> ProviderDetails { get; private set; } = null!;
+        public Output<object> ProviderDetails { get; private set; } = null!;
 
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
@@ -96,8 +95,8 @@ namespace Pulumi.AwsNative.Cognito
             set => _idpIdentifiers = value;
         }
 
-        [Input("providerDetails")]
-        public Input<object>? ProviderDetails { get; set; }
+        [Input("providerDetails", required: true)]
+        public Input<object> ProviderDetails { get; set; } = null!;
 
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;

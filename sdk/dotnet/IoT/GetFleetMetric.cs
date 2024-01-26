@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// The creation date of a fleet metric
         /// </summary>
-        public readonly double? CreationDate;
+        public readonly string? CreationDate;
         /// <summary>
         /// The description of a fleet metric
         /// </summary>
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// The last modified date of a fleet metric
         /// </summary>
-        public readonly double? LastModifiedDate;
+        public readonly string? LastModifiedDate;
         /// <summary>
         /// The Amazon Resource Number (ARN) of a fleet metric metric
         /// </summary>
@@ -113,13 +113,13 @@ namespace Pulumi.AwsNative.IoT
 
             Outputs.FleetMetricAggregationType? aggregationType,
 
-            double? creationDate,
+            string? creationDate,
 
             string? description,
 
             string? indexName,
 
-            double? lastModifiedDate,
+            string? lastModifiedDate,
 
             string? metricArn,
 

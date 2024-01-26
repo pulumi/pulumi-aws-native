@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         public readonly Outputs.ChannelAvailConfiguration? AvailConfiguration;
         public readonly Outputs.ChannelBlackoutSlate? BlackoutSlate;
         public readonly ImmutableArray<Outputs.ChannelCaptionDescription> CaptionDescriptions;
+        public readonly Outputs.ChannelColorCorrectionSettings? ColorCorrectionSettings;
         public readonly Outputs.ChannelFeatureActivations? FeatureActivations;
         public readonly Outputs.ChannelGlobalConfiguration? GlobalConfiguration;
         public readonly Outputs.ChannelMotionGraphicsConfiguration? MotionGraphicsConfiguration;
@@ -38,6 +39,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             Outputs.ChannelBlackoutSlate? blackoutSlate,
 
             ImmutableArray<Outputs.ChannelCaptionDescription> captionDescriptions,
+
+            Outputs.ChannelColorCorrectionSettings? colorCorrectionSettings,
 
             Outputs.ChannelFeatureActivations? featureActivations,
 
@@ -60,6 +63,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             AvailConfiguration = availConfiguration;
             BlackoutSlate = blackoutSlate;
             CaptionDescriptions = captionDescriptions;
+            ColorCorrectionSettings = colorCorrectionSettings;
             FeatureActivations = featureActivations;
             GlobalConfiguration = globalConfiguration;
             MotionGraphicsConfiguration = motionGraphicsConfiguration;

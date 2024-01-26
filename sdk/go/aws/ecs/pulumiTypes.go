@@ -2406,10 +2406,12 @@ func (o ServiceConnectConfigurationPtrOutput) Services() ServiceConnectServiceAr
 }
 
 type ServiceConnectService struct {
-	ClientAliases       []ServiceConnectClientAlias `pulumi:"clientAliases"`
-	DiscoveryName       *string                     `pulumi:"discoveryName"`
-	IngressPortOverride *int                        `pulumi:"ingressPortOverride"`
-	PortName            string                      `pulumi:"portName"`
+	ClientAliases       []ServiceConnectClientAlias     `pulumi:"clientAliases"`
+	DiscoveryName       *string                         `pulumi:"discoveryName"`
+	IngressPortOverride *int                            `pulumi:"ingressPortOverride"`
+	PortName            string                          `pulumi:"portName"`
+	Timeout             *ServiceTimeoutConfiguration    `pulumi:"timeout"`
+	Tls                 *ServiceConnectTlsConfiguration `pulumi:"tls"`
 }
 
 // ServiceConnectServiceInput is an input type that accepts ServiceConnectServiceArgs and ServiceConnectServiceOutput values.
@@ -2424,10 +2426,12 @@ type ServiceConnectServiceInput interface {
 }
 
 type ServiceConnectServiceArgs struct {
-	ClientAliases       ServiceConnectClientAliasArrayInput `pulumi:"clientAliases"`
-	DiscoveryName       pulumi.StringPtrInput               `pulumi:"discoveryName"`
-	IngressPortOverride pulumi.IntPtrInput                  `pulumi:"ingressPortOverride"`
-	PortName            pulumi.StringInput                  `pulumi:"portName"`
+	ClientAliases       ServiceConnectClientAliasArrayInput    `pulumi:"clientAliases"`
+	DiscoveryName       pulumi.StringPtrInput                  `pulumi:"discoveryName"`
+	IngressPortOverride pulumi.IntPtrInput                     `pulumi:"ingressPortOverride"`
+	PortName            pulumi.StringInput                     `pulumi:"portName"`
+	Timeout             ServiceTimeoutConfigurationPtrInput    `pulumi:"timeout"`
+	Tls                 ServiceConnectTlsConfigurationPtrInput `pulumi:"tls"`
 }
 
 func (ServiceConnectServiceArgs) ElementType() reflect.Type {
@@ -2515,6 +2519,14 @@ func (o ServiceConnectServiceOutput) PortName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceConnectService) string { return v.PortName }).(pulumi.StringOutput)
 }
 
+func (o ServiceConnectServiceOutput) Timeout() ServiceTimeoutConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceConnectService) *ServiceTimeoutConfiguration { return v.Timeout }).(ServiceTimeoutConfigurationPtrOutput)
+}
+
+func (o ServiceConnectServiceOutput) Tls() ServiceConnectTlsConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceConnectService) *ServiceConnectTlsConfiguration { return v.Tls }).(ServiceConnectTlsConfigurationPtrOutput)
+}
+
 type ServiceConnectServiceArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceConnectServiceArrayOutput) ElementType() reflect.Type {
@@ -2539,6 +2551,352 @@ func (o ServiceConnectServiceArrayOutput) Index(i pulumi.IntInput) ServiceConnec
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceConnectService {
 		return vs[0].([]ServiceConnectService)[vs[1].(int)]
 	}).(ServiceConnectServiceOutput)
+}
+
+type ServiceConnectTlsCertificateAuthority struct {
+	AwsPcaAuthorityArn *string `pulumi:"awsPcaAuthorityArn"`
+}
+
+// ServiceConnectTlsCertificateAuthorityInput is an input type that accepts ServiceConnectTlsCertificateAuthorityArgs and ServiceConnectTlsCertificateAuthorityOutput values.
+// You can construct a concrete instance of `ServiceConnectTlsCertificateAuthorityInput` via:
+//
+//	ServiceConnectTlsCertificateAuthorityArgs{...}
+type ServiceConnectTlsCertificateAuthorityInput interface {
+	pulumi.Input
+
+	ToServiceConnectTlsCertificateAuthorityOutput() ServiceConnectTlsCertificateAuthorityOutput
+	ToServiceConnectTlsCertificateAuthorityOutputWithContext(context.Context) ServiceConnectTlsCertificateAuthorityOutput
+}
+
+type ServiceConnectTlsCertificateAuthorityArgs struct {
+	AwsPcaAuthorityArn pulumi.StringPtrInput `pulumi:"awsPcaAuthorityArn"`
+}
+
+func (ServiceConnectTlsCertificateAuthorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectTlsCertificateAuthority)(nil)).Elem()
+}
+
+func (i ServiceConnectTlsCertificateAuthorityArgs) ToServiceConnectTlsCertificateAuthorityOutput() ServiceConnectTlsCertificateAuthorityOutput {
+	return i.ToServiceConnectTlsCertificateAuthorityOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectTlsCertificateAuthorityArgs) ToServiceConnectTlsCertificateAuthorityOutputWithContext(ctx context.Context) ServiceConnectTlsCertificateAuthorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTlsCertificateAuthorityOutput)
+}
+
+func (i ServiceConnectTlsCertificateAuthorityArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceConnectTlsCertificateAuthority] {
+	return pulumix.Output[ServiceConnectTlsCertificateAuthority]{
+		OutputState: i.ToServiceConnectTlsCertificateAuthorityOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ServiceConnectTlsCertificateAuthorityArgs) ToServiceConnectTlsCertificateAuthorityPtrOutput() ServiceConnectTlsCertificateAuthorityPtrOutput {
+	return i.ToServiceConnectTlsCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectTlsCertificateAuthorityArgs) ToServiceConnectTlsCertificateAuthorityPtrOutputWithContext(ctx context.Context) ServiceConnectTlsCertificateAuthorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTlsCertificateAuthorityOutput).ToServiceConnectTlsCertificateAuthorityPtrOutputWithContext(ctx)
+}
+
+// ServiceConnectTlsCertificateAuthorityPtrInput is an input type that accepts ServiceConnectTlsCertificateAuthorityArgs, ServiceConnectTlsCertificateAuthorityPtr and ServiceConnectTlsCertificateAuthorityPtrOutput values.
+// You can construct a concrete instance of `ServiceConnectTlsCertificateAuthorityPtrInput` via:
+//
+//	        ServiceConnectTlsCertificateAuthorityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceConnectTlsCertificateAuthorityPtrInput interface {
+	pulumi.Input
+
+	ToServiceConnectTlsCertificateAuthorityPtrOutput() ServiceConnectTlsCertificateAuthorityPtrOutput
+	ToServiceConnectTlsCertificateAuthorityPtrOutputWithContext(context.Context) ServiceConnectTlsCertificateAuthorityPtrOutput
+}
+
+type serviceConnectTlsCertificateAuthorityPtrType ServiceConnectTlsCertificateAuthorityArgs
+
+func ServiceConnectTlsCertificateAuthorityPtr(v *ServiceConnectTlsCertificateAuthorityArgs) ServiceConnectTlsCertificateAuthorityPtrInput {
+	return (*serviceConnectTlsCertificateAuthorityPtrType)(v)
+}
+
+func (*serviceConnectTlsCertificateAuthorityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectTlsCertificateAuthority)(nil)).Elem()
+}
+
+func (i *serviceConnectTlsCertificateAuthorityPtrType) ToServiceConnectTlsCertificateAuthorityPtrOutput() ServiceConnectTlsCertificateAuthorityPtrOutput {
+	return i.ToServiceConnectTlsCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceConnectTlsCertificateAuthorityPtrType) ToServiceConnectTlsCertificateAuthorityPtrOutputWithContext(ctx context.Context) ServiceConnectTlsCertificateAuthorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTlsCertificateAuthorityPtrOutput)
+}
+
+func (i *serviceConnectTlsCertificateAuthorityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceConnectTlsCertificateAuthority] {
+	return pulumix.Output[*ServiceConnectTlsCertificateAuthority]{
+		OutputState: i.ToServiceConnectTlsCertificateAuthorityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ServiceConnectTlsCertificateAuthorityOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectTlsCertificateAuthorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectTlsCertificateAuthority)(nil)).Elem()
+}
+
+func (o ServiceConnectTlsCertificateAuthorityOutput) ToServiceConnectTlsCertificateAuthorityOutput() ServiceConnectTlsCertificateAuthorityOutput {
+	return o
+}
+
+func (o ServiceConnectTlsCertificateAuthorityOutput) ToServiceConnectTlsCertificateAuthorityOutputWithContext(ctx context.Context) ServiceConnectTlsCertificateAuthorityOutput {
+	return o
+}
+
+func (o ServiceConnectTlsCertificateAuthorityOutput) ToServiceConnectTlsCertificateAuthorityPtrOutput() ServiceConnectTlsCertificateAuthorityPtrOutput {
+	return o.ToServiceConnectTlsCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectTlsCertificateAuthorityOutput) ToServiceConnectTlsCertificateAuthorityPtrOutputWithContext(ctx context.Context) ServiceConnectTlsCertificateAuthorityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceConnectTlsCertificateAuthority) *ServiceConnectTlsCertificateAuthority {
+		return &v
+	}).(ServiceConnectTlsCertificateAuthorityPtrOutput)
+}
+
+func (o ServiceConnectTlsCertificateAuthorityOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceConnectTlsCertificateAuthority] {
+	return pulumix.Output[ServiceConnectTlsCertificateAuthority]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceConnectTlsCertificateAuthorityOutput) AwsPcaAuthorityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceConnectTlsCertificateAuthority) *string { return v.AwsPcaAuthorityArn }).(pulumi.StringPtrOutput)
+}
+
+type ServiceConnectTlsCertificateAuthorityPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectTlsCertificateAuthorityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectTlsCertificateAuthority)(nil)).Elem()
+}
+
+func (o ServiceConnectTlsCertificateAuthorityPtrOutput) ToServiceConnectTlsCertificateAuthorityPtrOutput() ServiceConnectTlsCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o ServiceConnectTlsCertificateAuthorityPtrOutput) ToServiceConnectTlsCertificateAuthorityPtrOutputWithContext(ctx context.Context) ServiceConnectTlsCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o ServiceConnectTlsCertificateAuthorityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceConnectTlsCertificateAuthority] {
+	return pulumix.Output[*ServiceConnectTlsCertificateAuthority]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceConnectTlsCertificateAuthorityPtrOutput) Elem() ServiceConnectTlsCertificateAuthorityOutput {
+	return o.ApplyT(func(v *ServiceConnectTlsCertificateAuthority) ServiceConnectTlsCertificateAuthority {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceConnectTlsCertificateAuthority
+		return ret
+	}).(ServiceConnectTlsCertificateAuthorityOutput)
+}
+
+func (o ServiceConnectTlsCertificateAuthorityPtrOutput) AwsPcaAuthorityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectTlsCertificateAuthority) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsPcaAuthorityArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceConnectTlsConfiguration struct {
+	IssuerCertificateAuthority ServiceConnectTlsCertificateAuthority `pulumi:"issuerCertificateAuthority"`
+	KmsKey                     *string                               `pulumi:"kmsKey"`
+	RoleArn                    *string                               `pulumi:"roleArn"`
+}
+
+// ServiceConnectTlsConfigurationInput is an input type that accepts ServiceConnectTlsConfigurationArgs and ServiceConnectTlsConfigurationOutput values.
+// You can construct a concrete instance of `ServiceConnectTlsConfigurationInput` via:
+//
+//	ServiceConnectTlsConfigurationArgs{...}
+type ServiceConnectTlsConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceConnectTlsConfigurationOutput() ServiceConnectTlsConfigurationOutput
+	ToServiceConnectTlsConfigurationOutputWithContext(context.Context) ServiceConnectTlsConfigurationOutput
+}
+
+type ServiceConnectTlsConfigurationArgs struct {
+	IssuerCertificateAuthority ServiceConnectTlsCertificateAuthorityInput `pulumi:"issuerCertificateAuthority"`
+	KmsKey                     pulumi.StringPtrInput                      `pulumi:"kmsKey"`
+	RoleArn                    pulumi.StringPtrInput                      `pulumi:"roleArn"`
+}
+
+func (ServiceConnectTlsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectTlsConfiguration)(nil)).Elem()
+}
+
+func (i ServiceConnectTlsConfigurationArgs) ToServiceConnectTlsConfigurationOutput() ServiceConnectTlsConfigurationOutput {
+	return i.ToServiceConnectTlsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectTlsConfigurationArgs) ToServiceConnectTlsConfigurationOutputWithContext(ctx context.Context) ServiceConnectTlsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTlsConfigurationOutput)
+}
+
+func (i ServiceConnectTlsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceConnectTlsConfiguration] {
+	return pulumix.Output[ServiceConnectTlsConfiguration]{
+		OutputState: i.ToServiceConnectTlsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ServiceConnectTlsConfigurationArgs) ToServiceConnectTlsConfigurationPtrOutput() ServiceConnectTlsConfigurationPtrOutput {
+	return i.ToServiceConnectTlsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectTlsConfigurationArgs) ToServiceConnectTlsConfigurationPtrOutputWithContext(ctx context.Context) ServiceConnectTlsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTlsConfigurationOutput).ToServiceConnectTlsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceConnectTlsConfigurationPtrInput is an input type that accepts ServiceConnectTlsConfigurationArgs, ServiceConnectTlsConfigurationPtr and ServiceConnectTlsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceConnectTlsConfigurationPtrInput` via:
+//
+//	        ServiceConnectTlsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceConnectTlsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceConnectTlsConfigurationPtrOutput() ServiceConnectTlsConfigurationPtrOutput
+	ToServiceConnectTlsConfigurationPtrOutputWithContext(context.Context) ServiceConnectTlsConfigurationPtrOutput
+}
+
+type serviceConnectTlsConfigurationPtrType ServiceConnectTlsConfigurationArgs
+
+func ServiceConnectTlsConfigurationPtr(v *ServiceConnectTlsConfigurationArgs) ServiceConnectTlsConfigurationPtrInput {
+	return (*serviceConnectTlsConfigurationPtrType)(v)
+}
+
+func (*serviceConnectTlsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectTlsConfiguration)(nil)).Elem()
+}
+
+func (i *serviceConnectTlsConfigurationPtrType) ToServiceConnectTlsConfigurationPtrOutput() ServiceConnectTlsConfigurationPtrOutput {
+	return i.ToServiceConnectTlsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceConnectTlsConfigurationPtrType) ToServiceConnectTlsConfigurationPtrOutputWithContext(ctx context.Context) ServiceConnectTlsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTlsConfigurationPtrOutput)
+}
+
+func (i *serviceConnectTlsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceConnectTlsConfiguration] {
+	return pulumix.Output[*ServiceConnectTlsConfiguration]{
+		OutputState: i.ToServiceConnectTlsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ServiceConnectTlsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectTlsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectTlsConfiguration)(nil)).Elem()
+}
+
+func (o ServiceConnectTlsConfigurationOutput) ToServiceConnectTlsConfigurationOutput() ServiceConnectTlsConfigurationOutput {
+	return o
+}
+
+func (o ServiceConnectTlsConfigurationOutput) ToServiceConnectTlsConfigurationOutputWithContext(ctx context.Context) ServiceConnectTlsConfigurationOutput {
+	return o
+}
+
+func (o ServiceConnectTlsConfigurationOutput) ToServiceConnectTlsConfigurationPtrOutput() ServiceConnectTlsConfigurationPtrOutput {
+	return o.ToServiceConnectTlsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectTlsConfigurationOutput) ToServiceConnectTlsConfigurationPtrOutputWithContext(ctx context.Context) ServiceConnectTlsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceConnectTlsConfiguration) *ServiceConnectTlsConfiguration {
+		return &v
+	}).(ServiceConnectTlsConfigurationPtrOutput)
+}
+
+func (o ServiceConnectTlsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceConnectTlsConfiguration] {
+	return pulumix.Output[ServiceConnectTlsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceConnectTlsConfigurationOutput) IssuerCertificateAuthority() ServiceConnectTlsCertificateAuthorityOutput {
+	return o.ApplyT(func(v ServiceConnectTlsConfiguration) ServiceConnectTlsCertificateAuthority {
+		return v.IssuerCertificateAuthority
+	}).(ServiceConnectTlsCertificateAuthorityOutput)
+}
+
+func (o ServiceConnectTlsConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceConnectTlsConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceConnectTlsConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceConnectTlsConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+type ServiceConnectTlsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectTlsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectTlsConfiguration)(nil)).Elem()
+}
+
+func (o ServiceConnectTlsConfigurationPtrOutput) ToServiceConnectTlsConfigurationPtrOutput() ServiceConnectTlsConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceConnectTlsConfigurationPtrOutput) ToServiceConnectTlsConfigurationPtrOutputWithContext(ctx context.Context) ServiceConnectTlsConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceConnectTlsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceConnectTlsConfiguration] {
+	return pulumix.Output[*ServiceConnectTlsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceConnectTlsConfigurationPtrOutput) Elem() ServiceConnectTlsConfigurationOutput {
+	return o.ApplyT(func(v *ServiceConnectTlsConfiguration) ServiceConnectTlsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceConnectTlsConfiguration
+		return ret
+	}).(ServiceConnectTlsConfigurationOutput)
+}
+
+func (o ServiceConnectTlsConfigurationPtrOutput) IssuerCertificateAuthority() ServiceConnectTlsCertificateAuthorityPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectTlsConfiguration) *ServiceConnectTlsCertificateAuthority {
+		if v == nil {
+			return nil
+		}
+		return &v.IssuerCertificateAuthority
+	}).(ServiceConnectTlsCertificateAuthorityPtrOutput)
+}
+
+func (o ServiceConnectTlsConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectTlsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceConnectTlsConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectTlsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceDeploymentAlarms struct {
@@ -4793,6 +5151,178 @@ func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceTag {
 		return vs[0].([]ServiceTag)[vs[1].(int)]
 	}).(ServiceTagOutput)
+}
+
+type ServiceTimeoutConfiguration struct {
+	IdleTimeoutSeconds       *int `pulumi:"idleTimeoutSeconds"`
+	PerRequestTimeoutSeconds *int `pulumi:"perRequestTimeoutSeconds"`
+}
+
+// ServiceTimeoutConfigurationInput is an input type that accepts ServiceTimeoutConfigurationArgs and ServiceTimeoutConfigurationOutput values.
+// You can construct a concrete instance of `ServiceTimeoutConfigurationInput` via:
+//
+//	ServiceTimeoutConfigurationArgs{...}
+type ServiceTimeoutConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceTimeoutConfigurationOutput() ServiceTimeoutConfigurationOutput
+	ToServiceTimeoutConfigurationOutputWithContext(context.Context) ServiceTimeoutConfigurationOutput
+}
+
+type ServiceTimeoutConfigurationArgs struct {
+	IdleTimeoutSeconds       pulumi.IntPtrInput `pulumi:"idleTimeoutSeconds"`
+	PerRequestTimeoutSeconds pulumi.IntPtrInput `pulumi:"perRequestTimeoutSeconds"`
+}
+
+func (ServiceTimeoutConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTimeoutConfiguration)(nil)).Elem()
+}
+
+func (i ServiceTimeoutConfigurationArgs) ToServiceTimeoutConfigurationOutput() ServiceTimeoutConfigurationOutput {
+	return i.ToServiceTimeoutConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceTimeoutConfigurationArgs) ToServiceTimeoutConfigurationOutputWithContext(ctx context.Context) ServiceTimeoutConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTimeoutConfigurationOutput)
+}
+
+func (i ServiceTimeoutConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceTimeoutConfiguration] {
+	return pulumix.Output[ServiceTimeoutConfiguration]{
+		OutputState: i.ToServiceTimeoutConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ServiceTimeoutConfigurationArgs) ToServiceTimeoutConfigurationPtrOutput() ServiceTimeoutConfigurationPtrOutput {
+	return i.ToServiceTimeoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceTimeoutConfigurationArgs) ToServiceTimeoutConfigurationPtrOutputWithContext(ctx context.Context) ServiceTimeoutConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTimeoutConfigurationOutput).ToServiceTimeoutConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceTimeoutConfigurationPtrInput is an input type that accepts ServiceTimeoutConfigurationArgs, ServiceTimeoutConfigurationPtr and ServiceTimeoutConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceTimeoutConfigurationPtrInput` via:
+//
+//	        ServiceTimeoutConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceTimeoutConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceTimeoutConfigurationPtrOutput() ServiceTimeoutConfigurationPtrOutput
+	ToServiceTimeoutConfigurationPtrOutputWithContext(context.Context) ServiceTimeoutConfigurationPtrOutput
+}
+
+type serviceTimeoutConfigurationPtrType ServiceTimeoutConfigurationArgs
+
+func ServiceTimeoutConfigurationPtr(v *ServiceTimeoutConfigurationArgs) ServiceTimeoutConfigurationPtrInput {
+	return (*serviceTimeoutConfigurationPtrType)(v)
+}
+
+func (*serviceTimeoutConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTimeoutConfiguration)(nil)).Elem()
+}
+
+func (i *serviceTimeoutConfigurationPtrType) ToServiceTimeoutConfigurationPtrOutput() ServiceTimeoutConfigurationPtrOutput {
+	return i.ToServiceTimeoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceTimeoutConfigurationPtrType) ToServiceTimeoutConfigurationPtrOutputWithContext(ctx context.Context) ServiceTimeoutConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTimeoutConfigurationPtrOutput)
+}
+
+func (i *serviceTimeoutConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceTimeoutConfiguration] {
+	return pulumix.Output[*ServiceTimeoutConfiguration]{
+		OutputState: i.ToServiceTimeoutConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ServiceTimeoutConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceTimeoutConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTimeoutConfiguration)(nil)).Elem()
+}
+
+func (o ServiceTimeoutConfigurationOutput) ToServiceTimeoutConfigurationOutput() ServiceTimeoutConfigurationOutput {
+	return o
+}
+
+func (o ServiceTimeoutConfigurationOutput) ToServiceTimeoutConfigurationOutputWithContext(ctx context.Context) ServiceTimeoutConfigurationOutput {
+	return o
+}
+
+func (o ServiceTimeoutConfigurationOutput) ToServiceTimeoutConfigurationPtrOutput() ServiceTimeoutConfigurationPtrOutput {
+	return o.ToServiceTimeoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceTimeoutConfigurationOutput) ToServiceTimeoutConfigurationPtrOutputWithContext(ctx context.Context) ServiceTimeoutConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceTimeoutConfiguration) *ServiceTimeoutConfiguration {
+		return &v
+	}).(ServiceTimeoutConfigurationPtrOutput)
+}
+
+func (o ServiceTimeoutConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceTimeoutConfiguration] {
+	return pulumix.Output[ServiceTimeoutConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceTimeoutConfigurationOutput) IdleTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceTimeoutConfiguration) *int { return v.IdleTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceTimeoutConfigurationOutput) PerRequestTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceTimeoutConfiguration) *int { return v.PerRequestTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type ServiceTimeoutConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceTimeoutConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTimeoutConfiguration)(nil)).Elem()
+}
+
+func (o ServiceTimeoutConfigurationPtrOutput) ToServiceTimeoutConfigurationPtrOutput() ServiceTimeoutConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceTimeoutConfigurationPtrOutput) ToServiceTimeoutConfigurationPtrOutputWithContext(ctx context.Context) ServiceTimeoutConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceTimeoutConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceTimeoutConfiguration] {
+	return pulumix.Output[*ServiceTimeoutConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceTimeoutConfigurationPtrOutput) Elem() ServiceTimeoutConfigurationOutput {
+	return o.ApplyT(func(v *ServiceTimeoutConfiguration) ServiceTimeoutConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceTimeoutConfiguration
+		return ret
+	}).(ServiceTimeoutConfigurationOutput)
+}
+
+func (o ServiceTimeoutConfigurationPtrOutput) IdleTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTimeoutConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceTimeoutConfigurationPtrOutput) PerRequestTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTimeoutConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PerRequestTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 type ServiceVolumeConfiguration struct {
@@ -10792,6 +11322,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectConfigurationPtrInput)(nil)).Elem(), ServiceConnectConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectServiceInput)(nil)).Elem(), ServiceConnectServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectServiceArrayInput)(nil)).Elem(), ServiceConnectServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTlsCertificateAuthorityInput)(nil)).Elem(), ServiceConnectTlsCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTlsCertificateAuthorityPtrInput)(nil)).Elem(), ServiceConnectTlsCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTlsConfigurationInput)(nil)).Elem(), ServiceConnectTlsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTlsConfigurationPtrInput)(nil)).Elem(), ServiceConnectTlsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentAlarmsInput)(nil)).Elem(), ServiceDeploymentAlarmsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentAlarmsPtrInput)(nil)).Elem(), ServiceDeploymentAlarmsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentCircuitBreakerInput)(nil)).Elem(), ServiceDeploymentCircuitBreakerArgs{})
@@ -10820,6 +11354,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSecretArrayInput)(nil)).Elem(), ServiceSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagInput)(nil)).Elem(), ServiceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagArrayInput)(nil)).Elem(), ServiceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTimeoutConfigurationInput)(nil)).Elem(), ServiceTimeoutConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTimeoutConfigurationPtrInput)(nil)).Elem(), ServiceTimeoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationInput)(nil)).Elem(), ServiceVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationArrayInput)(nil)).Elem(), ServiceVolumeConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigArgs{})
@@ -10926,6 +11462,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceConnectConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceConnectServiceOutput{})
 	pulumi.RegisterOutputType(ServiceConnectServiceArrayOutput{})
+	pulumi.RegisterOutputType(ServiceConnectTlsCertificateAuthorityOutput{})
+	pulumi.RegisterOutputType(ServiceConnectTlsCertificateAuthorityPtrOutput{})
+	pulumi.RegisterOutputType(ServiceConnectTlsConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceConnectTlsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentAlarmsOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentAlarmsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentCircuitBreakerOutput{})
@@ -10954,6 +11494,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSecretArrayOutput{})
 	pulumi.RegisterOutputType(ServiceTagOutput{})
 	pulumi.RegisterOutputType(ServiceTagArrayOutput{})
+	pulumi.RegisterOutputType(ServiceTimeoutConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceTimeoutConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigOutput{})

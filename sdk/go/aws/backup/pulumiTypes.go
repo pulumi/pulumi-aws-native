@@ -435,8 +435,9 @@ func (o BackupPlanCopyActionResourceTypeArrayOutput) Index(i pulumi.IntInput) Ba
 }
 
 type BackupPlanLifecycleResourceType struct {
-	DeleteAfterDays            *float64 `pulumi:"deleteAfterDays"`
-	MoveToColdStorageAfterDays *float64 `pulumi:"moveToColdStorageAfterDays"`
+	DeleteAfterDays                     *float64 `pulumi:"deleteAfterDays"`
+	MoveToColdStorageAfterDays          *float64 `pulumi:"moveToColdStorageAfterDays"`
+	OptInToArchiveForSupportedResources *bool    `pulumi:"optInToArchiveForSupportedResources"`
 }
 
 // BackupPlanLifecycleResourceTypeInput is an input type that accepts BackupPlanLifecycleResourceTypeArgs and BackupPlanLifecycleResourceTypeOutput values.
@@ -451,8 +452,9 @@ type BackupPlanLifecycleResourceTypeInput interface {
 }
 
 type BackupPlanLifecycleResourceTypeArgs struct {
-	DeleteAfterDays            pulumi.Float64PtrInput `pulumi:"deleteAfterDays"`
-	MoveToColdStorageAfterDays pulumi.Float64PtrInput `pulumi:"moveToColdStorageAfterDays"`
+	DeleteAfterDays                     pulumi.Float64PtrInput `pulumi:"deleteAfterDays"`
+	MoveToColdStorageAfterDays          pulumi.Float64PtrInput `pulumi:"moveToColdStorageAfterDays"`
+	OptInToArchiveForSupportedResources pulumi.BoolPtrInput    `pulumi:"optInToArchiveForSupportedResources"`
 }
 
 func (BackupPlanLifecycleResourceTypeArgs) ElementType() reflect.Type {
@@ -558,6 +560,10 @@ func (o BackupPlanLifecycleResourceTypeOutput) MoveToColdStorageAfterDays() pulu
 	return o.ApplyT(func(v BackupPlanLifecycleResourceType) *float64 { return v.MoveToColdStorageAfterDays }).(pulumi.Float64PtrOutput)
 }
 
+func (o BackupPlanLifecycleResourceTypeOutput) OptInToArchiveForSupportedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BackupPlanLifecycleResourceType) *bool { return v.OptInToArchiveForSupportedResources }).(pulumi.BoolPtrOutput)
+}
+
 type BackupPlanLifecycleResourceTypePtrOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanLifecycleResourceTypePtrOutput) ElementType() reflect.Type {
@@ -604,6 +610,15 @@ func (o BackupPlanLifecycleResourceTypePtrOutput) MoveToColdStorageAfterDays() p
 		}
 		return v.MoveToColdStorageAfterDays
 	}).(pulumi.Float64PtrOutput)
+}
+
+func (o BackupPlanLifecycleResourceTypePtrOutput) OptInToArchiveForSupportedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BackupPlanLifecycleResourceType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OptInToArchiveForSupportedResources
+	}).(pulumi.BoolPtrOutput)
 }
 
 type BackupPlanResourceType struct {

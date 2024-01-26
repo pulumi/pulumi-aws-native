@@ -16,6 +16,16 @@
           "maxLength" : 3,
           "minLength" : 3,
           "pattern" : "^[A-Z]{3}$"
+        },
+        "CustomLayers" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "maxLength" : 100,
+            "minLength" : 1,
+            "pattern" : "^[-._\\w]+$"
+          },
+          "maxItems" : 10
         }
       },
       "required" : [ "Style" ],

@@ -9,8 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
+    'FleetTag',
     'ProjectArtifacts',
     'ProjectBatchRestrictions',
     'ProjectBuildBatchConfig',
@@ -21,6 +23,7 @@ __all__ = [
     'ProjectEnvironmentVariable',
     'ProjectFileSystemLocation',
     'ProjectFilterGroup',
+    'ProjectFleet',
     'ProjectGitSubmodulesConfig',
     'ProjectLogsConfig',
     'ProjectRegistryCredential',
@@ -35,6 +38,35 @@ __all__ = [
     'ReportGroupS3ReportExportConfig',
     'ReportGroupTag',
 ]
+
+@pulumi.output_type
+class FleetTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class ProjectArtifacts(dict):
@@ -384,29 +416,35 @@ class ProjectEnvironment(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 compute_type: str,
                  image: str,
+                 type: str,
                  certificate: Optional[str] = None,
-                 compute_type: Optional[str] = None,
                  environment_variables: Optional[Sequence['outputs.ProjectEnvironmentVariable']] = None,
+                 fleet: Optional['outputs.ProjectFleet'] = None,
                  image_pull_credentials_type: Optional[str] = None,
                  privileged_mode: Optional[bool] = None,
-                 registry_credential: Optional['outputs.ProjectRegistryCredential'] = None,
-                 type: Optional[str] = None):
+                 registry_credential: Optional['outputs.ProjectRegistryCredential'] = None):
+        pulumi.set(__self__, "compute_type", compute_type)
         pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "type", type)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
-        if compute_type is not None:
-            pulumi.set(__self__, "compute_type", compute_type)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if fleet is not None:
+            pulumi.set(__self__, "fleet", fleet)
         if image_pull_credentials_type is not None:
             pulumi.set(__self__, "image_pull_credentials_type", image_pull_credentials_type)
         if privileged_mode is not None:
             pulumi.set(__self__, "privileged_mode", privileged_mode)
         if registry_credential is not None:
             pulumi.set(__self__, "registry_credential", registry_credential)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> str:
+        return pulumi.get(self, "compute_type")
 
     @property
     @pulumi.getter
@@ -415,18 +453,23 @@ class ProjectEnvironment(dict):
 
     @property
     @pulumi.getter
-    def certificate(self) -> Optional[str]:
-        return pulumi.get(self, "certificate")
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> Optional[str]:
-        return pulumi.get(self, "compute_type")
+    @pulumi.getter
+    def certificate(self) -> Optional[str]:
+        return pulumi.get(self, "certificate")
 
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Sequence['outputs.ProjectEnvironmentVariable']]:
         return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter
+    def fleet(self) -> Optional['outputs.ProjectFleet']:
+        return pulumi.get(self, "fleet")
 
     @property
     @pulumi.getter(name="imagePullCredentialsType")
@@ -442,11 +485,6 @@ class ProjectEnvironment(dict):
     @pulumi.getter(name="registryCredential")
     def registry_credential(self) -> Optional['outputs.ProjectRegistryCredential']:
         return pulumi.get(self, "registry_credential")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -540,6 +578,36 @@ class ProjectFileSystemLocation(dict):
 class ProjectFilterGroup(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class ProjectFleet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fleetArn":
+            suggest = "fleet_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectFleet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectFleet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectFleet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fleet_arn: Optional[str] = None):
+        if fleet_arn is not None:
+            pulumi.set(__self__, "fleet_arn", fleet_arn)
+
+    @property
+    @pulumi.getter(name="fleetArn")
+    def fleet_arn(self) -> Optional[str]:
+        return pulumi.get(self, "fleet_arn")
 
 
 @pulumi.output_type

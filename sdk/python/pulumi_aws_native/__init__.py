@@ -143,6 +143,8 @@ if typing.TYPE_CHECKING:
     datapipeline = __datapipeline
     import pulumi_aws_native.datasync as __datasync
     datasync = __datasync
+    import pulumi_aws_native.datazone as __datazone
+    datazone = __datazone
     import pulumi_aws_native.dax as __dax
     dax = __dax
     import pulumi_aws_native.detective as __detective
@@ -449,6 +451,8 @@ if typing.TYPE_CHECKING:
     ssm = __ssm
     import pulumi_aws_native.ssmcontacts as __ssmcontacts
     ssmcontacts = __ssmcontacts
+    import pulumi_aws_native.ssmguiconnect as __ssmguiconnect
+    ssmguiconnect = __ssmguiconnect
     import pulumi_aws_native.ssmincidents as __ssmincidents
     ssmincidents = __ssmincidents
     import pulumi_aws_native.sso as __sso
@@ -549,6 +553,7 @@ else:
     databrew = _utilities.lazy_import('pulumi_aws_native.databrew')
     datapipeline = _utilities.lazy_import('pulumi_aws_native.datapipeline')
     datasync = _utilities.lazy_import('pulumi_aws_native.datasync')
+    datazone = _utilities.lazy_import('pulumi_aws_native.datazone')
     dax = _utilities.lazy_import('pulumi_aws_native.dax')
     detective = _utilities.lazy_import('pulumi_aws_native.detective')
     devicefarm = _utilities.lazy_import('pulumi_aws_native.devicefarm')
@@ -702,6 +707,7 @@ else:
     sqs = _utilities.lazy_import('pulumi_aws_native.sqs')
     ssm = _utilities.lazy_import('pulumi_aws_native.ssm')
     ssmcontacts = _utilities.lazy_import('pulumi_aws_native.ssmcontacts')
+    ssmguiconnect = _utilities.lazy_import('pulumi_aws_native.ssmguiconnect')
     ssmincidents = _utilities.lazy_import('pulumi_aws_native.ssmincidents')
     sso = _utilities.lazy_import('pulumi_aws_native.sso')
     stepfunctions = _utilities.lazy_import('pulumi_aws_native.stepfunctions')
@@ -1203,6 +1209,7 @@ _utilities.register(
   "mod": "codebuild",
   "fqn": "pulumi_aws_native.codebuild",
   "classes": {
+   "aws-native:codebuild:Fleet": "Fleet",
    "aws-native:codebuild:Project": "Project",
    "aws-native:codebuild:ReportGroup": "ReportGroup",
    "aws-native:codebuild:SourceCredential": "SourceCredential"
@@ -1432,6 +1439,20 @@ _utilities.register(
    "aws-native:datasync:LocationSmb": "LocationSmb",
    "aws-native:datasync:StorageSystem": "StorageSystem",
    "aws-native:datasync:Task": "Task"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "datazone",
+  "fqn": "pulumi_aws_native.datazone",
+  "classes": {
+   "aws-native:datazone:DataSource": "DataSource",
+   "aws-native:datazone:Domain": "Domain",
+   "aws-native:datazone:Environment": "Environment",
+   "aws-native:datazone:EnvironmentBlueprintConfiguration": "EnvironmentBlueprintConfiguration",
+   "aws-native:datazone:EnvironmentProfile": "EnvironmentProfile",
+   "aws-native:datazone:Project": "Project",
+   "aws-native:datazone:SubscriptionTarget": "SubscriptionTarget"
   }
  },
  {
@@ -2256,6 +2277,7 @@ _utilities.register(
    "aws-native:ivs:Channel": "Channel",
    "aws-native:ivs:PlaybackKeyPair": "PlaybackKeyPair",
    "aws-native:ivs:RecordingConfiguration": "RecordingConfiguration",
+   "aws-native:ivs:Stage": "Stage",
    "aws-native:ivs:StreamKey": "StreamKey"
   }
  },
@@ -3341,6 +3363,14 @@ _utilities.register(
    "aws-native:ssmcontacts:ContactChannel": "ContactChannel",
    "aws-native:ssmcontacts:Plan": "Plan",
    "aws-native:ssmcontacts:Rotation": "Rotation"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "ssmguiconnect",
+  "fqn": "pulumi_aws_native.ssmguiconnect",
+  "classes": {
+   "aws-native:ssmguiconnect:Preferences": "Preferences"
   }
  },
  {

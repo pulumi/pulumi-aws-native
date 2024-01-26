@@ -45,6 +45,8 @@ type LookupAccountPolicyResult struct {
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// Scope for policy application
 	Scope *AccountPolicyScope `pulumi:"scope"`
+	// Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+	SelectionCriteria *string `pulumi:"selectionCriteria"`
 }
 
 func LookupAccountPolicyOutput(ctx *pulumi.Context, args LookupAccountPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAccountPolicyResultOutput {
@@ -112,6 +114,11 @@ func (o LookupAccountPolicyResultOutput) PolicyDocument() pulumi.StringPtrOutput
 // Scope for policy application
 func (o LookupAccountPolicyResultOutput) Scope() AccountPolicyScopePtrOutput {
 	return o.ApplyT(func(v LookupAccountPolicyResult) *AccountPolicyScope { return v.Scope }).(AccountPolicyScopePtrOutput)
+}
+
+// Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+func (o LookupAccountPolicyResultOutput) SelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccountPolicyResult) *string { return v.SelectionCriteria }).(pulumi.StringPtrOutput)
 }
 
 func init() {

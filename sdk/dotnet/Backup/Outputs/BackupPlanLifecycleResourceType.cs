@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.Backup.Outputs
     {
         public readonly double? DeleteAfterDays;
         public readonly double? MoveToColdStorageAfterDays;
+        public readonly bool? OptInToArchiveForSupportedResources;
 
         [OutputConstructor]
         private BackupPlanLifecycleResourceType(
             double? deleteAfterDays,
 
-            double? moveToColdStorageAfterDays)
+            double? moveToColdStorageAfterDays,
+
+            bool? optInToArchiveForSupportedResources)
         {
             DeleteAfterDays = deleteAfterDays;
             MoveToColdStorageAfterDays = moveToColdStorageAfterDays;
+            OptInToArchiveForSupportedResources = optInToArchiveForSupportedResources;
         }
     }
 }

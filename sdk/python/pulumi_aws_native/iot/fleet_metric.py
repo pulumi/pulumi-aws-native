@@ -321,7 +321,7 @@ class FleetMetric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[float]:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The creation date of a fleet metric
         """
@@ -345,7 +345,7 @@ class FleetMetric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> pulumi.Output[float]:
+    def last_modified_date(self) -> pulumi.Output[str]:
         """
         The last modified date of a fleet metric
         """

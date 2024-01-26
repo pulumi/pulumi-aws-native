@@ -23,6 +23,7 @@ import * as cleanrooms from "./cleanrooms";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
 import * as cloudtrail from "./cloudtrail";
+import * as codebuild from "./codebuild";
 import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
 import * as codestarnotifications from "./codestarnotifications";
@@ -33,6 +34,7 @@ import * as cur from "./cur";
 import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
 import * as datasync from "./datasync";
+import * as datazone from "./datazone";
 import * as devicefarm from "./devicefarm";
 import * as devopsguru from "./devopsguru";
 import * as dms from "./dms";
@@ -139,6 +141,7 @@ import * as signer from "./signer";
 import * as sns from "./sns";
 import * as ssm from "./ssm";
 import * as ssmcontacts from "./ssmcontacts";
+import * as ssmguiconnect from "./ssmguiconnect";
 import * as ssmincidents from "./ssmincidents";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
@@ -176,6 +179,7 @@ export {
     cloudformation,
     cloudfront,
     cloudtrail,
+    codebuild,
     codeguruprofiler,
     codegurureviewer,
     codestarnotifications,
@@ -186,6 +190,7 @@ export {
     customerprofiles,
     databrew,
     datasync,
+    datazone,
     devicefarm,
     devopsguru,
     dms,
@@ -292,6 +297,7 @@ export {
     sns,
     ssm,
     ssmcontacts,
+    ssmguiconnect,
     ssmincidents,
     sso,
     stepfunctions,

@@ -4723,6 +4723,7 @@ export namespace autoscaling {
         instanceGenerations?: string[];
         localStorage?: string;
         localStorageTypes?: string[];
+        maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
         memoryGiBPerVCpu?: outputs.autoscaling.AutoScalingGroupMemoryGiBPerVCpuRequest;
         memoryMiB: outputs.autoscaling.AutoScalingGroupMemoryMiBRequest;
         networkBandwidthGbps?: outputs.autoscaling.AutoScalingGroupNetworkBandwidthGbpsRequest;
@@ -5153,6 +5154,7 @@ export namespace backup {
     export interface BackupPlanLifecycleResourceType {
         deleteAfterDays?: number;
         moveToColdStorageAfterDays?: number;
+        optInToArchiveForSupportedResources?: boolean;
     }
 
     export interface BackupPlanResourceType {
@@ -5398,61 +5400,34 @@ export namespace batch {
         terminateJobsOnUpdate?: boolean;
     }
 
+    export interface JobDefinitionAuthorizationConfig {
+        accessPointId?: string;
+        iam?: string;
+    }
+
     export interface JobDefinitionContainerProperties {
         command?: string[];
         environment?: outputs.batch.JobDefinitionEnvironment[];
-        ephemeralStorage?: outputs.batch.JobDefinitionContainerPropertiesEphemeralStorageProperties;
+        ephemeralStorage?: outputs.batch.JobDefinitionEphemeralStorage;
         executionRoleArn?: string;
-        fargatePlatformConfiguration?: outputs.batch.JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties;
+        fargatePlatformConfiguration?: outputs.batch.JobDefinitionFargatePlatformConfiguration;
         image: string;
         instanceType?: string;
         jobRoleArn?: string;
-        linuxParameters?: outputs.batch.JobDefinitionContainerPropertiesLinuxParametersProperties;
-        logConfiguration?: outputs.batch.JobDefinitionContainerPropertiesLogConfigurationProperties;
+        linuxParameters?: outputs.batch.JobDefinitionLinuxParameters;
+        logConfiguration?: outputs.batch.JobDefinitionLogConfiguration;
         memory?: number;
-        mountPoints?: outputs.batch.JobDefinitionMountPoint[];
-        networkConfiguration?: outputs.batch.JobDefinitionContainerPropertiesNetworkConfigurationProperties;
+        mountPoints?: outputs.batch.JobDefinitionMountPoints[];
+        networkConfiguration?: outputs.batch.JobDefinitionNetworkConfiguration;
         privileged?: boolean;
         readonlyRootFilesystem?: boolean;
         resourceRequirements?: outputs.batch.JobDefinitionResourceRequirement[];
-        runtimePlatform?: outputs.batch.JobDefinitionContainerPropertiesRuntimePlatformProperties;
+        runtimePlatform?: outputs.batch.JobDefinitionRuntimePlatform;
         secrets?: outputs.batch.JobDefinitionSecret[];
         ulimits?: outputs.batch.JobDefinitionUlimit[];
         user?: string;
         vcpus?: number;
-        volumes?: outputs.batch.JobDefinitionVolume[];
-    }
-
-    export interface JobDefinitionContainerPropertiesEphemeralStorageProperties {
-        sizeInGiB: number;
-    }
-
-    export interface JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties {
-        platformVersion?: string;
-    }
-
-    export interface JobDefinitionContainerPropertiesLinuxParametersProperties {
-        devices?: outputs.batch.JobDefinitionDevice[];
-        initProcessEnabled?: boolean;
-        maxSwap?: number;
-        sharedMemorySize?: number;
-        swappiness?: number;
-        tmpfs?: outputs.batch.JobDefinitionTmpfs[];
-    }
-
-    export interface JobDefinitionContainerPropertiesLogConfigurationProperties {
-        logDriver: string;
-        options?: any;
-        secretOptions?: outputs.batch.JobDefinitionSecret[];
-    }
-
-    export interface JobDefinitionContainerPropertiesNetworkConfigurationProperties {
-        assignPublicIp?: string;
-    }
-
-    export interface JobDefinitionContainerPropertiesRuntimePlatformProperties {
-        cpuArchitecture?: string;
-        operatingSystemFamily?: string;
+        volumes?: outputs.batch.JobDefinitionVolumes[];
     }
 
     export interface JobDefinitionDevice {
@@ -5461,13 +5436,8 @@ export namespace batch {
         permissions?: string[];
     }
 
-    export interface JobDefinitionEfsAuthorizationConfig {
-        accessPointId?: string;
-        iam?: string;
-    }
-
     export interface JobDefinitionEfsVolumeConfiguration {
-        authorizationConfig?: outputs.batch.JobDefinitionEfsAuthorizationConfig;
+        authorizationConfig?: outputs.batch.JobDefinitionAuthorizationConfig;
         fileSystemId: string;
         rootDirectory?: string;
         transitEncryption?: string;
@@ -5519,21 +5489,8 @@ export namespace batch {
         path?: string;
     }
 
-    export interface JobDefinitionEksMetadata {
-        labels?: any;
-    }
-
-    export interface JobDefinitionEksPodProperties {
-        containers?: outputs.batch.JobDefinitionEksContainer[];
-        dnsPolicy?: string;
-        hostNetwork?: boolean;
-        metadata?: outputs.batch.JobDefinitionEksMetadata;
-        serviceAccountName?: string;
-        volumes?: outputs.batch.JobDefinitionEksVolume[];
-    }
-
     export interface JobDefinitionEksProperties {
-        podProperties?: outputs.batch.JobDefinitionEksPodProperties;
+        podProperties?: outputs.batch.JobDefinitionPodProperties;
     }
 
     export interface JobDefinitionEksSecret {
@@ -5553,6 +5510,10 @@ export namespace batch {
         value?: string;
     }
 
+    export interface JobDefinitionEphemeralStorage {
+        sizeInGiB: number;
+    }
+
     export interface JobDefinitionEvaluateOnExit {
         action: string;
         onExitCode?: string;
@@ -5560,18 +5521,37 @@ export namespace batch {
         onStatusReason?: string;
     }
 
-    export interface JobDefinitionHost {
-        sourcePath?: string;
+    export interface JobDefinitionFargatePlatformConfiguration {
+        platformVersion?: string;
     }
 
-    export interface JobDefinitionJobTimeout {
-        attemptDurationSeconds?: number;
+    export interface JobDefinitionLinuxParameters {
+        devices?: outputs.batch.JobDefinitionDevice[];
+        initProcessEnabled?: boolean;
+        maxSwap?: number;
+        sharedMemorySize?: number;
+        swappiness?: number;
+        tmpfs?: outputs.batch.JobDefinitionTmpfs[];
     }
 
-    export interface JobDefinitionMountPoint {
+    export interface JobDefinitionLogConfiguration {
+        logDriver: string;
+        options?: any;
+        secretOptions?: outputs.batch.JobDefinitionSecret[];
+    }
+
+    export interface JobDefinitionMetadata {
+        labels?: any;
+    }
+
+    export interface JobDefinitionMountPoints {
         containerPath?: string;
         readOnly?: boolean;
         sourceVolume?: string;
+    }
+
+    export interface JobDefinitionNetworkConfiguration {
+        assignPublicIp?: string;
     }
 
     export interface JobDefinitionNodeProperties {
@@ -5585,6 +5565,15 @@ export namespace batch {
         targetNodes: string;
     }
 
+    export interface JobDefinitionPodProperties {
+        containers?: outputs.batch.JobDefinitionEksContainer[];
+        dnsPolicy?: string;
+        hostNetwork?: boolean;
+        metadata?: outputs.batch.JobDefinitionMetadata;
+        serviceAccountName?: string;
+        volumes?: outputs.batch.JobDefinitionEksVolume[];
+    }
+
     export interface JobDefinitionResourceRequirement {
         type?: string;
         value?: string;
@@ -5595,9 +5584,18 @@ export namespace batch {
         evaluateOnExit?: outputs.batch.JobDefinitionEvaluateOnExit[];
     }
 
+    export interface JobDefinitionRuntimePlatform {
+        cpuArchitecture?: string;
+        operatingSystemFamily?: string;
+    }
+
     export interface JobDefinitionSecret {
         name: string;
         valueFrom: string;
+    }
+
+    export interface JobDefinitionTimeout {
+        attemptDurationSeconds?: number;
     }
 
     export interface JobDefinitionTmpfs {
@@ -5612,10 +5610,14 @@ export namespace batch {
         softLimit: number;
     }
 
-    export interface JobDefinitionVolume {
+    export interface JobDefinitionVolumes {
         efsVolumeConfiguration?: outputs.batch.JobDefinitionEfsVolumeConfiguration;
-        host?: outputs.batch.JobDefinitionHost;
+        host?: outputs.batch.JobDefinitionVolumesHost;
         name?: string;
+    }
+
+    export interface JobDefinitionVolumesHost {
+        sourcePath?: string;
     }
 
     export interface JobQueueComputeEnvironmentOrder {
@@ -7162,6 +7164,17 @@ export namespace codeartifact {
 }
 
 export namespace codebuild {
+    export interface FleetTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
     export interface ProjectArtifacts {
         artifactIdentifier?: string;
         encryptionDisabled?: boolean;
@@ -7206,13 +7219,14 @@ export namespace codebuild {
 
     export interface ProjectEnvironment {
         certificate?: string;
-        computeType?: string;
+        computeType: string;
         environmentVariables?: outputs.codebuild.ProjectEnvironmentVariable[];
+        fleet?: outputs.codebuild.ProjectFleet;
         image: string;
         imagePullCredentialsType?: string;
         privilegedMode?: boolean;
         registryCredential?: outputs.codebuild.ProjectRegistryCredential;
-        type?: string;
+        type: string;
     }
 
     export interface ProjectEnvironmentVariable {
@@ -7230,6 +7244,10 @@ export namespace codebuild {
     }
 
     export interface ProjectFilterGroup {
+    }
+
+    export interface ProjectFleet {
+        fleetArn?: string;
     }
 
     export interface ProjectGitSubmodulesConfig {
@@ -11739,6 +11757,241 @@ export namespace datasync {
 
 }
 
+export namespace datazone {
+    /**
+     * Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+     */
+    export interface DataSourceConfigurationInput0Properties {
+        glueRunConfiguration?: outputs.datazone.DataSourceGlueRunConfigurationInput;
+    }
+
+    /**
+     * Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+     */
+    export interface DataSourceConfigurationInput1Properties {
+        redshiftRunConfiguration?: outputs.datazone.DataSourceRedshiftRunConfigurationInput;
+    }
+
+    /**
+     * The search filter expression.
+     */
+    export interface DataSourceFilterExpression {
+        expression: string;
+        type: enums.datazone.DataSourceFilterExpressionType;
+    }
+
+    /**
+     * The details of a metadata form.
+     */
+    export interface DataSourceFormInput {
+        /**
+         * The content of the metadata form.
+         */
+        content?: string;
+        /**
+         * The name of the metadata form.
+         */
+        formName: string;
+        /**
+         * The ID of the metadata form type.
+         */
+        typeIdentifier?: string;
+        /**
+         * The revision of the metadata form type.
+         */
+        typeRevision?: string;
+    }
+
+    export interface DataSourceGlueRunConfigurationInput {
+        /**
+         * The data access role included in the configuration details of the AWS Glue data source.
+         */
+        dataAccessRole?: string;
+        /**
+         * The relational filter configurations included in the configuration details of the AWS Glue data source.
+         */
+        relationalFilterConfigurations: outputs.datazone.DataSourceRelationalFilterConfiguration[];
+    }
+
+    /**
+     * The recommendation to be updated as part of the UpdateDataSource action.
+     */
+    export interface DataSourceRecommendationConfiguration {
+        /**
+         * Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.
+         */
+        enableBusinessNameGeneration?: boolean;
+    }
+
+    /**
+     * The name of an Amazon Redshift cluster.
+     */
+    export interface DataSourceRedshiftClusterStorage {
+        /**
+         * The name of an Amazon Redshift cluster.
+         */
+        clusterName: string;
+    }
+
+    /**
+     * The ARN of a secret manager for an Amazon Redshift cluster.
+     */
+    export interface DataSourceRedshiftCredentialConfiguration {
+        /**
+         * The ARN of a secret manager for an Amazon Redshift cluster.
+         */
+        secretManagerArn: string;
+    }
+
+    /**
+     * The configuration details of the Amazon Redshift data source.
+     */
+    export interface DataSourceRedshiftRunConfigurationInput {
+        /**
+         * The data access role included in the configuration details of the Amazon Redshift data source.
+         */
+        dataAccessRole?: string;
+        /**
+         * The details of the credentials required to access an Amazon Redshift cluster.
+         */
+        redshiftCredentialConfiguration: outputs.datazone.DataSourceRedshiftCredentialConfiguration;
+        /**
+         * The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
+         */
+        redshiftStorage: outputs.datazone.DataSourceRedshiftStorage0Properties | outputs.datazone.DataSourceRedshiftStorage1Properties;
+        relationalFilterConfigurations: outputs.datazone.DataSourceRelationalFilterConfiguration[];
+    }
+
+    /**
+     * The details of the Amazon Redshift Serverless workgroup storage.
+     */
+    export interface DataSourceRedshiftServerlessStorage {
+        /**
+         * The name of the Amazon Redshift Serverless workgroup.
+         */
+        workgroupName: string;
+    }
+
+    /**
+     * The details of the Amazon Redshift cluster source.
+     */
+    export interface DataSourceRedshiftStorage0Properties {
+        redshiftClusterSource: outputs.datazone.DataSourceRedshiftClusterStorage;
+    }
+
+    /**
+     * The details of the Amazon Redshift Serverless workgroup source.
+     */
+    export interface DataSourceRedshiftStorage1Properties {
+        redshiftServerlessSource: outputs.datazone.DataSourceRedshiftServerlessStorage;
+    }
+
+    /**
+     * The relational filter configuration for the data source.
+     */
+    export interface DataSourceRelationalFilterConfiguration {
+        /**
+         * The database name specified in the relational filter configuration for the data source.
+         */
+        databaseName: string;
+        /**
+         * The filter expressions specified in the relational filter configuration for the data source.
+         */
+        filterExpressions?: outputs.datazone.DataSourceFilterExpression[];
+        /**
+         * The schema name specified in the relational filter configuration for the data source.
+         */
+        schemaName?: string;
+    }
+
+    /**
+     * The schedule of the data source runs.
+     */
+    export interface DataSourceScheduleConfiguration {
+        /**
+         * The schedule of the data source runs.
+         */
+        schedule?: string;
+        /**
+         * The timezone of the data source run.
+         */
+        timezone?: string;
+    }
+
+    /**
+     * The single-sign on configuration of the Amazon DataZone domain.
+     */
+    export interface DomainSingleSignOn {
+        type?: enums.datazone.DomainAuthType;
+        userAssignment?: enums.datazone.DomainUserAssignment;
+    }
+
+    /**
+     * A key-value pair to associate with the domain.
+     */
+    export interface DomainTag {
+        /**
+         * The key name of the tag.
+         */
+        key: string;
+        /**
+         * The value for the tag.
+         */
+        value: string;
+    }
+
+    export interface EnvironmentBlueprintConfigurationParameter {
+    }
+
+    export interface EnvironmentBlueprintConfigurationRegionalParameter {
+        parameters?: outputs.datazone.EnvironmentBlueprintConfigurationParameter;
+        region?: string;
+    }
+
+    /**
+     * The parameter details of an environment.
+     */
+    export interface EnvironmentParameter {
+        /**
+         * The name of an environment parameter.
+         */
+        name?: string;
+        /**
+         * The value of an environment parameter.
+         */
+        value?: string;
+    }
+
+    /**
+     * The parameter details of an environment profile.
+     */
+    export interface EnvironmentProfileEnvironmentParameter {
+        /**
+         * The name of an environment profile parameter.
+         */
+        name?: string;
+        /**
+         * The value of an environment profile parameter.
+         */
+        value?: string;
+    }
+
+    /**
+     * The details of the subscription target configuration.
+     */
+    export interface SubscriptionTargetForm {
+        /**
+         * The content of the subscription target configuration.
+         */
+        content: string;
+        /**
+         * The form name included in the subscription target configuration.
+         */
+        formName: string;
+    }
+
+}
+
 export namespace dax {
     export interface ClusterSseSpecification {
         sseEnabled?: boolean;
@@ -15349,6 +15602,18 @@ export namespace ecs {
         discoveryName?: string;
         ingressPortOverride?: number;
         portName: string;
+        timeout?: outputs.ecs.ServiceTimeoutConfiguration;
+        tls?: outputs.ecs.ServiceConnectTlsConfiguration;
+    }
+
+    export interface ServiceConnectTlsCertificateAuthority {
+        awsPcaAuthorityArn?: string;
+    }
+
+    export interface ServiceConnectTlsConfiguration {
+        issuerCertificateAuthority: outputs.ecs.ServiceConnectTlsCertificateAuthority;
+        kmsKey?: string;
+        roleArn?: string;
     }
 
     export interface ServiceDeploymentAlarms {
@@ -15434,6 +15699,11 @@ export namespace ecs {
     export interface ServiceTag {
         key?: string;
         value?: string;
+    }
+
+    export interface ServiceTimeoutConfiguration {
+        idleTimeoutSeconds?: number;
+        perRequestTimeoutSeconds?: number;
     }
 
     export interface ServiceVolumeConfiguration {
@@ -16373,7 +16643,7 @@ export namespace elasticache {
         /**
          * Endpoint port.
          */
-        port?: number;
+        port?: string;
     }
 
     /**
@@ -20677,27 +20947,11 @@ export namespace guardduty {
         value: string;
     }
 
-    export interface FilterCondition {
-        eq?: string[];
-        equals?: string[];
-        greaterThan?: number;
-        greaterThanOrEqual?: number;
-        gt?: number;
-        gte?: number;
-        lessThan?: number;
-        lessThanOrEqual?: number;
-        lt?: number;
-        lte?: number;
-        neq?: string[];
-        notEquals?: string[];
-    }
-
     export interface FilterFindingCriteria {
         criterion?: any;
-        itemType?: outputs.guardduty.FilterCondition;
     }
 
-    export interface FilterTag {
+    export interface FilterTagItem {
         key: string;
         value: string;
     }
@@ -24804,6 +25058,11 @@ export namespace ivs {
         targetIntervalSeconds?: number;
     }
 
+    export interface StageTag {
+        key: string;
+        value: string;
+    }
+
     export interface StreamKeyTag {
         key: string;
         value: string;
@@ -26684,6 +26943,40 @@ export namespace kinesisfirehose {
     export interface DeliveryStreamSerializer {
         orcSerDe?: outputs.kinesisfirehose.DeliveryStreamOrcSerDe;
         parquetSerDe?: outputs.kinesisfirehose.DeliveryStreamParquetSerDe;
+    }
+
+    export interface DeliveryStreamSnowflakeDestinationConfiguration {
+        accountUrl: string;
+        cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
+        contentColumnName?: string;
+        dataLoadingOption?: enums.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption;
+        database: string;
+        keyPassphrase?: string;
+        metaDataColumnName?: string;
+        privateKey: string;
+        processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
+        retryOptions?: outputs.kinesisfirehose.DeliveryStreamSnowflakeRetryOptions;
+        roleArn: string;
+        s3BackupMode?: enums.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode;
+        s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
+        schema: string;
+        snowflakeRoleConfiguration?: outputs.kinesisfirehose.DeliveryStreamSnowflakeRoleConfiguration;
+        snowflakeVpcConfiguration?: outputs.kinesisfirehose.DeliveryStreamSnowflakeVpcConfiguration;
+        table: string;
+        user: string;
+    }
+
+    export interface DeliveryStreamSnowflakeRetryOptions {
+        durationInSeconds?: number;
+    }
+
+    export interface DeliveryStreamSnowflakeRoleConfiguration {
+        enabled?: boolean;
+        snowflakeRole?: string;
+    }
+
+    export interface DeliveryStreamSnowflakeVpcConfiguration {
+        privateLinkVpceId: string;
     }
 
     export interface DeliveryStreamSplunkBufferingHints {
@@ -29336,6 +29629,7 @@ export namespace location {
     }
 
     export interface MapConfiguration {
+        customLayers?: string[];
         politicalView?: string;
         style: string;
     }
@@ -30712,6 +31006,16 @@ export namespace medialive {
         resolution?: string;
     }
 
+    export interface ChannelColorCorrection {
+        inputColorSpace?: string;
+        outputColorSpace?: string;
+        uri?: string;
+    }
+
+    export interface ChannelColorCorrectionSettings {
+        globalColorCorrections?: outputs.medialive.ChannelColorCorrection[];
+    }
+
     export interface ChannelColorSpacePassthroughSettings {
     }
 
@@ -30819,6 +31123,7 @@ export namespace medialive {
         availConfiguration?: outputs.medialive.ChannelAvailConfiguration;
         blackoutSlate?: outputs.medialive.ChannelBlackoutSlate;
         captionDescriptions?: outputs.medialive.ChannelCaptionDescription[];
+        colorCorrectionSettings?: outputs.medialive.ChannelColorCorrectionSettings;
         featureActivations?: outputs.medialive.ChannelFeatureActivations;
         globalConfiguration?: outputs.medialive.ChannelGlobalConfiguration;
         motionGraphicsConfiguration?: outputs.medialive.ChannelMotionGraphicsConfiguration;
@@ -48177,6 +48482,10 @@ export namespace route53resolver {
          * Rule Priority
          */
         priority: number;
+        /**
+         * Qtype
+         */
+        qtype?: string;
     }
 
     /**
@@ -54844,6 +55153,27 @@ export namespace ssmcontacts {
     export interface RotationWeeklySetting {
         dayOfWeek: enums.ssmcontacts.RotationDayOfWeek;
         handOffTime: string;
+    }
+
+}
+
+export namespace ssmguiconnect {
+    export interface PreferencesIdleConnectionAlert {
+        type?: enums.ssmguiconnect.PreferencesIdleConnectionAlertType;
+        value: number;
+    }
+
+    /**
+     * Idle Connection Preferences
+     */
+    export interface PreferencesIdleConnectionPreferences {
+        alert?: outputs.ssmguiconnect.PreferencesIdleConnectionAlert;
+        timeout?: outputs.ssmguiconnect.PreferencesIdleConnectionTimeout;
+    }
+
+    export interface PreferencesIdleConnectionTimeout {
+        type?: enums.ssmguiconnect.PreferencesIdleConnectionTimeoutType;
+        value: number;
     }
 
 }

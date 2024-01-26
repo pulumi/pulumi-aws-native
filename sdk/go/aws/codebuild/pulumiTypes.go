@@ -14,6 +14,136 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type FleetTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// FleetTagInput is an input type that accepts FleetTagArgs and FleetTagOutput values.
+// You can construct a concrete instance of `FleetTagInput` via:
+//
+//	FleetTagArgs{...}
+type FleetTagInput interface {
+	pulumi.Input
+
+	ToFleetTagOutput() FleetTagOutput
+	ToFleetTagOutputWithContext(context.Context) FleetTagOutput
+}
+
+type FleetTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FleetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetTag)(nil)).Elem()
+}
+
+func (i FleetTagArgs) ToFleetTagOutput() FleetTagOutput {
+	return i.ToFleetTagOutputWithContext(context.Background())
+}
+
+func (i FleetTagArgs) ToFleetTagOutputWithContext(ctx context.Context) FleetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetTagOutput)
+}
+
+func (i FleetTagArgs) ToOutput(ctx context.Context) pulumix.Output[FleetTag] {
+	return pulumix.Output[FleetTag]{
+		OutputState: i.ToFleetTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// FleetTagArrayInput is an input type that accepts FleetTagArray and FleetTagArrayOutput values.
+// You can construct a concrete instance of `FleetTagArrayInput` via:
+//
+//	FleetTagArray{ FleetTagArgs{...} }
+type FleetTagArrayInput interface {
+	pulumi.Input
+
+	ToFleetTagArrayOutput() FleetTagArrayOutput
+	ToFleetTagArrayOutputWithContext(context.Context) FleetTagArrayOutput
+}
+
+type FleetTagArray []FleetTagInput
+
+func (FleetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetTag)(nil)).Elem()
+}
+
+func (i FleetTagArray) ToFleetTagArrayOutput() FleetTagArrayOutput {
+	return i.ToFleetTagArrayOutputWithContext(context.Background())
+}
+
+func (i FleetTagArray) ToFleetTagArrayOutputWithContext(ctx context.Context) FleetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetTagArrayOutput)
+}
+
+func (i FleetTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FleetTag] {
+	return pulumix.Output[[]FleetTag]{
+		OutputState: i.ToFleetTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FleetTagOutput struct{ *pulumi.OutputState }
+
+func (FleetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetTag)(nil)).Elem()
+}
+
+func (o FleetTagOutput) ToFleetTagOutput() FleetTagOutput {
+	return o
+}
+
+func (o FleetTagOutput) ToFleetTagOutputWithContext(ctx context.Context) FleetTagOutput {
+	return o
+}
+
+func (o FleetTagOutput) ToOutput(ctx context.Context) pulumix.Output[FleetTag] {
+	return pulumix.Output[FleetTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o FleetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o FleetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FleetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetTag)(nil)).Elem()
+}
+
+func (o FleetTagArrayOutput) ToFleetTagArrayOutput() FleetTagArrayOutput {
+	return o
+}
+
+func (o FleetTagArrayOutput) ToFleetTagArrayOutputWithContext(ctx context.Context) FleetTagArrayOutput {
+	return o
+}
+
+func (o FleetTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FleetTag] {
+	return pulumix.Output[[]FleetTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetTagArrayOutput) Index(i pulumi.IntInput) FleetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetTag {
+		return vs[0].([]FleetTag)[vs[1].(int)]
+	}).(FleetTagOutput)
+}
+
 type ProjectArtifacts struct {
 	ArtifactIdentifier   *string `pulumi:"artifactIdentifier"`
 	EncryptionDisabled   *bool   `pulumi:"encryptionDisabled"`
@@ -1228,13 +1358,14 @@ func (o ProjectCloudWatchLogsConfigPtrOutput) StreamName() pulumi.StringPtrOutpu
 
 type ProjectEnvironment struct {
 	Certificate              *string                      `pulumi:"certificate"`
-	ComputeType              *string                      `pulumi:"computeType"`
+	ComputeType              string                       `pulumi:"computeType"`
 	EnvironmentVariables     []ProjectEnvironmentVariable `pulumi:"environmentVariables"`
+	Fleet                    *ProjectFleet                `pulumi:"fleet"`
 	Image                    string                       `pulumi:"image"`
 	ImagePullCredentialsType *string                      `pulumi:"imagePullCredentialsType"`
 	PrivilegedMode           *bool                        `pulumi:"privilegedMode"`
 	RegistryCredential       *ProjectRegistryCredential   `pulumi:"registryCredential"`
-	Type                     *string                      `pulumi:"type"`
+	Type                     string                       `pulumi:"type"`
 }
 
 // ProjectEnvironmentInput is an input type that accepts ProjectEnvironmentArgs and ProjectEnvironmentOutput values.
@@ -1250,13 +1381,14 @@ type ProjectEnvironmentInput interface {
 
 type ProjectEnvironmentArgs struct {
 	Certificate              pulumi.StringPtrInput                `pulumi:"certificate"`
-	ComputeType              pulumi.StringPtrInput                `pulumi:"computeType"`
+	ComputeType              pulumi.StringInput                   `pulumi:"computeType"`
 	EnvironmentVariables     ProjectEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
+	Fleet                    ProjectFleetPtrInput                 `pulumi:"fleet"`
 	Image                    pulumi.StringInput                   `pulumi:"image"`
 	ImagePullCredentialsType pulumi.StringPtrInput                `pulumi:"imagePullCredentialsType"`
 	PrivilegedMode           pulumi.BoolPtrInput                  `pulumi:"privilegedMode"`
 	RegistryCredential       ProjectRegistryCredentialPtrInput    `pulumi:"registryCredential"`
-	Type                     pulumi.StringPtrInput                `pulumi:"type"`
+	Type                     pulumi.StringInput                   `pulumi:"type"`
 }
 
 func (ProjectEnvironmentArgs) ElementType() reflect.Type {
@@ -1301,12 +1433,16 @@ func (o ProjectEnvironmentOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironment) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
-func (o ProjectEnvironmentOutput) ComputeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProjectEnvironment) *string { return v.ComputeType }).(pulumi.StringPtrOutput)
+func (o ProjectEnvironmentOutput) ComputeType() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectEnvironment) string { return v.ComputeType }).(pulumi.StringOutput)
 }
 
 func (o ProjectEnvironmentOutput) EnvironmentVariables() ProjectEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v ProjectEnvironment) []ProjectEnvironmentVariable { return v.EnvironmentVariables }).(ProjectEnvironmentVariableArrayOutput)
+}
+
+func (o ProjectEnvironmentOutput) Fleet() ProjectFleetPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironment) *ProjectFleet { return v.Fleet }).(ProjectFleetPtrOutput)
 }
 
 func (o ProjectEnvironmentOutput) Image() pulumi.StringOutput {
@@ -1325,8 +1461,8 @@ func (o ProjectEnvironmentOutput) RegistryCredential() ProjectRegistryCredential
 	return o.ApplyT(func(v ProjectEnvironment) *ProjectRegistryCredential { return v.RegistryCredential }).(ProjectRegistryCredentialPtrOutput)
 }
 
-func (o ProjectEnvironmentOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProjectEnvironment) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ProjectEnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectEnvironment) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ProjectEnvironmentPtrOutput struct{ *pulumi.OutputState }
@@ -1373,7 +1509,7 @@ func (o ProjectEnvironmentPtrOutput) ComputeType() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.ComputeType
+		return &v.ComputeType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1384,6 +1520,15 @@ func (o ProjectEnvironmentPtrOutput) EnvironmentVariables() ProjectEnvironmentVa
 		}
 		return v.EnvironmentVariables
 	}).(ProjectEnvironmentVariableArrayOutput)
+}
+
+func (o ProjectEnvironmentPtrOutput) Fleet() ProjectFleetPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *ProjectFleet {
+		if v == nil {
+			return nil
+		}
+		return v.Fleet
+	}).(ProjectFleetPtrOutput)
 }
 
 func (o ProjectEnvironmentPtrOutput) Image() pulumi.StringPtrOutput {
@@ -1427,7 +1572,7 @@ func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1813,6 +1958,163 @@ func (o ProjectFilterGroupArrayOutput) Index(i pulumi.IntInput) ProjectFilterGro
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectFilterGroup {
 		return vs[0].([]ProjectFilterGroup)[vs[1].(int)]
 	}).(ProjectFilterGroupOutput)
+}
+
+type ProjectFleet struct {
+	FleetArn *string `pulumi:"fleetArn"`
+}
+
+// ProjectFleetInput is an input type that accepts ProjectFleetArgs and ProjectFleetOutput values.
+// You can construct a concrete instance of `ProjectFleetInput` via:
+//
+//	ProjectFleetArgs{...}
+type ProjectFleetInput interface {
+	pulumi.Input
+
+	ToProjectFleetOutput() ProjectFleetOutput
+	ToProjectFleetOutputWithContext(context.Context) ProjectFleetOutput
+}
+
+type ProjectFleetArgs struct {
+	FleetArn pulumi.StringPtrInput `pulumi:"fleetArn"`
+}
+
+func (ProjectFleetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFleet)(nil)).Elem()
+}
+
+func (i ProjectFleetArgs) ToProjectFleetOutput() ProjectFleetOutput {
+	return i.ToProjectFleetOutputWithContext(context.Background())
+}
+
+func (i ProjectFleetArgs) ToProjectFleetOutputWithContext(ctx context.Context) ProjectFleetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFleetOutput)
+}
+
+func (i ProjectFleetArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectFleet] {
+	return pulumix.Output[ProjectFleet]{
+		OutputState: i.ToProjectFleetOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ProjectFleetArgs) ToProjectFleetPtrOutput() ProjectFleetPtrOutput {
+	return i.ToProjectFleetPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectFleetArgs) ToProjectFleetPtrOutputWithContext(ctx context.Context) ProjectFleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFleetOutput).ToProjectFleetPtrOutputWithContext(ctx)
+}
+
+// ProjectFleetPtrInput is an input type that accepts ProjectFleetArgs, ProjectFleetPtr and ProjectFleetPtrOutput values.
+// You can construct a concrete instance of `ProjectFleetPtrInput` via:
+//
+//	        ProjectFleetArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectFleetPtrInput interface {
+	pulumi.Input
+
+	ToProjectFleetPtrOutput() ProjectFleetPtrOutput
+	ToProjectFleetPtrOutputWithContext(context.Context) ProjectFleetPtrOutput
+}
+
+type projectFleetPtrType ProjectFleetArgs
+
+func ProjectFleetPtr(v *ProjectFleetArgs) ProjectFleetPtrInput {
+	return (*projectFleetPtrType)(v)
+}
+
+func (*projectFleetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectFleet)(nil)).Elem()
+}
+
+func (i *projectFleetPtrType) ToProjectFleetPtrOutput() ProjectFleetPtrOutput {
+	return i.ToProjectFleetPtrOutputWithContext(context.Background())
+}
+
+func (i *projectFleetPtrType) ToProjectFleetPtrOutputWithContext(ctx context.Context) ProjectFleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFleetPtrOutput)
+}
+
+func (i *projectFleetPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProjectFleet] {
+	return pulumix.Output[*ProjectFleet]{
+		OutputState: i.ToProjectFleetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ProjectFleetOutput struct{ *pulumi.OutputState }
+
+func (ProjectFleetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFleet)(nil)).Elem()
+}
+
+func (o ProjectFleetOutput) ToProjectFleetOutput() ProjectFleetOutput {
+	return o
+}
+
+func (o ProjectFleetOutput) ToProjectFleetOutputWithContext(ctx context.Context) ProjectFleetOutput {
+	return o
+}
+
+func (o ProjectFleetOutput) ToProjectFleetPtrOutput() ProjectFleetPtrOutput {
+	return o.ToProjectFleetPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectFleetOutput) ToProjectFleetPtrOutputWithContext(ctx context.Context) ProjectFleetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectFleet) *ProjectFleet {
+		return &v
+	}).(ProjectFleetPtrOutput)
+}
+
+func (o ProjectFleetOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectFleet] {
+	return pulumix.Output[ProjectFleet]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ProjectFleetOutput) FleetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectFleet) *string { return v.FleetArn }).(pulumi.StringPtrOutput)
+}
+
+type ProjectFleetPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectFleetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectFleet)(nil)).Elem()
+}
+
+func (o ProjectFleetPtrOutput) ToProjectFleetPtrOutput() ProjectFleetPtrOutput {
+	return o
+}
+
+func (o ProjectFleetPtrOutput) ToProjectFleetPtrOutputWithContext(ctx context.Context) ProjectFleetPtrOutput {
+	return o
+}
+
+func (o ProjectFleetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectFleet] {
+	return pulumix.Output[*ProjectFleet]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ProjectFleetPtrOutput) Elem() ProjectFleetOutput {
+	return o.ApplyT(func(v *ProjectFleet) ProjectFleet {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectFleet
+		return ret
+	}).(ProjectFleetOutput)
+}
+
+func (o ProjectFleetPtrOutput) FleetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectFleet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FleetArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ProjectGitSubmodulesConfig struct {
@@ -4061,6 +4363,8 @@ func (o ReportGroupTagArrayOutput) Index(i pulumi.IntInput) ReportGroupTagOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagInput)(nil)).Elem(), FleetTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagArrayInput)(nil)).Elem(), FleetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsInput)(nil)).Elem(), ProjectArtifactsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsArrayInput)(nil)).Elem(), ProjectArtifactsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBatchRestrictionsInput)(nil)).Elem(), ProjectBatchRestrictionsArgs{})
@@ -4080,6 +4384,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFileSystemLocationArrayInput)(nil)).Elem(), ProjectFileSystemLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFilterGroupInput)(nil)).Elem(), ProjectFilterGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFilterGroupArrayInput)(nil)).Elem(), ProjectFilterGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFleetInput)(nil)).Elem(), ProjectFleetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFleetPtrInput)(nil)).Elem(), ProjectFleetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectGitSubmodulesConfigInput)(nil)).Elem(), ProjectGitSubmodulesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectGitSubmodulesConfigPtrInput)(nil)).Elem(), ProjectGitSubmodulesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectLogsConfigInput)(nil)).Elem(), ProjectLogsConfigArgs{})
@@ -4105,6 +4411,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupS3ReportExportConfigPtrInput)(nil)).Elem(), ReportGroupS3ReportExportConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupTagInput)(nil)).Elem(), ReportGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupTagArrayInput)(nil)).Elem(), ReportGroupTagArray{})
+	pulumi.RegisterOutputType(FleetTagOutput{})
+	pulumi.RegisterOutputType(FleetTagArrayOutput{})
 	pulumi.RegisterOutputType(ProjectArtifactsOutput{})
 	pulumi.RegisterOutputType(ProjectArtifactsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectArtifactsArrayOutput{})
@@ -4126,6 +4434,8 @@ func init() {
 	pulumi.RegisterOutputType(ProjectFileSystemLocationArrayOutput{})
 	pulumi.RegisterOutputType(ProjectFilterGroupOutput{})
 	pulumi.RegisterOutputType(ProjectFilterGroupArrayOutput{})
+	pulumi.RegisterOutputType(ProjectFleetOutput{})
+	pulumi.RegisterOutputType(ProjectFleetPtrOutput{})
 	pulumi.RegisterOutputType(ProjectGitSubmodulesConfigOutput{})
 	pulumi.RegisterOutputType(ProjectGitSubmodulesConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectLogsConfigOutput{})

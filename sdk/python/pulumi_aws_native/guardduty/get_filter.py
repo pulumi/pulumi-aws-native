@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFilterResult:
-    def __init__(__self__, action=None, description=None, finding_criteria=None, id=None, rank=None, tags=None):
+    def __init__(__self__, action=None, description=None, finding_criteria=None, rank=None, tags=None):
         if action and not isinstance(action, str):
             raise TypeError("Expected argument 'action' to be a str")
         pulumi.set(__self__, "action", action)
@@ -29,9 +29,6 @@ class GetFilterResult:
         if finding_criteria and not isinstance(finding_criteria, dict):
             raise TypeError("Expected argument 'finding_criteria' to be a dict")
         pulumi.set(__self__, "finding_criteria", finding_criteria)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if rank and not isinstance(rank, int):
             raise TypeError("Expected argument 'rank' to be a int")
         pulumi.set(__self__, "rank", rank)
@@ -56,17 +53,12 @@ class GetFilterResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def rank(self) -> Optional[int]:
         return pulumi.get(self, "rank")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.FilterTag']]:
+    def tags(self) -> Optional[Sequence['outputs.FilterTagItem']]:
         return pulumi.get(self, "tags")
 
 
@@ -79,18 +71,19 @@ class AwaitableGetFilterResult(GetFilterResult):
             action=self.action,
             description=self.description,
             finding_criteria=self.finding_criteria,
-            id=self.id,
             rank=self.rank,
             tags=self.tags)
 
 
-def get_filter(id: Optional[str] = None,
+def get_filter(detector_id: Optional[str] = None,
+               name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFilterResult:
     """
     Resource Type definition for AWS::GuardDuty::Filter
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['detectorId'] = detector_id
+    __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:guardduty:getFilter', __args__, opts=opts, typ=GetFilterResult).value
 
@@ -98,13 +91,13 @@ def get_filter(id: Optional[str] = None,
         action=pulumi.get(__ret__, 'action'),
         description=pulumi.get(__ret__, 'description'),
         finding_criteria=pulumi.get(__ret__, 'finding_criteria'),
-        id=pulumi.get(__ret__, 'id'),
         rank=pulumi.get(__ret__, 'rank'),
         tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_filter)
-def get_filter_output(id: Optional[pulumi.Input[str]] = None,
+def get_filter_output(detector_id: Optional[pulumi.Input[str]] = None,
+                      name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFilterResult]:
     """
     Resource Type definition for AWS::GuardDuty::Filter

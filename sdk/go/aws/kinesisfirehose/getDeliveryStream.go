@@ -37,6 +37,7 @@ type LookupDeliveryStreamResult struct {
 	HttpEndpointDestinationConfiguration               *DeliveryStreamHttpEndpointDestinationConfiguration               `pulumi:"httpEndpointDestinationConfiguration"`
 	RedshiftDestinationConfiguration                   *DeliveryStreamRedshiftDestinationConfiguration                   `pulumi:"redshiftDestinationConfiguration"`
 	S3DestinationConfiguration                         *DeliveryStreamS3DestinationConfiguration                         `pulumi:"s3DestinationConfiguration"`
+	SnowflakeDestinationConfiguration                  *DeliveryStreamSnowflakeDestinationConfiguration                  `pulumi:"snowflakeDestinationConfiguration"`
 	SplunkDestinationConfiguration                     *DeliveryStreamSplunkDestinationConfiguration                     `pulumi:"splunkDestinationConfiguration"`
 	Tags                                               []DeliveryStreamTag                                               `pulumi:"tags"`
 }
@@ -132,6 +133,12 @@ func (o LookupDeliveryStreamResultOutput) S3DestinationConfiguration() DeliveryS
 	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamS3DestinationConfiguration {
 		return v.S3DestinationConfiguration
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
+}
+
+func (o LookupDeliveryStreamResultOutput) SnowflakeDestinationConfiguration() DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamSnowflakeDestinationConfiguration {
+		return v.SnowflakeDestinationConfiguration
+	}).(DeliveryStreamSnowflakeDestinationConfigurationPtrOutput)
 }
 
 func (o LookupDeliveryStreamResultOutput) SplunkDestinationConfiguration() DeliveryStreamSplunkDestinationConfigurationPtrOutput {

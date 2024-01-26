@@ -30,8 +30,9 @@ type LookupFaqArgs struct {
 }
 
 type LookupFaqResult struct {
-	Arn *string `pulumi:"arn"`
-	Id  *string `pulumi:"id"`
+	Arn          *string `pulumi:"arn"`
+	Id           *string `pulumi:"id"`
+	LanguageCode *string `pulumi:"languageCode"`
 	// Tags for labeling the FAQ
 	Tags []FaqTag `pulumi:"tags"`
 }
@@ -85,6 +86,10 @@ func (o LookupFaqResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupFaqResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFaqResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFaqResultOutput) LanguageCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFaqResult) *string { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
 
 // Tags for labeling the FAQ

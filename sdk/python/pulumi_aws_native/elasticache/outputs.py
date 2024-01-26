@@ -805,11 +805,11 @@ class ServerlessCacheEndpoint(dict):
     """
     def __init__(__self__, *,
                  address: Optional[str] = None,
-                 port: Optional[int] = None):
+                 port: Optional[str] = None):
         """
         The address and the port.
         :param str address: Endpoint address.
-        :param int port: Endpoint port.
+        :param str port: Endpoint port.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -826,7 +826,7 @@ class ServerlessCacheEndpoint(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[int]:
+    def port(self) -> Optional[str]:
         """
         Endpoint port.
         """

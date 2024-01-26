@@ -442,6 +442,63 @@ namespace Pulumi.AwsNative.KinesisFirehose
     }
 
     [EnumType]
+    public readonly struct DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption : IEquatable<DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption>
+    {
+        private readonly string _value;
+
+        private DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption JsonMapping { get; } = new DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption("JSON_MAPPING");
+        public static DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption VariantContentMapping { get; } = new DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption("VARIANT_CONTENT_MAPPING");
+        public static DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption VariantContentAndMetadataMapping { get; } = new DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption("VARIANT_CONTENT_AND_METADATA_MAPPING");
+
+        public static bool operator ==(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption left, DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption right) => left.Equals(right);
+        public static bool operator !=(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption left, DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption other && Equals(other);
+        public bool Equals(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode : IEquatable<DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode>
+    {
+        private readonly string _value;
+
+        private DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode FailedDataOnly { get; } = new DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode("FailedDataOnly");
+        public static DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode AllData { get; } = new DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode("AllData");
+
+        public static bool operator ==(DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode left, DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode right) => left.Equals(right);
+        public static bool operator !=(DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode left, DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode other && Equals(other);
+        public bool Equals(DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DeliveryStreamSplunkDestinationConfigurationHecEndpointType : IEquatable<DeliveryStreamSplunkDestinationConfigurationHecEndpointType>
     {
         private readonly string _value;

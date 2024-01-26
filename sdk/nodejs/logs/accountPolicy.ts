@@ -63,6 +63,10 @@ export class AccountPolicy extends pulumi.CustomResource {
      * Scope for policy application
      */
     public readonly scope!: pulumi.Output<enums.logs.AccountPolicyScope | undefined>;
+    /**
+     * Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+     */
+    public readonly selectionCriteria!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AccountPolicy resource with the given unique name, arguments, and options.
@@ -88,6 +92,7 @@ export class AccountPolicy extends pulumi.CustomResource {
             resourceInputs["policyName"] = args ? args.policyName : undefined;
             resourceInputs["policyType"] = args ? args.policyType : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["selectionCriteria"] = args ? args.selectionCriteria : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;
@@ -95,6 +100,7 @@ export class AccountPolicy extends pulumi.CustomResource {
             resourceInputs["policyName"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["selectionCriteria"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["policyName", "policyType"] };
@@ -129,4 +135,8 @@ export interface AccountPolicyArgs {
      * Scope for policy application
      */
     scope?: pulumi.Input<enums.logs.AccountPolicyScope>;
+    /**
+     * Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+     */
+    selectionCriteria?: pulumi.Input<string>;
 }

@@ -15,9 +15,6 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
         [Input("criterion")]
         public Input<object>? Criterion { get; set; }
 
-        [Input("itemType")]
-        public Input<Inputs.FilterConditionArgs>? ItemType { get; set; }
-
         public FilterFindingCriteriaArgs()
         {
         }

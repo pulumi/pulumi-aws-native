@@ -10,9 +10,11 @@ from .channel import *
 from .get_channel import *
 from .get_playback_key_pair import *
 from .get_recording_configuration import *
+from .get_stage import *
 from .get_stream_key import *
 from .playback_key_pair import *
 from .recording_configuration import *
+from .stage import *
 from .stream_key import *
 from ._inputs import *
 from . import outputs

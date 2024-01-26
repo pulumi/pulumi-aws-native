@@ -26,19 +26,22 @@
       "enum" : [ "ENABLING", "ENABLED", "DISABLING", "DISABLED" ]
     }
   },
+  "tagging" : {
+    "taggable" : false
+  },
   "readOnlyProperties" : [ "/properties/OwnerId", "/properties/Id", "/properties/ValidationStatus" ],
   "createOnlyProperties" : [ "/properties/ResourceId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "resolverdnssec:CreateConfig", "route53resolver:UpdateResolverDnssecConfig", "route53resolver:GetResolverDnssecConfig", "ec2:*" ]
+      "permissions" : [ "resolverdnssec:CreateConfig", "route53resolver:UpdateResolverDnssecConfig", "route53resolver:GetResolverDnssecConfig", "ec2:DescribeVpcs" ]
     },
     "read" : {
       "permissions" : [ "resolverdnssec:GetConfig", "route53resolver:ListResolverDnssecConfigs" ]
     },
     "delete" : {
-      "permissions" : [ "resolverdnssec:DeleteConfig", "route53resolver:UpdateResolverDnssecConfig", "route53resolver:ListResolverDnssecConfigs", "ec2:*" ]
+      "permissions" : [ "resolverdnssec:DeleteConfig", "route53resolver:UpdateResolverDnssecConfig", "route53resolver:ListResolverDnssecConfigs", "ec2:DescribeVpcs" ]
     },
     "list" : {
       "permissions" : [ "resolverdnssec:ListConfig", "route53resolver:ListResolverDnssecConfigs" ]

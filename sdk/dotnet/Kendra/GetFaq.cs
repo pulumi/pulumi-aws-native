@@ -65,6 +65,7 @@ namespace Pulumi.AwsNative.Kendra
     {
         public readonly string? Arn;
         public readonly string? Id;
+        public readonly string? LanguageCode;
         /// <summary>
         /// Tags for labeling the FAQ
         /// </summary>
@@ -76,10 +77,13 @@ namespace Pulumi.AwsNative.Kendra
 
             string? id,
 
+            string? languageCode,
+
             ImmutableArray<Outputs.FaqTag> tags)
         {
             Arn = arn;
             Id = id;
+            LanguageCode = languageCode;
             Tags = tags;
         }
     }

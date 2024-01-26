@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.IoT
         /// The creation date of a fleet metric
         /// </summary>
         [Output("creationDate")]
-        public Output<double> CreationDate { get; private set; } = null!;
+        public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// The description of a fleet metric
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.IoT
         /// The last modified date of a fleet metric
         /// </summary>
         [Output("lastModifiedDate")]
-        public Output<double> LastModifiedDate { get; private set; } = null!;
+        public Output<string> LastModifiedDate { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Number (ARN) of a fleet metric metric

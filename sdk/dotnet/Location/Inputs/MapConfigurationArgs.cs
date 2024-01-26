@@ -12,6 +12,14 @@ namespace Pulumi.AwsNative.Location.Inputs
 
     public sealed class MapConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customLayers")]
+        private InputList<string>? _customLayers;
+        public InputList<string> CustomLayers
+        {
+            get => _customLayers ?? (_customLayers = new InputList<string>());
+            set => _customLayers = value;
+        }
+
         [Input("politicalView")]
         public Input<string>? PoliticalView { get; set; }
 

@@ -38,10 +38,6 @@ export interface GetRuleGroupsNamespaceResult {
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.aps.RuleGroupsNamespaceTag[];
-    /**
-     * Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
-     */
-    readonly workspace?: string;
 }
 /**
  * RuleGroupsNamespace schema for cloudformation.

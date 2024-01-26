@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEksProperties
     {
-        public readonly Outputs.JobDefinitionEksPodProperties? PodProperties;
+        public readonly Outputs.JobDefinitionPodProperties? PodProperties;
 
         [OutputConstructor]
-        private JobDefinitionEksProperties(Outputs.JobDefinitionEksPodProperties? podProperties)
+        private JobDefinitionEksProperties(Outputs.JobDefinitionPodProperties? podProperties)
         {
             PodProperties = podProperties;
         }

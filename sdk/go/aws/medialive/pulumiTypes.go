@@ -7112,6 +7112,293 @@ func (o ChannelCdiInputSpecificationPtrOutput) Resolution() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type ChannelColorCorrection struct {
+	InputColorSpace  *string `pulumi:"inputColorSpace"`
+	OutputColorSpace *string `pulumi:"outputColorSpace"`
+	Uri              *string `pulumi:"uri"`
+}
+
+// ChannelColorCorrectionInput is an input type that accepts ChannelColorCorrectionArgs and ChannelColorCorrectionOutput values.
+// You can construct a concrete instance of `ChannelColorCorrectionInput` via:
+//
+//	ChannelColorCorrectionArgs{...}
+type ChannelColorCorrectionInput interface {
+	pulumi.Input
+
+	ToChannelColorCorrectionOutput() ChannelColorCorrectionOutput
+	ToChannelColorCorrectionOutputWithContext(context.Context) ChannelColorCorrectionOutput
+}
+
+type ChannelColorCorrectionArgs struct {
+	InputColorSpace  pulumi.StringPtrInput `pulumi:"inputColorSpace"`
+	OutputColorSpace pulumi.StringPtrInput `pulumi:"outputColorSpace"`
+	Uri              pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ChannelColorCorrectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelColorCorrection)(nil)).Elem()
+}
+
+func (i ChannelColorCorrectionArgs) ToChannelColorCorrectionOutput() ChannelColorCorrectionOutput {
+	return i.ToChannelColorCorrectionOutputWithContext(context.Background())
+}
+
+func (i ChannelColorCorrectionArgs) ToChannelColorCorrectionOutputWithContext(ctx context.Context) ChannelColorCorrectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelColorCorrectionOutput)
+}
+
+func (i ChannelColorCorrectionArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelColorCorrection] {
+	return pulumix.Output[ChannelColorCorrection]{
+		OutputState: i.ToChannelColorCorrectionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ChannelColorCorrectionArrayInput is an input type that accepts ChannelColorCorrectionArray and ChannelColorCorrectionArrayOutput values.
+// You can construct a concrete instance of `ChannelColorCorrectionArrayInput` via:
+//
+//	ChannelColorCorrectionArray{ ChannelColorCorrectionArgs{...} }
+type ChannelColorCorrectionArrayInput interface {
+	pulumi.Input
+
+	ToChannelColorCorrectionArrayOutput() ChannelColorCorrectionArrayOutput
+	ToChannelColorCorrectionArrayOutputWithContext(context.Context) ChannelColorCorrectionArrayOutput
+}
+
+type ChannelColorCorrectionArray []ChannelColorCorrectionInput
+
+func (ChannelColorCorrectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelColorCorrection)(nil)).Elem()
+}
+
+func (i ChannelColorCorrectionArray) ToChannelColorCorrectionArrayOutput() ChannelColorCorrectionArrayOutput {
+	return i.ToChannelColorCorrectionArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelColorCorrectionArray) ToChannelColorCorrectionArrayOutputWithContext(ctx context.Context) ChannelColorCorrectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelColorCorrectionArrayOutput)
+}
+
+func (i ChannelColorCorrectionArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelColorCorrection] {
+	return pulumix.Output[[]ChannelColorCorrection]{
+		OutputState: i.ToChannelColorCorrectionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ChannelColorCorrectionOutput struct{ *pulumi.OutputState }
+
+func (ChannelColorCorrectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelColorCorrection)(nil)).Elem()
+}
+
+func (o ChannelColorCorrectionOutput) ToChannelColorCorrectionOutput() ChannelColorCorrectionOutput {
+	return o
+}
+
+func (o ChannelColorCorrectionOutput) ToChannelColorCorrectionOutputWithContext(ctx context.Context) ChannelColorCorrectionOutput {
+	return o
+}
+
+func (o ChannelColorCorrectionOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelColorCorrection] {
+	return pulumix.Output[ChannelColorCorrection]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelColorCorrectionOutput) InputColorSpace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelColorCorrection) *string { return v.InputColorSpace }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelColorCorrectionOutput) OutputColorSpace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelColorCorrection) *string { return v.OutputColorSpace }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelColorCorrectionOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelColorCorrection) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ChannelColorCorrectionArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelColorCorrectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelColorCorrection)(nil)).Elem()
+}
+
+func (o ChannelColorCorrectionArrayOutput) ToChannelColorCorrectionArrayOutput() ChannelColorCorrectionArrayOutput {
+	return o
+}
+
+func (o ChannelColorCorrectionArrayOutput) ToChannelColorCorrectionArrayOutputWithContext(ctx context.Context) ChannelColorCorrectionArrayOutput {
+	return o
+}
+
+func (o ChannelColorCorrectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelColorCorrection] {
+	return pulumix.Output[[]ChannelColorCorrection]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelColorCorrectionArrayOutput) Index(i pulumi.IntInput) ChannelColorCorrectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelColorCorrection {
+		return vs[0].([]ChannelColorCorrection)[vs[1].(int)]
+	}).(ChannelColorCorrectionOutput)
+}
+
+type ChannelColorCorrectionSettings struct {
+	GlobalColorCorrections []ChannelColorCorrection `pulumi:"globalColorCorrections"`
+}
+
+// ChannelColorCorrectionSettingsInput is an input type that accepts ChannelColorCorrectionSettingsArgs and ChannelColorCorrectionSettingsOutput values.
+// You can construct a concrete instance of `ChannelColorCorrectionSettingsInput` via:
+//
+//	ChannelColorCorrectionSettingsArgs{...}
+type ChannelColorCorrectionSettingsInput interface {
+	pulumi.Input
+
+	ToChannelColorCorrectionSettingsOutput() ChannelColorCorrectionSettingsOutput
+	ToChannelColorCorrectionSettingsOutputWithContext(context.Context) ChannelColorCorrectionSettingsOutput
+}
+
+type ChannelColorCorrectionSettingsArgs struct {
+	GlobalColorCorrections ChannelColorCorrectionArrayInput `pulumi:"globalColorCorrections"`
+}
+
+func (ChannelColorCorrectionSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelColorCorrectionSettings)(nil)).Elem()
+}
+
+func (i ChannelColorCorrectionSettingsArgs) ToChannelColorCorrectionSettingsOutput() ChannelColorCorrectionSettingsOutput {
+	return i.ToChannelColorCorrectionSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelColorCorrectionSettingsArgs) ToChannelColorCorrectionSettingsOutputWithContext(ctx context.Context) ChannelColorCorrectionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelColorCorrectionSettingsOutput)
+}
+
+func (i ChannelColorCorrectionSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelColorCorrectionSettings] {
+	return pulumix.Output[ChannelColorCorrectionSettings]{
+		OutputState: i.ToChannelColorCorrectionSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ChannelColorCorrectionSettingsArgs) ToChannelColorCorrectionSettingsPtrOutput() ChannelColorCorrectionSettingsPtrOutput {
+	return i.ToChannelColorCorrectionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelColorCorrectionSettingsArgs) ToChannelColorCorrectionSettingsPtrOutputWithContext(ctx context.Context) ChannelColorCorrectionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelColorCorrectionSettingsOutput).ToChannelColorCorrectionSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelColorCorrectionSettingsPtrInput is an input type that accepts ChannelColorCorrectionSettingsArgs, ChannelColorCorrectionSettingsPtr and ChannelColorCorrectionSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelColorCorrectionSettingsPtrInput` via:
+//
+//	        ChannelColorCorrectionSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelColorCorrectionSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelColorCorrectionSettingsPtrOutput() ChannelColorCorrectionSettingsPtrOutput
+	ToChannelColorCorrectionSettingsPtrOutputWithContext(context.Context) ChannelColorCorrectionSettingsPtrOutput
+}
+
+type channelColorCorrectionSettingsPtrType ChannelColorCorrectionSettingsArgs
+
+func ChannelColorCorrectionSettingsPtr(v *ChannelColorCorrectionSettingsArgs) ChannelColorCorrectionSettingsPtrInput {
+	return (*channelColorCorrectionSettingsPtrType)(v)
+}
+
+func (*channelColorCorrectionSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelColorCorrectionSettings)(nil)).Elem()
+}
+
+func (i *channelColorCorrectionSettingsPtrType) ToChannelColorCorrectionSettingsPtrOutput() ChannelColorCorrectionSettingsPtrOutput {
+	return i.ToChannelColorCorrectionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelColorCorrectionSettingsPtrType) ToChannelColorCorrectionSettingsPtrOutputWithContext(ctx context.Context) ChannelColorCorrectionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelColorCorrectionSettingsPtrOutput)
+}
+
+func (i *channelColorCorrectionSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelColorCorrectionSettings] {
+	return pulumix.Output[*ChannelColorCorrectionSettings]{
+		OutputState: i.ToChannelColorCorrectionSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ChannelColorCorrectionSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelColorCorrectionSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelColorCorrectionSettings)(nil)).Elem()
+}
+
+func (o ChannelColorCorrectionSettingsOutput) ToChannelColorCorrectionSettingsOutput() ChannelColorCorrectionSettingsOutput {
+	return o
+}
+
+func (o ChannelColorCorrectionSettingsOutput) ToChannelColorCorrectionSettingsOutputWithContext(ctx context.Context) ChannelColorCorrectionSettingsOutput {
+	return o
+}
+
+func (o ChannelColorCorrectionSettingsOutput) ToChannelColorCorrectionSettingsPtrOutput() ChannelColorCorrectionSettingsPtrOutput {
+	return o.ToChannelColorCorrectionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelColorCorrectionSettingsOutput) ToChannelColorCorrectionSettingsPtrOutputWithContext(ctx context.Context) ChannelColorCorrectionSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelColorCorrectionSettings) *ChannelColorCorrectionSettings {
+		return &v
+	}).(ChannelColorCorrectionSettingsPtrOutput)
+}
+
+func (o ChannelColorCorrectionSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelColorCorrectionSettings] {
+	return pulumix.Output[ChannelColorCorrectionSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelColorCorrectionSettingsOutput) GlobalColorCorrections() ChannelColorCorrectionArrayOutput {
+	return o.ApplyT(func(v ChannelColorCorrectionSettings) []ChannelColorCorrection { return v.GlobalColorCorrections }).(ChannelColorCorrectionArrayOutput)
+}
+
+type ChannelColorCorrectionSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelColorCorrectionSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelColorCorrectionSettings)(nil)).Elem()
+}
+
+func (o ChannelColorCorrectionSettingsPtrOutput) ToChannelColorCorrectionSettingsPtrOutput() ChannelColorCorrectionSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelColorCorrectionSettingsPtrOutput) ToChannelColorCorrectionSettingsPtrOutputWithContext(ctx context.Context) ChannelColorCorrectionSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelColorCorrectionSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelColorCorrectionSettings] {
+	return pulumix.Output[*ChannelColorCorrectionSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelColorCorrectionSettingsPtrOutput) Elem() ChannelColorCorrectionSettingsOutput {
+	return o.ApplyT(func(v *ChannelColorCorrectionSettings) ChannelColorCorrectionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelColorCorrectionSettings
+		return ret
+	}).(ChannelColorCorrectionSettingsOutput)
+}
+
+func (o ChannelColorCorrectionSettingsPtrOutput) GlobalColorCorrections() ChannelColorCorrectionArrayOutput {
+	return o.ApplyT(func(v *ChannelColorCorrectionSettings) []ChannelColorCorrection {
+		if v == nil {
+			return nil
+		}
+		return v.GlobalColorCorrections
+	}).(ChannelColorCorrectionArrayOutput)
+}
+
 type ChannelColorSpacePassthroughSettings struct {
 }
 
@@ -9894,6 +10181,7 @@ type ChannelEncoderSettings struct {
 	AvailConfiguration          *ChannelAvailConfiguration          `pulumi:"availConfiguration"`
 	BlackoutSlate               *ChannelBlackoutSlate               `pulumi:"blackoutSlate"`
 	CaptionDescriptions         []ChannelCaptionDescription         `pulumi:"captionDescriptions"`
+	ColorCorrectionSettings     *ChannelColorCorrectionSettings     `pulumi:"colorCorrectionSettings"`
 	FeatureActivations          *ChannelFeatureActivations          `pulumi:"featureActivations"`
 	GlobalConfiguration         *ChannelGlobalConfiguration         `pulumi:"globalConfiguration"`
 	MotionGraphicsConfiguration *ChannelMotionGraphicsConfiguration `pulumi:"motionGraphicsConfiguration"`
@@ -9921,6 +10209,7 @@ type ChannelEncoderSettingsArgs struct {
 	AvailConfiguration          ChannelAvailConfigurationPtrInput          `pulumi:"availConfiguration"`
 	BlackoutSlate               ChannelBlackoutSlatePtrInput               `pulumi:"blackoutSlate"`
 	CaptionDescriptions         ChannelCaptionDescriptionArrayInput        `pulumi:"captionDescriptions"`
+	ColorCorrectionSettings     ChannelColorCorrectionSettingsPtrInput     `pulumi:"colorCorrectionSettings"`
 	FeatureActivations          ChannelFeatureActivationsPtrInput          `pulumi:"featureActivations"`
 	GlobalConfiguration         ChannelGlobalConfigurationPtrInput         `pulumi:"globalConfiguration"`
 	MotionGraphicsConfiguration ChannelMotionGraphicsConfigurationPtrInput `pulumi:"motionGraphicsConfiguration"`
@@ -10046,6 +10335,10 @@ func (o ChannelEncoderSettingsOutput) CaptionDescriptions() ChannelCaptionDescri
 	return o.ApplyT(func(v ChannelEncoderSettings) []ChannelCaptionDescription { return v.CaptionDescriptions }).(ChannelCaptionDescriptionArrayOutput)
 }
 
+func (o ChannelEncoderSettingsOutput) ColorCorrectionSettings() ChannelColorCorrectionSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettings) *ChannelColorCorrectionSettings { return v.ColorCorrectionSettings }).(ChannelColorCorrectionSettingsPtrOutput)
+}
+
 func (o ChannelEncoderSettingsOutput) FeatureActivations() ChannelFeatureActivationsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettings) *ChannelFeatureActivations { return v.FeatureActivations }).(ChannelFeatureActivationsPtrOutput)
 }
@@ -10153,6 +10446,15 @@ func (o ChannelEncoderSettingsPtrOutput) CaptionDescriptions() ChannelCaptionDes
 		}
 		return v.CaptionDescriptions
 	}).(ChannelCaptionDescriptionArrayOutput)
+}
+
+func (o ChannelEncoderSettingsPtrOutput) ColorCorrectionSettings() ChannelColorCorrectionSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettings) *ChannelColorCorrectionSettings {
+		if v == nil {
+			return nil
+		}
+		return v.ColorCorrectionSettings
+	}).(ChannelColorCorrectionSettingsPtrOutput)
 }
 
 func (o ChannelEncoderSettingsPtrOutput) FeatureActivations() ChannelFeatureActivationsPtrOutput {
@@ -34636,6 +34938,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCaptionSelectorSettingsPtrInput)(nil)).Elem(), ChannelCaptionSelectorSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCdiInputSpecificationInput)(nil)).Elem(), ChannelCdiInputSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCdiInputSpecificationPtrInput)(nil)).Elem(), ChannelCdiInputSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelColorCorrectionInput)(nil)).Elem(), ChannelColorCorrectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelColorCorrectionArrayInput)(nil)).Elem(), ChannelColorCorrectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelColorCorrectionSettingsInput)(nil)).Elem(), ChannelColorCorrectionSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelColorCorrectionSettingsPtrInput)(nil)).Elem(), ChannelColorCorrectionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelColorSpacePassthroughSettingsInput)(nil)).Elem(), ChannelColorSpacePassthroughSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelColorSpacePassthroughSettingsPtrInput)(nil)).Elem(), ChannelColorSpacePassthroughSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDolbyVision81SettingsInput)(nil)).Elem(), ChannelDolbyVision81SettingsArgs{})
@@ -34985,6 +35291,10 @@ func init() {
 	pulumi.RegisterOutputType(ChannelCaptionSelectorSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelCdiInputSpecificationOutput{})
 	pulumi.RegisterOutputType(ChannelCdiInputSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelColorCorrectionOutput{})
+	pulumi.RegisterOutputType(ChannelColorCorrectionArrayOutput{})
+	pulumi.RegisterOutputType(ChannelColorCorrectionSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelColorCorrectionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelColorSpacePassthroughSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelColorSpacePassthroughSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelDolbyVision81SettingsOutput{})

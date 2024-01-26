@@ -703,29 +703,30 @@ func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) MinHealthyPercentage
 }
 
 type AutoScalingGroupInstanceRequirements struct {
-	AcceleratorCount                          *AutoScalingGroupAcceleratorCountRequest          `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                  []string                                          `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          []string                                          `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                 *AutoScalingGroupAcceleratorTotalMemoryMiBRequest `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                          []string                                          `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                      []string                                          `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 *string                                           `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  *AutoScalingGroupBaselineEbsBandwidthMbpsRequest  `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      *string                                           `pulumi:"burstablePerformance"`
-	CpuManufacturers                          []string                                          `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                     []string                                          `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       []string                                          `pulumi:"instanceGenerations"`
-	LocalStorage                              *string                                           `pulumi:"localStorage"`
-	LocalStorageTypes                         []string                                          `pulumi:"localStorageTypes"`
-	MemoryGiBPerVCpu                          *AutoScalingGroupMemoryGiBPerVCpuRequest          `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                 AutoScalingGroupMemoryMiBRequest                  `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                      *AutoScalingGroupNetworkBandwidthGbpsRequest      `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                     *AutoScalingGroupNetworkInterfaceCountRequest     `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice *int                                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                   *bool                                             `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice     *int                                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       *AutoScalingGroupTotalLocalStorageGbRequest       `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                 AutoScalingGroupVCpuCountRequest                  `pulumi:"vCpuCount"`
+	AcceleratorCount                               *AutoScalingGroupAcceleratorCountRequest          `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                       []string                                          `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               []string                                          `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB                      *AutoScalingGroupAcceleratorTotalMemoryMiBRequest `pulumi:"acceleratorTotalMemoryMiB"`
+	AcceleratorTypes                               []string                                          `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           []string                                          `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      *string                                           `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       *AutoScalingGroupBaselineEbsBandwidthMbpsRequest  `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           *string                                           `pulumi:"burstablePerformance"`
+	CpuManufacturers                               []string                                          `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          []string                                          `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            []string                                          `pulumi:"instanceGenerations"`
+	LocalStorage                                   *string                                           `pulumi:"localStorage"`
+	LocalStorageTypes                              []string                                          `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int                                              `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGiBPerVCpu                               *AutoScalingGroupMemoryGiBPerVCpuRequest          `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                      AutoScalingGroupMemoryMiBRequest                  `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                           *AutoScalingGroupNetworkBandwidthGbpsRequest      `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          *AutoScalingGroupNetworkInterfaceCountRequest     `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice      *int                                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        *bool                                             `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          *int                                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGb                            *AutoScalingGroupTotalLocalStorageGbRequest       `pulumi:"totalLocalStorageGb"`
+	VCpuCount                                      AutoScalingGroupVCpuCountRequest                  `pulumi:"vCpuCount"`
 }
 
 // AutoScalingGroupInstanceRequirementsInput is an input type that accepts AutoScalingGroupInstanceRequirementsArgs and AutoScalingGroupInstanceRequirementsOutput values.
@@ -740,29 +741,30 @@ type AutoScalingGroupInstanceRequirementsInput interface {
 }
 
 type AutoScalingGroupInstanceRequirementsArgs struct {
-	AcceleratorCount                          AutoScalingGroupAcceleratorCountRequestPtrInput          `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                  pulumi.StringArrayInput                                  `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          pulumi.StringArrayInput                                  `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                 AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                          pulumi.StringArrayInput                                  `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                      pulumi.StringArrayInput                                  `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 pulumi.StringPtrInput                                    `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput  `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      pulumi.StringPtrInput                                    `pulumi:"burstablePerformance"`
-	CpuManufacturers                          pulumi.StringArrayInput                                  `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                     pulumi.StringArrayInput                                  `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       pulumi.StringArrayInput                                  `pulumi:"instanceGenerations"`
-	LocalStorage                              pulumi.StringPtrInput                                    `pulumi:"localStorage"`
-	LocalStorageTypes                         pulumi.StringArrayInput                                  `pulumi:"localStorageTypes"`
-	MemoryGiBPerVCpu                          AutoScalingGroupMemoryGiBPerVCpuRequestPtrInput          `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                 AutoScalingGroupMemoryMiBRequestInput                    `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                      AutoScalingGroupNetworkBandwidthGbpsRequestPtrInput      `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                     AutoScalingGroupNetworkInterfaceCountRequestPtrInput     `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                       `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                   pulumi.BoolPtrInput                                      `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                                       `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       AutoScalingGroupTotalLocalStorageGbRequestPtrInput       `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                 AutoScalingGroupVCpuCountRequestInput                    `pulumi:"vCpuCount"`
+	AcceleratorCount                               AutoScalingGroupAcceleratorCountRequestPtrInput          `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                       pulumi.StringArrayInput                                  `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               pulumi.StringArrayInput                                  `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB                      AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
+	AcceleratorTypes                               pulumi.StringArrayInput                                  `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           pulumi.StringArrayInput                                  `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      pulumi.StringPtrInput                                    `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput  `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           pulumi.StringPtrInput                                    `pulumi:"burstablePerformance"`
+	CpuManufacturers                               pulumi.StringArrayInput                                  `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          pulumi.StringArrayInput                                  `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            pulumi.StringArrayInput                                  `pulumi:"instanceGenerations"`
+	LocalStorage                                   pulumi.StringPtrInput                                    `pulumi:"localStorage"`
+	LocalStorageTypes                              pulumi.StringArrayInput                                  `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput                                       `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGiBPerVCpu                               AutoScalingGroupMemoryGiBPerVCpuRequestPtrInput          `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                      AutoScalingGroupMemoryMiBRequestInput                    `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                           AutoScalingGroupNetworkBandwidthGbpsRequestPtrInput      `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          AutoScalingGroupNetworkInterfaceCountRequestPtrInput     `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice      pulumi.IntPtrInput                                       `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        pulumi.BoolPtrInput                                      `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          pulumi.IntPtrInput                                       `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGb                            AutoScalingGroupTotalLocalStorageGbRequestPtrInput       `pulumi:"totalLocalStorageGb"`
+	VCpuCount                                      AutoScalingGroupVCpuCountRequestInput                    `pulumi:"vCpuCount"`
 }
 
 func (AutoScalingGroupInstanceRequirementsArgs) ElementType() reflect.Type {
@@ -920,6 +922,12 @@ func (o AutoScalingGroupInstanceRequirementsOutput) LocalStorage() pulumi.String
 
 func (o AutoScalingGroupInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o AutoScalingGroupInstanceRequirementsOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *int {
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o AutoScalingGroupInstanceRequirementsOutput) MemoryGiBPerVCpu() AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput {
@@ -1120,6 +1128,15 @@ func (o AutoScalingGroupInstanceRequirementsPtrOutput) LocalStorageTypes() pulum
 		}
 		return v.LocalStorageTypes
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o AutoScalingGroupInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o AutoScalingGroupInstanceRequirementsPtrOutput) MemoryGiBPerVCpu() AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput {

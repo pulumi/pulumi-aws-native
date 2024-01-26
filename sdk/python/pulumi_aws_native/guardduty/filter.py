@@ -16,52 +16,29 @@ __all__ = ['FilterArgs', 'Filter']
 @pulumi.input_type
 class FilterArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input[str],
-                 description: pulumi.Input[str],
-                 detector_id: pulumi.Input[str],
                  finding_criteria: pulumi.Input['FilterFindingCriteriaArgs'],
-                 rank: pulumi.Input[int],
+                 action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 detector_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilterTagArgs']]]] = None):
+                 rank: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilterTagItemArgs']]]] = None):
         """
         The set of arguments for constructing a Filter resource.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "detector_id", detector_id)
         pulumi.set(__self__, "finding_criteria", finding_criteria)
-        pulumi.set(__self__, "rank", rank)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if detector_id is not None:
+            pulumi.set(__self__, "detector_id", detector_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if rank is not None:
+            pulumi.set(__self__, "rank", rank)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def action(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: pulumi.Input[str]):
-        pulumi.set(self, "action", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: pulumi.Input[str]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="detectorId")
-    def detector_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "detector_id")
-
-    @detector_id.setter
-    def detector_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "detector_id", value)
 
     @property
     @pulumi.getter(name="findingCriteria")
@@ -74,12 +51,30 @@ class FilterArgs:
 
     @property
     @pulumi.getter
-    def rank(self) -> pulumi.Input[int]:
-        return pulumi.get(self, "rank")
+    def action(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "action")
 
-    @rank.setter
-    def rank(self, value: pulumi.Input[int]):
-        pulumi.set(self, "rank", value)
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="detectorId")
+    def detector_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "detector_id")
+
+    @detector_id.setter
+    def detector_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "detector_id", value)
 
     @property
     @pulumi.getter
@@ -92,20 +87,24 @@ class FilterArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterTagArgs']]]]:
+    def rank(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "rank")
+
+    @rank.setter
+    def rank(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rank", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterTagItemArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterTagItemArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Filter(pulumi.CustomResource):
-    warnings.warn("""Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -116,7 +115,7 @@ class Filter(pulumi.CustomResource):
                  finding_criteria: Optional[pulumi.Input[pulumi.InputType['FilterFindingCriteriaArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rank: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FilterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FilterTagItemArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GuardDuty::Filter
@@ -154,9 +153,8 @@ class Filter(pulumi.CustomResource):
                  finding_criteria: Optional[pulumi.Input[pulumi.InputType['FilterFindingCriteriaArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rank: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FilterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FilterTagItemArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Filter is deprecated: Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -165,21 +163,13 @@ class Filter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FilterArgs.__new__(FilterArgs)
 
-            if action is None and not opts.urn:
-                raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
-            if description is None and not opts.urn:
-                raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
-            if detector_id is None and not opts.urn:
-                raise TypeError("Missing required property 'detector_id'")
             __props__.__dict__["detector_id"] = detector_id
             if finding_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'finding_criteria'")
             __props__.__dict__["finding_criteria"] = finding_criteria
             __props__.__dict__["name"] = name
-            if rank is None and not opts.urn:
-                raise TypeError("Missing required property 'rank'")
             __props__.__dict__["rank"] = rank
             __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["detector_id", "name"])
@@ -217,17 +207,17 @@ class Filter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Output[str]:
+    def action(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="detectorId")
-    def detector_id(self) -> pulumi.Output[str]:
+    def detector_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "detector_id")
 
     @property
@@ -237,16 +227,16 @@ class Filter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def rank(self) -> pulumi.Output[int]:
+    def rank(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "rank")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FilterTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FilterTagItem']]]:
         return pulumi.get(self, "tags")
 

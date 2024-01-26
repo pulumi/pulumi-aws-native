@@ -27,10 +27,9 @@ class JobDefinitionArgs:
                  retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
                  scheduling_priority: Optional[pulumi.Input[int]] = None,
                  tags: Optional[Any] = None,
-                 timeout: Optional[pulumi.Input['JobDefinitionJobTimeoutArgs']] = None):
+                 timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None):
         """
         The set of arguments for constructing a JobDefinition resource.
-        :param Any tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "type", type)
         if container_properties is not None:
@@ -149,9 +148,6 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
-        """
-        A key-value pair to associate with a resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -160,11 +156,11 @@ class JobDefinitionArgs:
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input['JobDefinitionJobTimeoutArgs']]:
+    def timeout(self) -> Optional[pulumi.Input['JobDefinitionTimeoutArgs']]:
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input['JobDefinitionJobTimeoutArgs']]):
+    def timeout(self, value: Optional[pulumi.Input['JobDefinitionTimeoutArgs']]):
         pulumi.set(self, "timeout", value)
 
 
@@ -183,7 +179,7 @@ class JobDefinition(pulumi.CustomResource):
                  retry_strategy: Optional[pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']]] = None,
                  scheduling_priority: Optional[pulumi.Input[int]] = None,
                  tags: Optional[Any] = None,
-                 timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionJobTimeoutArgs']]] = None,
+                 timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -191,7 +187,6 @@ class JobDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any tags: A key-value pair to associate with a resource.
         """
         ...
     @overload
@@ -227,7 +222,7 @@ class JobDefinition(pulumi.CustomResource):
                  retry_strategy: Optional[pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']]] = None,
                  scheduling_priority: Optional[pulumi.Input[int]] = None,
                  tags: Optional[Any] = None,
-                 timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionJobTimeoutArgs']]] = None,
+                 timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -252,11 +247,7 @@ class JobDefinition(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
-            __props__.__dict__["container_orchestration_type"] = None
-            __props__.__dict__["job_definition_arn"] = None
-            __props__.__dict__["revision"] = None
-            __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["container_properties", "eks_properties", "job_definition_name", "node_properties", "parameters", "platform_capabilities[*]", "propagate_tags", "retry_strategy", "scheduling_priority", "timeout", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["job_definition_name", "tags"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(JobDefinition, __self__).__init__(
             'aws-native:batch:JobDefinition',
@@ -280,28 +271,19 @@ class JobDefinition(pulumi.CustomResource):
 
         __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
-        __props__.__dict__["container_orchestration_type"] = None
         __props__.__dict__["container_properties"] = None
         __props__.__dict__["eks_properties"] = None
-        __props__.__dict__["job_definition_arn"] = None
         __props__.__dict__["job_definition_name"] = None
         __props__.__dict__["node_properties"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["platform_capabilities"] = None
         __props__.__dict__["propagate_tags"] = None
         __props__.__dict__["retry_strategy"] = None
-        __props__.__dict__["revision"] = None
         __props__.__dict__["scheduling_priority"] = None
-        __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["timeout"] = None
         __props__.__dict__["type"] = None
         return JobDefinition(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="containerOrchestrationType")
-    def container_orchestration_type(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "container_orchestration_type")
 
     @property
     @pulumi.getter(name="containerProperties")
@@ -312,11 +294,6 @@ class JobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="eksProperties")
     def eks_properties(self) -> pulumi.Output[Optional['outputs.JobDefinitionEksProperties']]:
         return pulumi.get(self, "eks_properties")
-
-    @property
-    @pulumi.getter(name="jobDefinitionArn")
-    def job_definition_arn(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "job_definition_arn")
 
     @property
     @pulumi.getter(name="jobDefinitionName")
@@ -349,31 +326,18 @@ class JobDefinition(pulumi.CustomResource):
         return pulumi.get(self, "retry_strategy")
 
     @property
-    @pulumi.getter
-    def revision(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "revision")
-
-    @property
     @pulumi.getter(name="schedulingPriority")
     def scheduling_priority(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "scheduling_priority")
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
-        """
-        A key-value pair to associate with a resource.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def timeout(self) -> pulumi.Output[Optional['outputs.JobDefinitionJobTimeout']]:
+    def timeout(self) -> pulumi.Output[Optional['outputs.JobDefinitionTimeout']]:
         return pulumi.get(self, "timeout")
 
     @property

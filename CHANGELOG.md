@@ -1,5 +1,90 @@
 ## Unreleased
 
+## 0.95.0 (2024-01-25)
+
+### Breaking Changes
+
+#### Resources
+- "aws-native:batch:JobDefinition":
+    - `🟡` inputs: "timeout" type changed from "#/types/aws-native:batch:JobDefinitionJobTimeout" to "#/types/aws-native:batch:JobDefinitionTimeout"
+    - properties:
+        - `🟡` "containerOrchestrationType" missing output "containerOrchestrationType"
+        - `🟡` "jobDefinitionArn" missing output "jobDefinitionArn"
+        - `🟡` "revision" missing output "revision"
+        - `🟡` "status" missing output "status"
+        - `🟡` "timeout" type changed from "#/types/aws-native:batch:JobDefinitionJobTimeout" to "#/types/aws-native:batch:JobDefinitionTimeout"
+- "aws-native:iot:FleetMetric": properties:
+    - `🟡` "creationDate" type changed from "number" to "string"
+    - `🟡` "lastModifiedDate" type changed from "number" to "string"
+#### Functions
+- "aws-native:batch:getJobDefinition": inputs:
+    - `🟡` "jobDefinitionArn" missing input "jobDefinitionArn"
+    - `🟢` required: "id" input has changed to Required
+#### Types
+- "aws-native:batch:JobDefinitionContainerProperties": properties:
+    - `🟡` "ephemeralStorage" type changed from "#/types/aws-native:batch:JobDefinitionContainerPropertiesEphemeralStorageProperties" to "#/types/aws-native:batch:JobDefinitionEphemeralStorage"
+    - `🟡` "fargatePlatformConfiguration" type changed from "#/types/aws-native:batch:JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties" to "#/types/aws-native:batch:JobDefinitionFargatePlatformConfiguration"
+    - `🟡` "linuxParameters" type changed from "#/types/aws-native:batch:JobDefinitionContainerPropertiesLinuxParametersProperties" to "#/types/aws-native:batch:JobDefinitionLinuxParameters"
+    - `🟡` "logConfiguration" type changed from "#/types/aws-native:batch:JobDefinitionContainerPropertiesLogConfigurationProperties" to "#/types/aws-native:batch:JobDefinitionLogConfiguration"
+    - `🟡` "mountPoints": items type changed from "#/types/aws-native:batch:JobDefinitionMountPoint" to "#/types/aws-native:batch:JobDefinitionMountPoints"
+    - `🟡` "networkConfiguration" type changed from "#/types/aws-native:batch:JobDefinitionContainerPropertiesNetworkConfigurationProperties" to "#/types/aws-native:batch:JobDefinitionNetworkConfiguration"
+    - `🟡` "runtimePlatform" type changed from "#/types/aws-native:batch:JobDefinitionContainerPropertiesRuntimePlatformProperties" to "#/types/aws-native:batch:JobDefinitionRuntimePlatform"
+    - `🟡` "volumes": items type changed from "#/types/aws-native:batch:JobDefinitionVolume" to "#/types/aws-native:batch:JobDefinitionVolumes"
+- `🔴` "aws-native:batch:JobDefinitionContainerPropertiesEphemeralStorageProperties" missing
+- `🔴` "aws-native:batch:JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties" missing
+- `🔴` "aws-native:batch:JobDefinitionContainerPropertiesLinuxParametersProperties" missing
+- `🔴` "aws-native:batch:JobDefinitionContainerPropertiesLogConfigurationProperties" missing
+- `🔴` "aws-native:batch:JobDefinitionContainerPropertiesNetworkConfigurationProperties" missing
+- `🔴` "aws-native:batch:JobDefinitionContainerPropertiesRuntimePlatformProperties" missing
+- `🔴` "aws-native:batch:JobDefinitionEfsAuthorizationConfig" missing
+- `🟡` "aws-native:batch:JobDefinitionEfsVolumeConfiguration": properties: "authorizationConfig" type changed from "#/types/aws-native:batch:JobDefinitionEfsAuthorizationConfig" to "#/types/aws-native:batch:JobDefinitionAuthorizationConfig"
+- `🔴` "aws-native:batch:JobDefinitionEksMetadata" missing
+- `🔴` "aws-native:batch:JobDefinitionEksPodProperties" missing
+- `🟡` "aws-native:batch:JobDefinitionEksProperties": properties: "podProperties" type changed from "#/types/aws-native:batch:JobDefinitionEksPodProperties" to "#/types/aws-native:batch:JobDefinitionPodProperties"
+- `🔴` "aws-native:batch:JobDefinitionHost" missing
+- `🔴` "aws-native:batch:JobDefinitionJobTimeout" missing
+- `🔴` "aws-native:batch:JobDefinitionMountPoint" missing
+- `🔴` "aws-native:batch:JobDefinitionVolume" missing
+- `🟡` "aws-native:elasticache:ServerlessCacheEndpoint": properties: "port" type changed from "integer" to "string"
+
+#### New resources:
+
+- `codebuild.Fleet`
+- `cognito.IdentityPoolRoleAttachment`
+- `cognito.UserPoolDomain`
+- `cognito.UserPoolIdentityProvider`
+- `cognito.UserPoolResourceServer`
+- `cognito.UserPoolUiCustomizationAttachment`
+- `datazone.DataSource`
+- `datazone.Domain`
+- `datazone.Environment`
+- `datazone.EnvironmentBlueprintConfiguration`
+- `datazone.EnvironmentProfile`
+- `datazone.Project`
+- `datazone.SubscriptionTarget`
+- `guardduty.Filter`
+- `ivs.Stage`
+- `ssmguiconnect.Preferences`
+
+#### New functions:
+
+- `codebuild.getFleet`
+- `cognito.getIdentityPoolRoleAttachment`
+- `cognito.getUserPoolDomain`
+- `cognito.getUserPoolIdentityProvider`
+- `cognito.getUserPoolResourceServer`
+- `cognito.getUserPoolUiCustomizationAttachment`
+- `datazone.getDataSource`
+- `datazone.getDomain`
+- `datazone.getEnvironment`
+- `datazone.getEnvironmentBlueprintConfiguration`
+- `datazone.getEnvironmentProfile`
+- `datazone.getProject`
+- `datazone.getSubscriptionTarget`
+- `guardduty.getFilter`
+- `ivs.getStage`
+- `ssmguiconnect.getPreferences`
+
 ## 0.94.0 (2024-01-17)
 
 Breaking changes to types:

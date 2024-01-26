@@ -20,6 +20,7 @@ export interface GetResourceArgs {
 }
 
 export interface GetResourceResult {
+    readonly hybridAccessEnabled?: boolean;
     readonly id?: string;
     readonly roleArn?: string;
     readonly useServiceLinkedRole?: boolean;

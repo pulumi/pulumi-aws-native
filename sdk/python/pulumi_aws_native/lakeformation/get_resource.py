@@ -18,7 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetResourceResult:
-    def __init__(__self__, id=None, role_arn=None, use_service_linked_role=None, with_federation=None):
+    def __init__(__self__, hybrid_access_enabled=None, id=None, role_arn=None, use_service_linked_role=None, with_federation=None):
+        if hybrid_access_enabled and not isinstance(hybrid_access_enabled, bool):
+            raise TypeError("Expected argument 'hybrid_access_enabled' to be a bool")
+        pulumi.set(__self__, "hybrid_access_enabled", hybrid_access_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -31,6 +34,11 @@ class GetResourceResult:
         if with_federation and not isinstance(with_federation, bool):
             raise TypeError("Expected argument 'with_federation' to be a bool")
         pulumi.set(__self__, "with_federation", with_federation)
+
+    @property
+    @pulumi.getter(name="hybridAccessEnabled")
+    def hybrid_access_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "hybrid_access_enabled")
 
     @property
     @pulumi.getter
@@ -59,6 +67,7 @@ class AwaitableGetResourceResult(GetResourceResult):
         if False:
             yield self
         return GetResourceResult(
+            hybrid_access_enabled=self.hybrid_access_enabled,
             id=self.id,
             role_arn=self.role_arn,
             use_service_linked_role=self.use_service_linked_role,
@@ -76,6 +85,7 @@ def get_resource(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lakeformation:getResource', __args__, opts=opts, typ=GetResourceResult).value
 
     return AwaitableGetResourceResult(
+        hybrid_access_enabled=pulumi.get(__ret__, 'hybrid_access_enabled'),
         id=pulumi.get(__ret__, 'id'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         use_service_linked_role=pulumi.get(__ret__, 'use_service_linked_role'),

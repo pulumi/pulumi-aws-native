@@ -296,6 +296,8 @@ type FirewallRuleGroupFirewallRule struct {
 	FirewallDomainListId string `pulumi:"firewallDomainListId"`
 	// Rule Priority
 	Priority int `pulumi:"priority"`
+	// Qtype
+	Qtype *string `pulumi:"qtype"`
 }
 
 // FirewallRuleGroupFirewallRuleInput is an input type that accepts FirewallRuleGroupFirewallRuleArgs and FirewallRuleGroupFirewallRuleOutput values.
@@ -325,6 +327,8 @@ type FirewallRuleGroupFirewallRuleArgs struct {
 	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
 	// Rule Priority
 	Priority pulumi.IntInput `pulumi:"priority"`
+	// Qtype
+	Qtype pulumi.StringPtrInput `pulumi:"qtype"`
 }
 
 func (FirewallRuleGroupFirewallRuleArgs) ElementType() reflect.Type {
@@ -434,6 +438,11 @@ func (o FirewallRuleGroupFirewallRuleOutput) FirewallDomainListId() pulumi.Strin
 // Rule Priority
 func (o FirewallRuleGroupFirewallRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// Qtype
+func (o FirewallRuleGroupFirewallRuleOutput) Qtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *string { return v.Qtype }).(pulumi.StringPtrOutput)
 }
 
 type FirewallRuleGroupFirewallRuleArrayOutput struct{ *pulumi.OutputState }

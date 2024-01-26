@@ -14,16 +14,11 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     public sealed class FilterFindingCriteria
     {
         public readonly object? Criterion;
-        public readonly Outputs.FilterCondition? ItemType;
 
         [OutputConstructor]
-        private FilterFindingCriteria(
-            object? criterion,
-
-            Outputs.FilterCondition? itemType)
+        private FilterFindingCriteria(object? criterion)
         {
             Criterion = criterion;
-            ItemType = itemType;
         }
     }
 }

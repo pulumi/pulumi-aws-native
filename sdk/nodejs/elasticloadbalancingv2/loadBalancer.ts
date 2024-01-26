@@ -46,6 +46,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
+     * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+     */
+    public readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic!: pulumi.Output<string | undefined>;
+    /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
@@ -105,6 +109,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = args ? args.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["loadBalancerAttributes"] = args ? args.loadBalancerAttributes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -122,6 +127,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         } else {
             resourceInputs["canonicalHostedZoneId"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["loadBalancerArn"] = undefined /*out*/;
             resourceInputs["loadBalancerAttributes"] = undefined /*out*/;
@@ -146,6 +152,10 @@ export class LoadBalancer extends pulumi.CustomResource {
  * The set of arguments for constructing a LoadBalancer resource.
  */
 export interface LoadBalancerArgs {
+    /**
+     * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+     */
+    enforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: pulumi.Input<string>;
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
      */

@@ -37,6 +37,7 @@ export class Resource extends pulumi.CustomResource {
         return obj['__pulumiType'] === Resource.__pulumiType;
     }
 
+    public readonly hybridAccessEnabled!: pulumi.Output<boolean | undefined>;
     public readonly resourceArn!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string | undefined>;
     public readonly useServiceLinkedRole!: pulumi.Output<boolean>;
@@ -61,11 +62,13 @@ export class Resource extends pulumi.CustomResource {
             if ((!args || args.useServiceLinkedRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'useServiceLinkedRole'");
             }
+            resourceInputs["hybridAccessEnabled"] = args ? args.hybridAccessEnabled : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["useServiceLinkedRole"] = args ? args.useServiceLinkedRole : undefined;
             resourceInputs["withFederation"] = args ? args.withFederation : undefined;
         } else {
+            resourceInputs["hybridAccessEnabled"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["useServiceLinkedRole"] = undefined /*out*/;
@@ -82,6 +85,7 @@ export class Resource extends pulumi.CustomResource {
  * The set of arguments for constructing a Resource resource.
  */
 export interface ResourceArgs {
+    hybridAccessEnabled?: pulumi.Input<boolean>;
     resourceArn: pulumi.Input<string>;
     roleArn?: pulumi.Input<string>;
     useServiceLinkedRole: pulumi.Input<boolean>;

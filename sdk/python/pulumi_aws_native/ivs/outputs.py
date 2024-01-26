@@ -19,6 +19,7 @@ __all__ = [
     'RecordingConfigurationS3DestinationConfiguration',
     'RecordingConfigurationTag',
     'RecordingConfigurationThumbnailConfiguration',
+    'StageTag',
     'StreamKeyTag',
 ]
 
@@ -261,6 +262,25 @@ class RecordingConfigurationThumbnailConfiguration(dict):
         Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
         """
         return pulumi.get(self, "target_interval_seconds")
+
+
+@pulumi.output_type
+class StageTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

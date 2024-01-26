@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PlaybackKeyPair{}
 	case "aws-native:ivs:RecordingConfiguration":
 		r = &RecordingConfiguration{}
+	case "aws-native:ivs:Stage":
+		r = &Stage{}
 	case "aws-native:ivs:StreamKey":
 		r = &StreamKey{}
 	default:

@@ -30,6 +30,7 @@ export interface GetFaqArgs {
 export interface GetFaqResult {
     readonly arn?: string;
     readonly id?: string;
+    readonly languageCode?: string;
     /**
      * Tags for labeling the FAQ
      */

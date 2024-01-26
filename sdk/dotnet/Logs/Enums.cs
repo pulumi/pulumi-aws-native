@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.Logs
         }
 
         public static AccountPolicyPolicyType DataProtectionPolicy { get; } = new AccountPolicyPolicyType("DATA_PROTECTION_POLICY");
+        public static AccountPolicyPolicyType SubscriptionFilterPolicy { get; } = new AccountPolicyPolicyType("SUBSCRIPTION_FILTER_POLICY");
 
         public static bool operator ==(AccountPolicyPolicyType left, AccountPolicyPolicyType right) => left.Equals(right);
         public static bool operator !=(AccountPolicyPolicyType left, AccountPolicyPolicyType right) => !left.Equals(right);

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.LakeFormation
     [AwsNativeResourceType("aws-native:lakeformation:Resource")]
     public partial class Resource : global::Pulumi.CustomResource
     {
+        [Output("hybridAccessEnabled")]
+        public Output<bool?> HybridAccessEnabled { get; private set; } = null!;
+
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
@@ -77,6 +80,9 @@ namespace Pulumi.AwsNative.LakeFormation
 
     public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("hybridAccessEnabled")]
+        public Input<bool>? HybridAccessEnabled { get; set; }
+
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 

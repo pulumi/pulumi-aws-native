@@ -51,6 +51,7 @@ namespace Pulumi.AwsNative.LakeFormation
     [OutputType]
     public sealed class GetResourceResult
     {
+        public readonly bool? HybridAccessEnabled;
         public readonly string? Id;
         public readonly string? RoleArn;
         public readonly bool? UseServiceLinkedRole;
@@ -58,6 +59,8 @@ namespace Pulumi.AwsNative.LakeFormation
 
         [OutputConstructor]
         private GetResourceResult(
+            bool? hybridAccessEnabled,
+
             string? id,
 
             string? roleArn,
@@ -66,6 +69,7 @@ namespace Pulumi.AwsNative.LakeFormation
 
             bool? withFederation)
         {
+            HybridAccessEnabled = hybridAccessEnabled;
             Id = id;
             RoleArn = roleArn;
             UseServiceLinkedRole = useServiceLinkedRole;

@@ -21,13 +21,13 @@ type FleetMetric struct {
 	AggregationField pulumi.StringPtrOutput              `pulumi:"aggregationField"`
 	AggregationType  FleetMetricAggregationTypePtrOutput `pulumi:"aggregationType"`
 	// The creation date of a fleet metric
-	CreationDate pulumi.Float64Output `pulumi:"creationDate"`
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The description of a fleet metric
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The index name of a fleet metric
 	IndexName pulumi.StringPtrOutput `pulumi:"indexName"`
 	// The last modified date of a fleet metric
-	LastModifiedDate pulumi.Float64Output `pulumi:"lastModifiedDate"`
+	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
 	// The Amazon Resource Number (ARN) of a fleet metric metric
 	MetricArn pulumi.StringOutput `pulumi:"metricArn"`
 	// The name of the fleet metric
@@ -196,8 +196,8 @@ func (o FleetMetricOutput) AggregationType() FleetMetricAggregationTypePtrOutput
 }
 
 // The creation date of a fleet metric
-func (o FleetMetricOutput) CreationDate() pulumi.Float64Output {
-	return o.ApplyT(func(v *FleetMetric) pulumi.Float64Output { return v.CreationDate }).(pulumi.Float64Output)
+func (o FleetMetricOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *FleetMetric) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
 // The description of a fleet metric
@@ -211,8 +211,8 @@ func (o FleetMetricOutput) IndexName() pulumi.StringPtrOutput {
 }
 
 // The last modified date of a fleet metric
-func (o FleetMetricOutput) LastModifiedDate() pulumi.Float64Output {
-	return o.ApplyT(func(v *FleetMetric) pulumi.Float64Output { return v.LastModifiedDate }).(pulumi.Float64Output)
+func (o FleetMetricOutput) LastModifiedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *FleetMetric) pulumi.StringOutput { return v.LastModifiedDate }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Number (ARN) of a fleet metric metric

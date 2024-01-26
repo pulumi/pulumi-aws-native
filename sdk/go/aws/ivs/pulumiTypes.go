@@ -1026,6 +1026,130 @@ func (o RecordingConfigurationThumbnailConfigurationPtrOutput) TargetIntervalSec
 	}).(pulumi.IntPtrOutput)
 }
 
+type StageTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// StageTagInput is an input type that accepts StageTagArgs and StageTagOutput values.
+// You can construct a concrete instance of `StageTagInput` via:
+//
+//	StageTagArgs{...}
+type StageTagInput interface {
+	pulumi.Input
+
+	ToStageTagOutput() StageTagOutput
+	ToStageTagOutputWithContext(context.Context) StageTagOutput
+}
+
+type StageTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StageTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageTag)(nil)).Elem()
+}
+
+func (i StageTagArgs) ToStageTagOutput() StageTagOutput {
+	return i.ToStageTagOutputWithContext(context.Background())
+}
+
+func (i StageTagArgs) ToStageTagOutputWithContext(ctx context.Context) StageTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageTagOutput)
+}
+
+func (i StageTagArgs) ToOutput(ctx context.Context) pulumix.Output[StageTag] {
+	return pulumix.Output[StageTag]{
+		OutputState: i.ToStageTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// StageTagArrayInput is an input type that accepts StageTagArray and StageTagArrayOutput values.
+// You can construct a concrete instance of `StageTagArrayInput` via:
+//
+//	StageTagArray{ StageTagArgs{...} }
+type StageTagArrayInput interface {
+	pulumi.Input
+
+	ToStageTagArrayOutput() StageTagArrayOutput
+	ToStageTagArrayOutputWithContext(context.Context) StageTagArrayOutput
+}
+
+type StageTagArray []StageTagInput
+
+func (StageTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageTag)(nil)).Elem()
+}
+
+func (i StageTagArray) ToStageTagArrayOutput() StageTagArrayOutput {
+	return i.ToStageTagArrayOutputWithContext(context.Background())
+}
+
+func (i StageTagArray) ToStageTagArrayOutputWithContext(ctx context.Context) StageTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageTagArrayOutput)
+}
+
+func (i StageTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StageTag] {
+	return pulumix.Output[[]StageTag]{
+		OutputState: i.ToStageTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type StageTagOutput struct{ *pulumi.OutputState }
+
+func (StageTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageTag)(nil)).Elem()
+}
+
+func (o StageTagOutput) ToStageTagOutput() StageTagOutput {
+	return o
+}
+
+func (o StageTagOutput) ToStageTagOutputWithContext(ctx context.Context) StageTagOutput {
+	return o
+}
+
+func (o StageTagOutput) ToOutput(ctx context.Context) pulumix.Output[StageTag] {
+	return pulumix.Output[StageTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StageTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StageTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o StageTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StageTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StageTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StageTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageTag)(nil)).Elem()
+}
+
+func (o StageTagArrayOutput) ToStageTagArrayOutput() StageTagArrayOutput {
+	return o
+}
+
+func (o StageTagArrayOutput) ToStageTagArrayOutputWithContext(ctx context.Context) StageTagArrayOutput {
+	return o
+}
+
+func (o StageTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StageTag] {
+	return pulumix.Output[[]StageTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StageTagArrayOutput) Index(i pulumi.IntInput) StageTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageTag {
+		return vs[0].([]StageTag)[vs[1].(int)]
+	}).(StageTagOutput)
+}
+
 type StreamKeyTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -1164,6 +1288,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationTagArrayInput)(nil)).Elem(), RecordingConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageTagInput)(nil)).Elem(), StageTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageTagArrayInput)(nil)).Elem(), StageTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamKeyTagInput)(nil)).Elem(), StreamKeyTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamKeyTagArrayInput)(nil)).Elem(), StreamKeyTagArray{})
 	pulumi.RegisterOutputType(ChannelTagOutput{})
@@ -1179,6 +1305,8 @@ func init() {
 	pulumi.RegisterOutputType(RecordingConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StageTagOutput{})
+	pulumi.RegisterOutputType(StageTagArrayOutput{})
 	pulumi.RegisterOutputType(StreamKeyTagOutput{})
 	pulumi.RegisterOutputType(StreamKeyTagArrayOutput{})
 }

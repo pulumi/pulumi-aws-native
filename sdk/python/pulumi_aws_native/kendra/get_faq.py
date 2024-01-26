@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetFaqResult:
-    def __init__(__self__, arn=None, id=None, tags=None):
+    def __init__(__self__, arn=None, id=None, language_code=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if language_code and not isinstance(language_code, str):
+            raise TypeError("Expected argument 'language_code' to be a str")
+        pulumi.set(__self__, "language_code", language_code)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -39,6 +42,11 @@ class GetFaqResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> Optional[str]:
+        return pulumi.get(self, "language_code")
 
     @property
     @pulumi.getter
@@ -57,6 +65,7 @@ class AwaitableGetFaqResult(GetFaqResult):
         return GetFaqResult(
             arn=self.arn,
             id=self.id,
+            language_code=self.language_code,
             tags=self.tags)
 
 
@@ -78,6 +87,7 @@ def get_faq(id: Optional[str] = None,
     return AwaitableGetFaqResult(
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
+        language_code=pulumi.get(__ret__, 'language_code'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

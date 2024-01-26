@@ -29,6 +29,12 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("portName", required: true)]
         public Input<string> PortName { get; set; } = null!;
 
+        [Input("timeout")]
+        public Input<Inputs.ServiceTimeoutConfigurationArgs>? Timeout { get; set; }
+
+        [Input("tls")]
+        public Input<Inputs.ServiceConnectTlsConfigurationArgs>? Tls { get; set; }
+
         public ServiceConnectServiceArgs()
         {
         }

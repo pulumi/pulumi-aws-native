@@ -26,8 +26,8 @@ class GetFleetMetricResult:
         if aggregation_type and not isinstance(aggregation_type, dict):
             raise TypeError("Expected argument 'aggregation_type' to be a dict")
         pulumi.set(__self__, "aggregation_type", aggregation_type)
-        if creation_date and not isinstance(creation_date, float):
-            raise TypeError("Expected argument 'creation_date' to be a float")
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
@@ -35,8 +35,8 @@ class GetFleetMetricResult:
         if index_name and not isinstance(index_name, str):
             raise TypeError("Expected argument 'index_name' to be a str")
         pulumi.set(__self__, "index_name", index_name)
-        if last_modified_date and not isinstance(last_modified_date, float):
-            raise TypeError("Expected argument 'last_modified_date' to be a float")
+        if last_modified_date and not isinstance(last_modified_date, str):
+            raise TypeError("Expected argument 'last_modified_date' to be a str")
         pulumi.set(__self__, "last_modified_date", last_modified_date)
         if metric_arn and not isinstance(metric_arn, str):
             raise TypeError("Expected argument 'metric_arn' to be a str")
@@ -75,7 +75,7 @@ class GetFleetMetricResult:
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[float]:
+    def creation_date(self) -> Optional[str]:
         """
         The creation date of a fleet metric
         """
@@ -99,7 +99,7 @@ class GetFleetMetricResult:
 
     @property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> Optional[float]:
+    def last_modified_date(self) -> Optional[str]:
         """
         The last modified date of a fleet metric
         """

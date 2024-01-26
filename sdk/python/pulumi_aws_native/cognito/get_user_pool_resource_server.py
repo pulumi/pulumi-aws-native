@@ -19,21 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolResourceServerResult:
-    def __init__(__self__, id=None, name=None, scopes=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, name=None, scopes=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if scopes and not isinstance(scopes, list):
             raise TypeError("Expected argument 'scopes' to be a list")
         pulumi.set(__self__, "scopes", scopes)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -52,29 +44,30 @@ class AwaitableGetUserPoolResourceServerResult(GetUserPoolResourceServerResult):
         if False:
             yield self
         return GetUserPoolResourceServerResult(
-            id=self.id,
             name=self.name,
             scopes=self.scopes)
 
 
-def get_user_pool_resource_server(id: Optional[str] = None,
+def get_user_pool_resource_server(identifier: Optional[str] = None,
+                                  user_pool_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolResourceServerResult:
     """
     Resource Type definition for AWS::Cognito::UserPoolResourceServer
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['identifier'] = identifier
+    __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolResourceServer', __args__, opts=opts, typ=GetUserPoolResourceServerResult).value
 
     return AwaitableGetUserPoolResourceServerResult(
-        id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         scopes=pulumi.get(__ret__, 'scopes'))
 
 
 @_utilities.lift_output_func(get_user_pool_resource_server)
-def get_user_pool_resource_server_output(id: Optional[pulumi.Input[str]] = None,
+def get_user_pool_resource_server_output(identifier: Optional[pulumi.Input[str]] = None,
+                                         user_pool_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolResourceServerResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolResourceServer

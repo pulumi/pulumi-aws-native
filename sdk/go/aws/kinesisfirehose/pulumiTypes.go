@@ -8394,6 +8394,920 @@ func (o DeliveryStreamSerializerPtrOutput) ParquetSerDe() DeliveryStreamParquetS
 	}).(DeliveryStreamParquetSerDePtrOutput)
 }
 
+type DeliveryStreamSnowflakeDestinationConfiguration struct {
+	AccountUrl                 string                                                            `pulumi:"accountUrl"`
+	CloudWatchLoggingOptions   *DeliveryStreamCloudWatchLoggingOptions                           `pulumi:"cloudWatchLoggingOptions"`
+	ContentColumnName          *string                                                           `pulumi:"contentColumnName"`
+	DataLoadingOption          *DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption `pulumi:"dataLoadingOption"`
+	Database                   string                                                            `pulumi:"database"`
+	KeyPassphrase              *string                                                           `pulumi:"keyPassphrase"`
+	MetaDataColumnName         *string                                                           `pulumi:"metaDataColumnName"`
+	PrivateKey                 string                                                            `pulumi:"privateKey"`
+	ProcessingConfiguration    *DeliveryStreamProcessingConfiguration                            `pulumi:"processingConfiguration"`
+	RetryOptions               *DeliveryStreamSnowflakeRetryOptions                              `pulumi:"retryOptions"`
+	RoleArn                    string                                                            `pulumi:"roleArn"`
+	S3BackupMode               *DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode      `pulumi:"s3BackupMode"`
+	S3Configuration            DeliveryStreamS3DestinationConfiguration                          `pulumi:"s3Configuration"`
+	Schema                     string                                                            `pulumi:"schema"`
+	SnowflakeRoleConfiguration *DeliveryStreamSnowflakeRoleConfiguration                         `pulumi:"snowflakeRoleConfiguration"`
+	SnowflakeVpcConfiguration  *DeliveryStreamSnowflakeVpcConfiguration                          `pulumi:"snowflakeVpcConfiguration"`
+	Table                      string                                                            `pulumi:"table"`
+	User                       string                                                            `pulumi:"user"`
+}
+
+// DeliveryStreamSnowflakeDestinationConfigurationInput is an input type that accepts DeliveryStreamSnowflakeDestinationConfigurationArgs and DeliveryStreamSnowflakeDestinationConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamSnowflakeDestinationConfigurationInput` via:
+//
+//	DeliveryStreamSnowflakeDestinationConfigurationArgs{...}
+type DeliveryStreamSnowflakeDestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeDestinationConfigurationOutput() DeliveryStreamSnowflakeDestinationConfigurationOutput
+	ToDeliveryStreamSnowflakeDestinationConfigurationOutputWithContext(context.Context) DeliveryStreamSnowflakeDestinationConfigurationOutput
+}
+
+type DeliveryStreamSnowflakeDestinationConfigurationArgs struct {
+	AccountUrl                 pulumi.StringInput                                                       `pulumi:"accountUrl"`
+	CloudWatchLoggingOptions   DeliveryStreamCloudWatchLoggingOptionsPtrInput                           `pulumi:"cloudWatchLoggingOptions"`
+	ContentColumnName          pulumi.StringPtrInput                                                    `pulumi:"contentColumnName"`
+	DataLoadingOption          DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrInput `pulumi:"dataLoadingOption"`
+	Database                   pulumi.StringInput                                                       `pulumi:"database"`
+	KeyPassphrase              pulumi.StringPtrInput                                                    `pulumi:"keyPassphrase"`
+	MetaDataColumnName         pulumi.StringPtrInput                                                    `pulumi:"metaDataColumnName"`
+	PrivateKey                 pulumi.StringInput                                                       `pulumi:"privateKey"`
+	ProcessingConfiguration    DeliveryStreamProcessingConfigurationPtrInput                            `pulumi:"processingConfiguration"`
+	RetryOptions               DeliveryStreamSnowflakeRetryOptionsPtrInput                              `pulumi:"retryOptions"`
+	RoleArn                    pulumi.StringInput                                                       `pulumi:"roleArn"`
+	S3BackupMode               DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrInput      `pulumi:"s3BackupMode"`
+	S3Configuration            DeliveryStreamS3DestinationConfigurationInput                            `pulumi:"s3Configuration"`
+	Schema                     pulumi.StringInput                                                       `pulumi:"schema"`
+	SnowflakeRoleConfiguration DeliveryStreamSnowflakeRoleConfigurationPtrInput                         `pulumi:"snowflakeRoleConfiguration"`
+	SnowflakeVpcConfiguration  DeliveryStreamSnowflakeVpcConfigurationPtrInput                          `pulumi:"snowflakeVpcConfiguration"`
+	Table                      pulumi.StringInput                                                       `pulumi:"table"`
+	User                       pulumi.StringInput                                                       `pulumi:"user"`
+}
+
+func (DeliveryStreamSnowflakeDestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamSnowflakeDestinationConfigurationArgs) ToDeliveryStreamSnowflakeDestinationConfigurationOutput() DeliveryStreamSnowflakeDestinationConfigurationOutput {
+	return i.ToDeliveryStreamSnowflakeDestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSnowflakeDestinationConfigurationArgs) ToDeliveryStreamSnowflakeDestinationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeDestinationConfigurationOutput)
+}
+
+func (i DeliveryStreamSnowflakeDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamSnowflakeDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamSnowflakeDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DeliveryStreamSnowflakeDestinationConfigurationArgs) ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutput() DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
+	return i.ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSnowflakeDestinationConfigurationArgs) ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeDestinationConfigurationOutput).ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamSnowflakeDestinationConfigurationPtrInput is an input type that accepts DeliveryStreamSnowflakeDestinationConfigurationArgs, DeliveryStreamSnowflakeDestinationConfigurationPtr and DeliveryStreamSnowflakeDestinationConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamSnowflakeDestinationConfigurationPtrInput` via:
+//
+//	        DeliveryStreamSnowflakeDestinationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamSnowflakeDestinationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutput() DeliveryStreamSnowflakeDestinationConfigurationPtrOutput
+	ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(context.Context) DeliveryStreamSnowflakeDestinationConfigurationPtrOutput
+}
+
+type deliveryStreamSnowflakeDestinationConfigurationPtrType DeliveryStreamSnowflakeDestinationConfigurationArgs
+
+func DeliveryStreamSnowflakeDestinationConfigurationPtr(v *DeliveryStreamSnowflakeDestinationConfigurationArgs) DeliveryStreamSnowflakeDestinationConfigurationPtrInput {
+	return (*deliveryStreamSnowflakeDestinationConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamSnowflakeDestinationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSnowflakeDestinationConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamSnowflakeDestinationConfigurationPtrType) ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutput() DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
+	return i.ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamSnowflakeDestinationConfigurationPtrType) ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeDestinationConfigurationPtrOutput)
+}
+
+func (i *deliveryStreamSnowflakeDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamSnowflakeDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DeliveryStreamSnowflakeDestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeDestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ToDeliveryStreamSnowflakeDestinationConfigurationOutput() DeliveryStreamSnowflakeDestinationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ToDeliveryStreamSnowflakeDestinationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutput() DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
+	return o.ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeDestinationConfiguration {
+		return &v
+	}).(DeliveryStreamSnowflakeDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamSnowflakeDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) AccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.AccountUrl }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
+		return v.CloudWatchLoggingOptions
+	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ContentColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *string { return v.ContentColumnName }).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) DataLoadingOption() DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption {
+		return v.DataLoadingOption
+	}).(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.Database }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) KeyPassphrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *string { return v.KeyPassphrase }).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) MetaDataColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *string { return v.MetaDataColumnName }).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
+		return v.ProcessingConfiguration
+	}).(DeliveryStreamProcessingConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) RetryOptions() DeliveryStreamSnowflakeRetryOptionsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeRetryOptions {
+		return v.RetryOptions
+	}).(DeliveryStreamSnowflakeRetryOptionsPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) S3BackupMode() DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode {
+		return v.S3BackupMode
+	}).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) DeliveryStreamS3DestinationConfiguration {
+		return v.S3Configuration
+	}).(DeliveryStreamS3DestinationConfigurationOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) SnowflakeRoleConfiguration() DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeRoleConfiguration {
+		return v.SnowflakeRoleConfiguration
+	}).(DeliveryStreamSnowflakeRoleConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) SnowflakeVpcConfiguration() DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeVpcConfiguration {
+		return v.SnowflakeVpcConfiguration
+	}).(DeliveryStreamSnowflakeVpcConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) Table() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.Table }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) User() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.User }).(pulumi.StringOutput)
+}
+
+type DeliveryStreamSnowflakeDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSnowflakeDestinationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutput() DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamSnowflakeDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) Elem() DeliveryStreamSnowflakeDestinationConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) DeliveryStreamSnowflakeDestinationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamSnowflakeDestinationConfiguration
+		return ret
+	}).(DeliveryStreamSnowflakeDestinationConfigurationOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) AccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLoggingOptions
+	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ContentColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) DataLoadingOption() DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption {
+		if v == nil {
+			return nil
+		}
+		return v.DataLoadingOption
+	}).(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) KeyPassphrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPassphrase
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) MetaDataColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetaDataColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessingConfiguration
+	}).(DeliveryStreamProcessingConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) RetryOptions() DeliveryStreamSnowflakeRetryOptionsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeRetryOptions {
+		if v == nil {
+			return nil
+		}
+		return v.RetryOptions
+	}).(DeliveryStreamSnowflakeRetryOptionsPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) S3BackupMode() DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3BackupMode
+	}).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Configuration
+	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Schema
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) SnowflakeRoleConfiguration() DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeRoleConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SnowflakeRoleConfiguration
+	}).(DeliveryStreamSnowflakeRoleConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) SnowflakeVpcConfiguration() DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeVpcConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SnowflakeVpcConfiguration
+	}).(DeliveryStreamSnowflakeVpcConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Table
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.User
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamSnowflakeRetryOptions struct {
+	DurationInSeconds *int `pulumi:"durationInSeconds"`
+}
+
+// DeliveryStreamSnowflakeRetryOptionsInput is an input type that accepts DeliveryStreamSnowflakeRetryOptionsArgs and DeliveryStreamSnowflakeRetryOptionsOutput values.
+// You can construct a concrete instance of `DeliveryStreamSnowflakeRetryOptionsInput` via:
+//
+//	DeliveryStreamSnowflakeRetryOptionsArgs{...}
+type DeliveryStreamSnowflakeRetryOptionsInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeRetryOptionsOutput() DeliveryStreamSnowflakeRetryOptionsOutput
+	ToDeliveryStreamSnowflakeRetryOptionsOutputWithContext(context.Context) DeliveryStreamSnowflakeRetryOptionsOutput
+}
+
+type DeliveryStreamSnowflakeRetryOptionsArgs struct {
+	DurationInSeconds pulumi.IntPtrInput `pulumi:"durationInSeconds"`
+}
+
+func (DeliveryStreamSnowflakeRetryOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeRetryOptions)(nil)).Elem()
+}
+
+func (i DeliveryStreamSnowflakeRetryOptionsArgs) ToDeliveryStreamSnowflakeRetryOptionsOutput() DeliveryStreamSnowflakeRetryOptionsOutput {
+	return i.ToDeliveryStreamSnowflakeRetryOptionsOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSnowflakeRetryOptionsArgs) ToDeliveryStreamSnowflakeRetryOptionsOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRetryOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeRetryOptionsOutput)
+}
+
+func (i DeliveryStreamSnowflakeRetryOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeRetryOptions] {
+	return pulumix.Output[DeliveryStreamSnowflakeRetryOptions]{
+		OutputState: i.ToDeliveryStreamSnowflakeRetryOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DeliveryStreamSnowflakeRetryOptionsArgs) ToDeliveryStreamSnowflakeRetryOptionsPtrOutput() DeliveryStreamSnowflakeRetryOptionsPtrOutput {
+	return i.ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSnowflakeRetryOptionsArgs) ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRetryOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeRetryOptionsOutput).ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamSnowflakeRetryOptionsPtrInput is an input type that accepts DeliveryStreamSnowflakeRetryOptionsArgs, DeliveryStreamSnowflakeRetryOptionsPtr and DeliveryStreamSnowflakeRetryOptionsPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamSnowflakeRetryOptionsPtrInput` via:
+//
+//	        DeliveryStreamSnowflakeRetryOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamSnowflakeRetryOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeRetryOptionsPtrOutput() DeliveryStreamSnowflakeRetryOptionsPtrOutput
+	ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(context.Context) DeliveryStreamSnowflakeRetryOptionsPtrOutput
+}
+
+type deliveryStreamSnowflakeRetryOptionsPtrType DeliveryStreamSnowflakeRetryOptionsArgs
+
+func DeliveryStreamSnowflakeRetryOptionsPtr(v *DeliveryStreamSnowflakeRetryOptionsArgs) DeliveryStreamSnowflakeRetryOptionsPtrInput {
+	return (*deliveryStreamSnowflakeRetryOptionsPtrType)(v)
+}
+
+func (*deliveryStreamSnowflakeRetryOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSnowflakeRetryOptions)(nil)).Elem()
+}
+
+func (i *deliveryStreamSnowflakeRetryOptionsPtrType) ToDeliveryStreamSnowflakeRetryOptionsPtrOutput() DeliveryStreamSnowflakeRetryOptionsPtrOutput {
+	return i.ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamSnowflakeRetryOptionsPtrType) ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRetryOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeRetryOptionsPtrOutput)
+}
+
+func (i *deliveryStreamSnowflakeRetryOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeRetryOptions] {
+	return pulumix.Output[*DeliveryStreamSnowflakeRetryOptions]{
+		OutputState: i.ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DeliveryStreamSnowflakeRetryOptionsOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeRetryOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeRetryOptions)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeRetryOptionsOutput) ToDeliveryStreamSnowflakeRetryOptionsOutput() DeliveryStreamSnowflakeRetryOptionsOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeRetryOptionsOutput) ToDeliveryStreamSnowflakeRetryOptionsOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRetryOptionsOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeRetryOptionsOutput) ToDeliveryStreamSnowflakeRetryOptionsPtrOutput() DeliveryStreamSnowflakeRetryOptionsPtrOutput {
+	return o.ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeRetryOptionsOutput) ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRetryOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSnowflakeRetryOptions) *DeliveryStreamSnowflakeRetryOptions {
+		return &v
+	}).(DeliveryStreamSnowflakeRetryOptionsPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeRetryOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeRetryOptions] {
+	return pulumix.Output[DeliveryStreamSnowflakeRetryOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSnowflakeRetryOptionsOutput) DurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeRetryOptions) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type DeliveryStreamSnowflakeRetryOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeRetryOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSnowflakeRetryOptions)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeRetryOptionsPtrOutput) ToDeliveryStreamSnowflakeRetryOptionsPtrOutput() DeliveryStreamSnowflakeRetryOptionsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeRetryOptionsPtrOutput) ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRetryOptionsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeRetryOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeRetryOptions] {
+	return pulumix.Output[*DeliveryStreamSnowflakeRetryOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSnowflakeRetryOptionsPtrOutput) Elem() DeliveryStreamSnowflakeRetryOptionsOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeRetryOptions) DeliveryStreamSnowflakeRetryOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamSnowflakeRetryOptions
+		return ret
+	}).(DeliveryStreamSnowflakeRetryOptionsOutput)
+}
+
+func (o DeliveryStreamSnowflakeRetryOptionsPtrOutput) DurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeRetryOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DurationInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type DeliveryStreamSnowflakeRoleConfiguration struct {
+	Enabled       *bool   `pulumi:"enabled"`
+	SnowflakeRole *string `pulumi:"snowflakeRole"`
+}
+
+// DeliveryStreamSnowflakeRoleConfigurationInput is an input type that accepts DeliveryStreamSnowflakeRoleConfigurationArgs and DeliveryStreamSnowflakeRoleConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamSnowflakeRoleConfigurationInput` via:
+//
+//	DeliveryStreamSnowflakeRoleConfigurationArgs{...}
+type DeliveryStreamSnowflakeRoleConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeRoleConfigurationOutput() DeliveryStreamSnowflakeRoleConfigurationOutput
+	ToDeliveryStreamSnowflakeRoleConfigurationOutputWithContext(context.Context) DeliveryStreamSnowflakeRoleConfigurationOutput
+}
+
+type DeliveryStreamSnowflakeRoleConfigurationArgs struct {
+	Enabled       pulumi.BoolPtrInput   `pulumi:"enabled"`
+	SnowflakeRole pulumi.StringPtrInput `pulumi:"snowflakeRole"`
+}
+
+func (DeliveryStreamSnowflakeRoleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeRoleConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamSnowflakeRoleConfigurationArgs) ToDeliveryStreamSnowflakeRoleConfigurationOutput() DeliveryStreamSnowflakeRoleConfigurationOutput {
+	return i.ToDeliveryStreamSnowflakeRoleConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSnowflakeRoleConfigurationArgs) ToDeliveryStreamSnowflakeRoleConfigurationOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRoleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeRoleConfigurationOutput)
+}
+
+func (i DeliveryStreamSnowflakeRoleConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeRoleConfiguration] {
+	return pulumix.Output[DeliveryStreamSnowflakeRoleConfiguration]{
+		OutputState: i.ToDeliveryStreamSnowflakeRoleConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DeliveryStreamSnowflakeRoleConfigurationArgs) ToDeliveryStreamSnowflakeRoleConfigurationPtrOutput() DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
+	return i.ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSnowflakeRoleConfigurationArgs) ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeRoleConfigurationOutput).ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamSnowflakeRoleConfigurationPtrInput is an input type that accepts DeliveryStreamSnowflakeRoleConfigurationArgs, DeliveryStreamSnowflakeRoleConfigurationPtr and DeliveryStreamSnowflakeRoleConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamSnowflakeRoleConfigurationPtrInput` via:
+//
+//	        DeliveryStreamSnowflakeRoleConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamSnowflakeRoleConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeRoleConfigurationPtrOutput() DeliveryStreamSnowflakeRoleConfigurationPtrOutput
+	ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(context.Context) DeliveryStreamSnowflakeRoleConfigurationPtrOutput
+}
+
+type deliveryStreamSnowflakeRoleConfigurationPtrType DeliveryStreamSnowflakeRoleConfigurationArgs
+
+func DeliveryStreamSnowflakeRoleConfigurationPtr(v *DeliveryStreamSnowflakeRoleConfigurationArgs) DeliveryStreamSnowflakeRoleConfigurationPtrInput {
+	return (*deliveryStreamSnowflakeRoleConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamSnowflakeRoleConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSnowflakeRoleConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamSnowflakeRoleConfigurationPtrType) ToDeliveryStreamSnowflakeRoleConfigurationPtrOutput() DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
+	return i.ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamSnowflakeRoleConfigurationPtrType) ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeRoleConfigurationPtrOutput)
+}
+
+func (i *deliveryStreamSnowflakeRoleConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeRoleConfiguration] {
+	return pulumix.Output[*DeliveryStreamSnowflakeRoleConfiguration]{
+		OutputState: i.ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DeliveryStreamSnowflakeRoleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeRoleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeRoleConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationOutput) ToDeliveryStreamSnowflakeRoleConfigurationOutput() DeliveryStreamSnowflakeRoleConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationOutput) ToDeliveryStreamSnowflakeRoleConfigurationOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRoleConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationOutput) ToDeliveryStreamSnowflakeRoleConfigurationPtrOutput() DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
+	return o.ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationOutput) ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSnowflakeRoleConfiguration) *DeliveryStreamSnowflakeRoleConfiguration {
+		return &v
+	}).(DeliveryStreamSnowflakeRoleConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeRoleConfiguration] {
+	return pulumix.Output[DeliveryStreamSnowflakeRoleConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeRoleConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationOutput) SnowflakeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeRoleConfiguration) *string { return v.SnowflakeRole }).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamSnowflakeRoleConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeRoleConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSnowflakeRoleConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationPtrOutput) ToDeliveryStreamSnowflakeRoleConfigurationPtrOutput() DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationPtrOutput) ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeRoleConfiguration] {
+	return pulumix.Output[*DeliveryStreamSnowflakeRoleConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationPtrOutput) Elem() DeliveryStreamSnowflakeRoleConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeRoleConfiguration) DeliveryStreamSnowflakeRoleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamSnowflakeRoleConfiguration
+		return ret
+	}).(DeliveryStreamSnowflakeRoleConfigurationOutput)
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeRoleConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationPtrOutput) SnowflakeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeRoleConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnowflakeRole
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamSnowflakeVpcConfiguration struct {
+	PrivateLinkVpceId string `pulumi:"privateLinkVpceId"`
+}
+
+// DeliveryStreamSnowflakeVpcConfigurationInput is an input type that accepts DeliveryStreamSnowflakeVpcConfigurationArgs and DeliveryStreamSnowflakeVpcConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamSnowflakeVpcConfigurationInput` via:
+//
+//	DeliveryStreamSnowflakeVpcConfigurationArgs{...}
+type DeliveryStreamSnowflakeVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeVpcConfigurationOutput() DeliveryStreamSnowflakeVpcConfigurationOutput
+	ToDeliveryStreamSnowflakeVpcConfigurationOutputWithContext(context.Context) DeliveryStreamSnowflakeVpcConfigurationOutput
+}
+
+type DeliveryStreamSnowflakeVpcConfigurationArgs struct {
+	PrivateLinkVpceId pulumi.StringInput `pulumi:"privateLinkVpceId"`
+}
+
+func (DeliveryStreamSnowflakeVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeVpcConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamSnowflakeVpcConfigurationArgs) ToDeliveryStreamSnowflakeVpcConfigurationOutput() DeliveryStreamSnowflakeVpcConfigurationOutput {
+	return i.ToDeliveryStreamSnowflakeVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSnowflakeVpcConfigurationArgs) ToDeliveryStreamSnowflakeVpcConfigurationOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeVpcConfigurationOutput)
+}
+
+func (i DeliveryStreamSnowflakeVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeVpcConfiguration] {
+	return pulumix.Output[DeliveryStreamSnowflakeVpcConfiguration]{
+		OutputState: i.ToDeliveryStreamSnowflakeVpcConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DeliveryStreamSnowflakeVpcConfigurationArgs) ToDeliveryStreamSnowflakeVpcConfigurationPtrOutput() DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
+	return i.ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSnowflakeVpcConfigurationArgs) ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeVpcConfigurationOutput).ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamSnowflakeVpcConfigurationPtrInput is an input type that accepts DeliveryStreamSnowflakeVpcConfigurationArgs, DeliveryStreamSnowflakeVpcConfigurationPtr and DeliveryStreamSnowflakeVpcConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamSnowflakeVpcConfigurationPtrInput` via:
+//
+//	        DeliveryStreamSnowflakeVpcConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamSnowflakeVpcConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSnowflakeVpcConfigurationPtrOutput() DeliveryStreamSnowflakeVpcConfigurationPtrOutput
+	ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(context.Context) DeliveryStreamSnowflakeVpcConfigurationPtrOutput
+}
+
+type deliveryStreamSnowflakeVpcConfigurationPtrType DeliveryStreamSnowflakeVpcConfigurationArgs
+
+func DeliveryStreamSnowflakeVpcConfigurationPtr(v *DeliveryStreamSnowflakeVpcConfigurationArgs) DeliveryStreamSnowflakeVpcConfigurationPtrInput {
+	return (*deliveryStreamSnowflakeVpcConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamSnowflakeVpcConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSnowflakeVpcConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamSnowflakeVpcConfigurationPtrType) ToDeliveryStreamSnowflakeVpcConfigurationPtrOutput() DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
+	return i.ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamSnowflakeVpcConfigurationPtrType) ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeVpcConfigurationPtrOutput)
+}
+
+func (i *deliveryStreamSnowflakeVpcConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeVpcConfiguration] {
+	return pulumix.Output[*DeliveryStreamSnowflakeVpcConfiguration]{
+		OutputState: i.ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DeliveryStreamSnowflakeVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSnowflakeVpcConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeVpcConfigurationOutput) ToDeliveryStreamSnowflakeVpcConfigurationOutput() DeliveryStreamSnowflakeVpcConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeVpcConfigurationOutput) ToDeliveryStreamSnowflakeVpcConfigurationOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeVpcConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeVpcConfigurationOutput) ToDeliveryStreamSnowflakeVpcConfigurationPtrOutput() DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
+	return o.ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSnowflakeVpcConfigurationOutput) ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSnowflakeVpcConfiguration) *DeliveryStreamSnowflakeVpcConfiguration {
+		return &v
+	}).(DeliveryStreamSnowflakeVpcConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeVpcConfiguration] {
+	return pulumix.Output[DeliveryStreamSnowflakeVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSnowflakeVpcConfigurationOutput) PrivateLinkVpceId() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamSnowflakeVpcConfiguration) string { return v.PrivateLinkVpceId }).(pulumi.StringOutput)
+}
+
+type DeliveryStreamSnowflakeVpcConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSnowflakeVpcConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSnowflakeVpcConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamSnowflakeVpcConfigurationPtrOutput) ToDeliveryStreamSnowflakeVpcConfigurationPtrOutput() DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeVpcConfigurationPtrOutput) ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSnowflakeVpcConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeVpcConfiguration] {
+	return pulumix.Output[*DeliveryStreamSnowflakeVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSnowflakeVpcConfigurationPtrOutput) Elem() DeliveryStreamSnowflakeVpcConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeVpcConfiguration) DeliveryStreamSnowflakeVpcConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamSnowflakeVpcConfiguration
+		return ret
+	}).(DeliveryStreamSnowflakeVpcConfigurationOutput)
+}
+
+func (o DeliveryStreamSnowflakeVpcConfigurationPtrOutput) PrivateLinkVpceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSnowflakeVpcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateLinkVpceId
+	}).(pulumi.StringPtrOutput)
+}
+
 type DeliveryStreamSplunkBufferingHints struct {
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	SizeInMbs         *int `pulumi:"sizeInMbs"`
@@ -9423,6 +10337,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSchemaConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSchemaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSerializerInput)(nil)).Elem(), DeliveryStreamSerializerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSerializerPtrInput)(nil)).Elem(), DeliveryStreamSerializerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationInput)(nil)).Elem(), DeliveryStreamSnowflakeDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSnowflakeDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeRetryOptionsInput)(nil)).Elem(), DeliveryStreamSnowflakeRetryOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeRetryOptionsPtrInput)(nil)).Elem(), DeliveryStreamSnowflakeRetryOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeRoleConfigurationInput)(nil)).Elem(), DeliveryStreamSnowflakeRoleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeRoleConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSnowflakeRoleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeVpcConfigurationInput)(nil)).Elem(), DeliveryStreamSnowflakeVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeVpcConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSnowflakeVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkBufferingHintsInput)(nil)).Elem(), DeliveryStreamSplunkBufferingHintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkBufferingHintsPtrInput)(nil)).Elem(), DeliveryStreamSplunkBufferingHintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationArgs{})
@@ -9517,6 +10439,14 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamSchemaConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSerializerOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSerializerPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeDestinationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeRetryOptionsOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeRetryOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeRoleConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeRoleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSnowflakeVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkBufferingHintsOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkBufferingHintsPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationOutput{})

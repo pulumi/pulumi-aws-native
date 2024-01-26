@@ -70,6 +70,7 @@ class DocumentType(str, Enum):
     PROBLEM_ANALYSIS = "ProblemAnalysis"
     PROBLEM_ANALYSIS_TEMPLATE = "ProblemAnalysisTemplate"
     SESSION = "Session"
+    OPS_PACK = "OpsPack"
 
 
 class DocumentUpdateMethod(str, Enum):

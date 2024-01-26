@@ -14,8 +14,6 @@ import (
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolDomain
-//
-// Deprecated: UserPoolDomain is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type UserPoolDomain struct {
 	pulumi.CustomResourceState
 

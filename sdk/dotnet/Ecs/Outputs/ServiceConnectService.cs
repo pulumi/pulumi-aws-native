@@ -17,6 +17,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         public readonly string? DiscoveryName;
         public readonly int? IngressPortOverride;
         public readonly string PortName;
+        public readonly Outputs.ServiceTimeoutConfiguration? Timeout;
+        public readonly Outputs.ServiceConnectTlsConfiguration? Tls;
 
         [OutputConstructor]
         private ServiceConnectService(
@@ -26,12 +28,18 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             int? ingressPortOverride,
 
-            string portName)
+            string portName,
+
+            Outputs.ServiceTimeoutConfiguration? timeout,
+
+            Outputs.ServiceConnectTlsConfiguration? tls)
         {
             ClientAliases = clientAliases;
             DiscoveryName = discoveryName;
             IngressPortOverride = ingressPortOverride;
             PortName = portName;
+            Timeout = timeout;
+            Tls = tls;
         }
     }
 }

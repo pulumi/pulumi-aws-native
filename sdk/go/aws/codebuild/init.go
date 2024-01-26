@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:codebuild:Fleet":
+		r = &Fleet{}
 	case "aws-native:codebuild:Project":
 		r = &Project{}
 	case "aws-native:codebuild:ReportGroup":

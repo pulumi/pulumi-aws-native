@@ -141,7 +141,9 @@ class MapConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "politicalView":
+        if key == "customLayers":
+            suggest = "custom_layers"
+        elif key == "politicalView":
             suggest = "political_view"
 
         if suggest:
@@ -157,8 +159,11 @@ class MapConfiguration(dict):
 
     def __init__(__self__, *,
                  style: str,
+                 custom_layers: Optional[Sequence[str]] = None,
                  political_view: Optional[str] = None):
         pulumi.set(__self__, "style", style)
+        if custom_layers is not None:
+            pulumi.set(__self__, "custom_layers", custom_layers)
         if political_view is not None:
             pulumi.set(__self__, "political_view", political_view)
 
@@ -166,6 +171,11 @@ class MapConfiguration(dict):
     @pulumi.getter
     def style(self) -> str:
         return pulumi.get(self, "style")
+
+    @property
+    @pulumi.getter(name="customLayers")
+    def custom_layers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "custom_layers")
 
     @property
     @pulumi.getter(name="politicalView")

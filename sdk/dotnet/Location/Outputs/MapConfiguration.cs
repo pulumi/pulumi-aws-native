@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.Location.Outputs
     [OutputType]
     public sealed class MapConfiguration
     {
+        public readonly ImmutableArray<string> CustomLayers;
         public readonly string? PoliticalView;
         public readonly string Style;
 
         [OutputConstructor]
         private MapConfiguration(
+            ImmutableArray<string> customLayers,
+
             string? politicalView,
 
             string style)
         {
+            CustomLayers = customLayers;
             PoliticalView = politicalView;
             Style = style;
         }

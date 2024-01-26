@@ -126,6 +126,7 @@ import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
 import * as datapipeline from "./datapipeline";
 import * as datasync from "./datasync";
+import * as datazone from "./datazone";
 import * as dax from "./dax";
 import * as detective from "./detective";
 import * as devicefarm from "./devicefarm";
@@ -279,6 +280,7 @@ import * as sns from "./sns";
 import * as sqs from "./sqs";
 import * as ssm from "./ssm";
 import * as ssmcontacts from "./ssmcontacts";
+import * as ssmguiconnect from "./ssmguiconnect";
 import * as ssmincidents from "./ssmincidents";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
@@ -362,6 +364,7 @@ export {
     databrew,
     datapipeline,
     datasync,
+    datazone,
     dax,
     detective,
     devicefarm,
@@ -515,6 +518,7 @@ export {
     sqs,
     ssm,
     ssmcontacts,
+    ssmguiconnect,
     ssmincidents,
     sso,
     stepfunctions,

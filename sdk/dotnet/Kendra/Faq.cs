@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Kendra
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
+        [Output("languageCode")]
+        public Output<string?> LanguageCode { get; private set; } = null!;
+
         /// <summary>
         /// FAQ name
         /// </summary>
@@ -131,6 +134,9 @@ namespace Pulumi.AwsNative.Kendra
         /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
+
+        [Input("languageCode")]
+        public Input<string>? LanguageCode { get; set; }
 
         /// <summary>
         /// FAQ name

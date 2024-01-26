@@ -28,6 +28,8 @@ __all__ = [
     'ServiceConnectClientAlias',
     'ServiceConnectConfiguration',
     'ServiceConnectService',
+    'ServiceConnectTlsCertificateAuthority',
+    'ServiceConnectTlsConfiguration',
     'ServiceDeploymentAlarms',
     'ServiceDeploymentCircuitBreaker',
     'ServiceDeploymentConfiguration',
@@ -42,6 +44,7 @@ __all__ = [
     'ServiceRegistry',
     'ServiceSecret',
     'ServiceTag',
+    'ServiceTimeoutConfiguration',
     'ServiceVolumeConfiguration',
     'TaskDefinitionAuthorizationConfig',
     'TaskDefinitionContainerDefinition',
@@ -788,7 +791,9 @@ class ServiceConnectService(dict):
                  port_name: str,
                  client_aliases: Optional[Sequence['outputs.ServiceConnectClientAlias']] = None,
                  discovery_name: Optional[str] = None,
-                 ingress_port_override: Optional[int] = None):
+                 ingress_port_override: Optional[int] = None,
+                 timeout: Optional['outputs.ServiceTimeoutConfiguration'] = None,
+                 tls: Optional['outputs.ServiceConnectTlsConfiguration'] = None):
         pulumi.set(__self__, "port_name", port_name)
         if client_aliases is not None:
             pulumi.set(__self__, "client_aliases", client_aliases)
@@ -796,6 +801,10 @@ class ServiceConnectService(dict):
             pulumi.set(__self__, "discovery_name", discovery_name)
         if ingress_port_override is not None:
             pulumi.set(__self__, "ingress_port_override", ingress_port_override)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter(name="portName")
@@ -816,6 +825,95 @@ class ServiceConnectService(dict):
     @pulumi.getter(name="ingressPortOverride")
     def ingress_port_override(self) -> Optional[int]:
         return pulumi.get(self, "ingress_port_override")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional['outputs.ServiceTimeoutConfiguration']:
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.ServiceConnectTlsConfiguration']:
+        return pulumi.get(self, "tls")
+
+
+@pulumi.output_type
+class ServiceConnectTlsCertificateAuthority(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsPcaAuthorityArn":
+            suggest = "aws_pca_authority_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceConnectTlsCertificateAuthority. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceConnectTlsCertificateAuthority.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceConnectTlsCertificateAuthority.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_pca_authority_arn: Optional[str] = None):
+        if aws_pca_authority_arn is not None:
+            pulumi.set(__self__, "aws_pca_authority_arn", aws_pca_authority_arn)
+
+    @property
+    @pulumi.getter(name="awsPcaAuthorityArn")
+    def aws_pca_authority_arn(self) -> Optional[str]:
+        return pulumi.get(self, "aws_pca_authority_arn")
+
+
+@pulumi.output_type
+class ServiceConnectTlsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "issuerCertificateAuthority":
+            suggest = "issuer_certificate_authority"
+        elif key == "kmsKey":
+            suggest = "kms_key"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceConnectTlsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceConnectTlsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceConnectTlsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 issuer_certificate_authority: 'outputs.ServiceConnectTlsCertificateAuthority',
+                 kms_key: Optional[str] = None,
+                 role_arn: Optional[str] = None):
+        pulumi.set(__self__, "issuer_certificate_authority", issuer_certificate_authority)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="issuerCertificateAuthority")
+    def issuer_certificate_authority(self) -> 'outputs.ServiceConnectTlsCertificateAuthority':
+        return pulumi.get(self, "issuer_certificate_authority")
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type
@@ -1402,6 +1500,46 @@ class ServiceTag(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceTimeoutConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeoutSeconds":
+            suggest = "idle_timeout_seconds"
+        elif key == "perRequestTimeoutSeconds":
+            suggest = "per_request_timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceTimeoutConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceTimeoutConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceTimeoutConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout_seconds: Optional[int] = None,
+                 per_request_timeout_seconds: Optional[int] = None):
+        if idle_timeout_seconds is not None:
+            pulumi.set(__self__, "idle_timeout_seconds", idle_timeout_seconds)
+        if per_request_timeout_seconds is not None:
+            pulumi.set(__self__, "per_request_timeout_seconds", per_request_timeout_seconds)
+
+    @property
+    @pulumi.getter(name="idleTimeoutSeconds")
+    def idle_timeout_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "idle_timeout_seconds")
+
+    @property
+    @pulumi.getter(name="perRequestTimeoutSeconds")
+    def per_request_timeout_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "per_request_timeout_seconds")
 
 
 @pulumi.output_type

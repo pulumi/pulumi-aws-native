@@ -17,15 +17,9 @@ __all__ = [
     'ComputeEnvironmentEksConfiguration',
     'ComputeEnvironmentLaunchTemplateSpecification',
     'ComputeEnvironmentUpdatePolicy',
+    'JobDefinitionAuthorizationConfig',
     'JobDefinitionContainerProperties',
-    'JobDefinitionContainerPropertiesEphemeralStorageProperties',
-    'JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties',
-    'JobDefinitionContainerPropertiesLinuxParametersProperties',
-    'JobDefinitionContainerPropertiesLogConfigurationProperties',
-    'JobDefinitionContainerPropertiesNetworkConfigurationProperties',
-    'JobDefinitionContainerPropertiesRuntimePlatformProperties',
     'JobDefinitionDevice',
-    'JobDefinitionEfsAuthorizationConfig',
     'JobDefinitionEfsVolumeConfiguration',
     'JobDefinitionEksContainer',
     'JobDefinitionEksContainerEnvironmentVariable',
@@ -34,24 +28,30 @@ __all__ = [
     'JobDefinitionEksContainerVolumeMount',
     'JobDefinitionEksEmptyDir',
     'JobDefinitionEksHostPath',
-    'JobDefinitionEksMetadata',
-    'JobDefinitionEksPodProperties',
     'JobDefinitionEksProperties',
     'JobDefinitionEksSecret',
     'JobDefinitionEksVolume',
     'JobDefinitionEnvironment',
+    'JobDefinitionEphemeralStorage',
     'JobDefinitionEvaluateOnExit',
-    'JobDefinitionHost',
-    'JobDefinitionJobTimeout',
-    'JobDefinitionMountPoint',
+    'JobDefinitionFargatePlatformConfiguration',
+    'JobDefinitionLinuxParameters',
+    'JobDefinitionLogConfiguration',
+    'JobDefinitionMetadata',
+    'JobDefinitionMountPoints',
+    'JobDefinitionNetworkConfiguration',
     'JobDefinitionNodeProperties',
     'JobDefinitionNodeRangeProperty',
+    'JobDefinitionPodProperties',
     'JobDefinitionResourceRequirement',
     'JobDefinitionRetryStrategy',
+    'JobDefinitionRuntimePlatform',
     'JobDefinitionSecret',
+    'JobDefinitionTimeout',
     'JobDefinitionTmpfs',
     'JobDefinitionUlimit',
-    'JobDefinitionVolume',
+    'JobDefinitionVolumes',
+    'JobDefinitionVolumesHost',
     'JobQueueComputeEnvironmentOrder',
     'SchedulingPolicyFairsharePolicy',
     'SchedulingPolicyShareAttributes',
@@ -430,6 +430,44 @@ class ComputeEnvironmentUpdatePolicy(dict):
 
 
 @pulumi.output_type
+class JobDefinitionAuthorizationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPointId":
+            suggest = "access_point_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionAuthorizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionAuthorizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionAuthorizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_point_id: Optional[str] = None,
+                 iam: Optional[str] = None):
+        if access_point_id is not None:
+            pulumi.set(__self__, "access_point_id", access_point_id)
+        if iam is not None:
+            pulumi.set(__self__, "iam", iam)
+
+    @property
+    @pulumi.getter(name="accessPointId")
+    def access_point_id(self) -> Optional[str]:
+        return pulumi.get(self, "access_point_id")
+
+    @property
+    @pulumi.getter
+    def iam(self) -> Optional[str]:
+        return pulumi.get(self, "iam")
+
+
+@pulumi.output_type
 class JobDefinitionContainerProperties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -474,25 +512,25 @@ class JobDefinitionContainerProperties(dict):
                  image: str,
                  command: Optional[Sequence[str]] = None,
                  environment: Optional[Sequence['outputs.JobDefinitionEnvironment']] = None,
-                 ephemeral_storage: Optional['outputs.JobDefinitionContainerPropertiesEphemeralStorageProperties'] = None,
+                 ephemeral_storage: Optional['outputs.JobDefinitionEphemeralStorage'] = None,
                  execution_role_arn: Optional[str] = None,
-                 fargate_platform_configuration: Optional['outputs.JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties'] = None,
+                 fargate_platform_configuration: Optional['outputs.JobDefinitionFargatePlatformConfiguration'] = None,
                  instance_type: Optional[str] = None,
                  job_role_arn: Optional[str] = None,
-                 linux_parameters: Optional['outputs.JobDefinitionContainerPropertiesLinuxParametersProperties'] = None,
-                 log_configuration: Optional['outputs.JobDefinitionContainerPropertiesLogConfigurationProperties'] = None,
+                 linux_parameters: Optional['outputs.JobDefinitionLinuxParameters'] = None,
+                 log_configuration: Optional['outputs.JobDefinitionLogConfiguration'] = None,
                  memory: Optional[int] = None,
-                 mount_points: Optional[Sequence['outputs.JobDefinitionMountPoint']] = None,
-                 network_configuration: Optional['outputs.JobDefinitionContainerPropertiesNetworkConfigurationProperties'] = None,
+                 mount_points: Optional[Sequence['outputs.JobDefinitionMountPoints']] = None,
+                 network_configuration: Optional['outputs.JobDefinitionNetworkConfiguration'] = None,
                  privileged: Optional[bool] = None,
                  readonly_root_filesystem: Optional[bool] = None,
                  resource_requirements: Optional[Sequence['outputs.JobDefinitionResourceRequirement']] = None,
-                 runtime_platform: Optional['outputs.JobDefinitionContainerPropertiesRuntimePlatformProperties'] = None,
+                 runtime_platform: Optional['outputs.JobDefinitionRuntimePlatform'] = None,
                  secrets: Optional[Sequence['outputs.JobDefinitionSecret']] = None,
                  ulimits: Optional[Sequence['outputs.JobDefinitionUlimit']] = None,
                  user: Optional[str] = None,
                  vcpus: Optional[int] = None,
-                 volumes: Optional[Sequence['outputs.JobDefinitionVolume']] = None):
+                 volumes: Optional[Sequence['outputs.JobDefinitionVolumes']] = None):
         pulumi.set(__self__, "image", image)
         if command is not None:
             pulumi.set(__self__, "command", command)
@@ -554,7 +592,7 @@ class JobDefinitionContainerProperties(dict):
 
     @property
     @pulumi.getter(name="ephemeralStorage")
-    def ephemeral_storage(self) -> Optional['outputs.JobDefinitionContainerPropertiesEphemeralStorageProperties']:
+    def ephemeral_storage(self) -> Optional['outputs.JobDefinitionEphemeralStorage']:
         return pulumi.get(self, "ephemeral_storage")
 
     @property
@@ -564,7 +602,7 @@ class JobDefinitionContainerProperties(dict):
 
     @property
     @pulumi.getter(name="fargatePlatformConfiguration")
-    def fargate_platform_configuration(self) -> Optional['outputs.JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties']:
+    def fargate_platform_configuration(self) -> Optional['outputs.JobDefinitionFargatePlatformConfiguration']:
         return pulumi.get(self, "fargate_platform_configuration")
 
     @property
@@ -579,12 +617,12 @@ class JobDefinitionContainerProperties(dict):
 
     @property
     @pulumi.getter(name="linuxParameters")
-    def linux_parameters(self) -> Optional['outputs.JobDefinitionContainerPropertiesLinuxParametersProperties']:
+    def linux_parameters(self) -> Optional['outputs.JobDefinitionLinuxParameters']:
         return pulumi.get(self, "linux_parameters")
 
     @property
     @pulumi.getter(name="logConfiguration")
-    def log_configuration(self) -> Optional['outputs.JobDefinitionContainerPropertiesLogConfigurationProperties']:
+    def log_configuration(self) -> Optional['outputs.JobDefinitionLogConfiguration']:
         return pulumi.get(self, "log_configuration")
 
     @property
@@ -594,12 +632,12 @@ class JobDefinitionContainerProperties(dict):
 
     @property
     @pulumi.getter(name="mountPoints")
-    def mount_points(self) -> Optional[Sequence['outputs.JobDefinitionMountPoint']]:
+    def mount_points(self) -> Optional[Sequence['outputs.JobDefinitionMountPoints']]:
         return pulumi.get(self, "mount_points")
 
     @property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional['outputs.JobDefinitionContainerPropertiesNetworkConfigurationProperties']:
+    def network_configuration(self) -> Optional['outputs.JobDefinitionNetworkConfiguration']:
         return pulumi.get(self, "network_configuration")
 
     @property
@@ -619,7 +657,7 @@ class JobDefinitionContainerProperties(dict):
 
     @property
     @pulumi.getter(name="runtimePlatform")
-    def runtime_platform(self) -> Optional['outputs.JobDefinitionContainerPropertiesRuntimePlatformProperties']:
+    def runtime_platform(self) -> Optional['outputs.JobDefinitionRuntimePlatform']:
         return pulumi.get(self, "runtime_platform")
 
     @property
@@ -644,258 +682,8 @@ class JobDefinitionContainerProperties(dict):
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[Sequence['outputs.JobDefinitionVolume']]:
+    def volumes(self) -> Optional[Sequence['outputs.JobDefinitionVolumes']]:
         return pulumi.get(self, "volumes")
-
-
-@pulumi.output_type
-class JobDefinitionContainerPropertiesEphemeralStorageProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sizeInGiB":
-            suggest = "size_in_gi_b"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionContainerPropertiesEphemeralStorageProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JobDefinitionContainerPropertiesEphemeralStorageProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JobDefinitionContainerPropertiesEphemeralStorageProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 size_in_gi_b: int):
-        pulumi.set(__self__, "size_in_gi_b", size_in_gi_b)
-
-    @property
-    @pulumi.getter(name="sizeInGiB")
-    def size_in_gi_b(self) -> int:
-        return pulumi.get(self, "size_in_gi_b")
-
-
-@pulumi.output_type
-class JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "platformVersion":
-            suggest = "platform_version"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 platform_version: Optional[str] = None):
-        if platform_version is not None:
-            pulumi.set(__self__, "platform_version", platform_version)
-
-    @property
-    @pulumi.getter(name="platformVersion")
-    def platform_version(self) -> Optional[str]:
-        return pulumi.get(self, "platform_version")
-
-
-@pulumi.output_type
-class JobDefinitionContainerPropertiesLinuxParametersProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "initProcessEnabled":
-            suggest = "init_process_enabled"
-        elif key == "maxSwap":
-            suggest = "max_swap"
-        elif key == "sharedMemorySize":
-            suggest = "shared_memory_size"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionContainerPropertiesLinuxParametersProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JobDefinitionContainerPropertiesLinuxParametersProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JobDefinitionContainerPropertiesLinuxParametersProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 devices: Optional[Sequence['outputs.JobDefinitionDevice']] = None,
-                 init_process_enabled: Optional[bool] = None,
-                 max_swap: Optional[int] = None,
-                 shared_memory_size: Optional[int] = None,
-                 swappiness: Optional[int] = None,
-                 tmpfs: Optional[Sequence['outputs.JobDefinitionTmpfs']] = None):
-        if devices is not None:
-            pulumi.set(__self__, "devices", devices)
-        if init_process_enabled is not None:
-            pulumi.set(__self__, "init_process_enabled", init_process_enabled)
-        if max_swap is not None:
-            pulumi.set(__self__, "max_swap", max_swap)
-        if shared_memory_size is not None:
-            pulumi.set(__self__, "shared_memory_size", shared_memory_size)
-        if swappiness is not None:
-            pulumi.set(__self__, "swappiness", swappiness)
-        if tmpfs is not None:
-            pulumi.set(__self__, "tmpfs", tmpfs)
-
-    @property
-    @pulumi.getter
-    def devices(self) -> Optional[Sequence['outputs.JobDefinitionDevice']]:
-        return pulumi.get(self, "devices")
-
-    @property
-    @pulumi.getter(name="initProcessEnabled")
-    def init_process_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "init_process_enabled")
-
-    @property
-    @pulumi.getter(name="maxSwap")
-    def max_swap(self) -> Optional[int]:
-        return pulumi.get(self, "max_swap")
-
-    @property
-    @pulumi.getter(name="sharedMemorySize")
-    def shared_memory_size(self) -> Optional[int]:
-        return pulumi.get(self, "shared_memory_size")
-
-    @property
-    @pulumi.getter
-    def swappiness(self) -> Optional[int]:
-        return pulumi.get(self, "swappiness")
-
-    @property
-    @pulumi.getter
-    def tmpfs(self) -> Optional[Sequence['outputs.JobDefinitionTmpfs']]:
-        return pulumi.get(self, "tmpfs")
-
-
-@pulumi.output_type
-class JobDefinitionContainerPropertiesLogConfigurationProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "logDriver":
-            suggest = "log_driver"
-        elif key == "secretOptions":
-            suggest = "secret_options"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionContainerPropertiesLogConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JobDefinitionContainerPropertiesLogConfigurationProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JobDefinitionContainerPropertiesLogConfigurationProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 log_driver: str,
-                 options: Optional[Any] = None,
-                 secret_options: Optional[Sequence['outputs.JobDefinitionSecret']] = None):
-        pulumi.set(__self__, "log_driver", log_driver)
-        if options is not None:
-            pulumi.set(__self__, "options", options)
-        if secret_options is not None:
-            pulumi.set(__self__, "secret_options", secret_options)
-
-    @property
-    @pulumi.getter(name="logDriver")
-    def log_driver(self) -> str:
-        return pulumi.get(self, "log_driver")
-
-    @property
-    @pulumi.getter
-    def options(self) -> Optional[Any]:
-        return pulumi.get(self, "options")
-
-    @property
-    @pulumi.getter(name="secretOptions")
-    def secret_options(self) -> Optional[Sequence['outputs.JobDefinitionSecret']]:
-        return pulumi.get(self, "secret_options")
-
-
-@pulumi.output_type
-class JobDefinitionContainerPropertiesNetworkConfigurationProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "assignPublicIp":
-            suggest = "assign_public_ip"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionContainerPropertiesNetworkConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JobDefinitionContainerPropertiesNetworkConfigurationProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JobDefinitionContainerPropertiesNetworkConfigurationProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 assign_public_ip: Optional[str] = None):
-        if assign_public_ip is not None:
-            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
-
-    @property
-    @pulumi.getter(name="assignPublicIp")
-    def assign_public_ip(self) -> Optional[str]:
-        return pulumi.get(self, "assign_public_ip")
-
-
-@pulumi.output_type
-class JobDefinitionContainerPropertiesRuntimePlatformProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "cpuArchitecture":
-            suggest = "cpu_architecture"
-        elif key == "operatingSystemFamily":
-            suggest = "operating_system_family"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionContainerPropertiesRuntimePlatformProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JobDefinitionContainerPropertiesRuntimePlatformProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JobDefinitionContainerPropertiesRuntimePlatformProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cpu_architecture: Optional[str] = None,
-                 operating_system_family: Optional[str] = None):
-        if cpu_architecture is not None:
-            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
-        if operating_system_family is not None:
-            pulumi.set(__self__, "operating_system_family", operating_system_family)
-
-    @property
-    @pulumi.getter(name="cpuArchitecture")
-    def cpu_architecture(self) -> Optional[str]:
-        return pulumi.get(self, "cpu_architecture")
-
-    @property
-    @pulumi.getter(name="operatingSystemFamily")
-    def operating_system_family(self) -> Optional[str]:
-        return pulumi.get(self, "operating_system_family")
 
 
 @pulumi.output_type
@@ -947,44 +735,6 @@ class JobDefinitionDevice(dict):
 
 
 @pulumi.output_type
-class JobDefinitionEfsAuthorizationConfig(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "accessPointId":
-            suggest = "access_point_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEfsAuthorizationConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JobDefinitionEfsAuthorizationConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JobDefinitionEfsAuthorizationConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 access_point_id: Optional[str] = None,
-                 iam: Optional[str] = None):
-        if access_point_id is not None:
-            pulumi.set(__self__, "access_point_id", access_point_id)
-        if iam is not None:
-            pulumi.set(__self__, "iam", iam)
-
-    @property
-    @pulumi.getter(name="accessPointId")
-    def access_point_id(self) -> Optional[str]:
-        return pulumi.get(self, "access_point_id")
-
-    @property
-    @pulumi.getter
-    def iam(self) -> Optional[str]:
-        return pulumi.get(self, "iam")
-
-
-@pulumi.output_type
 class JobDefinitionEfsVolumeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1013,7 +763,7 @@ class JobDefinitionEfsVolumeConfiguration(dict):
 
     def __init__(__self__, *,
                  file_system_id: str,
-                 authorization_config: Optional['outputs.JobDefinitionEfsAuthorizationConfig'] = None,
+                 authorization_config: Optional['outputs.JobDefinitionAuthorizationConfig'] = None,
                  root_directory: Optional[str] = None,
                  transit_encryption: Optional[str] = None,
                  transit_encryption_port: Optional[int] = None):
@@ -1034,7 +784,7 @@ class JobDefinitionEfsVolumeConfiguration(dict):
 
     @property
     @pulumi.getter(name="authorizationConfig")
-    def authorization_config(self) -> Optional['outputs.JobDefinitionEfsAuthorizationConfig']:
+    def authorization_config(self) -> Optional['outputs.JobDefinitionAuthorizationConfig']:
         return pulumi.get(self, "authorization_config")
 
     @property
@@ -1359,93 +1109,6 @@ class JobDefinitionEksHostPath(dict):
 
 
 @pulumi.output_type
-class JobDefinitionEksMetadata(dict):
-    def __init__(__self__, *,
-                 labels: Optional[Any] = None):
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @property
-    @pulumi.getter
-    def labels(self) -> Optional[Any]:
-        return pulumi.get(self, "labels")
-
-
-@pulumi.output_type
-class JobDefinitionEksPodProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dnsPolicy":
-            suggest = "dns_policy"
-        elif key == "hostNetwork":
-            suggest = "host_network"
-        elif key == "serviceAccountName":
-            suggest = "service_account_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksPodProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JobDefinitionEksPodProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JobDefinitionEksPodProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 containers: Optional[Sequence['outputs.JobDefinitionEksContainer']] = None,
-                 dns_policy: Optional[str] = None,
-                 host_network: Optional[bool] = None,
-                 metadata: Optional['outputs.JobDefinitionEksMetadata'] = None,
-                 service_account_name: Optional[str] = None,
-                 volumes: Optional[Sequence['outputs.JobDefinitionEksVolume']] = None):
-        if containers is not None:
-            pulumi.set(__self__, "containers", containers)
-        if dns_policy is not None:
-            pulumi.set(__self__, "dns_policy", dns_policy)
-        if host_network is not None:
-            pulumi.set(__self__, "host_network", host_network)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-        if service_account_name is not None:
-            pulumi.set(__self__, "service_account_name", service_account_name)
-        if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
-
-    @property
-    @pulumi.getter
-    def containers(self) -> Optional[Sequence['outputs.JobDefinitionEksContainer']]:
-        return pulumi.get(self, "containers")
-
-    @property
-    @pulumi.getter(name="dnsPolicy")
-    def dns_policy(self) -> Optional[str]:
-        return pulumi.get(self, "dns_policy")
-
-    @property
-    @pulumi.getter(name="hostNetwork")
-    def host_network(self) -> Optional[bool]:
-        return pulumi.get(self, "host_network")
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional['outputs.JobDefinitionEksMetadata']:
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter(name="serviceAccountName")
-    def service_account_name(self) -> Optional[str]:
-        return pulumi.get(self, "service_account_name")
-
-    @property
-    @pulumi.getter
-    def volumes(self) -> Optional[Sequence['outputs.JobDefinitionEksVolume']]:
-        return pulumi.get(self, "volumes")
-
-
-@pulumi.output_type
 class JobDefinitionEksProperties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1465,13 +1128,13 @@ class JobDefinitionEksProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 pod_properties: Optional['outputs.JobDefinitionEksPodProperties'] = None):
+                 pod_properties: Optional['outputs.JobDefinitionPodProperties'] = None):
         if pod_properties is not None:
             pulumi.set(__self__, "pod_properties", pod_properties)
 
     @property
     @pulumi.getter(name="podProperties")
-    def pod_properties(self) -> Optional['outputs.JobDefinitionEksPodProperties']:
+    def pod_properties(self) -> Optional['outputs.JobDefinitionPodProperties']:
         return pulumi.get(self, "pod_properties")
 
 
@@ -1589,6 +1252,35 @@ class JobDefinitionEnvironment(dict):
 
 
 @pulumi.output_type
+class JobDefinitionEphemeralStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeInGiB":
+            suggest = "size_in_gi_b"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEphemeralStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEphemeralStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEphemeralStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 size_in_gi_b: int):
+        pulumi.set(__self__, "size_in_gi_b", size_in_gi_b)
+
+    @property
+    @pulumi.getter(name="sizeInGiB")
+    def size_in_gi_b(self) -> int:
+        return pulumi.get(self, "size_in_gi_b")
+
+
+@pulumi.output_type
 class JobDefinitionEvaluateOnExit(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1646,67 +1338,171 @@ class JobDefinitionEvaluateOnExit(dict):
 
 
 @pulumi.output_type
-class JobDefinitionHost(dict):
+class JobDefinitionFargatePlatformConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sourcePath":
-            suggest = "source_path"
+        if key == "platformVersion":
+            suggest = "platform_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionHost. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionFargatePlatformConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        JobDefinitionHost.__key_warning(key)
+        JobDefinitionFargatePlatformConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        JobDefinitionHost.__key_warning(key)
+        JobDefinitionFargatePlatformConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 source_path: Optional[str] = None):
-        if source_path is not None:
-            pulumi.set(__self__, "source_path", source_path)
+                 platform_version: Optional[str] = None):
+        if platform_version is not None:
+            pulumi.set(__self__, "platform_version", platform_version)
 
     @property
-    @pulumi.getter(name="sourcePath")
-    def source_path(self) -> Optional[str]:
-        return pulumi.get(self, "source_path")
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> Optional[str]:
+        return pulumi.get(self, "platform_version")
 
 
 @pulumi.output_type
-class JobDefinitionJobTimeout(dict):
+class JobDefinitionLinuxParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "attemptDurationSeconds":
-            suggest = "attempt_duration_seconds"
+        if key == "initProcessEnabled":
+            suggest = "init_process_enabled"
+        elif key == "maxSwap":
+            suggest = "max_swap"
+        elif key == "sharedMemorySize":
+            suggest = "shared_memory_size"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionJobTimeout. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionLinuxParameters. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        JobDefinitionJobTimeout.__key_warning(key)
+        JobDefinitionLinuxParameters.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        JobDefinitionJobTimeout.__key_warning(key)
+        JobDefinitionLinuxParameters.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 attempt_duration_seconds: Optional[int] = None):
-        if attempt_duration_seconds is not None:
-            pulumi.set(__self__, "attempt_duration_seconds", attempt_duration_seconds)
+                 devices: Optional[Sequence['outputs.JobDefinitionDevice']] = None,
+                 init_process_enabled: Optional[bool] = None,
+                 max_swap: Optional[int] = None,
+                 shared_memory_size: Optional[int] = None,
+                 swappiness: Optional[int] = None,
+                 tmpfs: Optional[Sequence['outputs.JobDefinitionTmpfs']] = None):
+        if devices is not None:
+            pulumi.set(__self__, "devices", devices)
+        if init_process_enabled is not None:
+            pulumi.set(__self__, "init_process_enabled", init_process_enabled)
+        if max_swap is not None:
+            pulumi.set(__self__, "max_swap", max_swap)
+        if shared_memory_size is not None:
+            pulumi.set(__self__, "shared_memory_size", shared_memory_size)
+        if swappiness is not None:
+            pulumi.set(__self__, "swappiness", swappiness)
+        if tmpfs is not None:
+            pulumi.set(__self__, "tmpfs", tmpfs)
 
     @property
-    @pulumi.getter(name="attemptDurationSeconds")
-    def attempt_duration_seconds(self) -> Optional[int]:
-        return pulumi.get(self, "attempt_duration_seconds")
+    @pulumi.getter
+    def devices(self) -> Optional[Sequence['outputs.JobDefinitionDevice']]:
+        return pulumi.get(self, "devices")
+
+    @property
+    @pulumi.getter(name="initProcessEnabled")
+    def init_process_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "init_process_enabled")
+
+    @property
+    @pulumi.getter(name="maxSwap")
+    def max_swap(self) -> Optional[int]:
+        return pulumi.get(self, "max_swap")
+
+    @property
+    @pulumi.getter(name="sharedMemorySize")
+    def shared_memory_size(self) -> Optional[int]:
+        return pulumi.get(self, "shared_memory_size")
+
+    @property
+    @pulumi.getter
+    def swappiness(self) -> Optional[int]:
+        return pulumi.get(self, "swappiness")
+
+    @property
+    @pulumi.getter
+    def tmpfs(self) -> Optional[Sequence['outputs.JobDefinitionTmpfs']]:
+        return pulumi.get(self, "tmpfs")
 
 
 @pulumi.output_type
-class JobDefinitionMountPoint(dict):
+class JobDefinitionLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDriver":
+            suggest = "log_driver"
+        elif key == "secretOptions":
+            suggest = "secret_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_driver: str,
+                 options: Optional[Any] = None,
+                 secret_options: Optional[Sequence['outputs.JobDefinitionSecret']] = None):
+        pulumi.set(__self__, "log_driver", log_driver)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if secret_options is not None:
+            pulumi.set(__self__, "secret_options", secret_options)
+
+    @property
+    @pulumi.getter(name="logDriver")
+    def log_driver(self) -> str:
+        return pulumi.get(self, "log_driver")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Any]:
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter(name="secretOptions")
+    def secret_options(self) -> Optional[Sequence['outputs.JobDefinitionSecret']]:
+        return pulumi.get(self, "secret_options")
+
+
+@pulumi.output_type
+class JobDefinitionMetadata(dict):
+    def __init__(__self__, *,
+                 labels: Optional[Any] = None):
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Any]:
+        return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class JobDefinitionMountPoints(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1718,14 +1514,14 @@ class JobDefinitionMountPoint(dict):
             suggest = "source_volume"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionMountPoint. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionMountPoints. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        JobDefinitionMountPoint.__key_warning(key)
+        JobDefinitionMountPoints.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        JobDefinitionMountPoint.__key_warning(key)
+        JobDefinitionMountPoints.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1753,6 +1549,36 @@ class JobDefinitionMountPoint(dict):
     @pulumi.getter(name="sourceVolume")
     def source_volume(self) -> Optional[str]:
         return pulumi.get(self, "source_volume")
+
+
+@pulumi.output_type
+class JobDefinitionNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignPublicIp":
+            suggest = "assign_public_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assign_public_ip: Optional[str] = None):
+        if assign_public_ip is not None:
+            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
+
+    @property
+    @pulumi.getter(name="assignPublicIp")
+    def assign_public_ip(self) -> Optional[str]:
+        return pulumi.get(self, "assign_public_ip")
 
 
 @pulumi.output_type
@@ -1840,6 +1666,80 @@ class JobDefinitionNodeRangeProperty(dict):
 
 
 @pulumi.output_type
+class JobDefinitionPodProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsPolicy":
+            suggest = "dns_policy"
+        elif key == "hostNetwork":
+            suggest = "host_network"
+        elif key == "serviceAccountName":
+            suggest = "service_account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionPodProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionPodProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionPodProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 containers: Optional[Sequence['outputs.JobDefinitionEksContainer']] = None,
+                 dns_policy: Optional[str] = None,
+                 host_network: Optional[bool] = None,
+                 metadata: Optional['outputs.JobDefinitionMetadata'] = None,
+                 service_account_name: Optional[str] = None,
+                 volumes: Optional[Sequence['outputs.JobDefinitionEksVolume']] = None):
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if dns_policy is not None:
+            pulumi.set(__self__, "dns_policy", dns_policy)
+        if host_network is not None:
+            pulumi.set(__self__, "host_network", host_network)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if service_account_name is not None:
+            pulumi.set(__self__, "service_account_name", service_account_name)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[Sequence['outputs.JobDefinitionEksContainer']]:
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="dnsPolicy")
+    def dns_policy(self) -> Optional[str]:
+        return pulumi.get(self, "dns_policy")
+
+    @property
+    @pulumi.getter(name="hostNetwork")
+    def host_network(self) -> Optional[bool]:
+        return pulumi.get(self, "host_network")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.JobDefinitionMetadata']:
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="serviceAccountName")
+    def service_account_name(self) -> Optional[str]:
+        return pulumi.get(self, "service_account_name")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[Sequence['outputs.JobDefinitionEksVolume']]:
+        return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
 class JobDefinitionResourceRequirement(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
@@ -1899,6 +1799,46 @@ class JobDefinitionRetryStrategy(dict):
 
 
 @pulumi.output_type
+class JobDefinitionRuntimePlatform(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuArchitecture":
+            suggest = "cpu_architecture"
+        elif key == "operatingSystemFamily":
+            suggest = "operating_system_family"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionRuntimePlatform. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionRuntimePlatform.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionRuntimePlatform.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu_architecture: Optional[str] = None,
+                 operating_system_family: Optional[str] = None):
+        if cpu_architecture is not None:
+            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
+        if operating_system_family is not None:
+            pulumi.set(__self__, "operating_system_family", operating_system_family)
+
+    @property
+    @pulumi.getter(name="cpuArchitecture")
+    def cpu_architecture(self) -> Optional[str]:
+        return pulumi.get(self, "cpu_architecture")
+
+    @property
+    @pulumi.getter(name="operatingSystemFamily")
+    def operating_system_family(self) -> Optional[str]:
+        return pulumi.get(self, "operating_system_family")
+
+
+@pulumi.output_type
 class JobDefinitionSecret(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1932,6 +1872,36 @@ class JobDefinitionSecret(dict):
     @pulumi.getter(name="valueFrom")
     def value_from(self) -> str:
         return pulumi.get(self, "value_from")
+
+
+@pulumi.output_type
+class JobDefinitionTimeout(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attemptDurationSeconds":
+            suggest = "attempt_duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionTimeout. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionTimeout.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionTimeout.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attempt_duration_seconds: Optional[int] = None):
+        if attempt_duration_seconds is not None:
+            pulumi.set(__self__, "attempt_duration_seconds", attempt_duration_seconds)
+
+    @property
+    @pulumi.getter(name="attemptDurationSeconds")
+    def attempt_duration_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "attempt_duration_seconds")
 
 
 @pulumi.output_type
@@ -2026,7 +1996,7 @@ class JobDefinitionUlimit(dict):
 
 
 @pulumi.output_type
-class JobDefinitionVolume(dict):
+class JobDefinitionVolumes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2034,19 +2004,19 @@ class JobDefinitionVolume(dict):
             suggest = "efs_volume_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionVolume. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionVolumes. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        JobDefinitionVolume.__key_warning(key)
+        JobDefinitionVolumes.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        JobDefinitionVolume.__key_warning(key)
+        JobDefinitionVolumes.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  efs_volume_configuration: Optional['outputs.JobDefinitionEfsVolumeConfiguration'] = None,
-                 host: Optional['outputs.JobDefinitionHost'] = None,
+                 host: Optional['outputs.JobDefinitionVolumesHost'] = None,
                  name: Optional[str] = None):
         if efs_volume_configuration is not None:
             pulumi.set(__self__, "efs_volume_configuration", efs_volume_configuration)
@@ -2062,13 +2032,43 @@ class JobDefinitionVolume(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Optional['outputs.JobDefinitionHost']:
+    def host(self) -> Optional['outputs.JobDefinitionVolumesHost']:
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class JobDefinitionVolumesHost(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourcePath":
+            suggest = "source_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionVolumesHost. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionVolumesHost.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionVolumesHost.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_path: Optional[str] = None):
+        if source_path is not None:
+            pulumi.set(__self__, "source_path", source_path)
+
+    @property
+    @pulumi.getter(name="sourcePath")
+    def source_path(self) -> Optional[str]:
+        return pulumi.get(self, "source_path")
 
 
 @pulumi.output_type

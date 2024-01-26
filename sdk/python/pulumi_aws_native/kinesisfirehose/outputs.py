@@ -54,6 +54,10 @@ __all__ = [
     'DeliveryStreamS3DestinationConfiguration',
     'DeliveryStreamSchemaConfiguration',
     'DeliveryStreamSerializer',
+    'DeliveryStreamSnowflakeDestinationConfiguration',
+    'DeliveryStreamSnowflakeRetryOptions',
+    'DeliveryStreamSnowflakeRoleConfiguration',
+    'DeliveryStreamSnowflakeVpcConfiguration',
     'DeliveryStreamSplunkBufferingHints',
     'DeliveryStreamSplunkDestinationConfiguration',
     'DeliveryStreamSplunkRetryOptions',
@@ -2383,6 +2387,287 @@ class DeliveryStreamSerializer(dict):
     @pulumi.getter(name="parquetSerDe")
     def parquet_ser_de(self) -> Optional['outputs.DeliveryStreamParquetSerDe']:
         return pulumi.get(self, "parquet_ser_de")
+
+
+@pulumi.output_type
+class DeliveryStreamSnowflakeDestinationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountUrl":
+            suggest = "account_url"
+        elif key == "privateKey":
+            suggest = "private_key"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
+        elif key == "cloudWatchLoggingOptions":
+            suggest = "cloud_watch_logging_options"
+        elif key == "contentColumnName":
+            suggest = "content_column_name"
+        elif key == "dataLoadingOption":
+            suggest = "data_loading_option"
+        elif key == "keyPassphrase":
+            suggest = "key_passphrase"
+        elif key == "metaDataColumnName":
+            suggest = "meta_data_column_name"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "retryOptions":
+            suggest = "retry_options"
+        elif key == "s3BackupMode":
+            suggest = "s3_backup_mode"
+        elif key == "snowflakeRoleConfiguration":
+            suggest = "snowflake_role_configuration"
+        elif key == "snowflakeVpcConfiguration":
+            suggest = "snowflake_vpc_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamSnowflakeDestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamSnowflakeDestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamSnowflakeDestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_url: str,
+                 database: str,
+                 private_key: str,
+                 role_arn: str,
+                 s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
+                 schema: str,
+                 table: str,
+                 user: str,
+                 cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
+                 content_column_name: Optional[str] = None,
+                 data_loading_option: Optional['DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption'] = None,
+                 key_passphrase: Optional[str] = None,
+                 meta_data_column_name: Optional[str] = None,
+                 processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
+                 retry_options: Optional['outputs.DeliveryStreamSnowflakeRetryOptions'] = None,
+                 s3_backup_mode: Optional['DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode'] = None,
+                 snowflake_role_configuration: Optional['outputs.DeliveryStreamSnowflakeRoleConfiguration'] = None,
+                 snowflake_vpc_configuration: Optional['outputs.DeliveryStreamSnowflakeVpcConfiguration'] = None):
+        pulumi.set(__self__, "account_url", account_url)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
+        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "table", table)
+        pulumi.set(__self__, "user", user)
+        if cloud_watch_logging_options is not None:
+            pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
+        if content_column_name is not None:
+            pulumi.set(__self__, "content_column_name", content_column_name)
+        if data_loading_option is not None:
+            pulumi.set(__self__, "data_loading_option", data_loading_option)
+        if key_passphrase is not None:
+            pulumi.set(__self__, "key_passphrase", key_passphrase)
+        if meta_data_column_name is not None:
+            pulumi.set(__self__, "meta_data_column_name", meta_data_column_name)
+        if processing_configuration is not None:
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
+        if retry_options is not None:
+            pulumi.set(__self__, "retry_options", retry_options)
+        if s3_backup_mode is not None:
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if snowflake_role_configuration is not None:
+            pulumi.set(__self__, "snowflake_role_configuration", snowflake_role_configuration)
+        if snowflake_vpc_configuration is not None:
+            pulumi.set(__self__, "snowflake_vpc_configuration", snowflake_vpc_configuration)
+
+    @property
+    @pulumi.getter(name="accountUrl")
+    def account_url(self) -> str:
+        return pulumi.get(self, "account_url")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
+        return pulumi.get(self, "s3_configuration")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def table(self) -> str:
+        return pulumi.get(self, "table")
+
+    @property
+    @pulumi.getter
+    def user(self) -> str:
+        return pulumi.get(self, "user")
+
+    @property
+    @pulumi.getter(name="cloudWatchLoggingOptions")
+    def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
+        return pulumi.get(self, "cloud_watch_logging_options")
+
+    @property
+    @pulumi.getter(name="contentColumnName")
+    def content_column_name(self) -> Optional[str]:
+        return pulumi.get(self, "content_column_name")
+
+    @property
+    @pulumi.getter(name="dataLoadingOption")
+    def data_loading_option(self) -> Optional['DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption']:
+        return pulumi.get(self, "data_loading_option")
+
+    @property
+    @pulumi.getter(name="keyPassphrase")
+    def key_passphrase(self) -> Optional[str]:
+        return pulumi.get(self, "key_passphrase")
+
+    @property
+    @pulumi.getter(name="metaDataColumnName")
+    def meta_data_column_name(self) -> Optional[str]:
+        return pulumi.get(self, "meta_data_column_name")
+
+    @property
+    @pulumi.getter(name="processingConfiguration")
+    def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
+        return pulumi.get(self, "processing_configuration")
+
+    @property
+    @pulumi.getter(name="retryOptions")
+    def retry_options(self) -> Optional['outputs.DeliveryStreamSnowflakeRetryOptions']:
+        return pulumi.get(self, "retry_options")
+
+    @property
+    @pulumi.getter(name="s3BackupMode")
+    def s3_backup_mode(self) -> Optional['DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode']:
+        return pulumi.get(self, "s3_backup_mode")
+
+    @property
+    @pulumi.getter(name="snowflakeRoleConfiguration")
+    def snowflake_role_configuration(self) -> Optional['outputs.DeliveryStreamSnowflakeRoleConfiguration']:
+        return pulumi.get(self, "snowflake_role_configuration")
+
+    @property
+    @pulumi.getter(name="snowflakeVpcConfiguration")
+    def snowflake_vpc_configuration(self) -> Optional['outputs.DeliveryStreamSnowflakeVpcConfiguration']:
+        return pulumi.get(self, "snowflake_vpc_configuration")
+
+
+@pulumi.output_type
+class DeliveryStreamSnowflakeRetryOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationInSeconds":
+            suggest = "duration_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamSnowflakeRetryOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamSnowflakeRetryOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamSnowflakeRetryOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration_in_seconds: Optional[int] = None):
+        if duration_in_seconds is not None:
+            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+
+    @property
+    @pulumi.getter(name="durationInSeconds")
+    def duration_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "duration_in_seconds")
+
+
+@pulumi.output_type
+class DeliveryStreamSnowflakeRoleConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snowflakeRole":
+            suggest = "snowflake_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamSnowflakeRoleConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamSnowflakeRoleConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamSnowflakeRoleConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 snowflake_role: Optional[str] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if snowflake_role is not None:
+            pulumi.set(__self__, "snowflake_role", snowflake_role)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="snowflakeRole")
+    def snowflake_role(self) -> Optional[str]:
+        return pulumi.get(self, "snowflake_role")
+
+
+@pulumi.output_type
+class DeliveryStreamSnowflakeVpcConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkVpceId":
+            suggest = "private_link_vpce_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamSnowflakeVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamSnowflakeVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamSnowflakeVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_link_vpce_id: str):
+        pulumi.set(__self__, "private_link_vpce_id", private_link_vpce_id)
+
+    @property
+    @pulumi.getter(name="privateLinkVpceId")
+    def private_link_vpce_id(self) -> str:
+        return pulumi.get(self, "private_link_vpce_id")
 
 
 @pulumi.output_type

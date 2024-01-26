@@ -71,6 +71,7 @@ namespace Pulumi.AwsNative.Aps
                 ReplaceOnChanges =
                 {
                     "name",
+                    "workspace",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

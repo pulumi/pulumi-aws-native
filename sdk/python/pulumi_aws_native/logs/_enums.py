@@ -19,6 +19,7 @@ class AccountPolicyPolicyType(str, Enum):
     Type of the policy.
     """
     DATA_PROTECTION_POLICY = "DATA_PROTECTION_POLICY"
+    SUBSCRIPTION_FILTER_POLICY = "SUBSCRIPTION_FILTER_POLICY"
 
 
 class AccountPolicyScope(str, Enum):

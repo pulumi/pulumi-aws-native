@@ -1372,331 +1372,8 @@ func (o DetectorTagItemArrayOutput) Index(i pulumi.IntInput) DetectorTagItemOutp
 	}).(DetectorTagItemOutput)
 }
 
-type FilterCondition struct {
-	Eq                 []string `pulumi:"eq"`
-	Equals             []string `pulumi:"equals"`
-	GreaterThan        *int     `pulumi:"greaterThan"`
-	GreaterThanOrEqual *int     `pulumi:"greaterThanOrEqual"`
-	Gt                 *int     `pulumi:"gt"`
-	Gte                *int     `pulumi:"gte"`
-	LessThan           *int     `pulumi:"lessThan"`
-	LessThanOrEqual    *int     `pulumi:"lessThanOrEqual"`
-	Lt                 *int     `pulumi:"lt"`
-	Lte                *int     `pulumi:"lte"`
-	Neq                []string `pulumi:"neq"`
-	NotEquals          []string `pulumi:"notEquals"`
-}
-
-// FilterConditionInput is an input type that accepts FilterConditionArgs and FilterConditionOutput values.
-// You can construct a concrete instance of `FilterConditionInput` via:
-//
-//	FilterConditionArgs{...}
-type FilterConditionInput interface {
-	pulumi.Input
-
-	ToFilterConditionOutput() FilterConditionOutput
-	ToFilterConditionOutputWithContext(context.Context) FilterConditionOutput
-}
-
-type FilterConditionArgs struct {
-	Eq                 pulumi.StringArrayInput `pulumi:"eq"`
-	Equals             pulumi.StringArrayInput `pulumi:"equals"`
-	GreaterThan        pulumi.IntPtrInput      `pulumi:"greaterThan"`
-	GreaterThanOrEqual pulumi.IntPtrInput      `pulumi:"greaterThanOrEqual"`
-	Gt                 pulumi.IntPtrInput      `pulumi:"gt"`
-	Gte                pulumi.IntPtrInput      `pulumi:"gte"`
-	LessThan           pulumi.IntPtrInput      `pulumi:"lessThan"`
-	LessThanOrEqual    pulumi.IntPtrInput      `pulumi:"lessThanOrEqual"`
-	Lt                 pulumi.IntPtrInput      `pulumi:"lt"`
-	Lte                pulumi.IntPtrInput      `pulumi:"lte"`
-	Neq                pulumi.StringArrayInput `pulumi:"neq"`
-	NotEquals          pulumi.StringArrayInput `pulumi:"notEquals"`
-}
-
-func (FilterConditionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterCondition)(nil)).Elem()
-}
-
-func (i FilterConditionArgs) ToFilterConditionOutput() FilterConditionOutput {
-	return i.ToFilterConditionOutputWithContext(context.Background())
-}
-
-func (i FilterConditionArgs) ToFilterConditionOutputWithContext(ctx context.Context) FilterConditionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterConditionOutput)
-}
-
-func (i FilterConditionArgs) ToOutput(ctx context.Context) pulumix.Output[FilterCondition] {
-	return pulumix.Output[FilterCondition]{
-		OutputState: i.ToFilterConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
-func (i FilterConditionArgs) ToFilterConditionPtrOutput() FilterConditionPtrOutput {
-	return i.ToFilterConditionPtrOutputWithContext(context.Background())
-}
-
-func (i FilterConditionArgs) ToFilterConditionPtrOutputWithContext(ctx context.Context) FilterConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterConditionOutput).ToFilterConditionPtrOutputWithContext(ctx)
-}
-
-// FilterConditionPtrInput is an input type that accepts FilterConditionArgs, FilterConditionPtr and FilterConditionPtrOutput values.
-// You can construct a concrete instance of `FilterConditionPtrInput` via:
-//
-//	        FilterConditionArgs{...}
-//
-//	or:
-//
-//	        nil
-type FilterConditionPtrInput interface {
-	pulumi.Input
-
-	ToFilterConditionPtrOutput() FilterConditionPtrOutput
-	ToFilterConditionPtrOutputWithContext(context.Context) FilterConditionPtrOutput
-}
-
-type filterConditionPtrType FilterConditionArgs
-
-func FilterConditionPtr(v *FilterConditionArgs) FilterConditionPtrInput {
-	return (*filterConditionPtrType)(v)
-}
-
-func (*filterConditionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FilterCondition)(nil)).Elem()
-}
-
-func (i *filterConditionPtrType) ToFilterConditionPtrOutput() FilterConditionPtrOutput {
-	return i.ToFilterConditionPtrOutputWithContext(context.Background())
-}
-
-func (i *filterConditionPtrType) ToFilterConditionPtrOutputWithContext(ctx context.Context) FilterConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterConditionPtrOutput)
-}
-
-func (i *filterConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*FilterCondition] {
-	return pulumix.Output[*FilterCondition]{
-		OutputState: i.ToFilterConditionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-type FilterConditionOutput struct{ *pulumi.OutputState }
-
-func (FilterConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterCondition)(nil)).Elem()
-}
-
-func (o FilterConditionOutput) ToFilterConditionOutput() FilterConditionOutput {
-	return o
-}
-
-func (o FilterConditionOutput) ToFilterConditionOutputWithContext(ctx context.Context) FilterConditionOutput {
-	return o
-}
-
-func (o FilterConditionOutput) ToFilterConditionPtrOutput() FilterConditionPtrOutput {
-	return o.ToFilterConditionPtrOutputWithContext(context.Background())
-}
-
-func (o FilterConditionOutput) ToFilterConditionPtrOutputWithContext(ctx context.Context) FilterConditionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FilterCondition) *FilterCondition {
-		return &v
-	}).(FilterConditionPtrOutput)
-}
-
-func (o FilterConditionOutput) ToOutput(ctx context.Context) pulumix.Output[FilterCondition] {
-	return pulumix.Output[FilterCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o FilterConditionOutput) Eq() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FilterCondition) []string { return v.Eq }).(pulumi.StringArrayOutput)
-}
-
-func (o FilterConditionOutput) Equals() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FilterCondition) []string { return v.Equals }).(pulumi.StringArrayOutput)
-}
-
-func (o FilterConditionOutput) GreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FilterCondition) *int { return v.GreaterThan }).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionOutput) GreaterThanOrEqual() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FilterCondition) *int { return v.GreaterThanOrEqual }).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionOutput) Gt() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FilterCondition) *int { return v.Gt }).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionOutput) Gte() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FilterCondition) *int { return v.Gte }).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionOutput) LessThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FilterCondition) *int { return v.LessThan }).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionOutput) LessThanOrEqual() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FilterCondition) *int { return v.LessThanOrEqual }).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionOutput) Lt() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FilterCondition) *int { return v.Lt }).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionOutput) Lte() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FilterCondition) *int { return v.Lte }).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionOutput) Neq() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FilterCondition) []string { return v.Neq }).(pulumi.StringArrayOutput)
-}
-
-func (o FilterConditionOutput) NotEquals() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FilterCondition) []string { return v.NotEquals }).(pulumi.StringArrayOutput)
-}
-
-type FilterConditionPtrOutput struct{ *pulumi.OutputState }
-
-func (FilterConditionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FilterCondition)(nil)).Elem()
-}
-
-func (o FilterConditionPtrOutput) ToFilterConditionPtrOutput() FilterConditionPtrOutput {
-	return o
-}
-
-func (o FilterConditionPtrOutput) ToFilterConditionPtrOutputWithContext(ctx context.Context) FilterConditionPtrOutput {
-	return o
-}
-
-func (o FilterConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterCondition] {
-	return pulumix.Output[*FilterCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o FilterConditionPtrOutput) Elem() FilterConditionOutput {
-	return o.ApplyT(func(v *FilterCondition) FilterCondition {
-		if v != nil {
-			return *v
-		}
-		var ret FilterCondition
-		return ret
-	}).(FilterConditionOutput)
-}
-
-func (o FilterConditionPtrOutput) Eq() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FilterCondition) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Eq
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o FilterConditionPtrOutput) Equals() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FilterCondition) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Equals
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o FilterConditionPtrOutput) GreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FilterCondition) *int {
-		if v == nil {
-			return nil
-		}
-		return v.GreaterThan
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionPtrOutput) GreaterThanOrEqual() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FilterCondition) *int {
-		if v == nil {
-			return nil
-		}
-		return v.GreaterThanOrEqual
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionPtrOutput) Gt() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FilterCondition) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Gt
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionPtrOutput) Gte() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FilterCondition) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Gte
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionPtrOutput) LessThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FilterCondition) *int {
-		if v == nil {
-			return nil
-		}
-		return v.LessThan
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionPtrOutput) LessThanOrEqual() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FilterCondition) *int {
-		if v == nil {
-			return nil
-		}
-		return v.LessThanOrEqual
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionPtrOutput) Lt() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FilterCondition) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Lt
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionPtrOutput) Lte() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FilterCondition) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Lte
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o FilterConditionPtrOutput) Neq() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FilterCondition) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Neq
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o FilterConditionPtrOutput) NotEquals() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FilterCondition) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NotEquals
-	}).(pulumi.StringArrayOutput)
-}
-
 type FilterFindingCriteria struct {
-	Criterion interface{}      `pulumi:"criterion"`
-	ItemType  *FilterCondition `pulumi:"itemType"`
+	Criterion interface{} `pulumi:"criterion"`
 }
 
 // FilterFindingCriteriaInput is an input type that accepts FilterFindingCriteriaArgs and FilterFindingCriteriaOutput values.
@@ -1711,8 +1388,7 @@ type FilterFindingCriteriaInput interface {
 }
 
 type FilterFindingCriteriaArgs struct {
-	Criterion pulumi.Input            `pulumi:"criterion"`
-	ItemType  FilterConditionPtrInput `pulumi:"itemType"`
+	Criterion pulumi.Input `pulumi:"criterion"`
 }
 
 func (FilterFindingCriteriaArgs) ElementType() reflect.Type {
@@ -1757,10 +1433,6 @@ func (o FilterFindingCriteriaOutput) Criterion() pulumi.AnyOutput {
 	return o.ApplyT(func(v FilterFindingCriteria) interface{} { return v.Criterion }).(pulumi.AnyOutput)
 }
 
-func (o FilterFindingCriteriaOutput) ItemType() FilterConditionPtrOutput {
-	return o.ApplyT(func(v FilterFindingCriteria) *FilterCondition { return v.ItemType }).(FilterConditionPtrOutput)
-}
-
 type FilterFindingCriteriaPtrOutput struct{ *pulumi.OutputState }
 
 func (FilterFindingCriteriaPtrOutput) ElementType() reflect.Type {
@@ -1800,137 +1472,128 @@ func (o FilterFindingCriteriaPtrOutput) Criterion() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-func (o FilterFindingCriteriaPtrOutput) ItemType() FilterConditionPtrOutput {
-	return o.ApplyT(func(v *FilterFindingCriteria) *FilterCondition {
-		if v == nil {
-			return nil
-		}
-		return v.ItemType
-	}).(FilterConditionPtrOutput)
-}
-
-type FilterTag struct {
+type FilterTagItem struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
-// FilterTagInput is an input type that accepts FilterTagArgs and FilterTagOutput values.
-// You can construct a concrete instance of `FilterTagInput` via:
+// FilterTagItemInput is an input type that accepts FilterTagItemArgs and FilterTagItemOutput values.
+// You can construct a concrete instance of `FilterTagItemInput` via:
 //
-//	FilterTagArgs{...}
-type FilterTagInput interface {
+//	FilterTagItemArgs{...}
+type FilterTagItemInput interface {
 	pulumi.Input
 
-	ToFilterTagOutput() FilterTagOutput
-	ToFilterTagOutputWithContext(context.Context) FilterTagOutput
+	ToFilterTagItemOutput() FilterTagItemOutput
+	ToFilterTagItemOutputWithContext(context.Context) FilterTagItemOutput
 }
 
-type FilterTagArgs struct {
+type FilterTagItemArgs struct {
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (FilterTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterTag)(nil)).Elem()
+func (FilterTagItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterTagItem)(nil)).Elem()
 }
 
-func (i FilterTagArgs) ToFilterTagOutput() FilterTagOutput {
-	return i.ToFilterTagOutputWithContext(context.Background())
+func (i FilterTagItemArgs) ToFilterTagItemOutput() FilterTagItemOutput {
+	return i.ToFilterTagItemOutputWithContext(context.Background())
 }
 
-func (i FilterTagArgs) ToFilterTagOutputWithContext(ctx context.Context) FilterTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterTagOutput)
+func (i FilterTagItemArgs) ToFilterTagItemOutputWithContext(ctx context.Context) FilterTagItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterTagItemOutput)
 }
 
-func (i FilterTagArgs) ToOutput(ctx context.Context) pulumix.Output[FilterTag] {
-	return pulumix.Output[FilterTag]{
-		OutputState: i.ToFilterTagOutputWithContext(ctx).OutputState,
+func (i FilterTagItemArgs) ToOutput(ctx context.Context) pulumix.Output[FilterTagItem] {
+	return pulumix.Output[FilterTagItem]{
+		OutputState: i.ToFilterTagItemOutputWithContext(ctx).OutputState,
 	}
 }
 
-// FilterTagArrayInput is an input type that accepts FilterTagArray and FilterTagArrayOutput values.
-// You can construct a concrete instance of `FilterTagArrayInput` via:
+// FilterTagItemArrayInput is an input type that accepts FilterTagItemArray and FilterTagItemArrayOutput values.
+// You can construct a concrete instance of `FilterTagItemArrayInput` via:
 //
-//	FilterTagArray{ FilterTagArgs{...} }
-type FilterTagArrayInput interface {
+//	FilterTagItemArray{ FilterTagItemArgs{...} }
+type FilterTagItemArrayInput interface {
 	pulumi.Input
 
-	ToFilterTagArrayOutput() FilterTagArrayOutput
-	ToFilterTagArrayOutputWithContext(context.Context) FilterTagArrayOutput
+	ToFilterTagItemArrayOutput() FilterTagItemArrayOutput
+	ToFilterTagItemArrayOutputWithContext(context.Context) FilterTagItemArrayOutput
 }
 
-type FilterTagArray []FilterTagInput
+type FilterTagItemArray []FilterTagItemInput
 
-func (FilterTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FilterTag)(nil)).Elem()
+func (FilterTagItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterTagItem)(nil)).Elem()
 }
 
-func (i FilterTagArray) ToFilterTagArrayOutput() FilterTagArrayOutput {
-	return i.ToFilterTagArrayOutputWithContext(context.Background())
+func (i FilterTagItemArray) ToFilterTagItemArrayOutput() FilterTagItemArrayOutput {
+	return i.ToFilterTagItemArrayOutputWithContext(context.Background())
 }
 
-func (i FilterTagArray) ToFilterTagArrayOutputWithContext(ctx context.Context) FilterTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterTagArrayOutput)
+func (i FilterTagItemArray) ToFilterTagItemArrayOutputWithContext(ctx context.Context) FilterTagItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterTagItemArrayOutput)
 }
 
-func (i FilterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterTag] {
-	return pulumix.Output[[]FilterTag]{
-		OutputState: i.ToFilterTagArrayOutputWithContext(ctx).OutputState,
+func (i FilterTagItemArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterTagItem] {
+	return pulumix.Output[[]FilterTagItem]{
+		OutputState: i.ToFilterTagItemArrayOutputWithContext(ctx).OutputState,
 	}
 }
 
-type FilterTagOutput struct{ *pulumi.OutputState }
+type FilterTagItemOutput struct{ *pulumi.OutputState }
 
-func (FilterTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterTag)(nil)).Elem()
+func (FilterTagItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterTagItem)(nil)).Elem()
 }
 
-func (o FilterTagOutput) ToFilterTagOutput() FilterTagOutput {
+func (o FilterTagItemOutput) ToFilterTagItemOutput() FilterTagItemOutput {
 	return o
 }
 
-func (o FilterTagOutput) ToFilterTagOutputWithContext(ctx context.Context) FilterTagOutput {
+func (o FilterTagItemOutput) ToFilterTagItemOutputWithContext(ctx context.Context) FilterTagItemOutput {
 	return o
 }
 
-func (o FilterTagOutput) ToOutput(ctx context.Context) pulumix.Output[FilterTag] {
-	return pulumix.Output[FilterTag]{
+func (o FilterTagItemOutput) ToOutput(ctx context.Context) pulumix.Output[FilterTagItem] {
+	return pulumix.Output[FilterTagItem]{
 		OutputState: o.OutputState,
 	}
 }
 
-func (o FilterTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FilterTag) string { return v.Key }).(pulumi.StringOutput)
+func (o FilterTagItemOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterTagItem) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o FilterTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FilterTag) string { return v.Value }).(pulumi.StringOutput)
+func (o FilterTagItemOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterTagItem) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type FilterTagArrayOutput struct{ *pulumi.OutputState }
+type FilterTagItemArrayOutput struct{ *pulumi.OutputState }
 
-func (FilterTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FilterTag)(nil)).Elem()
+func (FilterTagItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterTagItem)(nil)).Elem()
 }
 
-func (o FilterTagArrayOutput) ToFilterTagArrayOutput() FilterTagArrayOutput {
+func (o FilterTagItemArrayOutput) ToFilterTagItemArrayOutput() FilterTagItemArrayOutput {
 	return o
 }
 
-func (o FilterTagArrayOutput) ToFilterTagArrayOutputWithContext(ctx context.Context) FilterTagArrayOutput {
+func (o FilterTagItemArrayOutput) ToFilterTagItemArrayOutputWithContext(ctx context.Context) FilterTagItemArrayOutput {
 	return o
 }
 
-func (o FilterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterTag] {
-	return pulumix.Output[[]FilterTag]{
+func (o FilterTagItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterTagItem] {
+	return pulumix.Output[[]FilterTagItem]{
 		OutputState: o.OutputState,
 	}
 }
 
-func (o FilterTagArrayOutput) Index(i pulumi.IntInput) FilterTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterTag {
-		return vs[0].([]FilterTag)[vs[1].(int)]
-	}).(FilterTagOutput)
+func (o FilterTagItemArrayOutput) Index(i pulumi.IntInput) FilterTagItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterTagItem {
+		return vs[0].([]FilterTagItem)[vs[1].(int)]
+	}).(FilterTagItemOutput)
 }
 
 type IpSetTagItem struct {
@@ -2200,11 +1863,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfns3LogsConfigurationPtrInput)(nil)).Elem(), DetectorCfns3LogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorTagItemInput)(nil)).Elem(), DetectorTagItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorTagItemArrayInput)(nil)).Elem(), DetectorTagItemArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FilterConditionInput)(nil)).Elem(), FilterConditionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FilterConditionPtrInput)(nil)).Elem(), FilterConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FilterTagInput)(nil)).Elem(), FilterTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FilterTagArrayInput)(nil)).Elem(), FilterTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterTagItemInput)(nil)).Elem(), FilterTagItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterTagItemArrayInput)(nil)).Elem(), FilterTagItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpSetTagItemInput)(nil)).Elem(), IpSetTagItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpSetTagItemArrayInput)(nil)).Elem(), IpSetTagItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreatIntelSetTagItemInput)(nil)).Elem(), ThreatIntelSetTagItemArgs{})
@@ -2227,12 +1888,10 @@ func init() {
 	pulumi.RegisterOutputType(DetectorCfns3LogsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DetectorTagItemOutput{})
 	pulumi.RegisterOutputType(DetectorTagItemArrayOutput{})
-	pulumi.RegisterOutputType(FilterConditionOutput{})
-	pulumi.RegisterOutputType(FilterConditionPtrOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaPtrOutput{})
-	pulumi.RegisterOutputType(FilterTagOutput{})
-	pulumi.RegisterOutputType(FilterTagArrayOutput{})
+	pulumi.RegisterOutputType(FilterTagItemOutput{})
+	pulumi.RegisterOutputType(FilterTagItemArrayOutput{})
 	pulumi.RegisterOutputType(IpSetTagItemOutput{})
 	pulumi.RegisterOutputType(IpSetTagItemArrayOutput{})
 	pulumi.RegisterOutputType(ThreatIntelSetTagItemOutput{})

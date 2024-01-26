@@ -69,10 +69,6 @@ namespace Pulumi.AwsNative.Aps
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupsNamespaceTag> Tags;
-        /// <summary>
-        /// Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
-        /// </summary>
-        public readonly string? Workspace;
 
         [OutputConstructor]
         private GetRuleGroupsNamespaceResult(
@@ -80,14 +76,11 @@ namespace Pulumi.AwsNative.Aps
 
             string? data,
 
-            ImmutableArray<Outputs.RuleGroupsNamespaceTag> tags,
-
-            string? workspace)
+            ImmutableArray<Outputs.RuleGroupsNamespaceTag> tags)
         {
             Arn = arn;
             Data = data;
             Tags = tags;
-            Workspace = workspace;
         }
     }
 }

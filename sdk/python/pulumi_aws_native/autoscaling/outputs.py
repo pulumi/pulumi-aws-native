@@ -193,6 +193,8 @@ class AutoScalingGroupInstanceRequirements(dict):
             suggest = "local_storage"
         elif key == "localStorageTypes":
             suggest = "local_storage_types"
+        elif key == "maxSpotPriceAsPercentageOfOptimalOnDemandPrice":
+            suggest = "max_spot_price_as_percentage_of_optimal_on_demand_price"
         elif key == "memoryGiBPerVCpu":
             suggest = "memory_gi_b_per_v_cpu"
         elif key == "networkBandwidthGbps":
@@ -236,6 +238,7 @@ class AutoScalingGroupInstanceRequirements(dict):
                  instance_generations: Optional[Sequence[str]] = None,
                  local_storage: Optional[str] = None,
                  local_storage_types: Optional[Sequence[str]] = None,
+                 max_spot_price_as_percentage_of_optimal_on_demand_price: Optional[int] = None,
                  memory_gi_b_per_v_cpu: Optional['outputs.AutoScalingGroupMemoryGiBPerVCpuRequest'] = None,
                  network_bandwidth_gbps: Optional['outputs.AutoScalingGroupNetworkBandwidthGbpsRequest'] = None,
                  network_interface_count: Optional['outputs.AutoScalingGroupNetworkInterfaceCountRequest'] = None,
@@ -273,6 +276,8 @@ class AutoScalingGroupInstanceRequirements(dict):
             pulumi.set(__self__, "local_storage", local_storage)
         if local_storage_types is not None:
             pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if max_spot_price_as_percentage_of_optimal_on_demand_price is not None:
+            pulumi.set(__self__, "max_spot_price_as_percentage_of_optimal_on_demand_price", max_spot_price_as_percentage_of_optimal_on_demand_price)
         if memory_gi_b_per_v_cpu is not None:
             pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
         if network_bandwidth_gbps is not None:
@@ -367,6 +372,11 @@ class AutoScalingGroupInstanceRequirements(dict):
     @pulumi.getter(name="localStorageTypes")
     def local_storage_types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "local_storage_types")
+
+    @property
+    @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> Optional[int]:
+        return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
 
     @property
     @pulumi.getter(name="memoryGiBPerVCpu")

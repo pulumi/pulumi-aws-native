@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         [Output("s3DestinationConfiguration")]
         public Output<Outputs.DeliveryStreamS3DestinationConfiguration?> S3DestinationConfiguration { get; private set; } = null!;
 
+        [Output("snowflakeDestinationConfiguration")]
+        public Output<Outputs.DeliveryStreamSnowflakeDestinationConfiguration?> SnowflakeDestinationConfiguration { get; private set; } = null!;
+
         [Output("splunkDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamSplunkDestinationConfiguration?> SplunkDestinationConfiguration { get; private set; } = null!;
 
@@ -92,6 +95,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
                     "elasticsearchDestinationConfiguration.vpcConfiguration",
                     "kinesisStreamSourceConfiguration",
                     "mskSourceConfiguration",
+                    "snowflakeDestinationConfiguration.snowflakeVpcConfiguration",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -150,6 +154,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
         [Input("s3DestinationConfiguration")]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs>? S3DestinationConfiguration { get; set; }
+
+        [Input("snowflakeDestinationConfiguration")]
+        public Input<Inputs.DeliveryStreamSnowflakeDestinationConfigurationArgs>? SnowflakeDestinationConfiguration { get; set; }
 
         [Input("splunkDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamSplunkDestinationConfigurationArgs>? SplunkDestinationConfiguration { get; set; }

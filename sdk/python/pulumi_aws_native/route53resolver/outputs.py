@@ -125,7 +125,8 @@ class FirewallRuleGroupFirewallRule(dict):
                  block_override_dns_type: Optional['FirewallRuleGroupFirewallRuleBlockOverrideDnsType'] = None,
                  block_override_domain: Optional[str] = None,
                  block_override_ttl: Optional[int] = None,
-                 block_response: Optional['FirewallRuleGroupFirewallRuleBlockResponse'] = None):
+                 block_response: Optional['FirewallRuleGroupFirewallRuleBlockResponse'] = None,
+                 qtype: Optional[str] = None):
         """
         Firewall Rule associating the Rule Group to a Domain List
         :param 'FirewallRuleGroupFirewallRuleAction' action: Rule Action
@@ -135,6 +136,7 @@ class FirewallRuleGroupFirewallRule(dict):
         :param str block_override_domain: BlockOverrideDomain
         :param int block_override_ttl: BlockOverrideTtl
         :param 'FirewallRuleGroupFirewallRuleBlockResponse' block_response: BlockResponse
+        :param str qtype: Qtype
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
@@ -147,6 +149,8 @@ class FirewallRuleGroupFirewallRule(dict):
             pulumi.set(__self__, "block_override_ttl", block_override_ttl)
         if block_response is not None:
             pulumi.set(__self__, "block_response", block_response)
+        if qtype is not None:
+            pulumi.set(__self__, "qtype", qtype)
 
     @property
     @pulumi.getter
@@ -203,6 +207,14 @@ class FirewallRuleGroupFirewallRule(dict):
         BlockResponse
         """
         return pulumi.get(self, "block_response")
+
+    @property
+    @pulumi.getter
+    def qtype(self) -> Optional[str]:
+        """
+        Qtype
+        """
+        return pulumi.get(self, "qtype")
 
 
 @pulumi.output_type

@@ -12,30 +12,29 @@ namespace Pulumi.AwsNative.GuardDuty
     /// <summary>
     /// Resource Type definition for AWS::GuardDuty::Filter
     /// </summary>
-    [Obsolete(@"Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:Filter")]
     public partial class Filter : global::Pulumi.CustomResource
     {
         [Output("action")]
-        public Output<string> Action { get; private set; } = null!;
+        public Output<string?> Action { get; private set; } = null!;
 
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         [Output("detectorId")]
-        public Output<string> DetectorId { get; private set; } = null!;
+        public Output<string?> DetectorId { get; private set; } = null!;
 
         [Output("findingCriteria")]
         public Output<Outputs.FilterFindingCriteria> FindingCriteria { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         [Output("rank")]
-        public Output<int> Rank { get; private set; } = null!;
+        public Output<int?> Rank { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FilterTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FilterTagItem>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -87,14 +86,14 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class FilterArgs : global::Pulumi.ResourceArgs
     {
-        [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
+        [Input("action")]
+        public Input<string>? Action { get; set; }
 
-        [Input("description", required: true)]
-        public Input<string> Description { get; set; } = null!;
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
-        [Input("detectorId", required: true)]
-        public Input<string> DetectorId { get; set; } = null!;
+        [Input("detectorId")]
+        public Input<string>? DetectorId { get; set; }
 
         [Input("findingCriteria", required: true)]
         public Input<Inputs.FilterFindingCriteriaArgs> FindingCriteria { get; set; } = null!;
@@ -102,14 +101,14 @@ namespace Pulumi.AwsNative.GuardDuty
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("rank", required: true)]
-        public Input<int> Rank { get; set; } = null!;
+        [Input("rank")]
+        public Input<int>? Rank { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.FilterTagArgs>? _tags;
-        public InputList<Inputs.FilterTagArgs> Tags
+        private InputList<Inputs.FilterTagItemArgs>? _tags;
+        public InputList<Inputs.FilterTagItemArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FilterTagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.FilterTagItemArgs>());
             set => _tags = value;
         }
 

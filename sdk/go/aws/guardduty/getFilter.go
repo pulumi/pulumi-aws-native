@@ -24,16 +24,16 @@ func LookupFilter(ctx *pulumi.Context, args *LookupFilterArgs, opts ...pulumi.In
 }
 
 type LookupFilterArgs struct {
-	Id string `pulumi:"id"`
+	DetectorId string `pulumi:"detectorId"`
+	Name       string `pulumi:"name"`
 }
 
 type LookupFilterResult struct {
 	Action          *string                `pulumi:"action"`
 	Description     *string                `pulumi:"description"`
 	FindingCriteria *FilterFindingCriteria `pulumi:"findingCriteria"`
-	Id              *string                `pulumi:"id"`
 	Rank            *int                   `pulumi:"rank"`
-	Tags            []FilterTag            `pulumi:"tags"`
+	Tags            []FilterTagItem        `pulumi:"tags"`
 }
 
 func LookupFilterOutput(ctx *pulumi.Context, args LookupFilterOutputArgs, opts ...pulumi.InvokeOption) LookupFilterResultOutput {
@@ -50,7 +50,8 @@ func LookupFilterOutput(ctx *pulumi.Context, args LookupFilterOutputArgs, opts .
 }
 
 type LookupFilterOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	DetectorId pulumi.StringInput `pulumi:"detectorId"`
+	Name       pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupFilterOutputArgs) ElementType() reflect.Type {
@@ -89,16 +90,12 @@ func (o LookupFilterResultOutput) FindingCriteria() FilterFindingCriteriaPtrOutp
 	return o.ApplyT(func(v LookupFilterResult) *FilterFindingCriteria { return v.FindingCriteria }).(FilterFindingCriteriaPtrOutput)
 }
 
-func (o LookupFilterResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupFilterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
 func (o LookupFilterResultOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFilterResult) *int { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupFilterResultOutput) Tags() FilterTagArrayOutput {
-	return o.ApplyT(func(v LookupFilterResult) []FilterTag { return v.Tags }).(FilterTagArrayOutput)
+func (o LookupFilterResultOutput) Tags() FilterTagItemArrayOutput {
+	return o.ApplyT(func(v LookupFilterResult) []FilterTagItem { return v.Tags }).(FilterTagItemArrayOutput)
 }
 
 func init() {

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
     public sealed class JobDefinitionEksPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("podProperties")]
-        public Input<Inputs.JobDefinitionEksPodPropertiesArgs>? PodProperties { get; set; }
+        public Input<Inputs.JobDefinitionPodPropertiesArgs>? PodProperties { get; set; }
 
         public JobDefinitionEksPropertiesArgs()
         {

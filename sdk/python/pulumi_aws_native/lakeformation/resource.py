@@ -16,6 +16,7 @@ class ResourceArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str],
                  use_service_linked_role: pulumi.Input[bool],
+                 hybrid_access_enabled: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  with_federation: Optional[pulumi.Input[bool]] = None):
         """
@@ -23,6 +24,8 @@ class ResourceArgs:
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "use_service_linked_role", use_service_linked_role)
+        if hybrid_access_enabled is not None:
+            pulumi.set(__self__, "hybrid_access_enabled", hybrid_access_enabled)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if with_federation is not None:
@@ -45,6 +48,15 @@ class ResourceArgs:
     @use_service_linked_role.setter
     def use_service_linked_role(self, value: pulumi.Input[bool]):
         pulumi.set(self, "use_service_linked_role", value)
+
+    @property
+    @pulumi.getter(name="hybridAccessEnabled")
+    def hybrid_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "hybrid_access_enabled")
+
+    @hybrid_access_enabled.setter
+    def hybrid_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hybrid_access_enabled", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -75,6 +87,7 @@ class Resource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 hybrid_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  use_service_linked_role: Optional[pulumi.Input[bool]] = None,
@@ -110,6 +123,7 @@ class Resource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 hybrid_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  use_service_linked_role: Optional[pulumi.Input[bool]] = None,
@@ -124,6 +138,7 @@ class Resource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceArgs.__new__(ResourceArgs)
 
+            __props__.__dict__["hybrid_access_enabled"] = hybrid_access_enabled
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__.__dict__["resource_arn"] = resource_arn
@@ -156,11 +171,17 @@ class Resource(pulumi.CustomResource):
 
         __props__ = ResourceArgs.__new__(ResourceArgs)
 
+        __props__.__dict__["hybrid_access_enabled"] = None
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["use_service_linked_role"] = None
         __props__.__dict__["with_federation"] = None
         return Resource(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="hybridAccessEnabled")
+    def hybrid_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "hybrid_access_enabled")
 
     @property
     @pulumi.getter(name="resourceArn")

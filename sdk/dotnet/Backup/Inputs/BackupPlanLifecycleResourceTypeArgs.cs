@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Backup.Inputs
         [Input("moveToColdStorageAfterDays")]
         public Input<double>? MoveToColdStorageAfterDays { get; set; }
 
+        [Input("optInToArchiveForSupportedResources")]
+        public Input<bool>? OptInToArchiveForSupportedResources { get; set; }
+
         public BackupPlanLifecycleResourceTypeArgs()
         {
         }

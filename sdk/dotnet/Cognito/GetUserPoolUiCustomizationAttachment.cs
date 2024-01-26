@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolUiCustomizationAttachmentArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("clientId", required: true)]
+        public string ClientId { get; set; } = null!;
+
+        [Input("userPoolId", required: true)]
+        public string UserPoolId { get; set; } = null!;
 
         public GetUserPoolUiCustomizationAttachmentArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolUiCustomizationAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("clientId", required: true)]
+        public Input<string> ClientId { get; set; } = null!;
+
+        [Input("userPoolId", required: true)]
+        public Input<string> UserPoolId { get; set; } = null!;
 
         public GetUserPoolUiCustomizationAttachmentInvokeArgs()
         {
@@ -52,16 +58,11 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolUiCustomizationAttachmentResult
     {
         public readonly string? Css;
-        public readonly string? Id;
 
         [OutputConstructor]
-        private GetUserPoolUiCustomizationAttachmentResult(
-            string? css,
-
-            string? id)
+        private GetUserPoolUiCustomizationAttachmentResult(string? css)
         {
             Css = css;
-            Id = id;
         }
     }
 }

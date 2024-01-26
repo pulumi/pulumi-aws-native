@@ -27,6 +27,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         public readonly ImmutableArray<string> InstanceGenerations;
         public readonly string? LocalStorage;
         public readonly ImmutableArray<string> LocalStorageTypes;
+        public readonly int? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
         public readonly Outputs.AutoScalingGroupMemoryGiBPerVCpuRequest? MemoryGiBPerVCpu;
         public readonly Outputs.AutoScalingGroupMemoryMiBRequest MemoryMiB;
         public readonly Outputs.AutoScalingGroupNetworkBandwidthGbpsRequest? NetworkBandwidthGbps;
@@ -67,6 +68,8 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
 
             ImmutableArray<string> localStorageTypes,
 
+            int? maxSpotPriceAsPercentageOfOptimalOnDemandPrice,
+
             Outputs.AutoScalingGroupMemoryGiBPerVCpuRequest? memoryGiBPerVCpu,
 
             Outputs.AutoScalingGroupMemoryMiBRequest memoryMiB,
@@ -99,6 +102,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
             InstanceGenerations = instanceGenerations;
             LocalStorage = localStorage;
             LocalStorageTypes = localStorageTypes;
+            MaxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
             MemoryGiBPerVCpu = memoryGiBPerVCpu;
             MemoryMiB = memoryMiB;
             NetworkBandwidthGbps = networkBandwidthGbps;

@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.ElastiCache.Outputs
         /// <summary>
         /// Endpoint port.
         /// </summary>
-        public readonly int? Port;
+        public readonly string? Port;
 
         [OutputConstructor]
         private ServerlessCacheEndpoint(
             string? address,
 
-            int? port)
+            string? port)
         {
             Address = address;
             Port = port;

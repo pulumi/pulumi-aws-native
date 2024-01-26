@@ -35,8 +35,6 @@ type LookupRuleGroupsNamespaceResult struct {
 	Data *string `pulumi:"data"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []RuleGroupsNamespaceTag `pulumi:"tags"`
-	// Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
-	Workspace *string `pulumi:"workspace"`
 }
 
 func LookupRuleGroupsNamespaceOutput(ctx *pulumi.Context, args LookupRuleGroupsNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupRuleGroupsNamespaceResultOutput {
@@ -94,11 +92,6 @@ func (o LookupRuleGroupsNamespaceResultOutput) Data() pulumi.StringPtrOutput {
 // An array of key-value pairs to apply to this resource.
 func (o LookupRuleGroupsNamespaceResultOutput) Tags() RuleGroupsNamespaceTagArrayOutput {
 	return o.ApplyT(func(v LookupRuleGroupsNamespaceResult) []RuleGroupsNamespaceTag { return v.Tags }).(RuleGroupsNamespaceTagArrayOutput)
-}
-
-// Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
-func (o LookupRuleGroupsNamespaceResultOutput) Workspace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupRuleGroupsNamespaceResult) *string { return v.Workspace }).(pulumi.StringPtrOutput)
 }
 
 func init() {

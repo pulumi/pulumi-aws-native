@@ -763,6 +763,7 @@ const (
 	DocumentTypeProblemAnalysis                = DocumentType("ProblemAnalysis")
 	DocumentTypeProblemAnalysisTemplate        = DocumentType("ProblemAnalysisTemplate")
 	DocumentTypeSession                        = DocumentType("Session")
+	DocumentTypeOpsPack                        = DocumentType("OpsPack")
 )
 
 func (DocumentType) ElementType() reflect.Type {

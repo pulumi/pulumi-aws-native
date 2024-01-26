@@ -22,6 +22,7 @@ class FaqArgs:
                  s3_path: pulumi.Input['FaqS3PathArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  file_format: Optional[pulumi.Input['FaqFileFormat']] = None,
+                 language_code: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FaqTagArgs']]]] = None):
         """
@@ -41,6 +42,8 @@ class FaqArgs:
             pulumi.set(__self__, "description", description)
         if file_format is not None:
             pulumi.set(__self__, "file_format", file_format)
+        if language_code is not None:
+            pulumi.set(__self__, "language_code", language_code)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -107,6 +110,15 @@ class FaqArgs:
         pulumi.set(self, "file_format", value)
 
     @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "language_code")
+
+    @language_code.setter
+    def language_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "language_code", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -139,6 +151,7 @@ class Faq(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  file_format: Optional[pulumi.Input['FaqFileFormat']] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
+                 language_code: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  s3_path: Optional[pulumi.Input[pulumi.InputType['FaqS3PathArgs']]] = None,
@@ -184,6 +197,7 @@ class Faq(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  file_format: Optional[pulumi.Input['FaqFileFormat']] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
+                 language_code: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  s3_path: Optional[pulumi.Input[pulumi.InputType['FaqS3PathArgs']]] = None,
@@ -202,6 +216,7 @@ class Faq(pulumi.CustomResource):
             if index_id is None and not opts.urn:
                 raise TypeError("Missing required property 'index_id'")
             __props__.__dict__["index_id"] = index_id
+            __props__.__dict__["language_code"] = language_code
             __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -239,6 +254,7 @@ class Faq(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["file_format"] = None
         __props__.__dict__["index_id"] = None
+        __props__.__dict__["language_code"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["s3_path"] = None
@@ -273,6 +289,11 @@ class Faq(pulumi.CustomResource):
         Index ID
         """
         return pulumi.get(self, "index_id")
+
+    @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "language_code")
 
     @property
     @pulumi.getter

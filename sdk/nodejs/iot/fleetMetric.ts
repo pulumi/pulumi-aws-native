@@ -45,7 +45,7 @@ export class FleetMetric extends pulumi.CustomResource {
     /**
      * The creation date of a fleet metric
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<number>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * The description of a fleet metric
      */
@@ -57,7 +57,7 @@ export class FleetMetric extends pulumi.CustomResource {
     /**
      * The last modified date of a fleet metric
      */
-    public /*out*/ readonly lastModifiedDate!: pulumi.Output<number>;
+    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
     /**
      * The Amazon Resource Number (ARN) of a fleet metric metric
      */

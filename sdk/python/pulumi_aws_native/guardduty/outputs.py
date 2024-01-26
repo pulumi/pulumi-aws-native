@@ -21,9 +21,8 @@ __all__ = [
     'DetectorCfnScanEc2InstanceWithFindingsConfiguration',
     'DetectorCfns3LogsConfiguration',
     'DetectorTagItem',
-    'FilterCondition',
     'FilterFindingCriteria',
-    'FilterTag',
+    'FilterTagItem',
     'IpSetTagItem',
     'ThreatIntelSetTagItem',
 ]
@@ -274,171 +273,20 @@ class DetectorTagItem(dict):
 
 
 @pulumi.output_type
-class FilterCondition(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "greaterThan":
-            suggest = "greater_than"
-        elif key == "greaterThanOrEqual":
-            suggest = "greater_than_or_equal"
-        elif key == "lessThan":
-            suggest = "less_than"
-        elif key == "lessThanOrEqual":
-            suggest = "less_than_or_equal"
-        elif key == "notEquals":
-            suggest = "not_equals"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FilterCondition. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FilterCondition.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FilterCondition.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 eq: Optional[Sequence[str]] = None,
-                 equals: Optional[Sequence[str]] = None,
-                 greater_than: Optional[int] = None,
-                 greater_than_or_equal: Optional[int] = None,
-                 gt: Optional[int] = None,
-                 gte: Optional[int] = None,
-                 less_than: Optional[int] = None,
-                 less_than_or_equal: Optional[int] = None,
-                 lt: Optional[int] = None,
-                 lte: Optional[int] = None,
-                 neq: Optional[Sequence[str]] = None,
-                 not_equals: Optional[Sequence[str]] = None):
-        if eq is not None:
-            pulumi.set(__self__, "eq", eq)
-        if equals is not None:
-            pulumi.set(__self__, "equals", equals)
-        if greater_than is not None:
-            pulumi.set(__self__, "greater_than", greater_than)
-        if greater_than_or_equal is not None:
-            pulumi.set(__self__, "greater_than_or_equal", greater_than_or_equal)
-        if gt is not None:
-            pulumi.set(__self__, "gt", gt)
-        if gte is not None:
-            pulumi.set(__self__, "gte", gte)
-        if less_than is not None:
-            pulumi.set(__self__, "less_than", less_than)
-        if less_than_or_equal is not None:
-            pulumi.set(__self__, "less_than_or_equal", less_than_or_equal)
-        if lt is not None:
-            pulumi.set(__self__, "lt", lt)
-        if lte is not None:
-            pulumi.set(__self__, "lte", lte)
-        if neq is not None:
-            pulumi.set(__self__, "neq", neq)
-        if not_equals is not None:
-            pulumi.set(__self__, "not_equals", not_equals)
-
-    @property
-    @pulumi.getter
-    def eq(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "eq")
-
-    @property
-    @pulumi.getter
-    def equals(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "equals")
-
-    @property
-    @pulumi.getter(name="greaterThan")
-    def greater_than(self) -> Optional[int]:
-        return pulumi.get(self, "greater_than")
-
-    @property
-    @pulumi.getter(name="greaterThanOrEqual")
-    def greater_than_or_equal(self) -> Optional[int]:
-        return pulumi.get(self, "greater_than_or_equal")
-
-    @property
-    @pulumi.getter
-    def gt(self) -> Optional[int]:
-        return pulumi.get(self, "gt")
-
-    @property
-    @pulumi.getter
-    def gte(self) -> Optional[int]:
-        return pulumi.get(self, "gte")
-
-    @property
-    @pulumi.getter(name="lessThan")
-    def less_than(self) -> Optional[int]:
-        return pulumi.get(self, "less_than")
-
-    @property
-    @pulumi.getter(name="lessThanOrEqual")
-    def less_than_or_equal(self) -> Optional[int]:
-        return pulumi.get(self, "less_than_or_equal")
-
-    @property
-    @pulumi.getter
-    def lt(self) -> Optional[int]:
-        return pulumi.get(self, "lt")
-
-    @property
-    @pulumi.getter
-    def lte(self) -> Optional[int]:
-        return pulumi.get(self, "lte")
-
-    @property
-    @pulumi.getter
-    def neq(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "neq")
-
-    @property
-    @pulumi.getter(name="notEquals")
-    def not_equals(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "not_equals")
-
-
-@pulumi.output_type
 class FilterFindingCriteria(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "itemType":
-            suggest = "item_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FilterFindingCriteria. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FilterFindingCriteria.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FilterFindingCriteria.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 criterion: Optional[Any] = None,
-                 item_type: Optional['outputs.FilterCondition'] = None):
+                 criterion: Optional[Any] = None):
         if criterion is not None:
             pulumi.set(__self__, "criterion", criterion)
-        if item_type is not None:
-            pulumi.set(__self__, "item_type", item_type)
 
     @property
     @pulumi.getter
     def criterion(self) -> Optional[Any]:
         return pulumi.get(self, "criterion")
 
-    @property
-    @pulumi.getter(name="itemType")
-    def item_type(self) -> Optional['outputs.FilterCondition']:
-        return pulumi.get(self, "item_type")
-
 
 @pulumi.output_type
-class FilterTag(dict):
+class FilterTagItem(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):

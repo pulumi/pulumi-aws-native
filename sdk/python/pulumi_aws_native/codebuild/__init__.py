@@ -5,6 +5,9 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .fleet import *
+from .get_fleet import *
 from .get_project import *
 from .get_report_group import *
 from .get_source_credential import *

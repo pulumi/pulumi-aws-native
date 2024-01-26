@@ -237,6 +237,8 @@ class BackupPlanLifecycleResourceType(dict):
             suggest = "delete_after_days"
         elif key == "moveToColdStorageAfterDays":
             suggest = "move_to_cold_storage_after_days"
+        elif key == "optInToArchiveForSupportedResources":
+            suggest = "opt_in_to_archive_for_supported_resources"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BackupPlanLifecycleResourceType. Access the value via the '{suggest}' property getter instead.")
@@ -251,11 +253,14 @@ class BackupPlanLifecycleResourceType(dict):
 
     def __init__(__self__, *,
                  delete_after_days: Optional[float] = None,
-                 move_to_cold_storage_after_days: Optional[float] = None):
+                 move_to_cold_storage_after_days: Optional[float] = None,
+                 opt_in_to_archive_for_supported_resources: Optional[bool] = None):
         if delete_after_days is not None:
             pulumi.set(__self__, "delete_after_days", delete_after_days)
         if move_to_cold_storage_after_days is not None:
             pulumi.set(__self__, "move_to_cold_storage_after_days", move_to_cold_storage_after_days)
+        if opt_in_to_archive_for_supported_resources is not None:
+            pulumi.set(__self__, "opt_in_to_archive_for_supported_resources", opt_in_to_archive_for_supported_resources)
 
     @property
     @pulumi.getter(name="deleteAfterDays")
@@ -266,6 +271,11 @@ class BackupPlanLifecycleResourceType(dict):
     @pulumi.getter(name="moveToColdStorageAfterDays")
     def move_to_cold_storage_after_days(self) -> Optional[float]:
         return pulumi.get(self, "move_to_cold_storage_after_days")
+
+    @property
+    @pulumi.getter(name="optInToArchiveForSupportedResources")
+    def opt_in_to_archive_for_supported_resources(self) -> Optional[bool]:
+        return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
 
 
 @pulumi.output_type

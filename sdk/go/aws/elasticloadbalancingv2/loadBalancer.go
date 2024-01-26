@@ -20,6 +20,8 @@ type LoadBalancer struct {
 	CanonicalHostedZoneId pulumi.StringOutput `pulumi:"canonicalHostedZoneId"`
 	// The public DNS name of the load balancer.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrOutput `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// The Amazon Resource Name (ARN) of the load balancer.
@@ -92,6 +94,8 @@ func (LoadBalancerState) ElementType() reflect.Type {
 }
 
 type loadBalancerArgs struct {
+	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The load balancer attributes.
@@ -114,6 +118,8 @@ type loadBalancerArgs struct {
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
+	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrInput
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
 	IpAddressType pulumi.StringPtrInput
 	// The load balancer attributes.
@@ -191,6 +197,13 @@ func (o LoadBalancerOutput) CanonicalHostedZoneId() pulumi.StringOutput {
 // The public DNS name of the load balancer.
 func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+}
+
+// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+func (o LoadBalancerOutput) EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput {
+		return v.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).

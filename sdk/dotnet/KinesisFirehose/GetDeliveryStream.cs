@@ -60,6 +60,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public readonly Outputs.DeliveryStreamHttpEndpointDestinationConfiguration? HttpEndpointDestinationConfiguration;
         public readonly Outputs.DeliveryStreamRedshiftDestinationConfiguration? RedshiftDestinationConfiguration;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration? S3DestinationConfiguration;
+        public readonly Outputs.DeliveryStreamSnowflakeDestinationConfiguration? SnowflakeDestinationConfiguration;
         public readonly Outputs.DeliveryStreamSplunkDestinationConfiguration? SplunkDestinationConfiguration;
         public readonly ImmutableArray<Outputs.DeliveryStreamTag> Tags;
 
@@ -83,6 +84,8 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
             Outputs.DeliveryStreamS3DestinationConfiguration? s3DestinationConfiguration,
 
+            Outputs.DeliveryStreamSnowflakeDestinationConfiguration? snowflakeDestinationConfiguration,
+
             Outputs.DeliveryStreamSplunkDestinationConfiguration? splunkDestinationConfiguration,
 
             ImmutableArray<Outputs.DeliveryStreamTag> tags)
@@ -96,6 +99,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
             HttpEndpointDestinationConfiguration = httpEndpointDestinationConfiguration;
             RedshiftDestinationConfiguration = redshiftDestinationConfiguration;
             S3DestinationConfiguration = s3DestinationConfiguration;
+            SnowflakeDestinationConfiguration = snowflakeDestinationConfiguration;
             SplunkDestinationConfiguration = splunkDestinationConfiguration;
             Tags = tags;
         }

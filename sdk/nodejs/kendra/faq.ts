@@ -50,6 +50,7 @@ export class Faq extends pulumi.CustomResource {
      * Index ID
      */
     public readonly indexId!: pulumi.Output<string>;
+    public readonly languageCode!: pulumi.Output<string | undefined>;
     /**
      * FAQ name
      */
@@ -90,6 +91,7 @@ export class Faq extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
             resourceInputs["indexId"] = args ? args.indexId : undefined;
+            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["s3Path"] = args ? args.s3Path : undefined;
@@ -100,6 +102,7 @@ export class Faq extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["fileFormat"] = undefined /*out*/;
             resourceInputs["indexId"] = undefined /*out*/;
+            resourceInputs["languageCode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["s3Path"] = undefined /*out*/;
@@ -128,6 +131,7 @@ export interface FaqArgs {
      * Index ID
      */
     indexId: pulumi.Input<string>;
+    languageCode?: pulumi.Input<string>;
     /**
      * FAQ name
      */

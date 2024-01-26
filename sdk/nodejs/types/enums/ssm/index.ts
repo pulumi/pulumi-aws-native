@@ -55,6 +55,7 @@ export const DocumentType = {
     ProblemAnalysis: "ProblemAnalysis",
     ProblemAnalysisTemplate: "ProblemAnalysisTemplate",
     Session: "Session",
+    OpsPack: "OpsPack",
 } as const;
 
 /**

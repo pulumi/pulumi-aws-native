@@ -19,6 +19,7 @@ import (
 type Resource struct {
 	pulumi.CustomResourceState
 
+	HybridAccessEnabled  pulumi.BoolPtrOutput   `pulumi:"hybridAccessEnabled"`
 	ResourceArn          pulumi.StringOutput    `pulumi:"resourceArn"`
 	RoleArn              pulumi.StringPtrOutput `pulumi:"roleArn"`
 	UseServiceLinkedRole pulumi.BoolOutput      `pulumi:"useServiceLinkedRole"`
@@ -75,6 +76,7 @@ func (ResourceState) ElementType() reflect.Type {
 }
 
 type resourceArgs struct {
+	HybridAccessEnabled  *bool   `pulumi:"hybridAccessEnabled"`
 	ResourceArn          string  `pulumi:"resourceArn"`
 	RoleArn              *string `pulumi:"roleArn"`
 	UseServiceLinkedRole bool    `pulumi:"useServiceLinkedRole"`
@@ -83,6 +85,7 @@ type resourceArgs struct {
 
 // The set of arguments for constructing a Resource resource.
 type ResourceArgs struct {
+	HybridAccessEnabled  pulumi.BoolPtrInput
 	ResourceArn          pulumi.StringInput
 	RoleArn              pulumi.StringPtrInput
 	UseServiceLinkedRole pulumi.BoolInput
@@ -136,6 +139,10 @@ func (o ResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*Resource] 
 	return pulumix.Output[*Resource]{
 		OutputState: o.OutputState,
 	}
+}
+
+func (o ResourceOutput) HybridAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Resource) pulumi.BoolPtrOutput { return v.HybridAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o ResourceOutput) ResourceArn() pulumi.StringOutput {

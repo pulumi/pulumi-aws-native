@@ -14,8 +14,6 @@ import (
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
-//
-// Deprecated: UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type UserPoolIdentityProvider struct {
 	pulumi.CustomResourceState
 
@@ -34,6 +32,9 @@ func NewUserPoolIdentityProvider(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ProviderDetails == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderDetails'")
+	}
 	if args.ProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderName'")
 	}

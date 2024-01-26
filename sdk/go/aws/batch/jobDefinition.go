@@ -17,23 +17,18 @@ import (
 type JobDefinition struct {
 	pulumi.CustomResourceState
 
-	ContainerOrchestrationType pulumi.StringOutput                       `pulumi:"containerOrchestrationType"`
-	ContainerProperties        JobDefinitionContainerPropertiesPtrOutput `pulumi:"containerProperties"`
-	EksProperties              JobDefinitionEksPropertiesPtrOutput       `pulumi:"eksProperties"`
-	JobDefinitionArn           pulumi.StringOutput                       `pulumi:"jobDefinitionArn"`
-	JobDefinitionName          pulumi.StringPtrOutput                    `pulumi:"jobDefinitionName"`
-	NodeProperties             JobDefinitionNodePropertiesPtrOutput      `pulumi:"nodeProperties"`
-	Parameters                 pulumi.AnyOutput                          `pulumi:"parameters"`
-	PlatformCapabilities       pulumi.StringArrayOutput                  `pulumi:"platformCapabilities"`
-	PropagateTags              pulumi.BoolPtrOutput                      `pulumi:"propagateTags"`
-	RetryStrategy              JobDefinitionRetryStrategyPtrOutput       `pulumi:"retryStrategy"`
-	Revision                   pulumi.IntOutput                          `pulumi:"revision"`
-	SchedulingPriority         pulumi.IntPtrOutput                       `pulumi:"schedulingPriority"`
-	Status                     pulumi.StringOutput                       `pulumi:"status"`
-	// A key-value pair to associate with a resource.
-	Tags    pulumi.AnyOutput                 `pulumi:"tags"`
-	Timeout JobDefinitionJobTimeoutPtrOutput `pulumi:"timeout"`
-	Type    pulumi.StringOutput              `pulumi:"type"`
+	ContainerProperties  JobDefinitionContainerPropertiesPtrOutput `pulumi:"containerProperties"`
+	EksProperties        JobDefinitionEksPropertiesPtrOutput       `pulumi:"eksProperties"`
+	JobDefinitionName    pulumi.StringPtrOutput                    `pulumi:"jobDefinitionName"`
+	NodeProperties       JobDefinitionNodePropertiesPtrOutput      `pulumi:"nodeProperties"`
+	Parameters           pulumi.AnyOutput                          `pulumi:"parameters"`
+	PlatformCapabilities pulumi.StringArrayOutput                  `pulumi:"platformCapabilities"`
+	PropagateTags        pulumi.BoolPtrOutput                      `pulumi:"propagateTags"`
+	RetryStrategy        JobDefinitionRetryStrategyPtrOutput       `pulumi:"retryStrategy"`
+	SchedulingPriority   pulumi.IntPtrOutput                       `pulumi:"schedulingPriority"`
+	Tags                 pulumi.AnyOutput                          `pulumi:"tags"`
+	Timeout              JobDefinitionTimeoutPtrOutput             `pulumi:"timeout"`
+	Type                 pulumi.StringOutput                       `pulumi:"type"`
 }
 
 // NewJobDefinition registers a new resource with the given unique name, arguments, and options.
@@ -47,17 +42,8 @@ func NewJobDefinition(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"containerProperties",
-		"eksProperties",
 		"jobDefinitionName",
-		"nodeProperties",
-		"parameters",
-		"platformCapabilities[*]",
-		"propagateTags",
-		"retryStrategy",
-		"schedulingPriority",
-		"timeout",
-		"type",
+		"tags",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -102,10 +88,9 @@ type jobDefinitionArgs struct {
 	PropagateTags        *bool                             `pulumi:"propagateTags"`
 	RetryStrategy        *JobDefinitionRetryStrategy       `pulumi:"retryStrategy"`
 	SchedulingPriority   *int                              `pulumi:"schedulingPriority"`
-	// A key-value pair to associate with a resource.
-	Tags    interface{}              `pulumi:"tags"`
-	Timeout *JobDefinitionJobTimeout `pulumi:"timeout"`
-	Type    string                   `pulumi:"type"`
+	Tags                 interface{}                       `pulumi:"tags"`
+	Timeout              *JobDefinitionTimeout             `pulumi:"timeout"`
+	Type                 string                            `pulumi:"type"`
 }
 
 // The set of arguments for constructing a JobDefinition resource.
@@ -119,10 +104,9 @@ type JobDefinitionArgs struct {
 	PropagateTags        pulumi.BoolPtrInput
 	RetryStrategy        JobDefinitionRetryStrategyPtrInput
 	SchedulingPriority   pulumi.IntPtrInput
-	// A key-value pair to associate with a resource.
-	Tags    pulumi.Input
-	Timeout JobDefinitionJobTimeoutPtrInput
-	Type    pulumi.StringInput
+	Tags                 pulumi.Input
+	Timeout              JobDefinitionTimeoutPtrInput
+	Type                 pulumi.StringInput
 }
 
 func (JobDefinitionArgs) ElementType() reflect.Type {
@@ -174,20 +158,12 @@ func (o JobDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDe
 	}
 }
 
-func (o JobDefinitionOutput) ContainerOrchestrationType() pulumi.StringOutput {
-	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.ContainerOrchestrationType }).(pulumi.StringOutput)
-}
-
 func (o JobDefinitionOutput) ContainerProperties() JobDefinitionContainerPropertiesPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionContainerPropertiesPtrOutput { return v.ContainerProperties }).(JobDefinitionContainerPropertiesPtrOutput)
 }
 
 func (o JobDefinitionOutput) EksProperties() JobDefinitionEksPropertiesPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionEksPropertiesPtrOutput { return v.EksProperties }).(JobDefinitionEksPropertiesPtrOutput)
-}
-
-func (o JobDefinitionOutput) JobDefinitionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.JobDefinitionArn }).(pulumi.StringOutput)
 }
 
 func (o JobDefinitionOutput) JobDefinitionName() pulumi.StringPtrOutput {
@@ -214,25 +190,16 @@ func (o JobDefinitionOutput) RetryStrategy() JobDefinitionRetryStrategyPtrOutput
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionRetryStrategyPtrOutput { return v.RetryStrategy }).(JobDefinitionRetryStrategyPtrOutput)
 }
 
-func (o JobDefinitionOutput) Revision() pulumi.IntOutput {
-	return o.ApplyT(func(v *JobDefinition) pulumi.IntOutput { return v.Revision }).(pulumi.IntOutput)
-}
-
 func (o JobDefinitionOutput) SchedulingPriority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.IntPtrOutput { return v.SchedulingPriority }).(pulumi.IntPtrOutput)
 }
 
-func (o JobDefinitionOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
-}
-
-// A key-value pair to associate with a resource.
 func (o JobDefinitionOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }
 
-func (o JobDefinitionOutput) Timeout() JobDefinitionJobTimeoutPtrOutput {
-	return o.ApplyT(func(v *JobDefinition) JobDefinitionJobTimeoutPtrOutput { return v.Timeout }).(JobDefinitionJobTimeoutPtrOutput)
+func (o JobDefinitionOutput) Timeout() JobDefinitionTimeoutPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) JobDefinitionTimeoutPtrOutput { return v.Timeout }).(JobDefinitionTimeoutPtrOutput)
 }
 
 func (o JobDefinitionOutput) Type() pulumi.StringOutput {

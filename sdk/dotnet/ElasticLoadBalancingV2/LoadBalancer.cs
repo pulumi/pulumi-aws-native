@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+        /// </summary>
+        [Output("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
+        public Output<string?> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; private set; } = null!;
+
+        /// <summary>
         /// The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
         /// </summary>
         [Output("ipAddressType")]
@@ -150,6 +156,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+        /// </summary>
+        [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
+        public Input<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
+
         /// <summary>
         /// The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
         /// </summary>

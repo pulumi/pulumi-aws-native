@@ -32,6 +32,7 @@ export interface GetDeliveryStreamResult {
     readonly httpEndpointDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration;
     readonly redshiftDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfiguration;
     readonly s3DestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
+    readonly snowflakeDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfiguration;
     readonly splunkDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration;
     readonly tags?: outputs.kinesisfirehose.DeliveryStreamTag[];
 }

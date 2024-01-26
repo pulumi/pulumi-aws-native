@@ -29,6 +29,7 @@ class DeliveryStreamArgs:
                  msk_source_configuration: Optional[pulumi.Input['DeliveryStreamMskSourceConfigurationArgs']] = None,
                  redshift_destination_configuration: Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationArgs']] = None,
                  s3_destination_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
+                 snowflake_destination_configuration: Optional[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationArgs']] = None,
                  splunk_destination_configuration: Optional[pulumi.Input['DeliveryStreamSplunkDestinationConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamTagArgs']]]] = None):
         """
@@ -58,6 +59,8 @@ class DeliveryStreamArgs:
             pulumi.set(__self__, "redshift_destination_configuration", redshift_destination_configuration)
         if s3_destination_configuration is not None:
             pulumi.set(__self__, "s3_destination_configuration", s3_destination_configuration)
+        if snowflake_destination_configuration is not None:
+            pulumi.set(__self__, "snowflake_destination_configuration", snowflake_destination_configuration)
         if splunk_destination_configuration is not None:
             pulumi.set(__self__, "splunk_destination_configuration", splunk_destination_configuration)
         if tags is not None:
@@ -172,6 +175,15 @@ class DeliveryStreamArgs:
         pulumi.set(self, "s3_destination_configuration", value)
 
     @property
+    @pulumi.getter(name="snowflakeDestinationConfiguration")
+    def snowflake_destination_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationArgs']]:
+        return pulumi.get(self, "snowflake_destination_configuration")
+
+    @snowflake_destination_configuration.setter
+    def snowflake_destination_configuration(self, value: Optional[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationArgs']]):
+        pulumi.set(self, "snowflake_destination_configuration", value)
+
+    @property
     @pulumi.getter(name="splunkDestinationConfiguration")
     def splunk_destination_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSplunkDestinationConfigurationArgs']]:
         return pulumi.get(self, "splunk_destination_configuration")
@@ -207,6 +219,7 @@ class DeliveryStream(pulumi.CustomResource):
                  msk_source_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamMskSourceConfigurationArgs']]] = None,
                  redshift_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamRedshiftDestinationConfigurationArgs']]] = None,
                  s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamS3DestinationConfigurationArgs']]] = None,
+                 snowflake_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamSnowflakeDestinationConfigurationArgs']]] = None,
                  splunk_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamSplunkDestinationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryStreamTagArgs']]]]] = None,
                  __props__=None):
@@ -252,6 +265,7 @@ class DeliveryStream(pulumi.CustomResource):
                  msk_source_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamMskSourceConfigurationArgs']]] = None,
                  redshift_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamRedshiftDestinationConfigurationArgs']]] = None,
                  s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamS3DestinationConfigurationArgs']]] = None,
+                 snowflake_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamSnowflakeDestinationConfigurationArgs']]] = None,
                  splunk_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamSplunkDestinationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryStreamTagArgs']]]]] = None,
                  __props__=None):
@@ -275,10 +289,11 @@ class DeliveryStream(pulumi.CustomResource):
             __props__.__dict__["msk_source_configuration"] = msk_source_configuration
             __props__.__dict__["redshift_destination_configuration"] = redshift_destination_configuration
             __props__.__dict__["s3_destination_configuration"] = s3_destination_configuration
+            __props__.__dict__["snowflake_destination_configuration"] = snowflake_destination_configuration
             __props__.__dict__["splunk_destination_configuration"] = splunk_destination_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazon_open_search_serverless_destination_configuration.vpc_configuration", "amazonopensearchservice_destination_configuration.vpc_configuration", "delivery_stream_name", "delivery_stream_type", "elasticsearch_destination_configuration.vpc_configuration", "kinesis_stream_source_configuration", "msk_source_configuration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazon_open_search_serverless_destination_configuration.vpc_configuration", "amazonopensearchservice_destination_configuration.vpc_configuration", "delivery_stream_name", "delivery_stream_type", "elasticsearch_destination_configuration.vpc_configuration", "kinesis_stream_source_configuration", "msk_source_configuration", "snowflake_destination_configuration.snowflake_vpc_configuration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliveryStream, __self__).__init__(
             'aws-native:kinesisfirehose:DeliveryStream',
@@ -315,6 +330,7 @@ class DeliveryStream(pulumi.CustomResource):
         __props__.__dict__["msk_source_configuration"] = None
         __props__.__dict__["redshift_destination_configuration"] = None
         __props__.__dict__["s3_destination_configuration"] = None
+        __props__.__dict__["snowflake_destination_configuration"] = None
         __props__.__dict__["splunk_destination_configuration"] = None
         __props__.__dict__["tags"] = None
         return DeliveryStream(resource_name, opts=opts, __props__=__props__)
@@ -383,6 +399,11 @@ class DeliveryStream(pulumi.CustomResource):
     @pulumi.getter(name="s3DestinationConfiguration")
     def s3_destination_configuration(self) -> pulumi.Output[Optional['outputs.DeliveryStreamS3DestinationConfiguration']]:
         return pulumi.get(self, "s3_destination_configuration")
+
+    @property
+    @pulumi.getter(name="snowflakeDestinationConfiguration")
+    def snowflake_destination_configuration(self) -> pulumi.Output[Optional['outputs.DeliveryStreamSnowflakeDestinationConfiguration']]:
+        return pulumi.get(self, "snowflake_destination_configuration")
 
     @property
     @pulumi.getter(name="splunkDestinationConfiguration")

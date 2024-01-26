@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Cognito
     /// <summary>
     /// Resource Type definition for AWS::Cognito::UserPoolResourceServer
     /// </summary>
-    [Obsolete(@"UserPoolResourceServer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:UserPoolResourceServer")]
     public partial class UserPoolResourceServer : global::Pulumi.CustomResource
     {

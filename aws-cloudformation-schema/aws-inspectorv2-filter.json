@@ -310,6 +310,9 @@
       "minLength" : 1
     }
   },
+  "tagging" : {
+    "taggable" : false
+  },
   "required" : [ "Name", "FilterCriteria", "FilterAction" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "additionalProperties" : false,

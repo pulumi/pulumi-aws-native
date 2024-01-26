@@ -24,16 +24,21 @@ func LookupJobDefinition(ctx *pulumi.Context, args *LookupJobDefinitionArgs, opt
 }
 
 type LookupJobDefinitionArgs struct {
-	JobDefinitionArn string `pulumi:"jobDefinitionArn"`
+	Id string `pulumi:"id"`
 }
 
 type LookupJobDefinitionResult struct {
-	ContainerOrchestrationType *string `pulumi:"containerOrchestrationType"`
-	JobDefinitionArn           *string `pulumi:"jobDefinitionArn"`
-	Revision                   *int    `pulumi:"revision"`
-	Status                     *string `pulumi:"status"`
-	// A key-value pair to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	ContainerProperties  *JobDefinitionContainerProperties `pulumi:"containerProperties"`
+	EksProperties        *JobDefinitionEksProperties       `pulumi:"eksProperties"`
+	Id                   *string                           `pulumi:"id"`
+	NodeProperties       *JobDefinitionNodeProperties      `pulumi:"nodeProperties"`
+	Parameters           interface{}                       `pulumi:"parameters"`
+	PlatformCapabilities []string                          `pulumi:"platformCapabilities"`
+	PropagateTags        *bool                             `pulumi:"propagateTags"`
+	RetryStrategy        *JobDefinitionRetryStrategy       `pulumi:"retryStrategy"`
+	SchedulingPriority   *int                              `pulumi:"schedulingPriority"`
+	Timeout              *JobDefinitionTimeout             `pulumi:"timeout"`
+	Type                 *string                           `pulumi:"type"`
 }
 
 func LookupJobDefinitionOutput(ctx *pulumi.Context, args LookupJobDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupJobDefinitionResultOutput {
@@ -50,7 +55,7 @@ func LookupJobDefinitionOutput(ctx *pulumi.Context, args LookupJobDefinitionOutp
 }
 
 type LookupJobDefinitionOutputArgs struct {
-	JobDefinitionArn pulumi.StringInput `pulumi:"jobDefinitionArn"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupJobDefinitionOutputArgs) ElementType() reflect.Type {
@@ -77,25 +82,48 @@ func (o LookupJobDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.O
 	}
 }
 
-func (o LookupJobDefinitionResultOutput) ContainerOrchestrationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.ContainerOrchestrationType }).(pulumi.StringPtrOutput)
+func (o LookupJobDefinitionResultOutput) ContainerProperties() JobDefinitionContainerPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionContainerProperties { return v.ContainerProperties }).(JobDefinitionContainerPropertiesPtrOutput)
 }
 
-func (o LookupJobDefinitionResultOutput) JobDefinitionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.JobDefinitionArn }).(pulumi.StringPtrOutput)
+func (o LookupJobDefinitionResultOutput) EksProperties() JobDefinitionEksPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionEksProperties { return v.EksProperties }).(JobDefinitionEksPropertiesPtrOutput)
 }
 
-func (o LookupJobDefinitionResultOutput) Revision() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupJobDefinitionResult) *int { return v.Revision }).(pulumi.IntPtrOutput)
+func (o LookupJobDefinitionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupJobDefinitionResultOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o LookupJobDefinitionResultOutput) NodeProperties() JobDefinitionNodePropertiesPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionNodeProperties { return v.NodeProperties }).(JobDefinitionNodePropertiesPtrOutput)
 }
 
-// A key-value pair to associate with a resource.
-func (o LookupJobDefinitionResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupJobDefinitionResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupJobDefinitionResultOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+func (o LookupJobDefinitionResultOutput) PlatformCapabilities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) []string { return v.PlatformCapabilities }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupJobDefinitionResultOutput) PropagateTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *bool { return v.PropagateTags }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupJobDefinitionResultOutput) RetryStrategy() JobDefinitionRetryStrategyPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionRetryStrategy { return v.RetryStrategy }).(JobDefinitionRetryStrategyPtrOutput)
+}
+
+func (o LookupJobDefinitionResultOutput) SchedulingPriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *int { return v.SchedulingPriority }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupJobDefinitionResultOutput) Timeout() JobDefinitionTimeoutPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionTimeout { return v.Timeout }).(JobDefinitionTimeoutPtrOutput)
+}
+
+func (o LookupJobDefinitionResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

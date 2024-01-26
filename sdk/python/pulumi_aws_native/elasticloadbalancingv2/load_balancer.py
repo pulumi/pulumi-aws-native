@@ -16,6 +16,7 @@ __all__ = ['LoadBalancerArgs', 'LoadBalancer']
 @pulumi.input_type
 class LoadBalancerArgs:
     def __init__(__self__, *,
+                 enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -27,6 +28,7 @@ class LoadBalancerArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
+        :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]] load_balancer_attributes: The load balancer attributes.
         :param pulumi.Input[str] name: The name of the load balancer.
@@ -37,6 +39,8 @@ class LoadBalancerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]] tags: The tags to assign to the load balancer.
         :param pulumi.Input[str] type: The type of load balancer. The default is application.
         """
+        if enforce_security_group_inbound_rules_on_private_link_traffic is not None:
+            pulumi.set(__self__, "enforce_security_group_inbound_rules_on_private_link_traffic", enforce_security_group_inbound_rules_on_private_link_traffic)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if load_balancer_attributes is not None:
@@ -55,6 +59,18 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+        """
+        return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
+
+    @enforce_security_group_inbound_rules_on_private_link_traffic.setter
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enforce_security_group_inbound_rules_on_private_link_traffic", value)
 
     @property
     @pulumi.getter(name="ipAddressType")
@@ -170,6 +186,7 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerAttributeArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -185,6 +202,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerAttributeArgs']]]] load_balancer_attributes: The load balancer attributes.
         :param pulumi.Input[str] name: The name of the load balancer.
@@ -219,6 +237,7 @@ class LoadBalancer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerAttributeArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -237,6 +256,7 @@ class LoadBalancer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LoadBalancerArgs.__new__(LoadBalancerArgs)
 
+            __props__.__dict__["enforce_security_group_inbound_rules_on_private_link_traffic"] = enforce_security_group_inbound_rules_on_private_link_traffic
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["load_balancer_attributes"] = load_balancer_attributes
             __props__.__dict__["name"] = name
@@ -277,6 +297,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         __props__.__dict__["canonical_hosted_zone_id"] = None
         __props__.__dict__["dns_name"] = None
+        __props__.__dict__["enforce_security_group_inbound_rules_on_private_link_traffic"] = None
         __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["load_balancer_arn"] = None
         __props__.__dict__["load_balancer_attributes"] = None
@@ -306,6 +327,14 @@ class LoadBalancer(pulumi.CustomResource):
         The public DNS name of the load balancer.
         """
         return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+        """
+        return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
 
     @property
     @pulumi.getter(name="ipAddressType")

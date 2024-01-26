@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAccountPolicyResult:
-    def __init__(__self__, account_id=None, policy_document=None, scope=None):
+    def __init__(__self__, account_id=None, policy_document=None, scope=None, selection_criteria=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -29,6 +29,9 @@ class GetAccountPolicyResult:
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
+        if selection_criteria and not isinstance(selection_criteria, str):
+            raise TypeError("Expected argument 'selection_criteria' to be a str")
+        pulumi.set(__self__, "selection_criteria", selection_criteria)
 
     @property
     @pulumi.getter(name="accountId")
@@ -60,6 +63,14 @@ class GetAccountPolicyResult:
         """
         return pulumi.get(self, "scope")
 
+    @property
+    @pulumi.getter(name="selectionCriteria")
+    def selection_criteria(self) -> Optional[str]:
+        """
+        Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+        """
+        return pulumi.get(self, "selection_criteria")
+
 
 class AwaitableGetAccountPolicyResult(GetAccountPolicyResult):
     # pylint: disable=using-constant-test
@@ -69,7 +80,8 @@ class AwaitableGetAccountPolicyResult(GetAccountPolicyResult):
         return GetAccountPolicyResult(
             account_id=self.account_id,
             policy_document=self.policy_document,
-            scope=self.scope)
+            scope=self.scope,
+            selection_criteria=self.selection_criteria)
 
 
 def get_account_policy(account_id: Optional[str] = None,
@@ -94,7 +106,8 @@ def get_account_policy(account_id: Optional[str] = None,
     return AwaitableGetAccountPolicyResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         policy_document=pulumi.get(__ret__, 'policy_document'),
-        scope=pulumi.get(__ret__, 'scope'))
+        scope=pulumi.get(__ret__, 'scope'),
+        selection_criteria=pulumi.get(__ret__, 'selection_criteria'))
 
 
 @_utilities.lift_output_func(get_account_policy)

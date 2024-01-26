@@ -57,6 +57,12 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        /// <summary>
+        /// Qtype
+        /// </summary>
+        [Input("qtype")]
+        public Input<string>? Qtype { get; set; }
+
         public FirewallRuleGroupFirewallRuleArgs()
         {
         }

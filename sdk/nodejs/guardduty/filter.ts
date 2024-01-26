@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::GuardDuty::Filter
- *
- * @deprecated Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Filter extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Filter extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Filter {
-        pulumi.log.warn("Filter is deprecated: Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Filter(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,13 +37,13 @@ export class Filter extends pulumi.CustomResource {
         return obj['__pulumiType'] === Filter.__pulumiType;
     }
 
-    public readonly action!: pulumi.Output<string>;
-    public readonly description!: pulumi.Output<string>;
-    public readonly detectorId!: pulumi.Output<string>;
+    public readonly action!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly detectorId!: pulumi.Output<string | undefined>;
     public readonly findingCriteria!: pulumi.Output<outputs.guardduty.FilterFindingCriteria>;
-    public readonly name!: pulumi.Output<string>;
-    public readonly rank!: pulumi.Output<number>;
-    public readonly tags!: pulumi.Output<outputs.guardduty.FilterTag[] | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly rank!: pulumi.Output<number | undefined>;
+    public readonly tags!: pulumi.Output<outputs.guardduty.FilterTagItem[] | undefined>;
 
     /**
      * Create a Filter resource with the given unique name, arguments, and options.
@@ -55,26 +52,12 @@ export class Filter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: FilterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Filter is deprecated: Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'action'");
-            }
-            if ((!args || args.description === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'description'");
-            }
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'detectorId'");
-            }
             if ((!args || args.findingCriteria === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'findingCriteria'");
-            }
-            if ((!args || args.rank === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'rank'");
             }
             resourceInputs["action"] = args ? args.action : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -103,11 +86,11 @@ export class Filter extends pulumi.CustomResource {
  * The set of arguments for constructing a Filter resource.
  */
 export interface FilterArgs {
-    action: pulumi.Input<string>;
-    description: pulumi.Input<string>;
-    detectorId: pulumi.Input<string>;
+    action?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    detectorId?: pulumi.Input<string>;
     findingCriteria: pulumi.Input<inputs.guardduty.FilterFindingCriteriaArgs>;
     name?: pulumi.Input<string>;
-    rank: pulumi.Input<number>;
-    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.FilterTagArgs>[]>;
+    rank?: pulumi.Input<number>;
+    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.FilterTagItemArgs>[]>;
 }

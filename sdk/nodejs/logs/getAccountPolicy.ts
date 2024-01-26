@@ -54,6 +54,10 @@ export interface GetAccountPolicyResult {
      * Scope for policy application
      */
     readonly scope?: enums.logs.AccountPolicyScope;
+    /**
+     * Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+     */
+    readonly selectionCriteria?: string;
 }
 /**
  * The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.

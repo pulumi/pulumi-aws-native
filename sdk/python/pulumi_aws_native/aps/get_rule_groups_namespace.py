@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuleGroupsNamespaceResult:
-    def __init__(__self__, arn=None, data=None, tags=None, workspace=None):
+    def __init__(__self__, arn=None, data=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -29,9 +29,6 @@ class GetRuleGroupsNamespaceResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-        if workspace and not isinstance(workspace, str):
-            raise TypeError("Expected argument 'workspace' to be a str")
-        pulumi.set(__self__, "workspace", workspace)
 
     @property
     @pulumi.getter
@@ -57,14 +54,6 @@ class GetRuleGroupsNamespaceResult:
         """
         return pulumi.get(self, "tags")
 
-    @property
-    @pulumi.getter
-    def workspace(self) -> Optional[str]:
-        """
-        Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
-        """
-        return pulumi.get(self, "workspace")
-
 
 class AwaitableGetRuleGroupsNamespaceResult(GetRuleGroupsNamespaceResult):
     # pylint: disable=using-constant-test
@@ -74,8 +63,7 @@ class AwaitableGetRuleGroupsNamespaceResult(GetRuleGroupsNamespaceResult):
         return GetRuleGroupsNamespaceResult(
             arn=self.arn,
             data=self.data,
-            tags=self.tags,
-            workspace=self.workspace)
+            tags=self.tags)
 
 
 def get_rule_groups_namespace(arn: Optional[str] = None,
@@ -94,8 +82,7 @@ def get_rule_groups_namespace(arn: Optional[str] = None,
     return AwaitableGetRuleGroupsNamespaceResult(
         arn=pulumi.get(__ret__, 'arn'),
         data=pulumi.get(__ret__, 'data'),
-        tags=pulumi.get(__ret__, 'tags'),
-        workspace=pulumi.get(__ret__, 'workspace'))
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_rule_groups_namespace)

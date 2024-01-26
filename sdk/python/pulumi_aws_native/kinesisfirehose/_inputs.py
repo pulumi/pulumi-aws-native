@@ -53,6 +53,10 @@ __all__ = [
     'DeliveryStreamS3DestinationConfigurationArgs',
     'DeliveryStreamSchemaConfigurationArgs',
     'DeliveryStreamSerializerArgs',
+    'DeliveryStreamSnowflakeDestinationConfigurationArgs',
+    'DeliveryStreamSnowflakeRetryOptionsArgs',
+    'DeliveryStreamSnowflakeRoleConfigurationArgs',
+    'DeliveryStreamSnowflakeVpcConfigurationArgs',
     'DeliveryStreamSplunkBufferingHintsArgs',
     'DeliveryStreamSplunkDestinationConfigurationArgs',
     'DeliveryStreamSplunkRetryOptionsArgs',
@@ -2174,6 +2178,281 @@ class DeliveryStreamSerializerArgs:
     @parquet_ser_de.setter
     def parquet_ser_de(self, value: Optional[pulumi.Input['DeliveryStreamParquetSerDeArgs']]):
         pulumi.set(self, "parquet_ser_de", value)
+
+
+@pulumi.input_type
+class DeliveryStreamSnowflakeDestinationConfigurationArgs:
+    def __init__(__self__, *,
+                 account_url: pulumi.Input[str],
+                 database: pulumi.Input[str],
+                 private_key: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
+                 schema: pulumi.Input[str],
+                 table: pulumi.Input[str],
+                 user: pulumi.Input[str],
+                 cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
+                 content_column_name: Optional[pulumi.Input[str]] = None,
+                 data_loading_option: Optional[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption']] = None,
+                 key_passphrase: Optional[pulumi.Input[str]] = None,
+                 meta_data_column_name: Optional[pulumi.Input[str]] = None,
+                 processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
+                 retry_options: Optional[pulumi.Input['DeliveryStreamSnowflakeRetryOptionsArgs']] = None,
+                 s3_backup_mode: Optional[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode']] = None,
+                 snowflake_role_configuration: Optional[pulumi.Input['DeliveryStreamSnowflakeRoleConfigurationArgs']] = None,
+                 snowflake_vpc_configuration: Optional[pulumi.Input['DeliveryStreamSnowflakeVpcConfigurationArgs']] = None):
+        pulumi.set(__self__, "account_url", account_url)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
+        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "table", table)
+        pulumi.set(__self__, "user", user)
+        if cloud_watch_logging_options is not None:
+            pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
+        if content_column_name is not None:
+            pulumi.set(__self__, "content_column_name", content_column_name)
+        if data_loading_option is not None:
+            pulumi.set(__self__, "data_loading_option", data_loading_option)
+        if key_passphrase is not None:
+            pulumi.set(__self__, "key_passphrase", key_passphrase)
+        if meta_data_column_name is not None:
+            pulumi.set(__self__, "meta_data_column_name", meta_data_column_name)
+        if processing_configuration is not None:
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
+        if retry_options is not None:
+            pulumi.set(__self__, "retry_options", retry_options)
+        if s3_backup_mode is not None:
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if snowflake_role_configuration is not None:
+            pulumi.set(__self__, "snowflake_role_configuration", snowflake_role_configuration)
+        if snowflake_vpc_configuration is not None:
+            pulumi.set(__self__, "snowflake_vpc_configuration", snowflake_vpc_configuration)
+
+    @property
+    @pulumi.getter(name="accountUrl")
+    def account_url(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "account_url")
+
+    @account_url.setter
+    def account_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_url", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']:
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']):
+        pulumi.set(self, "s3_configuration", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter
+    def table(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user", value)
+
+    @property
+    @pulumi.getter(name="cloudWatchLoggingOptions")
+    def cloud_watch_logging_options(self) -> Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']]:
+        return pulumi.get(self, "cloud_watch_logging_options")
+
+    @cloud_watch_logging_options.setter
+    def cloud_watch_logging_options(self, value: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']]):
+        pulumi.set(self, "cloud_watch_logging_options", value)
+
+    @property
+    @pulumi.getter(name="contentColumnName")
+    def content_column_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "content_column_name")
+
+    @content_column_name.setter
+    def content_column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_column_name", value)
+
+    @property
+    @pulumi.getter(name="dataLoadingOption")
+    def data_loading_option(self) -> Optional[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption']]:
+        return pulumi.get(self, "data_loading_option")
+
+    @data_loading_option.setter
+    def data_loading_option(self, value: Optional[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption']]):
+        pulumi.set(self, "data_loading_option", value)
+
+    @property
+    @pulumi.getter(name="keyPassphrase")
+    def key_passphrase(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key_passphrase")
+
+    @key_passphrase.setter
+    def key_passphrase(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_passphrase", value)
+
+    @property
+    @pulumi.getter(name="metaDataColumnName")
+    def meta_data_column_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "meta_data_column_name")
+
+    @meta_data_column_name.setter
+    def meta_data_column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "meta_data_column_name", value)
+
+    @property
+    @pulumi.getter(name="processingConfiguration")
+    def processing_configuration(self) -> Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']]:
+        return pulumi.get(self, "processing_configuration")
+
+    @processing_configuration.setter
+    def processing_configuration(self, value: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']]):
+        pulumi.set(self, "processing_configuration", value)
+
+    @property
+    @pulumi.getter(name="retryOptions")
+    def retry_options(self) -> Optional[pulumi.Input['DeliveryStreamSnowflakeRetryOptionsArgs']]:
+        return pulumi.get(self, "retry_options")
+
+    @retry_options.setter
+    def retry_options(self, value: Optional[pulumi.Input['DeliveryStreamSnowflakeRetryOptionsArgs']]):
+        pulumi.set(self, "retry_options", value)
+
+    @property
+    @pulumi.getter(name="s3BackupMode")
+    def s3_backup_mode(self) -> Optional[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode']]:
+        return pulumi.get(self, "s3_backup_mode")
+
+    @s3_backup_mode.setter
+    def s3_backup_mode(self, value: Optional[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode']]):
+        pulumi.set(self, "s3_backup_mode", value)
+
+    @property
+    @pulumi.getter(name="snowflakeRoleConfiguration")
+    def snowflake_role_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSnowflakeRoleConfigurationArgs']]:
+        return pulumi.get(self, "snowflake_role_configuration")
+
+    @snowflake_role_configuration.setter
+    def snowflake_role_configuration(self, value: Optional[pulumi.Input['DeliveryStreamSnowflakeRoleConfigurationArgs']]):
+        pulumi.set(self, "snowflake_role_configuration", value)
+
+    @property
+    @pulumi.getter(name="snowflakeVpcConfiguration")
+    def snowflake_vpc_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSnowflakeVpcConfigurationArgs']]:
+        return pulumi.get(self, "snowflake_vpc_configuration")
+
+    @snowflake_vpc_configuration.setter
+    def snowflake_vpc_configuration(self, value: Optional[pulumi.Input['DeliveryStreamSnowflakeVpcConfigurationArgs']]):
+        pulumi.set(self, "snowflake_vpc_configuration", value)
+
+
+@pulumi.input_type
+class DeliveryStreamSnowflakeRetryOptionsArgs:
+    def __init__(__self__, *,
+                 duration_in_seconds: Optional[pulumi.Input[int]] = None):
+        if duration_in_seconds is not None:
+            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+
+    @property
+    @pulumi.getter(name="durationInSeconds")
+    def duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "duration_in_seconds")
+
+    @duration_in_seconds.setter
+    def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "duration_in_seconds", value)
+
+
+@pulumi.input_type
+class DeliveryStreamSnowflakeRoleConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 snowflake_role: Optional[pulumi.Input[str]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if snowflake_role is not None:
+            pulumi.set(__self__, "snowflake_role", snowflake_role)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="snowflakeRole")
+    def snowflake_role(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "snowflake_role")
+
+    @snowflake_role.setter
+    def snowflake_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snowflake_role", value)
+
+
+@pulumi.input_type
+class DeliveryStreamSnowflakeVpcConfigurationArgs:
+    def __init__(__self__, *,
+                 private_link_vpce_id: pulumi.Input[str]):
+        pulumi.set(__self__, "private_link_vpce_id", private_link_vpce_id)
+
+    @property
+    @pulumi.getter(name="privateLinkVpceId")
+    def private_link_vpce_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "private_link_vpce_id")
+
+    @private_link_vpce_id.setter
+    def private_link_vpce_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_link_vpce_id", value)
 
 
 @pulumi.input_type

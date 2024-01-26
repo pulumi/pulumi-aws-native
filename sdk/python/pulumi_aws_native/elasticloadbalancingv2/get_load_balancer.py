@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetLoadBalancerResult:
-    def __init__(__self__, canonical_hosted_zone_id=None, dns_name=None, ip_address_type=None, load_balancer_arn=None, load_balancer_attributes=None, load_balancer_full_name=None, load_balancer_name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None):
+    def __init__(__self__, canonical_hosted_zone_id=None, dns_name=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, ip_address_type=None, load_balancer_arn=None, load_balancer_attributes=None, load_balancer_full_name=None, load_balancer_name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None):
         if canonical_hosted_zone_id and not isinstance(canonical_hosted_zone_id, str):
             raise TypeError("Expected argument 'canonical_hosted_zone_id' to be a str")
         pulumi.set(__self__, "canonical_hosted_zone_id", canonical_hosted_zone_id)
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
+        if enforce_security_group_inbound_rules_on_private_link_traffic and not isinstance(enforce_security_group_inbound_rules_on_private_link_traffic, str):
+            raise TypeError("Expected argument 'enforce_security_group_inbound_rules_on_private_link_traffic' to be a str")
+        pulumi.set(__self__, "enforce_security_group_inbound_rules_on_private_link_traffic", enforce_security_group_inbound_rules_on_private_link_traffic)
         if ip_address_type and not isinstance(ip_address_type, str):
             raise TypeError("Expected argument 'ip_address_type' to be a str")
         pulumi.set(__self__, "ip_address_type", ip_address_type)
@@ -69,6 +72,14 @@ class GetLoadBalancerResult:
         The public DNS name of the load balancer.
         """
         return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> Optional[str]:
+        """
+        Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+        """
+        return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
 
     @property
     @pulumi.getter(name="ipAddressType")
@@ -151,6 +162,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
         return GetLoadBalancerResult(
             canonical_hosted_zone_id=self.canonical_hosted_zone_id,
             dns_name=self.dns_name,
+            enforce_security_group_inbound_rules_on_private_link_traffic=self.enforce_security_group_inbound_rules_on_private_link_traffic,
             ip_address_type=self.ip_address_type,
             load_balancer_arn=self.load_balancer_arn,
             load_balancer_attributes=self.load_balancer_attributes,
@@ -178,6 +190,7 @@ def get_load_balancer(load_balancer_arn: Optional[str] = None,
     return AwaitableGetLoadBalancerResult(
         canonical_hosted_zone_id=pulumi.get(__ret__, 'canonical_hosted_zone_id'),
         dns_name=pulumi.get(__ret__, 'dns_name'),
+        enforce_security_group_inbound_rules_on_private_link_traffic=pulumi.get(__ret__, 'enforce_security_group_inbound_rules_on_private_link_traffic'),
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         load_balancer_arn=pulumi.get(__ret__, 'load_balancer_arn'),
         load_balancer_attributes=pulumi.get(__ret__, 'load_balancer_attributes'),

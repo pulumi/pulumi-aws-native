@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeliveryStreamResult:
-    def __init__(__self__, amazon_open_search_serverless_destination_configuration=None, amazonopensearchservice_destination_configuration=None, arn=None, delivery_stream_encryption_configuration_input=None, elasticsearch_destination_configuration=None, extended_s3_destination_configuration=None, http_endpoint_destination_configuration=None, redshift_destination_configuration=None, s3_destination_configuration=None, splunk_destination_configuration=None, tags=None):
+    def __init__(__self__, amazon_open_search_serverless_destination_configuration=None, amazonopensearchservice_destination_configuration=None, arn=None, delivery_stream_encryption_configuration_input=None, elasticsearch_destination_configuration=None, extended_s3_destination_configuration=None, http_endpoint_destination_configuration=None, redshift_destination_configuration=None, s3_destination_configuration=None, snowflake_destination_configuration=None, splunk_destination_configuration=None, tags=None):
         if amazon_open_search_serverless_destination_configuration and not isinstance(amazon_open_search_serverless_destination_configuration, dict):
             raise TypeError("Expected argument 'amazon_open_search_serverless_destination_configuration' to be a dict")
         pulumi.set(__self__, "amazon_open_search_serverless_destination_configuration", amazon_open_search_serverless_destination_configuration)
@@ -48,6 +48,9 @@ class GetDeliveryStreamResult:
         if s3_destination_configuration and not isinstance(s3_destination_configuration, dict):
             raise TypeError("Expected argument 's3_destination_configuration' to be a dict")
         pulumi.set(__self__, "s3_destination_configuration", s3_destination_configuration)
+        if snowflake_destination_configuration and not isinstance(snowflake_destination_configuration, dict):
+            raise TypeError("Expected argument 'snowflake_destination_configuration' to be a dict")
+        pulumi.set(__self__, "snowflake_destination_configuration", snowflake_destination_configuration)
         if splunk_destination_configuration and not isinstance(splunk_destination_configuration, dict):
             raise TypeError("Expected argument 'splunk_destination_configuration' to be a dict")
         pulumi.set(__self__, "splunk_destination_configuration", splunk_destination_configuration)
@@ -101,6 +104,11 @@ class GetDeliveryStreamResult:
         return pulumi.get(self, "s3_destination_configuration")
 
     @property
+    @pulumi.getter(name="snowflakeDestinationConfiguration")
+    def snowflake_destination_configuration(self) -> Optional['outputs.DeliveryStreamSnowflakeDestinationConfiguration']:
+        return pulumi.get(self, "snowflake_destination_configuration")
+
+    @property
     @pulumi.getter(name="splunkDestinationConfiguration")
     def splunk_destination_configuration(self) -> Optional['outputs.DeliveryStreamSplunkDestinationConfiguration']:
         return pulumi.get(self, "splunk_destination_configuration")
@@ -126,6 +134,7 @@ class AwaitableGetDeliveryStreamResult(GetDeliveryStreamResult):
             http_endpoint_destination_configuration=self.http_endpoint_destination_configuration,
             redshift_destination_configuration=self.redshift_destination_configuration,
             s3_destination_configuration=self.s3_destination_configuration,
+            snowflake_destination_configuration=self.snowflake_destination_configuration,
             splunk_destination_configuration=self.splunk_destination_configuration,
             tags=self.tags)
 
@@ -150,6 +159,7 @@ def get_delivery_stream(delivery_stream_name: Optional[str] = None,
         http_endpoint_destination_configuration=pulumi.get(__ret__, 'http_endpoint_destination_configuration'),
         redshift_destination_configuration=pulumi.get(__ret__, 'redshift_destination_configuration'),
         s3_destination_configuration=pulumi.get(__ret__, 's3_destination_configuration'),
+        snowflake_destination_configuration=pulumi.get(__ret__, 'snowflake_destination_configuration'),
         splunk_destination_configuration=pulumi.get(__ret__, 'splunk_destination_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 

@@ -218,11 +218,14 @@ class BackupPlanCopyActionResourceTypeArgs:
 class BackupPlanLifecycleResourceTypeArgs:
     def __init__(__self__, *,
                  delete_after_days: Optional[pulumi.Input[float]] = None,
-                 move_to_cold_storage_after_days: Optional[pulumi.Input[float]] = None):
+                 move_to_cold_storage_after_days: Optional[pulumi.Input[float]] = None,
+                 opt_in_to_archive_for_supported_resources: Optional[pulumi.Input[bool]] = None):
         if delete_after_days is not None:
             pulumi.set(__self__, "delete_after_days", delete_after_days)
         if move_to_cold_storage_after_days is not None:
             pulumi.set(__self__, "move_to_cold_storage_after_days", move_to_cold_storage_after_days)
+        if opt_in_to_archive_for_supported_resources is not None:
+            pulumi.set(__self__, "opt_in_to_archive_for_supported_resources", opt_in_to_archive_for_supported_resources)
 
     @property
     @pulumi.getter(name="deleteAfterDays")
@@ -241,6 +244,15 @@ class BackupPlanLifecycleResourceTypeArgs:
     @move_to_cold_storage_after_days.setter
     def move_to_cold_storage_after_days(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "move_to_cold_storage_after_days", value)
+
+    @property
+    @pulumi.getter(name="optInToArchiveForSupportedResources")
+    def opt_in_to_archive_for_supported_resources(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
+
+    @opt_in_to_archive_for_supported_resources.setter
+    def opt_in_to_archive_for_supported_resources(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "opt_in_to_archive_for_supported_resources", value)
 
 
 @pulumi.input_type

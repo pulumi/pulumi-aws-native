@@ -14,18 +14,16 @@ import (
 )
 
 // Resource Type definition for AWS::GuardDuty::Filter
-//
-// Deprecated: Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Filter struct {
 	pulumi.CustomResourceState
 
-	Action          pulumi.StringOutput         `pulumi:"action"`
-	Description     pulumi.StringOutput         `pulumi:"description"`
-	DetectorId      pulumi.StringOutput         `pulumi:"detectorId"`
+	Action          pulumi.StringPtrOutput      `pulumi:"action"`
+	Description     pulumi.StringPtrOutput      `pulumi:"description"`
+	DetectorId      pulumi.StringPtrOutput      `pulumi:"detectorId"`
 	FindingCriteria FilterFindingCriteriaOutput `pulumi:"findingCriteria"`
-	Name            pulumi.StringOutput         `pulumi:"name"`
-	Rank            pulumi.IntOutput            `pulumi:"rank"`
-	Tags            FilterTagArrayOutput        `pulumi:"tags"`
+	Name            pulumi.StringPtrOutput      `pulumi:"name"`
+	Rank            pulumi.IntPtrOutput         `pulumi:"rank"`
+	Tags            FilterTagItemArrayOutput    `pulumi:"tags"`
 }
 
 // NewFilter registers a new resource with the given unique name, arguments, and options.
@@ -35,20 +33,8 @@ func NewFilter(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Action == nil {
-		return nil, errors.New("invalid value for required argument 'Action'")
-	}
-	if args.Description == nil {
-		return nil, errors.New("invalid value for required argument 'Description'")
-	}
-	if args.DetectorId == nil {
-		return nil, errors.New("invalid value for required argument 'DetectorId'")
-	}
 	if args.FindingCriteria == nil {
 		return nil, errors.New("invalid value for required argument 'FindingCriteria'")
-	}
-	if args.Rank == nil {
-		return nil, errors.New("invalid value for required argument 'Rank'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"detectorId",
@@ -88,24 +74,24 @@ func (FilterState) ElementType() reflect.Type {
 }
 
 type filterArgs struct {
-	Action          string                `pulumi:"action"`
-	Description     string                `pulumi:"description"`
-	DetectorId      string                `pulumi:"detectorId"`
+	Action          *string               `pulumi:"action"`
+	Description     *string               `pulumi:"description"`
+	DetectorId      *string               `pulumi:"detectorId"`
 	FindingCriteria FilterFindingCriteria `pulumi:"findingCriteria"`
 	Name            *string               `pulumi:"name"`
-	Rank            int                   `pulumi:"rank"`
-	Tags            []FilterTag           `pulumi:"tags"`
+	Rank            *int                  `pulumi:"rank"`
+	Tags            []FilterTagItem       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Filter resource.
 type FilterArgs struct {
-	Action          pulumi.StringInput
-	Description     pulumi.StringInput
-	DetectorId      pulumi.StringInput
+	Action          pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
+	DetectorId      pulumi.StringPtrInput
 	FindingCriteria FilterFindingCriteriaInput
 	Name            pulumi.StringPtrInput
-	Rank            pulumi.IntInput
-	Tags            FilterTagArrayInput
+	Rank            pulumi.IntPtrInput
+	Tags            FilterTagItemArrayInput
 }
 
 func (FilterArgs) ElementType() reflect.Type {
@@ -157,32 +143,32 @@ func (o FilterOutput) ToOutput(ctx context.Context) pulumix.Output[*Filter] {
 	}
 }
 
-func (o FilterOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
+func (o FilterOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-func (o FilterOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o FilterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o FilterOutput) DetectorId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
+func (o FilterOutput) DetectorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.DetectorId }).(pulumi.StringPtrOutput)
 }
 
 func (o FilterOutput) FindingCriteria() FilterFindingCriteriaOutput {
 	return o.ApplyT(func(v *Filter) FilterFindingCriteriaOutput { return v.FindingCriteria }).(FilterFindingCriteriaOutput)
 }
 
-func (o FilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o FilterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o FilterOutput) Rank() pulumi.IntOutput {
-	return o.ApplyT(func(v *Filter) pulumi.IntOutput { return v.Rank }).(pulumi.IntOutput)
+func (o FilterOutput) Rank() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Filter) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
-func (o FilterOutput) Tags() FilterTagArrayOutput {
-	return o.ApplyT(func(v *Filter) FilterTagArrayOutput { return v.Tags }).(FilterTagArrayOutput)
+func (o FilterOutput) Tags() FilterTagItemArrayOutput {
+	return o.ApplyT(func(v *Filter) FilterTagItemArrayOutput { return v.Tags }).(FilterTagItemArrayOutput)
 }
 
 func init() {

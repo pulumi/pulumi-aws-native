@@ -88,7 +88,7 @@ export class RuleGroupsNamespace extends pulumi.CustomResource {
             resourceInputs["workspace"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "workspace"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RuleGroupsNamespace.__pulumiType, name, resourceInputs, opts);
     }

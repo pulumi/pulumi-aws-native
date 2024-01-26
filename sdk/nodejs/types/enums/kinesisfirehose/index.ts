@@ -121,6 +121,21 @@ export const DeliveryStreamS3DestinationConfigurationCompressionFormat = {
 
 export type DeliveryStreamS3DestinationConfigurationCompressionFormat = (typeof DeliveryStreamS3DestinationConfigurationCompressionFormat)[keyof typeof DeliveryStreamS3DestinationConfigurationCompressionFormat];
 
+export const DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption = {
+    JsonMapping: "JSON_MAPPING",
+    VariantContentMapping: "VARIANT_CONTENT_MAPPING",
+    VariantContentAndMetadataMapping: "VARIANT_CONTENT_AND_METADATA_MAPPING",
+} as const;
+
+export type DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption = (typeof DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption)[keyof typeof DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption];
+
+export const DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode = {
+    FailedDataOnly: "FailedDataOnly",
+    AllData: "AllData",
+} as const;
+
+export type DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode = (typeof DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode)[keyof typeof DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode];
+
 export const DeliveryStreamSplunkDestinationConfigurationHecEndpointType = {
     Raw: "Raw",
     Event: "Event",

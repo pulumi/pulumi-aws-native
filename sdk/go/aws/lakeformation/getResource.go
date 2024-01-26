@@ -28,6 +28,7 @@ type LookupResourceArgs struct {
 }
 
 type LookupResourceResult struct {
+	HybridAccessEnabled  *bool   `pulumi:"hybridAccessEnabled"`
 	Id                   *string `pulumi:"id"`
 	RoleArn              *string `pulumi:"roleArn"`
 	UseServiceLinkedRole *bool   `pulumi:"useServiceLinkedRole"`
@@ -73,6 +74,10 @@ func (o LookupResourceResultOutput) ToOutput(ctx context.Context) pulumix.Output
 	return pulumix.Output[LookupResourceResult]{
 		OutputState: o.OutputState,
 	}
+}
+
+func (o LookupResourceResultOutput) HybridAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupResourceResult) *bool { return v.HybridAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupResourceResultOutput) Id() pulumi.StringPtrOutput {

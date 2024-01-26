@@ -11,17 +11,18 @@ export function getUserPoolIdentityProvider(args: GetUserPoolIdentityProviderArg
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolIdentityProvider", {
-        "id": args.id,
+        "providerName": args.providerName,
+        "userPoolId": args.userPoolId,
     }, opts);
 }
 
 export interface GetUserPoolIdentityProviderArgs {
-    id: string;
+    providerName: string;
+    userPoolId: string;
 }
 
 export interface GetUserPoolIdentityProviderResult {
     readonly attributeMapping?: any;
-    readonly id?: string;
     readonly idpIdentifiers?: string[];
     readonly providerDetails?: any;
 }
@@ -33,5 +34,6 @@ export function getUserPoolIdentityProviderOutput(args: GetUserPoolIdentityProvi
 }
 
 export interface GetUserPoolIdentityProviderOutputArgs {
-    id: pulumi.Input<string>;
+    providerName: pulumi.Input<string>;
+    userPoolId: pulumi.Input<string>;
 }

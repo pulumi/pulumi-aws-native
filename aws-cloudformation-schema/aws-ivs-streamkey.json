@@ -52,6 +52,13 @@
   "additionalProperties" : false,
   "replacementStrategy" : "delete_then_create",
   "required" : [ "ChannelArn" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "createOnlyProperties" : [ "/properties/ChannelArn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Value" ],
   "primaryIdentifier" : [ "/properties/Arn" ],

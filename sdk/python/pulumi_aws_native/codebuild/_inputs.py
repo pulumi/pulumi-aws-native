@@ -8,8 +8,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
+    'FleetTagArgs',
     'ProjectArtifactsArgs',
     'ProjectBatchRestrictionsArgs',
     'ProjectBuildBatchConfigArgs',
@@ -20,6 +22,7 @@ __all__ = [
     'ProjectEnvironmentArgs',
     'ProjectFileSystemLocationArgs',
     'ProjectFilterGroupArgs',
+    'ProjectFleetArgs',
     'ProjectGitSubmodulesConfigArgs',
     'ProjectLogsConfigArgs',
     'ProjectRegistryCredentialArgs',
@@ -34,6 +37,43 @@ __all__ = [
     'ReportGroupS3ReportExportConfigArgs',
     'ReportGroupTagArgs',
 ]
+
+@pulumi.input_type
+class FleetTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class ProjectArtifactsArgs:
@@ -392,29 +432,39 @@ class ProjectEnvironmentVariableArgs:
 @pulumi.input_type
 class ProjectEnvironmentArgs:
     def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
                  image: pulumi.Input[str],
+                 type: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
-                 compute_type: Optional[pulumi.Input[str]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentVariableArgs']]]] = None,
+                 fleet: Optional[pulumi.Input['ProjectFleetArgs']] = None,
                  image_pull_credentials_type: Optional[pulumi.Input[str]] = None,
                  privileged_mode: Optional[pulumi.Input[bool]] = None,
-                 registry_credential: Optional[pulumi.Input['ProjectRegistryCredentialArgs']] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 registry_credential: Optional[pulumi.Input['ProjectRegistryCredentialArgs']] = None):
+        pulumi.set(__self__, "compute_type", compute_type)
         pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "type", type)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
-        if compute_type is not None:
-            pulumi.set(__self__, "compute_type", compute_type)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if fleet is not None:
+            pulumi.set(__self__, "fleet", fleet)
         if image_pull_credentials_type is not None:
             pulumi.set(__self__, "image_pull_credentials_type", image_pull_credentials_type)
         if privileged_mode is not None:
             pulumi.set(__self__, "privileged_mode", privileged_mode)
         if registry_credential is not None:
             pulumi.set(__self__, "registry_credential", registry_credential)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
 
     @property
     @pulumi.getter
@@ -427,21 +477,21 @@ class ProjectEnvironmentArgs:
 
     @property
     @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "certificate")
 
     @certificate.setter
     def certificate(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate", value)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "compute_type", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -451,6 +501,15 @@ class ProjectEnvironmentArgs:
     @environment_variables.setter
     def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter
+    def fleet(self) -> Optional[pulumi.Input['ProjectFleetArgs']]:
+        return pulumi.get(self, "fleet")
+
+    @fleet.setter
+    def fleet(self, value: Optional[pulumi.Input['ProjectFleetArgs']]):
+        pulumi.set(self, "fleet", value)
 
     @property
     @pulumi.getter(name="imagePullCredentialsType")
@@ -478,15 +537,6 @@ class ProjectEnvironmentArgs:
     @registry_credential.setter
     def registry_credential(self, value: Optional[pulumi.Input['ProjectRegistryCredentialArgs']]):
         pulumi.set(self, "registry_credential", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -554,6 +604,23 @@ class ProjectFileSystemLocationArgs:
 class ProjectFilterGroupArgs:
     def __init__(__self__):
         pass
+
+
+@pulumi.input_type
+class ProjectFleetArgs:
+    def __init__(__self__, *,
+                 fleet_arn: Optional[pulumi.Input[str]] = None):
+        if fleet_arn is not None:
+            pulumi.set(__self__, "fleet_arn", fleet_arn)
+
+    @property
+    @pulumi.getter(name="fleetArn")
+    def fleet_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "fleet_arn")
+
+    @fleet_arn.setter
+    def fleet_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fleet_arn", value)
 
 
 @pulumi.input_type

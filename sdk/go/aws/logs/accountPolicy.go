@@ -33,6 +33,8 @@ type AccountPolicy struct {
 	PolicyType AccountPolicyPolicyTypeOutput `pulumi:"policyType"`
 	// Scope for policy application
 	Scope AccountPolicyScopePtrOutput `pulumi:"scope"`
+	// Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+	SelectionCriteria pulumi.StringPtrOutput `pulumi:"selectionCriteria"`
 }
 
 // NewAccountPolicy registers a new resource with the given unique name, arguments, and options.
@@ -103,6 +105,8 @@ type accountPolicyArgs struct {
 	PolicyType AccountPolicyPolicyType `pulumi:"policyType"`
 	// Scope for policy application
 	Scope *AccountPolicyScope `pulumi:"scope"`
+	// Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+	SelectionCriteria *string `pulumi:"selectionCriteria"`
 }
 
 // The set of arguments for constructing a AccountPolicy resource.
@@ -121,6 +125,8 @@ type AccountPolicyArgs struct {
 	PolicyType AccountPolicyPolicyTypeInput
 	// Scope for policy application
 	Scope AccountPolicyScopePtrInput
+	// Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+	SelectionCriteria pulumi.StringPtrInput
 }
 
 func (AccountPolicyArgs) ElementType() reflect.Type {
@@ -201,6 +207,11 @@ func (o AccountPolicyOutput) PolicyType() AccountPolicyPolicyTypeOutput {
 // Scope for policy application
 func (o AccountPolicyOutput) Scope() AccountPolicyScopePtrOutput {
 	return o.ApplyT(func(v *AccountPolicy) AccountPolicyScopePtrOutput { return v.Scope }).(AccountPolicyScopePtrOutput)
+}
+
+// Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+func (o AccountPolicyOutput) SelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountPolicy) pulumi.StringPtrOutput { return v.SelectionCriteria }).(pulumi.StringPtrOutput)
 }
 
 func init() {
