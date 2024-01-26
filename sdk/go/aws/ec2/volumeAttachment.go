@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VolumeAttachment
@@ -108,6 +109,12 @@ func (i *VolumeAttachment) ToVolumeAttachmentOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeAttachmentOutput)
 }
 
+func (i *VolumeAttachment) ToOutput(ctx context.Context) pulumix.Output[*VolumeAttachment] {
+	return pulumix.Output[*VolumeAttachment]{
+		OutputState: i.ToVolumeAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VolumeAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VolumeAttachmentOutput) ElementType() reflect.Type {
@@ -120,6 +127,12 @@ func (o VolumeAttachmentOutput) ToVolumeAttachmentOutput() VolumeAttachmentOutpu
 
 func (o VolumeAttachmentOutput) ToVolumeAttachmentOutputWithContext(ctx context.Context) VolumeAttachmentOutput {
 	return o
+}
+
+func (o VolumeAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeAttachment] {
+	return pulumix.Output[*VolumeAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VolumeAttachmentOutput) Device() pulumi.StringPtrOutput {

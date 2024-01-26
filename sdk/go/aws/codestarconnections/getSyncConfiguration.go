@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.
@@ -82,6 +83,12 @@ func (o LookupSyncConfigurationResultOutput) ToLookupSyncConfigurationResultOutp
 
 func (o LookupSyncConfigurationResultOutput) ToLookupSyncConfigurationResultOutputWithContext(ctx context.Context) LookupSyncConfigurationResultOutput {
 	return o
+}
+
+func (o LookupSyncConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSyncConfigurationResult] {
+	return pulumix.Output[LookupSyncConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the branch of the repository from which resources are to be synchronized,

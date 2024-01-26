@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Definition for type AWS::IVS::Stage.
@@ -72,6 +73,12 @@ func (o LookupStageResultOutput) ToLookupStageResultOutput() LookupStageResultOu
 
 func (o LookupStageResultOutput) ToLookupStageResultOutputWithContext(ctx context.Context) LookupStageResultOutput {
 	return o
+}
+
+func (o LookupStageResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStageResult] {
+	return pulumix.Output[LookupStageResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the active session within the stage.

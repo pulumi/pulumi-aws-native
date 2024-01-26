@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
@@ -73,6 +74,12 @@ func (o LookupGlobalTableResultOutput) ToLookupGlobalTableResultOutput() LookupG
 
 func (o LookupGlobalTableResultOutput) ToLookupGlobalTableResultOutputWithContext(ctx context.Context) LookupGlobalTableResultOutput {
 	return o
+}
+
+func (o LookupGlobalTableResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGlobalTableResult] {
+	return pulumix.Output[LookupGlobalTableResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupGlobalTableResultOutput) Arn() pulumi.StringPtrOutput {

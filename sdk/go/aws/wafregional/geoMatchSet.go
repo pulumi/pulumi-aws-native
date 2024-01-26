@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAFRegional::GeoMatchSet
@@ -98,6 +99,12 @@ func (i *GeoMatchSet) ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMat
 	return pulumi.ToOutputWithContext(ctx, i).(GeoMatchSetOutput)
 }
 
+func (i *GeoMatchSet) ToOutput(ctx context.Context) pulumix.Output[*GeoMatchSet] {
+	return pulumix.Output[*GeoMatchSet]{
+		OutputState: i.ToGeoMatchSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GeoMatchSetOutput struct{ *pulumi.OutputState }
 
 func (GeoMatchSetOutput) ElementType() reflect.Type {
@@ -110,6 +117,12 @@ func (o GeoMatchSetOutput) ToGeoMatchSetOutput() GeoMatchSetOutput {
 
 func (o GeoMatchSetOutput) ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMatchSetOutput {
 	return o
+}
+
+func (o GeoMatchSetOutput) ToOutput(ctx context.Context) pulumix.Output[*GeoMatchSet] {
+	return pulumix.Output[*GeoMatchSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GeoMatchSetOutput) GeoMatchConstraints() GeoMatchSetGeoMatchConstraintArrayOutput {

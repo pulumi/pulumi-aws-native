@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
@@ -69,6 +70,12 @@ func (o LookupTrustAnchorResultOutput) ToLookupTrustAnchorResultOutput() LookupT
 
 func (o LookupTrustAnchorResultOutput) ToLookupTrustAnchorResultOutputWithContext(ctx context.Context) LookupTrustAnchorResultOutput {
 	return o
+}
+
+func (o LookupTrustAnchorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTrustAnchorResult] {
+	return pulumix.Output[LookupTrustAnchorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTrustAnchorResultOutput) Enabled() pulumi.BoolPtrOutput {

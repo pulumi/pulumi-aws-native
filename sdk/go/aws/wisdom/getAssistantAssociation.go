@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Wisdom::AssistantAssociation Resource Type
@@ -67,6 +68,12 @@ func (o LookupAssistantAssociationResultOutput) ToLookupAssistantAssociationResu
 
 func (o LookupAssistantAssociationResultOutput) ToLookupAssistantAssociationResultOutputWithContext(ctx context.Context) LookupAssistantAssociationResultOutput {
 	return o
+}
+
+func (o LookupAssistantAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAssistantAssociationResult] {
+	return pulumix.Output[LookupAssistantAssociationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAssistantAssociationResultOutput) AssistantArn() pulumi.StringPtrOutput {

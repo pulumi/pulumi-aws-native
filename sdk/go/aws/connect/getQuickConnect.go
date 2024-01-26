@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::QuickConnect
@@ -78,6 +79,12 @@ func (o LookupQuickConnectResultOutput) ToLookupQuickConnectResultOutput() Looku
 
 func (o LookupQuickConnectResultOutput) ToLookupQuickConnectResultOutputWithContext(ctx context.Context) LookupQuickConnectResultOutput {
 	return o
+}
+
+func (o LookupQuickConnectResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupQuickConnectResult] {
+	return pulumix.Output[LookupQuickConnectResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the quick connect.

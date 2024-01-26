@@ -80,6 +80,12 @@ func (o NotificationChannelInsightSeverityOutput) ToNotificationChannelInsightSe
 	}).(NotificationChannelInsightSeverityPtrOutput)
 }
 
+func (o NotificationChannelInsightSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationChannelInsightSeverity] {
+	return pulumix.Output[NotificationChannelInsightSeverity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotificationChannelInsightSeverityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -115,6 +121,12 @@ func (o NotificationChannelInsightSeverityPtrOutput) ToNotificationChannelInsigh
 	return o
 }
 
+func (o NotificationChannelInsightSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannelInsightSeverity] {
+	return pulumix.Output[*NotificationChannelInsightSeverity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotificationChannelInsightSeverityPtrOutput) Elem() NotificationChannelInsightSeverityOutput {
 	return o.ApplyT(func(v *NotificationChannelInsightSeverity) NotificationChannelInsightSeverity {
 		if v != nil {
@@ -139,12 +151,10 @@ func (o NotificationChannelInsightSeverityPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// NotificationChannelInsightSeverityInput is an input type that accepts values of the NotificationChannelInsightSeverity enum
-// A concrete instance of `NotificationChannelInsightSeverityInput` can be one of the following:
+// NotificationChannelInsightSeverityInput is an input type that accepts NotificationChannelInsightSeverityArgs and NotificationChannelInsightSeverityOutput values.
+// You can construct a concrete instance of `NotificationChannelInsightSeverityInput` via:
 //
-//	NotificationChannelInsightSeverityLow
-//	NotificationChannelInsightSeverityMedium
-//	NotificationChannelInsightSeverityHigh
+//	NotificationChannelInsightSeverityArgs{...}
 type NotificationChannelInsightSeverityInput interface {
 	pulumi.Input
 
@@ -210,6 +220,12 @@ func (i NotificationChannelInsightSeverityArray) ToNotificationChannelInsightSev
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelInsightSeverityArrayOutput)
 }
 
+func (i NotificationChannelInsightSeverityArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationChannelInsightSeverity] {
+	return pulumix.Output[[]NotificationChannelInsightSeverity]{
+		OutputState: i.ToNotificationChannelInsightSeverityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationChannelInsightSeverityArrayOutput struct{ *pulumi.OutputState }
 
 func (NotificationChannelInsightSeverityArrayOutput) ElementType() reflect.Type {
@@ -222,6 +238,12 @@ func (o NotificationChannelInsightSeverityArrayOutput) ToNotificationChannelInsi
 
 func (o NotificationChannelInsightSeverityArrayOutput) ToNotificationChannelInsightSeverityArrayOutputWithContext(ctx context.Context) NotificationChannelInsightSeverityArrayOutput {
 	return o
+}
+
+func (o NotificationChannelInsightSeverityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationChannelInsightSeverity] {
+	return pulumix.Output[[]NotificationChannelInsightSeverity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationChannelInsightSeverityArrayOutput) Index(i pulumi.IntInput) NotificationChannelInsightSeverityOutput {
@@ -301,6 +323,12 @@ func (o NotificationChannelNotificationMessageTypeOutput) ToNotificationChannelN
 	}).(NotificationChannelNotificationMessageTypePtrOutput)
 }
 
+func (o NotificationChannelNotificationMessageTypeOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationChannelNotificationMessageType] {
+	return pulumix.Output[NotificationChannelNotificationMessageType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotificationChannelNotificationMessageTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -336,6 +364,12 @@ func (o NotificationChannelNotificationMessageTypePtrOutput) ToNotificationChann
 	return o
 }
 
+func (o NotificationChannelNotificationMessageTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannelNotificationMessageType] {
+	return pulumix.Output[*NotificationChannelNotificationMessageType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotificationChannelNotificationMessageTypePtrOutput) Elem() NotificationChannelNotificationMessageTypeOutput {
 	return o.ApplyT(func(v *NotificationChannelNotificationMessageType) NotificationChannelNotificationMessageType {
 		if v != nil {
@@ -360,14 +394,10 @@ func (o NotificationChannelNotificationMessageTypePtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// NotificationChannelNotificationMessageTypeInput is an input type that accepts values of the NotificationChannelNotificationMessageType enum
-// A concrete instance of `NotificationChannelNotificationMessageTypeInput` can be one of the following:
+// NotificationChannelNotificationMessageTypeInput is an input type that accepts NotificationChannelNotificationMessageTypeArgs and NotificationChannelNotificationMessageTypeOutput values.
+// You can construct a concrete instance of `NotificationChannelNotificationMessageTypeInput` via:
 //
-//	NotificationChannelNotificationMessageTypeNewInsight
-//	NotificationChannelNotificationMessageTypeClosedInsight
-//	NotificationChannelNotificationMessageTypeNewAssociation
-//	NotificationChannelNotificationMessageTypeSeverityUpgraded
-//	NotificationChannelNotificationMessageTypeNewRecommendation
+//	NotificationChannelNotificationMessageTypeArgs{...}
 type NotificationChannelNotificationMessageTypeInput interface {
 	pulumi.Input
 
@@ -433,6 +463,12 @@ func (i NotificationChannelNotificationMessageTypeArray) ToNotificationChannelNo
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelNotificationMessageTypeArrayOutput)
 }
 
+func (i NotificationChannelNotificationMessageTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationChannelNotificationMessageType] {
+	return pulumix.Output[[]NotificationChannelNotificationMessageType]{
+		OutputState: i.ToNotificationChannelNotificationMessageTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationChannelNotificationMessageTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (NotificationChannelNotificationMessageTypeArrayOutput) ElementType() reflect.Type {
@@ -445,6 +481,12 @@ func (o NotificationChannelNotificationMessageTypeArrayOutput) ToNotificationCha
 
 func (o NotificationChannelNotificationMessageTypeArrayOutput) ToNotificationChannelNotificationMessageTypeArrayOutputWithContext(ctx context.Context) NotificationChannelNotificationMessageTypeArrayOutput {
 	return o
+}
+
+func (o NotificationChannelNotificationMessageTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationChannelNotificationMessageType] {
+	return pulumix.Output[[]NotificationChannelNotificationMessageType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationChannelNotificationMessageTypeArrayOutput) Index(i pulumi.IntInput) NotificationChannelNotificationMessageTypeOutput {
@@ -521,6 +563,12 @@ func (o ResourceCollectionTypeOutput) ToResourceCollectionTypePtrOutputWithConte
 	}).(ResourceCollectionTypePtrOutput)
 }
 
+func (o ResourceCollectionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceCollectionType] {
+	return pulumix.Output[ResourceCollectionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceCollectionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -556,6 +604,12 @@ func (o ResourceCollectionTypePtrOutput) ToResourceCollectionTypePtrOutputWithCo
 	return o
 }
 
+func (o ResourceCollectionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceCollectionType] {
+	return pulumix.Output[*ResourceCollectionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceCollectionTypePtrOutput) Elem() ResourceCollectionTypeOutput {
 	return o.ApplyT(func(v *ResourceCollectionType) ResourceCollectionType {
 		if v != nil {
@@ -580,11 +634,10 @@ func (o ResourceCollectionTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResourceCollectionTypeInput is an input type that accepts values of the ResourceCollectionType enum
-// A concrete instance of `ResourceCollectionTypeInput` can be one of the following:
+// ResourceCollectionTypeInput is an input type that accepts ResourceCollectionTypeArgs and ResourceCollectionTypeOutput values.
+// You can construct a concrete instance of `ResourceCollectionTypeInput` via:
 //
-//	ResourceCollectionTypeAwsCloudFormation
-//	ResourceCollectionTypeAwsTags
+//	ResourceCollectionTypeArgs{...}
 type ResourceCollectionTypeInput interface {
 	pulumi.Input
 

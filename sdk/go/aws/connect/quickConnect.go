@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::QuickConnect
@@ -127,6 +128,12 @@ func (i *QuickConnect) ToQuickConnectOutputWithContext(ctx context.Context) Quic
 	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectOutput)
 }
 
+func (i *QuickConnect) ToOutput(ctx context.Context) pulumix.Output[*QuickConnect] {
+	return pulumix.Output[*QuickConnect]{
+		OutputState: i.ToQuickConnectOutputWithContext(ctx).OutputState,
+	}
+}
+
 type QuickConnectOutput struct{ *pulumi.OutputState }
 
 func (QuickConnectOutput) ElementType() reflect.Type {
@@ -139,6 +146,12 @@ func (o QuickConnectOutput) ToQuickConnectOutput() QuickConnectOutput {
 
 func (o QuickConnectOutput) ToQuickConnectOutputWithContext(ctx context.Context) QuickConnectOutput {
 	return o
+}
+
+func (o QuickConnectOutput) ToOutput(ctx context.Context) pulumix.Output[*QuickConnect] {
+	return pulumix.Output[*QuickConnect]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the quick connect.

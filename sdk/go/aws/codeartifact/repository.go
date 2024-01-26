@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The resource schema to create a CodeArtifact repository.
@@ -148,6 +149,12 @@ func (i *Repository) ToRepositoryOutputWithContext(ctx context.Context) Reposito
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryOutput)
 }
 
+func (i *Repository) ToOutput(ctx context.Context) pulumix.Output[*Repository] {
+	return pulumix.Output[*Repository]{
+		OutputState: i.ToRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryOutput struct{ *pulumi.OutputState }
 
 func (RepositoryOutput) ElementType() reflect.Type {
@@ -160,6 +167,12 @@ func (o RepositoryOutput) ToRepositoryOutput() RepositoryOutput {
 
 func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) RepositoryOutput {
 	return o
+}
+
+func (o RepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*Repository] {
+	return pulumix.Output[*Repository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the repository.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Engagement Plan for a SSM Incident Manager Contact.
@@ -110,6 +111,12 @@ func (i *Plan) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlanOutput)
 }
 
+func (i *Plan) ToOutput(ctx context.Context) pulumix.Output[*Plan] {
+	return pulumix.Output[*Plan]{
+		OutputState: i.ToPlanOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlanOutput struct{ *pulumi.OutputState }
 
 func (PlanOutput) ElementType() reflect.Type {
@@ -122,6 +129,12 @@ func (o PlanOutput) ToPlanOutput() PlanOutput {
 
 func (o PlanOutput) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return o
+}
+
+func (o PlanOutput) ToOutput(ctx context.Context) pulumix.Output[*Plan] {
+	return pulumix.Output[*Plan]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the contact.

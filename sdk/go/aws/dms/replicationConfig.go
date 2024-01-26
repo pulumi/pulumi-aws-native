@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A replication configuration that you later provide to configure and start a AWS DMS Serverless replication
@@ -153,6 +154,12 @@ func (i *ReplicationConfig) ToReplicationConfigOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigOutput)
 }
 
+func (i *ReplicationConfig) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfig] {
+	return pulumix.Output[*ReplicationConfig]{
+		OutputState: i.ToReplicationConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicationConfigOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigOutput) ElementType() reflect.Type {
@@ -165,6 +172,12 @@ func (o ReplicationConfigOutput) ToReplicationConfigOutput() ReplicationConfigOu
 
 func (o ReplicationConfigOutput) ToReplicationConfigOutputWithContext(ctx context.Context) ReplicationConfigOutput {
 	return o
+}
+
+func (o ReplicationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfig] {
+	return pulumix.Output[*ReplicationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationConfigOutput) ComputeConfig() ReplicationConfigComputeConfigPtrOutput {

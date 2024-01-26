@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MSK::BatchScramSecret
@@ -100,6 +101,12 @@ func (i *BatchScramSecret) ToBatchScramSecretOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(BatchScramSecretOutput)
 }
 
+func (i *BatchScramSecret) ToOutput(ctx context.Context) pulumix.Output[*BatchScramSecret] {
+	return pulumix.Output[*BatchScramSecret]{
+		OutputState: i.ToBatchScramSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BatchScramSecretOutput struct{ *pulumi.OutputState }
 
 func (BatchScramSecretOutput) ElementType() reflect.Type {
@@ -112,6 +119,12 @@ func (o BatchScramSecretOutput) ToBatchScramSecretOutput() BatchScramSecretOutpu
 
 func (o BatchScramSecretOutput) ToBatchScramSecretOutputWithContext(ctx context.Context) BatchScramSecretOutput {
 	return o
+}
+
+func (o BatchScramSecretOutput) ToOutput(ctx context.Context) pulumix.Output[*BatchScramSecret] {
+	return pulumix.Output[*BatchScramSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BatchScramSecretOutput) ClusterArn() pulumi.StringOutput {

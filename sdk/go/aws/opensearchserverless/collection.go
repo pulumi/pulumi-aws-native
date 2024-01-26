@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Amazon OpenSearchServerless collection resource
@@ -140,6 +141,12 @@ func (i *Collection) ToCollectionOutputWithContext(ctx context.Context) Collecti
 	return pulumi.ToOutputWithContext(ctx, i).(CollectionOutput)
 }
 
+func (i *Collection) ToOutput(ctx context.Context) pulumix.Output[*Collection] {
+	return pulumix.Output[*Collection]{
+		OutputState: i.ToCollectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CollectionOutput struct{ *pulumi.OutputState }
 
 func (CollectionOutput) ElementType() reflect.Type {
@@ -152,6 +159,12 @@ func (o CollectionOutput) ToCollectionOutput() CollectionOutput {
 
 func (o CollectionOutput) ToCollectionOutputWithContext(ctx context.Context) CollectionOutput {
 	return o
+}
+
+func (o CollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*Collection] {
+	return pulumix.Output[*Collection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the collection.

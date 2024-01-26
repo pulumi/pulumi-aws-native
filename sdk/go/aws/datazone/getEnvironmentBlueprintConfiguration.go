@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
@@ -72,6 +73,12 @@ func (o LookupEnvironmentBlueprintConfigurationResultOutput) ToLookupEnvironment
 
 func (o LookupEnvironmentBlueprintConfigurationResultOutput) ToLookupEnvironmentBlueprintConfigurationResultOutputWithContext(ctx context.Context) LookupEnvironmentBlueprintConfigurationResultOutput {
 	return o
+}
+
+func (o LookupEnvironmentBlueprintConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEnvironmentBlueprintConfigurationResult] {
+	return pulumix.Output[LookupEnvironmentBlueprintConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupEnvironmentBlueprintConfigurationResultOutput) CreatedAt() pulumi.StringPtrOutput {

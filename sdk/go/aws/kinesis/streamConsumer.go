@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Kinesis::StreamConsumer
@@ -109,6 +110,12 @@ func (i *StreamConsumer) ToStreamConsumerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StreamConsumerOutput)
 }
 
+func (i *StreamConsumer) ToOutput(ctx context.Context) pulumix.Output[*StreamConsumer] {
+	return pulumix.Output[*StreamConsumer]{
+		OutputState: i.ToStreamConsumerOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StreamConsumerOutput struct{ *pulumi.OutputState }
 
 func (StreamConsumerOutput) ElementType() reflect.Type {
@@ -121,6 +128,12 @@ func (o StreamConsumerOutput) ToStreamConsumerOutput() StreamConsumerOutput {
 
 func (o StreamConsumerOutput) ToStreamConsumerOutputWithContext(ctx context.Context) StreamConsumerOutput {
 	return o
+}
+
+func (o StreamConsumerOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamConsumer] {
+	return pulumix.Output[*StreamConsumer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamConsumerOutput) ConsumerArn() pulumi.StringOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::ResourceExplorer2::DefaultViewAssociation Resource Type
@@ -67,6 +68,12 @@ func (o LookupDefaultViewAssociationResultOutput) ToLookupDefaultViewAssociation
 
 func (o LookupDefaultViewAssociationResultOutput) ToLookupDefaultViewAssociationResultOutputWithContext(ctx context.Context) LookupDefaultViewAssociationResultOutput {
 	return o
+}
+
+func (o LookupDefaultViewAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDefaultViewAssociationResult] {
+	return pulumix.Output[LookupDefaultViewAssociationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS principal that the default view is associated with, used as the unique identifier for this resource.

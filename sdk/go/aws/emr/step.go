@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for AWS::EMR::Step
@@ -129,6 +130,12 @@ func (i *Step) ToStepOutputWithContext(ctx context.Context) StepOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StepOutput)
 }
 
+func (i *Step) ToOutput(ctx context.Context) pulumix.Output[*Step] {
+	return pulumix.Output[*Step]{
+		OutputState: i.ToStepOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StepOutput struct{ *pulumi.OutputState }
 
 func (StepOutput) ElementType() reflect.Type {
@@ -141,6 +148,12 @@ func (o StepOutput) ToStepOutput() StepOutput {
 
 func (o StepOutput) ToStepOutputWithContext(ctx context.Context) StepOutput {
 	return o
+}
+
+func (o StepOutput) ToOutput(ctx context.Context) pulumix.Output[*Step] {
+	return pulumix.Output[*Step]{
+		OutputState: o.OutputState,
+	}
 }
 
 // This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.

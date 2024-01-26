@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::GroupVersion
@@ -127,6 +128,12 @@ func (i *GroupVersion) ToGroupVersionOutputWithContext(ctx context.Context) Grou
 	return pulumi.ToOutputWithContext(ctx, i).(GroupVersionOutput)
 }
 
+func (i *GroupVersion) ToOutput(ctx context.Context) pulumix.Output[*GroupVersion] {
+	return pulumix.Output[*GroupVersion]{
+		OutputState: i.ToGroupVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupVersionOutput struct{ *pulumi.OutputState }
 
 func (GroupVersionOutput) ElementType() reflect.Type {
@@ -139,6 +146,12 @@ func (o GroupVersionOutput) ToGroupVersionOutput() GroupVersionOutput {
 
 func (o GroupVersionOutput) ToGroupVersionOutputWithContext(ctx context.Context) GroupVersionOutput {
 	return o
+}
+
+func (o GroupVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupVersion] {
+	return pulumix.Output[*GroupVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupVersionOutput) ConnectorDefinitionVersionArn() pulumi.StringPtrOutput {

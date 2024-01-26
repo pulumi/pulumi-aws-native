@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
@@ -66,6 +67,12 @@ func (o LookupResourcePolicyResultOutput) ToLookupResourcePolicyResultOutput() L
 
 func (o LookupResourcePolicyResultOutput) ToLookupResourcePolicyResultOutputWithContext(ctx context.Context) LookupResourcePolicyResultOutput {
 	return o
+}
+
+func (o LookupResourcePolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResourcePolicyResult] {
+	return pulumix.Output[LookupResourcePolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupResourcePolicyResultOutput) Id() pulumi.StringPtrOutput {

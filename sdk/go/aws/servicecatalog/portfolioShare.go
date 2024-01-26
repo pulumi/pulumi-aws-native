@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::PortfolioShare
@@ -113,6 +114,12 @@ func (i *PortfolioShare) ToPortfolioShareOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioShareOutput)
 }
 
+func (i *PortfolioShare) ToOutput(ctx context.Context) pulumix.Output[*PortfolioShare] {
+	return pulumix.Output[*PortfolioShare]{
+		OutputState: i.ToPortfolioShareOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PortfolioShareOutput struct{ *pulumi.OutputState }
 
 func (PortfolioShareOutput) ElementType() reflect.Type {
@@ -125,6 +132,12 @@ func (o PortfolioShareOutput) ToPortfolioShareOutput() PortfolioShareOutput {
 
 func (o PortfolioShareOutput) ToPortfolioShareOutputWithContext(ctx context.Context) PortfolioShareOutput {
 	return o
+}
+
+func (o PortfolioShareOutput) ToOutput(ctx context.Context) pulumix.Output[*PortfolioShare] {
+	return pulumix.Output[*PortfolioShare]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PortfolioShareOutput) AcceptLanguage() pulumi.StringPtrOutput {

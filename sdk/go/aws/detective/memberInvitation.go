@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Detective::MemberInvitation
@@ -131,6 +132,12 @@ func (i *MemberInvitation) ToMemberInvitationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MemberInvitationOutput)
 }
 
+func (i *MemberInvitation) ToOutput(ctx context.Context) pulumix.Output[*MemberInvitation] {
+	return pulumix.Output[*MemberInvitation]{
+		OutputState: i.ToMemberInvitationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MemberInvitationOutput struct{ *pulumi.OutputState }
 
 func (MemberInvitationOutput) ElementType() reflect.Type {
@@ -143,6 +150,12 @@ func (o MemberInvitationOutput) ToMemberInvitationOutput() MemberInvitationOutpu
 
 func (o MemberInvitationOutput) ToMemberInvitationOutputWithContext(ctx context.Context) MemberInvitationOutput {
 	return o
+}
+
+func (o MemberInvitationOutput) ToOutput(ctx context.Context) pulumix.Output[*MemberInvitation] {
+	return pulumix.Output[*MemberInvitation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.

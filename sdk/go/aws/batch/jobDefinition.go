@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Batch::JobDefinition
@@ -131,6 +132,12 @@ func (i *JobDefinition) ToJobDefinitionOutputWithContext(ctx context.Context) Jo
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionOutput)
 }
 
+func (i *JobDefinition) ToOutput(ctx context.Context) pulumix.Output[*JobDefinition] {
+	return pulumix.Output[*JobDefinition]{
+		OutputState: i.ToJobDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionOutput) ElementType() reflect.Type {
@@ -143,6 +150,12 @@ func (o JobDefinitionOutput) ToJobDefinitionOutput() JobDefinitionOutput {
 
 func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput {
 	return o
+}
+
+func (o JobDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinition] {
+	return pulumix.Output[*JobDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JobDefinitionOutput) ContainerProperties() JobDefinitionContainerPropertiesPtrOutput {

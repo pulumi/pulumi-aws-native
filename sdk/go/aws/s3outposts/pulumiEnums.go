@@ -78,6 +78,12 @@ func (o BucketRuleStatusOutput) ToBucketRuleStatusPtrOutputWithContext(ctx conte
 	}).(BucketRuleStatusPtrOutput)
 }
 
+func (o BucketRuleStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRuleStatus] {
+	return pulumix.Output[BucketRuleStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +119,12 @@ func (o BucketRuleStatusPtrOutput) ToBucketRuleStatusPtrOutputWithContext(ctx co
 	return o
 }
 
+func (o BucketRuleStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketRuleStatus] {
+	return pulumix.Output[*BucketRuleStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketRuleStatusPtrOutput) Elem() BucketRuleStatusOutput {
 	return o.ApplyT(func(v *BucketRuleStatus) BucketRuleStatus {
 		if v != nil {
@@ -137,11 +149,10 @@ func (o BucketRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketRuleStatusInput is an input type that accepts values of the BucketRuleStatus enum
-// A concrete instance of `BucketRuleStatusInput` can be one of the following:
+// BucketRuleStatusInput is an input type that accepts BucketRuleStatusArgs and BucketRuleStatusOutput values.
+// You can construct a concrete instance of `BucketRuleStatusInput` via:
 //
-//	BucketRuleStatusEnabled
-//	BucketRuleStatusDisabled
+//	BucketRuleStatusArgs{...}
 type BucketRuleStatusInput interface {
 	pulumi.Input
 
@@ -250,6 +261,12 @@ func (o EndpointAccessTypeOutput) ToEndpointAccessTypePtrOutputWithContext(ctx c
 	}).(EndpointAccessTypePtrOutput)
 }
 
+func (o EndpointAccessTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointAccessType] {
+	return pulumix.Output[EndpointAccessType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointAccessTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -285,6 +302,12 @@ func (o EndpointAccessTypePtrOutput) ToEndpointAccessTypePtrOutputWithContext(ct
 	return o
 }
 
+func (o EndpointAccessTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointAccessType] {
+	return pulumix.Output[*EndpointAccessType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointAccessTypePtrOutput) Elem() EndpointAccessTypeOutput {
 	return o.ApplyT(func(v *EndpointAccessType) EndpointAccessType {
 		if v != nil {
@@ -309,11 +332,10 @@ func (o EndpointAccessTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// EndpointAccessTypeInput is an input type that accepts values of the EndpointAccessType enum
-// A concrete instance of `EndpointAccessTypeInput` can be one of the following:
+// EndpointAccessTypeInput is an input type that accepts EndpointAccessTypeArgs and EndpointAccessTypeOutput values.
+// You can construct a concrete instance of `EndpointAccessTypeInput` via:
 //
-//	EndpointAccessTypeCustomerOwnedIp
-//	EndpointAccessTypePrivate
+//	EndpointAccessTypeArgs{...}
 type EndpointAccessTypeInput interface {
 	pulumi.Input
 
@@ -388,6 +410,12 @@ func (o EndpointStatusOutput) ToEndpointStatusPtrOutputWithContext(ctx context.C
 	}).(EndpointStatusPtrOutput)
 }
 
+func (o EndpointStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointStatus] {
+	return pulumix.Output[EndpointStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -421,6 +449,12 @@ func (o EndpointStatusPtrOutput) ToEndpointStatusPtrOutput() EndpointStatusPtrOu
 
 func (o EndpointStatusPtrOutput) ToEndpointStatusPtrOutputWithContext(ctx context.Context) EndpointStatusPtrOutput {
 	return o
+}
+
+func (o EndpointStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointStatus] {
+	return pulumix.Output[*EndpointStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointStatusPtrOutput) Elem() EndpointStatusOutput {

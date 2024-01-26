@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
@@ -123,6 +124,12 @@ func (i *UserPoolIdentityProvider) ToUserPoolIdentityProviderOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolIdentityProviderOutput)
 }
 
+func (i *UserPoolIdentityProvider) ToOutput(ctx context.Context) pulumix.Output[*UserPoolIdentityProvider] {
+	return pulumix.Output[*UserPoolIdentityProvider]{
+		OutputState: i.ToUserPoolIdentityProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserPoolIdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (UserPoolIdentityProviderOutput) ElementType() reflect.Type {
@@ -135,6 +142,12 @@ func (o UserPoolIdentityProviderOutput) ToUserPoolIdentityProviderOutput() UserP
 
 func (o UserPoolIdentityProviderOutput) ToUserPoolIdentityProviderOutputWithContext(ctx context.Context) UserPoolIdentityProviderOutput {
 	return o
+}
+
+func (o UserPoolIdentityProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolIdentityProvider] {
+	return pulumix.Output[*UserPoolIdentityProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserPoolIdentityProviderOutput) AttributeMapping() pulumi.AnyOutput {

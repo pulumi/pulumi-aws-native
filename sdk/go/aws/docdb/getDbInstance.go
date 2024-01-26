@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DocDB::DBInstance
@@ -72,6 +73,12 @@ func (o LookupDbInstanceResultOutput) ToLookupDbInstanceResultOutput() LookupDbI
 
 func (o LookupDbInstanceResultOutput) ToLookupDbInstanceResultOutputWithContext(ctx context.Context) LookupDbInstanceResultOutput {
 	return o
+}
+
+func (o LookupDbInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDbInstanceResult] {
+	return pulumix.Output[LookupDbInstanceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDbInstanceResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {

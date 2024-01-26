@@ -78,6 +78,12 @@ func (o FileSystemProtectionReplicationOverwriteProtectionOutput) ToFileSystemPr
 	}).(FileSystemProtectionReplicationOverwriteProtectionPtrOutput)
 }
 
+func (o FileSystemProtectionReplicationOverwriteProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemProtectionReplicationOverwriteProtection] {
+	return pulumix.Output[FileSystemProtectionReplicationOverwriteProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FileSystemProtectionReplicationOverwriteProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +119,12 @@ func (o FileSystemProtectionReplicationOverwriteProtectionPtrOutput) ToFileSyste
 	return o
 }
 
+func (o FileSystemProtectionReplicationOverwriteProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemProtectionReplicationOverwriteProtection] {
+	return pulumix.Output[*FileSystemProtectionReplicationOverwriteProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FileSystemProtectionReplicationOverwriteProtectionPtrOutput) Elem() FileSystemProtectionReplicationOverwriteProtectionOutput {
 	return o.ApplyT(func(v *FileSystemProtectionReplicationOverwriteProtection) FileSystemProtectionReplicationOverwriteProtection {
 		if v != nil {
@@ -137,11 +149,10 @@ func (o FileSystemProtectionReplicationOverwriteProtectionPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// FileSystemProtectionReplicationOverwriteProtectionInput is an input type that accepts values of the FileSystemProtectionReplicationOverwriteProtection enum
-// A concrete instance of `FileSystemProtectionReplicationOverwriteProtectionInput` can be one of the following:
+// FileSystemProtectionReplicationOverwriteProtectionInput is an input type that accepts FileSystemProtectionReplicationOverwriteProtectionArgs and FileSystemProtectionReplicationOverwriteProtectionOutput values.
+// You can construct a concrete instance of `FileSystemProtectionReplicationOverwriteProtectionInput` via:
 //
-//	FileSystemProtectionReplicationOverwriteProtectionDisabled
-//	FileSystemProtectionReplicationOverwriteProtectionEnabled
+//	FileSystemProtectionReplicationOverwriteProtectionArgs{...}
 type FileSystemProtectionReplicationOverwriteProtectionInput interface {
 	pulumi.Input
 

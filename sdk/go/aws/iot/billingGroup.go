@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoT::BillingGroup
@@ -103,6 +104,12 @@ func (i *BillingGroup) ToBillingGroupOutputWithContext(ctx context.Context) Bill
 	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupOutput)
 }
 
+func (i *BillingGroup) ToOutput(ctx context.Context) pulumix.Output[*BillingGroup] {
+	return pulumix.Output[*BillingGroup]{
+		OutputState: i.ToBillingGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BillingGroupOutput struct{ *pulumi.OutputState }
 
 func (BillingGroupOutput) ElementType() reflect.Type {
@@ -115,6 +122,12 @@ func (o BillingGroupOutput) ToBillingGroupOutput() BillingGroupOutput {
 
 func (o BillingGroupOutput) ToBillingGroupOutputWithContext(ctx context.Context) BillingGroupOutput {
 	return o
+}
+
+func (o BillingGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*BillingGroup] {
+	return pulumix.Output[*BillingGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BillingGroupOutput) Arn() pulumi.StringOutput {

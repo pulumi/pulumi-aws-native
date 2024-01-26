@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::ControlTower::LandingZone Resource Type
@@ -70,6 +71,12 @@ func (o LookupLandingZoneResultOutput) ToLookupLandingZoneResultOutput() LookupL
 
 func (o LookupLandingZoneResultOutput) ToLookupLandingZoneResultOutputWithContext(ctx context.Context) LookupLandingZoneResultOutput {
 	return o
+}
+
+func (o LookupLandingZoneResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLandingZoneResult] {
+	return pulumix.Output[LookupLandingZoneResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLandingZoneResultOutput) Arn() pulumi.StringPtrOutput {

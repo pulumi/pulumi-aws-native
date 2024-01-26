@@ -81,6 +81,12 @@ func (o EventSubscriptionEventCategoriesItemOutput) ToEventSubscriptionEventCate
 	}).(EventSubscriptionEventCategoriesItemPtrOutput)
 }
 
+func (o EventSubscriptionEventCategoriesItemOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionEventCategoriesItem] {
+	return pulumix.Output[EventSubscriptionEventCategoriesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSubscriptionEventCategoriesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -116,6 +122,12 @@ func (o EventSubscriptionEventCategoriesItemPtrOutput) ToEventSubscriptionEventC
 	return o
 }
 
+func (o EventSubscriptionEventCategoriesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionEventCategoriesItem] {
+	return pulumix.Output[*EventSubscriptionEventCategoriesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSubscriptionEventCategoriesItemPtrOutput) Elem() EventSubscriptionEventCategoriesItemOutput {
 	return o.ApplyT(func(v *EventSubscriptionEventCategoriesItem) EventSubscriptionEventCategoriesItem {
 		if v != nil {
@@ -140,14 +152,10 @@ func (o EventSubscriptionEventCategoriesItemPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventSubscriptionEventCategoriesItemInput is an input type that accepts values of the EventSubscriptionEventCategoriesItem enum
-// A concrete instance of `EventSubscriptionEventCategoriesItemInput` can be one of the following:
+// EventSubscriptionEventCategoriesItemInput is an input type that accepts EventSubscriptionEventCategoriesItemArgs and EventSubscriptionEventCategoriesItemOutput values.
+// You can construct a concrete instance of `EventSubscriptionEventCategoriesItemInput` via:
 //
-//	EventSubscriptionEventCategoriesItemConfiguration
-//	EventSubscriptionEventCategoriesItemManagement
-//	EventSubscriptionEventCategoriesItemMonitoring
-//	EventSubscriptionEventCategoriesItemSecurity
-//	EventSubscriptionEventCategoriesItemPending
+//	EventSubscriptionEventCategoriesItemArgs{...}
 type EventSubscriptionEventCategoriesItemInput interface {
 	pulumi.Input
 
@@ -213,6 +221,12 @@ func (i EventSubscriptionEventCategoriesItemArray) ToEventSubscriptionEventCateg
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionEventCategoriesItemArrayOutput)
 }
 
+func (i EventSubscriptionEventCategoriesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionEventCategoriesItem] {
+	return pulumix.Output[[]EventSubscriptionEventCategoriesItem]{
+		OutputState: i.ToEventSubscriptionEventCategoriesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionEventCategoriesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionEventCategoriesItemArrayOutput) ElementType() reflect.Type {
@@ -225,6 +239,12 @@ func (o EventSubscriptionEventCategoriesItemArrayOutput) ToEventSubscriptionEven
 
 func (o EventSubscriptionEventCategoriesItemArrayOutput) ToEventSubscriptionEventCategoriesItemArrayOutputWithContext(ctx context.Context) EventSubscriptionEventCategoriesItemArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionEventCategoriesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionEventCategoriesItem] {
+	return pulumix.Output[[]EventSubscriptionEventCategoriesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionEventCategoriesItemArrayOutput) Index(i pulumi.IntInput) EventSubscriptionEventCategoriesItemOutput {
@@ -301,6 +321,12 @@ func (o EventSubscriptionSeverityOutput) ToEventSubscriptionSeverityPtrOutputWit
 	}).(EventSubscriptionSeverityPtrOutput)
 }
 
+func (o EventSubscriptionSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionSeverity] {
+	return pulumix.Output[EventSubscriptionSeverity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSubscriptionSeverityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -336,6 +362,12 @@ func (o EventSubscriptionSeverityPtrOutput) ToEventSubscriptionSeverityPtrOutput
 	return o
 }
 
+func (o EventSubscriptionSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionSeverity] {
+	return pulumix.Output[*EventSubscriptionSeverity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSubscriptionSeverityPtrOutput) Elem() EventSubscriptionSeverityOutput {
 	return o.ApplyT(func(v *EventSubscriptionSeverity) EventSubscriptionSeverity {
 		if v != nil {
@@ -360,11 +392,10 @@ func (o EventSubscriptionSeverityPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventSubscriptionSeverityInput is an input type that accepts values of the EventSubscriptionSeverity enum
-// A concrete instance of `EventSubscriptionSeverityInput` can be one of the following:
+// EventSubscriptionSeverityInput is an input type that accepts EventSubscriptionSeverityArgs and EventSubscriptionSeverityOutput values.
+// You can construct a concrete instance of `EventSubscriptionSeverityInput` via:
 //
-//	EventSubscriptionSeverityError
-//	EventSubscriptionSeverityInfo
+//	EventSubscriptionSeverityArgs{...}
 type EventSubscriptionSeverityInput interface {
 	pulumi.Input
 
@@ -476,6 +507,12 @@ func (o EventSubscriptionSourceTypeOutput) ToEventSubscriptionSourceTypePtrOutpu
 	}).(EventSubscriptionSourceTypePtrOutput)
 }
 
+func (o EventSubscriptionSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionSourceType] {
+	return pulumix.Output[EventSubscriptionSourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSubscriptionSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -511,6 +548,12 @@ func (o EventSubscriptionSourceTypePtrOutput) ToEventSubscriptionSourceTypePtrOu
 	return o
 }
 
+func (o EventSubscriptionSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionSourceType] {
+	return pulumix.Output[*EventSubscriptionSourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSubscriptionSourceTypePtrOutput) Elem() EventSubscriptionSourceTypeOutput {
 	return o.ApplyT(func(v *EventSubscriptionSourceType) EventSubscriptionSourceType {
 		if v != nil {
@@ -535,14 +578,10 @@ func (o EventSubscriptionSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventSubscriptionSourceTypeInput is an input type that accepts values of the EventSubscriptionSourceType enum
-// A concrete instance of `EventSubscriptionSourceTypeInput` can be one of the following:
+// EventSubscriptionSourceTypeInput is an input type that accepts EventSubscriptionSourceTypeArgs and EventSubscriptionSourceTypeOutput values.
+// You can construct a concrete instance of `EventSubscriptionSourceTypeInput` via:
 //
-//	EventSubscriptionSourceTypeCluster
-//	EventSubscriptionSourceTypeClusterParameterGroup
-//	EventSubscriptionSourceTypeClusterSecurityGroup
-//	EventSubscriptionSourceTypeClusterSnapshot
-//	EventSubscriptionSourceTypeScheduledAction
+//	EventSubscriptionSourceTypeArgs{...}
 type EventSubscriptionSourceTypeInput interface {
 	pulumi.Input
 
@@ -616,6 +655,12 @@ func (o EventSubscriptionStatusOutput) ToEventSubscriptionStatusPtrOutputWithCon
 	}).(EventSubscriptionStatusPtrOutput)
 }
 
+func (o EventSubscriptionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionStatus] {
+	return pulumix.Output[EventSubscriptionStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSubscriptionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -649,6 +694,12 @@ func (o EventSubscriptionStatusPtrOutput) ToEventSubscriptionStatusPtrOutput() E
 
 func (o EventSubscriptionStatusPtrOutput) ToEventSubscriptionStatusPtrOutputWithContext(ctx context.Context) EventSubscriptionStatusPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionStatus] {
+	return pulumix.Output[*EventSubscriptionStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionStatusPtrOutput) Elem() EventSubscriptionStatusOutput {
@@ -707,6 +758,12 @@ func (o ScheduledActionStateEnumOutput) ToScheduledActionStateEnumPtrOutputWithC
 	}).(ScheduledActionStateEnumPtrOutput)
 }
 
+func (o ScheduledActionStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledActionStateEnum] {
+	return pulumix.Output[ScheduledActionStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScheduledActionStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -740,6 +797,12 @@ func (o ScheduledActionStateEnumPtrOutput) ToScheduledActionStateEnumPtrOutput()
 
 func (o ScheduledActionStateEnumPtrOutput) ToScheduledActionStateEnumPtrOutputWithContext(ctx context.Context) ScheduledActionStateEnumPtrOutput {
 	return o
+}
+
+func (o ScheduledActionStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledActionStateEnum] {
+	return pulumix.Output[*ScheduledActionStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduledActionStateEnumPtrOutput) Elem() ScheduledActionStateEnumOutput {

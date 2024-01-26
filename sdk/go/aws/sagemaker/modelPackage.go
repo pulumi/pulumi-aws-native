@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::ModelPackage
@@ -179,6 +180,12 @@ func (i *ModelPackage) ToModelPackageOutputWithContext(ctx context.Context) Mode
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageOutput)
 }
 
+func (i *ModelPackage) ToOutput(ctx context.Context) pulumix.Output[*ModelPackage] {
+	return pulumix.Output[*ModelPackage]{
+		OutputState: i.ToModelPackageOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ModelPackageOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageOutput) ElementType() reflect.Type {
@@ -191,6 +198,12 @@ func (o ModelPackageOutput) ToModelPackageOutput() ModelPackageOutput {
 
 func (o ModelPackageOutput) ToModelPackageOutputWithContext(ctx context.Context) ModelPackageOutput {
 	return o
+}
+
+func (o ModelPackageOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackage] {
+	return pulumix.Output[*ModelPackage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ModelPackageOutput) AdditionalInferenceSpecifications() ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {

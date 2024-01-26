@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::CoreDefinition
@@ -103,6 +104,12 @@ func (i *CoreDefinition) ToCoreDefinitionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionOutput)
 }
 
+func (i *CoreDefinition) ToOutput(ctx context.Context) pulumix.Output[*CoreDefinition] {
+	return pulumix.Output[*CoreDefinition]{
+		OutputState: i.ToCoreDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CoreDefinitionOutput struct{ *pulumi.OutputState }
 
 func (CoreDefinitionOutput) ElementType() reflect.Type {
@@ -115,6 +122,12 @@ func (o CoreDefinitionOutput) ToCoreDefinitionOutput() CoreDefinitionOutput {
 
 func (o CoreDefinitionOutput) ToCoreDefinitionOutputWithContext(ctx context.Context) CoreDefinitionOutput {
 	return o
+}
+
+func (o CoreDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*CoreDefinition] {
+	return pulumix.Output[*CoreDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CoreDefinitionOutput) Arn() pulumi.StringOutput {

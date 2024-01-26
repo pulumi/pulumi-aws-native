@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CodePipeline::Pipeline
@@ -74,6 +75,12 @@ func (o LookupPipelineResultOutput) ToLookupPipelineResultOutput() LookupPipelin
 
 func (o LookupPipelineResultOutput) ToLookupPipelineResultOutputWithContext(ctx context.Context) LookupPipelineResultOutput {
 	return o
+}
+
+func (o LookupPipelineResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPipelineResult] {
+	return pulumix.Output[LookupPipelineResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupPipelineResultOutput) ArtifactStore() PipelineArtifactStorePtrOutput {

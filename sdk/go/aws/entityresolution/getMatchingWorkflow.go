@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // MatchingWorkflow defined in AWS Entity Resolution service
@@ -74,6 +75,12 @@ func (o LookupMatchingWorkflowResultOutput) ToLookupMatchingWorkflowResultOutput
 
 func (o LookupMatchingWorkflowResultOutput) ToLookupMatchingWorkflowResultOutputWithContext(ctx context.Context) LookupMatchingWorkflowResultOutput {
 	return o
+}
+
+func (o LookupMatchingWorkflowResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMatchingWorkflowResult] {
+	return pulumix.Output[LookupMatchingWorkflowResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupMatchingWorkflowResultOutput) CreatedAt() pulumi.StringPtrOutput {

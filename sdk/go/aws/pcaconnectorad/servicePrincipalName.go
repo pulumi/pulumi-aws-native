@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::PCAConnectorAD::ServicePrincipalName Resource Type
@@ -97,6 +98,12 @@ func (i *ServicePrincipalName) ToServicePrincipalNameOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalNameOutput)
 }
 
+func (i *ServicePrincipalName) ToOutput(ctx context.Context) pulumix.Output[*ServicePrincipalName] {
+	return pulumix.Output[*ServicePrincipalName]{
+		OutputState: i.ToServicePrincipalNameOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServicePrincipalNameOutput struct{ *pulumi.OutputState }
 
 func (ServicePrincipalNameOutput) ElementType() reflect.Type {
@@ -109,6 +116,12 @@ func (o ServicePrincipalNameOutput) ToServicePrincipalNameOutput() ServicePrinci
 
 func (o ServicePrincipalNameOutput) ToServicePrincipalNameOutputWithContext(ctx context.Context) ServicePrincipalNameOutput {
 	return o
+}
+
+func (o ServicePrincipalNameOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicePrincipalName] {
+	return pulumix.Output[*ServicePrincipalName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServicePrincipalNameOutput) ConnectorArn() pulumi.StringPtrOutput {

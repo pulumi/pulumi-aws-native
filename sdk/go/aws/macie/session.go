@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
@@ -102,6 +103,12 @@ func (i *Session) ToSessionOutputWithContext(ctx context.Context) SessionOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SessionOutput)
 }
 
+func (i *Session) ToOutput(ctx context.Context) pulumix.Output[*Session] {
+	return pulumix.Output[*Session]{
+		OutputState: i.ToSessionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SessionOutput struct{ *pulumi.OutputState }
 
 func (SessionOutput) ElementType() reflect.Type {
@@ -114,6 +121,12 @@ func (o SessionOutput) ToSessionOutput() SessionOutput {
 
 func (o SessionOutput) ToSessionOutputWithContext(ctx context.Context) SessionOutput {
 	return o
+}
+
+func (o SessionOutput) ToOutput(ctx context.Context) pulumix.Output[*Session] {
+	return pulumix.Output[*Session]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AWS account ID of customer

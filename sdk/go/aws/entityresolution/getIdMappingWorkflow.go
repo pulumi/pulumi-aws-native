@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // IdMappingWorkflow defined in AWS Entity Resolution service
@@ -74,6 +75,12 @@ func (o LookupIdMappingWorkflowResultOutput) ToLookupIdMappingWorkflowResultOutp
 
 func (o LookupIdMappingWorkflowResultOutput) ToLookupIdMappingWorkflowResultOutputWithContext(ctx context.Context) LookupIdMappingWorkflowResultOutput {
 	return o
+}
+
+func (o LookupIdMappingWorkflowResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIdMappingWorkflowResult] {
+	return pulumix.Output[LookupIdMappingWorkflowResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupIdMappingWorkflowResultOutput) CreatedAt() pulumi.StringPtrOutput {

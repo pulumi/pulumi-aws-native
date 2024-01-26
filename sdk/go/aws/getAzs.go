@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetAzs(ctx *pulumi.Context, args *GetAzsArgs, opts ...pulumi.InvokeOption) (*GetAzsResult, error) {
@@ -62,6 +63,12 @@ func (o GetAzsResultOutput) ToGetAzsResultOutput() GetAzsResultOutput {
 
 func (o GetAzsResultOutput) ToGetAzsResultOutputWithContext(ctx context.Context) GetAzsResultOutput {
 	return o
+}
+
+func (o GetAzsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAzsResult] {
+	return pulumix.Output[GetAzsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAzsResultOutput) Azs() pulumi.StringArrayOutput {

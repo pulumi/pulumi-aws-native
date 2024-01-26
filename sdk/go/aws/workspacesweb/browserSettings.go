@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type
@@ -105,6 +106,12 @@ func (i *BrowserSettings) ToBrowserSettingsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BrowserSettingsOutput)
 }
 
+func (i *BrowserSettings) ToOutput(ctx context.Context) pulumix.Output[*BrowserSettings] {
+	return pulumix.Output[*BrowserSettings]{
+		OutputState: i.ToBrowserSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BrowserSettingsOutput struct{ *pulumi.OutputState }
 
 func (BrowserSettingsOutput) ElementType() reflect.Type {
@@ -117,6 +124,12 @@ func (o BrowserSettingsOutput) ToBrowserSettingsOutput() BrowserSettingsOutput {
 
 func (o BrowserSettingsOutput) ToBrowserSettingsOutputWithContext(ctx context.Context) BrowserSettingsOutput {
 	return o
+}
+
+func (o BrowserSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*BrowserSettings] {
+	return pulumix.Output[*BrowserSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BrowserSettingsOutput) AdditionalEncryptionContext() BrowserSettingsEncryptionContextMapPtrOutput {

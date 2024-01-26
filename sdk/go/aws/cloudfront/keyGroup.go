@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::KeyGroup
@@ -94,6 +95,12 @@ func (i *KeyGroup) ToKeyGroupOutputWithContext(ctx context.Context) KeyGroupOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupOutput)
 }
 
+func (i *KeyGroup) ToOutput(ctx context.Context) pulumix.Output[*KeyGroup] {
+	return pulumix.Output[*KeyGroup]{
+		OutputState: i.ToKeyGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KeyGroupOutput struct{ *pulumi.OutputState }
 
 func (KeyGroupOutput) ElementType() reflect.Type {
@@ -106,6 +113,12 @@ func (o KeyGroupOutput) ToKeyGroupOutput() KeyGroupOutput {
 
 func (o KeyGroupOutput) ToKeyGroupOutputWithContext(ctx context.Context) KeyGroupOutput {
 	return o
+}
+
+func (o KeyGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyGroup] {
+	return pulumix.Output[*KeyGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KeyGroupOutput) KeyGroupConfig() KeyGroupConfigOutput {

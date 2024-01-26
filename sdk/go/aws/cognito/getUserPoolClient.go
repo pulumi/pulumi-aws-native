@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolClient
@@ -87,6 +88,12 @@ func (o LookupUserPoolClientResultOutput) ToLookupUserPoolClientResultOutput() L
 
 func (o LookupUserPoolClientResultOutput) ToLookupUserPoolClientResultOutputWithContext(ctx context.Context) LookupUserPoolClientResultOutput {
 	return o
+}
+
+func (o LookupUserPoolClientResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserPoolClientResult] {
+	return pulumix.Output[LookupUserPoolClientResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupUserPoolClientResultOutput) AccessTokenValidity() pulumi.IntPtrOutput {

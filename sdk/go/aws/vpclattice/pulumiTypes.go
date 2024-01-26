@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i AccessLogSubscriptionTagArgs) ToAccessLogSubscriptionTagOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AccessLogSubscriptionTagOutput)
 }
 
+func (i AccessLogSubscriptionTagArgs) ToOutput(ctx context.Context) pulumix.Output[AccessLogSubscriptionTag] {
+	return pulumix.Output[AccessLogSubscriptionTag]{
+		OutputState: i.ToAccessLogSubscriptionTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccessLogSubscriptionTagArrayInput is an input type that accepts AccessLogSubscriptionTagArray and AccessLogSubscriptionTagArrayOutput values.
 // You can construct a concrete instance of `AccessLogSubscriptionTagArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i AccessLogSubscriptionTagArray) ToAccessLogSubscriptionTagArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AccessLogSubscriptionTagArrayOutput)
 }
 
+func (i AccessLogSubscriptionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AccessLogSubscriptionTag] {
+	return pulumix.Output[[]AccessLogSubscriptionTag]{
+		OutputState: i.ToAccessLogSubscriptionTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessLogSubscriptionTagOutput struct{ *pulumi.OutputState }
 
 func (AccessLogSubscriptionTagOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o AccessLogSubscriptionTagOutput) ToAccessLogSubscriptionTagOutput() Acces
 
 func (o AccessLogSubscriptionTagOutput) ToAccessLogSubscriptionTagOutputWithContext(ctx context.Context) AccessLogSubscriptionTagOutput {
 	return o
+}
+
+func (o AccessLogSubscriptionTagOutput) ToOutput(ctx context.Context) pulumix.Output[AccessLogSubscriptionTag] {
+	return pulumix.Output[AccessLogSubscriptionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessLogSubscriptionTagOutput) Key() pulumi.StringOutput {
@@ -105,6 +124,12 @@ func (o AccessLogSubscriptionTagArrayOutput) ToAccessLogSubscriptionTagArrayOutp
 
 func (o AccessLogSubscriptionTagArrayOutput) ToAccessLogSubscriptionTagArrayOutputWithContext(ctx context.Context) AccessLogSubscriptionTagArrayOutput {
 	return o
+}
+
+func (o AccessLogSubscriptionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccessLogSubscriptionTag] {
+	return pulumix.Output[[]AccessLogSubscriptionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessLogSubscriptionTagArrayOutput) Index(i pulumi.IntInput) AccessLogSubscriptionTagOutput {
@@ -146,6 +171,12 @@ func (i ListenerDefaultActionArgs) ToListenerDefaultActionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionOutput)
 }
 
+func (i ListenerDefaultActionArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerDefaultAction] {
+	return pulumix.Output[ListenerDefaultAction]{
+		OutputState: i.ToListenerDefaultActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ListenerDefaultActionOutput struct{ *pulumi.OutputState }
 
 func (ListenerDefaultActionOutput) ElementType() reflect.Type {
@@ -158,6 +189,12 @@ func (o ListenerDefaultActionOutput) ToListenerDefaultActionOutput() ListenerDef
 
 func (o ListenerDefaultActionOutput) ToListenerDefaultActionOutputWithContext(ctx context.Context) ListenerDefaultActionOutput {
 	return o
+}
+
+func (o ListenerDefaultActionOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerDefaultAction] {
+	return pulumix.Output[ListenerDefaultAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerDefaultActionOutput) FixedResponse() ListenerFixedResponsePtrOutput {
@@ -180,6 +217,12 @@ func (o ListenerDefaultActionPtrOutput) ToListenerDefaultActionPtrOutput() Liste
 
 func (o ListenerDefaultActionPtrOutput) ToListenerDefaultActionPtrOutputWithContext(ctx context.Context) ListenerDefaultActionPtrOutput {
 	return o
+}
+
+func (o ListenerDefaultActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerDefaultAction] {
+	return pulumix.Output[*ListenerDefaultAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerDefaultActionPtrOutput) Elem() ListenerDefaultActionOutput {
@@ -241,6 +284,12 @@ func (i ListenerFixedResponseArgs) ToListenerFixedResponseOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerFixedResponseOutput)
 }
 
+func (i ListenerFixedResponseArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerFixedResponse] {
+	return pulumix.Output[ListenerFixedResponse]{
+		OutputState: i.ToListenerFixedResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ListenerFixedResponseArgs) ToListenerFixedResponsePtrOutput() ListenerFixedResponsePtrOutput {
 	return i.ToListenerFixedResponsePtrOutputWithContext(context.Background())
 }
@@ -282,6 +331,12 @@ func (i *listenerFixedResponsePtrType) ToListenerFixedResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerFixedResponsePtrOutput)
 }
 
+func (i *listenerFixedResponsePtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerFixedResponse] {
+	return pulumix.Output[*ListenerFixedResponse]{
+		OutputState: i.ToListenerFixedResponsePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ListenerFixedResponseOutput struct{ *pulumi.OutputState }
 
 func (ListenerFixedResponseOutput) ElementType() reflect.Type {
@@ -306,6 +361,12 @@ func (o ListenerFixedResponseOutput) ToListenerFixedResponsePtrOutputWithContext
 	}).(ListenerFixedResponsePtrOutput)
 }
 
+func (o ListenerFixedResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerFixedResponse] {
+	return pulumix.Output[ListenerFixedResponse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ListenerFixedResponseOutput) StatusCode() pulumi.IntOutput {
 	return o.ApplyT(func(v ListenerFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
 }
@@ -322,6 +383,12 @@ func (o ListenerFixedResponsePtrOutput) ToListenerFixedResponsePtrOutput() Liste
 
 func (o ListenerFixedResponsePtrOutput) ToListenerFixedResponsePtrOutputWithContext(ctx context.Context) ListenerFixedResponsePtrOutput {
 	return o
+}
+
+func (o ListenerFixedResponsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerFixedResponse] {
+	return pulumix.Output[*ListenerFixedResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerFixedResponsePtrOutput) Elem() ListenerFixedResponseOutput {
@@ -374,6 +441,12 @@ func (i ListenerForwardArgs) ToListenerForwardOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerForwardOutput)
 }
 
+func (i ListenerForwardArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerForward] {
+	return pulumix.Output[ListenerForward]{
+		OutputState: i.ToListenerForwardOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ListenerForwardArgs) ToListenerForwardPtrOutput() ListenerForwardPtrOutput {
 	return i.ToListenerForwardPtrOutputWithContext(context.Background())
 }
@@ -415,6 +488,12 @@ func (i *listenerForwardPtrType) ToListenerForwardPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerForwardPtrOutput)
 }
 
+func (i *listenerForwardPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerForward] {
+	return pulumix.Output[*ListenerForward]{
+		OutputState: i.ToListenerForwardPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ListenerForwardOutput struct{ *pulumi.OutputState }
 
 func (ListenerForwardOutput) ElementType() reflect.Type {
@@ -439,6 +518,12 @@ func (o ListenerForwardOutput) ToListenerForwardPtrOutputWithContext(ctx context
 	}).(ListenerForwardPtrOutput)
 }
 
+func (o ListenerForwardOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerForward] {
+	return pulumix.Output[ListenerForward]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ListenerForwardOutput) TargetGroups() ListenerWeightedTargetGroupArrayOutput {
 	return o.ApplyT(func(v ListenerForward) []ListenerWeightedTargetGroup { return v.TargetGroups }).(ListenerWeightedTargetGroupArrayOutput)
 }
@@ -455,6 +540,12 @@ func (o ListenerForwardPtrOutput) ToListenerForwardPtrOutput() ListenerForwardPt
 
 func (o ListenerForwardPtrOutput) ToListenerForwardPtrOutputWithContext(ctx context.Context) ListenerForwardPtrOutput {
 	return o
+}
+
+func (o ListenerForwardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerForward] {
+	return pulumix.Output[*ListenerForward]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerForwardPtrOutput) Elem() ListenerForwardOutput {
@@ -509,6 +600,12 @@ func (i ListenerTagArgs) ToListenerTagOutputWithContext(ctx context.Context) Lis
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerTagOutput)
 }
 
+func (i ListenerTagArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerTag] {
+	return pulumix.Output[ListenerTag]{
+		OutputState: i.ToListenerTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ListenerTagArrayInput is an input type that accepts ListenerTagArray and ListenerTagArrayOutput values.
 // You can construct a concrete instance of `ListenerTagArrayInput` via:
 //
@@ -534,6 +631,12 @@ func (i ListenerTagArray) ToListenerTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerTagArrayOutput)
 }
 
+func (i ListenerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerTag] {
+	return pulumix.Output[[]ListenerTag]{
+		OutputState: i.ToListenerTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ListenerTagOutput struct{ *pulumi.OutputState }
 
 func (ListenerTagOutput) ElementType() reflect.Type {
@@ -546,6 +649,12 @@ func (o ListenerTagOutput) ToListenerTagOutput() ListenerTagOutput {
 
 func (o ListenerTagOutput) ToListenerTagOutputWithContext(ctx context.Context) ListenerTagOutput {
 	return o
+}
+
+func (o ListenerTagOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerTag] {
+	return pulumix.Output[ListenerTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerTagOutput) Key() pulumi.StringOutput {
@@ -568,6 +677,12 @@ func (o ListenerTagArrayOutput) ToListenerTagArrayOutput() ListenerTagArrayOutpu
 
 func (o ListenerTagArrayOutput) ToListenerTagArrayOutputWithContext(ctx context.Context) ListenerTagArrayOutput {
 	return o
+}
+
+func (o ListenerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerTag] {
+	return pulumix.Output[[]ListenerTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerTagArrayOutput) Index(i pulumi.IntInput) ListenerTagOutput {
@@ -609,6 +724,12 @@ func (i ListenerWeightedTargetGroupArgs) ToListenerWeightedTargetGroupOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerWeightedTargetGroupOutput)
 }
 
+func (i ListenerWeightedTargetGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerWeightedTargetGroup] {
+	return pulumix.Output[ListenerWeightedTargetGroup]{
+		OutputState: i.ToListenerWeightedTargetGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ListenerWeightedTargetGroupArrayInput is an input type that accepts ListenerWeightedTargetGroupArray and ListenerWeightedTargetGroupArrayOutput values.
 // You can construct a concrete instance of `ListenerWeightedTargetGroupArrayInput` via:
 //
@@ -634,6 +755,12 @@ func (i ListenerWeightedTargetGroupArray) ToListenerWeightedTargetGroupArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerWeightedTargetGroupArrayOutput)
 }
 
+func (i ListenerWeightedTargetGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerWeightedTargetGroup] {
+	return pulumix.Output[[]ListenerWeightedTargetGroup]{
+		OutputState: i.ToListenerWeightedTargetGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ListenerWeightedTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (ListenerWeightedTargetGroupOutput) ElementType() reflect.Type {
@@ -646,6 +773,12 @@ func (o ListenerWeightedTargetGroupOutput) ToListenerWeightedTargetGroupOutput()
 
 func (o ListenerWeightedTargetGroupOutput) ToListenerWeightedTargetGroupOutputWithContext(ctx context.Context) ListenerWeightedTargetGroupOutput {
 	return o
+}
+
+func (o ListenerWeightedTargetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerWeightedTargetGroup] {
+	return pulumix.Output[ListenerWeightedTargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerWeightedTargetGroupOutput) TargetGroupIdentifier() pulumi.StringOutput {
@@ -668,6 +801,12 @@ func (o ListenerWeightedTargetGroupArrayOutput) ToListenerWeightedTargetGroupArr
 
 func (o ListenerWeightedTargetGroupArrayOutput) ToListenerWeightedTargetGroupArrayOutputWithContext(ctx context.Context) ListenerWeightedTargetGroupArrayOutput {
 	return o
+}
+
+func (o ListenerWeightedTargetGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerWeightedTargetGroup] {
+	return pulumix.Output[[]ListenerWeightedTargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerWeightedTargetGroupArrayOutput) Index(i pulumi.IntInput) ListenerWeightedTargetGroupOutput {
@@ -709,6 +848,12 @@ func (i RuleActionArgs) ToRuleActionOutputWithContext(ctx context.Context) RuleA
 	return pulumi.ToOutputWithContext(ctx, i).(RuleActionOutput)
 }
 
+func (i RuleActionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleAction] {
+	return pulumix.Output[RuleAction]{
+		OutputState: i.ToRuleActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleActionOutput struct{ *pulumi.OutputState }
 
 func (RuleActionOutput) ElementType() reflect.Type {
@@ -721,6 +866,12 @@ func (o RuleActionOutput) ToRuleActionOutput() RuleActionOutput {
 
 func (o RuleActionOutput) ToRuleActionOutputWithContext(ctx context.Context) RuleActionOutput {
 	return o
+}
+
+func (o RuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleAction] {
+	return pulumix.Output[RuleAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleActionOutput) FixedResponse() RuleFixedResponsePtrOutput {
@@ -743,6 +894,12 @@ func (o RuleActionPtrOutput) ToRuleActionPtrOutput() RuleActionPtrOutput {
 
 func (o RuleActionPtrOutput) ToRuleActionPtrOutputWithContext(ctx context.Context) RuleActionPtrOutput {
 	return o
+}
+
+func (o RuleActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleAction] {
+	return pulumix.Output[*RuleAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleActionPtrOutput) Elem() RuleActionOutput {
@@ -804,6 +961,12 @@ func (i RuleFixedResponseArgs) ToRuleFixedResponseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RuleFixedResponseOutput)
 }
 
+func (i RuleFixedResponseArgs) ToOutput(ctx context.Context) pulumix.Output[RuleFixedResponse] {
+	return pulumix.Output[RuleFixedResponse]{
+		OutputState: i.ToRuleFixedResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleFixedResponseArgs) ToRuleFixedResponsePtrOutput() RuleFixedResponsePtrOutput {
 	return i.ToRuleFixedResponsePtrOutputWithContext(context.Background())
 }
@@ -845,6 +1008,12 @@ func (i *ruleFixedResponsePtrType) ToRuleFixedResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RuleFixedResponsePtrOutput)
 }
 
+func (i *ruleFixedResponsePtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleFixedResponse] {
+	return pulumix.Output[*RuleFixedResponse]{
+		OutputState: i.ToRuleFixedResponsePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleFixedResponseOutput struct{ *pulumi.OutputState }
 
 func (RuleFixedResponseOutput) ElementType() reflect.Type {
@@ -869,6 +1038,12 @@ func (o RuleFixedResponseOutput) ToRuleFixedResponsePtrOutputWithContext(ctx con
 	}).(RuleFixedResponsePtrOutput)
 }
 
+func (o RuleFixedResponseOutput) ToOutput(ctx context.Context) pulumix.Output[RuleFixedResponse] {
+	return pulumix.Output[RuleFixedResponse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleFixedResponseOutput) StatusCode() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
 }
@@ -885,6 +1060,12 @@ func (o RuleFixedResponsePtrOutput) ToRuleFixedResponsePtrOutput() RuleFixedResp
 
 func (o RuleFixedResponsePtrOutput) ToRuleFixedResponsePtrOutputWithContext(ctx context.Context) RuleFixedResponsePtrOutput {
 	return o
+}
+
+func (o RuleFixedResponsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleFixedResponse] {
+	return pulumix.Output[*RuleFixedResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleFixedResponsePtrOutput) Elem() RuleFixedResponseOutput {
@@ -937,6 +1118,12 @@ func (i RuleForwardArgs) ToRuleForwardOutputWithContext(ctx context.Context) Rul
 	return pulumi.ToOutputWithContext(ctx, i).(RuleForwardOutput)
 }
 
+func (i RuleForwardArgs) ToOutput(ctx context.Context) pulumix.Output[RuleForward] {
+	return pulumix.Output[RuleForward]{
+		OutputState: i.ToRuleForwardOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleForwardArgs) ToRuleForwardPtrOutput() RuleForwardPtrOutput {
 	return i.ToRuleForwardPtrOutputWithContext(context.Background())
 }
@@ -978,6 +1165,12 @@ func (i *ruleForwardPtrType) ToRuleForwardPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RuleForwardPtrOutput)
 }
 
+func (i *ruleForwardPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleForward] {
+	return pulumix.Output[*RuleForward]{
+		OutputState: i.ToRuleForwardPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleForwardOutput struct{ *pulumi.OutputState }
 
 func (RuleForwardOutput) ElementType() reflect.Type {
@@ -1002,6 +1195,12 @@ func (o RuleForwardOutput) ToRuleForwardPtrOutputWithContext(ctx context.Context
 	}).(RuleForwardPtrOutput)
 }
 
+func (o RuleForwardOutput) ToOutput(ctx context.Context) pulumix.Output[RuleForward] {
+	return pulumix.Output[RuleForward]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleForwardOutput) TargetGroups() RuleWeightedTargetGroupArrayOutput {
 	return o.ApplyT(func(v RuleForward) []RuleWeightedTargetGroup { return v.TargetGroups }).(RuleWeightedTargetGroupArrayOutput)
 }
@@ -1018,6 +1217,12 @@ func (o RuleForwardPtrOutput) ToRuleForwardPtrOutput() RuleForwardPtrOutput {
 
 func (o RuleForwardPtrOutput) ToRuleForwardPtrOutputWithContext(ctx context.Context) RuleForwardPtrOutput {
 	return o
+}
+
+func (o RuleForwardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleForward] {
+	return pulumix.Output[*RuleForward]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleForwardPtrOutput) Elem() RuleForwardOutput {
@@ -1074,6 +1279,12 @@ func (i RuleHeaderMatchArgs) ToRuleHeaderMatchOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleHeaderMatchOutput)
 }
 
+func (i RuleHeaderMatchArgs) ToOutput(ctx context.Context) pulumix.Output[RuleHeaderMatch] {
+	return pulumix.Output[RuleHeaderMatch]{
+		OutputState: i.ToRuleHeaderMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleHeaderMatchArrayInput is an input type that accepts RuleHeaderMatchArray and RuleHeaderMatchArrayOutput values.
 // You can construct a concrete instance of `RuleHeaderMatchArrayInput` via:
 //
@@ -1099,6 +1310,12 @@ func (i RuleHeaderMatchArray) ToRuleHeaderMatchArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleHeaderMatchArrayOutput)
 }
 
+func (i RuleHeaderMatchArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleHeaderMatch] {
+	return pulumix.Output[[]RuleHeaderMatch]{
+		OutputState: i.ToRuleHeaderMatchArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleHeaderMatchOutput struct{ *pulumi.OutputState }
 
 func (RuleHeaderMatchOutput) ElementType() reflect.Type {
@@ -1111,6 +1328,12 @@ func (o RuleHeaderMatchOutput) ToRuleHeaderMatchOutput() RuleHeaderMatchOutput {
 
 func (o RuleHeaderMatchOutput) ToRuleHeaderMatchOutputWithContext(ctx context.Context) RuleHeaderMatchOutput {
 	return o
+}
+
+func (o RuleHeaderMatchOutput) ToOutput(ctx context.Context) pulumix.Output[RuleHeaderMatch] {
+	return pulumix.Output[RuleHeaderMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleHeaderMatchOutput) CaseSensitive() pulumi.BoolPtrOutput {
@@ -1137,6 +1360,12 @@ func (o RuleHeaderMatchArrayOutput) ToRuleHeaderMatchArrayOutput() RuleHeaderMat
 
 func (o RuleHeaderMatchArrayOutput) ToRuleHeaderMatchArrayOutputWithContext(ctx context.Context) RuleHeaderMatchArrayOutput {
 	return o
+}
+
+func (o RuleHeaderMatchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleHeaderMatch] {
+	return pulumix.Output[[]RuleHeaderMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleHeaderMatchArrayOutput) Index(i pulumi.IntInput) RuleHeaderMatchOutput {
@@ -1180,6 +1409,12 @@ func (i RuleHeaderMatchTypeArgs) ToRuleHeaderMatchTypeOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleHeaderMatchTypeOutput)
 }
 
+func (i RuleHeaderMatchTypeArgs) ToOutput(ctx context.Context) pulumix.Output[RuleHeaderMatchType] {
+	return pulumix.Output[RuleHeaderMatchType]{
+		OutputState: i.ToRuleHeaderMatchTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleHeaderMatchTypeOutput struct{ *pulumi.OutputState }
 
 func (RuleHeaderMatchTypeOutput) ElementType() reflect.Type {
@@ -1192,6 +1427,12 @@ func (o RuleHeaderMatchTypeOutput) ToRuleHeaderMatchTypeOutput() RuleHeaderMatch
 
 func (o RuleHeaderMatchTypeOutput) ToRuleHeaderMatchTypeOutputWithContext(ctx context.Context) RuleHeaderMatchTypeOutput {
 	return o
+}
+
+func (o RuleHeaderMatchTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleHeaderMatchType] {
+	return pulumix.Output[RuleHeaderMatchType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleHeaderMatchTypeOutput) Contains() pulumi.StringPtrOutput {
@@ -1241,6 +1482,12 @@ func (i RuleHttpMatchArgs) ToRuleHttpMatchOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RuleHttpMatchOutput)
 }
 
+func (i RuleHttpMatchArgs) ToOutput(ctx context.Context) pulumix.Output[RuleHttpMatch] {
+	return pulumix.Output[RuleHttpMatch]{
+		OutputState: i.ToRuleHttpMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleHttpMatchOutput struct{ *pulumi.OutputState }
 
 func (RuleHttpMatchOutput) ElementType() reflect.Type {
@@ -1253,6 +1500,12 @@ func (o RuleHttpMatchOutput) ToRuleHttpMatchOutput() RuleHttpMatchOutput {
 
 func (o RuleHttpMatchOutput) ToRuleHttpMatchOutputWithContext(ctx context.Context) RuleHttpMatchOutput {
 	return o
+}
+
+func (o RuleHttpMatchOutput) ToOutput(ctx context.Context) pulumix.Output[RuleHttpMatch] {
+	return pulumix.Output[RuleHttpMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleHttpMatchOutput) HeaderMatches() RuleHeaderMatchArrayOutput {
@@ -1279,6 +1532,12 @@ func (o RuleHttpMatchPtrOutput) ToRuleHttpMatchPtrOutput() RuleHttpMatchPtrOutpu
 
 func (o RuleHttpMatchPtrOutput) ToRuleHttpMatchPtrOutputWithContext(ctx context.Context) RuleHttpMatchPtrOutput {
 	return o
+}
+
+func (o RuleHttpMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleHttpMatch] {
+	return pulumix.Output[*RuleHttpMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleHttpMatchPtrOutput) Elem() RuleHttpMatchOutput {
@@ -1349,6 +1608,12 @@ func (i RuleMatchArgs) ToRuleMatchOutputWithContext(ctx context.Context) RuleMat
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMatchOutput)
 }
 
+func (i RuleMatchArgs) ToOutput(ctx context.Context) pulumix.Output[RuleMatch] {
+	return pulumix.Output[RuleMatch]{
+		OutputState: i.ToRuleMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleMatchOutput struct{ *pulumi.OutputState }
 
 func (RuleMatchOutput) ElementType() reflect.Type {
@@ -1361,6 +1626,12 @@ func (o RuleMatchOutput) ToRuleMatchOutput() RuleMatchOutput {
 
 func (o RuleMatchOutput) ToRuleMatchOutputWithContext(ctx context.Context) RuleMatchOutput {
 	return o
+}
+
+func (o RuleMatchOutput) ToOutput(ctx context.Context) pulumix.Output[RuleMatch] {
+	return pulumix.Output[RuleMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleMatchOutput) HttpMatch() RuleHttpMatchOutput {
@@ -1379,6 +1650,12 @@ func (o RuleMatchPtrOutput) ToRuleMatchPtrOutput() RuleMatchPtrOutput {
 
 func (o RuleMatchPtrOutput) ToRuleMatchPtrOutputWithContext(ctx context.Context) RuleMatchPtrOutput {
 	return o
+}
+
+func (o RuleMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleMatch] {
+	return pulumix.Output[*RuleMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleMatchPtrOutput) Elem() RuleMatchOutput {
@@ -1433,6 +1710,12 @@ func (i RulePathMatchArgs) ToRulePathMatchOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RulePathMatchOutput)
 }
 
+func (i RulePathMatchArgs) ToOutput(ctx context.Context) pulumix.Output[RulePathMatch] {
+	return pulumix.Output[RulePathMatch]{
+		OutputState: i.ToRulePathMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RulePathMatchArgs) ToRulePathMatchPtrOutput() RulePathMatchPtrOutput {
 	return i.ToRulePathMatchPtrOutputWithContext(context.Background())
 }
@@ -1474,6 +1757,12 @@ func (i *rulePathMatchPtrType) ToRulePathMatchPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(RulePathMatchPtrOutput)
 }
 
+func (i *rulePathMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*RulePathMatch] {
+	return pulumix.Output[*RulePathMatch]{
+		OutputState: i.ToRulePathMatchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulePathMatchOutput struct{ *pulumi.OutputState }
 
 func (RulePathMatchOutput) ElementType() reflect.Type {
@@ -1498,6 +1787,12 @@ func (o RulePathMatchOutput) ToRulePathMatchPtrOutputWithContext(ctx context.Con
 	}).(RulePathMatchPtrOutput)
 }
 
+func (o RulePathMatchOutput) ToOutput(ctx context.Context) pulumix.Output[RulePathMatch] {
+	return pulumix.Output[RulePathMatch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RulePathMatchOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RulePathMatch) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
 }
@@ -1518,6 +1813,12 @@ func (o RulePathMatchPtrOutput) ToRulePathMatchPtrOutput() RulePathMatchPtrOutpu
 
 func (o RulePathMatchPtrOutput) ToRulePathMatchPtrOutputWithContext(ctx context.Context) RulePathMatchPtrOutput {
 	return o
+}
+
+func (o RulePathMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RulePathMatch] {
+	return pulumix.Output[*RulePathMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulePathMatchPtrOutput) Elem() RulePathMatchOutput {
@@ -1581,6 +1882,12 @@ func (i RulePathMatchTypeArgs) ToRulePathMatchTypeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RulePathMatchTypeOutput)
 }
 
+func (i RulePathMatchTypeArgs) ToOutput(ctx context.Context) pulumix.Output[RulePathMatchType] {
+	return pulumix.Output[RulePathMatchType]{
+		OutputState: i.ToRulePathMatchTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RulePathMatchTypeArgs) ToRulePathMatchTypePtrOutput() RulePathMatchTypePtrOutput {
 	return i.ToRulePathMatchTypePtrOutputWithContext(context.Background())
 }
@@ -1622,6 +1929,12 @@ func (i *rulePathMatchTypePtrType) ToRulePathMatchTypePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RulePathMatchTypePtrOutput)
 }
 
+func (i *rulePathMatchTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*RulePathMatchType] {
+	return pulumix.Output[*RulePathMatchType]{
+		OutputState: i.ToRulePathMatchTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulePathMatchTypeOutput struct{ *pulumi.OutputState }
 
 func (RulePathMatchTypeOutput) ElementType() reflect.Type {
@@ -1646,6 +1959,12 @@ func (o RulePathMatchTypeOutput) ToRulePathMatchTypePtrOutputWithContext(ctx con
 	}).(RulePathMatchTypePtrOutput)
 }
 
+func (o RulePathMatchTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RulePathMatchType] {
+	return pulumix.Output[RulePathMatchType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RulePathMatchTypeOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulePathMatchType) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -1666,6 +1985,12 @@ func (o RulePathMatchTypePtrOutput) ToRulePathMatchTypePtrOutput() RulePathMatch
 
 func (o RulePathMatchTypePtrOutput) ToRulePathMatchTypePtrOutputWithContext(ctx context.Context) RulePathMatchTypePtrOutput {
 	return o
+}
+
+func (o RulePathMatchTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RulePathMatchType] {
+	return pulumix.Output[*RulePathMatchType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulePathMatchTypePtrOutput) Elem() RulePathMatchTypeOutput {
@@ -1729,6 +2054,12 @@ func (i RuleTagArgs) ToRuleTagOutputWithContext(ctx context.Context) RuleTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RuleTagOutput)
 }
 
+func (i RuleTagArgs) ToOutput(ctx context.Context) pulumix.Output[RuleTag] {
+	return pulumix.Output[RuleTag]{
+		OutputState: i.ToRuleTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleTagArrayInput is an input type that accepts RuleTagArray and RuleTagArrayOutput values.
 // You can construct a concrete instance of `RuleTagArrayInput` via:
 //
@@ -1754,6 +2085,12 @@ func (i RuleTagArray) ToRuleTagArrayOutputWithContext(ctx context.Context) RuleT
 	return pulumi.ToOutputWithContext(ctx, i).(RuleTagArrayOutput)
 }
 
+func (i RuleTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleTag] {
+	return pulumix.Output[[]RuleTag]{
+		OutputState: i.ToRuleTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleTagOutput struct{ *pulumi.OutputState }
 
 func (RuleTagOutput) ElementType() reflect.Type {
@@ -1766,6 +2103,12 @@ func (o RuleTagOutput) ToRuleTagOutput() RuleTagOutput {
 
 func (o RuleTagOutput) ToRuleTagOutputWithContext(ctx context.Context) RuleTagOutput {
 	return o
+}
+
+func (o RuleTagOutput) ToOutput(ctx context.Context) pulumix.Output[RuleTag] {
+	return pulumix.Output[RuleTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleTagOutput) Key() pulumi.StringOutput {
@@ -1788,6 +2131,12 @@ func (o RuleTagArrayOutput) ToRuleTagArrayOutput() RuleTagArrayOutput {
 
 func (o RuleTagArrayOutput) ToRuleTagArrayOutputWithContext(ctx context.Context) RuleTagArrayOutput {
 	return o
+}
+
+func (o RuleTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleTag] {
+	return pulumix.Output[[]RuleTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleTagArrayOutput) Index(i pulumi.IntInput) RuleTagOutput {
@@ -1829,6 +2178,12 @@ func (i RuleWeightedTargetGroupArgs) ToRuleWeightedTargetGroupOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RuleWeightedTargetGroupOutput)
 }
 
+func (i RuleWeightedTargetGroupArgs) ToOutput(ctx context.Context) pulumix.Output[RuleWeightedTargetGroup] {
+	return pulumix.Output[RuleWeightedTargetGroup]{
+		OutputState: i.ToRuleWeightedTargetGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleWeightedTargetGroupArrayInput is an input type that accepts RuleWeightedTargetGroupArray and RuleWeightedTargetGroupArrayOutput values.
 // You can construct a concrete instance of `RuleWeightedTargetGroupArrayInput` via:
 //
@@ -1854,6 +2209,12 @@ func (i RuleWeightedTargetGroupArray) ToRuleWeightedTargetGroupArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RuleWeightedTargetGroupArrayOutput)
 }
 
+func (i RuleWeightedTargetGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleWeightedTargetGroup] {
+	return pulumix.Output[[]RuleWeightedTargetGroup]{
+		OutputState: i.ToRuleWeightedTargetGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleWeightedTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (RuleWeightedTargetGroupOutput) ElementType() reflect.Type {
@@ -1866,6 +2227,12 @@ func (o RuleWeightedTargetGroupOutput) ToRuleWeightedTargetGroupOutput() RuleWei
 
 func (o RuleWeightedTargetGroupOutput) ToRuleWeightedTargetGroupOutputWithContext(ctx context.Context) RuleWeightedTargetGroupOutput {
 	return o
+}
+
+func (o RuleWeightedTargetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[RuleWeightedTargetGroup] {
+	return pulumix.Output[RuleWeightedTargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleWeightedTargetGroupOutput) TargetGroupIdentifier() pulumi.StringOutput {
@@ -1888,6 +2255,12 @@ func (o RuleWeightedTargetGroupArrayOutput) ToRuleWeightedTargetGroupArrayOutput
 
 func (o RuleWeightedTargetGroupArrayOutput) ToRuleWeightedTargetGroupArrayOutputWithContext(ctx context.Context) RuleWeightedTargetGroupArrayOutput {
 	return o
+}
+
+func (o RuleWeightedTargetGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleWeightedTargetGroup] {
+	return pulumix.Output[[]RuleWeightedTargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleWeightedTargetGroupArrayOutput) Index(i pulumi.IntInput) RuleWeightedTargetGroupOutput {
@@ -1927,6 +2300,12 @@ func (i ServiceDnsEntryArgs) ToServiceDnsEntryOutput() ServiceDnsEntryOutput {
 
 func (i ServiceDnsEntryArgs) ToServiceDnsEntryOutputWithContext(ctx context.Context) ServiceDnsEntryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsEntryOutput)
+}
+
+func (i ServiceDnsEntryArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceDnsEntry] {
+	return pulumix.Output[ServiceDnsEntry]{
+		OutputState: i.ToServiceDnsEntryOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ServiceDnsEntryArgs) ToServiceDnsEntryPtrOutput() ServiceDnsEntryPtrOutput {
@@ -1970,6 +2349,12 @@ func (i *serviceDnsEntryPtrType) ToServiceDnsEntryPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsEntryPtrOutput)
 }
 
+func (i *serviceDnsEntryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceDnsEntry] {
+	return pulumix.Output[*ServiceDnsEntry]{
+		OutputState: i.ToServiceDnsEntryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceDnsEntryOutput struct{ *pulumi.OutputState }
 
 func (ServiceDnsEntryOutput) ElementType() reflect.Type {
@@ -1994,6 +2379,12 @@ func (o ServiceDnsEntryOutput) ToServiceDnsEntryPtrOutputWithContext(ctx context
 	}).(ServiceDnsEntryPtrOutput)
 }
 
+func (o ServiceDnsEntryOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceDnsEntry] {
+	return pulumix.Output[ServiceDnsEntry]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceDnsEntryOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDnsEntry) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
@@ -2014,6 +2405,12 @@ func (o ServiceDnsEntryPtrOutput) ToServiceDnsEntryPtrOutput() ServiceDnsEntryPt
 
 func (o ServiceDnsEntryPtrOutput) ToServiceDnsEntryPtrOutputWithContext(ctx context.Context) ServiceDnsEntryPtrOutput {
 	return o
+}
+
+func (o ServiceDnsEntryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceDnsEntry] {
+	return pulumix.Output[*ServiceDnsEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceDnsEntryPtrOutput) Elem() ServiceDnsEntryOutput {
@@ -2077,6 +2474,12 @@ func (i ServiceNetworkServiceAssociationDnsEntryArgs) ToServiceNetworkServiceAss
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkServiceAssociationDnsEntryOutput)
 }
 
+func (i ServiceNetworkServiceAssociationDnsEntryArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkServiceAssociationDnsEntry] {
+	return pulumix.Output[ServiceNetworkServiceAssociationDnsEntry]{
+		OutputState: i.ToServiceNetworkServiceAssociationDnsEntryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceNetworkServiceAssociationDnsEntryArgs) ToServiceNetworkServiceAssociationDnsEntryPtrOutput() ServiceNetworkServiceAssociationDnsEntryPtrOutput {
 	return i.ToServiceNetworkServiceAssociationDnsEntryPtrOutputWithContext(context.Background())
 }
@@ -2118,6 +2521,12 @@ func (i *serviceNetworkServiceAssociationDnsEntryPtrType) ToServiceNetworkServic
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkServiceAssociationDnsEntryPtrOutput)
 }
 
+func (i *serviceNetworkServiceAssociationDnsEntryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkServiceAssociationDnsEntry] {
+	return pulumix.Output[*ServiceNetworkServiceAssociationDnsEntry]{
+		OutputState: i.ToServiceNetworkServiceAssociationDnsEntryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceNetworkServiceAssociationDnsEntryOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkServiceAssociationDnsEntryOutput) ElementType() reflect.Type {
@@ -2142,6 +2551,12 @@ func (o ServiceNetworkServiceAssociationDnsEntryOutput) ToServiceNetworkServiceA
 	}).(ServiceNetworkServiceAssociationDnsEntryPtrOutput)
 }
 
+func (o ServiceNetworkServiceAssociationDnsEntryOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkServiceAssociationDnsEntry] {
+	return pulumix.Output[ServiceNetworkServiceAssociationDnsEntry]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceNetworkServiceAssociationDnsEntryOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkServiceAssociationDnsEntry) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
@@ -2162,6 +2577,12 @@ func (o ServiceNetworkServiceAssociationDnsEntryPtrOutput) ToServiceNetworkServi
 
 func (o ServiceNetworkServiceAssociationDnsEntryPtrOutput) ToServiceNetworkServiceAssociationDnsEntryPtrOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationDnsEntryPtrOutput {
 	return o
+}
+
+func (o ServiceNetworkServiceAssociationDnsEntryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkServiceAssociationDnsEntry] {
+	return pulumix.Output[*ServiceNetworkServiceAssociationDnsEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkServiceAssociationDnsEntryPtrOutput) Elem() ServiceNetworkServiceAssociationDnsEntryOutput {
@@ -2225,6 +2646,12 @@ func (i ServiceNetworkServiceAssociationTagArgs) ToServiceNetworkServiceAssociat
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkServiceAssociationTagOutput)
 }
 
+func (i ServiceNetworkServiceAssociationTagArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkServiceAssociationTag] {
+	return pulumix.Output[ServiceNetworkServiceAssociationTag]{
+		OutputState: i.ToServiceNetworkServiceAssociationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceNetworkServiceAssociationTagArrayInput is an input type that accepts ServiceNetworkServiceAssociationTagArray and ServiceNetworkServiceAssociationTagArrayOutput values.
 // You can construct a concrete instance of `ServiceNetworkServiceAssociationTagArrayInput` via:
 //
@@ -2250,6 +2677,12 @@ func (i ServiceNetworkServiceAssociationTagArray) ToServiceNetworkServiceAssocia
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkServiceAssociationTagArrayOutput)
 }
 
+func (i ServiceNetworkServiceAssociationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceNetworkServiceAssociationTag] {
+	return pulumix.Output[[]ServiceNetworkServiceAssociationTag]{
+		OutputState: i.ToServiceNetworkServiceAssociationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceNetworkServiceAssociationTagOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkServiceAssociationTagOutput) ElementType() reflect.Type {
@@ -2262,6 +2695,12 @@ func (o ServiceNetworkServiceAssociationTagOutput) ToServiceNetworkServiceAssoci
 
 func (o ServiceNetworkServiceAssociationTagOutput) ToServiceNetworkServiceAssociationTagOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationTagOutput {
 	return o
+}
+
+func (o ServiceNetworkServiceAssociationTagOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkServiceAssociationTag] {
+	return pulumix.Output[ServiceNetworkServiceAssociationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkServiceAssociationTagOutput) Key() pulumi.StringOutput {
@@ -2284,6 +2723,12 @@ func (o ServiceNetworkServiceAssociationTagArrayOutput) ToServiceNetworkServiceA
 
 func (o ServiceNetworkServiceAssociationTagArrayOutput) ToServiceNetworkServiceAssociationTagArrayOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationTagArrayOutput {
 	return o
+}
+
+func (o ServiceNetworkServiceAssociationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceNetworkServiceAssociationTag] {
+	return pulumix.Output[[]ServiceNetworkServiceAssociationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkServiceAssociationTagArrayOutput) Index(i pulumi.IntInput) ServiceNetworkServiceAssociationTagOutput {
@@ -2325,6 +2770,12 @@ func (i ServiceNetworkTagArgs) ToServiceNetworkTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkTagOutput)
 }
 
+func (i ServiceNetworkTagArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkTag] {
+	return pulumix.Output[ServiceNetworkTag]{
+		OutputState: i.ToServiceNetworkTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceNetworkTagArrayInput is an input type that accepts ServiceNetworkTagArray and ServiceNetworkTagArrayOutput values.
 // You can construct a concrete instance of `ServiceNetworkTagArrayInput` via:
 //
@@ -2350,6 +2801,12 @@ func (i ServiceNetworkTagArray) ToServiceNetworkTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkTagArrayOutput)
 }
 
+func (i ServiceNetworkTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceNetworkTag] {
+	return pulumix.Output[[]ServiceNetworkTag]{
+		OutputState: i.ToServiceNetworkTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceNetworkTagOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkTagOutput) ElementType() reflect.Type {
@@ -2362,6 +2819,12 @@ func (o ServiceNetworkTagOutput) ToServiceNetworkTagOutput() ServiceNetworkTagOu
 
 func (o ServiceNetworkTagOutput) ToServiceNetworkTagOutputWithContext(ctx context.Context) ServiceNetworkTagOutput {
 	return o
+}
+
+func (o ServiceNetworkTagOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkTag] {
+	return pulumix.Output[ServiceNetworkTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkTagOutput) Key() pulumi.StringOutput {
@@ -2384,6 +2847,12 @@ func (o ServiceNetworkTagArrayOutput) ToServiceNetworkTagArrayOutput() ServiceNe
 
 func (o ServiceNetworkTagArrayOutput) ToServiceNetworkTagArrayOutputWithContext(ctx context.Context) ServiceNetworkTagArrayOutput {
 	return o
+}
+
+func (o ServiceNetworkTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceNetworkTag] {
+	return pulumix.Output[[]ServiceNetworkTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkTagArrayOutput) Index(i pulumi.IntInput) ServiceNetworkTagOutput {
@@ -2425,6 +2894,12 @@ func (i ServiceNetworkVpcAssociationTagArgs) ToServiceNetworkVpcAssociationTagOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkVpcAssociationTagOutput)
 }
 
+func (i ServiceNetworkVpcAssociationTagArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkVpcAssociationTag] {
+	return pulumix.Output[ServiceNetworkVpcAssociationTag]{
+		OutputState: i.ToServiceNetworkVpcAssociationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceNetworkVpcAssociationTagArrayInput is an input type that accepts ServiceNetworkVpcAssociationTagArray and ServiceNetworkVpcAssociationTagArrayOutput values.
 // You can construct a concrete instance of `ServiceNetworkVpcAssociationTagArrayInput` via:
 //
@@ -2450,6 +2925,12 @@ func (i ServiceNetworkVpcAssociationTagArray) ToServiceNetworkVpcAssociationTagA
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkVpcAssociationTagArrayOutput)
 }
 
+func (i ServiceNetworkVpcAssociationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceNetworkVpcAssociationTag] {
+	return pulumix.Output[[]ServiceNetworkVpcAssociationTag]{
+		OutputState: i.ToServiceNetworkVpcAssociationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceNetworkVpcAssociationTagOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkVpcAssociationTagOutput) ElementType() reflect.Type {
@@ -2462,6 +2943,12 @@ func (o ServiceNetworkVpcAssociationTagOutput) ToServiceNetworkVpcAssociationTag
 
 func (o ServiceNetworkVpcAssociationTagOutput) ToServiceNetworkVpcAssociationTagOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationTagOutput {
 	return o
+}
+
+func (o ServiceNetworkVpcAssociationTagOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkVpcAssociationTag] {
+	return pulumix.Output[ServiceNetworkVpcAssociationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkVpcAssociationTagOutput) Key() pulumi.StringOutput {
@@ -2484,6 +2971,12 @@ func (o ServiceNetworkVpcAssociationTagArrayOutput) ToServiceNetworkVpcAssociati
 
 func (o ServiceNetworkVpcAssociationTagArrayOutput) ToServiceNetworkVpcAssociationTagArrayOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationTagArrayOutput {
 	return o
+}
+
+func (o ServiceNetworkVpcAssociationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceNetworkVpcAssociationTag] {
+	return pulumix.Output[[]ServiceNetworkVpcAssociationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkVpcAssociationTagArrayOutput) Index(i pulumi.IntInput) ServiceNetworkVpcAssociationTagOutput {
@@ -2525,6 +3018,12 @@ func (i ServiceTagArgs) ToServiceTagOutputWithContext(ctx context.Context) Servi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagOutput)
 }
 
+func (i ServiceTagArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceTag] {
+	return pulumix.Output[ServiceTag]{
+		OutputState: i.ToServiceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceTagArrayInput is an input type that accepts ServiceTagArray and ServiceTagArrayOutput values.
 // You can construct a concrete instance of `ServiceTagArrayInput` via:
 //
@@ -2550,6 +3049,12 @@ func (i ServiceTagArray) ToServiceTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagArrayOutput)
 }
 
+func (i ServiceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceTag] {
+	return pulumix.Output[[]ServiceTag]{
+		OutputState: i.ToServiceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceTagOutput struct{ *pulumi.OutputState }
 
 func (ServiceTagOutput) ElementType() reflect.Type {
@@ -2562,6 +3067,12 @@ func (o ServiceTagOutput) ToServiceTagOutput() ServiceTagOutput {
 
 func (o ServiceTagOutput) ToServiceTagOutputWithContext(ctx context.Context) ServiceTagOutput {
 	return o
+}
+
+func (o ServiceTagOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceTag] {
+	return pulumix.Output[ServiceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceTagOutput) Key() pulumi.StringOutput {
@@ -2584,6 +3095,12 @@ func (o ServiceTagArrayOutput) ToServiceTagArrayOutput() ServiceTagArrayOutput {
 
 func (o ServiceTagArrayOutput) ToServiceTagArrayOutputWithContext(ctx context.Context) ServiceTagArrayOutput {
 	return o
+}
+
+func (o ServiceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceTag] {
+	return pulumix.Output[[]ServiceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
@@ -2635,6 +3152,12 @@ func (i TargetGroupConfigArgs) ToTargetGroupConfigOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigOutput)
 }
 
+func (i TargetGroupConfigArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfig] {
+	return pulumix.Output[TargetGroupConfig]{
+		OutputState: i.ToTargetGroupConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TargetGroupConfigArgs) ToTargetGroupConfigPtrOutput() TargetGroupConfigPtrOutput {
 	return i.ToTargetGroupConfigPtrOutputWithContext(context.Background())
 }
@@ -2676,6 +3199,12 @@ func (i *targetGroupConfigPtrType) ToTargetGroupConfigPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigPtrOutput)
 }
 
+func (i *targetGroupConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfig] {
+	return pulumix.Output[*TargetGroupConfig]{
+		OutputState: i.ToTargetGroupConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TargetGroupConfigOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupConfigOutput) ElementType() reflect.Type {
@@ -2698,6 +3227,12 @@ func (o TargetGroupConfigOutput) ToTargetGroupConfigPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupConfig) *TargetGroupConfig {
 		return &v
 	}).(TargetGroupConfigPtrOutput)
+}
+
+func (o TargetGroupConfigOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfig] {
+	return pulumix.Output[TargetGroupConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupConfigOutput) HealthCheck() TargetGroupHealthCheckConfigPtrOutput {
@@ -2742,6 +3277,12 @@ func (o TargetGroupConfigPtrOutput) ToTargetGroupConfigPtrOutput() TargetGroupCo
 
 func (o TargetGroupConfigPtrOutput) ToTargetGroupConfigPtrOutputWithContext(ctx context.Context) TargetGroupConfigPtrOutput {
 	return o
+}
+
+func (o TargetGroupConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfig] {
+	return pulumix.Output[*TargetGroupConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupConfigPtrOutput) Elem() TargetGroupConfigOutput {
@@ -2866,6 +3407,12 @@ func (i TargetGroupHealthCheckConfigArgs) ToTargetGroupHealthCheckConfigOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupHealthCheckConfigOutput)
 }
 
+func (i TargetGroupHealthCheckConfigArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupHealthCheckConfig] {
+	return pulumix.Output[TargetGroupHealthCheckConfig]{
+		OutputState: i.ToTargetGroupHealthCheckConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TargetGroupHealthCheckConfigArgs) ToTargetGroupHealthCheckConfigPtrOutput() TargetGroupHealthCheckConfigPtrOutput {
 	return i.ToTargetGroupHealthCheckConfigPtrOutputWithContext(context.Background())
 }
@@ -2907,6 +3454,12 @@ func (i *targetGroupHealthCheckConfigPtrType) ToTargetGroupHealthCheckConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupHealthCheckConfigPtrOutput)
 }
 
+func (i *targetGroupHealthCheckConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupHealthCheckConfig] {
+	return pulumix.Output[*TargetGroupHealthCheckConfig]{
+		OutputState: i.ToTargetGroupHealthCheckConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TargetGroupHealthCheckConfigOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupHealthCheckConfigOutput) ElementType() reflect.Type {
@@ -2929,6 +3482,12 @@ func (o TargetGroupHealthCheckConfigOutput) ToTargetGroupHealthCheckConfigPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupHealthCheckConfig) *TargetGroupHealthCheckConfig {
 		return &v
 	}).(TargetGroupHealthCheckConfigPtrOutput)
+}
+
+func (o TargetGroupHealthCheckConfigOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupHealthCheckConfig] {
+	return pulumix.Output[TargetGroupHealthCheckConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupHealthCheckConfigOutput) Enabled() pulumi.BoolPtrOutput {
@@ -2985,6 +3544,12 @@ func (o TargetGroupHealthCheckConfigPtrOutput) ToTargetGroupHealthCheckConfigPtr
 
 func (o TargetGroupHealthCheckConfigPtrOutput) ToTargetGroupHealthCheckConfigPtrOutputWithContext(ctx context.Context) TargetGroupHealthCheckConfigPtrOutput {
 	return o
+}
+
+func (o TargetGroupHealthCheckConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupHealthCheckConfig] {
+	return pulumix.Output[*TargetGroupHealthCheckConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupHealthCheckConfigPtrOutput) Elem() TargetGroupHealthCheckConfigOutput {
@@ -3118,6 +3683,12 @@ func (i TargetGroupMatcherArgs) ToTargetGroupMatcherOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupMatcherOutput)
 }
 
+func (i TargetGroupMatcherArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupMatcher] {
+	return pulumix.Output[TargetGroupMatcher]{
+		OutputState: i.ToTargetGroupMatcherOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TargetGroupMatcherArgs) ToTargetGroupMatcherPtrOutput() TargetGroupMatcherPtrOutput {
 	return i.ToTargetGroupMatcherPtrOutputWithContext(context.Background())
 }
@@ -3159,6 +3730,12 @@ func (i *targetGroupMatcherPtrType) ToTargetGroupMatcherPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupMatcherPtrOutput)
 }
 
+func (i *targetGroupMatcherPtrType) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupMatcher] {
+	return pulumix.Output[*TargetGroupMatcher]{
+		OutputState: i.ToTargetGroupMatcherPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TargetGroupMatcherOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupMatcherOutput) ElementType() reflect.Type {
@@ -3183,6 +3760,12 @@ func (o TargetGroupMatcherOutput) ToTargetGroupMatcherPtrOutputWithContext(ctx c
 	}).(TargetGroupMatcherPtrOutput)
 }
 
+func (o TargetGroupMatcherOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupMatcher] {
+	return pulumix.Output[TargetGroupMatcher]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TargetGroupMatcherOutput) HttpCode() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetGroupMatcher) string { return v.HttpCode }).(pulumi.StringOutput)
 }
@@ -3199,6 +3782,12 @@ func (o TargetGroupMatcherPtrOutput) ToTargetGroupMatcherPtrOutput() TargetGroup
 
 func (o TargetGroupMatcherPtrOutput) ToTargetGroupMatcherPtrOutputWithContext(ctx context.Context) TargetGroupMatcherPtrOutput {
 	return o
+}
+
+func (o TargetGroupMatcherPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupMatcher] {
+	return pulumix.Output[*TargetGroupMatcher]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupMatcherPtrOutput) Elem() TargetGroupMatcherOutput {
@@ -3253,6 +3842,12 @@ func (i TargetGroupTagArgs) ToTargetGroupTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTagOutput)
 }
 
+func (i TargetGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupTag] {
+	return pulumix.Output[TargetGroupTag]{
+		OutputState: i.ToTargetGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TargetGroupTagArrayInput is an input type that accepts TargetGroupTagArray and TargetGroupTagArrayOutput values.
 // You can construct a concrete instance of `TargetGroupTagArrayInput` via:
 //
@@ -3278,6 +3873,12 @@ func (i TargetGroupTagArray) ToTargetGroupTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTagArrayOutput)
 }
 
+func (i TargetGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TargetGroupTag] {
+	return pulumix.Output[[]TargetGroupTag]{
+		OutputState: i.ToTargetGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TargetGroupTagOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupTagOutput) ElementType() reflect.Type {
@@ -3290,6 +3891,12 @@ func (o TargetGroupTagOutput) ToTargetGroupTagOutput() TargetGroupTagOutput {
 
 func (o TargetGroupTagOutput) ToTargetGroupTagOutputWithContext(ctx context.Context) TargetGroupTagOutput {
 	return o
+}
+
+func (o TargetGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupTag] {
+	return pulumix.Output[TargetGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupTagOutput) Key() pulumi.StringOutput {
@@ -3312,6 +3919,12 @@ func (o TargetGroupTagArrayOutput) ToTargetGroupTagArrayOutput() TargetGroupTagA
 
 func (o TargetGroupTagArrayOutput) ToTargetGroupTagArrayOutputWithContext(ctx context.Context) TargetGroupTagArrayOutput {
 	return o
+}
+
+func (o TargetGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TargetGroupTag] {
+	return pulumix.Output[[]TargetGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupTagArrayOutput) Index(i pulumi.IntInput) TargetGroupTagOutput {
@@ -3353,6 +3966,12 @@ func (i TargetGroupTargetArgs) ToTargetGroupTargetOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetOutput)
 }
 
+func (i TargetGroupTargetArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupTarget] {
+	return pulumix.Output[TargetGroupTarget]{
+		OutputState: i.ToTargetGroupTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TargetGroupTargetArrayInput is an input type that accepts TargetGroupTargetArray and TargetGroupTargetArrayOutput values.
 // You can construct a concrete instance of `TargetGroupTargetArrayInput` via:
 //
@@ -3378,6 +3997,12 @@ func (i TargetGroupTargetArray) ToTargetGroupTargetArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetArrayOutput)
 }
 
+func (i TargetGroupTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]TargetGroupTarget] {
+	return pulumix.Output[[]TargetGroupTarget]{
+		OutputState: i.ToTargetGroupTargetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TargetGroupTargetOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupTargetOutput) ElementType() reflect.Type {
@@ -3390,6 +4015,12 @@ func (o TargetGroupTargetOutput) ToTargetGroupTargetOutput() TargetGroupTargetOu
 
 func (o TargetGroupTargetOutput) ToTargetGroupTargetOutputWithContext(ctx context.Context) TargetGroupTargetOutput {
 	return o
+}
+
+func (o TargetGroupTargetOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupTarget] {
+	return pulumix.Output[TargetGroupTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupTargetOutput) Id() pulumi.StringOutput {
@@ -3412,6 +4043,12 @@ func (o TargetGroupTargetArrayOutput) ToTargetGroupTargetArrayOutput() TargetGro
 
 func (o TargetGroupTargetArrayOutput) ToTargetGroupTargetArrayOutputWithContext(ctx context.Context) TargetGroupTargetArrayOutput {
 	return o
+}
+
+func (o TargetGroupTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TargetGroupTarget] {
+	return pulumix.Output[[]TargetGroupTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupTargetArrayOutput) Index(i pulumi.IntInput) TargetGroupTargetOutput {

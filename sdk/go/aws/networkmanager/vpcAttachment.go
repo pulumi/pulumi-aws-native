@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::NetworkManager::VpcAttachment Resoruce Type
@@ -159,6 +160,12 @@ func (i *VpcAttachment) ToVpcAttachmentOutputWithContext(ctx context.Context) Vp
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentOutput)
 }
 
+func (i *VpcAttachment) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachment] {
+	return pulumix.Output[*VpcAttachment]{
+		OutputState: i.ToVpcAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VpcAttachmentOutput) ElementType() reflect.Type {
@@ -171,6 +178,12 @@ func (o VpcAttachmentOutput) ToVpcAttachmentOutput() VpcAttachmentOutput {
 
 func (o VpcAttachmentOutput) ToVpcAttachmentOutputWithContext(ctx context.Context) VpcAttachmentOutput {
 	return o
+}
+
+func (o VpcAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachment] {
+	return pulumix.Output[*VpcAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Id of the attachment.

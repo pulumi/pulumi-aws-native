@@ -79,6 +79,12 @@ func (o CloudFormationProvisionedProductAcceptLanguageOutput) ToCloudFormationPr
 	}).(CloudFormationProvisionedProductAcceptLanguagePtrOutput)
 }
 
+func (o CloudFormationProvisionedProductAcceptLanguageOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProvisionedProductAcceptLanguage] {
+	return pulumix.Output[CloudFormationProvisionedProductAcceptLanguage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CloudFormationProvisionedProductAcceptLanguageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -114,6 +120,12 @@ func (o CloudFormationProvisionedProductAcceptLanguagePtrOutput) ToCloudFormatio
 	return o
 }
 
+func (o CloudFormationProvisionedProductAcceptLanguagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProvisionedProductAcceptLanguage] {
+	return pulumix.Output[*CloudFormationProvisionedProductAcceptLanguage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CloudFormationProvisionedProductAcceptLanguagePtrOutput) Elem() CloudFormationProvisionedProductAcceptLanguageOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductAcceptLanguage) CloudFormationProvisionedProductAcceptLanguage {
 		if v != nil {
@@ -138,12 +150,10 @@ func (o CloudFormationProvisionedProductAcceptLanguagePtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// CloudFormationProvisionedProductAcceptLanguageInput is an input type that accepts values of the CloudFormationProvisionedProductAcceptLanguage enum
-// A concrete instance of `CloudFormationProvisionedProductAcceptLanguageInput` can be one of the following:
+// CloudFormationProvisionedProductAcceptLanguageInput is an input type that accepts CloudFormationProvisionedProductAcceptLanguageArgs and CloudFormationProvisionedProductAcceptLanguageOutput values.
+// You can construct a concrete instance of `CloudFormationProvisionedProductAcceptLanguageInput` via:
 //
-//	CloudFormationProvisionedProductAcceptLanguageEn
-//	CloudFormationProvisionedProductAcceptLanguageJp
-//	CloudFormationProvisionedProductAcceptLanguageZh
+//	CloudFormationProvisionedProductAcceptLanguageArgs{...}
 type CloudFormationProvisionedProductAcceptLanguageInput interface {
 	pulumi.Input
 
@@ -252,6 +262,12 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperation
 	}).(CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput)
 }
 
+func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType] {
+	return pulumix.Output[CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -287,6 +303,12 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperation
 	return o
 }
 
+func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType] {
+	return pulumix.Output[*CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput) Elem() CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType) CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType {
 		if v != nil {
@@ -311,12 +333,10 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperation
 	}).(pulumi.StringPtrOutput)
 }
 
-// CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeInput is an input type that accepts values of the CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType enum
-// A concrete instance of `CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeInput` can be one of the following:
+// CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeInput is an input type that accepts CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeArgs and CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeOutput values.
+// You can construct a concrete instance of `CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeInput` via:
 //
-//	CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeCreate
-//	CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeUpdate
-//	CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeDelete
+//	CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeArgs{...}
 type CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeInput interface {
 	pulumi.Input
 
@@ -425,6 +445,12 @@ func (o ServiceActionAcceptLanguageOutput) ToServiceActionAcceptLanguagePtrOutpu
 	}).(ServiceActionAcceptLanguagePtrOutput)
 }
 
+func (o ServiceActionAcceptLanguageOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceActionAcceptLanguage] {
+	return pulumix.Output[ServiceActionAcceptLanguage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceActionAcceptLanguageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -460,6 +486,12 @@ func (o ServiceActionAcceptLanguagePtrOutput) ToServiceActionAcceptLanguagePtrOu
 	return o
 }
 
+func (o ServiceActionAcceptLanguagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceActionAcceptLanguage] {
+	return pulumix.Output[*ServiceActionAcceptLanguage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceActionAcceptLanguagePtrOutput) Elem() ServiceActionAcceptLanguageOutput {
 	return o.ApplyT(func(v *ServiceActionAcceptLanguage) ServiceActionAcceptLanguage {
 		if v != nil {
@@ -484,12 +516,10 @@ func (o ServiceActionAcceptLanguagePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceActionAcceptLanguageInput is an input type that accepts values of the ServiceActionAcceptLanguage enum
-// A concrete instance of `ServiceActionAcceptLanguageInput` can be one of the following:
+// ServiceActionAcceptLanguageInput is an input type that accepts ServiceActionAcceptLanguageArgs and ServiceActionAcceptLanguageOutput values.
+// You can construct a concrete instance of `ServiceActionAcceptLanguageInput` via:
 //
-//	ServiceActionAcceptLanguageEn
-//	ServiceActionAcceptLanguageJp
-//	ServiceActionAcceptLanguageZh
+//	ServiceActionAcceptLanguageArgs{...}
 type ServiceActionAcceptLanguageInput interface {
 	pulumi.Input
 
@@ -596,6 +626,12 @@ func (o ServiceActionDefinitionTypeOutput) ToServiceActionDefinitionTypePtrOutpu
 	}).(ServiceActionDefinitionTypePtrOutput)
 }
 
+func (o ServiceActionDefinitionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceActionDefinitionType] {
+	return pulumix.Output[ServiceActionDefinitionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceActionDefinitionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -631,6 +667,12 @@ func (o ServiceActionDefinitionTypePtrOutput) ToServiceActionDefinitionTypePtrOu
 	return o
 }
 
+func (o ServiceActionDefinitionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceActionDefinitionType] {
+	return pulumix.Output[*ServiceActionDefinitionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceActionDefinitionTypePtrOutput) Elem() ServiceActionDefinitionTypeOutput {
 	return o.ApplyT(func(v *ServiceActionDefinitionType) ServiceActionDefinitionType {
 		if v != nil {
@@ -655,10 +697,10 @@ func (o ServiceActionDefinitionTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceActionDefinitionTypeInput is an input type that accepts values of the ServiceActionDefinitionType enum
-// A concrete instance of `ServiceActionDefinitionTypeInput` can be one of the following:
+// ServiceActionDefinitionTypeInput is an input type that accepts ServiceActionDefinitionTypeArgs and ServiceActionDefinitionTypeOutput values.
+// You can construct a concrete instance of `ServiceActionDefinitionTypeInput` via:
 //
-//	ServiceActionDefinitionTypeSsmAutomation
+//	ServiceActionDefinitionTypeArgs{...}
 type ServiceActionDefinitionTypeInput interface {
 	pulumi.Input
 

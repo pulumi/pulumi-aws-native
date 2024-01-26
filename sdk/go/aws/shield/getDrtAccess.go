@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.
@@ -67,6 +68,12 @@ func (o LookupDrtAccessResultOutput) ToLookupDrtAccessResultOutput() LookupDrtAc
 
 func (o LookupDrtAccessResultOutput) ToLookupDrtAccessResultOutputWithContext(ctx context.Context) LookupDrtAccessResultOutput {
 	return o
+}
+
+func (o LookupDrtAccessResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDrtAccessResult] {
+	return pulumix.Output[LookupDrtAccessResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDrtAccessResultOutput) AccountId() pulumi.StringPtrOutput {

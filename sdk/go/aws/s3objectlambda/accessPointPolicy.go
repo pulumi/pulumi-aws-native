@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
@@ -109,6 +110,12 @@ func (i *AccessPointPolicy) ToAccessPointPolicyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPolicyOutput)
 }
 
+func (i *AccessPointPolicy) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPolicy] {
+	return pulumix.Output[*AccessPointPolicy]{
+		OutputState: i.ToAccessPointPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPointPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccessPointPolicyOutput) ElementType() reflect.Type {
@@ -121,6 +128,12 @@ func (o AccessPointPolicyOutput) ToAccessPointPolicyOutput() AccessPointPolicyOu
 
 func (o AccessPointPolicyOutput) ToAccessPointPolicyOutputWithContext(ctx context.Context) AccessPointPolicyOutput {
 	return o
+}
+
+func (o AccessPointPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPolicy] {
+	return pulumix.Output[*AccessPointPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.

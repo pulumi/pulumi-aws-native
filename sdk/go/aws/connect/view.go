@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::View
@@ -138,6 +139,12 @@ func (i *View) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ViewOutput)
 }
 
+func (i *View) ToOutput(ctx context.Context) pulumix.Output[*View] {
+	return pulumix.Output[*View]{
+		OutputState: i.ToViewOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ViewOutput struct{ *pulumi.OutputState }
 
 func (ViewOutput) ElementType() reflect.Type {
@@ -150,6 +157,12 @@ func (o ViewOutput) ToViewOutput() ViewOutput {
 
 func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return o
+}
+
+func (o ViewOutput) ToOutput(ctx context.Context) pulumix.Output[*View] {
+	return pulumix.Output[*View]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The actions of the view in an array.

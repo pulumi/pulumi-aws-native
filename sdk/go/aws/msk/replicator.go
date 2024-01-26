@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MSK::Replicator
@@ -147,6 +148,12 @@ func (i *Replicator) ToReplicatorOutputWithContext(ctx context.Context) Replicat
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorOutput)
 }
 
+func (i *Replicator) ToOutput(ctx context.Context) pulumix.Output[*Replicator] {
+	return pulumix.Output[*Replicator]{
+		OutputState: i.ToReplicatorOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicatorOutput struct{ *pulumi.OutputState }
 
 func (ReplicatorOutput) ElementType() reflect.Type {
@@ -159,6 +166,12 @@ func (o ReplicatorOutput) ToReplicatorOutput() ReplicatorOutput {
 
 func (o ReplicatorOutput) ToReplicatorOutputWithContext(ctx context.Context) ReplicatorOutput {
 	return o
+}
+
+func (o ReplicatorOutput) ToOutput(ctx context.Context) pulumix.Output[*Replicator] {
+	return pulumix.Output[*Replicator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The current version of the MSK replicator.

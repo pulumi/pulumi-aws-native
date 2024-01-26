@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GuardDuty::Master
@@ -110,6 +111,12 @@ func (i *Master) ToMasterOutputWithContext(ctx context.Context) MasterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MasterOutput)
 }
 
+func (i *Master) ToOutput(ctx context.Context) pulumix.Output[*Master] {
+	return pulumix.Output[*Master]{
+		OutputState: i.ToMasterOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MasterOutput struct{ *pulumi.OutputState }
 
 func (MasterOutput) ElementType() reflect.Type {
@@ -122,6 +129,12 @@ func (o MasterOutput) ToMasterOutput() MasterOutput {
 
 func (o MasterOutput) ToMasterOutputWithContext(ctx context.Context) MasterOutput {
 	return o
+}
+
+func (o MasterOutput) ToOutput(ctx context.Context) pulumix.Output[*Master] {
+	return pulumix.Output[*Master]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MasterOutput) DetectorId() pulumi.StringOutput {

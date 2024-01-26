@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
@@ -116,6 +117,12 @@ func (i *DevicePool) ToDevicePoolOutputWithContext(ctx context.Context) DevicePo
 	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolOutput)
 }
 
+func (i *DevicePool) ToOutput(ctx context.Context) pulumix.Output[*DevicePool] {
+	return pulumix.Output[*DevicePool]{
+		OutputState: i.ToDevicePoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DevicePoolOutput struct{ *pulumi.OutputState }
 
 func (DevicePoolOutput) ElementType() reflect.Type {
@@ -128,6 +135,12 @@ func (o DevicePoolOutput) ToDevicePoolOutput() DevicePoolOutput {
 
 func (o DevicePoolOutput) ToDevicePoolOutputWithContext(ctx context.Context) DevicePoolOutput {
 	return o
+}
+
+func (o DevicePoolOutput) ToOutput(ctx context.Context) pulumix.Output[*DevicePool] {
+	return pulumix.Output[*DevicePool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DevicePoolOutput) Arn() pulumi.StringOutput {

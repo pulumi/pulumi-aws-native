@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Create and manage NetworkAnalyzerConfiguration resource.
@@ -74,6 +75,12 @@ func (o LookupNetworkAnalyzerConfigurationResultOutput) ToLookupNetworkAnalyzerC
 
 func (o LookupNetworkAnalyzerConfigurationResultOutput) ToLookupNetworkAnalyzerConfigurationResultOutputWithContext(ctx context.Context) LookupNetworkAnalyzerConfigurationResultOutput {
 	return o
+}
+
+func (o LookupNetworkAnalyzerConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkAnalyzerConfigurationResult] {
+	return pulumix.Output[LookupNetworkAnalyzerConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Arn for network analyzer configuration, Returned upon successful create.

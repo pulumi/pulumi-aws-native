@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::CustomerGateway
@@ -68,6 +69,12 @@ func (o LookupCustomerGatewayResultOutput) ToLookupCustomerGatewayResultOutput()
 
 func (o LookupCustomerGatewayResultOutput) ToLookupCustomerGatewayResultOutputWithContext(ctx context.Context) LookupCustomerGatewayResultOutput {
 	return o
+}
+
+func (o LookupCustomerGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCustomerGatewayResult] {
+	return pulumix.Output[LookupCustomerGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.

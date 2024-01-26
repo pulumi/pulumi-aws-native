@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
@@ -144,6 +145,12 @@ func (i *OriginEndpoint) ToOriginEndpointOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointOutput)
 }
 
+func (i *OriginEndpoint) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpoint] {
+	return pulumix.Output[*OriginEndpoint]{
+		OutputState: i.ToOriginEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginEndpointOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointOutput) ElementType() reflect.Type {
@@ -156,6 +163,12 @@ func (o OriginEndpointOutput) ToOriginEndpointOutput() OriginEndpointOutput {
 
 func (o OriginEndpointOutput) ToOriginEndpointOutputWithContext(ctx context.Context) OriginEndpointOutput {
 	return o
+}
+
+func (o OriginEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpoint] {
+	return pulumix.Output[*OriginEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // <p>The Amazon Resource Name (ARN) associated with the resource.</p>

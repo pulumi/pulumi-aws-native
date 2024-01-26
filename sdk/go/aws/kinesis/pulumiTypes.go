@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i StreamEncryptionArgs) ToStreamEncryptionOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StreamEncryptionOutput)
 }
 
+func (i StreamEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[StreamEncryption] {
+	return pulumix.Output[StreamEncryption]{
+		OutputState: i.ToStreamEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StreamEncryptionArgs) ToStreamEncryptionPtrOutput() StreamEncryptionPtrOutput {
 	return i.ToStreamEncryptionPtrOutputWithContext(context.Background())
 }
@@ -93,6 +100,12 @@ func (i *streamEncryptionPtrType) ToStreamEncryptionPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(StreamEncryptionPtrOutput)
 }
 
+func (i *streamEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamEncryption] {
+	return pulumix.Output[*StreamEncryption]{
+		OutputState: i.ToStreamEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
 type StreamEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -118,6 +131,12 @@ func (o StreamEncryptionOutput) ToStreamEncryptionPtrOutputWithContext(ctx conte
 	}).(StreamEncryptionPtrOutput)
 }
 
+func (o StreamEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[StreamEncryption] {
+	return pulumix.Output[StreamEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The encryption type to use. The only valid value is KMS.
 func (o StreamEncryptionOutput) EncryptionType() StreamEncryptionEncryptionTypeOutput {
 	return o.ApplyT(func(v StreamEncryption) StreamEncryptionEncryptionType { return v.EncryptionType }).(StreamEncryptionEncryptionTypeOutput)
@@ -140,6 +159,12 @@ func (o StreamEncryptionPtrOutput) ToStreamEncryptionPtrOutput() StreamEncryptio
 
 func (o StreamEncryptionPtrOutput) ToStreamEncryptionPtrOutputWithContext(ctx context.Context) StreamEncryptionPtrOutput {
 	return o
+}
+
+func (o StreamEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamEncryption] {
+	return pulumix.Output[*StreamEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamEncryptionPtrOutput) Elem() StreamEncryptionOutput {
@@ -207,6 +232,12 @@ func (i StreamModeDetailsArgs) ToStreamModeDetailsOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StreamModeDetailsOutput)
 }
 
+func (i StreamModeDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[StreamModeDetails] {
+	return pulumix.Output[StreamModeDetails]{
+		OutputState: i.ToStreamModeDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StreamModeDetailsArgs) ToStreamModeDetailsPtrOutput() StreamModeDetailsPtrOutput {
 	return i.ToStreamModeDetailsPtrOutputWithContext(context.Background())
 }
@@ -248,6 +279,12 @@ func (i *streamModeDetailsPtrType) ToStreamModeDetailsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(StreamModeDetailsPtrOutput)
 }
 
+func (i *streamModeDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamModeDetails] {
+	return pulumix.Output[*StreamModeDetails]{
+		OutputState: i.ToStreamModeDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // When specified, enables or updates the mode of stream. Default is PROVISIONED.
 type StreamModeDetailsOutput struct{ *pulumi.OutputState }
 
@@ -273,6 +310,12 @@ func (o StreamModeDetailsOutput) ToStreamModeDetailsPtrOutputWithContext(ctx con
 	}).(StreamModeDetailsPtrOutput)
 }
 
+func (o StreamModeDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[StreamModeDetails] {
+	return pulumix.Output[StreamModeDetails]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The mode of the stream
 func (o StreamModeDetailsOutput) StreamMode() StreamModeDetailsStreamModeOutput {
 	return o.ApplyT(func(v StreamModeDetails) StreamModeDetailsStreamMode { return v.StreamMode }).(StreamModeDetailsStreamModeOutput)
@@ -290,6 +333,12 @@ func (o StreamModeDetailsPtrOutput) ToStreamModeDetailsPtrOutput() StreamModeDet
 
 func (o StreamModeDetailsPtrOutput) ToStreamModeDetailsPtrOutputWithContext(ctx context.Context) StreamModeDetailsPtrOutput {
 	return o
+}
+
+func (o StreamModeDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamModeDetails] {
+	return pulumix.Output[*StreamModeDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamModeDetailsPtrOutput) Elem() StreamModeDetailsOutput {
@@ -351,6 +400,12 @@ func (i StreamTagArgs) ToStreamTagOutputWithContext(ctx context.Context) StreamT
 	return pulumi.ToOutputWithContext(ctx, i).(StreamTagOutput)
 }
 
+func (i StreamTagArgs) ToOutput(ctx context.Context) pulumix.Output[StreamTag] {
+	return pulumix.Output[StreamTag]{
+		OutputState: i.ToStreamTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StreamTagArrayInput is an input type that accepts StreamTagArray and StreamTagArrayOutput values.
 // You can construct a concrete instance of `StreamTagArrayInput` via:
 //
@@ -376,6 +431,12 @@ func (i StreamTagArray) ToStreamTagArrayOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(StreamTagArrayOutput)
 }
 
+func (i StreamTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamTag] {
+	return pulumix.Output[[]StreamTag]{
+		OutputState: i.ToStreamTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
 type StreamTagOutput struct{ *pulumi.OutputState }
 
@@ -389,6 +450,12 @@ func (o StreamTagOutput) ToStreamTagOutput() StreamTagOutput {
 
 func (o StreamTagOutput) ToStreamTagOutputWithContext(ctx context.Context) StreamTagOutput {
 	return o
+}
+
+func (o StreamTagOutput) ToOutput(ctx context.Context) pulumix.Output[StreamTag] {
+	return pulumix.Output[StreamTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -413,6 +480,12 @@ func (o StreamTagArrayOutput) ToStreamTagArrayOutput() StreamTagArrayOutput {
 
 func (o StreamTagArrayOutput) ToStreamTagArrayOutputWithContext(ctx context.Context) StreamTagArrayOutput {
 	return o
+}
+
+func (o StreamTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamTag] {
+	return pulumix.Output[[]StreamTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamTagArrayOutput) Index(i pulumi.IntInput) StreamTagOutput {

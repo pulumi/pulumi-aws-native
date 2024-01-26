@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Config::ConfigurationRecorder
@@ -66,6 +67,12 @@ func (o LookupConfigurationRecorderResultOutput) ToLookupConfigurationRecorderRe
 
 func (o LookupConfigurationRecorderResultOutput) ToLookupConfigurationRecorderResultOutputWithContext(ctx context.Context) LookupConfigurationRecorderResultOutput {
 	return o
+}
+
+func (o LookupConfigurationRecorderResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigurationRecorderResult] {
+	return pulumix.Output[LookupConfigurationRecorderResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupConfigurationRecorderResultOutput) Id() pulumi.StringPtrOutput {

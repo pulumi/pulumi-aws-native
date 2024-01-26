@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::GatewayResponse“ resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
@@ -130,6 +131,12 @@ func (i *GatewayResponse) ToGatewayResponseOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayResponseOutput)
 }
 
+func (i *GatewayResponse) ToOutput(ctx context.Context) pulumix.Output[*GatewayResponse] {
+	return pulumix.Output[*GatewayResponse]{
+		OutputState: i.ToGatewayResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayResponseOutput struct{ *pulumi.OutputState }
 
 func (GatewayResponseOutput) ElementType() reflect.Type {
@@ -142,6 +149,12 @@ func (o GatewayResponseOutput) ToGatewayResponseOutput() GatewayResponseOutput {
 
 func (o GatewayResponseOutput) ToGatewayResponseOutputWithContext(ctx context.Context) GatewayResponseOutput {
 	return o
+}
+
+func (o GatewayResponseOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayResponse] {
+	return pulumix.Output[*GatewayResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.

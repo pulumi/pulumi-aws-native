@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An object representing an Amazon EKS AccessEntry.
@@ -78,6 +79,12 @@ func (o LookupAccessEntryResultOutput) ToLookupAccessEntryResultOutput() LookupA
 
 func (o LookupAccessEntryResultOutput) ToLookupAccessEntryResultOutputWithContext(ctx context.Context) LookupAccessEntryResultOutput {
 	return o
+}
+
+func (o LookupAccessEntryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccessEntryResult] {
+	return pulumix.Output[LookupAccessEntryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the access entry.

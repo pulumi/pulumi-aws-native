@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Transfer::Profile
@@ -125,6 +126,12 @@ func (i *Profile) ToProfileOutputWithContext(ctx context.Context) ProfileOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOutput)
 }
 
+func (i *Profile) ToOutput(ctx context.Context) pulumix.Output[*Profile] {
+	return pulumix.Output[*Profile]{
+		OutputState: i.ToProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileOutput struct{ *pulumi.OutputState }
 
 func (ProfileOutput) ElementType() reflect.Type {
@@ -137,6 +144,12 @@ func (o ProfileOutput) ToProfileOutput() ProfileOutput {
 
 func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOutput {
 	return o
+}
+
+func (o ProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*Profile] {
+	return pulumix.Output[*Profile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the unique Amazon Resource Name (ARN) for the profile.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::SecurityGroupEgress
@@ -158,6 +159,12 @@ func (i *SecurityGroupEgress) ToSecurityGroupEgressOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressOutput)
 }
 
+func (i *SecurityGroupEgress) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupEgress] {
+	return pulumix.Output[*SecurityGroupEgress]{
+		OutputState: i.ToSecurityGroupEgressOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityGroupEgressOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupEgressOutput) ElementType() reflect.Type {
@@ -170,6 +177,12 @@ func (o SecurityGroupEgressOutput) ToSecurityGroupEgressOutput() SecurityGroupEg
 
 func (o SecurityGroupEgressOutput) ToSecurityGroupEgressOutputWithContext(ctx context.Context) SecurityGroupEgressOutput {
 	return o
+}
+
+func (o SecurityGroupEgressOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupEgress] {
+	return pulumix.Output[*SecurityGroupEgress]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IPv4 ranges

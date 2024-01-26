@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // IdMappingWorkflow defined in AWS Entity Resolution service
@@ -136,6 +137,12 @@ func (i *IdMappingWorkflow) ToIdMappingWorkflowOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(IdMappingWorkflowOutput)
 }
 
+func (i *IdMappingWorkflow) ToOutput(ctx context.Context) pulumix.Output[*IdMappingWorkflow] {
+	return pulumix.Output[*IdMappingWorkflow]{
+		OutputState: i.ToIdMappingWorkflowOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdMappingWorkflowOutput struct{ *pulumi.OutputState }
 
 func (IdMappingWorkflowOutput) ElementType() reflect.Type {
@@ -148,6 +155,12 @@ func (o IdMappingWorkflowOutput) ToIdMappingWorkflowOutput() IdMappingWorkflowOu
 
 func (o IdMappingWorkflowOutput) ToIdMappingWorkflowOutputWithContext(ctx context.Context) IdMappingWorkflowOutput {
 	return o
+}
+
+func (o IdMappingWorkflowOutput) ToOutput(ctx context.Context) pulumix.Output[*IdMappingWorkflow] {
+	return pulumix.Output[*IdMappingWorkflow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdMappingWorkflowOutput) CreatedAt() pulumi.StringOutput {

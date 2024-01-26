@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCPeeringConnection
@@ -64,6 +65,12 @@ func (o LookupVpcPeeringConnectionResultOutput) ToLookupVpcPeeringConnectionResu
 
 func (o LookupVpcPeeringConnectionResultOutput) ToLookupVpcPeeringConnectionResultOutputWithContext(ctx context.Context) LookupVpcPeeringConnectionResultOutput {
 	return o
+}
+
+func (o LookupVpcPeeringConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcPeeringConnectionResult] {
+	return pulumix.Output[LookupVpcPeeringConnectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVpcPeeringConnectionResultOutput) Id() pulumi.StringPtrOutput {

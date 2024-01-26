@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
@@ -176,6 +177,12 @@ func (i *FlowLog) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(FlowLogOutput)
 }
 
+func (i *FlowLog) ToOutput(ctx context.Context) pulumix.Output[*FlowLog] {
+	return pulumix.Output[*FlowLog]{
+		OutputState: i.ToFlowLogOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlowLogOutput struct{ *pulumi.OutputState }
 
 func (FlowLogOutput) ElementType() reflect.Type {
@@ -188,6 +195,12 @@ func (o FlowLogOutput) ToFlowLogOutput() FlowLogOutput {
 
 func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput {
 	return o
+}
+
+func (o FlowLogOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowLog] {
+	return pulumix.Output[*FlowLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.

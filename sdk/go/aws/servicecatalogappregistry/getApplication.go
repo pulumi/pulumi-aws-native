@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::ServiceCatalogAppRegistry::Application
@@ -75,6 +76,12 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutput() LookupA
 
 func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContext(ctx context.Context) LookupApplicationResultOutput {
 	return o
+}
+
+func (o LookupApplicationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApplicationResult] {
+	return pulumix.Output[LookupApplicationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the application.

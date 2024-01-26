@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -74,6 +75,12 @@ func (o LookupGrantResultOutput) ToLookupGrantResultOutput() LookupGrantResultOu
 
 func (o LookupGrantResultOutput) ToLookupGrantResultOutputWithContext(ctx context.Context) LookupGrantResultOutput {
 	return o
+}
+
+func (o LookupGrantResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGrantResult] {
+	return pulumix.Output[LookupGrantResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Arn of the grant.

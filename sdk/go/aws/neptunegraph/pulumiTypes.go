@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i GraphTagArgs) ToGraphTagOutputWithContext(ctx context.Context) GraphTagO
 	return pulumi.ToOutputWithContext(ctx, i).(GraphTagOutput)
 }
 
+func (i GraphTagArgs) ToOutput(ctx context.Context) pulumix.Output[GraphTag] {
+	return pulumix.Output[GraphTag]{
+		OutputState: i.ToGraphTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GraphTagArrayInput is an input type that accepts GraphTagArray and GraphTagArrayOutput values.
 // You can construct a concrete instance of `GraphTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i GraphTagArray) ToGraphTagArrayOutputWithContext(ctx context.Context) Gra
 	return pulumi.ToOutputWithContext(ctx, i).(GraphTagArrayOutput)
 }
 
+func (i GraphTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GraphTag] {
+	return pulumix.Output[[]GraphTag]{
+		OutputState: i.ToGraphTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type GraphTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o GraphTagOutput) ToGraphTagOutput() GraphTagOutput {
 
 func (o GraphTagOutput) ToGraphTagOutputWithContext(ctx context.Context) GraphTagOutput {
 	return o
+}
+
+func (o GraphTagOutput) ToOutput(ctx context.Context) pulumix.Output[GraphTag] {
+	return pulumix.Output[GraphTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -114,6 +133,12 @@ func (o GraphTagArrayOutput) ToGraphTagArrayOutput() GraphTagArrayOutput {
 
 func (o GraphTagArrayOutput) ToGraphTagArrayOutputWithContext(ctx context.Context) GraphTagArrayOutput {
 	return o
+}
+
+func (o GraphTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GraphTag] {
+	return pulumix.Output[[]GraphTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphTagArrayOutput) Index(i pulumi.IntInput) GraphTagOutput {
@@ -157,6 +182,12 @@ func (i GraphVectorSearchConfigurationArgs) ToGraphVectorSearchConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GraphVectorSearchConfigurationOutput)
 }
 
+func (i GraphVectorSearchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GraphVectorSearchConfiguration] {
+	return pulumix.Output[GraphVectorSearchConfiguration]{
+		OutputState: i.ToGraphVectorSearchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GraphVectorSearchConfigurationArgs) ToGraphVectorSearchConfigurationPtrOutput() GraphVectorSearchConfigurationPtrOutput {
 	return i.ToGraphVectorSearchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -198,6 +229,12 @@ func (i *graphVectorSearchConfigurationPtrType) ToGraphVectorSearchConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(GraphVectorSearchConfigurationPtrOutput)
 }
 
+func (i *graphVectorSearchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GraphVectorSearchConfiguration] {
+	return pulumix.Output[*GraphVectorSearchConfiguration]{
+		OutputState: i.ToGraphVectorSearchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The vector search configuration.
 type GraphVectorSearchConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -223,6 +260,12 @@ func (o GraphVectorSearchConfigurationOutput) ToGraphVectorSearchConfigurationPt
 	}).(GraphVectorSearchConfigurationPtrOutput)
 }
 
+func (o GraphVectorSearchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GraphVectorSearchConfiguration] {
+	return pulumix.Output[GraphVectorSearchConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The vector search dimension
 func (o GraphVectorSearchConfigurationOutput) VectorSearchDimension() pulumi.IntOutput {
 	return o.ApplyT(func(v GraphVectorSearchConfiguration) int { return v.VectorSearchDimension }).(pulumi.IntOutput)
@@ -240,6 +283,12 @@ func (o GraphVectorSearchConfigurationPtrOutput) ToGraphVectorSearchConfiguratio
 
 func (o GraphVectorSearchConfigurationPtrOutput) ToGraphVectorSearchConfigurationPtrOutputWithContext(ctx context.Context) GraphVectorSearchConfigurationPtrOutput {
 	return o
+}
+
+func (o GraphVectorSearchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GraphVectorSearchConfiguration] {
+	return pulumix.Output[*GraphVectorSearchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphVectorSearchConfigurationPtrOutput) Elem() GraphVectorSearchConfigurationOutput {

@@ -78,6 +78,12 @@ func (o DetectorCfnFeatureConfigurationStatusOutput) ToDetectorCfnFeatureConfigu
 	}).(DetectorCfnFeatureConfigurationStatusPtrOutput)
 }
 
+func (o DetectorCfnFeatureConfigurationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnFeatureConfigurationStatus] {
+	return pulumix.Output[DetectorCfnFeatureConfigurationStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DetectorCfnFeatureConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +119,12 @@ func (o DetectorCfnFeatureConfigurationStatusPtrOutput) ToDetectorCfnFeatureConf
 	return o
 }
 
+func (o DetectorCfnFeatureConfigurationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnFeatureConfigurationStatus] {
+	return pulumix.Output[*DetectorCfnFeatureConfigurationStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DetectorCfnFeatureConfigurationStatusPtrOutput) Elem() DetectorCfnFeatureConfigurationStatusOutput {
 	return o.ApplyT(func(v *DetectorCfnFeatureConfigurationStatus) DetectorCfnFeatureConfigurationStatus {
 		if v != nil {
@@ -137,11 +149,10 @@ func (o DetectorCfnFeatureConfigurationStatusPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// DetectorCfnFeatureConfigurationStatusInput is an input type that accepts values of the DetectorCfnFeatureConfigurationStatus enum
-// A concrete instance of `DetectorCfnFeatureConfigurationStatusInput` can be one of the following:
+// DetectorCfnFeatureConfigurationStatusInput is an input type that accepts DetectorCfnFeatureConfigurationStatusArgs and DetectorCfnFeatureConfigurationStatusOutput values.
+// You can construct a concrete instance of `DetectorCfnFeatureConfigurationStatusInput` via:
 //
-//	DetectorCfnFeatureConfigurationStatusEnabled
-//	DetectorCfnFeatureConfigurationStatusDisabled
+//	DetectorCfnFeatureConfigurationStatusArgs{...}
 type DetectorCfnFeatureConfigurationStatusInput interface {
 	pulumi.Input
 

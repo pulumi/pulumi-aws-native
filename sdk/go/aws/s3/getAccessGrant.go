@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
@@ -80,6 +81,12 @@ func (o LookupAccessGrantResultOutput) ToLookupAccessGrantResultOutput() LookupA
 
 func (o LookupAccessGrantResultOutput) ToLookupAccessGrantResultOutputWithContext(ctx context.Context) LookupAccessGrantResultOutput {
 	return o
+}
+
+func (o LookupAccessGrantResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccessGrantResult] {
+	return pulumix.Output[LookupAccessGrantResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the specified access grant.

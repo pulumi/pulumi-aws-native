@@ -78,6 +78,12 @@ func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToDocumentClass
 	}).(DocumentClassifierAugmentedManifestsListItemSplitPtrOutput)
 }
 
+func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierAugmentedManifestsListItemSplit] {
+	return pulumix.Output[DocumentClassifierAugmentedManifestsListItemSplit]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +119,12 @@ func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) ToDocumentCl
 	return o
 }
 
+func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierAugmentedManifestsListItemSplit] {
+	return pulumix.Output[*DocumentClassifierAugmentedManifestsListItemSplit]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) Elem() DocumentClassifierAugmentedManifestsListItemSplitOutput {
 	return o.ApplyT(func(v *DocumentClassifierAugmentedManifestsListItemSplit) DocumentClassifierAugmentedManifestsListItemSplit {
 		if v != nil {
@@ -137,11 +149,10 @@ func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentClassifierAugmentedManifestsListItemSplitInput is an input type that accepts values of the DocumentClassifierAugmentedManifestsListItemSplit enum
-// A concrete instance of `DocumentClassifierAugmentedManifestsListItemSplitInput` can be one of the following:
+// DocumentClassifierAugmentedManifestsListItemSplitInput is an input type that accepts DocumentClassifierAugmentedManifestsListItemSplitArgs and DocumentClassifierAugmentedManifestsListItemSplitOutput values.
+// You can construct a concrete instance of `DocumentClassifierAugmentedManifestsListItemSplitInput` via:
 //
-//	DocumentClassifierAugmentedManifestsListItemSplitTrain
-//	DocumentClassifierAugmentedManifestsListItemSplitTest
+//	DocumentClassifierAugmentedManifestsListItemSplitArgs{...}
 type DocumentClassifierAugmentedManifestsListItemSplitInput interface {
 	pulumi.Input
 
@@ -249,6 +260,12 @@ func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToDocume
 	}).(DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput)
 }
 
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierDocumentReaderConfigDocumentReadAction] {
+	return pulumix.Output[DocumentClassifierDocumentReaderConfigDocumentReadAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -284,6 +301,12 @@ func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) ToDoc
 	return o
 }
 
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierDocumentReaderConfigDocumentReadAction] {
+	return pulumix.Output[*DocumentClassifierDocumentReaderConfigDocumentReadAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) Elem() DocumentClassifierDocumentReaderConfigDocumentReadActionOutput {
 	return o.ApplyT(func(v *DocumentClassifierDocumentReaderConfigDocumentReadAction) DocumentClassifierDocumentReaderConfigDocumentReadAction {
 		if v != nil {
@@ -308,11 +331,10 @@ func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentClassifierDocumentReaderConfigDocumentReadActionInput is an input type that accepts values of the DocumentClassifierDocumentReaderConfigDocumentReadAction enum
-// A concrete instance of `DocumentClassifierDocumentReaderConfigDocumentReadActionInput` can be one of the following:
+// DocumentClassifierDocumentReaderConfigDocumentReadActionInput is an input type that accepts DocumentClassifierDocumentReaderConfigDocumentReadActionArgs and DocumentClassifierDocumentReaderConfigDocumentReadActionOutput values.
+// You can construct a concrete instance of `DocumentClassifierDocumentReaderConfigDocumentReadActionInput` via:
 //
-//	DocumentClassifierDocumentReaderConfigDocumentReadActionTextractDetectDocumentText
-//	DocumentClassifierDocumentReaderConfigDocumentReadActionTextractAnalyzeDocument
+//	DocumentClassifierDocumentReaderConfigDocumentReadActionArgs{...}
 type DocumentClassifierDocumentReaderConfigDocumentReadActionInput interface {
 	pulumi.Input
 
@@ -420,6 +442,12 @@ func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToDocument
 	}).(DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput)
 }
 
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierDocumentReaderConfigDocumentReadMode] {
+	return pulumix.Output[DocumentClassifierDocumentReaderConfigDocumentReadMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -455,6 +483,12 @@ func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) ToDocum
 	return o
 }
 
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierDocumentReaderConfigDocumentReadMode] {
+	return pulumix.Output[*DocumentClassifierDocumentReaderConfigDocumentReadMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) Elem() DocumentClassifierDocumentReaderConfigDocumentReadModeOutput {
 	return o.ApplyT(func(v *DocumentClassifierDocumentReaderConfigDocumentReadMode) DocumentClassifierDocumentReaderConfigDocumentReadMode {
 		if v != nil {
@@ -479,11 +513,10 @@ func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentClassifierDocumentReaderConfigDocumentReadModeInput is an input type that accepts values of the DocumentClassifierDocumentReaderConfigDocumentReadMode enum
-// A concrete instance of `DocumentClassifierDocumentReaderConfigDocumentReadModeInput` can be one of the following:
+// DocumentClassifierDocumentReaderConfigDocumentReadModeInput is an input type that accepts DocumentClassifierDocumentReaderConfigDocumentReadModeArgs and DocumentClassifierDocumentReaderConfigDocumentReadModeOutput values.
+// You can construct a concrete instance of `DocumentClassifierDocumentReaderConfigDocumentReadModeInput` via:
 //
-//	DocumentClassifierDocumentReaderConfigDocumentReadModeServiceDefault
-//	DocumentClassifierDocumentReaderConfigDocumentReadModeForceDocumentReadAction
+//	DocumentClassifierDocumentReaderConfigDocumentReadModeArgs{...}
 type DocumentClassifierDocumentReaderConfigDocumentReadModeInput interface {
 	pulumi.Input
 
@@ -591,6 +624,12 @@ func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToDocument
 	}).(DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput)
 }
 
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierDocumentReaderConfigFeatureTypesItem] {
+	return pulumix.Output[DocumentClassifierDocumentReaderConfigFeatureTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -626,6 +665,12 @@ func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) ToDocum
 	return o
 }
 
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierDocumentReaderConfigFeatureTypesItem] {
+	return pulumix.Output[*DocumentClassifierDocumentReaderConfigFeatureTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) Elem() DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput {
 	return o.ApplyT(func(v *DocumentClassifierDocumentReaderConfigFeatureTypesItem) DocumentClassifierDocumentReaderConfigFeatureTypesItem {
 		if v != nil {
@@ -650,11 +695,10 @@ func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentClassifierDocumentReaderConfigFeatureTypesItemInput is an input type that accepts values of the DocumentClassifierDocumentReaderConfigFeatureTypesItem enum
-// A concrete instance of `DocumentClassifierDocumentReaderConfigFeatureTypesItemInput` can be one of the following:
+// DocumentClassifierDocumentReaderConfigFeatureTypesItemInput is an input type that accepts DocumentClassifierDocumentReaderConfigFeatureTypesItemArgs and DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput values.
+// You can construct a concrete instance of `DocumentClassifierDocumentReaderConfigFeatureTypesItemInput` via:
 //
-//	DocumentClassifierDocumentReaderConfigFeatureTypesItemTables
-//	DocumentClassifierDocumentReaderConfigFeatureTypesItemForms
+//	DocumentClassifierDocumentReaderConfigFeatureTypesItemArgs{...}
 type DocumentClassifierDocumentReaderConfigFeatureTypesItemInput interface {
 	pulumi.Input
 
@@ -720,6 +764,12 @@ func (i DocumentClassifierDocumentReaderConfigFeatureTypesItemArray) ToDocumentC
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput)
 }
 
+func (i DocumentClassifierDocumentReaderConfigFeatureTypesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]DocumentClassifierDocumentReaderConfigFeatureTypesItem] {
+	return pulumix.Output[[]DocumentClassifierDocumentReaderConfigFeatureTypesItem]{
+		OutputState: i.ToDocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) ElementType() reflect.Type {
@@ -732,6 +782,12 @@ func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) ToDoc
 
 func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput {
 	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DocumentClassifierDocumentReaderConfigFeatureTypesItem] {
+	return pulumix.Output[[]DocumentClassifierDocumentReaderConfigFeatureTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) Index(i pulumi.IntInput) DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput {
@@ -807,6 +863,12 @@ func (o DocumentClassifierInputDataConfigDataFormatOutput) ToDocumentClassifierI
 	}).(DocumentClassifierInputDataConfigDataFormatPtrOutput)
 }
 
+func (o DocumentClassifierInputDataConfigDataFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierInputDataConfigDataFormat] {
+	return pulumix.Output[DocumentClassifierInputDataConfigDataFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierInputDataConfigDataFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -842,6 +904,12 @@ func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) ToDocumentClassifi
 	return o
 }
 
+func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierInputDataConfigDataFormat] {
+	return pulumix.Output[*DocumentClassifierInputDataConfigDataFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) Elem() DocumentClassifierInputDataConfigDataFormatOutput {
 	return o.ApplyT(func(v *DocumentClassifierInputDataConfigDataFormat) DocumentClassifierInputDataConfigDataFormat {
 		if v != nil {
@@ -866,11 +934,10 @@ func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentClassifierInputDataConfigDataFormatInput is an input type that accepts values of the DocumentClassifierInputDataConfigDataFormat enum
-// A concrete instance of `DocumentClassifierInputDataConfigDataFormatInput` can be one of the following:
+// DocumentClassifierInputDataConfigDataFormatInput is an input type that accepts DocumentClassifierInputDataConfigDataFormatArgs and DocumentClassifierInputDataConfigDataFormatOutput values.
+// You can construct a concrete instance of `DocumentClassifierInputDataConfigDataFormatInput` via:
 //
-//	DocumentClassifierInputDataConfigDataFormatComprehendCsv
-//	DocumentClassifierInputDataConfigDataFormatAugmentedManifest
+//	DocumentClassifierInputDataConfigDataFormatArgs{...}
 type DocumentClassifierInputDataConfigDataFormatInput interface {
 	pulumi.Input
 
@@ -978,6 +1045,12 @@ func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToDocumentClassifie
 	}).(DocumentClassifierInputDataConfigDocumentTypePtrOutput)
 }
 
+func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierInputDataConfigDocumentType] {
+	return pulumix.Output[DocumentClassifierInputDataConfigDocumentType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1013,6 +1086,12 @@ func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) ToDocumentClassi
 	return o
 }
 
+func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierInputDataConfigDocumentType] {
+	return pulumix.Output[*DocumentClassifierInputDataConfigDocumentType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) Elem() DocumentClassifierInputDataConfigDocumentTypeOutput {
 	return o.ApplyT(func(v *DocumentClassifierInputDataConfigDocumentType) DocumentClassifierInputDataConfigDocumentType {
 		if v != nil {
@@ -1037,11 +1116,10 @@ func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentClassifierInputDataConfigDocumentTypeInput is an input type that accepts values of the DocumentClassifierInputDataConfigDocumentType enum
-// A concrete instance of `DocumentClassifierInputDataConfigDocumentTypeInput` can be one of the following:
+// DocumentClassifierInputDataConfigDocumentTypeInput is an input type that accepts DocumentClassifierInputDataConfigDocumentTypeArgs and DocumentClassifierInputDataConfigDocumentTypeOutput values.
+// You can construct a concrete instance of `DocumentClassifierInputDataConfigDocumentTypeInput` via:
 //
-//	DocumentClassifierInputDataConfigDocumentTypePlainTextDocument
-//	DocumentClassifierInputDataConfigDocumentTypeSemiStructuredDocument
+//	DocumentClassifierInputDataConfigDocumentTypeArgs{...}
 type DocumentClassifierInputDataConfigDocumentTypeInput interface {
 	pulumi.Input
 
@@ -1153,6 +1231,12 @@ func (o DocumentClassifierLanguageCodeOutput) ToDocumentClassifierLanguageCodePt
 	}).(DocumentClassifierLanguageCodePtrOutput)
 }
 
+func (o DocumentClassifierLanguageCodeOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierLanguageCode] {
+	return pulumix.Output[DocumentClassifierLanguageCode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierLanguageCodeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1188,6 +1272,12 @@ func (o DocumentClassifierLanguageCodePtrOutput) ToDocumentClassifierLanguageCod
 	return o
 }
 
+func (o DocumentClassifierLanguageCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierLanguageCode] {
+	return pulumix.Output[*DocumentClassifierLanguageCode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierLanguageCodePtrOutput) Elem() DocumentClassifierLanguageCodeOutput {
 	return o.ApplyT(func(v *DocumentClassifierLanguageCode) DocumentClassifierLanguageCode {
 		if v != nil {
@@ -1212,15 +1302,10 @@ func (o DocumentClassifierLanguageCodePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentClassifierLanguageCodeInput is an input type that accepts values of the DocumentClassifierLanguageCode enum
-// A concrete instance of `DocumentClassifierLanguageCodeInput` can be one of the following:
+// DocumentClassifierLanguageCodeInput is an input type that accepts DocumentClassifierLanguageCodeArgs and DocumentClassifierLanguageCodeOutput values.
+// You can construct a concrete instance of `DocumentClassifierLanguageCodeInput` via:
 //
-//	DocumentClassifierLanguageCodeEn
-//	DocumentClassifierLanguageCodeEs
-//	DocumentClassifierLanguageCodeFr
-//	DocumentClassifierLanguageCodeIt
-//	DocumentClassifierLanguageCodeDe
-//	DocumentClassifierLanguageCodePt
+//	DocumentClassifierLanguageCodeArgs{...}
 type DocumentClassifierLanguageCodeInput interface {
 	pulumi.Input
 
@@ -1328,6 +1413,12 @@ func (o DocumentClassifierModeOutput) ToDocumentClassifierModePtrOutputWithConte
 	}).(DocumentClassifierModePtrOutput)
 }
 
+func (o DocumentClassifierModeOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierMode] {
+	return pulumix.Output[DocumentClassifierMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1363,6 +1454,12 @@ func (o DocumentClassifierModePtrOutput) ToDocumentClassifierModePtrOutputWithCo
 	return o
 }
 
+func (o DocumentClassifierModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierMode] {
+	return pulumix.Output[*DocumentClassifierMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentClassifierModePtrOutput) Elem() DocumentClassifierModeOutput {
 	return o.ApplyT(func(v *DocumentClassifierMode) DocumentClassifierMode {
 		if v != nil {
@@ -1387,11 +1484,10 @@ func (o DocumentClassifierModePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentClassifierModeInput is an input type that accepts values of the DocumentClassifierMode enum
-// A concrete instance of `DocumentClassifierModeInput` can be one of the following:
+// DocumentClassifierModeInput is an input type that accepts DocumentClassifierModeArgs and DocumentClassifierModeOutput values.
+// You can construct a concrete instance of `DocumentClassifierModeInput` via:
 //
-//	DocumentClassifierModeMultiClass
-//	DocumentClassifierModeMultiLabel
+//	DocumentClassifierModeArgs{...}
 type DocumentClassifierModeInput interface {
 	pulumi.Input
 
@@ -1499,6 +1595,12 @@ func (o FlywheelDocumentClassificationConfigModeOutput) ToFlywheelDocumentClassi
 	}).(FlywheelDocumentClassificationConfigModePtrOutput)
 }
 
+func (o FlywheelDocumentClassificationConfigModeOutput) ToOutput(ctx context.Context) pulumix.Output[FlywheelDocumentClassificationConfigMode] {
+	return pulumix.Output[FlywheelDocumentClassificationConfigMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlywheelDocumentClassificationConfigModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1534,6 +1636,12 @@ func (o FlywheelDocumentClassificationConfigModePtrOutput) ToFlywheelDocumentCla
 	return o
 }
 
+func (o FlywheelDocumentClassificationConfigModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlywheelDocumentClassificationConfigMode] {
+	return pulumix.Output[*FlywheelDocumentClassificationConfigMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlywheelDocumentClassificationConfigModePtrOutput) Elem() FlywheelDocumentClassificationConfigModeOutput {
 	return o.ApplyT(func(v *FlywheelDocumentClassificationConfigMode) FlywheelDocumentClassificationConfigMode {
 		if v != nil {
@@ -1558,11 +1666,10 @@ func (o FlywheelDocumentClassificationConfigModePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlywheelDocumentClassificationConfigModeInput is an input type that accepts values of the FlywheelDocumentClassificationConfigMode enum
-// A concrete instance of `FlywheelDocumentClassificationConfigModeInput` can be one of the following:
+// FlywheelDocumentClassificationConfigModeInput is an input type that accepts FlywheelDocumentClassificationConfigModeArgs and FlywheelDocumentClassificationConfigModeOutput values.
+// You can construct a concrete instance of `FlywheelDocumentClassificationConfigModeInput` via:
 //
-//	FlywheelDocumentClassificationConfigModeMultiClass
-//	FlywheelDocumentClassificationConfigModeMultiLabel
+//	FlywheelDocumentClassificationConfigModeArgs{...}
 type FlywheelDocumentClassificationConfigModeInput interface {
 	pulumi.Input
 
@@ -1670,6 +1777,12 @@ func (o FlywheelModelTypeOutput) ToFlywheelModelTypePtrOutputWithContext(ctx con
 	}).(FlywheelModelTypePtrOutput)
 }
 
+func (o FlywheelModelTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlywheelModelType] {
+	return pulumix.Output[FlywheelModelType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlywheelModelTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1705,6 +1818,12 @@ func (o FlywheelModelTypePtrOutput) ToFlywheelModelTypePtrOutputWithContext(ctx 
 	return o
 }
 
+func (o FlywheelModelTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlywheelModelType] {
+	return pulumix.Output[*FlywheelModelType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlywheelModelTypePtrOutput) Elem() FlywheelModelTypeOutput {
 	return o.ApplyT(func(v *FlywheelModelType) FlywheelModelType {
 		if v != nil {
@@ -1729,11 +1848,10 @@ func (o FlywheelModelTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlywheelModelTypeInput is an input type that accepts values of the FlywheelModelType enum
-// A concrete instance of `FlywheelModelTypeInput` can be one of the following:
+// FlywheelModelTypeInput is an input type that accepts FlywheelModelTypeArgs and FlywheelModelTypeOutput values.
+// You can construct a concrete instance of `FlywheelModelTypeInput` via:
 //
-//	FlywheelModelTypeDocumentClassifier
-//	FlywheelModelTypeEntityRecognizer
+//	FlywheelModelTypeArgs{...}
 type FlywheelModelTypeInput interface {
 	pulumi.Input
 
@@ -1845,6 +1963,12 @@ func (o FlywheelTaskConfigLanguageCodeOutput) ToFlywheelTaskConfigLanguageCodePt
 	}).(FlywheelTaskConfigLanguageCodePtrOutput)
 }
 
+func (o FlywheelTaskConfigLanguageCodeOutput) ToOutput(ctx context.Context) pulumix.Output[FlywheelTaskConfigLanguageCode] {
+	return pulumix.Output[FlywheelTaskConfigLanguageCode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlywheelTaskConfigLanguageCodeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1880,6 +2004,12 @@ func (o FlywheelTaskConfigLanguageCodePtrOutput) ToFlywheelTaskConfigLanguageCod
 	return o
 }
 
+func (o FlywheelTaskConfigLanguageCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlywheelTaskConfigLanguageCode] {
+	return pulumix.Output[*FlywheelTaskConfigLanguageCode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlywheelTaskConfigLanguageCodePtrOutput) Elem() FlywheelTaskConfigLanguageCodeOutput {
 	return o.ApplyT(func(v *FlywheelTaskConfigLanguageCode) FlywheelTaskConfigLanguageCode {
 		if v != nil {
@@ -1904,15 +2034,10 @@ func (o FlywheelTaskConfigLanguageCodePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlywheelTaskConfigLanguageCodeInput is an input type that accepts values of the FlywheelTaskConfigLanguageCode enum
-// A concrete instance of `FlywheelTaskConfigLanguageCodeInput` can be one of the following:
+// FlywheelTaskConfigLanguageCodeInput is an input type that accepts FlywheelTaskConfigLanguageCodeArgs and FlywheelTaskConfigLanguageCodeOutput values.
+// You can construct a concrete instance of `FlywheelTaskConfigLanguageCodeInput` via:
 //
-//	FlywheelTaskConfigLanguageCodeEn
-//	FlywheelTaskConfigLanguageCodeEs
-//	FlywheelTaskConfigLanguageCodeFr
-//	FlywheelTaskConfigLanguageCodeIt
-//	FlywheelTaskConfigLanguageCodeDe
-//	FlywheelTaskConfigLanguageCodePt
+//	FlywheelTaskConfigLanguageCodeArgs{...}
 type FlywheelTaskConfigLanguageCodeInput interface {
 	pulumi.Input
 

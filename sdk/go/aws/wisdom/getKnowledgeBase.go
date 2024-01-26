@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Wisdom::KnowledgeBase Resource Type
@@ -65,6 +66,12 @@ func (o LookupKnowledgeBaseResultOutput) ToLookupKnowledgeBaseResultOutput() Loo
 
 func (o LookupKnowledgeBaseResultOutput) ToLookupKnowledgeBaseResultOutputWithContext(ctx context.Context) LookupKnowledgeBaseResultOutput {
 	return o
+}
+
+func (o LookupKnowledgeBaseResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupKnowledgeBaseResult] {
+	return pulumix.Output[LookupKnowledgeBaseResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupKnowledgeBaseResultOutput) KnowledgeBaseArn() pulumi.StringPtrOutput {

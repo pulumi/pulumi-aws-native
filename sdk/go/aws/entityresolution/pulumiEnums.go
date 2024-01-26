@@ -77,6 +77,12 @@ func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypeOutput) ToIdMappingWork
 	}).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
 }
 
+func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IdMappingWorkflowIdMappingTechniquesIdMappingType] {
+	return pulumix.Output[IdMappingWorkflowIdMappingTechniquesIdMappingType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +118,12 @@ func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput) ToIdMappingW
 	return o
 }
 
+func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdMappingWorkflowIdMappingTechniquesIdMappingType] {
+	return pulumix.Output[*IdMappingWorkflowIdMappingTechniquesIdMappingType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput) Elem() IdMappingWorkflowIdMappingTechniquesIdMappingTypeOutput {
 	return o.ApplyT(func(v *IdMappingWorkflowIdMappingTechniquesIdMappingType) IdMappingWorkflowIdMappingTechniquesIdMappingType {
 		if v != nil {
@@ -136,10 +148,10 @@ func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// IdMappingWorkflowIdMappingTechniquesIdMappingTypeInput is an input type that accepts values of the IdMappingWorkflowIdMappingTechniquesIdMappingType enum
-// A concrete instance of `IdMappingWorkflowIdMappingTechniquesIdMappingTypeInput` can be one of the following:
+// IdMappingWorkflowIdMappingTechniquesIdMappingTypeInput is an input type that accepts IdMappingWorkflowIdMappingTechniquesIdMappingTypeArgs and IdMappingWorkflowIdMappingTechniquesIdMappingTypeOutput values.
+// You can construct a concrete instance of `IdMappingWorkflowIdMappingTechniquesIdMappingTypeInput` via:
 //
-//	IdMappingWorkflowIdMappingTechniquesIdMappingTypeProvider
+//	IdMappingWorkflowIdMappingTechniquesIdMappingTypeArgs{...}
 type IdMappingWorkflowIdMappingTechniquesIdMappingTypeInput interface {
 	pulumi.Input
 
@@ -248,6 +260,12 @@ func (o MatchingWorkflowResolutionTechniquesResolutionTypeOutput) ToMatchingWork
 	}).(MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput)
 }
 
+func (o MatchingWorkflowResolutionTechniquesResolutionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowResolutionTechniquesResolutionType] {
+	return pulumix.Output[MatchingWorkflowResolutionTechniquesResolutionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MatchingWorkflowResolutionTechniquesResolutionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -283,6 +301,12 @@ func (o MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput) ToMatchingW
 	return o
 }
 
+func (o MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflowResolutionTechniquesResolutionType] {
+	return pulumix.Output[*MatchingWorkflowResolutionTechniquesResolutionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput) Elem() MatchingWorkflowResolutionTechniquesResolutionTypeOutput {
 	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniquesResolutionType) MatchingWorkflowResolutionTechniquesResolutionType {
 		if v != nil {
@@ -307,12 +331,10 @@ func (o MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// MatchingWorkflowResolutionTechniquesResolutionTypeInput is an input type that accepts values of the MatchingWorkflowResolutionTechniquesResolutionType enum
-// A concrete instance of `MatchingWorkflowResolutionTechniquesResolutionTypeInput` can be one of the following:
+// MatchingWorkflowResolutionTechniquesResolutionTypeInput is an input type that accepts MatchingWorkflowResolutionTechniquesResolutionTypeArgs and MatchingWorkflowResolutionTechniquesResolutionTypeOutput values.
+// You can construct a concrete instance of `MatchingWorkflowResolutionTechniquesResolutionTypeInput` via:
 //
-//	MatchingWorkflowResolutionTechniquesResolutionTypeRuleMatching
-//	MatchingWorkflowResolutionTechniquesResolutionTypeMlMatching
-//	MatchingWorkflowResolutionTechniquesResolutionTypeProvider
+//	MatchingWorkflowResolutionTechniquesResolutionTypeArgs{...}
 type MatchingWorkflowResolutionTechniquesResolutionTypeInput interface {
 	pulumi.Input
 
@@ -420,6 +442,12 @@ func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput) ToMatch
 	}).(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput)
 }
 
+func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel] {
+	return pulumix.Output[MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -455,6 +483,12 @@ func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput) ToMa
 	return o
 }
 
+func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel] {
+	return pulumix.Output[*MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput) Elem() MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput {
 	return o.ApplyT(func(v *MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel) MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel {
 		if v != nil {
@@ -479,11 +513,10 @@ func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelInput is an input type that accepts values of the MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel enum
-// A concrete instance of `MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelInput` can be one of the following:
+// MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelInput is an input type that accepts MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelArgs and MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput values.
+// You can construct a concrete instance of `MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelInput` via:
 //
-//	MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOneToOne
-//	MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelManyToMany
+//	MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelArgs{...}
 type MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelInput interface {
 	pulumi.Input
 
@@ -609,6 +642,12 @@ func (o SchemaMappingSchemaAttributeTypeOutput) ToSchemaMappingSchemaAttributeTy
 	}).(SchemaMappingSchemaAttributeTypePtrOutput)
 }
 
+func (o SchemaMappingSchemaAttributeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaMappingSchemaAttributeType] {
+	return pulumix.Output[SchemaMappingSchemaAttributeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SchemaMappingSchemaAttributeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -644,6 +683,12 @@ func (o SchemaMappingSchemaAttributeTypePtrOutput) ToSchemaMappingSchemaAttribut
 	return o
 }
 
+func (o SchemaMappingSchemaAttributeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaMappingSchemaAttributeType] {
+	return pulumix.Output[*SchemaMappingSchemaAttributeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SchemaMappingSchemaAttributeTypePtrOutput) Elem() SchemaMappingSchemaAttributeTypeOutput {
 	return o.ApplyT(func(v *SchemaMappingSchemaAttributeType) SchemaMappingSchemaAttributeType {
 		if v != nil {
@@ -668,29 +713,10 @@ func (o SchemaMappingSchemaAttributeTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// SchemaMappingSchemaAttributeTypeInput is an input type that accepts values of the SchemaMappingSchemaAttributeType enum
-// A concrete instance of `SchemaMappingSchemaAttributeTypeInput` can be one of the following:
+// SchemaMappingSchemaAttributeTypeInput is an input type that accepts SchemaMappingSchemaAttributeTypeArgs and SchemaMappingSchemaAttributeTypeOutput values.
+// You can construct a concrete instance of `SchemaMappingSchemaAttributeTypeInput` via:
 //
-//	SchemaMappingSchemaAttributeTypeName
-//	SchemaMappingSchemaAttributeTypeNameFirst
-//	SchemaMappingSchemaAttributeTypeNameMiddle
-//	SchemaMappingSchemaAttributeTypeNameLast
-//	SchemaMappingSchemaAttributeTypeAddress
-//	SchemaMappingSchemaAttributeTypeAddressStreet1
-//	SchemaMappingSchemaAttributeTypeAddressStreet2
-//	SchemaMappingSchemaAttributeTypeAddressStreet3
-//	SchemaMappingSchemaAttributeTypeAddressCity
-//	SchemaMappingSchemaAttributeTypeAddressState
-//	SchemaMappingSchemaAttributeTypeAddressCountry
-//	SchemaMappingSchemaAttributeTypeAddressPostalcode
-//	SchemaMappingSchemaAttributeTypePhone
-//	SchemaMappingSchemaAttributeTypePhoneNumber
-//	SchemaMappingSchemaAttributeTypePhoneCountrycode
-//	SchemaMappingSchemaAttributeTypeEmailAddress
-//	SchemaMappingSchemaAttributeTypeUniqueId
-//	SchemaMappingSchemaAttributeTypeDate
-//	SchemaMappingSchemaAttributeTypeString
-//	SchemaMappingSchemaAttributeTypeProviderId
+//	SchemaMappingSchemaAttributeTypeArgs{...}
 type SchemaMappingSchemaAttributeTypeInput interface {
 	pulumi.Input
 

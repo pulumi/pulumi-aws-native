@@ -80,6 +80,12 @@ func (o LinkResourceTypeOutput) ToLinkResourceTypePtrOutputWithContext(ctx conte
 	}).(LinkResourceTypePtrOutput)
 }
 
+func (o LinkResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LinkResourceType] {
+	return pulumix.Output[LinkResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -115,6 +121,12 @@ func (o LinkResourceTypePtrOutput) ToLinkResourceTypePtrOutputWithContext(ctx co
 	return o
 }
 
+func (o LinkResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkResourceType] {
+	return pulumix.Output[*LinkResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkResourceTypePtrOutput) Elem() LinkResourceTypeOutput {
 	return o.ApplyT(func(v *LinkResourceType) LinkResourceType {
 		if v != nil {
@@ -139,13 +151,10 @@ func (o LinkResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// LinkResourceTypeInput is an input type that accepts values of the LinkResourceType enum
-// A concrete instance of `LinkResourceTypeInput` can be one of the following:
+// LinkResourceTypeInput is an input type that accepts LinkResourceTypeArgs and LinkResourceTypeOutput values.
+// You can construct a concrete instance of `LinkResourceTypeInput` via:
 //
-//	LinkResourceTypeAwsCloudWatchMetric
-//	LinkResourceTypeAwsLogsLogGroup
-//	LinkResourceTypeAwsxRayTrace
-//	LinkResourceTypeAwsApplicationInsightsApplication
+//	LinkResourceTypeArgs{...}
 type LinkResourceTypeInput interface {
 	pulumi.Input
 
@@ -211,6 +220,12 @@ func (i LinkResourceTypeArray) ToLinkResourceTypeArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LinkResourceTypeArrayOutput)
 }
 
+func (i LinkResourceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]LinkResourceType] {
+	return pulumix.Output[[]LinkResourceType]{
+		OutputState: i.ToLinkResourceTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkResourceTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkResourceTypeArrayOutput) ElementType() reflect.Type {
@@ -223,6 +238,12 @@ func (o LinkResourceTypeArrayOutput) ToLinkResourceTypeArrayOutput() LinkResourc
 
 func (o LinkResourceTypeArrayOutput) ToLinkResourceTypeArrayOutputWithContext(ctx context.Context) LinkResourceTypeArrayOutput {
 	return o
+}
+
+func (o LinkResourceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LinkResourceType] {
+	return pulumix.Output[[]LinkResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkResourceTypeArrayOutput) Index(i pulumi.IntInput) LinkResourceTypeOutput {

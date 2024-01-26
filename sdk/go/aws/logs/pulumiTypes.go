@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i DeliveryDestinationTagArgs) ToDeliveryDestinationTagOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryDestinationTagOutput)
 }
 
+func (i DeliveryDestinationTagArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryDestinationTag] {
+	return pulumix.Output[DeliveryDestinationTag]{
+		OutputState: i.ToDeliveryDestinationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeliveryDestinationTagArrayInput is an input type that accepts DeliveryDestinationTagArray and DeliveryDestinationTagArrayOutput values.
 // You can construct a concrete instance of `DeliveryDestinationTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i DeliveryDestinationTagArray) ToDeliveryDestinationTagArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryDestinationTagArrayOutput)
 }
 
+func (i DeliveryDestinationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryDestinationTag] {
+	return pulumix.Output[[]DeliveryDestinationTag]{
+		OutputState: i.ToDeliveryDestinationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type DeliveryDestinationTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o DeliveryDestinationTagOutput) ToDeliveryDestinationTagOutput() DeliveryD
 
 func (o DeliveryDestinationTagOutput) ToDeliveryDestinationTagOutputWithContext(ctx context.Context) DeliveryDestinationTagOutput {
 	return o
+}
+
+func (o DeliveryDestinationTagOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryDestinationTag] {
+	return pulumix.Output[DeliveryDestinationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -114,6 +133,12 @@ func (o DeliveryDestinationTagArrayOutput) ToDeliveryDestinationTagArrayOutput()
 
 func (o DeliveryDestinationTagArrayOutput) ToDeliveryDestinationTagArrayOutputWithContext(ctx context.Context) DeliveryDestinationTagArrayOutput {
 	return o
+}
+
+func (o DeliveryDestinationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryDestinationTag] {
+	return pulumix.Output[[]DeliveryDestinationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryDestinationTagArrayOutput) Index(i pulumi.IntInput) DeliveryDestinationTagOutput {
@@ -161,6 +186,12 @@ func (i DeliverySourceTagArgs) ToDeliverySourceTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DeliverySourceTagOutput)
 }
 
+func (i DeliverySourceTagArgs) ToOutput(ctx context.Context) pulumix.Output[DeliverySourceTag] {
+	return pulumix.Output[DeliverySourceTag]{
+		OutputState: i.ToDeliverySourceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeliverySourceTagArrayInput is an input type that accepts DeliverySourceTagArray and DeliverySourceTagArrayOutput values.
 // You can construct a concrete instance of `DeliverySourceTagArrayInput` via:
 //
@@ -186,6 +217,12 @@ func (i DeliverySourceTagArray) ToDeliverySourceTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DeliverySourceTagArrayOutput)
 }
 
+func (i DeliverySourceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DeliverySourceTag] {
+	return pulumix.Output[[]DeliverySourceTag]{
+		OutputState: i.ToDeliverySourceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type DeliverySourceTagOutput struct{ *pulumi.OutputState }
 
@@ -199,6 +236,12 @@ func (o DeliverySourceTagOutput) ToDeliverySourceTagOutput() DeliverySourceTagOu
 
 func (o DeliverySourceTagOutput) ToDeliverySourceTagOutputWithContext(ctx context.Context) DeliverySourceTagOutput {
 	return o
+}
+
+func (o DeliverySourceTagOutput) ToOutput(ctx context.Context) pulumix.Output[DeliverySourceTag] {
+	return pulumix.Output[DeliverySourceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode
@@ -223,6 +266,12 @@ func (o DeliverySourceTagArrayOutput) ToDeliverySourceTagArrayOutput() DeliveryS
 
 func (o DeliverySourceTagArrayOutput) ToDeliverySourceTagArrayOutputWithContext(ctx context.Context) DeliverySourceTagArrayOutput {
 	return o
+}
+
+func (o DeliverySourceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeliverySourceTag] {
+	return pulumix.Output[[]DeliverySourceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliverySourceTagArrayOutput) Index(i pulumi.IntInput) DeliverySourceTagOutput {
@@ -270,6 +319,12 @@ func (i DeliveryTagArgs) ToDeliveryTagOutputWithContext(ctx context.Context) Del
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryTagOutput)
 }
 
+func (i DeliveryTagArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryTag] {
+	return pulumix.Output[DeliveryTag]{
+		OutputState: i.ToDeliveryTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeliveryTagArrayInput is an input type that accepts DeliveryTagArray and DeliveryTagArrayOutput values.
 // You can construct a concrete instance of `DeliveryTagArrayInput` via:
 //
@@ -295,6 +350,12 @@ func (i DeliveryTagArray) ToDeliveryTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryTagArrayOutput)
 }
 
+func (i DeliveryTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryTag] {
+	return pulumix.Output[[]DeliveryTag]{
+		OutputState: i.ToDeliveryTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type DeliveryTagOutput struct{ *pulumi.OutputState }
 
@@ -308,6 +369,12 @@ func (o DeliveryTagOutput) ToDeliveryTagOutput() DeliveryTagOutput {
 
 func (o DeliveryTagOutput) ToDeliveryTagOutputWithContext(ctx context.Context) DeliveryTagOutput {
 	return o
+}
+
+func (o DeliveryTagOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryTag] {
+	return pulumix.Output[DeliveryTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode
@@ -332,6 +399,12 @@ func (o DeliveryTagArrayOutput) ToDeliveryTagArrayOutput() DeliveryTagArrayOutpu
 
 func (o DeliveryTagArrayOutput) ToDeliveryTagArrayOutputWithContext(ctx context.Context) DeliveryTagArrayOutput {
 	return o
+}
+
+func (o DeliveryTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryTag] {
+	return pulumix.Output[[]DeliveryTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryTagArrayOutput) Index(i pulumi.IntInput) DeliveryTagOutput {
@@ -379,6 +452,12 @@ func (i LogGroupTagArgs) ToLogGroupTagOutputWithContext(ctx context.Context) Log
 	return pulumi.ToOutputWithContext(ctx, i).(LogGroupTagOutput)
 }
 
+func (i LogGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[LogGroupTag] {
+	return pulumix.Output[LogGroupTag]{
+		OutputState: i.ToLogGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LogGroupTagArrayInput is an input type that accepts LogGroupTagArray and LogGroupTagArrayOutput values.
 // You can construct a concrete instance of `LogGroupTagArrayInput` via:
 //
@@ -404,6 +483,12 @@ func (i LogGroupTagArray) ToLogGroupTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LogGroupTagArrayOutput)
 }
 
+func (i LogGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LogGroupTag] {
+	return pulumix.Output[[]LogGroupTag]{
+		OutputState: i.ToLogGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LogGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -417,6 +502,12 @@ func (o LogGroupTagOutput) ToLogGroupTagOutput() LogGroupTagOutput {
 
 func (o LogGroupTagOutput) ToLogGroupTagOutputWithContext(ctx context.Context) LogGroupTagOutput {
 	return o
+}
+
+func (o LogGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[LogGroupTag] {
+	return pulumix.Output[LogGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, - and @.
@@ -441,6 +532,12 @@ func (o LogGroupTagArrayOutput) ToLogGroupTagArrayOutput() LogGroupTagArrayOutpu
 
 func (o LogGroupTagArrayOutput) ToLogGroupTagArrayOutputWithContext(ctx context.Context) LogGroupTagArrayOutput {
 	return o
+}
+
+func (o LogGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LogGroupTag] {
+	return pulumix.Output[[]LogGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogGroupTagArrayOutput) Index(i pulumi.IntInput) LogGroupTagOutput {
@@ -488,6 +585,12 @@ func (i MetricFilterDimensionArgs) ToMetricFilterDimensionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterDimensionOutput)
 }
 
+func (i MetricFilterDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[MetricFilterDimension] {
+	return pulumix.Output[MetricFilterDimension]{
+		OutputState: i.ToMetricFilterDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricFilterDimensionArrayInput is an input type that accepts MetricFilterDimensionArray and MetricFilterDimensionArrayOutput values.
 // You can construct a concrete instance of `MetricFilterDimensionArrayInput` via:
 //
@@ -513,6 +616,12 @@ func (i MetricFilterDimensionArray) ToMetricFilterDimensionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterDimensionArrayOutput)
 }
 
+func (i MetricFilterDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricFilterDimension] {
+	return pulumix.Output[[]MetricFilterDimension]{
+		OutputState: i.ToMetricFilterDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // the key-value pairs that further define a metric.
 type MetricFilterDimensionOutput struct{ *pulumi.OutputState }
 
@@ -526,6 +635,12 @@ func (o MetricFilterDimensionOutput) ToMetricFilterDimensionOutput() MetricFilte
 
 func (o MetricFilterDimensionOutput) ToMetricFilterDimensionOutputWithContext(ctx context.Context) MetricFilterDimensionOutput {
 	return o
+}
+
+func (o MetricFilterDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[MetricFilterDimension] {
+	return pulumix.Output[MetricFilterDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key of the dimension. Maximum length of 255.
@@ -550,6 +665,12 @@ func (o MetricFilterDimensionArrayOutput) ToMetricFilterDimensionArrayOutput() M
 
 func (o MetricFilterDimensionArrayOutput) ToMetricFilterDimensionArrayOutputWithContext(ctx context.Context) MetricFilterDimensionArrayOutput {
 	return o
+}
+
+func (o MetricFilterDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricFilterDimension] {
+	return pulumix.Output[[]MetricFilterDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricFilterDimensionArrayOutput) Index(i pulumi.IntInput) MetricFilterDimensionOutput {
@@ -611,6 +732,12 @@ func (i MetricFilterMetricTransformationArgs) ToMetricFilterMetricTransformation
 	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterMetricTransformationOutput)
 }
 
+func (i MetricFilterMetricTransformationArgs) ToOutput(ctx context.Context) pulumix.Output[MetricFilterMetricTransformation] {
+	return pulumix.Output[MetricFilterMetricTransformation]{
+		OutputState: i.ToMetricFilterMetricTransformationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricFilterMetricTransformationArrayInput is an input type that accepts MetricFilterMetricTransformationArray and MetricFilterMetricTransformationArrayOutput values.
 // You can construct a concrete instance of `MetricFilterMetricTransformationArrayInput` via:
 //
@@ -636,6 +763,12 @@ func (i MetricFilterMetricTransformationArray) ToMetricFilterMetricTransformatio
 	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterMetricTransformationArrayOutput)
 }
 
+func (i MetricFilterMetricTransformationArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricFilterMetricTransformation] {
+	return pulumix.Output[[]MetricFilterMetricTransformation]{
+		OutputState: i.ToMetricFilterMetricTransformationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricFilterMetricTransformationOutput struct{ *pulumi.OutputState }
 
 func (MetricFilterMetricTransformationOutput) ElementType() reflect.Type {
@@ -648,6 +781,12 @@ func (o MetricFilterMetricTransformationOutput) ToMetricFilterMetricTransformati
 
 func (o MetricFilterMetricTransformationOutput) ToMetricFilterMetricTransformationOutputWithContext(ctx context.Context) MetricFilterMetricTransformationOutput {
 	return o
+}
+
+func (o MetricFilterMetricTransformationOutput) ToOutput(ctx context.Context) pulumix.Output[MetricFilterMetricTransformation] {
+	return pulumix.Output[MetricFilterMetricTransformation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The value to emit when a filter pattern does not match a log event. This value can be null.
@@ -692,6 +831,12 @@ func (o MetricFilterMetricTransformationArrayOutput) ToMetricFilterMetricTransfo
 
 func (o MetricFilterMetricTransformationArrayOutput) ToMetricFilterMetricTransformationArrayOutputWithContext(ctx context.Context) MetricFilterMetricTransformationArrayOutput {
 	return o
+}
+
+func (o MetricFilterMetricTransformationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricFilterMetricTransformation] {
+	return pulumix.Output[[]MetricFilterMetricTransformation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricFilterMetricTransformationArrayOutput) Index(i pulumi.IntInput) MetricFilterMetricTransformationOutput {

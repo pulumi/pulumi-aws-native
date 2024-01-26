@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::IoTFleetWise::DecoderManifest Resource Type
@@ -121,6 +122,12 @@ func (i *DecoderManifest) ToDecoderManifestOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DecoderManifestOutput)
 }
 
+func (i *DecoderManifest) ToOutput(ctx context.Context) pulumix.Output[*DecoderManifest] {
+	return pulumix.Output[*DecoderManifest]{
+		OutputState: i.ToDecoderManifestOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DecoderManifestOutput struct{ *pulumi.OutputState }
 
 func (DecoderManifestOutput) ElementType() reflect.Type {
@@ -133,6 +140,12 @@ func (o DecoderManifestOutput) ToDecoderManifestOutput() DecoderManifestOutput {
 
 func (o DecoderManifestOutput) ToDecoderManifestOutputWithContext(ctx context.Context) DecoderManifestOutput {
 	return o
+}
+
+func (o DecoderManifestOutput) ToOutput(ctx context.Context) pulumix.Output[*DecoderManifest] {
+	return pulumix.Output[*DecoderManifest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DecoderManifestOutput) Arn() pulumi.StringOutput {

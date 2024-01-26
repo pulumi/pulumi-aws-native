@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lightsail::StaticIp
@@ -107,6 +108,12 @@ func (i *StaticIp) ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StaticIpOutput)
 }
 
+func (i *StaticIp) ToOutput(ctx context.Context) pulumix.Output[*StaticIp] {
+	return pulumix.Output[*StaticIp]{
+		OutputState: i.ToStaticIpOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StaticIpOutput struct{ *pulumi.OutputState }
 
 func (StaticIpOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o StaticIpOutput) ToStaticIpOutput() StaticIpOutput {
 
 func (o StaticIpOutput) ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutput {
 	return o
+}
+
+func (o StaticIpOutput) ToOutput(ctx context.Context) pulumix.Output[*StaticIp] {
+	return pulumix.Output[*StaticIp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The instance where the static IP is attached.

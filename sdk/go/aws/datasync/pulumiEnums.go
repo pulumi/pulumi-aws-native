@@ -44,6 +44,12 @@ func (o AgentEndpointTypeOutput) ToAgentEndpointTypePtrOutputWithContext(ctx con
 	}).(AgentEndpointTypePtrOutput)
 }
 
+func (o AgentEndpointTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AgentEndpointType] {
+	return pulumix.Output[AgentEndpointType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AgentEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -77,6 +83,12 @@ func (o AgentEndpointTypePtrOutput) ToAgentEndpointTypePtrOutput() AgentEndpoint
 
 func (o AgentEndpointTypePtrOutput) ToAgentEndpointTypePtrOutputWithContext(ctx context.Context) AgentEndpointTypePtrOutput {
 	return o
+}
+
+func (o AgentEndpointTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AgentEndpointType] {
+	return pulumix.Output[*AgentEndpointType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AgentEndpointTypePtrOutput) Elem() AgentEndpointTypeOutput {
@@ -172,6 +184,12 @@ func (o LocationAzureBlobAzureAccessTierOutput) ToLocationAzureBlobAzureAccessTi
 	}).(LocationAzureBlobAzureAccessTierPtrOutput)
 }
 
+func (o LocationAzureBlobAzureAccessTierOutput) ToOutput(ctx context.Context) pulumix.Output[LocationAzureBlobAzureAccessTier] {
+	return pulumix.Output[LocationAzureBlobAzureAccessTier]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationAzureBlobAzureAccessTierOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -207,6 +225,12 @@ func (o LocationAzureBlobAzureAccessTierPtrOutput) ToLocationAzureBlobAzureAcces
 	return o
 }
 
+func (o LocationAzureBlobAzureAccessTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlobAzureAccessTier] {
+	return pulumix.Output[*LocationAzureBlobAzureAccessTier]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationAzureBlobAzureAccessTierPtrOutput) Elem() LocationAzureBlobAzureAccessTierOutput {
 	return o.ApplyT(func(v *LocationAzureBlobAzureAccessTier) LocationAzureBlobAzureAccessTier {
 		if v != nil {
@@ -231,12 +255,10 @@ func (o LocationAzureBlobAzureAccessTierPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationAzureBlobAzureAccessTierInput is an input type that accepts values of the LocationAzureBlobAzureAccessTier enum
-// A concrete instance of `LocationAzureBlobAzureAccessTierInput` can be one of the following:
+// LocationAzureBlobAzureAccessTierInput is an input type that accepts LocationAzureBlobAzureAccessTierArgs and LocationAzureBlobAzureAccessTierOutput values.
+// You can construct a concrete instance of `LocationAzureBlobAzureAccessTierInput` via:
 //
-//	LocationAzureBlobAzureAccessTierHot
-//	LocationAzureBlobAzureAccessTierCool
-//	LocationAzureBlobAzureAccessTierArchive
+//	LocationAzureBlobAzureAccessTierArgs{...}
 type LocationAzureBlobAzureAccessTierInput interface {
 	pulumi.Input
 
@@ -344,6 +366,12 @@ func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToLocationAzureBlobA
 	}).(LocationAzureBlobAzureBlobAuthenticationTypePtrOutput)
 }
 
+func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LocationAzureBlobAzureBlobAuthenticationType] {
+	return pulumix.Output[LocationAzureBlobAzureBlobAuthenticationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -379,6 +407,12 @@ func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ToLocationAzureBl
 	return o
 }
 
+func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlobAzureBlobAuthenticationType] {
+	return pulumix.Output[*LocationAzureBlobAzureBlobAuthenticationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) Elem() LocationAzureBlobAzureBlobAuthenticationTypeOutput {
 	return o.ApplyT(func(v *LocationAzureBlobAzureBlobAuthenticationType) LocationAzureBlobAzureBlobAuthenticationType {
 		if v != nil {
@@ -403,10 +437,10 @@ func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationAzureBlobAzureBlobAuthenticationTypeInput is an input type that accepts values of the LocationAzureBlobAzureBlobAuthenticationType enum
-// A concrete instance of `LocationAzureBlobAzureBlobAuthenticationTypeInput` can be one of the following:
+// LocationAzureBlobAzureBlobAuthenticationTypeInput is an input type that accepts LocationAzureBlobAzureBlobAuthenticationTypeArgs and LocationAzureBlobAzureBlobAuthenticationTypeOutput values.
+// You can construct a concrete instance of `LocationAzureBlobAzureBlobAuthenticationTypeInput` via:
 //
-//	LocationAzureBlobAzureBlobAuthenticationTypeSas
+//	LocationAzureBlobAzureBlobAuthenticationTypeArgs{...}
 type LocationAzureBlobAzureBlobAuthenticationTypeInput interface {
 	pulumi.Input
 
@@ -514,6 +548,12 @@ func (o LocationAzureBlobAzureBlobTypeOutput) ToLocationAzureBlobAzureBlobTypePt
 	}).(LocationAzureBlobAzureBlobTypePtrOutput)
 }
 
+func (o LocationAzureBlobAzureBlobTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LocationAzureBlobAzureBlobType] {
+	return pulumix.Output[LocationAzureBlobAzureBlobType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationAzureBlobAzureBlobTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -549,6 +589,12 @@ func (o LocationAzureBlobAzureBlobTypePtrOutput) ToLocationAzureBlobAzureBlobTyp
 	return o
 }
 
+func (o LocationAzureBlobAzureBlobTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlobAzureBlobType] {
+	return pulumix.Output[*LocationAzureBlobAzureBlobType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationAzureBlobAzureBlobTypePtrOutput) Elem() LocationAzureBlobAzureBlobTypeOutput {
 	return o.ApplyT(func(v *LocationAzureBlobAzureBlobType) LocationAzureBlobAzureBlobType {
 		if v != nil {
@@ -573,10 +619,10 @@ func (o LocationAzureBlobAzureBlobTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationAzureBlobAzureBlobTypeInput is an input type that accepts values of the LocationAzureBlobAzureBlobType enum
-// A concrete instance of `LocationAzureBlobAzureBlobTypeInput` can be one of the following:
+// LocationAzureBlobAzureBlobTypeInput is an input type that accepts LocationAzureBlobAzureBlobTypeArgs and LocationAzureBlobAzureBlobTypeOutput values.
+// You can construct a concrete instance of `LocationAzureBlobAzureBlobTypeInput` via:
 //
-//	LocationAzureBlobAzureBlobTypeBlock
+//	LocationAzureBlobAzureBlobTypeArgs{...}
 type LocationAzureBlobAzureBlobTypeInput interface {
 	pulumi.Input
 
@@ -685,6 +731,12 @@ func (o LocationEfsInTransitEncryptionOutput) ToLocationEfsInTransitEncryptionPt
 	}).(LocationEfsInTransitEncryptionPtrOutput)
 }
 
+func (o LocationEfsInTransitEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationEfsInTransitEncryption] {
+	return pulumix.Output[LocationEfsInTransitEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationEfsInTransitEncryptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -720,6 +772,12 @@ func (o LocationEfsInTransitEncryptionPtrOutput) ToLocationEfsInTransitEncryptio
 	return o
 }
 
+func (o LocationEfsInTransitEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationEfsInTransitEncryption] {
+	return pulumix.Output[*LocationEfsInTransitEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationEfsInTransitEncryptionPtrOutput) Elem() LocationEfsInTransitEncryptionOutput {
 	return o.ApplyT(func(v *LocationEfsInTransitEncryption) LocationEfsInTransitEncryption {
 		if v != nil {
@@ -744,11 +802,10 @@ func (o LocationEfsInTransitEncryptionPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationEfsInTransitEncryptionInput is an input type that accepts values of the LocationEfsInTransitEncryption enum
-// A concrete instance of `LocationEfsInTransitEncryptionInput` can be one of the following:
+// LocationEfsInTransitEncryptionInput is an input type that accepts LocationEfsInTransitEncryptionArgs and LocationEfsInTransitEncryptionOutput values.
+// You can construct a concrete instance of `LocationEfsInTransitEncryptionInput` via:
 //
-//	LocationEfsInTransitEncryptionNone
-//	LocationEfsInTransitEncryptionTls12
+//	LocationEfsInTransitEncryptionArgs{...}
 type LocationEfsInTransitEncryptionInput interface {
 	pulumi.Input
 
@@ -859,6 +916,12 @@ func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToLocationFSxOntapNfsMount
 	}).(LocationFSxOntapNfsMountOptionsVersionPtrOutput)
 }
 
+func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapNfsMountOptionsVersion] {
+	return pulumix.Output[LocationFSxOntapNfsMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -894,6 +957,12 @@ func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) ToLocationFSxOntapNfsMo
 	return o
 }
 
+func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapNfsMountOptionsVersion] {
+	return pulumix.Output[*LocationFSxOntapNfsMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) Elem() LocationFSxOntapNfsMountOptionsVersionOutput {
 	return o.ApplyT(func(v *LocationFSxOntapNfsMountOptionsVersion) LocationFSxOntapNfsMountOptionsVersion {
 		if v != nil {
@@ -918,13 +987,10 @@ func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationFSxOntapNfsMountOptionsVersionInput is an input type that accepts values of the LocationFSxOntapNfsMountOptionsVersion enum
-// A concrete instance of `LocationFSxOntapNfsMountOptionsVersionInput` can be one of the following:
+// LocationFSxOntapNfsMountOptionsVersionInput is an input type that accepts LocationFSxOntapNfsMountOptionsVersionArgs and LocationFSxOntapNfsMountOptionsVersionOutput values.
+// You can construct a concrete instance of `LocationFSxOntapNfsMountOptionsVersionInput` via:
 //
-//	LocationFSxOntapNfsMountOptionsVersionAutomatic
-//	LocationFSxOntapNfsMountOptionsVersionNfs3
-//	LocationFSxOntapNfsMountOptionsVersionNfs40
-//	LocationFSxOntapNfsMountOptionsVersionNfs41
+//	LocationFSxOntapNfsMountOptionsVersionArgs{...}
 type LocationFSxOntapNfsMountOptionsVersionInput interface {
 	pulumi.Input
 
@@ -1034,6 +1100,12 @@ func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToLocationFSxOntapSmbMount
 	}).(LocationFSxOntapSmbMountOptionsVersionPtrOutput)
 }
 
+func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapSmbMountOptionsVersion] {
+	return pulumix.Output[LocationFSxOntapSmbMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1069,6 +1141,12 @@ func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) ToLocationFSxOntapSmbMo
 	return o
 }
 
+func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapSmbMountOptionsVersion] {
+	return pulumix.Output[*LocationFSxOntapSmbMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) Elem() LocationFSxOntapSmbMountOptionsVersionOutput {
 	return o.ApplyT(func(v *LocationFSxOntapSmbMountOptionsVersion) LocationFSxOntapSmbMountOptionsVersion {
 		if v != nil {
@@ -1093,12 +1171,10 @@ func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationFSxOntapSmbMountOptionsVersionInput is an input type that accepts values of the LocationFSxOntapSmbMountOptionsVersion enum
-// A concrete instance of `LocationFSxOntapSmbMountOptionsVersionInput` can be one of the following:
+// LocationFSxOntapSmbMountOptionsVersionInput is an input type that accepts LocationFSxOntapSmbMountOptionsVersionArgs and LocationFSxOntapSmbMountOptionsVersionOutput values.
+// You can construct a concrete instance of `LocationFSxOntapSmbMountOptionsVersionInput` via:
 //
-//	LocationFSxOntapSmbMountOptionsVersionAutomatic
-//	LocationFSxOntapSmbMountOptionsVersionSmb2
-//	LocationFSxOntapSmbMountOptionsVersionSmb3
+//	LocationFSxOntapSmbMountOptionsVersionArgs{...}
 type LocationFSxOntapSmbMountOptionsVersionInput interface {
 	pulumi.Input
 
@@ -1209,6 +1285,12 @@ func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToLocationFSxOpenZfsMountOp
 	}).(LocationFSxOpenZfsMountOptionsVersionPtrOutput)
 }
 
+func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOpenZfsMountOptionsVersion] {
+	return pulumix.Output[LocationFSxOpenZfsMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1244,6 +1326,12 @@ func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) ToLocationFSxOpenZfsMoun
 	return o
 }
 
+func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOpenZfsMountOptionsVersion] {
+	return pulumix.Output[*LocationFSxOpenZfsMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) Elem() LocationFSxOpenZfsMountOptionsVersionOutput {
 	return o.ApplyT(func(v *LocationFSxOpenZfsMountOptionsVersion) LocationFSxOpenZfsMountOptionsVersion {
 		if v != nil {
@@ -1268,13 +1356,10 @@ func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationFSxOpenZfsMountOptionsVersionInput is an input type that accepts values of the LocationFSxOpenZfsMountOptionsVersion enum
-// A concrete instance of `LocationFSxOpenZfsMountOptionsVersionInput` can be one of the following:
+// LocationFSxOpenZfsMountOptionsVersionInput is an input type that accepts LocationFSxOpenZfsMountOptionsVersionArgs and LocationFSxOpenZfsMountOptionsVersionOutput values.
+// You can construct a concrete instance of `LocationFSxOpenZfsMountOptionsVersionInput` via:
 //
-//	LocationFSxOpenZfsMountOptionsVersionAutomatic
-//	LocationFSxOpenZfsMountOptionsVersionNfs3
-//	LocationFSxOpenZfsMountOptionsVersionNfs40
-//	LocationFSxOpenZfsMountOptionsVersionNfs41
+//	LocationFSxOpenZfsMountOptionsVersionArgs{...}
 type LocationFSxOpenZfsMountOptionsVersionInput interface {
 	pulumi.Input
 
@@ -1383,6 +1468,12 @@ func (o LocationHdfsAuthenticationTypeOutput) ToLocationHdfsAuthenticationTypePt
 	}).(LocationHdfsAuthenticationTypePtrOutput)
 }
 
+func (o LocationHdfsAuthenticationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsAuthenticationType] {
+	return pulumix.Output[LocationHdfsAuthenticationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationHdfsAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1418,6 +1509,12 @@ func (o LocationHdfsAuthenticationTypePtrOutput) ToLocationHdfsAuthenticationTyp
 	return o
 }
 
+func (o LocationHdfsAuthenticationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationHdfsAuthenticationType] {
+	return pulumix.Output[*LocationHdfsAuthenticationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationHdfsAuthenticationTypePtrOutput) Elem() LocationHdfsAuthenticationTypeOutput {
 	return o.ApplyT(func(v *LocationHdfsAuthenticationType) LocationHdfsAuthenticationType {
 		if v != nil {
@@ -1442,11 +1539,10 @@ func (o LocationHdfsAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationHdfsAuthenticationTypeInput is an input type that accepts values of the LocationHdfsAuthenticationType enum
-// A concrete instance of `LocationHdfsAuthenticationTypeInput` can be one of the following:
+// LocationHdfsAuthenticationTypeInput is an input type that accepts LocationHdfsAuthenticationTypeArgs and LocationHdfsAuthenticationTypeOutput values.
+// You can construct a concrete instance of `LocationHdfsAuthenticationTypeInput` via:
 //
-//	LocationHdfsAuthenticationTypeSimple
-//	LocationHdfsAuthenticationTypeKerberos
+//	LocationHdfsAuthenticationTypeArgs{...}
 type LocationHdfsAuthenticationTypeInput interface {
 	pulumi.Input
 
@@ -1557,6 +1653,12 @@ func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToLocationHdfs
 	}).(LocationHdfsQopConfigurationDataTransferProtectionPtrOutput)
 }
 
+func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsQopConfigurationDataTransferProtection] {
+	return pulumix.Output[LocationHdfsQopConfigurationDataTransferProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1592,6 +1694,12 @@ func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) ToLocationH
 	return o
 }
 
+func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationHdfsQopConfigurationDataTransferProtection] {
+	return pulumix.Output[*LocationHdfsQopConfigurationDataTransferProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) Elem() LocationHdfsQopConfigurationDataTransferProtectionOutput {
 	return o.ApplyT(func(v *LocationHdfsQopConfigurationDataTransferProtection) LocationHdfsQopConfigurationDataTransferProtection {
 		if v != nil {
@@ -1616,13 +1724,10 @@ func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationHdfsQopConfigurationDataTransferProtectionInput is an input type that accepts values of the LocationHdfsQopConfigurationDataTransferProtection enum
-// A concrete instance of `LocationHdfsQopConfigurationDataTransferProtectionInput` can be one of the following:
+// LocationHdfsQopConfigurationDataTransferProtectionInput is an input type that accepts LocationHdfsQopConfigurationDataTransferProtectionArgs and LocationHdfsQopConfigurationDataTransferProtectionOutput values.
+// You can construct a concrete instance of `LocationHdfsQopConfigurationDataTransferProtectionInput` via:
 //
-//	LocationHdfsQopConfigurationDataTransferProtectionAuthentication
-//	LocationHdfsQopConfigurationDataTransferProtectionIntegrity
-//	LocationHdfsQopConfigurationDataTransferProtectionPrivacy
-//	LocationHdfsQopConfigurationDataTransferProtectionDisabled
+//	LocationHdfsQopConfigurationDataTransferProtectionArgs{...}
 type LocationHdfsQopConfigurationDataTransferProtectionInput interface {
 	pulumi.Input
 
@@ -1733,6 +1838,12 @@ func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToLocationHdfsQopConfig
 	}).(LocationHdfsQopConfigurationRpcProtectionPtrOutput)
 }
 
+func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsQopConfigurationRpcProtection] {
+	return pulumix.Output[LocationHdfsQopConfigurationRpcProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1768,6 +1879,12 @@ func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) ToLocationHdfsQopCon
 	return o
 }
 
+func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationHdfsQopConfigurationRpcProtection] {
+	return pulumix.Output[*LocationHdfsQopConfigurationRpcProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) Elem() LocationHdfsQopConfigurationRpcProtectionOutput {
 	return o.ApplyT(func(v *LocationHdfsQopConfigurationRpcProtection) LocationHdfsQopConfigurationRpcProtection {
 		if v != nil {
@@ -1792,13 +1909,10 @@ func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationHdfsQopConfigurationRpcProtectionInput is an input type that accepts values of the LocationHdfsQopConfigurationRpcProtection enum
-// A concrete instance of `LocationHdfsQopConfigurationRpcProtectionInput` can be one of the following:
+// LocationHdfsQopConfigurationRpcProtectionInput is an input type that accepts LocationHdfsQopConfigurationRpcProtectionArgs and LocationHdfsQopConfigurationRpcProtectionOutput values.
+// You can construct a concrete instance of `LocationHdfsQopConfigurationRpcProtectionInput` via:
 //
-//	LocationHdfsQopConfigurationRpcProtectionAuthentication
-//	LocationHdfsQopConfigurationRpcProtectionIntegrity
-//	LocationHdfsQopConfigurationRpcProtectionPrivacy
-//	LocationHdfsQopConfigurationRpcProtectionDisabled
+//	LocationHdfsQopConfigurationRpcProtectionArgs{...}
 type LocationHdfsQopConfigurationRpcProtectionInput interface {
 	pulumi.Input
 
@@ -1909,6 +2023,12 @@ func (o LocationNfsMountOptionsVersionOutput) ToLocationNfsMountOptionsVersionPt
 	}).(LocationNfsMountOptionsVersionPtrOutput)
 }
 
+func (o LocationNfsMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationNfsMountOptionsVersion] {
+	return pulumix.Output[LocationNfsMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationNfsMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1944,6 +2064,12 @@ func (o LocationNfsMountOptionsVersionPtrOutput) ToLocationNfsMountOptionsVersio
 	return o
 }
 
+func (o LocationNfsMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationNfsMountOptionsVersion] {
+	return pulumix.Output[*LocationNfsMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationNfsMountOptionsVersionPtrOutput) Elem() LocationNfsMountOptionsVersionOutput {
 	return o.ApplyT(func(v *LocationNfsMountOptionsVersion) LocationNfsMountOptionsVersion {
 		if v != nil {
@@ -1968,13 +2094,10 @@ func (o LocationNfsMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationNfsMountOptionsVersionInput is an input type that accepts values of the LocationNfsMountOptionsVersion enum
-// A concrete instance of `LocationNfsMountOptionsVersionInput` can be one of the following:
+// LocationNfsMountOptionsVersionInput is an input type that accepts LocationNfsMountOptionsVersionArgs and LocationNfsMountOptionsVersionOutput values.
+// You can construct a concrete instance of `LocationNfsMountOptionsVersionInput` via:
 //
-//	LocationNfsMountOptionsVersionAutomatic
-//	LocationNfsMountOptionsVersionNfs3
-//	LocationNfsMountOptionsVersionNfs40
-//	LocationNfsMountOptionsVersionNfs41
+//	LocationNfsMountOptionsVersionArgs{...}
 type LocationNfsMountOptionsVersionInput interface {
 	pulumi.Input
 
@@ -2083,6 +2206,12 @@ func (o LocationObjectStorageServerProtocolOutput) ToLocationObjectStorageServer
 	}).(LocationObjectStorageServerProtocolPtrOutput)
 }
 
+func (o LocationObjectStorageServerProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[LocationObjectStorageServerProtocol] {
+	return pulumix.Output[LocationObjectStorageServerProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationObjectStorageServerProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2118,6 +2247,12 @@ func (o LocationObjectStorageServerProtocolPtrOutput) ToLocationObjectStorageSer
 	return o
 }
 
+func (o LocationObjectStorageServerProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationObjectStorageServerProtocol] {
+	return pulumix.Output[*LocationObjectStorageServerProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationObjectStorageServerProtocolPtrOutput) Elem() LocationObjectStorageServerProtocolOutput {
 	return o.ApplyT(func(v *LocationObjectStorageServerProtocol) LocationObjectStorageServerProtocol {
 		if v != nil {
@@ -2142,11 +2277,10 @@ func (o LocationObjectStorageServerProtocolPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationObjectStorageServerProtocolInput is an input type that accepts values of the LocationObjectStorageServerProtocol enum
-// A concrete instance of `LocationObjectStorageServerProtocolInput` can be one of the following:
+// LocationObjectStorageServerProtocolInput is an input type that accepts LocationObjectStorageServerProtocolArgs and LocationObjectStorageServerProtocolOutput values.
+// You can construct a concrete instance of `LocationObjectStorageServerProtocolInput` via:
 //
-//	LocationObjectStorageServerProtocolHttps
-//	LocationObjectStorageServerProtocolHttp
+//	LocationObjectStorageServerProtocolArgs{...}
 type LocationObjectStorageServerProtocolInput interface {
 	pulumi.Input
 
@@ -2260,6 +2394,12 @@ func (o LocationS3S3StorageClassOutput) ToLocationS3S3StorageClassPtrOutputWithC
 	}).(LocationS3S3StorageClassPtrOutput)
 }
 
+func (o LocationS3S3StorageClassOutput) ToOutput(ctx context.Context) pulumix.Output[LocationS3S3StorageClass] {
+	return pulumix.Output[LocationS3S3StorageClass]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationS3S3StorageClassOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2295,6 +2435,12 @@ func (o LocationS3S3StorageClassPtrOutput) ToLocationS3S3StorageClassPtrOutputWi
 	return o
 }
 
+func (o LocationS3S3StorageClassPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationS3S3StorageClass] {
+	return pulumix.Output[*LocationS3S3StorageClass]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationS3S3StorageClassPtrOutput) Elem() LocationS3S3StorageClassOutput {
 	return o.ApplyT(func(v *LocationS3S3StorageClass) LocationS3S3StorageClass {
 		if v != nil {
@@ -2319,16 +2465,10 @@ func (o LocationS3S3StorageClassPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationS3S3StorageClassInput is an input type that accepts values of the LocationS3S3StorageClass enum
-// A concrete instance of `LocationS3S3StorageClassInput` can be one of the following:
+// LocationS3S3StorageClassInput is an input type that accepts LocationS3S3StorageClassArgs and LocationS3S3StorageClassOutput values.
+// You can construct a concrete instance of `LocationS3S3StorageClassInput` via:
 //
-//	LocationS3S3StorageClassStandard
-//	LocationS3S3StorageClassStandardIa
-//	LocationS3S3StorageClassOnezoneIa
-//	LocationS3S3StorageClassIntelligentTiering
-//	LocationS3S3StorageClassGlacier
-//	LocationS3S3StorageClassGlacierInstantRetrieval
-//	LocationS3S3StorageClassDeepArchive
+//	LocationS3S3StorageClassArgs{...}
 type LocationS3S3StorageClassInput interface {
 	pulumi.Input
 
@@ -2440,6 +2580,12 @@ func (o LocationSmbMountOptionsVersionOutput) ToLocationSmbMountOptionsVersionPt
 	}).(LocationSmbMountOptionsVersionPtrOutput)
 }
 
+func (o LocationSmbMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationSmbMountOptionsVersion] {
+	return pulumix.Output[LocationSmbMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationSmbMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2475,6 +2621,12 @@ func (o LocationSmbMountOptionsVersionPtrOutput) ToLocationSmbMountOptionsVersio
 	return o
 }
 
+func (o LocationSmbMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationSmbMountOptionsVersion] {
+	return pulumix.Output[*LocationSmbMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationSmbMountOptionsVersionPtrOutput) Elem() LocationSmbMountOptionsVersionOutput {
 	return o.ApplyT(func(v *LocationSmbMountOptionsVersion) LocationSmbMountOptionsVersion {
 		if v != nil {
@@ -2499,14 +2651,10 @@ func (o LocationSmbMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// LocationSmbMountOptionsVersionInput is an input type that accepts values of the LocationSmbMountOptionsVersion enum
-// A concrete instance of `LocationSmbMountOptionsVersionInput` can be one of the following:
+// LocationSmbMountOptionsVersionInput is an input type that accepts LocationSmbMountOptionsVersionArgs and LocationSmbMountOptionsVersionOutput values.
+// You can construct a concrete instance of `LocationSmbMountOptionsVersionInput` via:
 //
-//	LocationSmbMountOptionsVersionAutomatic
-//	LocationSmbMountOptionsVersionSmb1
-//	LocationSmbMountOptionsVersionSmb20
-//	LocationSmbMountOptionsVersionSmb2
-//	LocationSmbMountOptionsVersionSmb3
+//	LocationSmbMountOptionsVersionArgs{...}
 type LocationSmbMountOptionsVersionInput interface {
 	pulumi.Input
 
@@ -2580,6 +2728,12 @@ func (o StorageSystemConnectivityStatusOutput) ToStorageSystemConnectivityStatus
 	}).(StorageSystemConnectivityStatusPtrOutput)
 }
 
+func (o StorageSystemConnectivityStatusOutput) ToOutput(ctx context.Context) pulumix.Output[StorageSystemConnectivityStatus] {
+	return pulumix.Output[StorageSystemConnectivityStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StorageSystemConnectivityStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2613,6 +2767,12 @@ func (o StorageSystemConnectivityStatusPtrOutput) ToStorageSystemConnectivitySta
 
 func (o StorageSystemConnectivityStatusPtrOutput) ToStorageSystemConnectivityStatusPtrOutputWithContext(ctx context.Context) StorageSystemConnectivityStatusPtrOutput {
 	return o
+}
+
+func (o StorageSystemConnectivityStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageSystemConnectivityStatus] {
+	return pulumix.Output[*StorageSystemConnectivityStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StorageSystemConnectivityStatusPtrOutput) Elem() StorageSystemConnectivityStatusOutput {
@@ -2706,6 +2866,12 @@ func (o StorageSystemSystemTypeOutput) ToStorageSystemSystemTypePtrOutputWithCon
 	}).(StorageSystemSystemTypePtrOutput)
 }
 
+func (o StorageSystemSystemTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StorageSystemSystemType] {
+	return pulumix.Output[StorageSystemSystemType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StorageSystemSystemTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2741,6 +2907,12 @@ func (o StorageSystemSystemTypePtrOutput) ToStorageSystemSystemTypePtrOutputWith
 	return o
 }
 
+func (o StorageSystemSystemTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageSystemSystemType] {
+	return pulumix.Output[*StorageSystemSystemType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StorageSystemSystemTypePtrOutput) Elem() StorageSystemSystemTypeOutput {
 	return o.ApplyT(func(v *StorageSystemSystemType) StorageSystemSystemType {
 		if v != nil {
@@ -2765,10 +2937,10 @@ func (o StorageSystemSystemTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// StorageSystemSystemTypeInput is an input type that accepts values of the StorageSystemSystemType enum
-// A concrete instance of `StorageSystemSystemTypeInput` can be one of the following:
+// StorageSystemSystemTypeInput is an input type that accepts StorageSystemSystemTypeArgs and StorageSystemSystemTypeOutput values.
+// You can construct a concrete instance of `StorageSystemSystemTypeInput` via:
 //
-//	StorageSystemSystemTypeNetAppOntap
+//	StorageSystemSystemTypeArgs{...}
 type StorageSystemSystemTypeInput interface {
 	pulumi.Input
 
@@ -2876,6 +3048,12 @@ func (o TaskFilterRuleFilterTypeOutput) ToTaskFilterRuleFilterTypePtrOutputWithC
 	}).(TaskFilterRuleFilterTypePtrOutput)
 }
 
+func (o TaskFilterRuleFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskFilterRuleFilterType] {
+	return pulumix.Output[TaskFilterRuleFilterType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskFilterRuleFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2911,6 +3089,12 @@ func (o TaskFilterRuleFilterTypePtrOutput) ToTaskFilterRuleFilterTypePtrOutputWi
 	return o
 }
 
+func (o TaskFilterRuleFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskFilterRuleFilterType] {
+	return pulumix.Output[*TaskFilterRuleFilterType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskFilterRuleFilterTypePtrOutput) Elem() TaskFilterRuleFilterTypeOutput {
 	return o.ApplyT(func(v *TaskFilterRuleFilterType) TaskFilterRuleFilterType {
 		if v != nil {
@@ -2935,10 +3119,10 @@ func (o TaskFilterRuleFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskFilterRuleFilterTypeInput is an input type that accepts values of the TaskFilterRuleFilterType enum
-// A concrete instance of `TaskFilterRuleFilterTypeInput` can be one of the following:
+// TaskFilterRuleFilterTypeInput is an input type that accepts TaskFilterRuleFilterTypeArgs and TaskFilterRuleFilterTypeOutput values.
+// You can construct a concrete instance of `TaskFilterRuleFilterTypeInput` via:
 //
-//	TaskFilterRuleFilterTypeSimplePattern
+//	TaskFilterRuleFilterTypeArgs{...}
 type TaskFilterRuleFilterTypeInput interface {
 	pulumi.Input
 
@@ -3047,6 +3231,12 @@ func (o TaskOptionsAtimeOutput) ToTaskOptionsAtimePtrOutputWithContext(ctx conte
 	}).(TaskOptionsAtimePtrOutput)
 }
 
+func (o TaskOptionsAtimeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsAtime] {
+	return pulumix.Output[TaskOptionsAtime]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsAtimeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3082,6 +3272,12 @@ func (o TaskOptionsAtimePtrOutput) ToTaskOptionsAtimePtrOutputWithContext(ctx co
 	return o
 }
 
+func (o TaskOptionsAtimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsAtime] {
+	return pulumix.Output[*TaskOptionsAtime]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsAtimePtrOutput) Elem() TaskOptionsAtimeOutput {
 	return o.ApplyT(func(v *TaskOptionsAtime) TaskOptionsAtime {
 		if v != nil {
@@ -3106,11 +3302,10 @@ func (o TaskOptionsAtimePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsAtimeInput is an input type that accepts values of the TaskOptionsAtime enum
-// A concrete instance of `TaskOptionsAtimeInput` can be one of the following:
+// TaskOptionsAtimeInput is an input type that accepts TaskOptionsAtimeArgs and TaskOptionsAtimeOutput values.
+// You can construct a concrete instance of `TaskOptionsAtimeInput` via:
 //
-//	TaskOptionsAtimeNone
-//	TaskOptionsAtimeBestEffort
+//	TaskOptionsAtimeArgs{...}
 type TaskOptionsAtimeInput interface {
 	pulumi.Input
 
@@ -3221,6 +3416,12 @@ func (o TaskOptionsGidOutput) ToTaskOptionsGidPtrOutputWithContext(ctx context.C
 	}).(TaskOptionsGidPtrOutput)
 }
 
+func (o TaskOptionsGidOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsGid] {
+	return pulumix.Output[TaskOptionsGid]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsGidOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3256,6 +3457,12 @@ func (o TaskOptionsGidPtrOutput) ToTaskOptionsGidPtrOutputWithContext(ctx contex
 	return o
 }
 
+func (o TaskOptionsGidPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsGid] {
+	return pulumix.Output[*TaskOptionsGid]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsGidPtrOutput) Elem() TaskOptionsGidOutput {
 	return o.ApplyT(func(v *TaskOptionsGid) TaskOptionsGid {
 		if v != nil {
@@ -3280,13 +3487,10 @@ func (o TaskOptionsGidPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsGidInput is an input type that accepts values of the TaskOptionsGid enum
-// A concrete instance of `TaskOptionsGidInput` can be one of the following:
+// TaskOptionsGidInput is an input type that accepts TaskOptionsGidArgs and TaskOptionsGidOutput values.
+// You can construct a concrete instance of `TaskOptionsGidInput` via:
 //
-//	TaskOptionsGidNone
-//	TaskOptionsGidIntValue
-//	TaskOptionsGidName
-//	TaskOptionsGidBoth
+//	TaskOptionsGidArgs{...}
 type TaskOptionsGidInput interface {
 	pulumi.Input
 
@@ -3396,6 +3600,12 @@ func (o TaskOptionsLogLevelOutput) ToTaskOptionsLogLevelPtrOutputWithContext(ctx
 	}).(TaskOptionsLogLevelPtrOutput)
 }
 
+func (o TaskOptionsLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsLogLevel] {
+	return pulumix.Output[TaskOptionsLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3431,6 +3641,12 @@ func (o TaskOptionsLogLevelPtrOutput) ToTaskOptionsLogLevelPtrOutputWithContext(
 	return o
 }
 
+func (o TaskOptionsLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsLogLevel] {
+	return pulumix.Output[*TaskOptionsLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsLogLevelPtrOutput) Elem() TaskOptionsLogLevelOutput {
 	return o.ApplyT(func(v *TaskOptionsLogLevel) TaskOptionsLogLevel {
 		if v != nil {
@@ -3455,12 +3671,10 @@ func (o TaskOptionsLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsLogLevelInput is an input type that accepts values of the TaskOptionsLogLevel enum
-// A concrete instance of `TaskOptionsLogLevelInput` can be one of the following:
+// TaskOptionsLogLevelInput is an input type that accepts TaskOptionsLogLevelArgs and TaskOptionsLogLevelOutput values.
+// You can construct a concrete instance of `TaskOptionsLogLevelInput` via:
 //
-//	TaskOptionsLogLevelOff
-//	TaskOptionsLogLevelBasic
-//	TaskOptionsLogLevelTransfer
+//	TaskOptionsLogLevelArgs{...}
 type TaskOptionsLogLevelInput interface {
 	pulumi.Input
 
@@ -3569,6 +3783,12 @@ func (o TaskOptionsMtimeOutput) ToTaskOptionsMtimePtrOutputWithContext(ctx conte
 	}).(TaskOptionsMtimePtrOutput)
 }
 
+func (o TaskOptionsMtimeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsMtime] {
+	return pulumix.Output[TaskOptionsMtime]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsMtimeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3604,6 +3824,12 @@ func (o TaskOptionsMtimePtrOutput) ToTaskOptionsMtimePtrOutputWithContext(ctx co
 	return o
 }
 
+func (o TaskOptionsMtimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsMtime] {
+	return pulumix.Output[*TaskOptionsMtime]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsMtimePtrOutput) Elem() TaskOptionsMtimeOutput {
 	return o.ApplyT(func(v *TaskOptionsMtime) TaskOptionsMtime {
 		if v != nil {
@@ -3628,11 +3854,10 @@ func (o TaskOptionsMtimePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsMtimeInput is an input type that accepts values of the TaskOptionsMtime enum
-// A concrete instance of `TaskOptionsMtimeInput` can be one of the following:
+// TaskOptionsMtimeInput is an input type that accepts TaskOptionsMtimeArgs and TaskOptionsMtimeOutput values.
+// You can construct a concrete instance of `TaskOptionsMtimeInput` via:
 //
-//	TaskOptionsMtimeNone
-//	TaskOptionsMtimePreserve
+//	TaskOptionsMtimeArgs{...}
 type TaskOptionsMtimeInput interface {
 	pulumi.Input
 
@@ -3741,6 +3966,12 @@ func (o TaskOptionsObjectTagsOutput) ToTaskOptionsObjectTagsPtrOutputWithContext
 	}).(TaskOptionsObjectTagsPtrOutput)
 }
 
+func (o TaskOptionsObjectTagsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsObjectTags] {
+	return pulumix.Output[TaskOptionsObjectTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsObjectTagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3776,6 +4007,12 @@ func (o TaskOptionsObjectTagsPtrOutput) ToTaskOptionsObjectTagsPtrOutputWithCont
 	return o
 }
 
+func (o TaskOptionsObjectTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsObjectTags] {
+	return pulumix.Output[*TaskOptionsObjectTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsObjectTagsPtrOutput) Elem() TaskOptionsObjectTagsOutput {
 	return o.ApplyT(func(v *TaskOptionsObjectTags) TaskOptionsObjectTags {
 		if v != nil {
@@ -3800,11 +4037,10 @@ func (o TaskOptionsObjectTagsPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsObjectTagsInput is an input type that accepts values of the TaskOptionsObjectTags enum
-// A concrete instance of `TaskOptionsObjectTagsInput` can be one of the following:
+// TaskOptionsObjectTagsInput is an input type that accepts TaskOptionsObjectTagsArgs and TaskOptionsObjectTagsOutput values.
+// You can construct a concrete instance of `TaskOptionsObjectTagsInput` via:
 //
-//	TaskOptionsObjectTagsPreserve
-//	TaskOptionsObjectTagsNone
+//	TaskOptionsObjectTagsArgs{...}
 type TaskOptionsObjectTagsInput interface {
 	pulumi.Input
 
@@ -3913,6 +4149,12 @@ func (o TaskOptionsOverwriteModeOutput) ToTaskOptionsOverwriteModePtrOutputWithC
 	}).(TaskOptionsOverwriteModePtrOutput)
 }
 
+func (o TaskOptionsOverwriteModeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsOverwriteMode] {
+	return pulumix.Output[TaskOptionsOverwriteMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsOverwriteModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3948,6 +4190,12 @@ func (o TaskOptionsOverwriteModePtrOutput) ToTaskOptionsOverwriteModePtrOutputWi
 	return o
 }
 
+func (o TaskOptionsOverwriteModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsOverwriteMode] {
+	return pulumix.Output[*TaskOptionsOverwriteMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsOverwriteModePtrOutput) Elem() TaskOptionsOverwriteModeOutput {
 	return o.ApplyT(func(v *TaskOptionsOverwriteMode) TaskOptionsOverwriteMode {
 		if v != nil {
@@ -3972,11 +4220,10 @@ func (o TaskOptionsOverwriteModePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsOverwriteModeInput is an input type that accepts values of the TaskOptionsOverwriteMode enum
-// A concrete instance of `TaskOptionsOverwriteModeInput` can be one of the following:
+// TaskOptionsOverwriteModeInput is an input type that accepts TaskOptionsOverwriteModeArgs and TaskOptionsOverwriteModeOutput values.
+// You can construct a concrete instance of `TaskOptionsOverwriteModeInput` via:
 //
-//	TaskOptionsOverwriteModeAlways
-//	TaskOptionsOverwriteModeNever
+//	TaskOptionsOverwriteModeArgs{...}
 type TaskOptionsOverwriteModeInput interface {
 	pulumi.Input
 
@@ -4085,6 +4332,12 @@ func (o TaskOptionsPosixPermissionsOutput) ToTaskOptionsPosixPermissionsPtrOutpu
 	}).(TaskOptionsPosixPermissionsPtrOutput)
 }
 
+func (o TaskOptionsPosixPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsPosixPermissions] {
+	return pulumix.Output[TaskOptionsPosixPermissions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsPosixPermissionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4120,6 +4373,12 @@ func (o TaskOptionsPosixPermissionsPtrOutput) ToTaskOptionsPosixPermissionsPtrOu
 	return o
 }
 
+func (o TaskOptionsPosixPermissionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsPosixPermissions] {
+	return pulumix.Output[*TaskOptionsPosixPermissions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsPosixPermissionsPtrOutput) Elem() TaskOptionsPosixPermissionsOutput {
 	return o.ApplyT(func(v *TaskOptionsPosixPermissions) TaskOptionsPosixPermissions {
 		if v != nil {
@@ -4144,11 +4403,10 @@ func (o TaskOptionsPosixPermissionsPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsPosixPermissionsInput is an input type that accepts values of the TaskOptionsPosixPermissions enum
-// A concrete instance of `TaskOptionsPosixPermissionsInput` can be one of the following:
+// TaskOptionsPosixPermissionsInput is an input type that accepts TaskOptionsPosixPermissionsArgs and TaskOptionsPosixPermissionsOutput values.
+// You can construct a concrete instance of `TaskOptionsPosixPermissionsInput` via:
 //
-//	TaskOptionsPosixPermissionsNone
-//	TaskOptionsPosixPermissionsPreserve
+//	TaskOptionsPosixPermissionsArgs{...}
 type TaskOptionsPosixPermissionsInput interface {
 	pulumi.Input
 
@@ -4257,6 +4515,12 @@ func (o TaskOptionsPreserveDeletedFilesOutput) ToTaskOptionsPreserveDeletedFiles
 	}).(TaskOptionsPreserveDeletedFilesPtrOutput)
 }
 
+func (o TaskOptionsPreserveDeletedFilesOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsPreserveDeletedFiles] {
+	return pulumix.Output[TaskOptionsPreserveDeletedFiles]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsPreserveDeletedFilesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4292,6 +4556,12 @@ func (o TaskOptionsPreserveDeletedFilesPtrOutput) ToTaskOptionsPreserveDeletedFi
 	return o
 }
 
+func (o TaskOptionsPreserveDeletedFilesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsPreserveDeletedFiles] {
+	return pulumix.Output[*TaskOptionsPreserveDeletedFiles]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsPreserveDeletedFilesPtrOutput) Elem() TaskOptionsPreserveDeletedFilesOutput {
 	return o.ApplyT(func(v *TaskOptionsPreserveDeletedFiles) TaskOptionsPreserveDeletedFiles {
 		if v != nil {
@@ -4316,11 +4586,10 @@ func (o TaskOptionsPreserveDeletedFilesPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsPreserveDeletedFilesInput is an input type that accepts values of the TaskOptionsPreserveDeletedFiles enum
-// A concrete instance of `TaskOptionsPreserveDeletedFilesInput` can be one of the following:
+// TaskOptionsPreserveDeletedFilesInput is an input type that accepts TaskOptionsPreserveDeletedFilesArgs and TaskOptionsPreserveDeletedFilesOutput values.
+// You can construct a concrete instance of `TaskOptionsPreserveDeletedFilesInput` via:
 //
-//	TaskOptionsPreserveDeletedFilesPreserve
-//	TaskOptionsPreserveDeletedFilesRemove
+//	TaskOptionsPreserveDeletedFilesArgs{...}
 type TaskOptionsPreserveDeletedFilesInput interface {
 	pulumi.Input
 
@@ -4429,6 +4698,12 @@ func (o TaskOptionsPreserveDevicesOutput) ToTaskOptionsPreserveDevicesPtrOutputW
 	}).(TaskOptionsPreserveDevicesPtrOutput)
 }
 
+func (o TaskOptionsPreserveDevicesOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsPreserveDevices] {
+	return pulumix.Output[TaskOptionsPreserveDevices]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsPreserveDevicesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4464,6 +4739,12 @@ func (o TaskOptionsPreserveDevicesPtrOutput) ToTaskOptionsPreserveDevicesPtrOutp
 	return o
 }
 
+func (o TaskOptionsPreserveDevicesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsPreserveDevices] {
+	return pulumix.Output[*TaskOptionsPreserveDevices]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsPreserveDevicesPtrOutput) Elem() TaskOptionsPreserveDevicesOutput {
 	return o.ApplyT(func(v *TaskOptionsPreserveDevices) TaskOptionsPreserveDevices {
 		if v != nil {
@@ -4488,11 +4769,10 @@ func (o TaskOptionsPreserveDevicesPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsPreserveDevicesInput is an input type that accepts values of the TaskOptionsPreserveDevices enum
-// A concrete instance of `TaskOptionsPreserveDevicesInput` can be one of the following:
+// TaskOptionsPreserveDevicesInput is an input type that accepts TaskOptionsPreserveDevicesArgs and TaskOptionsPreserveDevicesOutput values.
+// You can construct a concrete instance of `TaskOptionsPreserveDevicesInput` via:
 //
-//	TaskOptionsPreserveDevicesNone
-//	TaskOptionsPreserveDevicesPreserve
+//	TaskOptionsPreserveDevicesArgs{...}
 type TaskOptionsPreserveDevicesInput interface {
 	pulumi.Input
 
@@ -4602,6 +4882,12 @@ func (o TaskOptionsSecurityDescriptorCopyFlagsOutput) ToTaskOptionsSecurityDescr
 	}).(TaskOptionsSecurityDescriptorCopyFlagsPtrOutput)
 }
 
+func (o TaskOptionsSecurityDescriptorCopyFlagsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsSecurityDescriptorCopyFlags] {
+	return pulumix.Output[TaskOptionsSecurityDescriptorCopyFlags]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsSecurityDescriptorCopyFlagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4637,6 +4923,12 @@ func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) ToTaskOptionsSecurityDe
 	return o
 }
 
+func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsSecurityDescriptorCopyFlags] {
+	return pulumix.Output[*TaskOptionsSecurityDescriptorCopyFlags]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) Elem() TaskOptionsSecurityDescriptorCopyFlagsOutput {
 	return o.ApplyT(func(v *TaskOptionsSecurityDescriptorCopyFlags) TaskOptionsSecurityDescriptorCopyFlags {
 		if v != nil {
@@ -4661,12 +4953,10 @@ func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsSecurityDescriptorCopyFlagsInput is an input type that accepts values of the TaskOptionsSecurityDescriptorCopyFlags enum
-// A concrete instance of `TaskOptionsSecurityDescriptorCopyFlagsInput` can be one of the following:
+// TaskOptionsSecurityDescriptorCopyFlagsInput is an input type that accepts TaskOptionsSecurityDescriptorCopyFlagsArgs and TaskOptionsSecurityDescriptorCopyFlagsOutput values.
+// You can construct a concrete instance of `TaskOptionsSecurityDescriptorCopyFlagsInput` via:
 //
-//	TaskOptionsSecurityDescriptorCopyFlagsNone
-//	TaskOptionsSecurityDescriptorCopyFlagsOwnerDacl
-//	TaskOptionsSecurityDescriptorCopyFlagsOwnerDaclSacl
+//	TaskOptionsSecurityDescriptorCopyFlagsArgs{...}
 type TaskOptionsSecurityDescriptorCopyFlagsInput interface {
 	pulumi.Input
 
@@ -4775,6 +5065,12 @@ func (o TaskOptionsTaskQueueingOutput) ToTaskOptionsTaskQueueingPtrOutputWithCon
 	}).(TaskOptionsTaskQueueingPtrOutput)
 }
 
+func (o TaskOptionsTaskQueueingOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsTaskQueueing] {
+	return pulumix.Output[TaskOptionsTaskQueueing]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsTaskQueueingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4810,6 +5106,12 @@ func (o TaskOptionsTaskQueueingPtrOutput) ToTaskOptionsTaskQueueingPtrOutputWith
 	return o
 }
 
+func (o TaskOptionsTaskQueueingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsTaskQueueing] {
+	return pulumix.Output[*TaskOptionsTaskQueueing]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsTaskQueueingPtrOutput) Elem() TaskOptionsTaskQueueingOutput {
 	return o.ApplyT(func(v *TaskOptionsTaskQueueing) TaskOptionsTaskQueueing {
 		if v != nil {
@@ -4834,11 +5136,10 @@ func (o TaskOptionsTaskQueueingPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsTaskQueueingInput is an input type that accepts values of the TaskOptionsTaskQueueing enum
-// A concrete instance of `TaskOptionsTaskQueueingInput` can be one of the following:
+// TaskOptionsTaskQueueingInput is an input type that accepts TaskOptionsTaskQueueingArgs and TaskOptionsTaskQueueingOutput values.
+// You can construct a concrete instance of `TaskOptionsTaskQueueingInput` via:
 //
-//	TaskOptionsTaskQueueingEnabled
-//	TaskOptionsTaskQueueingDisabled
+//	TaskOptionsTaskQueueingArgs{...}
 type TaskOptionsTaskQueueingInput interface {
 	pulumi.Input
 
@@ -4947,6 +5248,12 @@ func (o TaskOptionsTransferModeOutput) ToTaskOptionsTransferModePtrOutputWithCon
 	}).(TaskOptionsTransferModePtrOutput)
 }
 
+func (o TaskOptionsTransferModeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsTransferMode] {
+	return pulumix.Output[TaskOptionsTransferMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsTransferModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4982,6 +5289,12 @@ func (o TaskOptionsTransferModePtrOutput) ToTaskOptionsTransferModePtrOutputWith
 	return o
 }
 
+func (o TaskOptionsTransferModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsTransferMode] {
+	return pulumix.Output[*TaskOptionsTransferMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsTransferModePtrOutput) Elem() TaskOptionsTransferModeOutput {
 	return o.ApplyT(func(v *TaskOptionsTransferMode) TaskOptionsTransferMode {
 		if v != nil {
@@ -5006,11 +5319,10 @@ func (o TaskOptionsTransferModePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsTransferModeInput is an input type that accepts values of the TaskOptionsTransferMode enum
-// A concrete instance of `TaskOptionsTransferModeInput` can be one of the following:
+// TaskOptionsTransferModeInput is an input type that accepts TaskOptionsTransferModeArgs and TaskOptionsTransferModeOutput values.
+// You can construct a concrete instance of `TaskOptionsTransferModeInput` via:
 //
-//	TaskOptionsTransferModeChanged
-//	TaskOptionsTransferModeAll
+//	TaskOptionsTransferModeArgs{...}
 type TaskOptionsTransferModeInput interface {
 	pulumi.Input
 
@@ -5121,6 +5433,12 @@ func (o TaskOptionsUidOutput) ToTaskOptionsUidPtrOutputWithContext(ctx context.C
 	}).(TaskOptionsUidPtrOutput)
 }
 
+func (o TaskOptionsUidOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsUid] {
+	return pulumix.Output[TaskOptionsUid]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsUidOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5156,6 +5474,12 @@ func (o TaskOptionsUidPtrOutput) ToTaskOptionsUidPtrOutputWithContext(ctx contex
 	return o
 }
 
+func (o TaskOptionsUidPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsUid] {
+	return pulumix.Output[*TaskOptionsUid]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsUidPtrOutput) Elem() TaskOptionsUidOutput {
 	return o.ApplyT(func(v *TaskOptionsUid) TaskOptionsUid {
 		if v != nil {
@@ -5180,13 +5504,10 @@ func (o TaskOptionsUidPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsUidInput is an input type that accepts values of the TaskOptionsUid enum
-// A concrete instance of `TaskOptionsUidInput` can be one of the following:
+// TaskOptionsUidInput is an input type that accepts TaskOptionsUidArgs and TaskOptionsUidOutput values.
+// You can construct a concrete instance of `TaskOptionsUidInput` via:
 //
-//	TaskOptionsUidNone
-//	TaskOptionsUidIntValue
-//	TaskOptionsUidName
-//	TaskOptionsUidBoth
+//	TaskOptionsUidArgs{...}
 type TaskOptionsUidInput interface {
 	pulumi.Input
 
@@ -5296,6 +5617,12 @@ func (o TaskOptionsVerifyModeOutput) ToTaskOptionsVerifyModePtrOutputWithContext
 	}).(TaskOptionsVerifyModePtrOutput)
 }
 
+func (o TaskOptionsVerifyModeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsVerifyMode] {
+	return pulumix.Output[TaskOptionsVerifyMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsVerifyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5331,6 +5658,12 @@ func (o TaskOptionsVerifyModePtrOutput) ToTaskOptionsVerifyModePtrOutputWithCont
 	return o
 }
 
+func (o TaskOptionsVerifyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsVerifyMode] {
+	return pulumix.Output[*TaskOptionsVerifyMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsVerifyModePtrOutput) Elem() TaskOptionsVerifyModeOutput {
 	return o.ApplyT(func(v *TaskOptionsVerifyMode) TaskOptionsVerifyMode {
 		if v != nil {
@@ -5355,12 +5688,10 @@ func (o TaskOptionsVerifyModePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskOptionsVerifyModeInput is an input type that accepts values of the TaskOptionsVerifyMode enum
-// A concrete instance of `TaskOptionsVerifyModeInput` can be one of the following:
+// TaskOptionsVerifyModeInput is an input type that accepts TaskOptionsVerifyModeArgs and TaskOptionsVerifyModeOutput values.
+// You can construct a concrete instance of `TaskOptionsVerifyModeInput` via:
 //
-//	TaskOptionsVerifyModePointInTimeConsistent
-//	TaskOptionsVerifyModeOnlyFilesTransferred
-//	TaskOptionsVerifyModeNone
+//	TaskOptionsVerifyModeArgs{...}
 type TaskOptionsVerifyModeInput interface {
 	pulumi.Input
 
@@ -5469,6 +5800,12 @@ func (o TaskReportConfigObjectVersionIdsOutput) ToTaskReportConfigObjectVersionI
 	}).(TaskReportConfigObjectVersionIdsPtrOutput)
 }
 
+func (o TaskReportConfigObjectVersionIdsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigObjectVersionIds] {
+	return pulumix.Output[TaskReportConfigObjectVersionIds]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigObjectVersionIdsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5504,6 +5841,12 @@ func (o TaskReportConfigObjectVersionIdsPtrOutput) ToTaskReportConfigObjectVersi
 	return o
 }
 
+func (o TaskReportConfigObjectVersionIdsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigObjectVersionIds] {
+	return pulumix.Output[*TaskReportConfigObjectVersionIds]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigObjectVersionIdsPtrOutput) Elem() TaskReportConfigObjectVersionIdsOutput {
 	return o.ApplyT(func(v *TaskReportConfigObjectVersionIds) TaskReportConfigObjectVersionIds {
 		if v != nil {
@@ -5528,11 +5871,10 @@ func (o TaskReportConfigObjectVersionIdsPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskReportConfigObjectVersionIdsInput is an input type that accepts values of the TaskReportConfigObjectVersionIds enum
-// A concrete instance of `TaskReportConfigObjectVersionIdsInput` can be one of the following:
+// TaskReportConfigObjectVersionIdsInput is an input type that accepts TaskReportConfigObjectVersionIdsArgs and TaskReportConfigObjectVersionIdsOutput values.
+// You can construct a concrete instance of `TaskReportConfigObjectVersionIdsInput` via:
 //
-//	TaskReportConfigObjectVersionIdsInclude
-//	TaskReportConfigObjectVersionIdsNone
+//	TaskReportConfigObjectVersionIdsArgs{...}
 type TaskReportConfigObjectVersionIdsInput interface {
 	pulumi.Input
 
@@ -5641,6 +5983,12 @@ func (o TaskReportConfigOutputTypeOutput) ToTaskReportConfigOutputTypePtrOutputW
 	}).(TaskReportConfigOutputTypePtrOutput)
 }
 
+func (o TaskReportConfigOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOutputType] {
+	return pulumix.Output[TaskReportConfigOutputType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigOutputTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5676,6 +6024,12 @@ func (o TaskReportConfigOutputTypePtrOutput) ToTaskReportConfigOutputTypePtrOutp
 	return o
 }
 
+func (o TaskReportConfigOutputTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOutputType] {
+	return pulumix.Output[*TaskReportConfigOutputType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigOutputTypePtrOutput) Elem() TaskReportConfigOutputTypeOutput {
 	return o.ApplyT(func(v *TaskReportConfigOutputType) TaskReportConfigOutputType {
 		if v != nil {
@@ -5700,11 +6054,10 @@ func (o TaskReportConfigOutputTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskReportConfigOutputTypeInput is an input type that accepts values of the TaskReportConfigOutputType enum
-// A concrete instance of `TaskReportConfigOutputTypeInput` can be one of the following:
+// TaskReportConfigOutputTypeInput is an input type that accepts TaskReportConfigOutputTypeArgs and TaskReportConfigOutputTypeOutput values.
+// You can construct a concrete instance of `TaskReportConfigOutputTypeInput` via:
 //
-//	TaskReportConfigOutputTypeSummaryOnly
-//	TaskReportConfigOutputTypeStandard
+//	TaskReportConfigOutputTypeArgs{...}
 type TaskReportConfigOutputTypeInput interface {
 	pulumi.Input
 
@@ -5813,6 +6166,12 @@ func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) T
 	}).(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput)
 }
 
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel] {
+	return pulumix.Output[TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5848,6 +6207,12 @@ func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput
 	return o
 }
 
+func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel] {
+	return pulumix.Output[*TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput) Elem() TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput {
 	return o.ApplyT(func(v *TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel) TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel {
 		if v != nil {
@@ -5872,11 +6237,10 @@ func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelInput is an input type that accepts values of the TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel enum
-// A concrete instance of `TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelInput` can be one of the following:
+// TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelInput is an input type that accepts TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelArgs and TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput values.
+// You can construct a concrete instance of `TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelInput` via:
 //
-//	TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelErrorsOnly
-//	TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelSuccessesAndErrors
+//	TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelArgs{...}
 type TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelInput interface {
 	pulumi.Input
 
@@ -5985,6 +6349,12 @@ func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) T
 	}).(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput)
 }
 
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel] {
+	return pulumix.Output[TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6020,6 +6390,12 @@ func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput
 	return o
 }
 
+func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel] {
+	return pulumix.Output[*TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput) Elem() TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput {
 	return o.ApplyT(func(v *TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel) TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel {
 		if v != nil {
@@ -6044,11 +6420,10 @@ func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelInput is an input type that accepts values of the TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel enum
-// A concrete instance of `TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelInput` can be one of the following:
+// TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelInput is an input type that accepts TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelArgs and TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput values.
+// You can construct a concrete instance of `TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelInput` via:
 //
-//	TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelErrorsOnly
-//	TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelSuccessesAndErrors
+//	TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelArgs{...}
 type TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelInput interface {
 	pulumi.Input
 
@@ -6157,6 +6532,12 @@ func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutpu
 	}).(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput)
 }
 
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel] {
+	return pulumix.Output[TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6192,6 +6573,12 @@ func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOu
 	return o
 }
 
+func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel] {
+	return pulumix.Output[*TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput) Elem() TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput {
 	return o.ApplyT(func(v *TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel) TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel {
 		if v != nil {
@@ -6216,11 +6603,10 @@ func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelInput is an input type that accepts values of the TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel enum
-// A concrete instance of `TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelInput` can be one of the following:
+// TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelInput is an input type that accepts TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelArgs and TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput values.
+// You can construct a concrete instance of `TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelInput` via:
 //
-//	TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelErrorsOnly
-//	TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelSuccessesAndErrors
+//	TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelArgs{...}
 type TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelInput interface {
 	pulumi.Input
 
@@ -6329,6 +6715,12 @@ func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) 
 	}).(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput)
 }
 
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel] {
+	return pulumix.Output[TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6364,6 +6756,12 @@ func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutpu
 	return o
 }
 
+func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel] {
+	return pulumix.Output[*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput) Elem() TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput {
 	return o.ApplyT(func(v *TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel) TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel {
 		if v != nil {
@@ -6388,11 +6786,10 @@ func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelInput is an input type that accepts values of the TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel enum
-// A concrete instance of `TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelInput` can be one of the following:
+// TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelInput is an input type that accepts TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelArgs and TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput values.
+// You can construct a concrete instance of `TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelInput` via:
 //
-//	TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelErrorsOnly
-//	TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelSuccessesAndErrors
+//	TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelArgs{...}
 type TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelInput interface {
 	pulumi.Input
 
@@ -6501,6 +6898,12 @@ func (o TaskReportConfigReportLevelOutput) ToTaskReportConfigReportLevelPtrOutpu
 	}).(TaskReportConfigReportLevelPtrOutput)
 }
 
+func (o TaskReportConfigReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigReportLevel] {
+	return pulumix.Output[TaskReportConfigReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigReportLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6536,6 +6939,12 @@ func (o TaskReportConfigReportLevelPtrOutput) ToTaskReportConfigReportLevelPtrOu
 	return o
 }
 
+func (o TaskReportConfigReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigReportLevel] {
+	return pulumix.Output[*TaskReportConfigReportLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskReportConfigReportLevelPtrOutput) Elem() TaskReportConfigReportLevelOutput {
 	return o.ApplyT(func(v *TaskReportConfigReportLevel) TaskReportConfigReportLevel {
 		if v != nil {
@@ -6560,11 +6969,10 @@ func (o TaskReportConfigReportLevelPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskReportConfigReportLevelInput is an input type that accepts values of the TaskReportConfigReportLevel enum
-// A concrete instance of `TaskReportConfigReportLevelInput` can be one of the following:
+// TaskReportConfigReportLevelInput is an input type that accepts TaskReportConfigReportLevelArgs and TaskReportConfigReportLevelOutput values.
+// You can construct a concrete instance of `TaskReportConfigReportLevelInput` via:
 //
-//	TaskReportConfigReportLevelErrorsOnly
-//	TaskReportConfigReportLevelSuccessesAndErrors
+//	TaskReportConfigReportLevelArgs{...}
 type TaskReportConfigReportLevelInput interface {
 	pulumi.Input
 
@@ -6640,6 +7048,12 @@ func (o TaskStatusOutput) ToTaskStatusPtrOutputWithContext(ctx context.Context) 
 	}).(TaskStatusPtrOutput)
 }
 
+func (o TaskStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TaskStatus] {
+	return pulumix.Output[TaskStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6673,6 +7087,12 @@ func (o TaskStatusPtrOutput) ToTaskStatusPtrOutput() TaskStatusPtrOutput {
 
 func (o TaskStatusPtrOutput) ToTaskStatusPtrOutputWithContext(ctx context.Context) TaskStatusPtrOutput {
 	return o
+}
+
+func (o TaskStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskStatus] {
+	return pulumix.Output[*TaskStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskStatusPtrOutput) Elem() TaskStatusOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::Gateway
@@ -121,6 +122,12 @@ func (i *Gateway) ToGatewayOutputWithContext(ctx context.Context) GatewayOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayOutput)
 }
 
+func (i *Gateway) ToOutput(ctx context.Context) pulumix.Output[*Gateway] {
+	return pulumix.Output[*Gateway]{
+		OutputState: i.ToGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayOutput struct{ *pulumi.OutputState }
 
 func (GatewayOutput) ElementType() reflect.Type {
@@ -133,6 +140,12 @@ func (o GatewayOutput) ToGatewayOutput() GatewayOutput {
 
 func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOutput {
 	return o
+}
+
+func (o GatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*Gateway] {
+	return pulumix.Output[*Gateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The range of IP addresses that contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.

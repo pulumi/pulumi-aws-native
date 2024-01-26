@@ -78,6 +78,12 @@ func (o CalculatedAttributeDefinitionRangeUnitOutput) ToCalculatedAttributeDefin
 	}).(CalculatedAttributeDefinitionRangeUnitPtrOutput)
 }
 
+func (o CalculatedAttributeDefinitionRangeUnitOutput) ToOutput(ctx context.Context) pulumix.Output[CalculatedAttributeDefinitionRangeUnit] {
+	return pulumix.Output[CalculatedAttributeDefinitionRangeUnit]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CalculatedAttributeDefinitionRangeUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +119,12 @@ func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) ToCalculatedAttributeDe
 	return o
 }
 
+func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CalculatedAttributeDefinitionRangeUnit] {
+	return pulumix.Output[*CalculatedAttributeDefinitionRangeUnit]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) Elem() CalculatedAttributeDefinitionRangeUnitOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionRangeUnit) CalculatedAttributeDefinitionRangeUnit {
 		if v != nil {
@@ -137,10 +149,10 @@ func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// CalculatedAttributeDefinitionRangeUnitInput is an input type that accepts values of the CalculatedAttributeDefinitionRangeUnit enum
-// A concrete instance of `CalculatedAttributeDefinitionRangeUnitInput` can be one of the following:
+// CalculatedAttributeDefinitionRangeUnitInput is an input type that accepts CalculatedAttributeDefinitionRangeUnitArgs and CalculatedAttributeDefinitionRangeUnitOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionRangeUnitInput` via:
 //
-//	CalculatedAttributeDefinitionRangeUnitDays
+//	CalculatedAttributeDefinitionRangeUnitArgs{...}
 type CalculatedAttributeDefinitionRangeUnitInput interface {
 	pulumi.Input
 
@@ -255,6 +267,12 @@ func (o CalculatedAttributeDefinitionStatisticOutput) ToCalculatedAttributeDefin
 	}).(CalculatedAttributeDefinitionStatisticPtrOutput)
 }
 
+func (o CalculatedAttributeDefinitionStatisticOutput) ToOutput(ctx context.Context) pulumix.Output[CalculatedAttributeDefinitionStatistic] {
+	return pulumix.Output[CalculatedAttributeDefinitionStatistic]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CalculatedAttributeDefinitionStatisticOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -290,6 +308,12 @@ func (o CalculatedAttributeDefinitionStatisticPtrOutput) ToCalculatedAttributeDe
 	return o
 }
 
+func (o CalculatedAttributeDefinitionStatisticPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CalculatedAttributeDefinitionStatistic] {
+	return pulumix.Output[*CalculatedAttributeDefinitionStatistic]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CalculatedAttributeDefinitionStatisticPtrOutput) Elem() CalculatedAttributeDefinitionStatisticOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionStatistic) CalculatedAttributeDefinitionStatistic {
 		if v != nil {
@@ -314,17 +338,10 @@ func (o CalculatedAttributeDefinitionStatisticPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// CalculatedAttributeDefinitionStatisticInput is an input type that accepts values of the CalculatedAttributeDefinitionStatistic enum
-// A concrete instance of `CalculatedAttributeDefinitionStatisticInput` can be one of the following:
+// CalculatedAttributeDefinitionStatisticInput is an input type that accepts CalculatedAttributeDefinitionStatisticArgs and CalculatedAttributeDefinitionStatisticOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionStatisticInput` via:
 //
-//	CalculatedAttributeDefinitionStatisticFirstOccurrence
-//	CalculatedAttributeDefinitionStatisticLastOccurrence
-//	CalculatedAttributeDefinitionStatisticCount
-//	CalculatedAttributeDefinitionStatisticSum
-//	CalculatedAttributeDefinitionStatisticMinimum
-//	CalculatedAttributeDefinitionStatisticMaximum
-//	CalculatedAttributeDefinitionStatisticAverage
-//	CalculatedAttributeDefinitionStatisticMaxOccurrence
+//	CalculatedAttributeDefinitionStatisticArgs{...}
 type CalculatedAttributeDefinitionStatisticInput interface {
 	pulumi.Input
 
@@ -435,6 +452,12 @@ func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToCalculatedAttrib
 	}).(CalculatedAttributeDefinitionThresholdOperatorPtrOutput)
 }
 
+func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[CalculatedAttributeDefinitionThresholdOperator] {
+	return pulumix.Output[CalculatedAttributeDefinitionThresholdOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -470,6 +493,12 @@ func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) ToCalculatedAtt
 	return o
 }
 
+func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CalculatedAttributeDefinitionThresholdOperator] {
+	return pulumix.Output[*CalculatedAttributeDefinitionThresholdOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) Elem() CalculatedAttributeDefinitionThresholdOperatorOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionThresholdOperator) CalculatedAttributeDefinitionThresholdOperator {
 		if v != nil {
@@ -494,13 +523,10 @@ func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// CalculatedAttributeDefinitionThresholdOperatorInput is an input type that accepts values of the CalculatedAttributeDefinitionThresholdOperator enum
-// A concrete instance of `CalculatedAttributeDefinitionThresholdOperatorInput` can be one of the following:
+// CalculatedAttributeDefinitionThresholdOperatorInput is an input type that accepts CalculatedAttributeDefinitionThresholdOperatorArgs and CalculatedAttributeDefinitionThresholdOperatorOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionThresholdOperatorInput` via:
 //
-//	CalculatedAttributeDefinitionThresholdOperatorEqualTo
-//	CalculatedAttributeDefinitionThresholdOperatorGreaterThan
-//	CalculatedAttributeDefinitionThresholdOperatorLessThan
-//	CalculatedAttributeDefinitionThresholdOperatorNotEqualTo
+//	CalculatedAttributeDefinitionThresholdOperatorArgs{...}
 type CalculatedAttributeDefinitionThresholdOperatorInput interface {
 	pulumi.Input
 
@@ -609,6 +635,12 @@ func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToDomainAttrib
 	}).(DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput)
 }
 
+func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAttributeTypesSelectorAttributeMatchingModel] {
+	return pulumix.Output[DomainAttributeTypesSelectorAttributeMatchingModel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -644,6 +676,12 @@ func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) ToDomainAtt
 	return o
 }
 
+func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAttributeTypesSelectorAttributeMatchingModel] {
+	return pulumix.Output[*DomainAttributeTypesSelectorAttributeMatchingModel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) Elem() DomainAttributeTypesSelectorAttributeMatchingModelOutput {
 	return o.ApplyT(func(v *DomainAttributeTypesSelectorAttributeMatchingModel) DomainAttributeTypesSelectorAttributeMatchingModel {
 		if v != nil {
@@ -668,11 +706,10 @@ func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// DomainAttributeTypesSelectorAttributeMatchingModelInput is an input type that accepts values of the DomainAttributeTypesSelectorAttributeMatchingModel enum
-// A concrete instance of `DomainAttributeTypesSelectorAttributeMatchingModelInput` can be one of the following:
+// DomainAttributeTypesSelectorAttributeMatchingModelInput is an input type that accepts DomainAttributeTypesSelectorAttributeMatchingModelArgs and DomainAttributeTypesSelectorAttributeMatchingModelOutput values.
+// You can construct a concrete instance of `DomainAttributeTypesSelectorAttributeMatchingModelInput` via:
 //
-//	DomainAttributeTypesSelectorAttributeMatchingModelOneToOne
-//	DomainAttributeTypesSelectorAttributeMatchingModelManyToMany
+//	DomainAttributeTypesSelectorAttributeMatchingModelArgs{...}
 type DomainAttributeTypesSelectorAttributeMatchingModelInput interface {
 	pulumi.Input
 
@@ -781,6 +818,12 @@ func (o DomainConflictResolutionConflictResolvingModelOutput) ToDomainConflictRe
 	}).(DomainConflictResolutionConflictResolvingModelPtrOutput)
 }
 
+func (o DomainConflictResolutionConflictResolvingModelOutput) ToOutput(ctx context.Context) pulumix.Output[DomainConflictResolutionConflictResolvingModel] {
+	return pulumix.Output[DomainConflictResolutionConflictResolvingModel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainConflictResolutionConflictResolvingModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -816,6 +859,12 @@ func (o DomainConflictResolutionConflictResolvingModelPtrOutput) ToDomainConflic
 	return o
 }
 
+func (o DomainConflictResolutionConflictResolvingModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainConflictResolutionConflictResolvingModel] {
+	return pulumix.Output[*DomainConflictResolutionConflictResolvingModel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainConflictResolutionConflictResolvingModelPtrOutput) Elem() DomainConflictResolutionConflictResolvingModelOutput {
 	return o.ApplyT(func(v *DomainConflictResolutionConflictResolvingModel) DomainConflictResolutionConflictResolvingModel {
 		if v != nil {
@@ -840,11 +889,10 @@ func (o DomainConflictResolutionConflictResolvingModelPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// DomainConflictResolutionConflictResolvingModelInput is an input type that accepts values of the DomainConflictResolutionConflictResolvingModel enum
-// A concrete instance of `DomainConflictResolutionConflictResolvingModelInput` can be one of the following:
+// DomainConflictResolutionConflictResolvingModelInput is an input type that accepts DomainConflictResolutionConflictResolvingModelArgs and DomainConflictResolutionConflictResolvingModelOutput values.
+// You can construct a concrete instance of `DomainConflictResolutionConflictResolvingModelInput` via:
 //
-//	DomainConflictResolutionConflictResolvingModelRecency
-//	DomainConflictResolutionConflictResolvingModelSource
+//	DomainConflictResolutionConflictResolvingModelArgs{...}
 type DomainConflictResolutionConflictResolvingModelInput interface {
 	pulumi.Input
 
@@ -958,6 +1006,12 @@ func (o DomainJobScheduleDayOfTheWeekOutput) ToDomainJobScheduleDayOfTheWeekPtrO
 	}).(DomainJobScheduleDayOfTheWeekPtrOutput)
 }
 
+func (o DomainJobScheduleDayOfTheWeekOutput) ToOutput(ctx context.Context) pulumix.Output[DomainJobScheduleDayOfTheWeek] {
+	return pulumix.Output[DomainJobScheduleDayOfTheWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainJobScheduleDayOfTheWeekOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -993,6 +1047,12 @@ func (o DomainJobScheduleDayOfTheWeekPtrOutput) ToDomainJobScheduleDayOfTheWeekP
 	return o
 }
 
+func (o DomainJobScheduleDayOfTheWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainJobScheduleDayOfTheWeek] {
+	return pulumix.Output[*DomainJobScheduleDayOfTheWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainJobScheduleDayOfTheWeekPtrOutput) Elem() DomainJobScheduleDayOfTheWeekOutput {
 	return o.ApplyT(func(v *DomainJobScheduleDayOfTheWeek) DomainJobScheduleDayOfTheWeek {
 		if v != nil {
@@ -1017,16 +1077,10 @@ func (o DomainJobScheduleDayOfTheWeekPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DomainJobScheduleDayOfTheWeekInput is an input type that accepts values of the DomainJobScheduleDayOfTheWeek enum
-// A concrete instance of `DomainJobScheduleDayOfTheWeekInput` can be one of the following:
+// DomainJobScheduleDayOfTheWeekInput is an input type that accepts DomainJobScheduleDayOfTheWeekArgs and DomainJobScheduleDayOfTheWeekOutput values.
+// You can construct a concrete instance of `DomainJobScheduleDayOfTheWeekInput` via:
 //
-//	DomainJobScheduleDayOfTheWeekSunday
-//	DomainJobScheduleDayOfTheWeekMonday
-//	DomainJobScheduleDayOfTheWeekTuesday
-//	DomainJobScheduleDayOfTheWeekWednesday
-//	DomainJobScheduleDayOfTheWeekThursday
-//	DomainJobScheduleDayOfTheWeekFriday
-//	DomainJobScheduleDayOfTheWeekSaturday
+//	DomainJobScheduleDayOfTheWeekArgs{...}
 type DomainJobScheduleDayOfTheWeekInput interface {
 	pulumi.Input
 
@@ -1135,6 +1189,12 @@ func (o DomainRuleBasedMatchingStatusOutput) ToDomainRuleBasedMatchingStatusPtrO
 	}).(DomainRuleBasedMatchingStatusPtrOutput)
 }
 
+func (o DomainRuleBasedMatchingStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DomainRuleBasedMatchingStatus] {
+	return pulumix.Output[DomainRuleBasedMatchingStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainRuleBasedMatchingStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1170,6 +1230,12 @@ func (o DomainRuleBasedMatchingStatusPtrOutput) ToDomainRuleBasedMatchingStatusP
 	return o
 }
 
+func (o DomainRuleBasedMatchingStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainRuleBasedMatchingStatus] {
+	return pulumix.Output[*DomainRuleBasedMatchingStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainRuleBasedMatchingStatusPtrOutput) Elem() DomainRuleBasedMatchingStatusOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatchingStatus) DomainRuleBasedMatchingStatus {
 		if v != nil {
@@ -1194,12 +1260,10 @@ func (o DomainRuleBasedMatchingStatusPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DomainRuleBasedMatchingStatusInput is an input type that accepts values of the DomainRuleBasedMatchingStatus enum
-// A concrete instance of `DomainRuleBasedMatchingStatusInput` can be one of the following:
+// DomainRuleBasedMatchingStatusInput is an input type that accepts DomainRuleBasedMatchingStatusArgs and DomainRuleBasedMatchingStatusOutput values.
+// You can construct a concrete instance of `DomainRuleBasedMatchingStatusInput` via:
 //
-//	DomainRuleBasedMatchingStatusPending
-//	DomainRuleBasedMatchingStatusInProgress
-//	DomainRuleBasedMatchingStatusActive
+//	DomainRuleBasedMatchingStatusArgs{...}
 type DomainRuleBasedMatchingStatusInput interface {
 	pulumi.Input
 
@@ -1272,6 +1336,12 @@ func (o EventStreamStateEnumOutput) ToEventStreamStateEnumPtrOutputWithContext(c
 	}).(EventStreamStateEnumPtrOutput)
 }
 
+func (o EventStreamStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[EventStreamStateEnum] {
+	return pulumix.Output[EventStreamStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventStreamStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1305,6 +1375,12 @@ func (o EventStreamStateEnumPtrOutput) ToEventStreamStateEnumPtrOutput() EventSt
 
 func (o EventStreamStateEnumPtrOutput) ToEventStreamStateEnumPtrOutputWithContext(ctx context.Context) EventStreamStateEnumPtrOutput {
 	return o
+}
+
+func (o EventStreamStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventStreamStateEnum] {
+	return pulumix.Output[*EventStreamStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventStreamStateEnumPtrOutput) Elem() EventStreamStateEnumOutput {
@@ -1363,6 +1439,12 @@ func (o EventStreamStatusOutput) ToEventStreamStatusPtrOutputWithContext(ctx con
 	}).(EventStreamStatusPtrOutput)
 }
 
+func (o EventStreamStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EventStreamStatus] {
+	return pulumix.Output[EventStreamStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventStreamStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1396,6 +1478,12 @@ func (o EventStreamStatusPtrOutput) ToEventStreamStatusPtrOutput() EventStreamSt
 
 func (o EventStreamStatusPtrOutput) ToEventStreamStatusPtrOutputWithContext(ctx context.Context) EventStreamStatusPtrOutput {
 	return o
+}
+
+func (o EventStreamStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventStreamStatus] {
+	return pulumix.Output[*EventStreamStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventStreamStatusPtrOutput) Elem() EventStreamStatusOutput {
@@ -1492,6 +1580,12 @@ func (o IntegrationConnectorTypeOutput) ToIntegrationConnectorTypePtrOutputWithC
 	}).(IntegrationConnectorTypePtrOutput)
 }
 
+func (o IntegrationConnectorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationConnectorType] {
+	return pulumix.Output[IntegrationConnectorType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationConnectorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1527,6 +1621,12 @@ func (o IntegrationConnectorTypePtrOutput) ToIntegrationConnectorTypePtrOutputWi
 	return o
 }
 
+func (o IntegrationConnectorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationConnectorType] {
+	return pulumix.Output[*IntegrationConnectorType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationConnectorTypePtrOutput) Elem() IntegrationConnectorTypeOutput {
 	return o.ApplyT(func(v *IntegrationConnectorType) IntegrationConnectorType {
 		if v != nil {
@@ -1551,14 +1651,10 @@ func (o IntegrationConnectorTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntegrationConnectorTypeInput is an input type that accepts values of the IntegrationConnectorType enum
-// A concrete instance of `IntegrationConnectorTypeInput` can be one of the following:
+// IntegrationConnectorTypeInput is an input type that accepts IntegrationConnectorTypeArgs and IntegrationConnectorTypeOutput values.
+// You can construct a concrete instance of `IntegrationConnectorTypeInput` via:
 //
-//	IntegrationConnectorTypeSalesforce
-//	IntegrationConnectorTypeMarketo
-//	IntegrationConnectorTypeServiceNow
-//	IntegrationConnectorTypeZendesk
-//	IntegrationConnectorTypeS3
+//	IntegrationConnectorTypeArgs{...}
 type IntegrationConnectorTypeInput interface {
 	pulumi.Input
 
@@ -1680,6 +1776,12 @@ func (o IntegrationMarketoConnectorOperatorOutput) ToIntegrationMarketoConnector
 	}).(IntegrationMarketoConnectorOperatorPtrOutput)
 }
 
+func (o IntegrationMarketoConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationMarketoConnectorOperator] {
+	return pulumix.Output[IntegrationMarketoConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationMarketoConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1715,6 +1817,12 @@ func (o IntegrationMarketoConnectorOperatorPtrOutput) ToIntegrationMarketoConnec
 	return o
 }
 
+func (o IntegrationMarketoConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationMarketoConnectorOperator] {
+	return pulumix.Output[*IntegrationMarketoConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationMarketoConnectorOperatorPtrOutput) Elem() IntegrationMarketoConnectorOperatorOutput {
 	return o.ApplyT(func(v *IntegrationMarketoConnectorOperator) IntegrationMarketoConnectorOperator {
 		if v != nil {
@@ -1739,25 +1847,10 @@ func (o IntegrationMarketoConnectorOperatorPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntegrationMarketoConnectorOperatorInput is an input type that accepts values of the IntegrationMarketoConnectorOperator enum
-// A concrete instance of `IntegrationMarketoConnectorOperatorInput` can be one of the following:
+// IntegrationMarketoConnectorOperatorInput is an input type that accepts IntegrationMarketoConnectorOperatorArgs and IntegrationMarketoConnectorOperatorOutput values.
+// You can construct a concrete instance of `IntegrationMarketoConnectorOperatorInput` via:
 //
-//	IntegrationMarketoConnectorOperatorProjection
-//	IntegrationMarketoConnectorOperatorLessThan
-//	IntegrationMarketoConnectorOperatorGreaterThan
-//	IntegrationMarketoConnectorOperatorBetween
-//	IntegrationMarketoConnectorOperatorAddition
-//	IntegrationMarketoConnectorOperatorMultiplication
-//	IntegrationMarketoConnectorOperatorDivision
-//	IntegrationMarketoConnectorOperatorSubtraction
-//	IntegrationMarketoConnectorOperatorMaskAll
-//	IntegrationMarketoConnectorOperatorMaskFirstN
-//	IntegrationMarketoConnectorOperatorMaskLastN
-//	IntegrationMarketoConnectorOperatorValidateNonNull
-//	IntegrationMarketoConnectorOperatorValidateNonZero
-//	IntegrationMarketoConnectorOperatorValidateNonNegative
-//	IntegrationMarketoConnectorOperatorValidateNumeric
-//	IntegrationMarketoConnectorOperatorNoOp
+//	IntegrationMarketoConnectorOperatorArgs{...}
 type IntegrationMarketoConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -1877,6 +1970,12 @@ func (o IntegrationOperatorPropertiesKeysOutput) ToIntegrationOperatorProperties
 	}).(IntegrationOperatorPropertiesKeysPtrOutput)
 }
 
+func (o IntegrationOperatorPropertiesKeysOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationOperatorPropertiesKeys] {
+	return pulumix.Output[IntegrationOperatorPropertiesKeys]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationOperatorPropertiesKeysOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1912,6 +2011,12 @@ func (o IntegrationOperatorPropertiesKeysPtrOutput) ToIntegrationOperatorPropert
 	return o
 }
 
+func (o IntegrationOperatorPropertiesKeysPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationOperatorPropertiesKeys] {
+	return pulumix.Output[*IntegrationOperatorPropertiesKeys]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationOperatorPropertiesKeysPtrOutput) Elem() IntegrationOperatorPropertiesKeysOutput {
 	return o.ApplyT(func(v *IntegrationOperatorPropertiesKeys) IntegrationOperatorPropertiesKeys {
 		if v != nil {
@@ -1936,23 +2041,10 @@ func (o IntegrationOperatorPropertiesKeysPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntegrationOperatorPropertiesKeysInput is an input type that accepts values of the IntegrationOperatorPropertiesKeys enum
-// A concrete instance of `IntegrationOperatorPropertiesKeysInput` can be one of the following:
+// IntegrationOperatorPropertiesKeysInput is an input type that accepts IntegrationOperatorPropertiesKeysArgs and IntegrationOperatorPropertiesKeysOutput values.
+// You can construct a concrete instance of `IntegrationOperatorPropertiesKeysInput` via:
 //
-//	IntegrationOperatorPropertiesKeysValue
-//	IntegrationOperatorPropertiesKeysValues
-//	IntegrationOperatorPropertiesKeysDataType
-//	IntegrationOperatorPropertiesKeysUpperBound
-//	IntegrationOperatorPropertiesKeysLowerBound
-//	IntegrationOperatorPropertiesKeysSourceDataType
-//	IntegrationOperatorPropertiesKeysDestinationDataType
-//	IntegrationOperatorPropertiesKeysValidationAction
-//	IntegrationOperatorPropertiesKeysMaskValue
-//	IntegrationOperatorPropertiesKeysMaskLength
-//	IntegrationOperatorPropertiesKeysTruncateLength
-//	IntegrationOperatorPropertiesKeysMathOperationFieldsOrder
-//	IntegrationOperatorPropertiesKeysConcatFormat
-//	IntegrationOperatorPropertiesKeysSubfieldCategoryMap
+//	IntegrationOperatorPropertiesKeysArgs{...}
 type IntegrationOperatorPropertiesKeysInput interface {
 	pulumi.Input
 
@@ -2078,6 +2170,12 @@ func (o IntegrationS3ConnectorOperatorOutput) ToIntegrationS3ConnectorOperatorPt
 	}).(IntegrationS3ConnectorOperatorPtrOutput)
 }
 
+func (o IntegrationS3ConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationS3ConnectorOperator] {
+	return pulumix.Output[IntegrationS3ConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationS3ConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2113,6 +2211,12 @@ func (o IntegrationS3ConnectorOperatorPtrOutput) ToIntegrationS3ConnectorOperato
 	return o
 }
 
+func (o IntegrationS3ConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationS3ConnectorOperator] {
+	return pulumix.Output[*IntegrationS3ConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationS3ConnectorOperatorPtrOutput) Elem() IntegrationS3ConnectorOperatorOutput {
 	return o.ApplyT(func(v *IntegrationS3ConnectorOperator) IntegrationS3ConnectorOperator {
 		if v != nil {
@@ -2137,29 +2241,10 @@ func (o IntegrationS3ConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntegrationS3ConnectorOperatorInput is an input type that accepts values of the IntegrationS3ConnectorOperator enum
-// A concrete instance of `IntegrationS3ConnectorOperatorInput` can be one of the following:
+// IntegrationS3ConnectorOperatorInput is an input type that accepts IntegrationS3ConnectorOperatorArgs and IntegrationS3ConnectorOperatorOutput values.
+// You can construct a concrete instance of `IntegrationS3ConnectorOperatorInput` via:
 //
-//	IntegrationS3ConnectorOperatorProjection
-//	IntegrationS3ConnectorOperatorLessThan
-//	IntegrationS3ConnectorOperatorGreaterThan
-//	IntegrationS3ConnectorOperatorBetween
-//	IntegrationS3ConnectorOperatorLessThanOrEqualTo
-//	IntegrationS3ConnectorOperatorGreaterThanOrEqualTo
-//	IntegrationS3ConnectorOperatorEqualTo
-//	IntegrationS3ConnectorOperatorNotEqualTo
-//	IntegrationS3ConnectorOperatorAddition
-//	IntegrationS3ConnectorOperatorMultiplication
-//	IntegrationS3ConnectorOperatorDivision
-//	IntegrationS3ConnectorOperatorSubtraction
-//	IntegrationS3ConnectorOperatorMaskAll
-//	IntegrationS3ConnectorOperatorMaskFirstN
-//	IntegrationS3ConnectorOperatorMaskLastN
-//	IntegrationS3ConnectorOperatorValidateNonNull
-//	IntegrationS3ConnectorOperatorValidateNonZero
-//	IntegrationS3ConnectorOperatorValidateNonNegative
-//	IntegrationS3ConnectorOperatorValidateNumeric
-//	IntegrationS3ConnectorOperatorNoOp
+//	IntegrationS3ConnectorOperatorArgs{...}
 type IntegrationS3ConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -2286,6 +2371,12 @@ func (o IntegrationSalesforceConnectorOperatorOutput) ToIntegrationSalesforceCon
 	}).(IntegrationSalesforceConnectorOperatorPtrOutput)
 }
 
+func (o IntegrationSalesforceConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationSalesforceConnectorOperator] {
+	return pulumix.Output[IntegrationSalesforceConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationSalesforceConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2321,6 +2412,12 @@ func (o IntegrationSalesforceConnectorOperatorPtrOutput) ToIntegrationSalesforce
 	return o
 }
 
+func (o IntegrationSalesforceConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationSalesforceConnectorOperator] {
+	return pulumix.Output[*IntegrationSalesforceConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationSalesforceConnectorOperatorPtrOutput) Elem() IntegrationSalesforceConnectorOperatorOutput {
 	return o.ApplyT(func(v *IntegrationSalesforceConnectorOperator) IntegrationSalesforceConnectorOperator {
 		if v != nil {
@@ -2345,30 +2442,10 @@ func (o IntegrationSalesforceConnectorOperatorPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntegrationSalesforceConnectorOperatorInput is an input type that accepts values of the IntegrationSalesforceConnectorOperator enum
-// A concrete instance of `IntegrationSalesforceConnectorOperatorInput` can be one of the following:
+// IntegrationSalesforceConnectorOperatorInput is an input type that accepts IntegrationSalesforceConnectorOperatorArgs and IntegrationSalesforceConnectorOperatorOutput values.
+// You can construct a concrete instance of `IntegrationSalesforceConnectorOperatorInput` via:
 //
-//	IntegrationSalesforceConnectorOperatorProjection
-//	IntegrationSalesforceConnectorOperatorLessThan
-//	IntegrationSalesforceConnectorOperatorGreaterThan
-//	IntegrationSalesforceConnectorOperatorContains
-//	IntegrationSalesforceConnectorOperatorBetween
-//	IntegrationSalesforceConnectorOperatorLessThanOrEqualTo
-//	IntegrationSalesforceConnectorOperatorGreaterThanOrEqualTo
-//	IntegrationSalesforceConnectorOperatorEqualTo
-//	IntegrationSalesforceConnectorOperatorNotEqualTo
-//	IntegrationSalesforceConnectorOperatorAddition
-//	IntegrationSalesforceConnectorOperatorMultiplication
-//	IntegrationSalesforceConnectorOperatorDivision
-//	IntegrationSalesforceConnectorOperatorSubtraction
-//	IntegrationSalesforceConnectorOperatorMaskAll
-//	IntegrationSalesforceConnectorOperatorMaskFirstN
-//	IntegrationSalesforceConnectorOperatorMaskLastN
-//	IntegrationSalesforceConnectorOperatorValidateNonNull
-//	IntegrationSalesforceConnectorOperatorValidateNonZero
-//	IntegrationSalesforceConnectorOperatorValidateNonNegative
-//	IntegrationSalesforceConnectorOperatorValidateNumeric
-//	IntegrationSalesforceConnectorOperatorNoOp
+//	IntegrationSalesforceConnectorOperatorArgs{...}
 type IntegrationSalesforceConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -2476,6 +2553,12 @@ func (o IntegrationScheduledTriggerPropertiesDataPullModeOutput) ToIntegrationSc
 	}).(IntegrationScheduledTriggerPropertiesDataPullModePtrOutput)
 }
 
+func (o IntegrationScheduledTriggerPropertiesDataPullModeOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationScheduledTriggerPropertiesDataPullMode] {
+	return pulumix.Output[IntegrationScheduledTriggerPropertiesDataPullMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationScheduledTriggerPropertiesDataPullModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2511,6 +2594,12 @@ func (o IntegrationScheduledTriggerPropertiesDataPullModePtrOutput) ToIntegratio
 	return o
 }
 
+func (o IntegrationScheduledTriggerPropertiesDataPullModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationScheduledTriggerPropertiesDataPullMode] {
+	return pulumix.Output[*IntegrationScheduledTriggerPropertiesDataPullMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationScheduledTriggerPropertiesDataPullModePtrOutput) Elem() IntegrationScheduledTriggerPropertiesDataPullModeOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerPropertiesDataPullMode) IntegrationScheduledTriggerPropertiesDataPullMode {
 		if v != nil {
@@ -2535,11 +2624,10 @@ func (o IntegrationScheduledTriggerPropertiesDataPullModePtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntegrationScheduledTriggerPropertiesDataPullModeInput is an input type that accepts values of the IntegrationScheduledTriggerPropertiesDataPullMode enum
-// A concrete instance of `IntegrationScheduledTriggerPropertiesDataPullModeInput` can be one of the following:
+// IntegrationScheduledTriggerPropertiesDataPullModeInput is an input type that accepts IntegrationScheduledTriggerPropertiesDataPullModeArgs and IntegrationScheduledTriggerPropertiesDataPullModeOutput values.
+// You can construct a concrete instance of `IntegrationScheduledTriggerPropertiesDataPullModeInput` via:
 //
-//	IntegrationScheduledTriggerPropertiesDataPullModeIncremental
-//	IntegrationScheduledTriggerPropertiesDataPullModeComplete
+//	IntegrationScheduledTriggerPropertiesDataPullModeArgs{...}
 type IntegrationScheduledTriggerPropertiesDataPullModeInput interface {
 	pulumi.Input
 
@@ -2666,6 +2754,12 @@ func (o IntegrationServiceNowConnectorOperatorOutput) ToIntegrationServiceNowCon
 	}).(IntegrationServiceNowConnectorOperatorPtrOutput)
 }
 
+func (o IntegrationServiceNowConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationServiceNowConnectorOperator] {
+	return pulumix.Output[IntegrationServiceNowConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationServiceNowConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2701,6 +2795,12 @@ func (o IntegrationServiceNowConnectorOperatorPtrOutput) ToIntegrationServiceNow
 	return o
 }
 
+func (o IntegrationServiceNowConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationServiceNowConnectorOperator] {
+	return pulumix.Output[*IntegrationServiceNowConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationServiceNowConnectorOperatorPtrOutput) Elem() IntegrationServiceNowConnectorOperatorOutput {
 	return o.ApplyT(func(v *IntegrationServiceNowConnectorOperator) IntegrationServiceNowConnectorOperator {
 		if v != nil {
@@ -2725,30 +2825,10 @@ func (o IntegrationServiceNowConnectorOperatorPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntegrationServiceNowConnectorOperatorInput is an input type that accepts values of the IntegrationServiceNowConnectorOperator enum
-// A concrete instance of `IntegrationServiceNowConnectorOperatorInput` can be one of the following:
+// IntegrationServiceNowConnectorOperatorInput is an input type that accepts IntegrationServiceNowConnectorOperatorArgs and IntegrationServiceNowConnectorOperatorOutput values.
+// You can construct a concrete instance of `IntegrationServiceNowConnectorOperatorInput` via:
 //
-//	IntegrationServiceNowConnectorOperatorProjection
-//	IntegrationServiceNowConnectorOperatorLessThan
-//	IntegrationServiceNowConnectorOperatorGreaterThan
-//	IntegrationServiceNowConnectorOperatorContains
-//	IntegrationServiceNowConnectorOperatorBetween
-//	IntegrationServiceNowConnectorOperatorLessThanOrEqualTo
-//	IntegrationServiceNowConnectorOperatorGreaterThanOrEqualTo
-//	IntegrationServiceNowConnectorOperatorEqualTo
-//	IntegrationServiceNowConnectorOperatorNotEqualTo
-//	IntegrationServiceNowConnectorOperatorAddition
-//	IntegrationServiceNowConnectorOperatorMultiplication
-//	IntegrationServiceNowConnectorOperatorDivision
-//	IntegrationServiceNowConnectorOperatorSubtraction
-//	IntegrationServiceNowConnectorOperatorMaskAll
-//	IntegrationServiceNowConnectorOperatorMaskFirstN
-//	IntegrationServiceNowConnectorOperatorMaskLastN
-//	IntegrationServiceNowConnectorOperatorValidateNonNull
-//	IntegrationServiceNowConnectorOperatorValidateNonZero
-//	IntegrationServiceNowConnectorOperatorValidateNonNegative
-//	IntegrationServiceNowConnectorOperatorValidateNumeric
-//	IntegrationServiceNowConnectorOperatorNoOp
+//	IntegrationServiceNowConnectorOperatorArgs{...}
 type IntegrationServiceNowConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -2861,6 +2941,12 @@ func (o IntegrationTaskTypeOutput) ToIntegrationTaskTypePtrOutputWithContext(ctx
 	}).(IntegrationTaskTypePtrOutput)
 }
 
+func (o IntegrationTaskTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationTaskType] {
+	return pulumix.Output[IntegrationTaskType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationTaskTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2896,6 +2982,12 @@ func (o IntegrationTaskTypePtrOutput) ToIntegrationTaskTypePtrOutputWithContext(
 	return o
 }
 
+func (o IntegrationTaskTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationTaskType] {
+	return pulumix.Output[*IntegrationTaskType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationTaskTypePtrOutput) Elem() IntegrationTaskTypeOutput {
 	return o.ApplyT(func(v *IntegrationTaskType) IntegrationTaskType {
 		if v != nil {
@@ -2920,16 +3012,10 @@ func (o IntegrationTaskTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntegrationTaskTypeInput is an input type that accepts values of the IntegrationTaskType enum
-// A concrete instance of `IntegrationTaskTypeInput` can be one of the following:
+// IntegrationTaskTypeInput is an input type that accepts IntegrationTaskTypeArgs and IntegrationTaskTypeOutput values.
+// You can construct a concrete instance of `IntegrationTaskTypeInput` via:
 //
-//	IntegrationTaskTypeArithmetic
-//	IntegrationTaskTypeFilter
-//	IntegrationTaskTypeMap
-//	IntegrationTaskTypeMask
-//	IntegrationTaskTypeMerge
-//	IntegrationTaskTypeTruncate
-//	IntegrationTaskTypeValidate
+//	IntegrationTaskTypeArgs{...}
 type IntegrationTaskTypeInput interface {
 	pulumi.Input
 
@@ -3038,6 +3124,12 @@ func (o IntegrationTriggerTypeOutput) ToIntegrationTriggerTypePtrOutputWithConte
 	}).(IntegrationTriggerTypePtrOutput)
 }
 
+func (o IntegrationTriggerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationTriggerType] {
+	return pulumix.Output[IntegrationTriggerType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationTriggerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3073,6 +3165,12 @@ func (o IntegrationTriggerTypePtrOutput) ToIntegrationTriggerTypePtrOutputWithCo
 	return o
 }
 
+func (o IntegrationTriggerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationTriggerType] {
+	return pulumix.Output[*IntegrationTriggerType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationTriggerTypePtrOutput) Elem() IntegrationTriggerTypeOutput {
 	return o.ApplyT(func(v *IntegrationTriggerType) IntegrationTriggerType {
 		if v != nil {
@@ -3097,12 +3195,10 @@ func (o IntegrationTriggerTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntegrationTriggerTypeInput is an input type that accepts values of the IntegrationTriggerType enum
-// A concrete instance of `IntegrationTriggerTypeInput` can be one of the following:
+// IntegrationTriggerTypeInput is an input type that accepts IntegrationTriggerTypeArgs and IntegrationTriggerTypeOutput values.
+// You can construct a concrete instance of `IntegrationTriggerTypeInput` via:
 //
-//	IntegrationTriggerTypeScheduled
-//	IntegrationTriggerTypeEvent
-//	IntegrationTriggerTypeOnDemand
+//	IntegrationTriggerTypeArgs{...}
 type IntegrationTriggerTypeInput interface {
 	pulumi.Input
 
@@ -3222,6 +3318,12 @@ func (o IntegrationZendeskConnectorOperatorOutput) ToIntegrationZendeskConnector
 	}).(IntegrationZendeskConnectorOperatorPtrOutput)
 }
 
+func (o IntegrationZendeskConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationZendeskConnectorOperator] {
+	return pulumix.Output[IntegrationZendeskConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationZendeskConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3257,6 +3359,12 @@ func (o IntegrationZendeskConnectorOperatorPtrOutput) ToIntegrationZendeskConnec
 	return o
 }
 
+func (o IntegrationZendeskConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationZendeskConnectorOperator] {
+	return pulumix.Output[*IntegrationZendeskConnectorOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationZendeskConnectorOperatorPtrOutput) Elem() IntegrationZendeskConnectorOperatorOutput {
 	return o.ApplyT(func(v *IntegrationZendeskConnectorOperator) IntegrationZendeskConnectorOperator {
 		if v != nil {
@@ -3281,23 +3389,10 @@ func (o IntegrationZendeskConnectorOperatorPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntegrationZendeskConnectorOperatorInput is an input type that accepts values of the IntegrationZendeskConnectorOperator enum
-// A concrete instance of `IntegrationZendeskConnectorOperatorInput` can be one of the following:
+// IntegrationZendeskConnectorOperatorInput is an input type that accepts IntegrationZendeskConnectorOperatorArgs and IntegrationZendeskConnectorOperatorOutput values.
+// You can construct a concrete instance of `IntegrationZendeskConnectorOperatorInput` via:
 //
-//	IntegrationZendeskConnectorOperatorProjection
-//	IntegrationZendeskConnectorOperatorGreaterThan
-//	IntegrationZendeskConnectorOperatorAddition
-//	IntegrationZendeskConnectorOperatorMultiplication
-//	IntegrationZendeskConnectorOperatorDivision
-//	IntegrationZendeskConnectorOperatorSubtraction
-//	IntegrationZendeskConnectorOperatorMaskAll
-//	IntegrationZendeskConnectorOperatorMaskFirstN
-//	IntegrationZendeskConnectorOperatorMaskLastN
-//	IntegrationZendeskConnectorOperatorValidateNonNull
-//	IntegrationZendeskConnectorOperatorValidateNonZero
-//	IntegrationZendeskConnectorOperatorValidateNonNegative
-//	IntegrationZendeskConnectorOperatorValidateNumeric
-//	IntegrationZendeskConnectorOperatorNoOp
+//	IntegrationZendeskConnectorOperatorArgs{...}
 type IntegrationZendeskConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -3409,6 +3504,12 @@ func (o ObjectTypeFieldContentTypeOutput) ToObjectTypeFieldContentTypePtrOutputW
 	}).(ObjectTypeFieldContentTypePtrOutput)
 }
 
+func (o ObjectTypeFieldContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ObjectTypeFieldContentType] {
+	return pulumix.Output[ObjectTypeFieldContentType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ObjectTypeFieldContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3444,6 +3545,12 @@ func (o ObjectTypeFieldContentTypePtrOutput) ToObjectTypeFieldContentTypePtrOutp
 	return o
 }
 
+func (o ObjectTypeFieldContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ObjectTypeFieldContentType] {
+	return pulumix.Output[*ObjectTypeFieldContentType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ObjectTypeFieldContentTypePtrOutput) Elem() ObjectTypeFieldContentTypeOutput {
 	return o.ApplyT(func(v *ObjectTypeFieldContentType) ObjectTypeFieldContentType {
 		if v != nil {
@@ -3468,14 +3575,10 @@ func (o ObjectTypeFieldContentTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ObjectTypeFieldContentTypeInput is an input type that accepts values of the ObjectTypeFieldContentType enum
-// A concrete instance of `ObjectTypeFieldContentTypeInput` can be one of the following:
+// ObjectTypeFieldContentTypeInput is an input type that accepts ObjectTypeFieldContentTypeArgs and ObjectTypeFieldContentTypeOutput values.
+// You can construct a concrete instance of `ObjectTypeFieldContentTypeInput` via:
 //
-//	ObjectTypeFieldContentTypeString
-//	ObjectTypeFieldContentTypeNumber
-//	ObjectTypeFieldContentTypePhoneNumber
-//	ObjectTypeFieldContentTypeEmailAddress
-//	ObjectTypeFieldContentTypeName
+//	ObjectTypeFieldContentTypeArgs{...}
 type ObjectTypeFieldContentTypeInput interface {
 	pulumi.Input
 
@@ -3589,6 +3692,12 @@ func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToObjectTypeKeyStandardIdent
 	}).(ObjectTypeKeyStandardIdentifiersItemPtrOutput)
 }
 
+func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToOutput(ctx context.Context) pulumix.Output[ObjectTypeKeyStandardIdentifiersItem] {
+	return pulumix.Output[ObjectTypeKeyStandardIdentifiersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3624,6 +3733,12 @@ func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToObjectTypeKeyStandardId
 	return o
 }
 
+func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ObjectTypeKeyStandardIdentifiersItem] {
+	return pulumix.Output[*ObjectTypeKeyStandardIdentifiersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) Elem() ObjectTypeKeyStandardIdentifiersItemOutput {
 	return o.ApplyT(func(v *ObjectTypeKeyStandardIdentifiersItem) ObjectTypeKeyStandardIdentifiersItem {
 		if v != nil {
@@ -3648,17 +3763,10 @@ func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ObjectTypeKeyStandardIdentifiersItemInput is an input type that accepts values of the ObjectTypeKeyStandardIdentifiersItem enum
-// A concrete instance of `ObjectTypeKeyStandardIdentifiersItemInput` can be one of the following:
+// ObjectTypeKeyStandardIdentifiersItemInput is an input type that accepts ObjectTypeKeyStandardIdentifiersItemArgs and ObjectTypeKeyStandardIdentifiersItemOutput values.
+// You can construct a concrete instance of `ObjectTypeKeyStandardIdentifiersItemInput` via:
 //
-//	ObjectTypeKeyStandardIdentifiersItemProfile
-//	ObjectTypeKeyStandardIdentifiersItemUnique
-//	ObjectTypeKeyStandardIdentifiersItemSecondary
-//	ObjectTypeKeyStandardIdentifiersItemLookupOnly
-//	ObjectTypeKeyStandardIdentifiersItemNewOnly
-//	ObjectTypeKeyStandardIdentifiersItemAsset
-//	ObjectTypeKeyStandardIdentifiersItemCase
-//	ObjectTypeKeyStandardIdentifiersItemOrder
+//	ObjectTypeKeyStandardIdentifiersItemArgs{...}
 type ObjectTypeKeyStandardIdentifiersItemInput interface {
 	pulumi.Input
 
@@ -3724,6 +3832,12 @@ func (i ObjectTypeKeyStandardIdentifiersItemArray) ToObjectTypeKeyStandardIdenti
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeKeyStandardIdentifiersItemArrayOutput)
 }
 
+func (i ObjectTypeKeyStandardIdentifiersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]ObjectTypeKeyStandardIdentifiersItem] {
+	return pulumix.Output[[]ObjectTypeKeyStandardIdentifiersItem]{
+		OutputState: i.ToObjectTypeKeyStandardIdentifiersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ObjectTypeKeyStandardIdentifiersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (ObjectTypeKeyStandardIdentifiersItemArrayOutput) ElementType() reflect.Type {
@@ -3736,6 +3850,12 @@ func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) ToObjectTypeKeyStandard
 
 func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) ToObjectTypeKeyStandardIdentifiersItemArrayOutputWithContext(ctx context.Context) ObjectTypeKeyStandardIdentifiersItemArrayOutput {
 	return o
+}
+
+func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ObjectTypeKeyStandardIdentifiersItem] {
+	return pulumix.Output[[]ObjectTypeKeyStandardIdentifiersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) Index(i pulumi.IntInput) ObjectTypeKeyStandardIdentifiersItemOutput {

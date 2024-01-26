@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
@@ -67,6 +68,12 @@ func (o LookupStorageLensGroupResultOutput) ToLookupStorageLensGroupResultOutput
 
 func (o LookupStorageLensGroupResultOutput) ToLookupStorageLensGroupResultOutputWithContext(ctx context.Context) LookupStorageLensGroupResultOutput {
 	return o
+}
+
+func (o LookupStorageLensGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStorageLensGroupResult] {
+	return pulumix.Output[LookupStorageLensGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupStorageLensGroupResultOutput) Filter() StorageLensGroupFilterPtrOutput {

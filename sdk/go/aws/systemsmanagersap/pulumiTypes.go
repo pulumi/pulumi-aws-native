@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i ApplicationCredentialArgs) ToApplicationCredentialOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCredentialOutput)
 }
 
+func (i ApplicationCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationCredential] {
+	return pulumix.Output[ApplicationCredential]{
+		OutputState: i.ToApplicationCredentialOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationCredentialArrayInput is an input type that accepts ApplicationCredentialArray and ApplicationCredentialArrayOutput values.
 // You can construct a concrete instance of `ApplicationCredentialArrayInput` via:
 //
@@ -73,6 +80,12 @@ func (i ApplicationCredentialArray) ToApplicationCredentialArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCredentialArrayOutput)
 }
 
+func (i ApplicationCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationCredential] {
+	return pulumix.Output[[]ApplicationCredential]{
+		OutputState: i.ToApplicationCredentialArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationCredentialOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCredentialOutput) ElementType() reflect.Type {
@@ -85,6 +98,12 @@ func (o ApplicationCredentialOutput) ToApplicationCredentialOutput() Application
 
 func (o ApplicationCredentialOutput) ToApplicationCredentialOutputWithContext(ctx context.Context) ApplicationCredentialOutput {
 	return o
+}
+
+func (o ApplicationCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCredential] {
+	return pulumix.Output[ApplicationCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCredentialOutput) CredentialType() ApplicationCredentialCredentialTypePtrOutput {
@@ -111,6 +130,12 @@ func (o ApplicationCredentialArrayOutput) ToApplicationCredentialArrayOutput() A
 
 func (o ApplicationCredentialArrayOutput) ToApplicationCredentialArrayOutputWithContext(ctx context.Context) ApplicationCredentialArrayOutput {
 	return o
+}
+
+func (o ApplicationCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationCredential] {
+	return pulumix.Output[[]ApplicationCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCredentialArrayOutput) Index(i pulumi.IntInput) ApplicationCredentialOutput {
@@ -158,6 +183,12 @@ func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagOutput)
 }
 
+func (i ApplicationTagArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationTag] {
+	return pulumix.Output[ApplicationTag]{
+		OutputState: i.ToApplicationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
 // You can construct a concrete instance of `ApplicationTagArrayInput` via:
 //
@@ -183,6 +214,12 @@ func (i ApplicationTagArray) ToApplicationTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagArrayOutput)
 }
 
+func (i ApplicationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationTag] {
+	return pulumix.Output[[]ApplicationTag]{
+		OutputState: i.ToApplicationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ApplicationTagOutput struct{ *pulumi.OutputState }
 
@@ -196,6 +233,12 @@ func (o ApplicationTagOutput) ToApplicationTagOutput() ApplicationTagOutput {
 
 func (o ApplicationTagOutput) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
 	return o
+}
+
+func (o ApplicationTagOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationTag] {
+	return pulumix.Output[ApplicationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -220,6 +263,12 @@ func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutput() ApplicationTagA
 
 func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
 	return o
+}
+
+func (o ApplicationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationTag] {
+	return pulumix.Output[[]ApplicationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput {

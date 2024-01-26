@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetPartition(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPartitionResult, error) {
@@ -51,6 +52,12 @@ func (o GetPartitionResultOutput) ToGetPartitionResultOutput() GetPartitionResul
 
 func (o GetPartitionResultOutput) ToGetPartitionResultOutputWithContext(ctx context.Context) GetPartitionResultOutput {
 	return o
+}
+
+func (o GetPartitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPartitionResult] {
+	return pulumix.Output[GetPartitionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).

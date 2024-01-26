@@ -78,6 +78,12 @@ func (o FilterActionOutput) ToFilterActionPtrOutputWithContext(ctx context.Conte
 	}).(FilterActionPtrOutput)
 }
 
+func (o FilterActionOutput) ToOutput(ctx context.Context) pulumix.Output[FilterAction] {
+	return pulumix.Output[FilterAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FilterActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +119,12 @@ func (o FilterActionPtrOutput) ToFilterActionPtrOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o FilterActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterAction] {
+	return pulumix.Output[*FilterAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FilterActionPtrOutput) Elem() FilterActionOutput {
 	return o.ApplyT(func(v *FilterAction) FilterAction {
 		if v != nil {
@@ -137,11 +149,10 @@ func (o FilterActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// FilterActionInput is an input type that accepts values of the FilterAction enum
-// A concrete instance of `FilterActionInput` can be one of the following:
+// FilterActionInput is an input type that accepts FilterActionArgs and FilterActionOutput values.
+// You can construct a concrete instance of `FilterActionInput` via:
 //
-//	FilterActionNone
-//	FilterActionSuppress
+//	FilterActionArgs{...}
 type FilterActionInput interface {
 	pulumi.Input
 
@@ -248,6 +259,12 @@ func (o FilterMapComparisonOutput) ToFilterMapComparisonPtrOutputWithContext(ctx
 	}).(FilterMapComparisonPtrOutput)
 }
 
+func (o FilterMapComparisonOutput) ToOutput(ctx context.Context) pulumix.Output[FilterMapComparison] {
+	return pulumix.Output[FilterMapComparison]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FilterMapComparisonOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -283,6 +300,12 @@ func (o FilterMapComparisonPtrOutput) ToFilterMapComparisonPtrOutputWithContext(
 	return o
 }
 
+func (o FilterMapComparisonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterMapComparison] {
+	return pulumix.Output[*FilterMapComparison]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FilterMapComparisonPtrOutput) Elem() FilterMapComparisonOutput {
 	return o.ApplyT(func(v *FilterMapComparison) FilterMapComparison {
 		if v != nil {
@@ -307,10 +330,10 @@ func (o FilterMapComparisonPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// FilterMapComparisonInput is an input type that accepts values of the FilterMapComparison enum
-// A concrete instance of `FilterMapComparisonInput` can be one of the following:
+// FilterMapComparisonInput is an input type that accepts FilterMapComparisonArgs and FilterMapComparisonOutput values.
+// You can construct a concrete instance of `FilterMapComparisonInput` via:
 //
-//	FilterMapComparisonEquals
+//	FilterMapComparisonArgs{...}
 type FilterMapComparisonInput interface {
 	pulumi.Input
 
@@ -419,6 +442,12 @@ func (o FilterStringComparisonOutput) ToFilterStringComparisonPtrOutputWithConte
 	}).(FilterStringComparisonPtrOutput)
 }
 
+func (o FilterStringComparisonOutput) ToOutput(ctx context.Context) pulumix.Output[FilterStringComparison] {
+	return pulumix.Output[FilterStringComparison]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FilterStringComparisonOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -454,6 +483,12 @@ func (o FilterStringComparisonPtrOutput) ToFilterStringComparisonPtrOutputWithCo
 	return o
 }
 
+func (o FilterStringComparisonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterStringComparison] {
+	return pulumix.Output[*FilterStringComparison]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FilterStringComparisonPtrOutput) Elem() FilterStringComparisonOutput {
 	return o.ApplyT(func(v *FilterStringComparison) FilterStringComparison {
 		if v != nil {
@@ -478,12 +513,10 @@ func (o FilterStringComparisonPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// FilterStringComparisonInput is an input type that accepts values of the FilterStringComparison enum
-// A concrete instance of `FilterStringComparisonInput` can be one of the following:
+// FilterStringComparisonInput is an input type that accepts FilterStringComparisonArgs and FilterStringComparisonOutput values.
+// You can construct a concrete instance of `FilterStringComparisonInput` via:
 //
-//	FilterStringComparisonEquals
-//	FilterStringComparisonPrefix
-//	FilterStringComparisonNotEquals
+//	FilterStringComparisonArgs{...}
 type FilterStringComparisonInput interface {
 	pulumi.Input
 

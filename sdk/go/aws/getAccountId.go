@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetAccountId(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetAccountIdResult, error) {
@@ -48,6 +49,12 @@ func (o GetAccountIdResultOutput) ToGetAccountIdResultOutput() GetAccountIdResul
 
 func (o GetAccountIdResultOutput) ToGetAccountIdResultOutputWithContext(ctx context.Context) GetAccountIdResultOutput {
 	return o
+}
+
+func (o GetAccountIdResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountIdResult] {
+	return pulumix.Output[GetAccountIdResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAccountIdResultOutput) AccountId() pulumi.StringOutput {

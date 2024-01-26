@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::InAppTemplate
@@ -113,6 +114,12 @@ func (i *InAppTemplate) ToInAppTemplateOutputWithContext(ctx context.Context) In
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateOutput)
 }
 
+func (i *InAppTemplate) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplate] {
+	return pulumix.Output[*InAppTemplate]{
+		OutputState: i.ToInAppTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InAppTemplateOutput struct{ *pulumi.OutputState }
 
 func (InAppTemplateOutput) ElementType() reflect.Type {
@@ -125,6 +132,12 @@ func (o InAppTemplateOutput) ToInAppTemplateOutput() InAppTemplateOutput {
 
 func (o InAppTemplateOutput) ToInAppTemplateOutputWithContext(ctx context.Context) InAppTemplateOutput {
 	return o
+}
+
+func (o InAppTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplate] {
+	return pulumix.Output[*InAppTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InAppTemplateOutput) Arn() pulumi.StringOutput {

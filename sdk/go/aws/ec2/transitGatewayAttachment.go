@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::TransitGatewayAttachment
@@ -119,6 +120,12 @@ func (i *TransitGatewayAttachment) ToTransitGatewayAttachmentOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentOutput)
 }
 
+func (i *TransitGatewayAttachment) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayAttachment] {
+	return pulumix.Output[*TransitGatewayAttachment]{
+		OutputState: i.ToTransitGatewayAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayAttachmentOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayAttachmentOutput) ElementType() reflect.Type {
@@ -131,6 +138,12 @@ func (o TransitGatewayAttachmentOutput) ToTransitGatewayAttachmentOutput() Trans
 
 func (o TransitGatewayAttachmentOutput) ToTransitGatewayAttachmentOutputWithContext(ctx context.Context) TransitGatewayAttachmentOutput {
 	return o
+}
+
+func (o TransitGatewayAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayAttachment] {
+	return pulumix.Output[*TransitGatewayAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The options for the transit gateway vpc attachment.

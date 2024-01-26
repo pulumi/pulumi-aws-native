@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for AWS::CodeStarConnections::RepositoryLink resource which is used to aggregate repository metadata relevant to synchronizing source provider content to AWS Resources.
@@ -137,6 +138,12 @@ func (i *RepositoryLink) ToRepositoryLinkOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryLinkOutput)
 }
 
+func (i *RepositoryLink) ToOutput(ctx context.Context) pulumix.Output[*RepositoryLink] {
+	return pulumix.Output[*RepositoryLink]{
+		OutputState: i.ToRepositoryLinkOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryLinkOutput struct{ *pulumi.OutputState }
 
 func (RepositoryLinkOutput) ElementType() reflect.Type {
@@ -149,6 +156,12 @@ func (o RepositoryLinkOutput) ToRepositoryLinkOutput() RepositoryLinkOutput {
 
 func (o RepositoryLinkOutput) ToRepositoryLinkOutputWithContext(ctx context.Context) RepositoryLinkOutput {
 	return o
+}
+
+func (o RepositoryLinkOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryLink] {
+	return pulumix.Output[*RepositoryLink]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the CodeStarConnection. The ARN is used as the connection reference when the connection is shared between AWS services.

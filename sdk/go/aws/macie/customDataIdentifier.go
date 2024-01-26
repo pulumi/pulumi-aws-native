@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Macie CustomDataIdentifier resource schema
@@ -143,6 +144,12 @@ func (i *CustomDataIdentifier) ToCustomDataIdentifierOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDataIdentifierOutput)
 }
 
+func (i *CustomDataIdentifier) ToOutput(ctx context.Context) pulumix.Output[*CustomDataIdentifier] {
+	return pulumix.Output[*CustomDataIdentifier]{
+		OutputState: i.ToCustomDataIdentifierOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomDataIdentifierOutput struct{ *pulumi.OutputState }
 
 func (CustomDataIdentifierOutput) ElementType() reflect.Type {
@@ -155,6 +162,12 @@ func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutput() CustomDataIde
 
 func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutputWithContext(ctx context.Context) CustomDataIdentifierOutput {
 	return o
+}
+
+func (o CustomDataIdentifierOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomDataIdentifier] {
+	return pulumix.Output[*CustomDataIdentifier]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Custom data identifier ARN.

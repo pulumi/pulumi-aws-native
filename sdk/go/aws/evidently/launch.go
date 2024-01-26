@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Evidently::Launch.
@@ -135,6 +136,12 @@ func (i *Launch) ToLaunchOutputWithContext(ctx context.Context) LaunchOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchOutput)
 }
 
+func (i *Launch) ToOutput(ctx context.Context) pulumix.Output[*Launch] {
+	return pulumix.Output[*Launch]{
+		OutputState: i.ToLaunchOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchOutput struct{ *pulumi.OutputState }
 
 func (LaunchOutput) ElementType() reflect.Type {
@@ -147,6 +154,12 @@ func (o LaunchOutput) ToLaunchOutput() LaunchOutput {
 
 func (o LaunchOutput) ToLaunchOutputWithContext(ctx context.Context) LaunchOutput {
 	return o
+}
+
+func (o LaunchOutput) ToOutput(ctx context.Context) pulumix.Output[*Launch] {
+	return pulumix.Output[*Launch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LaunchOutput) Arn() pulumi.StringOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::Account“ resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one “AWS::ApiGateway::Account“ resource per region per account.
@@ -92,6 +93,12 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
+func (i *Account) ToOutput(ctx context.Context) pulumix.Output[*Account] {
+	return pulumix.Output[*Account]{
+		OutputState: i.ToAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
@@ -104,6 +111,12 @@ func (o AccountOutput) ToAccountOutput() AccountOutput {
 
 func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOutput {
 	return o
+}
+
+func (o AccountOutput) ToOutput(ctx context.Context) pulumix.Output[*Account] {
+	return pulumix.Output[*Account]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of an Amazon CloudWatch role for the current Account.

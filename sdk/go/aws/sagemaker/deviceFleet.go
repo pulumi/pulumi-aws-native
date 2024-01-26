@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::SageMaker::DeviceFleet
@@ -127,6 +128,12 @@ func (i *DeviceFleet) ToDeviceFleetOutputWithContext(ctx context.Context) Device
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetOutput)
 }
 
+func (i *DeviceFleet) ToOutput(ctx context.Context) pulumix.Output[*DeviceFleet] {
+	return pulumix.Output[*DeviceFleet]{
+		OutputState: i.ToDeviceFleetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeviceFleetOutput struct{ *pulumi.OutputState }
 
 func (DeviceFleetOutput) ElementType() reflect.Type {
@@ -139,6 +146,12 @@ func (o DeviceFleetOutput) ToDeviceFleetOutput() DeviceFleetOutput {
 
 func (o DeviceFleetOutput) ToDeviceFleetOutputWithContext(ctx context.Context) DeviceFleetOutput {
 	return o
+}
+
+func (o DeviceFleetOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceFleet] {
+	return pulumix.Output[*DeviceFleet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description for the edge device fleet

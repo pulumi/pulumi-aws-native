@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Athena::DataCatalog
@@ -124,6 +125,12 @@ func (i *DataCatalog) ToDataCatalogOutputWithContext(ctx context.Context) DataCa
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogOutput)
 }
 
+func (i *DataCatalog) ToOutput(ctx context.Context) pulumix.Output[*DataCatalog] {
+	return pulumix.Output[*DataCatalog]{
+		OutputState: i.ToDataCatalogOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataCatalogOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogOutput) ElementType() reflect.Type {
@@ -136,6 +143,12 @@ func (o DataCatalogOutput) ToDataCatalogOutput() DataCatalogOutput {
 
 func (o DataCatalogOutput) ToDataCatalogOutputWithContext(ctx context.Context) DataCatalogOutput {
 	return o
+}
+
+func (o DataCatalogOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCatalog] {
+	return pulumix.Output[*DataCatalog]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A description of the data catalog to be created.

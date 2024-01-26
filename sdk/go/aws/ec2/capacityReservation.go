@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::CapacityReservation
@@ -153,6 +154,12 @@ func (i *CapacityReservation) ToCapacityReservationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationOutput)
 }
 
+func (i *CapacityReservation) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservation] {
+	return pulumix.Output[*CapacityReservation]{
+		OutputState: i.ToCapacityReservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CapacityReservationOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationOutput) ElementType() reflect.Type {
@@ -165,6 +172,12 @@ func (o CapacityReservationOutput) ToCapacityReservationOutput() CapacityReserva
 
 func (o CapacityReservationOutput) ToCapacityReservationOutputWithContext(ctx context.Context) CapacityReservationOutput {
 	return o
+}
+
+func (o CapacityReservationOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservation] {
+	return pulumix.Output[*CapacityReservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CapacityReservationOutput) AvailabilityZone() pulumi.StringOutput {

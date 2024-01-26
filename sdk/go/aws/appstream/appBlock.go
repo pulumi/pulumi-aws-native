@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::AppBlock
@@ -126,6 +127,12 @@ func (i *AppBlock) ToAppBlockOutputWithContext(ctx context.Context) AppBlockOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AppBlockOutput)
 }
 
+func (i *AppBlock) ToOutput(ctx context.Context) pulumix.Output[*AppBlock] {
+	return pulumix.Output[*AppBlock]{
+		OutputState: i.ToAppBlockOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppBlockOutput struct{ *pulumi.OutputState }
 
 func (AppBlockOutput) ElementType() reflect.Type {
@@ -138,6 +145,12 @@ func (o AppBlockOutput) ToAppBlockOutput() AppBlockOutput {
 
 func (o AppBlockOutput) ToAppBlockOutputWithContext(ctx context.Context) AppBlockOutput {
 	return o
+}
+
+func (o AppBlockOutput) ToOutput(ctx context.Context) pulumix.Output[*AppBlock] {
+	return pulumix.Output[*AppBlock]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppBlockOutput) Arn() pulumi.StringOutput {

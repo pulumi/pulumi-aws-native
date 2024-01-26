@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration
@@ -108,6 +109,12 @@ func (i *TlsInspectionConfiguration) ToTlsInspectionConfigurationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationOutput)
 }
 
+func (i *TlsInspectionConfiguration) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfiguration] {
+	return pulumix.Output[*TlsInspectionConfiguration]{
+		OutputState: i.ToTlsInspectionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TlsInspectionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TlsInspectionConfigurationOutput) ElementType() reflect.Type {
@@ -120,6 +127,12 @@ func (o TlsInspectionConfigurationOutput) ToTlsInspectionConfigurationOutput() T
 
 func (o TlsInspectionConfigurationOutput) ToTlsInspectionConfigurationOutputWithContext(ctx context.Context) TlsInspectionConfigurationOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfiguration] {
+	return pulumix.Output[*TlsInspectionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationOutput) Description() pulumi.StringPtrOutput {

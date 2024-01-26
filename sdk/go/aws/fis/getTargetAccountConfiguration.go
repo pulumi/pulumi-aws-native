@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::FIS::TargetAccountConfiguration
@@ -66,6 +67,12 @@ func (o LookupTargetAccountConfigurationResultOutput) ToLookupTargetAccountConfi
 
 func (o LookupTargetAccountConfigurationResultOutput) ToLookupTargetAccountConfigurationResultOutputWithContext(ctx context.Context) LookupTargetAccountConfigurationResultOutput {
 	return o
+}
+
+func (o LookupTargetAccountConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTargetAccountConfigurationResult] {
+	return pulumix.Output[LookupTargetAccountConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTargetAccountConfigurationResultOutput) Description() pulumi.StringPtrOutput {

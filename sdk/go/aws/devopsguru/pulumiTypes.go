@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i NotificationChannelConfigArgs) ToNotificationChannelConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelConfigOutput)
 }
 
+func (i NotificationChannelConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationChannelConfig] {
+	return pulumix.Output[NotificationChannelConfig]{
+		OutputState: i.ToNotificationChannelConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about notification channels you have configured with DevOps Guru.
 type NotificationChannelConfigOutput struct{ *pulumi.OutputState }
 
@@ -61,6 +68,12 @@ func (o NotificationChannelConfigOutput) ToNotificationChannelConfigOutput() Not
 
 func (o NotificationChannelConfigOutput) ToNotificationChannelConfigOutputWithContext(ctx context.Context) NotificationChannelConfigOutput {
 	return o
+}
+
+func (o NotificationChannelConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationChannelConfig] {
+	return pulumix.Output[NotificationChannelConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationChannelConfigOutput) Filters() NotificationChannelNotificationFilterConfigPtrOutput {
@@ -106,6 +119,12 @@ func (i NotificationChannelNotificationFilterConfigArgs) ToNotificationChannelNo
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelNotificationFilterConfigOutput)
 }
 
+func (i NotificationChannelNotificationFilterConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationChannelNotificationFilterConfig] {
+	return pulumix.Output[NotificationChannelNotificationFilterConfig]{
+		OutputState: i.ToNotificationChannelNotificationFilterConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NotificationChannelNotificationFilterConfigArgs) ToNotificationChannelNotificationFilterConfigPtrOutput() NotificationChannelNotificationFilterConfigPtrOutput {
 	return i.ToNotificationChannelNotificationFilterConfigPtrOutputWithContext(context.Background())
 }
@@ -147,6 +166,12 @@ func (i *notificationChannelNotificationFilterConfigPtrType) ToNotificationChann
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelNotificationFilterConfigPtrOutput)
 }
 
+func (i *notificationChannelNotificationFilterConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannelNotificationFilterConfig] {
+	return pulumix.Output[*NotificationChannelNotificationFilterConfig]{
+		OutputState: i.ToNotificationChannelNotificationFilterConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
 type NotificationChannelNotificationFilterConfigOutput struct{ *pulumi.OutputState }
 
@@ -170,6 +195,12 @@ func (o NotificationChannelNotificationFilterConfigOutput) ToNotificationChannel
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationChannelNotificationFilterConfig) *NotificationChannelNotificationFilterConfig {
 		return &v
 	}).(NotificationChannelNotificationFilterConfigPtrOutput)
+}
+
+func (o NotificationChannelNotificationFilterConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationChannelNotificationFilterConfig] {
+	return pulumix.Output[NotificationChannelNotificationFilterConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationChannelNotificationFilterConfigOutput) MessageTypes() NotificationChannelNotificationMessageTypeArrayOutput {
@@ -196,6 +227,12 @@ func (o NotificationChannelNotificationFilterConfigPtrOutput) ToNotificationChan
 
 func (o NotificationChannelNotificationFilterConfigPtrOutput) ToNotificationChannelNotificationFilterConfigPtrOutputWithContext(ctx context.Context) NotificationChannelNotificationFilterConfigPtrOutput {
 	return o
+}
+
+func (o NotificationChannelNotificationFilterConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannelNotificationFilterConfig] {
+	return pulumix.Output[*NotificationChannelNotificationFilterConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationChannelNotificationFilterConfigPtrOutput) Elem() NotificationChannelNotificationFilterConfigOutput {
@@ -259,6 +296,12 @@ func (i NotificationChannelSnsChannelConfigArgs) ToNotificationChannelSnsChannel
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelSnsChannelConfigOutput)
 }
 
+func (i NotificationChannelSnsChannelConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationChannelSnsChannelConfig] {
+	return pulumix.Output[NotificationChannelSnsChannelConfig]{
+		OutputState: i.ToNotificationChannelSnsChannelConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NotificationChannelSnsChannelConfigArgs) ToNotificationChannelSnsChannelConfigPtrOutput() NotificationChannelSnsChannelConfigPtrOutput {
 	return i.ToNotificationChannelSnsChannelConfigPtrOutputWithContext(context.Background())
 }
@@ -300,6 +343,12 @@ func (i *notificationChannelSnsChannelConfigPtrType) ToNotificationChannelSnsCha
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelSnsChannelConfigPtrOutput)
 }
 
+func (i *notificationChannelSnsChannelConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannelSnsChannelConfig] {
+	return pulumix.Output[*NotificationChannelSnsChannelConfig]{
+		OutputState: i.ToNotificationChannelSnsChannelConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
 type NotificationChannelSnsChannelConfigOutput struct{ *pulumi.OutputState }
 
@@ -325,6 +374,12 @@ func (o NotificationChannelSnsChannelConfigOutput) ToNotificationChannelSnsChann
 	}).(NotificationChannelSnsChannelConfigPtrOutput)
 }
 
+func (o NotificationChannelSnsChannelConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationChannelSnsChannelConfig] {
+	return pulumix.Output[NotificationChannelSnsChannelConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotificationChannelSnsChannelConfigOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationChannelSnsChannelConfig) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }
@@ -341,6 +396,12 @@ func (o NotificationChannelSnsChannelConfigPtrOutput) ToNotificationChannelSnsCh
 
 func (o NotificationChannelSnsChannelConfigPtrOutput) ToNotificationChannelSnsChannelConfigPtrOutputWithContext(ctx context.Context) NotificationChannelSnsChannelConfigPtrOutput {
 	return o
+}
+
+func (o NotificationChannelSnsChannelConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannelSnsChannelConfig] {
+	return pulumix.Output[*NotificationChannelSnsChannelConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationChannelSnsChannelConfigPtrOutput) Elem() NotificationChannelSnsChannelConfigOutput {
@@ -397,6 +458,12 @@ func (i ResourceCollectionCloudFormationCollectionFilterArgs) ToResourceCollecti
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionCloudFormationCollectionFilterOutput)
 }
 
+func (i ResourceCollectionCloudFormationCollectionFilterArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceCollectionCloudFormationCollectionFilter] {
+	return pulumix.Output[ResourceCollectionCloudFormationCollectionFilter]{
+		OutputState: i.ToResourceCollectionCloudFormationCollectionFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResourceCollectionCloudFormationCollectionFilterArgs) ToResourceCollectionCloudFormationCollectionFilterPtrOutput() ResourceCollectionCloudFormationCollectionFilterPtrOutput {
 	return i.ToResourceCollectionCloudFormationCollectionFilterPtrOutputWithContext(context.Background())
 }
@@ -438,6 +505,12 @@ func (i *resourceCollectionCloudFormationCollectionFilterPtrType) ToResourceColl
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionCloudFormationCollectionFilterPtrOutput)
 }
 
+func (i *resourceCollectionCloudFormationCollectionFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceCollectionCloudFormationCollectionFilter] {
+	return pulumix.Output[*ResourceCollectionCloudFormationCollectionFilter]{
+		OutputState: i.ToResourceCollectionCloudFormationCollectionFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CloudFormation resource for DevOps Guru to monitor
 type ResourceCollectionCloudFormationCollectionFilterOutput struct{ *pulumi.OutputState }
 
@@ -463,6 +536,12 @@ func (o ResourceCollectionCloudFormationCollectionFilterOutput) ToResourceCollec
 	}).(ResourceCollectionCloudFormationCollectionFilterPtrOutput)
 }
 
+func (o ResourceCollectionCloudFormationCollectionFilterOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceCollectionCloudFormationCollectionFilter] {
+	return pulumix.Output[ResourceCollectionCloudFormationCollectionFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // An array of CloudFormation stack names.
 func (o ResourceCollectionCloudFormationCollectionFilterOutput) StackNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceCollectionCloudFormationCollectionFilter) []string { return v.StackNames }).(pulumi.StringArrayOutput)
@@ -480,6 +559,12 @@ func (o ResourceCollectionCloudFormationCollectionFilterPtrOutput) ToResourceCol
 
 func (o ResourceCollectionCloudFormationCollectionFilterPtrOutput) ToResourceCollectionCloudFormationCollectionFilterPtrOutputWithContext(ctx context.Context) ResourceCollectionCloudFormationCollectionFilterPtrOutput {
 	return o
+}
+
+func (o ResourceCollectionCloudFormationCollectionFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceCollectionCloudFormationCollectionFilter] {
+	return pulumix.Output[*ResourceCollectionCloudFormationCollectionFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceCollectionCloudFormationCollectionFilterPtrOutput) Elem() ResourceCollectionCloudFormationCollectionFilterOutput {
@@ -537,6 +622,12 @@ func (i ResourceCollectionFilterArgs) ToResourceCollectionFilterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionFilterOutput)
 }
 
+func (i ResourceCollectionFilterArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceCollectionFilter] {
+	return pulumix.Output[ResourceCollectionFilter]{
+		OutputState: i.ToResourceCollectionFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 type ResourceCollectionFilterOutput struct{ *pulumi.OutputState }
 
@@ -550,6 +641,12 @@ func (o ResourceCollectionFilterOutput) ToResourceCollectionFilterOutput() Resou
 
 func (o ResourceCollectionFilterOutput) ToResourceCollectionFilterOutputWithContext(ctx context.Context) ResourceCollectionFilterOutput {
 	return o
+}
+
+func (o ResourceCollectionFilterOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceCollectionFilter] {
+	return pulumix.Output[ResourceCollectionFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceCollectionFilterOutput) CloudFormation() ResourceCollectionCloudFormationCollectionFilterPtrOutput {
@@ -574,6 +671,12 @@ func (o ResourceCollectionFilterPtrOutput) ToResourceCollectionFilterPtrOutput()
 
 func (o ResourceCollectionFilterPtrOutput) ToResourceCollectionFilterPtrOutputWithContext(ctx context.Context) ResourceCollectionFilterPtrOutput {
 	return o
+}
+
+func (o ResourceCollectionFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceCollectionFilter] {
+	return pulumix.Output[*ResourceCollectionFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceCollectionFilterPtrOutput) Elem() ResourceCollectionFilterOutput {
@@ -643,6 +746,12 @@ func (i ResourceCollectionTagCollectionArgs) ToResourceCollectionTagCollectionOu
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionTagCollectionOutput)
 }
 
+func (i ResourceCollectionTagCollectionArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceCollectionTagCollection] {
+	return pulumix.Output[ResourceCollectionTagCollection]{
+		OutputState: i.ToResourceCollectionTagCollectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceCollectionTagCollectionArrayInput is an input type that accepts ResourceCollectionTagCollectionArray and ResourceCollectionTagCollectionArrayOutput values.
 // You can construct a concrete instance of `ResourceCollectionTagCollectionArrayInput` via:
 //
@@ -668,6 +777,12 @@ func (i ResourceCollectionTagCollectionArray) ToResourceCollectionTagCollectionA
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionTagCollectionArrayOutput)
 }
 
+func (i ResourceCollectionTagCollectionArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceCollectionTagCollection] {
+	return pulumix.Output[[]ResourceCollectionTagCollection]{
+		OutputState: i.ToResourceCollectionTagCollectionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Tagged resource for DevOps Guru to monitor
 type ResourceCollectionTagCollectionOutput struct{ *pulumi.OutputState }
 
@@ -681,6 +796,12 @@ func (o ResourceCollectionTagCollectionOutput) ToResourceCollectionTagCollection
 
 func (o ResourceCollectionTagCollectionOutput) ToResourceCollectionTagCollectionOutputWithContext(ctx context.Context) ResourceCollectionTagCollectionOutput {
 	return o
+}
+
+func (o ResourceCollectionTagCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceCollectionTagCollection] {
+	return pulumix.Output[ResourceCollectionTagCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A Tag key for DevOps Guru app boundary.
@@ -705,6 +826,12 @@ func (o ResourceCollectionTagCollectionArrayOutput) ToResourceCollectionTagColle
 
 func (o ResourceCollectionTagCollectionArrayOutput) ToResourceCollectionTagCollectionArrayOutputWithContext(ctx context.Context) ResourceCollectionTagCollectionArrayOutput {
 	return o
+}
+
+func (o ResourceCollectionTagCollectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceCollectionTagCollection] {
+	return pulumix.Output[[]ResourceCollectionTagCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceCollectionTagCollectionArrayOutput) Index(i pulumi.IntInput) ResourceCollectionTagCollectionOutput {

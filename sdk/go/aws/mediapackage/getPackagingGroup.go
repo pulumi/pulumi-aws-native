@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaPackage::PackagingGroup
@@ -72,6 +73,12 @@ func (o LookupPackagingGroupResultOutput) ToLookupPackagingGroupResultOutput() L
 
 func (o LookupPackagingGroupResultOutput) ToLookupPackagingGroupResultOutputWithContext(ctx context.Context) LookupPackagingGroupResultOutput {
 	return o
+}
+
+func (o LookupPackagingGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPackagingGroupResult] {
+	return pulumix.Output[LookupPackagingGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the PackagingGroup.

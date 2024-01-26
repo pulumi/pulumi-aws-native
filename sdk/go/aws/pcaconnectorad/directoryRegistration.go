@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::PCAConnectorAD::DirectoryRegistration Resource Type
@@ -101,6 +102,12 @@ func (i *DirectoryRegistration) ToDirectoryRegistrationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryRegistrationOutput)
 }
 
+func (i *DirectoryRegistration) ToOutput(ctx context.Context) pulumix.Output[*DirectoryRegistration] {
+	return pulumix.Output[*DirectoryRegistration]{
+		OutputState: i.ToDirectoryRegistrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DirectoryRegistrationOutput struct{ *pulumi.OutputState }
 
 func (DirectoryRegistrationOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o DirectoryRegistrationOutput) ToDirectoryRegistrationOutput() DirectoryRe
 
 func (o DirectoryRegistrationOutput) ToDirectoryRegistrationOutputWithContext(ctx context.Context) DirectoryRegistrationOutput {
 	return o
+}
+
+func (o DirectoryRegistrationOutput) ToOutput(ctx context.Context) pulumix.Output[*DirectoryRegistration] {
+	return pulumix.Output[*DirectoryRegistration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DirectoryRegistrationOutput) DirectoryId() pulumi.StringOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::GameLift::Script resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
@@ -80,6 +81,12 @@ func (o LookupScriptResultOutput) ToLookupScriptResultOutput() LookupScriptResul
 
 func (o LookupScriptResultOutput) ToLookupScriptResultOutputWithContext(ctx context.Context) LookupScriptResultOutput {
 	return o
+}
+
+func (o LookupScriptResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupScriptResult] {
+	return pulumix.Output[LookupScriptResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the Id value.

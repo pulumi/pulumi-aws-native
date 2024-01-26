@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs) ToDeliverySt
 
 func (i DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput)
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessBufferingHints] {
+	return pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessBufferingHints]{
+		OutputState: i.ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
@@ -87,6 +94,12 @@ func (i *deliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrType) ToDelive
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput)
 }
 
+func (i *deliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessBufferingHints] {
+	return pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessBufferingHints]{
+		OutputState: i.ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) ToDelivery
 	}).(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput)
 }
 
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessBufferingHints] {
+	return pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessBufferingHints]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessBufferingHints) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -131,6 +150,12 @@ func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) ToDeliv
 
 func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessBufferingHints] {
+	return pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessBufferingHints]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) Elem() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput {
@@ -210,6 +235,12 @@ func (i DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput)
 }
 
+func (i DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {
 	return i.ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -251,6 +282,12 @@ func (i *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) ElementType() reflect.Type {
@@ -273,6 +310,12 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration {
 		return &v
 	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) BufferingHints() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
@@ -343,6 +386,12 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutpu
 
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) Elem() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput {
@@ -476,6 +525,12 @@ func (i DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs) ToDeliveryStre
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput)
 }
 
+func (i DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessRetryOptions] {
+	return pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessRetryOptions]{
+		OutputState: i.ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
 	return i.ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutputWithContext(context.Background())
 }
@@ -517,6 +572,12 @@ func (i *deliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrType) ToDelivery
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput)
 }
 
+func (i *deliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessRetryOptions] {
+	return pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessRetryOptions]{
+		OutputState: i.ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput) ElementType() reflect.Type {
@@ -541,6 +602,12 @@ func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput) ToDeliverySt
 	}).(DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput)
 }
 
+func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessRetryOptions] {
+	return pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessRetryOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessRetryOptions) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -557,6 +624,12 @@ func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput) ToDeliver
 
 func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessRetryOptions] {
+	return pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessRetryOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput) Elem() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput {
@@ -611,6 +684,12 @@ func (i DeliveryStreamAmazonopensearchserviceBufferingHintsArgs) ToDeliveryStrea
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonopensearchserviceBufferingHintsOutput)
 }
 
+func (i DeliveryStreamAmazonopensearchserviceBufferingHintsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonopensearchserviceBufferingHints] {
+	return pulumix.Output[DeliveryStreamAmazonopensearchserviceBufferingHints]{
+		OutputState: i.ToDeliveryStreamAmazonopensearchserviceBufferingHintsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamAmazonopensearchserviceBufferingHintsArgs) ToDeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput() DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput {
 	return i.ToDeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutputWithContext(context.Background())
 }
@@ -652,6 +731,12 @@ func (i *deliveryStreamAmazonopensearchserviceBufferingHintsPtrType) ToDeliveryS
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput)
 }
 
+func (i *deliveryStreamAmazonopensearchserviceBufferingHintsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceBufferingHints] {
+	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceBufferingHints]{
+		OutputState: i.ToDeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamAmazonopensearchserviceBufferingHintsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamAmazonopensearchserviceBufferingHintsOutput) ElementType() reflect.Type {
@@ -676,6 +761,12 @@ func (o DeliveryStreamAmazonopensearchserviceBufferingHintsOutput) ToDeliveryStr
 	}).(DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput)
 }
 
+func (o DeliveryStreamAmazonopensearchserviceBufferingHintsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonopensearchserviceBufferingHints] {
+	return pulumix.Output[DeliveryStreamAmazonopensearchserviceBufferingHints]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamAmazonopensearchserviceBufferingHintsOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonopensearchserviceBufferingHints) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -696,6 +787,12 @@ func (o DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput) ToDelivery
 
 func (o DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput) ToDeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceBufferingHints] {
+	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceBufferingHints]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput) Elem() DeliveryStreamAmazonopensearchserviceBufferingHintsOutput {
@@ -783,6 +880,12 @@ func (i DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs) ToDel
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput)
 }
 
+func (i DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonopensearchserviceDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamAmazonopensearchserviceDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs) ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput() DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput {
 	return i.ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -824,6 +927,12 @@ func (i *deliveryStreamAmazonopensearchserviceDestinationConfigurationPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamAmazonopensearchserviceDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) ElementType() reflect.Type {
@@ -846,6 +955,12 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) ToD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *DeliveryStreamAmazonopensearchserviceDestinationConfiguration {
 		return &v
 	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonopensearchserviceDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamAmazonopensearchserviceDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) BufferingHints() DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput {
@@ -936,6 +1051,12 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) 
 
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) Elem() DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput {
@@ -1105,6 +1226,12 @@ func (i DeliveryStreamAmazonopensearchserviceRetryOptionsArgs) ToDeliveryStreamA
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonopensearchserviceRetryOptionsOutput)
 }
 
+func (i DeliveryStreamAmazonopensearchserviceRetryOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonopensearchserviceRetryOptions] {
+	return pulumix.Output[DeliveryStreamAmazonopensearchserviceRetryOptions]{
+		OutputState: i.ToDeliveryStreamAmazonopensearchserviceRetryOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamAmazonopensearchserviceRetryOptionsArgs) ToDeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput() DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput {
 	return i.ToDeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutputWithContext(context.Background())
 }
@@ -1146,6 +1273,12 @@ func (i *deliveryStreamAmazonopensearchserviceRetryOptionsPtrType) ToDeliveryStr
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput)
 }
 
+func (i *deliveryStreamAmazonopensearchserviceRetryOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceRetryOptions] {
+	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceRetryOptions]{
+		OutputState: i.ToDeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamAmazonopensearchserviceRetryOptionsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamAmazonopensearchserviceRetryOptionsOutput) ElementType() reflect.Type {
@@ -1170,6 +1303,12 @@ func (o DeliveryStreamAmazonopensearchserviceRetryOptionsOutput) ToDeliveryStrea
 	}).(DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput)
 }
 
+func (o DeliveryStreamAmazonopensearchserviceRetryOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonopensearchserviceRetryOptions] {
+	return pulumix.Output[DeliveryStreamAmazonopensearchserviceRetryOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamAmazonopensearchserviceRetryOptionsOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonopensearchserviceRetryOptions) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -1186,6 +1325,12 @@ func (o DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput) ToDeliverySt
 
 func (o DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput) ToDeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceRetryOptions] {
+	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceRetryOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput) Elem() DeliveryStreamAmazonopensearchserviceRetryOptionsOutput {
@@ -1240,6 +1385,12 @@ func (i DeliveryStreamAuthenticationConfigurationArgs) ToDeliveryStreamAuthentic
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAuthenticationConfigurationOutput)
 }
 
+func (i DeliveryStreamAuthenticationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAuthenticationConfiguration] {
+	return pulumix.Output[DeliveryStreamAuthenticationConfiguration]{
+		OutputState: i.ToDeliveryStreamAuthenticationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamAuthenticationConfigurationArgs) ToDeliveryStreamAuthenticationConfigurationPtrOutput() DeliveryStreamAuthenticationConfigurationPtrOutput {
 	return i.ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1281,6 +1432,12 @@ func (i *deliveryStreamAuthenticationConfigurationPtrType) ToDeliveryStreamAuthe
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAuthenticationConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamAuthenticationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAuthenticationConfiguration] {
+	return pulumix.Output[*DeliveryStreamAuthenticationConfiguration]{
+		OutputState: i.ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamAuthenticationConfigurationOutput) ElementType() reflect.Type {
@@ -1305,6 +1462,12 @@ func (o DeliveryStreamAuthenticationConfigurationOutput) ToDeliveryStreamAuthent
 	}).(DeliveryStreamAuthenticationConfigurationPtrOutput)
 }
 
+func (o DeliveryStreamAuthenticationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAuthenticationConfiguration] {
+	return pulumix.Output[DeliveryStreamAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamAuthenticationConfigurationOutput) Connectivity() DeliveryStreamAuthenticationConfigurationConnectivityOutput {
 	return o.ApplyT(func(v DeliveryStreamAuthenticationConfiguration) DeliveryStreamAuthenticationConfigurationConnectivity {
 		return v.Connectivity
@@ -1327,6 +1490,12 @@ func (o DeliveryStreamAuthenticationConfigurationPtrOutput) ToDeliveryStreamAuth
 
 func (o DeliveryStreamAuthenticationConfigurationPtrOutput) ToDeliveryStreamAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamAuthenticationConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamAuthenticationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAuthenticationConfiguration] {
+	return pulumix.Output[*DeliveryStreamAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamAuthenticationConfigurationPtrOutput) Elem() DeliveryStreamAuthenticationConfigurationOutput {
@@ -1390,6 +1559,12 @@ func (i DeliveryStreamBufferingHintsArgs) ToDeliveryStreamBufferingHintsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamBufferingHintsOutput)
 }
 
+func (i DeliveryStreamBufferingHintsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamBufferingHints] {
+	return pulumix.Output[DeliveryStreamBufferingHints]{
+		OutputState: i.ToDeliveryStreamBufferingHintsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamBufferingHintsArgs) ToDeliveryStreamBufferingHintsPtrOutput() DeliveryStreamBufferingHintsPtrOutput {
 	return i.ToDeliveryStreamBufferingHintsPtrOutputWithContext(context.Background())
 }
@@ -1431,6 +1606,12 @@ func (i *deliveryStreamBufferingHintsPtrType) ToDeliveryStreamBufferingHintsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamBufferingHintsPtrOutput)
 }
 
+func (i *deliveryStreamBufferingHintsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamBufferingHints] {
+	return pulumix.Output[*DeliveryStreamBufferingHints]{
+		OutputState: i.ToDeliveryStreamBufferingHintsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamBufferingHintsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamBufferingHintsOutput) ElementType() reflect.Type {
@@ -1455,6 +1636,12 @@ func (o DeliveryStreamBufferingHintsOutput) ToDeliveryStreamBufferingHintsPtrOut
 	}).(DeliveryStreamBufferingHintsPtrOutput)
 }
 
+func (o DeliveryStreamBufferingHintsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamBufferingHints] {
+	return pulumix.Output[DeliveryStreamBufferingHints]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamBufferingHintsOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamBufferingHints) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -1475,6 +1662,12 @@ func (o DeliveryStreamBufferingHintsPtrOutput) ToDeliveryStreamBufferingHintsPtr
 
 func (o DeliveryStreamBufferingHintsPtrOutput) ToDeliveryStreamBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamBufferingHintsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamBufferingHintsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamBufferingHints] {
+	return pulumix.Output[*DeliveryStreamBufferingHints]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamBufferingHintsPtrOutput) Elem() DeliveryStreamBufferingHintsOutput {
@@ -1540,6 +1733,12 @@ func (i DeliveryStreamCloudWatchLoggingOptionsArgs) ToDeliveryStreamCloudWatchLo
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamCloudWatchLoggingOptionsOutput)
 }
 
+func (i DeliveryStreamCloudWatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamCloudWatchLoggingOptions] {
+	return pulumix.Output[DeliveryStreamCloudWatchLoggingOptions]{
+		OutputState: i.ToDeliveryStreamCloudWatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamCloudWatchLoggingOptionsArgs) ToDeliveryStreamCloudWatchLoggingOptionsPtrOutput() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return i.ToDeliveryStreamCloudWatchLoggingOptionsPtrOutputWithContext(context.Background())
 }
@@ -1581,6 +1780,12 @@ func (i *deliveryStreamCloudWatchLoggingOptionsPtrType) ToDeliveryStreamCloudWat
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
 }
 
+func (i *deliveryStreamCloudWatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamCloudWatchLoggingOptions] {
+	return pulumix.Output[*DeliveryStreamCloudWatchLoggingOptions]{
+		OutputState: i.ToDeliveryStreamCloudWatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamCloudWatchLoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamCloudWatchLoggingOptionsOutput) ElementType() reflect.Type {
@@ -1603,6 +1808,12 @@ func (o DeliveryStreamCloudWatchLoggingOptionsOutput) ToDeliveryStreamCloudWatch
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamCloudWatchLoggingOptions) *DeliveryStreamCloudWatchLoggingOptions {
 		return &v
 	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
+}
+
+func (o DeliveryStreamCloudWatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamCloudWatchLoggingOptions] {
+	return pulumix.Output[DeliveryStreamCloudWatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamCloudWatchLoggingOptionsOutput) Enabled() pulumi.BoolPtrOutput {
@@ -1629,6 +1840,12 @@ func (o DeliveryStreamCloudWatchLoggingOptionsPtrOutput) ToDeliveryStreamCloudWa
 
 func (o DeliveryStreamCloudWatchLoggingOptionsPtrOutput) ToDeliveryStreamCloudWatchLoggingOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamCloudWatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamCloudWatchLoggingOptions] {
+	return pulumix.Output[*DeliveryStreamCloudWatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamCloudWatchLoggingOptionsPtrOutput) Elem() DeliveryStreamCloudWatchLoggingOptionsOutput {
@@ -1703,6 +1920,12 @@ func (i DeliveryStreamCopyCommandArgs) ToDeliveryStreamCopyCommandOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamCopyCommandOutput)
 }
 
+func (i DeliveryStreamCopyCommandArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamCopyCommand] {
+	return pulumix.Output[DeliveryStreamCopyCommand]{
+		OutputState: i.ToDeliveryStreamCopyCommandOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamCopyCommandArgs) ToDeliveryStreamCopyCommandPtrOutput() DeliveryStreamCopyCommandPtrOutput {
 	return i.ToDeliveryStreamCopyCommandPtrOutputWithContext(context.Background())
 }
@@ -1744,6 +1967,12 @@ func (i *deliveryStreamCopyCommandPtrType) ToDeliveryStreamCopyCommandPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamCopyCommandPtrOutput)
 }
 
+func (i *deliveryStreamCopyCommandPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamCopyCommand] {
+	return pulumix.Output[*DeliveryStreamCopyCommand]{
+		OutputState: i.ToDeliveryStreamCopyCommandPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamCopyCommandOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamCopyCommandOutput) ElementType() reflect.Type {
@@ -1766,6 +1995,12 @@ func (o DeliveryStreamCopyCommandOutput) ToDeliveryStreamCopyCommandPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamCopyCommand) *DeliveryStreamCopyCommand {
 		return &v
 	}).(DeliveryStreamCopyCommandPtrOutput)
+}
+
+func (o DeliveryStreamCopyCommandOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamCopyCommand] {
+	return pulumix.Output[DeliveryStreamCopyCommand]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamCopyCommandOutput) CopyOptions() pulumi.StringPtrOutput {
@@ -1792,6 +2027,12 @@ func (o DeliveryStreamCopyCommandPtrOutput) ToDeliveryStreamCopyCommandPtrOutput
 
 func (o DeliveryStreamCopyCommandPtrOutput) ToDeliveryStreamCopyCommandPtrOutputWithContext(ctx context.Context) DeliveryStreamCopyCommandPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamCopyCommandPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamCopyCommand] {
+	return pulumix.Output[*DeliveryStreamCopyCommand]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamCopyCommandPtrOutput) Elem() DeliveryStreamCopyCommandOutput {
@@ -1868,6 +2109,12 @@ func (i DeliveryStreamDataFormatConversionConfigurationArgs) ToDeliveryStreamDat
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDataFormatConversionConfigurationOutput)
 }
 
+func (i DeliveryStreamDataFormatConversionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamDataFormatConversionConfiguration] {
+	return pulumix.Output[DeliveryStreamDataFormatConversionConfiguration]{
+		OutputState: i.ToDeliveryStreamDataFormatConversionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamDataFormatConversionConfigurationArgs) ToDeliveryStreamDataFormatConversionConfigurationPtrOutput() DeliveryStreamDataFormatConversionConfigurationPtrOutput {
 	return i.ToDeliveryStreamDataFormatConversionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1909,6 +2156,12 @@ func (i *deliveryStreamDataFormatConversionConfigurationPtrType) ToDeliveryStrea
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDataFormatConversionConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamDataFormatConversionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamDataFormatConversionConfiguration] {
+	return pulumix.Output[*DeliveryStreamDataFormatConversionConfiguration]{
+		OutputState: i.ToDeliveryStreamDataFormatConversionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamDataFormatConversionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamDataFormatConversionConfigurationOutput) ElementType() reflect.Type {
@@ -1931,6 +2184,12 @@ func (o DeliveryStreamDataFormatConversionConfigurationOutput) ToDeliveryStreamD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDataFormatConversionConfiguration) *DeliveryStreamDataFormatConversionConfiguration {
 		return &v
 	}).(DeliveryStreamDataFormatConversionConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamDataFormatConversionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamDataFormatConversionConfiguration] {
+	return pulumix.Output[DeliveryStreamDataFormatConversionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamDataFormatConversionConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
@@ -1967,6 +2226,12 @@ func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) ToDeliveryStre
 
 func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) ToDeliveryStreamDataFormatConversionConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDataFormatConversionConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamDataFormatConversionConfiguration] {
+	return pulumix.Output[*DeliveryStreamDataFormatConversionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) Elem() DeliveryStreamDataFormatConversionConfigurationOutput {
@@ -2048,6 +2313,12 @@ func (i DeliveryStreamDeserializerArgs) ToDeliveryStreamDeserializerOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDeserializerOutput)
 }
 
+func (i DeliveryStreamDeserializerArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamDeserializer] {
+	return pulumix.Output[DeliveryStreamDeserializer]{
+		OutputState: i.ToDeliveryStreamDeserializerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamDeserializerArgs) ToDeliveryStreamDeserializerPtrOutput() DeliveryStreamDeserializerPtrOutput {
 	return i.ToDeliveryStreamDeserializerPtrOutputWithContext(context.Background())
 }
@@ -2089,6 +2360,12 @@ func (i *deliveryStreamDeserializerPtrType) ToDeliveryStreamDeserializerPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDeserializerPtrOutput)
 }
 
+func (i *deliveryStreamDeserializerPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamDeserializer] {
+	return pulumix.Output[*DeliveryStreamDeserializer]{
+		OutputState: i.ToDeliveryStreamDeserializerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamDeserializerOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamDeserializerOutput) ElementType() reflect.Type {
@@ -2113,6 +2390,12 @@ func (o DeliveryStreamDeserializerOutput) ToDeliveryStreamDeserializerPtrOutputW
 	}).(DeliveryStreamDeserializerPtrOutput)
 }
 
+func (o DeliveryStreamDeserializerOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamDeserializer] {
+	return pulumix.Output[DeliveryStreamDeserializer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamDeserializerOutput) HiveJsonSerDe() DeliveryStreamHiveJsonSerDePtrOutput {
 	return o.ApplyT(func(v DeliveryStreamDeserializer) *DeliveryStreamHiveJsonSerDe { return v.HiveJsonSerDe }).(DeliveryStreamHiveJsonSerDePtrOutput)
 }
@@ -2133,6 +2416,12 @@ func (o DeliveryStreamDeserializerPtrOutput) ToDeliveryStreamDeserializerPtrOutp
 
 func (o DeliveryStreamDeserializerPtrOutput) ToDeliveryStreamDeserializerPtrOutputWithContext(ctx context.Context) DeliveryStreamDeserializerPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamDeserializerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamDeserializer] {
+	return pulumix.Output[*DeliveryStreamDeserializer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamDeserializerPtrOutput) Elem() DeliveryStreamDeserializerOutput {
@@ -2194,6 +2483,12 @@ func (i DeliveryStreamDocumentIdOptionsArgs) ToDeliveryStreamDocumentIdOptionsOu
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDocumentIdOptionsOutput)
 }
 
+func (i DeliveryStreamDocumentIdOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamDocumentIdOptions] {
+	return pulumix.Output[DeliveryStreamDocumentIdOptions]{
+		OutputState: i.ToDeliveryStreamDocumentIdOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamDocumentIdOptionsArgs) ToDeliveryStreamDocumentIdOptionsPtrOutput() DeliveryStreamDocumentIdOptionsPtrOutput {
 	return i.ToDeliveryStreamDocumentIdOptionsPtrOutputWithContext(context.Background())
 }
@@ -2235,6 +2530,12 @@ func (i *deliveryStreamDocumentIdOptionsPtrType) ToDeliveryStreamDocumentIdOptio
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDocumentIdOptionsPtrOutput)
 }
 
+func (i *deliveryStreamDocumentIdOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamDocumentIdOptions] {
+	return pulumix.Output[*DeliveryStreamDocumentIdOptions]{
+		OutputState: i.ToDeliveryStreamDocumentIdOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamDocumentIdOptionsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamDocumentIdOptionsOutput) ElementType() reflect.Type {
@@ -2259,6 +2560,12 @@ func (o DeliveryStreamDocumentIdOptionsOutput) ToDeliveryStreamDocumentIdOptions
 	}).(DeliveryStreamDocumentIdOptionsPtrOutput)
 }
 
+func (o DeliveryStreamDocumentIdOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamDocumentIdOptions] {
+	return pulumix.Output[DeliveryStreamDocumentIdOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamDocumentIdOptionsOutput) DefaultDocumentIdFormat() DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput {
 	return o.ApplyT(func(v DeliveryStreamDocumentIdOptions) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat {
 		return v.DefaultDocumentIdFormat
@@ -2277,6 +2584,12 @@ func (o DeliveryStreamDocumentIdOptionsPtrOutput) ToDeliveryStreamDocumentIdOpti
 
 func (o DeliveryStreamDocumentIdOptionsPtrOutput) ToDeliveryStreamDocumentIdOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamDocumentIdOptionsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamDocumentIdOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamDocumentIdOptions] {
+	return pulumix.Output[*DeliveryStreamDocumentIdOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamDocumentIdOptionsPtrOutput) Elem() DeliveryStreamDocumentIdOptionsOutput {
@@ -2331,6 +2644,12 @@ func (i DeliveryStreamDynamicPartitioningConfigurationArgs) ToDeliveryStreamDyna
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDynamicPartitioningConfigurationOutput)
 }
 
+func (i DeliveryStreamDynamicPartitioningConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamDynamicPartitioningConfiguration] {
+	return pulumix.Output[DeliveryStreamDynamicPartitioningConfiguration]{
+		OutputState: i.ToDeliveryStreamDynamicPartitioningConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamDynamicPartitioningConfigurationArgs) ToDeliveryStreamDynamicPartitioningConfigurationPtrOutput() DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
 	return i.ToDeliveryStreamDynamicPartitioningConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2372,6 +2691,12 @@ func (i *deliveryStreamDynamicPartitioningConfigurationPtrType) ToDeliveryStream
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDynamicPartitioningConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamDynamicPartitioningConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamDynamicPartitioningConfiguration] {
+	return pulumix.Output[*DeliveryStreamDynamicPartitioningConfiguration]{
+		OutputState: i.ToDeliveryStreamDynamicPartitioningConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamDynamicPartitioningConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamDynamicPartitioningConfigurationOutput) ElementType() reflect.Type {
@@ -2396,6 +2721,12 @@ func (o DeliveryStreamDynamicPartitioningConfigurationOutput) ToDeliveryStreamDy
 	}).(DeliveryStreamDynamicPartitioningConfigurationPtrOutput)
 }
 
+func (o DeliveryStreamDynamicPartitioningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamDynamicPartitioningConfiguration] {
+	return pulumix.Output[DeliveryStreamDynamicPartitioningConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamDynamicPartitioningConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamDynamicPartitioningConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -2418,6 +2749,12 @@ func (o DeliveryStreamDynamicPartitioningConfigurationPtrOutput) ToDeliveryStrea
 
 func (o DeliveryStreamDynamicPartitioningConfigurationPtrOutput) ToDeliveryStreamDynamicPartitioningConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamDynamicPartitioningConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamDynamicPartitioningConfiguration] {
+	return pulumix.Output[*DeliveryStreamDynamicPartitioningConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamDynamicPartitioningConfigurationPtrOutput) Elem() DeliveryStreamDynamicPartitioningConfigurationOutput {
@@ -2481,6 +2818,12 @@ func (i DeliveryStreamElasticsearchBufferingHintsArgs) ToDeliveryStreamElasticse
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamElasticsearchBufferingHintsOutput)
 }
 
+func (i DeliveryStreamElasticsearchBufferingHintsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamElasticsearchBufferingHints] {
+	return pulumix.Output[DeliveryStreamElasticsearchBufferingHints]{
+		OutputState: i.ToDeliveryStreamElasticsearchBufferingHintsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamElasticsearchBufferingHintsArgs) ToDeliveryStreamElasticsearchBufferingHintsPtrOutput() DeliveryStreamElasticsearchBufferingHintsPtrOutput {
 	return i.ToDeliveryStreamElasticsearchBufferingHintsPtrOutputWithContext(context.Background())
 }
@@ -2522,6 +2865,12 @@ func (i *deliveryStreamElasticsearchBufferingHintsPtrType) ToDeliveryStreamElast
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamElasticsearchBufferingHintsPtrOutput)
 }
 
+func (i *deliveryStreamElasticsearchBufferingHintsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchBufferingHints] {
+	return pulumix.Output[*DeliveryStreamElasticsearchBufferingHints]{
+		OutputState: i.ToDeliveryStreamElasticsearchBufferingHintsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamElasticsearchBufferingHintsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamElasticsearchBufferingHintsOutput) ElementType() reflect.Type {
@@ -2546,6 +2895,12 @@ func (o DeliveryStreamElasticsearchBufferingHintsOutput) ToDeliveryStreamElastic
 	}).(DeliveryStreamElasticsearchBufferingHintsPtrOutput)
 }
 
+func (o DeliveryStreamElasticsearchBufferingHintsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamElasticsearchBufferingHints] {
+	return pulumix.Output[DeliveryStreamElasticsearchBufferingHints]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamElasticsearchBufferingHintsOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamElasticsearchBufferingHints) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -2566,6 +2921,12 @@ func (o DeliveryStreamElasticsearchBufferingHintsPtrOutput) ToDeliveryStreamElas
 
 func (o DeliveryStreamElasticsearchBufferingHintsPtrOutput) ToDeliveryStreamElasticsearchBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamElasticsearchBufferingHintsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamElasticsearchBufferingHintsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchBufferingHints] {
+	return pulumix.Output[*DeliveryStreamElasticsearchBufferingHints]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamElasticsearchBufferingHintsPtrOutput) Elem() DeliveryStreamElasticsearchBufferingHintsOutput {
@@ -2653,6 +3014,12 @@ func (i DeliveryStreamElasticsearchDestinationConfigurationArgs) ToDeliveryStrea
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamElasticsearchDestinationConfigurationOutput)
 }
 
+func (i DeliveryStreamElasticsearchDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamElasticsearchDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamElasticsearchDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamElasticsearchDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamElasticsearchDestinationConfigurationArgs) ToDeliveryStreamElasticsearchDestinationConfigurationPtrOutput() DeliveryStreamElasticsearchDestinationConfigurationPtrOutput {
 	return i.ToDeliveryStreamElasticsearchDestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2694,6 +3061,12 @@ func (i *deliveryStreamElasticsearchDestinationConfigurationPtrType) ToDeliveryS
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamElasticsearchDestinationConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamElasticsearchDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamElasticsearchDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamElasticsearchDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamElasticsearchDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamElasticsearchDestinationConfigurationOutput) ElementType() reflect.Type {
@@ -2716,6 +3089,12 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) ToDeliveryStr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamElasticsearchDestinationConfiguration {
 		return &v
 	}).(DeliveryStreamElasticsearchDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamElasticsearchDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamElasticsearchDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) BufferingHints() DeliveryStreamElasticsearchBufferingHintsPtrOutput {
@@ -2804,6 +3183,12 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) ToDelivery
 
 func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) ToDeliveryStreamElasticsearchDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamElasticsearchDestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamElasticsearchDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) Elem() DeliveryStreamElasticsearchDestinationConfigurationOutput {
@@ -2973,6 +3358,12 @@ func (i DeliveryStreamElasticsearchRetryOptionsArgs) ToDeliveryStreamElasticsear
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamElasticsearchRetryOptionsOutput)
 }
 
+func (i DeliveryStreamElasticsearchRetryOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamElasticsearchRetryOptions] {
+	return pulumix.Output[DeliveryStreamElasticsearchRetryOptions]{
+		OutputState: i.ToDeliveryStreamElasticsearchRetryOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamElasticsearchRetryOptionsArgs) ToDeliveryStreamElasticsearchRetryOptionsPtrOutput() DeliveryStreamElasticsearchRetryOptionsPtrOutput {
 	return i.ToDeliveryStreamElasticsearchRetryOptionsPtrOutputWithContext(context.Background())
 }
@@ -3014,6 +3405,12 @@ func (i *deliveryStreamElasticsearchRetryOptionsPtrType) ToDeliveryStreamElastic
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamElasticsearchRetryOptionsPtrOutput)
 }
 
+func (i *deliveryStreamElasticsearchRetryOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchRetryOptions] {
+	return pulumix.Output[*DeliveryStreamElasticsearchRetryOptions]{
+		OutputState: i.ToDeliveryStreamElasticsearchRetryOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamElasticsearchRetryOptionsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamElasticsearchRetryOptionsOutput) ElementType() reflect.Type {
@@ -3038,6 +3435,12 @@ func (o DeliveryStreamElasticsearchRetryOptionsOutput) ToDeliveryStreamElasticse
 	}).(DeliveryStreamElasticsearchRetryOptionsPtrOutput)
 }
 
+func (o DeliveryStreamElasticsearchRetryOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamElasticsearchRetryOptions] {
+	return pulumix.Output[DeliveryStreamElasticsearchRetryOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamElasticsearchRetryOptionsOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamElasticsearchRetryOptions) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -3054,6 +3457,12 @@ func (o DeliveryStreamElasticsearchRetryOptionsPtrOutput) ToDeliveryStreamElasti
 
 func (o DeliveryStreamElasticsearchRetryOptionsPtrOutput) ToDeliveryStreamElasticsearchRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamElasticsearchRetryOptionsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamElasticsearchRetryOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchRetryOptions] {
+	return pulumix.Output[*DeliveryStreamElasticsearchRetryOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamElasticsearchRetryOptionsPtrOutput) Elem() DeliveryStreamElasticsearchRetryOptionsOutput {
@@ -3108,6 +3517,12 @@ func (i DeliveryStreamEncryptionConfigurationArgs) ToDeliveryStreamEncryptionCon
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamEncryptionConfigurationOutput)
 }
 
+func (i DeliveryStreamEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamEncryptionConfiguration] {
+	return pulumix.Output[DeliveryStreamEncryptionConfiguration]{
+		OutputState: i.ToDeliveryStreamEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamEncryptionConfigurationArgs) ToDeliveryStreamEncryptionConfigurationPtrOutput() DeliveryStreamEncryptionConfigurationPtrOutput {
 	return i.ToDeliveryStreamEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3149,6 +3564,12 @@ func (i *deliveryStreamEncryptionConfigurationPtrType) ToDeliveryStreamEncryptio
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamEncryptionConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamEncryptionConfiguration] {
+	return pulumix.Output[*DeliveryStreamEncryptionConfiguration]{
+		OutputState: i.ToDeliveryStreamEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -3171,6 +3592,12 @@ func (o DeliveryStreamEncryptionConfigurationOutput) ToDeliveryStreamEncryptionC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamEncryptionConfiguration) *DeliveryStreamEncryptionConfiguration {
 		return &v
 	}).(DeliveryStreamEncryptionConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamEncryptionConfiguration] {
+	return pulumix.Output[DeliveryStreamEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamEncryptionConfigurationOutput) KmsEncryptionConfig() DeliveryStreamKmsEncryptionConfigPtrOutput {
@@ -3197,6 +3624,12 @@ func (o DeliveryStreamEncryptionConfigurationPtrOutput) ToDeliveryStreamEncrypti
 
 func (o DeliveryStreamEncryptionConfigurationPtrOutput) ToDeliveryStreamEncryptionConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamEncryptionConfiguration] {
+	return pulumix.Output[*DeliveryStreamEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamEncryptionConfigurationPtrOutput) Elem() DeliveryStreamEncryptionConfigurationOutput {
@@ -3260,6 +3693,12 @@ func (i DeliveryStreamEncryptionConfigurationInputTypeArgs) ToDeliveryStreamEncr
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamEncryptionConfigurationInputTypeOutput)
 }
 
+func (i DeliveryStreamEncryptionConfigurationInputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamEncryptionConfigurationInputType] {
+	return pulumix.Output[DeliveryStreamEncryptionConfigurationInputType]{
+		OutputState: i.ToDeliveryStreamEncryptionConfigurationInputTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamEncryptionConfigurationInputTypeArgs) ToDeliveryStreamEncryptionConfigurationInputTypePtrOutput() DeliveryStreamEncryptionConfigurationInputTypePtrOutput {
 	return i.ToDeliveryStreamEncryptionConfigurationInputTypePtrOutputWithContext(context.Background())
 }
@@ -3301,6 +3740,12 @@ func (i *deliveryStreamEncryptionConfigurationInputTypePtrType) ToDeliveryStream
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamEncryptionConfigurationInputTypePtrOutput)
 }
 
+func (i *deliveryStreamEncryptionConfigurationInputTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamEncryptionConfigurationInputType] {
+	return pulumix.Output[*DeliveryStreamEncryptionConfigurationInputType]{
+		OutputState: i.ToDeliveryStreamEncryptionConfigurationInputTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamEncryptionConfigurationInputTypeOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamEncryptionConfigurationInputTypeOutput) ElementType() reflect.Type {
@@ -3325,6 +3770,12 @@ func (o DeliveryStreamEncryptionConfigurationInputTypeOutput) ToDeliveryStreamEn
 	}).(DeliveryStreamEncryptionConfigurationInputTypePtrOutput)
 }
 
+func (o DeliveryStreamEncryptionConfigurationInputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamEncryptionConfigurationInputType] {
+	return pulumix.Output[DeliveryStreamEncryptionConfigurationInputType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamEncryptionConfigurationInputTypeOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamEncryptionConfigurationInputType) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
@@ -3347,6 +3798,12 @@ func (o DeliveryStreamEncryptionConfigurationInputTypePtrOutput) ToDeliveryStrea
 
 func (o DeliveryStreamEncryptionConfigurationInputTypePtrOutput) ToDeliveryStreamEncryptionConfigurationInputTypePtrOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationInputTypePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamEncryptionConfigurationInputType] {
+	return pulumix.Output[*DeliveryStreamEncryptionConfigurationInputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamEncryptionConfigurationInputTypePtrOutput) Elem() DeliveryStreamEncryptionConfigurationInputTypeOutput {
@@ -3432,6 +3889,12 @@ func (i DeliveryStreamExtendedS3DestinationConfigurationArgs) ToDeliveryStreamEx
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamExtendedS3DestinationConfigurationOutput)
 }
 
+func (i DeliveryStreamExtendedS3DestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamExtendedS3DestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamExtendedS3DestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamExtendedS3DestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamExtendedS3DestinationConfigurationArgs) ToDeliveryStreamExtendedS3DestinationConfigurationPtrOutput() DeliveryStreamExtendedS3DestinationConfigurationPtrOutput {
 	return i.ToDeliveryStreamExtendedS3DestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3473,6 +3936,12 @@ func (i *deliveryStreamExtendedS3DestinationConfigurationPtrType) ToDeliveryStre
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamExtendedS3DestinationConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamExtendedS3DestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamExtendedS3DestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamExtendedS3DestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamExtendedS3DestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamExtendedS3DestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamExtendedS3DestinationConfigurationOutput) ElementType() reflect.Type {
@@ -3495,6 +3964,12 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) ToDeliveryStream
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamExtendedS3DestinationConfiguration {
 		return &v
 	}).(DeliveryStreamExtendedS3DestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamExtendedS3DestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamExtendedS3DestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) BucketArn() pulumi.StringOutput {
@@ -3579,6 +4054,12 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) ToDeliveryStr
 
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) ToDeliveryStreamExtendedS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamExtendedS3DestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamExtendedS3DestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamExtendedS3DestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) Elem() DeliveryStreamExtendedS3DestinationConfigurationOutput {
@@ -3739,6 +4220,12 @@ func (i DeliveryStreamHiveJsonSerDeArgs) ToDeliveryStreamHiveJsonSerDeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHiveJsonSerDeOutput)
 }
 
+func (i DeliveryStreamHiveJsonSerDeArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamHiveJsonSerDe] {
+	return pulumix.Output[DeliveryStreamHiveJsonSerDe]{
+		OutputState: i.ToDeliveryStreamHiveJsonSerDeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamHiveJsonSerDeArgs) ToDeliveryStreamHiveJsonSerDePtrOutput() DeliveryStreamHiveJsonSerDePtrOutput {
 	return i.ToDeliveryStreamHiveJsonSerDePtrOutputWithContext(context.Background())
 }
@@ -3780,6 +4267,12 @@ func (i *deliveryStreamHiveJsonSerDePtrType) ToDeliveryStreamHiveJsonSerDePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHiveJsonSerDePtrOutput)
 }
 
+func (i *deliveryStreamHiveJsonSerDePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamHiveJsonSerDe] {
+	return pulumix.Output[*DeliveryStreamHiveJsonSerDe]{
+		OutputState: i.ToDeliveryStreamHiveJsonSerDePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamHiveJsonSerDeOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamHiveJsonSerDeOutput) ElementType() reflect.Type {
@@ -3804,6 +4297,12 @@ func (o DeliveryStreamHiveJsonSerDeOutput) ToDeliveryStreamHiveJsonSerDePtrOutpu
 	}).(DeliveryStreamHiveJsonSerDePtrOutput)
 }
 
+func (o DeliveryStreamHiveJsonSerDeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamHiveJsonSerDe] {
+	return pulumix.Output[DeliveryStreamHiveJsonSerDe]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamHiveJsonSerDeOutput) TimestampFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeliveryStreamHiveJsonSerDe) []string { return v.TimestampFormats }).(pulumi.StringArrayOutput)
 }
@@ -3820,6 +4319,12 @@ func (o DeliveryStreamHiveJsonSerDePtrOutput) ToDeliveryStreamHiveJsonSerDePtrOu
 
 func (o DeliveryStreamHiveJsonSerDePtrOutput) ToDeliveryStreamHiveJsonSerDePtrOutputWithContext(ctx context.Context) DeliveryStreamHiveJsonSerDePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamHiveJsonSerDePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamHiveJsonSerDe] {
+	return pulumix.Output[*DeliveryStreamHiveJsonSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamHiveJsonSerDePtrOutput) Elem() DeliveryStreamHiveJsonSerDeOutput {
@@ -3874,6 +4379,12 @@ func (i DeliveryStreamHttpEndpointCommonAttributeArgs) ToDeliveryStreamHttpEndpo
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointCommonAttributeOutput)
 }
 
+func (i DeliveryStreamHttpEndpointCommonAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamHttpEndpointCommonAttribute] {
+	return pulumix.Output[DeliveryStreamHttpEndpointCommonAttribute]{
+		OutputState: i.ToDeliveryStreamHttpEndpointCommonAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeliveryStreamHttpEndpointCommonAttributeArrayInput is an input type that accepts DeliveryStreamHttpEndpointCommonAttributeArray and DeliveryStreamHttpEndpointCommonAttributeArrayOutput values.
 // You can construct a concrete instance of `DeliveryStreamHttpEndpointCommonAttributeArrayInput` via:
 //
@@ -3899,6 +4410,12 @@ func (i DeliveryStreamHttpEndpointCommonAttributeArray) ToDeliveryStreamHttpEndp
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointCommonAttributeArrayOutput)
 }
 
+func (i DeliveryStreamHttpEndpointCommonAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryStreamHttpEndpointCommonAttribute] {
+	return pulumix.Output[[]DeliveryStreamHttpEndpointCommonAttribute]{
+		OutputState: i.ToDeliveryStreamHttpEndpointCommonAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamHttpEndpointCommonAttributeOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamHttpEndpointCommonAttributeOutput) ElementType() reflect.Type {
@@ -3911,6 +4428,12 @@ func (o DeliveryStreamHttpEndpointCommonAttributeOutput) ToDeliveryStreamHttpEnd
 
 func (o DeliveryStreamHttpEndpointCommonAttributeOutput) ToDeliveryStreamHttpEndpointCommonAttributeOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointCommonAttributeOutput {
 	return o
+}
+
+func (o DeliveryStreamHttpEndpointCommonAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamHttpEndpointCommonAttribute] {
+	return pulumix.Output[DeliveryStreamHttpEndpointCommonAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamHttpEndpointCommonAttributeOutput) AttributeName() pulumi.StringOutput {
@@ -3933,6 +4456,12 @@ func (o DeliveryStreamHttpEndpointCommonAttributeArrayOutput) ToDeliveryStreamHt
 
 func (o DeliveryStreamHttpEndpointCommonAttributeArrayOutput) ToDeliveryStreamHttpEndpointCommonAttributeArrayOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointCommonAttributeArrayOutput {
 	return o
+}
+
+func (o DeliveryStreamHttpEndpointCommonAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryStreamHttpEndpointCommonAttribute] {
+	return pulumix.Output[[]DeliveryStreamHttpEndpointCommonAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamHttpEndpointCommonAttributeArrayOutput) Index(i pulumi.IntInput) DeliveryStreamHttpEndpointCommonAttributeOutput {
@@ -3976,6 +4505,12 @@ func (i DeliveryStreamHttpEndpointConfigurationArgs) ToDeliveryStreamHttpEndpoin
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointConfigurationOutput)
 }
 
+func (i DeliveryStreamHttpEndpointConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamHttpEndpointConfiguration] {
+	return pulumix.Output[DeliveryStreamHttpEndpointConfiguration]{
+		OutputState: i.ToDeliveryStreamHttpEndpointConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamHttpEndpointConfigurationArgs) ToDeliveryStreamHttpEndpointConfigurationPtrOutput() DeliveryStreamHttpEndpointConfigurationPtrOutput {
 	return i.ToDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4017,6 +4552,12 @@ func (i *deliveryStreamHttpEndpointConfigurationPtrType) ToDeliveryStreamHttpEnd
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamHttpEndpointConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamHttpEndpointConfiguration] {
+	return pulumix.Output[*DeliveryStreamHttpEndpointConfiguration]{
+		OutputState: i.ToDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamHttpEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamHttpEndpointConfigurationOutput) ElementType() reflect.Type {
@@ -4039,6 +4580,12 @@ func (o DeliveryStreamHttpEndpointConfigurationOutput) ToDeliveryStreamHttpEndpo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamHttpEndpointConfiguration) *DeliveryStreamHttpEndpointConfiguration {
 		return &v
 	}).(DeliveryStreamHttpEndpointConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamHttpEndpointConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamHttpEndpointConfiguration] {
+	return pulumix.Output[DeliveryStreamHttpEndpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamHttpEndpointConfigurationOutput) AccessKey() pulumi.StringPtrOutput {
@@ -4065,6 +4612,12 @@ func (o DeliveryStreamHttpEndpointConfigurationPtrOutput) ToDeliveryStreamHttpEn
 
 func (o DeliveryStreamHttpEndpointConfigurationPtrOutput) ToDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamHttpEndpointConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamHttpEndpointConfiguration] {
+	return pulumix.Output[*DeliveryStreamHttpEndpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamHttpEndpointConfigurationPtrOutput) Elem() DeliveryStreamHttpEndpointConfigurationOutput {
@@ -4151,6 +4704,12 @@ func (i DeliveryStreamHttpEndpointDestinationConfigurationArgs) ToDeliveryStream
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointDestinationConfigurationOutput)
 }
 
+func (i DeliveryStreamHttpEndpointDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamHttpEndpointDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamHttpEndpointDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamHttpEndpointDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamHttpEndpointDestinationConfigurationArgs) ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutput() DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
 	return i.ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4192,6 +4751,12 @@ func (i *deliveryStreamHttpEndpointDestinationConfigurationPtrType) ToDeliverySt
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamHttpEndpointDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamHttpEndpointDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamHttpEndpointDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamHttpEndpointDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamHttpEndpointDestinationConfigurationOutput) ElementType() reflect.Type {
@@ -4214,6 +4779,12 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) ToDeliveryStre
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamHttpEndpointDestinationConfiguration {
 		return &v
 	}).(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamHttpEndpointDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamHttpEndpointDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
@@ -4278,6 +4849,12 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) ToDeliveryS
 
 func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) ToDeliveryStreamHttpEndpointDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamHttpEndpointDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamHttpEndpointDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) Elem() DeliveryStreamHttpEndpointDestinationConfigurationOutput {
@@ -4404,6 +4981,12 @@ func (i DeliveryStreamHttpEndpointRequestConfigurationArgs) ToDeliveryStreamHttp
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointRequestConfigurationOutput)
 }
 
+func (i DeliveryStreamHttpEndpointRequestConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamHttpEndpointRequestConfiguration] {
+	return pulumix.Output[DeliveryStreamHttpEndpointRequestConfiguration]{
+		OutputState: i.ToDeliveryStreamHttpEndpointRequestConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamHttpEndpointRequestConfigurationArgs) ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutput() DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
 	return i.ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4445,6 +5028,12 @@ func (i *deliveryStreamHttpEndpointRequestConfigurationPtrType) ToDeliveryStream
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamHttpEndpointRequestConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamHttpEndpointRequestConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamHttpEndpointRequestConfiguration] {
+	return pulumix.Output[*DeliveryStreamHttpEndpointRequestConfiguration]{
+		OutputState: i.ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamHttpEndpointRequestConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamHttpEndpointRequestConfigurationOutput) ElementType() reflect.Type {
@@ -4467,6 +5056,12 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) ToDeliveryStreamHt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamHttpEndpointRequestConfiguration) *DeliveryStreamHttpEndpointRequestConfiguration {
 		return &v
 	}).(DeliveryStreamHttpEndpointRequestConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamHttpEndpointRequestConfiguration] {
+	return pulumix.Output[DeliveryStreamHttpEndpointRequestConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) CommonAttributes() DeliveryStreamHttpEndpointCommonAttributeArrayOutput {
@@ -4493,6 +5088,12 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ToDeliveryStrea
 
 func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ToDeliveryStreamHttpEndpointRequestConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamHttpEndpointRequestConfiguration] {
+	return pulumix.Output[*DeliveryStreamHttpEndpointRequestConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) Elem() DeliveryStreamHttpEndpointRequestConfigurationOutput {
@@ -4554,6 +5155,12 @@ func (i DeliveryStreamInputFormatConfigurationArgs) ToDeliveryStreamInputFormatC
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamInputFormatConfigurationOutput)
 }
 
+func (i DeliveryStreamInputFormatConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamInputFormatConfiguration] {
+	return pulumix.Output[DeliveryStreamInputFormatConfiguration]{
+		OutputState: i.ToDeliveryStreamInputFormatConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamInputFormatConfigurationArgs) ToDeliveryStreamInputFormatConfigurationPtrOutput() DeliveryStreamInputFormatConfigurationPtrOutput {
 	return i.ToDeliveryStreamInputFormatConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4595,6 +5202,12 @@ func (i *deliveryStreamInputFormatConfigurationPtrType) ToDeliveryStreamInputFor
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamInputFormatConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamInputFormatConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamInputFormatConfiguration] {
+	return pulumix.Output[*DeliveryStreamInputFormatConfiguration]{
+		OutputState: i.ToDeliveryStreamInputFormatConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamInputFormatConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamInputFormatConfigurationOutput) ElementType() reflect.Type {
@@ -4619,6 +5232,12 @@ func (o DeliveryStreamInputFormatConfigurationOutput) ToDeliveryStreamInputForma
 	}).(DeliveryStreamInputFormatConfigurationPtrOutput)
 }
 
+func (o DeliveryStreamInputFormatConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamInputFormatConfiguration] {
+	return pulumix.Output[DeliveryStreamInputFormatConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamInputFormatConfigurationOutput) Deserializer() DeliveryStreamDeserializerPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamInputFormatConfiguration) *DeliveryStreamDeserializer { return v.Deserializer }).(DeliveryStreamDeserializerPtrOutput)
 }
@@ -4635,6 +5254,12 @@ func (o DeliveryStreamInputFormatConfigurationPtrOutput) ToDeliveryStreamInputFo
 
 func (o DeliveryStreamInputFormatConfigurationPtrOutput) ToDeliveryStreamInputFormatConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamInputFormatConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamInputFormatConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamInputFormatConfiguration] {
+	return pulumix.Output[*DeliveryStreamInputFormatConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamInputFormatConfigurationPtrOutput) Elem() DeliveryStreamInputFormatConfigurationOutput {
@@ -4689,6 +5314,12 @@ func (i DeliveryStreamKinesisStreamSourceConfigurationArgs) ToDeliveryStreamKine
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamKinesisStreamSourceConfigurationOutput)
 }
 
+func (i DeliveryStreamKinesisStreamSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamKinesisStreamSourceConfiguration] {
+	return pulumix.Output[DeliveryStreamKinesisStreamSourceConfiguration]{
+		OutputState: i.ToDeliveryStreamKinesisStreamSourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamKinesisStreamSourceConfigurationArgs) ToDeliveryStreamKinesisStreamSourceConfigurationPtrOutput() DeliveryStreamKinesisStreamSourceConfigurationPtrOutput {
 	return i.ToDeliveryStreamKinesisStreamSourceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4730,6 +5361,12 @@ func (i *deliveryStreamKinesisStreamSourceConfigurationPtrType) ToDeliveryStream
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamKinesisStreamSourceConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamKinesisStreamSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamKinesisStreamSourceConfiguration] {
+	return pulumix.Output[*DeliveryStreamKinesisStreamSourceConfiguration]{
+		OutputState: i.ToDeliveryStreamKinesisStreamSourceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamKinesisStreamSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamKinesisStreamSourceConfigurationOutput) ElementType() reflect.Type {
@@ -4754,6 +5391,12 @@ func (o DeliveryStreamKinesisStreamSourceConfigurationOutput) ToDeliveryStreamKi
 	}).(DeliveryStreamKinesisStreamSourceConfigurationPtrOutput)
 }
 
+func (o DeliveryStreamKinesisStreamSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamKinesisStreamSourceConfiguration] {
+	return pulumix.Output[DeliveryStreamKinesisStreamSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamKinesisStreamSourceConfigurationOutput) KinesisStreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryStreamKinesisStreamSourceConfiguration) string { return v.KinesisStreamArn }).(pulumi.StringOutput)
 }
@@ -4774,6 +5417,12 @@ func (o DeliveryStreamKinesisStreamSourceConfigurationPtrOutput) ToDeliveryStrea
 
 func (o DeliveryStreamKinesisStreamSourceConfigurationPtrOutput) ToDeliveryStreamKinesisStreamSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamKinesisStreamSourceConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamKinesisStreamSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamKinesisStreamSourceConfiguration] {
+	return pulumix.Output[*DeliveryStreamKinesisStreamSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamKinesisStreamSourceConfigurationPtrOutput) Elem() DeliveryStreamKinesisStreamSourceConfigurationOutput {
@@ -4835,6 +5484,12 @@ func (i DeliveryStreamKmsEncryptionConfigArgs) ToDeliveryStreamKmsEncryptionConf
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamKmsEncryptionConfigOutput)
 }
 
+func (i DeliveryStreamKmsEncryptionConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamKmsEncryptionConfig] {
+	return pulumix.Output[DeliveryStreamKmsEncryptionConfig]{
+		OutputState: i.ToDeliveryStreamKmsEncryptionConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamKmsEncryptionConfigArgs) ToDeliveryStreamKmsEncryptionConfigPtrOutput() DeliveryStreamKmsEncryptionConfigPtrOutput {
 	return i.ToDeliveryStreamKmsEncryptionConfigPtrOutputWithContext(context.Background())
 }
@@ -4876,6 +5531,12 @@ func (i *deliveryStreamKmsEncryptionConfigPtrType) ToDeliveryStreamKmsEncryption
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamKmsEncryptionConfigPtrOutput)
 }
 
+func (i *deliveryStreamKmsEncryptionConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamKmsEncryptionConfig] {
+	return pulumix.Output[*DeliveryStreamKmsEncryptionConfig]{
+		OutputState: i.ToDeliveryStreamKmsEncryptionConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamKmsEncryptionConfigOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamKmsEncryptionConfigOutput) ElementType() reflect.Type {
@@ -4900,6 +5561,12 @@ func (o DeliveryStreamKmsEncryptionConfigOutput) ToDeliveryStreamKmsEncryptionCo
 	}).(DeliveryStreamKmsEncryptionConfigPtrOutput)
 }
 
+func (o DeliveryStreamKmsEncryptionConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamKmsEncryptionConfig] {
+	return pulumix.Output[DeliveryStreamKmsEncryptionConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamKmsEncryptionConfigOutput) AwskmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryStreamKmsEncryptionConfig) string { return v.AwskmsKeyArn }).(pulumi.StringOutput)
 }
@@ -4916,6 +5583,12 @@ func (o DeliveryStreamKmsEncryptionConfigPtrOutput) ToDeliveryStreamKmsEncryptio
 
 func (o DeliveryStreamKmsEncryptionConfigPtrOutput) ToDeliveryStreamKmsEncryptionConfigPtrOutputWithContext(ctx context.Context) DeliveryStreamKmsEncryptionConfigPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamKmsEncryptionConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamKmsEncryptionConfig] {
+	return pulumix.Output[*DeliveryStreamKmsEncryptionConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamKmsEncryptionConfigPtrOutput) Elem() DeliveryStreamKmsEncryptionConfigOutput {
@@ -4972,6 +5645,12 @@ func (i DeliveryStreamMskSourceConfigurationArgs) ToDeliveryStreamMskSourceConfi
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamMskSourceConfigurationOutput)
 }
 
+func (i DeliveryStreamMskSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamMskSourceConfiguration] {
+	return pulumix.Output[DeliveryStreamMskSourceConfiguration]{
+		OutputState: i.ToDeliveryStreamMskSourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamMskSourceConfigurationArgs) ToDeliveryStreamMskSourceConfigurationPtrOutput() DeliveryStreamMskSourceConfigurationPtrOutput {
 	return i.ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -5013,6 +5692,12 @@ func (i *deliveryStreamMskSourceConfigurationPtrType) ToDeliveryStreamMskSourceC
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamMskSourceConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamMskSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamMskSourceConfiguration] {
+	return pulumix.Output[*DeliveryStreamMskSourceConfiguration]{
+		OutputState: i.ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamMskSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamMskSourceConfigurationOutput) ElementType() reflect.Type {
@@ -5035,6 +5720,12 @@ func (o DeliveryStreamMskSourceConfigurationOutput) ToDeliveryStreamMskSourceCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamMskSourceConfiguration) *DeliveryStreamMskSourceConfiguration {
 		return &v
 	}).(DeliveryStreamMskSourceConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamMskSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamMskSourceConfiguration] {
+	return pulumix.Output[DeliveryStreamMskSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamMskSourceConfigurationOutput) AuthenticationConfiguration() DeliveryStreamAuthenticationConfigurationOutput {
@@ -5063,6 +5754,12 @@ func (o DeliveryStreamMskSourceConfigurationPtrOutput) ToDeliveryStreamMskSource
 
 func (o DeliveryStreamMskSourceConfigurationPtrOutput) ToDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamMskSourceConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamMskSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamMskSourceConfiguration] {
+	return pulumix.Output[*DeliveryStreamMskSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamMskSourceConfigurationPtrOutput) Elem() DeliveryStreamMskSourceConfigurationOutput {
@@ -5137,6 +5834,12 @@ func (i DeliveryStreamOpenXJsonSerDeArgs) ToDeliveryStreamOpenXJsonSerDeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamOpenXJsonSerDeOutput)
 }
 
+func (i DeliveryStreamOpenXJsonSerDeArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamOpenXJsonSerDe] {
+	return pulumix.Output[DeliveryStreamOpenXJsonSerDe]{
+		OutputState: i.ToDeliveryStreamOpenXJsonSerDeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamOpenXJsonSerDeArgs) ToDeliveryStreamOpenXJsonSerDePtrOutput() DeliveryStreamOpenXJsonSerDePtrOutput {
 	return i.ToDeliveryStreamOpenXJsonSerDePtrOutputWithContext(context.Background())
 }
@@ -5178,6 +5881,12 @@ func (i *deliveryStreamOpenXJsonSerDePtrType) ToDeliveryStreamOpenXJsonSerDePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamOpenXJsonSerDePtrOutput)
 }
 
+func (i *deliveryStreamOpenXJsonSerDePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamOpenXJsonSerDe] {
+	return pulumix.Output[*DeliveryStreamOpenXJsonSerDe]{
+		OutputState: i.ToDeliveryStreamOpenXJsonSerDePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamOpenXJsonSerDeOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamOpenXJsonSerDeOutput) ElementType() reflect.Type {
@@ -5200,6 +5909,12 @@ func (o DeliveryStreamOpenXJsonSerDeOutput) ToDeliveryStreamOpenXJsonSerDePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamOpenXJsonSerDe) *DeliveryStreamOpenXJsonSerDe {
 		return &v
 	}).(DeliveryStreamOpenXJsonSerDePtrOutput)
+}
+
+func (o DeliveryStreamOpenXJsonSerDeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamOpenXJsonSerDe] {
+	return pulumix.Output[DeliveryStreamOpenXJsonSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamOpenXJsonSerDeOutput) CaseInsensitive() pulumi.BoolPtrOutput {
@@ -5226,6 +5941,12 @@ func (o DeliveryStreamOpenXJsonSerDePtrOutput) ToDeliveryStreamOpenXJsonSerDePtr
 
 func (o DeliveryStreamOpenXJsonSerDePtrOutput) ToDeliveryStreamOpenXJsonSerDePtrOutputWithContext(ctx context.Context) DeliveryStreamOpenXJsonSerDePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamOpenXJsonSerDePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamOpenXJsonSerDe] {
+	return pulumix.Output[*DeliveryStreamOpenXJsonSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamOpenXJsonSerDePtrOutput) Elem() DeliveryStreamOpenXJsonSerDeOutput {
@@ -5314,6 +6035,12 @@ func (i DeliveryStreamOrcSerDeArgs) ToDeliveryStreamOrcSerDeOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamOrcSerDeOutput)
 }
 
+func (i DeliveryStreamOrcSerDeArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamOrcSerDe] {
+	return pulumix.Output[DeliveryStreamOrcSerDe]{
+		OutputState: i.ToDeliveryStreamOrcSerDeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamOrcSerDeArgs) ToDeliveryStreamOrcSerDePtrOutput() DeliveryStreamOrcSerDePtrOutput {
 	return i.ToDeliveryStreamOrcSerDePtrOutputWithContext(context.Background())
 }
@@ -5355,6 +6082,12 @@ func (i *deliveryStreamOrcSerDePtrType) ToDeliveryStreamOrcSerDePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamOrcSerDePtrOutput)
 }
 
+func (i *deliveryStreamOrcSerDePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamOrcSerDe] {
+	return pulumix.Output[*DeliveryStreamOrcSerDe]{
+		OutputState: i.ToDeliveryStreamOrcSerDePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamOrcSerDeOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamOrcSerDeOutput) ElementType() reflect.Type {
@@ -5377,6 +6110,12 @@ func (o DeliveryStreamOrcSerDeOutput) ToDeliveryStreamOrcSerDePtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamOrcSerDe) *DeliveryStreamOrcSerDe {
 		return &v
 	}).(DeliveryStreamOrcSerDePtrOutput)
+}
+
+func (o DeliveryStreamOrcSerDeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamOrcSerDe] {
+	return pulumix.Output[DeliveryStreamOrcSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamOrcSerDeOutput) BlockSizeBytes() pulumi.IntPtrOutput {
@@ -5431,6 +6170,12 @@ func (o DeliveryStreamOrcSerDePtrOutput) ToDeliveryStreamOrcSerDePtrOutput() Del
 
 func (o DeliveryStreamOrcSerDePtrOutput) ToDeliveryStreamOrcSerDePtrOutputWithContext(ctx context.Context) DeliveryStreamOrcSerDePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamOrcSerDePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamOrcSerDe] {
+	return pulumix.Output[*DeliveryStreamOrcSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamOrcSerDePtrOutput) Elem() DeliveryStreamOrcSerDeOutput {
@@ -5564,6 +6309,12 @@ func (i DeliveryStreamOutputFormatConfigurationArgs) ToDeliveryStreamOutputForma
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamOutputFormatConfigurationOutput)
 }
 
+func (i DeliveryStreamOutputFormatConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamOutputFormatConfiguration] {
+	return pulumix.Output[DeliveryStreamOutputFormatConfiguration]{
+		OutputState: i.ToDeliveryStreamOutputFormatConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamOutputFormatConfigurationArgs) ToDeliveryStreamOutputFormatConfigurationPtrOutput() DeliveryStreamOutputFormatConfigurationPtrOutput {
 	return i.ToDeliveryStreamOutputFormatConfigurationPtrOutputWithContext(context.Background())
 }
@@ -5605,6 +6356,12 @@ func (i *deliveryStreamOutputFormatConfigurationPtrType) ToDeliveryStreamOutputF
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamOutputFormatConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamOutputFormatConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamOutputFormatConfiguration] {
+	return pulumix.Output[*DeliveryStreamOutputFormatConfiguration]{
+		OutputState: i.ToDeliveryStreamOutputFormatConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamOutputFormatConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamOutputFormatConfigurationOutput) ElementType() reflect.Type {
@@ -5629,6 +6386,12 @@ func (o DeliveryStreamOutputFormatConfigurationOutput) ToDeliveryStreamOutputFor
 	}).(DeliveryStreamOutputFormatConfigurationPtrOutput)
 }
 
+func (o DeliveryStreamOutputFormatConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamOutputFormatConfiguration] {
+	return pulumix.Output[DeliveryStreamOutputFormatConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamOutputFormatConfigurationOutput) Serializer() DeliveryStreamSerializerPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamOutputFormatConfiguration) *DeliveryStreamSerializer { return v.Serializer }).(DeliveryStreamSerializerPtrOutput)
 }
@@ -5645,6 +6408,12 @@ func (o DeliveryStreamOutputFormatConfigurationPtrOutput) ToDeliveryStreamOutput
 
 func (o DeliveryStreamOutputFormatConfigurationPtrOutput) ToDeliveryStreamOutputFormatConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamOutputFormatConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamOutputFormatConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamOutputFormatConfiguration] {
+	return pulumix.Output[*DeliveryStreamOutputFormatConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamOutputFormatConfigurationPtrOutput) Elem() DeliveryStreamOutputFormatConfigurationOutput {
@@ -5707,6 +6476,12 @@ func (i DeliveryStreamParquetSerDeArgs) ToDeliveryStreamParquetSerDeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamParquetSerDeOutput)
 }
 
+func (i DeliveryStreamParquetSerDeArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamParquetSerDe] {
+	return pulumix.Output[DeliveryStreamParquetSerDe]{
+		OutputState: i.ToDeliveryStreamParquetSerDeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamParquetSerDeArgs) ToDeliveryStreamParquetSerDePtrOutput() DeliveryStreamParquetSerDePtrOutput {
 	return i.ToDeliveryStreamParquetSerDePtrOutputWithContext(context.Background())
 }
@@ -5748,6 +6523,12 @@ func (i *deliveryStreamParquetSerDePtrType) ToDeliveryStreamParquetSerDePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamParquetSerDePtrOutput)
 }
 
+func (i *deliveryStreamParquetSerDePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamParquetSerDe] {
+	return pulumix.Output[*DeliveryStreamParquetSerDe]{
+		OutputState: i.ToDeliveryStreamParquetSerDePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamParquetSerDeOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamParquetSerDeOutput) ElementType() reflect.Type {
@@ -5770,6 +6551,12 @@ func (o DeliveryStreamParquetSerDeOutput) ToDeliveryStreamParquetSerDePtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamParquetSerDe) *DeliveryStreamParquetSerDe {
 		return &v
 	}).(DeliveryStreamParquetSerDePtrOutput)
+}
+
+func (o DeliveryStreamParquetSerDeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamParquetSerDe] {
+	return pulumix.Output[DeliveryStreamParquetSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamParquetSerDeOutput) BlockSizeBytes() pulumi.IntPtrOutput {
@@ -5808,6 +6595,12 @@ func (o DeliveryStreamParquetSerDePtrOutput) ToDeliveryStreamParquetSerDePtrOutp
 
 func (o DeliveryStreamParquetSerDePtrOutput) ToDeliveryStreamParquetSerDePtrOutputWithContext(ctx context.Context) DeliveryStreamParquetSerDePtrOutput {
 	return o
+}
+
+func (o DeliveryStreamParquetSerDePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamParquetSerDe] {
+	return pulumix.Output[*DeliveryStreamParquetSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamParquetSerDePtrOutput) Elem() DeliveryStreamParquetSerDeOutput {
@@ -5907,6 +6700,12 @@ func (i DeliveryStreamProcessingConfigurationArgs) ToDeliveryStreamProcessingCon
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamProcessingConfigurationOutput)
 }
 
+func (i DeliveryStreamProcessingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamProcessingConfiguration] {
+	return pulumix.Output[DeliveryStreamProcessingConfiguration]{
+		OutputState: i.ToDeliveryStreamProcessingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamProcessingConfigurationArgs) ToDeliveryStreamProcessingConfigurationPtrOutput() DeliveryStreamProcessingConfigurationPtrOutput {
 	return i.ToDeliveryStreamProcessingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -5948,6 +6747,12 @@ func (i *deliveryStreamProcessingConfigurationPtrType) ToDeliveryStreamProcessin
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamProcessingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamProcessingConfiguration] {
+	return pulumix.Output[*DeliveryStreamProcessingConfiguration]{
+		OutputState: i.ToDeliveryStreamProcessingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamProcessingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamProcessingConfigurationOutput) ElementType() reflect.Type {
@@ -5972,6 +6777,12 @@ func (o DeliveryStreamProcessingConfigurationOutput) ToDeliveryStreamProcessingC
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
+func (o DeliveryStreamProcessingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamProcessingConfiguration] {
+	return pulumix.Output[DeliveryStreamProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamProcessingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamProcessingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -5992,6 +6803,12 @@ func (o DeliveryStreamProcessingConfigurationPtrOutput) ToDeliveryStreamProcessi
 
 func (o DeliveryStreamProcessingConfigurationPtrOutput) ToDeliveryStreamProcessingConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamProcessingConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamProcessingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamProcessingConfiguration] {
+	return pulumix.Output[*DeliveryStreamProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamProcessingConfigurationPtrOutput) Elem() DeliveryStreamProcessingConfigurationOutput {
@@ -6055,6 +6872,12 @@ func (i DeliveryStreamProcessorArgs) ToDeliveryStreamProcessorOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamProcessorOutput)
 }
 
+func (i DeliveryStreamProcessorArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamProcessor] {
+	return pulumix.Output[DeliveryStreamProcessor]{
+		OutputState: i.ToDeliveryStreamProcessorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeliveryStreamProcessorArrayInput is an input type that accepts DeliveryStreamProcessorArray and DeliveryStreamProcessorArrayOutput values.
 // You can construct a concrete instance of `DeliveryStreamProcessorArrayInput` via:
 //
@@ -6080,6 +6903,12 @@ func (i DeliveryStreamProcessorArray) ToDeliveryStreamProcessorArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamProcessorArrayOutput)
 }
 
+func (i DeliveryStreamProcessorArray) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryStreamProcessor] {
+	return pulumix.Output[[]DeliveryStreamProcessor]{
+		OutputState: i.ToDeliveryStreamProcessorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamProcessorOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamProcessorOutput) ElementType() reflect.Type {
@@ -6092,6 +6921,12 @@ func (o DeliveryStreamProcessorOutput) ToDeliveryStreamProcessorOutput() Deliver
 
 func (o DeliveryStreamProcessorOutput) ToDeliveryStreamProcessorOutputWithContext(ctx context.Context) DeliveryStreamProcessorOutput {
 	return o
+}
+
+func (o DeliveryStreamProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamProcessor] {
+	return pulumix.Output[DeliveryStreamProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamProcessorOutput) Parameters() DeliveryStreamProcessorParameterArrayOutput {
@@ -6114,6 +6949,12 @@ func (o DeliveryStreamProcessorArrayOutput) ToDeliveryStreamProcessorArrayOutput
 
 func (o DeliveryStreamProcessorArrayOutput) ToDeliveryStreamProcessorArrayOutputWithContext(ctx context.Context) DeliveryStreamProcessorArrayOutput {
 	return o
+}
+
+func (o DeliveryStreamProcessorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryStreamProcessor] {
+	return pulumix.Output[[]DeliveryStreamProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamProcessorArrayOutput) Index(i pulumi.IntInput) DeliveryStreamProcessorOutput {
@@ -6155,6 +6996,12 @@ func (i DeliveryStreamProcessorParameterArgs) ToDeliveryStreamProcessorParameter
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamProcessorParameterOutput)
 }
 
+func (i DeliveryStreamProcessorParameterArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamProcessorParameter] {
+	return pulumix.Output[DeliveryStreamProcessorParameter]{
+		OutputState: i.ToDeliveryStreamProcessorParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeliveryStreamProcessorParameterArrayInput is an input type that accepts DeliveryStreamProcessorParameterArray and DeliveryStreamProcessorParameterArrayOutput values.
 // You can construct a concrete instance of `DeliveryStreamProcessorParameterArrayInput` via:
 //
@@ -6180,6 +7027,12 @@ func (i DeliveryStreamProcessorParameterArray) ToDeliveryStreamProcessorParamete
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamProcessorParameterArrayOutput)
 }
 
+func (i DeliveryStreamProcessorParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryStreamProcessorParameter] {
+	return pulumix.Output[[]DeliveryStreamProcessorParameter]{
+		OutputState: i.ToDeliveryStreamProcessorParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamProcessorParameterOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamProcessorParameterOutput) ElementType() reflect.Type {
@@ -6192,6 +7045,12 @@ func (o DeliveryStreamProcessorParameterOutput) ToDeliveryStreamProcessorParamet
 
 func (o DeliveryStreamProcessorParameterOutput) ToDeliveryStreamProcessorParameterOutputWithContext(ctx context.Context) DeliveryStreamProcessorParameterOutput {
 	return o
+}
+
+func (o DeliveryStreamProcessorParameterOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamProcessorParameter] {
+	return pulumix.Output[DeliveryStreamProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamProcessorParameterOutput) ParameterName() pulumi.StringOutput {
@@ -6214,6 +7073,12 @@ func (o DeliveryStreamProcessorParameterArrayOutput) ToDeliveryStreamProcessorPa
 
 func (o DeliveryStreamProcessorParameterArrayOutput) ToDeliveryStreamProcessorParameterArrayOutputWithContext(ctx context.Context) DeliveryStreamProcessorParameterArrayOutput {
 	return o
+}
+
+func (o DeliveryStreamProcessorParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryStreamProcessorParameter] {
+	return pulumix.Output[[]DeliveryStreamProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamProcessorParameterArrayOutput) Index(i pulumi.IntInput) DeliveryStreamProcessorParameterOutput {
@@ -6273,6 +7138,12 @@ func (i DeliveryStreamRedshiftDestinationConfigurationArgs) ToDeliveryStreamReds
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamRedshiftDestinationConfigurationOutput)
 }
 
+func (i DeliveryStreamRedshiftDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamRedshiftDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamRedshiftDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamRedshiftDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamRedshiftDestinationConfigurationArgs) ToDeliveryStreamRedshiftDestinationConfigurationPtrOutput() DeliveryStreamRedshiftDestinationConfigurationPtrOutput {
 	return i.ToDeliveryStreamRedshiftDestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6314,6 +7185,12 @@ func (i *deliveryStreamRedshiftDestinationConfigurationPtrType) ToDeliveryStream
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamRedshiftDestinationConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamRedshiftDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamRedshiftDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamRedshiftDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamRedshiftDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamRedshiftDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamRedshiftDestinationConfigurationOutput) ElementType() reflect.Type {
@@ -6336,6 +7213,12 @@ func (o DeliveryStreamRedshiftDestinationConfigurationOutput) ToDeliveryStreamRe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamRedshiftDestinationConfiguration {
 		return &v
 	}).(DeliveryStreamRedshiftDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamRedshiftDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamRedshiftDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamRedshiftDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamRedshiftDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
@@ -6406,6 +7289,12 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) ToDeliveryStrea
 
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) ToDeliveryStreamRedshiftDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamRedshiftDestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamRedshiftDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamRedshiftDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) Elem() DeliveryStreamRedshiftDestinationConfigurationOutput {
@@ -6548,6 +7437,12 @@ func (i DeliveryStreamRedshiftRetryOptionsArgs) ToDeliveryStreamRedshiftRetryOpt
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamRedshiftRetryOptionsOutput)
 }
 
+func (i DeliveryStreamRedshiftRetryOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamRedshiftRetryOptions] {
+	return pulumix.Output[DeliveryStreamRedshiftRetryOptions]{
+		OutputState: i.ToDeliveryStreamRedshiftRetryOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamRedshiftRetryOptionsArgs) ToDeliveryStreamRedshiftRetryOptionsPtrOutput() DeliveryStreamRedshiftRetryOptionsPtrOutput {
 	return i.ToDeliveryStreamRedshiftRetryOptionsPtrOutputWithContext(context.Background())
 }
@@ -6589,6 +7484,12 @@ func (i *deliveryStreamRedshiftRetryOptionsPtrType) ToDeliveryStreamRedshiftRetr
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamRedshiftRetryOptionsPtrOutput)
 }
 
+func (i *deliveryStreamRedshiftRetryOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamRedshiftRetryOptions] {
+	return pulumix.Output[*DeliveryStreamRedshiftRetryOptions]{
+		OutputState: i.ToDeliveryStreamRedshiftRetryOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamRedshiftRetryOptionsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamRedshiftRetryOptionsOutput) ElementType() reflect.Type {
@@ -6613,6 +7514,12 @@ func (o DeliveryStreamRedshiftRetryOptionsOutput) ToDeliveryStreamRedshiftRetryO
 	}).(DeliveryStreamRedshiftRetryOptionsPtrOutput)
 }
 
+func (o DeliveryStreamRedshiftRetryOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamRedshiftRetryOptions] {
+	return pulumix.Output[DeliveryStreamRedshiftRetryOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamRedshiftRetryOptionsOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamRedshiftRetryOptions) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -6629,6 +7536,12 @@ func (o DeliveryStreamRedshiftRetryOptionsPtrOutput) ToDeliveryStreamRedshiftRet
 
 func (o DeliveryStreamRedshiftRetryOptionsPtrOutput) ToDeliveryStreamRedshiftRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamRedshiftRetryOptionsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamRedshiftRetryOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamRedshiftRetryOptions] {
+	return pulumix.Output[*DeliveryStreamRedshiftRetryOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamRedshiftRetryOptionsPtrOutput) Elem() DeliveryStreamRedshiftRetryOptionsOutput {
@@ -6681,6 +7594,12 @@ func (i DeliveryStreamRetryOptionsArgs) ToDeliveryStreamRetryOptionsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamRetryOptionsOutput)
 }
 
+func (i DeliveryStreamRetryOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamRetryOptions] {
+	return pulumix.Output[DeliveryStreamRetryOptions]{
+		OutputState: i.ToDeliveryStreamRetryOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamRetryOptionsArgs) ToDeliveryStreamRetryOptionsPtrOutput() DeliveryStreamRetryOptionsPtrOutput {
 	return i.ToDeliveryStreamRetryOptionsPtrOutputWithContext(context.Background())
 }
@@ -6722,6 +7641,12 @@ func (i *deliveryStreamRetryOptionsPtrType) ToDeliveryStreamRetryOptionsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamRetryOptionsPtrOutput)
 }
 
+func (i *deliveryStreamRetryOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamRetryOptions] {
+	return pulumix.Output[*DeliveryStreamRetryOptions]{
+		OutputState: i.ToDeliveryStreamRetryOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamRetryOptionsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamRetryOptionsOutput) ElementType() reflect.Type {
@@ -6746,6 +7671,12 @@ func (o DeliveryStreamRetryOptionsOutput) ToDeliveryStreamRetryOptionsPtrOutputW
 	}).(DeliveryStreamRetryOptionsPtrOutput)
 }
 
+func (o DeliveryStreamRetryOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamRetryOptions] {
+	return pulumix.Output[DeliveryStreamRetryOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamRetryOptionsOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamRetryOptions) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -6762,6 +7693,12 @@ func (o DeliveryStreamRetryOptionsPtrOutput) ToDeliveryStreamRetryOptionsPtrOutp
 
 func (o DeliveryStreamRetryOptionsPtrOutput) ToDeliveryStreamRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamRetryOptionsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamRetryOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamRetryOptions] {
+	return pulumix.Output[*DeliveryStreamRetryOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamRetryOptionsPtrOutput) Elem() DeliveryStreamRetryOptionsOutput {
@@ -6828,6 +7765,12 @@ func (i DeliveryStreamS3DestinationConfigurationArgs) ToDeliveryStreamS3Destinat
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamS3DestinationConfigurationOutput)
 }
 
+func (i DeliveryStreamS3DestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamS3DestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamS3DestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamS3DestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamS3DestinationConfigurationArgs) ToDeliveryStreamS3DestinationConfigurationPtrOutput() DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return i.ToDeliveryStreamS3DestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6869,6 +7812,12 @@ func (i *deliveryStreamS3DestinationConfigurationPtrType) ToDeliveryStreamS3Dest
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamS3DestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamS3DestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamS3DestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamS3DestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamS3DestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamS3DestinationConfigurationOutput) ElementType() reflect.Type {
@@ -6891,6 +7840,12 @@ func (o DeliveryStreamS3DestinationConfigurationOutput) ToDeliveryStreamS3Destin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamS3DestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
 		return &v
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamS3DestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamS3DestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamS3DestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamS3DestinationConfigurationOutput) BucketArn() pulumi.StringOutput {
@@ -6945,6 +7900,12 @@ func (o DeliveryStreamS3DestinationConfigurationPtrOutput) ToDeliveryStreamS3Des
 
 func (o DeliveryStreamS3DestinationConfigurationPtrOutput) ToDeliveryStreamS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamS3DestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamS3DestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamS3DestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamS3DestinationConfigurationPtrOutput) Elem() DeliveryStreamS3DestinationConfigurationOutput {
@@ -7070,6 +8031,12 @@ func (i DeliveryStreamSchemaConfigurationArgs) ToDeliveryStreamSchemaConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSchemaConfigurationOutput)
 }
 
+func (i DeliveryStreamSchemaConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSchemaConfiguration] {
+	return pulumix.Output[DeliveryStreamSchemaConfiguration]{
+		OutputState: i.ToDeliveryStreamSchemaConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamSchemaConfigurationArgs) ToDeliveryStreamSchemaConfigurationPtrOutput() DeliveryStreamSchemaConfigurationPtrOutput {
 	return i.ToDeliveryStreamSchemaConfigurationPtrOutputWithContext(context.Background())
 }
@@ -7111,6 +8078,12 @@ func (i *deliveryStreamSchemaConfigurationPtrType) ToDeliveryStreamSchemaConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSchemaConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamSchemaConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSchemaConfiguration] {
+	return pulumix.Output[*DeliveryStreamSchemaConfiguration]{
+		OutputState: i.ToDeliveryStreamSchemaConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamSchemaConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamSchemaConfigurationOutput) ElementType() reflect.Type {
@@ -7133,6 +8106,12 @@ func (o DeliveryStreamSchemaConfigurationOutput) ToDeliveryStreamSchemaConfigura
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSchemaConfiguration) *DeliveryStreamSchemaConfiguration {
 		return &v
 	}).(DeliveryStreamSchemaConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSchemaConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSchemaConfiguration] {
+	return pulumix.Output[DeliveryStreamSchemaConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSchemaConfigurationOutput) CatalogId() pulumi.StringPtrOutput {
@@ -7171,6 +8150,12 @@ func (o DeliveryStreamSchemaConfigurationPtrOutput) ToDeliveryStreamSchemaConfig
 
 func (o DeliveryStreamSchemaConfigurationPtrOutput) ToDeliveryStreamSchemaConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSchemaConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamSchemaConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSchemaConfiguration] {
+	return pulumix.Output[*DeliveryStreamSchemaConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSchemaConfigurationPtrOutput) Elem() DeliveryStreamSchemaConfigurationOutput {
@@ -7270,6 +8255,12 @@ func (i DeliveryStreamSerializerArgs) ToDeliveryStreamSerializerOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSerializerOutput)
 }
 
+func (i DeliveryStreamSerializerArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSerializer] {
+	return pulumix.Output[DeliveryStreamSerializer]{
+		OutputState: i.ToDeliveryStreamSerializerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamSerializerArgs) ToDeliveryStreamSerializerPtrOutput() DeliveryStreamSerializerPtrOutput {
 	return i.ToDeliveryStreamSerializerPtrOutputWithContext(context.Background())
 }
@@ -7311,6 +8302,12 @@ func (i *deliveryStreamSerializerPtrType) ToDeliveryStreamSerializerPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSerializerPtrOutput)
 }
 
+func (i *deliveryStreamSerializerPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSerializer] {
+	return pulumix.Output[*DeliveryStreamSerializer]{
+		OutputState: i.ToDeliveryStreamSerializerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamSerializerOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamSerializerOutput) ElementType() reflect.Type {
@@ -7335,6 +8332,12 @@ func (o DeliveryStreamSerializerOutput) ToDeliveryStreamSerializerPtrOutputWithC
 	}).(DeliveryStreamSerializerPtrOutput)
 }
 
+func (o DeliveryStreamSerializerOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSerializer] {
+	return pulumix.Output[DeliveryStreamSerializer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamSerializerOutput) OrcSerDe() DeliveryStreamOrcSerDePtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSerializer) *DeliveryStreamOrcSerDe { return v.OrcSerDe }).(DeliveryStreamOrcSerDePtrOutput)
 }
@@ -7355,6 +8358,12 @@ func (o DeliveryStreamSerializerPtrOutput) ToDeliveryStreamSerializerPtrOutput()
 
 func (o DeliveryStreamSerializerPtrOutput) ToDeliveryStreamSerializerPtrOutputWithContext(ctx context.Context) DeliveryStreamSerializerPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamSerializerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSerializer] {
+	return pulumix.Output[*DeliveryStreamSerializer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSerializerPtrOutput) Elem() DeliveryStreamSerializerOutput {
@@ -7450,6 +8459,12 @@ func (i DeliveryStreamSnowflakeDestinationConfigurationArgs) ToDeliveryStreamSno
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeDestinationConfigurationOutput)
 }
 
+func (i DeliveryStreamSnowflakeDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamSnowflakeDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamSnowflakeDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamSnowflakeDestinationConfigurationArgs) ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutput() DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
 	return i.ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -7491,6 +8506,12 @@ func (i *deliveryStreamSnowflakeDestinationConfigurationPtrType) ToDeliveryStrea
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeDestinationConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamSnowflakeDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamSnowflakeDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamSnowflakeDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamSnowflakeDestinationConfigurationOutput) ElementType() reflect.Type {
@@ -7513,6 +8534,12 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ToDeliveryStreamS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeDestinationConfiguration {
 		return &v
 	}).(DeliveryStreamSnowflakeDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamSnowflakeDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) AccountUrl() pulumi.StringOutput {
@@ -7615,6 +8642,12 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ToDeliveryStre
 
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ToDeliveryStreamSnowflakeDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamSnowflakeDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) Elem() DeliveryStreamSnowflakeDestinationConfigurationOutput {
@@ -7820,6 +8853,12 @@ func (i DeliveryStreamSnowflakeRetryOptionsArgs) ToDeliveryStreamSnowflakeRetryO
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeRetryOptionsOutput)
 }
 
+func (i DeliveryStreamSnowflakeRetryOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeRetryOptions] {
+	return pulumix.Output[DeliveryStreamSnowflakeRetryOptions]{
+		OutputState: i.ToDeliveryStreamSnowflakeRetryOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamSnowflakeRetryOptionsArgs) ToDeliveryStreamSnowflakeRetryOptionsPtrOutput() DeliveryStreamSnowflakeRetryOptionsPtrOutput {
 	return i.ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(context.Background())
 }
@@ -7861,6 +8900,12 @@ func (i *deliveryStreamSnowflakeRetryOptionsPtrType) ToDeliveryStreamSnowflakeRe
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeRetryOptionsPtrOutput)
 }
 
+func (i *deliveryStreamSnowflakeRetryOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeRetryOptions] {
+	return pulumix.Output[*DeliveryStreamSnowflakeRetryOptions]{
+		OutputState: i.ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamSnowflakeRetryOptionsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamSnowflakeRetryOptionsOutput) ElementType() reflect.Type {
@@ -7885,6 +8930,12 @@ func (o DeliveryStreamSnowflakeRetryOptionsOutput) ToDeliveryStreamSnowflakeRetr
 	}).(DeliveryStreamSnowflakeRetryOptionsPtrOutput)
 }
 
+func (o DeliveryStreamSnowflakeRetryOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeRetryOptions] {
+	return pulumix.Output[DeliveryStreamSnowflakeRetryOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamSnowflakeRetryOptionsOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeRetryOptions) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -7901,6 +8952,12 @@ func (o DeliveryStreamSnowflakeRetryOptionsPtrOutput) ToDeliveryStreamSnowflakeR
 
 func (o DeliveryStreamSnowflakeRetryOptionsPtrOutput) ToDeliveryStreamSnowflakeRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRetryOptionsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamSnowflakeRetryOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeRetryOptions] {
+	return pulumix.Output[*DeliveryStreamSnowflakeRetryOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSnowflakeRetryOptionsPtrOutput) Elem() DeliveryStreamSnowflakeRetryOptionsOutput {
@@ -7955,6 +9012,12 @@ func (i DeliveryStreamSnowflakeRoleConfigurationArgs) ToDeliveryStreamSnowflakeR
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeRoleConfigurationOutput)
 }
 
+func (i DeliveryStreamSnowflakeRoleConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeRoleConfiguration] {
+	return pulumix.Output[DeliveryStreamSnowflakeRoleConfiguration]{
+		OutputState: i.ToDeliveryStreamSnowflakeRoleConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamSnowflakeRoleConfigurationArgs) ToDeliveryStreamSnowflakeRoleConfigurationPtrOutput() DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
 	return i.ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(context.Background())
 }
@@ -7996,6 +9059,12 @@ func (i *deliveryStreamSnowflakeRoleConfigurationPtrType) ToDeliveryStreamSnowfl
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeRoleConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamSnowflakeRoleConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeRoleConfiguration] {
+	return pulumix.Output[*DeliveryStreamSnowflakeRoleConfiguration]{
+		OutputState: i.ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamSnowflakeRoleConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamSnowflakeRoleConfigurationOutput) ElementType() reflect.Type {
@@ -8020,6 +9089,12 @@ func (o DeliveryStreamSnowflakeRoleConfigurationOutput) ToDeliveryStreamSnowflak
 	}).(DeliveryStreamSnowflakeRoleConfigurationPtrOutput)
 }
 
+func (o DeliveryStreamSnowflakeRoleConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeRoleConfiguration] {
+	return pulumix.Output[DeliveryStreamSnowflakeRoleConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamSnowflakeRoleConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeRoleConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -8040,6 +9115,12 @@ func (o DeliveryStreamSnowflakeRoleConfigurationPtrOutput) ToDeliveryStreamSnowf
 
 func (o DeliveryStreamSnowflakeRoleConfigurationPtrOutput) ToDeliveryStreamSnowflakeRoleConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeRoleConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamSnowflakeRoleConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeRoleConfiguration] {
+	return pulumix.Output[*DeliveryStreamSnowflakeRoleConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSnowflakeRoleConfigurationPtrOutput) Elem() DeliveryStreamSnowflakeRoleConfigurationOutput {
@@ -8101,6 +9182,12 @@ func (i DeliveryStreamSnowflakeVpcConfigurationArgs) ToDeliveryStreamSnowflakeVp
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeVpcConfigurationOutput)
 }
 
+func (i DeliveryStreamSnowflakeVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeVpcConfiguration] {
+	return pulumix.Output[DeliveryStreamSnowflakeVpcConfiguration]{
+		OutputState: i.ToDeliveryStreamSnowflakeVpcConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamSnowflakeVpcConfigurationArgs) ToDeliveryStreamSnowflakeVpcConfigurationPtrOutput() DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
 	return i.ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(context.Background())
 }
@@ -8142,6 +9229,12 @@ func (i *deliveryStreamSnowflakeVpcConfigurationPtrType) ToDeliveryStreamSnowfla
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSnowflakeVpcConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamSnowflakeVpcConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeVpcConfiguration] {
+	return pulumix.Output[*DeliveryStreamSnowflakeVpcConfiguration]{
+		OutputState: i.ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamSnowflakeVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamSnowflakeVpcConfigurationOutput) ElementType() reflect.Type {
@@ -8166,6 +9259,12 @@ func (o DeliveryStreamSnowflakeVpcConfigurationOutput) ToDeliveryStreamSnowflake
 	}).(DeliveryStreamSnowflakeVpcConfigurationPtrOutput)
 }
 
+func (o DeliveryStreamSnowflakeVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeVpcConfiguration] {
+	return pulumix.Output[DeliveryStreamSnowflakeVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamSnowflakeVpcConfigurationOutput) PrivateLinkVpceId() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeVpcConfiguration) string { return v.PrivateLinkVpceId }).(pulumi.StringOutput)
 }
@@ -8182,6 +9281,12 @@ func (o DeliveryStreamSnowflakeVpcConfigurationPtrOutput) ToDeliveryStreamSnowfl
 
 func (o DeliveryStreamSnowflakeVpcConfigurationPtrOutput) ToDeliveryStreamSnowflakeVpcConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamSnowflakeVpcConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeVpcConfiguration] {
+	return pulumix.Output[*DeliveryStreamSnowflakeVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSnowflakeVpcConfigurationPtrOutput) Elem() DeliveryStreamSnowflakeVpcConfigurationOutput {
@@ -8236,6 +9341,12 @@ func (i DeliveryStreamSplunkBufferingHintsArgs) ToDeliveryStreamSplunkBufferingH
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSplunkBufferingHintsOutput)
 }
 
+func (i DeliveryStreamSplunkBufferingHintsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSplunkBufferingHints] {
+	return pulumix.Output[DeliveryStreamSplunkBufferingHints]{
+		OutputState: i.ToDeliveryStreamSplunkBufferingHintsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamSplunkBufferingHintsArgs) ToDeliveryStreamSplunkBufferingHintsPtrOutput() DeliveryStreamSplunkBufferingHintsPtrOutput {
 	return i.ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(context.Background())
 }
@@ -8277,6 +9388,12 @@ func (i *deliveryStreamSplunkBufferingHintsPtrType) ToDeliveryStreamSplunkBuffer
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSplunkBufferingHintsPtrOutput)
 }
 
+func (i *deliveryStreamSplunkBufferingHintsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSplunkBufferingHints] {
+	return pulumix.Output[*DeliveryStreamSplunkBufferingHints]{
+		OutputState: i.ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamSplunkBufferingHintsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamSplunkBufferingHintsOutput) ElementType() reflect.Type {
@@ -8301,6 +9418,12 @@ func (o DeliveryStreamSplunkBufferingHintsOutput) ToDeliveryStreamSplunkBufferin
 	}).(DeliveryStreamSplunkBufferingHintsPtrOutput)
 }
 
+func (o DeliveryStreamSplunkBufferingHintsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSplunkBufferingHints] {
+	return pulumix.Output[DeliveryStreamSplunkBufferingHints]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamSplunkBufferingHintsOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSplunkBufferingHints) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -8321,6 +9444,12 @@ func (o DeliveryStreamSplunkBufferingHintsPtrOutput) ToDeliveryStreamSplunkBuffe
 
 func (o DeliveryStreamSplunkBufferingHintsPtrOutput) ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkBufferingHintsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamSplunkBufferingHintsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSplunkBufferingHints] {
+	return pulumix.Output[*DeliveryStreamSplunkBufferingHints]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSplunkBufferingHintsPtrOutput) Elem() DeliveryStreamSplunkBufferingHintsOutput {
@@ -8400,6 +9529,12 @@ func (i DeliveryStreamSplunkDestinationConfigurationArgs) ToDeliveryStreamSplunk
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSplunkDestinationConfigurationOutput)
 }
 
+func (i DeliveryStreamSplunkDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSplunkDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamSplunkDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamSplunkDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamSplunkDestinationConfigurationArgs) ToDeliveryStreamSplunkDestinationConfigurationPtrOutput() DeliveryStreamSplunkDestinationConfigurationPtrOutput {
 	return i.ToDeliveryStreamSplunkDestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -8441,6 +9576,12 @@ func (i *deliveryStreamSplunkDestinationConfigurationPtrType) ToDeliveryStreamSp
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSplunkDestinationConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamSplunkDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSplunkDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamSplunkDestinationConfiguration]{
+		OutputState: i.ToDeliveryStreamSplunkDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamSplunkDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamSplunkDestinationConfigurationOutput) ElementType() reflect.Type {
@@ -8463,6 +9604,12 @@ func (o DeliveryStreamSplunkDestinationConfigurationOutput) ToDeliveryStreamSplu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamSplunkDestinationConfiguration {
 		return &v
 	}).(DeliveryStreamSplunkDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSplunkDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSplunkDestinationConfiguration] {
+	return pulumix.Output[DeliveryStreamSplunkDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSplunkDestinationConfigurationOutput) BufferingHints() DeliveryStreamSplunkBufferingHintsPtrOutput {
@@ -8529,6 +9676,12 @@ func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) ToDeliveryStreamS
 
 func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) ToDeliveryStreamSplunkDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSplunkDestinationConfiguration] {
+	return pulumix.Output[*DeliveryStreamSplunkDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) Elem() DeliveryStreamSplunkDestinationConfigurationOutput {
@@ -8662,6 +9815,12 @@ func (i DeliveryStreamSplunkRetryOptionsArgs) ToDeliveryStreamSplunkRetryOptions
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSplunkRetryOptionsOutput)
 }
 
+func (i DeliveryStreamSplunkRetryOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSplunkRetryOptions] {
+	return pulumix.Output[DeliveryStreamSplunkRetryOptions]{
+		OutputState: i.ToDeliveryStreamSplunkRetryOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamSplunkRetryOptionsArgs) ToDeliveryStreamSplunkRetryOptionsPtrOutput() DeliveryStreamSplunkRetryOptionsPtrOutput {
 	return i.ToDeliveryStreamSplunkRetryOptionsPtrOutputWithContext(context.Background())
 }
@@ -8703,6 +9862,12 @@ func (i *deliveryStreamSplunkRetryOptionsPtrType) ToDeliveryStreamSplunkRetryOpt
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSplunkRetryOptionsPtrOutput)
 }
 
+func (i *deliveryStreamSplunkRetryOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSplunkRetryOptions] {
+	return pulumix.Output[*DeliveryStreamSplunkRetryOptions]{
+		OutputState: i.ToDeliveryStreamSplunkRetryOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamSplunkRetryOptionsOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamSplunkRetryOptionsOutput) ElementType() reflect.Type {
@@ -8727,6 +9892,12 @@ func (o DeliveryStreamSplunkRetryOptionsOutput) ToDeliveryStreamSplunkRetryOptio
 	}).(DeliveryStreamSplunkRetryOptionsPtrOutput)
 }
 
+func (o DeliveryStreamSplunkRetryOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSplunkRetryOptions] {
+	return pulumix.Output[DeliveryStreamSplunkRetryOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryStreamSplunkRetryOptionsOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSplunkRetryOptions) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -8743,6 +9914,12 @@ func (o DeliveryStreamSplunkRetryOptionsPtrOutput) ToDeliveryStreamSplunkRetryOp
 
 func (o DeliveryStreamSplunkRetryOptionsPtrOutput) ToDeliveryStreamSplunkRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkRetryOptionsPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamSplunkRetryOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSplunkRetryOptions] {
+	return pulumix.Output[*DeliveryStreamSplunkRetryOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamSplunkRetryOptionsPtrOutput) Elem() DeliveryStreamSplunkRetryOptionsOutput {
@@ -8797,6 +9974,12 @@ func (i DeliveryStreamTagArgs) ToDeliveryStreamTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamTagOutput)
 }
 
+func (i DeliveryStreamTagArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamTag] {
+	return pulumix.Output[DeliveryStreamTag]{
+		OutputState: i.ToDeliveryStreamTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeliveryStreamTagArrayInput is an input type that accepts DeliveryStreamTagArray and DeliveryStreamTagArrayOutput values.
 // You can construct a concrete instance of `DeliveryStreamTagArrayInput` via:
 //
@@ -8822,6 +10005,12 @@ func (i DeliveryStreamTagArray) ToDeliveryStreamTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamTagArrayOutput)
 }
 
+func (i DeliveryStreamTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryStreamTag] {
+	return pulumix.Output[[]DeliveryStreamTag]{
+		OutputState: i.ToDeliveryStreamTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamTagOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamTagOutput) ElementType() reflect.Type {
@@ -8834,6 +10023,12 @@ func (o DeliveryStreamTagOutput) ToDeliveryStreamTagOutput() DeliveryStreamTagOu
 
 func (o DeliveryStreamTagOutput) ToDeliveryStreamTagOutputWithContext(ctx context.Context) DeliveryStreamTagOutput {
 	return o
+}
+
+func (o DeliveryStreamTagOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamTag] {
+	return pulumix.Output[DeliveryStreamTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamTagOutput) Key() pulumi.StringOutput {
@@ -8856,6 +10051,12 @@ func (o DeliveryStreamTagArrayOutput) ToDeliveryStreamTagArrayOutput() DeliveryS
 
 func (o DeliveryStreamTagArrayOutput) ToDeliveryStreamTagArrayOutputWithContext(ctx context.Context) DeliveryStreamTagArrayOutput {
 	return o
+}
+
+func (o DeliveryStreamTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryStreamTag] {
+	return pulumix.Output[[]DeliveryStreamTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamTagArrayOutput) Index(i pulumi.IntInput) DeliveryStreamTagOutput {
@@ -8899,6 +10100,12 @@ func (i DeliveryStreamVpcConfigurationArgs) ToDeliveryStreamVpcConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamVpcConfigurationOutput)
 }
 
+func (i DeliveryStreamVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamVpcConfiguration] {
+	return pulumix.Output[DeliveryStreamVpcConfiguration]{
+		OutputState: i.ToDeliveryStreamVpcConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeliveryStreamVpcConfigurationArgs) ToDeliveryStreamVpcConfigurationPtrOutput() DeliveryStreamVpcConfigurationPtrOutput {
 	return i.ToDeliveryStreamVpcConfigurationPtrOutputWithContext(context.Background())
 }
@@ -8940,6 +10147,12 @@ func (i *deliveryStreamVpcConfigurationPtrType) ToDeliveryStreamVpcConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamVpcConfigurationPtrOutput)
 }
 
+func (i *deliveryStreamVpcConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamVpcConfiguration] {
+	return pulumix.Output[*DeliveryStreamVpcConfiguration]{
+		OutputState: i.ToDeliveryStreamVpcConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryStreamVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamVpcConfigurationOutput) ElementType() reflect.Type {
@@ -8962,6 +10175,12 @@ func (o DeliveryStreamVpcConfigurationOutput) ToDeliveryStreamVpcConfigurationPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamVpcConfiguration) *DeliveryStreamVpcConfiguration {
 		return &v
 	}).(DeliveryStreamVpcConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamVpcConfiguration] {
+	return pulumix.Output[DeliveryStreamVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamVpcConfigurationOutput) RoleArn() pulumi.StringOutput {
@@ -8988,6 +10207,12 @@ func (o DeliveryStreamVpcConfigurationPtrOutput) ToDeliveryStreamVpcConfiguratio
 
 func (o DeliveryStreamVpcConfigurationPtrOutput) ToDeliveryStreamVpcConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamVpcConfigurationPtrOutput {
 	return o
+}
+
+func (o DeliveryStreamVpcConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamVpcConfiguration] {
+	return pulumix.Output[*DeliveryStreamVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryStreamVpcConfigurationPtrOutput) Elem() DeliveryStreamVpcConfigurationOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for Metric Stream
@@ -162,6 +163,12 @@ func (i *MetricStream) ToMetricStreamOutputWithContext(ctx context.Context) Metr
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamOutput)
 }
 
+func (i *MetricStream) ToOutput(ctx context.Context) pulumix.Output[*MetricStream] {
+	return pulumix.Output[*MetricStream]{
+		OutputState: i.ToMetricStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricStreamOutput struct{ *pulumi.OutputState }
 
 func (MetricStreamOutput) ElementType() reflect.Type {
@@ -174,6 +181,12 @@ func (o MetricStreamOutput) ToMetricStreamOutput() MetricStreamOutput {
 
 func (o MetricStreamOutput) ToMetricStreamOutputWithContext(ctx context.Context) MetricStreamOutput {
 	return o
+}
+
+func (o MetricStreamOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricStream] {
+	return pulumix.Output[*MetricStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name of the metric stream.

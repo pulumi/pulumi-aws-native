@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::RoutingProfile
@@ -82,6 +83,12 @@ func (o LookupRoutingProfileResultOutput) ToLookupRoutingProfileResultOutput() L
 
 func (o LookupRoutingProfileResultOutput) ToLookupRoutingProfileResultOutputWithContext(ctx context.Context) LookupRoutingProfileResultOutput {
 	return o
+}
+
+func (o LookupRoutingProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRoutingProfileResult] {
+	return pulumix.Output[LookupRoutingProfileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.

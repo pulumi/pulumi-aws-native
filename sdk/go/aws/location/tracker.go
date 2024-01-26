@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Location::Tracker Resource Type
@@ -125,6 +126,12 @@ func (i *Tracker) ToTrackerOutputWithContext(ctx context.Context) TrackerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TrackerOutput)
 }
 
+func (i *Tracker) ToOutput(ctx context.Context) pulumix.Output[*Tracker] {
+	return pulumix.Output[*Tracker]{
+		OutputState: i.ToTrackerOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrackerOutput struct{ *pulumi.OutputState }
 
 func (TrackerOutput) ElementType() reflect.Type {
@@ -137,6 +144,12 @@ func (o TrackerOutput) ToTrackerOutput() TrackerOutput {
 
 func (o TrackerOutput) ToTrackerOutputWithContext(ctx context.Context) TrackerOutput {
 	return o
+}
+
+func (o TrackerOutput) ToOutput(ctx context.Context) pulumix.Output[*Tracker] {
+	return pulumix.Output[*Tracker]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrackerOutput) Arn() pulumi.StringOutput {

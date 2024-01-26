@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::VerifiedAccessTrustProvider type describes a verified access trust provider
@@ -155,6 +156,12 @@ func (i *VerifiedAccessTrustProvider) ToVerifiedAccessTrustProviderOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessTrustProviderOutput)
 }
 
+func (i *VerifiedAccessTrustProvider) ToOutput(ctx context.Context) pulumix.Output[*VerifiedAccessTrustProvider] {
+	return pulumix.Output[*VerifiedAccessTrustProvider]{
+		OutputState: i.ToVerifiedAccessTrustProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VerifiedAccessTrustProviderOutput struct{ *pulumi.OutputState }
 
 func (VerifiedAccessTrustProviderOutput) ElementType() reflect.Type {
@@ -167,6 +174,12 @@ func (o VerifiedAccessTrustProviderOutput) ToVerifiedAccessTrustProviderOutput()
 
 func (o VerifiedAccessTrustProviderOutput) ToVerifiedAccessTrustProviderOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderOutput {
 	return o
+}
+
+func (o VerifiedAccessTrustProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*VerifiedAccessTrustProvider] {
+	return pulumix.Output[*VerifiedAccessTrustProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The creation time.

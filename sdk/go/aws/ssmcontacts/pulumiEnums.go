@@ -80,6 +80,12 @@ func (o ContactChannelChannelTypeOutput) ToContactChannelChannelTypePtrOutputWit
 	}).(ContactChannelChannelTypePtrOutput)
 }
 
+func (o ContactChannelChannelTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContactChannelChannelType] {
+	return pulumix.Output[ContactChannelChannelType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactChannelChannelTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -115,6 +121,12 @@ func (o ContactChannelChannelTypePtrOutput) ToContactChannelChannelTypePtrOutput
 	return o
 }
 
+func (o ContactChannelChannelTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactChannelChannelType] {
+	return pulumix.Output[*ContactChannelChannelType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactChannelChannelTypePtrOutput) Elem() ContactChannelChannelTypeOutput {
 	return o.ApplyT(func(v *ContactChannelChannelType) ContactChannelChannelType {
 		if v != nil {
@@ -139,12 +151,10 @@ func (o ContactChannelChannelTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ContactChannelChannelTypeInput is an input type that accepts values of the ContactChannelChannelType enum
-// A concrete instance of `ContactChannelChannelTypeInput` can be one of the following:
+// ContactChannelChannelTypeInput is an input type that accepts ContactChannelChannelTypeArgs and ContactChannelChannelTypeOutput values.
+// You can construct a concrete instance of `ContactChannelChannelTypeInput` via:
 //
-//	ContactChannelChannelTypeSms
-//	ContactChannelChannelTypeVoice
-//	ContactChannelChannelTypeEmail
+//	ContactChannelChannelTypeArgs{...}
 type ContactChannelChannelTypeInput interface {
 	pulumi.Input
 
@@ -256,6 +266,12 @@ func (o ContactTypeOutput) ToContactTypePtrOutputWithContext(ctx context.Context
 	}).(ContactTypePtrOutput)
 }
 
+func (o ContactTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContactType] {
+	return pulumix.Output[ContactType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -291,6 +307,12 @@ func (o ContactTypePtrOutput) ToContactTypePtrOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ContactTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactType] {
+	return pulumix.Output[*ContactType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactTypePtrOutput) Elem() ContactTypeOutput {
 	return o.ApplyT(func(v *ContactType) ContactType {
 		if v != nil {
@@ -315,14 +337,10 @@ func (o ContactTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ContactTypeInput is an input type that accepts values of the ContactType enum
-// A concrete instance of `ContactTypeInput` can be one of the following:
+// ContactTypeInput is an input type that accepts ContactTypeArgs and ContactTypeOutput values.
+// You can construct a concrete instance of `ContactTypeInput` via:
 //
-//	ContactTypePersonal
-//	ContactTypeCustom
-//	ContactTypeService
-//	ContactTypeEscalation
-//	ContactTypeOncallSchedule
+//	ContactTypeArgs{...}
 type ContactTypeInput interface {
 	pulumi.Input
 
@@ -436,6 +454,12 @@ func (o RotationDayOfWeekOutput) ToRotationDayOfWeekPtrOutputWithContext(ctx con
 	}).(RotationDayOfWeekPtrOutput)
 }
 
+func (o RotationDayOfWeekOutput) ToOutput(ctx context.Context) pulumix.Output[RotationDayOfWeek] {
+	return pulumix.Output[RotationDayOfWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RotationDayOfWeekOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -471,6 +495,12 @@ func (o RotationDayOfWeekPtrOutput) ToRotationDayOfWeekPtrOutputWithContext(ctx 
 	return o
 }
 
+func (o RotationDayOfWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RotationDayOfWeek] {
+	return pulumix.Output[*RotationDayOfWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RotationDayOfWeekPtrOutput) Elem() RotationDayOfWeekOutput {
 	return o.ApplyT(func(v *RotationDayOfWeek) RotationDayOfWeek {
 		if v != nil {
@@ -495,16 +525,10 @@ func (o RotationDayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// RotationDayOfWeekInput is an input type that accepts values of the RotationDayOfWeek enum
-// A concrete instance of `RotationDayOfWeekInput` can be one of the following:
+// RotationDayOfWeekInput is an input type that accepts RotationDayOfWeekArgs and RotationDayOfWeekOutput values.
+// You can construct a concrete instance of `RotationDayOfWeekInput` via:
 //
-//	RotationDayOfWeekMon
-//	RotationDayOfWeekTue
-//	RotationDayOfWeekWed
-//	RotationDayOfWeekThu
-//	RotationDayOfWeekFri
-//	RotationDayOfWeekSat
-//	RotationDayOfWeekSun
+//	RotationDayOfWeekArgs{...}
 type RotationDayOfWeekInput interface {
 	pulumi.Input
 

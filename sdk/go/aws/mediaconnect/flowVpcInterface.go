@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::FlowVpcInterface
@@ -136,6 +137,12 @@ func (i *FlowVpcInterface) ToFlowVpcInterfaceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(FlowVpcInterfaceOutput)
 }
 
+func (i *FlowVpcInterface) ToOutput(ctx context.Context) pulumix.Output[*FlowVpcInterface] {
+	return pulumix.Output[*FlowVpcInterface]{
+		OutputState: i.ToFlowVpcInterfaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlowVpcInterfaceOutput struct{ *pulumi.OutputState }
 
 func (FlowVpcInterfaceOutput) ElementType() reflect.Type {
@@ -148,6 +155,12 @@ func (o FlowVpcInterfaceOutput) ToFlowVpcInterfaceOutput() FlowVpcInterfaceOutpu
 
 func (o FlowVpcInterfaceOutput) ToFlowVpcInterfaceOutputWithContext(ctx context.Context) FlowVpcInterfaceOutput {
 	return o
+}
+
+func (o FlowVpcInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowVpcInterface] {
+	return pulumix.Output[*FlowVpcInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.

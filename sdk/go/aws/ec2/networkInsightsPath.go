@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::EC2::NetworkInsightsPath
@@ -136,6 +137,12 @@ func (i *NetworkInsightsPath) ToNetworkInsightsPathOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathOutput)
 }
 
+func (i *NetworkInsightsPath) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsPath] {
+	return pulumix.Output[*NetworkInsightsPath]{
+		OutputState: i.ToNetworkInsightsPathOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkInsightsPathOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsPathOutput) ElementType() reflect.Type {
@@ -148,6 +155,12 @@ func (o NetworkInsightsPathOutput) ToNetworkInsightsPathOutput() NetworkInsights
 
 func (o NetworkInsightsPathOutput) ToNetworkInsightsPathOutputWithContext(ctx context.Context) NetworkInsightsPathOutput {
 	return o
+}
+
+func (o NetworkInsightsPathOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsPath] {
+	return pulumix.Output[*NetworkInsightsPath]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsPathOutput) CreatedDate() pulumi.StringOutput {

@@ -87,6 +87,12 @@ func (o DataSourceConditionOperatorOutput) ToDataSourceConditionOperatorPtrOutpu
 	}).(DataSourceConditionOperatorPtrOutput)
 }
 
+func (o DataSourceConditionOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConditionOperator] {
+	return pulumix.Output[DataSourceConditionOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConditionOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -122,6 +128,12 @@ func (o DataSourceConditionOperatorPtrOutput) ToDataSourceConditionOperatorPtrOu
 	return o
 }
 
+func (o DataSourceConditionOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConditionOperator] {
+	return pulumix.Output[*DataSourceConditionOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConditionOperatorPtrOutput) Elem() DataSourceConditionOperatorOutput {
 	return o.ApplyT(func(v *DataSourceConditionOperator) DataSourceConditionOperator {
 		if v != nil {
@@ -146,20 +158,10 @@ func (o DataSourceConditionOperatorPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceConditionOperatorInput is an input type that accepts values of the DataSourceConditionOperator enum
-// A concrete instance of `DataSourceConditionOperatorInput` can be one of the following:
+// DataSourceConditionOperatorInput is an input type that accepts DataSourceConditionOperatorArgs and DataSourceConditionOperatorOutput values.
+// You can construct a concrete instance of `DataSourceConditionOperatorInput` via:
 //
-//	DataSourceConditionOperatorGreaterThan
-//	DataSourceConditionOperatorGreaterThanOrEquals
-//	DataSourceConditionOperatorLessThan
-//	DataSourceConditionOperatorLessThanOrEquals
-//	DataSourceConditionOperatorEquals
-//	DataSourceConditionOperatorNotEquals
-//	DataSourceConditionOperatorContains
-//	DataSourceConditionOperatorNotContains
-//	DataSourceConditionOperatorExists
-//	DataSourceConditionOperatorNotExists
-//	DataSourceConditionOperatorBeginsWith
+//	DataSourceConditionOperatorArgs{...}
 type DataSourceConditionOperatorInput interface {
 	pulumi.Input
 
@@ -276,6 +278,12 @@ func (o DataSourceConfluenceAttachmentFieldNameOutput) ToDataSourceConfluenceAtt
 	}).(DataSourceConfluenceAttachmentFieldNamePtrOutput)
 }
 
+func (o DataSourceConfluenceAttachmentFieldNameOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfluenceAttachmentFieldName] {
+	return pulumix.Output[DataSourceConfluenceAttachmentFieldName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluenceAttachmentFieldNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -311,6 +319,12 @@ func (o DataSourceConfluenceAttachmentFieldNamePtrOutput) ToDataSourceConfluence
 	return o
 }
 
+func (o DataSourceConfluenceAttachmentFieldNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluenceAttachmentFieldName] {
+	return pulumix.Output[*DataSourceConfluenceAttachmentFieldName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluenceAttachmentFieldNamePtrOutput) Elem() DataSourceConfluenceAttachmentFieldNameOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceAttachmentFieldName) DataSourceConfluenceAttachmentFieldName {
 		if v != nil {
@@ -335,20 +349,10 @@ func (o DataSourceConfluenceAttachmentFieldNamePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceConfluenceAttachmentFieldNameInput is an input type that accepts values of the DataSourceConfluenceAttachmentFieldName enum
-// A concrete instance of `DataSourceConfluenceAttachmentFieldNameInput` can be one of the following:
+// DataSourceConfluenceAttachmentFieldNameInput is an input type that accepts DataSourceConfluenceAttachmentFieldNameArgs and DataSourceConfluenceAttachmentFieldNameOutput values.
+// You can construct a concrete instance of `DataSourceConfluenceAttachmentFieldNameInput` via:
 //
-//	DataSourceConfluenceAttachmentFieldNameAuthor
-//	DataSourceConfluenceAttachmentFieldNameContentType
-//	DataSourceConfluenceAttachmentFieldNameCreatedDate
-//	DataSourceConfluenceAttachmentFieldNameDisplayUrl
-//	DataSourceConfluenceAttachmentFieldNameFileSize
-//	DataSourceConfluenceAttachmentFieldNameItemType
-//	DataSourceConfluenceAttachmentFieldNameParentId
-//	DataSourceConfluenceAttachmentFieldNameSpaceKey
-//	DataSourceConfluenceAttachmentFieldNameSpaceName
-//	DataSourceConfluenceAttachmentFieldNameUrl
-//	DataSourceConfluenceAttachmentFieldNameVersion
+//	DataSourceConfluenceAttachmentFieldNameArgs{...}
 type DataSourceConfluenceAttachmentFieldNameInput interface {
 	pulumi.Input
 
@@ -463,6 +467,12 @@ func (o DataSourceConfluenceBlogFieldNameOutput) ToDataSourceConfluenceBlogField
 	}).(DataSourceConfluenceBlogFieldNamePtrOutput)
 }
 
+func (o DataSourceConfluenceBlogFieldNameOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfluenceBlogFieldName] {
+	return pulumix.Output[DataSourceConfluenceBlogFieldName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluenceBlogFieldNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -498,6 +508,12 @@ func (o DataSourceConfluenceBlogFieldNamePtrOutput) ToDataSourceConfluenceBlogFi
 	return o
 }
 
+func (o DataSourceConfluenceBlogFieldNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluenceBlogFieldName] {
+	return pulumix.Output[*DataSourceConfluenceBlogFieldName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluenceBlogFieldNamePtrOutput) Elem() DataSourceConfluenceBlogFieldNameOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceBlogFieldName) DataSourceConfluenceBlogFieldName {
 		if v != nil {
@@ -522,18 +538,10 @@ func (o DataSourceConfluenceBlogFieldNamePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceConfluenceBlogFieldNameInput is an input type that accepts values of the DataSourceConfluenceBlogFieldName enum
-// A concrete instance of `DataSourceConfluenceBlogFieldNameInput` can be one of the following:
+// DataSourceConfluenceBlogFieldNameInput is an input type that accepts DataSourceConfluenceBlogFieldNameArgs and DataSourceConfluenceBlogFieldNameOutput values.
+// You can construct a concrete instance of `DataSourceConfluenceBlogFieldNameInput` via:
 //
-//	DataSourceConfluenceBlogFieldNameAuthor
-//	DataSourceConfluenceBlogFieldNameDisplayUrl
-//	DataSourceConfluenceBlogFieldNameItemType
-//	DataSourceConfluenceBlogFieldNameLabels
-//	DataSourceConfluenceBlogFieldNamePublishDate
-//	DataSourceConfluenceBlogFieldNameSpaceKey
-//	DataSourceConfluenceBlogFieldNameSpaceName
-//	DataSourceConfluenceBlogFieldNameUrl
-//	DataSourceConfluenceBlogFieldNameVersion
+//	DataSourceConfluenceBlogFieldNameArgs{...}
 type DataSourceConfluenceBlogFieldNameInput interface {
 	pulumi.Input
 
@@ -651,6 +659,12 @@ func (o DataSourceConfluencePageFieldNameOutput) ToDataSourceConfluencePageField
 	}).(DataSourceConfluencePageFieldNamePtrOutput)
 }
 
+func (o DataSourceConfluencePageFieldNameOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfluencePageFieldName] {
+	return pulumix.Output[DataSourceConfluencePageFieldName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluencePageFieldNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -686,6 +700,12 @@ func (o DataSourceConfluencePageFieldNamePtrOutput) ToDataSourceConfluencePageFi
 	return o
 }
 
+func (o DataSourceConfluencePageFieldNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluencePageFieldName] {
+	return pulumix.Output[*DataSourceConfluencePageFieldName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluencePageFieldNamePtrOutput) Elem() DataSourceConfluencePageFieldNameOutput {
 	return o.ApplyT(func(v *DataSourceConfluencePageFieldName) DataSourceConfluencePageFieldName {
 		if v != nil {
@@ -710,21 +730,10 @@ func (o DataSourceConfluencePageFieldNamePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceConfluencePageFieldNameInput is an input type that accepts values of the DataSourceConfluencePageFieldName enum
-// A concrete instance of `DataSourceConfluencePageFieldNameInput` can be one of the following:
+// DataSourceConfluencePageFieldNameInput is an input type that accepts DataSourceConfluencePageFieldNameArgs and DataSourceConfluencePageFieldNameOutput values.
+// You can construct a concrete instance of `DataSourceConfluencePageFieldNameInput` via:
 //
-//	DataSourceConfluencePageFieldNameAuthor
-//	DataSourceConfluencePageFieldNameContentStatus
-//	DataSourceConfluencePageFieldNameCreatedDate
-//	DataSourceConfluencePageFieldNameDisplayUrl
-//	DataSourceConfluencePageFieldNameItemType
-//	DataSourceConfluencePageFieldNameLabels
-//	DataSourceConfluencePageFieldNameModifiedDate
-//	DataSourceConfluencePageFieldNameParentId
-//	DataSourceConfluencePageFieldNameSpaceKey
-//	DataSourceConfluencePageFieldNameSpaceName
-//	DataSourceConfluencePageFieldNameUrl
-//	DataSourceConfluencePageFieldNameVersion
+//	DataSourceConfluencePageFieldNameArgs{...}
 type DataSourceConfluencePageFieldNameInput interface {
 	pulumi.Input
 
@@ -834,6 +843,12 @@ func (o DataSourceConfluenceSpaceFieldNameOutput) ToDataSourceConfluenceSpaceFie
 	}).(DataSourceConfluenceSpaceFieldNamePtrOutput)
 }
 
+func (o DataSourceConfluenceSpaceFieldNameOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfluenceSpaceFieldName] {
+	return pulumix.Output[DataSourceConfluenceSpaceFieldName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluenceSpaceFieldNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -869,6 +884,12 @@ func (o DataSourceConfluenceSpaceFieldNamePtrOutput) ToDataSourceConfluenceSpace
 	return o
 }
 
+func (o DataSourceConfluenceSpaceFieldNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluenceSpaceFieldName] {
+	return pulumix.Output[*DataSourceConfluenceSpaceFieldName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluenceSpaceFieldNamePtrOutput) Elem() DataSourceConfluenceSpaceFieldNameOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceSpaceFieldName) DataSourceConfluenceSpaceFieldName {
 		if v != nil {
@@ -893,13 +914,10 @@ func (o DataSourceConfluenceSpaceFieldNamePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceConfluenceSpaceFieldNameInput is an input type that accepts values of the DataSourceConfluenceSpaceFieldName enum
-// A concrete instance of `DataSourceConfluenceSpaceFieldNameInput` can be one of the following:
+// DataSourceConfluenceSpaceFieldNameInput is an input type that accepts DataSourceConfluenceSpaceFieldNameArgs and DataSourceConfluenceSpaceFieldNameOutput values.
+// You can construct a concrete instance of `DataSourceConfluenceSpaceFieldNameInput` via:
 //
-//	DataSourceConfluenceSpaceFieldNameDisplayUrl
-//	DataSourceConfluenceSpaceFieldNameItemType
-//	DataSourceConfluenceSpaceFieldNameSpaceKey
-//	DataSourceConfluenceSpaceFieldNameUrl
+//	DataSourceConfluenceSpaceFieldNameArgs{...}
 type DataSourceConfluenceSpaceFieldNameInput interface {
 	pulumi.Input
 
@@ -1007,6 +1025,12 @@ func (o DataSourceConfluenceVersionOutput) ToDataSourceConfluenceVersionPtrOutpu
 	}).(DataSourceConfluenceVersionPtrOutput)
 }
 
+func (o DataSourceConfluenceVersionOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceConfluenceVersion] {
+	return pulumix.Output[DataSourceConfluenceVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluenceVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1042,6 +1066,12 @@ func (o DataSourceConfluenceVersionPtrOutput) ToDataSourceConfluenceVersionPtrOu
 	return o
 }
 
+func (o DataSourceConfluenceVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceConfluenceVersion] {
+	return pulumix.Output[*DataSourceConfluenceVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceConfluenceVersionPtrOutput) Elem() DataSourceConfluenceVersionOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceVersion) DataSourceConfluenceVersion {
 		if v != nil {
@@ -1066,11 +1096,10 @@ func (o DataSourceConfluenceVersionPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceConfluenceVersionInput is an input type that accepts values of the DataSourceConfluenceVersion enum
-// A concrete instance of `DataSourceConfluenceVersionInput` can be one of the following:
+// DataSourceConfluenceVersionInput is an input type that accepts DataSourceConfluenceVersionArgs and DataSourceConfluenceVersionOutput values.
+// You can construct a concrete instance of `DataSourceConfluenceVersionInput` via:
 //
-//	DataSourceConfluenceVersionCloud
-//	DataSourceConfluenceVersionServer
+//	DataSourceConfluenceVersionArgs{...}
 type DataSourceConfluenceVersionInput interface {
 	pulumi.Input
 
@@ -1180,6 +1209,12 @@ func (o DataSourceDatabaseEngineTypeOutput) ToDataSourceDatabaseEngineTypePtrOut
 	}).(DataSourceDatabaseEngineTypePtrOutput)
 }
 
+func (o DataSourceDatabaseEngineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceDatabaseEngineType] {
+	return pulumix.Output[DataSourceDatabaseEngineType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceDatabaseEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1215,6 +1250,12 @@ func (o DataSourceDatabaseEngineTypePtrOutput) ToDataSourceDatabaseEngineTypePtr
 	return o
 }
 
+func (o DataSourceDatabaseEngineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceDatabaseEngineType] {
+	return pulumix.Output[*DataSourceDatabaseEngineType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceDatabaseEngineTypePtrOutput) Elem() DataSourceDatabaseEngineTypeOutput {
 	return o.ApplyT(func(v *DataSourceDatabaseEngineType) DataSourceDatabaseEngineType {
 		if v != nil {
@@ -1239,13 +1280,10 @@ func (o DataSourceDatabaseEngineTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceDatabaseEngineTypeInput is an input type that accepts values of the DataSourceDatabaseEngineType enum
-// A concrete instance of `DataSourceDatabaseEngineTypeInput` can be one of the following:
+// DataSourceDatabaseEngineTypeInput is an input type that accepts DataSourceDatabaseEngineTypeArgs and DataSourceDatabaseEngineTypeOutput values.
+// You can construct a concrete instance of `DataSourceDatabaseEngineTypeInput` via:
 //
-//	DataSourceDatabaseEngineTypeRdsAuroraMysql
-//	DataSourceDatabaseEngineTypeRdsAuroraPostgresql
-//	DataSourceDatabaseEngineTypeRdsMysql
-//	DataSourceDatabaseEngineTypeRdsPostgresql
+//	DataSourceDatabaseEngineTypeArgs{...}
 type DataSourceDatabaseEngineTypeInput interface {
 	pulumi.Input
 
@@ -1353,6 +1391,12 @@ func (o DataSourceQueryIdentifiersEnclosingOptionOutput) ToDataSourceQueryIdenti
 	}).(DataSourceQueryIdentifiersEnclosingOptionPtrOutput)
 }
 
+func (o DataSourceQueryIdentifiersEnclosingOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceQueryIdentifiersEnclosingOption] {
+	return pulumix.Output[DataSourceQueryIdentifiersEnclosingOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceQueryIdentifiersEnclosingOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1388,6 +1432,12 @@ func (o DataSourceQueryIdentifiersEnclosingOptionPtrOutput) ToDataSourceQueryIde
 	return o
 }
 
+func (o DataSourceQueryIdentifiersEnclosingOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceQueryIdentifiersEnclosingOption] {
+	return pulumix.Output[*DataSourceQueryIdentifiersEnclosingOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceQueryIdentifiersEnclosingOptionPtrOutput) Elem() DataSourceQueryIdentifiersEnclosingOptionOutput {
 	return o.ApplyT(func(v *DataSourceQueryIdentifiersEnclosingOption) DataSourceQueryIdentifiersEnclosingOption {
 		if v != nil {
@@ -1412,11 +1462,10 @@ func (o DataSourceQueryIdentifiersEnclosingOptionPtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceQueryIdentifiersEnclosingOptionInput is an input type that accepts values of the DataSourceQueryIdentifiersEnclosingOption enum
-// A concrete instance of `DataSourceQueryIdentifiersEnclosingOptionInput` can be one of the following:
+// DataSourceQueryIdentifiersEnclosingOptionInput is an input type that accepts DataSourceQueryIdentifiersEnclosingOptionArgs and DataSourceQueryIdentifiersEnclosingOptionOutput values.
+// You can construct a concrete instance of `DataSourceQueryIdentifiersEnclosingOptionInput` via:
 //
-//	DataSourceQueryIdentifiersEnclosingOptionDoubleQuotes
-//	DataSourceQueryIdentifiersEnclosingOptionNone
+//	DataSourceQueryIdentifiersEnclosingOptionArgs{...}
 type DataSourceQueryIdentifiersEnclosingOptionInput interface {
 	pulumi.Input
 
@@ -1524,6 +1573,12 @@ func (o DataSourceSalesforceChatterFeedIncludeFilterTypeOutput) ToDataSourceSale
 	}).(DataSourceSalesforceChatterFeedIncludeFilterTypePtrOutput)
 }
 
+func (o DataSourceSalesforceChatterFeedIncludeFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceSalesforceChatterFeedIncludeFilterType] {
+	return pulumix.Output[DataSourceSalesforceChatterFeedIncludeFilterType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceSalesforceChatterFeedIncludeFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1559,6 +1614,12 @@ func (o DataSourceSalesforceChatterFeedIncludeFilterTypePtrOutput) ToDataSourceS
 	return o
 }
 
+func (o DataSourceSalesforceChatterFeedIncludeFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceSalesforceChatterFeedIncludeFilterType] {
+	return pulumix.Output[*DataSourceSalesforceChatterFeedIncludeFilterType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceSalesforceChatterFeedIncludeFilterTypePtrOutput) Elem() DataSourceSalesforceChatterFeedIncludeFilterTypeOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedIncludeFilterType) DataSourceSalesforceChatterFeedIncludeFilterType {
 		if v != nil {
@@ -1583,11 +1644,10 @@ func (o DataSourceSalesforceChatterFeedIncludeFilterTypePtrOutput) ToStringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceSalesforceChatterFeedIncludeFilterTypeInput is an input type that accepts values of the DataSourceSalesforceChatterFeedIncludeFilterType enum
-// A concrete instance of `DataSourceSalesforceChatterFeedIncludeFilterTypeInput` can be one of the following:
+// DataSourceSalesforceChatterFeedIncludeFilterTypeInput is an input type that accepts DataSourceSalesforceChatterFeedIncludeFilterTypeArgs and DataSourceSalesforceChatterFeedIncludeFilterTypeOutput values.
+// You can construct a concrete instance of `DataSourceSalesforceChatterFeedIncludeFilterTypeInput` via:
 //
-//	DataSourceSalesforceChatterFeedIncludeFilterTypeActiveUser
-//	DataSourceSalesforceChatterFeedIncludeFilterTypeStandardUser
+//	DataSourceSalesforceChatterFeedIncludeFilterTypeArgs{...}
 type DataSourceSalesforceChatterFeedIncludeFilterTypeInput interface {
 	pulumi.Input
 
@@ -1653,6 +1713,12 @@ func (i DataSourceSalesforceChatterFeedIncludeFilterTypeArray) ToDataSourceSales
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput)
 }
 
+func (i DataSourceSalesforceChatterFeedIncludeFilterTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceSalesforceChatterFeedIncludeFilterType] {
+	return pulumix.Output[[]DataSourceSalesforceChatterFeedIncludeFilterType]{
+		OutputState: i.ToDataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput) ElementType() reflect.Type {
@@ -1665,6 +1731,12 @@ func (o DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput) ToDataSourc
 
 func (o DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput) ToDataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutputWithContext(ctx context.Context) DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput {
 	return o
+}
+
+func (o DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceSalesforceChatterFeedIncludeFilterType] {
+	return pulumix.Output[[]DataSourceSalesforceChatterFeedIncludeFilterType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput) Index(i pulumi.IntInput) DataSourceSalesforceChatterFeedIncludeFilterTypeOutput {
@@ -1741,6 +1813,12 @@ func (o DataSourceSalesforceKnowledgeArticleStateOutput) ToDataSourceSalesforceK
 	}).(DataSourceSalesforceKnowledgeArticleStatePtrOutput)
 }
 
+func (o DataSourceSalesforceKnowledgeArticleStateOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceSalesforceKnowledgeArticleState] {
+	return pulumix.Output[DataSourceSalesforceKnowledgeArticleState]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceSalesforceKnowledgeArticleStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1776,6 +1854,12 @@ func (o DataSourceSalesforceKnowledgeArticleStatePtrOutput) ToDataSourceSalesfor
 	return o
 }
 
+func (o DataSourceSalesforceKnowledgeArticleStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceSalesforceKnowledgeArticleState] {
+	return pulumix.Output[*DataSourceSalesforceKnowledgeArticleState]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceSalesforceKnowledgeArticleStatePtrOutput) Elem() DataSourceSalesforceKnowledgeArticleStateOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceKnowledgeArticleState) DataSourceSalesforceKnowledgeArticleState {
 		if v != nil {
@@ -1800,12 +1884,10 @@ func (o DataSourceSalesforceKnowledgeArticleStatePtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceSalesforceKnowledgeArticleStateInput is an input type that accepts values of the DataSourceSalesforceKnowledgeArticleState enum
-// A concrete instance of `DataSourceSalesforceKnowledgeArticleStateInput` can be one of the following:
+// DataSourceSalesforceKnowledgeArticleStateInput is an input type that accepts DataSourceSalesforceKnowledgeArticleStateArgs and DataSourceSalesforceKnowledgeArticleStateOutput values.
+// You can construct a concrete instance of `DataSourceSalesforceKnowledgeArticleStateInput` via:
 //
-//	DataSourceSalesforceKnowledgeArticleStateDraft
-//	DataSourceSalesforceKnowledgeArticleStatePublished
-//	DataSourceSalesforceKnowledgeArticleStateArchived
+//	DataSourceSalesforceKnowledgeArticleStateArgs{...}
 type DataSourceSalesforceKnowledgeArticleStateInput interface {
 	pulumi.Input
 
@@ -1871,6 +1953,12 @@ func (i DataSourceSalesforceKnowledgeArticleStateArray) ToDataSourceSalesforceKn
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceKnowledgeArticleStateArrayOutput)
 }
 
+func (i DataSourceSalesforceKnowledgeArticleStateArray) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceSalesforceKnowledgeArticleState] {
+	return pulumix.Output[[]DataSourceSalesforceKnowledgeArticleState]{
+		OutputState: i.ToDataSourceSalesforceKnowledgeArticleStateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceSalesforceKnowledgeArticleStateArrayOutput struct{ *pulumi.OutputState }
 
 func (DataSourceSalesforceKnowledgeArticleStateArrayOutput) ElementType() reflect.Type {
@@ -1883,6 +1971,12 @@ func (o DataSourceSalesforceKnowledgeArticleStateArrayOutput) ToDataSourceSalesf
 
 func (o DataSourceSalesforceKnowledgeArticleStateArrayOutput) ToDataSourceSalesforceKnowledgeArticleStateArrayOutputWithContext(ctx context.Context) DataSourceSalesforceKnowledgeArticleStateArrayOutput {
 	return o
+}
+
+func (o DataSourceSalesforceKnowledgeArticleStateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceSalesforceKnowledgeArticleState] {
+	return pulumix.Output[[]DataSourceSalesforceKnowledgeArticleState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceSalesforceKnowledgeArticleStateArrayOutput) Index(i pulumi.IntInput) DataSourceSalesforceKnowledgeArticleStateOutput {
@@ -1973,6 +2067,12 @@ func (o DataSourceSalesforceStandardObjectNameOutput) ToDataSourceSalesforceStan
 	}).(DataSourceSalesforceStandardObjectNamePtrOutput)
 }
 
+func (o DataSourceSalesforceStandardObjectNameOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceSalesforceStandardObjectName] {
+	return pulumix.Output[DataSourceSalesforceStandardObjectName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceSalesforceStandardObjectNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2008,6 +2108,12 @@ func (o DataSourceSalesforceStandardObjectNamePtrOutput) ToDataSourceSalesforceS
 	return o
 }
 
+func (o DataSourceSalesforceStandardObjectNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceSalesforceStandardObjectName] {
+	return pulumix.Output[*DataSourceSalesforceStandardObjectName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceSalesforceStandardObjectNamePtrOutput) Elem() DataSourceSalesforceStandardObjectNameOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceStandardObjectName) DataSourceSalesforceStandardObjectName {
 		if v != nil {
@@ -2032,26 +2138,10 @@ func (o DataSourceSalesforceStandardObjectNamePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceSalesforceStandardObjectNameInput is an input type that accepts values of the DataSourceSalesforceStandardObjectName enum
-// A concrete instance of `DataSourceSalesforceStandardObjectNameInput` can be one of the following:
+// DataSourceSalesforceStandardObjectNameInput is an input type that accepts DataSourceSalesforceStandardObjectNameArgs and DataSourceSalesforceStandardObjectNameOutput values.
+// You can construct a concrete instance of `DataSourceSalesforceStandardObjectNameInput` via:
 //
-//	DataSourceSalesforceStandardObjectNameAccount
-//	DataSourceSalesforceStandardObjectNameCampaign
-//	DataSourceSalesforceStandardObjectNameCase
-//	DataSourceSalesforceStandardObjectNameContact
-//	DataSourceSalesforceStandardObjectNameContract
-//	DataSourceSalesforceStandardObjectNameDocument
-//	DataSourceSalesforceStandardObjectNameGroup
-//	DataSourceSalesforceStandardObjectNameIdea
-//	DataSourceSalesforceStandardObjectNameLead
-//	DataSourceSalesforceStandardObjectNameOpportunity
-//	DataSourceSalesforceStandardObjectNamePartner
-//	DataSourceSalesforceStandardObjectNamePricebook
-//	DataSourceSalesforceStandardObjectNameProduct
-//	DataSourceSalesforceStandardObjectNameProfile
-//	DataSourceSalesforceStandardObjectNameSolution
-//	DataSourceSalesforceStandardObjectNameTask
-//	DataSourceSalesforceStandardObjectNameUser
+//	DataSourceSalesforceStandardObjectNameArgs{...}
 type DataSourceSalesforceStandardObjectNameInput interface {
 	pulumi.Input
 
@@ -2159,6 +2249,12 @@ func (o DataSourceServiceNowAuthenticationTypeOutput) ToDataSourceServiceNowAuth
 	}).(DataSourceServiceNowAuthenticationTypePtrOutput)
 }
 
+func (o DataSourceServiceNowAuthenticationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceServiceNowAuthenticationType] {
+	return pulumix.Output[DataSourceServiceNowAuthenticationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceServiceNowAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2194,6 +2290,12 @@ func (o DataSourceServiceNowAuthenticationTypePtrOutput) ToDataSourceServiceNowA
 	return o
 }
 
+func (o DataSourceServiceNowAuthenticationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceServiceNowAuthenticationType] {
+	return pulumix.Output[*DataSourceServiceNowAuthenticationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceServiceNowAuthenticationTypePtrOutput) Elem() DataSourceServiceNowAuthenticationTypeOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowAuthenticationType) DataSourceServiceNowAuthenticationType {
 		if v != nil {
@@ -2218,11 +2320,10 @@ func (o DataSourceServiceNowAuthenticationTypePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceServiceNowAuthenticationTypeInput is an input type that accepts values of the DataSourceServiceNowAuthenticationType enum
-// A concrete instance of `DataSourceServiceNowAuthenticationTypeInput` can be one of the following:
+// DataSourceServiceNowAuthenticationTypeInput is an input type that accepts DataSourceServiceNowAuthenticationTypeArgs and DataSourceServiceNowAuthenticationTypeOutput values.
+// You can construct a concrete instance of `DataSourceServiceNowAuthenticationTypeInput` via:
 //
-//	DataSourceServiceNowAuthenticationTypeHttpBasic
-//	DataSourceServiceNowAuthenticationTypeOauth2
+//	DataSourceServiceNowAuthenticationTypeArgs{...}
 type DataSourceServiceNowAuthenticationTypeInput interface {
 	pulumi.Input
 
@@ -2330,6 +2431,12 @@ func (o DataSourceServiceNowBuildVersionTypeOutput) ToDataSourceServiceNowBuildV
 	}).(DataSourceServiceNowBuildVersionTypePtrOutput)
 }
 
+func (o DataSourceServiceNowBuildVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceServiceNowBuildVersionType] {
+	return pulumix.Output[DataSourceServiceNowBuildVersionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceServiceNowBuildVersionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2365,6 +2472,12 @@ func (o DataSourceServiceNowBuildVersionTypePtrOutput) ToDataSourceServiceNowBui
 	return o
 }
 
+func (o DataSourceServiceNowBuildVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceServiceNowBuildVersionType] {
+	return pulumix.Output[*DataSourceServiceNowBuildVersionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceServiceNowBuildVersionTypePtrOutput) Elem() DataSourceServiceNowBuildVersionTypeOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowBuildVersionType) DataSourceServiceNowBuildVersionType {
 		if v != nil {
@@ -2389,11 +2502,10 @@ func (o DataSourceServiceNowBuildVersionTypePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceServiceNowBuildVersionTypeInput is an input type that accepts values of the DataSourceServiceNowBuildVersionType enum
-// A concrete instance of `DataSourceServiceNowBuildVersionTypeInput` can be one of the following:
+// DataSourceServiceNowBuildVersionTypeInput is an input type that accepts DataSourceServiceNowBuildVersionTypeArgs and DataSourceServiceNowBuildVersionTypeOutput values.
+// You can construct a concrete instance of `DataSourceServiceNowBuildVersionTypeInput` via:
 //
-//	DataSourceServiceNowBuildVersionTypeLondon
-//	DataSourceServiceNowBuildVersionTypeOthers
+//	DataSourceServiceNowBuildVersionTypeArgs{...}
 type DataSourceServiceNowBuildVersionTypeInput interface {
 	pulumi.Input
 
@@ -2502,6 +2614,12 @@ func (o DataSourceSharePointConfigurationSharePointVersionOutput) ToDataSourceSh
 	}).(DataSourceSharePointConfigurationSharePointVersionPtrOutput)
 }
 
+func (o DataSourceSharePointConfigurationSharePointVersionOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceSharePointConfigurationSharePointVersion] {
+	return pulumix.Output[DataSourceSharePointConfigurationSharePointVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceSharePointConfigurationSharePointVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2537,6 +2655,12 @@ func (o DataSourceSharePointConfigurationSharePointVersionPtrOutput) ToDataSourc
 	return o
 }
 
+func (o DataSourceSharePointConfigurationSharePointVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceSharePointConfigurationSharePointVersion] {
+	return pulumix.Output[*DataSourceSharePointConfigurationSharePointVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceSharePointConfigurationSharePointVersionPtrOutput) Elem() DataSourceSharePointConfigurationSharePointVersionOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfigurationSharePointVersion) DataSourceSharePointConfigurationSharePointVersion {
 		if v != nil {
@@ -2561,12 +2685,10 @@ func (o DataSourceSharePointConfigurationSharePointVersionPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceSharePointConfigurationSharePointVersionInput is an input type that accepts values of the DataSourceSharePointConfigurationSharePointVersion enum
-// A concrete instance of `DataSourceSharePointConfigurationSharePointVersionInput` can be one of the following:
+// DataSourceSharePointConfigurationSharePointVersionInput is an input type that accepts DataSourceSharePointConfigurationSharePointVersionArgs and DataSourceSharePointConfigurationSharePointVersionOutput values.
+// You can construct a concrete instance of `DataSourceSharePointConfigurationSharePointVersionInput` via:
 //
-//	DataSourceSharePointConfigurationSharePointVersionSharepointOnline
-//	DataSourceSharePointConfigurationSharePointVersionSharepoint2013
-//	DataSourceSharePointConfigurationSharePointVersionSharepoint2016
+//	DataSourceSharePointConfigurationSharePointVersionArgs{...}
 type DataSourceSharePointConfigurationSharePointVersionInput interface {
 	pulumi.Input
 
@@ -2684,6 +2806,12 @@ func (o DataSourceTypeOutput) ToDataSourceTypePtrOutputWithContext(ctx context.C
 	}).(DataSourceTypePtrOutput)
 }
 
+func (o DataSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceType] {
+	return pulumix.Output[DataSourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2719,6 +2847,12 @@ func (o DataSourceTypePtrOutput) ToDataSourceTypePtrOutputWithContext(ctx contex
 	return o
 }
 
+func (o DataSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceType] {
+	return pulumix.Output[*DataSourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceTypePtrOutput) Elem() DataSourceTypeOutput {
 	return o.ApplyT(func(v *DataSourceType) DataSourceType {
 		if v != nil {
@@ -2743,20 +2877,10 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceTypeInput is an input type that accepts values of the DataSourceType enum
-// A concrete instance of `DataSourceTypeInput` can be one of the following:
+// DataSourceTypeInput is an input type that accepts DataSourceTypeArgs and DataSourceTypeOutput values.
+// You can construct a concrete instance of `DataSourceTypeInput` via:
 //
-//	DataSourceTypeS3
-//	DataSourceTypeSharepoint
-//	DataSourceTypeSalesforce
-//	DataSourceTypeOnedrive
-//	DataSourceTypeServicenow
-//	DataSourceTypeDatabase
-//	DataSourceTypeCustom
-//	DataSourceTypeConfluence
-//	DataSourceTypeGoogledrive
-//	DataSourceTypeWebcrawler
-//	DataSourceTypeWorkdocs
+//	DataSourceTypeArgs{...}
 type DataSourceTypeInput interface {
 	pulumi.Input
 
@@ -2865,6 +2989,12 @@ func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToDataSour
 	}).(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput)
 }
 
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode] {
+	return pulumix.Output[DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2900,6 +3030,12 @@ func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) ToDataS
 	return o
 }
 
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode] {
+	return pulumix.Output[*DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) Elem() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode {
 		if v != nil {
@@ -2924,12 +3060,10 @@ func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeInput is an input type that accepts values of the DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode enum
-// A concrete instance of `DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeInput` can be one of the following:
+// DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeInput is an input type that accepts DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeArgs and DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput values.
+// You can construct a concrete instance of `DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeInput` via:
 //
-//	DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeHostOnly
-//	DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeSubdomains
-//	DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeEverything
+//	DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeArgs{...}
 type DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeInput interface {
 	pulumi.Input
 
@@ -3039,6 +3173,12 @@ func (o FaqFileFormatOutput) ToFaqFileFormatPtrOutputWithContext(ctx context.Con
 	}).(FaqFileFormatPtrOutput)
 }
 
+func (o FaqFileFormatOutput) ToOutput(ctx context.Context) pulumix.Output[FaqFileFormat] {
+	return pulumix.Output[FaqFileFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FaqFileFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3074,6 +3214,12 @@ func (o FaqFileFormatPtrOutput) ToFaqFileFormatPtrOutputWithContext(ctx context.
 	return o
 }
 
+func (o FaqFileFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FaqFileFormat] {
+	return pulumix.Output[*FaqFileFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FaqFileFormatPtrOutput) Elem() FaqFileFormatOutput {
 	return o.ApplyT(func(v *FaqFileFormat) FaqFileFormat {
 		if v != nil {
@@ -3098,12 +3244,10 @@ func (o FaqFileFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// FaqFileFormatInput is an input type that accepts values of the FaqFileFormat enum
-// A concrete instance of `FaqFileFormatInput` can be one of the following:
+// FaqFileFormatInput is an input type that accepts FaqFileFormatArgs and FaqFileFormatOutput values.
+// You can construct a concrete instance of `FaqFileFormatInput` via:
 //
-//	FaqFileFormatCsv
-//	FaqFileFormatCsvWithHeader
-//	FaqFileFormatJson
+//	FaqFileFormatArgs{...}
 type FaqFileFormatInput interface {
 	pulumi.Input
 
@@ -3213,6 +3357,12 @@ func (o IndexDocumentAttributeValueTypeOutput) ToIndexDocumentAttributeValueType
 	}).(IndexDocumentAttributeValueTypePtrOutput)
 }
 
+func (o IndexDocumentAttributeValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IndexDocumentAttributeValueType] {
+	return pulumix.Output[IndexDocumentAttributeValueType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexDocumentAttributeValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3248,6 +3398,12 @@ func (o IndexDocumentAttributeValueTypePtrOutput) ToIndexDocumentAttributeValueT
 	return o
 }
 
+func (o IndexDocumentAttributeValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexDocumentAttributeValueType] {
+	return pulumix.Output[*IndexDocumentAttributeValueType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexDocumentAttributeValueTypePtrOutput) Elem() IndexDocumentAttributeValueTypeOutput {
 	return o.ApplyT(func(v *IndexDocumentAttributeValueType) IndexDocumentAttributeValueType {
 		if v != nil {
@@ -3272,13 +3428,10 @@ func (o IndexDocumentAttributeValueTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// IndexDocumentAttributeValueTypeInput is an input type that accepts values of the IndexDocumentAttributeValueType enum
-// A concrete instance of `IndexDocumentAttributeValueTypeInput` can be one of the following:
+// IndexDocumentAttributeValueTypeInput is an input type that accepts IndexDocumentAttributeValueTypeArgs and IndexDocumentAttributeValueTypeOutput values.
+// You can construct a concrete instance of `IndexDocumentAttributeValueTypeInput` via:
 //
-//	IndexDocumentAttributeValueTypeStringValue
-//	IndexDocumentAttributeValueTypeStringListValue
-//	IndexDocumentAttributeValueTypeLongValue
-//	IndexDocumentAttributeValueTypeDateValue
+//	IndexDocumentAttributeValueTypeArgs{...}
 type IndexDocumentAttributeValueTypeInput interface {
 	pulumi.Input
 
@@ -3387,6 +3540,12 @@ func (o IndexEditionOutput) ToIndexEditionPtrOutputWithContext(ctx context.Conte
 	}).(IndexEditionPtrOutput)
 }
 
+func (o IndexEditionOutput) ToOutput(ctx context.Context) pulumix.Output[IndexEdition] {
+	return pulumix.Output[IndexEdition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexEditionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3422,6 +3581,12 @@ func (o IndexEditionPtrOutput) ToIndexEditionPtrOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o IndexEditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexEdition] {
+	return pulumix.Output[*IndexEdition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexEditionPtrOutput) Elem() IndexEditionOutput {
 	return o.ApplyT(func(v *IndexEdition) IndexEdition {
 		if v != nil {
@@ -3446,11 +3611,10 @@ func (o IndexEditionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// IndexEditionInput is an input type that accepts values of the IndexEdition enum
-// A concrete instance of `IndexEditionInput` can be one of the following:
+// IndexEditionInput is an input type that accepts IndexEditionArgs and IndexEditionOutput values.
+// You can construct a concrete instance of `IndexEditionInput` via:
 //
-//	IndexEditionDeveloperEdition
-//	IndexEditionEnterpriseEdition
+//	IndexEditionArgs{...}
 type IndexEditionInput interface {
 	pulumi.Input
 
@@ -3558,6 +3722,12 @@ func (o IndexKeyLocationOutput) ToIndexKeyLocationPtrOutputWithContext(ctx conte
 	}).(IndexKeyLocationPtrOutput)
 }
 
+func (o IndexKeyLocationOutput) ToOutput(ctx context.Context) pulumix.Output[IndexKeyLocation] {
+	return pulumix.Output[IndexKeyLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexKeyLocationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3593,6 +3763,12 @@ func (o IndexKeyLocationPtrOutput) ToIndexKeyLocationPtrOutputWithContext(ctx co
 	return o
 }
 
+func (o IndexKeyLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexKeyLocation] {
+	return pulumix.Output[*IndexKeyLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexKeyLocationPtrOutput) Elem() IndexKeyLocationOutput {
 	return o.ApplyT(func(v *IndexKeyLocation) IndexKeyLocation {
 		if v != nil {
@@ -3617,11 +3793,10 @@ func (o IndexKeyLocationPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// IndexKeyLocationInput is an input type that accepts values of the IndexKeyLocation enum
-// A concrete instance of `IndexKeyLocationInput` can be one of the following:
+// IndexKeyLocationInput is an input type that accepts IndexKeyLocationArgs and IndexKeyLocationOutput values.
+// You can construct a concrete instance of `IndexKeyLocationInput` via:
 //
-//	IndexKeyLocationUrl
-//	IndexKeyLocationSecretManager
+//	IndexKeyLocationArgs{...}
 type IndexKeyLocationInput interface {
 	pulumi.Input
 
@@ -3729,6 +3904,12 @@ func (o IndexOrderOutput) ToIndexOrderPtrOutputWithContext(ctx context.Context) 
 	}).(IndexOrderPtrOutput)
 }
 
+func (o IndexOrderOutput) ToOutput(ctx context.Context) pulumix.Output[IndexOrder] {
+	return pulumix.Output[IndexOrder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3764,6 +3945,12 @@ func (o IndexOrderPtrOutput) ToIndexOrderPtrOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o IndexOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexOrder] {
+	return pulumix.Output[*IndexOrder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexOrderPtrOutput) Elem() IndexOrderOutput {
 	return o.ApplyT(func(v *IndexOrder) IndexOrder {
 		if v != nil {
@@ -3788,11 +3975,10 @@ func (o IndexOrderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// IndexOrderInput is an input type that accepts values of the IndexOrder enum
-// A concrete instance of `IndexOrderInput` can be one of the following:
+// IndexOrderInput is an input type that accepts IndexOrderArgs and IndexOrderOutput values.
+// You can construct a concrete instance of `IndexOrderInput` via:
 //
-//	IndexOrderAscending
-//	IndexOrderDescending
+//	IndexOrderArgs{...}
 type IndexOrderInput interface {
 	pulumi.Input
 
@@ -3900,6 +4086,12 @@ func (o IndexUserContextPolicyOutput) ToIndexUserContextPolicyPtrOutputWithConte
 	}).(IndexUserContextPolicyPtrOutput)
 }
 
+func (o IndexUserContextPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[IndexUserContextPolicy] {
+	return pulumix.Output[IndexUserContextPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexUserContextPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3935,6 +4127,12 @@ func (o IndexUserContextPolicyPtrOutput) ToIndexUserContextPolicyPtrOutputWithCo
 	return o
 }
 
+func (o IndexUserContextPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexUserContextPolicy] {
+	return pulumix.Output[*IndexUserContextPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IndexUserContextPolicyPtrOutput) Elem() IndexUserContextPolicyOutput {
 	return o.ApplyT(func(v *IndexUserContextPolicy) IndexUserContextPolicy {
 		if v != nil {
@@ -3959,11 +4157,10 @@ func (o IndexUserContextPolicyPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// IndexUserContextPolicyInput is an input type that accepts values of the IndexUserContextPolicy enum
-// A concrete instance of `IndexUserContextPolicyInput` can be one of the following:
+// IndexUserContextPolicyInput is an input type that accepts IndexUserContextPolicyArgs and IndexUserContextPolicyOutput values.
+// You can construct a concrete instance of `IndexUserContextPolicyInput` via:
 //
-//	IndexUserContextPolicyAttributeFilter
-//	IndexUserContextPolicyUserToken
+//	IndexUserContextPolicyArgs{...}
 type IndexUserContextPolicyInput interface {
 	pulumi.Input
 

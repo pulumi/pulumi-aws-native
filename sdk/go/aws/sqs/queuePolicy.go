@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::SQS::QueuePolicy“ type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.
@@ -107,6 +108,12 @@ func (i *QueuePolicy) ToQueuePolicyOutputWithContext(ctx context.Context) QueueP
 	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyOutput)
 }
 
+func (i *QueuePolicy) ToOutput(ctx context.Context) pulumix.Output[*QueuePolicy] {
+	return pulumix.Output[*QueuePolicy]{
+		OutputState: i.ToQueuePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type QueuePolicyOutput struct{ *pulumi.OutputState }
 
 func (QueuePolicyOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o QueuePolicyOutput) ToQueuePolicyOutput() QueuePolicyOutput {
 
 func (o QueuePolicyOutput) ToQueuePolicyOutputWithContext(ctx context.Context) QueuePolicyOutput {
 	return o
+}
+
+func (o QueuePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*QueuePolicy] {
+	return pulumix.Output[*QueuePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.

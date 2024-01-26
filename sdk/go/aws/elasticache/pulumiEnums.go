@@ -79,6 +79,12 @@ func (o GlobalReplicationGroupMemberRoleOutput) ToGlobalReplicationGroupMemberRo
 	}).(GlobalReplicationGroupMemberRolePtrOutput)
 }
 
+func (o GlobalReplicationGroupMemberRoleOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalReplicationGroupMemberRole] {
+	return pulumix.Output[GlobalReplicationGroupMemberRole]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GlobalReplicationGroupMemberRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -114,6 +120,12 @@ func (o GlobalReplicationGroupMemberRolePtrOutput) ToGlobalReplicationGroupMembe
 	return o
 }
 
+func (o GlobalReplicationGroupMemberRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalReplicationGroupMemberRole] {
+	return pulumix.Output[*GlobalReplicationGroupMemberRole]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GlobalReplicationGroupMemberRolePtrOutput) Elem() GlobalReplicationGroupMemberRoleOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroupMemberRole) GlobalReplicationGroupMemberRole {
 		if v != nil {
@@ -138,11 +150,10 @@ func (o GlobalReplicationGroupMemberRolePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// GlobalReplicationGroupMemberRoleInput is an input type that accepts values of the GlobalReplicationGroupMemberRole enum
-// A concrete instance of `GlobalReplicationGroupMemberRoleInput` can be one of the following:
+// GlobalReplicationGroupMemberRoleInput is an input type that accepts GlobalReplicationGroupMemberRoleArgs and GlobalReplicationGroupMemberRoleOutput values.
+// You can construct a concrete instance of `GlobalReplicationGroupMemberRoleInput` via:
 //
-//	GlobalReplicationGroupMemberRolePrimary
-//	GlobalReplicationGroupMemberRoleSecondary
+//	GlobalReplicationGroupMemberRoleArgs{...}
 type GlobalReplicationGroupMemberRoleInput interface {
 	pulumi.Input
 
@@ -250,6 +261,12 @@ func (o ServerlessCacheDataStorageUnitOutput) ToServerlessCacheDataStorageUnitPt
 	}).(ServerlessCacheDataStorageUnitPtrOutput)
 }
 
+func (o ServerlessCacheDataStorageUnitOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheDataStorageUnit] {
+	return pulumix.Output[ServerlessCacheDataStorageUnit]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerlessCacheDataStorageUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -285,6 +302,12 @@ func (o ServerlessCacheDataStorageUnitPtrOutput) ToServerlessCacheDataStorageUni
 	return o
 }
 
+func (o ServerlessCacheDataStorageUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCacheDataStorageUnit] {
+	return pulumix.Output[*ServerlessCacheDataStorageUnit]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerlessCacheDataStorageUnitPtrOutput) Elem() ServerlessCacheDataStorageUnitOutput {
 	return o.ApplyT(func(v *ServerlessCacheDataStorageUnit) ServerlessCacheDataStorageUnit {
 		if v != nil {
@@ -309,10 +332,10 @@ func (o ServerlessCacheDataStorageUnitPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServerlessCacheDataStorageUnitInput is an input type that accepts values of the ServerlessCacheDataStorageUnit enum
-// A concrete instance of `ServerlessCacheDataStorageUnitInput` can be one of the following:
+// ServerlessCacheDataStorageUnitInput is an input type that accepts ServerlessCacheDataStorageUnitArgs and ServerlessCacheDataStorageUnitOutput values.
+// You can construct a concrete instance of `ServerlessCacheDataStorageUnitInput` via:
 //
-//	ServerlessCacheDataStorageUnitGb
+//	ServerlessCacheDataStorageUnitArgs{...}
 type ServerlessCacheDataStorageUnitInput interface {
 	pulumi.Input
 
@@ -422,6 +445,12 @@ func (o UserAuthenticationModePropertiesTypeOutput) ToUserAuthenticationModeProp
 	}).(UserAuthenticationModePropertiesTypePtrOutput)
 }
 
+func (o UserAuthenticationModePropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserAuthenticationModePropertiesType] {
+	return pulumix.Output[UserAuthenticationModePropertiesType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserAuthenticationModePropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -457,6 +486,12 @@ func (o UserAuthenticationModePropertiesTypePtrOutput) ToUserAuthenticationModeP
 	return o
 }
 
+func (o UserAuthenticationModePropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserAuthenticationModePropertiesType] {
+	return pulumix.Output[*UserAuthenticationModePropertiesType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserAuthenticationModePropertiesTypePtrOutput) Elem() UserAuthenticationModePropertiesTypeOutput {
 	return o.ApplyT(func(v *UserAuthenticationModePropertiesType) UserAuthenticationModePropertiesType {
 		if v != nil {
@@ -481,12 +516,10 @@ func (o UserAuthenticationModePropertiesTypePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// UserAuthenticationModePropertiesTypeInput is an input type that accepts values of the UserAuthenticationModePropertiesType enum
-// A concrete instance of `UserAuthenticationModePropertiesTypeInput` can be one of the following:
+// UserAuthenticationModePropertiesTypeInput is an input type that accepts UserAuthenticationModePropertiesTypeArgs and UserAuthenticationModePropertiesTypeOutput values.
+// You can construct a concrete instance of `UserAuthenticationModePropertiesTypeInput` via:
 //
-//	UserAuthenticationModePropertiesTypePassword
-//	UserAuthenticationModePropertiesTypeNoPasswordRequired
-//	UserAuthenticationModePropertiesTypeIam
+//	UserAuthenticationModePropertiesTypeArgs{...}
 type UserAuthenticationModePropertiesTypeInput interface {
 	pulumi.Input
 
@@ -594,6 +627,12 @@ func (o UserEngineOutput) ToUserEnginePtrOutputWithContext(ctx context.Context) 
 	}).(UserEnginePtrOutput)
 }
 
+func (o UserEngineOutput) ToOutput(ctx context.Context) pulumix.Output[UserEngine] {
+	return pulumix.Output[UserEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -629,6 +668,12 @@ func (o UserEnginePtrOutput) ToUserEnginePtrOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o UserEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserEngine] {
+	return pulumix.Output[*UserEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserEnginePtrOutput) Elem() UserEngineOutput {
 	return o.ApplyT(func(v *UserEngine) UserEngine {
 		if v != nil {
@@ -653,10 +698,10 @@ func (o UserEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// UserEngineInput is an input type that accepts values of the UserEngine enum
-// A concrete instance of `UserEngineInput` can be one of the following:
+// UserEngineInput is an input type that accepts UserEngineArgs and UserEngineOutput values.
+// You can construct a concrete instance of `UserEngineInput` via:
 //
-//	UserEngineRedis
+//	UserEngineArgs{...}
 type UserEngineInput interface {
 	pulumi.Input
 
@@ -764,6 +809,12 @@ func (o UserGroupEngineOutput) ToUserGroupEnginePtrOutputWithContext(ctx context
 	}).(UserGroupEnginePtrOutput)
 }
 
+func (o UserGroupEngineOutput) ToOutput(ctx context.Context) pulumix.Output[UserGroupEngine] {
+	return pulumix.Output[UserGroupEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserGroupEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -799,6 +850,12 @@ func (o UserGroupEnginePtrOutput) ToUserGroupEnginePtrOutputWithContext(ctx cont
 	return o
 }
 
+func (o UserGroupEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserGroupEngine] {
+	return pulumix.Output[*UserGroupEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserGroupEnginePtrOutput) Elem() UserGroupEngineOutput {
 	return o.ApplyT(func(v *UserGroupEngine) UserGroupEngine {
 		if v != nil {
@@ -823,10 +880,10 @@ func (o UserGroupEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// UserGroupEngineInput is an input type that accepts values of the UserGroupEngine enum
-// A concrete instance of `UserGroupEngineInput` can be one of the following:
+// UserGroupEngineInput is an input type that accepts UserGroupEngineArgs and UserGroupEngineOutput values.
+// You can construct a concrete instance of `UserGroupEngineInput` via:
 //
-//	UserGroupEngineRedis
+//	UserGroupEngineArgs{...}
 type UserGroupEngineInput interface {
 	pulumi.Input
 

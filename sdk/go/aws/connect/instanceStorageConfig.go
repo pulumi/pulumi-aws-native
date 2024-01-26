@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::InstanceStorageConfig
@@ -126,6 +127,12 @@ func (i *InstanceStorageConfig) ToInstanceStorageConfigOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigOutput)
 }
 
+func (i *InstanceStorageConfig) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfig] {
+	return pulumix.Output[*InstanceStorageConfig]{
+		OutputState: i.ToInstanceStorageConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceStorageConfigOutput struct{ *pulumi.OutputState }
 
 func (InstanceStorageConfigOutput) ElementType() reflect.Type {
@@ -138,6 +145,12 @@ func (o InstanceStorageConfigOutput) ToInstanceStorageConfigOutput() InstanceSto
 
 func (o InstanceStorageConfigOutput) ToInstanceStorageConfigOutputWithContext(ctx context.Context) InstanceStorageConfigOutput {
 	return o
+}
+
+func (o InstanceStorageConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfig] {
+	return pulumix.Output[*InstanceStorageConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceStorageConfigOutput) AssociationId() pulumi.StringOutput {

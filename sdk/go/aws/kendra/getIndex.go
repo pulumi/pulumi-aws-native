@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A Kendra index
@@ -76,6 +77,12 @@ func (o LookupIndexResultOutput) ToLookupIndexResultOutput() LookupIndexResultOu
 
 func (o LookupIndexResultOutput) ToLookupIndexResultOutputWithContext(ctx context.Context) LookupIndexResultOutput {
 	return o
+}
+
+func (o LookupIndexResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIndexResult] {
+	return pulumix.Output[LookupIndexResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupIndexResultOutput) Arn() pulumi.StringPtrOutput {

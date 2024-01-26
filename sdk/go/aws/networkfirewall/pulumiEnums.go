@@ -77,6 +77,12 @@ func (o FirewallPolicyOverrideActionOutput) ToFirewallPolicyOverrideActionPtrOut
 	}).(FirewallPolicyOverrideActionPtrOutput)
 }
 
+func (o FirewallPolicyOverrideActionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyOverrideAction] {
+	return pulumix.Output[FirewallPolicyOverrideAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyOverrideActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +118,12 @@ func (o FirewallPolicyOverrideActionPtrOutput) ToFirewallPolicyOverrideActionPtr
 	return o
 }
 
+func (o FirewallPolicyOverrideActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyOverrideAction] {
+	return pulumix.Output[*FirewallPolicyOverrideAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyOverrideActionPtrOutput) Elem() FirewallPolicyOverrideActionOutput {
 	return o.ApplyT(func(v *FirewallPolicyOverrideAction) FirewallPolicyOverrideAction {
 		if v != nil {
@@ -136,10 +148,10 @@ func (o FirewallPolicyOverrideActionPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// FirewallPolicyOverrideActionInput is an input type that accepts values of the FirewallPolicyOverrideAction enum
-// A concrete instance of `FirewallPolicyOverrideActionInput` can be one of the following:
+// FirewallPolicyOverrideActionInput is an input type that accepts FirewallPolicyOverrideActionArgs and FirewallPolicyOverrideActionOutput values.
+// You can construct a concrete instance of `FirewallPolicyOverrideActionInput` via:
 //
-//	FirewallPolicyOverrideActionDropToAlert
+//	FirewallPolicyOverrideActionArgs{...}
 type FirewallPolicyOverrideActionInput interface {
 	pulumi.Input
 
@@ -247,6 +259,12 @@ func (o FirewallPolicyRuleOrderOutput) ToFirewallPolicyRuleOrderPtrOutputWithCon
 	}).(FirewallPolicyRuleOrderPtrOutput)
 }
 
+func (o FirewallPolicyRuleOrderOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyRuleOrder] {
+	return pulumix.Output[FirewallPolicyRuleOrder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyRuleOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -282,6 +300,12 @@ func (o FirewallPolicyRuleOrderPtrOutput) ToFirewallPolicyRuleOrderPtrOutputWith
 	return o
 }
 
+func (o FirewallPolicyRuleOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyRuleOrder] {
+	return pulumix.Output[*FirewallPolicyRuleOrder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyRuleOrderPtrOutput) Elem() FirewallPolicyRuleOrderOutput {
 	return o.ApplyT(func(v *FirewallPolicyRuleOrder) FirewallPolicyRuleOrder {
 		if v != nil {
@@ -306,11 +330,10 @@ func (o FirewallPolicyRuleOrderPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// FirewallPolicyRuleOrderInput is an input type that accepts values of the FirewallPolicyRuleOrder enum
-// A concrete instance of `FirewallPolicyRuleOrderInput` can be one of the following:
+// FirewallPolicyRuleOrderInput is an input type that accepts FirewallPolicyRuleOrderArgs and FirewallPolicyRuleOrderOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleOrderInput` via:
 //
-//	FirewallPolicyRuleOrderDefaultActionOrder
-//	FirewallPolicyRuleOrderStrictOrder
+//	FirewallPolicyRuleOrderArgs{...}
 type FirewallPolicyRuleOrderInput interface {
 	pulumi.Input
 
@@ -419,6 +442,12 @@ func (o FirewallPolicyStreamExceptionPolicyOutput) ToFirewallPolicyStreamExcepti
 	}).(FirewallPolicyStreamExceptionPolicyPtrOutput)
 }
 
+func (o FirewallPolicyStreamExceptionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyStreamExceptionPolicy] {
+	return pulumix.Output[FirewallPolicyStreamExceptionPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyStreamExceptionPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -454,6 +483,12 @@ func (o FirewallPolicyStreamExceptionPolicyPtrOutput) ToFirewallPolicyStreamExce
 	return o
 }
 
+func (o FirewallPolicyStreamExceptionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyStreamExceptionPolicy] {
+	return pulumix.Output[*FirewallPolicyStreamExceptionPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyStreamExceptionPolicyPtrOutput) Elem() FirewallPolicyStreamExceptionPolicyOutput {
 	return o.ApplyT(func(v *FirewallPolicyStreamExceptionPolicy) FirewallPolicyStreamExceptionPolicy {
 		if v != nil {
@@ -478,12 +513,10 @@ func (o FirewallPolicyStreamExceptionPolicyPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// FirewallPolicyStreamExceptionPolicyInput is an input type that accepts values of the FirewallPolicyStreamExceptionPolicy enum
-// A concrete instance of `FirewallPolicyStreamExceptionPolicyInput` can be one of the following:
+// FirewallPolicyStreamExceptionPolicyInput is an input type that accepts FirewallPolicyStreamExceptionPolicyArgs and FirewallPolicyStreamExceptionPolicyOutput values.
+// You can construct a concrete instance of `FirewallPolicyStreamExceptionPolicyInput` via:
 //
-//	FirewallPolicyStreamExceptionPolicyDrop
-//	FirewallPolicyStreamExceptionPolicyContinue
-//	FirewallPolicyStreamExceptionPolicyReject
+//	FirewallPolicyStreamExceptionPolicyArgs{...}
 type FirewallPolicyStreamExceptionPolicyInput interface {
 	pulumi.Input
 
@@ -592,6 +625,12 @@ func (o LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput) ToLogg
 	}).(LoggingConfigurationLogDestinationConfigLogDestinationTypePtrOutput)
 }
 
+func (o LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationLogDestinationConfigLogDestinationType] {
+	return pulumix.Output[LoggingConfigurationLogDestinationConfigLogDestinationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -627,6 +666,12 @@ func (o LoggingConfigurationLogDestinationConfigLogDestinationTypePtrOutput) ToL
 	return o
 }
 
+func (o LoggingConfigurationLogDestinationConfigLogDestinationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationLogDestinationConfigLogDestinationType] {
+	return pulumix.Output[*LoggingConfigurationLogDestinationConfigLogDestinationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoggingConfigurationLogDestinationConfigLogDestinationTypePtrOutput) Elem() LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput {
 	return o.ApplyT(func(v *LoggingConfigurationLogDestinationConfigLogDestinationType) LoggingConfigurationLogDestinationConfigLogDestinationType {
 		if v != nil {
@@ -651,12 +696,10 @@ func (o LoggingConfigurationLogDestinationConfigLogDestinationTypePtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoggingConfigurationLogDestinationConfigLogDestinationTypeInput is an input type that accepts values of the LoggingConfigurationLogDestinationConfigLogDestinationType enum
-// A concrete instance of `LoggingConfigurationLogDestinationConfigLogDestinationTypeInput` can be one of the following:
+// LoggingConfigurationLogDestinationConfigLogDestinationTypeInput is an input type that accepts LoggingConfigurationLogDestinationConfigLogDestinationTypeArgs and LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput values.
+// You can construct a concrete instance of `LoggingConfigurationLogDestinationConfigLogDestinationTypeInput` via:
 //
-//	LoggingConfigurationLogDestinationConfigLogDestinationTypeS3
-//	LoggingConfigurationLogDestinationConfigLogDestinationTypeCloudWatchLogs
-//	LoggingConfigurationLogDestinationConfigLogDestinationTypeKinesisDataFirehose
+//	LoggingConfigurationLogDestinationConfigLogDestinationTypeArgs{...}
 type LoggingConfigurationLogDestinationConfigLogDestinationTypeInput interface {
 	pulumi.Input
 
@@ -764,6 +807,12 @@ func (o LoggingConfigurationLogDestinationConfigLogTypeOutput) ToLoggingConfigur
 	}).(LoggingConfigurationLogDestinationConfigLogTypePtrOutput)
 }
 
+func (o LoggingConfigurationLogDestinationConfigLogTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationLogDestinationConfigLogType] {
+	return pulumix.Output[LoggingConfigurationLogDestinationConfigLogType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoggingConfigurationLogDestinationConfigLogTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -799,6 +848,12 @@ func (o LoggingConfigurationLogDestinationConfigLogTypePtrOutput) ToLoggingConfi
 	return o
 }
 
+func (o LoggingConfigurationLogDestinationConfigLogTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationLogDestinationConfigLogType] {
+	return pulumix.Output[*LoggingConfigurationLogDestinationConfigLogType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoggingConfigurationLogDestinationConfigLogTypePtrOutput) Elem() LoggingConfigurationLogDestinationConfigLogTypeOutput {
 	return o.ApplyT(func(v *LoggingConfigurationLogDestinationConfigLogType) LoggingConfigurationLogDestinationConfigLogType {
 		if v != nil {
@@ -823,11 +878,10 @@ func (o LoggingConfigurationLogDestinationConfigLogTypePtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoggingConfigurationLogDestinationConfigLogTypeInput is an input type that accepts values of the LoggingConfigurationLogDestinationConfigLogType enum
-// A concrete instance of `LoggingConfigurationLogDestinationConfigLogTypeInput` can be one of the following:
+// LoggingConfigurationLogDestinationConfigLogTypeInput is an input type that accepts LoggingConfigurationLogDestinationConfigLogTypeArgs and LoggingConfigurationLogDestinationConfigLogTypeOutput values.
+// You can construct a concrete instance of `LoggingConfigurationLogDestinationConfigLogTypeInput` via:
 //
-//	LoggingConfigurationLogDestinationConfigLogTypeAlert
-//	LoggingConfigurationLogDestinationConfigLogTypeFlow
+//	LoggingConfigurationLogDestinationConfigLogTypeArgs{...}
 type LoggingConfigurationLogDestinationConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -935,6 +989,12 @@ func (o RuleGroupGeneratedRulesTypeOutput) ToRuleGroupGeneratedRulesTypePtrOutpu
 	}).(RuleGroupGeneratedRulesTypePtrOutput)
 }
 
+func (o RuleGroupGeneratedRulesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupGeneratedRulesType] {
+	return pulumix.Output[RuleGroupGeneratedRulesType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupGeneratedRulesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -970,6 +1030,12 @@ func (o RuleGroupGeneratedRulesTypePtrOutput) ToRuleGroupGeneratedRulesTypePtrOu
 	return o
 }
 
+func (o RuleGroupGeneratedRulesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupGeneratedRulesType] {
+	return pulumix.Output[*RuleGroupGeneratedRulesType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupGeneratedRulesTypePtrOutput) Elem() RuleGroupGeneratedRulesTypeOutput {
 	return o.ApplyT(func(v *RuleGroupGeneratedRulesType) RuleGroupGeneratedRulesType {
 		if v != nil {
@@ -994,11 +1060,10 @@ func (o RuleGroupGeneratedRulesTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupGeneratedRulesTypeInput is an input type that accepts values of the RuleGroupGeneratedRulesType enum
-// A concrete instance of `RuleGroupGeneratedRulesTypeInput` can be one of the following:
+// RuleGroupGeneratedRulesTypeInput is an input type that accepts RuleGroupGeneratedRulesTypeArgs and RuleGroupGeneratedRulesTypeOutput values.
+// You can construct a concrete instance of `RuleGroupGeneratedRulesTypeInput` via:
 //
-//	RuleGroupGeneratedRulesTypeAllowlist
-//	RuleGroupGeneratedRulesTypeDenylist
+//	RuleGroupGeneratedRulesTypeArgs{...}
 type RuleGroupGeneratedRulesTypeInput interface {
 	pulumi.Input
 
@@ -1106,6 +1171,12 @@ func (o RuleGroupHeaderDirectionOutput) ToRuleGroupHeaderDirectionPtrOutputWithC
 	}).(RuleGroupHeaderDirectionPtrOutput)
 }
 
+func (o RuleGroupHeaderDirectionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupHeaderDirection] {
+	return pulumix.Output[RuleGroupHeaderDirection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupHeaderDirectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1141,6 +1212,12 @@ func (o RuleGroupHeaderDirectionPtrOutput) ToRuleGroupHeaderDirectionPtrOutputWi
 	return o
 }
 
+func (o RuleGroupHeaderDirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupHeaderDirection] {
+	return pulumix.Output[*RuleGroupHeaderDirection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupHeaderDirectionPtrOutput) Elem() RuleGroupHeaderDirectionOutput {
 	return o.ApplyT(func(v *RuleGroupHeaderDirection) RuleGroupHeaderDirection {
 		if v != nil {
@@ -1165,11 +1242,10 @@ func (o RuleGroupHeaderDirectionPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupHeaderDirectionInput is an input type that accepts values of the RuleGroupHeaderDirection enum
-// A concrete instance of `RuleGroupHeaderDirectionInput` can be one of the following:
+// RuleGroupHeaderDirectionInput is an input type that accepts RuleGroupHeaderDirectionArgs and RuleGroupHeaderDirectionOutput values.
+// You can construct a concrete instance of `RuleGroupHeaderDirectionInput` via:
 //
-//	RuleGroupHeaderDirectionForward
-//	RuleGroupHeaderDirectionAny
+//	RuleGroupHeaderDirectionArgs{...}
 type RuleGroupHeaderDirectionInput interface {
 	pulumi.Input
 
@@ -1294,6 +1370,12 @@ func (o RuleGroupHeaderProtocolOutput) ToRuleGroupHeaderProtocolPtrOutputWithCon
 	}).(RuleGroupHeaderProtocolPtrOutput)
 }
 
+func (o RuleGroupHeaderProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupHeaderProtocol] {
+	return pulumix.Output[RuleGroupHeaderProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupHeaderProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1329,6 +1411,12 @@ func (o RuleGroupHeaderProtocolPtrOutput) ToRuleGroupHeaderProtocolPtrOutputWith
 	return o
 }
 
+func (o RuleGroupHeaderProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupHeaderProtocol] {
+	return pulumix.Output[*RuleGroupHeaderProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupHeaderProtocolPtrOutput) Elem() RuleGroupHeaderProtocolOutput {
 	return o.ApplyT(func(v *RuleGroupHeaderProtocol) RuleGroupHeaderProtocol {
 		if v != nil {
@@ -1353,28 +1441,10 @@ func (o RuleGroupHeaderProtocolPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupHeaderProtocolInput is an input type that accepts values of the RuleGroupHeaderProtocol enum
-// A concrete instance of `RuleGroupHeaderProtocolInput` can be one of the following:
+// RuleGroupHeaderProtocolInput is an input type that accepts RuleGroupHeaderProtocolArgs and RuleGroupHeaderProtocolOutput values.
+// You can construct a concrete instance of `RuleGroupHeaderProtocolInput` via:
 //
-//	RuleGroupHeaderProtocolIp
-//	RuleGroupHeaderProtocolTcp
-//	RuleGroupHeaderProtocolUdp
-//	RuleGroupHeaderProtocolIcmp
-//	RuleGroupHeaderProtocolHttp
-//	RuleGroupHeaderProtocolFtp
-//	RuleGroupHeaderProtocolTls
-//	RuleGroupHeaderProtocolSmb
-//	RuleGroupHeaderProtocolDns
-//	RuleGroupHeaderProtocolDcerpc
-//	RuleGroupHeaderProtocolSsh
-//	RuleGroupHeaderProtocolSmtp
-//	RuleGroupHeaderProtocolImap
-//	RuleGroupHeaderProtocolMsn
-//	RuleGroupHeaderProtocolKrb5
-//	RuleGroupHeaderProtocolIkev2
-//	RuleGroupHeaderProtocolTftp
-//	RuleGroupHeaderProtocolNtp
-//	RuleGroupHeaderProtocolDhcp
+//	RuleGroupHeaderProtocolArgs{...}
 type RuleGroupHeaderProtocolInput interface {
 	pulumi.Input
 
@@ -1482,6 +1552,12 @@ func (o RuleGroupRuleOrderOutput) ToRuleGroupRuleOrderPtrOutputWithContext(ctx c
 	}).(RuleGroupRuleOrderPtrOutput)
 }
 
+func (o RuleGroupRuleOrderOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleOrder] {
+	return pulumix.Output[RuleGroupRuleOrder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupRuleOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1517,6 +1593,12 @@ func (o RuleGroupRuleOrderPtrOutput) ToRuleGroupRuleOrderPtrOutputWithContext(ct
 	return o
 }
 
+func (o RuleGroupRuleOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleOrder] {
+	return pulumix.Output[*RuleGroupRuleOrder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupRuleOrderPtrOutput) Elem() RuleGroupRuleOrderOutput {
 	return o.ApplyT(func(v *RuleGroupRuleOrder) RuleGroupRuleOrder {
 		if v != nil {
@@ -1541,11 +1623,10 @@ func (o RuleGroupRuleOrderPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupRuleOrderInput is an input type that accepts values of the RuleGroupRuleOrder enum
-// A concrete instance of `RuleGroupRuleOrderInput` can be one of the following:
+// RuleGroupRuleOrderInput is an input type that accepts RuleGroupRuleOrderArgs and RuleGroupRuleOrderOutput values.
+// You can construct a concrete instance of `RuleGroupRuleOrderInput` via:
 //
-//	RuleGroupRuleOrderDefaultActionOrder
-//	RuleGroupRuleOrderStrictOrder
+//	RuleGroupRuleOrderArgs{...}
 type RuleGroupRuleOrderInput interface {
 	pulumi.Input
 
@@ -1655,6 +1736,12 @@ func (o RuleGroupStatefulRuleActionOutput) ToRuleGroupStatefulRuleActionPtrOutpu
 	}).(RuleGroupStatefulRuleActionPtrOutput)
 }
 
+func (o RuleGroupStatefulRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupStatefulRuleAction] {
+	return pulumix.Output[RuleGroupStatefulRuleAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupStatefulRuleActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1690,6 +1777,12 @@ func (o RuleGroupStatefulRuleActionPtrOutput) ToRuleGroupStatefulRuleActionPtrOu
 	return o
 }
 
+func (o RuleGroupStatefulRuleActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupStatefulRuleAction] {
+	return pulumix.Output[*RuleGroupStatefulRuleAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupStatefulRuleActionPtrOutput) Elem() RuleGroupStatefulRuleActionOutput {
 	return o.ApplyT(func(v *RuleGroupStatefulRuleAction) RuleGroupStatefulRuleAction {
 		if v != nil {
@@ -1714,13 +1807,10 @@ func (o RuleGroupStatefulRuleActionPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupStatefulRuleActionInput is an input type that accepts values of the RuleGroupStatefulRuleAction enum
-// A concrete instance of `RuleGroupStatefulRuleActionInput` can be one of the following:
+// RuleGroupStatefulRuleActionInput is an input type that accepts RuleGroupStatefulRuleActionArgs and RuleGroupStatefulRuleActionOutput values.
+// You can construct a concrete instance of `RuleGroupStatefulRuleActionInput` via:
 //
-//	RuleGroupStatefulRuleActionPass
-//	RuleGroupStatefulRuleActionDrop
-//	RuleGroupStatefulRuleActionAlert
-//	RuleGroupStatefulRuleActionReject
+//	RuleGroupStatefulRuleActionArgs{...}
 type RuleGroupStatefulRuleActionInput interface {
 	pulumi.Input
 
@@ -1828,6 +1918,12 @@ func (o RuleGroupTargetTypeOutput) ToRuleGroupTargetTypePtrOutputWithContext(ctx
 	}).(RuleGroupTargetTypePtrOutput)
 }
 
+func (o RuleGroupTargetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupTargetType] {
+	return pulumix.Output[RuleGroupTargetType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupTargetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1863,6 +1959,12 @@ func (o RuleGroupTargetTypePtrOutput) ToRuleGroupTargetTypePtrOutputWithContext(
 	return o
 }
 
+func (o RuleGroupTargetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupTargetType] {
+	return pulumix.Output[*RuleGroupTargetType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupTargetTypePtrOutput) Elem() RuleGroupTargetTypeOutput {
 	return o.ApplyT(func(v *RuleGroupTargetType) RuleGroupTargetType {
 		if v != nil {
@@ -1887,11 +1989,10 @@ func (o RuleGroupTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupTargetTypeInput is an input type that accepts values of the RuleGroupTargetType enum
-// A concrete instance of `RuleGroupTargetTypeInput` can be one of the following:
+// RuleGroupTargetTypeInput is an input type that accepts RuleGroupTargetTypeArgs and RuleGroupTargetTypeOutput values.
+// You can construct a concrete instance of `RuleGroupTargetTypeInput` via:
 //
-//	RuleGroupTargetTypeTlsSni
-//	RuleGroupTargetTypeHttpHost
+//	RuleGroupTargetTypeArgs{...}
 type RuleGroupTargetTypeInput interface {
 	pulumi.Input
 
@@ -1957,6 +2058,12 @@ func (i RuleGroupTargetTypeArray) ToRuleGroupTargetTypeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTargetTypeArrayOutput)
 }
 
+func (i RuleGroupTargetTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupTargetType] {
+	return pulumix.Output[[]RuleGroupTargetType]{
+		OutputState: i.ToRuleGroupTargetTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupTargetTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupTargetTypeArrayOutput) ElementType() reflect.Type {
@@ -1969,6 +2076,12 @@ func (o RuleGroupTargetTypeArrayOutput) ToRuleGroupTargetTypeArrayOutput() RuleG
 
 func (o RuleGroupTargetTypeArrayOutput) ToRuleGroupTargetTypeArrayOutputWithContext(ctx context.Context) RuleGroupTargetTypeArrayOutput {
 	return o
+}
+
+func (o RuleGroupTargetTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupTargetType] {
+	return pulumix.Output[[]RuleGroupTargetType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupTargetTypeArrayOutput) Index(i pulumi.IntInput) RuleGroupTargetTypeOutput {
@@ -2050,6 +2163,12 @@ func (o RuleGroupTcpFlagOutput) ToRuleGroupTcpFlagPtrOutputWithContext(ctx conte
 	}).(RuleGroupTcpFlagPtrOutput)
 }
 
+func (o RuleGroupTcpFlagOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupTcpFlag] {
+	return pulumix.Output[RuleGroupTcpFlag]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupTcpFlagOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2085,6 +2204,12 @@ func (o RuleGroupTcpFlagPtrOutput) ToRuleGroupTcpFlagPtrOutputWithContext(ctx co
 	return o
 }
 
+func (o RuleGroupTcpFlagPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupTcpFlag] {
+	return pulumix.Output[*RuleGroupTcpFlag]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupTcpFlagPtrOutput) Elem() RuleGroupTcpFlagOutput {
 	return o.ApplyT(func(v *RuleGroupTcpFlag) RuleGroupTcpFlag {
 		if v != nil {
@@ -2109,17 +2234,10 @@ func (o RuleGroupTcpFlagPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupTcpFlagInput is an input type that accepts values of the RuleGroupTcpFlag enum
-// A concrete instance of `RuleGroupTcpFlagInput` can be one of the following:
+// RuleGroupTcpFlagInput is an input type that accepts RuleGroupTcpFlagArgs and RuleGroupTcpFlagOutput values.
+// You can construct a concrete instance of `RuleGroupTcpFlagInput` via:
 //
-//	RuleGroupTcpFlagFin
-//	RuleGroupTcpFlagSyn
-//	RuleGroupTcpFlagRst
-//	RuleGroupTcpFlagPsh
-//	RuleGroupTcpFlagAck
-//	RuleGroupTcpFlagUrg
-//	RuleGroupTcpFlagEce
-//	RuleGroupTcpFlagCwr
+//	RuleGroupTcpFlagArgs{...}
 type RuleGroupTcpFlagInput interface {
 	pulumi.Input
 
@@ -2185,6 +2303,12 @@ func (i RuleGroupTcpFlagArray) ToRuleGroupTcpFlagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTcpFlagArrayOutput)
 }
 
+func (i RuleGroupTcpFlagArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupTcpFlag] {
+	return pulumix.Output[[]RuleGroupTcpFlag]{
+		OutputState: i.ToRuleGroupTcpFlagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupTcpFlagArrayOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupTcpFlagArrayOutput) ElementType() reflect.Type {
@@ -2197,6 +2321,12 @@ func (o RuleGroupTcpFlagArrayOutput) ToRuleGroupTcpFlagArrayOutput() RuleGroupTc
 
 func (o RuleGroupTcpFlagArrayOutput) ToRuleGroupTcpFlagArrayOutputWithContext(ctx context.Context) RuleGroupTcpFlagArrayOutput {
 	return o
+}
+
+func (o RuleGroupTcpFlagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupTcpFlag] {
+	return pulumix.Output[[]RuleGroupTcpFlag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupTcpFlagArrayOutput) Index(i pulumi.IntInput) RuleGroupTcpFlagOutput {
@@ -2272,6 +2402,12 @@ func (o RuleGroupTypeEnumOutput) ToRuleGroupTypeEnumPtrOutputWithContext(ctx con
 	}).(RuleGroupTypeEnumPtrOutput)
 }
 
+func (o RuleGroupTypeEnumOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupTypeEnum] {
+	return pulumix.Output[RuleGroupTypeEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupTypeEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2307,6 +2443,12 @@ func (o RuleGroupTypeEnumPtrOutput) ToRuleGroupTypeEnumPtrOutputWithContext(ctx 
 	return o
 }
 
+func (o RuleGroupTypeEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupTypeEnum] {
+	return pulumix.Output[*RuleGroupTypeEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupTypeEnumPtrOutput) Elem() RuleGroupTypeEnumOutput {
 	return o.ApplyT(func(v *RuleGroupTypeEnum) RuleGroupTypeEnum {
 		if v != nil {
@@ -2331,11 +2473,10 @@ func (o RuleGroupTypeEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupTypeEnumInput is an input type that accepts values of the RuleGroupTypeEnum enum
-// A concrete instance of `RuleGroupTypeEnumInput` can be one of the following:
+// RuleGroupTypeEnumInput is an input type that accepts RuleGroupTypeEnumArgs and RuleGroupTypeEnumOutput values.
+// You can construct a concrete instance of `RuleGroupTypeEnumInput` via:
 //
-//	RuleGroupTypeEnumStateless
-//	RuleGroupTypeEnumStateful
+//	RuleGroupTypeEnumArgs{...}
 type RuleGroupTypeEnumInput interface {
 	pulumi.Input
 
@@ -2444,6 +2585,12 @@ func (o TlsInspectionConfigurationRevokedStatusActionOutput) ToTlsInspectionConf
 	}).(TlsInspectionConfigurationRevokedStatusActionPtrOutput)
 }
 
+func (o TlsInspectionConfigurationRevokedStatusActionOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationRevokedStatusAction] {
+	return pulumix.Output[TlsInspectionConfigurationRevokedStatusAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TlsInspectionConfigurationRevokedStatusActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2479,6 +2626,12 @@ func (o TlsInspectionConfigurationRevokedStatusActionPtrOutput) ToTlsInspectionC
 	return o
 }
 
+func (o TlsInspectionConfigurationRevokedStatusActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfigurationRevokedStatusAction] {
+	return pulumix.Output[*TlsInspectionConfigurationRevokedStatusAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TlsInspectionConfigurationRevokedStatusActionPtrOutput) Elem() TlsInspectionConfigurationRevokedStatusActionOutput {
 	return o.ApplyT(func(v *TlsInspectionConfigurationRevokedStatusAction) TlsInspectionConfigurationRevokedStatusAction {
 		if v != nil {
@@ -2503,12 +2656,10 @@ func (o TlsInspectionConfigurationRevokedStatusActionPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// TlsInspectionConfigurationRevokedStatusActionInput is an input type that accepts values of the TlsInspectionConfigurationRevokedStatusAction enum
-// A concrete instance of `TlsInspectionConfigurationRevokedStatusActionInput` can be one of the following:
+// TlsInspectionConfigurationRevokedStatusActionInput is an input type that accepts TlsInspectionConfigurationRevokedStatusActionArgs and TlsInspectionConfigurationRevokedStatusActionOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationRevokedStatusActionInput` via:
 //
-//	TlsInspectionConfigurationRevokedStatusActionPass
-//	TlsInspectionConfigurationRevokedStatusActionDrop
-//	TlsInspectionConfigurationRevokedStatusActionReject
+//	TlsInspectionConfigurationRevokedStatusActionArgs{...}
 type TlsInspectionConfigurationRevokedStatusActionInput interface {
 	pulumi.Input
 
@@ -2617,6 +2768,12 @@ func (o TlsInspectionConfigurationUnknownStatusActionOutput) ToTlsInspectionConf
 	}).(TlsInspectionConfigurationUnknownStatusActionPtrOutput)
 }
 
+func (o TlsInspectionConfigurationUnknownStatusActionOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationUnknownStatusAction] {
+	return pulumix.Output[TlsInspectionConfigurationUnknownStatusAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TlsInspectionConfigurationUnknownStatusActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2652,6 +2809,12 @@ func (o TlsInspectionConfigurationUnknownStatusActionPtrOutput) ToTlsInspectionC
 	return o
 }
 
+func (o TlsInspectionConfigurationUnknownStatusActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfigurationUnknownStatusAction] {
+	return pulumix.Output[*TlsInspectionConfigurationUnknownStatusAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TlsInspectionConfigurationUnknownStatusActionPtrOutput) Elem() TlsInspectionConfigurationUnknownStatusActionOutput {
 	return o.ApplyT(func(v *TlsInspectionConfigurationUnknownStatusAction) TlsInspectionConfigurationUnknownStatusAction {
 		if v != nil {
@@ -2676,12 +2839,10 @@ func (o TlsInspectionConfigurationUnknownStatusActionPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// TlsInspectionConfigurationUnknownStatusActionInput is an input type that accepts values of the TlsInspectionConfigurationUnknownStatusAction enum
-// A concrete instance of `TlsInspectionConfigurationUnknownStatusActionInput` can be one of the following:
+// TlsInspectionConfigurationUnknownStatusActionInput is an input type that accepts TlsInspectionConfigurationUnknownStatusActionArgs and TlsInspectionConfigurationUnknownStatusActionOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationUnknownStatusActionInput` via:
 //
-//	TlsInspectionConfigurationUnknownStatusActionPass
-//	TlsInspectionConfigurationUnknownStatusActionDrop
-//	TlsInspectionConfigurationUnknownStatusActionReject
+//	TlsInspectionConfigurationUnknownStatusActionArgs{...}
 type TlsInspectionConfigurationUnknownStatusActionInput interface {
 	pulumi.Input
 

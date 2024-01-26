@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cloud9::EnvironmentEC2
@@ -136,6 +137,12 @@ func (i *EnvironmentEc2) ToEnvironmentEc2OutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEc2Output)
 }
 
+func (i *EnvironmentEc2) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentEc2] {
+	return pulumix.Output[*EnvironmentEc2]{
+		OutputState: i.ToEnvironmentEc2OutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentEc2Output struct{ *pulumi.OutputState }
 
 func (EnvironmentEc2Output) ElementType() reflect.Type {
@@ -148,6 +155,12 @@ func (o EnvironmentEc2Output) ToEnvironmentEc2Output() EnvironmentEc2Output {
 
 func (o EnvironmentEc2Output) ToEnvironmentEc2OutputWithContext(ctx context.Context) EnvironmentEc2Output {
 	return o
+}
+
+func (o EnvironmentEc2Output) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentEc2] {
+	return pulumix.Output[*EnvironmentEc2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentEc2Output) Arn() pulumi.StringOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::EmailChannel
@@ -120,6 +121,12 @@ func (i *EmailChannel) ToEmailChannelOutputWithContext(ctx context.Context) Emai
 	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelOutput)
 }
 
+func (i *EmailChannel) ToOutput(ctx context.Context) pulumix.Output[*EmailChannel] {
+	return pulumix.Output[*EmailChannel]{
+		OutputState: i.ToEmailChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EmailChannelOutput struct{ *pulumi.OutputState }
 
 func (EmailChannelOutput) ElementType() reflect.Type {
@@ -132,6 +139,12 @@ func (o EmailChannelOutput) ToEmailChannelOutput() EmailChannelOutput {
 
 func (o EmailChannelOutput) ToEmailChannelOutputWithContext(ctx context.Context) EmailChannelOutput {
 	return o
+}
+
+func (o EmailChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailChannel] {
+	return pulumix.Output[*EmailChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EmailChannelOutput) ApplicationId() pulumi.StringOutput {

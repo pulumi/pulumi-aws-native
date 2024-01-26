@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -88,6 +89,12 @@ func (o LookupFunctionConfigurationResultOutput) ToLookupFunctionConfigurationRe
 
 func (o LookupFunctionConfigurationResultOutput) ToLookupFunctionConfigurationResultOutputWithContext(ctx context.Context) LookupFunctionConfigurationResultOutput {
 	return o
+}
+
+func (o LookupFunctionConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFunctionConfigurationResult] {
+	return pulumix.Output[LookupFunctionConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The resolver code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.

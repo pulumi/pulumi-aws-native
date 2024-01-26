@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::IoTSiteWise::Project
@@ -128,6 +129,12 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectOutput)
 }
 
+func (i *Project) ToOutput(ctx context.Context) pulumix.Output[*Project] {
+	return pulumix.Output[*Project]{
+		OutputState: i.ToProjectOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectOutput struct{ *pulumi.OutputState }
 
 func (ProjectOutput) ElementType() reflect.Type {
@@ -140,6 +147,12 @@ func (o ProjectOutput) ToProjectOutput() ProjectOutput {
 
 func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOutput {
 	return o
+}
+
+func (o ProjectOutput) ToOutput(ctx context.Context) pulumix.Output[*Project] {
+	return pulumix.Output[*Project]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IDs of the assets to be associated to the project.

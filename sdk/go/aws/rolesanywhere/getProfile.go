@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::RolesAnywhere::Profile Resource Type
@@ -72,6 +73,12 @@ func (o LookupProfileResultOutput) ToLookupProfileResultOutput() LookupProfileRe
 
 func (o LookupProfileResultOutput) ToLookupProfileResultOutputWithContext(ctx context.Context) LookupProfileResultOutput {
 	return o
+}
+
+func (o LookupProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupProfileResult] {
+	return pulumix.Output[LookupProfileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupProfileResultOutput) DurationSeconds() pulumi.Float64PtrOutput {

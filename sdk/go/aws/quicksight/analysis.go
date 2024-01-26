@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of the AWS::QuickSight::Analysis Resource Type.
@@ -141,6 +142,12 @@ func (i *Analysis) ToAnalysisOutputWithContext(ctx context.Context) AnalysisOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisOutput)
 }
 
+func (i *Analysis) ToOutput(ctx context.Context) pulumix.Output[*Analysis] {
+	return pulumix.Output[*Analysis]{
+		OutputState: i.ToAnalysisOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalysisOutput struct{ *pulumi.OutputState }
 
 func (AnalysisOutput) ElementType() reflect.Type {
@@ -153,6 +160,12 @@ func (o AnalysisOutput) ToAnalysisOutput() AnalysisOutput {
 
 func (o AnalysisOutput) ToAnalysisOutputWithContext(ctx context.Context) AnalysisOutput {
 	return o
+}
+
+func (o AnalysisOutput) ToOutput(ctx context.Context) pulumix.Output[*Analysis] {
+	return pulumix.Output[*Analysis]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalysisOutput) AnalysisId() pulumi.StringOutput {

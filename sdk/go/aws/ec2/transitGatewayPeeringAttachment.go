@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::TransitGatewayPeeringAttachment type
@@ -144,6 +145,12 @@ func (i *TransitGatewayPeeringAttachment) ToTransitGatewayPeeringAttachmentOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentOutput)
 }
 
+func (i *TransitGatewayPeeringAttachment) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayPeeringAttachment] {
+	return pulumix.Output[*TransitGatewayPeeringAttachment]{
+		OutputState: i.ToTransitGatewayPeeringAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayPeeringAttachmentOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayPeeringAttachmentOutput) ElementType() reflect.Type {
@@ -156,6 +163,12 @@ func (o TransitGatewayPeeringAttachmentOutput) ToTransitGatewayPeeringAttachment
 
 func (o TransitGatewayPeeringAttachmentOutput) ToTransitGatewayPeeringAttachmentOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOutput {
 	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayPeeringAttachment] {
+	return pulumix.Output[*TransitGatewayPeeringAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The time the transit gateway peering attachment was created.

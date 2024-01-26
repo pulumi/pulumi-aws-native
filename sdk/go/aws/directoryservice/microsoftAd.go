@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DirectoryService::MicrosoftAD
@@ -127,6 +128,12 @@ func (i *MicrosoftAd) ToMicrosoftAdOutputWithContext(ctx context.Context) Micros
 	return pulumi.ToOutputWithContext(ctx, i).(MicrosoftAdOutput)
 }
 
+func (i *MicrosoftAd) ToOutput(ctx context.Context) pulumix.Output[*MicrosoftAd] {
+	return pulumix.Output[*MicrosoftAd]{
+		OutputState: i.ToMicrosoftAdOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MicrosoftAdOutput struct{ *pulumi.OutputState }
 
 func (MicrosoftAdOutput) ElementType() reflect.Type {
@@ -139,6 +146,12 @@ func (o MicrosoftAdOutput) ToMicrosoftAdOutput() MicrosoftAdOutput {
 
 func (o MicrosoftAdOutput) ToMicrosoftAdOutputWithContext(ctx context.Context) MicrosoftAdOutput {
 	return o
+}
+
+func (o MicrosoftAdOutput) ToOutput(ctx context.Context) pulumix.Output[*MicrosoftAd] {
+	return pulumix.Output[*MicrosoftAd]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MicrosoftAdOutput) Alias() pulumi.StringOutput {

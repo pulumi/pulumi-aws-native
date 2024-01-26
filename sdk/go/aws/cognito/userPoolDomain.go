@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolDomain
@@ -108,6 +109,12 @@ func (i *UserPoolDomain) ToUserPoolDomainOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainOutput)
 }
 
+func (i *UserPoolDomain) ToOutput(ctx context.Context) pulumix.Output[*UserPoolDomain] {
+	return pulumix.Output[*UserPoolDomain]{
+		OutputState: i.ToUserPoolDomainOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserPoolDomainOutput struct{ *pulumi.OutputState }
 
 func (UserPoolDomainOutput) ElementType() reflect.Type {
@@ -120,6 +127,12 @@ func (o UserPoolDomainOutput) ToUserPoolDomainOutput() UserPoolDomainOutput {
 
 func (o UserPoolDomainOutput) ToUserPoolDomainOutputWithContext(ctx context.Context) UserPoolDomainOutput {
 	return o
+}
+
+func (o UserPoolDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolDomain] {
+	return pulumix.Output[*UserPoolDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserPoolDomainOutput) CloudFrontDistribution() pulumi.StringOutput {

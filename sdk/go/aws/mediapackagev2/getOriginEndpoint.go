@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
@@ -81,6 +82,12 @@ func (o LookupOriginEndpointResultOutput) ToLookupOriginEndpointResultOutput() L
 
 func (o LookupOriginEndpointResultOutput) ToLookupOriginEndpointResultOutputWithContext(ctx context.Context) LookupOriginEndpointResultOutput {
 	return o
+}
+
+func (o LookupOriginEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOriginEndpointResult] {
+	return pulumix.Output[LookupOriginEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // <p>The Amazon Resource Name (ARN) associated with the resource.</p>

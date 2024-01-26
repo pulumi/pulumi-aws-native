@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerCertificate
@@ -64,6 +65,12 @@ func (o LookupListenerCertificateResultOutput) ToLookupListenerCertificateResult
 
 func (o LookupListenerCertificateResultOutput) ToLookupListenerCertificateResultOutputWithContext(ctx context.Context) LookupListenerCertificateResultOutput {
 	return o
+}
+
+func (o LookupListenerCertificateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupListenerCertificateResult] {
+	return pulumix.Output[LookupListenerCertificateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupListenerCertificateResultOutput) Certificates() ListenerCertificateCertificateArrayOutput {

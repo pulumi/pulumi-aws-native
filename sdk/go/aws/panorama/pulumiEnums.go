@@ -43,6 +43,12 @@ func (o ApplicationInstanceHealthStatusOutput) ToApplicationInstanceHealthStatus
 	}).(ApplicationInstanceHealthStatusPtrOutput)
 }
 
+func (o ApplicationInstanceHealthStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInstanceHealthStatus] {
+	return pulumix.Output[ApplicationInstanceHealthStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationInstanceHealthStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -76,6 +82,12 @@ func (o ApplicationInstanceHealthStatusPtrOutput) ToApplicationInstanceHealthSta
 
 func (o ApplicationInstanceHealthStatusPtrOutput) ToApplicationInstanceHealthStatusPtrOutputWithContext(ctx context.Context) ApplicationInstanceHealthStatusPtrOutput {
 	return o
+}
+
+func (o ApplicationInstanceHealthStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInstanceHealthStatus] {
+	return pulumix.Output[*ApplicationInstanceHealthStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInstanceHealthStatusPtrOutput) Elem() ApplicationInstanceHealthStatusOutput {
@@ -141,6 +153,12 @@ func (o ApplicationInstanceStatusOutput) ToApplicationInstanceStatusPtrOutputWit
 	}).(ApplicationInstanceStatusPtrOutput)
 }
 
+func (o ApplicationInstanceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInstanceStatus] {
+	return pulumix.Output[ApplicationInstanceStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationInstanceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -174,6 +192,12 @@ func (o ApplicationInstanceStatusPtrOutput) ToApplicationInstanceStatusPtrOutput
 
 func (o ApplicationInstanceStatusPtrOutput) ToApplicationInstanceStatusPtrOutputWithContext(ctx context.Context) ApplicationInstanceStatusPtrOutput {
 	return o
+}
+
+func (o ApplicationInstanceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInstanceStatus] {
+	return pulumix.Output[*ApplicationInstanceStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInstanceStatusPtrOutput) Elem() ApplicationInstanceStatusOutput {
@@ -233,6 +257,12 @@ func (o PackageVersionStatusOutput) ToPackageVersionStatusPtrOutputWithContext(c
 	}).(PackageVersionStatusPtrOutput)
 }
 
+func (o PackageVersionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[PackageVersionStatus] {
+	return pulumix.Output[PackageVersionStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PackageVersionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -266,6 +296,12 @@ func (o PackageVersionStatusPtrOutput) ToPackageVersionStatusPtrOutput() Package
 
 func (o PackageVersionStatusPtrOutput) ToPackageVersionStatusPtrOutputWithContext(ctx context.Context) PackageVersionStatusPtrOutput {
 	return o
+}
+
+func (o PackageVersionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackageVersionStatus] {
+	return pulumix.Output[*PackageVersionStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PackageVersionStatusPtrOutput) Elem() PackageVersionStatusOutput {

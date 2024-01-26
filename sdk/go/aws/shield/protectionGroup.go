@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
@@ -147,6 +148,12 @@ func (i *ProtectionGroup) ToProtectionGroupOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionGroupOutput)
 }
 
+func (i *ProtectionGroup) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroup] {
+	return pulumix.Output[*ProtectionGroup]{
+		OutputState: i.ToProtectionGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProtectionGroupOutput struct{ *pulumi.OutputState }
 
 func (ProtectionGroupOutput) ElementType() reflect.Type {
@@ -159,6 +166,12 @@ func (o ProtectionGroupOutput) ToProtectionGroupOutput() ProtectionGroupOutput {
 
 func (o ProtectionGroupOutput) ToProtectionGroupOutputWithContext(ctx context.Context) ProtectionGroupOutput {
 	return o
+}
+
+func (o ProtectionGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroup] {
+	return pulumix.Output[*ProtectionGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.

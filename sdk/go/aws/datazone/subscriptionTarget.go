@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Subscription targets enables one to access the data to which you have subscribed in your projects.
@@ -182,6 +183,12 @@ func (i *SubscriptionTarget) ToSubscriptionTargetOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTargetOutput)
 }
 
+func (i *SubscriptionTarget) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionTarget] {
+	return pulumix.Output[*SubscriptionTarget]{
+		OutputState: i.ToSubscriptionTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionTargetOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionTargetOutput) ElementType() reflect.Type {
@@ -194,6 +201,12 @@ func (o SubscriptionTargetOutput) ToSubscriptionTargetOutput() SubscriptionTarge
 
 func (o SubscriptionTargetOutput) ToSubscriptionTargetOutputWithContext(ctx context.Context) SubscriptionTargetOutput {
 	return o
+}
+
+func (o SubscriptionTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionTarget] {
+	return pulumix.Output[*SubscriptionTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The asset types that can be included in the subscription target.

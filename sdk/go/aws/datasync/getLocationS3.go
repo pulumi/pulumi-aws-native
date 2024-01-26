@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationS3
@@ -70,6 +71,12 @@ func (o LookupLocationS3ResultOutput) ToLookupLocationS3ResultOutput() LookupLoc
 
 func (o LookupLocationS3ResultOutput) ToLookupLocationS3ResultOutputWithContext(ctx context.Context) LookupLocationS3ResultOutput {
 	return o
+}
+
+func (o LookupLocationS3ResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocationS3Result] {
+	return pulumix.Output[LookupLocationS3Result]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Amazon S3 bucket location.

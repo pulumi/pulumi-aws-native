@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EventSchemas::Discoverer
@@ -124,6 +125,12 @@ func (i *Discoverer) ToDiscovererOutputWithContext(ctx context.Context) Discover
 	return pulumi.ToOutputWithContext(ctx, i).(DiscovererOutput)
 }
 
+func (i *Discoverer) ToOutput(ctx context.Context) pulumix.Output[*Discoverer] {
+	return pulumix.Output[*Discoverer]{
+		OutputState: i.ToDiscovererOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiscovererOutput struct{ *pulumi.OutputState }
 
 func (DiscovererOutput) ElementType() reflect.Type {
@@ -136,6 +143,12 @@ func (o DiscovererOutput) ToDiscovererOutput() DiscovererOutput {
 
 func (o DiscovererOutput) ToDiscovererOutputWithContext(ctx context.Context) DiscovererOutput {
 	return o
+}
+
+func (o DiscovererOutput) ToOutput(ctx context.Context) pulumix.Output[*Discoverer] {
+	return pulumix.Output[*Discoverer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Defines whether event schemas from other accounts are discovered. Default is True.

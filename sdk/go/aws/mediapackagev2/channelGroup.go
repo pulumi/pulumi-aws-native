@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
@@ -103,6 +104,12 @@ func (i *ChannelGroup) ToChannelGroupOutputWithContext(ctx context.Context) Chan
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelGroupOutput)
 }
 
+func (i *ChannelGroup) ToOutput(ctx context.Context) pulumix.Output[*ChannelGroup] {
+	return pulumix.Output[*ChannelGroup]{
+		OutputState: i.ToChannelGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelGroupOutput struct{ *pulumi.OutputState }
 
 func (ChannelGroupOutput) ElementType() reflect.Type {
@@ -115,6 +122,12 @@ func (o ChannelGroupOutput) ToChannelGroupOutput() ChannelGroupOutput {
 
 func (o ChannelGroupOutput) ToChannelGroupOutputWithContext(ctx context.Context) ChannelGroupOutput {
 	return o
+}
+
+func (o ChannelGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelGroup] {
+	return pulumix.Output[*ChannelGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelGroupOutput) Arn() pulumi.StringOutput {

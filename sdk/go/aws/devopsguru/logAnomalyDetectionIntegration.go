@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
@@ -87,6 +88,12 @@ func (i *LogAnomalyDetectionIntegration) ToLogAnomalyDetectionIntegrationOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LogAnomalyDetectionIntegrationOutput)
 }
 
+func (i *LogAnomalyDetectionIntegration) ToOutput(ctx context.Context) pulumix.Output[*LogAnomalyDetectionIntegration] {
+	return pulumix.Output[*LogAnomalyDetectionIntegration]{
+		OutputState: i.ToLogAnomalyDetectionIntegrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogAnomalyDetectionIntegrationOutput struct{ *pulumi.OutputState }
 
 func (LogAnomalyDetectionIntegrationOutput) ElementType() reflect.Type {
@@ -99,6 +106,12 @@ func (o LogAnomalyDetectionIntegrationOutput) ToLogAnomalyDetectionIntegrationOu
 
 func (o LogAnomalyDetectionIntegrationOutput) ToLogAnomalyDetectionIntegrationOutputWithContext(ctx context.Context) LogAnomalyDetectionIntegrationOutput {
 	return o
+}
+
+func (o LogAnomalyDetectionIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*LogAnomalyDetectionIntegration] {
+	return pulumix.Output[*LogAnomalyDetectionIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogAnomalyDetectionIntegrationOutput) AccountId() pulumi.StringOutput {

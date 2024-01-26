@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppConfig::DeploymentStrategy
@@ -127,6 +128,12 @@ func (i *DeploymentStrategy) ToDeploymentStrategyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStrategyOutput)
 }
 
+func (i *DeploymentStrategy) ToOutput(ctx context.Context) pulumix.Output[*DeploymentStrategy] {
+	return pulumix.Output[*DeploymentStrategy]{
+		OutputState: i.ToDeploymentStrategyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentStrategyOutput struct{ *pulumi.OutputState }
 
 func (DeploymentStrategyOutput) ElementType() reflect.Type {
@@ -139,6 +146,12 @@ func (o DeploymentStrategyOutput) ToDeploymentStrategyOutput() DeploymentStrateg
 
 func (o DeploymentStrategyOutput) ToDeploymentStrategyOutputWithContext(ctx context.Context) DeploymentStrategyOutput {
 	return o
+}
+
+func (o DeploymentStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentStrategy] {
+	return pulumix.Output[*DeploymentStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentStrategyOutput) DeploymentDurationInMinutes() pulumi.Float64Output {

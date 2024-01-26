@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::ElastiCache::ServerlessCache resource creates an Amazon ElastiCache Serverless Cache.
@@ -87,6 +88,12 @@ func (o LookupServerlessCacheResultOutput) ToLookupServerlessCacheResultOutput()
 
 func (o LookupServerlessCacheResultOutput) ToLookupServerlessCacheResultOutputWithContext(ctx context.Context) LookupServerlessCacheResultOutput {
 	return o
+}
+
+func (o LookupServerlessCacheResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerlessCacheResult] {
+	return pulumix.Output[LookupServerlessCacheResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Serverless Cache.

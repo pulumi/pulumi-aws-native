@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::Method“ resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
@@ -93,6 +94,12 @@ func (o LookupMethodResultOutput) ToLookupMethodResultOutput() LookupMethodResul
 
 func (o LookupMethodResultOutput) ToLookupMethodResultOutputWithContext(ctx context.Context) LookupMethodResultOutput {
 	return o
+}
+
+func (o LookupMethodResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMethodResult] {
+	return pulumix.Output[LookupMethodResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A boolean flag specifying whether a valid ApiKey is required to invoke this method.

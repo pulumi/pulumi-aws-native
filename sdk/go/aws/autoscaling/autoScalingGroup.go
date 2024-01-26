@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AutoScaling::AutoScalingGroup
@@ -188,6 +189,12 @@ func (i *AutoScalingGroup) ToAutoScalingGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupOutput)
 }
 
+func (i *AutoScalingGroup) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroup] {
+	return pulumix.Output[*AutoScalingGroup]{
+		OutputState: i.ToAutoScalingGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AutoScalingGroupOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupOutput) ElementType() reflect.Type {
@@ -200,6 +207,12 @@ func (o AutoScalingGroupOutput) ToAutoScalingGroupOutput() AutoScalingGroupOutpu
 
 func (o AutoScalingGroupOutput) ToAutoScalingGroupOutputWithContext(ctx context.Context) AutoScalingGroupOutput {
 	return o
+}
+
+func (o AutoScalingGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroup] {
+	return pulumix.Output[*AutoScalingGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AutoScalingGroupOutput) AutoScalingGroupName() pulumi.StringPtrOutput {

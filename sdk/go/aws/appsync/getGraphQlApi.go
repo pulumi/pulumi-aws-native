@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::GraphQLApi
@@ -86,6 +87,12 @@ func (o LookupGraphQlApiResultOutput) ToLookupGraphQlApiResultOutput() LookupGra
 
 func (o LookupGraphQlApiResultOutput) ToLookupGraphQlApiResultOutputWithContext(ctx context.Context) LookupGraphQlApiResultOutput {
 	return o
+}
+
+func (o LookupGraphQlApiResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGraphQlApiResult] {
+	return pulumix.Output[LookupGraphQlApiResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupGraphQlApiResultOutput) AdditionalAuthenticationProviders() GraphQlApiAdditionalAuthenticationProviderArrayOutput {

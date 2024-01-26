@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::NetworkFirewall::RuleGroup
@@ -67,6 +68,12 @@ func (o LookupRuleGroupResultOutput) ToLookupRuleGroupResultOutput() LookupRuleG
 
 func (o LookupRuleGroupResultOutput) ToLookupRuleGroupResultOutputWithContext(ctx context.Context) LookupRuleGroupResultOutput {
 	return o
+}
+
+func (o LookupRuleGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRuleGroupResult] {
+	return pulumix.Output[LookupRuleGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRuleGroupResultOutput) Description() pulumi.StringPtrOutput {

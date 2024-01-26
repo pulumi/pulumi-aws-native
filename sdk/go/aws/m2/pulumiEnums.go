@@ -78,6 +78,12 @@ func (o ApplicationEngineTypeOutput) ToApplicationEngineTypePtrOutputWithContext
 	}).(ApplicationEngineTypePtrOutput)
 }
 
+func (o ApplicationEngineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationEngineType] {
+	return pulumix.Output[ApplicationEngineType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +119,12 @@ func (o ApplicationEngineTypePtrOutput) ToApplicationEngineTypePtrOutputWithCont
 	return o
 }
 
+func (o ApplicationEngineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationEngineType] {
+	return pulumix.Output[*ApplicationEngineType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationEngineTypePtrOutput) Elem() ApplicationEngineTypeOutput {
 	return o.ApplyT(func(v *ApplicationEngineType) ApplicationEngineType {
 		if v != nil {
@@ -137,11 +149,10 @@ func (o ApplicationEngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationEngineTypeInput is an input type that accepts values of the ApplicationEngineType enum
-// A concrete instance of `ApplicationEngineTypeInput` can be one of the following:
+// ApplicationEngineTypeInput is an input type that accepts ApplicationEngineTypeArgs and ApplicationEngineTypeOutput values.
+// You can construct a concrete instance of `ApplicationEngineTypeInput` via:
 //
-//	ApplicationEngineTypeMicrofocus
-//	ApplicationEngineTypeBluage
+//	ApplicationEngineTypeArgs{...}
 type ApplicationEngineTypeInput interface {
 	pulumi.Input
 
@@ -250,6 +261,12 @@ func (o EnvironmentEngineTypeOutput) ToEnvironmentEngineTypePtrOutputWithContext
 	}).(EnvironmentEngineTypePtrOutput)
 }
 
+func (o EnvironmentEngineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentEngineType] {
+	return pulumix.Output[EnvironmentEngineType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnvironmentEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -285,6 +302,12 @@ func (o EnvironmentEngineTypePtrOutput) ToEnvironmentEngineTypePtrOutputWithCont
 	return o
 }
 
+func (o EnvironmentEngineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentEngineType] {
+	return pulumix.Output[*EnvironmentEngineType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnvironmentEngineTypePtrOutput) Elem() EnvironmentEngineTypeOutput {
 	return o.ApplyT(func(v *EnvironmentEngineType) EnvironmentEngineType {
 		if v != nil {
@@ -309,11 +332,10 @@ func (o EnvironmentEngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentEngineTypeInput is an input type that accepts values of the EnvironmentEngineType enum
-// A concrete instance of `EnvironmentEngineTypeInput` can be one of the following:
+// EnvironmentEngineTypeInput is an input type that accepts EnvironmentEngineTypeArgs and EnvironmentEngineTypeOutput values.
+// You can construct a concrete instance of `EnvironmentEngineTypeInput` via:
 //
-//	EnvironmentEngineTypeMicrofocus
-//	EnvironmentEngineTypeBluage
+//	EnvironmentEngineTypeArgs{...}
 type EnvironmentEngineTypeInput interface {
 	pulumi.Input
 

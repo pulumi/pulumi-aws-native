@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lambda::Version
@@ -132,6 +133,12 @@ func (i *Version) ToVersionOutputWithContext(ctx context.Context) VersionOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(VersionOutput)
 }
 
+func (i *Version) ToOutput(ctx context.Context) pulumix.Output[*Version] {
+	return pulumix.Output[*Version]{
+		OutputState: i.ToVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VersionOutput struct{ *pulumi.OutputState }
 
 func (VersionOutput) ElementType() reflect.Type {
@@ -144,6 +151,12 @@ func (o VersionOutput) ToVersionOutput() VersionOutput {
 
 func (o VersionOutput) ToVersionOutputWithContext(ctx context.Context) VersionOutput {
 	return o
+}
+
+func (o VersionOutput) ToOutput(ctx context.Context) pulumix.Output[*Version] {
+	return pulumix.Output[*Version]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.

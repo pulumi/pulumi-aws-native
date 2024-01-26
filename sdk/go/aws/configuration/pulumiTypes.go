@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i AggregationAuthorizationTagArgs) ToAggregationAuthorizationTagOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AggregationAuthorizationTagOutput)
 }
 
+func (i AggregationAuthorizationTagArgs) ToOutput(ctx context.Context) pulumix.Output[AggregationAuthorizationTag] {
+	return pulumix.Output[AggregationAuthorizationTag]{
+		OutputState: i.ToAggregationAuthorizationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AggregationAuthorizationTagArrayInput is an input type that accepts AggregationAuthorizationTagArray and AggregationAuthorizationTagArrayOutput values.
 // You can construct a concrete instance of `AggregationAuthorizationTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i AggregationAuthorizationTagArray) ToAggregationAuthorizationTagArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AggregationAuthorizationTagArrayOutput)
 }
 
+func (i AggregationAuthorizationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AggregationAuthorizationTag] {
+	return pulumix.Output[[]AggregationAuthorizationTag]{
+		OutputState: i.ToAggregationAuthorizationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type AggregationAuthorizationTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o AggregationAuthorizationTagOutput) ToAggregationAuthorizationTagOutput()
 
 func (o AggregationAuthorizationTagOutput) ToAggregationAuthorizationTagOutputWithContext(ctx context.Context) AggregationAuthorizationTagOutput {
 	return o
+}
+
+func (o AggregationAuthorizationTagOutput) ToOutput(ctx context.Context) pulumix.Output[AggregationAuthorizationTag] {
+	return pulumix.Output[AggregationAuthorizationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -114,6 +133,12 @@ func (o AggregationAuthorizationTagArrayOutput) ToAggregationAuthorizationTagArr
 
 func (o AggregationAuthorizationTagArrayOutput) ToAggregationAuthorizationTagArrayOutputWithContext(ctx context.Context) AggregationAuthorizationTagArrayOutput {
 	return o
+}
+
+func (o AggregationAuthorizationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AggregationAuthorizationTag] {
+	return pulumix.Output[[]AggregationAuthorizationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AggregationAuthorizationTagArrayOutput) Index(i pulumi.IntInput) AggregationAuthorizationTagOutput {
@@ -157,6 +182,12 @@ func (i CompliancePropertiesArgs) ToCompliancePropertiesOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CompliancePropertiesOutput)
 }
 
+func (i CompliancePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ComplianceProperties] {
+	return pulumix.Output[ComplianceProperties]{
+		OutputState: i.ToCompliancePropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CompliancePropertiesArgs) ToCompliancePropertiesPtrOutput() CompliancePropertiesPtrOutput {
 	return i.ToCompliancePropertiesPtrOutputWithContext(context.Background())
 }
@@ -198,6 +229,12 @@ func (i *compliancePropertiesPtrType) ToCompliancePropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CompliancePropertiesPtrOutput)
 }
 
+func (i *compliancePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComplianceProperties] {
+	return pulumix.Output[*ComplianceProperties]{
+		OutputState: i.ToCompliancePropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Compliance details of the Config rule
 type CompliancePropertiesOutput struct{ *pulumi.OutputState }
 
@@ -223,6 +260,12 @@ func (o CompliancePropertiesOutput) ToCompliancePropertiesPtrOutputWithContext(c
 	}).(CompliancePropertiesPtrOutput)
 }
 
+func (o CompliancePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ComplianceProperties] {
+	return pulumix.Output[ComplianceProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Compliance type determined by the Config rule
 func (o CompliancePropertiesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComplianceProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -240,6 +283,12 @@ func (o CompliancePropertiesPtrOutput) ToCompliancePropertiesPtrOutput() Complia
 
 func (o CompliancePropertiesPtrOutput) ToCompliancePropertiesPtrOutputWithContext(ctx context.Context) CompliancePropertiesPtrOutput {
 	return o
+}
+
+func (o CompliancePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComplianceProperties] {
+	return pulumix.Output[*ComplianceProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CompliancePropertiesPtrOutput) Elem() CompliancePropertiesOutput {
@@ -305,6 +354,12 @@ func (i ConfigRuleCustomPolicyDetailsArgs) ToConfigRuleCustomPolicyDetailsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleCustomPolicyDetailsOutput)
 }
 
+func (i ConfigRuleCustomPolicyDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigRuleCustomPolicyDetails] {
+	return pulumix.Output[ConfigRuleCustomPolicyDetails]{
+		OutputState: i.ToConfigRuleCustomPolicyDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConfigRuleCustomPolicyDetailsArgs) ToConfigRuleCustomPolicyDetailsPtrOutput() ConfigRuleCustomPolicyDetailsPtrOutput {
 	return i.ToConfigRuleCustomPolicyDetailsPtrOutputWithContext(context.Background())
 }
@@ -346,6 +401,12 @@ func (i *configRuleCustomPolicyDetailsPtrType) ToConfigRuleCustomPolicyDetailsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleCustomPolicyDetailsPtrOutput)
 }
 
+func (i *configRuleCustomPolicyDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigRuleCustomPolicyDetails] {
+	return pulumix.Output[*ConfigRuleCustomPolicyDetails]{
+		OutputState: i.ToConfigRuleCustomPolicyDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Custom policy details when rule is custom owned
 type ConfigRuleCustomPolicyDetailsOutput struct{ *pulumi.OutputState }
 
@@ -369,6 +430,12 @@ func (o ConfigRuleCustomPolicyDetailsOutput) ToConfigRuleCustomPolicyDetailsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigRuleCustomPolicyDetails) *ConfigRuleCustomPolicyDetails {
 		return &v
 	}).(ConfigRuleCustomPolicyDetailsPtrOutput)
+}
+
+func (o ConfigRuleCustomPolicyDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigRuleCustomPolicyDetails] {
+	return pulumix.Output[ConfigRuleCustomPolicyDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Logging toggle for custom policy rule
@@ -398,6 +465,12 @@ func (o ConfigRuleCustomPolicyDetailsPtrOutput) ToConfigRuleCustomPolicyDetailsP
 
 func (o ConfigRuleCustomPolicyDetailsPtrOutput) ToConfigRuleCustomPolicyDetailsPtrOutputWithContext(ctx context.Context) ConfigRuleCustomPolicyDetailsPtrOutput {
 	return o
+}
+
+func (o ConfigRuleCustomPolicyDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigRuleCustomPolicyDetails] {
+	return pulumix.Output[*ConfigRuleCustomPolicyDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigRuleCustomPolicyDetailsPtrOutput) Elem() ConfigRuleCustomPolicyDetailsOutput {
@@ -475,6 +548,12 @@ func (i ConfigRuleEvaluationModeConfigurationArgs) ToConfigRuleEvaluationModeCon
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleEvaluationModeConfigurationOutput)
 }
 
+func (i ConfigRuleEvaluationModeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigRuleEvaluationModeConfiguration] {
+	return pulumix.Output[ConfigRuleEvaluationModeConfiguration]{
+		OutputState: i.ToConfigRuleEvaluationModeConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigRuleEvaluationModeConfigurationArrayInput is an input type that accepts ConfigRuleEvaluationModeConfigurationArray and ConfigRuleEvaluationModeConfigurationArrayOutput values.
 // You can construct a concrete instance of `ConfigRuleEvaluationModeConfigurationArrayInput` via:
 //
@@ -500,6 +579,12 @@ func (i ConfigRuleEvaluationModeConfigurationArray) ToConfigRuleEvaluationModeCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleEvaluationModeConfigurationArrayOutput)
 }
 
+func (i ConfigRuleEvaluationModeConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigRuleEvaluationModeConfiguration] {
+	return pulumix.Output[[]ConfigRuleEvaluationModeConfiguration]{
+		OutputState: i.ToConfigRuleEvaluationModeConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Evaluation mode for the AWS Config rule
 type ConfigRuleEvaluationModeConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -513,6 +598,12 @@ func (o ConfigRuleEvaluationModeConfigurationOutput) ToConfigRuleEvaluationModeC
 
 func (o ConfigRuleEvaluationModeConfigurationOutput) ToConfigRuleEvaluationModeConfigurationOutputWithContext(ctx context.Context) ConfigRuleEvaluationModeConfigurationOutput {
 	return o
+}
+
+func (o ConfigRuleEvaluationModeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigRuleEvaluationModeConfiguration] {
+	return pulumix.Output[ConfigRuleEvaluationModeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Mode of evaluation of AWS Config rule
@@ -532,6 +623,12 @@ func (o ConfigRuleEvaluationModeConfigurationArrayOutput) ToConfigRuleEvaluation
 
 func (o ConfigRuleEvaluationModeConfigurationArrayOutput) ToConfigRuleEvaluationModeConfigurationArrayOutputWithContext(ctx context.Context) ConfigRuleEvaluationModeConfigurationArrayOutput {
 	return o
+}
+
+func (o ConfigRuleEvaluationModeConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigRuleEvaluationModeConfiguration] {
+	return pulumix.Output[[]ConfigRuleEvaluationModeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigRuleEvaluationModeConfigurationArrayOutput) Index(i pulumi.IntInput) ConfigRuleEvaluationModeConfigurationOutput {
@@ -587,6 +684,12 @@ func (i ConfigRuleScopeArgs) ToConfigRuleScopeOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleScopeOutput)
 }
 
+func (i ConfigRuleScopeArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigRuleScope] {
+	return pulumix.Output[ConfigRuleScope]{
+		OutputState: i.ToConfigRuleScopeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConfigRuleScopeArgs) ToConfigRuleScopePtrOutput() ConfigRuleScopePtrOutput {
 	return i.ToConfigRuleScopePtrOutputWithContext(context.Background())
 }
@@ -628,6 +731,12 @@ func (i *configRuleScopePtrType) ToConfigRuleScopePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleScopePtrOutput)
 }
 
+func (i *configRuleScopePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigRuleScope] {
+	return pulumix.Output[*ConfigRuleScope]{
+		OutputState: i.ToConfigRuleScopePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Scope to constrain which resources can trigger the rule
 type ConfigRuleScopeOutput struct{ *pulumi.OutputState }
 
@@ -651,6 +760,12 @@ func (o ConfigRuleScopeOutput) ToConfigRuleScopePtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigRuleScope) *ConfigRuleScope {
 		return &v
 	}).(ConfigRuleScopePtrOutput)
+}
+
+func (o ConfigRuleScopeOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigRuleScope] {
+	return pulumix.Output[ConfigRuleScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the only one resource which we want to trigger the rule
@@ -685,6 +800,12 @@ func (o ConfigRuleScopePtrOutput) ToConfigRuleScopePtrOutput() ConfigRuleScopePt
 
 func (o ConfigRuleScopePtrOutput) ToConfigRuleScopePtrOutputWithContext(ctx context.Context) ConfigRuleScopePtrOutput {
 	return o
+}
+
+func (o ConfigRuleScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigRuleScope] {
+	return pulumix.Output[*ConfigRuleScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigRuleScopePtrOutput) Elem() ConfigRuleScopeOutput {
@@ -784,6 +905,12 @@ func (i ConfigRuleSourceArgs) ToConfigRuleSourceOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceOutput)
 }
 
+func (i ConfigRuleSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigRuleSource] {
+	return pulumix.Output[ConfigRuleSource]{
+		OutputState: i.ToConfigRuleSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Source of events for the config rule
 type ConfigRuleSourceOutput struct{ *pulumi.OutputState }
 
@@ -797,6 +924,12 @@ func (o ConfigRuleSourceOutput) ToConfigRuleSourceOutput() ConfigRuleSourceOutpu
 
 func (o ConfigRuleSourceOutput) ToConfigRuleSourceOutputWithContext(ctx context.Context) ConfigRuleSourceOutput {
 	return o
+}
+
+func (o ConfigRuleSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigRuleSource] {
+	return pulumix.Output[ConfigRuleSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Custom policy details when rule is custom owned
@@ -831,6 +964,12 @@ func (o ConfigRuleSourcePtrOutput) ToConfigRuleSourcePtrOutput() ConfigRuleSourc
 
 func (o ConfigRuleSourcePtrOutput) ToConfigRuleSourcePtrOutputWithContext(ctx context.Context) ConfigRuleSourcePtrOutput {
 	return o
+}
+
+func (o ConfigRuleSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigRuleSource] {
+	return pulumix.Output[*ConfigRuleSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigRuleSourcePtrOutput) Elem() ConfigRuleSourceOutput {
@@ -926,6 +1065,12 @@ func (i ConfigRuleSourceDetailArgs) ToConfigRuleSourceDetailOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceDetailOutput)
 }
 
+func (i ConfigRuleSourceDetailArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigRuleSourceDetail] {
+	return pulumix.Output[ConfigRuleSourceDetail]{
+		OutputState: i.ToConfigRuleSourceDetailOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigRuleSourceDetailArrayInput is an input type that accepts ConfigRuleSourceDetailArray and ConfigRuleSourceDetailArrayOutput values.
 // You can construct a concrete instance of `ConfigRuleSourceDetailArrayInput` via:
 //
@@ -951,6 +1096,12 @@ func (i ConfigRuleSourceDetailArray) ToConfigRuleSourceDetailArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceDetailArrayOutput)
 }
 
+func (i ConfigRuleSourceDetailArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigRuleSourceDetail] {
+	return pulumix.Output[[]ConfigRuleSourceDetail]{
+		OutputState: i.ToConfigRuleSourceDetailArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Source and message type that can trigger the rule
 type ConfigRuleSourceDetailOutput struct{ *pulumi.OutputState }
 
@@ -964,6 +1115,12 @@ func (o ConfigRuleSourceDetailOutput) ToConfigRuleSourceDetailOutput() ConfigRul
 
 func (o ConfigRuleSourceDetailOutput) ToConfigRuleSourceDetailOutputWithContext(ctx context.Context) ConfigRuleSourceDetailOutput {
 	return o
+}
+
+func (o ConfigRuleSourceDetailOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigRuleSourceDetail] {
+	return pulumix.Output[ConfigRuleSourceDetail]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Source of event that can trigger the rule
@@ -993,6 +1150,12 @@ func (o ConfigRuleSourceDetailArrayOutput) ToConfigRuleSourceDetailArrayOutput()
 
 func (o ConfigRuleSourceDetailArrayOutput) ToConfigRuleSourceDetailArrayOutputWithContext(ctx context.Context) ConfigRuleSourceDetailArrayOutput {
 	return o
+}
+
+func (o ConfigRuleSourceDetailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigRuleSourceDetail] {
+	return pulumix.Output[[]ConfigRuleSourceDetail]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigRuleSourceDetailArrayOutput) Index(i pulumi.IntInput) ConfigRuleSourceDetailOutput {
@@ -1036,6 +1199,12 @@ func (i ConfigurationAggregatorAccountAggregationSourceArgs) ToConfigurationAggr
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorAccountAggregationSourceOutput)
 }
 
+func (i ConfigurationAggregatorAccountAggregationSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationAggregatorAccountAggregationSource] {
+	return pulumix.Output[ConfigurationAggregatorAccountAggregationSource]{
+		OutputState: i.ToConfigurationAggregatorAccountAggregationSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigurationAggregatorAccountAggregationSourceArrayInput is an input type that accepts ConfigurationAggregatorAccountAggregationSourceArray and ConfigurationAggregatorAccountAggregationSourceArrayOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorAccountAggregationSourceArrayInput` via:
 //
@@ -1061,6 +1230,12 @@ func (i ConfigurationAggregatorAccountAggregationSourceArray) ToConfigurationAgg
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorAccountAggregationSourceArrayOutput)
 }
 
+func (i ConfigurationAggregatorAccountAggregationSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationAggregatorAccountAggregationSource] {
+	return pulumix.Output[[]ConfigurationAggregatorAccountAggregationSource]{
+		OutputState: i.ToConfigurationAggregatorAccountAggregationSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationAggregatorAccountAggregationSourceOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAggregatorAccountAggregationSourceOutput) ElementType() reflect.Type {
@@ -1073,6 +1248,12 @@ func (o ConfigurationAggregatorAccountAggregationSourceOutput) ToConfigurationAg
 
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) ToConfigurationAggregatorAccountAggregationSourceOutputWithContext(ctx context.Context) ConfigurationAggregatorAccountAggregationSourceOutput {
 	return o
+}
+
+func (o ConfigurationAggregatorAccountAggregationSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationAggregatorAccountAggregationSource] {
+	return pulumix.Output[ConfigurationAggregatorAccountAggregationSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) AccountIds() pulumi.StringArrayOutput {
@@ -1099,6 +1280,12 @@ func (o ConfigurationAggregatorAccountAggregationSourceArrayOutput) ToConfigurat
 
 func (o ConfigurationAggregatorAccountAggregationSourceArrayOutput) ToConfigurationAggregatorAccountAggregationSourceArrayOutputWithContext(ctx context.Context) ConfigurationAggregatorAccountAggregationSourceArrayOutput {
 	return o
+}
+
+func (o ConfigurationAggregatorAccountAggregationSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationAggregatorAccountAggregationSource] {
+	return pulumix.Output[[]ConfigurationAggregatorAccountAggregationSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationAggregatorAccountAggregationSourceArrayOutput) Index(i pulumi.IntInput) ConfigurationAggregatorAccountAggregationSourceOutput {
@@ -1142,6 +1329,12 @@ func (i ConfigurationAggregatorOrganizationAggregationSourceArgs) ToConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorOrganizationAggregationSourceOutput)
 }
 
+func (i ConfigurationAggregatorOrganizationAggregationSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationAggregatorOrganizationAggregationSource] {
+	return pulumix.Output[ConfigurationAggregatorOrganizationAggregationSource]{
+		OutputState: i.ToConfigurationAggregatorOrganizationAggregationSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConfigurationAggregatorOrganizationAggregationSourceArgs) ToConfigurationAggregatorOrganizationAggregationSourcePtrOutput() ConfigurationAggregatorOrganizationAggregationSourcePtrOutput {
 	return i.ToConfigurationAggregatorOrganizationAggregationSourcePtrOutputWithContext(context.Background())
 }
@@ -1183,6 +1376,12 @@ func (i *configurationAggregatorOrganizationAggregationSourcePtrType) ToConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput)
 }
 
+func (i *configurationAggregatorOrganizationAggregationSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAggregatorOrganizationAggregationSource] {
+	return pulumix.Output[*ConfigurationAggregatorOrganizationAggregationSource]{
+		OutputState: i.ToConfigurationAggregatorOrganizationAggregationSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationAggregatorOrganizationAggregationSourceOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAggregatorOrganizationAggregationSourceOutput) ElementType() reflect.Type {
@@ -1205,6 +1404,12 @@ func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) ToConfigurat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationAggregatorOrganizationAggregationSource) *ConfigurationAggregatorOrganizationAggregationSource {
 		return &v
 	}).(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput)
+}
+
+func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationAggregatorOrganizationAggregationSource] {
+	return pulumix.Output[ConfigurationAggregatorOrganizationAggregationSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) AllAwsRegions() pulumi.BoolPtrOutput {
@@ -1231,6 +1436,12 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) ToConfigu
 
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) ToConfigurationAggregatorOrganizationAggregationSourcePtrOutputWithContext(ctx context.Context) ConfigurationAggregatorOrganizationAggregationSourcePtrOutput {
 	return o
+}
+
+func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAggregatorOrganizationAggregationSource] {
+	return pulumix.Output[*ConfigurationAggregatorOrganizationAggregationSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) Elem() ConfigurationAggregatorOrganizationAggregationSourceOutput {
@@ -1309,6 +1520,12 @@ func (i ConfigurationAggregatorTagArgs) ToConfigurationAggregatorTagOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorTagOutput)
 }
 
+func (i ConfigurationAggregatorTagArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationAggregatorTag] {
+	return pulumix.Output[ConfigurationAggregatorTag]{
+		OutputState: i.ToConfigurationAggregatorTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigurationAggregatorTagArrayInput is an input type that accepts ConfigurationAggregatorTagArray and ConfigurationAggregatorTagArrayOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorTagArrayInput` via:
 //
@@ -1334,6 +1551,12 @@ func (i ConfigurationAggregatorTagArray) ToConfigurationAggregatorTagArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorTagArrayOutput)
 }
 
+func (i ConfigurationAggregatorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationAggregatorTag] {
+	return pulumix.Output[[]ConfigurationAggregatorTag]{
+		OutputState: i.ToConfigurationAggregatorTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ConfigurationAggregatorTagOutput struct{ *pulumi.OutputState }
 
@@ -1347,6 +1570,12 @@ func (o ConfigurationAggregatorTagOutput) ToConfigurationAggregatorTagOutput() C
 
 func (o ConfigurationAggregatorTagOutput) ToConfigurationAggregatorTagOutputWithContext(ctx context.Context) ConfigurationAggregatorTagOutput {
 	return o
+}
+
+func (o ConfigurationAggregatorTagOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationAggregatorTag] {
+	return pulumix.Output[ConfigurationAggregatorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1371,6 +1600,12 @@ func (o ConfigurationAggregatorTagArrayOutput) ToConfigurationAggregatorTagArray
 
 func (o ConfigurationAggregatorTagArrayOutput) ToConfigurationAggregatorTagArrayOutputWithContext(ctx context.Context) ConfigurationAggregatorTagArrayOutput {
 	return o
+}
+
+func (o ConfigurationAggregatorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationAggregatorTag] {
+	return pulumix.Output[[]ConfigurationAggregatorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationAggregatorTagArrayOutput) Index(i pulumi.IntInput) ConfigurationAggregatorTagOutput {
@@ -1408,6 +1643,12 @@ func (i ConfigurationRecorderExclusionByResourceTypesArgs) ToConfigurationRecord
 
 func (i ConfigurationRecorderExclusionByResourceTypesArgs) ToConfigurationRecorderExclusionByResourceTypesOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderExclusionByResourceTypesOutput)
+}
+
+func (i ConfigurationRecorderExclusionByResourceTypesArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderExclusionByResourceTypes] {
+	return pulumix.Output[ConfigurationRecorderExclusionByResourceTypes]{
+		OutputState: i.ToConfigurationRecorderExclusionByResourceTypesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ConfigurationRecorderExclusionByResourceTypesArgs) ToConfigurationRecorderExclusionByResourceTypesPtrOutput() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
@@ -1451,6 +1692,12 @@ func (i *configurationRecorderExclusionByResourceTypesPtrType) ToConfigurationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderExclusionByResourceTypesPtrOutput)
 }
 
+func (i *configurationRecorderExclusionByResourceTypesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationRecorderExclusionByResourceTypes] {
+	return pulumix.Output[*ConfigurationRecorderExclusionByResourceTypes]{
+		OutputState: i.ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationRecorderExclusionByResourceTypesOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationRecorderExclusionByResourceTypesOutput) ElementType() reflect.Type {
@@ -1475,6 +1722,12 @@ func (o ConfigurationRecorderExclusionByResourceTypesOutput) ToConfigurationReco
 	}).(ConfigurationRecorderExclusionByResourceTypesPtrOutput)
 }
 
+func (o ConfigurationRecorderExclusionByResourceTypesOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderExclusionByResourceTypes] {
+	return pulumix.Output[ConfigurationRecorderExclusionByResourceTypes]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConfigurationRecorderExclusionByResourceTypesOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationRecorderExclusionByResourceTypes) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -1491,6 +1744,12 @@ func (o ConfigurationRecorderExclusionByResourceTypesPtrOutput) ToConfigurationR
 
 func (o ConfigurationRecorderExclusionByResourceTypesPtrOutput) ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesPtrOutput {
 	return o
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationRecorderExclusionByResourceTypes] {
+	return pulumix.Output[*ConfigurationRecorderExclusionByResourceTypes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationRecorderExclusionByResourceTypesPtrOutput) Elem() ConfigurationRecorderExclusionByResourceTypesOutput {
@@ -1551,6 +1810,12 @@ func (i ConfigurationRecorderRecordingGroupArgs) ToConfigurationRecorderRecordin
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingGroupOutput)
 }
 
+func (i ConfigurationRecorderRecordingGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderRecordingGroup] {
+	return pulumix.Output[ConfigurationRecorderRecordingGroup]{
+		OutputState: i.ToConfigurationRecorderRecordingGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConfigurationRecorderRecordingGroupArgs) ToConfigurationRecorderRecordingGroupPtrOutput() ConfigurationRecorderRecordingGroupPtrOutput {
 	return i.ToConfigurationRecorderRecordingGroupPtrOutputWithContext(context.Background())
 }
@@ -1592,6 +1857,12 @@ func (i *configurationRecorderRecordingGroupPtrType) ToConfigurationRecorderReco
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingGroupPtrOutput)
 }
 
+func (i *configurationRecorderRecordingGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationRecorderRecordingGroup] {
+	return pulumix.Output[*ConfigurationRecorderRecordingGroup]{
+		OutputState: i.ToConfigurationRecorderRecordingGroupPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationRecorderRecordingGroupOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationRecorderRecordingGroupOutput) ElementType() reflect.Type {
@@ -1614,6 +1885,12 @@ func (o ConfigurationRecorderRecordingGroupOutput) ToConfigurationRecorderRecord
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationRecorderRecordingGroup) *ConfigurationRecorderRecordingGroup {
 		return &v
 	}).(ConfigurationRecorderRecordingGroupPtrOutput)
+}
+
+func (o ConfigurationRecorderRecordingGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderRecordingGroup] {
+	return pulumix.Output[ConfigurationRecorderRecordingGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationRecorderRecordingGroupOutput) AllSupported() pulumi.BoolPtrOutput {
@@ -1652,6 +1929,12 @@ func (o ConfigurationRecorderRecordingGroupPtrOutput) ToConfigurationRecorderRec
 
 func (o ConfigurationRecorderRecordingGroupPtrOutput) ToConfigurationRecorderRecordingGroupPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupPtrOutput {
 	return o
+}
+
+func (o ConfigurationRecorderRecordingGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationRecorderRecordingGroup] {
+	return pulumix.Output[*ConfigurationRecorderRecordingGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationRecorderRecordingGroupPtrOutput) Elem() ConfigurationRecorderRecordingGroupOutput {
@@ -1742,6 +2025,12 @@ func (i ConfigurationRecorderRecordingModeArgs) ToConfigurationRecorderRecording
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModeOutput)
 }
 
+func (i ConfigurationRecorderRecordingModeArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderRecordingMode] {
+	return pulumix.Output[ConfigurationRecorderRecordingMode]{
+		OutputState: i.ToConfigurationRecorderRecordingModeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConfigurationRecorderRecordingModeArgs) ToConfigurationRecorderRecordingModePtrOutput() ConfigurationRecorderRecordingModePtrOutput {
 	return i.ToConfigurationRecorderRecordingModePtrOutputWithContext(context.Background())
 }
@@ -1783,6 +2072,12 @@ func (i *configurationRecorderRecordingModePtrType) ToConfigurationRecorderRecor
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModePtrOutput)
 }
 
+func (i *configurationRecorderRecordingModePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationRecorderRecordingMode] {
+	return pulumix.Output[*ConfigurationRecorderRecordingMode]{
+		OutputState: i.ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationRecorderRecordingModeOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationRecorderRecordingModeOutput) ElementType() reflect.Type {
@@ -1807,6 +2102,12 @@ func (o ConfigurationRecorderRecordingModeOutput) ToConfigurationRecorderRecordi
 	}).(ConfigurationRecorderRecordingModePtrOutput)
 }
 
+func (o ConfigurationRecorderRecordingModeOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderRecordingMode] {
+	return pulumix.Output[ConfigurationRecorderRecordingMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConfigurationRecorderRecordingModeOutput) RecordingFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationRecorderRecordingMode) string { return v.RecordingFrequency }).(pulumi.StringOutput)
 }
@@ -1829,6 +2130,12 @@ func (o ConfigurationRecorderRecordingModePtrOutput) ToConfigurationRecorderReco
 
 func (o ConfigurationRecorderRecordingModePtrOutput) ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModePtrOutput {
 	return o
+}
+
+func (o ConfigurationRecorderRecordingModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationRecorderRecordingMode] {
+	return pulumix.Output[*ConfigurationRecorderRecordingMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationRecorderRecordingModePtrOutput) Elem() ConfigurationRecorderRecordingModeOutput {
@@ -1894,6 +2201,12 @@ func (i ConfigurationRecorderRecordingModeOverrideArgs) ToConfigurationRecorderR
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModeOverrideOutput)
 }
 
+func (i ConfigurationRecorderRecordingModeOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderRecordingModeOverride] {
+	return pulumix.Output[ConfigurationRecorderRecordingModeOverride]{
+		OutputState: i.ToConfigurationRecorderRecordingModeOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigurationRecorderRecordingModeOverrideArrayInput is an input type that accepts ConfigurationRecorderRecordingModeOverrideArray and ConfigurationRecorderRecordingModeOverrideArrayOutput values.
 // You can construct a concrete instance of `ConfigurationRecorderRecordingModeOverrideArrayInput` via:
 //
@@ -1919,6 +2232,12 @@ func (i ConfigurationRecorderRecordingModeOverrideArray) ToConfigurationRecorder
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModeOverrideArrayOutput)
 }
 
+func (i ConfigurationRecorderRecordingModeOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationRecorderRecordingModeOverride] {
+	return pulumix.Output[[]ConfigurationRecorderRecordingModeOverride]{
+		OutputState: i.ToConfigurationRecorderRecordingModeOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationRecorderRecordingModeOverrideOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationRecorderRecordingModeOverrideOutput) ElementType() reflect.Type {
@@ -1931,6 +2250,12 @@ func (o ConfigurationRecorderRecordingModeOverrideOutput) ToConfigurationRecorde
 
 func (o ConfigurationRecorderRecordingModeOverrideOutput) ToConfigurationRecorderRecordingModeOverrideOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOverrideOutput {
 	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderRecordingModeOverride] {
+	return pulumix.Output[ConfigurationRecorderRecordingModeOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationRecorderRecordingModeOverrideOutput) Description() pulumi.StringPtrOutput {
@@ -1957,6 +2282,12 @@ func (o ConfigurationRecorderRecordingModeOverrideArrayOutput) ToConfigurationRe
 
 func (o ConfigurationRecorderRecordingModeOverrideArrayOutput) ToConfigurationRecorderRecordingModeOverrideArrayOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOverrideArrayOutput {
 	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationRecorderRecordingModeOverride] {
+	return pulumix.Output[[]ConfigurationRecorderRecordingModeOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationRecorderRecordingModeOverrideArrayOutput) Index(i pulumi.IntInput) ConfigurationRecorderRecordingModeOverrideOutput {
@@ -1994,6 +2325,12 @@ func (i ConfigurationRecorderRecordingStrategyArgs) ToConfigurationRecorderRecor
 
 func (i ConfigurationRecorderRecordingStrategyArgs) ToConfigurationRecorderRecordingStrategyOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingStrategyOutput)
+}
+
+func (i ConfigurationRecorderRecordingStrategyArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderRecordingStrategy] {
+	return pulumix.Output[ConfigurationRecorderRecordingStrategy]{
+		OutputState: i.ToConfigurationRecorderRecordingStrategyOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ConfigurationRecorderRecordingStrategyArgs) ToConfigurationRecorderRecordingStrategyPtrOutput() ConfigurationRecorderRecordingStrategyPtrOutput {
@@ -2037,6 +2374,12 @@ func (i *configurationRecorderRecordingStrategyPtrType) ToConfigurationRecorderR
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingStrategyPtrOutput)
 }
 
+func (i *configurationRecorderRecordingStrategyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationRecorderRecordingStrategy] {
+	return pulumix.Output[*ConfigurationRecorderRecordingStrategy]{
+		OutputState: i.ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationRecorderRecordingStrategyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationRecorderRecordingStrategyOutput) ElementType() reflect.Type {
@@ -2061,6 +2404,12 @@ func (o ConfigurationRecorderRecordingStrategyOutput) ToConfigurationRecorderRec
 	}).(ConfigurationRecorderRecordingStrategyPtrOutput)
 }
 
+func (o ConfigurationRecorderRecordingStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderRecordingStrategy] {
+	return pulumix.Output[ConfigurationRecorderRecordingStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConfigurationRecorderRecordingStrategyOutput) UseOnly() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationRecorderRecordingStrategy) string { return v.UseOnly }).(pulumi.StringOutput)
 }
@@ -2077,6 +2426,12 @@ func (o ConfigurationRecorderRecordingStrategyPtrOutput) ToConfigurationRecorder
 
 func (o ConfigurationRecorderRecordingStrategyPtrOutput) ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyPtrOutput {
 	return o
+}
+
+func (o ConfigurationRecorderRecordingStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationRecorderRecordingStrategy] {
+	return pulumix.Output[*ConfigurationRecorderRecordingStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationRecorderRecordingStrategyPtrOutput) Elem() ConfigurationRecorderRecordingStrategyOutput {
@@ -2133,6 +2488,12 @@ func (i ConformancePackInputParameterArgs) ToConformancePackInputParameterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackInputParameterOutput)
 }
 
+func (i ConformancePackInputParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ConformancePackInputParameter] {
+	return pulumix.Output[ConformancePackInputParameter]{
+		OutputState: i.ToConformancePackInputParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConformancePackInputParameterArrayInput is an input type that accepts ConformancePackInputParameterArray and ConformancePackInputParameterArrayOutput values.
 // You can construct a concrete instance of `ConformancePackInputParameterArrayInput` via:
 //
@@ -2158,6 +2519,12 @@ func (i ConformancePackInputParameterArray) ToConformancePackInputParameterArray
 	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackInputParameterArrayOutput)
 }
 
+func (i ConformancePackInputParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ConformancePackInputParameter] {
+	return pulumix.Output[[]ConformancePackInputParameter]{
+		OutputState: i.ToConformancePackInputParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Input parameters in the form of key-value pairs for the conformance pack.
 type ConformancePackInputParameterOutput struct{ *pulumi.OutputState }
 
@@ -2171,6 +2538,12 @@ func (o ConformancePackInputParameterOutput) ToConformancePackInputParameterOutp
 
 func (o ConformancePackInputParameterOutput) ToConformancePackInputParameterOutputWithContext(ctx context.Context) ConformancePackInputParameterOutput {
 	return o
+}
+
+func (o ConformancePackInputParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ConformancePackInputParameter] {
+	return pulumix.Output[ConformancePackInputParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConformancePackInputParameterOutput) ParameterName() pulumi.StringOutput {
@@ -2193,6 +2566,12 @@ func (o ConformancePackInputParameterArrayOutput) ToConformancePackInputParamete
 
 func (o ConformancePackInputParameterArrayOutput) ToConformancePackInputParameterArrayOutputWithContext(ctx context.Context) ConformancePackInputParameterArrayOutput {
 	return o
+}
+
+func (o ConformancePackInputParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConformancePackInputParameter] {
+	return pulumix.Output[[]ConformancePackInputParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConformancePackInputParameterArrayOutput) Index(i pulumi.IntInput) ConformancePackInputParameterOutput {
@@ -2230,6 +2609,12 @@ func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToDeliveryChannelCo
 
 func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput)
+}
+
+func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryChannelConfigSnapshotDeliveryProperties] {
+	return pulumix.Output[DeliveryChannelConfigSnapshotDeliveryProperties]{
+		OutputState: i.ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
@@ -2273,6 +2658,12 @@ func (i *deliveryChannelConfigSnapshotDeliveryPropertiesPtrType) ToDeliveryChann
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput)
 }
 
+func (i *deliveryChannelConfigSnapshotDeliveryPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryChannelConfigSnapshotDeliveryProperties] {
+	return pulumix.Output[*DeliveryChannelConfigSnapshotDeliveryProperties]{
+		OutputState: i.ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryChannelConfigSnapshotDeliveryPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ElementType() reflect.Type {
@@ -2297,6 +2688,12 @@ func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ToDeliveryChannel
 	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput)
 }
 
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryChannelConfigSnapshotDeliveryProperties] {
+	return pulumix.Output[DeliveryChannelConfigSnapshotDeliveryProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) DeliveryFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryChannelConfigSnapshotDeliveryProperties) *string { return v.DeliveryFrequency }).(pulumi.StringPtrOutput)
 }
@@ -2313,6 +2710,12 @@ func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) ToDeliveryChan
 
 func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
 	return o
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryChannelConfigSnapshotDeliveryProperties] {
+	return pulumix.Output[*DeliveryChannelConfigSnapshotDeliveryProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) Elem() DeliveryChannelConfigSnapshotDeliveryPropertiesOutput {
@@ -2385,6 +2788,12 @@ func (i OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ToOrgani
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput)
 }
 
+func (i OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata] {
+	return pulumix.Output[OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata]{
+		OutputState: i.ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
 	return i.ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(context.Background())
 }
@@ -2426,6 +2835,12 @@ func (i *organizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrType) ToOr
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput)
 }
 
+func (i *organizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata] {
+	return pulumix.Output[*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata]{
+		OutputState: i.ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ElementType() reflect.Type {
@@ -2448,6 +2863,12 @@ func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ToOrga
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata {
 		return &v
 	}).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput)
+}
+
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata] {
+	return pulumix.Output[OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) DebugLogDeliveryAccounts() pulumi.StringArrayOutput {
@@ -2514,6 +2935,12 @@ func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ToO
 
 func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
 	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata] {
+	return pulumix.Output[*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) Elem() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput {
@@ -2672,6 +3099,12 @@ func (i OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ToOrganization
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomRuleMetadataOutput)
 }
 
+func (i OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigRuleOrganizationCustomRuleMetadata] {
+	return pulumix.Output[OrganizationConfigRuleOrganizationCustomRuleMetadata]{
+		OutputState: i.ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
 	return i.ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(context.Background())
 }
@@ -2713,6 +3146,12 @@ func (i *organizationConfigRuleOrganizationCustomRuleMetadataPtrType) ToOrganiza
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput)
 }
 
+func (i *organizationConfigRuleOrganizationCustomRuleMetadataPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigRuleOrganizationCustomRuleMetadata] {
+	return pulumix.Output[*OrganizationConfigRuleOrganizationCustomRuleMetadata]{
+		OutputState: i.ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConfigRuleOrganizationCustomRuleMetadataOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ElementType() reflect.Type {
@@ -2735,6 +3174,12 @@ func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ToOrganizati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigRuleOrganizationCustomRuleMetadata) *OrganizationConfigRuleOrganizationCustomRuleMetadata {
 		return &v
 	}).(OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput)
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigRuleOrganizationCustomRuleMetadata] {
+	return pulumix.Output[OrganizationConfigRuleOrganizationCustomRuleMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) Description() pulumi.StringPtrOutput {
@@ -2789,6 +3234,12 @@ func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ToOrganiz
 
 func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
 	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigRuleOrganizationCustomRuleMetadata] {
+	return pulumix.Output[*OrganizationConfigRuleOrganizationCustomRuleMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) Elem() OrganizationConfigRuleOrganizationCustomRuleMetadataOutput {
@@ -2927,6 +3378,12 @@ func (i OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ToOrganizatio
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationManagedRuleMetadataOutput)
 }
 
+func (i OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigRuleOrganizationManagedRuleMetadata] {
+	return pulumix.Output[OrganizationConfigRuleOrganizationManagedRuleMetadata]{
+		OutputState: i.ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
 	return i.ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(context.Background())
 }
@@ -2968,6 +3425,12 @@ func (i *organizationConfigRuleOrganizationManagedRuleMetadataPtrType) ToOrganiz
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput)
 }
 
+func (i *organizationConfigRuleOrganizationManagedRuleMetadataPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigRuleOrganizationManagedRuleMetadata] {
+	return pulumix.Output[*OrganizationConfigRuleOrganizationManagedRuleMetadata]{
+		OutputState: i.ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConfigRuleOrganizationManagedRuleMetadataOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ElementType() reflect.Type {
@@ -2990,6 +3453,12 @@ func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ToOrganizat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigRuleOrganizationManagedRuleMetadata) *OrganizationConfigRuleOrganizationManagedRuleMetadata {
 		return &v
 	}).(OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput)
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigRuleOrganizationManagedRuleMetadata] {
+	return pulumix.Output[OrganizationConfigRuleOrganizationManagedRuleMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) Description() pulumi.StringPtrOutput {
@@ -3038,6 +3507,12 @@ func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ToOrgani
 
 func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
 	return o
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigRuleOrganizationManagedRuleMetadata] {
+	return pulumix.Output[*OrganizationConfigRuleOrganizationManagedRuleMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) Elem() OrganizationConfigRuleOrganizationManagedRuleMetadataOutput {
@@ -3157,6 +3632,12 @@ func (i OrganizationConformancePackConformancePackInputParameterArgs) ToOrganiza
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConformancePackConformancePackInputParameterOutput)
 }
 
+func (i OrganizationConformancePackConformancePackInputParameterArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConformancePackConformancePackInputParameter] {
+	return pulumix.Output[OrganizationConformancePackConformancePackInputParameter]{
+		OutputState: i.ToOrganizationConformancePackConformancePackInputParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationConformancePackConformancePackInputParameterArrayInput is an input type that accepts OrganizationConformancePackConformancePackInputParameterArray and OrganizationConformancePackConformancePackInputParameterArrayOutput values.
 // You can construct a concrete instance of `OrganizationConformancePackConformancePackInputParameterArrayInput` via:
 //
@@ -3182,6 +3663,12 @@ func (i OrganizationConformancePackConformancePackInputParameterArray) ToOrganiz
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConformancePackConformancePackInputParameterArrayOutput)
 }
 
+func (i OrganizationConformancePackConformancePackInputParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationConformancePackConformancePackInputParameter] {
+	return pulumix.Output[[]OrganizationConformancePackConformancePackInputParameter]{
+		OutputState: i.ToOrganizationConformancePackConformancePackInputParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Input parameters in the form of key-value pairs for the conformance pack.
 type OrganizationConformancePackConformancePackInputParameterOutput struct{ *pulumi.OutputState }
 
@@ -3195,6 +3682,12 @@ func (o OrganizationConformancePackConformancePackInputParameterOutput) ToOrgani
 
 func (o OrganizationConformancePackConformancePackInputParameterOutput) ToOrganizationConformancePackConformancePackInputParameterOutputWithContext(ctx context.Context) OrganizationConformancePackConformancePackInputParameterOutput {
 	return o
+}
+
+func (o OrganizationConformancePackConformancePackInputParameterOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConformancePackConformancePackInputParameter] {
+	return pulumix.Output[OrganizationConformancePackConformancePackInputParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConformancePackConformancePackInputParameterOutput) ParameterName() pulumi.StringOutput {
@@ -3217,6 +3710,12 @@ func (o OrganizationConformancePackConformancePackInputParameterArrayOutput) ToO
 
 func (o OrganizationConformancePackConformancePackInputParameterArrayOutput) ToOrganizationConformancePackConformancePackInputParameterArrayOutputWithContext(ctx context.Context) OrganizationConformancePackConformancePackInputParameterArrayOutput {
 	return o
+}
+
+func (o OrganizationConformancePackConformancePackInputParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationConformancePackConformancePackInputParameter] {
+	return pulumix.Output[[]OrganizationConformancePackConformancePackInputParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConformancePackConformancePackInputParameterArrayOutput) Index(i pulumi.IntInput) OrganizationConformancePackConformancePackInputParameterOutput {
@@ -3254,6 +3753,12 @@ func (i RemediationConfigurationExecutionControlsArgs) ToRemediationConfiguratio
 
 func (i RemediationConfigurationExecutionControlsArgs) ToRemediationConfigurationExecutionControlsOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationExecutionControlsOutput)
+}
+
+func (i RemediationConfigurationExecutionControlsArgs) ToOutput(ctx context.Context) pulumix.Output[RemediationConfigurationExecutionControls] {
+	return pulumix.Output[RemediationConfigurationExecutionControls]{
+		OutputState: i.ToRemediationConfigurationExecutionControlsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RemediationConfigurationExecutionControlsArgs) ToRemediationConfigurationExecutionControlsPtrOutput() RemediationConfigurationExecutionControlsPtrOutput {
@@ -3297,6 +3802,12 @@ func (i *remediationConfigurationExecutionControlsPtrType) ToRemediationConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationExecutionControlsPtrOutput)
 }
 
+func (i *remediationConfigurationExecutionControlsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RemediationConfigurationExecutionControls] {
+	return pulumix.Output[*RemediationConfigurationExecutionControls]{
+		OutputState: i.ToRemediationConfigurationExecutionControlsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemediationConfigurationExecutionControlsOutput struct{ *pulumi.OutputState }
 
 func (RemediationConfigurationExecutionControlsOutput) ElementType() reflect.Type {
@@ -3321,6 +3832,12 @@ func (o RemediationConfigurationExecutionControlsOutput) ToRemediationConfigurat
 	}).(RemediationConfigurationExecutionControlsPtrOutput)
 }
 
+func (o RemediationConfigurationExecutionControlsOutput) ToOutput(ctx context.Context) pulumix.Output[RemediationConfigurationExecutionControls] {
+	return pulumix.Output[RemediationConfigurationExecutionControls]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemediationConfigurationExecutionControlsOutput) SsmControls() RemediationConfigurationSsmControlsPtrOutput {
 	return o.ApplyT(func(v RemediationConfigurationExecutionControls) *RemediationConfigurationSsmControls {
 		return v.SsmControls
@@ -3339,6 +3856,12 @@ func (o RemediationConfigurationExecutionControlsPtrOutput) ToRemediationConfigu
 
 func (o RemediationConfigurationExecutionControlsPtrOutput) ToRemediationConfigurationExecutionControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsPtrOutput {
 	return o
+}
+
+func (o RemediationConfigurationExecutionControlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RemediationConfigurationExecutionControls] {
+	return pulumix.Output[*RemediationConfigurationExecutionControls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemediationConfigurationExecutionControlsPtrOutput) Elem() RemediationConfigurationExecutionControlsOutput {
@@ -3393,6 +3916,12 @@ func (i RemediationConfigurationSsmControlsArgs) ToRemediationConfigurationSsmCo
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationSsmControlsOutput)
 }
 
+func (i RemediationConfigurationSsmControlsArgs) ToOutput(ctx context.Context) pulumix.Output[RemediationConfigurationSsmControls] {
+	return pulumix.Output[RemediationConfigurationSsmControls]{
+		OutputState: i.ToRemediationConfigurationSsmControlsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RemediationConfigurationSsmControlsArgs) ToRemediationConfigurationSsmControlsPtrOutput() RemediationConfigurationSsmControlsPtrOutput {
 	return i.ToRemediationConfigurationSsmControlsPtrOutputWithContext(context.Background())
 }
@@ -3434,6 +3963,12 @@ func (i *remediationConfigurationSsmControlsPtrType) ToRemediationConfigurationS
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationSsmControlsPtrOutput)
 }
 
+func (i *remediationConfigurationSsmControlsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RemediationConfigurationSsmControls] {
+	return pulumix.Output[*RemediationConfigurationSsmControls]{
+		OutputState: i.ToRemediationConfigurationSsmControlsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemediationConfigurationSsmControlsOutput struct{ *pulumi.OutputState }
 
 func (RemediationConfigurationSsmControlsOutput) ElementType() reflect.Type {
@@ -3458,6 +3993,12 @@ func (o RemediationConfigurationSsmControlsOutput) ToRemediationConfigurationSsm
 	}).(RemediationConfigurationSsmControlsPtrOutput)
 }
 
+func (o RemediationConfigurationSsmControlsOutput) ToOutput(ctx context.Context) pulumix.Output[RemediationConfigurationSsmControls] {
+	return pulumix.Output[RemediationConfigurationSsmControls]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemediationConfigurationSsmControlsOutput) ConcurrentExecutionRatePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RemediationConfigurationSsmControls) *int { return v.ConcurrentExecutionRatePercentage }).(pulumi.IntPtrOutput)
 }
@@ -3478,6 +4019,12 @@ func (o RemediationConfigurationSsmControlsPtrOutput) ToRemediationConfiguration
 
 func (o RemediationConfigurationSsmControlsPtrOutput) ToRemediationConfigurationSsmControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsPtrOutput {
 	return o
+}
+
+func (o RemediationConfigurationSsmControlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RemediationConfigurationSsmControls] {
+	return pulumix.Output[*RemediationConfigurationSsmControls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemediationConfigurationSsmControlsPtrOutput) Elem() RemediationConfigurationSsmControlsOutput {
@@ -3547,6 +4094,12 @@ func (i StoredQueryTagArgs) ToStoredQueryTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(StoredQueryTagOutput)
 }
 
+func (i StoredQueryTagArgs) ToOutput(ctx context.Context) pulumix.Output[StoredQueryTag] {
+	return pulumix.Output[StoredQueryTag]{
+		OutputState: i.ToStoredQueryTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StoredQueryTagArrayInput is an input type that accepts StoredQueryTagArray and StoredQueryTagArrayOutput values.
 // You can construct a concrete instance of `StoredQueryTagArrayInput` via:
 //
@@ -3572,6 +4125,12 @@ func (i StoredQueryTagArray) ToStoredQueryTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StoredQueryTagArrayOutput)
 }
 
+func (i StoredQueryTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StoredQueryTag] {
+	return pulumix.Output[[]StoredQueryTag]{
+		OutputState: i.ToStoredQueryTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type StoredQueryTagOutput struct{ *pulumi.OutputState }
 
@@ -3585,6 +4144,12 @@ func (o StoredQueryTagOutput) ToStoredQueryTagOutput() StoredQueryTagOutput {
 
 func (o StoredQueryTagOutput) ToStoredQueryTagOutputWithContext(ctx context.Context) StoredQueryTagOutput {
 	return o
+}
+
+func (o StoredQueryTagOutput) ToOutput(ctx context.Context) pulumix.Output[StoredQueryTag] {
+	return pulumix.Output[StoredQueryTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3609,6 +4174,12 @@ func (o StoredQueryTagArrayOutput) ToStoredQueryTagArrayOutput() StoredQueryTagA
 
 func (o StoredQueryTagArrayOutput) ToStoredQueryTagArrayOutputWithContext(ctx context.Context) StoredQueryTagArrayOutput {
 	return o
+}
+
+func (o StoredQueryTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StoredQueryTag] {
+	return pulumix.Output[[]StoredQueryTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StoredQueryTagArrayOutput) Index(i pulumi.IntInput) StoredQueryTagOutput {
@@ -3652,6 +4223,12 @@ func (i TemplateSsmDocumentDetailsPropertiesArgs) ToTemplateSsmDocumentDetailsPr
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSsmDocumentDetailsPropertiesOutput)
 }
 
+func (i TemplateSsmDocumentDetailsPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[TemplateSsmDocumentDetailsProperties] {
+	return pulumix.Output[TemplateSsmDocumentDetailsProperties]{
+		OutputState: i.ToTemplateSsmDocumentDetailsPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TemplateSsmDocumentDetailsPropertiesArgs) ToTemplateSsmDocumentDetailsPropertiesPtrOutput() TemplateSsmDocumentDetailsPropertiesPtrOutput {
 	return i.ToTemplateSsmDocumentDetailsPropertiesPtrOutputWithContext(context.Background())
 }
@@ -3693,6 +4270,12 @@ func (i *templateSsmDocumentDetailsPropertiesPtrType) ToTemplateSsmDocumentDetai
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSsmDocumentDetailsPropertiesPtrOutput)
 }
 
+func (i *templateSsmDocumentDetailsPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*TemplateSsmDocumentDetailsProperties] {
+	return pulumix.Output[*TemplateSsmDocumentDetailsProperties]{
+		OutputState: i.ToTemplateSsmDocumentDetailsPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
 type TemplateSsmDocumentDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -3718,6 +4301,12 @@ func (o TemplateSsmDocumentDetailsPropertiesOutput) ToTemplateSsmDocumentDetails
 	}).(TemplateSsmDocumentDetailsPropertiesPtrOutput)
 }
 
+func (o TemplateSsmDocumentDetailsPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSsmDocumentDetailsProperties] {
+	return pulumix.Output[TemplateSsmDocumentDetailsProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TemplateSsmDocumentDetailsPropertiesOutput) DocumentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSsmDocumentDetailsProperties) *string { return v.DocumentName }).(pulumi.StringPtrOutput)
 }
@@ -3738,6 +4327,12 @@ func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) ToTemplateSsmDocumentDeta
 
 func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) ToTemplateSsmDocumentDetailsPropertiesPtrOutputWithContext(ctx context.Context) TemplateSsmDocumentDetailsPropertiesPtrOutput {
 	return o
+}
+
+func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSsmDocumentDetailsProperties] {
+	return pulumix.Output[*TemplateSsmDocumentDetailsProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) Elem() TemplateSsmDocumentDetailsPropertiesOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAFRegional::RegexPatternSet
@@ -102,6 +103,12 @@ func (i *RegexPatternSet) ToRegexPatternSetOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetOutput)
 }
 
+func (i *RegexPatternSet) ToOutput(ctx context.Context) pulumix.Output[*RegexPatternSet] {
+	return pulumix.Output[*RegexPatternSet]{
+		OutputState: i.ToRegexPatternSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegexPatternSetOutput struct{ *pulumi.OutputState }
 
 func (RegexPatternSetOutput) ElementType() reflect.Type {
@@ -114,6 +121,12 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutput() RegexPatternSetOutput {
 
 func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput {
 	return o
+}
+
+func (o RegexPatternSetOutput) ToOutput(ctx context.Context) pulumix.Output[*RegexPatternSet] {
+	return pulumix.Output[*RegexPatternSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegexPatternSetOutput) Name() pulumi.StringOutput {

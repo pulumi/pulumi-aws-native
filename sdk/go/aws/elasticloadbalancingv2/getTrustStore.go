@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore
@@ -72,6 +73,12 @@ func (o LookupTrustStoreResultOutput) ToLookupTrustStoreResultOutput() LookupTru
 
 func (o LookupTrustStoreResultOutput) ToLookupTrustStoreResultOutputWithContext(ctx context.Context) LookupTrustStoreResultOutput {
 	return o
+}
+
+func (o LookupTrustStoreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTrustStoreResult] {
+	return pulumix.Output[LookupTrustStoreResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of certificates associated with the trust store.

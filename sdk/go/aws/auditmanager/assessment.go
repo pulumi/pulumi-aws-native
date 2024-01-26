@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An entity that defines the scope of audit evidence collected by AWS Audit Manager.
@@ -133,6 +134,12 @@ func (i *Assessment) ToAssessmentOutputWithContext(ctx context.Context) Assessme
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentOutput)
 }
 
+func (i *Assessment) ToOutput(ctx context.Context) pulumix.Output[*Assessment] {
+	return pulumix.Output[*Assessment]{
+		OutputState: i.ToAssessmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssessmentOutput struct{ *pulumi.OutputState }
 
 func (AssessmentOutput) ElementType() reflect.Type {
@@ -145,6 +152,12 @@ func (o AssessmentOutput) ToAssessmentOutput() AssessmentOutput {
 
 func (o AssessmentOutput) ToAssessmentOutputWithContext(ctx context.Context) AssessmentOutput {
 	return o
+}
+
+func (o AssessmentOutput) ToOutput(ctx context.Context) pulumix.Output[*Assessment] {
+	return pulumix.Output[*Assessment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentOutput) Arn() pulumi.StringOutput {

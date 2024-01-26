@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
@@ -176,6 +177,12 @@ func (i *JobTemplate) ToJobTemplateOutputWithContext(ctx context.Context) JobTem
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateOutput)
 }
 
+func (i *JobTemplate) ToOutput(ctx context.Context) pulumix.Output[*JobTemplate] {
+	return pulumix.Output[*JobTemplate]{
+		OutputState: i.ToJobTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JobTemplateOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateOutput) ElementType() reflect.Type {
@@ -188,6 +195,12 @@ func (o JobTemplateOutput) ToJobTemplateOutput() JobTemplateOutput {
 
 func (o JobTemplateOutput) ToJobTemplateOutputWithContext(ctx context.Context) JobTemplateOutput {
 	return o
+}
+
+func (o JobTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*JobTemplate] {
+	return pulumix.Output[*JobTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The criteria that determine when and how a job abort takes place.

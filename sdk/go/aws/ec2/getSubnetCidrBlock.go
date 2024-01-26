@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
@@ -66,6 +67,12 @@ func (o LookupSubnetCidrBlockResultOutput) ToLookupSubnetCidrBlockResultOutput()
 
 func (o LookupSubnetCidrBlockResultOutput) ToLookupSubnetCidrBlockResultOutputWithContext(ctx context.Context) LookupSubnetCidrBlockResultOutput {
 	return o
+}
+
+func (o LookupSubnetCidrBlockResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubnetCidrBlockResult] {
+	return pulumix.Output[LookupSubnetCidrBlockResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Information about the IPv6 association.

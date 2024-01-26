@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSMContacts::Contact
@@ -127,6 +128,12 @@ func (i *Contact) ToContactOutputWithContext(ctx context.Context) ContactOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ContactOutput)
 }
 
+func (i *Contact) ToOutput(ctx context.Context) pulumix.Output[*Contact] {
+	return pulumix.Output[*Contact]{
+		OutputState: i.ToContactOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContactOutput struct{ *pulumi.OutputState }
 
 func (ContactOutput) ElementType() reflect.Type {
@@ -139,6 +146,12 @@ func (o ContactOutput) ToContactOutput() ContactOutput {
 
 func (o ContactOutput) ToContactOutputWithContext(ctx context.Context) ContactOutput {
 	return o
+}
+
+func (o ContactOutput) ToOutput(ctx context.Context) pulumix.Output[*Contact] {
+	return pulumix.Output[*Contact]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.

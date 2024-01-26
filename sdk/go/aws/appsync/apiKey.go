@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::ApiKey
@@ -108,6 +109,12 @@ func (i *ApiKey) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyOutput)
 }
 
+func (i *ApiKey) ToOutput(ctx context.Context) pulumix.Output[*ApiKey] {
+	return pulumix.Output[*ApiKey]{
+		OutputState: i.ToApiKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiKeyOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyOutput) ElementType() reflect.Type {
@@ -120,6 +127,12 @@ func (o ApiKeyOutput) ToApiKeyOutput() ApiKeyOutput {
 
 func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput {
 	return o
+}
+
+func (o ApiKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiKey] {
+	return pulumix.Output[*ApiKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiKeyOutput) ApiId() pulumi.StringOutput {

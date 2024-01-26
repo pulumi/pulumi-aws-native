@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema of AWS::EC2::IPAMPool Type
@@ -95,6 +96,12 @@ func (o LookupIpamPoolResultOutput) ToLookupIpamPoolResultOutput() LookupIpamPoo
 
 func (o LookupIpamPoolResultOutput) ToLookupIpamPoolResultOutputWithContext(ctx context.Context) LookupIpamPoolResultOutput {
 	return o
+}
+
+func (o LookupIpamPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIpamPoolResult] {
+	return pulumix.Output[LookupIpamPoolResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.

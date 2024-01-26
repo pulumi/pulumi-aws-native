@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
@@ -117,6 +118,12 @@ func (i *MatchmakingRuleSet) ToMatchmakingRuleSetOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingRuleSetOutput)
 }
 
+func (i *MatchmakingRuleSet) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingRuleSet] {
+	return pulumix.Output[*MatchmakingRuleSet]{
+		OutputState: i.ToMatchmakingRuleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MatchmakingRuleSetOutput struct{ *pulumi.OutputState }
 
 func (MatchmakingRuleSetOutput) ElementType() reflect.Type {
@@ -129,6 +136,12 @@ func (o MatchmakingRuleSetOutput) ToMatchmakingRuleSetOutput() MatchmakingRuleSe
 
 func (o MatchmakingRuleSetOutput) ToMatchmakingRuleSetOutputWithContext(ctx context.Context) MatchmakingRuleSetOutput {
 	return o
+}
+
+func (o MatchmakingRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingRuleSet] {
+	return pulumix.Output[*MatchmakingRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.

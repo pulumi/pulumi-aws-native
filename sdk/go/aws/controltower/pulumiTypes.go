@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i EnabledControlParameterArgs) ToEnabledControlParameterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EnabledControlParameterOutput)
 }
 
+func (i EnabledControlParameterArgs) ToOutput(ctx context.Context) pulumix.Output[EnabledControlParameter] {
+	return pulumix.Output[EnabledControlParameter]{
+		OutputState: i.ToEnabledControlParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnabledControlParameterArrayInput is an input type that accepts EnabledControlParameterArray and EnabledControlParameterArrayOutput values.
 // You can construct a concrete instance of `EnabledControlParameterArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i EnabledControlParameterArray) ToEnabledControlParameterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EnabledControlParameterArrayOutput)
 }
 
+func (i EnabledControlParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]EnabledControlParameter] {
+	return pulumix.Output[[]EnabledControlParameter]{
+		OutputState: i.ToEnabledControlParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnabledControlParameterOutput struct{ *pulumi.OutputState }
 
 func (EnabledControlParameterOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o EnabledControlParameterOutput) ToEnabledControlParameterOutput() Enabled
 
 func (o EnabledControlParameterOutput) ToEnabledControlParameterOutputWithContext(ctx context.Context) EnabledControlParameterOutput {
 	return o
+}
+
+func (o EnabledControlParameterOutput) ToOutput(ctx context.Context) pulumix.Output[EnabledControlParameter] {
+	return pulumix.Output[EnabledControlParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnabledControlParameterOutput) Key() pulumi.StringOutput {
@@ -105,6 +124,12 @@ func (o EnabledControlParameterArrayOutput) ToEnabledControlParameterArrayOutput
 
 func (o EnabledControlParameterArrayOutput) ToEnabledControlParameterArrayOutputWithContext(ctx context.Context) EnabledControlParameterArrayOutput {
 	return o
+}
+
+func (o EnabledControlParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnabledControlParameter] {
+	return pulumix.Output[[]EnabledControlParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnabledControlParameterArrayOutput) Index(i pulumi.IntInput) EnabledControlParameterOutput {
@@ -146,6 +171,12 @@ func (i LandingZoneTagArgs) ToLandingZoneTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LandingZoneTagOutput)
 }
 
+func (i LandingZoneTagArgs) ToOutput(ctx context.Context) pulumix.Output[LandingZoneTag] {
+	return pulumix.Output[LandingZoneTag]{
+		OutputState: i.ToLandingZoneTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LandingZoneTagArrayInput is an input type that accepts LandingZoneTagArray and LandingZoneTagArrayOutput values.
 // You can construct a concrete instance of `LandingZoneTagArrayInput` via:
 //
@@ -171,6 +202,12 @@ func (i LandingZoneTagArray) ToLandingZoneTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LandingZoneTagArrayOutput)
 }
 
+func (i LandingZoneTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LandingZoneTag] {
+	return pulumix.Output[[]LandingZoneTag]{
+		OutputState: i.ToLandingZoneTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LandingZoneTagOutput struct{ *pulumi.OutputState }
 
 func (LandingZoneTagOutput) ElementType() reflect.Type {
@@ -183,6 +220,12 @@ func (o LandingZoneTagOutput) ToLandingZoneTagOutput() LandingZoneTagOutput {
 
 func (o LandingZoneTagOutput) ToLandingZoneTagOutputWithContext(ctx context.Context) LandingZoneTagOutput {
 	return o
+}
+
+func (o LandingZoneTagOutput) ToOutput(ctx context.Context) pulumix.Output[LandingZoneTag] {
+	return pulumix.Output[LandingZoneTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LandingZoneTagOutput) Key() pulumi.StringPtrOutput {
@@ -205,6 +248,12 @@ func (o LandingZoneTagArrayOutput) ToLandingZoneTagArrayOutput() LandingZoneTagA
 
 func (o LandingZoneTagArrayOutput) ToLandingZoneTagArrayOutputWithContext(ctx context.Context) LandingZoneTagArrayOutput {
 	return o
+}
+
+func (o LandingZoneTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LandingZoneTag] {
+	return pulumix.Output[[]LandingZoneTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LandingZoneTagArrayOutput) Index(i pulumi.IntInput) LandingZoneTagOutput {

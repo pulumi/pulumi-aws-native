@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::StackFleetAssociation
@@ -101,6 +102,12 @@ func (i *StackFleetAssociation) ToStackFleetAssociationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(StackFleetAssociationOutput)
 }
 
+func (i *StackFleetAssociation) ToOutput(ctx context.Context) pulumix.Output[*StackFleetAssociation] {
+	return pulumix.Output[*StackFleetAssociation]{
+		OutputState: i.ToStackFleetAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackFleetAssociationOutput struct{ *pulumi.OutputState }
 
 func (StackFleetAssociationOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o StackFleetAssociationOutput) ToStackFleetAssociationOutput() StackFleetA
 
 func (o StackFleetAssociationOutput) ToStackFleetAssociationOutputWithContext(ctx context.Context) StackFleetAssociationOutput {
 	return o
+}
+
+func (o StackFleetAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*StackFleetAssociation] {
+	return pulumix.Output[*StackFleetAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackFleetAssociationOutput) FleetName() pulumi.StringOutput {

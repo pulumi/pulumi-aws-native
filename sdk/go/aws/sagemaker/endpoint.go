@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::Endpoint
@@ -117,6 +118,12 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
 }
 
+func (i *Endpoint) ToOutput(ctx context.Context) pulumix.Output[*Endpoint] {
+	return pulumix.Output[*Endpoint]{
+		OutputState: i.ToEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointOutput struct{ *pulumi.OutputState }
 
 func (EndpointOutput) ElementType() reflect.Type {
@@ -129,6 +136,12 @@ func (o EndpointOutput) ToEndpointOutput() EndpointOutput {
 
 func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) EndpointOutput {
 	return o
+}
+
+func (o EndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*Endpoint] {
+	return pulumix.Output[*Endpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointOutput) DeploymentConfig() EndpointDeploymentConfigPtrOutput {

@@ -44,6 +44,12 @@ func (o ClusterStatusOutput) ToClusterStatusPtrOutputWithContext(ctx context.Con
 	}).(ClusterStatusPtrOutput)
 }
 
+func (o ClusterStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterStatus] {
+	return pulumix.Output[ClusterStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -77,6 +83,12 @@ func (o ClusterStatusPtrOutput) ToClusterStatusPtrOutput() ClusterStatusPtrOutpu
 
 func (o ClusterStatusPtrOutput) ToClusterStatusPtrOutputWithContext(ctx context.Context) ClusterStatusPtrOutput {
 	return o
+}
+
+func (o ClusterStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterStatus] {
+	return pulumix.Output[*ClusterStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterStatusPtrOutput) Elem() ClusterStatusOutput {
@@ -136,6 +148,12 @@ func (o ControlPanelStatusOutput) ToControlPanelStatusPtrOutputWithContext(ctx c
 	}).(ControlPanelStatusPtrOutput)
 }
 
+func (o ControlPanelStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ControlPanelStatus] {
+	return pulumix.Output[ControlPanelStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ControlPanelStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -169,6 +187,12 @@ func (o ControlPanelStatusPtrOutput) ToControlPanelStatusPtrOutput() ControlPane
 
 func (o ControlPanelStatusPtrOutput) ToControlPanelStatusPtrOutputWithContext(ctx context.Context) ControlPanelStatusPtrOutput {
 	return o
+}
+
+func (o ControlPanelStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ControlPanelStatus] {
+	return pulumix.Output[*ControlPanelStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ControlPanelStatusPtrOutput) Elem() ControlPanelStatusOutput {
@@ -228,6 +252,12 @@ func (o RoutingControlStatusOutput) ToRoutingControlStatusPtrOutputWithContext(c
 	}).(RoutingControlStatusPtrOutput)
 }
 
+func (o RoutingControlStatusOutput) ToOutput(ctx context.Context) pulumix.Output[RoutingControlStatus] {
+	return pulumix.Output[RoutingControlStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RoutingControlStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -261,6 +291,12 @@ func (o RoutingControlStatusPtrOutput) ToRoutingControlStatusPtrOutput() Routing
 
 func (o RoutingControlStatusPtrOutput) ToRoutingControlStatusPtrOutputWithContext(ctx context.Context) RoutingControlStatusPtrOutput {
 	return o
+}
+
+func (o RoutingControlStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingControlStatus] {
+	return pulumix.Output[*RoutingControlStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RoutingControlStatusPtrOutput) Elem() RoutingControlStatusOutput {
@@ -356,6 +392,12 @@ func (o SafetyRuleRuleTypeOutput) ToSafetyRuleRuleTypePtrOutputWithContext(ctx c
 	}).(SafetyRuleRuleTypePtrOutput)
 }
 
+func (o SafetyRuleRuleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SafetyRuleRuleType] {
+	return pulumix.Output[SafetyRuleRuleType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SafetyRuleRuleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -391,6 +433,12 @@ func (o SafetyRuleRuleTypePtrOutput) ToSafetyRuleRuleTypePtrOutputWithContext(ct
 	return o
 }
 
+func (o SafetyRuleRuleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SafetyRuleRuleType] {
+	return pulumix.Output[*SafetyRuleRuleType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SafetyRuleRuleTypePtrOutput) Elem() SafetyRuleRuleTypeOutput {
 	return o.ApplyT(func(v *SafetyRuleRuleType) SafetyRuleRuleType {
 		if v != nil {
@@ -415,12 +463,10 @@ func (o SafetyRuleRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// SafetyRuleRuleTypeInput is an input type that accepts values of the SafetyRuleRuleType enum
-// A concrete instance of `SafetyRuleRuleTypeInput` can be one of the following:
+// SafetyRuleRuleTypeInput is an input type that accepts SafetyRuleRuleTypeArgs and SafetyRuleRuleTypeOutput values.
+// You can construct a concrete instance of `SafetyRuleRuleTypeInput` via:
 //
-//	SafetyRuleRuleTypeAnd
-//	SafetyRuleRuleTypeOr
-//	SafetyRuleRuleTypeAtleast
+//	SafetyRuleRuleTypeArgs{...}
 type SafetyRuleRuleTypeInput interface {
 	pulumi.Input
 
@@ -494,6 +540,12 @@ func (o SafetyRuleStatusOutput) ToSafetyRuleStatusPtrOutputWithContext(ctx conte
 	}).(SafetyRuleStatusPtrOutput)
 }
 
+func (o SafetyRuleStatusOutput) ToOutput(ctx context.Context) pulumix.Output[SafetyRuleStatus] {
+	return pulumix.Output[SafetyRuleStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SafetyRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -527,6 +579,12 @@ func (o SafetyRuleStatusPtrOutput) ToSafetyRuleStatusPtrOutput() SafetyRuleStatu
 
 func (o SafetyRuleStatusPtrOutput) ToSafetyRuleStatusPtrOutputWithContext(ctx context.Context) SafetyRuleStatusPtrOutput {
 	return o
+}
+
+func (o SafetyRuleStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SafetyRuleStatus] {
+	return pulumix.Output[*SafetyRuleStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SafetyRuleStatusPtrOutput) Elem() SafetyRuleStatusOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // SchemaMapping defined in AWS Entity Resolution service
@@ -122,6 +123,12 @@ func (i *SchemaMapping) ToSchemaMappingOutputWithContext(ctx context.Context) Sc
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaMappingOutput)
 }
 
+func (i *SchemaMapping) ToOutput(ctx context.Context) pulumix.Output[*SchemaMapping] {
+	return pulumix.Output[*SchemaMapping]{
+		OutputState: i.ToSchemaMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaMappingOutput struct{ *pulumi.OutputState }
 
 func (SchemaMappingOutput) ElementType() reflect.Type {
@@ -134,6 +141,12 @@ func (o SchemaMappingOutput) ToSchemaMappingOutput() SchemaMappingOutput {
 
 func (o SchemaMappingOutput) ToSchemaMappingOutputWithContext(ctx context.Context) SchemaMappingOutput {
 	return o
+}
+
+func (o SchemaMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaMapping] {
+	return pulumix.Output[*SchemaMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaMappingOutput) CreatedAt() pulumi.StringOutput {

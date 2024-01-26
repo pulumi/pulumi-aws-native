@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Events::Rule
@@ -143,6 +144,12 @@ func (i *Rule) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleOutput)
 }
 
+func (i *Rule) ToOutput(ctx context.Context) pulumix.Output[*Rule] {
+	return pulumix.Output[*Rule]{
+		OutputState: i.ToRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleOutput struct{ *pulumi.OutputState }
 
 func (RuleOutput) ElementType() reflect.Type {
@@ -155,6 +162,12 @@ func (o RuleOutput) ToRuleOutput() RuleOutput {
 
 func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
+}
+
+func (o RuleOutput) ToOutput(ctx context.Context) pulumix.Output[*Rule] {
+	return pulumix.Output[*Rule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.

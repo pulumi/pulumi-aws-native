@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
@@ -110,6 +111,12 @@ func (i *IdentityProvider) ToIdentityProviderOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderOutput)
 }
 
+func (i *IdentityProvider) ToOutput(ctx context.Context) pulumix.Output[*IdentityProvider] {
+	return pulumix.Output[*IdentityProvider]{
+		OutputState: i.ToIdentityProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderOutput) ElementType() reflect.Type {
@@ -122,6 +129,12 @@ func (o IdentityProviderOutput) ToIdentityProviderOutput() IdentityProviderOutpu
 
 func (o IdentityProviderOutput) ToIdentityProviderOutputWithContext(ctx context.Context) IdentityProviderOutput {
 	return o
+}
+
+func (o IdentityProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProvider] {
+	return pulumix.Output[*IdentityProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityProviderOutput) IdentityProviderArn() pulumi.StringOutput {

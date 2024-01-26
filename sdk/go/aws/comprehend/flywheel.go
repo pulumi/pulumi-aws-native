@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
@@ -125,6 +126,12 @@ func (i *Flywheel) ToFlywheelOutputWithContext(ctx context.Context) FlywheelOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FlywheelOutput)
 }
 
+func (i *Flywheel) ToOutput(ctx context.Context) pulumix.Output[*Flywheel] {
+	return pulumix.Output[*Flywheel]{
+		OutputState: i.ToFlywheelOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlywheelOutput struct{ *pulumi.OutputState }
 
 func (FlywheelOutput) ElementType() reflect.Type {
@@ -137,6 +144,12 @@ func (o FlywheelOutput) ToFlywheelOutput() FlywheelOutput {
 
 func (o FlywheelOutput) ToFlywheelOutputWithContext(ctx context.Context) FlywheelOutput {
 	return o
+}
+
+func (o FlywheelOutput) ToOutput(ctx context.Context) pulumix.Output[*Flywheel] {
+	return pulumix.Output[*Flywheel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlywheelOutput) ActiveModelArn() pulumi.StringPtrOutput {

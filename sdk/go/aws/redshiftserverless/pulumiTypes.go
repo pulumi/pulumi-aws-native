@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -39,6 +40,12 @@ func (o NamespaceTypeOutput) ToNamespaceTypeOutput() NamespaceTypeOutput {
 
 func (o NamespaceTypeOutput) ToNamespaceTypeOutputWithContext(ctx context.Context) NamespaceTypeOutput {
 	return o
+}
+
+func (o NamespaceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[NamespaceType] {
+	return pulumix.Output[NamespaceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceTypeOutput) AdminUsername() pulumi.StringPtrOutput {
@@ -97,6 +104,12 @@ func (o NamespaceTypePtrOutput) ToNamespaceTypePtrOutput() NamespaceTypePtrOutpu
 
 func (o NamespaceTypePtrOutput) ToNamespaceTypePtrOutputWithContext(ctx context.Context) NamespaceTypePtrOutput {
 	return o
+}
+
+func (o NamespaceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceType] {
+	return pulumix.Output[*NamespaceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceTypePtrOutput) Elem() NamespaceTypeOutput {
@@ -241,6 +254,12 @@ func (i NamespaceTagArgs) ToNamespaceTagOutputWithContext(ctx context.Context) N
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTagOutput)
 }
 
+func (i NamespaceTagArgs) ToOutput(ctx context.Context) pulumix.Output[NamespaceTag] {
+	return pulumix.Output[NamespaceTag]{
+		OutputState: i.ToNamespaceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NamespaceTagArrayInput is an input type that accepts NamespaceTagArray and NamespaceTagArrayOutput values.
 // You can construct a concrete instance of `NamespaceTagArrayInput` via:
 //
@@ -266,6 +285,12 @@ func (i NamespaceTagArray) ToNamespaceTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTagArrayOutput)
 }
 
+func (i NamespaceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]NamespaceTag] {
+	return pulumix.Output[[]NamespaceTag]{
+		OutputState: i.ToNamespaceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamespaceTagOutput struct{ *pulumi.OutputState }
 
 func (NamespaceTagOutput) ElementType() reflect.Type {
@@ -278,6 +303,12 @@ func (o NamespaceTagOutput) ToNamespaceTagOutput() NamespaceTagOutput {
 
 func (o NamespaceTagOutput) ToNamespaceTagOutputWithContext(ctx context.Context) NamespaceTagOutput {
 	return o
+}
+
+func (o NamespaceTagOutput) ToOutput(ctx context.Context) pulumix.Output[NamespaceTag] {
+	return pulumix.Output[NamespaceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceTagOutput) Key() pulumi.StringOutput {
@@ -300,6 +331,12 @@ func (o NamespaceTagArrayOutput) ToNamespaceTagArrayOutput() NamespaceTagArrayOu
 
 func (o NamespaceTagArrayOutput) ToNamespaceTagArrayOutputWithContext(ctx context.Context) NamespaceTagArrayOutput {
 	return o
+}
+
+func (o NamespaceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NamespaceTag] {
+	return pulumix.Output[[]NamespaceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceTagArrayOutput) Index(i pulumi.IntInput) NamespaceTagOutput {
@@ -336,6 +373,12 @@ func (o WorkgroupTypeOutput) ToWorkgroupTypeOutput() WorkgroupTypeOutput {
 
 func (o WorkgroupTypeOutput) ToWorkgroupTypeOutputWithContext(ctx context.Context) WorkgroupTypeOutput {
 	return o
+}
+
+func (o WorkgroupTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupType] {
+	return pulumix.Output[WorkgroupType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupTypeOutput) BaseCapacity() pulumi.IntPtrOutput {
@@ -402,6 +445,12 @@ func (o WorkgroupTypePtrOutput) ToWorkgroupTypePtrOutput() WorkgroupTypePtrOutpu
 
 func (o WorkgroupTypePtrOutput) ToWorkgroupTypePtrOutputWithContext(ctx context.Context) WorkgroupTypePtrOutput {
 	return o
+}
+
+func (o WorkgroupTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupType] {
+	return pulumix.Output[*WorkgroupType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupTypePtrOutput) Elem() WorkgroupTypeOutput {
@@ -564,6 +613,12 @@ func (i WorkgroupConfigParameterArgs) ToWorkgroupConfigParameterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigParameterOutput)
 }
 
+func (i WorkgroupConfigParameterArgs) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfigParameter] {
+	return pulumix.Output[WorkgroupConfigParameter]{
+		OutputState: i.ToWorkgroupConfigParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkgroupConfigParameterArrayInput is an input type that accepts WorkgroupConfigParameterArray and WorkgroupConfigParameterArrayOutput values.
 // You can construct a concrete instance of `WorkgroupConfigParameterArrayInput` via:
 //
@@ -589,6 +644,12 @@ func (i WorkgroupConfigParameterArray) ToWorkgroupConfigParameterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigParameterArrayOutput)
 }
 
+func (i WorkgroupConfigParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupConfigParameter] {
+	return pulumix.Output[[]WorkgroupConfigParameter]{
+		OutputState: i.ToWorkgroupConfigParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkgroupConfigParameterOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigParameterOutput) ElementType() reflect.Type {
@@ -601,6 +662,12 @@ func (o WorkgroupConfigParameterOutput) ToWorkgroupConfigParameterOutput() Workg
 
 func (o WorkgroupConfigParameterOutput) ToWorkgroupConfigParameterOutputWithContext(ctx context.Context) WorkgroupConfigParameterOutput {
 	return o
+}
+
+func (o WorkgroupConfigParameterOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfigParameter] {
+	return pulumix.Output[WorkgroupConfigParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupConfigParameterOutput) ParameterKey() pulumi.StringPtrOutput {
@@ -623,6 +690,12 @@ func (o WorkgroupConfigParameterArrayOutput) ToWorkgroupConfigParameterArrayOutp
 
 func (o WorkgroupConfigParameterArrayOutput) ToWorkgroupConfigParameterArrayOutputWithContext(ctx context.Context) WorkgroupConfigParameterArrayOutput {
 	return o
+}
+
+func (o WorkgroupConfigParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupConfigParameter] {
+	return pulumix.Output[[]WorkgroupConfigParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupConfigParameterArrayOutput) Index(i pulumi.IntInput) WorkgroupConfigParameterOutput {
@@ -651,6 +724,12 @@ func (o WorkgroupEndpointOutput) ToWorkgroupEndpointOutputWithContext(ctx contex
 	return o
 }
 
+func (o WorkgroupEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupEndpoint] {
+	return pulumix.Output[WorkgroupEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkgroupEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
@@ -675,6 +754,12 @@ func (o WorkgroupEndpointPtrOutput) ToWorkgroupEndpointPtrOutput() WorkgroupEndp
 
 func (o WorkgroupEndpointPtrOutput) ToWorkgroupEndpointPtrOutputWithContext(ctx context.Context) WorkgroupEndpointPtrOutput {
 	return o
+}
+
+func (o WorkgroupEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupEndpoint] {
+	return pulumix.Output[*WorkgroupEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupEndpointPtrOutput) Elem() WorkgroupEndpointOutput {
@@ -735,6 +820,12 @@ func (o WorkgroupNetworkInterfaceOutput) ToWorkgroupNetworkInterfaceOutputWithCo
 	return o
 }
 
+func (o WorkgroupNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupNetworkInterface] {
+	return pulumix.Output[WorkgroupNetworkInterface]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkgroupNetworkInterfaceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupNetworkInterface) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -763,6 +854,12 @@ func (o WorkgroupNetworkInterfaceArrayOutput) ToWorkgroupNetworkInterfaceArrayOu
 
 func (o WorkgroupNetworkInterfaceArrayOutput) ToWorkgroupNetworkInterfaceArrayOutputWithContext(ctx context.Context) WorkgroupNetworkInterfaceArrayOutput {
 	return o
+}
+
+func (o WorkgroupNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupNetworkInterface] {
+	return pulumix.Output[[]WorkgroupNetworkInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) WorkgroupNetworkInterfaceOutput {
@@ -804,6 +901,12 @@ func (i WorkgroupTagArgs) ToWorkgroupTagOutputWithContext(ctx context.Context) W
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupTagOutput)
 }
 
+func (i WorkgroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[WorkgroupTag] {
+	return pulumix.Output[WorkgroupTag]{
+		OutputState: i.ToWorkgroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkgroupTagArrayInput is an input type that accepts WorkgroupTagArray and WorkgroupTagArrayOutput values.
 // You can construct a concrete instance of `WorkgroupTagArrayInput` via:
 //
@@ -829,6 +932,12 @@ func (i WorkgroupTagArray) ToWorkgroupTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupTagArrayOutput)
 }
 
+func (i WorkgroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupTag] {
+	return pulumix.Output[[]WorkgroupTag]{
+		OutputState: i.ToWorkgroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkgroupTagOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupTagOutput) ElementType() reflect.Type {
@@ -841,6 +950,12 @@ func (o WorkgroupTagOutput) ToWorkgroupTagOutput() WorkgroupTagOutput {
 
 func (o WorkgroupTagOutput) ToWorkgroupTagOutputWithContext(ctx context.Context) WorkgroupTagOutput {
 	return o
+}
+
+func (o WorkgroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupTag] {
+	return pulumix.Output[WorkgroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupTagOutput) Key() pulumi.StringOutput {
@@ -863,6 +978,12 @@ func (o WorkgroupTagArrayOutput) ToWorkgroupTagArrayOutput() WorkgroupTagArrayOu
 
 func (o WorkgroupTagArrayOutput) ToWorkgroupTagArrayOutputWithContext(ctx context.Context) WorkgroupTagArrayOutput {
 	return o
+}
+
+func (o WorkgroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupTag] {
+	return pulumix.Output[[]WorkgroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupTagArrayOutput) Index(i pulumi.IntInput) WorkgroupTagOutput {
@@ -891,6 +1012,12 @@ func (o WorkgroupVpcEndpointOutput) ToWorkgroupVpcEndpointOutputWithContext(ctx 
 	return o
 }
 
+func (o WorkgroupVpcEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupVpcEndpoint] {
+	return pulumix.Output[WorkgroupVpcEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkgroupVpcEndpointOutput) NetworkInterfaces() WorkgroupNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v WorkgroupVpcEndpoint) []WorkgroupNetworkInterface { return v.NetworkInterfaces }).(WorkgroupNetworkInterfaceArrayOutput)
 }
@@ -915,6 +1042,12 @@ func (o WorkgroupVpcEndpointArrayOutput) ToWorkgroupVpcEndpointArrayOutput() Wor
 
 func (o WorkgroupVpcEndpointArrayOutput) ToWorkgroupVpcEndpointArrayOutputWithContext(ctx context.Context) WorkgroupVpcEndpointArrayOutput {
 	return o
+}
+
+func (o WorkgroupVpcEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupVpcEndpoint] {
+	return pulumix.Output[[]WorkgroupVpcEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupVpcEndpointArrayOutput) Index(i pulumi.IntInput) WorkgroupVpcEndpointOutput {

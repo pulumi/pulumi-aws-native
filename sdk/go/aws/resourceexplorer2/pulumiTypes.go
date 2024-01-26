@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -40,6 +41,12 @@ func (i IndexTagMapArgs) ToIndexTagMapOutput() IndexTagMapOutput {
 
 func (i IndexTagMapArgs) ToIndexTagMapOutputWithContext(ctx context.Context) IndexTagMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IndexTagMapOutput)
+}
+
+func (i IndexTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[IndexTagMap] {
+	return pulumix.Output[IndexTagMap]{
+		OutputState: i.ToIndexTagMapOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i IndexTagMapArgs) ToIndexTagMapPtrOutput() IndexTagMapPtrOutput {
@@ -83,6 +90,12 @@ func (i *indexTagMapPtrType) ToIndexTagMapPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IndexTagMapPtrOutput)
 }
 
+func (i *indexTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*IndexTagMap] {
+	return pulumix.Output[*IndexTagMap]{
+		OutputState: i.ToIndexTagMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IndexTagMapOutput struct{ *pulumi.OutputState }
 
 func (IndexTagMapOutput) ElementType() reflect.Type {
@@ -107,6 +120,12 @@ func (o IndexTagMapOutput) ToIndexTagMapPtrOutputWithContext(ctx context.Context
 	}).(IndexTagMapPtrOutput)
 }
 
+func (o IndexTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[IndexTagMap] {
+	return pulumix.Output[IndexTagMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type IndexTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (IndexTagMapPtrOutput) ElementType() reflect.Type {
@@ -119,6 +138,12 @@ func (o IndexTagMapPtrOutput) ToIndexTagMapPtrOutput() IndexTagMapPtrOutput {
 
 func (o IndexTagMapPtrOutput) ToIndexTagMapPtrOutputWithContext(ctx context.Context) IndexTagMapPtrOutput {
 	return o
+}
+
+func (o IndexTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexTagMap] {
+	return pulumix.Output[*IndexTagMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IndexTagMapPtrOutput) Elem() IndexTagMapOutput {
@@ -162,6 +187,12 @@ func (i ViewIncludedPropertyArgs) ToViewIncludedPropertyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ViewIncludedPropertyOutput)
 }
 
+func (i ViewIncludedPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[ViewIncludedProperty] {
+	return pulumix.Output[ViewIncludedProperty]{
+		OutputState: i.ToViewIncludedPropertyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ViewIncludedPropertyArrayInput is an input type that accepts ViewIncludedPropertyArray and ViewIncludedPropertyArrayOutput values.
 // You can construct a concrete instance of `ViewIncludedPropertyArrayInput` via:
 //
@@ -187,6 +218,12 @@ func (i ViewIncludedPropertyArray) ToViewIncludedPropertyArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ViewIncludedPropertyArrayOutput)
 }
 
+func (i ViewIncludedPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]ViewIncludedProperty] {
+	return pulumix.Output[[]ViewIncludedProperty]{
+		OutputState: i.ToViewIncludedPropertyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ViewIncludedPropertyOutput struct{ *pulumi.OutputState }
 
 func (ViewIncludedPropertyOutput) ElementType() reflect.Type {
@@ -199,6 +236,12 @@ func (o ViewIncludedPropertyOutput) ToViewIncludedPropertyOutput() ViewIncludedP
 
 func (o ViewIncludedPropertyOutput) ToViewIncludedPropertyOutputWithContext(ctx context.Context) ViewIncludedPropertyOutput {
 	return o
+}
+
+func (o ViewIncludedPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[ViewIncludedProperty] {
+	return pulumix.Output[ViewIncludedProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ViewIncludedPropertyOutput) Name() pulumi.StringOutput {
@@ -217,6 +260,12 @@ func (o ViewIncludedPropertyArrayOutput) ToViewIncludedPropertyArrayOutput() Vie
 
 func (o ViewIncludedPropertyArrayOutput) ToViewIncludedPropertyArrayOutputWithContext(ctx context.Context) ViewIncludedPropertyArrayOutput {
 	return o
+}
+
+func (o ViewIncludedPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ViewIncludedProperty] {
+	return pulumix.Output[[]ViewIncludedProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ViewIncludedPropertyArrayOutput) Index(i pulumi.IntInput) ViewIncludedPropertyOutput {
@@ -254,6 +303,12 @@ func (i ViewSearchFilterArgs) ToViewSearchFilterOutput() ViewSearchFilterOutput 
 
 func (i ViewSearchFilterArgs) ToViewSearchFilterOutputWithContext(ctx context.Context) ViewSearchFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ViewSearchFilterOutput)
+}
+
+func (i ViewSearchFilterArgs) ToOutput(ctx context.Context) pulumix.Output[ViewSearchFilter] {
+	return pulumix.Output[ViewSearchFilter]{
+		OutputState: i.ToViewSearchFilterOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ViewSearchFilterArgs) ToViewSearchFilterPtrOutput() ViewSearchFilterPtrOutput {
@@ -297,6 +352,12 @@ func (i *viewSearchFilterPtrType) ToViewSearchFilterPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ViewSearchFilterPtrOutput)
 }
 
+func (i *viewSearchFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ViewSearchFilter] {
+	return pulumix.Output[*ViewSearchFilter]{
+		OutputState: i.ToViewSearchFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ViewSearchFilterOutput struct{ *pulumi.OutputState }
 
 func (ViewSearchFilterOutput) ElementType() reflect.Type {
@@ -321,6 +382,12 @@ func (o ViewSearchFilterOutput) ToViewSearchFilterPtrOutputWithContext(ctx conte
 	}).(ViewSearchFilterPtrOutput)
 }
 
+func (o ViewSearchFilterOutput) ToOutput(ctx context.Context) pulumix.Output[ViewSearchFilter] {
+	return pulumix.Output[ViewSearchFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ViewSearchFilterOutput) FilterString() pulumi.StringOutput {
 	return o.ApplyT(func(v ViewSearchFilter) string { return v.FilterString }).(pulumi.StringOutput)
 }
@@ -337,6 +404,12 @@ func (o ViewSearchFilterPtrOutput) ToViewSearchFilterPtrOutput() ViewSearchFilte
 
 func (o ViewSearchFilterPtrOutput) ToViewSearchFilterPtrOutputWithContext(ctx context.Context) ViewSearchFilterPtrOutput {
 	return o
+}
+
+func (o ViewSearchFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ViewSearchFilter] {
+	return pulumix.Output[*ViewSearchFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ViewSearchFilterPtrOutput) Elem() ViewSearchFilterOutput {
@@ -387,6 +460,12 @@ func (i ViewTagMapArgs) ToViewTagMapOutputWithContext(ctx context.Context) ViewT
 	return pulumi.ToOutputWithContext(ctx, i).(ViewTagMapOutput)
 }
 
+func (i ViewTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[ViewTagMap] {
+	return pulumix.Output[ViewTagMap]{
+		OutputState: i.ToViewTagMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ViewTagMapArgs) ToViewTagMapPtrOutput() ViewTagMapPtrOutput {
 	return i.ToViewTagMapPtrOutputWithContext(context.Background())
 }
@@ -428,6 +507,12 @@ func (i *viewTagMapPtrType) ToViewTagMapPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ViewTagMapPtrOutput)
 }
 
+func (i *viewTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*ViewTagMap] {
+	return pulumix.Output[*ViewTagMap]{
+		OutputState: i.ToViewTagMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ViewTagMapOutput struct{ *pulumi.OutputState }
 
 func (ViewTagMapOutput) ElementType() reflect.Type {
@@ -452,6 +537,12 @@ func (o ViewTagMapOutput) ToViewTagMapPtrOutputWithContext(ctx context.Context) 
 	}).(ViewTagMapPtrOutput)
 }
 
+func (o ViewTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[ViewTagMap] {
+	return pulumix.Output[ViewTagMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ViewTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (ViewTagMapPtrOutput) ElementType() reflect.Type {
@@ -464,6 +555,12 @@ func (o ViewTagMapPtrOutput) ToViewTagMapPtrOutput() ViewTagMapPtrOutput {
 
 func (o ViewTagMapPtrOutput) ToViewTagMapPtrOutputWithContext(ctx context.Context) ViewTagMapPtrOutput {
 	return o
+}
+
+func (o ViewTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ViewTagMap] {
+	return pulumix.Output[*ViewTagMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ViewTagMapPtrOutput) Elem() ViewTagMapOutput {

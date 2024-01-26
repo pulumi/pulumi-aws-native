@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::Portal Resource Type
@@ -132,6 +133,12 @@ func (i *Portal) ToPortalOutputWithContext(ctx context.Context) PortalOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PortalOutput)
 }
 
+func (i *Portal) ToOutput(ctx context.Context) pulumix.Output[*Portal] {
+	return pulumix.Output[*Portal]{
+		OutputState: i.ToPortalOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PortalOutput struct{ *pulumi.OutputState }
 
 func (PortalOutput) ElementType() reflect.Type {
@@ -144,6 +151,12 @@ func (o PortalOutput) ToPortalOutput() PortalOutput {
 
 func (o PortalOutput) ToPortalOutputWithContext(ctx context.Context) PortalOutput {
 	return o
+}
+
+func (o PortalOutput) ToOutput(ctx context.Context) pulumix.Output[*Portal] {
+	return pulumix.Output[*Portal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PortalOutput) AdditionalEncryptionContext() PortalEncryptionContextMapPtrOutput {

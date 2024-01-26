@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoT::TopicRuleDestination
@@ -113,6 +114,12 @@ func (i *TopicRuleDestination) ToTopicRuleDestinationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationOutput)
 }
 
+func (i *TopicRuleDestination) ToOutput(ctx context.Context) pulumix.Output[*TopicRuleDestination] {
+	return pulumix.Output[*TopicRuleDestination]{
+		OutputState: i.ToTopicRuleDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TopicRuleDestinationOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleDestinationOutput) ElementType() reflect.Type {
@@ -125,6 +132,12 @@ func (o TopicRuleDestinationOutput) ToTopicRuleDestinationOutput() TopicRuleDest
 
 func (o TopicRuleDestinationOutput) ToTopicRuleDestinationOutputWithContext(ctx context.Context) TopicRuleDestinationOutput {
 	return o
+}
+
+func (o TopicRuleDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicRuleDestination] {
+	return pulumix.Output[*TopicRuleDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN).

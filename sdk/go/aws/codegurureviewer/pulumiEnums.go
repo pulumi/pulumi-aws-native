@@ -81,6 +81,12 @@ func (o RepositoryAssociationTypeOutput) ToRepositoryAssociationTypePtrOutputWit
 	}).(RepositoryAssociationTypePtrOutput)
 }
 
+func (o RepositoryAssociationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationType] {
+	return pulumix.Output[RepositoryAssociationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryAssociationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -116,6 +122,12 @@ func (o RepositoryAssociationTypePtrOutput) ToRepositoryAssociationTypePtrOutput
 	return o
 }
 
+func (o RepositoryAssociationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationType] {
+	return pulumix.Output[*RepositoryAssociationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryAssociationTypePtrOutput) Elem() RepositoryAssociationTypeOutput {
 	return o.ApplyT(func(v *RepositoryAssociationType) RepositoryAssociationType {
 		if v != nil {
@@ -140,13 +152,10 @@ func (o RepositoryAssociationTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// RepositoryAssociationTypeInput is an input type that accepts values of the RepositoryAssociationType enum
-// A concrete instance of `RepositoryAssociationTypeInput` can be one of the following:
+// RepositoryAssociationTypeInput is an input type that accepts RepositoryAssociationTypeArgs and RepositoryAssociationTypeOutput values.
+// You can construct a concrete instance of `RepositoryAssociationTypeInput` via:
 //
-//	RepositoryAssociationTypeCodeCommit
-//	RepositoryAssociationTypeBitbucket
-//	RepositoryAssociationTypeGitHubEnterpriseServer
-//	RepositoryAssociationTypeS3Bucket
+//	RepositoryAssociationTypeArgs{...}
 type RepositoryAssociationTypeInput interface {
 	pulumi.Input
 

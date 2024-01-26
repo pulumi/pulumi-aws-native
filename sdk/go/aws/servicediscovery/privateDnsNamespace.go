@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceDiscovery::PrivateDnsNamespace
@@ -114,6 +115,12 @@ func (i *PrivateDnsNamespace) ToPrivateDnsNamespaceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceOutput)
 }
 
+func (i *PrivateDnsNamespace) ToOutput(ctx context.Context) pulumix.Output[*PrivateDnsNamespace] {
+	return pulumix.Output[*PrivateDnsNamespace]{
+		OutputState: i.ToPrivateDnsNamespaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateDnsNamespaceOutput struct{ *pulumi.OutputState }
 
 func (PrivateDnsNamespaceOutput) ElementType() reflect.Type {
@@ -126,6 +133,12 @@ func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespaceOutput() PrivateDnsNames
 
 func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespaceOutputWithContext(ctx context.Context) PrivateDnsNamespaceOutput {
 	return o
+}
+
+func (o PrivateDnsNamespaceOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateDnsNamespace] {
+	return pulumix.Output[*PrivateDnsNamespace]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateDnsNamespaceOutput) Arn() pulumi.StringOutput {

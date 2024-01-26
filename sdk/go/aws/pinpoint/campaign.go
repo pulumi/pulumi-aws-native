@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::Campaign
@@ -158,6 +159,12 @@ func (i *Campaign) ToCampaignOutputWithContext(ctx context.Context) CampaignOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignOutput)
 }
 
+func (i *Campaign) ToOutput(ctx context.Context) pulumix.Output[*Campaign] {
+	return pulumix.Output[*Campaign]{
+		OutputState: i.ToCampaignOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CampaignOutput struct{ *pulumi.OutputState }
 
 func (CampaignOutput) ElementType() reflect.Type {
@@ -170,6 +177,12 @@ func (o CampaignOutput) ToCampaignOutput() CampaignOutput {
 
 func (o CampaignOutput) ToCampaignOutputWithContext(ctx context.Context) CampaignOutput {
 	return o
+}
+
+func (o CampaignOutput) ToOutput(ctx context.Context) pulumix.Output[*Campaign] {
+	return pulumix.Output[*Campaign]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CampaignOutput) AdditionalTreatments() CampaignWriteTreatmentResourceArrayOutput {

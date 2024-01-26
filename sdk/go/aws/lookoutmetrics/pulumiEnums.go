@@ -78,6 +78,12 @@ func (o AnomalyDetectorCsvFormatDescriptorFileCompressionOutput) ToAnomalyDetect
 	}).(AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput)
 }
 
+func (o AnomalyDetectorCsvFormatDescriptorFileCompressionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorCsvFormatDescriptorFileCompression] {
+	return pulumix.Output[AnomalyDetectorCsvFormatDescriptorFileCompression]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorCsvFormatDescriptorFileCompressionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +119,12 @@ func (o AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput) ToAnomalyDet
 	return o
 }
 
+func (o AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorCsvFormatDescriptorFileCompression] {
+	return pulumix.Output[*AnomalyDetectorCsvFormatDescriptorFileCompression]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput) Elem() AnomalyDetectorCsvFormatDescriptorFileCompressionOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptorFileCompression) AnomalyDetectorCsvFormatDescriptorFileCompression {
 		if v != nil {
@@ -137,11 +149,10 @@ func (o AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnomalyDetectorCsvFormatDescriptorFileCompressionInput is an input type that accepts values of the AnomalyDetectorCsvFormatDescriptorFileCompression enum
-// A concrete instance of `AnomalyDetectorCsvFormatDescriptorFileCompressionInput` can be one of the following:
+// AnomalyDetectorCsvFormatDescriptorFileCompressionInput is an input type that accepts AnomalyDetectorCsvFormatDescriptorFileCompressionArgs and AnomalyDetectorCsvFormatDescriptorFileCompressionOutput values.
+// You can construct a concrete instance of `AnomalyDetectorCsvFormatDescriptorFileCompressionInput` via:
 //
-//	AnomalyDetectorCsvFormatDescriptorFileCompressionNone
-//	AnomalyDetectorCsvFormatDescriptorFileCompressionGzip
+//	AnomalyDetectorCsvFormatDescriptorFileCompressionArgs{...}
 type AnomalyDetectorCsvFormatDescriptorFileCompressionInput interface {
 	pulumi.Input
 
@@ -252,6 +263,12 @@ func (o AnomalyDetectorFrequencyOutput) ToAnomalyDetectorFrequencyPtrOutputWithC
 	}).(AnomalyDetectorFrequencyPtrOutput)
 }
 
+func (o AnomalyDetectorFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorFrequency] {
+	return pulumix.Output[AnomalyDetectorFrequency]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorFrequencyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -287,6 +304,12 @@ func (o AnomalyDetectorFrequencyPtrOutput) ToAnomalyDetectorFrequencyPtrOutputWi
 	return o
 }
 
+func (o AnomalyDetectorFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorFrequency] {
+	return pulumix.Output[*AnomalyDetectorFrequency]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorFrequencyPtrOutput) Elem() AnomalyDetectorFrequencyOutput {
 	return o.ApplyT(func(v *AnomalyDetectorFrequency) AnomalyDetectorFrequency {
 		if v != nil {
@@ -311,13 +334,10 @@ func (o AnomalyDetectorFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnomalyDetectorFrequencyInput is an input type that accepts values of the AnomalyDetectorFrequency enum
-// A concrete instance of `AnomalyDetectorFrequencyInput` can be one of the following:
+// AnomalyDetectorFrequencyInput is an input type that accepts AnomalyDetectorFrequencyArgs and AnomalyDetectorFrequencyOutput values.
+// You can construct a concrete instance of `AnomalyDetectorFrequencyInput` via:
 //
-//	AnomalyDetectorFrequencyPt5m
-//	AnomalyDetectorFrequencyPt10m
-//	AnomalyDetectorFrequencyPt1h
-//	AnomalyDetectorFrequencyP1d
+//	AnomalyDetectorFrequencyArgs{...}
 type AnomalyDetectorFrequencyInput interface {
 	pulumi.Input
 
@@ -425,6 +445,12 @@ func (o AnomalyDetectorJsonFormatDescriptorFileCompressionOutput) ToAnomalyDetec
 	}).(AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput)
 }
 
+func (o AnomalyDetectorJsonFormatDescriptorFileCompressionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorJsonFormatDescriptorFileCompression] {
+	return pulumix.Output[AnomalyDetectorJsonFormatDescriptorFileCompression]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorJsonFormatDescriptorFileCompressionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -460,6 +486,12 @@ func (o AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput) ToAnomalyDe
 	return o
 }
 
+func (o AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorJsonFormatDescriptorFileCompression] {
+	return pulumix.Output[*AnomalyDetectorJsonFormatDescriptorFileCompression]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput) Elem() AnomalyDetectorJsonFormatDescriptorFileCompressionOutput {
 	return o.ApplyT(func(v *AnomalyDetectorJsonFormatDescriptorFileCompression) AnomalyDetectorJsonFormatDescriptorFileCompression {
 		if v != nil {
@@ -484,11 +516,10 @@ func (o AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnomalyDetectorJsonFormatDescriptorFileCompressionInput is an input type that accepts values of the AnomalyDetectorJsonFormatDescriptorFileCompression enum
-// A concrete instance of `AnomalyDetectorJsonFormatDescriptorFileCompressionInput` can be one of the following:
+// AnomalyDetectorJsonFormatDescriptorFileCompressionInput is an input type that accepts AnomalyDetectorJsonFormatDescriptorFileCompressionArgs and AnomalyDetectorJsonFormatDescriptorFileCompressionOutput values.
+// You can construct a concrete instance of `AnomalyDetectorJsonFormatDescriptorFileCompressionInput` via:
 //
-//	AnomalyDetectorJsonFormatDescriptorFileCompressionNone
-//	AnomalyDetectorJsonFormatDescriptorFileCompressionGzip
+//	AnomalyDetectorJsonFormatDescriptorFileCompressionArgs{...}
 type AnomalyDetectorJsonFormatDescriptorFileCompressionInput interface {
 	pulumi.Input
 
@@ -597,6 +628,12 @@ func (o AnomalyDetectorMetricAggregationFunctionOutput) ToAnomalyDetectorMetricA
 	}).(AnomalyDetectorMetricAggregationFunctionPtrOutput)
 }
 
+func (o AnomalyDetectorMetricAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricAggregationFunction] {
+	return pulumix.Output[AnomalyDetectorMetricAggregationFunction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorMetricAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -632,6 +669,12 @@ func (o AnomalyDetectorMetricAggregationFunctionPtrOutput) ToAnomalyDetectorMetr
 	return o
 }
 
+func (o AnomalyDetectorMetricAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorMetricAggregationFunction] {
+	return pulumix.Output[*AnomalyDetectorMetricAggregationFunction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorMetricAggregationFunctionPtrOutput) Elem() AnomalyDetectorMetricAggregationFunctionOutput {
 	return o.ApplyT(func(v *AnomalyDetectorMetricAggregationFunction) AnomalyDetectorMetricAggregationFunction {
 		if v != nil {
@@ -656,11 +699,10 @@ func (o AnomalyDetectorMetricAggregationFunctionPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnomalyDetectorMetricAggregationFunctionInput is an input type that accepts values of the AnomalyDetectorMetricAggregationFunction enum
-// A concrete instance of `AnomalyDetectorMetricAggregationFunctionInput` can be one of the following:
+// AnomalyDetectorMetricAggregationFunctionInput is an input type that accepts AnomalyDetectorMetricAggregationFunctionArgs and AnomalyDetectorMetricAggregationFunctionOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMetricAggregationFunctionInput` via:
 //
-//	AnomalyDetectorMetricAggregationFunctionAvg
-//	AnomalyDetectorMetricAggregationFunctionSum
+//	AnomalyDetectorMetricAggregationFunctionArgs{...}
 type AnomalyDetectorMetricAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -771,6 +813,12 @@ func (o AnomalyDetectorMetricSetMetricSetFrequencyOutput) ToAnomalyDetectorMetri
 	}).(AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput)
 }
 
+func (o AnomalyDetectorMetricSetMetricSetFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricSetMetricSetFrequency] {
+	return pulumix.Output[AnomalyDetectorMetricSetMetricSetFrequency]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorMetricSetMetricSetFrequencyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -806,6 +854,12 @@ func (o AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput) ToAnomalyDetectorMe
 	return o
 }
 
+func (o AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorMetricSetMetricSetFrequency] {
+	return pulumix.Output[*AnomalyDetectorMetricSetMetricSetFrequency]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput) Elem() AnomalyDetectorMetricSetMetricSetFrequencyOutput {
 	return o.ApplyT(func(v *AnomalyDetectorMetricSetMetricSetFrequency) AnomalyDetectorMetricSetMetricSetFrequency {
 		if v != nil {
@@ -830,13 +884,10 @@ func (o AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnomalyDetectorMetricSetMetricSetFrequencyInput is an input type that accepts values of the AnomalyDetectorMetricSetMetricSetFrequency enum
-// A concrete instance of `AnomalyDetectorMetricSetMetricSetFrequencyInput` can be one of the following:
+// AnomalyDetectorMetricSetMetricSetFrequencyInput is an input type that accepts AnomalyDetectorMetricSetMetricSetFrequencyArgs and AnomalyDetectorMetricSetMetricSetFrequencyOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMetricSetMetricSetFrequencyInput` via:
 //
-//	AnomalyDetectorMetricSetMetricSetFrequencyPt5m
-//	AnomalyDetectorMetricSetMetricSetFrequencyPt10m
-//	AnomalyDetectorMetricSetMetricSetFrequencyPt1h
-//	AnomalyDetectorMetricSetMetricSetFrequencyP1d
+//	AnomalyDetectorMetricSetMetricSetFrequencyArgs{...}
 type AnomalyDetectorMetricSetMetricSetFrequencyInput interface {
 	pulumi.Input
 

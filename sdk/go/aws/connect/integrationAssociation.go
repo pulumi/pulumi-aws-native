@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::IntegrationAssociation
@@ -112,6 +113,12 @@ func (i *IntegrationAssociation) ToIntegrationAssociationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAssociationOutput)
 }
 
+func (i *IntegrationAssociation) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAssociation] {
+	return pulumix.Output[*IntegrationAssociation]{
+		OutputState: i.ToIntegrationAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntegrationAssociationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAssociationOutput) ElementType() reflect.Type {
@@ -124,6 +131,12 @@ func (o IntegrationAssociationOutput) ToIntegrationAssociationOutput() Integrati
 
 func (o IntegrationAssociationOutput) ToIntegrationAssociationOutputWithContext(ctx context.Context) IntegrationAssociationOutput {
 	return o
+}
+
+func (o IntegrationAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAssociation] {
+	return pulumix.Output[*IntegrationAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationAssociationOutput) InstanceId() pulumi.StringOutput {

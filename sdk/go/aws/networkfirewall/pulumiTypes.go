@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -60,6 +61,12 @@ func (i FirewallPolicyTypeArgs) ToFirewallPolicyTypeOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyTypeOutput)
 }
 
+func (i FirewallPolicyTypeArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyType] {
+	return pulumix.Output[FirewallPolicyType]{
+		OutputState: i.ToFirewallPolicyTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyTypeOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyTypeOutput) ElementType() reflect.Type {
@@ -72,6 +79,12 @@ func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypeOutput() FirewallPolicyTyp
 
 func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypeOutputWithContext(ctx context.Context) FirewallPolicyTypeOutput {
 	return o
+}
+
+func (o FirewallPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyType] {
+	return pulumix.Output[FirewallPolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyTypeOutput) PolicyVariables() FirewallPolicyPolicyVariablesPropertiesPtrOutput {
@@ -126,6 +139,12 @@ func (o FirewallPolicyTypePtrOutput) ToFirewallPolicyTypePtrOutput() FirewallPol
 
 func (o FirewallPolicyTypePtrOutput) ToFirewallPolicyTypePtrOutputWithContext(ctx context.Context) FirewallPolicyTypePtrOutput {
 	return o
+}
+
+func (o FirewallPolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyType] {
+	return pulumix.Output[*FirewallPolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyTypePtrOutput) Elem() FirewallPolicyTypeOutput {
@@ -250,6 +269,12 @@ func (i FirewallPolicyActionDefinitionArgs) ToFirewallPolicyActionDefinitionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyActionDefinitionOutput)
 }
 
+func (i FirewallPolicyActionDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyActionDefinition] {
+	return pulumix.Output[FirewallPolicyActionDefinition]{
+		OutputState: i.ToFirewallPolicyActionDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyActionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyActionDefinitionOutput) ElementType() reflect.Type {
@@ -262,6 +287,12 @@ func (o FirewallPolicyActionDefinitionOutput) ToFirewallPolicyActionDefinitionOu
 
 func (o FirewallPolicyActionDefinitionOutput) ToFirewallPolicyActionDefinitionOutputWithContext(ctx context.Context) FirewallPolicyActionDefinitionOutput {
 	return o
+}
+
+func (o FirewallPolicyActionDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyActionDefinition] {
+	return pulumix.Output[FirewallPolicyActionDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyActionDefinitionOutput) PublishMetricAction() FirewallPolicyPublishMetricActionPtrOutput {
@@ -303,6 +334,12 @@ func (i FirewallPolicyCustomActionArgs) ToFirewallPolicyCustomActionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomActionOutput)
 }
 
+func (i FirewallPolicyCustomActionArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyCustomAction] {
+	return pulumix.Output[FirewallPolicyCustomAction]{
+		OutputState: i.ToFirewallPolicyCustomActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallPolicyCustomActionArrayInput is an input type that accepts FirewallPolicyCustomActionArray and FirewallPolicyCustomActionArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyCustomActionArrayInput` via:
 //
@@ -328,6 +365,12 @@ func (i FirewallPolicyCustomActionArray) ToFirewallPolicyCustomActionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomActionArrayOutput)
 }
 
+func (i FirewallPolicyCustomActionArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyCustomAction] {
+	return pulumix.Output[[]FirewallPolicyCustomAction]{
+		OutputState: i.ToFirewallPolicyCustomActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyCustomActionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyCustomActionOutput) ElementType() reflect.Type {
@@ -340,6 +383,12 @@ func (o FirewallPolicyCustomActionOutput) ToFirewallPolicyCustomActionOutput() F
 
 func (o FirewallPolicyCustomActionOutput) ToFirewallPolicyCustomActionOutputWithContext(ctx context.Context) FirewallPolicyCustomActionOutput {
 	return o
+}
+
+func (o FirewallPolicyCustomActionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyCustomAction] {
+	return pulumix.Output[FirewallPolicyCustomAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyCustomActionOutput) ActionDefinition() FirewallPolicyActionDefinitionOutput {
@@ -362,6 +411,12 @@ func (o FirewallPolicyCustomActionArrayOutput) ToFirewallPolicyCustomActionArray
 
 func (o FirewallPolicyCustomActionArrayOutput) ToFirewallPolicyCustomActionArrayOutputWithContext(ctx context.Context) FirewallPolicyCustomActionArrayOutput {
 	return o
+}
+
+func (o FirewallPolicyCustomActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyCustomAction] {
+	return pulumix.Output[[]FirewallPolicyCustomAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyCustomActionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyCustomActionOutput {
@@ -401,6 +456,12 @@ func (i FirewallPolicyDimensionArgs) ToFirewallPolicyDimensionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyDimensionOutput)
 }
 
+func (i FirewallPolicyDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyDimension] {
+	return pulumix.Output[FirewallPolicyDimension]{
+		OutputState: i.ToFirewallPolicyDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallPolicyDimensionArrayInput is an input type that accepts FirewallPolicyDimensionArray and FirewallPolicyDimensionArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyDimensionArrayInput` via:
 //
@@ -426,6 +487,12 @@ func (i FirewallPolicyDimensionArray) ToFirewallPolicyDimensionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyDimensionArrayOutput)
 }
 
+func (i FirewallPolicyDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyDimension] {
+	return pulumix.Output[[]FirewallPolicyDimension]{
+		OutputState: i.ToFirewallPolicyDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyDimensionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyDimensionOutput) ElementType() reflect.Type {
@@ -438,6 +505,12 @@ func (o FirewallPolicyDimensionOutput) ToFirewallPolicyDimensionOutput() Firewal
 
 func (o FirewallPolicyDimensionOutput) ToFirewallPolicyDimensionOutputWithContext(ctx context.Context) FirewallPolicyDimensionOutput {
 	return o
+}
+
+func (o FirewallPolicyDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyDimension] {
+	return pulumix.Output[FirewallPolicyDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyDimensionOutput) Value() pulumi.StringOutput {
@@ -456,6 +529,12 @@ func (o FirewallPolicyDimensionArrayOutput) ToFirewallPolicyDimensionArrayOutput
 
 func (o FirewallPolicyDimensionArrayOutput) ToFirewallPolicyDimensionArrayOutputWithContext(ctx context.Context) FirewallPolicyDimensionArrayOutput {
 	return o
+}
+
+func (o FirewallPolicyDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyDimension] {
+	return pulumix.Output[[]FirewallPolicyDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyDimensionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyDimensionOutput {
@@ -493,6 +572,12 @@ func (i FirewallPolicyPolicyVariablesPropertiesArgs) ToFirewallPolicyPolicyVaria
 
 func (i FirewallPolicyPolicyVariablesPropertiesArgs) ToFirewallPolicyPolicyVariablesPropertiesOutputWithContext(ctx context.Context) FirewallPolicyPolicyVariablesPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyPolicyVariablesPropertiesOutput)
+}
+
+func (i FirewallPolicyPolicyVariablesPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyPolicyVariablesProperties] {
+	return pulumix.Output[FirewallPolicyPolicyVariablesProperties]{
+		OutputState: i.ToFirewallPolicyPolicyVariablesPropertiesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FirewallPolicyPolicyVariablesPropertiesArgs) ToFirewallPolicyPolicyVariablesPropertiesPtrOutput() FirewallPolicyPolicyVariablesPropertiesPtrOutput {
@@ -536,6 +621,12 @@ func (i *firewallPolicyPolicyVariablesPropertiesPtrType) ToFirewallPolicyPolicyV
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyPolicyVariablesPropertiesPtrOutput)
 }
 
+func (i *firewallPolicyPolicyVariablesPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyPolicyVariablesProperties] {
+	return pulumix.Output[*FirewallPolicyPolicyVariablesProperties]{
+		OutputState: i.ToFirewallPolicyPolicyVariablesPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyPolicyVariablesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyPolicyVariablesPropertiesOutput) ElementType() reflect.Type {
@@ -560,6 +651,12 @@ func (o FirewallPolicyPolicyVariablesPropertiesOutput) ToFirewallPolicyPolicyVar
 	}).(FirewallPolicyPolicyVariablesPropertiesPtrOutput)
 }
 
+func (o FirewallPolicyPolicyVariablesPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyPolicyVariablesProperties] {
+	return pulumix.Output[FirewallPolicyPolicyVariablesProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyPolicyVariablesPropertiesOutput) RuleVariables() FirewallPolicyRuleVariablesPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyPolicyVariablesProperties) *FirewallPolicyRuleVariables { return v.RuleVariables }).(FirewallPolicyRuleVariablesPtrOutput)
 }
@@ -576,6 +673,12 @@ func (o FirewallPolicyPolicyVariablesPropertiesPtrOutput) ToFirewallPolicyPolicy
 
 func (o FirewallPolicyPolicyVariablesPropertiesPtrOutput) ToFirewallPolicyPolicyVariablesPropertiesPtrOutputWithContext(ctx context.Context) FirewallPolicyPolicyVariablesPropertiesPtrOutput {
 	return o
+}
+
+func (o FirewallPolicyPolicyVariablesPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyPolicyVariablesProperties] {
+	return pulumix.Output[*FirewallPolicyPolicyVariablesProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyPolicyVariablesPropertiesPtrOutput) Elem() FirewallPolicyPolicyVariablesPropertiesOutput {
@@ -628,6 +731,12 @@ func (i FirewallPolicyPublishMetricActionArgs) ToFirewallPolicyPublishMetricActi
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyPublishMetricActionOutput)
 }
 
+func (i FirewallPolicyPublishMetricActionArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyPublishMetricAction] {
+	return pulumix.Output[FirewallPolicyPublishMetricAction]{
+		OutputState: i.ToFirewallPolicyPublishMetricActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirewallPolicyPublishMetricActionArgs) ToFirewallPolicyPublishMetricActionPtrOutput() FirewallPolicyPublishMetricActionPtrOutput {
 	return i.ToFirewallPolicyPublishMetricActionPtrOutputWithContext(context.Background())
 }
@@ -669,6 +778,12 @@ func (i *firewallPolicyPublishMetricActionPtrType) ToFirewallPolicyPublishMetric
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyPublishMetricActionPtrOutput)
 }
 
+func (i *firewallPolicyPublishMetricActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyPublishMetricAction] {
+	return pulumix.Output[*FirewallPolicyPublishMetricAction]{
+		OutputState: i.ToFirewallPolicyPublishMetricActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyPublishMetricActionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyPublishMetricActionOutput) ElementType() reflect.Type {
@@ -693,6 +808,12 @@ func (o FirewallPolicyPublishMetricActionOutput) ToFirewallPolicyPublishMetricAc
 	}).(FirewallPolicyPublishMetricActionPtrOutput)
 }
 
+func (o FirewallPolicyPublishMetricActionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyPublishMetricAction] {
+	return pulumix.Output[FirewallPolicyPublishMetricAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyPublishMetricActionOutput) Dimensions() FirewallPolicyDimensionArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyPublishMetricAction) []FirewallPolicyDimension { return v.Dimensions }).(FirewallPolicyDimensionArrayOutput)
 }
@@ -709,6 +830,12 @@ func (o FirewallPolicyPublishMetricActionPtrOutput) ToFirewallPolicyPublishMetri
 
 func (o FirewallPolicyPublishMetricActionPtrOutput) ToFirewallPolicyPublishMetricActionPtrOutputWithContext(ctx context.Context) FirewallPolicyPublishMetricActionPtrOutput {
 	return o
+}
+
+func (o FirewallPolicyPublishMetricActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyPublishMetricAction] {
+	return pulumix.Output[*FirewallPolicyPublishMetricAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyPublishMetricActionPtrOutput) Elem() FirewallPolicyPublishMetricActionOutput {
@@ -759,6 +886,12 @@ func (i FirewallPolicyRuleVariablesArgs) ToFirewallPolicyRuleVariablesOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleVariablesOutput)
 }
 
+func (i FirewallPolicyRuleVariablesArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyRuleVariables] {
+	return pulumix.Output[FirewallPolicyRuleVariables]{
+		OutputState: i.ToFirewallPolicyRuleVariablesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirewallPolicyRuleVariablesArgs) ToFirewallPolicyRuleVariablesPtrOutput() FirewallPolicyRuleVariablesPtrOutput {
 	return i.ToFirewallPolicyRuleVariablesPtrOutputWithContext(context.Background())
 }
@@ -800,6 +933,12 @@ func (i *firewallPolicyRuleVariablesPtrType) ToFirewallPolicyRuleVariablesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleVariablesPtrOutput)
 }
 
+func (i *firewallPolicyRuleVariablesPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyRuleVariables] {
+	return pulumix.Output[*FirewallPolicyRuleVariables]{
+		OutputState: i.ToFirewallPolicyRuleVariablesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyRuleVariablesOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyRuleVariablesOutput) ElementType() reflect.Type {
@@ -824,6 +963,12 @@ func (o FirewallPolicyRuleVariablesOutput) ToFirewallPolicyRuleVariablesPtrOutpu
 	}).(FirewallPolicyRuleVariablesPtrOutput)
 }
 
+func (o FirewallPolicyRuleVariablesOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyRuleVariables] {
+	return pulumix.Output[FirewallPolicyRuleVariables]{
+		OutputState: o.OutputState,
+	}
+}
+
 type FirewallPolicyRuleVariablesPtrOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyRuleVariablesPtrOutput) ElementType() reflect.Type {
@@ -836,6 +981,12 @@ func (o FirewallPolicyRuleVariablesPtrOutput) ToFirewallPolicyRuleVariablesPtrOu
 
 func (o FirewallPolicyRuleVariablesPtrOutput) ToFirewallPolicyRuleVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyRuleVariablesPtrOutput {
 	return o
+}
+
+func (o FirewallPolicyRuleVariablesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyRuleVariables] {
+	return pulumix.Output[*FirewallPolicyRuleVariables]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyRuleVariablesPtrOutput) Elem() FirewallPolicyRuleVariablesOutput {
@@ -881,6 +1032,12 @@ func (i FirewallPolicyStatefulEngineOptionsArgs) ToFirewallPolicyStatefulEngineO
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulEngineOptionsOutput)
 }
 
+func (i FirewallPolicyStatefulEngineOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyStatefulEngineOptions] {
+	return pulumix.Output[FirewallPolicyStatefulEngineOptions]{
+		OutputState: i.ToFirewallPolicyStatefulEngineOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirewallPolicyStatefulEngineOptionsArgs) ToFirewallPolicyStatefulEngineOptionsPtrOutput() FirewallPolicyStatefulEngineOptionsPtrOutput {
 	return i.ToFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(context.Background())
 }
@@ -922,6 +1079,12 @@ func (i *firewallPolicyStatefulEngineOptionsPtrType) ToFirewallPolicyStatefulEng
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulEngineOptionsPtrOutput)
 }
 
+func (i *firewallPolicyStatefulEngineOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyStatefulEngineOptions] {
+	return pulumix.Output[*FirewallPolicyStatefulEngineOptions]{
+		OutputState: i.ToFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyStatefulEngineOptionsOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyStatefulEngineOptionsOutput) ElementType() reflect.Type {
@@ -946,6 +1109,12 @@ func (o FirewallPolicyStatefulEngineOptionsOutput) ToFirewallPolicyStatefulEngin
 	}).(FirewallPolicyStatefulEngineOptionsPtrOutput)
 }
 
+func (o FirewallPolicyStatefulEngineOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyStatefulEngineOptions] {
+	return pulumix.Output[FirewallPolicyStatefulEngineOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyStatefulEngineOptionsOutput) RuleOrder() FirewallPolicyRuleOrderPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyStatefulEngineOptions) *FirewallPolicyRuleOrder { return v.RuleOrder }).(FirewallPolicyRuleOrderPtrOutput)
 }
@@ -968,6 +1137,12 @@ func (o FirewallPolicyStatefulEngineOptionsPtrOutput) ToFirewallPolicyStatefulEn
 
 func (o FirewallPolicyStatefulEngineOptionsPtrOutput) ToFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsPtrOutput {
 	return o
+}
+
+func (o FirewallPolicyStatefulEngineOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyStatefulEngineOptions] {
+	return pulumix.Output[*FirewallPolicyStatefulEngineOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyStatefulEngineOptionsPtrOutput) Elem() FirewallPolicyStatefulEngineOptionsOutput {
@@ -1029,6 +1204,12 @@ func (i FirewallPolicyStatefulRuleGroupOverrideArgs) ToFirewallPolicyStatefulRul
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulRuleGroupOverrideOutput)
 }
 
+func (i FirewallPolicyStatefulRuleGroupOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyStatefulRuleGroupOverride] {
+	return pulumix.Output[FirewallPolicyStatefulRuleGroupOverride]{
+		OutputState: i.ToFirewallPolicyStatefulRuleGroupOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirewallPolicyStatefulRuleGroupOverrideArgs) ToFirewallPolicyStatefulRuleGroupOverridePtrOutput() FirewallPolicyStatefulRuleGroupOverridePtrOutput {
 	return i.ToFirewallPolicyStatefulRuleGroupOverridePtrOutputWithContext(context.Background())
 }
@@ -1070,6 +1251,12 @@ func (i *firewallPolicyStatefulRuleGroupOverridePtrType) ToFirewallPolicyStatefu
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulRuleGroupOverridePtrOutput)
 }
 
+func (i *firewallPolicyStatefulRuleGroupOverridePtrType) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyStatefulRuleGroupOverride] {
+	return pulumix.Output[*FirewallPolicyStatefulRuleGroupOverride]{
+		OutputState: i.ToFirewallPolicyStatefulRuleGroupOverridePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyStatefulRuleGroupOverrideOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyStatefulRuleGroupOverrideOutput) ElementType() reflect.Type {
@@ -1094,6 +1281,12 @@ func (o FirewallPolicyStatefulRuleGroupOverrideOutput) ToFirewallPolicyStatefulR
 	}).(FirewallPolicyStatefulRuleGroupOverridePtrOutput)
 }
 
+func (o FirewallPolicyStatefulRuleGroupOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyStatefulRuleGroupOverride] {
+	return pulumix.Output[FirewallPolicyStatefulRuleGroupOverride]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyStatefulRuleGroupOverrideOutput) Action() FirewallPolicyOverrideActionPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyStatefulRuleGroupOverride) *FirewallPolicyOverrideAction { return v.Action }).(FirewallPolicyOverrideActionPtrOutput)
 }
@@ -1110,6 +1303,12 @@ func (o FirewallPolicyStatefulRuleGroupOverridePtrOutput) ToFirewallPolicyStatef
 
 func (o FirewallPolicyStatefulRuleGroupOverridePtrOutput) ToFirewallPolicyStatefulRuleGroupOverridePtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulRuleGroupOverridePtrOutput {
 	return o
+}
+
+func (o FirewallPolicyStatefulRuleGroupOverridePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyStatefulRuleGroupOverride] {
+	return pulumix.Output[*FirewallPolicyStatefulRuleGroupOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyStatefulRuleGroupOverridePtrOutput) Elem() FirewallPolicyStatefulRuleGroupOverrideOutput {
@@ -1166,6 +1365,12 @@ func (i FirewallPolicyStatefulRuleGroupReferenceArgs) ToFirewallPolicyStatefulRu
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulRuleGroupReferenceOutput)
 }
 
+func (i FirewallPolicyStatefulRuleGroupReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyStatefulRuleGroupReference] {
+	return pulumix.Output[FirewallPolicyStatefulRuleGroupReference]{
+		OutputState: i.ToFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallPolicyStatefulRuleGroupReferenceArrayInput is an input type that accepts FirewallPolicyStatefulRuleGroupReferenceArray and FirewallPolicyStatefulRuleGroupReferenceArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyStatefulRuleGroupReferenceArrayInput` via:
 //
@@ -1191,6 +1396,12 @@ func (i FirewallPolicyStatefulRuleGroupReferenceArray) ToFirewallPolicyStatefulR
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulRuleGroupReferenceArrayOutput)
 }
 
+func (i FirewallPolicyStatefulRuleGroupReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyStatefulRuleGroupReference] {
+	return pulumix.Output[[]FirewallPolicyStatefulRuleGroupReference]{
+		OutputState: i.ToFirewallPolicyStatefulRuleGroupReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyStatefulRuleGroupReferenceOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyStatefulRuleGroupReferenceOutput) ElementType() reflect.Type {
@@ -1203,6 +1414,12 @@ func (o FirewallPolicyStatefulRuleGroupReferenceOutput) ToFirewallPolicyStateful
 
 func (o FirewallPolicyStatefulRuleGroupReferenceOutput) ToFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(ctx context.Context) FirewallPolicyStatefulRuleGroupReferenceOutput {
 	return o
+}
+
+func (o FirewallPolicyStatefulRuleGroupReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyStatefulRuleGroupReference] {
+	return pulumix.Output[FirewallPolicyStatefulRuleGroupReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyStatefulRuleGroupReferenceOutput) Override() FirewallPolicyStatefulRuleGroupOverridePtrOutput {
@@ -1231,6 +1448,12 @@ func (o FirewallPolicyStatefulRuleGroupReferenceArrayOutput) ToFirewallPolicySta
 
 func (o FirewallPolicyStatefulRuleGroupReferenceArrayOutput) ToFirewallPolicyStatefulRuleGroupReferenceArrayOutputWithContext(ctx context.Context) FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
 	return o
+}
+
+func (o FirewallPolicyStatefulRuleGroupReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyStatefulRuleGroupReference] {
+	return pulumix.Output[[]FirewallPolicyStatefulRuleGroupReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyStatefulRuleGroupReferenceArrayOutput) Index(i pulumi.IntInput) FirewallPolicyStatefulRuleGroupReferenceOutput {
@@ -1272,6 +1495,12 @@ func (i FirewallPolicyStatelessRuleGroupReferenceArgs) ToFirewallPolicyStateless
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatelessRuleGroupReferenceOutput)
 }
 
+func (i FirewallPolicyStatelessRuleGroupReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyStatelessRuleGroupReference] {
+	return pulumix.Output[FirewallPolicyStatelessRuleGroupReference]{
+		OutputState: i.ToFirewallPolicyStatelessRuleGroupReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallPolicyStatelessRuleGroupReferenceArrayInput is an input type that accepts FirewallPolicyStatelessRuleGroupReferenceArray and FirewallPolicyStatelessRuleGroupReferenceArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyStatelessRuleGroupReferenceArrayInput` via:
 //
@@ -1297,6 +1526,12 @@ func (i FirewallPolicyStatelessRuleGroupReferenceArray) ToFirewallPolicyStateles
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
 
+func (i FirewallPolicyStatelessRuleGroupReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyStatelessRuleGroupReference] {
+	return pulumix.Output[[]FirewallPolicyStatelessRuleGroupReference]{
+		OutputState: i.ToFirewallPolicyStatelessRuleGroupReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyStatelessRuleGroupReferenceOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyStatelessRuleGroupReferenceOutput) ElementType() reflect.Type {
@@ -1309,6 +1544,12 @@ func (o FirewallPolicyStatelessRuleGroupReferenceOutput) ToFirewallPolicyStatele
 
 func (o FirewallPolicyStatelessRuleGroupReferenceOutput) ToFirewallPolicyStatelessRuleGroupReferenceOutputWithContext(ctx context.Context) FirewallPolicyStatelessRuleGroupReferenceOutput {
 	return o
+}
+
+func (o FirewallPolicyStatelessRuleGroupReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyStatelessRuleGroupReference] {
+	return pulumix.Output[FirewallPolicyStatelessRuleGroupReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyStatelessRuleGroupReferenceOutput) Priority() pulumi.IntOutput {
@@ -1331,6 +1572,12 @@ func (o FirewallPolicyStatelessRuleGroupReferenceArrayOutput) ToFirewallPolicySt
 
 func (o FirewallPolicyStatelessRuleGroupReferenceArrayOutput) ToFirewallPolicyStatelessRuleGroupReferenceArrayOutputWithContext(ctx context.Context) FirewallPolicyStatelessRuleGroupReferenceArrayOutput {
 	return o
+}
+
+func (o FirewallPolicyStatelessRuleGroupReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyStatelessRuleGroupReference] {
+	return pulumix.Output[[]FirewallPolicyStatelessRuleGroupReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyStatelessRuleGroupReferenceArrayOutput) Index(i pulumi.IntInput) FirewallPolicyStatelessRuleGroupReferenceOutput {
@@ -1372,6 +1619,12 @@ func (i FirewallPolicyTagArgs) ToFirewallPolicyTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyTagOutput)
 }
 
+func (i FirewallPolicyTagArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyTag] {
+	return pulumix.Output[FirewallPolicyTag]{
+		OutputState: i.ToFirewallPolicyTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallPolicyTagArrayInput is an input type that accepts FirewallPolicyTagArray and FirewallPolicyTagArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyTagArrayInput` via:
 //
@@ -1397,6 +1650,12 @@ func (i FirewallPolicyTagArray) ToFirewallPolicyTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyTagArrayOutput)
 }
 
+func (i FirewallPolicyTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyTag] {
+	return pulumix.Output[[]FirewallPolicyTag]{
+		OutputState: i.ToFirewallPolicyTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyTagOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyTagOutput) ElementType() reflect.Type {
@@ -1409,6 +1668,12 @@ func (o FirewallPolicyTagOutput) ToFirewallPolicyTagOutput() FirewallPolicyTagOu
 
 func (o FirewallPolicyTagOutput) ToFirewallPolicyTagOutputWithContext(ctx context.Context) FirewallPolicyTagOutput {
 	return o
+}
+
+func (o FirewallPolicyTagOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyTag] {
+	return pulumix.Output[FirewallPolicyTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyTagOutput) Key() pulumi.StringOutput {
@@ -1431,6 +1696,12 @@ func (o FirewallPolicyTagArrayOutput) ToFirewallPolicyTagArrayOutput() FirewallP
 
 func (o FirewallPolicyTagArrayOutput) ToFirewallPolicyTagArrayOutputWithContext(ctx context.Context) FirewallPolicyTagArrayOutput {
 	return o
+}
+
+func (o FirewallPolicyTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyTag] {
+	return pulumix.Output[[]FirewallPolicyTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyTagArrayOutput) Index(i pulumi.IntInput) FirewallPolicyTagOutput {
@@ -1476,6 +1747,12 @@ func (i FirewallSubnetMappingArgs) ToFirewallSubnetMappingOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallSubnetMappingOutput)
 }
 
+func (i FirewallSubnetMappingArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallSubnetMapping] {
+	return pulumix.Output[FirewallSubnetMapping]{
+		OutputState: i.ToFirewallSubnetMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallSubnetMappingArrayInput is an input type that accepts FirewallSubnetMappingArray and FirewallSubnetMappingArrayOutput values.
 // You can construct a concrete instance of `FirewallSubnetMappingArrayInput` via:
 //
@@ -1501,6 +1778,12 @@ func (i FirewallSubnetMappingArray) ToFirewallSubnetMappingArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallSubnetMappingArrayOutput)
 }
 
+func (i FirewallSubnetMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallSubnetMapping] {
+	return pulumix.Output[[]FirewallSubnetMapping]{
+		OutputState: i.ToFirewallSubnetMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallSubnetMappingOutput struct{ *pulumi.OutputState }
 
 func (FirewallSubnetMappingOutput) ElementType() reflect.Type {
@@ -1513,6 +1796,12 @@ func (o FirewallSubnetMappingOutput) ToFirewallSubnetMappingOutput() FirewallSub
 
 func (o FirewallSubnetMappingOutput) ToFirewallSubnetMappingOutputWithContext(ctx context.Context) FirewallSubnetMappingOutput {
 	return o
+}
+
+func (o FirewallSubnetMappingOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallSubnetMapping] {
+	return pulumix.Output[FirewallSubnetMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A IPAddressType
@@ -1537,6 +1826,12 @@ func (o FirewallSubnetMappingArrayOutput) ToFirewallSubnetMappingArrayOutput() F
 
 func (o FirewallSubnetMappingArrayOutput) ToFirewallSubnetMappingArrayOutputWithContext(ctx context.Context) FirewallSubnetMappingArrayOutput {
 	return o
+}
+
+func (o FirewallSubnetMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallSubnetMapping] {
+	return pulumix.Output[[]FirewallSubnetMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallSubnetMappingArrayOutput) Index(i pulumi.IntInput) FirewallSubnetMappingOutput {
@@ -1578,6 +1873,12 @@ func (i FirewallTagArgs) ToFirewallTagOutputWithContext(ctx context.Context) Fir
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallTagOutput)
 }
 
+func (i FirewallTagArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallTag] {
+	return pulumix.Output[FirewallTag]{
+		OutputState: i.ToFirewallTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallTagArrayInput is an input type that accepts FirewallTagArray and FirewallTagArrayOutput values.
 // You can construct a concrete instance of `FirewallTagArrayInput` via:
 //
@@ -1603,6 +1904,12 @@ func (i FirewallTagArray) ToFirewallTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallTagArrayOutput)
 }
 
+func (i FirewallTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallTag] {
+	return pulumix.Output[[]FirewallTag]{
+		OutputState: i.ToFirewallTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallTagOutput struct{ *pulumi.OutputState }
 
 func (FirewallTagOutput) ElementType() reflect.Type {
@@ -1615,6 +1922,12 @@ func (o FirewallTagOutput) ToFirewallTagOutput() FirewallTagOutput {
 
 func (o FirewallTagOutput) ToFirewallTagOutputWithContext(ctx context.Context) FirewallTagOutput {
 	return o
+}
+
+func (o FirewallTagOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallTag] {
+	return pulumix.Output[FirewallTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallTagOutput) Key() pulumi.StringOutput {
@@ -1637,6 +1950,12 @@ func (o FirewallTagArrayOutput) ToFirewallTagArrayOutput() FirewallTagArrayOutpu
 
 func (o FirewallTagArrayOutput) ToFirewallTagArrayOutputWithContext(ctx context.Context) FirewallTagArrayOutput {
 	return o
+}
+
+func (o FirewallTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallTag] {
+	return pulumix.Output[[]FirewallTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallTagArrayOutput) Index(i pulumi.IntInput) FirewallTagOutput {
@@ -1676,6 +1995,12 @@ func (i LoggingConfigurationTypeArgs) ToLoggingConfigurationTypeOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationTypeOutput)
 }
 
+func (i LoggingConfigurationTypeArgs) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationType] {
+	return pulumix.Output[LoggingConfigurationType]{
+		OutputState: i.ToLoggingConfigurationTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoggingConfigurationTypeOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationTypeOutput) ElementType() reflect.Type {
@@ -1688,6 +2013,12 @@ func (o LoggingConfigurationTypeOutput) ToLoggingConfigurationTypeOutput() Loggi
 
 func (o LoggingConfigurationTypeOutput) ToLoggingConfigurationTypeOutputWithContext(ctx context.Context) LoggingConfigurationTypeOutput {
 	return o
+}
+
+func (o LoggingConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationType] {
+	return pulumix.Output[LoggingConfigurationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationTypeOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
@@ -1708,6 +2039,12 @@ func (o LoggingConfigurationTypePtrOutput) ToLoggingConfigurationTypePtrOutput()
 
 func (o LoggingConfigurationTypePtrOutput) ToLoggingConfigurationTypePtrOutputWithContext(ctx context.Context) LoggingConfigurationTypePtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationType] {
+	return pulumix.Output[*LoggingConfigurationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationTypePtrOutput) Elem() LoggingConfigurationTypeOutput {
@@ -1766,6 +2103,12 @@ func (i LoggingConfigurationLogDestinationConfigArgs) ToLoggingConfigurationLogD
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLogDestinationConfigOutput)
 }
 
+func (i LoggingConfigurationLogDestinationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationLogDestinationConfig] {
+	return pulumix.Output[LoggingConfigurationLogDestinationConfig]{
+		OutputState: i.ToLoggingConfigurationLogDestinationConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LoggingConfigurationLogDestinationConfigArrayInput is an input type that accepts LoggingConfigurationLogDestinationConfigArray and LoggingConfigurationLogDestinationConfigArrayOutput values.
 // You can construct a concrete instance of `LoggingConfigurationLogDestinationConfigArrayInput` via:
 //
@@ -1791,6 +2134,12 @@ func (i LoggingConfigurationLogDestinationConfigArray) ToLoggingConfigurationLog
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLogDestinationConfigArrayOutput)
 }
 
+func (i LoggingConfigurationLogDestinationConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]LoggingConfigurationLogDestinationConfig] {
+	return pulumix.Output[[]LoggingConfigurationLogDestinationConfig]{
+		OutputState: i.ToLoggingConfigurationLogDestinationConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoggingConfigurationLogDestinationConfigOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationLogDestinationConfigOutput) ElementType() reflect.Type {
@@ -1803,6 +2152,12 @@ func (o LoggingConfigurationLogDestinationConfigOutput) ToLoggingConfigurationLo
 
 func (o LoggingConfigurationLogDestinationConfigOutput) ToLoggingConfigurationLogDestinationConfigOutputWithContext(ctx context.Context) LoggingConfigurationLogDestinationConfigOutput {
 	return o
+}
+
+func (o LoggingConfigurationLogDestinationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationLogDestinationConfig] {
+	return pulumix.Output[LoggingConfigurationLogDestinationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A key-value pair to configure the logDestinations.
@@ -1834,6 +2189,12 @@ func (o LoggingConfigurationLogDestinationConfigArrayOutput) ToLoggingConfigurat
 
 func (o LoggingConfigurationLogDestinationConfigArrayOutput) ToLoggingConfigurationLogDestinationConfigArrayOutputWithContext(ctx context.Context) LoggingConfigurationLogDestinationConfigArrayOutput {
 	return o
+}
+
+func (o LoggingConfigurationLogDestinationConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LoggingConfigurationLogDestinationConfig] {
+	return pulumix.Output[[]LoggingConfigurationLogDestinationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationLogDestinationConfigArrayOutput) Index(i pulumi.IntInput) LoggingConfigurationLogDestinationConfigOutput {
@@ -1879,6 +2240,12 @@ func (i RuleGroupTypeArgs) ToRuleGroupTypeOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTypeOutput)
 }
 
+func (i RuleGroupTypeArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupType] {
+	return pulumix.Output[RuleGroupType]{
+		OutputState: i.ToRuleGroupTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleGroupTypeArgs) ToRuleGroupTypePtrOutput() RuleGroupTypePtrOutput {
 	return i.ToRuleGroupTypePtrOutputWithContext(context.Background())
 }
@@ -1920,6 +2287,12 @@ func (i *ruleGroupTypePtrType) ToRuleGroupTypePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTypePtrOutput)
 }
 
+func (i *ruleGroupTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupType] {
+	return pulumix.Output[*RuleGroupType]{
+		OutputState: i.ToRuleGroupTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupTypeOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupTypeOutput) ElementType() reflect.Type {
@@ -1942,6 +2315,12 @@ func (o RuleGroupTypeOutput) ToRuleGroupTypePtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupType) *RuleGroupType {
 		return &v
 	}).(RuleGroupTypePtrOutput)
+}
+
+func (o RuleGroupTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupType] {
+	return pulumix.Output[RuleGroupType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupTypeOutput) ReferenceSets() RuleGroupReferenceSetsPtrOutput {
@@ -1972,6 +2351,12 @@ func (o RuleGroupTypePtrOutput) ToRuleGroupTypePtrOutput() RuleGroupTypePtrOutpu
 
 func (o RuleGroupTypePtrOutput) ToRuleGroupTypePtrOutputWithContext(ctx context.Context) RuleGroupTypePtrOutput {
 	return o
+}
+
+func (o RuleGroupTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupType] {
+	return pulumix.Output[*RuleGroupType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupTypePtrOutput) Elem() RuleGroupTypeOutput {
@@ -2051,6 +2436,12 @@ func (i RuleGroupActionDefinitionArgs) ToRuleGroupActionDefinitionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupActionDefinitionOutput)
 }
 
+func (i RuleGroupActionDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupActionDefinition] {
+	return pulumix.Output[RuleGroupActionDefinition]{
+		OutputState: i.ToRuleGroupActionDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupActionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupActionDefinitionOutput) ElementType() reflect.Type {
@@ -2063,6 +2454,12 @@ func (o RuleGroupActionDefinitionOutput) ToRuleGroupActionDefinitionOutput() Rul
 
 func (o RuleGroupActionDefinitionOutput) ToRuleGroupActionDefinitionOutputWithContext(ctx context.Context) RuleGroupActionDefinitionOutput {
 	return o
+}
+
+func (o RuleGroupActionDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupActionDefinition] {
+	return pulumix.Output[RuleGroupActionDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupActionDefinitionOutput) PublishMetricAction() RuleGroupPublishMetricActionPtrOutput {
@@ -2100,6 +2497,12 @@ func (i RuleGroupAddressArgs) ToRuleGroupAddressOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAddressOutput)
 }
 
+func (i RuleGroupAddressArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupAddress] {
+	return pulumix.Output[RuleGroupAddress]{
+		OutputState: i.ToRuleGroupAddressOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupAddressArrayInput is an input type that accepts RuleGroupAddressArray and RuleGroupAddressArrayOutput values.
 // You can construct a concrete instance of `RuleGroupAddressArrayInput` via:
 //
@@ -2125,6 +2528,12 @@ func (i RuleGroupAddressArray) ToRuleGroupAddressArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAddressArrayOutput)
 }
 
+func (i RuleGroupAddressArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupAddress] {
+	return pulumix.Output[[]RuleGroupAddress]{
+		OutputState: i.ToRuleGroupAddressArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupAddressOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupAddressOutput) ElementType() reflect.Type {
@@ -2137,6 +2546,12 @@ func (o RuleGroupAddressOutput) ToRuleGroupAddressOutput() RuleGroupAddressOutpu
 
 func (o RuleGroupAddressOutput) ToRuleGroupAddressOutputWithContext(ctx context.Context) RuleGroupAddressOutput {
 	return o
+}
+
+func (o RuleGroupAddressOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupAddress] {
+	return pulumix.Output[RuleGroupAddress]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupAddressOutput) AddressDefinition() pulumi.StringOutput {
@@ -2155,6 +2570,12 @@ func (o RuleGroupAddressArrayOutput) ToRuleGroupAddressArrayOutput() RuleGroupAd
 
 func (o RuleGroupAddressArrayOutput) ToRuleGroupAddressArrayOutputWithContext(ctx context.Context) RuleGroupAddressArrayOutput {
 	return o
+}
+
+func (o RuleGroupAddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupAddress] {
+	return pulumix.Output[[]RuleGroupAddress]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupAddressArrayOutput) Index(i pulumi.IntInput) RuleGroupAddressOutput {
@@ -2196,6 +2617,12 @@ func (i RuleGroupCustomActionArgs) ToRuleGroupCustomActionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomActionOutput)
 }
 
+func (i RuleGroupCustomActionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupCustomAction] {
+	return pulumix.Output[RuleGroupCustomAction]{
+		OutputState: i.ToRuleGroupCustomActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupCustomActionArrayInput is an input type that accepts RuleGroupCustomActionArray and RuleGroupCustomActionArrayOutput values.
 // You can construct a concrete instance of `RuleGroupCustomActionArrayInput` via:
 //
@@ -2221,6 +2648,12 @@ func (i RuleGroupCustomActionArray) ToRuleGroupCustomActionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomActionArrayOutput)
 }
 
+func (i RuleGroupCustomActionArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupCustomAction] {
+	return pulumix.Output[[]RuleGroupCustomAction]{
+		OutputState: i.ToRuleGroupCustomActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupCustomActionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupCustomActionOutput) ElementType() reflect.Type {
@@ -2233,6 +2666,12 @@ func (o RuleGroupCustomActionOutput) ToRuleGroupCustomActionOutput() RuleGroupCu
 
 func (o RuleGroupCustomActionOutput) ToRuleGroupCustomActionOutputWithContext(ctx context.Context) RuleGroupCustomActionOutput {
 	return o
+}
+
+func (o RuleGroupCustomActionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupCustomAction] {
+	return pulumix.Output[RuleGroupCustomAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupCustomActionOutput) ActionDefinition() RuleGroupActionDefinitionOutput {
@@ -2255,6 +2694,12 @@ func (o RuleGroupCustomActionArrayOutput) ToRuleGroupCustomActionArrayOutput() R
 
 func (o RuleGroupCustomActionArrayOutput) ToRuleGroupCustomActionArrayOutputWithContext(ctx context.Context) RuleGroupCustomActionArrayOutput {
 	return o
+}
+
+func (o RuleGroupCustomActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupCustomAction] {
+	return pulumix.Output[[]RuleGroupCustomAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupCustomActionArrayOutput) Index(i pulumi.IntInput) RuleGroupCustomActionOutput {
@@ -2294,6 +2739,12 @@ func (i RuleGroupDimensionArgs) ToRuleGroupDimensionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupDimensionOutput)
 }
 
+func (i RuleGroupDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupDimension] {
+	return pulumix.Output[RuleGroupDimension]{
+		OutputState: i.ToRuleGroupDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupDimensionArrayInput is an input type that accepts RuleGroupDimensionArray and RuleGroupDimensionArrayOutput values.
 // You can construct a concrete instance of `RuleGroupDimensionArrayInput` via:
 //
@@ -2319,6 +2770,12 @@ func (i RuleGroupDimensionArray) ToRuleGroupDimensionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupDimensionArrayOutput)
 }
 
+func (i RuleGroupDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupDimension] {
+	return pulumix.Output[[]RuleGroupDimension]{
+		OutputState: i.ToRuleGroupDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupDimensionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupDimensionOutput) ElementType() reflect.Type {
@@ -2331,6 +2788,12 @@ func (o RuleGroupDimensionOutput) ToRuleGroupDimensionOutput() RuleGroupDimensio
 
 func (o RuleGroupDimensionOutput) ToRuleGroupDimensionOutputWithContext(ctx context.Context) RuleGroupDimensionOutput {
 	return o
+}
+
+func (o RuleGroupDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupDimension] {
+	return pulumix.Output[RuleGroupDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupDimensionOutput) Value() pulumi.StringOutput {
@@ -2349,6 +2812,12 @@ func (o RuleGroupDimensionArrayOutput) ToRuleGroupDimensionArrayOutput() RuleGro
 
 func (o RuleGroupDimensionArrayOutput) ToRuleGroupDimensionArrayOutputWithContext(ctx context.Context) RuleGroupDimensionArrayOutput {
 	return o
+}
+
+func (o RuleGroupDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupDimension] {
+	return pulumix.Output[[]RuleGroupDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupDimensionArrayOutput) Index(i pulumi.IntInput) RuleGroupDimensionOutput {
@@ -2398,6 +2867,12 @@ func (i RuleGroupHeaderArgs) ToRuleGroupHeaderOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupHeaderOutput)
 }
 
+func (i RuleGroupHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupHeader] {
+	return pulumix.Output[RuleGroupHeader]{
+		OutputState: i.ToRuleGroupHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupHeaderOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupHeaderOutput) ElementType() reflect.Type {
@@ -2410,6 +2885,12 @@ func (o RuleGroupHeaderOutput) ToRuleGroupHeaderOutput() RuleGroupHeaderOutput {
 
 func (o RuleGroupHeaderOutput) ToRuleGroupHeaderOutputWithContext(ctx context.Context) RuleGroupHeaderOutput {
 	return o
+}
+
+func (o RuleGroupHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupHeader] {
+	return pulumix.Output[RuleGroupHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupHeaderOutput) Destination() pulumi.StringOutput {
@@ -2477,6 +2958,12 @@ func (i RuleGroupMatchAttributesArgs) ToRuleGroupMatchAttributesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMatchAttributesOutput)
 }
 
+func (i RuleGroupMatchAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupMatchAttributes] {
+	return pulumix.Output[RuleGroupMatchAttributes]{
+		OutputState: i.ToRuleGroupMatchAttributesOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupMatchAttributesOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupMatchAttributesOutput) ElementType() reflect.Type {
@@ -2489,6 +2976,12 @@ func (o RuleGroupMatchAttributesOutput) ToRuleGroupMatchAttributesOutput() RuleG
 
 func (o RuleGroupMatchAttributesOutput) ToRuleGroupMatchAttributesOutputWithContext(ctx context.Context) RuleGroupMatchAttributesOutput {
 	return o
+}
+
+func (o RuleGroupMatchAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupMatchAttributes] {
+	return pulumix.Output[RuleGroupMatchAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupMatchAttributesOutput) DestinationPorts() RuleGroupPortRangeArrayOutput {
@@ -2548,6 +3041,12 @@ func (i RuleGroupPortRangeArgs) ToRuleGroupPortRangeOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPortRangeOutput)
 }
 
+func (i RuleGroupPortRangeArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupPortRange] {
+	return pulumix.Output[RuleGroupPortRange]{
+		OutputState: i.ToRuleGroupPortRangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupPortRangeArrayInput is an input type that accepts RuleGroupPortRangeArray and RuleGroupPortRangeArrayOutput values.
 // You can construct a concrete instance of `RuleGroupPortRangeArrayInput` via:
 //
@@ -2573,6 +3072,12 @@ func (i RuleGroupPortRangeArray) ToRuleGroupPortRangeArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPortRangeArrayOutput)
 }
 
+func (i RuleGroupPortRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupPortRange] {
+	return pulumix.Output[[]RuleGroupPortRange]{
+		OutputState: i.ToRuleGroupPortRangeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupPortRangeOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupPortRangeOutput) ElementType() reflect.Type {
@@ -2585,6 +3090,12 @@ func (o RuleGroupPortRangeOutput) ToRuleGroupPortRangeOutput() RuleGroupPortRang
 
 func (o RuleGroupPortRangeOutput) ToRuleGroupPortRangeOutputWithContext(ctx context.Context) RuleGroupPortRangeOutput {
 	return o
+}
+
+func (o RuleGroupPortRangeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupPortRange] {
+	return pulumix.Output[RuleGroupPortRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupPortRangeOutput) FromPort() pulumi.IntOutput {
@@ -2607,6 +3118,12 @@ func (o RuleGroupPortRangeArrayOutput) ToRuleGroupPortRangeArrayOutput() RuleGro
 
 func (o RuleGroupPortRangeArrayOutput) ToRuleGroupPortRangeArrayOutputWithContext(ctx context.Context) RuleGroupPortRangeArrayOutput {
 	return o
+}
+
+func (o RuleGroupPortRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupPortRange] {
+	return pulumix.Output[[]RuleGroupPortRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupPortRangeArrayOutput) Index(i pulumi.IntInput) RuleGroupPortRangeOutput {
@@ -2644,6 +3161,12 @@ func (i RuleGroupPublishMetricActionArgs) ToRuleGroupPublishMetricActionOutput()
 
 func (i RuleGroupPublishMetricActionArgs) ToRuleGroupPublishMetricActionOutputWithContext(ctx context.Context) RuleGroupPublishMetricActionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPublishMetricActionOutput)
+}
+
+func (i RuleGroupPublishMetricActionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupPublishMetricAction] {
+	return pulumix.Output[RuleGroupPublishMetricAction]{
+		OutputState: i.ToRuleGroupPublishMetricActionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RuleGroupPublishMetricActionArgs) ToRuleGroupPublishMetricActionPtrOutput() RuleGroupPublishMetricActionPtrOutput {
@@ -2687,6 +3210,12 @@ func (i *ruleGroupPublishMetricActionPtrType) ToRuleGroupPublishMetricActionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPublishMetricActionPtrOutput)
 }
 
+func (i *ruleGroupPublishMetricActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupPublishMetricAction] {
+	return pulumix.Output[*RuleGroupPublishMetricAction]{
+		OutputState: i.ToRuleGroupPublishMetricActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupPublishMetricActionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupPublishMetricActionOutput) ElementType() reflect.Type {
@@ -2711,6 +3240,12 @@ func (o RuleGroupPublishMetricActionOutput) ToRuleGroupPublishMetricActionPtrOut
 	}).(RuleGroupPublishMetricActionPtrOutput)
 }
 
+func (o RuleGroupPublishMetricActionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupPublishMetricAction] {
+	return pulumix.Output[RuleGroupPublishMetricAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupPublishMetricActionOutput) Dimensions() RuleGroupDimensionArrayOutput {
 	return o.ApplyT(func(v RuleGroupPublishMetricAction) []RuleGroupDimension { return v.Dimensions }).(RuleGroupDimensionArrayOutput)
 }
@@ -2727,6 +3262,12 @@ func (o RuleGroupPublishMetricActionPtrOutput) ToRuleGroupPublishMetricActionPtr
 
 func (o RuleGroupPublishMetricActionPtrOutput) ToRuleGroupPublishMetricActionPtrOutputWithContext(ctx context.Context) RuleGroupPublishMetricActionPtrOutput {
 	return o
+}
+
+func (o RuleGroupPublishMetricActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupPublishMetricAction] {
+	return pulumix.Output[*RuleGroupPublishMetricAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupPublishMetricActionPtrOutput) Elem() RuleGroupPublishMetricActionOutput {
@@ -2779,6 +3320,12 @@ func (i RuleGroupReferenceSetsArgs) ToRuleGroupReferenceSetsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupReferenceSetsOutput)
 }
 
+func (i RuleGroupReferenceSetsArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupReferenceSets] {
+	return pulumix.Output[RuleGroupReferenceSets]{
+		OutputState: i.ToRuleGroupReferenceSetsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleGroupReferenceSetsArgs) ToRuleGroupReferenceSetsPtrOutput() RuleGroupReferenceSetsPtrOutput {
 	return i.ToRuleGroupReferenceSetsPtrOutputWithContext(context.Background())
 }
@@ -2820,6 +3367,12 @@ func (i *ruleGroupReferenceSetsPtrType) ToRuleGroupReferenceSetsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupReferenceSetsPtrOutput)
 }
 
+func (i *ruleGroupReferenceSetsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupReferenceSets] {
+	return pulumix.Output[*RuleGroupReferenceSets]{
+		OutputState: i.ToRuleGroupReferenceSetsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupReferenceSetsOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupReferenceSetsOutput) ElementType() reflect.Type {
@@ -2844,6 +3397,12 @@ func (o RuleGroupReferenceSetsOutput) ToRuleGroupReferenceSetsPtrOutputWithConte
 	}).(RuleGroupReferenceSetsPtrOutput)
 }
 
+func (o RuleGroupReferenceSetsOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupReferenceSets] {
+	return pulumix.Output[RuleGroupReferenceSets]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupReferenceSetsOutput) IpSetReferences() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupReferenceSets) interface{} { return v.IpSetReferences }).(pulumi.AnyOutput)
 }
@@ -2860,6 +3419,12 @@ func (o RuleGroupReferenceSetsPtrOutput) ToRuleGroupReferenceSetsPtrOutput() Rul
 
 func (o RuleGroupReferenceSetsPtrOutput) ToRuleGroupReferenceSetsPtrOutputWithContext(ctx context.Context) RuleGroupReferenceSetsPtrOutput {
 	return o
+}
+
+func (o RuleGroupReferenceSetsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupReferenceSets] {
+	return pulumix.Output[*RuleGroupReferenceSets]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupReferenceSetsPtrOutput) Elem() RuleGroupReferenceSetsOutput {
@@ -2914,6 +3479,12 @@ func (i RuleGroupRuleDefinitionArgs) ToRuleGroupRuleDefinitionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleDefinitionOutput)
 }
 
+func (i RuleGroupRuleDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleDefinition] {
+	return pulumix.Output[RuleGroupRuleDefinition]{
+		OutputState: i.ToRuleGroupRuleDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleDefinitionOutput) ElementType() reflect.Type {
@@ -2926,6 +3497,12 @@ func (o RuleGroupRuleDefinitionOutput) ToRuleGroupRuleDefinitionOutput() RuleGro
 
 func (o RuleGroupRuleDefinitionOutput) ToRuleGroupRuleDefinitionOutputWithContext(ctx context.Context) RuleGroupRuleDefinitionOutput {
 	return o
+}
+
+func (o RuleGroupRuleDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleDefinition] {
+	return pulumix.Output[RuleGroupRuleDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleDefinitionOutput) Actions() pulumi.StringArrayOutput {
@@ -2969,6 +3546,12 @@ func (i RuleGroupRuleOptionArgs) ToRuleGroupRuleOptionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleOptionOutput)
 }
 
+func (i RuleGroupRuleOptionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleOption] {
+	return pulumix.Output[RuleGroupRuleOption]{
+		OutputState: i.ToRuleGroupRuleOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupRuleOptionArrayInput is an input type that accepts RuleGroupRuleOptionArray and RuleGroupRuleOptionArrayOutput values.
 // You can construct a concrete instance of `RuleGroupRuleOptionArrayInput` via:
 //
@@ -2994,6 +3577,12 @@ func (i RuleGroupRuleOptionArray) ToRuleGroupRuleOptionArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleOptionArrayOutput)
 }
 
+func (i RuleGroupRuleOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleOption] {
+	return pulumix.Output[[]RuleGroupRuleOption]{
+		OutputState: i.ToRuleGroupRuleOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleOptionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleOptionOutput) ElementType() reflect.Type {
@@ -3006,6 +3595,12 @@ func (o RuleGroupRuleOptionOutput) ToRuleGroupRuleOptionOutput() RuleGroupRuleOp
 
 func (o RuleGroupRuleOptionOutput) ToRuleGroupRuleOptionOutputWithContext(ctx context.Context) RuleGroupRuleOptionOutput {
 	return o
+}
+
+func (o RuleGroupRuleOptionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleOption] {
+	return pulumix.Output[RuleGroupRuleOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleOptionOutput) Keyword() pulumi.StringOutput {
@@ -3028,6 +3623,12 @@ func (o RuleGroupRuleOptionArrayOutput) ToRuleGroupRuleOptionArrayOutput() RuleG
 
 func (o RuleGroupRuleOptionArrayOutput) ToRuleGroupRuleOptionArrayOutputWithContext(ctx context.Context) RuleGroupRuleOptionArrayOutput {
 	return o
+}
+
+func (o RuleGroupRuleOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupRuleOption] {
+	return pulumix.Output[[]RuleGroupRuleOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleOptionArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleOptionOutput {
@@ -3067,6 +3668,12 @@ func (i RuleGroupRuleVariablesArgs) ToRuleGroupRuleVariablesOutput() RuleGroupRu
 
 func (i RuleGroupRuleVariablesArgs) ToRuleGroupRuleVariablesOutputWithContext(ctx context.Context) RuleGroupRuleVariablesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleVariablesOutput)
+}
+
+func (i RuleGroupRuleVariablesArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleVariables] {
+	return pulumix.Output[RuleGroupRuleVariables]{
+		OutputState: i.ToRuleGroupRuleVariablesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RuleGroupRuleVariablesArgs) ToRuleGroupRuleVariablesPtrOutput() RuleGroupRuleVariablesPtrOutput {
@@ -3110,6 +3717,12 @@ func (i *ruleGroupRuleVariablesPtrType) ToRuleGroupRuleVariablesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleVariablesPtrOutput)
 }
 
+func (i *ruleGroupRuleVariablesPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleVariables] {
+	return pulumix.Output[*RuleGroupRuleVariables]{
+		OutputState: i.ToRuleGroupRuleVariablesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRuleVariablesOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleVariablesOutput) ElementType() reflect.Type {
@@ -3134,6 +3747,12 @@ func (o RuleGroupRuleVariablesOutput) ToRuleGroupRuleVariablesPtrOutputWithConte
 	}).(RuleGroupRuleVariablesPtrOutput)
 }
 
+func (o RuleGroupRuleVariablesOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRuleVariables] {
+	return pulumix.Output[RuleGroupRuleVariables]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupRuleVariablesOutput) IpSets() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupRuleVariables) interface{} { return v.IpSets }).(pulumi.AnyOutput)
 }
@@ -3154,6 +3773,12 @@ func (o RuleGroupRuleVariablesPtrOutput) ToRuleGroupRuleVariablesPtrOutput() Rul
 
 func (o RuleGroupRuleVariablesPtrOutput) ToRuleGroupRuleVariablesPtrOutputWithContext(ctx context.Context) RuleGroupRuleVariablesPtrOutput {
 	return o
+}
+
+func (o RuleGroupRuleVariablesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRuleVariables] {
+	return pulumix.Output[*RuleGroupRuleVariables]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRuleVariablesPtrOutput) Elem() RuleGroupRuleVariablesOutput {
@@ -3221,6 +3846,12 @@ func (i RuleGroupRulesSourceArgs) ToRuleGroupRulesSourceOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRulesSourceOutput)
 }
 
+func (i RuleGroupRulesSourceArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRulesSource] {
+	return pulumix.Output[RuleGroupRulesSource]{
+		OutputState: i.ToRuleGroupRulesSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleGroupRulesSourceArgs) ToRuleGroupRulesSourcePtrOutput() RuleGroupRulesSourcePtrOutput {
 	return i.ToRuleGroupRulesSourcePtrOutputWithContext(context.Background())
 }
@@ -3262,6 +3893,12 @@ func (i *ruleGroupRulesSourcePtrType) ToRuleGroupRulesSourcePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRulesSourcePtrOutput)
 }
 
+func (i *ruleGroupRulesSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRulesSource] {
+	return pulumix.Output[*RuleGroupRulesSource]{
+		OutputState: i.ToRuleGroupRulesSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRulesSourceOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRulesSourceOutput) ElementType() reflect.Type {
@@ -3284,6 +3921,12 @@ func (o RuleGroupRulesSourceOutput) ToRuleGroupRulesSourcePtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRulesSource) *RuleGroupRulesSource {
 		return &v
 	}).(RuleGroupRulesSourcePtrOutput)
+}
+
+func (o RuleGroupRulesSourceOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRulesSource] {
+	return pulumix.Output[RuleGroupRulesSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRulesSourceOutput) RulesSourceList() RuleGroupRulesSourceListPtrOutput {
@@ -3316,6 +3959,12 @@ func (o RuleGroupRulesSourcePtrOutput) ToRuleGroupRulesSourcePtrOutput() RuleGro
 
 func (o RuleGroupRulesSourcePtrOutput) ToRuleGroupRulesSourcePtrOutputWithContext(ctx context.Context) RuleGroupRulesSourcePtrOutput {
 	return o
+}
+
+func (o RuleGroupRulesSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRulesSource] {
+	return pulumix.Output[*RuleGroupRulesSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRulesSourcePtrOutput) Elem() RuleGroupRulesSourceOutput {
@@ -3399,6 +4048,12 @@ func (i RuleGroupRulesSourceListArgs) ToRuleGroupRulesSourceListOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRulesSourceListOutput)
 }
 
+func (i RuleGroupRulesSourceListArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRulesSourceList] {
+	return pulumix.Output[RuleGroupRulesSourceList]{
+		OutputState: i.ToRuleGroupRulesSourceListOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleGroupRulesSourceListArgs) ToRuleGroupRulesSourceListPtrOutput() RuleGroupRulesSourceListPtrOutput {
 	return i.ToRuleGroupRulesSourceListPtrOutputWithContext(context.Background())
 }
@@ -3440,6 +4095,12 @@ func (i *ruleGroupRulesSourceListPtrType) ToRuleGroupRulesSourceListPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRulesSourceListPtrOutput)
 }
 
+func (i *ruleGroupRulesSourceListPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRulesSourceList] {
+	return pulumix.Output[*RuleGroupRulesSourceList]{
+		OutputState: i.ToRuleGroupRulesSourceListPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupRulesSourceListOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRulesSourceListOutput) ElementType() reflect.Type {
@@ -3462,6 +4123,12 @@ func (o RuleGroupRulesSourceListOutput) ToRuleGroupRulesSourceListPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRulesSourceList) *RuleGroupRulesSourceList {
 		return &v
 	}).(RuleGroupRulesSourceListPtrOutput)
+}
+
+func (o RuleGroupRulesSourceListOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRulesSourceList] {
+	return pulumix.Output[RuleGroupRulesSourceList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRulesSourceListOutput) GeneratedRulesType() RuleGroupGeneratedRulesTypeOutput {
@@ -3488,6 +4155,12 @@ func (o RuleGroupRulesSourceListPtrOutput) ToRuleGroupRulesSourceListPtrOutput()
 
 func (o RuleGroupRulesSourceListPtrOutput) ToRuleGroupRulesSourceListPtrOutputWithContext(ctx context.Context) RuleGroupRulesSourceListPtrOutput {
 	return o
+}
+
+func (o RuleGroupRulesSourceListPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRulesSourceList] {
+	return pulumix.Output[*RuleGroupRulesSourceList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRulesSourceListPtrOutput) Elem() RuleGroupRulesSourceListOutput {
@@ -3562,6 +4235,12 @@ func (i RuleGroupStatefulRuleArgs) ToRuleGroupStatefulRuleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatefulRuleOutput)
 }
 
+func (i RuleGroupStatefulRuleArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupStatefulRule] {
+	return pulumix.Output[RuleGroupStatefulRule]{
+		OutputState: i.ToRuleGroupStatefulRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupStatefulRuleArrayInput is an input type that accepts RuleGroupStatefulRuleArray and RuleGroupStatefulRuleArrayOutput values.
 // You can construct a concrete instance of `RuleGroupStatefulRuleArrayInput` via:
 //
@@ -3587,6 +4266,12 @@ func (i RuleGroupStatefulRuleArray) ToRuleGroupStatefulRuleArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatefulRuleArrayOutput)
 }
 
+func (i RuleGroupStatefulRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupStatefulRule] {
+	return pulumix.Output[[]RuleGroupStatefulRule]{
+		OutputState: i.ToRuleGroupStatefulRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupStatefulRuleOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupStatefulRuleOutput) ElementType() reflect.Type {
@@ -3599,6 +4284,12 @@ func (o RuleGroupStatefulRuleOutput) ToRuleGroupStatefulRuleOutput() RuleGroupSt
 
 func (o RuleGroupStatefulRuleOutput) ToRuleGroupStatefulRuleOutputWithContext(ctx context.Context) RuleGroupStatefulRuleOutput {
 	return o
+}
+
+func (o RuleGroupStatefulRuleOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupStatefulRule] {
+	return pulumix.Output[RuleGroupStatefulRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupStatefulRuleOutput) Action() RuleGroupStatefulRuleActionOutput {
@@ -3625,6 +4316,12 @@ func (o RuleGroupStatefulRuleArrayOutput) ToRuleGroupStatefulRuleArrayOutput() R
 
 func (o RuleGroupStatefulRuleArrayOutput) ToRuleGroupStatefulRuleArrayOutputWithContext(ctx context.Context) RuleGroupStatefulRuleArrayOutput {
 	return o
+}
+
+func (o RuleGroupStatefulRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupStatefulRule] {
+	return pulumix.Output[[]RuleGroupStatefulRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupStatefulRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupStatefulRuleOutput {
@@ -3662,6 +4359,12 @@ func (i RuleGroupStatefulRuleOptionsArgs) ToRuleGroupStatefulRuleOptionsOutput()
 
 func (i RuleGroupStatefulRuleOptionsArgs) ToRuleGroupStatefulRuleOptionsOutputWithContext(ctx context.Context) RuleGroupStatefulRuleOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatefulRuleOptionsOutput)
+}
+
+func (i RuleGroupStatefulRuleOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupStatefulRuleOptions] {
+	return pulumix.Output[RuleGroupStatefulRuleOptions]{
+		OutputState: i.ToRuleGroupStatefulRuleOptionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RuleGroupStatefulRuleOptionsArgs) ToRuleGroupStatefulRuleOptionsPtrOutput() RuleGroupStatefulRuleOptionsPtrOutput {
@@ -3705,6 +4408,12 @@ func (i *ruleGroupStatefulRuleOptionsPtrType) ToRuleGroupStatefulRuleOptionsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatefulRuleOptionsPtrOutput)
 }
 
+func (i *ruleGroupStatefulRuleOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupStatefulRuleOptions] {
+	return pulumix.Output[*RuleGroupStatefulRuleOptions]{
+		OutputState: i.ToRuleGroupStatefulRuleOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupStatefulRuleOptionsOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupStatefulRuleOptionsOutput) ElementType() reflect.Type {
@@ -3729,6 +4438,12 @@ func (o RuleGroupStatefulRuleOptionsOutput) ToRuleGroupStatefulRuleOptionsPtrOut
 	}).(RuleGroupStatefulRuleOptionsPtrOutput)
 }
 
+func (o RuleGroupStatefulRuleOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupStatefulRuleOptions] {
+	return pulumix.Output[RuleGroupStatefulRuleOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupStatefulRuleOptionsOutput) RuleOrder() RuleGroupRuleOrderPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatefulRuleOptions) *RuleGroupRuleOrder { return v.RuleOrder }).(RuleGroupRuleOrderPtrOutput)
 }
@@ -3745,6 +4460,12 @@ func (o RuleGroupStatefulRuleOptionsPtrOutput) ToRuleGroupStatefulRuleOptionsPtr
 
 func (o RuleGroupStatefulRuleOptionsPtrOutput) ToRuleGroupStatefulRuleOptionsPtrOutputWithContext(ctx context.Context) RuleGroupStatefulRuleOptionsPtrOutput {
 	return o
+}
+
+func (o RuleGroupStatefulRuleOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupStatefulRuleOptions] {
+	return pulumix.Output[*RuleGroupStatefulRuleOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupStatefulRuleOptionsPtrOutput) Elem() RuleGroupStatefulRuleOptionsOutput {
@@ -3799,6 +4520,12 @@ func (i RuleGroupStatelessRuleArgs) ToRuleGroupStatelessRuleOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatelessRuleOutput)
 }
 
+func (i RuleGroupStatelessRuleArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupStatelessRule] {
+	return pulumix.Output[RuleGroupStatelessRule]{
+		OutputState: i.ToRuleGroupStatelessRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupStatelessRuleArrayInput is an input type that accepts RuleGroupStatelessRuleArray and RuleGroupStatelessRuleArrayOutput values.
 // You can construct a concrete instance of `RuleGroupStatelessRuleArrayInput` via:
 //
@@ -3824,6 +4551,12 @@ func (i RuleGroupStatelessRuleArray) ToRuleGroupStatelessRuleArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatelessRuleArrayOutput)
 }
 
+func (i RuleGroupStatelessRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupStatelessRule] {
+	return pulumix.Output[[]RuleGroupStatelessRule]{
+		OutputState: i.ToRuleGroupStatelessRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupStatelessRuleOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupStatelessRuleOutput) ElementType() reflect.Type {
@@ -3836,6 +4569,12 @@ func (o RuleGroupStatelessRuleOutput) ToRuleGroupStatelessRuleOutput() RuleGroup
 
 func (o RuleGroupStatelessRuleOutput) ToRuleGroupStatelessRuleOutputWithContext(ctx context.Context) RuleGroupStatelessRuleOutput {
 	return o
+}
+
+func (o RuleGroupStatelessRuleOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupStatelessRule] {
+	return pulumix.Output[RuleGroupStatelessRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupStatelessRuleOutput) Priority() pulumi.IntOutput {
@@ -3858,6 +4597,12 @@ func (o RuleGroupStatelessRuleArrayOutput) ToRuleGroupStatelessRuleArrayOutput()
 
 func (o RuleGroupStatelessRuleArrayOutput) ToRuleGroupStatelessRuleArrayOutputWithContext(ctx context.Context) RuleGroupStatelessRuleArrayOutput {
 	return o
+}
+
+func (o RuleGroupStatelessRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupStatelessRule] {
+	return pulumix.Output[[]RuleGroupStatelessRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupStatelessRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupStatelessRuleOutput {
@@ -3897,6 +4642,12 @@ func (i RuleGroupStatelessRulesAndCustomActionsArgs) ToRuleGroupStatelessRulesAn
 
 func (i RuleGroupStatelessRulesAndCustomActionsArgs) ToRuleGroupStatelessRulesAndCustomActionsOutputWithContext(ctx context.Context) RuleGroupStatelessRulesAndCustomActionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatelessRulesAndCustomActionsOutput)
+}
+
+func (i RuleGroupStatelessRulesAndCustomActionsArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupStatelessRulesAndCustomActions] {
+	return pulumix.Output[RuleGroupStatelessRulesAndCustomActions]{
+		OutputState: i.ToRuleGroupStatelessRulesAndCustomActionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RuleGroupStatelessRulesAndCustomActionsArgs) ToRuleGroupStatelessRulesAndCustomActionsPtrOutput() RuleGroupStatelessRulesAndCustomActionsPtrOutput {
@@ -3940,6 +4691,12 @@ func (i *ruleGroupStatelessRulesAndCustomActionsPtrType) ToRuleGroupStatelessRul
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatelessRulesAndCustomActionsPtrOutput)
 }
 
+func (i *ruleGroupStatelessRulesAndCustomActionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupStatelessRulesAndCustomActions] {
+	return pulumix.Output[*RuleGroupStatelessRulesAndCustomActions]{
+		OutputState: i.ToRuleGroupStatelessRulesAndCustomActionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupStatelessRulesAndCustomActionsOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupStatelessRulesAndCustomActionsOutput) ElementType() reflect.Type {
@@ -3964,6 +4721,12 @@ func (o RuleGroupStatelessRulesAndCustomActionsOutput) ToRuleGroupStatelessRules
 	}).(RuleGroupStatelessRulesAndCustomActionsPtrOutput)
 }
 
+func (o RuleGroupStatelessRulesAndCustomActionsOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupStatelessRulesAndCustomActions] {
+	return pulumix.Output[RuleGroupStatelessRulesAndCustomActions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupStatelessRulesAndCustomActionsOutput) CustomActions() RuleGroupCustomActionArrayOutput {
 	return o.ApplyT(func(v RuleGroupStatelessRulesAndCustomActions) []RuleGroupCustomAction { return v.CustomActions }).(RuleGroupCustomActionArrayOutput)
 }
@@ -3984,6 +4747,12 @@ func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) ToRuleGroupStatelessRu
 
 func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) ToRuleGroupStatelessRulesAndCustomActionsPtrOutputWithContext(ctx context.Context) RuleGroupStatelessRulesAndCustomActionsPtrOutput {
 	return o
+}
+
+func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupStatelessRulesAndCustomActions] {
+	return pulumix.Output[*RuleGroupStatelessRulesAndCustomActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) Elem() RuleGroupStatelessRulesAndCustomActionsOutput {
@@ -4047,6 +4816,12 @@ func (i RuleGroupTagArgs) ToRuleGroupTagOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTagOutput)
 }
 
+func (i RuleGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupTag] {
+	return pulumix.Output[RuleGroupTag]{
+		OutputState: i.ToRuleGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupTagArrayInput is an input type that accepts RuleGroupTagArray and RuleGroupTagArrayOutput values.
 // You can construct a concrete instance of `RuleGroupTagArrayInput` via:
 //
@@ -4072,6 +4847,12 @@ func (i RuleGroupTagArray) ToRuleGroupTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTagArrayOutput)
 }
 
+func (i RuleGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupTag] {
+	return pulumix.Output[[]RuleGroupTag]{
+		OutputState: i.ToRuleGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupTagOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupTagOutput) ElementType() reflect.Type {
@@ -4084,6 +4865,12 @@ func (o RuleGroupTagOutput) ToRuleGroupTagOutput() RuleGroupTagOutput {
 
 func (o RuleGroupTagOutput) ToRuleGroupTagOutputWithContext(ctx context.Context) RuleGroupTagOutput {
 	return o
+}
+
+func (o RuleGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupTag] {
+	return pulumix.Output[RuleGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupTagOutput) Key() pulumi.StringOutput {
@@ -4106,6 +4893,12 @@ func (o RuleGroupTagArrayOutput) ToRuleGroupTagArrayOutput() RuleGroupTagArrayOu
 
 func (o RuleGroupTagArrayOutput) ToRuleGroupTagArrayOutputWithContext(ctx context.Context) RuleGroupTagArrayOutput {
 	return o
+}
+
+func (o RuleGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupTag] {
+	return pulumix.Output[[]RuleGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupTagArrayOutput) Index(i pulumi.IntInput) RuleGroupTagOutput {
@@ -4147,6 +4940,12 @@ func (i RuleGroupTcpFlagFieldArgs) ToRuleGroupTcpFlagFieldOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTcpFlagFieldOutput)
 }
 
+func (i RuleGroupTcpFlagFieldArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupTcpFlagField] {
+	return pulumix.Output[RuleGroupTcpFlagField]{
+		OutputState: i.ToRuleGroupTcpFlagFieldOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupTcpFlagFieldArrayInput is an input type that accepts RuleGroupTcpFlagFieldArray and RuleGroupTcpFlagFieldArrayOutput values.
 // You can construct a concrete instance of `RuleGroupTcpFlagFieldArrayInput` via:
 //
@@ -4172,6 +4971,12 @@ func (i RuleGroupTcpFlagFieldArray) ToRuleGroupTcpFlagFieldArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTcpFlagFieldArrayOutput)
 }
 
+func (i RuleGroupTcpFlagFieldArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupTcpFlagField] {
+	return pulumix.Output[[]RuleGroupTcpFlagField]{
+		OutputState: i.ToRuleGroupTcpFlagFieldArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupTcpFlagFieldOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupTcpFlagFieldOutput) ElementType() reflect.Type {
@@ -4184,6 +4989,12 @@ func (o RuleGroupTcpFlagFieldOutput) ToRuleGroupTcpFlagFieldOutput() RuleGroupTc
 
 func (o RuleGroupTcpFlagFieldOutput) ToRuleGroupTcpFlagFieldOutputWithContext(ctx context.Context) RuleGroupTcpFlagFieldOutput {
 	return o
+}
+
+func (o RuleGroupTcpFlagFieldOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupTcpFlagField] {
+	return pulumix.Output[RuleGroupTcpFlagField]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupTcpFlagFieldOutput) Flags() RuleGroupTcpFlagArrayOutput {
@@ -4206,6 +5017,12 @@ func (o RuleGroupTcpFlagFieldArrayOutput) ToRuleGroupTcpFlagFieldArrayOutput() R
 
 func (o RuleGroupTcpFlagFieldArrayOutput) ToRuleGroupTcpFlagFieldArrayOutputWithContext(ctx context.Context) RuleGroupTcpFlagFieldArrayOutput {
 	return o
+}
+
+func (o RuleGroupTcpFlagFieldArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupTcpFlagField] {
+	return pulumix.Output[[]RuleGroupTcpFlagField]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupTcpFlagFieldArrayOutput) Index(i pulumi.IntInput) RuleGroupTcpFlagFieldOutput {
@@ -4245,6 +5062,12 @@ func (i TlsInspectionConfigurationAddressArgs) ToTlsInspectionConfigurationAddre
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationAddressOutput)
 }
 
+func (i TlsInspectionConfigurationAddressArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationAddress] {
+	return pulumix.Output[TlsInspectionConfigurationAddress]{
+		OutputState: i.ToTlsInspectionConfigurationAddressOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TlsInspectionConfigurationAddressArrayInput is an input type that accepts TlsInspectionConfigurationAddressArray and TlsInspectionConfigurationAddressArrayOutput values.
 // You can construct a concrete instance of `TlsInspectionConfigurationAddressArrayInput` via:
 //
@@ -4270,6 +5093,12 @@ func (i TlsInspectionConfigurationAddressArray) ToTlsInspectionConfigurationAddr
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationAddressArrayOutput)
 }
 
+func (i TlsInspectionConfigurationAddressArray) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationAddress] {
+	return pulumix.Output[[]TlsInspectionConfigurationAddress]{
+		OutputState: i.ToTlsInspectionConfigurationAddressArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TlsInspectionConfigurationAddressOutput struct{ *pulumi.OutputState }
 
 func (TlsInspectionConfigurationAddressOutput) ElementType() reflect.Type {
@@ -4282,6 +5111,12 @@ func (o TlsInspectionConfigurationAddressOutput) ToTlsInspectionConfigurationAdd
 
 func (o TlsInspectionConfigurationAddressOutput) ToTlsInspectionConfigurationAddressOutputWithContext(ctx context.Context) TlsInspectionConfigurationAddressOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationAddressOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationAddress] {
+	return pulumix.Output[TlsInspectionConfigurationAddress]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationAddressOutput) AddressDefinition() pulumi.StringOutput {
@@ -4300,6 +5135,12 @@ func (o TlsInspectionConfigurationAddressArrayOutput) ToTlsInspectionConfigurati
 
 func (o TlsInspectionConfigurationAddressArrayOutput) ToTlsInspectionConfigurationAddressArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationAddressArrayOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationAddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationAddress] {
+	return pulumix.Output[[]TlsInspectionConfigurationAddress]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationAddressArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationAddressOutput {
@@ -4341,6 +5182,12 @@ func (i TlsInspectionConfigurationPortRangeArgs) ToTlsInspectionConfigurationPor
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationPortRangeOutput)
 }
 
+func (i TlsInspectionConfigurationPortRangeArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationPortRange] {
+	return pulumix.Output[TlsInspectionConfigurationPortRange]{
+		OutputState: i.ToTlsInspectionConfigurationPortRangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TlsInspectionConfigurationPortRangeArrayInput is an input type that accepts TlsInspectionConfigurationPortRangeArray and TlsInspectionConfigurationPortRangeArrayOutput values.
 // You can construct a concrete instance of `TlsInspectionConfigurationPortRangeArrayInput` via:
 //
@@ -4366,6 +5213,12 @@ func (i TlsInspectionConfigurationPortRangeArray) ToTlsInspectionConfigurationPo
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationPortRangeArrayOutput)
 }
 
+func (i TlsInspectionConfigurationPortRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationPortRange] {
+	return pulumix.Output[[]TlsInspectionConfigurationPortRange]{
+		OutputState: i.ToTlsInspectionConfigurationPortRangeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TlsInspectionConfigurationPortRangeOutput struct{ *pulumi.OutputState }
 
 func (TlsInspectionConfigurationPortRangeOutput) ElementType() reflect.Type {
@@ -4378,6 +5231,12 @@ func (o TlsInspectionConfigurationPortRangeOutput) ToTlsInspectionConfigurationP
 
 func (o TlsInspectionConfigurationPortRangeOutput) ToTlsInspectionConfigurationPortRangeOutputWithContext(ctx context.Context) TlsInspectionConfigurationPortRangeOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationPortRangeOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationPortRange] {
+	return pulumix.Output[TlsInspectionConfigurationPortRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationPortRangeOutput) FromPort() pulumi.IntOutput {
@@ -4400,6 +5259,12 @@ func (o TlsInspectionConfigurationPortRangeArrayOutput) ToTlsInspectionConfigura
 
 func (o TlsInspectionConfigurationPortRangeArrayOutput) ToTlsInspectionConfigurationPortRangeArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationPortRangeArrayOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationPortRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationPortRange] {
+	return pulumix.Output[[]TlsInspectionConfigurationPortRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationPortRangeArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationPortRangeOutput {
@@ -4439,6 +5304,12 @@ func (i TlsInspectionConfigurationServerCertificateArgs) ToTlsInspectionConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateOutput)
 }
 
+func (i TlsInspectionConfigurationServerCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificate] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificate]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TlsInspectionConfigurationServerCertificateArrayInput is an input type that accepts TlsInspectionConfigurationServerCertificateArray and TlsInspectionConfigurationServerCertificateArrayOutput values.
 // You can construct a concrete instance of `TlsInspectionConfigurationServerCertificateArrayInput` via:
 //
@@ -4464,6 +5335,12 @@ func (i TlsInspectionConfigurationServerCertificateArray) ToTlsInspectionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateArrayOutput)
 }
 
+func (i TlsInspectionConfigurationServerCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationServerCertificate] {
+	return pulumix.Output[[]TlsInspectionConfigurationServerCertificate]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TlsInspectionConfigurationServerCertificateOutput struct{ *pulumi.OutputState }
 
 func (TlsInspectionConfigurationServerCertificateOutput) ElementType() reflect.Type {
@@ -4476,6 +5353,12 @@ func (o TlsInspectionConfigurationServerCertificateOutput) ToTlsInspectionConfig
 
 func (o TlsInspectionConfigurationServerCertificateOutput) ToTlsInspectionConfigurationServerCertificateOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificate] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationServerCertificateOutput) ResourceArn() pulumi.StringPtrOutput {
@@ -4494,6 +5377,12 @@ func (o TlsInspectionConfigurationServerCertificateArrayOutput) ToTlsInspectionC
 
 func (o TlsInspectionConfigurationServerCertificateArrayOutput) ToTlsInspectionConfigurationServerCertificateArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateArrayOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationServerCertificate] {
+	return pulumix.Output[[]TlsInspectionConfigurationServerCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationServerCertificateArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationServerCertificateOutput {
@@ -4539,6 +5428,12 @@ func (i TlsInspectionConfigurationServerCertificateConfigurationArgs) ToTlsInspe
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateConfigurationOutput)
 }
 
+func (i TlsInspectionConfigurationServerCertificateConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificateConfiguration] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificateConfiguration]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TlsInspectionConfigurationServerCertificateConfigurationArrayInput is an input type that accepts TlsInspectionConfigurationServerCertificateConfigurationArray and TlsInspectionConfigurationServerCertificateConfigurationArrayOutput values.
 // You can construct a concrete instance of `TlsInspectionConfigurationServerCertificateConfigurationArrayInput` via:
 //
@@ -4564,6 +5459,12 @@ func (i TlsInspectionConfigurationServerCertificateConfigurationArray) ToTlsInsp
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateConfigurationArrayOutput)
 }
 
+func (i TlsInspectionConfigurationServerCertificateConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationServerCertificateConfiguration] {
+	return pulumix.Output[[]TlsInspectionConfigurationServerCertificateConfiguration]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TlsInspectionConfigurationServerCertificateConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TlsInspectionConfigurationServerCertificateConfigurationOutput) ElementType() reflect.Type {
@@ -4576,6 +5477,12 @@ func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) ToTlsIns
 
 func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) ToTlsInspectionConfigurationServerCertificateConfigurationOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificateConfiguration] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificateConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
@@ -4616,6 +5523,12 @@ func (o TlsInspectionConfigurationServerCertificateConfigurationArrayOutput) ToT
 	return o
 }
 
+func (o TlsInspectionConfigurationServerCertificateConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationServerCertificateConfiguration] {
+	return pulumix.Output[[]TlsInspectionConfigurationServerCertificateConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TlsInspectionConfigurationServerCertificateConfigurationArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationServerCertificateConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TlsInspectionConfigurationServerCertificateConfiguration {
 		return vs[0].([]TlsInspectionConfigurationServerCertificateConfiguration)[vs[1].(int)]
@@ -4653,6 +5566,12 @@ func (i TlsInspectionConfigurationServerCertificateConfigurationCheckCertificate
 
 func (i TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput)
+}
+
+func (i TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
@@ -4696,6 +5615,12 @@ func (i *tlsInspectionConfigurationServerCertificateConfigurationCheckCertificat
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput)
 }
 
+func (i *tlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties] {
+	return pulumix.Output[*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) ElementType() reflect.Type {
@@ -4718,6 +5643,12 @@ func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificate
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties) *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties {
 		return &v
 	}).(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput)
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) RevokedStatusAction() TlsInspectionConfigurationRevokedStatusActionPtrOutput {
@@ -4744,6 +5675,12 @@ func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificate
 
 func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties] {
+	return pulumix.Output[*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput) Elem() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput {
@@ -4813,6 +5750,12 @@ func (i TlsInspectionConfigurationServerCertificateScopeArgs) ToTlsInspectionCon
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateScopeOutput)
 }
 
+func (i TlsInspectionConfigurationServerCertificateScopeArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificateScope] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificateScope]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateScopeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TlsInspectionConfigurationServerCertificateScopeArrayInput is an input type that accepts TlsInspectionConfigurationServerCertificateScopeArray and TlsInspectionConfigurationServerCertificateScopeArrayOutput values.
 // You can construct a concrete instance of `TlsInspectionConfigurationServerCertificateScopeArrayInput` via:
 //
@@ -4838,6 +5781,12 @@ func (i TlsInspectionConfigurationServerCertificateScopeArray) ToTlsInspectionCo
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateScopeArrayOutput)
 }
 
+func (i TlsInspectionConfigurationServerCertificateScopeArray) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationServerCertificateScope] {
+	return pulumix.Output[[]TlsInspectionConfigurationServerCertificateScope]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateScopeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TlsInspectionConfigurationServerCertificateScopeOutput struct{ *pulumi.OutputState }
 
 func (TlsInspectionConfigurationServerCertificateScopeOutput) ElementType() reflect.Type {
@@ -4850,6 +5799,12 @@ func (o TlsInspectionConfigurationServerCertificateScopeOutput) ToTlsInspectionC
 
 func (o TlsInspectionConfigurationServerCertificateScopeOutput) ToTlsInspectionConfigurationServerCertificateScopeOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateScopeOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificateScope] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificateScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationServerCertificateScopeOutput) DestinationPorts() TlsInspectionConfigurationPortRangeArrayOutput {
@@ -4894,6 +5849,12 @@ func (o TlsInspectionConfigurationServerCertificateScopeArrayOutput) ToTlsInspec
 	return o
 }
 
+func (o TlsInspectionConfigurationServerCertificateScopeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationServerCertificateScope] {
+	return pulumix.Output[[]TlsInspectionConfigurationServerCertificateScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TlsInspectionConfigurationServerCertificateScopeArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationServerCertificateScopeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TlsInspectionConfigurationServerCertificateScope {
 		return vs[0].([]TlsInspectionConfigurationServerCertificateScope)[vs[1].(int)]
@@ -4933,6 +5894,12 @@ func (i TlsInspectionConfigurationTagArgs) ToTlsInspectionConfigurationTagOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationTagOutput)
 }
 
+func (i TlsInspectionConfigurationTagArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationTag] {
+	return pulumix.Output[TlsInspectionConfigurationTag]{
+		OutputState: i.ToTlsInspectionConfigurationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TlsInspectionConfigurationTagArrayInput is an input type that accepts TlsInspectionConfigurationTagArray and TlsInspectionConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `TlsInspectionConfigurationTagArrayInput` via:
 //
@@ -4958,6 +5925,12 @@ func (i TlsInspectionConfigurationTagArray) ToTlsInspectionConfigurationTagArray
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationTagArrayOutput)
 }
 
+func (i TlsInspectionConfigurationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationTag] {
+	return pulumix.Output[[]TlsInspectionConfigurationTag]{
+		OutputState: i.ToTlsInspectionConfigurationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TlsInspectionConfigurationTagOutput struct{ *pulumi.OutputState }
 
 func (TlsInspectionConfigurationTagOutput) ElementType() reflect.Type {
@@ -4970,6 +5943,12 @@ func (o TlsInspectionConfigurationTagOutput) ToTlsInspectionConfigurationTagOutp
 
 func (o TlsInspectionConfigurationTagOutput) ToTlsInspectionConfigurationTagOutputWithContext(ctx context.Context) TlsInspectionConfigurationTagOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationTagOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationTag] {
+	return pulumix.Output[TlsInspectionConfigurationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationTagOutput) Key() pulumi.StringOutput {
@@ -4992,6 +5971,12 @@ func (o TlsInspectionConfigurationTagArrayOutput) ToTlsInspectionConfigurationTa
 
 func (o TlsInspectionConfigurationTagArrayOutput) ToTlsInspectionConfigurationTagArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationTagArrayOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationTag] {
+	return pulumix.Output[[]TlsInspectionConfigurationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationTagArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationTagOutput {
@@ -5031,6 +6016,12 @@ func (i TlsInspectionConfigurationTlsInspectionConfigurationArgs) ToTlsInspectio
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationTlsInspectionConfigurationOutput)
 }
 
+func (i TlsInspectionConfigurationTlsInspectionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationTlsInspectionConfiguration] {
+	return pulumix.Output[TlsInspectionConfigurationTlsInspectionConfiguration]{
+		OutputState: i.ToTlsInspectionConfigurationTlsInspectionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TlsInspectionConfigurationTlsInspectionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TlsInspectionConfigurationTlsInspectionConfigurationOutput) ElementType() reflect.Type {
@@ -5043,6 +6034,12 @@ func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ToTlsInspect
 
 func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ToTlsInspectionConfigurationTlsInspectionConfigurationOutputWithContext(ctx context.Context) TlsInspectionConfigurationTlsInspectionConfigurationOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationTlsInspectionConfiguration] {
+	return pulumix.Output[TlsInspectionConfigurationTlsInspectionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ServerCertificateConfigurations() TlsInspectionConfigurationServerCertificateConfigurationArrayOutput {
@@ -5063,6 +6060,12 @@ func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) ToTlsInsp
 
 func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) ToTlsInspectionConfigurationTlsInspectionConfigurationPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput {
 	return o
+}
+
+func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfigurationTlsInspectionConfiguration] {
+	return pulumix.Output[*TlsInspectionConfigurationTlsInspectionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) Elem() TlsInspectionConfigurationTlsInspectionConfigurationOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -84,6 +85,12 @@ func (o LookupConfigurationProfileResultOutput) ToLookupConfigurationProfileResu
 
 func (o LookupConfigurationProfileResultOutput) ToLookupConfigurationProfileResultOutputWithContext(ctx context.Context) LookupConfigurationProfileResultOutput {
 	return o
+}
+
+func (o LookupConfigurationProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigurationProfileResult] {
+	return pulumix.Output[LookupConfigurationProfileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The configuration profile ID

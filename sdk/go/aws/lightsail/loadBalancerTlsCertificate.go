@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
@@ -142,6 +143,12 @@ func (i *LoadBalancerTlsCertificate) ToLoadBalancerTlsCertificateOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTlsCertificateOutput)
 }
 
+func (i *LoadBalancerTlsCertificate) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerTlsCertificate] {
+	return pulumix.Output[*LoadBalancerTlsCertificate]{
+		OutputState: i.ToLoadBalancerTlsCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoadBalancerTlsCertificateOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerTlsCertificateOutput) ElementType() reflect.Type {
@@ -154,6 +161,12 @@ func (o LoadBalancerTlsCertificateOutput) ToLoadBalancerTlsCertificateOutput() L
 
 func (o LoadBalancerTlsCertificateOutput) ToLoadBalancerTlsCertificateOutputWithContext(ctx context.Context) LoadBalancerTlsCertificateOutput {
 	return o
+}
+
+func (o LoadBalancerTlsCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerTlsCertificate] {
+	return pulumix.Output[*LoadBalancerTlsCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.

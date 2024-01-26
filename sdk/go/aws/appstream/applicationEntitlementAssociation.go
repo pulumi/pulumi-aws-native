@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::ApplicationEntitlementAssociation
@@ -111,6 +112,12 @@ func (i *ApplicationEntitlementAssociation) ToApplicationEntitlementAssociationO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationEntitlementAssociationOutput)
 }
 
+func (i *ApplicationEntitlementAssociation) ToOutput(ctx context.Context) pulumix.Output[*ApplicationEntitlementAssociation] {
+	return pulumix.Output[*ApplicationEntitlementAssociation]{
+		OutputState: i.ToApplicationEntitlementAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationEntitlementAssociationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationEntitlementAssociationOutput) ElementType() reflect.Type {
@@ -123,6 +130,12 @@ func (o ApplicationEntitlementAssociationOutput) ToApplicationEntitlementAssocia
 
 func (o ApplicationEntitlementAssociationOutput) ToApplicationEntitlementAssociationOutputWithContext(ctx context.Context) ApplicationEntitlementAssociationOutput {
 	return o
+}
+
+func (o ApplicationEntitlementAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationEntitlementAssociation] {
+	return pulumix.Output[*ApplicationEntitlementAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationEntitlementAssociationOutput) ApplicationIdentifier() pulumi.StringOutput {

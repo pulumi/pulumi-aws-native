@@ -79,6 +79,12 @@ func (o AssignmentPrincipalTypeOutput) ToAssignmentPrincipalTypePtrOutputWithCon
 	}).(AssignmentPrincipalTypePtrOutput)
 }
 
+func (o AssignmentPrincipalTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssignmentPrincipalType] {
+	return pulumix.Output[AssignmentPrincipalType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssignmentPrincipalTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -114,6 +120,12 @@ func (o AssignmentPrincipalTypePtrOutput) ToAssignmentPrincipalTypePtrOutputWith
 	return o
 }
 
+func (o AssignmentPrincipalTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssignmentPrincipalType] {
+	return pulumix.Output[*AssignmentPrincipalType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssignmentPrincipalTypePtrOutput) Elem() AssignmentPrincipalTypeOutput {
 	return o.ApplyT(func(v *AssignmentPrincipalType) AssignmentPrincipalType {
 		if v != nil {
@@ -138,11 +150,10 @@ func (o AssignmentPrincipalTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssignmentPrincipalTypeInput is an input type that accepts values of the AssignmentPrincipalType enum
-// A concrete instance of `AssignmentPrincipalTypeInput` can be one of the following:
+// AssignmentPrincipalTypeInput is an input type that accepts AssignmentPrincipalTypeArgs and AssignmentPrincipalTypeOutput values.
+// You can construct a concrete instance of `AssignmentPrincipalTypeInput` via:
 //
-//	AssignmentPrincipalTypeUser
-//	AssignmentPrincipalTypeGroup
+//	AssignmentPrincipalTypeArgs{...}
 type AssignmentPrincipalTypeInput interface {
 	pulumi.Input
 
@@ -250,6 +261,12 @@ func (o AssignmentTargetTypeOutput) ToAssignmentTargetTypePtrOutputWithContext(c
 	}).(AssignmentTargetTypePtrOutput)
 }
 
+func (o AssignmentTargetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssignmentTargetType] {
+	return pulumix.Output[AssignmentTargetType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssignmentTargetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -285,6 +302,12 @@ func (o AssignmentTargetTypePtrOutput) ToAssignmentTargetTypePtrOutputWithContex
 	return o
 }
 
+func (o AssignmentTargetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssignmentTargetType] {
+	return pulumix.Output[*AssignmentTargetType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssignmentTargetTypePtrOutput) Elem() AssignmentTargetTypeOutput {
 	return o.ApplyT(func(v *AssignmentTargetType) AssignmentTargetType {
 		if v != nil {
@@ -309,10 +332,10 @@ func (o AssignmentTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssignmentTargetTypeInput is an input type that accepts values of the AssignmentTargetType enum
-// A concrete instance of `AssignmentTargetTypeInput` can be one of the following:
+// AssignmentTargetTypeInput is an input type that accepts AssignmentTargetTypeArgs and AssignmentTargetTypeOutput values.
+// You can construct a concrete instance of `AssignmentTargetTypeInput` via:
 //
-//	AssignmentTargetTypeAwsAccount
+//	AssignmentTargetTypeArgs{...}
 type AssignmentTargetTypeInput interface {
 	pulumi.Input
 

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::KeyValueStore
@@ -101,6 +102,12 @@ func (i *KeyValueStore) ToKeyValueStoreOutputWithContext(ctx context.Context) Ke
 	return pulumi.ToOutputWithContext(ctx, i).(KeyValueStoreOutput)
 }
 
+func (i *KeyValueStore) ToOutput(ctx context.Context) pulumix.Output[*KeyValueStore] {
+	return pulumix.Output[*KeyValueStore]{
+		OutputState: i.ToKeyValueStoreOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KeyValueStoreOutput struct{ *pulumi.OutputState }
 
 func (KeyValueStoreOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o KeyValueStoreOutput) ToKeyValueStoreOutput() KeyValueStoreOutput {
 
 func (o KeyValueStoreOutput) ToKeyValueStoreOutputWithContext(ctx context.Context) KeyValueStoreOutput {
 	return o
+}
+
+func (o KeyValueStoreOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyValueStore] {
+	return pulumix.Output[*KeyValueStore]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KeyValueStoreOutput) Arn() pulumi.StringOutput {

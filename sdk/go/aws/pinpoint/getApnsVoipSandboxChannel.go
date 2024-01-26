@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::APNSVoipSandboxChannel
@@ -71,6 +72,12 @@ func (o LookupApnsVoipSandboxChannelResultOutput) ToLookupApnsVoipSandboxChannel
 
 func (o LookupApnsVoipSandboxChannelResultOutput) ToLookupApnsVoipSandboxChannelResultOutputWithContext(ctx context.Context) LookupApnsVoipSandboxChannelResultOutput {
 	return o
+}
+
+func (o LookupApnsVoipSandboxChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApnsVoipSandboxChannelResult] {
+	return pulumix.Output[LookupApnsVoipSandboxChannelResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupApnsVoipSandboxChannelResultOutput) BundleId() pulumi.StringPtrOutput {

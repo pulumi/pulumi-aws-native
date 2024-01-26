@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::ManagedPolicy
@@ -154,6 +155,12 @@ func (i *ManagedPolicy) ToManagedPolicyOutputWithContext(ctx context.Context) Ma
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPolicyOutput)
 }
 
+func (i *ManagedPolicy) ToOutput(ctx context.Context) pulumix.Output[*ManagedPolicy] {
+	return pulumix.Output[*ManagedPolicy]{
+		OutputState: i.ToManagedPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagedPolicyOutput) ElementType() reflect.Type {
@@ -166,6 +173,12 @@ func (o ManagedPolicyOutput) ToManagedPolicyOutput() ManagedPolicyOutput {
 
 func (o ManagedPolicyOutput) ToManagedPolicyOutputWithContext(ctx context.Context) ManagedPolicyOutput {
 	return o
+}
+
+func (o ManagedPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedPolicy] {
+	return pulumix.Output[*ManagedPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of entities (users, groups, and roles) that the policy is attached to.

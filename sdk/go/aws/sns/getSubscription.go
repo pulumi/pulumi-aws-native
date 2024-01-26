@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SNS::Subscription
@@ -71,6 +72,12 @@ func (o LookupSubscriptionResultOutput) ToLookupSubscriptionResultOutput() Looku
 
 func (o LookupSubscriptionResultOutput) ToLookupSubscriptionResultOutputWithContext(ctx context.Context) LookupSubscriptionResultOutput {
 	return o
+}
+
+func (o LookupSubscriptionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubscriptionResult] {
+	return pulumix.Output[LookupSubscriptionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSubscriptionResultOutput) DeliveryPolicy() pulumi.AnyOutput {

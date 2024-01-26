@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
@@ -111,6 +112,12 @@ func (i *ResolverQueryLoggingConfigAssociation) ToResolverQueryLoggingConfigAsso
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigAssociationOutput)
 }
 
+func (i *ResolverQueryLoggingConfigAssociation) ToOutput(ctx context.Context) pulumix.Output[*ResolverQueryLoggingConfigAssociation] {
+	return pulumix.Output[*ResolverQueryLoggingConfigAssociation]{
+		OutputState: i.ToResolverQueryLoggingConfigAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverQueryLoggingConfigAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResolverQueryLoggingConfigAssociationOutput) ElementType() reflect.Type {
@@ -123,6 +130,12 @@ func (o ResolverQueryLoggingConfigAssociationOutput) ToResolverQueryLoggingConfi
 
 func (o ResolverQueryLoggingConfigAssociationOutput) ToResolverQueryLoggingConfigAssociationOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationOutput {
 	return o
+}
+
+func (o ResolverQueryLoggingConfigAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverQueryLoggingConfigAssociation] {
+	return pulumix.Output[*ResolverQueryLoggingConfigAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Rfc3339TimeString

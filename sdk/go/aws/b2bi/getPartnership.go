@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::B2BI::Partnership Resource Type
@@ -70,6 +71,12 @@ func (o LookupPartnershipResultOutput) ToLookupPartnershipResultOutput() LookupP
 
 func (o LookupPartnershipResultOutput) ToLookupPartnershipResultOutputWithContext(ctx context.Context) LookupPartnershipResultOutput {
 	return o
+}
+
+func (o LookupPartnershipResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPartnershipResult] {
+	return pulumix.Output[LookupPartnershipResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupPartnershipResultOutput) Capabilities() pulumi.StringArrayOutput {

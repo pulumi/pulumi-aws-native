@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
@@ -276,6 +277,12 @@ func (i *Fleet) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FleetOutput)
 }
 
+func (i *Fleet) ToOutput(ctx context.Context) pulumix.Output[*Fleet] {
+	return pulumix.Output[*Fleet]{
+		OutputState: i.ToFleetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FleetOutput struct{ *pulumi.OutputState }
 
 func (FleetOutput) ElementType() reflect.Type {
@@ -288,6 +295,12 @@ func (o FleetOutput) ToFleetOutput() FleetOutput {
 
 func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
+}
+
+func (o FleetOutput) ToOutput(ctx context.Context) pulumix.Output[*Fleet] {
+	return pulumix.Output[*Fleet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration for Anywhere fleet.

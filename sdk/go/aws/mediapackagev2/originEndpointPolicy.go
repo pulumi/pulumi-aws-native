@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::MediaPackageV2::OriginEndpointPolicy Resource Type
@@ -108,6 +109,12 @@ func (i *OriginEndpointPolicy) ToOriginEndpointPolicyOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointPolicyOutput)
 }
 
+func (i *OriginEndpointPolicy) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointPolicy] {
+	return pulumix.Output[*OriginEndpointPolicy]{
+		OutputState: i.ToOriginEndpointPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginEndpointPolicyOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointPolicyOutput) ElementType() reflect.Type {
@@ -120,6 +127,12 @@ func (o OriginEndpointPolicyOutput) ToOriginEndpointPolicyOutput() OriginEndpoin
 
 func (o OriginEndpointPolicyOutput) ToOriginEndpointPolicyOutputWithContext(ctx context.Context) OriginEndpointPolicyOutput {
 	return o
+}
+
+func (o OriginEndpointPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointPolicy] {
+	return pulumix.Output[*OriginEndpointPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginEndpointPolicyOutput) ChannelGroupName() pulumi.StringPtrOutput {

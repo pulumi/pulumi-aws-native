@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i CollectionTagArgs) ToCollectionTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CollectionTagOutput)
 }
 
+func (i CollectionTagArgs) ToOutput(ctx context.Context) pulumix.Output[CollectionTag] {
+	return pulumix.Output[CollectionTag]{
+		OutputState: i.ToCollectionTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CollectionTagArrayInput is an input type that accepts CollectionTagArray and CollectionTagArrayOutput values.
 // You can construct a concrete instance of `CollectionTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i CollectionTagArray) ToCollectionTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CollectionTagArrayOutput)
 }
 
+func (i CollectionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CollectionTag] {
+	return pulumix.Output[[]CollectionTag]{
+		OutputState: i.ToCollectionTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair metadata associated with resource
 type CollectionTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o CollectionTagOutput) ToCollectionTagOutput() CollectionTagOutput {
 
 func (o CollectionTagOutput) ToCollectionTagOutputWithContext(ctx context.Context) CollectionTagOutput {
 	return o
+}
+
+func (o CollectionTagOutput) ToOutput(ctx context.Context) pulumix.Output[CollectionTag] {
+	return pulumix.Output[CollectionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key in the key-value pair
@@ -114,6 +133,12 @@ func (o CollectionTagArrayOutput) ToCollectionTagArrayOutput() CollectionTagArra
 
 func (o CollectionTagArrayOutput) ToCollectionTagArrayOutputWithContext(ctx context.Context) CollectionTagArrayOutput {
 	return o
+}
+
+func (o CollectionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CollectionTag] {
+	return pulumix.Output[[]CollectionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CollectionTagArrayOutput) Index(i pulumi.IntInput) CollectionTagOutput {
@@ -169,6 +194,12 @@ func (i SecurityConfigSamlConfigOptionsArgs) ToSecurityConfigSamlConfigOptionsOu
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigSamlConfigOptionsOutput)
 }
 
+func (i SecurityConfigSamlConfigOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[SecurityConfigSamlConfigOptions] {
+	return pulumix.Output[SecurityConfigSamlConfigOptions]{
+		OutputState: i.ToSecurityConfigSamlConfigOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SecurityConfigSamlConfigOptionsArgs) ToSecurityConfigSamlConfigOptionsPtrOutput() SecurityConfigSamlConfigOptionsPtrOutput {
 	return i.ToSecurityConfigSamlConfigOptionsPtrOutputWithContext(context.Background())
 }
@@ -210,6 +241,12 @@ func (i *securityConfigSamlConfigOptionsPtrType) ToSecurityConfigSamlConfigOptio
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigSamlConfigOptionsPtrOutput)
 }
 
+func (i *securityConfigSamlConfigOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SecurityConfigSamlConfigOptions] {
+	return pulumix.Output[*SecurityConfigSamlConfigOptions]{
+		OutputState: i.ToSecurityConfigSamlConfigOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes saml options in form of key value map
 type SecurityConfigSamlConfigOptionsOutput struct{ *pulumi.OutputState }
 
@@ -233,6 +270,12 @@ func (o SecurityConfigSamlConfigOptionsOutput) ToSecurityConfigSamlConfigOptions
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigSamlConfigOptions) *SecurityConfigSamlConfigOptions {
 		return &v
 	}).(SecurityConfigSamlConfigOptionsPtrOutput)
+}
+
+func (o SecurityConfigSamlConfigOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[SecurityConfigSamlConfigOptions] {
+	return pulumix.Output[SecurityConfigSamlConfigOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Group attribute for this saml integration
@@ -267,6 +310,12 @@ func (o SecurityConfigSamlConfigOptionsPtrOutput) ToSecurityConfigSamlConfigOpti
 
 func (o SecurityConfigSamlConfigOptionsPtrOutput) ToSecurityConfigSamlConfigOptionsPtrOutputWithContext(ctx context.Context) SecurityConfigSamlConfigOptionsPtrOutput {
 	return o
+}
+
+func (o SecurityConfigSamlConfigOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityConfigSamlConfigOptions] {
+	return pulumix.Output[*SecurityConfigSamlConfigOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityConfigSamlConfigOptionsPtrOutput) Elem() SecurityConfigSamlConfigOptionsOutput {

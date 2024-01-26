@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Athena::PreparedStatement
@@ -125,6 +126,12 @@ func (i *PreparedStatement) ToPreparedStatementOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PreparedStatementOutput)
 }
 
+func (i *PreparedStatement) ToOutput(ctx context.Context) pulumix.Output[*PreparedStatement] {
+	return pulumix.Output[*PreparedStatement]{
+		OutputState: i.ToPreparedStatementOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PreparedStatementOutput struct{ *pulumi.OutputState }
 
 func (PreparedStatementOutput) ElementType() reflect.Type {
@@ -137,6 +144,12 @@ func (o PreparedStatementOutput) ToPreparedStatementOutput() PreparedStatementOu
 
 func (o PreparedStatementOutput) ToPreparedStatementOutputWithContext(ctx context.Context) PreparedStatementOutput {
 	return o
+}
+
+func (o PreparedStatementOutput) ToOutput(ctx context.Context) pulumix.Output[*PreparedStatement] {
+	return pulumix.Output[*PreparedStatement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the prepared statement.

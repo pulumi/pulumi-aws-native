@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This schema is for testing purpose only.
@@ -143,6 +144,12 @@ func (i *SimulationApplication) ToSimulationApplicationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationOutput)
 }
 
+func (i *SimulationApplication) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplication] {
+	return pulumix.Output[*SimulationApplication]{
+		OutputState: i.ToSimulationApplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SimulationApplicationOutput struct{ *pulumi.OutputState }
 
 func (SimulationApplicationOutput) ElementType() reflect.Type {
@@ -155,6 +162,12 @@ func (o SimulationApplicationOutput) ToSimulationApplicationOutput() SimulationA
 
 func (o SimulationApplicationOutput) ToSimulationApplicationOutputWithContext(ctx context.Context) SimulationApplicationOutput {
 	return o
+}
+
+func (o SimulationApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplication] {
+	return pulumix.Output[*SimulationApplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SimulationApplicationOutput) Arn() pulumi.StringOutput {

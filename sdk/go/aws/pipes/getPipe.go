@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Pipes::Pipe Resource Type
@@ -75,6 +76,12 @@ func (o LookupPipeResultOutput) ToLookupPipeResultOutput() LookupPipeResultOutpu
 
 func (o LookupPipeResultOutput) ToLookupPipeResultOutputWithContext(ctx context.Context) LookupPipeResultOutput {
 	return o
+}
+
+func (o LookupPipeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPipeResult] {
+	return pulumix.Output[LookupPipeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupPipeResultOutput) Arn() pulumi.StringPtrOutput {

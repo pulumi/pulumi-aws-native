@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::RestApi“ resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
@@ -195,6 +196,12 @@ func (i *RestApi) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiOutput)
 }
 
+func (i *RestApi) ToOutput(ctx context.Context) pulumix.Output[*RestApi] {
+	return pulumix.Output[*RestApi]{
+		OutputState: i.ToRestApiOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RestApiOutput struct{ *pulumi.OutputState }
 
 func (RestApiOutput) ElementType() reflect.Type {
@@ -207,6 +214,12 @@ func (o RestApiOutput) ToRestApiOutput() RestApiOutput {
 
 func (o RestApiOutput) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput {
 	return o
+}
+
+func (o RestApiOutput) ToOutput(ctx context.Context) pulumix.Output[*RestApi] {
+	return pulumix.Output[*RestApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The source of the API key for metering requests according to a usage plan. Valid values are: “HEADER“ to read the API key from the “X-API-Key“ header of a request. “AUTHORIZER“ to read the API key from the “UsageIdentifierKey“ from a custom authorizer.

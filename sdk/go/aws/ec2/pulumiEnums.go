@@ -77,6 +77,12 @@ func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToCapacityReservati
 	}).(CapacityReservationFleetInstanceMatchCriteriaPtrOutput)
 }
 
+func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationFleetInstanceMatchCriteria] {
+	return pulumix.Output[CapacityReservationFleetInstanceMatchCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +118,12 @@ func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) ToCapacityReserv
 	return o
 }
 
+func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationFleetInstanceMatchCriteria] {
+	return pulumix.Output[*CapacityReservationFleetInstanceMatchCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) Elem() CapacityReservationFleetInstanceMatchCriteriaOutput {
 	return o.ApplyT(func(v *CapacityReservationFleetInstanceMatchCriteria) CapacityReservationFleetInstanceMatchCriteria {
 		if v != nil {
@@ -136,10 +148,10 @@ func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// CapacityReservationFleetInstanceMatchCriteriaInput is an input type that accepts values of the CapacityReservationFleetInstanceMatchCriteria enum
-// A concrete instance of `CapacityReservationFleetInstanceMatchCriteriaInput` can be one of the following:
+// CapacityReservationFleetInstanceMatchCriteriaInput is an input type that accepts CapacityReservationFleetInstanceMatchCriteriaArgs and CapacityReservationFleetInstanceMatchCriteriaOutput values.
+// You can construct a concrete instance of `CapacityReservationFleetInstanceMatchCriteriaInput` via:
 //
-//	CapacityReservationFleetInstanceMatchCriteriaOpen
+//	CapacityReservationFleetInstanceMatchCriteriaArgs{...}
 type CapacityReservationFleetInstanceMatchCriteriaInput interface {
 	pulumi.Input
 
@@ -246,6 +258,12 @@ func (o CapacityReservationFleetTenancyOutput) ToCapacityReservationFleetTenancy
 	}).(CapacityReservationFleetTenancyPtrOutput)
 }
 
+func (o CapacityReservationFleetTenancyOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationFleetTenancy] {
+	return pulumix.Output[CapacityReservationFleetTenancy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapacityReservationFleetTenancyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -281,6 +299,12 @@ func (o CapacityReservationFleetTenancyPtrOutput) ToCapacityReservationFleetTena
 	return o
 }
 
+func (o CapacityReservationFleetTenancyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationFleetTenancy] {
+	return pulumix.Output[*CapacityReservationFleetTenancy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapacityReservationFleetTenancyPtrOutput) Elem() CapacityReservationFleetTenancyOutput {
 	return o.ApplyT(func(v *CapacityReservationFleetTenancy) CapacityReservationFleetTenancy {
 		if v != nil {
@@ -305,10 +329,10 @@ func (o CapacityReservationFleetTenancyPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// CapacityReservationFleetTenancyInput is an input type that accepts values of the CapacityReservationFleetTenancy enum
-// A concrete instance of `CapacityReservationFleetTenancyInput` can be one of the following:
+// CapacityReservationFleetTenancyInput is an input type that accepts CapacityReservationFleetTenancyArgs and CapacityReservationFleetTenancyOutput values.
+// You can construct a concrete instance of `CapacityReservationFleetTenancyInput` via:
 //
-//	CapacityReservationFleetTenancyDefault
+//	CapacityReservationFleetTenancyArgs{...}
 type CapacityReservationFleetTenancyInput interface {
 	pulumi.Input
 
@@ -416,6 +440,12 @@ func (o Ec2FleetCapacityRebalanceReplacementStrategyOutput) ToEc2FleetCapacityRe
 	}).(Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
+func (o Ec2FleetCapacityRebalanceReplacementStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetCapacityRebalanceReplacementStrategy] {
+	return pulumix.Output[Ec2FleetCapacityRebalanceReplacementStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetCapacityRebalanceReplacementStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -451,6 +481,12 @@ func (o Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput) ToEc2FleetCapacit
 	return o
 }
 
+func (o Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetCapacityRebalanceReplacementStrategy] {
+	return pulumix.Output[*Ec2FleetCapacityRebalanceReplacementStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput) Elem() Ec2FleetCapacityRebalanceReplacementStrategyOutput {
 	return o.ApplyT(func(v *Ec2FleetCapacityRebalanceReplacementStrategy) Ec2FleetCapacityRebalanceReplacementStrategy {
 		if v != nil {
@@ -475,11 +511,10 @@ func (o Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetCapacityRebalanceReplacementStrategyInput is an input type that accepts values of the Ec2FleetCapacityRebalanceReplacementStrategy enum
-// A concrete instance of `Ec2FleetCapacityRebalanceReplacementStrategyInput` can be one of the following:
+// Ec2FleetCapacityRebalanceReplacementStrategyInput is an input type that accepts Ec2FleetCapacityRebalanceReplacementStrategyArgs and Ec2FleetCapacityRebalanceReplacementStrategyOutput values.
+// You can construct a concrete instance of `Ec2FleetCapacityRebalanceReplacementStrategyInput` via:
 //
-//	Ec2FleetCapacityRebalanceReplacementStrategyLaunch
-//	Ec2FleetCapacityRebalanceReplacementStrategyLaunchBeforeTerminate
+//	Ec2FleetCapacityRebalanceReplacementStrategyArgs{...}
 type Ec2FleetCapacityRebalanceReplacementStrategyInput interface {
 	pulumi.Input
 
@@ -586,6 +621,12 @@ func (o Ec2FleetCapacityReservationOptionsRequestUsageStrategyOutput) ToEc2Fleet
 	}).(Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
 }
 
+func (o Ec2FleetCapacityReservationOptionsRequestUsageStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetCapacityReservationOptionsRequestUsageStrategy] {
+	return pulumix.Output[Ec2FleetCapacityReservationOptionsRequestUsageStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetCapacityReservationOptionsRequestUsageStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -621,6 +662,12 @@ func (o Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput) ToEc2Fl
 	return o
 }
 
+func (o Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetCapacityReservationOptionsRequestUsageStrategy] {
+	return pulumix.Output[*Ec2FleetCapacityReservationOptionsRequestUsageStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput) Elem() Ec2FleetCapacityReservationOptionsRequestUsageStrategyOutput {
 	return o.ApplyT(func(v *Ec2FleetCapacityReservationOptionsRequestUsageStrategy) Ec2FleetCapacityReservationOptionsRequestUsageStrategy {
 		if v != nil {
@@ -645,10 +692,10 @@ func (o Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetCapacityReservationOptionsRequestUsageStrategyInput is an input type that accepts values of the Ec2FleetCapacityReservationOptionsRequestUsageStrategy enum
-// A concrete instance of `Ec2FleetCapacityReservationOptionsRequestUsageStrategyInput` can be one of the following:
+// Ec2FleetCapacityReservationOptionsRequestUsageStrategyInput is an input type that accepts Ec2FleetCapacityReservationOptionsRequestUsageStrategyArgs and Ec2FleetCapacityReservationOptionsRequestUsageStrategyOutput values.
+// You can construct a concrete instance of `Ec2FleetCapacityReservationOptionsRequestUsageStrategyInput` via:
 //
-//	Ec2FleetCapacityReservationOptionsRequestUsageStrategyUseCapacityReservationsFirst
+//	Ec2FleetCapacityReservationOptionsRequestUsageStrategyArgs{...}
 type Ec2FleetCapacityReservationOptionsRequestUsageStrategyInput interface {
 	pulumi.Input
 
@@ -756,6 +803,12 @@ func (o Ec2FleetExcessCapacityTerminationPolicyOutput) ToEc2FleetExcessCapacityT
 	}).(Ec2FleetExcessCapacityTerminationPolicyPtrOutput)
 }
 
+func (o Ec2FleetExcessCapacityTerminationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetExcessCapacityTerminationPolicy] {
+	return pulumix.Output[Ec2FleetExcessCapacityTerminationPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetExcessCapacityTerminationPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -791,6 +844,12 @@ func (o Ec2FleetExcessCapacityTerminationPolicyPtrOutput) ToEc2FleetExcessCapaci
 	return o
 }
 
+func (o Ec2FleetExcessCapacityTerminationPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetExcessCapacityTerminationPolicy] {
+	return pulumix.Output[*Ec2FleetExcessCapacityTerminationPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetExcessCapacityTerminationPolicyPtrOutput) Elem() Ec2FleetExcessCapacityTerminationPolicyOutput {
 	return o.ApplyT(func(v *Ec2FleetExcessCapacityTerminationPolicy) Ec2FleetExcessCapacityTerminationPolicy {
 		if v != nil {
@@ -815,11 +874,10 @@ func (o Ec2FleetExcessCapacityTerminationPolicyPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetExcessCapacityTerminationPolicyInput is an input type that accepts values of the Ec2FleetExcessCapacityTerminationPolicy enum
-// A concrete instance of `Ec2FleetExcessCapacityTerminationPolicyInput` can be one of the following:
+// Ec2FleetExcessCapacityTerminationPolicyInput is an input type that accepts Ec2FleetExcessCapacityTerminationPolicyArgs and Ec2FleetExcessCapacityTerminationPolicyOutput values.
+// You can construct a concrete instance of `Ec2FleetExcessCapacityTerminationPolicyInput` via:
 //
-//	Ec2FleetExcessCapacityTerminationPolicyTermination
-//	Ec2FleetExcessCapacityTerminationPolicyNoTermination
+//	Ec2FleetExcessCapacityTerminationPolicyArgs{...}
 type Ec2FleetExcessCapacityTerminationPolicyInput interface {
 	pulumi.Input
 
@@ -930,6 +988,12 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) T
 	}).(Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput)
 }
 
+func (o Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -965,6 +1029,12 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput
 	return o
 }
 
+func (o Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[*Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) Elem() Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem {
 		if v != nil {
@@ -989,14 +1059,10 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput is an input type that accepts values of the Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem enum
-// A concrete instance of `Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput` can be one of the following:
+// Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput is an input type that accepts Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs and Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput` via:
 //
-//	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemAmazonWebServices
-//	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemAmd
-//	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemHabana
-//	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemNvidia
-//	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemXilinx
+//	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...}
 type Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput interface {
 	pulumi.Input
 
@@ -1062,6 +1128,12 @@ func (i Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) To
 	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
 }
 
+func (i Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[[]Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: i.ToEc2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ElementType() reflect.Type {
@@ -1074,6 +1146,12 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutp
 
 func (o Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ToEc2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(ctx context.Context) Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
 	return o
+}
+
+func (o Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[[]Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) Index(i pulumi.IntInput) Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
@@ -1159,6 +1237,12 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToEc2Flee
 	}).(Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput)
 }
 
+func (o Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1194,6 +1278,12 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToEc2F
 	return o
 }
 
+func (o Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[*Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) Elem() Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem) Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem {
 		if v != nil {
@@ -1218,21 +1308,10 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemInput is an input type that accepts values of the Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem enum
-// A concrete instance of `Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemInput` can be one of the following:
+// Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemInput is an input type that accepts Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArgs and Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemInput` via:
 //
-//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemA10g
-//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemA100
-//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemH100
-//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemInferentia
-//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemK520
-//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemK80
-//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemM60
-//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemRadeonProV520
-//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemT4
-//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemT4g
-//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemVu9p
-//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemV100
+//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...}
 type Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemInput interface {
 	pulumi.Input
 
@@ -1298,6 +1377,12 @@ func (i Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArray) ToEc2Fleet
 	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
 }
 
+func (i Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[[]Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: i.ToEc2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ElementType() reflect.Type {
@@ -1310,6 +1395,12 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToEc
 
 func (o Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToEc2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(ctx context.Context) Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
 	return o
+}
+
+func (o Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[[]Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) Index(i pulumi.IntInput) Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
@@ -1386,6 +1477,12 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToEc2Flee
 	}).(Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput)
 }
 
+func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1421,6 +1518,12 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToEc2F
 	return o
 }
 
+func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[*Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) Elem() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem) Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem {
 		if v != nil {
@@ -1445,12 +1548,10 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemInput is an input type that accepts values of the Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem enum
-// A concrete instance of `Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemInput` can be one of the following:
+// Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemInput is an input type that accepts Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArgs and Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemInput` via:
 //
-//	Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemGpu
-//	Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemFpga
-//	Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemInference
+//	Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...}
 type Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemInput interface {
 	pulumi.Input
 
@@ -1516,6 +1617,12 @@ func (i Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArray) ToEc2Fleet
 	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+func (i Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[[]Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: i.ToEc2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ElementType() reflect.Type {
@@ -1528,6 +1635,12 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToEc
 
 func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToEc2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(ctx context.Context) Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
 	return o
+}
+
+func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[[]Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) Index(i pulumi.IntInput) Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
@@ -1604,6 +1717,12 @@ func (o Ec2FleetInstanceRequirementsRequestBareMetalOutput) ToEc2FleetInstanceRe
 	}).(Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+func (o Ec2FleetInstanceRequirementsRequestBareMetalOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetInstanceRequirementsRequestBareMetal] {
+	return pulumix.Output[Ec2FleetInstanceRequirementsRequestBareMetal]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestBareMetalOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1639,6 +1758,12 @@ func (o Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput) ToEc2FleetInstanc
 	return o
 }
 
+func (o Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetInstanceRequirementsRequestBareMetal] {
+	return pulumix.Output[*Ec2FleetInstanceRequirementsRequestBareMetal]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput) Elem() Ec2FleetInstanceRequirementsRequestBareMetalOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequestBareMetal) Ec2FleetInstanceRequirementsRequestBareMetal {
 		if v != nil {
@@ -1663,12 +1788,10 @@ func (o Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetInstanceRequirementsRequestBareMetalInput is an input type that accepts values of the Ec2FleetInstanceRequirementsRequestBareMetal enum
-// A concrete instance of `Ec2FleetInstanceRequirementsRequestBareMetalInput` can be one of the following:
+// Ec2FleetInstanceRequirementsRequestBareMetalInput is an input type that accepts Ec2FleetInstanceRequirementsRequestBareMetalArgs and Ec2FleetInstanceRequirementsRequestBareMetalOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceRequirementsRequestBareMetalInput` via:
 //
-//	Ec2FleetInstanceRequirementsRequestBareMetalIncluded
-//	Ec2FleetInstanceRequirementsRequestBareMetalRequired
-//	Ec2FleetInstanceRequirementsRequestBareMetalExcluded
+//	Ec2FleetInstanceRequirementsRequestBareMetalArgs{...}
 type Ec2FleetInstanceRequirementsRequestBareMetalInput interface {
 	pulumi.Input
 
@@ -1777,6 +1900,12 @@ func (o Ec2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToEc2Flee
 	}).(Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
 }
 
+func (o Ec2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetInstanceRequirementsRequestBurstablePerformance] {
+	return pulumix.Output[Ec2FleetInstanceRequirementsRequestBurstablePerformance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1812,6 +1941,12 @@ func (o Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToEc2F
 	return o
 }
 
+func (o Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetInstanceRequirementsRequestBurstablePerformance] {
+	return pulumix.Output[*Ec2FleetInstanceRequirementsRequestBurstablePerformance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) Elem() Ec2FleetInstanceRequirementsRequestBurstablePerformanceOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequestBurstablePerformance) Ec2FleetInstanceRequirementsRequestBurstablePerformance {
 		if v != nil {
@@ -1836,12 +1971,10 @@ func (o Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetInstanceRequirementsRequestBurstablePerformanceInput is an input type that accepts values of the Ec2FleetInstanceRequirementsRequestBurstablePerformance enum
-// A concrete instance of `Ec2FleetInstanceRequirementsRequestBurstablePerformanceInput` can be one of the following:
+// Ec2FleetInstanceRequirementsRequestBurstablePerformanceInput is an input type that accepts Ec2FleetInstanceRequirementsRequestBurstablePerformanceArgs and Ec2FleetInstanceRequirementsRequestBurstablePerformanceOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceRequirementsRequestBurstablePerformanceInput` via:
 //
-//	Ec2FleetInstanceRequirementsRequestBurstablePerformanceIncluded
-//	Ec2FleetInstanceRequirementsRequestBurstablePerformanceRequired
-//	Ec2FleetInstanceRequirementsRequestBurstablePerformanceExcluded
+//	Ec2FleetInstanceRequirementsRequestBurstablePerformanceArgs{...}
 type Ec2FleetInstanceRequirementsRequestBurstablePerformanceInput interface {
 	pulumi.Input
 
@@ -1950,6 +2083,12 @@ func (o Ec2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToEc2Flee
 	}).(Ec2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput)
 }
 
+func (o Ec2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[Ec2FleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1985,6 +2124,12 @@ func (o Ec2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToEc2F
 	return o
 }
 
+func (o Ec2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[*Ec2FleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) Elem() Ec2FleetInstanceRequirementsRequestCpuManufacturersItemOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequestCpuManufacturersItem) Ec2FleetInstanceRequirementsRequestCpuManufacturersItem {
 		if v != nil {
@@ -2009,12 +2154,10 @@ func (o Ec2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetInstanceRequirementsRequestCpuManufacturersItemInput is an input type that accepts values of the Ec2FleetInstanceRequirementsRequestCpuManufacturersItem enum
-// A concrete instance of `Ec2FleetInstanceRequirementsRequestCpuManufacturersItemInput` can be one of the following:
+// Ec2FleetInstanceRequirementsRequestCpuManufacturersItemInput is an input type that accepts Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArgs and Ec2FleetInstanceRequirementsRequestCpuManufacturersItemOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceRequirementsRequestCpuManufacturersItemInput` via:
 //
-//	Ec2FleetInstanceRequirementsRequestCpuManufacturersItemIntel
-//	Ec2FleetInstanceRequirementsRequestCpuManufacturersItemAmd
-//	Ec2FleetInstanceRequirementsRequestCpuManufacturersItemAmazonWebServices
+//	Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArgs{...}
 type Ec2FleetInstanceRequirementsRequestCpuManufacturersItemInput interface {
 	pulumi.Input
 
@@ -2080,6 +2223,12 @@ func (i Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArray) ToEc2Fleet
 	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
 }
 
+func (i Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]Ec2FleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[[]Ec2FleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: i.ToEc2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ElementType() reflect.Type {
@@ -2092,6 +2241,12 @@ func (o Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToEc
 
 func (o Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToEc2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(ctx context.Context) Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
 	return o
+}
+
+func (o Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]Ec2FleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[[]Ec2FleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) Index(i pulumi.IntInput) Ec2FleetInstanceRequirementsRequestCpuManufacturersItemOutput {
@@ -2167,6 +2322,12 @@ func (o Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToEc2F
 	}).(Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput)
 }
 
+func (o Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2202,6 +2363,12 @@ func (o Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToE
 	return o
 }
 
+func (o Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[*Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) Elem() Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem) Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem {
 		if v != nil {
@@ -2226,11 +2393,10 @@ func (o Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemInput is an input type that accepts values of the Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem enum
-// A concrete instance of `Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemInput` can be one of the following:
+// Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemInput is an input type that accepts Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArgs and Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemInput` via:
 //
-//	Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemCurrent
-//	Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemPrevious
+//	Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...}
 type Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemInput interface {
 	pulumi.Input
 
@@ -2296,6 +2462,12 @@ func (i Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArray) ToEc2Fl
 	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
 }
 
+func (i Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[[]Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: i.ToEc2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ElementType() reflect.Type {
@@ -2308,6 +2480,12 @@ func (o Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) T
 
 func (o Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ToEc2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(ctx context.Context) Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
 	return o
+}
+
+func (o Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[[]Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) Index(i pulumi.IntInput) Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
@@ -2384,6 +2562,12 @@ func (o Ec2FleetInstanceRequirementsRequestLocalStorageOutput) ToEc2FleetInstanc
 	}).(Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput)
 }
 
+func (o Ec2FleetInstanceRequirementsRequestLocalStorageOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetInstanceRequirementsRequestLocalStorage] {
+	return pulumix.Output[Ec2FleetInstanceRequirementsRequestLocalStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestLocalStorageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2419,6 +2603,12 @@ func (o Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput) ToEc2FleetInst
 	return o
 }
 
+func (o Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetInstanceRequirementsRequestLocalStorage] {
+	return pulumix.Output[*Ec2FleetInstanceRequirementsRequestLocalStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput) Elem() Ec2FleetInstanceRequirementsRequestLocalStorageOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequestLocalStorage) Ec2FleetInstanceRequirementsRequestLocalStorage {
 		if v != nil {
@@ -2443,12 +2633,10 @@ func (o Ec2FleetInstanceRequirementsRequestLocalStoragePtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetInstanceRequirementsRequestLocalStorageInput is an input type that accepts values of the Ec2FleetInstanceRequirementsRequestLocalStorage enum
-// A concrete instance of `Ec2FleetInstanceRequirementsRequestLocalStorageInput` can be one of the following:
+// Ec2FleetInstanceRequirementsRequestLocalStorageInput is an input type that accepts Ec2FleetInstanceRequirementsRequestLocalStorageArgs and Ec2FleetInstanceRequirementsRequestLocalStorageOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceRequirementsRequestLocalStorageInput` via:
 //
-//	Ec2FleetInstanceRequirementsRequestLocalStorageIncluded
-//	Ec2FleetInstanceRequirementsRequestLocalStorageRequired
-//	Ec2FleetInstanceRequirementsRequestLocalStorageExcluded
+//	Ec2FleetInstanceRequirementsRequestLocalStorageArgs{...}
 type Ec2FleetInstanceRequirementsRequestLocalStorageInput interface {
 	pulumi.Input
 
@@ -2556,6 +2744,12 @@ func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToEc2Fle
 	}).(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput)
 }
 
+func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2591,6 +2785,12 @@ func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToEc2
 	return o
 }
 
+func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[*Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) Elem() Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
 	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem) Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem {
 		if v != nil {
@@ -2615,11 +2815,10 @@ func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemInput is an input type that accepts values of the Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem enum
-// A concrete instance of `Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemInput` can be one of the following:
+// Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemInput is an input type that accepts Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArgs and Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput values.
+// You can construct a concrete instance of `Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemInput` via:
 //
-//	Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemHdd
-//	Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemSsd
+//	Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...}
 type Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemInput interface {
 	pulumi.Input
 
@@ -2685,6 +2884,12 @@ func (i Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArray) ToEc2Flee
 	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
 }
 
+func (i Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[[]Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: i.ToEc2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ElementType() reflect.Type {
@@ -2697,6 +2902,12 @@ func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToE
 
 func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToEc2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(ctx context.Context) Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
 	return o
+}
+
+func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[[]Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) Index(i pulumi.IntInput) Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
@@ -2775,6 +2986,12 @@ func (o Ec2FleetSpotOptionsRequestAllocationStrategyOutput) ToEc2FleetSpotOption
 	}).(Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput)
 }
 
+func (o Ec2FleetSpotOptionsRequestAllocationStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetSpotOptionsRequestAllocationStrategy] {
+	return pulumix.Output[Ec2FleetSpotOptionsRequestAllocationStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetSpotOptionsRequestAllocationStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2810,6 +3027,12 @@ func (o Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput) ToEc2FleetSpotOpt
 	return o
 }
 
+func (o Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetSpotOptionsRequestAllocationStrategy] {
+	return pulumix.Output[*Ec2FleetSpotOptionsRequestAllocationStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput) Elem() Ec2FleetSpotOptionsRequestAllocationStrategyOutput {
 	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequestAllocationStrategy) Ec2FleetSpotOptionsRequestAllocationStrategy {
 		if v != nil {
@@ -2834,14 +3057,10 @@ func (o Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetSpotOptionsRequestAllocationStrategyInput is an input type that accepts values of the Ec2FleetSpotOptionsRequestAllocationStrategy enum
-// A concrete instance of `Ec2FleetSpotOptionsRequestAllocationStrategyInput` can be one of the following:
+// Ec2FleetSpotOptionsRequestAllocationStrategyInput is an input type that accepts Ec2FleetSpotOptionsRequestAllocationStrategyArgs and Ec2FleetSpotOptionsRequestAllocationStrategyOutput values.
+// You can construct a concrete instance of `Ec2FleetSpotOptionsRequestAllocationStrategyInput` via:
 //
-//	Ec2FleetSpotOptionsRequestAllocationStrategyLowestPrice
-//	Ec2FleetSpotOptionsRequestAllocationStrategyDiversified
-//	Ec2FleetSpotOptionsRequestAllocationStrategyCapacityOptimized
-//	Ec2FleetSpotOptionsRequestAllocationStrategyCapacityOptimizedPrioritized
-//	Ec2FleetSpotOptionsRequestAllocationStrategyPriceCapacityOptimized
+//	Ec2FleetSpotOptionsRequestAllocationStrategyArgs{...}
 type Ec2FleetSpotOptionsRequestAllocationStrategyInput interface {
 	pulumi.Input
 
@@ -2950,6 +3169,12 @@ func (o Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorOutput) ToEc2Fleet
 	}).(Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput)
 }
 
+func (o Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior] {
+	return pulumix.Output[Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2985,6 +3210,12 @@ func (o Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput) ToEc2Fl
 	return o
 }
 
+func (o Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior] {
+	return pulumix.Output[*Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput) Elem() Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorOutput {
 	return o.ApplyT(func(v *Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior) Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior {
 		if v != nil {
@@ -3009,12 +3240,10 @@ func (o Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorInput is an input type that accepts values of the Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior enum
-// A concrete instance of `Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorInput` can be one of the following:
+// Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorInput is an input type that accepts Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorArgs and Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorOutput values.
+// You can construct a concrete instance of `Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorInput` via:
 //
-//	Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorHibernate
-//	Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorStop
-//	Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorTerminate
+//	Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorArgs{...}
 type Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorInput interface {
 	pulumi.Input
 
@@ -3167,6 +3396,12 @@ func (o Ec2FleetTagSpecificationResourceTypeOutput) ToEc2FleetTagSpecificationRe
 	}).(Ec2FleetTagSpecificationResourceTypePtrOutput)
 }
 
+func (o Ec2FleetTagSpecificationResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetTagSpecificationResourceType] {
+	return pulumix.Output[Ec2FleetTagSpecificationResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetTagSpecificationResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3202,6 +3437,12 @@ func (o Ec2FleetTagSpecificationResourceTypePtrOutput) ToEc2FleetTagSpecificatio
 	return o
 }
 
+func (o Ec2FleetTagSpecificationResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetTagSpecificationResourceType] {
+	return pulumix.Output[*Ec2FleetTagSpecificationResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetTagSpecificationResourceTypePtrOutput) Elem() Ec2FleetTagSpecificationResourceTypeOutput {
 	return o.ApplyT(func(v *Ec2FleetTagSpecificationResourceType) Ec2FleetTagSpecificationResourceType {
 		if v != nil {
@@ -3226,56 +3467,10 @@ func (o Ec2FleetTagSpecificationResourceTypePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetTagSpecificationResourceTypeInput is an input type that accepts values of the Ec2FleetTagSpecificationResourceType enum
-// A concrete instance of `Ec2FleetTagSpecificationResourceTypeInput` can be one of the following:
+// Ec2FleetTagSpecificationResourceTypeInput is an input type that accepts Ec2FleetTagSpecificationResourceTypeArgs and Ec2FleetTagSpecificationResourceTypeOutput values.
+// You can construct a concrete instance of `Ec2FleetTagSpecificationResourceTypeInput` via:
 //
-//	Ec2FleetTagSpecificationResourceTypeClientVpnEndpoint
-//	Ec2FleetTagSpecificationResourceTypeCustomerGateway
-//	Ec2FleetTagSpecificationResourceTypeDedicatedHost
-//	Ec2FleetTagSpecificationResourceTypeDhcpOptions
-//	Ec2FleetTagSpecificationResourceTypeEgressOnlyInternetGateway
-//	Ec2FleetTagSpecificationResourceTypeElasticGpu
-//	Ec2FleetTagSpecificationResourceTypeElasticIp
-//	Ec2FleetTagSpecificationResourceTypeExportImageTask
-//	Ec2FleetTagSpecificationResourceTypeExportInstanceTask
-//	Ec2FleetTagSpecificationResourceTypeFleet
-//	Ec2FleetTagSpecificationResourceTypeFpgaImage
-//	Ec2FleetTagSpecificationResourceTypeHostReservation
-//	Ec2FleetTagSpecificationResourceTypeImage
-//	Ec2FleetTagSpecificationResourceTypeImportImageTask
-//	Ec2FleetTagSpecificationResourceTypeImportSnapshotTask
-//	Ec2FleetTagSpecificationResourceTypeInstance
-//	Ec2FleetTagSpecificationResourceTypeInternetGateway
-//	Ec2FleetTagSpecificationResourceTypeKeyPair
-//	Ec2FleetTagSpecificationResourceTypeLaunchTemplate
-//	Ec2FleetTagSpecificationResourceTypeLocalGatewayRouteTableVpcAssociation
-//	Ec2FleetTagSpecificationResourceTypeNatgateway
-//	Ec2FleetTagSpecificationResourceTypeNetworkAcl
-//	Ec2FleetTagSpecificationResourceTypeNetworkInsightsAnalysis
-//	Ec2FleetTagSpecificationResourceTypeNetworkInsightsPath
-//	Ec2FleetTagSpecificationResourceTypeNetworkInterface
-//	Ec2FleetTagSpecificationResourceTypePlacementGroup
-//	Ec2FleetTagSpecificationResourceTypeReservedInstances
-//	Ec2FleetTagSpecificationResourceTypeRouteTable
-//	Ec2FleetTagSpecificationResourceTypeSecurityGroup
-//	Ec2FleetTagSpecificationResourceTypeSnapshot
-//	Ec2FleetTagSpecificationResourceTypeSpotFleetRequest
-//	Ec2FleetTagSpecificationResourceTypeSpotInstancesRequest
-//	Ec2FleetTagSpecificationResourceTypeSubnet
-//	Ec2FleetTagSpecificationResourceTypeTrafficMirrorFilter
-//	Ec2FleetTagSpecificationResourceTypeTrafficMirrorSession
-//	Ec2FleetTagSpecificationResourceTypeTrafficMirrorTarget
-//	Ec2FleetTagSpecificationResourceTypeTransitGateway
-//	Ec2FleetTagSpecificationResourceTypeTransitGatewayAttachment
-//	Ec2FleetTagSpecificationResourceTypeTransitGatewayConnectPeer
-//	Ec2FleetTagSpecificationResourceTypeTransitGatewayMulticastDomain
-//	Ec2FleetTagSpecificationResourceTypeTransitGatewayRouteTable
-//	Ec2FleetTagSpecificationResourceTypeVolume
-//	Ec2FleetTagSpecificationResourceTypeVpc
-//	Ec2FleetTagSpecificationResourceTypeVpcFlowLog
-//	Ec2FleetTagSpecificationResourceTypeVpcPeeringConnection
-//	Ec2FleetTagSpecificationResourceTypeVpnConnection
-//	Ec2FleetTagSpecificationResourceTypeVpnGateway
+//	Ec2FleetTagSpecificationResourceTypeArgs{...}
 type Ec2FleetTagSpecificationResourceTypeInput interface {
 	pulumi.Input
 
@@ -3383,6 +3578,12 @@ func (o Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOutpu
 	}).(Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
 }
 
+func (o Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType] {
+	return pulumix.Output[Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3418,6 +3619,12 @@ func (o Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOu
 	return o
 }
 
+func (o Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType] {
+	return pulumix.Output[*Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput) Elem() Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOutput {
 	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType) Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType {
 		if v != nil {
@@ -3442,11 +3649,10 @@ func (o Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeInput is an input type that accepts values of the Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType enum
-// A concrete instance of `Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeInput` can be one of the following:
+// Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeInput is an input type that accepts Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeArgs and Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOutput values.
+// You can construct a concrete instance of `Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeInput` via:
 //
-//	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOnDemand
-//	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeSpot
+//	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeArgs{...}
 type Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeInput interface {
 	pulumi.Input
 
@@ -3555,6 +3761,12 @@ func (o Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) 
 	}).(Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
 }
 
+func (o Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType] {
+	return pulumix.Output[Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3590,6 +3802,12 @@ func (o Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutpu
 	return o
 }
 
+func (o Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType] {
+	return pulumix.Output[*Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput) Elem() Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput {
 	return o.ApplyT(func(v *Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType {
 		if v != nil {
@@ -3614,12 +3832,10 @@ func (o Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeInput is an input type that accepts values of the Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType enum
-// A concrete instance of `Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeInput` can be one of the following:
+// Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeInput is an input type that accepts Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeArgs and Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput values.
+// You can construct a concrete instance of `Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeInput` via:
 //
-//	Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeVcpu
-//	Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeMemoryMib
-//	Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeUnits
+//	Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeArgs{...}
 type Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeInput interface {
 	pulumi.Input
 
@@ -3728,6 +3944,12 @@ func (o Ec2FleetTypeOutput) ToEc2FleetTypePtrOutputWithContext(ctx context.Conte
 	}).(Ec2FleetTypePtrOutput)
 }
 
+func (o Ec2FleetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[Ec2FleetType] {
+	return pulumix.Output[Ec2FleetType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3763,6 +3985,12 @@ func (o Ec2FleetTypePtrOutput) ToEc2FleetTypePtrOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o Ec2FleetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2FleetType] {
+	return pulumix.Output[*Ec2FleetType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o Ec2FleetTypePtrOutput) Elem() Ec2FleetTypeOutput {
 	return o.ApplyT(func(v *Ec2FleetType) Ec2FleetType {
 		if v != nil {
@@ -3787,12 +4015,10 @@ func (o Ec2FleetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Ec2FleetTypeInput is an input type that accepts values of the Ec2FleetType enum
-// A concrete instance of `Ec2FleetTypeInput` can be one of the following:
+// Ec2FleetTypeInput is an input type that accepts Ec2FleetTypeArgs and Ec2FleetTypeOutput values.
+// You can construct a concrete instance of `Ec2FleetTypeInput` via:
 //
-//	Ec2FleetTypeMaintain
-//	Ec2FleetTypeRequest
-//	Ec2FleetTypeInstant
+//	Ec2FleetTypeArgs{...}
 type Ec2FleetTypeInput interface {
 	pulumi.Input
 
@@ -3900,6 +4126,12 @@ func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToFlowLogDestinatio
 	}).(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput)
 }
 
+func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToOutput(ctx context.Context) pulumix.Output[FlowLogDestinationOptionsPropertiesFileFormat] {
+	return pulumix.Output[FlowLogDestinationOptionsPropertiesFileFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3935,6 +4167,12 @@ func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) ToFlowLogDestina
 	return o
 }
 
+func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowLogDestinationOptionsPropertiesFileFormat] {
+	return pulumix.Output[*FlowLogDestinationOptionsPropertiesFileFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) Elem() FlowLogDestinationOptionsPropertiesFileFormatOutput {
 	return o.ApplyT(func(v *FlowLogDestinationOptionsPropertiesFileFormat) FlowLogDestinationOptionsPropertiesFileFormat {
 		if v != nil {
@@ -3959,11 +4197,10 @@ func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowLogDestinationOptionsPropertiesFileFormatInput is an input type that accepts values of the FlowLogDestinationOptionsPropertiesFileFormat enum
-// A concrete instance of `FlowLogDestinationOptionsPropertiesFileFormatInput` can be one of the following:
+// FlowLogDestinationOptionsPropertiesFileFormatInput is an input type that accepts FlowLogDestinationOptionsPropertiesFileFormatArgs and FlowLogDestinationOptionsPropertiesFileFormatOutput values.
+// You can construct a concrete instance of `FlowLogDestinationOptionsPropertiesFileFormatInput` via:
 //
-//	FlowLogDestinationOptionsPropertiesFileFormatPlainText
-//	FlowLogDestinationOptionsPropertiesFileFormatParquet
+//	FlowLogDestinationOptionsPropertiesFileFormatArgs{...}
 type FlowLogDestinationOptionsPropertiesFileFormatInput interface {
 	pulumi.Input
 
@@ -4073,6 +4310,12 @@ func (o FlowLogLogDestinationTypeOutput) ToFlowLogLogDestinationTypePtrOutputWit
 	}).(FlowLogLogDestinationTypePtrOutput)
 }
 
+func (o FlowLogLogDestinationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowLogLogDestinationType] {
+	return pulumix.Output[FlowLogLogDestinationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogLogDestinationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4108,6 +4351,12 @@ func (o FlowLogLogDestinationTypePtrOutput) ToFlowLogLogDestinationTypePtrOutput
 	return o
 }
 
+func (o FlowLogLogDestinationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowLogLogDestinationType] {
+	return pulumix.Output[*FlowLogLogDestinationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogLogDestinationTypePtrOutput) Elem() FlowLogLogDestinationTypeOutput {
 	return o.ApplyT(func(v *FlowLogLogDestinationType) FlowLogLogDestinationType {
 		if v != nil {
@@ -4132,12 +4381,10 @@ func (o FlowLogLogDestinationTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowLogLogDestinationTypeInput is an input type that accepts values of the FlowLogLogDestinationType enum
-// A concrete instance of `FlowLogLogDestinationTypeInput` can be one of the following:
+// FlowLogLogDestinationTypeInput is an input type that accepts FlowLogLogDestinationTypeArgs and FlowLogLogDestinationTypeOutput values.
+// You can construct a concrete instance of `FlowLogLogDestinationTypeInput` via:
 //
-//	FlowLogLogDestinationTypeCloudWatchLogs
-//	FlowLogLogDestinationTypeS3
-//	FlowLogLogDestinationTypeKinesisDataFirehose
+//	FlowLogLogDestinationTypeArgs{...}
 type FlowLogLogDestinationTypeInput interface {
 	pulumi.Input
 
@@ -4249,6 +4496,12 @@ func (o FlowLogResourceTypeOutput) ToFlowLogResourceTypePtrOutputWithContext(ctx
 	}).(FlowLogResourceTypePtrOutput)
 }
 
+func (o FlowLogResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowLogResourceType] {
+	return pulumix.Output[FlowLogResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4284,6 +4537,12 @@ func (o FlowLogResourceTypePtrOutput) ToFlowLogResourceTypePtrOutputWithContext(
 	return o
 }
 
+func (o FlowLogResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowLogResourceType] {
+	return pulumix.Output[*FlowLogResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogResourceTypePtrOutput) Elem() FlowLogResourceTypeOutput {
 	return o.ApplyT(func(v *FlowLogResourceType) FlowLogResourceType {
 		if v != nil {
@@ -4308,14 +4567,10 @@ func (o FlowLogResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowLogResourceTypeInput is an input type that accepts values of the FlowLogResourceType enum
-// A concrete instance of `FlowLogResourceTypeInput` can be one of the following:
+// FlowLogResourceTypeInput is an input type that accepts FlowLogResourceTypeArgs and FlowLogResourceTypeOutput values.
+// You can construct a concrete instance of `FlowLogResourceTypeInput` via:
 //
-//	FlowLogResourceTypeNetworkInterface
-//	FlowLogResourceTypeSubnet
-//	FlowLogResourceTypeVpc
-//	FlowLogResourceTypeTransitGateway
-//	FlowLogResourceTypeTransitGatewayAttachment
+//	FlowLogResourceTypeArgs{...}
 type FlowLogResourceTypeInput interface {
 	pulumi.Input
 
@@ -4425,6 +4680,12 @@ func (o FlowLogTrafficTypeOutput) ToFlowLogTrafficTypePtrOutputWithContext(ctx c
 	}).(FlowLogTrafficTypePtrOutput)
 }
 
+func (o FlowLogTrafficTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowLogTrafficType] {
+	return pulumix.Output[FlowLogTrafficType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogTrafficTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4460,6 +4721,12 @@ func (o FlowLogTrafficTypePtrOutput) ToFlowLogTrafficTypePtrOutputWithContext(ct
 	return o
 }
 
+func (o FlowLogTrafficTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowLogTrafficType] {
+	return pulumix.Output[*FlowLogTrafficType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogTrafficTypePtrOutput) Elem() FlowLogTrafficTypeOutput {
 	return o.ApplyT(func(v *FlowLogTrafficType) FlowLogTrafficType {
 		if v != nil {
@@ -4484,12 +4751,10 @@ func (o FlowLogTrafficTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowLogTrafficTypeInput is an input type that accepts values of the FlowLogTrafficType enum
-// A concrete instance of `FlowLogTrafficTypeInput` can be one of the following:
+// FlowLogTrafficTypeInput is an input type that accepts FlowLogTrafficTypeArgs and FlowLogTrafficTypeOutput values.
+// You can construct a concrete instance of `FlowLogTrafficTypeInput` via:
 //
-//	FlowLogTrafficTypeAccept
-//	FlowLogTrafficTypeAll
-//	FlowLogTrafficTypeReject
+//	FlowLogTrafficTypeArgs{...}
 type FlowLogTrafficTypeInput interface {
 	pulumi.Input
 
@@ -4597,6 +4862,12 @@ func (o IpamPoolAwsServiceOutput) ToIpamPoolAwsServicePtrOutputWithContext(ctx c
 	}).(IpamPoolAwsServicePtrOutput)
 }
 
+func (o IpamPoolAwsServiceOutput) ToOutput(ctx context.Context) pulumix.Output[IpamPoolAwsService] {
+	return pulumix.Output[IpamPoolAwsService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IpamPoolAwsServiceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4632,6 +4903,12 @@ func (o IpamPoolAwsServicePtrOutput) ToIpamPoolAwsServicePtrOutputWithContext(ct
 	return o
 }
 
+func (o IpamPoolAwsServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IpamPoolAwsService] {
+	return pulumix.Output[*IpamPoolAwsService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IpamPoolAwsServicePtrOutput) Elem() IpamPoolAwsServiceOutput {
 	return o.ApplyT(func(v *IpamPoolAwsService) IpamPoolAwsService {
 		if v != nil {
@@ -4656,10 +4933,10 @@ func (o IpamPoolAwsServicePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// IpamPoolAwsServiceInput is an input type that accepts values of the IpamPoolAwsService enum
-// A concrete instance of `IpamPoolAwsServiceInput` can be one of the following:
+// IpamPoolAwsServiceInput is an input type that accepts IpamPoolAwsServiceArgs and IpamPoolAwsServiceOutput values.
+// You can construct a concrete instance of `IpamPoolAwsServiceInput` via:
 //
-//	IpamPoolAwsServiceEc2
+//	IpamPoolAwsServiceArgs{...}
 type IpamPoolAwsServiceInput interface {
 	pulumi.Input
 
@@ -4732,6 +5009,12 @@ func (o IpamPoolIpamScopeTypeOutput) ToIpamPoolIpamScopeTypePtrOutputWithContext
 	}).(IpamPoolIpamScopeTypePtrOutput)
 }
 
+func (o IpamPoolIpamScopeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IpamPoolIpamScopeType] {
+	return pulumix.Output[IpamPoolIpamScopeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IpamPoolIpamScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4765,6 +5048,12 @@ func (o IpamPoolIpamScopeTypePtrOutput) ToIpamPoolIpamScopeTypePtrOutput() IpamP
 
 func (o IpamPoolIpamScopeTypePtrOutput) ToIpamPoolIpamScopeTypePtrOutputWithContext(ctx context.Context) IpamPoolIpamScopeTypePtrOutput {
 	return o
+}
+
+func (o IpamPoolIpamScopeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IpamPoolIpamScopeType] {
+	return pulumix.Output[*IpamPoolIpamScopeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IpamPoolIpamScopeTypePtrOutput) Elem() IpamPoolIpamScopeTypeOutput {
@@ -4859,6 +5148,12 @@ func (o IpamPoolPublicIpSourceOutput) ToIpamPoolPublicIpSourcePtrOutputWithConte
 	}).(IpamPoolPublicIpSourcePtrOutput)
 }
 
+func (o IpamPoolPublicIpSourceOutput) ToOutput(ctx context.Context) pulumix.Output[IpamPoolPublicIpSource] {
+	return pulumix.Output[IpamPoolPublicIpSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IpamPoolPublicIpSourceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4894,6 +5189,12 @@ func (o IpamPoolPublicIpSourcePtrOutput) ToIpamPoolPublicIpSourcePtrOutputWithCo
 	return o
 }
 
+func (o IpamPoolPublicIpSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IpamPoolPublicIpSource] {
+	return pulumix.Output[*IpamPoolPublicIpSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IpamPoolPublicIpSourcePtrOutput) Elem() IpamPoolPublicIpSourceOutput {
 	return o.ApplyT(func(v *IpamPoolPublicIpSource) IpamPoolPublicIpSource {
 		if v != nil {
@@ -4918,11 +5219,10 @@ func (o IpamPoolPublicIpSourcePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// IpamPoolPublicIpSourceInput is an input type that accepts values of the IpamPoolPublicIpSource enum
-// A concrete instance of `IpamPoolPublicIpSourceInput` can be one of the following:
+// IpamPoolPublicIpSourceInput is an input type that accepts IpamPoolPublicIpSourceArgs and IpamPoolPublicIpSourceOutput values.
+// You can construct a concrete instance of `IpamPoolPublicIpSourceInput` via:
 //
-//	IpamPoolPublicIpSourceByoip
-//	IpamPoolPublicIpSourceAmazon
+//	IpamPoolPublicIpSourceArgs{...}
 type IpamPoolPublicIpSourceInput interface {
 	pulumi.Input
 
@@ -4999,6 +5299,12 @@ func (o IpamPoolStateEnumOutput) ToIpamPoolStateEnumPtrOutputWithContext(ctx con
 	}).(IpamPoolStateEnumPtrOutput)
 }
 
+func (o IpamPoolStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[IpamPoolStateEnum] {
+	return pulumix.Output[IpamPoolStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IpamPoolStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5032,6 +5338,12 @@ func (o IpamPoolStateEnumPtrOutput) ToIpamPoolStateEnumPtrOutput() IpamPoolState
 
 func (o IpamPoolStateEnumPtrOutput) ToIpamPoolStateEnumPtrOutputWithContext(ctx context.Context) IpamPoolStateEnumPtrOutput {
 	return o
+}
+
+func (o IpamPoolStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IpamPoolStateEnum] {
+	return pulumix.Output[*IpamPoolStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IpamPoolStateEnumPtrOutput) Elem() IpamPoolStateEnumOutput {
@@ -5090,6 +5402,12 @@ func (o IpamScopeTypeOutput) ToIpamScopeTypePtrOutputWithContext(ctx context.Con
 	}).(IpamScopeTypePtrOutput)
 }
 
+func (o IpamScopeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IpamScopeType] {
+	return pulumix.Output[IpamScopeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IpamScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5123,6 +5441,12 @@ func (o IpamScopeTypePtrOutput) ToIpamScopeTypePtrOutput() IpamScopeTypePtrOutpu
 
 func (o IpamScopeTypePtrOutput) ToIpamScopeTypePtrOutputWithContext(ctx context.Context) IpamScopeTypePtrOutput {
 	return o
+}
+
+func (o IpamScopeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IpamScopeType] {
+	return pulumix.Output[*IpamScopeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IpamScopeTypePtrOutput) Elem() IpamScopeTypeOutput {
@@ -5217,6 +5541,12 @@ func (o IpamTierOutput) ToIpamTierPtrOutputWithContext(ctx context.Context) Ipam
 	}).(IpamTierPtrOutput)
 }
 
+func (o IpamTierOutput) ToOutput(ctx context.Context) pulumix.Output[IpamTier] {
+	return pulumix.Output[IpamTier]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IpamTierOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5252,6 +5582,12 @@ func (o IpamTierPtrOutput) ToIpamTierPtrOutputWithContext(ctx context.Context) I
 	return o
 }
 
+func (o IpamTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IpamTier] {
+	return pulumix.Output[*IpamTier]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IpamTierPtrOutput) Elem() IpamTierOutput {
 	return o.ApplyT(func(v *IpamTier) IpamTier {
 		if v != nil {
@@ -5276,11 +5612,10 @@ func (o IpamTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// IpamTierInput is an input type that accepts values of the IpamTier enum
-// A concrete instance of `IpamTierInput` can be one of the following:
+// IpamTierInput is an input type that accepts IpamTierArgs and IpamTierOutput values.
+// You can construct a concrete instance of `IpamTierInput` via:
 //
-//	IpamTierFree
-//	IpamTierAdvanced
+//	IpamTierArgs{...}
 type IpamTierInput interface {
 	pulumi.Input
 
@@ -5389,6 +5724,12 @@ func (o KeyPairKeyFormatOutput) ToKeyPairKeyFormatPtrOutputWithContext(ctx conte
 	}).(KeyPairKeyFormatPtrOutput)
 }
 
+func (o KeyPairKeyFormatOutput) ToOutput(ctx context.Context) pulumix.Output[KeyPairKeyFormat] {
+	return pulumix.Output[KeyPairKeyFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyPairKeyFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5424,6 +5765,12 @@ func (o KeyPairKeyFormatPtrOutput) ToKeyPairKeyFormatPtrOutputWithContext(ctx co
 	return o
 }
 
+func (o KeyPairKeyFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyPairKeyFormat] {
+	return pulumix.Output[*KeyPairKeyFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyPairKeyFormatPtrOutput) Elem() KeyPairKeyFormatOutput {
 	return o.ApplyT(func(v *KeyPairKeyFormat) KeyPairKeyFormat {
 		if v != nil {
@@ -5448,11 +5795,10 @@ func (o KeyPairKeyFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyPairKeyFormatInput is an input type that accepts values of the KeyPairKeyFormat enum
-// A concrete instance of `KeyPairKeyFormatInput` can be one of the following:
+// KeyPairKeyFormatInput is an input type that accepts KeyPairKeyFormatArgs and KeyPairKeyFormatOutput values.
+// You can construct a concrete instance of `KeyPairKeyFormatInput` via:
 //
-//	KeyPairKeyFormatPem
-//	KeyPairKeyFormatPpk
+//	KeyPairKeyFormatArgs{...}
 type KeyPairKeyFormatInput interface {
 	pulumi.Input
 
@@ -5561,6 +5907,12 @@ func (o KeyPairKeyTypeOutput) ToKeyPairKeyTypePtrOutputWithContext(ctx context.C
 	}).(KeyPairKeyTypePtrOutput)
 }
 
+func (o KeyPairKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[KeyPairKeyType] {
+	return pulumix.Output[KeyPairKeyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyPairKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5596,6 +5948,12 @@ func (o KeyPairKeyTypePtrOutput) ToKeyPairKeyTypePtrOutputWithContext(ctx contex
 	return o
 }
 
+func (o KeyPairKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyPairKeyType] {
+	return pulumix.Output[*KeyPairKeyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyPairKeyTypePtrOutput) Elem() KeyPairKeyTypeOutput {
 	return o.ApplyT(func(v *KeyPairKeyType) KeyPairKeyType {
 		if v != nil {
@@ -5620,11 +5978,10 @@ func (o KeyPairKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyPairKeyTypeInput is an input type that accepts values of the KeyPairKeyType enum
-// A concrete instance of `KeyPairKeyTypeInput` can be one of the following:
+// KeyPairKeyTypeInput is an input type that accepts KeyPairKeyTypeArgs and KeyPairKeyTypeOutput values.
+// You can construct a concrete instance of `KeyPairKeyTypeInput` via:
 //
-//	KeyPairKeyTypeRsa
-//	KeyPairKeyTypeEd25519
+//	KeyPairKeyTypeArgs{...}
 type KeyPairKeyTypeInput interface {
 	pulumi.Input
 
@@ -5733,6 +6090,12 @@ func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToLaunchTemplateCpuOptionsAmdSe
 	}).(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput)
 }
 
+func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchTemplateCpuOptionsAmdSevSnp] {
+	return pulumix.Output[LaunchTemplateCpuOptionsAmdSevSnp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5768,6 +6131,12 @@ func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) ToLaunchTemplateCpuOptionsAm
 	return o
 }
 
+func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplateCpuOptionsAmdSevSnp] {
+	return pulumix.Output[*LaunchTemplateCpuOptionsAmdSevSnp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) Elem() LaunchTemplateCpuOptionsAmdSevSnpOutput {
 	return o.ApplyT(func(v *LaunchTemplateCpuOptionsAmdSevSnp) LaunchTemplateCpuOptionsAmdSevSnp {
 		if v != nil {
@@ -5792,11 +6161,10 @@ func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// LaunchTemplateCpuOptionsAmdSevSnpInput is an input type that accepts values of the LaunchTemplateCpuOptionsAmdSevSnp enum
-// A concrete instance of `LaunchTemplateCpuOptionsAmdSevSnpInput` can be one of the following:
+// LaunchTemplateCpuOptionsAmdSevSnpInput is an input type that accepts LaunchTemplateCpuOptionsAmdSevSnpArgs and LaunchTemplateCpuOptionsAmdSevSnpOutput values.
+// You can construct a concrete instance of `LaunchTemplateCpuOptionsAmdSevSnpInput` via:
 //
-//	LaunchTemplateCpuOptionsAmdSevSnpEnabled
-//	LaunchTemplateCpuOptionsAmdSevSnpDisabled
+//	LaunchTemplateCpuOptionsAmdSevSnpArgs{...}
 type LaunchTemplateCpuOptionsAmdSevSnpInput interface {
 	pulumi.Input
 
@@ -5869,6 +6237,12 @@ func (o NetworkInsightsAccessScopeAnalysisFindingsFoundOutput) ToNetworkInsights
 	}).(NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput)
 }
 
+func (o NetworkInsightsAccessScopeAnalysisFindingsFoundOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkInsightsAccessScopeAnalysisFindingsFound] {
+	return pulumix.Output[NetworkInsightsAccessScopeAnalysisFindingsFound]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInsightsAccessScopeAnalysisFindingsFoundOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5902,6 +6276,12 @@ func (o NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput) ToNetworkInsig
 
 func (o NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput) ToNetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput {
 	return o
+}
+
+func (o NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAccessScopeAnalysisFindingsFound] {
+	return pulumix.Output[*NetworkInsightsAccessScopeAnalysisFindingsFound]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput) Elem() NetworkInsightsAccessScopeAnalysisFindingsFoundOutput {
@@ -5960,6 +6340,12 @@ func (o NetworkInsightsAccessScopeAnalysisStatusOutput) ToNetworkInsightsAccessS
 	}).(NetworkInsightsAccessScopeAnalysisStatusPtrOutput)
 }
 
+func (o NetworkInsightsAccessScopeAnalysisStatusOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkInsightsAccessScopeAnalysisStatus] {
+	return pulumix.Output[NetworkInsightsAccessScopeAnalysisStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInsightsAccessScopeAnalysisStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5993,6 +6379,12 @@ func (o NetworkInsightsAccessScopeAnalysisStatusPtrOutput) ToNetworkInsightsAcce
 
 func (o NetworkInsightsAccessScopeAnalysisStatusPtrOutput) ToNetworkInsightsAccessScopeAnalysisStatusPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAnalysisStatusPtrOutput {
 	return o
+}
+
+func (o NetworkInsightsAccessScopeAnalysisStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAccessScopeAnalysisStatus] {
+	return pulumix.Output[*NetworkInsightsAccessScopeAnalysisStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsAccessScopeAnalysisStatusPtrOutput) Elem() NetworkInsightsAccessScopeAnalysisStatusOutput {
@@ -6086,6 +6478,12 @@ func (o NetworkInsightsAccessScopeProtocolOutput) ToNetworkInsightsAccessScopePr
 	}).(NetworkInsightsAccessScopeProtocolPtrOutput)
 }
 
+func (o NetworkInsightsAccessScopeProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkInsightsAccessScopeProtocol] {
+	return pulumix.Output[NetworkInsightsAccessScopeProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInsightsAccessScopeProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6121,6 +6519,12 @@ func (o NetworkInsightsAccessScopeProtocolPtrOutput) ToNetworkInsightsAccessScop
 	return o
 }
 
+func (o NetworkInsightsAccessScopeProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAccessScopeProtocol] {
+	return pulumix.Output[*NetworkInsightsAccessScopeProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInsightsAccessScopeProtocolPtrOutput) Elem() NetworkInsightsAccessScopeProtocolOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeProtocol) NetworkInsightsAccessScopeProtocol {
 		if v != nil {
@@ -6145,11 +6549,10 @@ func (o NetworkInsightsAccessScopeProtocolPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkInsightsAccessScopeProtocolInput is an input type that accepts values of the NetworkInsightsAccessScopeProtocol enum
-// A concrete instance of `NetworkInsightsAccessScopeProtocolInput` can be one of the following:
+// NetworkInsightsAccessScopeProtocolInput is an input type that accepts NetworkInsightsAccessScopeProtocolArgs and NetworkInsightsAccessScopeProtocolOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopeProtocolInput` via:
 //
-//	NetworkInsightsAccessScopeProtocolTcp
-//	NetworkInsightsAccessScopeProtocolUdp
+//	NetworkInsightsAccessScopeProtocolArgs{...}
 type NetworkInsightsAccessScopeProtocolInput interface {
 	pulumi.Input
 
@@ -6215,6 +6618,12 @@ func (i NetworkInsightsAccessScopeProtocolArray) ToNetworkInsightsAccessScopePro
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeProtocolArrayOutput)
 }
 
+func (i NetworkInsightsAccessScopeProtocolArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkInsightsAccessScopeProtocol] {
+	return pulumix.Output[[]NetworkInsightsAccessScopeProtocol]{
+		OutputState: i.ToNetworkInsightsAccessScopeProtocolArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkInsightsAccessScopeProtocolArrayOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAccessScopeProtocolArrayOutput) ElementType() reflect.Type {
@@ -6227,6 +6636,12 @@ func (o NetworkInsightsAccessScopeProtocolArrayOutput) ToNetworkInsightsAccessSc
 
 func (o NetworkInsightsAccessScopeProtocolArrayOutput) ToNetworkInsightsAccessScopeProtocolArrayOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeProtocolArrayOutput {
 	return o
+}
+
+func (o NetworkInsightsAccessScopeProtocolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkInsightsAccessScopeProtocol] {
+	return pulumix.Output[[]NetworkInsightsAccessScopeProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsAccessScopeProtocolArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAccessScopeProtocolOutput {
@@ -6267,6 +6682,12 @@ func (o NetworkInsightsAnalysisStatusOutput) ToNetworkInsightsAnalysisStatusPtrO
 	}).(NetworkInsightsAnalysisStatusPtrOutput)
 }
 
+func (o NetworkInsightsAnalysisStatusOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkInsightsAnalysisStatus] {
+	return pulumix.Output[NetworkInsightsAnalysisStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInsightsAnalysisStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6300,6 +6721,12 @@ func (o NetworkInsightsAnalysisStatusPtrOutput) ToNetworkInsightsAnalysisStatusP
 
 func (o NetworkInsightsAnalysisStatusPtrOutput) ToNetworkInsightsAnalysisStatusPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisStatusPtrOutput {
 	return o
+}
+
+func (o NetworkInsightsAnalysisStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAnalysisStatus] {
+	return pulumix.Output[*NetworkInsightsAnalysisStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsAnalysisStatusPtrOutput) Elem() NetworkInsightsAnalysisStatusOutput {
@@ -6393,6 +6820,12 @@ func (o NetworkInsightsPathProtocolOutput) ToNetworkInsightsPathProtocolPtrOutpu
 	}).(NetworkInsightsPathProtocolPtrOutput)
 }
 
+func (o NetworkInsightsPathProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkInsightsPathProtocol] {
+	return pulumix.Output[NetworkInsightsPathProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInsightsPathProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6428,6 +6861,12 @@ func (o NetworkInsightsPathProtocolPtrOutput) ToNetworkInsightsPathProtocolPtrOu
 	return o
 }
 
+func (o NetworkInsightsPathProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsPathProtocol] {
+	return pulumix.Output[*NetworkInsightsPathProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInsightsPathProtocolPtrOutput) Elem() NetworkInsightsPathProtocolOutput {
 	return o.ApplyT(func(v *NetworkInsightsPathProtocol) NetworkInsightsPathProtocol {
 		if v != nil {
@@ -6452,11 +6891,10 @@ func (o NetworkInsightsPathProtocolPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkInsightsPathProtocolInput is an input type that accepts values of the NetworkInsightsPathProtocol enum
-// A concrete instance of `NetworkInsightsPathProtocolInput` can be one of the following:
+// NetworkInsightsPathProtocolInput is an input type that accepts NetworkInsightsPathProtocolArgs and NetworkInsightsPathProtocolOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathProtocolInput` via:
 //
-//	NetworkInsightsPathProtocolTcp
-//	NetworkInsightsPathProtocolUdp
+//	NetworkInsightsPathProtocolArgs{...}
 type NetworkInsightsPathProtocolInput interface {
 	pulumi.Input
 
@@ -6565,6 +7003,12 @@ func (o PrefixListAddressFamilyOutput) ToPrefixListAddressFamilyPtrOutputWithCon
 	}).(PrefixListAddressFamilyPtrOutput)
 }
 
+func (o PrefixListAddressFamilyOutput) ToOutput(ctx context.Context) pulumix.Output[PrefixListAddressFamily] {
+	return pulumix.Output[PrefixListAddressFamily]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PrefixListAddressFamilyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6600,6 +7044,12 @@ func (o PrefixListAddressFamilyPtrOutput) ToPrefixListAddressFamilyPtrOutputWith
 	return o
 }
 
+func (o PrefixListAddressFamilyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrefixListAddressFamily] {
+	return pulumix.Output[*PrefixListAddressFamily]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PrefixListAddressFamilyPtrOutput) Elem() PrefixListAddressFamilyOutput {
 	return o.ApplyT(func(v *PrefixListAddressFamily) PrefixListAddressFamily {
 		if v != nil {
@@ -6624,11 +7074,10 @@ func (o PrefixListAddressFamilyPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// PrefixListAddressFamilyInput is an input type that accepts values of the PrefixListAddressFamily enum
-// A concrete instance of `PrefixListAddressFamilyInput` can be one of the following:
+// PrefixListAddressFamilyInput is an input type that accepts PrefixListAddressFamilyArgs and PrefixListAddressFamilyOutput values.
+// You can construct a concrete instance of `PrefixListAddressFamilyInput` via:
 //
-//	PrefixListAddressFamilyIPv4
-//	PrefixListAddressFamilyIPv6
+//	PrefixListAddressFamilyArgs{...}
 type PrefixListAddressFamilyInput interface {
 	pulumi.Input
 
@@ -6737,6 +7186,12 @@ func (o SnapshotBlockPublicAccessStateEnumOutput) ToSnapshotBlockPublicAccessSta
 	}).(SnapshotBlockPublicAccessStateEnumPtrOutput)
 }
 
+func (o SnapshotBlockPublicAccessStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[SnapshotBlockPublicAccessStateEnum] {
+	return pulumix.Output[SnapshotBlockPublicAccessStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SnapshotBlockPublicAccessStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6772,6 +7227,12 @@ func (o SnapshotBlockPublicAccessStateEnumPtrOutput) ToSnapshotBlockPublicAccess
 	return o
 }
 
+func (o SnapshotBlockPublicAccessStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotBlockPublicAccessStateEnum] {
+	return pulumix.Output[*SnapshotBlockPublicAccessStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SnapshotBlockPublicAccessStateEnumPtrOutput) Elem() SnapshotBlockPublicAccessStateEnumOutput {
 	return o.ApplyT(func(v *SnapshotBlockPublicAccessStateEnum) SnapshotBlockPublicAccessStateEnum {
 		if v != nil {
@@ -6796,11 +7257,10 @@ func (o SnapshotBlockPublicAccessStateEnumPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// SnapshotBlockPublicAccessStateEnumInput is an input type that accepts values of the SnapshotBlockPublicAccessStateEnum enum
-// A concrete instance of `SnapshotBlockPublicAccessStateEnumInput` can be one of the following:
+// SnapshotBlockPublicAccessStateEnumInput is an input type that accepts SnapshotBlockPublicAccessStateEnumArgs and SnapshotBlockPublicAccessStateEnumOutput values.
+// You can construct a concrete instance of `SnapshotBlockPublicAccessStateEnumInput` via:
 //
-//	SnapshotBlockPublicAccessStateEnumBlockAllSharing
-//	SnapshotBlockPublicAccessStateEnumBlockNewSharing
+//	SnapshotBlockPublicAccessStateEnumArgs{...}
 type SnapshotBlockPublicAccessStateEnumInput interface {
 	pulumi.Input
 
@@ -6913,6 +7373,12 @@ func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToSpotFleetEbsBlockDeviceVolume
 	}).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
 }
 
+func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetEbsBlockDeviceVolumeType] {
+	return pulumix.Output[SpotFleetEbsBlockDeviceVolumeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6948,6 +7414,12 @@ func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) ToSpotFleetEbsBlockDeviceVol
 	return o
 }
 
+func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetEbsBlockDeviceVolumeType] {
+	return pulumix.Output[*SpotFleetEbsBlockDeviceVolumeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) Elem() SpotFleetEbsBlockDeviceVolumeTypeOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDeviceVolumeType) SpotFleetEbsBlockDeviceVolumeType {
 		if v != nil {
@@ -6972,16 +7444,10 @@ func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetEbsBlockDeviceVolumeTypeInput is an input type that accepts values of the SpotFleetEbsBlockDeviceVolumeType enum
-// A concrete instance of `SpotFleetEbsBlockDeviceVolumeTypeInput` can be one of the following:
+// SpotFleetEbsBlockDeviceVolumeTypeInput is an input type that accepts SpotFleetEbsBlockDeviceVolumeTypeArgs and SpotFleetEbsBlockDeviceVolumeTypeOutput values.
+// You can construct a concrete instance of `SpotFleetEbsBlockDeviceVolumeTypeInput` via:
 //
-//	SpotFleetEbsBlockDeviceVolumeTypeGp2
-//	SpotFleetEbsBlockDeviceVolumeTypeGp3
-//	SpotFleetEbsBlockDeviceVolumeTypeIo1
-//	SpotFleetEbsBlockDeviceVolumeTypeIo2
-//	SpotFleetEbsBlockDeviceVolumeTypeSc1
-//	SpotFleetEbsBlockDeviceVolumeTypeSt1
-//	SpotFleetEbsBlockDeviceVolumeTypeStandard
+//	SpotFleetEbsBlockDeviceVolumeTypeArgs{...}
 type SpotFleetEbsBlockDeviceVolumeTypeInput interface {
 	pulumi.Input
 
@@ -7092,6 +7558,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) 
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7127,6 +7599,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutpu
 	return o
 }
 
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem {
 		if v != nil {
@@ -7151,14 +7629,10 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput is an input type that accepts values of the SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem enum
-// A concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput` can be one of the following:
+// SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs and SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput` via:
 //
-//	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemAmazonWebServices
-//	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemAmd
-//	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemHabana
-//	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemNvidia
-//	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemXilinx
+//	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...}
 type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput interface {
 	pulumi.Input
 
@@ -7224,6 +7698,12 @@ func (i SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) T
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
 }
 
+func (i SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: i.ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ElementType() reflect.Type {
@@ -7236,6 +7716,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOut
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
@@ -7321,6 +7807,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToSpotFl
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7356,6 +7848,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToSpo
 	return o
 }
 
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) SpotFleetInstanceRequirementsRequestAcceleratorNamesItem {
 		if v != nil {
@@ -7380,21 +7878,10 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput is an input type that accepts values of the SpotFleetInstanceRequirementsRequestAcceleratorNamesItem enum
-// A concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput` can be one of the following:
+// SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArgs and SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput` via:
 //
-//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemA10g
-//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemA100
-//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemH100
-//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInferentia
-//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemK520
-//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemK80
-//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemM60
-//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemRadeonProV520
-//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemT4
-//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemT4g
-//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemVu9p
-//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemV100
+//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...}
 type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput interface {
 	pulumi.Input
 
@@ -7460,6 +7947,12 @@ func (i SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray) ToSpotFle
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
 }
 
+func (i SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: i.ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ElementType() reflect.Type {
@@ -7472,6 +7965,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToS
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
@@ -7548,6 +8047,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToSpotFl
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7583,6 +8088,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToSpo
 	return o
 }
 
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) SpotFleetInstanceRequirementsRequestAcceleratorTypesItem {
 		if v != nil {
@@ -7607,12 +8118,10 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput is an input type that accepts values of the SpotFleetInstanceRequirementsRequestAcceleratorTypesItem enum
-// A concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput` can be one of the following:
+// SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArgs and SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput` via:
 //
-//	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemGpu
-//	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemFpga
-//	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInference
+//	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...}
 type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput interface {
 	pulumi.Input
 
@@ -7678,6 +8187,12 @@ func (i SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray) ToSpotFle
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+func (i SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: i.ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ElementType() reflect.Type {
@@ -7690,6 +8205,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToS
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
@@ -7766,6 +8287,12 @@ func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToSpotFleetInstance
 	}).(SpotFleetInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestBareMetal] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestBareMetal]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7801,6 +8328,12 @@ func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) ToSpotFleetInsta
 	return o
 }
 
+func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestBareMetal] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestBareMetal]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) Elem() SpotFleetInstanceRequirementsRequestBareMetalOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestBareMetal) SpotFleetInstanceRequirementsRequestBareMetal {
 		if v != nil {
@@ -7825,12 +8358,10 @@ func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetInstanceRequirementsRequestBareMetalInput is an input type that accepts values of the SpotFleetInstanceRequirementsRequestBareMetal enum
-// A concrete instance of `SpotFleetInstanceRequirementsRequestBareMetalInput` can be one of the following:
+// SpotFleetInstanceRequirementsRequestBareMetalInput is an input type that accepts SpotFleetInstanceRequirementsRequestBareMetalArgs and SpotFleetInstanceRequirementsRequestBareMetalOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestBareMetalInput` via:
 //
-//	SpotFleetInstanceRequirementsRequestBareMetalIncluded
-//	SpotFleetInstanceRequirementsRequestBareMetalRequired
-//	SpotFleetInstanceRequirementsRequestBareMetalExcluded
+//	SpotFleetInstanceRequirementsRequestBareMetalArgs{...}
 type SpotFleetInstanceRequirementsRequestBareMetalInput interface {
 	pulumi.Input
 
@@ -7939,6 +8470,12 @@ func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToSpotFl
 	}).(SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestBurstablePerformance] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestBurstablePerformance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7974,6 +8511,12 @@ func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToSpo
 	return o
 }
 
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestBurstablePerformance] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestBurstablePerformance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) Elem() SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestBurstablePerformance) SpotFleetInstanceRequirementsRequestBurstablePerformance {
 		if v != nil {
@@ -7998,12 +8541,10 @@ func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetInstanceRequirementsRequestBurstablePerformanceInput is an input type that accepts values of the SpotFleetInstanceRequirementsRequestBurstablePerformance enum
-// A concrete instance of `SpotFleetInstanceRequirementsRequestBurstablePerformanceInput` can be one of the following:
+// SpotFleetInstanceRequirementsRequestBurstablePerformanceInput is an input type that accepts SpotFleetInstanceRequirementsRequestBurstablePerformanceArgs and SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestBurstablePerformanceInput` via:
 //
-//	SpotFleetInstanceRequirementsRequestBurstablePerformanceIncluded
-//	SpotFleetInstanceRequirementsRequestBurstablePerformanceRequired
-//	SpotFleetInstanceRequirementsRequestBurstablePerformanceExcluded
+//	SpotFleetInstanceRequirementsRequestBurstablePerformanceArgs{...}
 type SpotFleetInstanceRequirementsRequestBurstablePerformanceInput interface {
 	pulumi.Input
 
@@ -8112,6 +8653,12 @@ func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToSpotFl
 	}).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8147,6 +8694,12 @@ func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToSpo
 	return o
 }
 
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestCpuManufacturersItem) SpotFleetInstanceRequirementsRequestCpuManufacturersItem {
 		if v != nil {
@@ -8171,12 +8724,10 @@ func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetInstanceRequirementsRequestCpuManufacturersItemInput is an input type that accepts values of the SpotFleetInstanceRequirementsRequestCpuManufacturersItem enum
-// A concrete instance of `SpotFleetInstanceRequirementsRequestCpuManufacturersItemInput` can be one of the following:
+// SpotFleetInstanceRequirementsRequestCpuManufacturersItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestCpuManufacturersItemArgs and SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestCpuManufacturersItemInput` via:
 //
-//	SpotFleetInstanceRequirementsRequestCpuManufacturersItemIntel
-//	SpotFleetInstanceRequirementsRequestCpuManufacturersItemAmd
-//	SpotFleetInstanceRequirementsRequestCpuManufacturersItemAmazonWebServices
+//	SpotFleetInstanceRequirementsRequestCpuManufacturersItemArgs{...}
 type SpotFleetInstanceRequirementsRequestCpuManufacturersItemInput interface {
 	pulumi.Input
 
@@ -8242,6 +8793,12 @@ func (i SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray) ToSpotFle
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
 }
 
+func (i SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: i.ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ElementType() reflect.Type {
@@ -8254,6 +8811,12 @@ func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToS
 
 func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput {
@@ -8329,6 +8892,12 @@ func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToSpo
 	}).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8364,6 +8933,12 @@ func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) To
 	return o
 }
 
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) SpotFleetInstanceRequirementsRequestInstanceGenerationsItem {
 		if v != nil {
@@ -8388,11 +8963,10 @@ func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) To
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetInstanceRequirementsRequestInstanceGenerationsItemInput is an input type that accepts values of the SpotFleetInstanceRequirementsRequestInstanceGenerationsItem enum
-// A concrete instance of `SpotFleetInstanceRequirementsRequestInstanceGenerationsItemInput` can be one of the following:
+// SpotFleetInstanceRequirementsRequestInstanceGenerationsItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArgs and SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestInstanceGenerationsItemInput` via:
 //
-//	SpotFleetInstanceRequirementsRequestInstanceGenerationsItemCurrent
-//	SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPrevious
+//	SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...}
 type SpotFleetInstanceRequirementsRequestInstanceGenerationsItemInput interface {
 	pulumi.Input
 
@@ -8458,6 +9032,12 @@ func (i SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray) ToSpot
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
 }
 
+func (i SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: i.ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ElementType() reflect.Type {
@@ -8470,6 +9050,12 @@ func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) 
 
 func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
@@ -8546,6 +9132,12 @@ func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToSpotFleetInsta
 	}).(SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestLocalStorage] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestLocalStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8581,6 +9173,12 @@ func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) ToSpotFleetIn
 	return o
 }
 
+func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestLocalStorage] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestLocalStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) Elem() SpotFleetInstanceRequirementsRequestLocalStorageOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestLocalStorage) SpotFleetInstanceRequirementsRequestLocalStorage {
 		if v != nil {
@@ -8605,12 +9203,10 @@ func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) ToStringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetInstanceRequirementsRequestLocalStorageInput is an input type that accepts values of the SpotFleetInstanceRequirementsRequestLocalStorage enum
-// A concrete instance of `SpotFleetInstanceRequirementsRequestLocalStorageInput` can be one of the following:
+// SpotFleetInstanceRequirementsRequestLocalStorageInput is an input type that accepts SpotFleetInstanceRequirementsRequestLocalStorageArgs and SpotFleetInstanceRequirementsRequestLocalStorageOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestLocalStorageInput` via:
 //
-//	SpotFleetInstanceRequirementsRequestLocalStorageIncluded
-//	SpotFleetInstanceRequirementsRequestLocalStorageRequired
-//	SpotFleetInstanceRequirementsRequestLocalStorageExcluded
+//	SpotFleetInstanceRequirementsRequestLocalStorageArgs{...}
 type SpotFleetInstanceRequirementsRequestLocalStorageInput interface {
 	pulumi.Input
 
@@ -8718,6 +9314,12 @@ func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToSpotF
 	}).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8753,6 +9355,12 @@ func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToSp
 	return o
 }
 
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) SpotFleetInstanceRequirementsRequestLocalStorageTypesItem {
 		if v != nil {
@@ -8777,11 +9385,10 @@ func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetInstanceRequirementsRequestLocalStorageTypesItemInput is an input type that accepts values of the SpotFleetInstanceRequirementsRequestLocalStorageTypesItem enum
-// A concrete instance of `SpotFleetInstanceRequirementsRequestLocalStorageTypesItemInput` can be one of the following:
+// SpotFleetInstanceRequirementsRequestLocalStorageTypesItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArgs and SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestLocalStorageTypesItemInput` via:
 //
-//	SpotFleetInstanceRequirementsRequestLocalStorageTypesItemHdd
-//	SpotFleetInstanceRequirementsRequestLocalStorageTypesItemSsd
+//	SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...}
 type SpotFleetInstanceRequirementsRequestLocalStorageTypesItemInput interface {
 	pulumi.Input
 
@@ -8847,6 +9454,12 @@ func (i SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray) ToSpotFl
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
 }
 
+func (i SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: i.ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ElementType() reflect.Type {
@@ -8859,6 +9472,12 @@ func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) To
 
 func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
@@ -8937,6 +9556,12 @@ func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToSpotFleetRequestCo
 	}).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
 }
 
+func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetRequestConfigDataAllocationStrategy] {
+	return pulumix.Output[SpotFleetRequestConfigDataAllocationStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8972,6 +9597,12 @@ func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToSpotFleetReques
 	return o
 }
 
+func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataAllocationStrategy] {
+	return pulumix.Output[*SpotFleetRequestConfigDataAllocationStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) Elem() SpotFleetRequestConfigDataAllocationStrategyOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigDataAllocationStrategy) SpotFleetRequestConfigDataAllocationStrategy {
 		if v != nil {
@@ -8996,14 +9627,10 @@ func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetRequestConfigDataAllocationStrategyInput is an input type that accepts values of the SpotFleetRequestConfigDataAllocationStrategy enum
-// A concrete instance of `SpotFleetRequestConfigDataAllocationStrategyInput` can be one of the following:
+// SpotFleetRequestConfigDataAllocationStrategyInput is an input type that accepts SpotFleetRequestConfigDataAllocationStrategyArgs and SpotFleetRequestConfigDataAllocationStrategyOutput values.
+// You can construct a concrete instance of `SpotFleetRequestConfigDataAllocationStrategyInput` via:
 //
-//	SpotFleetRequestConfigDataAllocationStrategyCapacityOptimized
-//	SpotFleetRequestConfigDataAllocationStrategyCapacityOptimizedPrioritized
-//	SpotFleetRequestConfigDataAllocationStrategyDiversified
-//	SpotFleetRequestConfigDataAllocationStrategyLowestPrice
-//	SpotFleetRequestConfigDataAllocationStrategyPriceCapacityOptimized
+//	SpotFleetRequestConfigDataAllocationStrategyArgs{...}
 type SpotFleetRequestConfigDataAllocationStrategyInput interface {
 	pulumi.Input
 
@@ -9111,6 +9738,12 @@ func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToSpotF
 	}).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
 }
 
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetRequestConfigDataExcessCapacityTerminationPolicy] {
+	return pulumix.Output[SpotFleetRequestConfigDataExcessCapacityTerminationPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9146,6 +9779,12 @@ func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToSp
 	return o
 }
 
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataExcessCapacityTerminationPolicy] {
+	return pulumix.Output[*SpotFleetRequestConfigDataExcessCapacityTerminationPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) Elem() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) SpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
 		if v != nil {
@@ -9170,11 +9809,10 @@ func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput is an input type that accepts values of the SpotFleetRequestConfigDataExcessCapacityTerminationPolicy enum
-// A concrete instance of `SpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput` can be one of the following:
+// SpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput is an input type that accepts SpotFleetRequestConfigDataExcessCapacityTerminationPolicyArgs and SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput values.
+// You can construct a concrete instance of `SpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput` via:
 //
-//	SpotFleetRequestConfigDataExcessCapacityTerminationPolicyDefault
-//	SpotFleetRequestConfigDataExcessCapacityTerminationPolicyNoTermination
+//	SpotFleetRequestConfigDataExcessCapacityTerminationPolicyArgs{...}
 type SpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput interface {
 	pulumi.Input
 
@@ -9283,6 +9921,12 @@ func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToSpotFlee
 	}).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
 }
 
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetRequestConfigDataInstanceInterruptionBehavior] {
+	return pulumix.Output[SpotFleetRequestConfigDataInstanceInterruptionBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9318,6 +9962,12 @@ func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToSpotF
 	return o
 }
 
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataInstanceInterruptionBehavior] {
+	return pulumix.Output[*SpotFleetRequestConfigDataInstanceInterruptionBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) Elem() SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigDataInstanceInterruptionBehavior) SpotFleetRequestConfigDataInstanceInterruptionBehavior {
 		if v != nil {
@@ -9342,12 +9992,10 @@ func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetRequestConfigDataInstanceInterruptionBehaviorInput is an input type that accepts values of the SpotFleetRequestConfigDataInstanceInterruptionBehavior enum
-// A concrete instance of `SpotFleetRequestConfigDataInstanceInterruptionBehaviorInput` can be one of the following:
+// SpotFleetRequestConfigDataInstanceInterruptionBehaviorInput is an input type that accepts SpotFleetRequestConfigDataInstanceInterruptionBehaviorArgs and SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput values.
+// You can construct a concrete instance of `SpotFleetRequestConfigDataInstanceInterruptionBehaviorInput` via:
 //
-//	SpotFleetRequestConfigDataInstanceInterruptionBehaviorHibernate
-//	SpotFleetRequestConfigDataInstanceInterruptionBehaviorStop
-//	SpotFleetRequestConfigDataInstanceInterruptionBehaviorTerminate
+//	SpotFleetRequestConfigDataInstanceInterruptionBehaviorArgs{...}
 type SpotFleetRequestConfigDataInstanceInterruptionBehaviorInput interface {
 	pulumi.Input
 
@@ -9456,6 +10104,12 @@ func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToSpotFleetReque
 	}).(SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput)
 }
 
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetRequestConfigDataTargetCapacityUnitType] {
+	return pulumix.Output[SpotFleetRequestConfigDataTargetCapacityUnitType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9491,6 +10145,12 @@ func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) ToSpotFleetRe
 	return o
 }
 
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataTargetCapacityUnitType] {
+	return pulumix.Output[*SpotFleetRequestConfigDataTargetCapacityUnitType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) Elem() SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigDataTargetCapacityUnitType) SpotFleetRequestConfigDataTargetCapacityUnitType {
 		if v != nil {
@@ -9515,12 +10175,10 @@ func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) ToStringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetRequestConfigDataTargetCapacityUnitTypeInput is an input type that accepts values of the SpotFleetRequestConfigDataTargetCapacityUnitType enum
-// A concrete instance of `SpotFleetRequestConfigDataTargetCapacityUnitTypeInput` can be one of the following:
+// SpotFleetRequestConfigDataTargetCapacityUnitTypeInput is an input type that accepts SpotFleetRequestConfigDataTargetCapacityUnitTypeArgs and SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput values.
+// You can construct a concrete instance of `SpotFleetRequestConfigDataTargetCapacityUnitTypeInput` via:
 //
-//	SpotFleetRequestConfigDataTargetCapacityUnitTypeVcpu
-//	SpotFleetRequestConfigDataTargetCapacityUnitTypeMemoryMib
-//	SpotFleetRequestConfigDataTargetCapacityUnitTypeUnits
+//	SpotFleetRequestConfigDataTargetCapacityUnitTypeArgs{...}
 type SpotFleetRequestConfigDataTargetCapacityUnitTypeInput interface {
 	pulumi.Input
 
@@ -9628,6 +10286,12 @@ func (o SpotFleetRequestConfigDataTypeOutput) ToSpotFleetRequestConfigDataTypePt
 	}).(SpotFleetRequestConfigDataTypePtrOutput)
 }
 
+func (o SpotFleetRequestConfigDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetRequestConfigDataType] {
+	return pulumix.Output[SpotFleetRequestConfigDataType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9663,6 +10327,12 @@ func (o SpotFleetRequestConfigDataTypePtrOutput) ToSpotFleetRequestConfigDataTyp
 	return o
 }
 
+func (o SpotFleetRequestConfigDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataType] {
+	return pulumix.Output[*SpotFleetRequestConfigDataType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataTypePtrOutput) Elem() SpotFleetRequestConfigDataTypeOutput {
 	return o.ApplyT(func(v *SpotFleetRequestConfigDataType) SpotFleetRequestConfigDataType {
 		if v != nil {
@@ -9687,11 +10357,10 @@ func (o SpotFleetRequestConfigDataTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetRequestConfigDataTypeInput is an input type that accepts values of the SpotFleetRequestConfigDataType enum
-// A concrete instance of `SpotFleetRequestConfigDataTypeInput` can be one of the following:
+// SpotFleetRequestConfigDataTypeInput is an input type that accepts SpotFleetRequestConfigDataTypeArgs and SpotFleetRequestConfigDataTypeOutput values.
+// You can construct a concrete instance of `SpotFleetRequestConfigDataTypeInput` via:
 //
-//	SpotFleetRequestConfigDataTypeMaintain
-//	SpotFleetRequestConfigDataTypeRequest
+//	SpotFleetRequestConfigDataTypeArgs{...}
 type SpotFleetRequestConfigDataTypeInput interface {
 	pulumi.Input
 
@@ -9799,6 +10468,12 @@ func (o SpotFleetSpotCapacityRebalanceReplacementStrategyOutput) ToSpotFleetSpot
 	}).(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
+func (o SpotFleetSpotCapacityRebalanceReplacementStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetSpotCapacityRebalanceReplacementStrategy] {
+	return pulumix.Output[SpotFleetSpotCapacityRebalanceReplacementStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetSpotCapacityRebalanceReplacementStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9834,6 +10509,12 @@ func (o SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput) ToSpotFleetS
 	return o
 }
 
+func (o SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetSpotCapacityRebalanceReplacementStrategy] {
+	return pulumix.Output[*SpotFleetSpotCapacityRebalanceReplacementStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput) Elem() SpotFleetSpotCapacityRebalanceReplacementStrategyOutput {
 	return o.ApplyT(func(v *SpotFleetSpotCapacityRebalanceReplacementStrategy) SpotFleetSpotCapacityRebalanceReplacementStrategy {
 		if v != nil {
@@ -9858,11 +10539,10 @@ func (o SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetSpotCapacityRebalanceReplacementStrategyInput is an input type that accepts values of the SpotFleetSpotCapacityRebalanceReplacementStrategy enum
-// A concrete instance of `SpotFleetSpotCapacityRebalanceReplacementStrategyInput` can be one of the following:
+// SpotFleetSpotCapacityRebalanceReplacementStrategyInput is an input type that accepts SpotFleetSpotCapacityRebalanceReplacementStrategyArgs and SpotFleetSpotCapacityRebalanceReplacementStrategyOutput values.
+// You can construct a concrete instance of `SpotFleetSpotCapacityRebalanceReplacementStrategyInput` via:
 //
-//	SpotFleetSpotCapacityRebalanceReplacementStrategyLaunch
-//	SpotFleetSpotCapacityRebalanceReplacementStrategyLaunchBeforeTerminate
+//	SpotFleetSpotCapacityRebalanceReplacementStrategyArgs{...}
 type SpotFleetSpotCapacityRebalanceReplacementStrategyInput interface {
 	pulumi.Input
 
@@ -9971,6 +10651,12 @@ func (o SpotFleetSpotPlacementTenancyOutput) ToSpotFleetSpotPlacementTenancyPtrO
 	}).(SpotFleetSpotPlacementTenancyPtrOutput)
 }
 
+func (o SpotFleetSpotPlacementTenancyOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetSpotPlacementTenancy] {
+	return pulumix.Output[SpotFleetSpotPlacementTenancy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetSpotPlacementTenancyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10006,6 +10692,12 @@ func (o SpotFleetSpotPlacementTenancyPtrOutput) ToSpotFleetSpotPlacementTenancyP
 	return o
 }
 
+func (o SpotFleetSpotPlacementTenancyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetSpotPlacementTenancy] {
+	return pulumix.Output[*SpotFleetSpotPlacementTenancy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetSpotPlacementTenancyPtrOutput) Elem() SpotFleetSpotPlacementTenancyOutput {
 	return o.ApplyT(func(v *SpotFleetSpotPlacementTenancy) SpotFleetSpotPlacementTenancy {
 		if v != nil {
@@ -10030,12 +10722,10 @@ func (o SpotFleetSpotPlacementTenancyPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetSpotPlacementTenancyInput is an input type that accepts values of the SpotFleetSpotPlacementTenancy enum
-// A concrete instance of `SpotFleetSpotPlacementTenancyInput` can be one of the following:
+// SpotFleetSpotPlacementTenancyInput is an input type that accepts SpotFleetSpotPlacementTenancyArgs and SpotFleetSpotPlacementTenancyOutput values.
+// You can construct a concrete instance of `SpotFleetSpotPlacementTenancyInput` via:
 //
-//	SpotFleetSpotPlacementTenancyDedicated
-//	SpotFleetSpotPlacementTenancyDefault
-//	SpotFleetSpotPlacementTenancyHost
+//	SpotFleetSpotPlacementTenancyArgs{...}
 type SpotFleetSpotPlacementTenancyInput interface {
 	pulumi.Input
 
@@ -10188,6 +10878,12 @@ func (o SpotFleetTagSpecificationResourceTypeOutput) ToSpotFleetTagSpecification
 	}).(SpotFleetTagSpecificationResourceTypePtrOutput)
 }
 
+func (o SpotFleetTagSpecificationResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetTagSpecificationResourceType] {
+	return pulumix.Output[SpotFleetTagSpecificationResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetTagSpecificationResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10223,6 +10919,12 @@ func (o SpotFleetTagSpecificationResourceTypePtrOutput) ToSpotFleetTagSpecificat
 	return o
 }
 
+func (o SpotFleetTagSpecificationResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetTagSpecificationResourceType] {
+	return pulumix.Output[*SpotFleetTagSpecificationResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetTagSpecificationResourceTypePtrOutput) Elem() SpotFleetTagSpecificationResourceTypeOutput {
 	return o.ApplyT(func(v *SpotFleetTagSpecificationResourceType) SpotFleetTagSpecificationResourceType {
 		if v != nil {
@@ -10247,56 +10949,10 @@ func (o SpotFleetTagSpecificationResourceTypePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// SpotFleetTagSpecificationResourceTypeInput is an input type that accepts values of the SpotFleetTagSpecificationResourceType enum
-// A concrete instance of `SpotFleetTagSpecificationResourceTypeInput` can be one of the following:
+// SpotFleetTagSpecificationResourceTypeInput is an input type that accepts SpotFleetTagSpecificationResourceTypeArgs and SpotFleetTagSpecificationResourceTypeOutput values.
+// You can construct a concrete instance of `SpotFleetTagSpecificationResourceTypeInput` via:
 //
-//	SpotFleetTagSpecificationResourceTypeClientVpnEndpoint
-//	SpotFleetTagSpecificationResourceTypeCustomerGateway
-//	SpotFleetTagSpecificationResourceTypeDedicatedHost
-//	SpotFleetTagSpecificationResourceTypeDhcpOptions
-//	SpotFleetTagSpecificationResourceTypeEgressOnlyInternetGateway
-//	SpotFleetTagSpecificationResourceTypeElasticGpu
-//	SpotFleetTagSpecificationResourceTypeElasticIp
-//	SpotFleetTagSpecificationResourceTypeExportImageTask
-//	SpotFleetTagSpecificationResourceTypeExportInstanceTask
-//	SpotFleetTagSpecificationResourceTypeFleet
-//	SpotFleetTagSpecificationResourceTypeFpgaImage
-//	SpotFleetTagSpecificationResourceTypeHostReservation
-//	SpotFleetTagSpecificationResourceTypeImage
-//	SpotFleetTagSpecificationResourceTypeImportImageTask
-//	SpotFleetTagSpecificationResourceTypeImportSnapshotTask
-//	SpotFleetTagSpecificationResourceTypeInstance
-//	SpotFleetTagSpecificationResourceTypeInternetGateway
-//	SpotFleetTagSpecificationResourceTypeKeyPair
-//	SpotFleetTagSpecificationResourceTypeLaunchTemplate
-//	SpotFleetTagSpecificationResourceTypeLocalGatewayRouteTableVpcAssociation
-//	SpotFleetTagSpecificationResourceTypeNatgateway
-//	SpotFleetTagSpecificationResourceTypeNetworkAcl
-//	SpotFleetTagSpecificationResourceTypeNetworkInsightsAnalysis
-//	SpotFleetTagSpecificationResourceTypeNetworkInsightsPath
-//	SpotFleetTagSpecificationResourceTypeNetworkInterface
-//	SpotFleetTagSpecificationResourceTypePlacementGroup
-//	SpotFleetTagSpecificationResourceTypeReservedInstances
-//	SpotFleetTagSpecificationResourceTypeRouteTable
-//	SpotFleetTagSpecificationResourceTypeSecurityGroup
-//	SpotFleetTagSpecificationResourceTypeSnapshot
-//	SpotFleetTagSpecificationResourceTypeSpotFleetRequest
-//	SpotFleetTagSpecificationResourceTypeSpotInstancesRequest
-//	SpotFleetTagSpecificationResourceTypeSubnet
-//	SpotFleetTagSpecificationResourceTypeTrafficMirrorFilter
-//	SpotFleetTagSpecificationResourceTypeTrafficMirrorSession
-//	SpotFleetTagSpecificationResourceTypeTrafficMirrorTarget
-//	SpotFleetTagSpecificationResourceTypeTransitGateway
-//	SpotFleetTagSpecificationResourceTypeTransitGatewayAttachment
-//	SpotFleetTagSpecificationResourceTypeTransitGatewayConnectPeer
-//	SpotFleetTagSpecificationResourceTypeTransitGatewayMulticastDomain
-//	SpotFleetTagSpecificationResourceTypeTransitGatewayRouteTable
-//	SpotFleetTagSpecificationResourceTypeVolume
-//	SpotFleetTagSpecificationResourceTypeVpc
-//	SpotFleetTagSpecificationResourceTypeVpcFlowLog
-//	SpotFleetTagSpecificationResourceTypeVpcPeeringConnection
-//	SpotFleetTagSpecificationResourceTypeVpnConnection
-//	SpotFleetTagSpecificationResourceTypeVpnGateway
+//	SpotFleetTagSpecificationResourceTypeArgs{...}
 type SpotFleetTagSpecificationResourceTypeInput interface {
 	pulumi.Input
 
@@ -10405,6 +11061,12 @@ func (o VpcEndpointTypeOutput) ToVpcEndpointTypePtrOutputWithContext(ctx context
 	}).(VpcEndpointTypePtrOutput)
 }
 
+func (o VpcEndpointTypeOutput) ToOutput(ctx context.Context) pulumix.Output[VpcEndpointType] {
+	return pulumix.Output[VpcEndpointType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10440,6 +11102,12 @@ func (o VpcEndpointTypePtrOutput) ToVpcEndpointTypePtrOutputWithContext(ctx cont
 	return o
 }
 
+func (o VpcEndpointTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointType] {
+	return pulumix.Output[*VpcEndpointType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcEndpointTypePtrOutput) Elem() VpcEndpointTypeOutput {
 	return o.ApplyT(func(v *VpcEndpointType) VpcEndpointType {
 		if v != nil {
@@ -10464,12 +11132,10 @@ func (o VpcEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// VpcEndpointTypeInput is an input type that accepts values of the VpcEndpointType enum
-// A concrete instance of `VpcEndpointTypeInput` can be one of the following:
+// VpcEndpointTypeInput is an input type that accepts VpcEndpointTypeArgs and VpcEndpointTypeOutput values.
+// You can construct a concrete instance of `VpcEndpointTypeInput` via:
 //
-//	VpcEndpointTypeInterface
-//	VpcEndpointTypeGateway
-//	VpcEndpointTypeGatewayLoadBalancer
+//	VpcEndpointTypeArgs{...}
 type VpcEndpointTypeInput interface {
 	pulumi.Input
 

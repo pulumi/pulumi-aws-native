@@ -79,6 +79,12 @@ func (o AppAssessmentScheduleOutput) ToAppAssessmentSchedulePtrOutputWithContext
 	}).(AppAssessmentSchedulePtrOutput)
 }
 
+func (o AppAssessmentScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[AppAssessmentSchedule] {
+	return pulumix.Output[AppAssessmentSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppAssessmentScheduleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -114,6 +120,12 @@ func (o AppAssessmentSchedulePtrOutput) ToAppAssessmentSchedulePtrOutputWithCont
 	return o
 }
 
+func (o AppAssessmentSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppAssessmentSchedule] {
+	return pulumix.Output[*AppAssessmentSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppAssessmentSchedulePtrOutput) Elem() AppAssessmentScheduleOutput {
 	return o.ApplyT(func(v *AppAssessmentSchedule) AppAssessmentSchedule {
 		if v != nil {
@@ -138,11 +150,10 @@ func (o AppAssessmentSchedulePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AppAssessmentScheduleInput is an input type that accepts values of the AppAssessmentSchedule enum
-// A concrete instance of `AppAssessmentScheduleInput` can be one of the following:
+// AppAssessmentScheduleInput is an input type that accepts AppAssessmentScheduleArgs and AppAssessmentScheduleOutput values.
+// You can construct a concrete instance of `AppAssessmentScheduleInput` via:
 //
-//	AppAssessmentScheduleDisabled
-//	AppAssessmentScheduleDaily
+//	AppAssessmentScheduleArgs{...}
 type AppAssessmentScheduleInput interface {
 	pulumi.Input
 
@@ -216,6 +227,12 @@ func (o AppDriftStatusOutput) ToAppDriftStatusPtrOutputWithContext(ctx context.C
 	}).(AppDriftStatusPtrOutput)
 }
 
+func (o AppDriftStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AppDriftStatus] {
+	return pulumix.Output[AppDriftStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppDriftStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -249,6 +266,12 @@ func (o AppDriftStatusPtrOutput) ToAppDriftStatusPtrOutput() AppDriftStatusPtrOu
 
 func (o AppDriftStatusPtrOutput) ToAppDriftStatusPtrOutputWithContext(ctx context.Context) AppDriftStatusPtrOutput {
 	return o
+}
+
+func (o AppDriftStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppDriftStatus] {
+	return pulumix.Output[*AppDriftStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppDriftStatusPtrOutput) Elem() AppDriftStatusOutput {
@@ -343,6 +366,12 @@ func (o AppEventSubscriptionEventTypeOutput) ToAppEventSubscriptionEventTypePtrO
 	}).(AppEventSubscriptionEventTypePtrOutput)
 }
 
+func (o AppEventSubscriptionEventTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AppEventSubscriptionEventType] {
+	return pulumix.Output[AppEventSubscriptionEventType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppEventSubscriptionEventTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -378,6 +407,12 @@ func (o AppEventSubscriptionEventTypePtrOutput) ToAppEventSubscriptionEventTypeP
 	return o
 }
 
+func (o AppEventSubscriptionEventTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppEventSubscriptionEventType] {
+	return pulumix.Output[*AppEventSubscriptionEventType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppEventSubscriptionEventTypePtrOutput) Elem() AppEventSubscriptionEventTypeOutput {
 	return o.ApplyT(func(v *AppEventSubscriptionEventType) AppEventSubscriptionEventType {
 		if v != nil {
@@ -402,11 +437,10 @@ func (o AppEventSubscriptionEventTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// AppEventSubscriptionEventTypeInput is an input type that accepts values of the AppEventSubscriptionEventType enum
-// A concrete instance of `AppEventSubscriptionEventTypeInput` can be one of the following:
+// AppEventSubscriptionEventTypeInput is an input type that accepts AppEventSubscriptionEventTypeArgs and AppEventSubscriptionEventTypeOutput values.
+// You can construct a concrete instance of `AppEventSubscriptionEventTypeInput` via:
 //
-//	AppEventSubscriptionEventTypeScheduledAssessmentFailure
-//	AppEventSubscriptionEventTypeDriftDetected
+//	AppEventSubscriptionEventTypeArgs{...}
 type AppEventSubscriptionEventTypeInput interface {
 	pulumi.Input
 
@@ -515,6 +549,12 @@ func (o AppPermissionModelTypeOutput) ToAppPermissionModelTypePtrOutputWithConte
 	}).(AppPermissionModelTypePtrOutput)
 }
 
+func (o AppPermissionModelTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AppPermissionModelType] {
+	return pulumix.Output[AppPermissionModelType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppPermissionModelTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -550,6 +590,12 @@ func (o AppPermissionModelTypePtrOutput) ToAppPermissionModelTypePtrOutputWithCo
 	return o
 }
 
+func (o AppPermissionModelTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppPermissionModelType] {
+	return pulumix.Output[*AppPermissionModelType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppPermissionModelTypePtrOutput) Elem() AppPermissionModelTypeOutput {
 	return o.ApplyT(func(v *AppPermissionModelType) AppPermissionModelType {
 		if v != nil {
@@ -574,11 +620,10 @@ func (o AppPermissionModelTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// AppPermissionModelTypeInput is an input type that accepts values of the AppPermissionModelType enum
-// A concrete instance of `AppPermissionModelTypeInput` can be one of the following:
+// AppPermissionModelTypeInput is an input type that accepts AppPermissionModelTypeArgs and AppPermissionModelTypeOutput values.
+// You can construct a concrete instance of `AppPermissionModelTypeInput` via:
 //
-//	AppPermissionModelTypeLegacyIamUser
-//	AppPermissionModelTypeRoleBased
+//	AppPermissionModelTypeArgs{...}
 type AppPermissionModelTypeInput interface {
 	pulumi.Input
 
@@ -688,6 +733,12 @@ func (o ResiliencyPolicyDataLocationConstraintOutput) ToResiliencyPolicyDataLoca
 	}).(ResiliencyPolicyDataLocationConstraintPtrOutput)
 }
 
+func (o ResiliencyPolicyDataLocationConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[ResiliencyPolicyDataLocationConstraint] {
+	return pulumix.Output[ResiliencyPolicyDataLocationConstraint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResiliencyPolicyDataLocationConstraintOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -723,6 +774,12 @@ func (o ResiliencyPolicyDataLocationConstraintPtrOutput) ToResiliencyPolicyDataL
 	return o
 }
 
+func (o ResiliencyPolicyDataLocationConstraintPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicyDataLocationConstraint] {
+	return pulumix.Output[*ResiliencyPolicyDataLocationConstraint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResiliencyPolicyDataLocationConstraintPtrOutput) Elem() ResiliencyPolicyDataLocationConstraintOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyDataLocationConstraint) ResiliencyPolicyDataLocationConstraint {
 		if v != nil {
@@ -747,12 +804,10 @@ func (o ResiliencyPolicyDataLocationConstraintPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResiliencyPolicyDataLocationConstraintInput is an input type that accepts values of the ResiliencyPolicyDataLocationConstraint enum
-// A concrete instance of `ResiliencyPolicyDataLocationConstraintInput` can be one of the following:
+// ResiliencyPolicyDataLocationConstraintInput is an input type that accepts ResiliencyPolicyDataLocationConstraintArgs and ResiliencyPolicyDataLocationConstraintOutput values.
+// You can construct a concrete instance of `ResiliencyPolicyDataLocationConstraintInput` via:
 //
-//	ResiliencyPolicyDataLocationConstraintAnyLocation
-//	ResiliencyPolicyDataLocationConstraintSameContinent
-//	ResiliencyPolicyDataLocationConstraintSameCountry
+//	ResiliencyPolicyDataLocationConstraintArgs{...}
 type ResiliencyPolicyDataLocationConstraintInput interface {
 	pulumi.Input
 
@@ -864,6 +919,12 @@ func (o ResiliencyPolicyTierOutput) ToResiliencyPolicyTierPtrOutputWithContext(c
 	}).(ResiliencyPolicyTierPtrOutput)
 }
 
+func (o ResiliencyPolicyTierOutput) ToOutput(ctx context.Context) pulumix.Output[ResiliencyPolicyTier] {
+	return pulumix.Output[ResiliencyPolicyTier]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResiliencyPolicyTierOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -899,6 +960,12 @@ func (o ResiliencyPolicyTierPtrOutput) ToResiliencyPolicyTierPtrOutputWithContex
 	return o
 }
 
+func (o ResiliencyPolicyTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicyTier] {
+	return pulumix.Output[*ResiliencyPolicyTier]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResiliencyPolicyTierPtrOutput) Elem() ResiliencyPolicyTierOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyTier) ResiliencyPolicyTier {
 		if v != nil {
@@ -923,14 +990,10 @@ func (o ResiliencyPolicyTierPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResiliencyPolicyTierInput is an input type that accepts values of the ResiliencyPolicyTier enum
-// A concrete instance of `ResiliencyPolicyTierInput` can be one of the following:
+// ResiliencyPolicyTierInput is an input type that accepts ResiliencyPolicyTierArgs and ResiliencyPolicyTierOutput values.
+// You can construct a concrete instance of `ResiliencyPolicyTierInput` via:
 //
-//	ResiliencyPolicyTierMissionCritical
-//	ResiliencyPolicyTierCritical
-//	ResiliencyPolicyTierImportant
-//	ResiliencyPolicyTierCoreServices
-//	ResiliencyPolicyTierNonCritical
+//	ResiliencyPolicyTierArgs{...}
 type ResiliencyPolicyTierInput interface {
 	pulumi.Input
 

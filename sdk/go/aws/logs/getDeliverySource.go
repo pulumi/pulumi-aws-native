@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 //	A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
@@ -76,6 +77,12 @@ func (o LookupDeliverySourceResultOutput) ToLookupDeliverySourceResultOutput() L
 
 func (o LookupDeliverySourceResultOutput) ToLookupDeliverySourceResultOutputWithContext(ctx context.Context) LookupDeliverySourceResultOutput {
 	return o
+}
+
+func (o LookupDeliverySourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeliverySourceResult] {
+	return pulumix.Output[LookupDeliverySourceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) that uniquely identifies this delivery source.

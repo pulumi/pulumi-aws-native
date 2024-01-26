@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53::HealthCheck.
@@ -103,6 +104,12 @@ func (i *HealthCheck) ToHealthCheckOutputWithContext(ctx context.Context) Health
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckOutput)
 }
 
+func (i *HealthCheck) ToOutput(ctx context.Context) pulumix.Output[*HealthCheck] {
+	return pulumix.Output[*HealthCheck]{
+		OutputState: i.ToHealthCheckOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HealthCheckOutput struct{ *pulumi.OutputState }
 
 func (HealthCheckOutput) ElementType() reflect.Type {
@@ -115,6 +122,12 @@ func (o HealthCheckOutput) ToHealthCheckOutput() HealthCheckOutput {
 
 func (o HealthCheckOutput) ToHealthCheckOutputWithContext(ctx context.Context) HealthCheckOutput {
 	return o
+}
+
+func (o HealthCheckOutput) ToOutput(ctx context.Context) pulumix.Output[*HealthCheck] {
+	return pulumix.Output[*HealthCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A complex type that contains information about the health check.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaLive::Multiplex
@@ -81,6 +82,12 @@ func (o LookupMultiplexResultOutput) ToLookupMultiplexResultOutput() LookupMulti
 
 func (o LookupMultiplexResultOutput) ToLookupMultiplexResultOutputWithContext(ctx context.Context) LookupMultiplexResultOutput {
 	return o
+}
+
+func (o LookupMultiplexResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMultiplexResult] {
+	return pulumix.Output[LookupMultiplexResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The unique arn of the multiplex.

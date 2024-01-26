@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Synthetics::Canary
@@ -89,6 +90,12 @@ func (o LookupCanaryResultOutput) ToLookupCanaryResultOutput() LookupCanaryResul
 
 func (o LookupCanaryResultOutput) ToLookupCanaryResultOutputWithContext(ctx context.Context) LookupCanaryResultOutput {
 	return o
+}
+
+func (o LookupCanaryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCanaryResult] {
+	return pulumix.Output[LookupCanaryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Provide artifact configuration

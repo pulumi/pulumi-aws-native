@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::S3Express::BucketPolicy.
@@ -109,6 +110,12 @@ func (i *BucketPolicy) ToBucketPolicyOutputWithContext(ctx context.Context) Buck
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPolicyOutput)
 }
 
+func (i *BucketPolicy) ToOutput(ctx context.Context) pulumix.Output[*BucketPolicy] {
+	return pulumix.Output[*BucketPolicy]{
+		OutputState: i.ToBucketPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketPolicyOutput struct{ *pulumi.OutputState }
 
 func (BucketPolicyOutput) ElementType() reflect.Type {
@@ -121,6 +128,12 @@ func (o BucketPolicyOutput) ToBucketPolicyOutput() BucketPolicyOutput {
 
 func (o BucketPolicyOutput) ToBucketPolicyOutputWithContext(ctx context.Context) BucketPolicyOutput {
 	return o
+}
+
+func (o BucketPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketPolicy] {
+	return pulumix.Output[*BucketPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the S3 directory bucket to which the policy applies.

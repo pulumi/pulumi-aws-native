@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A markup/discount that is defined for a specific set of services that can later be associated with a pricing plan.
@@ -174,6 +175,12 @@ func (i *PricingRule) ToPricingRuleOutputWithContext(ctx context.Context) Pricin
 	return pulumi.ToOutputWithContext(ctx, i).(PricingRuleOutput)
 }
 
+func (i *PricingRule) ToOutput(ctx context.Context) pulumix.Output[*PricingRule] {
+	return pulumix.Output[*PricingRule]{
+		OutputState: i.ToPricingRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PricingRuleOutput struct{ *pulumi.OutputState }
 
 func (PricingRuleOutput) ElementType() reflect.Type {
@@ -186,6 +193,12 @@ func (o PricingRuleOutput) ToPricingRuleOutput() PricingRuleOutput {
 
 func (o PricingRuleOutput) ToPricingRuleOutputWithContext(ctx context.Context) PricingRuleOutput {
 	return o
+}
+
+func (o PricingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*PricingRule] {
+	return pulumix.Output[*PricingRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Pricing rule ARN

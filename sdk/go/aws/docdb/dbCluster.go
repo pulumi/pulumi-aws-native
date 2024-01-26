@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DocDB::DBCluster
@@ -174,6 +175,12 @@ func (i *DbCluster) ToDbClusterOutputWithContext(ctx context.Context) DbClusterO
 	return pulumi.ToOutputWithContext(ctx, i).(DbClusterOutput)
 }
 
+func (i *DbCluster) ToOutput(ctx context.Context) pulumix.Output[*DbCluster] {
+	return pulumix.Output[*DbCluster]{
+		OutputState: i.ToDbClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DbClusterOutput struct{ *pulumi.OutputState }
 
 func (DbClusterOutput) ElementType() reflect.Type {
@@ -186,6 +193,12 @@ func (o DbClusterOutput) ToDbClusterOutput() DbClusterOutput {
 
 func (o DbClusterOutput) ToDbClusterOutputWithContext(ctx context.Context) DbClusterOutput {
 	return o
+}
+
+func (o DbClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*DbCluster] {
+	return pulumix.Output[*DbCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DbClusterOutput) AvailabilityZones() pulumi.StringArrayOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
@@ -100,6 +101,12 @@ func (i *Dnssec) ToDnssecOutputWithContext(ctx context.Context) DnssecOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DnssecOutput)
 }
 
+func (i *Dnssec) ToOutput(ctx context.Context) pulumix.Output[*Dnssec] {
+	return pulumix.Output[*Dnssec]{
+		OutputState: i.ToDnssecOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DnssecOutput struct{ *pulumi.OutputState }
 
 func (DnssecOutput) ElementType() reflect.Type {
@@ -112,6 +119,12 @@ func (o DnssecOutput) ToDnssecOutput() DnssecOutput {
 
 func (o DnssecOutput) ToDnssecOutputWithContext(ctx context.Context) DnssecOutput {
 	return o
+}
+
+func (o DnssecOutput) ToOutput(ctx context.Context) pulumix.Output[*Dnssec] {
+	return pulumix.Output[*Dnssec]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The unique string (ID) used to identify a hosted zone.

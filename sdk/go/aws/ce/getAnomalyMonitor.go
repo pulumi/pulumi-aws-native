@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
@@ -73,6 +74,12 @@ func (o LookupAnomalyMonitorResultOutput) ToLookupAnomalyMonitorResultOutput() L
 
 func (o LookupAnomalyMonitorResultOutput) ToLookupAnomalyMonitorResultOutputWithContext(ctx context.Context) LookupAnomalyMonitorResultOutput {
 	return o
+}
+
+func (o LookupAnomalyMonitorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAnomalyMonitorResult] {
+	return pulumix.Output[LookupAnomalyMonitorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The date when the monitor was created.

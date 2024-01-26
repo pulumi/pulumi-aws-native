@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::ClientVpnRoute
@@ -117,6 +118,12 @@ func (i *ClientVpnRoute) ToClientVpnRouteOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnRouteOutput)
 }
 
+func (i *ClientVpnRoute) ToOutput(ctx context.Context) pulumix.Output[*ClientVpnRoute] {
+	return pulumix.Output[*ClientVpnRoute]{
+		OutputState: i.ToClientVpnRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClientVpnRouteOutput struct{ *pulumi.OutputState }
 
 func (ClientVpnRouteOutput) ElementType() reflect.Type {
@@ -129,6 +136,12 @@ func (o ClientVpnRouteOutput) ToClientVpnRouteOutput() ClientVpnRouteOutput {
 
 func (o ClientVpnRouteOutput) ToClientVpnRouteOutputWithContext(ctx context.Context) ClientVpnRouteOutput {
 	return o
+}
+
+func (o ClientVpnRouteOutput) ToOutput(ctx context.Context) pulumix.Output[*ClientVpnRoute] {
+	return pulumix.Output[*ClientVpnRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClientVpnRouteOutput) ClientVpnEndpointId() pulumi.StringOutput {

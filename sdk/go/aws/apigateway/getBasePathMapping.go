@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::BasePathMapping“ resource creates a base path that clients who call your API must use in the invocation URL.
@@ -72,6 +73,12 @@ func (o LookupBasePathMappingResultOutput) ToLookupBasePathMappingResultOutput()
 
 func (o LookupBasePathMappingResultOutput) ToLookupBasePathMappingResultOutputWithContext(ctx context.Context) LookupBasePathMappingResultOutput {
 	return o
+}
+
+func (o LookupBasePathMappingResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBasePathMappingResult] {
+	return pulumix.Output[LookupBasePathMappingResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The string identifier of the associated RestApi.

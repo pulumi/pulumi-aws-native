@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema of AWS::EC2::IPAMAllocation Type
@@ -72,6 +73,12 @@ func (o LookupIpamAllocationResultOutput) ToLookupIpamAllocationResultOutput() L
 
 func (o LookupIpamAllocationResultOutput) ToLookupIpamAllocationResultOutputWithContext(ctx context.Context) LookupIpamAllocationResultOutput {
 	return o
+}
+
+func (o LookupIpamAllocationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIpamAllocationResult] {
+	return pulumix.Output[LookupIpamAllocationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Id of the allocation.

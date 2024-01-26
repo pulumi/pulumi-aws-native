@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // resource definition
@@ -116,6 +117,12 @@ func (i *SoftwarePackageVersion) ToSoftwarePackageVersionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionOutput)
 }
 
+func (i *SoftwarePackageVersion) ToOutput(ctx context.Context) pulumix.Output[*SoftwarePackageVersion] {
+	return pulumix.Output[*SoftwarePackageVersion]{
+		OutputState: i.ToSoftwarePackageVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SoftwarePackageVersionOutput struct{ *pulumi.OutputState }
 
 func (SoftwarePackageVersionOutput) ElementType() reflect.Type {
@@ -128,6 +135,12 @@ func (o SoftwarePackageVersionOutput) ToSoftwarePackageVersionOutput() SoftwareP
 
 func (o SoftwarePackageVersionOutput) ToSoftwarePackageVersionOutputWithContext(ctx context.Context) SoftwarePackageVersionOutput {
 	return o
+}
+
+func (o SoftwarePackageVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*SoftwarePackageVersion] {
+	return pulumix.Output[*SoftwarePackageVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SoftwarePackageVersionOutput) Attributes() SoftwarePackageVersionResourceAttributesPtrOutput {

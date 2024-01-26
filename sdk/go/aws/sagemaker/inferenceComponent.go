@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::InferenceComponent
@@ -125,6 +126,12 @@ func (i *InferenceComponent) ToInferenceComponentOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentOutput)
 }
 
+func (i *InferenceComponent) ToOutput(ctx context.Context) pulumix.Output[*InferenceComponent] {
+	return pulumix.Output[*InferenceComponent]{
+		OutputState: i.ToInferenceComponentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InferenceComponentOutput struct{ *pulumi.OutputState }
 
 func (InferenceComponentOutput) ElementType() reflect.Type {
@@ -137,6 +144,12 @@ func (o InferenceComponentOutput) ToInferenceComponentOutput() InferenceComponen
 
 func (o InferenceComponentOutput) ToInferenceComponentOutputWithContext(ctx context.Context) InferenceComponentOutput {
 	return o
+}
+
+func (o InferenceComponentOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceComponent] {
+	return pulumix.Output[*InferenceComponent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InferenceComponentOutput) CreationTime() pulumi.StringOutput {

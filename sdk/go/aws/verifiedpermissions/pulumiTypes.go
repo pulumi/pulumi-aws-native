@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i IdentitySourceCognitoUserPoolConfigurationArgs) ToIdentitySourceCognitoU
 	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceCognitoUserPoolConfigurationOutput)
 }
 
+func (i IdentitySourceCognitoUserPoolConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[IdentitySourceCognitoUserPoolConfiguration] {
+	return pulumix.Output[IdentitySourceCognitoUserPoolConfiguration]{
+		OutputState: i.ToIdentitySourceCognitoUserPoolConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdentitySourceCognitoUserPoolConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IdentitySourceCognitoUserPoolConfigurationOutput) ElementType() reflect.Type {
@@ -58,6 +65,12 @@ func (o IdentitySourceCognitoUserPoolConfigurationOutput) ToIdentitySourceCognit
 
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) ToIdentitySourceCognitoUserPoolConfigurationOutputWithContext(ctx context.Context) IdentitySourceCognitoUserPoolConfigurationOutput {
 	return o
+}
+
+func (o IdentitySourceCognitoUserPoolConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[IdentitySourceCognitoUserPoolConfiguration] {
+	return pulumix.Output[IdentitySourceCognitoUserPoolConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) ClientIds() pulumi.StringArrayOutput {
@@ -80,6 +93,12 @@ func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) ToIdentitySourceCog
 
 func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) ToIdentitySourceCognitoUserPoolConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceCognitoUserPoolConfigurationPtrOutput {
 	return o
+}
+
+func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentitySourceCognitoUserPoolConfiguration] {
+	return pulumix.Output[*IdentitySourceCognitoUserPoolConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) Elem() IdentitySourceCognitoUserPoolConfigurationOutput {
@@ -141,6 +160,12 @@ func (i IdentitySourceConfigurationArgs) ToIdentitySourceConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOutput)
 }
 
+func (i IdentitySourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[IdentitySourceConfiguration] {
+	return pulumix.Output[IdentitySourceConfiguration]{
+		OutputState: i.ToIdentitySourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdentitySourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IdentitySourceConfigurationOutput) ElementType() reflect.Type {
@@ -153,6 +178,12 @@ func (o IdentitySourceConfigurationOutput) ToIdentitySourceConfigurationOutput()
 
 func (o IdentitySourceConfigurationOutput) ToIdentitySourceConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationOutput {
 	return o
+}
+
+func (o IdentitySourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[IdentitySourceConfiguration] {
+	return pulumix.Output[IdentitySourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentitySourceConfigurationOutput) CognitoUserPoolConfiguration() IdentitySourceCognitoUserPoolConfigurationOutput {
@@ -173,6 +204,12 @@ func (o IdentitySourceConfigurationPtrOutput) ToIdentitySourceConfigurationPtrOu
 
 func (o IdentitySourceConfigurationPtrOutput) ToIdentitySourceConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationPtrOutput {
 	return o
+}
+
+func (o IdentitySourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentitySourceConfiguration] {
+	return pulumix.Output[*IdentitySourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentitySourceConfigurationPtrOutput) Elem() IdentitySourceConfigurationOutput {
@@ -215,6 +252,12 @@ func (o IdentitySourceDetailsOutput) ToIdentitySourceDetailsOutputWithContext(ct
 	return o
 }
 
+func (o IdentitySourceDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[IdentitySourceDetails] {
+	return pulumix.Output[IdentitySourceDetails]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IdentitySourceDetailsOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdentitySourceDetails) []string { return v.ClientIds }).(pulumi.StringArrayOutput)
 }
@@ -243,6 +286,12 @@ func (o IdentitySourceDetailsPtrOutput) ToIdentitySourceDetailsPtrOutput() Ident
 
 func (o IdentitySourceDetailsPtrOutput) ToIdentitySourceDetailsPtrOutputWithContext(ctx context.Context) IdentitySourceDetailsPtrOutput {
 	return o
+}
+
+func (o IdentitySourceDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentitySourceDetails] {
+	return pulumix.Output[*IdentitySourceDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentitySourceDetailsPtrOutput) Elem() IdentitySourceDetailsOutput {
@@ -295,164 +344,8 @@ type PolicyDefinition0Properties struct {
 	Static PolicyStaticPolicyDefinition `pulumi:"static"`
 }
 
-// PolicyDefinition0PropertiesInput is an input type that accepts PolicyDefinition0PropertiesArgs and PolicyDefinition0PropertiesOutput values.
-// You can construct a concrete instance of `PolicyDefinition0PropertiesInput` via:
-//
-//	PolicyDefinition0PropertiesArgs{...}
-type PolicyDefinition0PropertiesInput interface {
-	pulumi.Input
-
-	ToPolicyDefinition0PropertiesOutput() PolicyDefinition0PropertiesOutput
-	ToPolicyDefinition0PropertiesOutputWithContext(context.Context) PolicyDefinition0PropertiesOutput
-}
-
-type PolicyDefinition0PropertiesArgs struct {
-	Static PolicyStaticPolicyDefinitionInput `pulumi:"static"`
-}
-
-func (PolicyDefinition0PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinition0Properties)(nil)).Elem()
-}
-
-func (i PolicyDefinition0PropertiesArgs) ToPolicyDefinition0PropertiesOutput() PolicyDefinition0PropertiesOutput {
-	return i.ToPolicyDefinition0PropertiesOutputWithContext(context.Background())
-}
-
-func (i PolicyDefinition0PropertiesArgs) ToPolicyDefinition0PropertiesOutputWithContext(ctx context.Context) PolicyDefinition0PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinition0PropertiesOutput)
-}
-
-type PolicyDefinition0PropertiesOutput struct{ *pulumi.OutputState }
-
-func (PolicyDefinition0PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinition0Properties)(nil)).Elem()
-}
-
-func (o PolicyDefinition0PropertiesOutput) ToPolicyDefinition0PropertiesOutput() PolicyDefinition0PropertiesOutput {
-	return o
-}
-
-func (o PolicyDefinition0PropertiesOutput) ToPolicyDefinition0PropertiesOutputWithContext(ctx context.Context) PolicyDefinition0PropertiesOutput {
-	return o
-}
-
-func (o PolicyDefinition0PropertiesOutput) Static() PolicyStaticPolicyDefinitionOutput {
-	return o.ApplyT(func(v PolicyDefinition0Properties) PolicyStaticPolicyDefinition { return v.Static }).(PolicyStaticPolicyDefinitionOutput)
-}
-
-type PolicyDefinition0PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyDefinition0PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyDefinition0Properties)(nil)).Elem()
-}
-
-func (o PolicyDefinition0PropertiesPtrOutput) ToPolicyDefinition0PropertiesPtrOutput() PolicyDefinition0PropertiesPtrOutput {
-	return o
-}
-
-func (o PolicyDefinition0PropertiesPtrOutput) ToPolicyDefinition0PropertiesPtrOutputWithContext(ctx context.Context) PolicyDefinition0PropertiesPtrOutput {
-	return o
-}
-
-func (o PolicyDefinition0PropertiesPtrOutput) Elem() PolicyDefinition0PropertiesOutput {
-	return o.ApplyT(func(v *PolicyDefinition0Properties) PolicyDefinition0Properties {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyDefinition0Properties
-		return ret
-	}).(PolicyDefinition0PropertiesOutput)
-}
-
-func (o PolicyDefinition0PropertiesPtrOutput) Static() PolicyStaticPolicyDefinitionPtrOutput {
-	return o.ApplyT(func(v *PolicyDefinition0Properties) *PolicyStaticPolicyDefinition {
-		if v == nil {
-			return nil
-		}
-		return &v.Static
-	}).(PolicyStaticPolicyDefinitionPtrOutput)
-}
-
 type PolicyDefinition1Properties struct {
 	TemplateLinked PolicyTemplateLinkedPolicyDefinition `pulumi:"templateLinked"`
-}
-
-// PolicyDefinition1PropertiesInput is an input type that accepts PolicyDefinition1PropertiesArgs and PolicyDefinition1PropertiesOutput values.
-// You can construct a concrete instance of `PolicyDefinition1PropertiesInput` via:
-//
-//	PolicyDefinition1PropertiesArgs{...}
-type PolicyDefinition1PropertiesInput interface {
-	pulumi.Input
-
-	ToPolicyDefinition1PropertiesOutput() PolicyDefinition1PropertiesOutput
-	ToPolicyDefinition1PropertiesOutputWithContext(context.Context) PolicyDefinition1PropertiesOutput
-}
-
-type PolicyDefinition1PropertiesArgs struct {
-	TemplateLinked PolicyTemplateLinkedPolicyDefinitionInput `pulumi:"templateLinked"`
-}
-
-func (PolicyDefinition1PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinition1Properties)(nil)).Elem()
-}
-
-func (i PolicyDefinition1PropertiesArgs) ToPolicyDefinition1PropertiesOutput() PolicyDefinition1PropertiesOutput {
-	return i.ToPolicyDefinition1PropertiesOutputWithContext(context.Background())
-}
-
-func (i PolicyDefinition1PropertiesArgs) ToPolicyDefinition1PropertiesOutputWithContext(ctx context.Context) PolicyDefinition1PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinition1PropertiesOutput)
-}
-
-type PolicyDefinition1PropertiesOutput struct{ *pulumi.OutputState }
-
-func (PolicyDefinition1PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinition1Properties)(nil)).Elem()
-}
-
-func (o PolicyDefinition1PropertiesOutput) ToPolicyDefinition1PropertiesOutput() PolicyDefinition1PropertiesOutput {
-	return o
-}
-
-func (o PolicyDefinition1PropertiesOutput) ToPolicyDefinition1PropertiesOutputWithContext(ctx context.Context) PolicyDefinition1PropertiesOutput {
-	return o
-}
-
-func (o PolicyDefinition1PropertiesOutput) TemplateLinked() PolicyTemplateLinkedPolicyDefinitionOutput {
-	return o.ApplyT(func(v PolicyDefinition1Properties) PolicyTemplateLinkedPolicyDefinition { return v.TemplateLinked }).(PolicyTemplateLinkedPolicyDefinitionOutput)
-}
-
-type PolicyDefinition1PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyDefinition1PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyDefinition1Properties)(nil)).Elem()
-}
-
-func (o PolicyDefinition1PropertiesPtrOutput) ToPolicyDefinition1PropertiesPtrOutput() PolicyDefinition1PropertiesPtrOutput {
-	return o
-}
-
-func (o PolicyDefinition1PropertiesPtrOutput) ToPolicyDefinition1PropertiesPtrOutputWithContext(ctx context.Context) PolicyDefinition1PropertiesPtrOutput {
-	return o
-}
-
-func (o PolicyDefinition1PropertiesPtrOutput) Elem() PolicyDefinition1PropertiesOutput {
-	return o.ApplyT(func(v *PolicyDefinition1Properties) PolicyDefinition1Properties {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyDefinition1Properties
-		return ret
-	}).(PolicyDefinition1PropertiesOutput)
-}
-
-func (o PolicyDefinition1PropertiesPtrOutput) TemplateLinked() PolicyTemplateLinkedPolicyDefinitionPtrOutput {
-	return o.ApplyT(func(v *PolicyDefinition1Properties) *PolicyTemplateLinkedPolicyDefinition {
-		if v == nil {
-			return nil
-		}
-		return &v.TemplateLinked
-	}).(PolicyTemplateLinkedPolicyDefinitionPtrOutput)
 }
 
 type PolicyEntityIdentifier struct {
@@ -460,244 +353,9 @@ type PolicyEntityIdentifier struct {
 	EntityType string `pulumi:"entityType"`
 }
 
-// PolicyEntityIdentifierInput is an input type that accepts PolicyEntityIdentifierArgs and PolicyEntityIdentifierOutput values.
-// You can construct a concrete instance of `PolicyEntityIdentifierInput` via:
-//
-//	PolicyEntityIdentifierArgs{...}
-type PolicyEntityIdentifierInput interface {
-	pulumi.Input
-
-	ToPolicyEntityIdentifierOutput() PolicyEntityIdentifierOutput
-	ToPolicyEntityIdentifierOutputWithContext(context.Context) PolicyEntityIdentifierOutput
-}
-
-type PolicyEntityIdentifierArgs struct {
-	EntityId   pulumi.StringInput `pulumi:"entityId"`
-	EntityType pulumi.StringInput `pulumi:"entityType"`
-}
-
-func (PolicyEntityIdentifierArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyEntityIdentifier)(nil)).Elem()
-}
-
-func (i PolicyEntityIdentifierArgs) ToPolicyEntityIdentifierOutput() PolicyEntityIdentifierOutput {
-	return i.ToPolicyEntityIdentifierOutputWithContext(context.Background())
-}
-
-func (i PolicyEntityIdentifierArgs) ToPolicyEntityIdentifierOutputWithContext(ctx context.Context) PolicyEntityIdentifierOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyEntityIdentifierOutput)
-}
-
-func (i PolicyEntityIdentifierArgs) ToPolicyEntityIdentifierPtrOutput() PolicyEntityIdentifierPtrOutput {
-	return i.ToPolicyEntityIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (i PolicyEntityIdentifierArgs) ToPolicyEntityIdentifierPtrOutputWithContext(ctx context.Context) PolicyEntityIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyEntityIdentifierOutput).ToPolicyEntityIdentifierPtrOutputWithContext(ctx)
-}
-
-// PolicyEntityIdentifierPtrInput is an input type that accepts PolicyEntityIdentifierArgs, PolicyEntityIdentifierPtr and PolicyEntityIdentifierPtrOutput values.
-// You can construct a concrete instance of `PolicyEntityIdentifierPtrInput` via:
-//
-//	        PolicyEntityIdentifierArgs{...}
-//
-//	or:
-//
-//	        nil
-type PolicyEntityIdentifierPtrInput interface {
-	pulumi.Input
-
-	ToPolicyEntityIdentifierPtrOutput() PolicyEntityIdentifierPtrOutput
-	ToPolicyEntityIdentifierPtrOutputWithContext(context.Context) PolicyEntityIdentifierPtrOutput
-}
-
-type policyEntityIdentifierPtrType PolicyEntityIdentifierArgs
-
-func PolicyEntityIdentifierPtr(v *PolicyEntityIdentifierArgs) PolicyEntityIdentifierPtrInput {
-	return (*policyEntityIdentifierPtrType)(v)
-}
-
-func (*policyEntityIdentifierPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyEntityIdentifier)(nil)).Elem()
-}
-
-func (i *policyEntityIdentifierPtrType) ToPolicyEntityIdentifierPtrOutput() PolicyEntityIdentifierPtrOutput {
-	return i.ToPolicyEntityIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (i *policyEntityIdentifierPtrType) ToPolicyEntityIdentifierPtrOutputWithContext(ctx context.Context) PolicyEntityIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyEntityIdentifierPtrOutput)
-}
-
-type PolicyEntityIdentifierOutput struct{ *pulumi.OutputState }
-
-func (PolicyEntityIdentifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyEntityIdentifier)(nil)).Elem()
-}
-
-func (o PolicyEntityIdentifierOutput) ToPolicyEntityIdentifierOutput() PolicyEntityIdentifierOutput {
-	return o
-}
-
-func (o PolicyEntityIdentifierOutput) ToPolicyEntityIdentifierOutputWithContext(ctx context.Context) PolicyEntityIdentifierOutput {
-	return o
-}
-
-func (o PolicyEntityIdentifierOutput) ToPolicyEntityIdentifierPtrOutput() PolicyEntityIdentifierPtrOutput {
-	return o.ToPolicyEntityIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (o PolicyEntityIdentifierOutput) ToPolicyEntityIdentifierPtrOutputWithContext(ctx context.Context) PolicyEntityIdentifierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyEntityIdentifier) *PolicyEntityIdentifier {
-		return &v
-	}).(PolicyEntityIdentifierPtrOutput)
-}
-
-func (o PolicyEntityIdentifierOutput) EntityId() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyEntityIdentifier) string { return v.EntityId }).(pulumi.StringOutput)
-}
-
-func (o PolicyEntityIdentifierOutput) EntityType() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyEntityIdentifier) string { return v.EntityType }).(pulumi.StringOutput)
-}
-
-type PolicyEntityIdentifierPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyEntityIdentifierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyEntityIdentifier)(nil)).Elem()
-}
-
-func (o PolicyEntityIdentifierPtrOutput) ToPolicyEntityIdentifierPtrOutput() PolicyEntityIdentifierPtrOutput {
-	return o
-}
-
-func (o PolicyEntityIdentifierPtrOutput) ToPolicyEntityIdentifierPtrOutputWithContext(ctx context.Context) PolicyEntityIdentifierPtrOutput {
-	return o
-}
-
-func (o PolicyEntityIdentifierPtrOutput) Elem() PolicyEntityIdentifierOutput {
-	return o.ApplyT(func(v *PolicyEntityIdentifier) PolicyEntityIdentifier {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyEntityIdentifier
-		return ret
-	}).(PolicyEntityIdentifierOutput)
-}
-
-func (o PolicyEntityIdentifierPtrOutput) EntityId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyEntityIdentifier) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EntityId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PolicyEntityIdentifierPtrOutput) EntityType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyEntityIdentifier) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EntityType
-	}).(pulumi.StringPtrOutput)
-}
-
 type PolicyStaticPolicyDefinition struct {
 	Description *string `pulumi:"description"`
 	Statement   string  `pulumi:"statement"`
-}
-
-// PolicyStaticPolicyDefinitionInput is an input type that accepts PolicyStaticPolicyDefinitionArgs and PolicyStaticPolicyDefinitionOutput values.
-// You can construct a concrete instance of `PolicyStaticPolicyDefinitionInput` via:
-//
-//	PolicyStaticPolicyDefinitionArgs{...}
-type PolicyStaticPolicyDefinitionInput interface {
-	pulumi.Input
-
-	ToPolicyStaticPolicyDefinitionOutput() PolicyStaticPolicyDefinitionOutput
-	ToPolicyStaticPolicyDefinitionOutputWithContext(context.Context) PolicyStaticPolicyDefinitionOutput
-}
-
-type PolicyStaticPolicyDefinitionArgs struct {
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Statement   pulumi.StringInput    `pulumi:"statement"`
-}
-
-func (PolicyStaticPolicyDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyStaticPolicyDefinition)(nil)).Elem()
-}
-
-func (i PolicyStaticPolicyDefinitionArgs) ToPolicyStaticPolicyDefinitionOutput() PolicyStaticPolicyDefinitionOutput {
-	return i.ToPolicyStaticPolicyDefinitionOutputWithContext(context.Background())
-}
-
-func (i PolicyStaticPolicyDefinitionArgs) ToPolicyStaticPolicyDefinitionOutputWithContext(ctx context.Context) PolicyStaticPolicyDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyStaticPolicyDefinitionOutput)
-}
-
-type PolicyStaticPolicyDefinitionOutput struct{ *pulumi.OutputState }
-
-func (PolicyStaticPolicyDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyStaticPolicyDefinition)(nil)).Elem()
-}
-
-func (o PolicyStaticPolicyDefinitionOutput) ToPolicyStaticPolicyDefinitionOutput() PolicyStaticPolicyDefinitionOutput {
-	return o
-}
-
-func (o PolicyStaticPolicyDefinitionOutput) ToPolicyStaticPolicyDefinitionOutputWithContext(ctx context.Context) PolicyStaticPolicyDefinitionOutput {
-	return o
-}
-
-func (o PolicyStaticPolicyDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyStaticPolicyDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o PolicyStaticPolicyDefinitionOutput) Statement() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyStaticPolicyDefinition) string { return v.Statement }).(pulumi.StringOutput)
-}
-
-type PolicyStaticPolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyStaticPolicyDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyStaticPolicyDefinition)(nil)).Elem()
-}
-
-func (o PolicyStaticPolicyDefinitionPtrOutput) ToPolicyStaticPolicyDefinitionPtrOutput() PolicyStaticPolicyDefinitionPtrOutput {
-	return o
-}
-
-func (o PolicyStaticPolicyDefinitionPtrOutput) ToPolicyStaticPolicyDefinitionPtrOutputWithContext(ctx context.Context) PolicyStaticPolicyDefinitionPtrOutput {
-	return o
-}
-
-func (o PolicyStaticPolicyDefinitionPtrOutput) Elem() PolicyStaticPolicyDefinitionOutput {
-	return o.ApplyT(func(v *PolicyStaticPolicyDefinition) PolicyStaticPolicyDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyStaticPolicyDefinition
-		return ret
-	}).(PolicyStaticPolicyDefinitionOutput)
-}
-
-func (o PolicyStaticPolicyDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyStaticPolicyDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PolicyStaticPolicyDefinitionPtrOutput) Statement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyStaticPolicyDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Statement
-	}).(pulumi.StringPtrOutput)
 }
 
 type PolicyStoreSchemaDefinition struct {
@@ -729,6 +387,12 @@ func (i PolicyStoreSchemaDefinitionArgs) ToPolicyStoreSchemaDefinitionOutput() P
 
 func (i PolicyStoreSchemaDefinitionArgs) ToPolicyStoreSchemaDefinitionOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinitionOutput)
+}
+
+func (i PolicyStoreSchemaDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyStoreSchemaDefinition] {
+	return pulumix.Output[PolicyStoreSchemaDefinition]{
+		OutputState: i.ToPolicyStoreSchemaDefinitionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PolicyStoreSchemaDefinitionArgs) ToPolicyStoreSchemaDefinitionPtrOutput() PolicyStoreSchemaDefinitionPtrOutput {
@@ -772,6 +436,12 @@ func (i *policyStoreSchemaDefinitionPtrType) ToPolicyStoreSchemaDefinitionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinitionPtrOutput)
 }
 
+func (i *policyStoreSchemaDefinitionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyStoreSchemaDefinition] {
+	return pulumix.Output[*PolicyStoreSchemaDefinition]{
+		OutputState: i.ToPolicyStoreSchemaDefinitionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyStoreSchemaDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PolicyStoreSchemaDefinitionOutput) ElementType() reflect.Type {
@@ -796,6 +466,12 @@ func (o PolicyStoreSchemaDefinitionOutput) ToPolicyStoreSchemaDefinitionPtrOutpu
 	}).(PolicyStoreSchemaDefinitionPtrOutput)
 }
 
+func (o PolicyStoreSchemaDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyStoreSchemaDefinition] {
+	return pulumix.Output[PolicyStoreSchemaDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyStoreSchemaDefinitionOutput) CedarJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStoreSchemaDefinition) *string { return v.CedarJson }).(pulumi.StringPtrOutput)
 }
@@ -812,6 +488,12 @@ func (o PolicyStoreSchemaDefinitionPtrOutput) ToPolicyStoreSchemaDefinitionPtrOu
 
 func (o PolicyStoreSchemaDefinitionPtrOutput) ToPolicyStoreSchemaDefinitionPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinitionPtrOutput {
 	return o
+}
+
+func (o PolicyStoreSchemaDefinitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyStoreSchemaDefinition] {
+	return pulumix.Output[*PolicyStoreSchemaDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyStoreSchemaDefinitionPtrOutput) Elem() PolicyStoreSchemaDefinitionOutput {
@@ -864,6 +546,12 @@ func (i PolicyStoreValidationSettingsArgs) ToPolicyStoreValidationSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreValidationSettingsOutput)
 }
 
+func (i PolicyStoreValidationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyStoreValidationSettings] {
+	return pulumix.Output[PolicyStoreValidationSettings]{
+		OutputState: i.ToPolicyStoreValidationSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyStoreValidationSettingsOutput struct{ *pulumi.OutputState }
 
 func (PolicyStoreValidationSettingsOutput) ElementType() reflect.Type {
@@ -876,6 +564,12 @@ func (o PolicyStoreValidationSettingsOutput) ToPolicyStoreValidationSettingsOutp
 
 func (o PolicyStoreValidationSettingsOutput) ToPolicyStoreValidationSettingsOutputWithContext(ctx context.Context) PolicyStoreValidationSettingsOutput {
 	return o
+}
+
+func (o PolicyStoreValidationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyStoreValidationSettings] {
+	return pulumix.Output[PolicyStoreValidationSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyStoreValidationSettingsOutput) Mode() PolicyStoreValidationModeOutput {
@@ -894,6 +588,12 @@ func (o PolicyStoreValidationSettingsPtrOutput) ToPolicyStoreValidationSettingsP
 
 func (o PolicyStoreValidationSettingsPtrOutput) ToPolicyStoreValidationSettingsPtrOutputWithContext(ctx context.Context) PolicyStoreValidationSettingsPtrOutput {
 	return o
+}
+
+func (o PolicyStoreValidationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyStoreValidationSettings] {
+	return pulumix.Output[*PolicyStoreValidationSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyStoreValidationSettingsPtrOutput) Elem() PolicyStoreValidationSettingsOutput {
@@ -921,142 +621,20 @@ type PolicyTemplateLinkedPolicyDefinition struct {
 	Resource         *PolicyEntityIdentifier `pulumi:"resource"`
 }
 
-// PolicyTemplateLinkedPolicyDefinitionInput is an input type that accepts PolicyTemplateLinkedPolicyDefinitionArgs and PolicyTemplateLinkedPolicyDefinitionOutput values.
-// You can construct a concrete instance of `PolicyTemplateLinkedPolicyDefinitionInput` via:
-//
-//	PolicyTemplateLinkedPolicyDefinitionArgs{...}
-type PolicyTemplateLinkedPolicyDefinitionInput interface {
-	pulumi.Input
-
-	ToPolicyTemplateLinkedPolicyDefinitionOutput() PolicyTemplateLinkedPolicyDefinitionOutput
-	ToPolicyTemplateLinkedPolicyDefinitionOutputWithContext(context.Context) PolicyTemplateLinkedPolicyDefinitionOutput
-}
-
-type PolicyTemplateLinkedPolicyDefinitionArgs struct {
-	PolicyTemplateId pulumi.StringInput             `pulumi:"policyTemplateId"`
-	Principal        PolicyEntityIdentifierPtrInput `pulumi:"principal"`
-	Resource         PolicyEntityIdentifierPtrInput `pulumi:"resource"`
-}
-
-func (PolicyTemplateLinkedPolicyDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyTemplateLinkedPolicyDefinition)(nil)).Elem()
-}
-
-func (i PolicyTemplateLinkedPolicyDefinitionArgs) ToPolicyTemplateLinkedPolicyDefinitionOutput() PolicyTemplateLinkedPolicyDefinitionOutput {
-	return i.ToPolicyTemplateLinkedPolicyDefinitionOutputWithContext(context.Background())
-}
-
-func (i PolicyTemplateLinkedPolicyDefinitionArgs) ToPolicyTemplateLinkedPolicyDefinitionOutputWithContext(ctx context.Context) PolicyTemplateLinkedPolicyDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyTemplateLinkedPolicyDefinitionOutput)
-}
-
-type PolicyTemplateLinkedPolicyDefinitionOutput struct{ *pulumi.OutputState }
-
-func (PolicyTemplateLinkedPolicyDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyTemplateLinkedPolicyDefinition)(nil)).Elem()
-}
-
-func (o PolicyTemplateLinkedPolicyDefinitionOutput) ToPolicyTemplateLinkedPolicyDefinitionOutput() PolicyTemplateLinkedPolicyDefinitionOutput {
-	return o
-}
-
-func (o PolicyTemplateLinkedPolicyDefinitionOutput) ToPolicyTemplateLinkedPolicyDefinitionOutputWithContext(ctx context.Context) PolicyTemplateLinkedPolicyDefinitionOutput {
-	return o
-}
-
-func (o PolicyTemplateLinkedPolicyDefinitionOutput) PolicyTemplateId() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyTemplateLinkedPolicyDefinition) string { return v.PolicyTemplateId }).(pulumi.StringOutput)
-}
-
-func (o PolicyTemplateLinkedPolicyDefinitionOutput) Principal() PolicyEntityIdentifierPtrOutput {
-	return o.ApplyT(func(v PolicyTemplateLinkedPolicyDefinition) *PolicyEntityIdentifier { return v.Principal }).(PolicyEntityIdentifierPtrOutput)
-}
-
-func (o PolicyTemplateLinkedPolicyDefinitionOutput) Resource() PolicyEntityIdentifierPtrOutput {
-	return o.ApplyT(func(v PolicyTemplateLinkedPolicyDefinition) *PolicyEntityIdentifier { return v.Resource }).(PolicyEntityIdentifierPtrOutput)
-}
-
-type PolicyTemplateLinkedPolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyTemplateLinkedPolicyDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyTemplateLinkedPolicyDefinition)(nil)).Elem()
-}
-
-func (o PolicyTemplateLinkedPolicyDefinitionPtrOutput) ToPolicyTemplateLinkedPolicyDefinitionPtrOutput() PolicyTemplateLinkedPolicyDefinitionPtrOutput {
-	return o
-}
-
-func (o PolicyTemplateLinkedPolicyDefinitionPtrOutput) ToPolicyTemplateLinkedPolicyDefinitionPtrOutputWithContext(ctx context.Context) PolicyTemplateLinkedPolicyDefinitionPtrOutput {
-	return o
-}
-
-func (o PolicyTemplateLinkedPolicyDefinitionPtrOutput) Elem() PolicyTemplateLinkedPolicyDefinitionOutput {
-	return o.ApplyT(func(v *PolicyTemplateLinkedPolicyDefinition) PolicyTemplateLinkedPolicyDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyTemplateLinkedPolicyDefinition
-		return ret
-	}).(PolicyTemplateLinkedPolicyDefinitionOutput)
-}
-
-func (o PolicyTemplateLinkedPolicyDefinitionPtrOutput) PolicyTemplateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyTemplateLinkedPolicyDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PolicyTemplateId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PolicyTemplateLinkedPolicyDefinitionPtrOutput) Principal() PolicyEntityIdentifierPtrOutput {
-	return o.ApplyT(func(v *PolicyTemplateLinkedPolicyDefinition) *PolicyEntityIdentifier {
-		if v == nil {
-			return nil
-		}
-		return v.Principal
-	}).(PolicyEntityIdentifierPtrOutput)
-}
-
-func (o PolicyTemplateLinkedPolicyDefinitionPtrOutput) Resource() PolicyEntityIdentifierPtrOutput {
-	return o.ApplyT(func(v *PolicyTemplateLinkedPolicyDefinition) *PolicyEntityIdentifier {
-		if v == nil {
-			return nil
-		}
-		return v.Resource
-	}).(PolicyEntityIdentifierPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceCognitoUserPoolConfigurationInput)(nil)).Elem(), IdentitySourceCognitoUserPoolConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationInput)(nil)).Elem(), IdentitySourceConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinition0PropertiesInput)(nil)).Elem(), PolicyDefinition0PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinition1PropertiesInput)(nil)).Elem(), PolicyDefinition1PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyEntityIdentifierInput)(nil)).Elem(), PolicyEntityIdentifierArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyEntityIdentifierPtrInput)(nil)).Elem(), PolicyEntityIdentifierArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStaticPolicyDefinitionInput)(nil)).Elem(), PolicyStaticPolicyDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinitionInput)(nil)).Elem(), PolicyStoreSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinitionPtrInput)(nil)).Elem(), PolicyStoreSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreValidationSettingsInput)(nil)).Elem(), PolicyStoreValidationSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTemplateLinkedPolicyDefinitionInput)(nil)).Elem(), PolicyTemplateLinkedPolicyDefinitionArgs{})
 	pulumi.RegisterOutputType(IdentitySourceCognitoUserPoolConfigurationOutput{})
 	pulumi.RegisterOutputType(IdentitySourceCognitoUserPoolConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceConfigurationOutput{})
 	pulumi.RegisterOutputType(IdentitySourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceDetailsOutput{})
 	pulumi.RegisterOutputType(IdentitySourceDetailsPtrOutput{})
-	pulumi.RegisterOutputType(PolicyDefinition0PropertiesOutput{})
-	pulumi.RegisterOutputType(PolicyDefinition0PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(PolicyDefinition1PropertiesOutput{})
-	pulumi.RegisterOutputType(PolicyDefinition1PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(PolicyEntityIdentifierOutput{})
-	pulumi.RegisterOutputType(PolicyEntityIdentifierPtrOutput{})
-	pulumi.RegisterOutputType(PolicyStaticPolicyDefinitionOutput{})
-	pulumi.RegisterOutputType(PolicyStaticPolicyDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreSchemaDefinitionOutput{})
 	pulumi.RegisterOutputType(PolicyStoreSchemaDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreValidationSettingsOutput{})
 	pulumi.RegisterOutputType(PolicyStoreValidationSettingsPtrOutput{})
-	pulumi.RegisterOutputType(PolicyTemplateLinkedPolicyDefinitionOutput{})
-	pulumi.RegisterOutputType(PolicyTemplateLinkedPolicyDefinitionPtrOutput{})
 }

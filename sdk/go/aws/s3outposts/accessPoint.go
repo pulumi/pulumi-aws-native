@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type Definition for AWS::S3Outposts::AccessPoint
@@ -125,6 +126,12 @@ func (i *AccessPoint) ToAccessPointOutputWithContext(ctx context.Context) Access
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointOutput)
 }
 
+func (i *AccessPoint) ToOutput(ctx context.Context) pulumix.Output[*AccessPoint] {
+	return pulumix.Output[*AccessPoint]{
+		OutputState: i.ToAccessPointOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPointOutput struct{ *pulumi.OutputState }
 
 func (AccessPointOutput) ElementType() reflect.Type {
@@ -137,6 +144,12 @@ func (o AccessPointOutput) ToAccessPointOutput() AccessPointOutput {
 
 func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput {
 	return o
+}
+
+func (o AccessPointOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPoint] {
+	return pulumix.Output[*AccessPoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the specified AccessPoint.

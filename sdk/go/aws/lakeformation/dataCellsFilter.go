@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource schema representing a Lake Formation Data Cells Filter.
@@ -148,6 +149,12 @@ func (i *DataCellsFilter) ToDataCellsFilterOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterOutput)
 }
 
+func (i *DataCellsFilter) ToOutput(ctx context.Context) pulumix.Output[*DataCellsFilter] {
+	return pulumix.Output[*DataCellsFilter]{
+		OutputState: i.ToDataCellsFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataCellsFilterOutput struct{ *pulumi.OutputState }
 
 func (DataCellsFilterOutput) ElementType() reflect.Type {
@@ -160,6 +167,12 @@ func (o DataCellsFilterOutput) ToDataCellsFilterOutput() DataCellsFilterOutput {
 
 func (o DataCellsFilterOutput) ToDataCellsFilterOutputWithContext(ctx context.Context) DataCellsFilterOutput {
 	return o
+}
+
+func (o DataCellsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCellsFilter] {
+	return pulumix.Output[*DataCellsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of columns to be included in this Data Cells Filter.

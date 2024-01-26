@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::Workflow
@@ -107,6 +108,12 @@ func (i *Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOutput)
 }
 
+func (i *Workflow) ToOutput(ctx context.Context) pulumix.Output[*Workflow] {
+	return pulumix.Output[*Workflow]{
+		OutputState: i.ToWorkflowOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o WorkflowOutput) ToWorkflowOutput() WorkflowOutput {
 
 func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput {
 	return o
+}
+
+func (o WorkflowOutput) ToOutput(ctx context.Context) pulumix.Output[*Workflow] {
+	return pulumix.Output[*Workflow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowOutput) DefaultRunProperties() pulumi.AnyOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An ObjectType resource of Amazon Connect Customer Profiles
@@ -165,6 +166,12 @@ func (i *ObjectType) ToObjectTypeOutputWithContext(ctx context.Context) ObjectTy
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeOutput)
 }
 
+func (i *ObjectType) ToOutput(ctx context.Context) pulumix.Output[*ObjectType] {
+	return pulumix.Output[*ObjectType]{
+		OutputState: i.ToObjectTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ObjectTypeOutput struct{ *pulumi.OutputState }
 
 func (ObjectTypeOutput) ElementType() reflect.Type {
@@ -177,6 +184,12 @@ func (o ObjectTypeOutput) ToObjectTypeOutput() ObjectTypeOutput {
 
 func (o ObjectTypeOutput) ToObjectTypeOutputWithContext(ctx context.Context) ObjectTypeOutput {
 	return o
+}
+
+func (o ObjectTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*ObjectType] {
+	return pulumix.Output[*ObjectType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether a profile should be created when data is received.

@@ -77,6 +77,12 @@ func (o TrustAnchorNotificationChannelOutput) ToTrustAnchorNotificationChannelPt
 	}).(TrustAnchorNotificationChannelPtrOutput)
 }
 
+func (o TrustAnchorNotificationChannelOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorNotificationChannel] {
+	return pulumix.Output[TrustAnchorNotificationChannel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrustAnchorNotificationChannelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +118,12 @@ func (o TrustAnchorNotificationChannelPtrOutput) ToTrustAnchorNotificationChanne
 	return o
 }
 
+func (o TrustAnchorNotificationChannelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorNotificationChannel] {
+	return pulumix.Output[*TrustAnchorNotificationChannel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrustAnchorNotificationChannelPtrOutput) Elem() TrustAnchorNotificationChannelOutput {
 	return o.ApplyT(func(v *TrustAnchorNotificationChannel) TrustAnchorNotificationChannel {
 		if v != nil {
@@ -136,10 +148,10 @@ func (o TrustAnchorNotificationChannelPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// TrustAnchorNotificationChannelInput is an input type that accepts values of the TrustAnchorNotificationChannel enum
-// A concrete instance of `TrustAnchorNotificationChannelInput` can be one of the following:
+// TrustAnchorNotificationChannelInput is an input type that accepts TrustAnchorNotificationChannelArgs and TrustAnchorNotificationChannelOutput values.
+// You can construct a concrete instance of `TrustAnchorNotificationChannelInput` via:
 //
-//	TrustAnchorNotificationChannelAll
+//	TrustAnchorNotificationChannelArgs{...}
 type TrustAnchorNotificationChannelInput interface {
 	pulumi.Input
 
@@ -247,6 +259,12 @@ func (o TrustAnchorNotificationEventOutput) ToTrustAnchorNotificationEventPtrOut
 	}).(TrustAnchorNotificationEventPtrOutput)
 }
 
+func (o TrustAnchorNotificationEventOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorNotificationEvent] {
+	return pulumix.Output[TrustAnchorNotificationEvent]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrustAnchorNotificationEventOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -282,6 +300,12 @@ func (o TrustAnchorNotificationEventPtrOutput) ToTrustAnchorNotificationEventPtr
 	return o
 }
 
+func (o TrustAnchorNotificationEventPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorNotificationEvent] {
+	return pulumix.Output[*TrustAnchorNotificationEvent]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrustAnchorNotificationEventPtrOutput) Elem() TrustAnchorNotificationEventOutput {
 	return o.ApplyT(func(v *TrustAnchorNotificationEvent) TrustAnchorNotificationEvent {
 		if v != nil {
@@ -306,11 +330,10 @@ func (o TrustAnchorNotificationEventPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// TrustAnchorNotificationEventInput is an input type that accepts values of the TrustAnchorNotificationEvent enum
-// A concrete instance of `TrustAnchorNotificationEventInput` can be one of the following:
+// TrustAnchorNotificationEventInput is an input type that accepts TrustAnchorNotificationEventArgs and TrustAnchorNotificationEventOutput values.
+// You can construct a concrete instance of `TrustAnchorNotificationEventInput` via:
 //
-//	TrustAnchorNotificationEventCaCertificateExpiry
-//	TrustAnchorNotificationEventEndEntityCertificateExpiry
+//	TrustAnchorNotificationEventArgs{...}
 type TrustAnchorNotificationEventInput interface {
 	pulumi.Input
 
@@ -419,6 +442,12 @@ func (o TrustAnchorTypeOutput) ToTrustAnchorTypePtrOutputWithContext(ctx context
 	}).(TrustAnchorTypePtrOutput)
 }
 
+func (o TrustAnchorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorType] {
+	return pulumix.Output[TrustAnchorType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrustAnchorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -454,6 +483,12 @@ func (o TrustAnchorTypePtrOutput) ToTrustAnchorTypePtrOutputWithContext(ctx cont
 	return o
 }
 
+func (o TrustAnchorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorType] {
+	return pulumix.Output[*TrustAnchorType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrustAnchorTypePtrOutput) Elem() TrustAnchorTypeOutput {
 	return o.ApplyT(func(v *TrustAnchorType) TrustAnchorType {
 		if v != nil {
@@ -478,12 +513,10 @@ func (o TrustAnchorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TrustAnchorTypeInput is an input type that accepts values of the TrustAnchorType enum
-// A concrete instance of `TrustAnchorTypeInput` can be one of the following:
+// TrustAnchorTypeInput is an input type that accepts TrustAnchorTypeArgs and TrustAnchorTypeOutput values.
+// You can construct a concrete instance of `TrustAnchorTypeInput` via:
 //
-//	TrustAnchorTypeAwsAcmPca
-//	TrustAnchorTypeCertificateBundle
-//	TrustAnchorTypeSelfSignedRepository
+//	TrustAnchorTypeArgs{...}
 type TrustAnchorTypeInput interface {
 	pulumi.Input
 

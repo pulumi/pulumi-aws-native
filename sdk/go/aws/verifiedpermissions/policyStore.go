@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
@@ -101,6 +102,12 @@ func (i *PolicyStore) ToPolicyStoreOutputWithContext(ctx context.Context) Policy
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreOutput)
 }
 
+func (i *PolicyStore) ToOutput(ctx context.Context) pulumix.Output[*PolicyStore] {
+	return pulumix.Output[*PolicyStore]{
+		OutputState: i.ToPolicyStoreOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyStoreOutput struct{ *pulumi.OutputState }
 
 func (PolicyStoreOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o PolicyStoreOutput) ToPolicyStoreOutput() PolicyStoreOutput {
 
 func (o PolicyStoreOutput) ToPolicyStoreOutputWithContext(ctx context.Context) PolicyStoreOutput {
 	return o
+}
+
+func (o PolicyStoreOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyStore] {
+	return pulumix.Output[*PolicyStore]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyStoreOutput) Arn() pulumi.StringOutput {

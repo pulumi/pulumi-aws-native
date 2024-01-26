@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::TransitGatewayRouteTable
@@ -109,6 +110,12 @@ func (i *TransitGatewayRouteTable) ToTransitGatewayRouteTableOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableOutput)
 }
 
+func (i *TransitGatewayRouteTable) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRouteTable] {
+	return pulumix.Output[*TransitGatewayRouteTable]{
+		OutputState: i.ToTransitGatewayRouteTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayRouteTableOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayRouteTableOutput) ElementType() reflect.Type {
@@ -121,6 +128,12 @@ func (o TransitGatewayRouteTableOutput) ToTransitGatewayRouteTableOutput() Trans
 
 func (o TransitGatewayRouteTableOutput) ToTransitGatewayRouteTableOutputWithContext(ctx context.Context) TransitGatewayRouteTableOutput {
 	return o
+}
+
+func (o TransitGatewayRouteTableOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRouteTable] {
+	return pulumix.Output[*TransitGatewayRouteTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.

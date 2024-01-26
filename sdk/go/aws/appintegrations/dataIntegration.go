@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppIntegrations::DataIntegration
@@ -149,6 +150,12 @@ func (i *DataIntegration) ToDataIntegrationOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationOutput)
 }
 
+func (i *DataIntegration) ToOutput(ctx context.Context) pulumix.Output[*DataIntegration] {
+	return pulumix.Output[*DataIntegration]{
+		OutputState: i.ToDataIntegrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataIntegrationOutput struct{ *pulumi.OutputState }
 
 func (DataIntegrationOutput) ElementType() reflect.Type {
@@ -161,6 +168,12 @@ func (o DataIntegrationOutput) ToDataIntegrationOutput() DataIntegrationOutput {
 
 func (o DataIntegrationOutput) ToDataIntegrationOutputWithContext(ctx context.Context) DataIntegrationOutput {
 	return o
+}
+
+func (o DataIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*DataIntegration] {
+	return pulumix.Output[*DataIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the data integration.

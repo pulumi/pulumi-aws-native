@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::VerifiedAccessEndpoint resource creates an AWS EC2 Verified Access Endpoint.
@@ -214,6 +215,12 @@ func (i *VerifiedAccessEndpoint) ToVerifiedAccessEndpointOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointOutput)
 }
 
+func (i *VerifiedAccessEndpoint) ToOutput(ctx context.Context) pulumix.Output[*VerifiedAccessEndpoint] {
+	return pulumix.Output[*VerifiedAccessEndpoint]{
+		OutputState: i.ToVerifiedAccessEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VerifiedAccessEndpointOutput struct{ *pulumi.OutputState }
 
 func (VerifiedAccessEndpointOutput) ElementType() reflect.Type {
@@ -226,6 +233,12 @@ func (o VerifiedAccessEndpointOutput) ToVerifiedAccessEndpointOutput() VerifiedA
 
 func (o VerifiedAccessEndpointOutput) ToVerifiedAccessEndpointOutputWithContext(ctx context.Context) VerifiedAccessEndpointOutput {
 	return o
+}
+
+func (o VerifiedAccessEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*VerifiedAccessEndpoint] {
+	return pulumix.Output[*VerifiedAccessEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The DNS name for users to reach your application.

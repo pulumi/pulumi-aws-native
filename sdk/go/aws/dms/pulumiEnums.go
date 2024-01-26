@@ -20,172 +20,6 @@ const (
 	DataProviderDmsSslModeValueVerifyFull = DataProviderDmsSslModeValue("verify_full")
 )
 
-func (DataProviderDmsSslModeValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataProviderDmsSslModeValue)(nil)).Elem()
-}
-
-func (e DataProviderDmsSslModeValue) ToDataProviderDmsSslModeValueOutput() DataProviderDmsSslModeValueOutput {
-	return pulumi.ToOutput(e).(DataProviderDmsSslModeValueOutput)
-}
-
-func (e DataProviderDmsSslModeValue) ToDataProviderDmsSslModeValueOutputWithContext(ctx context.Context) DataProviderDmsSslModeValueOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DataProviderDmsSslModeValueOutput)
-}
-
-func (e DataProviderDmsSslModeValue) ToDataProviderDmsSslModeValuePtrOutput() DataProviderDmsSslModeValuePtrOutput {
-	return e.ToDataProviderDmsSslModeValuePtrOutputWithContext(context.Background())
-}
-
-func (e DataProviderDmsSslModeValue) ToDataProviderDmsSslModeValuePtrOutputWithContext(ctx context.Context) DataProviderDmsSslModeValuePtrOutput {
-	return DataProviderDmsSslModeValue(e).ToDataProviderDmsSslModeValueOutputWithContext(ctx).ToDataProviderDmsSslModeValuePtrOutputWithContext(ctx)
-}
-
-func (e DataProviderDmsSslModeValue) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataProviderDmsSslModeValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataProviderDmsSslModeValue) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DataProviderDmsSslModeValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DataProviderDmsSslModeValueOutput struct{ *pulumi.OutputState }
-
-func (DataProviderDmsSslModeValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataProviderDmsSslModeValue)(nil)).Elem()
-}
-
-func (o DataProviderDmsSslModeValueOutput) ToDataProviderDmsSslModeValueOutput() DataProviderDmsSslModeValueOutput {
-	return o
-}
-
-func (o DataProviderDmsSslModeValueOutput) ToDataProviderDmsSslModeValueOutputWithContext(ctx context.Context) DataProviderDmsSslModeValueOutput {
-	return o
-}
-
-func (o DataProviderDmsSslModeValueOutput) ToDataProviderDmsSslModeValuePtrOutput() DataProviderDmsSslModeValuePtrOutput {
-	return o.ToDataProviderDmsSslModeValuePtrOutputWithContext(context.Background())
-}
-
-func (o DataProviderDmsSslModeValueOutput) ToDataProviderDmsSslModeValuePtrOutputWithContext(ctx context.Context) DataProviderDmsSslModeValuePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderDmsSslModeValue) *DataProviderDmsSslModeValue {
-		return &v
-	}).(DataProviderDmsSslModeValuePtrOutput)
-}
-
-func (o DataProviderDmsSslModeValueOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DataProviderDmsSslModeValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProviderDmsSslModeValue) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DataProviderDmsSslModeValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DataProviderDmsSslModeValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProviderDmsSslModeValue) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DataProviderDmsSslModeValuePtrOutput struct{ *pulumi.OutputState }
-
-func (DataProviderDmsSslModeValuePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataProviderDmsSslModeValue)(nil)).Elem()
-}
-
-func (o DataProviderDmsSslModeValuePtrOutput) ToDataProviderDmsSslModeValuePtrOutput() DataProviderDmsSslModeValuePtrOutput {
-	return o
-}
-
-func (o DataProviderDmsSslModeValuePtrOutput) ToDataProviderDmsSslModeValuePtrOutputWithContext(ctx context.Context) DataProviderDmsSslModeValuePtrOutput {
-	return o
-}
-
-func (o DataProviderDmsSslModeValuePtrOutput) Elem() DataProviderDmsSslModeValueOutput {
-	return o.ApplyT(func(v *DataProviderDmsSslModeValue) DataProviderDmsSslModeValue {
-		if v != nil {
-			return *v
-		}
-		var ret DataProviderDmsSslModeValue
-		return ret
-	}).(DataProviderDmsSslModeValueOutput)
-}
-
-func (o DataProviderDmsSslModeValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DataProviderDmsSslModeValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataProviderDmsSslModeValue) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DataProviderDmsSslModeValueInput is an input type that accepts values of the DataProviderDmsSslModeValue enum
-// A concrete instance of `DataProviderDmsSslModeValueInput` can be one of the following:
-//
-//	DataProviderDmsSslModeValueNone
-//	DataProviderDmsSslModeValueRequire
-//	DataProviderDmsSslModeValueVerifyCa
-//	DataProviderDmsSslModeValueVerifyFull
-type DataProviderDmsSslModeValueInput interface {
-	pulumi.Input
-
-	ToDataProviderDmsSslModeValueOutput() DataProviderDmsSslModeValueOutput
-	ToDataProviderDmsSslModeValueOutputWithContext(context.Context) DataProviderDmsSslModeValueOutput
-}
-
-var dataProviderDmsSslModeValuePtrType = reflect.TypeOf((**DataProviderDmsSslModeValue)(nil)).Elem()
-
-type DataProviderDmsSslModeValuePtrInput interface {
-	pulumi.Input
-
-	ToDataProviderDmsSslModeValuePtrOutput() DataProviderDmsSslModeValuePtrOutput
-	ToDataProviderDmsSslModeValuePtrOutputWithContext(context.Context) DataProviderDmsSslModeValuePtrOutput
-}
-
-type dataProviderDmsSslModeValuePtr string
-
-func DataProviderDmsSslModeValuePtr(v string) DataProviderDmsSslModeValuePtrInput {
-	return (*dataProviderDmsSslModeValuePtr)(&v)
-}
-
-func (*dataProviderDmsSslModeValuePtr) ElementType() reflect.Type {
-	return dataProviderDmsSslModeValuePtrType
-}
-
-func (in *dataProviderDmsSslModeValuePtr) ToDataProviderDmsSslModeValuePtrOutput() DataProviderDmsSslModeValuePtrOutput {
-	return pulumi.ToOutput(in).(DataProviderDmsSslModeValuePtrOutput)
-}
-
-func (in *dataProviderDmsSslModeValuePtr) ToDataProviderDmsSslModeValuePtrOutputWithContext(ctx context.Context) DataProviderDmsSslModeValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DataProviderDmsSslModeValuePtrOutput)
-}
-
-func (in *dataProviderDmsSslModeValuePtr) ToOutput(ctx context.Context) pulumix.Output[*DataProviderDmsSslModeValue] {
-	return pulumix.Output[*DataProviderDmsSslModeValue]{
-		OutputState: in.ToDataProviderDmsSslModeValuePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The property describes a data engine for the data provider.
 type DataProviderEngine string
 
@@ -258,6 +92,12 @@ func (o DataProviderEngineOutput) ToDataProviderEnginePtrOutputWithContext(ctx c
 	}).(DataProviderEnginePtrOutput)
 }
 
+func (o DataProviderEngineOutput) ToOutput(ctx context.Context) pulumix.Output[DataProviderEngine] {
+	return pulumix.Output[DataProviderEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataProviderEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -293,6 +133,12 @@ func (o DataProviderEnginePtrOutput) ToDataProviderEnginePtrOutputWithContext(ct
 	return o
 }
 
+func (o DataProviderEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataProviderEngine] {
+	return pulumix.Output[*DataProviderEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataProviderEnginePtrOutput) Elem() DataProviderEngineOutput {
 	return o.ApplyT(func(v *DataProviderEngine) DataProviderEngine {
 		if v != nil {
@@ -317,15 +163,10 @@ func (o DataProviderEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataProviderEngineInput is an input type that accepts values of the DataProviderEngine enum
-// A concrete instance of `DataProviderEngineInput` can be one of the following:
+// DataProviderEngineInput is an input type that accepts DataProviderEngineArgs and DataProviderEngineOutput values.
+// You can construct a concrete instance of `DataProviderEngineInput` via:
 //
-//	DataProviderEnginePostgresql
-//	DataProviderEngineMysql
-//	DataProviderEngineOracle
-//	DataProviderEngineSqlserver
-//	DataProviderEngineAurora
-//	DataProviderEngineAuroraPostgresql
+//	DataProviderEngineArgs{...}
 type DataProviderEngineInput interface {
 	pulumi.Input
 
@@ -435,6 +276,12 @@ func (o InstanceProfileNetworkTypeOutput) ToInstanceProfileNetworkTypePtrOutputW
 	}).(InstanceProfileNetworkTypePtrOutput)
 }
 
+func (o InstanceProfileNetworkTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceProfileNetworkType] {
+	return pulumix.Output[InstanceProfileNetworkType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceProfileNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -470,6 +317,12 @@ func (o InstanceProfileNetworkTypePtrOutput) ToInstanceProfileNetworkTypePtrOutp
 	return o
 }
 
+func (o InstanceProfileNetworkTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceProfileNetworkType] {
+	return pulumix.Output[*InstanceProfileNetworkType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceProfileNetworkTypePtrOutput) Elem() InstanceProfileNetworkTypeOutput {
 	return o.ApplyT(func(v *InstanceProfileNetworkType) InstanceProfileNetworkType {
 		if v != nil {
@@ -494,12 +347,10 @@ func (o InstanceProfileNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceProfileNetworkTypeInput is an input type that accepts values of the InstanceProfileNetworkType enum
-// A concrete instance of `InstanceProfileNetworkTypeInput` can be one of the following:
+// InstanceProfileNetworkTypeInput is an input type that accepts InstanceProfileNetworkTypeArgs and InstanceProfileNetworkTypeOutput values.
+// You can construct a concrete instance of `InstanceProfileNetworkTypeInput` via:
 //
-//	InstanceProfileNetworkTypeIpv4
-//	InstanceProfileNetworkTypeIpv6
-//	InstanceProfileNetworkTypeDual
+//	InstanceProfileNetworkTypeArgs{...}
 type InstanceProfileNetworkTypeInput interface {
 	pulumi.Input
 
@@ -609,6 +460,12 @@ func (o ReplicationConfigReplicationTypeOutput) ToReplicationConfigReplicationTy
 	}).(ReplicationConfigReplicationTypePtrOutput)
 }
 
+func (o ReplicationConfigReplicationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigReplicationType] {
+	return pulumix.Output[ReplicationConfigReplicationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReplicationConfigReplicationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -644,6 +501,12 @@ func (o ReplicationConfigReplicationTypePtrOutput) ToReplicationConfigReplicatio
 	return o
 }
 
+func (o ReplicationConfigReplicationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigReplicationType] {
+	return pulumix.Output[*ReplicationConfigReplicationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReplicationConfigReplicationTypePtrOutput) Elem() ReplicationConfigReplicationTypeOutput {
 	return o.ApplyT(func(v *ReplicationConfigReplicationType) ReplicationConfigReplicationType {
 		if v != nil {
@@ -668,12 +531,10 @@ func (o ReplicationConfigReplicationTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReplicationConfigReplicationTypeInput is an input type that accepts values of the ReplicationConfigReplicationType enum
-// A concrete instance of `ReplicationConfigReplicationTypeInput` can be one of the following:
+// ReplicationConfigReplicationTypeInput is an input type that accepts ReplicationConfigReplicationTypeArgs and ReplicationConfigReplicationTypeOutput values.
+// You can construct a concrete instance of `ReplicationConfigReplicationTypeInput` via:
 //
-//	ReplicationConfigReplicationTypeFullLoad
-//	ReplicationConfigReplicationTypeFullLoadAndCdc
-//	ReplicationConfigReplicationTypeCdc
+//	ReplicationConfigReplicationTypeArgs{...}
 type ReplicationConfigReplicationTypeInput interface {
 	pulumi.Input
 
@@ -715,16 +576,12 @@ func (in *replicationConfigReplicationTypePtr) ToOutput(ctx context.Context) pul
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderDmsSslModeValueInput)(nil)).Elem(), DataProviderDmsSslModeValue("none"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderDmsSslModeValuePtrInput)(nil)).Elem(), DataProviderDmsSslModeValue("none"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderEngineInput)(nil)).Elem(), DataProviderEngine("postgresql"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderEnginePtrInput)(nil)).Elem(), DataProviderEngine("postgresql"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileNetworkTypeInput)(nil)).Elem(), InstanceProfileNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileNetworkTypePtrInput)(nil)).Elem(), InstanceProfileNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationTypeInput)(nil)).Elem(), ReplicationConfigReplicationType("full-load"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationTypePtrInput)(nil)).Elem(), ReplicationConfigReplicationType("full-load"))
-	pulumi.RegisterOutputType(DataProviderDmsSslModeValueOutput{})
-	pulumi.RegisterOutputType(DataProviderDmsSslModeValuePtrOutput{})
 	pulumi.RegisterOutputType(DataProviderEngineOutput{})
 	pulumi.RegisterOutputType(DataProviderEnginePtrOutput{})
 	pulumi.RegisterOutputType(InstanceProfileNetworkTypeOutput{})

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MediaConvert::Preset
@@ -112,6 +113,12 @@ func (i *Preset) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PresetOutput)
 }
 
+func (i *Preset) ToOutput(ctx context.Context) pulumix.Output[*Preset] {
+	return pulumix.Output[*Preset]{
+		OutputState: i.ToPresetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PresetOutput struct{ *pulumi.OutputState }
 
 func (PresetOutput) ElementType() reflect.Type {
@@ -124,6 +131,12 @@ func (o PresetOutput) ToPresetOutput() PresetOutput {
 
 func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
 	return o
+}
+
+func (o PresetOutput) ToOutput(ctx context.Context) pulumix.Output[*Preset] {
+	return pulumix.Output[*Preset]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PresetOutput) Arn() pulumi.StringOutput {

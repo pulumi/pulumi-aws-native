@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::SnapshotBlockPublicAccess
@@ -68,6 +69,12 @@ func (o LookupSnapshotBlockPublicAccessResultOutput) ToLookupSnapshotBlockPublic
 
 func (o LookupSnapshotBlockPublicAccessResultOutput) ToLookupSnapshotBlockPublicAccessResultOutputWithContext(ctx context.Context) LookupSnapshotBlockPublicAccessResultOutput {
 	return o
+}
+
+func (o LookupSnapshotBlockPublicAccessResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSnapshotBlockPublicAccessResult] {
+	return pulumix.Output[LookupSnapshotBlockPublicAccessResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier for the specified AWS account.

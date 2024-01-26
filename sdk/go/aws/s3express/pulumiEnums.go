@@ -78,6 +78,12 @@ func (o DirectoryBucketDataRedundancyOutput) ToDirectoryBucketDataRedundancyPtrO
 	}).(DirectoryBucketDataRedundancyPtrOutput)
 }
 
+func (o DirectoryBucketDataRedundancyOutput) ToOutput(ctx context.Context) pulumix.Output[DirectoryBucketDataRedundancy] {
+	return pulumix.Output[DirectoryBucketDataRedundancy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DirectoryBucketDataRedundancyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +119,12 @@ func (o DirectoryBucketDataRedundancyPtrOutput) ToDirectoryBucketDataRedundancyP
 	return o
 }
 
+func (o DirectoryBucketDataRedundancyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DirectoryBucketDataRedundancy] {
+	return pulumix.Output[*DirectoryBucketDataRedundancy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DirectoryBucketDataRedundancyPtrOutput) Elem() DirectoryBucketDataRedundancyOutput {
 	return o.ApplyT(func(v *DirectoryBucketDataRedundancy) DirectoryBucketDataRedundancy {
 		if v != nil {
@@ -137,10 +149,10 @@ func (o DirectoryBucketDataRedundancyPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DirectoryBucketDataRedundancyInput is an input type that accepts values of the DirectoryBucketDataRedundancy enum
-// A concrete instance of `DirectoryBucketDataRedundancyInput` can be one of the following:
+// DirectoryBucketDataRedundancyInput is an input type that accepts DirectoryBucketDataRedundancyArgs and DirectoryBucketDataRedundancyOutput values.
+// You can construct a concrete instance of `DirectoryBucketDataRedundancyInput` via:
 //
-//	DirectoryBucketDataRedundancySingleAvailabilityZone
+//	DirectoryBucketDataRedundancyArgs{...}
 type DirectoryBucketDataRedundancyInput interface {
 	pulumi.Input
 

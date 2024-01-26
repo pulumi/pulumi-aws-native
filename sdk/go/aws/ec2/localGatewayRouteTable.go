@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Describes a route table for a local gateway.
@@ -123,6 +124,12 @@ func (i *LocalGatewayRouteTable) ToLocalGatewayRouteTableOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableOutput)
 }
 
+func (i *LocalGatewayRouteTable) ToOutput(ctx context.Context) pulumix.Output[*LocalGatewayRouteTable] {
+	return pulumix.Output[*LocalGatewayRouteTable]{
+		OutputState: i.ToLocalGatewayRouteTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalGatewayRouteTableOutput struct{ *pulumi.OutputState }
 
 func (LocalGatewayRouteTableOutput) ElementType() reflect.Type {
@@ -135,6 +142,12 @@ func (o LocalGatewayRouteTableOutput) ToLocalGatewayRouteTableOutput() LocalGate
 
 func (o LocalGatewayRouteTableOutput) ToLocalGatewayRouteTableOutputWithContext(ctx context.Context) LocalGatewayRouteTableOutput {
 	return o
+}
+
+func (o LocalGatewayRouteTableOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalGatewayRouteTable] {
+	return pulumix.Output[*LocalGatewayRouteTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the local gateway.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::ImageBuilder::LifecyclePolicy
@@ -153,6 +154,12 @@ func (i *LifecyclePolicy) ToLifecyclePolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyOutput)
 }
 
+func (i *LifecyclePolicy) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicy] {
+	return pulumix.Output[*LifecyclePolicy]{
+		OutputState: i.ToLifecyclePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyOutput) ElementType() reflect.Type {
@@ -165,6 +172,12 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutput() LifecyclePolicyOutput {
 
 func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Context) LifecyclePolicyOutput {
 	return o
+}
+
+func (o LifecyclePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicy] {
+	return pulumix.Output[*LifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the lifecycle policy.

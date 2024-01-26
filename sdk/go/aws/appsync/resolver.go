@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::Resolver
@@ -200,6 +201,12 @@ func (i *Resolver) ToResolverOutputWithContext(ctx context.Context) ResolverOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverOutput)
 }
 
+func (i *Resolver) ToOutput(ctx context.Context) pulumix.Output[*Resolver] {
+	return pulumix.Output[*Resolver]{
+		OutputState: i.ToResolverOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverOutput struct{ *pulumi.OutputState }
 
 func (ResolverOutput) ElementType() reflect.Type {
@@ -212,6 +219,12 @@ func (o ResolverOutput) ToResolverOutput() ResolverOutput {
 
 func (o ResolverOutput) ToResolverOutputWithContext(ctx context.Context) ResolverOutput {
 	return o
+}
+
+func (o ResolverOutput) ToOutput(ctx context.Context) pulumix.Output[*Resolver] {
+	return pulumix.Output[*Resolver]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS AppSync GraphQL API to which you want to attach this resolver.

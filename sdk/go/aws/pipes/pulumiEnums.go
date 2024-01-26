@@ -78,6 +78,12 @@ func (o PipeAssignPublicIpOutput) ToPipeAssignPublicIpPtrOutputWithContext(ctx c
 	}).(PipeAssignPublicIpPtrOutput)
 }
 
+func (o PipeAssignPublicIpOutput) ToOutput(ctx context.Context) pulumix.Output[PipeAssignPublicIp] {
+	return pulumix.Output[PipeAssignPublicIp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeAssignPublicIpOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +119,12 @@ func (o PipeAssignPublicIpPtrOutput) ToPipeAssignPublicIpPtrOutputWithContext(ct
 	return o
 }
 
+func (o PipeAssignPublicIpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeAssignPublicIp] {
+	return pulumix.Output[*PipeAssignPublicIp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeAssignPublicIpPtrOutput) Elem() PipeAssignPublicIpOutput {
 	return o.ApplyT(func(v *PipeAssignPublicIp) PipeAssignPublicIp {
 		if v != nil {
@@ -137,11 +149,10 @@ func (o PipeAssignPublicIpPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeAssignPublicIpInput is an input type that accepts values of the PipeAssignPublicIp enum
-// A concrete instance of `PipeAssignPublicIpInput` can be one of the following:
+// PipeAssignPublicIpInput is an input type that accepts PipeAssignPublicIpArgs and PipeAssignPublicIpOutput values.
+// You can construct a concrete instance of `PipeAssignPublicIpInput` via:
 //
-//	PipeAssignPublicIpEnabled
-//	PipeAssignPublicIpDisabled
+//	PipeAssignPublicIpArgs{...}
 type PipeAssignPublicIpInput interface {
 	pulumi.Input
 
@@ -249,6 +260,12 @@ func (o PipeBatchJobDependencyTypeOutput) ToPipeBatchJobDependencyTypePtrOutputW
 	}).(PipeBatchJobDependencyTypePtrOutput)
 }
 
+func (o PipeBatchJobDependencyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipeBatchJobDependencyType] {
+	return pulumix.Output[PipeBatchJobDependencyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeBatchJobDependencyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -284,6 +301,12 @@ func (o PipeBatchJobDependencyTypePtrOutput) ToPipeBatchJobDependencyTypePtrOutp
 	return o
 }
 
+func (o PipeBatchJobDependencyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeBatchJobDependencyType] {
+	return pulumix.Output[*PipeBatchJobDependencyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeBatchJobDependencyTypePtrOutput) Elem() PipeBatchJobDependencyTypeOutput {
 	return o.ApplyT(func(v *PipeBatchJobDependencyType) PipeBatchJobDependencyType {
 		if v != nil {
@@ -308,11 +331,10 @@ func (o PipeBatchJobDependencyTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeBatchJobDependencyTypeInput is an input type that accepts values of the PipeBatchJobDependencyType enum
-// A concrete instance of `PipeBatchJobDependencyTypeInput` can be one of the following:
+// PipeBatchJobDependencyTypeInput is an input type that accepts PipeBatchJobDependencyTypeArgs and PipeBatchJobDependencyTypeOutput values.
+// You can construct a concrete instance of `PipeBatchJobDependencyTypeInput` via:
 //
-//	PipeBatchJobDependencyTypeNToN
-//	PipeBatchJobDependencyTypeSequential
+//	PipeBatchJobDependencyTypeArgs{...}
 type PipeBatchJobDependencyTypeInput interface {
 	pulumi.Input
 
@@ -421,6 +443,12 @@ func (o PipeBatchResourceRequirementTypeOutput) ToPipeBatchResourceRequirementTy
 	}).(PipeBatchResourceRequirementTypePtrOutput)
 }
 
+func (o PipeBatchResourceRequirementTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipeBatchResourceRequirementType] {
+	return pulumix.Output[PipeBatchResourceRequirementType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeBatchResourceRequirementTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -456,6 +484,12 @@ func (o PipeBatchResourceRequirementTypePtrOutput) ToPipeBatchResourceRequiremen
 	return o
 }
 
+func (o PipeBatchResourceRequirementTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeBatchResourceRequirementType] {
+	return pulumix.Output[*PipeBatchResourceRequirementType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeBatchResourceRequirementTypePtrOutput) Elem() PipeBatchResourceRequirementTypeOutput {
 	return o.ApplyT(func(v *PipeBatchResourceRequirementType) PipeBatchResourceRequirementType {
 		if v != nil {
@@ -480,12 +514,10 @@ func (o PipeBatchResourceRequirementTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeBatchResourceRequirementTypeInput is an input type that accepts values of the PipeBatchResourceRequirementType enum
-// A concrete instance of `PipeBatchResourceRequirementTypeInput` can be one of the following:
+// PipeBatchResourceRequirementTypeInput is an input type that accepts PipeBatchResourceRequirementTypeArgs and PipeBatchResourceRequirementTypeOutput values.
+// You can construct a concrete instance of `PipeBatchResourceRequirementTypeInput` via:
 //
-//	PipeBatchResourceRequirementTypeGpu
-//	PipeBatchResourceRequirementTypeMemory
-//	PipeBatchResourceRequirementTypeVcpu
+//	PipeBatchResourceRequirementTypeArgs{...}
 type PipeBatchResourceRequirementTypeInput interface {
 	pulumi.Input
 
@@ -593,6 +625,12 @@ func (o PipeDynamoDbStreamStartPositionOutput) ToPipeDynamoDbStreamStartPosition
 	}).(PipeDynamoDbStreamStartPositionPtrOutput)
 }
 
+func (o PipeDynamoDbStreamStartPositionOutput) ToOutput(ctx context.Context) pulumix.Output[PipeDynamoDbStreamStartPosition] {
+	return pulumix.Output[PipeDynamoDbStreamStartPosition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeDynamoDbStreamStartPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -628,6 +666,12 @@ func (o PipeDynamoDbStreamStartPositionPtrOutput) ToPipeDynamoDbStreamStartPosit
 	return o
 }
 
+func (o PipeDynamoDbStreamStartPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeDynamoDbStreamStartPosition] {
+	return pulumix.Output[*PipeDynamoDbStreamStartPosition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeDynamoDbStreamStartPositionPtrOutput) Elem() PipeDynamoDbStreamStartPositionOutput {
 	return o.ApplyT(func(v *PipeDynamoDbStreamStartPosition) PipeDynamoDbStreamStartPosition {
 		if v != nil {
@@ -652,11 +696,10 @@ func (o PipeDynamoDbStreamStartPositionPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeDynamoDbStreamStartPositionInput is an input type that accepts values of the PipeDynamoDbStreamStartPosition enum
-// A concrete instance of `PipeDynamoDbStreamStartPositionInput` can be one of the following:
+// PipeDynamoDbStreamStartPositionInput is an input type that accepts PipeDynamoDbStreamStartPositionArgs and PipeDynamoDbStreamStartPositionOutput values.
+// You can construct a concrete instance of `PipeDynamoDbStreamStartPositionInput` via:
 //
-//	PipeDynamoDbStreamStartPositionTrimHorizon
-//	PipeDynamoDbStreamStartPositionLatest
+//	PipeDynamoDbStreamStartPositionArgs{...}
 type PipeDynamoDbStreamStartPositionInput interface {
 	pulumi.Input
 
@@ -763,6 +806,12 @@ func (o PipeEcsEnvironmentFileTypeOutput) ToPipeEcsEnvironmentFileTypePtrOutputW
 	}).(PipeEcsEnvironmentFileTypePtrOutput)
 }
 
+func (o PipeEcsEnvironmentFileTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipeEcsEnvironmentFileType] {
+	return pulumix.Output[PipeEcsEnvironmentFileType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeEcsEnvironmentFileTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -798,6 +847,12 @@ func (o PipeEcsEnvironmentFileTypePtrOutput) ToPipeEcsEnvironmentFileTypePtrOutp
 	return o
 }
 
+func (o PipeEcsEnvironmentFileTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeEcsEnvironmentFileType] {
+	return pulumix.Output[*PipeEcsEnvironmentFileType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeEcsEnvironmentFileTypePtrOutput) Elem() PipeEcsEnvironmentFileTypeOutput {
 	return o.ApplyT(func(v *PipeEcsEnvironmentFileType) PipeEcsEnvironmentFileType {
 		if v != nil {
@@ -822,10 +877,10 @@ func (o PipeEcsEnvironmentFileTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeEcsEnvironmentFileTypeInput is an input type that accepts values of the PipeEcsEnvironmentFileType enum
-// A concrete instance of `PipeEcsEnvironmentFileTypeInput` can be one of the following:
+// PipeEcsEnvironmentFileTypeInput is an input type that accepts PipeEcsEnvironmentFileTypeArgs and PipeEcsEnvironmentFileTypeOutput values.
+// You can construct a concrete instance of `PipeEcsEnvironmentFileTypeInput` via:
 //
-//	PipeEcsEnvironmentFileTypeS3
+//	PipeEcsEnvironmentFileTypeArgs{...}
 type PipeEcsEnvironmentFileTypeInput interface {
 	pulumi.Input
 
@@ -933,6 +988,12 @@ func (o PipeEcsResourceRequirementTypeOutput) ToPipeEcsResourceRequirementTypePt
 	}).(PipeEcsResourceRequirementTypePtrOutput)
 }
 
+func (o PipeEcsResourceRequirementTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipeEcsResourceRequirementType] {
+	return pulumix.Output[PipeEcsResourceRequirementType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeEcsResourceRequirementTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -968,6 +1029,12 @@ func (o PipeEcsResourceRequirementTypePtrOutput) ToPipeEcsResourceRequirementTyp
 	return o
 }
 
+func (o PipeEcsResourceRequirementTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeEcsResourceRequirementType] {
+	return pulumix.Output[*PipeEcsResourceRequirementType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeEcsResourceRequirementTypePtrOutput) Elem() PipeEcsResourceRequirementTypeOutput {
 	return o.ApplyT(func(v *PipeEcsResourceRequirementType) PipeEcsResourceRequirementType {
 		if v != nil {
@@ -992,11 +1059,10 @@ func (o PipeEcsResourceRequirementTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeEcsResourceRequirementTypeInput is an input type that accepts values of the PipeEcsResourceRequirementType enum
-// A concrete instance of `PipeEcsResourceRequirementTypeInput` can be one of the following:
+// PipeEcsResourceRequirementTypeInput is an input type that accepts PipeEcsResourceRequirementTypeArgs and PipeEcsResourceRequirementTypeOutput values.
+// You can construct a concrete instance of `PipeEcsResourceRequirementTypeInput` via:
 //
-//	PipeEcsResourceRequirementTypeGpu
-//	PipeEcsResourceRequirementTypeInferenceAccelerator
+//	PipeEcsResourceRequirementTypeArgs{...}
 type PipeEcsResourceRequirementTypeInput interface {
 	pulumi.Input
 
@@ -1103,6 +1169,12 @@ func (o PipeIncludeExecutionDataOptionOutput) ToPipeIncludeExecutionDataOptionPt
 	}).(PipeIncludeExecutionDataOptionPtrOutput)
 }
 
+func (o PipeIncludeExecutionDataOptionOutput) ToOutput(ctx context.Context) pulumix.Output[PipeIncludeExecutionDataOption] {
+	return pulumix.Output[PipeIncludeExecutionDataOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeIncludeExecutionDataOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1138,6 +1210,12 @@ func (o PipeIncludeExecutionDataOptionPtrOutput) ToPipeIncludeExecutionDataOptio
 	return o
 }
 
+func (o PipeIncludeExecutionDataOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeIncludeExecutionDataOption] {
+	return pulumix.Output[*PipeIncludeExecutionDataOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeIncludeExecutionDataOptionPtrOutput) Elem() PipeIncludeExecutionDataOptionOutput {
 	return o.ApplyT(func(v *PipeIncludeExecutionDataOption) PipeIncludeExecutionDataOption {
 		if v != nil {
@@ -1162,10 +1240,10 @@ func (o PipeIncludeExecutionDataOptionPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeIncludeExecutionDataOptionInput is an input type that accepts values of the PipeIncludeExecutionDataOption enum
-// A concrete instance of `PipeIncludeExecutionDataOptionInput` can be one of the following:
+// PipeIncludeExecutionDataOptionInput is an input type that accepts PipeIncludeExecutionDataOptionArgs and PipeIncludeExecutionDataOptionOutput values.
+// You can construct a concrete instance of `PipeIncludeExecutionDataOptionInput` via:
 //
-//	PipeIncludeExecutionDataOptionAll
+//	PipeIncludeExecutionDataOptionArgs{...}
 type PipeIncludeExecutionDataOptionInput interface {
 	pulumi.Input
 
@@ -1231,6 +1309,12 @@ func (i PipeIncludeExecutionDataOptionArray) ToPipeIncludeExecutionDataOptionArr
 	return pulumi.ToOutputWithContext(ctx, i).(PipeIncludeExecutionDataOptionArrayOutput)
 }
 
+func (i PipeIncludeExecutionDataOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]PipeIncludeExecutionDataOption] {
+	return pulumix.Output[[]PipeIncludeExecutionDataOption]{
+		OutputState: i.ToPipeIncludeExecutionDataOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipeIncludeExecutionDataOptionArrayOutput struct{ *pulumi.OutputState }
 
 func (PipeIncludeExecutionDataOptionArrayOutput) ElementType() reflect.Type {
@@ -1243,6 +1327,12 @@ func (o PipeIncludeExecutionDataOptionArrayOutput) ToPipeIncludeExecutionDataOpt
 
 func (o PipeIncludeExecutionDataOptionArrayOutput) ToPipeIncludeExecutionDataOptionArrayOutputWithContext(ctx context.Context) PipeIncludeExecutionDataOptionArrayOutput {
 	return o
+}
+
+func (o PipeIncludeExecutionDataOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipeIncludeExecutionDataOption] {
+	return pulumix.Output[[]PipeIncludeExecutionDataOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipeIncludeExecutionDataOptionArrayOutput) Index(i pulumi.IntInput) PipeIncludeExecutionDataOptionOutput {
@@ -1319,6 +1409,12 @@ func (o PipeKinesisStreamStartPositionOutput) ToPipeKinesisStreamStartPositionPt
 	}).(PipeKinesisStreamStartPositionPtrOutput)
 }
 
+func (o PipeKinesisStreamStartPositionOutput) ToOutput(ctx context.Context) pulumix.Output[PipeKinesisStreamStartPosition] {
+	return pulumix.Output[PipeKinesisStreamStartPosition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeKinesisStreamStartPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1354,6 +1450,12 @@ func (o PipeKinesisStreamStartPositionPtrOutput) ToPipeKinesisStreamStartPositio
 	return o
 }
 
+func (o PipeKinesisStreamStartPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeKinesisStreamStartPosition] {
+	return pulumix.Output[*PipeKinesisStreamStartPosition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeKinesisStreamStartPositionPtrOutput) Elem() PipeKinesisStreamStartPositionOutput {
 	return o.ApplyT(func(v *PipeKinesisStreamStartPosition) PipeKinesisStreamStartPosition {
 		if v != nil {
@@ -1378,12 +1480,10 @@ func (o PipeKinesisStreamStartPositionPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeKinesisStreamStartPositionInput is an input type that accepts values of the PipeKinesisStreamStartPosition enum
-// A concrete instance of `PipeKinesisStreamStartPositionInput` can be one of the following:
+// PipeKinesisStreamStartPositionInput is an input type that accepts PipeKinesisStreamStartPositionArgs and PipeKinesisStreamStartPositionOutput values.
+// You can construct a concrete instance of `PipeKinesisStreamStartPositionInput` via:
 //
-//	PipeKinesisStreamStartPositionTrimHorizon
-//	PipeKinesisStreamStartPositionLatest
-//	PipeKinesisStreamStartPositionAtTimestamp
+//	PipeKinesisStreamStartPositionArgs{...}
 type PipeKinesisStreamStartPositionInput interface {
 	pulumi.Input
 
@@ -1492,6 +1592,12 @@ func (o PipeLaunchTypeOutput) ToPipeLaunchTypePtrOutputWithContext(ctx context.C
 	}).(PipeLaunchTypePtrOutput)
 }
 
+func (o PipeLaunchTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipeLaunchType] {
+	return pulumix.Output[PipeLaunchType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeLaunchTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1527,6 +1633,12 @@ func (o PipeLaunchTypePtrOutput) ToPipeLaunchTypePtrOutputWithContext(ctx contex
 	return o
 }
 
+func (o PipeLaunchTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeLaunchType] {
+	return pulumix.Output[*PipeLaunchType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeLaunchTypePtrOutput) Elem() PipeLaunchTypeOutput {
 	return o.ApplyT(func(v *PipeLaunchType) PipeLaunchType {
 		if v != nil {
@@ -1551,12 +1663,10 @@ func (o PipeLaunchTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeLaunchTypeInput is an input type that accepts values of the PipeLaunchType enum
-// A concrete instance of `PipeLaunchTypeInput` can be one of the following:
+// PipeLaunchTypeInput is an input type that accepts PipeLaunchTypeArgs and PipeLaunchTypeOutput values.
+// You can construct a concrete instance of `PipeLaunchTypeInput` via:
 //
-//	PipeLaunchTypeEc2
-//	PipeLaunchTypeFargate
-//	PipeLaunchTypeExternal
+//	PipeLaunchTypeArgs{...}
 type PipeLaunchTypeInput interface {
 	pulumi.Input
 
@@ -1666,6 +1776,12 @@ func (o PipeLogLevelOutput) ToPipeLogLevelPtrOutputWithContext(ctx context.Conte
 	}).(PipeLogLevelPtrOutput)
 }
 
+func (o PipeLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[PipeLogLevel] {
+	return pulumix.Output[PipeLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1701,6 +1817,12 @@ func (o PipeLogLevelPtrOutput) ToPipeLogLevelPtrOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o PipeLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeLogLevel] {
+	return pulumix.Output[*PipeLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeLogLevelPtrOutput) Elem() PipeLogLevelOutput {
 	return o.ApplyT(func(v *PipeLogLevel) PipeLogLevel {
 		if v != nil {
@@ -1725,13 +1847,10 @@ func (o PipeLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeLogLevelInput is an input type that accepts values of the PipeLogLevel enum
-// A concrete instance of `PipeLogLevelInput` can be one of the following:
+// PipeLogLevelInput is an input type that accepts PipeLogLevelArgs and PipeLogLevelOutput values.
+// You can construct a concrete instance of `PipeLogLevelInput` via:
 //
-//	PipeLogLevelOff
-//	PipeLogLevelError
-//	PipeLogLevelInfo
-//	PipeLogLevelTrace
+//	PipeLogLevelArgs{...}
 type PipeLogLevelInput interface {
 	pulumi.Input
 
@@ -1839,6 +1958,12 @@ func (o PipeMskStartPositionOutput) ToPipeMskStartPositionPtrOutputWithContext(c
 	}).(PipeMskStartPositionPtrOutput)
 }
 
+func (o PipeMskStartPositionOutput) ToOutput(ctx context.Context) pulumix.Output[PipeMskStartPosition] {
+	return pulumix.Output[PipeMskStartPosition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeMskStartPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1874,6 +1999,12 @@ func (o PipeMskStartPositionPtrOutput) ToPipeMskStartPositionPtrOutputWithContex
 	return o
 }
 
+func (o PipeMskStartPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeMskStartPosition] {
+	return pulumix.Output[*PipeMskStartPosition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeMskStartPositionPtrOutput) Elem() PipeMskStartPositionOutput {
 	return o.ApplyT(func(v *PipeMskStartPosition) PipeMskStartPosition {
 		if v != nil {
@@ -1898,11 +2029,10 @@ func (o PipeMskStartPositionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeMskStartPositionInput is an input type that accepts values of the PipeMskStartPosition enum
-// A concrete instance of `PipeMskStartPositionInput` can be one of the following:
+// PipeMskStartPositionInput is an input type that accepts PipeMskStartPositionArgs and PipeMskStartPositionOutput values.
+// You can construct a concrete instance of `PipeMskStartPositionInput` via:
 //
-//	PipeMskStartPositionTrimHorizon
-//	PipeMskStartPositionLatest
+//	PipeMskStartPositionArgs{...}
 type PipeMskStartPositionInput interface {
 	pulumi.Input
 
@@ -2009,6 +2139,12 @@ func (o PipeOnPartialBatchItemFailureStreamsOutput) ToPipeOnPartialBatchItemFail
 	}).(PipeOnPartialBatchItemFailureStreamsPtrOutput)
 }
 
+func (o PipeOnPartialBatchItemFailureStreamsOutput) ToOutput(ctx context.Context) pulumix.Output[PipeOnPartialBatchItemFailureStreams] {
+	return pulumix.Output[PipeOnPartialBatchItemFailureStreams]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeOnPartialBatchItemFailureStreamsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2044,6 +2180,12 @@ func (o PipeOnPartialBatchItemFailureStreamsPtrOutput) ToPipeOnPartialBatchItemF
 	return o
 }
 
+func (o PipeOnPartialBatchItemFailureStreamsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeOnPartialBatchItemFailureStreams] {
+	return pulumix.Output[*PipeOnPartialBatchItemFailureStreams]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeOnPartialBatchItemFailureStreamsPtrOutput) Elem() PipeOnPartialBatchItemFailureStreamsOutput {
 	return o.ApplyT(func(v *PipeOnPartialBatchItemFailureStreams) PipeOnPartialBatchItemFailureStreams {
 		if v != nil {
@@ -2068,10 +2210,10 @@ func (o PipeOnPartialBatchItemFailureStreamsPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeOnPartialBatchItemFailureStreamsInput is an input type that accepts values of the PipeOnPartialBatchItemFailureStreams enum
-// A concrete instance of `PipeOnPartialBatchItemFailureStreamsInput` can be one of the following:
+// PipeOnPartialBatchItemFailureStreamsInput is an input type that accepts PipeOnPartialBatchItemFailureStreamsArgs and PipeOnPartialBatchItemFailureStreamsOutput values.
+// You can construct a concrete instance of `PipeOnPartialBatchItemFailureStreamsInput` via:
 //
-//	PipeOnPartialBatchItemFailureStreamsAutomaticBisect
+//	PipeOnPartialBatchItemFailureStreamsArgs{...}
 type PipeOnPartialBatchItemFailureStreamsInput interface {
 	pulumi.Input
 
@@ -2179,6 +2321,12 @@ func (o PipePlacementConstraintTypeOutput) ToPipePlacementConstraintTypePtrOutpu
 	}).(PipePlacementConstraintTypePtrOutput)
 }
 
+func (o PipePlacementConstraintTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipePlacementConstraintType] {
+	return pulumix.Output[PipePlacementConstraintType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipePlacementConstraintTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2214,6 +2362,12 @@ func (o PipePlacementConstraintTypePtrOutput) ToPipePlacementConstraintTypePtrOu
 	return o
 }
 
+func (o PipePlacementConstraintTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipePlacementConstraintType] {
+	return pulumix.Output[*PipePlacementConstraintType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipePlacementConstraintTypePtrOutput) Elem() PipePlacementConstraintTypeOutput {
 	return o.ApplyT(func(v *PipePlacementConstraintType) PipePlacementConstraintType {
 		if v != nil {
@@ -2238,11 +2392,10 @@ func (o PipePlacementConstraintTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipePlacementConstraintTypeInput is an input type that accepts values of the PipePlacementConstraintType enum
-// A concrete instance of `PipePlacementConstraintTypeInput` can be one of the following:
+// PipePlacementConstraintTypeInput is an input type that accepts PipePlacementConstraintTypeArgs and PipePlacementConstraintTypeOutput values.
+// You can construct a concrete instance of `PipePlacementConstraintTypeInput` via:
 //
-//	PipePlacementConstraintTypeDistinctInstance
-//	PipePlacementConstraintTypeMemberOf
+//	PipePlacementConstraintTypeArgs{...}
 type PipePlacementConstraintTypeInput interface {
 	pulumi.Input
 
@@ -2351,6 +2504,12 @@ func (o PipePlacementStrategyTypeOutput) ToPipePlacementStrategyTypePtrOutputWit
 	}).(PipePlacementStrategyTypePtrOutput)
 }
 
+func (o PipePlacementStrategyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipePlacementStrategyType] {
+	return pulumix.Output[PipePlacementStrategyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipePlacementStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2386,6 +2545,12 @@ func (o PipePlacementStrategyTypePtrOutput) ToPipePlacementStrategyTypePtrOutput
 	return o
 }
 
+func (o PipePlacementStrategyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipePlacementStrategyType] {
+	return pulumix.Output[*PipePlacementStrategyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipePlacementStrategyTypePtrOutput) Elem() PipePlacementStrategyTypeOutput {
 	return o.ApplyT(func(v *PipePlacementStrategyType) PipePlacementStrategyType {
 		if v != nil {
@@ -2410,12 +2575,10 @@ func (o PipePlacementStrategyTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipePlacementStrategyTypeInput is an input type that accepts values of the PipePlacementStrategyType enum
-// A concrete instance of `PipePlacementStrategyTypeInput` can be one of the following:
+// PipePlacementStrategyTypeInput is an input type that accepts PipePlacementStrategyTypeArgs and PipePlacementStrategyTypeOutput values.
+// You can construct a concrete instance of `PipePlacementStrategyTypeInput` via:
 //
-//	PipePlacementStrategyTypeRandom
-//	PipePlacementStrategyTypeSpread
-//	PipePlacementStrategyTypeBinpack
+//	PipePlacementStrategyTypeArgs{...}
 type PipePlacementStrategyTypeInput interface {
 	pulumi.Input
 
@@ -2522,6 +2685,12 @@ func (o PipePropagateTagsOutput) ToPipePropagateTagsPtrOutputWithContext(ctx con
 	}).(PipePropagateTagsPtrOutput)
 }
 
+func (o PipePropagateTagsOutput) ToOutput(ctx context.Context) pulumix.Output[PipePropagateTags] {
+	return pulumix.Output[PipePropagateTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipePropagateTagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2557,6 +2726,12 @@ func (o PipePropagateTagsPtrOutput) ToPipePropagateTagsPtrOutputWithContext(ctx 
 	return o
 }
 
+func (o PipePropagateTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipePropagateTags] {
+	return pulumix.Output[*PipePropagateTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipePropagateTagsPtrOutput) Elem() PipePropagateTagsOutput {
 	return o.ApplyT(func(v *PipePropagateTags) PipePropagateTags {
 		if v != nil {
@@ -2581,10 +2756,10 @@ func (o PipePropagateTagsPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipePropagateTagsInput is an input type that accepts values of the PipePropagateTags enum
-// A concrete instance of `PipePropagateTagsInput` can be one of the following:
+// PipePropagateTagsInput is an input type that accepts PipePropagateTagsArgs and PipePropagateTagsOutput values.
+// You can construct a concrete instance of `PipePropagateTagsInput` via:
 //
-//	PipePropagateTagsTaskDefinition
+//	PipePropagateTagsArgs{...}
 type PipePropagateTagsInput interface {
 	pulumi.Input
 
@@ -2692,6 +2867,12 @@ func (o PipeRequestedPipeStateOutput) ToPipeRequestedPipeStatePtrOutputWithConte
 	}).(PipeRequestedPipeStatePtrOutput)
 }
 
+func (o PipeRequestedPipeStateOutput) ToOutput(ctx context.Context) pulumix.Output[PipeRequestedPipeState] {
+	return pulumix.Output[PipeRequestedPipeState]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeRequestedPipeStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2727,6 +2908,12 @@ func (o PipeRequestedPipeStatePtrOutput) ToPipeRequestedPipeStatePtrOutputWithCo
 	return o
 }
 
+func (o PipeRequestedPipeStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeRequestedPipeState] {
+	return pulumix.Output[*PipeRequestedPipeState]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeRequestedPipeStatePtrOutput) Elem() PipeRequestedPipeStateOutput {
 	return o.ApplyT(func(v *PipeRequestedPipeState) PipeRequestedPipeState {
 		if v != nil {
@@ -2751,11 +2938,10 @@ func (o PipeRequestedPipeStatePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeRequestedPipeStateInput is an input type that accepts values of the PipeRequestedPipeState enum
-// A concrete instance of `PipeRequestedPipeStateInput` can be one of the following:
+// PipeRequestedPipeStateInput is an input type that accepts PipeRequestedPipeStateArgs and PipeRequestedPipeStateOutput values.
+// You can construct a concrete instance of `PipeRequestedPipeStateInput` via:
 //
-//	PipeRequestedPipeStateRunning
-//	PipeRequestedPipeStateStopped
+//	PipeRequestedPipeStateArgs{...}
 type PipeRequestedPipeStateInput interface {
 	pulumi.Input
 
@@ -2864,6 +3050,12 @@ func (o PipeS3OutputFormatOutput) ToPipeS3OutputFormatPtrOutputWithContext(ctx c
 	}).(PipeS3OutputFormatPtrOutput)
 }
 
+func (o PipeS3OutputFormatOutput) ToOutput(ctx context.Context) pulumix.Output[PipeS3OutputFormat] {
+	return pulumix.Output[PipeS3OutputFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeS3OutputFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2899,6 +3091,12 @@ func (o PipeS3OutputFormatPtrOutput) ToPipeS3OutputFormatPtrOutputWithContext(ct
 	return o
 }
 
+func (o PipeS3OutputFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeS3OutputFormat] {
+	return pulumix.Output[*PipeS3OutputFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeS3OutputFormatPtrOutput) Elem() PipeS3OutputFormatOutput {
 	return o.ApplyT(func(v *PipeS3OutputFormat) PipeS3OutputFormat {
 		if v != nil {
@@ -2923,12 +3121,10 @@ func (o PipeS3OutputFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeS3OutputFormatInput is an input type that accepts values of the PipeS3OutputFormat enum
-// A concrete instance of `PipeS3OutputFormatInput` can be one of the following:
+// PipeS3OutputFormatInput is an input type that accepts PipeS3OutputFormatArgs and PipeS3OutputFormatOutput values.
+// You can construct a concrete instance of `PipeS3OutputFormatInput` via:
 //
-//	PipeS3OutputFormatJson
-//	PipeS3OutputFormatPlain
-//	PipeS3OutputFormatW3c
+//	PipeS3OutputFormatArgs{...}
 type PipeS3OutputFormatInput interface {
 	pulumi.Input
 
@@ -3036,6 +3232,12 @@ func (o PipeSelfManagedKafkaStartPositionOutput) ToPipeSelfManagedKafkaStartPosi
 	}).(PipeSelfManagedKafkaStartPositionPtrOutput)
 }
 
+func (o PipeSelfManagedKafkaStartPositionOutput) ToOutput(ctx context.Context) pulumix.Output[PipeSelfManagedKafkaStartPosition] {
+	return pulumix.Output[PipeSelfManagedKafkaStartPosition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeSelfManagedKafkaStartPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3071,6 +3273,12 @@ func (o PipeSelfManagedKafkaStartPositionPtrOutput) ToPipeSelfManagedKafkaStartP
 	return o
 }
 
+func (o PipeSelfManagedKafkaStartPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeSelfManagedKafkaStartPosition] {
+	return pulumix.Output[*PipeSelfManagedKafkaStartPosition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeSelfManagedKafkaStartPositionPtrOutput) Elem() PipeSelfManagedKafkaStartPositionOutput {
 	return o.ApplyT(func(v *PipeSelfManagedKafkaStartPosition) PipeSelfManagedKafkaStartPosition {
 		if v != nil {
@@ -3095,11 +3303,10 @@ func (o PipeSelfManagedKafkaStartPositionPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeSelfManagedKafkaStartPositionInput is an input type that accepts values of the PipeSelfManagedKafkaStartPosition enum
-// A concrete instance of `PipeSelfManagedKafkaStartPositionInput` can be one of the following:
+// PipeSelfManagedKafkaStartPositionInput is an input type that accepts PipeSelfManagedKafkaStartPositionArgs and PipeSelfManagedKafkaStartPositionOutput values.
+// You can construct a concrete instance of `PipeSelfManagedKafkaStartPositionInput` via:
 //
-//	PipeSelfManagedKafkaStartPositionTrimHorizon
-//	PipeSelfManagedKafkaStartPositionLatest
+//	PipeSelfManagedKafkaStartPositionArgs{...}
 type PipeSelfManagedKafkaStartPositionInput interface {
 	pulumi.Input
 
@@ -3184,6 +3391,12 @@ func (o PipeStateEnumOutput) ToPipeStateEnumPtrOutputWithContext(ctx context.Con
 	}).(PipeStateEnumPtrOutput)
 }
 
+func (o PipeStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[PipeStateEnum] {
+	return pulumix.Output[PipeStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3217,6 +3430,12 @@ func (o PipeStateEnumPtrOutput) ToPipeStateEnumPtrOutput() PipeStateEnumPtrOutpu
 
 func (o PipeStateEnumPtrOutput) ToPipeStateEnumPtrOutputWithContext(ctx context.Context) PipeStateEnumPtrOutput {
 	return o
+}
+
+func (o PipeStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeStateEnum] {
+	return pulumix.Output[*PipeStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipeStateEnumPtrOutput) Elem() PipeStateEnumOutput {
@@ -3310,6 +3529,12 @@ func (o PipeTargetInvocationTypeOutput) ToPipeTargetInvocationTypePtrOutputWithC
 	}).(PipeTargetInvocationTypePtrOutput)
 }
 
+func (o PipeTargetInvocationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipeTargetInvocationType] {
+	return pulumix.Output[PipeTargetInvocationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeTargetInvocationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3345,6 +3570,12 @@ func (o PipeTargetInvocationTypePtrOutput) ToPipeTargetInvocationTypePtrOutputWi
 	return o
 }
 
+func (o PipeTargetInvocationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeTargetInvocationType] {
+	return pulumix.Output[*PipeTargetInvocationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipeTargetInvocationTypePtrOutput) Elem() PipeTargetInvocationTypeOutput {
 	return o.ApplyT(func(v *PipeTargetInvocationType) PipeTargetInvocationType {
 		if v != nil {
@@ -3369,11 +3600,10 @@ func (o PipeTargetInvocationTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// PipeTargetInvocationTypeInput is an input type that accepts values of the PipeTargetInvocationType enum
-// A concrete instance of `PipeTargetInvocationTypeInput` can be one of the following:
+// PipeTargetInvocationTypeInput is an input type that accepts PipeTargetInvocationTypeArgs and PipeTargetInvocationTypeOutput values.
+// You can construct a concrete instance of `PipeTargetInvocationTypeInput` via:
 //
-//	PipeTargetInvocationTypeRequestResponse
-//	PipeTargetInvocationTypeFireAndForget
+//	PipeTargetInvocationTypeArgs{...}
 type PipeTargetInvocationTypeInput interface {
 	pulumi.Input
 

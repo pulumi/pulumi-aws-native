@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::TransitGatewayMulticastGroupSource registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
@@ -136,6 +137,12 @@ func (i *TransitGatewayMulticastGroupSource) ToTransitGatewayMulticastGroupSourc
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayMulticastGroupSourceOutput)
 }
 
+func (i *TransitGatewayMulticastGroupSource) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayMulticastGroupSource] {
+	return pulumix.Output[*TransitGatewayMulticastGroupSource]{
+		OutputState: i.ToTransitGatewayMulticastGroupSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayMulticastGroupSourceOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayMulticastGroupSourceOutput) ElementType() reflect.Type {
@@ -148,6 +155,12 @@ func (o TransitGatewayMulticastGroupSourceOutput) ToTransitGatewayMulticastGroup
 
 func (o TransitGatewayMulticastGroupSourceOutput) ToTransitGatewayMulticastGroupSourceOutputWithContext(ctx context.Context) TransitGatewayMulticastGroupSourceOutput {
 	return o
+}
+
+func (o TransitGatewayMulticastGroupSourceOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayMulticastGroupSource] {
+	return pulumix.Output[*TransitGatewayMulticastGroupSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IP address assigned to the transit gateway multicast group.

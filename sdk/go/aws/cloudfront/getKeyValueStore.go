@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::KeyValueStore
@@ -66,6 +67,12 @@ func (o LookupKeyValueStoreResultOutput) ToLookupKeyValueStoreResultOutput() Loo
 
 func (o LookupKeyValueStoreResultOutput) ToLookupKeyValueStoreResultOutputWithContext(ctx context.Context) LookupKeyValueStoreResultOutput {
 	return o
+}
+
+func (o LookupKeyValueStoreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupKeyValueStoreResult] {
+	return pulumix.Output[LookupKeyValueStoreResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupKeyValueStoreResultOutput) Arn() pulumi.StringPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::ClientCertificate“ resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
@@ -99,6 +100,12 @@ func (i *ClientCertificate) ToClientCertificateOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateOutput)
 }
 
+func (i *ClientCertificate) ToOutput(ctx context.Context) pulumix.Output[*ClientCertificate] {
+	return pulumix.Output[*ClientCertificate]{
+		OutputState: i.ToClientCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClientCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateOutput) ElementType() reflect.Type {
@@ -111,6 +118,12 @@ func (o ClientCertificateOutput) ToClientCertificateOutput() ClientCertificateOu
 
 func (o ClientCertificateOutput) ToClientCertificateOutputWithContext(ctx context.Context) ClientCertificateOutput {
 	return o
+}
+
+func (o ClientCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*ClientCertificate] {
+	return pulumix.Output[*ClientCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClientCertificateOutput) ClientCertificateId() pulumi.StringOutput {

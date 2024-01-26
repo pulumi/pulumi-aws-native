@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i BotAdvancedRecognitionSettingArgs) ToBotAdvancedRecognitionSettingOutput
 
 func (i BotAdvancedRecognitionSettingArgs) ToBotAdvancedRecognitionSettingOutputWithContext(ctx context.Context) BotAdvancedRecognitionSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotAdvancedRecognitionSettingOutput)
+}
+
+func (i BotAdvancedRecognitionSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotAdvancedRecognitionSetting] {
+	return pulumix.Output[BotAdvancedRecognitionSetting]{
+		OutputState: i.ToBotAdvancedRecognitionSettingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i BotAdvancedRecognitionSettingArgs) ToBotAdvancedRecognitionSettingPtrOutput() BotAdvancedRecognitionSettingPtrOutput {
@@ -87,6 +94,12 @@ func (i *botAdvancedRecognitionSettingPtrType) ToBotAdvancedRecognitionSettingPt
 	return pulumi.ToOutputWithContext(ctx, i).(BotAdvancedRecognitionSettingPtrOutput)
 }
 
+func (i *botAdvancedRecognitionSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotAdvancedRecognitionSetting] {
+	return pulumix.Output[*BotAdvancedRecognitionSetting]{
+		OutputState: i.ToBotAdvancedRecognitionSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides settings that enable advanced recognition settings for slot values.
 type BotAdvancedRecognitionSettingOutput struct{ *pulumi.OutputState }
 
@@ -112,6 +125,12 @@ func (o BotAdvancedRecognitionSettingOutput) ToBotAdvancedRecognitionSettingPtrO
 	}).(BotAdvancedRecognitionSettingPtrOutput)
 }
 
+func (o BotAdvancedRecognitionSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotAdvancedRecognitionSetting] {
+	return pulumix.Output[BotAdvancedRecognitionSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotAdvancedRecognitionSettingOutput) AudioRecognitionStrategy() BotAudioRecognitionStrategyPtrOutput {
 	return o.ApplyT(func(v BotAdvancedRecognitionSetting) *BotAudioRecognitionStrategy { return v.AudioRecognitionStrategy }).(BotAudioRecognitionStrategyPtrOutput)
 }
@@ -128,6 +147,12 @@ func (o BotAdvancedRecognitionSettingPtrOutput) ToBotAdvancedRecognitionSettingP
 
 func (o BotAdvancedRecognitionSettingPtrOutput) ToBotAdvancedRecognitionSettingPtrOutputWithContext(ctx context.Context) BotAdvancedRecognitionSettingPtrOutput {
 	return o
+}
+
+func (o BotAdvancedRecognitionSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAdvancedRecognitionSetting] {
+	return pulumix.Output[*BotAdvancedRecognitionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAdvancedRecognitionSettingPtrOutput) Elem() BotAdvancedRecognitionSettingOutput {
@@ -182,6 +207,12 @@ func (i BotAliasAudioLogDestinationArgs) ToBotAliasAudioLogDestinationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasAudioLogDestinationOutput)
 }
 
+func (i BotAliasAudioLogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasAudioLogDestination] {
+	return pulumix.Output[BotAliasAudioLogDestination]{
+		OutputState: i.ToBotAliasAudioLogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The location of audio log files collected when conversation logging is enabled for a bot.
 type BotAliasAudioLogDestinationOutput struct{ *pulumi.OutputState }
 
@@ -195,6 +226,12 @@ func (o BotAliasAudioLogDestinationOutput) ToBotAliasAudioLogDestinationOutput()
 
 func (o BotAliasAudioLogDestinationOutput) ToBotAliasAudioLogDestinationOutputWithContext(ctx context.Context) BotAliasAudioLogDestinationOutput {
 	return o
+}
+
+func (o BotAliasAudioLogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasAudioLogDestination] {
+	return pulumix.Output[BotAliasAudioLogDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasAudioLogDestinationOutput) S3Bucket() BotAliasS3BucketLogDestinationOutput {
@@ -236,6 +273,12 @@ func (i BotAliasAudioLogSettingArgs) ToBotAliasAudioLogSettingOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasAudioLogSettingOutput)
 }
 
+func (i BotAliasAudioLogSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasAudioLogSetting] {
+	return pulumix.Output[BotAliasAudioLogSetting]{
+		OutputState: i.ToBotAliasAudioLogSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotAliasAudioLogSettingArrayInput is an input type that accepts BotAliasAudioLogSettingArray and BotAliasAudioLogSettingArrayOutput values.
 // You can construct a concrete instance of `BotAliasAudioLogSettingArrayInput` via:
 //
@@ -261,6 +304,12 @@ func (i BotAliasAudioLogSettingArray) ToBotAliasAudioLogSettingArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasAudioLogSettingArrayOutput)
 }
 
+func (i BotAliasAudioLogSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]BotAliasAudioLogSetting] {
+	return pulumix.Output[[]BotAliasAudioLogSetting]{
+		OutputState: i.ToBotAliasAudioLogSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
 type BotAliasAudioLogSettingOutput struct{ *pulumi.OutputState }
 
@@ -274,6 +323,12 @@ func (o BotAliasAudioLogSettingOutput) ToBotAliasAudioLogSettingOutput() BotAlia
 
 func (o BotAliasAudioLogSettingOutput) ToBotAliasAudioLogSettingOutputWithContext(ctx context.Context) BotAliasAudioLogSettingOutput {
 	return o
+}
+
+func (o BotAliasAudioLogSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasAudioLogSetting] {
+	return pulumix.Output[BotAliasAudioLogSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasAudioLogSettingOutput) Destination() BotAliasAudioLogDestinationOutput {
@@ -296,6 +351,12 @@ func (o BotAliasAudioLogSettingArrayOutput) ToBotAliasAudioLogSettingArrayOutput
 
 func (o BotAliasAudioLogSettingArrayOutput) ToBotAliasAudioLogSettingArrayOutputWithContext(ctx context.Context) BotAliasAudioLogSettingArrayOutput {
 	return o
+}
+
+func (o BotAliasAudioLogSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotAliasAudioLogSetting] {
+	return pulumix.Output[[]BotAliasAudioLogSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasAudioLogSettingArrayOutput) Index(i pulumi.IntInput) BotAliasAudioLogSettingOutput {
@@ -341,6 +402,12 @@ func (i BotAliasCloudWatchLogGroupLogDestinationArgs) ToBotAliasCloudWatchLogGro
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasCloudWatchLogGroupLogDestinationOutput)
 }
 
+func (i BotAliasCloudWatchLogGroupLogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasCloudWatchLogGroupLogDestination] {
+	return pulumix.Output[BotAliasCloudWatchLogGroupLogDestination]{
+		OutputState: i.ToBotAliasCloudWatchLogGroupLogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotAliasCloudWatchLogGroupLogDestinationOutput struct{ *pulumi.OutputState }
 
 func (BotAliasCloudWatchLogGroupLogDestinationOutput) ElementType() reflect.Type {
@@ -353,6 +420,12 @@ func (o BotAliasCloudWatchLogGroupLogDestinationOutput) ToBotAliasCloudWatchLogG
 
 func (o BotAliasCloudWatchLogGroupLogDestinationOutput) ToBotAliasCloudWatchLogGroupLogDestinationOutputWithContext(ctx context.Context) BotAliasCloudWatchLogGroupLogDestinationOutput {
 	return o
+}
+
+func (o BotAliasCloudWatchLogGroupLogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasCloudWatchLogGroupLogDestination] {
+	return pulumix.Output[BotAliasCloudWatchLogGroupLogDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string used to identify the groupArn for the Cloudwatch Log Group
@@ -398,6 +471,12 @@ func (i BotAliasCodeHookSpecificationArgs) ToBotAliasCodeHookSpecificationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasCodeHookSpecificationOutput)
 }
 
+func (i BotAliasCodeHookSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasCodeHookSpecification] {
+	return pulumix.Output[BotAliasCodeHookSpecification]{
+		OutputState: i.ToBotAliasCodeHookSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotAliasCodeHookSpecificationArgs) ToBotAliasCodeHookSpecificationPtrOutput() BotAliasCodeHookSpecificationPtrOutput {
 	return i.ToBotAliasCodeHookSpecificationPtrOutputWithContext(context.Background())
 }
@@ -439,6 +518,12 @@ func (i *botAliasCodeHookSpecificationPtrType) ToBotAliasCodeHookSpecificationPt
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasCodeHookSpecificationPtrOutput)
 }
 
+func (i *botAliasCodeHookSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotAliasCodeHookSpecification] {
+	return pulumix.Output[*BotAliasCodeHookSpecification]{
+		OutputState: i.ToBotAliasCodeHookSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotAliasCodeHookSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -464,6 +549,12 @@ func (o BotAliasCodeHookSpecificationOutput) ToBotAliasCodeHookSpecificationPtrO
 	}).(BotAliasCodeHookSpecificationPtrOutput)
 }
 
+func (o BotAliasCodeHookSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasCodeHookSpecification] {
+	return pulumix.Output[BotAliasCodeHookSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotAliasCodeHookSpecificationOutput) LambdaCodeHook() BotAliasLambdaCodeHookOutput {
 	return o.ApplyT(func(v BotAliasCodeHookSpecification) BotAliasLambdaCodeHook { return v.LambdaCodeHook }).(BotAliasLambdaCodeHookOutput)
 }
@@ -480,6 +571,12 @@ func (o BotAliasCodeHookSpecificationPtrOutput) ToBotAliasCodeHookSpecificationP
 
 func (o BotAliasCodeHookSpecificationPtrOutput) ToBotAliasCodeHookSpecificationPtrOutputWithContext(ctx context.Context) BotAliasCodeHookSpecificationPtrOutput {
 	return o
+}
+
+func (o BotAliasCodeHookSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAliasCodeHookSpecification] {
+	return pulumix.Output[*BotAliasCodeHookSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasCodeHookSpecificationPtrOutput) Elem() BotAliasCodeHookSpecificationOutput {
@@ -536,6 +633,12 @@ func (i BotAliasConversationLogSettingsArgs) ToBotAliasConversationLogSettingsOu
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasConversationLogSettingsOutput)
 }
 
+func (i BotAliasConversationLogSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasConversationLogSettings] {
+	return pulumix.Output[BotAliasConversationLogSettings]{
+		OutputState: i.ToBotAliasConversationLogSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotAliasConversationLogSettingsArgs) ToBotAliasConversationLogSettingsPtrOutput() BotAliasConversationLogSettingsPtrOutput {
 	return i.ToBotAliasConversationLogSettingsPtrOutputWithContext(context.Background())
 }
@@ -577,6 +680,12 @@ func (i *botAliasConversationLogSettingsPtrType) ToBotAliasConversationLogSettin
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasConversationLogSettingsPtrOutput)
 }
 
+func (i *botAliasConversationLogSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotAliasConversationLogSettings] {
+	return pulumix.Output[*BotAliasConversationLogSettings]{
+		OutputState: i.ToBotAliasConversationLogSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotAliasConversationLogSettingsOutput struct{ *pulumi.OutputState }
 
@@ -602,6 +711,12 @@ func (o BotAliasConversationLogSettingsOutput) ToBotAliasConversationLogSettings
 	}).(BotAliasConversationLogSettingsPtrOutput)
 }
 
+func (o BotAliasConversationLogSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasConversationLogSettings] {
+	return pulumix.Output[BotAliasConversationLogSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotAliasConversationLogSettingsOutput) AudioLogSettings() BotAliasAudioLogSettingArrayOutput {
 	return o.ApplyT(func(v BotAliasConversationLogSettings) []BotAliasAudioLogSetting { return v.AudioLogSettings }).(BotAliasAudioLogSettingArrayOutput)
 }
@@ -622,6 +737,12 @@ func (o BotAliasConversationLogSettingsPtrOutput) ToBotAliasConversationLogSetti
 
 func (o BotAliasConversationLogSettingsPtrOutput) ToBotAliasConversationLogSettingsPtrOutputWithContext(ctx context.Context) BotAliasConversationLogSettingsPtrOutput {
 	return o
+}
+
+func (o BotAliasConversationLogSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAliasConversationLogSettings] {
+	return pulumix.Output[*BotAliasConversationLogSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasConversationLogSettingsPtrOutput) Elem() BotAliasConversationLogSettingsOutput {
@@ -691,6 +812,12 @@ func (i BotAliasLambdaCodeHookArgs) ToBotAliasLambdaCodeHookOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasLambdaCodeHookOutput)
 }
 
+func (i BotAliasLambdaCodeHookArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasLambdaCodeHook] {
+	return pulumix.Output[BotAliasLambdaCodeHook]{
+		OutputState: i.ToBotAliasLambdaCodeHookOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotAliasLambdaCodeHookArgs) ToBotAliasLambdaCodeHookPtrOutput() BotAliasLambdaCodeHookPtrOutput {
 	return i.ToBotAliasLambdaCodeHookPtrOutputWithContext(context.Background())
 }
@@ -732,6 +859,12 @@ func (i *botAliasLambdaCodeHookPtrType) ToBotAliasLambdaCodeHookPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasLambdaCodeHookPtrOutput)
 }
 
+func (i *botAliasLambdaCodeHookPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotAliasLambdaCodeHook] {
+	return pulumix.Output[*BotAliasLambdaCodeHook]{
+		OutputState: i.ToBotAliasLambdaCodeHookPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotAliasLambdaCodeHookOutput struct{ *pulumi.OutputState }
 
@@ -757,6 +890,12 @@ func (o BotAliasLambdaCodeHookOutput) ToBotAliasLambdaCodeHookPtrOutputWithConte
 	}).(BotAliasLambdaCodeHookPtrOutput)
 }
 
+func (o BotAliasLambdaCodeHookOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasLambdaCodeHook] {
+	return pulumix.Output[BotAliasLambdaCodeHook]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
 func (o BotAliasLambdaCodeHookOutput) CodeHookInterfaceVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v BotAliasLambdaCodeHook) string { return v.CodeHookInterfaceVersion }).(pulumi.StringOutput)
@@ -779,6 +918,12 @@ func (o BotAliasLambdaCodeHookPtrOutput) ToBotAliasLambdaCodeHookPtrOutput() Bot
 
 func (o BotAliasLambdaCodeHookPtrOutput) ToBotAliasLambdaCodeHookPtrOutputWithContext(ctx context.Context) BotAliasLambdaCodeHookPtrOutput {
 	return o
+}
+
+func (o BotAliasLambdaCodeHookPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAliasLambdaCodeHook] {
+	return pulumix.Output[*BotAliasLambdaCodeHook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasLambdaCodeHookPtrOutput) Elem() BotAliasLambdaCodeHookOutput {
@@ -848,6 +993,12 @@ func (i BotAliasLocaleSettingsArgs) ToBotAliasLocaleSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasLocaleSettingsOutput)
 }
 
+func (i BotAliasLocaleSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasLocaleSettings] {
+	return pulumix.Output[BotAliasLocaleSettings]{
+		OutputState: i.ToBotAliasLocaleSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // You can use this parameter to specify a specific Lambda function to run different functions in different locales.
 type BotAliasLocaleSettingsOutput struct{ *pulumi.OutputState }
 
@@ -861,6 +1012,12 @@ func (o BotAliasLocaleSettingsOutput) ToBotAliasLocaleSettingsOutput() BotAliasL
 
 func (o BotAliasLocaleSettingsOutput) ToBotAliasLocaleSettingsOutputWithContext(ctx context.Context) BotAliasLocaleSettingsOutput {
 	return o
+}
+
+func (o BotAliasLocaleSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasLocaleSettings] {
+	return pulumix.Output[BotAliasLocaleSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasLocaleSettingsOutput) CodeHookSpecification() BotAliasCodeHookSpecificationPtrOutput {
@@ -909,6 +1066,12 @@ func (i BotAliasLocaleSettingsItemArgs) ToBotAliasLocaleSettingsItemOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasLocaleSettingsItemOutput)
 }
 
+func (i BotAliasLocaleSettingsItemArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasLocaleSettingsItem] {
+	return pulumix.Output[BotAliasLocaleSettingsItem]{
+		OutputState: i.ToBotAliasLocaleSettingsItemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotAliasLocaleSettingsItemArrayInput is an input type that accepts BotAliasLocaleSettingsItemArray and BotAliasLocaleSettingsItemArrayOutput values.
 // You can construct a concrete instance of `BotAliasLocaleSettingsItemArrayInput` via:
 //
@@ -934,6 +1097,12 @@ func (i BotAliasLocaleSettingsItemArray) ToBotAliasLocaleSettingsItemArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasLocaleSettingsItemArrayOutput)
 }
 
+func (i BotAliasLocaleSettingsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]BotAliasLocaleSettingsItem] {
+	return pulumix.Output[[]BotAliasLocaleSettingsItem]{
+		OutputState: i.ToBotAliasLocaleSettingsItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A locale setting in alias
 type BotAliasLocaleSettingsItemOutput struct{ *pulumi.OutputState }
 
@@ -947,6 +1116,12 @@ func (o BotAliasLocaleSettingsItemOutput) ToBotAliasLocaleSettingsItemOutput() B
 
 func (o BotAliasLocaleSettingsItemOutput) ToBotAliasLocaleSettingsItemOutputWithContext(ctx context.Context) BotAliasLocaleSettingsItemOutput {
 	return o
+}
+
+func (o BotAliasLocaleSettingsItemOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasLocaleSettingsItem] {
+	return pulumix.Output[BotAliasLocaleSettingsItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasLocaleSettingsItemOutput) BotAliasLocaleSetting() BotAliasLocaleSettingsOutput {
@@ -970,6 +1145,12 @@ func (o BotAliasLocaleSettingsItemArrayOutput) ToBotAliasLocaleSettingsItemArray
 
 func (o BotAliasLocaleSettingsItemArrayOutput) ToBotAliasLocaleSettingsItemArrayOutputWithContext(ctx context.Context) BotAliasLocaleSettingsItemArrayOutput {
 	return o
+}
+
+func (o BotAliasLocaleSettingsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotAliasLocaleSettingsItem] {
+	return pulumix.Output[[]BotAliasLocaleSettingsItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasLocaleSettingsItemArrayOutput) Index(i pulumi.IntInput) BotAliasLocaleSettingsItemOutput {
@@ -1021,6 +1202,12 @@ func (i BotAliasS3BucketLogDestinationArgs) ToBotAliasS3BucketLogDestinationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasS3BucketLogDestinationOutput)
 }
 
+func (i BotAliasS3BucketLogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasS3BucketLogDestination] {
+	return pulumix.Output[BotAliasS3BucketLogDestination]{
+		OutputState: i.ToBotAliasS3BucketLogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies an Amazon S3 bucket for logging audio conversations
 type BotAliasS3BucketLogDestinationOutput struct{ *pulumi.OutputState }
 
@@ -1034,6 +1221,12 @@ func (o BotAliasS3BucketLogDestinationOutput) ToBotAliasS3BucketLogDestinationOu
 
 func (o BotAliasS3BucketLogDestinationOutput) ToBotAliasS3BucketLogDestinationOutputWithContext(ctx context.Context) BotAliasS3BucketLogDestinationOutput {
 	return o
+}
+
+func (o BotAliasS3BucketLogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasS3BucketLogDestination] {
+	return pulumix.Output[BotAliasS3BucketLogDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
@@ -1090,6 +1283,12 @@ func (i BotAliasTagArgs) ToBotAliasTagOutputWithContext(ctx context.Context) Bot
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasTagOutput)
 }
 
+func (i BotAliasTagArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasTag] {
+	return pulumix.Output[BotAliasTag]{
+		OutputState: i.ToBotAliasTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotAliasTagArrayInput is an input type that accepts BotAliasTagArray and BotAliasTagArrayOutput values.
 // You can construct a concrete instance of `BotAliasTagArrayInput` via:
 //
@@ -1115,6 +1314,12 @@ func (i BotAliasTagArray) ToBotAliasTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasTagArrayOutput)
 }
 
+func (i BotAliasTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BotAliasTag] {
+	return pulumix.Output[[]BotAliasTag]{
+		OutputState: i.ToBotAliasTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A label for tagging Lex resources
 type BotAliasTagOutput struct{ *pulumi.OutputState }
 
@@ -1128,6 +1333,12 @@ func (o BotAliasTagOutput) ToBotAliasTagOutput() BotAliasTagOutput {
 
 func (o BotAliasTagOutput) ToBotAliasTagOutputWithContext(ctx context.Context) BotAliasTagOutput {
 	return o
+}
+
+func (o BotAliasTagOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasTag] {
+	return pulumix.Output[BotAliasTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string used to identify this tag
@@ -1152,6 +1363,12 @@ func (o BotAliasTagArrayOutput) ToBotAliasTagArrayOutput() BotAliasTagArrayOutpu
 
 func (o BotAliasTagArrayOutput) ToBotAliasTagArrayOutputWithContext(ctx context.Context) BotAliasTagArrayOutput {
 	return o
+}
+
+func (o BotAliasTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotAliasTag] {
+	return pulumix.Output[[]BotAliasTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasTagArrayOutput) Index(i pulumi.IntInput) BotAliasTagOutput {
@@ -1193,6 +1410,12 @@ func (i BotAliasTextLogDestinationArgs) ToBotAliasTextLogDestinationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasTextLogDestinationOutput)
 }
 
+func (i BotAliasTextLogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasTextLogDestination] {
+	return pulumix.Output[BotAliasTextLogDestination]{
+		OutputState: i.ToBotAliasTextLogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
 type BotAliasTextLogDestinationOutput struct{ *pulumi.OutputState }
 
@@ -1206,6 +1429,12 @@ func (o BotAliasTextLogDestinationOutput) ToBotAliasTextLogDestinationOutput() B
 
 func (o BotAliasTextLogDestinationOutput) ToBotAliasTextLogDestinationOutputWithContext(ctx context.Context) BotAliasTextLogDestinationOutput {
 	return o
+}
+
+func (o BotAliasTextLogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasTextLogDestination] {
+	return pulumix.Output[BotAliasTextLogDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasTextLogDestinationOutput) CloudWatch() BotAliasCloudWatchLogGroupLogDestinationOutput {
@@ -1247,6 +1476,12 @@ func (i BotAliasTextLogSettingArgs) ToBotAliasTextLogSettingOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasTextLogSettingOutput)
 }
 
+func (i BotAliasTextLogSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotAliasTextLogSetting] {
+	return pulumix.Output[BotAliasTextLogSetting]{
+		OutputState: i.ToBotAliasTextLogSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotAliasTextLogSettingArrayInput is an input type that accepts BotAliasTextLogSettingArray and BotAliasTextLogSettingArrayOutput values.
 // You can construct a concrete instance of `BotAliasTextLogSettingArrayInput` via:
 //
@@ -1272,6 +1507,12 @@ func (i BotAliasTextLogSettingArray) ToBotAliasTextLogSettingArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasTextLogSettingArrayOutput)
 }
 
+func (i BotAliasTextLogSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]BotAliasTextLogSetting] {
+	return pulumix.Output[[]BotAliasTextLogSetting]{
+		OutputState: i.ToBotAliasTextLogSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotAliasTextLogSettingOutput struct{ *pulumi.OutputState }
 
@@ -1285,6 +1526,12 @@ func (o BotAliasTextLogSettingOutput) ToBotAliasTextLogSettingOutput() BotAliasT
 
 func (o BotAliasTextLogSettingOutput) ToBotAliasTextLogSettingOutputWithContext(ctx context.Context) BotAliasTextLogSettingOutput {
 	return o
+}
+
+func (o BotAliasTextLogSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasTextLogSetting] {
+	return pulumix.Output[BotAliasTextLogSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasTextLogSettingOutput) Destination() BotAliasTextLogDestinationOutput {
@@ -1307,6 +1554,12 @@ func (o BotAliasTextLogSettingArrayOutput) ToBotAliasTextLogSettingArrayOutput()
 
 func (o BotAliasTextLogSettingArrayOutput) ToBotAliasTextLogSettingArrayOutputWithContext(ctx context.Context) BotAliasTextLogSettingArrayOutput {
 	return o
+}
+
+func (o BotAliasTextLogSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotAliasTextLogSetting] {
+	return pulumix.Output[[]BotAliasTextLogSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasTextLogSettingArrayOutput) Index(i pulumi.IntInput) BotAliasTextLogSettingOutput {
@@ -1348,6 +1601,12 @@ func (i BotAudioLogDestinationArgs) ToBotAudioLogDestinationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotAudioLogDestinationOutput)
 }
 
+func (i BotAudioLogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BotAudioLogDestination] {
+	return pulumix.Output[BotAudioLogDestination]{
+		OutputState: i.ToBotAudioLogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The location of audio log files collected when conversation logging is enabled for a bot.
 type BotAudioLogDestinationOutput struct{ *pulumi.OutputState }
 
@@ -1361,6 +1620,12 @@ func (o BotAudioLogDestinationOutput) ToBotAudioLogDestinationOutput() BotAudioL
 
 func (o BotAudioLogDestinationOutput) ToBotAudioLogDestinationOutputWithContext(ctx context.Context) BotAudioLogDestinationOutput {
 	return o
+}
+
+func (o BotAudioLogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BotAudioLogDestination] {
+	return pulumix.Output[BotAudioLogDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAudioLogDestinationOutput) S3Bucket() BotS3BucketLogDestinationOutput {
@@ -1402,6 +1667,12 @@ func (i BotAudioLogSettingArgs) ToBotAudioLogSettingOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotAudioLogSettingOutput)
 }
 
+func (i BotAudioLogSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotAudioLogSetting] {
+	return pulumix.Output[BotAudioLogSetting]{
+		OutputState: i.ToBotAudioLogSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotAudioLogSettingArrayInput is an input type that accepts BotAudioLogSettingArray and BotAudioLogSettingArrayOutput values.
 // You can construct a concrete instance of `BotAudioLogSettingArrayInput` via:
 //
@@ -1427,6 +1698,12 @@ func (i BotAudioLogSettingArray) ToBotAudioLogSettingArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BotAudioLogSettingArrayOutput)
 }
 
+func (i BotAudioLogSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]BotAudioLogSetting] {
+	return pulumix.Output[[]BotAudioLogSetting]{
+		OutputState: i.ToBotAudioLogSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
 type BotAudioLogSettingOutput struct{ *pulumi.OutputState }
 
@@ -1440,6 +1717,12 @@ func (o BotAudioLogSettingOutput) ToBotAudioLogSettingOutput() BotAudioLogSettin
 
 func (o BotAudioLogSettingOutput) ToBotAudioLogSettingOutputWithContext(ctx context.Context) BotAudioLogSettingOutput {
 	return o
+}
+
+func (o BotAudioLogSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotAudioLogSetting] {
+	return pulumix.Output[BotAudioLogSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAudioLogSettingOutput) Destination() BotAudioLogDestinationOutput {
@@ -1462,6 +1745,12 @@ func (o BotAudioLogSettingArrayOutput) ToBotAudioLogSettingArrayOutput() BotAudi
 
 func (o BotAudioLogSettingArrayOutput) ToBotAudioLogSettingArrayOutputWithContext(ctx context.Context) BotAudioLogSettingArrayOutput {
 	return o
+}
+
+func (o BotAudioLogSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotAudioLogSetting] {
+	return pulumix.Output[[]BotAudioLogSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAudioLogSettingArrayOutput) Index(i pulumi.IntInput) BotAudioLogSettingOutput {
@@ -1509,6 +1798,12 @@ func (i BotButtonArgs) ToBotButtonOutputWithContext(ctx context.Context) BotButt
 	return pulumi.ToOutputWithContext(ctx, i).(BotButtonOutput)
 }
 
+func (i BotButtonArgs) ToOutput(ctx context.Context) pulumix.Output[BotButton] {
+	return pulumix.Output[BotButton]{
+		OutputState: i.ToBotButtonOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotButtonArrayInput is an input type that accepts BotButtonArray and BotButtonArrayOutput values.
 // You can construct a concrete instance of `BotButtonArrayInput` via:
 //
@@ -1534,6 +1829,12 @@ func (i BotButtonArray) ToBotButtonArrayOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BotButtonArrayOutput)
 }
 
+func (i BotButtonArray) ToOutput(ctx context.Context) pulumix.Output[[]BotButton] {
+	return pulumix.Output[[]BotButton]{
+		OutputState: i.ToBotButtonArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A button to use on a response card used to gather slot values from a user.
 type BotButtonOutput struct{ *pulumi.OutputState }
 
@@ -1547,6 +1848,12 @@ func (o BotButtonOutput) ToBotButtonOutput() BotButtonOutput {
 
 func (o BotButtonOutput) ToBotButtonOutputWithContext(ctx context.Context) BotButtonOutput {
 	return o
+}
+
+func (o BotButtonOutput) ToOutput(ctx context.Context) pulumix.Output[BotButton] {
+	return pulumix.Output[BotButton]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The text that appears on the button.
@@ -1571,6 +1878,12 @@ func (o BotButtonArrayOutput) ToBotButtonArrayOutput() BotButtonArrayOutput {
 
 func (o BotButtonArrayOutput) ToBotButtonArrayOutputWithContext(ctx context.Context) BotButtonArrayOutput {
 	return o
+}
+
+func (o BotButtonArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotButton] {
+	return pulumix.Output[[]BotButton]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotButtonArrayOutput) Index(i pulumi.IntInput) BotButtonOutput {
@@ -1616,6 +1929,12 @@ func (i BotCloudWatchLogGroupLogDestinationArgs) ToBotCloudWatchLogGroupLogDesti
 	return pulumi.ToOutputWithContext(ctx, i).(BotCloudWatchLogGroupLogDestinationOutput)
 }
 
+func (i BotCloudWatchLogGroupLogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BotCloudWatchLogGroupLogDestination] {
+	return pulumix.Output[BotCloudWatchLogGroupLogDestination]{
+		OutputState: i.ToBotCloudWatchLogGroupLogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotCloudWatchLogGroupLogDestinationOutput struct{ *pulumi.OutputState }
 
 func (BotCloudWatchLogGroupLogDestinationOutput) ElementType() reflect.Type {
@@ -1628,6 +1947,12 @@ func (o BotCloudWatchLogGroupLogDestinationOutput) ToBotCloudWatchLogGroupLogDes
 
 func (o BotCloudWatchLogGroupLogDestinationOutput) ToBotCloudWatchLogGroupLogDestinationOutputWithContext(ctx context.Context) BotCloudWatchLogGroupLogDestinationOutput {
 	return o
+}
+
+func (o BotCloudWatchLogGroupLogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BotCloudWatchLogGroupLogDestination] {
+	return pulumix.Output[BotCloudWatchLogGroupLogDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string used to identify the groupArn for the Cloudwatch Log Group
@@ -1680,6 +2005,12 @@ func (i BotConditionArgs) ToBotConditionOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BotConditionOutput)
 }
 
+func (i BotConditionArgs) ToOutput(ctx context.Context) pulumix.Output[BotCondition] {
+	return pulumix.Output[BotCondition]{
+		OutputState: i.ToBotConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides an expression that evaluates to true or false.
 type BotConditionOutput struct{ *pulumi.OutputState }
 
@@ -1693,6 +2024,12 @@ func (o BotConditionOutput) ToBotConditionOutput() BotConditionOutput {
 
 func (o BotConditionOutput) ToBotConditionOutputWithContext(ctx context.Context) BotConditionOutput {
 	return o
+}
+
+func (o BotConditionOutput) ToOutput(ctx context.Context) pulumix.Output[BotCondition] {
+	return pulumix.Output[BotCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The expression string that is evaluated.
@@ -1747,6 +2084,12 @@ func (i BotConditionalBranchArgs) ToBotConditionalBranchOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BotConditionalBranchOutput)
 }
 
+func (i BotConditionalBranchArgs) ToOutput(ctx context.Context) pulumix.Output[BotConditionalBranch] {
+	return pulumix.Output[BotConditionalBranch]{
+		OutputState: i.ToBotConditionalBranchOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotConditionalBranchArrayInput is an input type that accepts BotConditionalBranchArray and BotConditionalBranchArrayOutput values.
 // You can construct a concrete instance of `BotConditionalBranchArrayInput` via:
 //
@@ -1772,6 +2115,12 @@ func (i BotConditionalBranchArray) ToBotConditionalBranchArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BotConditionalBranchArrayOutput)
 }
 
+func (i BotConditionalBranchArray) ToOutput(ctx context.Context) pulumix.Output[[]BotConditionalBranch] {
+	return pulumix.Output[[]BotConditionalBranch]{
+		OutputState: i.ToBotConditionalBranchArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A set of actions that Amazon Lex should run if the condition is matched.
 type BotConditionalBranchOutput struct{ *pulumi.OutputState }
 
@@ -1785,6 +2134,12 @@ func (o BotConditionalBranchOutput) ToBotConditionalBranchOutput() BotConditiona
 
 func (o BotConditionalBranchOutput) ToBotConditionalBranchOutputWithContext(ctx context.Context) BotConditionalBranchOutput {
 	return o
+}
+
+func (o BotConditionalBranchOutput) ToOutput(ctx context.Context) pulumix.Output[BotConditionalBranch] {
+	return pulumix.Output[BotConditionalBranch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Contains the expression to evaluate. If the condition is true, the branch's actions are taken.
@@ -1819,6 +2174,12 @@ func (o BotConditionalBranchArrayOutput) ToBotConditionalBranchArrayOutput() Bot
 
 func (o BotConditionalBranchArrayOutput) ToBotConditionalBranchArrayOutputWithContext(ctx context.Context) BotConditionalBranchArrayOutput {
 	return o
+}
+
+func (o BotConditionalBranchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotConditionalBranch] {
+	return pulumix.Output[[]BotConditionalBranch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotConditionalBranchArrayOutput) Index(i pulumi.IntInput) BotConditionalBranchOutput {
@@ -1870,6 +2231,12 @@ func (i BotConditionalSpecificationArgs) ToBotConditionalSpecificationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BotConditionalSpecificationOutput)
 }
 
+func (i BotConditionalSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotConditionalSpecification] {
+	return pulumix.Output[BotConditionalSpecification]{
+		OutputState: i.ToBotConditionalSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotConditionalSpecificationArgs) ToBotConditionalSpecificationPtrOutput() BotConditionalSpecificationPtrOutput {
 	return i.ToBotConditionalSpecificationPtrOutputWithContext(context.Background())
 }
@@ -1911,6 +2278,12 @@ func (i *botConditionalSpecificationPtrType) ToBotConditionalSpecificationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(BotConditionalSpecificationPtrOutput)
 }
 
+func (i *botConditionalSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotConditionalSpecification] {
+	return pulumix.Output[*BotConditionalSpecification]{
+		OutputState: i.ToBotConditionalSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
 type BotConditionalSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -1934,6 +2307,12 @@ func (o BotConditionalSpecificationOutput) ToBotConditionalSpecificationPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotConditionalSpecification) *BotConditionalSpecification {
 		return &v
 	}).(BotConditionalSpecificationPtrOutput)
+}
+
+func (o BotConditionalSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotConditionalSpecification] {
+	return pulumix.Output[BotConditionalSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true.
@@ -1963,6 +2342,12 @@ func (o BotConditionalSpecificationPtrOutput) ToBotConditionalSpecificationPtrOu
 
 func (o BotConditionalSpecificationPtrOutput) ToBotConditionalSpecificationPtrOutputWithContext(ctx context.Context) BotConditionalSpecificationPtrOutput {
 	return o
+}
+
+func (o BotConditionalSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotConditionalSpecification] {
+	return pulumix.Output[*BotConditionalSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotConditionalSpecificationPtrOutput) Elem() BotConditionalSpecificationOutput {
@@ -2040,6 +2425,12 @@ func (i BotConversationLogSettingsArgs) ToBotConversationLogSettingsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BotConversationLogSettingsOutput)
 }
 
+func (i BotConversationLogSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[BotConversationLogSettings] {
+	return pulumix.Output[BotConversationLogSettings]{
+		OutputState: i.ToBotConversationLogSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotConversationLogSettingsArgs) ToBotConversationLogSettingsPtrOutput() BotConversationLogSettingsPtrOutput {
 	return i.ToBotConversationLogSettingsPtrOutputWithContext(context.Background())
 }
@@ -2081,6 +2472,12 @@ func (i *botConversationLogSettingsPtrType) ToBotConversationLogSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BotConversationLogSettingsPtrOutput)
 }
 
+func (i *botConversationLogSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotConversationLogSettings] {
+	return pulumix.Output[*BotConversationLogSettings]{
+		OutputState: i.ToBotConversationLogSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotConversationLogSettingsOutput struct{ *pulumi.OutputState }
 
@@ -2106,6 +2503,12 @@ func (o BotConversationLogSettingsOutput) ToBotConversationLogSettingsPtrOutputW
 	}).(BotConversationLogSettingsPtrOutput)
 }
 
+func (o BotConversationLogSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[BotConversationLogSettings] {
+	return pulumix.Output[BotConversationLogSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotConversationLogSettingsOutput) AudioLogSettings() BotAudioLogSettingArrayOutput {
 	return o.ApplyT(func(v BotConversationLogSettings) []BotAudioLogSetting { return v.AudioLogSettings }).(BotAudioLogSettingArrayOutput)
 }
@@ -2126,6 +2529,12 @@ func (o BotConversationLogSettingsPtrOutput) ToBotConversationLogSettingsPtrOutp
 
 func (o BotConversationLogSettingsPtrOutput) ToBotConversationLogSettingsPtrOutputWithContext(ctx context.Context) BotConversationLogSettingsPtrOutput {
 	return o
+}
+
+func (o BotConversationLogSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotConversationLogSettings] {
+	return pulumix.Output[*BotConversationLogSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotConversationLogSettingsPtrOutput) Elem() BotConversationLogSettingsOutput {
@@ -2191,6 +2600,12 @@ func (i BotCustomPayloadArgs) ToBotCustomPayloadOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BotCustomPayloadOutput)
 }
 
+func (i BotCustomPayloadArgs) ToOutput(ctx context.Context) pulumix.Output[BotCustomPayload] {
+	return pulumix.Output[BotCustomPayload]{
+		OutputState: i.ToBotCustomPayloadOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotCustomPayloadArgs) ToBotCustomPayloadPtrOutput() BotCustomPayloadPtrOutput {
 	return i.ToBotCustomPayloadPtrOutputWithContext(context.Background())
 }
@@ -2232,6 +2647,12 @@ func (i *botCustomPayloadPtrType) ToBotCustomPayloadPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BotCustomPayloadPtrOutput)
 }
 
+func (i *botCustomPayloadPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotCustomPayload] {
+	return pulumix.Output[*BotCustomPayload]{
+		OutputState: i.ToBotCustomPayloadPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A message in a custom format defined by the client application.
 type BotCustomPayloadOutput struct{ *pulumi.OutputState }
 
@@ -2257,6 +2678,12 @@ func (o BotCustomPayloadOutput) ToBotCustomPayloadPtrOutputWithContext(ctx conte
 	}).(BotCustomPayloadPtrOutput)
 }
 
+func (o BotCustomPayloadOutput) ToOutput(ctx context.Context) pulumix.Output[BotCustomPayload] {
+	return pulumix.Output[BotCustomPayload]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The string that is sent to your application.
 func (o BotCustomPayloadOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BotCustomPayload) string { return v.Value }).(pulumi.StringOutput)
@@ -2274,6 +2701,12 @@ func (o BotCustomPayloadPtrOutput) ToBotCustomPayloadPtrOutput() BotCustomPayloa
 
 func (o BotCustomPayloadPtrOutput) ToBotCustomPayloadPtrOutputWithContext(ctx context.Context) BotCustomPayloadPtrOutput {
 	return o
+}
+
+func (o BotCustomPayloadPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotCustomPayload] {
+	return pulumix.Output[*BotCustomPayload]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotCustomPayloadPtrOutput) Elem() BotCustomPayloadOutput {
@@ -2329,6 +2762,12 @@ func (i BotCustomVocabularyArgs) ToBotCustomVocabularyOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotCustomVocabularyOutput)
 }
 
+func (i BotCustomVocabularyArgs) ToOutput(ctx context.Context) pulumix.Output[BotCustomVocabulary] {
+	return pulumix.Output[BotCustomVocabulary]{
+		OutputState: i.ToBotCustomVocabularyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotCustomVocabularyArgs) ToBotCustomVocabularyPtrOutput() BotCustomVocabularyPtrOutput {
 	return i.ToBotCustomVocabularyPtrOutputWithContext(context.Background())
 }
@@ -2370,6 +2809,12 @@ func (i *botCustomVocabularyPtrType) ToBotCustomVocabularyPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BotCustomVocabularyPtrOutput)
 }
 
+func (i *botCustomVocabularyPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotCustomVocabulary] {
+	return pulumix.Output[*BotCustomVocabulary]{
+		OutputState: i.ToBotCustomVocabularyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
 type BotCustomVocabularyOutput struct{ *pulumi.OutputState }
 
@@ -2395,6 +2840,12 @@ func (o BotCustomVocabularyOutput) ToBotCustomVocabularyPtrOutputWithContext(ctx
 	}).(BotCustomVocabularyPtrOutput)
 }
 
+func (o BotCustomVocabularyOutput) ToOutput(ctx context.Context) pulumix.Output[BotCustomVocabulary] {
+	return pulumix.Output[BotCustomVocabulary]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotCustomVocabularyOutput) CustomVocabularyItems() BotCustomVocabularyItemArrayOutput {
 	return o.ApplyT(func(v BotCustomVocabulary) []BotCustomVocabularyItem { return v.CustomVocabularyItems }).(BotCustomVocabularyItemArrayOutput)
 }
@@ -2411,6 +2862,12 @@ func (o BotCustomVocabularyPtrOutput) ToBotCustomVocabularyPtrOutput() BotCustom
 
 func (o BotCustomVocabularyPtrOutput) ToBotCustomVocabularyPtrOutputWithContext(ctx context.Context) BotCustomVocabularyPtrOutput {
 	return o
+}
+
+func (o BotCustomVocabularyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotCustomVocabulary] {
+	return pulumix.Output[*BotCustomVocabulary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotCustomVocabularyPtrOutput) Elem() BotCustomVocabularyOutput {
@@ -2475,6 +2932,12 @@ func (i BotCustomVocabularyItemArgs) ToBotCustomVocabularyItemOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BotCustomVocabularyItemOutput)
 }
 
+func (i BotCustomVocabularyItemArgs) ToOutput(ctx context.Context) pulumix.Output[BotCustomVocabularyItem] {
+	return pulumix.Output[BotCustomVocabularyItem]{
+		OutputState: i.ToBotCustomVocabularyItemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotCustomVocabularyItemArrayInput is an input type that accepts BotCustomVocabularyItemArray and BotCustomVocabularyItemArrayOutput values.
 // You can construct a concrete instance of `BotCustomVocabularyItemArrayInput` via:
 //
@@ -2500,6 +2963,12 @@ func (i BotCustomVocabularyItemArray) ToBotCustomVocabularyItemArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BotCustomVocabularyItemArrayOutput)
 }
 
+func (i BotCustomVocabularyItemArray) ToOutput(ctx context.Context) pulumix.Output[[]BotCustomVocabularyItem] {
+	return pulumix.Output[[]BotCustomVocabularyItem]{
+		OutputState: i.ToBotCustomVocabularyItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
 type BotCustomVocabularyItemOutput struct{ *pulumi.OutputState }
 
@@ -2513,6 +2982,12 @@ func (o BotCustomVocabularyItemOutput) ToBotCustomVocabularyItemOutput() BotCust
 
 func (o BotCustomVocabularyItemOutput) ToBotCustomVocabularyItemOutputWithContext(ctx context.Context) BotCustomVocabularyItemOutput {
 	return o
+}
+
+func (o BotCustomVocabularyItemOutput) ToOutput(ctx context.Context) pulumix.Output[BotCustomVocabularyItem] {
+	return pulumix.Output[BotCustomVocabularyItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Defines how you want your phrase to look in your transcription output.
@@ -2542,6 +3017,12 @@ func (o BotCustomVocabularyItemArrayOutput) ToBotCustomVocabularyItemArrayOutput
 
 func (o BotCustomVocabularyItemArrayOutput) ToBotCustomVocabularyItemArrayOutputWithContext(ctx context.Context) BotCustomVocabularyItemArrayOutput {
 	return o
+}
+
+func (o BotCustomVocabularyItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotCustomVocabularyItem] {
+	return pulumix.Output[[]BotCustomVocabularyItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotCustomVocabularyItemArrayOutput) Index(i pulumi.IntInput) BotCustomVocabularyItemOutput {
@@ -2589,6 +3070,12 @@ func (i BotDefaultConditionalBranchArgs) ToBotDefaultConditionalBranchOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BotDefaultConditionalBranchOutput)
 }
 
+func (i BotDefaultConditionalBranchArgs) ToOutput(ctx context.Context) pulumix.Output[BotDefaultConditionalBranch] {
+	return pulumix.Output[BotDefaultConditionalBranch]{
+		OutputState: i.ToBotDefaultConditionalBranchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotDefaultConditionalBranchArgs) ToBotDefaultConditionalBranchPtrOutput() BotDefaultConditionalBranchPtrOutput {
 	return i.ToBotDefaultConditionalBranchPtrOutputWithContext(context.Background())
 }
@@ -2630,6 +3117,12 @@ func (i *botDefaultConditionalBranchPtrType) ToBotDefaultConditionalBranchPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(BotDefaultConditionalBranchPtrOutput)
 }
 
+func (i *botDefaultConditionalBranchPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotDefaultConditionalBranch] {
+	return pulumix.Output[*BotDefaultConditionalBranch]{
+		OutputState: i.ToBotDefaultConditionalBranchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A set of actions that Amazon Lex should run if none of the other conditions are met.
 type BotDefaultConditionalBranchOutput struct{ *pulumi.OutputState }
 
@@ -2655,6 +3148,12 @@ func (o BotDefaultConditionalBranchOutput) ToBotDefaultConditionalBranchPtrOutpu
 	}).(BotDefaultConditionalBranchPtrOutput)
 }
 
+func (o BotDefaultConditionalBranchOutput) ToOutput(ctx context.Context) pulumix.Output[BotDefaultConditionalBranch] {
+	return pulumix.Output[BotDefaultConditionalBranch]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The next step in the conversation.
 func (o BotDefaultConditionalBranchOutput) NextStep() BotDialogStatePtrOutput {
 	return o.ApplyT(func(v BotDefaultConditionalBranch) *BotDialogState { return v.NextStep }).(BotDialogStatePtrOutput)
@@ -2677,6 +3176,12 @@ func (o BotDefaultConditionalBranchPtrOutput) ToBotDefaultConditionalBranchPtrOu
 
 func (o BotDefaultConditionalBranchPtrOutput) ToBotDefaultConditionalBranchPtrOutputWithContext(ctx context.Context) BotDefaultConditionalBranchPtrOutput {
 	return o
+}
+
+func (o BotDefaultConditionalBranchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotDefaultConditionalBranch] {
+	return pulumix.Output[*BotDefaultConditionalBranch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotDefaultConditionalBranchPtrOutput) Elem() BotDefaultConditionalBranchOutput {
@@ -2752,6 +3257,12 @@ func (i BotDialogActionArgs) ToBotDialogActionOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotDialogActionOutput)
 }
 
+func (i BotDialogActionArgs) ToOutput(ctx context.Context) pulumix.Output[BotDialogAction] {
+	return pulumix.Output[BotDialogAction]{
+		OutputState: i.ToBotDialogActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotDialogActionArgs) ToBotDialogActionPtrOutput() BotDialogActionPtrOutput {
 	return i.ToBotDialogActionPtrOutputWithContext(context.Background())
 }
@@ -2793,6 +3304,12 @@ func (i *botDialogActionPtrType) ToBotDialogActionPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(BotDialogActionPtrOutput)
 }
 
+func (i *botDialogActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotDialogAction] {
+	return pulumix.Output[*BotDialogAction]{
+		OutputState: i.ToBotDialogActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Defines the action that the bot executes at runtime when the conversation reaches this step.
 type BotDialogActionOutput struct{ *pulumi.OutputState }
 
@@ -2816,6 +3333,12 @@ func (o BotDialogActionOutput) ToBotDialogActionPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotDialogAction) *BotDialogAction {
 		return &v
 	}).(BotDialogActionPtrOutput)
+}
+
+func (o BotDialogActionOutput) ToOutput(ctx context.Context) pulumix.Output[BotDialogAction] {
+	return pulumix.Output[BotDialogAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // If the dialog action is ElicitSlot, defines the slot to elicit from the user.
@@ -2845,6 +3368,12 @@ func (o BotDialogActionPtrOutput) ToBotDialogActionPtrOutput() BotDialogActionPt
 
 func (o BotDialogActionPtrOutput) ToBotDialogActionPtrOutputWithContext(ctx context.Context) BotDialogActionPtrOutput {
 	return o
+}
+
+func (o BotDialogActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotDialogAction] {
+	return pulumix.Output[*BotDialogAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotDialogActionPtrOutput) Elem() BotDialogActionOutput {
@@ -2934,6 +3463,12 @@ func (i BotDialogCodeHookInvocationSettingArgs) ToBotDialogCodeHookInvocationSet
 	return pulumi.ToOutputWithContext(ctx, i).(BotDialogCodeHookInvocationSettingOutput)
 }
 
+func (i BotDialogCodeHookInvocationSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotDialogCodeHookInvocationSetting] {
+	return pulumix.Output[BotDialogCodeHookInvocationSetting]{
+		OutputState: i.ToBotDialogCodeHookInvocationSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotDialogCodeHookInvocationSettingArgs) ToBotDialogCodeHookInvocationSettingPtrOutput() BotDialogCodeHookInvocationSettingPtrOutput {
 	return i.ToBotDialogCodeHookInvocationSettingPtrOutputWithContext(context.Background())
 }
@@ -2975,6 +3510,12 @@ func (i *botDialogCodeHookInvocationSettingPtrType) ToBotDialogCodeHookInvocatio
 	return pulumi.ToOutputWithContext(ctx, i).(BotDialogCodeHookInvocationSettingPtrOutput)
 }
 
+func (i *botDialogCodeHookInvocationSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotDialogCodeHookInvocationSetting] {
+	return pulumix.Output[*BotDialogCodeHookInvocationSetting]{
+		OutputState: i.ToBotDialogCodeHookInvocationSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
 type BotDialogCodeHookInvocationSettingOutput struct{ *pulumi.OutputState }
 
@@ -2998,6 +3539,12 @@ func (o BotDialogCodeHookInvocationSettingOutput) ToBotDialogCodeHookInvocationS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotDialogCodeHookInvocationSetting) *BotDialogCodeHookInvocationSetting {
 		return &v
 	}).(BotDialogCodeHookInvocationSettingPtrOutput)
+}
+
+func (o BotDialogCodeHookInvocationSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotDialogCodeHookInvocationSetting] {
+	return pulumix.Output[BotDialogCodeHookInvocationSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether a Lambda function should be invoked for the dialog.
@@ -3034,6 +3581,12 @@ func (o BotDialogCodeHookInvocationSettingPtrOutput) ToBotDialogCodeHookInvocati
 
 func (o BotDialogCodeHookInvocationSettingPtrOutput) ToBotDialogCodeHookInvocationSettingPtrOutputWithContext(ctx context.Context) BotDialogCodeHookInvocationSettingPtrOutput {
 	return o
+}
+
+func (o BotDialogCodeHookInvocationSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotDialogCodeHookInvocationSetting] {
+	return pulumix.Output[*BotDialogCodeHookInvocationSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotDialogCodeHookInvocationSettingPtrOutput) Elem() BotDialogCodeHookInvocationSettingOutput {
@@ -3119,6 +3672,12 @@ func (i BotDialogCodeHookSettingArgs) ToBotDialogCodeHookSettingOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BotDialogCodeHookSettingOutput)
 }
 
+func (i BotDialogCodeHookSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotDialogCodeHookSetting] {
+	return pulumix.Output[BotDialogCodeHookSetting]{
+		OutputState: i.ToBotDialogCodeHookSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotDialogCodeHookSettingArgs) ToBotDialogCodeHookSettingPtrOutput() BotDialogCodeHookSettingPtrOutput {
 	return i.ToBotDialogCodeHookSettingPtrOutputWithContext(context.Background())
 }
@@ -3160,6 +3719,12 @@ func (i *botDialogCodeHookSettingPtrType) ToBotDialogCodeHookSettingPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BotDialogCodeHookSettingPtrOutput)
 }
 
+func (i *botDialogCodeHookSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotDialogCodeHookSetting] {
+	return pulumix.Output[*BotDialogCodeHookSetting]{
+		OutputState: i.ToBotDialogCodeHookSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
 type BotDialogCodeHookSettingOutput struct{ *pulumi.OutputState }
 
@@ -3185,6 +3750,12 @@ func (o BotDialogCodeHookSettingOutput) ToBotDialogCodeHookSettingPtrOutputWithC
 	}).(BotDialogCodeHookSettingPtrOutput)
 }
 
+func (o BotDialogCodeHookSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotDialogCodeHookSetting] {
+	return pulumix.Output[BotDialogCodeHookSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotDialogCodeHookSettingOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotDialogCodeHookSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -3201,6 +3772,12 @@ func (o BotDialogCodeHookSettingPtrOutput) ToBotDialogCodeHookSettingPtrOutput()
 
 func (o BotDialogCodeHookSettingPtrOutput) ToBotDialogCodeHookSettingPtrOutputWithContext(ctx context.Context) BotDialogCodeHookSettingPtrOutput {
 	return o
+}
+
+func (o BotDialogCodeHookSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotDialogCodeHookSetting] {
+	return pulumix.Output[*BotDialogCodeHookSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotDialogCodeHookSettingPtrOutput) Elem() BotDialogCodeHookSettingOutput {
@@ -3265,6 +3842,12 @@ func (i BotDialogStateArgs) ToBotDialogStateOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotDialogStateOutput)
 }
 
+func (i BotDialogStateArgs) ToOutput(ctx context.Context) pulumix.Output[BotDialogState] {
+	return pulumix.Output[BotDialogState]{
+		OutputState: i.ToBotDialogStateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotDialogStateArgs) ToBotDialogStatePtrOutput() BotDialogStatePtrOutput {
 	return i.ToBotDialogStatePtrOutputWithContext(context.Background())
 }
@@ -3306,6 +3889,12 @@ func (i *botDialogStatePtrType) ToBotDialogStatePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BotDialogStatePtrOutput)
 }
 
+func (i *botDialogStatePtrType) ToOutput(ctx context.Context) pulumix.Output[*BotDialogState] {
+	return pulumix.Output[*BotDialogState]{
+		OutputState: i.ToBotDialogStatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The current state of the conversation with the user.
 type BotDialogStateOutput struct{ *pulumi.OutputState }
 
@@ -3329,6 +3918,12 @@ func (o BotDialogStateOutput) ToBotDialogStatePtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotDialogState) *BotDialogState {
 		return &v
 	}).(BotDialogStatePtrOutput)
+}
+
+func (o BotDialogStateOutput) ToOutput(ctx context.Context) pulumix.Output[BotDialogState] {
+	return pulumix.Output[BotDialogState]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Defines the action that the bot executes at runtime when the conversation reaches this step.
@@ -3358,6 +3953,12 @@ func (o BotDialogStatePtrOutput) ToBotDialogStatePtrOutput() BotDialogStatePtrOu
 
 func (o BotDialogStatePtrOutput) ToBotDialogStatePtrOutputWithContext(ctx context.Context) BotDialogStatePtrOutput {
 	return o
+}
+
+func (o BotDialogStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotDialogState] {
+	return pulumix.Output[*BotDialogState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotDialogStatePtrOutput) Elem() BotDialogStateOutput {
@@ -3439,6 +4040,12 @@ func (i BotElicitationCodeHookInvocationSettingArgs) ToBotElicitationCodeHookInv
 	return pulumi.ToOutputWithContext(ctx, i).(BotElicitationCodeHookInvocationSettingOutput)
 }
 
+func (i BotElicitationCodeHookInvocationSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotElicitationCodeHookInvocationSetting] {
+	return pulumix.Output[BotElicitationCodeHookInvocationSetting]{
+		OutputState: i.ToBotElicitationCodeHookInvocationSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotElicitationCodeHookInvocationSettingArgs) ToBotElicitationCodeHookInvocationSettingPtrOutput() BotElicitationCodeHookInvocationSettingPtrOutput {
 	return i.ToBotElicitationCodeHookInvocationSettingPtrOutputWithContext(context.Background())
 }
@@ -3480,6 +4087,12 @@ func (i *botElicitationCodeHookInvocationSettingPtrType) ToBotElicitationCodeHoo
 	return pulumi.ToOutputWithContext(ctx, i).(BotElicitationCodeHookInvocationSettingPtrOutput)
 }
 
+func (i *botElicitationCodeHookInvocationSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotElicitationCodeHookInvocationSetting] {
+	return pulumix.Output[*BotElicitationCodeHookInvocationSetting]{
+		OutputState: i.ToBotElicitationCodeHookInvocationSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.
 type BotElicitationCodeHookInvocationSettingOutput struct{ *pulumi.OutputState }
 
@@ -3505,6 +4118,12 @@ func (o BotElicitationCodeHookInvocationSettingOutput) ToBotElicitationCodeHookI
 	}).(BotElicitationCodeHookInvocationSettingPtrOutput)
 }
 
+func (o BotElicitationCodeHookInvocationSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotElicitationCodeHookInvocationSetting] {
+	return pulumix.Output[BotElicitationCodeHookInvocationSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates whether a Lambda function should be invoked for the dialog.
 func (o BotElicitationCodeHookInvocationSettingOutput) EnableCodeHookInvocation() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotElicitationCodeHookInvocationSetting) bool { return v.EnableCodeHookInvocation }).(pulumi.BoolOutput)
@@ -3527,6 +4146,12 @@ func (o BotElicitationCodeHookInvocationSettingPtrOutput) ToBotElicitationCodeHo
 
 func (o BotElicitationCodeHookInvocationSettingPtrOutput) ToBotElicitationCodeHookInvocationSettingPtrOutputWithContext(ctx context.Context) BotElicitationCodeHookInvocationSettingPtrOutput {
 	return o
+}
+
+func (o BotElicitationCodeHookInvocationSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotElicitationCodeHookInvocationSetting] {
+	return pulumix.Output[*BotElicitationCodeHookInvocationSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotElicitationCodeHookInvocationSettingPtrOutput) Elem() BotElicitationCodeHookInvocationSettingOutput {
@@ -3592,6 +4217,12 @@ func (i BotExternalSourceSettingArgs) ToBotExternalSourceSettingOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BotExternalSourceSettingOutput)
 }
 
+func (i BotExternalSourceSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotExternalSourceSetting] {
+	return pulumix.Output[BotExternalSourceSetting]{
+		OutputState: i.ToBotExternalSourceSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotExternalSourceSettingArgs) ToBotExternalSourceSettingPtrOutput() BotExternalSourceSettingPtrOutput {
 	return i.ToBotExternalSourceSettingPtrOutputWithContext(context.Background())
 }
@@ -3633,6 +4264,12 @@ func (i *botExternalSourceSettingPtrType) ToBotExternalSourceSettingPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BotExternalSourceSettingPtrOutput)
 }
 
+func (i *botExternalSourceSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotExternalSourceSetting] {
+	return pulumix.Output[*BotExternalSourceSetting]{
+		OutputState: i.ToBotExternalSourceSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides information about the external source of the slot type's definition.
 type BotExternalSourceSettingOutput struct{ *pulumi.OutputState }
 
@@ -3658,6 +4295,12 @@ func (o BotExternalSourceSettingOutput) ToBotExternalSourceSettingPtrOutputWithC
 	}).(BotExternalSourceSettingPtrOutput)
 }
 
+func (o BotExternalSourceSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotExternalSourceSetting] {
+	return pulumix.Output[BotExternalSourceSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotExternalSourceSettingOutput) GrammarSlotTypeSetting() BotGrammarSlotTypeSettingPtrOutput {
 	return o.ApplyT(func(v BotExternalSourceSetting) *BotGrammarSlotTypeSetting { return v.GrammarSlotTypeSetting }).(BotGrammarSlotTypeSettingPtrOutput)
 }
@@ -3674,6 +4317,12 @@ func (o BotExternalSourceSettingPtrOutput) ToBotExternalSourceSettingPtrOutput()
 
 func (o BotExternalSourceSettingPtrOutput) ToBotExternalSourceSettingPtrOutputWithContext(ctx context.Context) BotExternalSourceSettingPtrOutput {
 	return o
+}
+
+func (o BotExternalSourceSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotExternalSourceSetting] {
+	return pulumix.Output[*BotExternalSourceSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotExternalSourceSettingPtrOutput) Elem() BotExternalSourceSettingOutput {
@@ -3736,6 +4385,12 @@ func (i BotFulfillmentCodeHookSettingArgs) ToBotFulfillmentCodeHookSettingOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BotFulfillmentCodeHookSettingOutput)
 }
 
+func (i BotFulfillmentCodeHookSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotFulfillmentCodeHookSetting] {
+	return pulumix.Output[BotFulfillmentCodeHookSetting]{
+		OutputState: i.ToBotFulfillmentCodeHookSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotFulfillmentCodeHookSettingArgs) ToBotFulfillmentCodeHookSettingPtrOutput() BotFulfillmentCodeHookSettingPtrOutput {
 	return i.ToBotFulfillmentCodeHookSettingPtrOutputWithContext(context.Background())
 }
@@ -3777,6 +4432,12 @@ func (i *botFulfillmentCodeHookSettingPtrType) ToBotFulfillmentCodeHookSettingPt
 	return pulumi.ToOutputWithContext(ctx, i).(BotFulfillmentCodeHookSettingPtrOutput)
 }
 
+func (i *botFulfillmentCodeHookSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotFulfillmentCodeHookSetting] {
+	return pulumix.Output[*BotFulfillmentCodeHookSetting]{
+		OutputState: i.ToBotFulfillmentCodeHookSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
 type BotFulfillmentCodeHookSettingOutput struct{ *pulumi.OutputState }
 
@@ -3800,6 +4461,12 @@ func (o BotFulfillmentCodeHookSettingOutput) ToBotFulfillmentCodeHookSettingPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotFulfillmentCodeHookSetting) *BotFulfillmentCodeHookSetting {
 		return &v
 	}).(BotFulfillmentCodeHookSettingPtrOutput)
+}
+
+func (o BotFulfillmentCodeHookSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotFulfillmentCodeHookSetting] {
+	return pulumix.Output[BotFulfillmentCodeHookSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotFulfillmentCodeHookSettingOutput) Enabled() pulumi.BoolOutput {
@@ -3835,6 +4502,12 @@ func (o BotFulfillmentCodeHookSettingPtrOutput) ToBotFulfillmentCodeHookSettingP
 
 func (o BotFulfillmentCodeHookSettingPtrOutput) ToBotFulfillmentCodeHookSettingPtrOutputWithContext(ctx context.Context) BotFulfillmentCodeHookSettingPtrOutput {
 	return o
+}
+
+func (o BotFulfillmentCodeHookSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotFulfillmentCodeHookSetting] {
+	return pulumix.Output[*BotFulfillmentCodeHookSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotFulfillmentCodeHookSettingPtrOutput) Elem() BotFulfillmentCodeHookSettingOutput {
@@ -3925,6 +4598,12 @@ func (i BotFulfillmentStartResponseSpecificationArgs) ToBotFulfillmentStartRespo
 	return pulumi.ToOutputWithContext(ctx, i).(BotFulfillmentStartResponseSpecificationOutput)
 }
 
+func (i BotFulfillmentStartResponseSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotFulfillmentStartResponseSpecification] {
+	return pulumix.Output[BotFulfillmentStartResponseSpecification]{
+		OutputState: i.ToBotFulfillmentStartResponseSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotFulfillmentStartResponseSpecificationArgs) ToBotFulfillmentStartResponseSpecificationPtrOutput() BotFulfillmentStartResponseSpecificationPtrOutput {
 	return i.ToBotFulfillmentStartResponseSpecificationPtrOutputWithContext(context.Background())
 }
@@ -3966,6 +4645,12 @@ func (i *botFulfillmentStartResponseSpecificationPtrType) ToBotFulfillmentStartR
 	return pulumi.ToOutputWithContext(ctx, i).(BotFulfillmentStartResponseSpecificationPtrOutput)
 }
 
+func (i *botFulfillmentStartResponseSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotFulfillmentStartResponseSpecification] {
+	return pulumix.Output[*BotFulfillmentStartResponseSpecification]{
+		OutputState: i.ToBotFulfillmentStartResponseSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
 type BotFulfillmentStartResponseSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -3989,6 +4674,12 @@ func (o BotFulfillmentStartResponseSpecificationOutput) ToBotFulfillmentStartRes
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotFulfillmentStartResponseSpecification) *BotFulfillmentStartResponseSpecification {
 		return &v
 	}).(BotFulfillmentStartResponseSpecificationPtrOutput)
+}
+
+func (o BotFulfillmentStartResponseSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotFulfillmentStartResponseSpecification] {
+	return pulumix.Output[BotFulfillmentStartResponseSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines whether the user can interrupt the start message while it is playing.
@@ -4017,6 +4708,12 @@ func (o BotFulfillmentStartResponseSpecificationPtrOutput) ToBotFulfillmentStart
 
 func (o BotFulfillmentStartResponseSpecificationPtrOutput) ToBotFulfillmentStartResponseSpecificationPtrOutputWithContext(ctx context.Context) BotFulfillmentStartResponseSpecificationPtrOutput {
 	return o
+}
+
+func (o BotFulfillmentStartResponseSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotFulfillmentStartResponseSpecification] {
+	return pulumix.Output[*BotFulfillmentStartResponseSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotFulfillmentStartResponseSpecificationPtrOutput) Elem() BotFulfillmentStartResponseSpecificationOutput {
@@ -4099,6 +4796,12 @@ func (i BotFulfillmentUpdateResponseSpecificationArgs) ToBotFulfillmentUpdateRes
 	return pulumi.ToOutputWithContext(ctx, i).(BotFulfillmentUpdateResponseSpecificationOutput)
 }
 
+func (i BotFulfillmentUpdateResponseSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotFulfillmentUpdateResponseSpecification] {
+	return pulumix.Output[BotFulfillmentUpdateResponseSpecification]{
+		OutputState: i.ToBotFulfillmentUpdateResponseSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotFulfillmentUpdateResponseSpecificationArgs) ToBotFulfillmentUpdateResponseSpecificationPtrOutput() BotFulfillmentUpdateResponseSpecificationPtrOutput {
 	return i.ToBotFulfillmentUpdateResponseSpecificationPtrOutputWithContext(context.Background())
 }
@@ -4140,6 +4843,12 @@ func (i *botFulfillmentUpdateResponseSpecificationPtrType) ToBotFulfillmentUpdat
 	return pulumi.ToOutputWithContext(ctx, i).(BotFulfillmentUpdateResponseSpecificationPtrOutput)
 }
 
+func (i *botFulfillmentUpdateResponseSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotFulfillmentUpdateResponseSpecification] {
+	return pulumix.Output[*BotFulfillmentUpdateResponseSpecification]{
+		OutputState: i.ToBotFulfillmentUpdateResponseSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
 type BotFulfillmentUpdateResponseSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -4163,6 +4872,12 @@ func (o BotFulfillmentUpdateResponseSpecificationOutput) ToBotFulfillmentUpdateR
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotFulfillmentUpdateResponseSpecification) *BotFulfillmentUpdateResponseSpecification {
 		return &v
 	}).(BotFulfillmentUpdateResponseSpecificationPtrOutput)
+}
+
+func (o BotFulfillmentUpdateResponseSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotFulfillmentUpdateResponseSpecification] {
+	return pulumix.Output[BotFulfillmentUpdateResponseSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines whether the user can interrupt an update message while it is playing.
@@ -4191,6 +4906,12 @@ func (o BotFulfillmentUpdateResponseSpecificationPtrOutput) ToBotFulfillmentUpda
 
 func (o BotFulfillmentUpdateResponseSpecificationPtrOutput) ToBotFulfillmentUpdateResponseSpecificationPtrOutputWithContext(ctx context.Context) BotFulfillmentUpdateResponseSpecificationPtrOutput {
 	return o
+}
+
+func (o BotFulfillmentUpdateResponseSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotFulfillmentUpdateResponseSpecification] {
+	return pulumix.Output[*BotFulfillmentUpdateResponseSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotFulfillmentUpdateResponseSpecificationPtrOutput) Elem() BotFulfillmentUpdateResponseSpecificationOutput {
@@ -4275,6 +4996,12 @@ func (i BotFulfillmentUpdatesSpecificationArgs) ToBotFulfillmentUpdatesSpecifica
 	return pulumi.ToOutputWithContext(ctx, i).(BotFulfillmentUpdatesSpecificationOutput)
 }
 
+func (i BotFulfillmentUpdatesSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotFulfillmentUpdatesSpecification] {
+	return pulumix.Output[BotFulfillmentUpdatesSpecification]{
+		OutputState: i.ToBotFulfillmentUpdatesSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotFulfillmentUpdatesSpecificationArgs) ToBotFulfillmentUpdatesSpecificationPtrOutput() BotFulfillmentUpdatesSpecificationPtrOutput {
 	return i.ToBotFulfillmentUpdatesSpecificationPtrOutputWithContext(context.Background())
 }
@@ -4316,6 +5043,12 @@ func (i *botFulfillmentUpdatesSpecificationPtrType) ToBotFulfillmentUpdatesSpeci
 	return pulumi.ToOutputWithContext(ctx, i).(BotFulfillmentUpdatesSpecificationPtrOutput)
 }
 
+func (i *botFulfillmentUpdatesSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotFulfillmentUpdatesSpecification] {
+	return pulumix.Output[*BotFulfillmentUpdatesSpecification]{
+		OutputState: i.ToBotFulfillmentUpdatesSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides information for updating the user on the progress of fulfilling an intent.
 type BotFulfillmentUpdatesSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -4339,6 +5072,12 @@ func (o BotFulfillmentUpdatesSpecificationOutput) ToBotFulfillmentUpdatesSpecifi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotFulfillmentUpdatesSpecification) *BotFulfillmentUpdatesSpecification {
 		return &v
 	}).(BotFulfillmentUpdatesSpecificationPtrOutput)
+}
+
+func (o BotFulfillmentUpdatesSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotFulfillmentUpdatesSpecification] {
+	return pulumix.Output[BotFulfillmentUpdatesSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
@@ -4375,6 +5114,12 @@ func (o BotFulfillmentUpdatesSpecificationPtrOutput) ToBotFulfillmentUpdatesSpec
 
 func (o BotFulfillmentUpdatesSpecificationPtrOutput) ToBotFulfillmentUpdatesSpecificationPtrOutputWithContext(ctx context.Context) BotFulfillmentUpdatesSpecificationPtrOutput {
 	return o
+}
+
+func (o BotFulfillmentUpdatesSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotFulfillmentUpdatesSpecification] {
+	return pulumix.Output[*BotFulfillmentUpdatesSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotFulfillmentUpdatesSpecificationPtrOutput) Elem() BotFulfillmentUpdatesSpecificationOutput {
@@ -4458,6 +5203,12 @@ func (i BotGrammarSlotTypeSettingArgs) ToBotGrammarSlotTypeSettingOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BotGrammarSlotTypeSettingOutput)
 }
 
+func (i BotGrammarSlotTypeSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotGrammarSlotTypeSetting] {
+	return pulumix.Output[BotGrammarSlotTypeSetting]{
+		OutputState: i.ToBotGrammarSlotTypeSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotGrammarSlotTypeSettingArgs) ToBotGrammarSlotTypeSettingPtrOutput() BotGrammarSlotTypeSettingPtrOutput {
 	return i.ToBotGrammarSlotTypeSettingPtrOutputWithContext(context.Background())
 }
@@ -4499,6 +5250,12 @@ func (i *botGrammarSlotTypeSettingPtrType) ToBotGrammarSlotTypeSettingPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BotGrammarSlotTypeSettingPtrOutput)
 }
 
+func (i *botGrammarSlotTypeSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotGrammarSlotTypeSetting] {
+	return pulumix.Output[*BotGrammarSlotTypeSetting]{
+		OutputState: i.ToBotGrammarSlotTypeSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Settings required for a slot type based on a grammar that you provide.
 type BotGrammarSlotTypeSettingOutput struct{ *pulumi.OutputState }
 
@@ -4524,6 +5281,12 @@ func (o BotGrammarSlotTypeSettingOutput) ToBotGrammarSlotTypeSettingPtrOutputWit
 	}).(BotGrammarSlotTypeSettingPtrOutput)
 }
 
+func (o BotGrammarSlotTypeSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotGrammarSlotTypeSetting] {
+	return pulumix.Output[BotGrammarSlotTypeSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotGrammarSlotTypeSettingOutput) Source() BotGrammarSlotTypeSourcePtrOutput {
 	return o.ApplyT(func(v BotGrammarSlotTypeSetting) *BotGrammarSlotTypeSource { return v.Source }).(BotGrammarSlotTypeSourcePtrOutput)
 }
@@ -4540,6 +5303,12 @@ func (o BotGrammarSlotTypeSettingPtrOutput) ToBotGrammarSlotTypeSettingPtrOutput
 
 func (o BotGrammarSlotTypeSettingPtrOutput) ToBotGrammarSlotTypeSettingPtrOutputWithContext(ctx context.Context) BotGrammarSlotTypeSettingPtrOutput {
 	return o
+}
+
+func (o BotGrammarSlotTypeSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotGrammarSlotTypeSetting] {
+	return pulumix.Output[*BotGrammarSlotTypeSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotGrammarSlotTypeSettingPtrOutput) Elem() BotGrammarSlotTypeSettingOutput {
@@ -4604,6 +5373,12 @@ func (i BotGrammarSlotTypeSourceArgs) ToBotGrammarSlotTypeSourceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BotGrammarSlotTypeSourceOutput)
 }
 
+func (i BotGrammarSlotTypeSourceArgs) ToOutput(ctx context.Context) pulumix.Output[BotGrammarSlotTypeSource] {
+	return pulumix.Output[BotGrammarSlotTypeSource]{
+		OutputState: i.ToBotGrammarSlotTypeSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotGrammarSlotTypeSourceArgs) ToBotGrammarSlotTypeSourcePtrOutput() BotGrammarSlotTypeSourcePtrOutput {
 	return i.ToBotGrammarSlotTypeSourcePtrOutputWithContext(context.Background())
 }
@@ -4645,6 +5420,12 @@ func (i *botGrammarSlotTypeSourcePtrType) ToBotGrammarSlotTypeSourcePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BotGrammarSlotTypeSourcePtrOutput)
 }
 
+func (i *botGrammarSlotTypeSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*BotGrammarSlotTypeSource] {
+	return pulumix.Output[*BotGrammarSlotTypeSource]{
+		OutputState: i.ToBotGrammarSlotTypeSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
 type BotGrammarSlotTypeSourceOutput struct{ *pulumi.OutputState }
 
@@ -4668,6 +5449,12 @@ func (o BotGrammarSlotTypeSourceOutput) ToBotGrammarSlotTypeSourcePtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotGrammarSlotTypeSource) *BotGrammarSlotTypeSource {
 		return &v
 	}).(BotGrammarSlotTypeSourcePtrOutput)
+}
+
+func (o BotGrammarSlotTypeSourceOutput) ToOutput(ctx context.Context) pulumix.Output[BotGrammarSlotTypeSource] {
+	return pulumix.Output[BotGrammarSlotTypeSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon KMS key required to decrypt the contents of the grammar, if any.
@@ -4697,6 +5484,12 @@ func (o BotGrammarSlotTypeSourcePtrOutput) ToBotGrammarSlotTypeSourcePtrOutput()
 
 func (o BotGrammarSlotTypeSourcePtrOutput) ToBotGrammarSlotTypeSourcePtrOutputWithContext(ctx context.Context) BotGrammarSlotTypeSourcePtrOutput {
 	return o
+}
+
+func (o BotGrammarSlotTypeSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotGrammarSlotTypeSource] {
+	return pulumix.Output[*BotGrammarSlotTypeSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotGrammarSlotTypeSourcePtrOutput) Elem() BotGrammarSlotTypeSourceOutput {
@@ -4786,6 +5579,12 @@ func (i BotImageResponseCardArgs) ToBotImageResponseCardOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BotImageResponseCardOutput)
 }
 
+func (i BotImageResponseCardArgs) ToOutput(ctx context.Context) pulumix.Output[BotImageResponseCard] {
+	return pulumix.Output[BotImageResponseCard]{
+		OutputState: i.ToBotImageResponseCardOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotImageResponseCardArgs) ToBotImageResponseCardPtrOutput() BotImageResponseCardPtrOutput {
 	return i.ToBotImageResponseCardPtrOutputWithContext(context.Background())
 }
@@ -4827,6 +5626,12 @@ func (i *botImageResponseCardPtrType) ToBotImageResponseCardPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BotImageResponseCardPtrOutput)
 }
 
+func (i *botImageResponseCardPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotImageResponseCard] {
+	return pulumix.Output[*BotImageResponseCard]{
+		OutputState: i.ToBotImageResponseCardPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A message that defines a response card that the client application can show to the user.
 type BotImageResponseCardOutput struct{ *pulumi.OutputState }
 
@@ -4850,6 +5655,12 @@ func (o BotImageResponseCardOutput) ToBotImageResponseCardPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotImageResponseCard) *BotImageResponseCard {
 		return &v
 	}).(BotImageResponseCardPtrOutput)
+}
+
+func (o BotImageResponseCardOutput) ToOutput(ctx context.Context) pulumix.Output[BotImageResponseCard] {
+	return pulumix.Output[BotImageResponseCard]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of buttons that should be displayed on the response card.
@@ -4884,6 +5695,12 @@ func (o BotImageResponseCardPtrOutput) ToBotImageResponseCardPtrOutput() BotImag
 
 func (o BotImageResponseCardPtrOutput) ToBotImageResponseCardPtrOutputWithContext(ctx context.Context) BotImageResponseCardPtrOutput {
 	return o
+}
+
+func (o BotImageResponseCardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotImageResponseCard] {
+	return pulumix.Output[*BotImageResponseCard]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotImageResponseCardPtrOutput) Elem() BotImageResponseCardOutput {
@@ -4983,6 +5800,12 @@ func (i BotInitialResponseSettingArgs) ToBotInitialResponseSettingOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BotInitialResponseSettingOutput)
 }
 
+func (i BotInitialResponseSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotInitialResponseSetting] {
+	return pulumix.Output[BotInitialResponseSetting]{
+		OutputState: i.ToBotInitialResponseSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotInitialResponseSettingArgs) ToBotInitialResponseSettingPtrOutput() BotInitialResponseSettingPtrOutput {
 	return i.ToBotInitialResponseSettingPtrOutputWithContext(context.Background())
 }
@@ -5024,6 +5847,12 @@ func (i *botInitialResponseSettingPtrType) ToBotInitialResponseSettingPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BotInitialResponseSettingPtrOutput)
 }
 
+func (i *botInitialResponseSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotInitialResponseSetting] {
+	return pulumix.Output[*BotInitialResponseSetting]{
+		OutputState: i.ToBotInitialResponseSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
 type BotInitialResponseSettingOutput struct{ *pulumi.OutputState }
 
@@ -5047,6 +5876,12 @@ func (o BotInitialResponseSettingOutput) ToBotInitialResponseSettingPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotInitialResponseSetting) *BotInitialResponseSetting {
 		return &v
 	}).(BotInitialResponseSettingPtrOutput)
+}
+
+func (o BotInitialResponseSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotInitialResponseSetting] {
+	return pulumix.Output[BotInitialResponseSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
@@ -5081,6 +5916,12 @@ func (o BotInitialResponseSettingPtrOutput) ToBotInitialResponseSettingPtrOutput
 
 func (o BotInitialResponseSettingPtrOutput) ToBotInitialResponseSettingPtrOutputWithContext(ctx context.Context) BotInitialResponseSettingPtrOutput {
 	return o
+}
+
+func (o BotInitialResponseSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotInitialResponseSetting] {
+	return pulumix.Output[*BotInitialResponseSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotInitialResponseSettingPtrOutput) Elem() BotInitialResponseSettingOutput {
@@ -5168,6 +6009,12 @@ func (i BotInputContextArgs) ToBotInputContextOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotInputContextOutput)
 }
 
+func (i BotInputContextArgs) ToOutput(ctx context.Context) pulumix.Output[BotInputContext] {
+	return pulumix.Output[BotInputContext]{
+		OutputState: i.ToBotInputContextOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotInputContextArrayInput is an input type that accepts BotInputContextArray and BotInputContextArrayOutput values.
 // You can construct a concrete instance of `BotInputContextArrayInput` via:
 //
@@ -5193,6 +6040,12 @@ func (i BotInputContextArray) ToBotInputContextArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotInputContextArrayOutput)
 }
 
+func (i BotInputContextArray) ToOutput(ctx context.Context) pulumix.Output[[]BotInputContext] {
+	return pulumix.Output[[]BotInputContext]{
+		OutputState: i.ToBotInputContextArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InputContext specified for the intent.
 type BotInputContextOutput struct{ *pulumi.OutputState }
 
@@ -5206,6 +6059,12 @@ func (o BotInputContextOutput) ToBotInputContextOutput() BotInputContextOutput {
 
 func (o BotInputContextOutput) ToBotInputContextOutputWithContext(ctx context.Context) BotInputContextOutput {
 	return o
+}
+
+func (o BotInputContextOutput) ToOutput(ctx context.Context) pulumix.Output[BotInputContext] {
+	return pulumix.Output[BotInputContext]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the context.
@@ -5225,6 +6084,12 @@ func (o BotInputContextArrayOutput) ToBotInputContextArrayOutput() BotInputConte
 
 func (o BotInputContextArrayOutput) ToBotInputContextArrayOutputWithContext(ctx context.Context) BotInputContextArrayOutput {
 	return o
+}
+
+func (o BotInputContextArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotInputContext] {
+	return pulumix.Output[[]BotInputContext]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotInputContextArrayOutput) Index(i pulumi.IntInput) BotInputContextOutput {
@@ -5302,6 +6167,12 @@ func (i BotIntentArgs) ToBotIntentOutputWithContext(ctx context.Context) BotInte
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentOutput)
 }
 
+func (i BotIntentArgs) ToOutput(ctx context.Context) pulumix.Output[BotIntent] {
+	return pulumix.Output[BotIntent]{
+		OutputState: i.ToBotIntentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotIntentArrayInput is an input type that accepts BotIntentArray and BotIntentArrayOutput values.
 // You can construct a concrete instance of `BotIntentArrayInput` via:
 //
@@ -5327,6 +6198,12 @@ func (i BotIntentArray) ToBotIntentArrayOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentArrayOutput)
 }
 
+func (i BotIntentArray) ToOutput(ctx context.Context) pulumix.Output[[]BotIntent] {
+	return pulumix.Output[[]BotIntent]{
+		OutputState: i.ToBotIntentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Represents an action that the user wants to perform.
 type BotIntentOutput struct{ *pulumi.OutputState }
 
@@ -5340,6 +6217,12 @@ func (o BotIntentOutput) ToBotIntentOutput() BotIntentOutput {
 
 func (o BotIntentOutput) ToBotIntentOutputWithContext(ctx context.Context) BotIntentOutput {
 	return o
+}
+
+func (o BotIntentOutput) ToOutput(ctx context.Context) pulumix.Output[BotIntent] {
+	return pulumix.Output[BotIntent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of thr intent.
@@ -5417,6 +6300,12 @@ func (o BotIntentArrayOutput) ToBotIntentArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o BotIntentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotIntent] {
+	return pulumix.Output[[]BotIntent]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotIntentArrayOutput) Index(i pulumi.IntInput) BotIntentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotIntent {
 		return vs[0].([]BotIntent)[vs[1].(int)]
@@ -5470,6 +6359,12 @@ func (i BotIntentClosingSettingArgs) ToBotIntentClosingSettingOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentClosingSettingOutput)
 }
 
+func (i BotIntentClosingSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotIntentClosingSetting] {
+	return pulumix.Output[BotIntentClosingSetting]{
+		OutputState: i.ToBotIntentClosingSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotIntentClosingSettingArgs) ToBotIntentClosingSettingPtrOutput() BotIntentClosingSettingPtrOutput {
 	return i.ToBotIntentClosingSettingPtrOutputWithContext(context.Background())
 }
@@ -5511,6 +6406,12 @@ func (i *botIntentClosingSettingPtrType) ToBotIntentClosingSettingPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentClosingSettingPtrOutput)
 }
 
+func (i *botIntentClosingSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotIntentClosingSetting] {
+	return pulumix.Output[*BotIntentClosingSetting]{
+		OutputState: i.ToBotIntentClosingSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
 type BotIntentClosingSettingOutput struct{ *pulumi.OutputState }
 
@@ -5534,6 +6435,12 @@ func (o BotIntentClosingSettingOutput) ToBotIntentClosingSettingPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotIntentClosingSetting) *BotIntentClosingSetting {
 		return &v
 	}).(BotIntentClosingSettingPtrOutput)
+}
+
+func (o BotIntentClosingSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotIntentClosingSetting] {
+	return pulumix.Output[BotIntentClosingSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The response that Amazon Lex sends to the user when the intent is complete.
@@ -5568,6 +6475,12 @@ func (o BotIntentClosingSettingPtrOutput) ToBotIntentClosingSettingPtrOutput() B
 
 func (o BotIntentClosingSettingPtrOutput) ToBotIntentClosingSettingPtrOutputWithContext(ctx context.Context) BotIntentClosingSettingPtrOutput {
 	return o
+}
+
+func (o BotIntentClosingSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotIntentClosingSetting] {
+	return pulumix.Output[*BotIntentClosingSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotIntentClosingSettingPtrOutput) Elem() BotIntentClosingSettingOutput {
@@ -5703,6 +6616,12 @@ func (i BotIntentConfirmationSettingArgs) ToBotIntentConfirmationSettingOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentConfirmationSettingOutput)
 }
 
+func (i BotIntentConfirmationSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotIntentConfirmationSetting] {
+	return pulumix.Output[BotIntentConfirmationSetting]{
+		OutputState: i.ToBotIntentConfirmationSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotIntentConfirmationSettingArgs) ToBotIntentConfirmationSettingPtrOutput() BotIntentConfirmationSettingPtrOutput {
 	return i.ToBotIntentConfirmationSettingPtrOutputWithContext(context.Background())
 }
@@ -5744,6 +6663,12 @@ func (i *botIntentConfirmationSettingPtrType) ToBotIntentConfirmationSettingPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentConfirmationSettingPtrOutput)
 }
 
+func (i *botIntentConfirmationSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotIntentConfirmationSetting] {
+	return pulumix.Output[*BotIntentConfirmationSetting]{
+		OutputState: i.ToBotIntentConfirmationSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
 type BotIntentConfirmationSettingOutput struct{ *pulumi.OutputState }
 
@@ -5767,6 +6692,12 @@ func (o BotIntentConfirmationSettingOutput) ToBotIntentConfirmationSettingPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotIntentConfirmationSetting) *BotIntentConfirmationSetting {
 		return &v
 	}).(BotIntentConfirmationSettingPtrOutput)
+}
+
+func (o BotIntentConfirmationSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotIntentConfirmationSetting] {
+	return pulumix.Output[BotIntentConfirmationSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The DialogCodeHookInvocationSetting object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is InvokeDialogCodeHook.
@@ -5848,6 +6779,12 @@ func (o BotIntentConfirmationSettingPtrOutput) ToBotIntentConfirmationSettingPtr
 
 func (o BotIntentConfirmationSettingPtrOutput) ToBotIntentConfirmationSettingPtrOutputWithContext(ctx context.Context) BotIntentConfirmationSettingPtrOutput {
 	return o
+}
+
+func (o BotIntentConfirmationSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotIntentConfirmationSetting] {
+	return pulumix.Output[*BotIntentConfirmationSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotIntentConfirmationSettingPtrOutput) Elem() BotIntentConfirmationSettingOutput {
@@ -6029,6 +6966,12 @@ func (i BotIntentOverrideArgs) ToBotIntentOverrideOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentOverrideOutput)
 }
 
+func (i BotIntentOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[BotIntentOverride] {
+	return pulumix.Output[BotIntentOverride]{
+		OutputState: i.ToBotIntentOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotIntentOverrideArgs) ToBotIntentOverridePtrOutput() BotIntentOverridePtrOutput {
 	return i.ToBotIntentOverridePtrOutputWithContext(context.Background())
 }
@@ -6070,6 +7013,12 @@ func (i *botIntentOverridePtrType) ToBotIntentOverridePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentOverridePtrOutput)
 }
 
+func (i *botIntentOverridePtrType) ToOutput(ctx context.Context) pulumix.Output[*BotIntentOverride] {
+	return pulumix.Output[*BotIntentOverride]{
+		OutputState: i.ToBotIntentOverridePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Override settings to configure the intent state.
 type BotIntentOverrideOutput struct{ *pulumi.OutputState }
 
@@ -6095,6 +7044,12 @@ func (o BotIntentOverrideOutput) ToBotIntentOverridePtrOutputWithContext(ctx con
 	}).(BotIntentOverridePtrOutput)
 }
 
+func (o BotIntentOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[BotIntentOverride] {
+	return pulumix.Output[BotIntentOverride]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the intent. Only required when you're switching intents.
 func (o BotIntentOverrideOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotIntentOverride) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -6117,6 +7072,12 @@ func (o BotIntentOverridePtrOutput) ToBotIntentOverridePtrOutput() BotIntentOver
 
 func (o BotIntentOverridePtrOutput) ToBotIntentOverridePtrOutputWithContext(ctx context.Context) BotIntentOverridePtrOutput {
 	return o
+}
+
+func (o BotIntentOverridePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotIntentOverride] {
+	return pulumix.Output[*BotIntentOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotIntentOverridePtrOutput) Elem() BotIntentOverrideOutput {
@@ -6188,6 +7149,12 @@ func (i BotKendraConfigurationArgs) ToBotKendraConfigurationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotKendraConfigurationOutput)
 }
 
+func (i BotKendraConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BotKendraConfiguration] {
+	return pulumix.Output[BotKendraConfiguration]{
+		OutputState: i.ToBotKendraConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotKendraConfigurationArgs) ToBotKendraConfigurationPtrOutput() BotKendraConfigurationPtrOutput {
 	return i.ToBotKendraConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6229,6 +7196,12 @@ func (i *botKendraConfigurationPtrType) ToBotKendraConfigurationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BotKendraConfigurationPtrOutput)
 }
 
+func (i *botKendraConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotKendraConfiguration] {
+	return pulumix.Output[*BotKendraConfiguration]{
+		OutputState: i.ToBotKendraConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuration for searching a Amazon Kendra index specified for the intent.
 type BotKendraConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -6252,6 +7225,12 @@ func (o BotKendraConfigurationOutput) ToBotKendraConfigurationPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotKendraConfiguration) *BotKendraConfiguration {
 		return &v
 	}).(BotKendraConfigurationPtrOutput)
+}
+
+func (o BotKendraConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BotKendraConfiguration] {
+	return pulumix.Output[BotKendraConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotKendraConfigurationOutput) KendraIndex() pulumi.StringOutput {
@@ -6279,6 +7258,12 @@ func (o BotKendraConfigurationPtrOutput) ToBotKendraConfigurationPtrOutput() Bot
 
 func (o BotKendraConfigurationPtrOutput) ToBotKendraConfigurationPtrOutputWithContext(ctx context.Context) BotKendraConfigurationPtrOutput {
 	return o
+}
+
+func (o BotKendraConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotKendraConfiguration] {
+	return pulumix.Output[*BotKendraConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotKendraConfigurationPtrOutput) Elem() BotKendraConfigurationOutput {
@@ -6376,6 +7361,12 @@ func (i BotLocaleArgs) ToBotLocaleOutputWithContext(ctx context.Context) BotLoca
 	return pulumi.ToOutputWithContext(ctx, i).(BotLocaleOutput)
 }
 
+func (i BotLocaleArgs) ToOutput(ctx context.Context) pulumix.Output[BotLocale] {
+	return pulumix.Output[BotLocale]{
+		OutputState: i.ToBotLocaleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotLocaleArrayInput is an input type that accepts BotLocaleArray and BotLocaleArrayOutput values.
 // You can construct a concrete instance of `BotLocaleArrayInput` via:
 //
@@ -6401,6 +7392,12 @@ func (i BotLocaleArray) ToBotLocaleArrayOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BotLocaleArrayOutput)
 }
 
+func (i BotLocaleArray) ToOutput(ctx context.Context) pulumix.Output[[]BotLocale] {
+	return pulumix.Output[[]BotLocale]{
+		OutputState: i.ToBotLocaleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
 type BotLocaleOutput struct{ *pulumi.OutputState }
 
@@ -6414,6 +7411,12 @@ func (o BotLocaleOutput) ToBotLocaleOutput() BotLocaleOutput {
 
 func (o BotLocaleOutput) ToBotLocaleOutputWithContext(ctx context.Context) BotLocaleOutput {
 	return o
+}
+
+func (o BotLocaleOutput) ToOutput(ctx context.Context) pulumix.Output[BotLocale] {
+	return pulumix.Output[BotLocale]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotLocaleOutput) CustomVocabulary() BotCustomVocabularyPtrOutput {
@@ -6458,6 +7461,12 @@ func (o BotLocaleArrayOutput) ToBotLocaleArrayOutput() BotLocaleArrayOutput {
 
 func (o BotLocaleArrayOutput) ToBotLocaleArrayOutputWithContext(ctx context.Context) BotLocaleArrayOutput {
 	return o
+}
+
+func (o BotLocaleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotLocale] {
+	return pulumix.Output[[]BotLocale]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotLocaleArrayOutput) Index(i pulumi.IntInput) BotLocaleOutput {
@@ -6505,6 +7514,12 @@ func (i BotMessageArgs) ToBotMessageOutputWithContext(ctx context.Context) BotMe
 	return pulumi.ToOutputWithContext(ctx, i).(BotMessageOutput)
 }
 
+func (i BotMessageArgs) ToOutput(ctx context.Context) pulumix.Output[BotMessage] {
+	return pulumix.Output[BotMessage]{
+		OutputState: i.ToBotMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotMessageArrayInput is an input type that accepts BotMessageArray and BotMessageArrayOutput values.
 // You can construct a concrete instance of `BotMessageArrayInput` via:
 //
@@ -6530,6 +7545,12 @@ func (i BotMessageArray) ToBotMessageArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BotMessageArrayOutput)
 }
 
+func (i BotMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]BotMessage] {
+	return pulumix.Output[[]BotMessage]{
+		OutputState: i.ToBotMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The primary message that Amazon Lex should send to the user.
 type BotMessageOutput struct{ *pulumi.OutputState }
 
@@ -6543,6 +7564,12 @@ func (o BotMessageOutput) ToBotMessageOutput() BotMessageOutput {
 
 func (o BotMessageOutput) ToBotMessageOutputWithContext(ctx context.Context) BotMessageOutput {
 	return o
+}
+
+func (o BotMessageOutput) ToOutput(ctx context.Context) pulumix.Output[BotMessage] {
+	return pulumix.Output[BotMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotMessageOutput) CustomPayload() BotCustomPayloadPtrOutput {
@@ -6573,6 +7600,12 @@ func (o BotMessageArrayOutput) ToBotMessageArrayOutput() BotMessageArrayOutput {
 
 func (o BotMessageArrayOutput) ToBotMessageArrayOutputWithContext(ctx context.Context) BotMessageArrayOutput {
 	return o
+}
+
+func (o BotMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotMessage] {
+	return pulumix.Output[[]BotMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotMessageArrayOutput) Index(i pulumi.IntInput) BotMessageOutput {
@@ -6618,6 +7651,12 @@ func (i BotMessageGroupArgs) ToBotMessageGroupOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotMessageGroupOutput)
 }
 
+func (i BotMessageGroupArgs) ToOutput(ctx context.Context) pulumix.Output[BotMessageGroup] {
+	return pulumix.Output[BotMessageGroup]{
+		OutputState: i.ToBotMessageGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotMessageGroupArrayInput is an input type that accepts BotMessageGroupArray and BotMessageGroupArrayOutput values.
 // You can construct a concrete instance of `BotMessageGroupArrayInput` via:
 //
@@ -6643,6 +7682,12 @@ func (i BotMessageGroupArray) ToBotMessageGroupArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotMessageGroupArrayOutput)
 }
 
+func (i BotMessageGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]BotMessageGroup] {
+	return pulumix.Output[[]BotMessageGroup]{
+		OutputState: i.ToBotMessageGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // One or more messages that Amazon Lex can send to the user.
 type BotMessageGroupOutput struct{ *pulumi.OutputState }
 
@@ -6656,6 +7701,12 @@ func (o BotMessageGroupOutput) ToBotMessageGroupOutput() BotMessageGroupOutput {
 
 func (o BotMessageGroupOutput) ToBotMessageGroupOutputWithContext(ctx context.Context) BotMessageGroupOutput {
 	return o
+}
+
+func (o BotMessageGroupOutput) ToOutput(ctx context.Context) pulumix.Output[BotMessageGroup] {
+	return pulumix.Output[BotMessageGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotMessageGroupOutput) Message() BotMessageOutput {
@@ -6679,6 +7730,12 @@ func (o BotMessageGroupArrayOutput) ToBotMessageGroupArrayOutput() BotMessageGro
 
 func (o BotMessageGroupArrayOutput) ToBotMessageGroupArrayOutputWithContext(ctx context.Context) BotMessageGroupArrayOutput {
 	return o
+}
+
+func (o BotMessageGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotMessageGroup] {
+	return pulumix.Output[[]BotMessageGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotMessageGroupArrayOutput) Index(i pulumi.IntInput) BotMessageGroupOutput {
@@ -6718,6 +7775,12 @@ func (i BotMultipleValuesSettingArgs) ToBotMultipleValuesSettingOutput() BotMult
 
 func (i BotMultipleValuesSettingArgs) ToBotMultipleValuesSettingOutputWithContext(ctx context.Context) BotMultipleValuesSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotMultipleValuesSettingOutput)
+}
+
+func (i BotMultipleValuesSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotMultipleValuesSetting] {
+	return pulumix.Output[BotMultipleValuesSetting]{
+		OutputState: i.ToBotMultipleValuesSettingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i BotMultipleValuesSettingArgs) ToBotMultipleValuesSettingPtrOutput() BotMultipleValuesSettingPtrOutput {
@@ -6761,6 +7824,12 @@ func (i *botMultipleValuesSettingPtrType) ToBotMultipleValuesSettingPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BotMultipleValuesSettingPtrOutput)
 }
 
+func (i *botMultipleValuesSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotMultipleValuesSetting] {
+	return pulumix.Output[*BotMultipleValuesSetting]{
+		OutputState: i.ToBotMultipleValuesSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Indicates whether a slot can return multiple values.
 type BotMultipleValuesSettingOutput struct{ *pulumi.OutputState }
 
@@ -6786,6 +7855,12 @@ func (o BotMultipleValuesSettingOutput) ToBotMultipleValuesSettingPtrOutputWithC
 	}).(BotMultipleValuesSettingPtrOutput)
 }
 
+func (o BotMultipleValuesSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotMultipleValuesSetting] {
+	return pulumix.Output[BotMultipleValuesSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotMultipleValuesSettingOutput) AllowMultipleValues() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotMultipleValuesSetting) *bool { return v.AllowMultipleValues }).(pulumi.BoolPtrOutput)
 }
@@ -6802,6 +7877,12 @@ func (o BotMultipleValuesSettingPtrOutput) ToBotMultipleValuesSettingPtrOutput()
 
 func (o BotMultipleValuesSettingPtrOutput) ToBotMultipleValuesSettingPtrOutputWithContext(ctx context.Context) BotMultipleValuesSettingPtrOutput {
 	return o
+}
+
+func (o BotMultipleValuesSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotMultipleValuesSetting] {
+	return pulumix.Output[*BotMultipleValuesSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotMultipleValuesSettingPtrOutput) Elem() BotMultipleValuesSettingOutput {
@@ -6858,6 +7939,12 @@ func (i BotObfuscationSettingArgs) ToBotObfuscationSettingOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BotObfuscationSettingOutput)
 }
 
+func (i BotObfuscationSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotObfuscationSetting] {
+	return pulumix.Output[BotObfuscationSetting]{
+		OutputState: i.ToBotObfuscationSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotObfuscationSettingArgs) ToBotObfuscationSettingPtrOutput() BotObfuscationSettingPtrOutput {
 	return i.ToBotObfuscationSettingPtrOutputWithContext(context.Background())
 }
@@ -6899,6 +7986,12 @@ func (i *botObfuscationSettingPtrType) ToBotObfuscationSettingPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BotObfuscationSettingPtrOutput)
 }
 
+func (i *botObfuscationSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotObfuscationSetting] {
+	return pulumix.Output[*BotObfuscationSetting]{
+		OutputState: i.ToBotObfuscationSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Determines whether Amazon Lex obscures slot values in conversation logs.
 type BotObfuscationSettingOutput struct{ *pulumi.OutputState }
 
@@ -6924,6 +8017,12 @@ func (o BotObfuscationSettingOutput) ToBotObfuscationSettingPtrOutputWithContext
 	}).(BotObfuscationSettingPtrOutput)
 }
 
+func (o BotObfuscationSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotObfuscationSetting] {
+	return pulumix.Output[BotObfuscationSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
 func (o BotObfuscationSettingOutput) ObfuscationSettingType() BotObfuscationSettingObfuscationSettingTypeOutput {
 	return o.ApplyT(func(v BotObfuscationSetting) BotObfuscationSettingObfuscationSettingType {
@@ -6943,6 +8042,12 @@ func (o BotObfuscationSettingPtrOutput) ToBotObfuscationSettingPtrOutput() BotOb
 
 func (o BotObfuscationSettingPtrOutput) ToBotObfuscationSettingPtrOutputWithContext(ctx context.Context) BotObfuscationSettingPtrOutput {
 	return o
+}
+
+func (o BotObfuscationSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotObfuscationSetting] {
+	return pulumix.Output[*BotObfuscationSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotObfuscationSettingPtrOutput) Elem() BotObfuscationSettingOutput {
@@ -7002,6 +8107,12 @@ func (i BotOutputContextArgs) ToBotOutputContextOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BotOutputContextOutput)
 }
 
+func (i BotOutputContextArgs) ToOutput(ctx context.Context) pulumix.Output[BotOutputContext] {
+	return pulumix.Output[BotOutputContext]{
+		OutputState: i.ToBotOutputContextOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotOutputContextArrayInput is an input type that accepts BotOutputContextArray and BotOutputContextArrayOutput values.
 // You can construct a concrete instance of `BotOutputContextArrayInput` via:
 //
@@ -7027,6 +8138,12 @@ func (i BotOutputContextArray) ToBotOutputContextArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotOutputContextArrayOutput)
 }
 
+func (i BotOutputContextArray) ToOutput(ctx context.Context) pulumix.Output[[]BotOutputContext] {
+	return pulumix.Output[[]BotOutputContext]{
+		OutputState: i.ToBotOutputContextArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A session context that is activated when an intent is fulfilled.
 type BotOutputContextOutput struct{ *pulumi.OutputState }
 
@@ -7040,6 +8157,12 @@ func (o BotOutputContextOutput) ToBotOutputContextOutput() BotOutputContextOutpu
 
 func (o BotOutputContextOutput) ToBotOutputContextOutputWithContext(ctx context.Context) BotOutputContextOutput {
 	return o
+}
+
+func (o BotOutputContextOutput) ToOutput(ctx context.Context) pulumix.Output[BotOutputContext] {
+	return pulumix.Output[BotOutputContext]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotOutputContextOutput) Name() pulumi.StringOutput {
@@ -7066,6 +8189,12 @@ func (o BotOutputContextArrayOutput) ToBotOutputContextArrayOutput() BotOutputCo
 
 func (o BotOutputContextArrayOutput) ToBotOutputContextArrayOutputWithContext(ctx context.Context) BotOutputContextArrayOutput {
 	return o
+}
+
+func (o BotOutputContextArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotOutputContext] {
+	return pulumix.Output[[]BotOutputContext]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotOutputContextArrayOutput) Index(i pulumi.IntInput) BotOutputContextOutput {
@@ -7109,6 +8238,12 @@ func (i BotPlainTextMessageArgs) ToBotPlainTextMessageOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotPlainTextMessageOutput)
 }
 
+func (i BotPlainTextMessageArgs) ToOutput(ctx context.Context) pulumix.Output[BotPlainTextMessage] {
+	return pulumix.Output[BotPlainTextMessage]{
+		OutputState: i.ToBotPlainTextMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotPlainTextMessageArgs) ToBotPlainTextMessagePtrOutput() BotPlainTextMessagePtrOutput {
 	return i.ToBotPlainTextMessagePtrOutputWithContext(context.Background())
 }
@@ -7150,6 +8285,12 @@ func (i *botPlainTextMessagePtrType) ToBotPlainTextMessagePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BotPlainTextMessagePtrOutput)
 }
 
+func (i *botPlainTextMessagePtrType) ToOutput(ctx context.Context) pulumix.Output[*BotPlainTextMessage] {
+	return pulumix.Output[*BotPlainTextMessage]{
+		OutputState: i.ToBotPlainTextMessagePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A message in plain text format.
 type BotPlainTextMessageOutput struct{ *pulumi.OutputState }
 
@@ -7175,6 +8316,12 @@ func (o BotPlainTextMessageOutput) ToBotPlainTextMessagePtrOutputWithContext(ctx
 	}).(BotPlainTextMessagePtrOutput)
 }
 
+func (o BotPlainTextMessageOutput) ToOutput(ctx context.Context) pulumix.Output[BotPlainTextMessage] {
+	return pulumix.Output[BotPlainTextMessage]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The message to send to the user.
 func (o BotPlainTextMessageOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BotPlainTextMessage) string { return v.Value }).(pulumi.StringOutput)
@@ -7192,6 +8339,12 @@ func (o BotPlainTextMessagePtrOutput) ToBotPlainTextMessagePtrOutput() BotPlainT
 
 func (o BotPlainTextMessagePtrOutput) ToBotPlainTextMessagePtrOutputWithContext(ctx context.Context) BotPlainTextMessagePtrOutput {
 	return o
+}
+
+func (o BotPlainTextMessagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotPlainTextMessage] {
+	return pulumix.Output[*BotPlainTextMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotPlainTextMessagePtrOutput) Elem() BotPlainTextMessageOutput {
@@ -7281,6 +8434,12 @@ func (i BotPostDialogCodeHookInvocationSpecificationArgs) ToBotPostDialogCodeHoo
 	return pulumi.ToOutputWithContext(ctx, i).(BotPostDialogCodeHookInvocationSpecificationOutput)
 }
 
+func (i BotPostDialogCodeHookInvocationSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotPostDialogCodeHookInvocationSpecification] {
+	return pulumix.Output[BotPostDialogCodeHookInvocationSpecification]{
+		OutputState: i.ToBotPostDialogCodeHookInvocationSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotPostDialogCodeHookInvocationSpecificationArgs) ToBotPostDialogCodeHookInvocationSpecificationPtrOutput() BotPostDialogCodeHookInvocationSpecificationPtrOutput {
 	return i.ToBotPostDialogCodeHookInvocationSpecificationPtrOutputWithContext(context.Background())
 }
@@ -7322,6 +8481,12 @@ func (i *botPostDialogCodeHookInvocationSpecificationPtrType) ToBotPostDialogCod
 	return pulumi.ToOutputWithContext(ctx, i).(BotPostDialogCodeHookInvocationSpecificationPtrOutput)
 }
 
+func (i *botPostDialogCodeHookInvocationSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotPostDialogCodeHookInvocationSpecification] {
+	return pulumix.Output[*BotPostDialogCodeHookInvocationSpecification]{
+		OutputState: i.ToBotPostDialogCodeHookInvocationSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies next steps to run after the dialog code hook finishes.
 type BotPostDialogCodeHookInvocationSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -7345,6 +8510,12 @@ func (o BotPostDialogCodeHookInvocationSpecificationOutput) ToBotPostDialogCodeH
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotPostDialogCodeHookInvocationSpecification) *BotPostDialogCodeHookInvocationSpecification {
 		return &v
 	}).(BotPostDialogCodeHookInvocationSpecificationPtrOutput)
+}
+
+func (o BotPostDialogCodeHookInvocationSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotPostDialogCodeHookInvocationSpecification] {
+	return pulumix.Output[BotPostDialogCodeHookInvocationSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
@@ -7416,6 +8587,12 @@ func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) ToBotPostDialogCo
 
 func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) ToBotPostDialogCodeHookInvocationSpecificationPtrOutputWithContext(ctx context.Context) BotPostDialogCodeHookInvocationSpecificationPtrOutput {
 	return o
+}
+
+func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotPostDialogCodeHookInvocationSpecification] {
+	return pulumix.Output[*BotPostDialogCodeHookInvocationSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) Elem() BotPostDialogCodeHookInvocationSpecificationOutput {
@@ -7585,6 +8762,12 @@ func (i BotPostFulfillmentStatusSpecificationArgs) ToBotPostFulfillmentStatusSpe
 	return pulumi.ToOutputWithContext(ctx, i).(BotPostFulfillmentStatusSpecificationOutput)
 }
 
+func (i BotPostFulfillmentStatusSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotPostFulfillmentStatusSpecification] {
+	return pulumix.Output[BotPostFulfillmentStatusSpecification]{
+		OutputState: i.ToBotPostFulfillmentStatusSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotPostFulfillmentStatusSpecificationArgs) ToBotPostFulfillmentStatusSpecificationPtrOutput() BotPostFulfillmentStatusSpecificationPtrOutput {
 	return i.ToBotPostFulfillmentStatusSpecificationPtrOutputWithContext(context.Background())
 }
@@ -7626,6 +8809,12 @@ func (i *botPostFulfillmentStatusSpecificationPtrType) ToBotPostFulfillmentStatu
 	return pulumi.ToOutputWithContext(ctx, i).(BotPostFulfillmentStatusSpecificationPtrOutput)
 }
 
+func (i *botPostFulfillmentStatusSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotPostFulfillmentStatusSpecification] {
+	return pulumix.Output[*BotPostFulfillmentStatusSpecification]{
+		OutputState: i.ToBotPostFulfillmentStatusSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Provides a setting that determines whether the post-fulfillment response is sent to the user.
 type BotPostFulfillmentStatusSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -7649,6 +8838,12 @@ func (o BotPostFulfillmentStatusSpecificationOutput) ToBotPostFulfillmentStatusS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotPostFulfillmentStatusSpecification) *BotPostFulfillmentStatusSpecification {
 		return &v
 	}).(BotPostFulfillmentStatusSpecificationPtrOutput)
+}
+
+func (o BotPostFulfillmentStatusSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotPostFulfillmentStatusSpecification] {
+	return pulumix.Output[BotPostFulfillmentStatusSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
@@ -7714,6 +8909,12 @@ func (o BotPostFulfillmentStatusSpecificationPtrOutput) ToBotPostFulfillmentStat
 
 func (o BotPostFulfillmentStatusSpecificationPtrOutput) ToBotPostFulfillmentStatusSpecificationPtrOutputWithContext(ctx context.Context) BotPostFulfillmentStatusSpecificationPtrOutput {
 	return o
+}
+
+func (o BotPostFulfillmentStatusSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotPostFulfillmentStatusSpecification] {
+	return pulumix.Output[*BotPostFulfillmentStatusSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotPostFulfillmentStatusSpecificationPtrOutput) Elem() BotPostFulfillmentStatusSpecificationOutput {
@@ -7861,6 +9062,12 @@ func (i BotPromptSpecificationArgs) ToBotPromptSpecificationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotPromptSpecificationOutput)
 }
 
+func (i BotPromptSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotPromptSpecification] {
+	return pulumix.Output[BotPromptSpecification]{
+		OutputState: i.ToBotPromptSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotPromptSpecificationArgs) ToBotPromptSpecificationPtrOutput() BotPromptSpecificationPtrOutput {
 	return i.ToBotPromptSpecificationPtrOutputWithContext(context.Background())
 }
@@ -7902,6 +9109,12 @@ func (i *botPromptSpecificationPtrType) ToBotPromptSpecificationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BotPromptSpecificationPtrOutput)
 }
 
+func (i *botPromptSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotPromptSpecification] {
+	return pulumix.Output[*BotPromptSpecification]{
+		OutputState: i.ToBotPromptSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Prompts the user to confirm the intent.
 type BotPromptSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -7925,6 +9138,12 @@ func (o BotPromptSpecificationOutput) ToBotPromptSpecificationPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotPromptSpecification) *BotPromptSpecification {
 		return &v
 	}).(BotPromptSpecificationPtrOutput)
+}
+
+func (o BotPromptSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotPromptSpecification] {
+	return pulumix.Output[BotPromptSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether the user can interrupt a speech prompt from the bot.
@@ -7961,6 +9180,12 @@ func (o BotPromptSpecificationPtrOutput) ToBotPromptSpecificationPtrOutput() Bot
 
 func (o BotPromptSpecificationPtrOutput) ToBotPromptSpecificationPtrOutputWithContext(ctx context.Context) BotPromptSpecificationPtrOutput {
 	return o
+}
+
+func (o BotPromptSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotPromptSpecification] {
+	return pulumix.Output[*BotPromptSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotPromptSpecificationPtrOutput) Elem() BotPromptSpecificationOutput {
@@ -8057,6 +9282,12 @@ func (i BotResponseSpecificationArgs) ToBotResponseSpecificationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BotResponseSpecificationOutput)
 }
 
+func (i BotResponseSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotResponseSpecification] {
+	return pulumix.Output[BotResponseSpecification]{
+		OutputState: i.ToBotResponseSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotResponseSpecificationArgs) ToBotResponseSpecificationPtrOutput() BotResponseSpecificationPtrOutput {
 	return i.ToBotResponseSpecificationPtrOutputWithContext(context.Background())
 }
@@ -8098,6 +9329,12 @@ func (i *botResponseSpecificationPtrType) ToBotResponseSpecificationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BotResponseSpecificationPtrOutput)
 }
 
+func (i *botResponseSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotResponseSpecification] {
+	return pulumix.Output[*BotResponseSpecification]{
+		OutputState: i.ToBotResponseSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A list of message groups that Amazon Lex uses to respond the user input.
 type BotResponseSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -8123,6 +9360,12 @@ func (o BotResponseSpecificationOutput) ToBotResponseSpecificationPtrOutputWithC
 	}).(BotResponseSpecificationPtrOutput)
 }
 
+func (o BotResponseSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotResponseSpecification] {
+	return pulumix.Output[BotResponseSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates whether the user can interrupt a speech prompt from the bot.
 func (o BotResponseSpecificationOutput) AllowInterrupt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotResponseSpecification) *bool { return v.AllowInterrupt }).(pulumi.BoolPtrOutput)
@@ -8144,6 +9387,12 @@ func (o BotResponseSpecificationPtrOutput) ToBotResponseSpecificationPtrOutput()
 
 func (o BotResponseSpecificationPtrOutput) ToBotResponseSpecificationPtrOutputWithContext(ctx context.Context) BotResponseSpecificationPtrOutput {
 	return o
+}
+
+func (o BotResponseSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotResponseSpecification] {
+	return pulumix.Output[*BotResponseSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotResponseSpecificationPtrOutput) Elem() BotResponseSpecificationOutput {
@@ -8218,6 +9467,12 @@ func (i BotS3BucketLogDestinationArgs) ToBotS3BucketLogDestinationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BotS3BucketLogDestinationOutput)
 }
 
+func (i BotS3BucketLogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BotS3BucketLogDestination] {
+	return pulumix.Output[BotS3BucketLogDestination]{
+		OutputState: i.ToBotS3BucketLogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies an Amazon S3 bucket for logging audio conversations
 type BotS3BucketLogDestinationOutput struct{ *pulumi.OutputState }
 
@@ -8231,6 +9486,12 @@ func (o BotS3BucketLogDestinationOutput) ToBotS3BucketLogDestinationOutput() Bot
 
 func (o BotS3BucketLogDestinationOutput) ToBotS3BucketLogDestinationOutputWithContext(ctx context.Context) BotS3BucketLogDestinationOutput {
 	return o
+}
+
+func (o BotS3BucketLogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BotS3BucketLogDestination] {
+	return pulumix.Output[BotS3BucketLogDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
@@ -8291,6 +9552,12 @@ func (i BotS3LocationArgs) ToBotS3LocationOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BotS3LocationOutput)
 }
 
+func (i BotS3LocationArgs) ToOutput(ctx context.Context) pulumix.Output[BotS3Location] {
+	return pulumix.Output[BotS3Location]{
+		OutputState: i.ToBotS3LocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotS3LocationArgs) ToBotS3LocationPtrOutput() BotS3LocationPtrOutput {
 	return i.ToBotS3LocationPtrOutputWithContext(context.Background())
 }
@@ -8332,6 +9599,12 @@ func (i *botS3LocationPtrType) ToBotS3LocationPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BotS3LocationPtrOutput)
 }
 
+func (i *botS3LocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotS3Location] {
+	return pulumix.Output[*BotS3Location]{
+		OutputState: i.ToBotS3LocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.
 type BotS3LocationOutput struct{ *pulumi.OutputState }
 
@@ -8355,6 +9628,12 @@ func (o BotS3LocationOutput) ToBotS3LocationPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotS3Location) *BotS3Location {
 		return &v
 	}).(BotS3LocationPtrOutput)
+}
+
+func (o BotS3LocationOutput) ToOutput(ctx context.Context) pulumix.Output[BotS3Location] {
+	return pulumix.Output[BotS3Location]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
@@ -8384,6 +9663,12 @@ func (o BotS3LocationPtrOutput) ToBotS3LocationPtrOutput() BotS3LocationPtrOutpu
 
 func (o BotS3LocationPtrOutput) ToBotS3LocationPtrOutputWithContext(ctx context.Context) BotS3LocationPtrOutput {
 	return o
+}
+
+func (o BotS3LocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotS3Location] {
+	return pulumix.Output[*BotS3Location]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotS3LocationPtrOutput) Elem() BotS3LocationOutput {
@@ -8459,6 +9744,12 @@ func (i BotSampleUtteranceArgs) ToBotSampleUtteranceOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotSampleUtteranceOutput)
 }
 
+func (i BotSampleUtteranceArgs) ToOutput(ctx context.Context) pulumix.Output[BotSampleUtterance] {
+	return pulumix.Output[BotSampleUtterance]{
+		OutputState: i.ToBotSampleUtteranceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotSampleUtteranceArrayInput is an input type that accepts BotSampleUtteranceArray and BotSampleUtteranceArrayOutput values.
 // You can construct a concrete instance of `BotSampleUtteranceArrayInput` via:
 //
@@ -8484,6 +9775,12 @@ func (i BotSampleUtteranceArray) ToBotSampleUtteranceArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BotSampleUtteranceArrayOutput)
 }
 
+func (i BotSampleUtteranceArray) ToOutput(ctx context.Context) pulumix.Output[[]BotSampleUtterance] {
+	return pulumix.Output[[]BotSampleUtterance]{
+		OutputState: i.ToBotSampleUtteranceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A sample utterance that invokes an intent or respond to a slot elicitation prompt.
 type BotSampleUtteranceOutput struct{ *pulumi.OutputState }
 
@@ -8497,6 +9794,12 @@ func (o BotSampleUtteranceOutput) ToBotSampleUtteranceOutput() BotSampleUtteranc
 
 func (o BotSampleUtteranceOutput) ToBotSampleUtteranceOutputWithContext(ctx context.Context) BotSampleUtteranceOutput {
 	return o
+}
+
+func (o BotSampleUtteranceOutput) ToOutput(ctx context.Context) pulumix.Output[BotSampleUtterance] {
+	return pulumix.Output[BotSampleUtterance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSampleUtteranceOutput) Utterance() pulumi.StringOutput {
@@ -8515,6 +9818,12 @@ func (o BotSampleUtteranceArrayOutput) ToBotSampleUtteranceArrayOutput() BotSamp
 
 func (o BotSampleUtteranceArrayOutput) ToBotSampleUtteranceArrayOutputWithContext(ctx context.Context) BotSampleUtteranceArrayOutput {
 	return o
+}
+
+func (o BotSampleUtteranceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotSampleUtterance] {
+	return pulumix.Output[[]BotSampleUtterance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSampleUtteranceArrayOutput) Index(i pulumi.IntInput) BotSampleUtteranceOutput {
@@ -8558,6 +9867,12 @@ func (i BotSampleValueArgs) ToBotSampleValueOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotSampleValueOutput)
 }
 
+func (i BotSampleValueArgs) ToOutput(ctx context.Context) pulumix.Output[BotSampleValue] {
+	return pulumix.Output[BotSampleValue]{
+		OutputState: i.ToBotSampleValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotSampleValueArrayInput is an input type that accepts BotSampleValueArray and BotSampleValueArrayOutput values.
 // You can construct a concrete instance of `BotSampleValueArrayInput` via:
 //
@@ -8583,6 +9898,12 @@ func (i BotSampleValueArray) ToBotSampleValueArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BotSampleValueArrayOutput)
 }
 
+func (i BotSampleValueArray) ToOutput(ctx context.Context) pulumix.Output[[]BotSampleValue] {
+	return pulumix.Output[[]BotSampleValue]{
+		OutputState: i.ToBotSampleValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Defines one of the values for a slot type.
 type BotSampleValueOutput struct{ *pulumi.OutputState }
 
@@ -8596,6 +9917,12 @@ func (o BotSampleValueOutput) ToBotSampleValueOutput() BotSampleValueOutput {
 
 func (o BotSampleValueOutput) ToBotSampleValueOutputWithContext(ctx context.Context) BotSampleValueOutput {
 	return o
+}
+
+func (o BotSampleValueOutput) ToOutput(ctx context.Context) pulumix.Output[BotSampleValue] {
+	return pulumix.Output[BotSampleValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The value that can be used for a slot type.
@@ -8615,6 +9942,12 @@ func (o BotSampleValueArrayOutput) ToBotSampleValueArrayOutput() BotSampleValueA
 
 func (o BotSampleValueArrayOutput) ToBotSampleValueArrayOutputWithContext(ctx context.Context) BotSampleValueArrayOutput {
 	return o
+}
+
+func (o BotSampleValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotSampleValue] {
+	return pulumix.Output[[]BotSampleValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSampleValueArrayOutput) Index(i pulumi.IntInput) BotSampleValueOutput {
@@ -8658,6 +9991,12 @@ func (i BotSessionAttributeArgs) ToBotSessionAttributeOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotSessionAttributeOutput)
 }
 
+func (i BotSessionAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[BotSessionAttribute] {
+	return pulumix.Output[BotSessionAttribute]{
+		OutputState: i.ToBotSessionAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotSessionAttributeArrayInput is an input type that accepts BotSessionAttributeArray and BotSessionAttributeArrayOutput values.
 // You can construct a concrete instance of `BotSessionAttributeArrayInput` via:
 //
@@ -8683,6 +10022,12 @@ func (i BotSessionAttributeArray) ToBotSessionAttributeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotSessionAttributeArrayOutput)
 }
 
+func (i BotSessionAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]BotSessionAttribute] {
+	return pulumix.Output[[]BotSessionAttribute]{
+		OutputState: i.ToBotSessionAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
 type BotSessionAttributeOutput struct{ *pulumi.OutputState }
 
@@ -8696,6 +10041,12 @@ func (o BotSessionAttributeOutput) ToBotSessionAttributeOutput() BotSessionAttri
 
 func (o BotSessionAttributeOutput) ToBotSessionAttributeOutputWithContext(ctx context.Context) BotSessionAttributeOutput {
 	return o
+}
+
+func (o BotSessionAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[BotSessionAttribute] {
+	return pulumix.Output[BotSessionAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSessionAttributeOutput) Key() pulumi.StringOutput {
@@ -8718,6 +10069,12 @@ func (o BotSessionAttributeArrayOutput) ToBotSessionAttributeArrayOutput() BotSe
 
 func (o BotSessionAttributeArrayOutput) ToBotSessionAttributeArrayOutputWithContext(ctx context.Context) BotSessionAttributeArrayOutput {
 	return o
+}
+
+func (o BotSessionAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotSessionAttribute] {
+	return pulumix.Output[[]BotSessionAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSessionAttributeArrayOutput) Index(i pulumi.IntInput) BotSessionAttributeOutput {
@@ -8769,6 +10126,12 @@ func (i BotSlotArgs) ToBotSlotOutputWithContext(ctx context.Context) BotSlotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotOutput)
 }
 
+func (i BotSlotArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlot] {
+	return pulumix.Output[BotSlot]{
+		OutputState: i.ToBotSlotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotSlotArrayInput is an input type that accepts BotSlotArray and BotSlotArrayOutput values.
 // You can construct a concrete instance of `BotSlotArrayInput` via:
 //
@@ -8794,6 +10157,12 @@ func (i BotSlotArray) ToBotSlotArrayOutputWithContext(ctx context.Context) BotSl
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotArrayOutput)
 }
 
+func (i BotSlotArray) ToOutput(ctx context.Context) pulumix.Output[[]BotSlot] {
+	return pulumix.Output[[]BotSlot]{
+		OutputState: i.ToBotSlotArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
 type BotSlotOutput struct{ *pulumi.OutputState }
 
@@ -8807,6 +10176,12 @@ func (o BotSlotOutput) ToBotSlotOutput() BotSlotOutput {
 
 func (o BotSlotOutput) ToBotSlotOutputWithContext(ctx context.Context) BotSlotOutput {
 	return o
+}
+
+func (o BotSlotOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlot] {
+	return pulumix.Output[BotSlot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotOutput) Description() pulumi.StringPtrOutput {
@@ -8845,6 +10220,12 @@ func (o BotSlotArrayOutput) ToBotSlotArrayOutput() BotSlotArrayOutput {
 
 func (o BotSlotArrayOutput) ToBotSlotArrayOutputWithContext(ctx context.Context) BotSlotArrayOutput {
 	return o
+}
+
+func (o BotSlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotSlot] {
+	return pulumix.Output[[]BotSlot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotArrayOutput) Index(i pulumi.IntInput) BotSlotOutput {
@@ -8916,6 +10297,12 @@ func (i BotSlotCaptureSettingArgs) ToBotSlotCaptureSettingOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotCaptureSettingOutput)
 }
 
+func (i BotSlotCaptureSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlotCaptureSetting] {
+	return pulumix.Output[BotSlotCaptureSetting]{
+		OutputState: i.ToBotSlotCaptureSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotSlotCaptureSettingArgs) ToBotSlotCaptureSettingPtrOutput() BotSlotCaptureSettingPtrOutput {
 	return i.ToBotSlotCaptureSettingPtrOutputWithContext(context.Background())
 }
@@ -8957,6 +10344,12 @@ func (i *botSlotCaptureSettingPtrType) ToBotSlotCaptureSettingPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotCaptureSettingPtrOutput)
 }
 
+func (i *botSlotCaptureSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotSlotCaptureSetting] {
+	return pulumix.Output[*BotSlotCaptureSetting]{
+		OutputState: i.ToBotSlotCaptureSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Settings used when Amazon Lex successfully captures a slot value from a user.
 type BotSlotCaptureSettingOutput struct{ *pulumi.OutputState }
 
@@ -8980,6 +10373,12 @@ func (o BotSlotCaptureSettingOutput) ToBotSlotCaptureSettingPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotSlotCaptureSetting) *BotSlotCaptureSetting {
 		return &v
 	}).(BotSlotCaptureSettingPtrOutput)
+}
+
+func (o BotSlotCaptureSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotCaptureSetting] {
+	return pulumix.Output[BotSlotCaptureSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of conditional branches to evaluate after the slot value is captured.
@@ -9034,6 +10433,12 @@ func (o BotSlotCaptureSettingPtrOutput) ToBotSlotCaptureSettingPtrOutput() BotSl
 
 func (o BotSlotCaptureSettingPtrOutput) ToBotSlotCaptureSettingPtrOutputWithContext(ctx context.Context) BotSlotCaptureSettingPtrOutput {
 	return o
+}
+
+func (o BotSlotCaptureSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSlotCaptureSetting] {
+	return pulumix.Output[*BotSlotCaptureSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotCaptureSettingPtrOutput) Elem() BotSlotCaptureSettingOutput {
@@ -9161,6 +10566,12 @@ func (i BotSlotDefaultValueArgs) ToBotSlotDefaultValueOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotDefaultValueOutput)
 }
 
+func (i BotSlotDefaultValueArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlotDefaultValue] {
+	return pulumix.Output[BotSlotDefaultValue]{
+		OutputState: i.ToBotSlotDefaultValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotSlotDefaultValueArrayInput is an input type that accepts BotSlotDefaultValueArray and BotSlotDefaultValueArrayOutput values.
 // You can construct a concrete instance of `BotSlotDefaultValueArrayInput` via:
 //
@@ -9186,6 +10597,12 @@ func (i BotSlotDefaultValueArray) ToBotSlotDefaultValueArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotDefaultValueArrayOutput)
 }
 
+func (i BotSlotDefaultValueArray) ToOutput(ctx context.Context) pulumix.Output[[]BotSlotDefaultValue] {
+	return pulumix.Output[[]BotSlotDefaultValue]{
+		OutputState: i.ToBotSlotDefaultValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The default value to use when a user doesn't provide a value for a slot.
 type BotSlotDefaultValueOutput struct{ *pulumi.OutputState }
 
@@ -9199,6 +10616,12 @@ func (o BotSlotDefaultValueOutput) ToBotSlotDefaultValueOutput() BotSlotDefaultV
 
 func (o BotSlotDefaultValueOutput) ToBotSlotDefaultValueOutputWithContext(ctx context.Context) BotSlotDefaultValueOutput {
 	return o
+}
+
+func (o BotSlotDefaultValueOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotDefaultValue] {
+	return pulumix.Output[BotSlotDefaultValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default value to use when a user doesn't provide a value for a slot.
@@ -9218,6 +10641,12 @@ func (o BotSlotDefaultValueArrayOutput) ToBotSlotDefaultValueArrayOutput() BotSl
 
 func (o BotSlotDefaultValueArrayOutput) ToBotSlotDefaultValueArrayOutputWithContext(ctx context.Context) BotSlotDefaultValueArrayOutput {
 	return o
+}
+
+func (o BotSlotDefaultValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotSlotDefaultValue] {
+	return pulumix.Output[[]BotSlotDefaultValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotDefaultValueArrayOutput) Index(i pulumi.IntInput) BotSlotDefaultValueOutput {
@@ -9261,6 +10690,12 @@ func (i BotSlotDefaultValueSpecificationArgs) ToBotSlotDefaultValueSpecification
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotDefaultValueSpecificationOutput)
 }
 
+func (i BotSlotDefaultValueSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlotDefaultValueSpecification] {
+	return pulumix.Output[BotSlotDefaultValueSpecification]{
+		OutputState: i.ToBotSlotDefaultValueSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotSlotDefaultValueSpecificationArgs) ToBotSlotDefaultValueSpecificationPtrOutput() BotSlotDefaultValueSpecificationPtrOutput {
 	return i.ToBotSlotDefaultValueSpecificationPtrOutputWithContext(context.Background())
 }
@@ -9302,6 +10737,12 @@ func (i *botSlotDefaultValueSpecificationPtrType) ToBotSlotDefaultValueSpecifica
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotDefaultValueSpecificationPtrOutput)
 }
 
+func (i *botSlotDefaultValueSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotSlotDefaultValueSpecification] {
+	return pulumix.Output[*BotSlotDefaultValueSpecification]{
+		OutputState: i.ToBotSlotDefaultValueSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A list of values that Amazon Lex should use as the default value for a slot.
 type BotSlotDefaultValueSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -9327,6 +10768,12 @@ func (o BotSlotDefaultValueSpecificationOutput) ToBotSlotDefaultValueSpecificati
 	}).(BotSlotDefaultValueSpecificationPtrOutput)
 }
 
+func (o BotSlotDefaultValueSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotDefaultValueSpecification] {
+	return pulumix.Output[BotSlotDefaultValueSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A list of slot default values
 func (o BotSlotDefaultValueSpecificationOutput) DefaultValueList() BotSlotDefaultValueArrayOutput {
 	return o.ApplyT(func(v BotSlotDefaultValueSpecification) []BotSlotDefaultValue { return v.DefaultValueList }).(BotSlotDefaultValueArrayOutput)
@@ -9344,6 +10791,12 @@ func (o BotSlotDefaultValueSpecificationPtrOutput) ToBotSlotDefaultValueSpecific
 
 func (o BotSlotDefaultValueSpecificationPtrOutput) ToBotSlotDefaultValueSpecificationPtrOutputWithContext(ctx context.Context) BotSlotDefaultValueSpecificationPtrOutput {
 	return o
+}
+
+func (o BotSlotDefaultValueSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSlotDefaultValueSpecification] {
+	return pulumix.Output[*BotSlotDefaultValueSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotDefaultValueSpecificationPtrOutput) Elem() BotSlotDefaultValueSpecificationOutput {
@@ -9403,6 +10856,12 @@ func (i BotSlotPriorityArgs) ToBotSlotPriorityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotPriorityOutput)
 }
 
+func (i BotSlotPriorityArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlotPriority] {
+	return pulumix.Output[BotSlotPriority]{
+		OutputState: i.ToBotSlotPriorityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotSlotPriorityArrayInput is an input type that accepts BotSlotPriorityArray and BotSlotPriorityArrayOutput values.
 // You can construct a concrete instance of `BotSlotPriorityArrayInput` via:
 //
@@ -9428,6 +10887,12 @@ func (i BotSlotPriorityArray) ToBotSlotPriorityArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotPriorityArrayOutput)
 }
 
+func (i BotSlotPriorityArray) ToOutput(ctx context.Context) pulumix.Output[[]BotSlotPriority] {
+	return pulumix.Output[[]BotSlotPriority]{
+		OutputState: i.ToBotSlotPriorityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The priority that Amazon Lex should use when eliciting slot values from a user.
 type BotSlotPriorityOutput struct{ *pulumi.OutputState }
 
@@ -9441,6 +10906,12 @@ func (o BotSlotPriorityOutput) ToBotSlotPriorityOutput() BotSlotPriorityOutput {
 
 func (o BotSlotPriorityOutput) ToBotSlotPriorityOutputWithContext(ctx context.Context) BotSlotPriorityOutput {
 	return o
+}
+
+func (o BotSlotPriorityOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotPriority] {
+	return pulumix.Output[BotSlotPriority]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotPriorityOutput) Priority() pulumi.IntOutput {
@@ -9464,6 +10935,12 @@ func (o BotSlotPriorityArrayOutput) ToBotSlotPriorityArrayOutput() BotSlotPriori
 
 func (o BotSlotPriorityArrayOutput) ToBotSlotPriorityArrayOutputWithContext(ctx context.Context) BotSlotPriorityArrayOutput {
 	return o
+}
+
+func (o BotSlotPriorityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotSlotPriority] {
+	return pulumix.Output[[]BotSlotPriority]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotPriorityArrayOutput) Index(i pulumi.IntInput) BotSlotPriorityOutput {
@@ -9515,6 +10992,12 @@ func (i BotSlotTypeArgs) ToBotSlotTypeOutputWithContext(ctx context.Context) Bot
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotTypeOutput)
 }
 
+func (i BotSlotTypeArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlotType] {
+	return pulumix.Output[BotSlotType]{
+		OutputState: i.ToBotSlotTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotSlotTypeArrayInput is an input type that accepts BotSlotTypeArray and BotSlotTypeArrayOutput values.
 // You can construct a concrete instance of `BotSlotTypeArrayInput` via:
 //
@@ -9540,6 +11023,12 @@ func (i BotSlotTypeArray) ToBotSlotTypeArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotTypeArrayOutput)
 }
 
+func (i BotSlotTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]BotSlotType] {
+	return pulumix.Output[[]BotSlotType]{
+		OutputState: i.ToBotSlotTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A custom, extended built-in or a grammar slot type.
 type BotSlotTypeOutput struct{ *pulumi.OutputState }
 
@@ -9553,6 +11042,12 @@ func (o BotSlotTypeOutput) ToBotSlotTypeOutput() BotSlotTypeOutput {
 
 func (o BotSlotTypeOutput) ToBotSlotTypeOutputWithContext(ctx context.Context) BotSlotTypeOutput {
 	return o
+}
+
+func (o BotSlotTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotType] {
+	return pulumix.Output[BotSlotType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotTypeOutput) Description() pulumi.StringPtrOutput {
@@ -9591,6 +11086,12 @@ func (o BotSlotTypeArrayOutput) ToBotSlotTypeArrayOutput() BotSlotTypeArrayOutpu
 
 func (o BotSlotTypeArrayOutput) ToBotSlotTypeArrayOutputWithContext(ctx context.Context) BotSlotTypeArrayOutput {
 	return o
+}
+
+func (o BotSlotTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotSlotType] {
+	return pulumix.Output[[]BotSlotType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotTypeArrayOutput) Index(i pulumi.IntInput) BotSlotTypeOutput {
@@ -9634,6 +11135,12 @@ func (i BotSlotTypeValueArgs) ToBotSlotTypeValueOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotTypeValueOutput)
 }
 
+func (i BotSlotTypeValueArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlotTypeValue] {
+	return pulumix.Output[BotSlotTypeValue]{
+		OutputState: i.ToBotSlotTypeValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotSlotTypeValueArrayInput is an input type that accepts BotSlotTypeValueArray and BotSlotTypeValueArrayOutput values.
 // You can construct a concrete instance of `BotSlotTypeValueArrayInput` via:
 //
@@ -9659,6 +11166,12 @@ func (i BotSlotTypeValueArray) ToBotSlotTypeValueArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotTypeValueArrayOutput)
 }
 
+func (i BotSlotTypeValueArray) ToOutput(ctx context.Context) pulumix.Output[[]BotSlotTypeValue] {
+	return pulumix.Output[[]BotSlotTypeValue]{
+		OutputState: i.ToBotSlotTypeValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Value that the slot type can take.
 type BotSlotTypeValueOutput struct{ *pulumi.OutputState }
 
@@ -9672,6 +11185,12 @@ func (o BotSlotTypeValueOutput) ToBotSlotTypeValueOutput() BotSlotTypeValueOutpu
 
 func (o BotSlotTypeValueOutput) ToBotSlotTypeValueOutputWithContext(ctx context.Context) BotSlotTypeValueOutput {
 	return o
+}
+
+func (o BotSlotTypeValueOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotTypeValue] {
+	return pulumix.Output[BotSlotTypeValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotTypeValueOutput) SampleValue() BotSampleValueOutput {
@@ -9694,6 +11213,12 @@ func (o BotSlotTypeValueArrayOutput) ToBotSlotTypeValueArrayOutput() BotSlotType
 
 func (o BotSlotTypeValueArrayOutput) ToBotSlotTypeValueArrayOutputWithContext(ctx context.Context) BotSlotTypeValueArrayOutput {
 	return o
+}
+
+func (o BotSlotTypeValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotSlotTypeValue] {
+	return pulumix.Output[[]BotSlotTypeValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotTypeValueArrayOutput) Index(i pulumi.IntInput) BotSlotTypeValueOutput {
@@ -9737,6 +11262,12 @@ func (i BotSlotValueArgs) ToBotSlotValueOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueOutput)
 }
 
+func (i BotSlotValueArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlotValue] {
+	return pulumix.Output[BotSlotValue]{
+		OutputState: i.ToBotSlotValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotSlotValueArgs) ToBotSlotValuePtrOutput() BotSlotValuePtrOutput {
 	return i.ToBotSlotValuePtrOutputWithContext(context.Background())
 }
@@ -9778,6 +11309,12 @@ func (i *botSlotValuePtrType) ToBotSlotValuePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValuePtrOutput)
 }
 
+func (i *botSlotValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*BotSlotValue] {
+	return pulumix.Output[*BotSlotValue]{
+		OutputState: i.ToBotSlotValuePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The value to set in a slot.
 type BotSlotValueOutput struct{ *pulumi.OutputState }
 
@@ -9803,6 +11340,12 @@ func (o BotSlotValueOutput) ToBotSlotValuePtrOutputWithContext(ctx context.Conte
 	}).(BotSlotValuePtrOutput)
 }
 
+func (o BotSlotValueOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotValue] {
+	return pulumix.Output[BotSlotValue]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The value that Amazon Lex determines for the slot.
 func (o BotSlotValueOutput) InterpretedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotSlotValue) *string { return v.InterpretedValue }).(pulumi.StringPtrOutput)
@@ -9820,6 +11363,12 @@ func (o BotSlotValuePtrOutput) ToBotSlotValuePtrOutput() BotSlotValuePtrOutput {
 
 func (o BotSlotValuePtrOutput) ToBotSlotValuePtrOutputWithContext(ctx context.Context) BotSlotValuePtrOutput {
 	return o
+}
+
+func (o BotSlotValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSlotValue] {
+	return pulumix.Output[*BotSlotValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotValuePtrOutput) Elem() BotSlotValueOutput {
@@ -9897,6 +11446,12 @@ func (i BotSlotValueElicitationSettingArgs) ToBotSlotValueElicitationSettingOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueElicitationSettingOutput)
 }
 
+func (i BotSlotValueElicitationSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlotValueElicitationSetting] {
+	return pulumix.Output[BotSlotValueElicitationSetting]{
+		OutputState: i.ToBotSlotValueElicitationSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Settings that you can use for eliciting a slot value.
 type BotSlotValueElicitationSettingOutput struct{ *pulumi.OutputState }
 
@@ -9910,6 +11465,12 @@ func (o BotSlotValueElicitationSettingOutput) ToBotSlotValueElicitationSettingOu
 
 func (o BotSlotValueElicitationSettingOutput) ToBotSlotValueElicitationSettingOutputWithContext(ctx context.Context) BotSlotValueElicitationSettingOutput {
 	return o
+}
+
+func (o BotSlotValueElicitationSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotValueElicitationSetting] {
+	return pulumix.Output[BotSlotValueElicitationSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of default values for a slot.
@@ -9989,6 +11550,12 @@ func (i BotSlotValueOverrideArgs) ToBotSlotValueOverrideOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueOverrideOutput)
 }
 
+func (i BotSlotValueOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlotValueOverride] {
+	return pulumix.Output[BotSlotValueOverride]{
+		OutputState: i.ToBotSlotValueOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotSlotValueOverrideArgs) ToBotSlotValueOverridePtrOutput() BotSlotValueOverridePtrOutput {
 	return i.ToBotSlotValueOverridePtrOutputWithContext(context.Background())
 }
@@ -10030,6 +11597,12 @@ func (i *botSlotValueOverridePtrType) ToBotSlotValueOverridePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueOverridePtrOutput)
 }
 
+func (i *botSlotValueOverridePtrType) ToOutput(ctx context.Context) pulumix.Output[*BotSlotValueOverride] {
+	return pulumix.Output[*BotSlotValueOverride]{
+		OutputState: i.ToBotSlotValueOverridePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotSlotValueOverrideArrayInput is an input type that accepts BotSlotValueOverrideArray and BotSlotValueOverrideArrayOutput values.
 // You can construct a concrete instance of `BotSlotValueOverrideArrayInput` via:
 //
@@ -10055,6 +11628,12 @@ func (i BotSlotValueOverrideArray) ToBotSlotValueOverrideArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueOverrideArrayOutput)
 }
 
+func (i BotSlotValueOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]BotSlotValueOverride] {
+	return pulumix.Output[[]BotSlotValueOverride]{
+		OutputState: i.ToBotSlotValueOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The slot values that Amazon Lex uses when it sets slot values in a dialog step.
 type BotSlotValueOverrideOutput struct{ *pulumi.OutputState }
 
@@ -10078,6 +11657,12 @@ func (o BotSlotValueOverrideOutput) ToBotSlotValueOverridePtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotSlotValueOverride) *BotSlotValueOverride {
 		return &v
 	}).(BotSlotValueOverridePtrOutput)
+}
+
+func (o BotSlotValueOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotValueOverride] {
+	return pulumix.Output[BotSlotValueOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value.
@@ -10107,6 +11692,12 @@ func (o BotSlotValueOverridePtrOutput) ToBotSlotValueOverridePtrOutput() BotSlot
 
 func (o BotSlotValueOverridePtrOutput) ToBotSlotValueOverridePtrOutputWithContext(ctx context.Context) BotSlotValueOverridePtrOutput {
 	return o
+}
+
+func (o BotSlotValueOverridePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSlotValueOverride] {
+	return pulumix.Output[*BotSlotValueOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotValueOverridePtrOutput) Elem() BotSlotValueOverrideOutput {
@@ -10163,6 +11754,12 @@ func (o BotSlotValueOverrideArrayOutput) ToBotSlotValueOverrideArrayOutputWithCo
 	return o
 }
 
+func (o BotSlotValueOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotSlotValueOverride] {
+	return pulumix.Output[[]BotSlotValueOverride]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotSlotValueOverrideArrayOutput) Index(i pulumi.IntInput) BotSlotValueOverrideOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotSlotValueOverride {
 		return vs[0].([]BotSlotValueOverride)[vs[1].(int)]
@@ -10204,6 +11801,12 @@ func (i BotSlotValueOverrideMapArgs) ToBotSlotValueOverrideMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueOverrideMapOutput)
 }
 
+func (i BotSlotValueOverrideMapArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlotValueOverrideMap] {
+	return pulumix.Output[BotSlotValueOverrideMap]{
+		OutputState: i.ToBotSlotValueOverrideMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotSlotValueOverrideMapArrayInput is an input type that accepts BotSlotValueOverrideMapArray and BotSlotValueOverrideMapArrayOutput values.
 // You can construct a concrete instance of `BotSlotValueOverrideMapArrayInput` via:
 //
@@ -10229,6 +11832,12 @@ func (i BotSlotValueOverrideMapArray) ToBotSlotValueOverrideMapArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueOverrideMapArrayOutput)
 }
 
+func (i BotSlotValueOverrideMapArray) ToOutput(ctx context.Context) pulumix.Output[[]BotSlotValueOverrideMap] {
+	return pulumix.Output[[]BotSlotValueOverrideMap]{
+		OutputState: i.ToBotSlotValueOverrideMapArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A map of slot names and their overridden values.
 type BotSlotValueOverrideMapOutput struct{ *pulumi.OutputState }
 
@@ -10242,6 +11851,12 @@ func (o BotSlotValueOverrideMapOutput) ToBotSlotValueOverrideMapOutput() BotSlot
 
 func (o BotSlotValueOverrideMapOutput) ToBotSlotValueOverrideMapOutputWithContext(ctx context.Context) BotSlotValueOverrideMapOutput {
 	return o
+}
+
+func (o BotSlotValueOverrideMapOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotValueOverrideMap] {
+	return pulumix.Output[BotSlotValueOverrideMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotValueOverrideMapOutput) SlotName() pulumi.StringPtrOutput {
@@ -10264,6 +11879,12 @@ func (o BotSlotValueOverrideMapArrayOutput) ToBotSlotValueOverrideMapArrayOutput
 
 func (o BotSlotValueOverrideMapArrayOutput) ToBotSlotValueOverrideMapArrayOutputWithContext(ctx context.Context) BotSlotValueOverrideMapArrayOutput {
 	return o
+}
+
+func (o BotSlotValueOverrideMapArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotSlotValueOverrideMap] {
+	return pulumix.Output[[]BotSlotValueOverrideMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotValueOverrideMapArrayOutput) Index(i pulumi.IntInput) BotSlotValueOverrideMapOutput {
@@ -10307,6 +11928,12 @@ func (i BotSlotValueRegexFilterArgs) ToBotSlotValueRegexFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueRegexFilterOutput)
 }
 
+func (i BotSlotValueRegexFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlotValueRegexFilter] {
+	return pulumix.Output[BotSlotValueRegexFilter]{
+		OutputState: i.ToBotSlotValueRegexFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotSlotValueRegexFilterArgs) ToBotSlotValueRegexFilterPtrOutput() BotSlotValueRegexFilterPtrOutput {
 	return i.ToBotSlotValueRegexFilterPtrOutputWithContext(context.Background())
 }
@@ -10348,6 +11975,12 @@ func (i *botSlotValueRegexFilterPtrType) ToBotSlotValueRegexFilterPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueRegexFilterPtrOutput)
 }
 
+func (i *botSlotValueRegexFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotSlotValueRegexFilter] {
+	return pulumix.Output[*BotSlotValueRegexFilter]{
+		OutputState: i.ToBotSlotValueRegexFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A regular expression used to validate the value of a slot.
 type BotSlotValueRegexFilterOutput struct{ *pulumi.OutputState }
 
@@ -10373,6 +12006,12 @@ func (o BotSlotValueRegexFilterOutput) ToBotSlotValueRegexFilterPtrOutputWithCon
 	}).(BotSlotValueRegexFilterPtrOutput)
 }
 
+func (o BotSlotValueRegexFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotValueRegexFilter] {
+	return pulumix.Output[BotSlotValueRegexFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Regex pattern
 func (o BotSlotValueRegexFilterOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v BotSlotValueRegexFilter) string { return v.Pattern }).(pulumi.StringOutput)
@@ -10390,6 +12029,12 @@ func (o BotSlotValueRegexFilterPtrOutput) ToBotSlotValueRegexFilterPtrOutput() B
 
 func (o BotSlotValueRegexFilterPtrOutput) ToBotSlotValueRegexFilterPtrOutputWithContext(ctx context.Context) BotSlotValueRegexFilterPtrOutput {
 	return o
+}
+
+func (o BotSlotValueRegexFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSlotValueRegexFilter] {
+	return pulumix.Output[*BotSlotValueRegexFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotValueRegexFilterPtrOutput) Elem() BotSlotValueRegexFilterOutput {
@@ -10449,6 +12094,12 @@ func (i BotSlotValueSelectionSettingArgs) ToBotSlotValueSelectionSettingOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueSelectionSettingOutput)
 }
 
+func (i BotSlotValueSelectionSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotSlotValueSelectionSetting] {
+	return pulumix.Output[BotSlotValueSelectionSetting]{
+		OutputState: i.ToBotSlotValueSelectionSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotSlotValueSelectionSettingArgs) ToBotSlotValueSelectionSettingPtrOutput() BotSlotValueSelectionSettingPtrOutput {
 	return i.ToBotSlotValueSelectionSettingPtrOutputWithContext(context.Background())
 }
@@ -10490,6 +12141,12 @@ func (i *botSlotValueSelectionSettingPtrType) ToBotSlotValueSelectionSettingPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueSelectionSettingPtrOutput)
 }
 
+func (i *botSlotValueSelectionSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotSlotValueSelectionSetting] {
+	return pulumix.Output[*BotSlotValueSelectionSetting]{
+		OutputState: i.ToBotSlotValueSelectionSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Contains settings used by Amazon Lex to select a slot value.
 type BotSlotValueSelectionSettingOutput struct{ *pulumi.OutputState }
 
@@ -10513,6 +12170,12 @@ func (o BotSlotValueSelectionSettingOutput) ToBotSlotValueSelectionSettingPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotSlotValueSelectionSetting) *BotSlotValueSelectionSetting {
 		return &v
 	}).(BotSlotValueSelectionSettingPtrOutput)
+}
+
+func (o BotSlotValueSelectionSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotValueSelectionSetting] {
+	return pulumix.Output[BotSlotValueSelectionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotValueSelectionSettingOutput) AdvancedRecognitionSetting() BotAdvancedRecognitionSettingPtrOutput {
@@ -10541,6 +12204,12 @@ func (o BotSlotValueSelectionSettingPtrOutput) ToBotSlotValueSelectionSettingPtr
 
 func (o BotSlotValueSelectionSettingPtrOutput) ToBotSlotValueSelectionSettingPtrOutputWithContext(ctx context.Context) BotSlotValueSelectionSettingPtrOutput {
 	return o
+}
+
+func (o BotSlotValueSelectionSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSlotValueSelectionSetting] {
+	return pulumix.Output[*BotSlotValueSelectionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSlotValueSelectionSettingPtrOutput) Elem() BotSlotValueSelectionSettingOutput {
@@ -10615,6 +12284,12 @@ func (i BotSsmlMessageArgs) ToBotSsmlMessageOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotSsmlMessageOutput)
 }
 
+func (i BotSsmlMessageArgs) ToOutput(ctx context.Context) pulumix.Output[BotSsmlMessage] {
+	return pulumix.Output[BotSsmlMessage]{
+		OutputState: i.ToBotSsmlMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotSsmlMessageArgs) ToBotSsmlMessagePtrOutput() BotSsmlMessagePtrOutput {
 	return i.ToBotSsmlMessagePtrOutputWithContext(context.Background())
 }
@@ -10656,6 +12331,12 @@ func (i *botSsmlMessagePtrType) ToBotSsmlMessagePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BotSsmlMessagePtrOutput)
 }
 
+func (i *botSsmlMessagePtrType) ToOutput(ctx context.Context) pulumix.Output[*BotSsmlMessage] {
+	return pulumix.Output[*BotSsmlMessage]{
+		OutputState: i.ToBotSsmlMessagePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A message in Speech Synthesis Markup Language (SSML).
 type BotSsmlMessageOutput struct{ *pulumi.OutputState }
 
@@ -10681,6 +12362,12 @@ func (o BotSsmlMessageOutput) ToBotSsmlMessagePtrOutputWithContext(ctx context.C
 	}).(BotSsmlMessagePtrOutput)
 }
 
+func (o BotSsmlMessageOutput) ToOutput(ctx context.Context) pulumix.Output[BotSsmlMessage] {
+	return pulumix.Output[BotSsmlMessage]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The SSML text that defines the prompt.
 func (o BotSsmlMessageOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BotSsmlMessage) string { return v.Value }).(pulumi.StringOutput)
@@ -10698,6 +12385,12 @@ func (o BotSsmlMessagePtrOutput) ToBotSsmlMessagePtrOutput() BotSsmlMessagePtrOu
 
 func (o BotSsmlMessagePtrOutput) ToBotSsmlMessagePtrOutputWithContext(ctx context.Context) BotSsmlMessagePtrOutput {
 	return o
+}
+
+func (o BotSsmlMessagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSsmlMessage] {
+	return pulumix.Output[*BotSsmlMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotSsmlMessagePtrOutput) Elem() BotSsmlMessageOutput {
@@ -10761,6 +12454,12 @@ func (i BotStillWaitingResponseSpecificationArgs) ToBotStillWaitingResponseSpeci
 	return pulumi.ToOutputWithContext(ctx, i).(BotStillWaitingResponseSpecificationOutput)
 }
 
+func (i BotStillWaitingResponseSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotStillWaitingResponseSpecification] {
+	return pulumix.Output[BotStillWaitingResponseSpecification]{
+		OutputState: i.ToBotStillWaitingResponseSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotStillWaitingResponseSpecificationArgs) ToBotStillWaitingResponseSpecificationPtrOutput() BotStillWaitingResponseSpecificationPtrOutput {
 	return i.ToBotStillWaitingResponseSpecificationPtrOutputWithContext(context.Background())
 }
@@ -10802,6 +12501,12 @@ func (i *botStillWaitingResponseSpecificationPtrType) ToBotStillWaitingResponseS
 	return pulumi.ToOutputWithContext(ctx, i).(BotStillWaitingResponseSpecificationPtrOutput)
 }
 
+func (i *botStillWaitingResponseSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotStillWaitingResponseSpecification] {
+	return pulumix.Output[*BotStillWaitingResponseSpecification]{
+		OutputState: i.ToBotStillWaitingResponseSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StillWaitingResponseSpecification.
 type BotStillWaitingResponseSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -10825,6 +12530,12 @@ func (o BotStillWaitingResponseSpecificationOutput) ToBotStillWaitingResponseSpe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotStillWaitingResponseSpecification) *BotStillWaitingResponseSpecification {
 		return &v
 	}).(BotStillWaitingResponseSpecificationPtrOutput)
+}
+
+func (o BotStillWaitingResponseSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotStillWaitingResponseSpecification] {
+	return pulumix.Output[BotStillWaitingResponseSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether the user can interrupt a speech prompt from the bot.
@@ -10856,6 +12567,12 @@ func (o BotStillWaitingResponseSpecificationPtrOutput) ToBotStillWaitingResponse
 
 func (o BotStillWaitingResponseSpecificationPtrOutput) ToBotStillWaitingResponseSpecificationPtrOutputWithContext(ctx context.Context) BotStillWaitingResponseSpecificationPtrOutput {
 	return o
+}
+
+func (o BotStillWaitingResponseSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotStillWaitingResponseSpecification] {
+	return pulumix.Output[*BotStillWaitingResponseSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotStillWaitingResponseSpecificationPtrOutput) Elem() BotStillWaitingResponseSpecificationOutput {
@@ -10944,6 +12661,12 @@ func (i BotTagArgs) ToBotTagOutputWithContext(ctx context.Context) BotTagOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(BotTagOutput)
 }
 
+func (i BotTagArgs) ToOutput(ctx context.Context) pulumix.Output[BotTag] {
+	return pulumix.Output[BotTag]{
+		OutputState: i.ToBotTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotTagArrayInput is an input type that accepts BotTagArray and BotTagArrayOutput values.
 // You can construct a concrete instance of `BotTagArrayInput` via:
 //
@@ -10969,6 +12692,12 @@ func (i BotTagArray) ToBotTagArrayOutputWithContext(ctx context.Context) BotTagA
 	return pulumi.ToOutputWithContext(ctx, i).(BotTagArrayOutput)
 }
 
+func (i BotTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BotTag] {
+	return pulumix.Output[[]BotTag]{
+		OutputState: i.ToBotTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair for tagging Lex resources
 type BotTagOutput struct{ *pulumi.OutputState }
 
@@ -10982,6 +12711,12 @@ func (o BotTagOutput) ToBotTagOutput() BotTagOutput {
 
 func (o BotTagOutput) ToBotTagOutputWithContext(ctx context.Context) BotTagOutput {
 	return o
+}
+
+func (o BotTagOutput) ToOutput(ctx context.Context) pulumix.Output[BotTag] {
+	return pulumix.Output[BotTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -11006,6 +12741,12 @@ func (o BotTagArrayOutput) ToBotTagArrayOutput() BotTagArrayOutput {
 
 func (o BotTagArrayOutput) ToBotTagArrayOutputWithContext(ctx context.Context) BotTagArrayOutput {
 	return o
+}
+
+func (o BotTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotTag] {
+	return pulumix.Output[[]BotTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotTagArrayOutput) Index(i pulumi.IntInput) BotTagOutput {
@@ -11055,6 +12796,12 @@ func (i BotTestBotAliasSettingsArgs) ToBotTestBotAliasSettingsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BotTestBotAliasSettingsOutput)
 }
 
+func (i BotTestBotAliasSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[BotTestBotAliasSettings] {
+	return pulumix.Output[BotTestBotAliasSettings]{
+		OutputState: i.ToBotTestBotAliasSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotTestBotAliasSettingsArgs) ToBotTestBotAliasSettingsPtrOutput() BotTestBotAliasSettingsPtrOutput {
 	return i.ToBotTestBotAliasSettingsPtrOutputWithContext(context.Background())
 }
@@ -11096,6 +12843,12 @@ func (i *botTestBotAliasSettingsPtrType) ToBotTestBotAliasSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BotTestBotAliasSettingsPtrOutput)
 }
 
+func (i *botTestBotAliasSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotTestBotAliasSettings] {
+	return pulumix.Output[*BotTestBotAliasSettings]{
+		OutputState: i.ToBotTestBotAliasSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuring the test bot alias settings for a given bot
 type BotTestBotAliasSettingsOutput struct{ *pulumi.OutputState }
 
@@ -11119,6 +12872,12 @@ func (o BotTestBotAliasSettingsOutput) ToBotTestBotAliasSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotTestBotAliasSettings) *BotTestBotAliasSettings {
 		return &v
 	}).(BotTestBotAliasSettingsPtrOutput)
+}
+
+func (o BotTestBotAliasSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[BotTestBotAliasSettings] {
+	return pulumix.Output[BotTestBotAliasSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotTestBotAliasSettingsOutput) BotAliasLocaleSettings() BotAliasLocaleSettingsItemArrayOutput {
@@ -11152,6 +12911,12 @@ func (o BotTestBotAliasSettingsPtrOutput) ToBotTestBotAliasSettingsPtrOutput() B
 
 func (o BotTestBotAliasSettingsPtrOutput) ToBotTestBotAliasSettingsPtrOutputWithContext(ctx context.Context) BotTestBotAliasSettingsPtrOutput {
 	return o
+}
+
+func (o BotTestBotAliasSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotTestBotAliasSettings] {
+	return pulumix.Output[*BotTestBotAliasSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotTestBotAliasSettingsPtrOutput) Elem() BotTestBotAliasSettingsOutput {
@@ -11236,6 +13001,12 @@ func (i BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs) ToBotTes
 	return pulumi.ToOutputWithContext(ctx, i).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput)
 }
 
+func (i BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[BotTestBotAliasSettingsSentimentAnalysisSettingsProperties] {
+	return pulumix.Output[BotTestBotAliasSettingsSentimentAnalysisSettingsProperties]{
+		OutputState: i.ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
 	return i.ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutputWithContext(context.Background())
 }
@@ -11277,6 +13048,12 @@ func (i *botTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrType) ToBo
 	return pulumi.ToOutputWithContext(ctx, i).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput)
 }
 
+func (i *botTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotTestBotAliasSettingsSentimentAnalysisSettingsProperties] {
+	return pulumix.Output[*BotTestBotAliasSettingsSentimentAnalysisSettingsProperties]{
+		OutputState: i.ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 type BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -11302,6 +13079,12 @@ func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput) ToBotT
 	}).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput)
 }
 
+func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[BotTestBotAliasSettingsSentimentAnalysisSettingsProperties] {
+	return pulumix.Output[BotTestBotAliasSettingsSentimentAnalysisSettingsProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Enable to call Amazon Comprehend for Sentiment natively within Lex
 func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput) DetectSentiment() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotTestBotAliasSettingsSentimentAnalysisSettingsProperties) bool { return v.DetectSentiment }).(pulumi.BoolOutput)
@@ -11319,6 +13102,12 @@ func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) ToB
 
 func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
 	return o
+}
+
+func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotTestBotAliasSettingsSentimentAnalysisSettingsProperties] {
+	return pulumix.Output[*BotTestBotAliasSettingsSentimentAnalysisSettingsProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) Elem() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput {
@@ -11374,6 +13163,12 @@ func (i BotTextLogDestinationArgs) ToBotTextLogDestinationOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BotTextLogDestinationOutput)
 }
 
+func (i BotTextLogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BotTextLogDestination] {
+	return pulumix.Output[BotTextLogDestination]{
+		OutputState: i.ToBotTextLogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
 type BotTextLogDestinationOutput struct{ *pulumi.OutputState }
 
@@ -11387,6 +13182,12 @@ func (o BotTextLogDestinationOutput) ToBotTextLogDestinationOutput() BotTextLogD
 
 func (o BotTextLogDestinationOutput) ToBotTextLogDestinationOutputWithContext(ctx context.Context) BotTextLogDestinationOutput {
 	return o
+}
+
+func (o BotTextLogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BotTextLogDestination] {
+	return pulumix.Output[BotTextLogDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotTextLogDestinationOutput) CloudWatch() BotCloudWatchLogGroupLogDestinationOutput {
@@ -11428,6 +13229,12 @@ func (i BotTextLogSettingArgs) ToBotTextLogSettingOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BotTextLogSettingOutput)
 }
 
+func (i BotTextLogSettingArgs) ToOutput(ctx context.Context) pulumix.Output[BotTextLogSetting] {
+	return pulumix.Output[BotTextLogSetting]{
+		OutputState: i.ToBotTextLogSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotTextLogSettingArrayInput is an input type that accepts BotTextLogSettingArray and BotTextLogSettingArrayOutput values.
 // You can construct a concrete instance of `BotTextLogSettingArrayInput` via:
 //
@@ -11453,6 +13260,12 @@ func (i BotTextLogSettingArray) ToBotTextLogSettingArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BotTextLogSettingArrayOutput)
 }
 
+func (i BotTextLogSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]BotTextLogSetting] {
+	return pulumix.Output[[]BotTextLogSetting]{
+		OutputState: i.ToBotTextLogSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotTextLogSettingOutput struct{ *pulumi.OutputState }
 
@@ -11466,6 +13279,12 @@ func (o BotTextLogSettingOutput) ToBotTextLogSettingOutput() BotTextLogSettingOu
 
 func (o BotTextLogSettingOutput) ToBotTextLogSettingOutputWithContext(ctx context.Context) BotTextLogSettingOutput {
 	return o
+}
+
+func (o BotTextLogSettingOutput) ToOutput(ctx context.Context) pulumix.Output[BotTextLogSetting] {
+	return pulumix.Output[BotTextLogSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotTextLogSettingOutput) Destination() BotTextLogDestinationOutput {
@@ -11488,6 +13307,12 @@ func (o BotTextLogSettingArrayOutput) ToBotTextLogSettingArrayOutput() BotTextLo
 
 func (o BotTextLogSettingArrayOutput) ToBotTextLogSettingArrayOutputWithContext(ctx context.Context) BotTextLogSettingArrayOutput {
 	return o
+}
+
+func (o BotTextLogSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotTextLogSetting] {
+	return pulumix.Output[[]BotTextLogSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotTextLogSettingArrayOutput) Index(i pulumi.IntInput) BotTextLogSettingOutput {
@@ -11529,6 +13354,12 @@ func (i BotVersionLocaleDetailsArgs) ToBotVersionLocaleDetailsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BotVersionLocaleDetailsOutput)
 }
 
+func (i BotVersionLocaleDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[BotVersionLocaleDetails] {
+	return pulumix.Output[BotVersionLocaleDetails]{
+		OutputState: i.ToBotVersionLocaleDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The version of a bot used for a bot locale.
 type BotVersionLocaleDetailsOutput struct{ *pulumi.OutputState }
 
@@ -11542,6 +13373,12 @@ func (o BotVersionLocaleDetailsOutput) ToBotVersionLocaleDetailsOutput() BotVers
 
 func (o BotVersionLocaleDetailsOutput) ToBotVersionLocaleDetailsOutputWithContext(ctx context.Context) BotVersionLocaleDetailsOutput {
 	return o
+}
+
+func (o BotVersionLocaleDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[BotVersionLocaleDetails] {
+	return pulumix.Output[BotVersionLocaleDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotVersionLocaleDetailsOutput) SourceBotVersion() pulumi.StringOutput {
@@ -11581,6 +13418,12 @@ func (i BotVersionLocaleSpecificationArgs) ToBotVersionLocaleSpecificationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BotVersionLocaleSpecificationOutput)
 }
 
+func (i BotVersionLocaleSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotVersionLocaleSpecification] {
+	return pulumix.Output[BotVersionLocaleSpecification]{
+		OutputState: i.ToBotVersionLocaleSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotVersionLocaleSpecificationArrayInput is an input type that accepts BotVersionLocaleSpecificationArray and BotVersionLocaleSpecificationArrayOutput values.
 // You can construct a concrete instance of `BotVersionLocaleSpecificationArrayInput` via:
 //
@@ -11606,6 +13449,12 @@ func (i BotVersionLocaleSpecificationArray) ToBotVersionLocaleSpecificationArray
 	return pulumi.ToOutputWithContext(ctx, i).(BotVersionLocaleSpecificationArrayOutput)
 }
 
+func (i BotVersionLocaleSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]BotVersionLocaleSpecification] {
+	return pulumix.Output[[]BotVersionLocaleSpecification]{
+		OutputState: i.ToBotVersionLocaleSpecificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotVersionLocaleSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotVersionLocaleSpecificationOutput) ElementType() reflect.Type {
@@ -11618,6 +13467,12 @@ func (o BotVersionLocaleSpecificationOutput) ToBotVersionLocaleSpecificationOutp
 
 func (o BotVersionLocaleSpecificationOutput) ToBotVersionLocaleSpecificationOutputWithContext(ctx context.Context) BotVersionLocaleSpecificationOutput {
 	return o
+}
+
+func (o BotVersionLocaleSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotVersionLocaleSpecification] {
+	return pulumix.Output[BotVersionLocaleSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotVersionLocaleSpecificationOutput) BotVersionLocaleDetails() BotVersionLocaleDetailsOutput {
@@ -11640,6 +13495,12 @@ func (o BotVersionLocaleSpecificationArrayOutput) ToBotVersionLocaleSpecificatio
 
 func (o BotVersionLocaleSpecificationArrayOutput) ToBotVersionLocaleSpecificationArrayOutputWithContext(ctx context.Context) BotVersionLocaleSpecificationArrayOutput {
 	return o
+}
+
+func (o BotVersionLocaleSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BotVersionLocaleSpecification] {
+	return pulumix.Output[[]BotVersionLocaleSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotVersionLocaleSpecificationArrayOutput) Index(i pulumi.IntInput) BotVersionLocaleSpecificationOutput {
@@ -11687,6 +13548,12 @@ func (i BotVoiceSettingsArgs) ToBotVoiceSettingsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BotVoiceSettingsOutput)
 }
 
+func (i BotVoiceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[BotVoiceSettings] {
+	return pulumix.Output[BotVoiceSettings]{
+		OutputState: i.ToBotVoiceSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotVoiceSettingsArgs) ToBotVoiceSettingsPtrOutput() BotVoiceSettingsPtrOutput {
 	return i.ToBotVoiceSettingsPtrOutputWithContext(context.Background())
 }
@@ -11728,6 +13595,12 @@ func (i *botVoiceSettingsPtrType) ToBotVoiceSettingsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BotVoiceSettingsPtrOutput)
 }
 
+func (i *botVoiceSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotVoiceSettings] {
+	return pulumix.Output[*BotVoiceSettings]{
+		OutputState: i.ToBotVoiceSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Settings for using an Amazon Polly voice to communicate with a user.
 type BotVoiceSettingsOutput struct{ *pulumi.OutputState }
 
@@ -11753,6 +13626,12 @@ func (o BotVoiceSettingsOutput) ToBotVoiceSettingsPtrOutputWithContext(ctx conte
 	}).(BotVoiceSettingsPtrOutput)
 }
 
+func (o BotVoiceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[BotVoiceSettings] {
+	return pulumix.Output[BotVoiceSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
 func (o BotVoiceSettingsOutput) Engine() BotVoiceSettingsEnginePtrOutput {
 	return o.ApplyT(func(v BotVoiceSettings) *BotVoiceSettingsEngine { return v.Engine }).(BotVoiceSettingsEnginePtrOutput)
@@ -11775,6 +13654,12 @@ func (o BotVoiceSettingsPtrOutput) ToBotVoiceSettingsPtrOutput() BotVoiceSetting
 
 func (o BotVoiceSettingsPtrOutput) ToBotVoiceSettingsPtrOutputWithContext(ctx context.Context) BotVoiceSettingsPtrOutput {
 	return o
+}
+
+func (o BotVoiceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotVoiceSettings] {
+	return pulumix.Output[*BotVoiceSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotVoiceSettingsPtrOutput) Elem() BotVoiceSettingsOutput {
@@ -11854,6 +13739,12 @@ func (i BotWaitAndContinueSpecificationArgs) ToBotWaitAndContinueSpecificationOu
 	return pulumi.ToOutputWithContext(ctx, i).(BotWaitAndContinueSpecificationOutput)
 }
 
+func (i BotWaitAndContinueSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[BotWaitAndContinueSpecification] {
+	return pulumix.Output[BotWaitAndContinueSpecification]{
+		OutputState: i.ToBotWaitAndContinueSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BotWaitAndContinueSpecificationArgs) ToBotWaitAndContinueSpecificationPtrOutput() BotWaitAndContinueSpecificationPtrOutput {
 	return i.ToBotWaitAndContinueSpecificationPtrOutputWithContext(context.Background())
 }
@@ -11895,6 +13786,12 @@ func (i *botWaitAndContinueSpecificationPtrType) ToBotWaitAndContinueSpecificati
 	return pulumi.ToOutputWithContext(ctx, i).(BotWaitAndContinueSpecificationPtrOutput)
 }
 
+func (i *botWaitAndContinueSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BotWaitAndContinueSpecification] {
+	return pulumix.Output[*BotWaitAndContinueSpecification]{
+		OutputState: i.ToBotWaitAndContinueSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The prompts that Amazon Lex uses while a bot is waiting for customer input.
 type BotWaitAndContinueSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -11918,6 +13815,12 @@ func (o BotWaitAndContinueSpecificationOutput) ToBotWaitAndContinueSpecification
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotWaitAndContinueSpecification) *BotWaitAndContinueSpecification {
 		return &v
 	}).(BotWaitAndContinueSpecificationPtrOutput)
+}
+
+func (o BotWaitAndContinueSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[BotWaitAndContinueSpecification] {
+	return pulumix.Output[BotWaitAndContinueSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
@@ -11954,6 +13857,12 @@ func (o BotWaitAndContinueSpecificationPtrOutput) ToBotWaitAndContinueSpecificat
 
 func (o BotWaitAndContinueSpecificationPtrOutput) ToBotWaitAndContinueSpecificationPtrOutputWithContext(ctx context.Context) BotWaitAndContinueSpecificationPtrOutput {
 	return o
+}
+
+func (o BotWaitAndContinueSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotWaitAndContinueSpecification] {
+	return pulumix.Output[*BotWaitAndContinueSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotWaitAndContinueSpecificationPtrOutput) Elem() BotWaitAndContinueSpecificationOutput {
@@ -12039,6 +13948,12 @@ func (i DataPrivacyPropertiesArgs) ToDataPrivacyPropertiesOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DataPrivacyPropertiesOutput)
 }
 
+func (i DataPrivacyPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[DataPrivacyProperties] {
+	return pulumix.Output[DataPrivacyProperties]{
+		OutputState: i.ToDataPrivacyPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Data privacy setting of the Bot.
 type DataPrivacyPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -12052,6 +13967,12 @@ func (o DataPrivacyPropertiesOutput) ToDataPrivacyPropertiesOutput() DataPrivacy
 
 func (o DataPrivacyPropertiesOutput) ToDataPrivacyPropertiesOutputWithContext(ctx context.Context) DataPrivacyPropertiesOutput {
 	return o
+}
+
+func (o DataPrivacyPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[DataPrivacyProperties] {
+	return pulumix.Output[DataPrivacyProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataPrivacyPropertiesOutput) ChildDirected() pulumi.BoolOutput {
@@ -12070,6 +13991,12 @@ func (o DataPrivacyPropertiesPtrOutput) ToDataPrivacyPropertiesPtrOutput() DataP
 
 func (o DataPrivacyPropertiesPtrOutput) ToDataPrivacyPropertiesPtrOutputWithContext(ctx context.Context) DataPrivacyPropertiesPtrOutput {
 	return o
+}
+
+func (o DataPrivacyPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataPrivacyProperties] {
+	return pulumix.Output[*DataPrivacyProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataPrivacyPropertiesPtrOutput) Elem() DataPrivacyPropertiesOutput {
@@ -12122,6 +14049,12 @@ func (i ResourcePolicyPolicyArgs) ToResourcePolicyPolicyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyPolicyOutput)
 }
 
+func (i ResourcePolicyPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyPolicy] {
+	return pulumix.Output[ResourcePolicyPolicy]{
+		OutputState: i.ToResourcePolicyPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.
 type ResourcePolicyPolicyOutput struct{ *pulumi.OutputState }
 
@@ -12137,6 +14070,12 @@ func (o ResourcePolicyPolicyOutput) ToResourcePolicyPolicyOutputWithContext(ctx 
 	return o
 }
 
+func (o ResourcePolicyPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyPolicy] {
+	return pulumix.Output[ResourcePolicyPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ResourcePolicyPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyPolicyPtrOutput) ElementType() reflect.Type {
@@ -12149,6 +14088,12 @@ func (o ResourcePolicyPolicyPtrOutput) ToResourcePolicyPolicyPtrOutput() Resourc
 
 func (o ResourcePolicyPolicyPtrOutput) ToResourcePolicyPolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPolicyPtrOutput {
 	return o
+}
+
+func (o ResourcePolicyPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourcePolicyPolicy] {
+	return pulumix.Output[*ResourcePolicyPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourcePolicyPolicyPtrOutput) Elem() ResourcePolicyPolicyOutput {
@@ -12196,6 +14141,12 @@ func (i SentimentAnalysisSettingsPropertiesArgs) ToSentimentAnalysisSettingsProp
 	return pulumi.ToOutputWithContext(ctx, i).(SentimentAnalysisSettingsPropertiesOutput)
 }
 
+func (i SentimentAnalysisSettingsPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SentimentAnalysisSettingsProperties] {
+	return pulumix.Output[SentimentAnalysisSettingsProperties]{
+		OutputState: i.ToSentimentAnalysisSettingsPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SentimentAnalysisSettingsPropertiesArgs) ToSentimentAnalysisSettingsPropertiesPtrOutput() SentimentAnalysisSettingsPropertiesPtrOutput {
 	return i.ToSentimentAnalysisSettingsPropertiesPtrOutputWithContext(context.Background())
 }
@@ -12237,6 +14188,12 @@ func (i *sentimentAnalysisSettingsPropertiesPtrType) ToSentimentAnalysisSettings
 	return pulumi.ToOutputWithContext(ctx, i).(SentimentAnalysisSettingsPropertiesPtrOutput)
 }
 
+func (i *sentimentAnalysisSettingsPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SentimentAnalysisSettingsProperties] {
+	return pulumix.Output[*SentimentAnalysisSettingsProperties]{
+		OutputState: i.ToSentimentAnalysisSettingsPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 type SentimentAnalysisSettingsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -12262,6 +14219,12 @@ func (o SentimentAnalysisSettingsPropertiesOutput) ToSentimentAnalysisSettingsPr
 	}).(SentimentAnalysisSettingsPropertiesPtrOutput)
 }
 
+func (o SentimentAnalysisSettingsPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SentimentAnalysisSettingsProperties] {
+	return pulumix.Output[SentimentAnalysisSettingsProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Enable to call Amazon Comprehend for Sentiment natively within Lex
 func (o SentimentAnalysisSettingsPropertiesOutput) DetectSentiment() pulumi.BoolOutput {
 	return o.ApplyT(func(v SentimentAnalysisSettingsProperties) bool { return v.DetectSentiment }).(pulumi.BoolOutput)
@@ -12279,6 +14242,12 @@ func (o SentimentAnalysisSettingsPropertiesPtrOutput) ToSentimentAnalysisSetting
 
 func (o SentimentAnalysisSettingsPropertiesPtrOutput) ToSentimentAnalysisSettingsPropertiesPtrOutputWithContext(ctx context.Context) SentimentAnalysisSettingsPropertiesPtrOutput {
 	return o
+}
+
+func (o SentimentAnalysisSettingsPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SentimentAnalysisSettingsProperties] {
+	return pulumix.Output[*SentimentAnalysisSettingsProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SentimentAnalysisSettingsPropertiesPtrOutput) Elem() SentimentAnalysisSettingsPropertiesOutput {

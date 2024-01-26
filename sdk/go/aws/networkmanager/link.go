@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::NetworkManager::Link type describes a link.
@@ -151,6 +152,12 @@ func (i *Link) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkOutput)
 }
 
+func (i *Link) ToOutput(ctx context.Context) pulumix.Output[*Link] {
+	return pulumix.Output[*Link]{
+		OutputState: i.ToLinkOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkOutput struct{ *pulumi.OutputState }
 
 func (LinkOutput) ElementType() reflect.Type {
@@ -163,6 +170,12 @@ func (o LinkOutput) ToLinkOutput() LinkOutput {
 
 func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return o
+}
+
+func (o LinkOutput) ToOutput(ctx context.Context) pulumix.Output[*Link] {
+	return pulumix.Output[*Link]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Bandwidth for the link.

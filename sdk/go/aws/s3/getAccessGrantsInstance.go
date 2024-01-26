@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::S3::AccessGrantsInstance resource is an Amazon S3 resource type that hosts Access Grants and their associated locations
@@ -70,6 +71,12 @@ func (o LookupAccessGrantsInstanceResultOutput) ToLookupAccessGrantsInstanceResu
 
 func (o LookupAccessGrantsInstanceResultOutput) ToLookupAccessGrantsInstanceResultOutputWithContext(ctx context.Context) LookupAccessGrantsInstanceResultOutput {
 	return o
+}
+
+func (o LookupAccessGrantsInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccessGrantsInstanceResult] {
+	return pulumix.Output[LookupAccessGrantsInstanceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the specified Access Grants instance.

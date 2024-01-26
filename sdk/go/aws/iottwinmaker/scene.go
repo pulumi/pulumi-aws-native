@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::IoTTwinMaker::Scene
@@ -151,6 +152,12 @@ func (i *Scene) ToSceneOutputWithContext(ctx context.Context) SceneOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SceneOutput)
 }
 
+func (i *Scene) ToOutput(ctx context.Context) pulumix.Output[*Scene] {
+	return pulumix.Output[*Scene]{
+		OutputState: i.ToSceneOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SceneOutput struct{ *pulumi.OutputState }
 
 func (SceneOutput) ElementType() reflect.Type {
@@ -163,6 +170,12 @@ func (o SceneOutput) ToSceneOutput() SceneOutput {
 
 func (o SceneOutput) ToSceneOutputWithContext(ctx context.Context) SceneOutput {
 	return o
+}
+
+func (o SceneOutput) ToOutput(ctx context.Context) pulumix.Output[*Scene] {
+	return pulumix.Output[*Scene]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the scene.

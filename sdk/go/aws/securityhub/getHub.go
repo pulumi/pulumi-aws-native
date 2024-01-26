@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.
@@ -73,6 +74,12 @@ func (o LookupHubResultOutput) ToLookupHubResultOutput() LookupHubResultOutput {
 
 func (o LookupHubResultOutput) ToLookupHubResultOutputWithContext(ctx context.Context) LookupHubResultOutput {
 	return o
+}
+
+func (o LookupHubResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHubResult] {
+	return pulumix.Output[LookupHubResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An ARN is automatically created for the customer.

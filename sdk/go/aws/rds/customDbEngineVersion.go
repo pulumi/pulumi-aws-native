@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
@@ -161,6 +162,12 @@ func (i *CustomDbEngineVersion) ToCustomDbEngineVersionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDbEngineVersionOutput)
 }
 
+func (i *CustomDbEngineVersion) ToOutput(ctx context.Context) pulumix.Output[*CustomDbEngineVersion] {
+	return pulumix.Output[*CustomDbEngineVersion]{
+		OutputState: i.ToCustomDbEngineVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomDbEngineVersionOutput struct{ *pulumi.OutputState }
 
 func (CustomDbEngineVersionOutput) ElementType() reflect.Type {
@@ -173,6 +180,12 @@ func (o CustomDbEngineVersionOutput) ToCustomDbEngineVersionOutput() CustomDbEng
 
 func (o CustomDbEngineVersionOutput) ToCustomDbEngineVersionOutputWithContext(ctx context.Context) CustomDbEngineVersionOutput {
 	return o
+}
+
+func (o CustomDbEngineVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomDbEngineVersion] {
+	return pulumix.Output[*CustomDbEngineVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.

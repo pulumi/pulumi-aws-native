@@ -83,6 +83,12 @@ func (o AnnotationStoreAnnotationTypeOutput) ToAnnotationStoreAnnotationTypePtrO
 	}).(AnnotationStoreAnnotationTypePtrOutput)
 }
 
+func (o AnnotationStoreAnnotationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreAnnotationType] {
+	return pulumix.Output[AnnotationStoreAnnotationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnnotationStoreAnnotationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,6 +124,12 @@ func (o AnnotationStoreAnnotationTypePtrOutput) ToAnnotationStoreAnnotationTypeP
 	return o
 }
 
+func (o AnnotationStoreAnnotationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreAnnotationType] {
+	return pulumix.Output[*AnnotationStoreAnnotationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnnotationStoreAnnotationTypePtrOutput) Elem() AnnotationStoreAnnotationTypeOutput {
 	return o.ApplyT(func(v *AnnotationStoreAnnotationType) AnnotationStoreAnnotationType {
 		if v != nil {
@@ -142,16 +154,10 @@ func (o AnnotationStoreAnnotationTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnnotationStoreAnnotationTypeInput is an input type that accepts values of the AnnotationStoreAnnotationType enum
-// A concrete instance of `AnnotationStoreAnnotationTypeInput` can be one of the following:
+// AnnotationStoreAnnotationTypeInput is an input type that accepts AnnotationStoreAnnotationTypeArgs and AnnotationStoreAnnotationTypeOutput values.
+// You can construct a concrete instance of `AnnotationStoreAnnotationTypeInput` via:
 //
-//	AnnotationStoreAnnotationTypeGeneric
-//	AnnotationStoreAnnotationTypeChrPos
-//	AnnotationStoreAnnotationTypeChrPosRefAlt
-//	AnnotationStoreAnnotationTypeChrStartEndOneBase
-//	AnnotationStoreAnnotationTypeChrStartEndRefAltOneBase
-//	AnnotationStoreAnnotationTypeChrStartEndZeroBase
-//	AnnotationStoreAnnotationTypeChrStartEndRefAltZeroBase
+//	AnnotationStoreAnnotationTypeArgs{...}
 type AnnotationStoreAnnotationTypeInput interface {
 	pulumi.Input
 
@@ -258,6 +264,12 @@ func (o AnnotationStoreEncryptionTypeOutput) ToAnnotationStoreEncryptionTypePtrO
 	}).(AnnotationStoreEncryptionTypePtrOutput)
 }
 
+func (o AnnotationStoreEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreEncryptionType] {
+	return pulumix.Output[AnnotationStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnnotationStoreEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -293,6 +305,12 @@ func (o AnnotationStoreEncryptionTypePtrOutput) ToAnnotationStoreEncryptionTypeP
 	return o
 }
 
+func (o AnnotationStoreEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreEncryptionType] {
+	return pulumix.Output[*AnnotationStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnnotationStoreEncryptionTypePtrOutput) Elem() AnnotationStoreEncryptionTypeOutput {
 	return o.ApplyT(func(v *AnnotationStoreEncryptionType) AnnotationStoreEncryptionType {
 		if v != nil {
@@ -317,10 +335,10 @@ func (o AnnotationStoreEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnnotationStoreEncryptionTypeInput is an input type that accepts values of the AnnotationStoreEncryptionType enum
-// A concrete instance of `AnnotationStoreEncryptionTypeInput` can be one of the following:
+// AnnotationStoreEncryptionTypeInput is an input type that accepts AnnotationStoreEncryptionTypeArgs and AnnotationStoreEncryptionTypeOutput values.
+// You can construct a concrete instance of `AnnotationStoreEncryptionTypeInput` via:
 //
-//	AnnotationStoreEncryptionTypeKms
+//	AnnotationStoreEncryptionTypeArgs{...}
 type AnnotationStoreEncryptionTypeInput interface {
 	pulumi.Input
 
@@ -429,6 +447,12 @@ func (o AnnotationStoreStoreFormatOutput) ToAnnotationStoreStoreFormatPtrOutputW
 	}).(AnnotationStoreStoreFormatPtrOutput)
 }
 
+func (o AnnotationStoreStoreFormatOutput) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreStoreFormat] {
+	return pulumix.Output[AnnotationStoreStoreFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnnotationStoreStoreFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -464,6 +488,12 @@ func (o AnnotationStoreStoreFormatPtrOutput) ToAnnotationStoreStoreFormatPtrOutp
 	return o
 }
 
+func (o AnnotationStoreStoreFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreStoreFormat] {
+	return pulumix.Output[*AnnotationStoreStoreFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnnotationStoreStoreFormatPtrOutput) Elem() AnnotationStoreStoreFormatOutput {
 	return o.ApplyT(func(v *AnnotationStoreStoreFormat) AnnotationStoreStoreFormat {
 		if v != nil {
@@ -488,12 +518,10 @@ func (o AnnotationStoreStoreFormatPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnnotationStoreStoreFormatInput is an input type that accepts values of the AnnotationStoreStoreFormat enum
-// A concrete instance of `AnnotationStoreStoreFormatInput` can be one of the following:
+// AnnotationStoreStoreFormatInput is an input type that accepts AnnotationStoreStoreFormatArgs and AnnotationStoreStoreFormatOutput values.
+// You can construct a concrete instance of `AnnotationStoreStoreFormatInput` via:
 //
-//	AnnotationStoreStoreFormatGff
-//	AnnotationStoreStoreFormatTsv
-//	AnnotationStoreStoreFormatVcf
+//	AnnotationStoreStoreFormatArgs{...}
 type AnnotationStoreStoreFormatInput interface {
 	pulumi.Input
 
@@ -568,6 +596,12 @@ func (o AnnotationStoreStoreStatusOutput) ToAnnotationStoreStoreStatusPtrOutputW
 	}).(AnnotationStoreStoreStatusPtrOutput)
 }
 
+func (o AnnotationStoreStoreStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreStoreStatus] {
+	return pulumix.Output[AnnotationStoreStoreStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnnotationStoreStoreStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -601,6 +635,12 @@ func (o AnnotationStoreStoreStatusPtrOutput) ToAnnotationStoreStoreStatusPtrOutp
 
 func (o AnnotationStoreStoreStatusPtrOutput) ToAnnotationStoreStoreStatusPtrOutputWithContext(ctx context.Context) AnnotationStoreStoreStatusPtrOutput {
 	return o
+}
+
+func (o AnnotationStoreStoreStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreStoreStatus] {
+	return pulumix.Output[*AnnotationStoreStoreStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnnotationStoreStoreStatusPtrOutput) Elem() AnnotationStoreStoreStatusOutput {
@@ -693,6 +733,12 @@ func (o ReferenceStoreEncryptionTypeOutput) ToReferenceStoreEncryptionTypePtrOut
 	}).(ReferenceStoreEncryptionTypePtrOutput)
 }
 
+func (o ReferenceStoreEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ReferenceStoreEncryptionType] {
+	return pulumix.Output[ReferenceStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReferenceStoreEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -728,6 +774,12 @@ func (o ReferenceStoreEncryptionTypePtrOutput) ToReferenceStoreEncryptionTypePtr
 	return o
 }
 
+func (o ReferenceStoreEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReferenceStoreEncryptionType] {
+	return pulumix.Output[*ReferenceStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReferenceStoreEncryptionTypePtrOutput) Elem() ReferenceStoreEncryptionTypeOutput {
 	return o.ApplyT(func(v *ReferenceStoreEncryptionType) ReferenceStoreEncryptionType {
 		if v != nil {
@@ -752,10 +804,10 @@ func (o ReferenceStoreEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReferenceStoreEncryptionTypeInput is an input type that accepts values of the ReferenceStoreEncryptionType enum
-// A concrete instance of `ReferenceStoreEncryptionTypeInput` can be one of the following:
+// ReferenceStoreEncryptionTypeInput is an input type that accepts ReferenceStoreEncryptionTypeArgs and ReferenceStoreEncryptionTypeOutput values.
+// You can construct a concrete instance of `ReferenceStoreEncryptionTypeInput` via:
 //
-//	ReferenceStoreEncryptionTypeKms
+//	ReferenceStoreEncryptionTypeArgs{...}
 type ReferenceStoreEncryptionTypeInput interface {
 	pulumi.Input
 
@@ -862,6 +914,12 @@ func (o SequenceStoreEncryptionTypeOutput) ToSequenceStoreEncryptionTypePtrOutpu
 	}).(SequenceStoreEncryptionTypePtrOutput)
 }
 
+func (o SequenceStoreEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SequenceStoreEncryptionType] {
+	return pulumix.Output[SequenceStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SequenceStoreEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -897,6 +955,12 @@ func (o SequenceStoreEncryptionTypePtrOutput) ToSequenceStoreEncryptionTypePtrOu
 	return o
 }
 
+func (o SequenceStoreEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SequenceStoreEncryptionType] {
+	return pulumix.Output[*SequenceStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SequenceStoreEncryptionTypePtrOutput) Elem() SequenceStoreEncryptionTypeOutput {
 	return o.ApplyT(func(v *SequenceStoreEncryptionType) SequenceStoreEncryptionType {
 		if v != nil {
@@ -921,10 +985,10 @@ func (o SequenceStoreEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// SequenceStoreEncryptionTypeInput is an input type that accepts values of the SequenceStoreEncryptionType enum
-// A concrete instance of `SequenceStoreEncryptionTypeInput` can be one of the following:
+// SequenceStoreEncryptionTypeInput is an input type that accepts SequenceStoreEncryptionTypeArgs and SequenceStoreEncryptionTypeOutput values.
+// You can construct a concrete instance of `SequenceStoreEncryptionTypeInput` via:
 //
-//	SequenceStoreEncryptionTypeKms
+//	SequenceStoreEncryptionTypeArgs{...}
 type SequenceStoreEncryptionTypeInput interface {
 	pulumi.Input
 
@@ -1031,6 +1095,12 @@ func (o VariantStoreEncryptionTypeOutput) ToVariantStoreEncryptionTypePtrOutputW
 	}).(VariantStoreEncryptionTypePtrOutput)
 }
 
+func (o VariantStoreEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[VariantStoreEncryptionType] {
+	return pulumix.Output[VariantStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VariantStoreEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1066,6 +1136,12 @@ func (o VariantStoreEncryptionTypePtrOutput) ToVariantStoreEncryptionTypePtrOutp
 	return o
 }
 
+func (o VariantStoreEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariantStoreEncryptionType] {
+	return pulumix.Output[*VariantStoreEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VariantStoreEncryptionTypePtrOutput) Elem() VariantStoreEncryptionTypeOutput {
 	return o.ApplyT(func(v *VariantStoreEncryptionType) VariantStoreEncryptionType {
 		if v != nil {
@@ -1090,10 +1166,10 @@ func (o VariantStoreEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// VariantStoreEncryptionTypeInput is an input type that accepts values of the VariantStoreEncryptionType enum
-// A concrete instance of `VariantStoreEncryptionTypeInput` can be one of the following:
+// VariantStoreEncryptionTypeInput is an input type that accepts VariantStoreEncryptionTypeArgs and VariantStoreEncryptionTypeOutput values.
+// You can construct a concrete instance of `VariantStoreEncryptionTypeInput` via:
 //
-//	VariantStoreEncryptionTypeKms
+//	VariantStoreEncryptionTypeArgs{...}
 type VariantStoreEncryptionTypeInput interface {
 	pulumi.Input
 
@@ -1168,6 +1244,12 @@ func (o VariantStoreStoreStatusOutput) ToVariantStoreStoreStatusPtrOutputWithCon
 	}).(VariantStoreStoreStatusPtrOutput)
 }
 
+func (o VariantStoreStoreStatusOutput) ToOutput(ctx context.Context) pulumix.Output[VariantStoreStoreStatus] {
+	return pulumix.Output[VariantStoreStoreStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VariantStoreStoreStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1201,6 +1283,12 @@ func (o VariantStoreStoreStatusPtrOutput) ToVariantStoreStoreStatusPtrOutput() V
 
 func (o VariantStoreStoreStatusPtrOutput) ToVariantStoreStoreStatusPtrOutputWithContext(ctx context.Context) VariantStoreStoreStatusPtrOutput {
 	return o
+}
+
+func (o VariantStoreStoreStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariantStoreStoreStatus] {
+	return pulumix.Output[*VariantStoreStoreStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VariantStoreStoreStatusPtrOutput) Elem() VariantStoreStoreStatusOutput {
@@ -1293,6 +1381,12 @@ func (o WorkflowAcceleratorsOutput) ToWorkflowAcceleratorsPtrOutputWithContext(c
 	}).(WorkflowAcceleratorsPtrOutput)
 }
 
+func (o WorkflowAcceleratorsOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccelerators] {
+	return pulumix.Output[WorkflowAccelerators]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkflowAcceleratorsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1328,6 +1422,12 @@ func (o WorkflowAcceleratorsPtrOutput) ToWorkflowAcceleratorsPtrOutputWithContex
 	return o
 }
 
+func (o WorkflowAcceleratorsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccelerators] {
+	return pulumix.Output[*WorkflowAccelerators]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkflowAcceleratorsPtrOutput) Elem() WorkflowAcceleratorsOutput {
 	return o.ApplyT(func(v *WorkflowAccelerators) WorkflowAccelerators {
 		if v != nil {
@@ -1352,10 +1452,10 @@ func (o WorkflowAcceleratorsPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkflowAcceleratorsInput is an input type that accepts values of the WorkflowAccelerators enum
-// A concrete instance of `WorkflowAcceleratorsInput` can be one of the following:
+// WorkflowAcceleratorsInput is an input type that accepts WorkflowAcceleratorsArgs and WorkflowAcceleratorsOutput values.
+// You can construct a concrete instance of `WorkflowAcceleratorsInput` via:
 //
-//	WorkflowAcceleratorsGpu
+//	WorkflowAcceleratorsArgs{...}
 type WorkflowAcceleratorsInput interface {
 	pulumi.Input
 
@@ -1464,6 +1564,12 @@ func (o WorkflowEngineOutput) ToWorkflowEnginePtrOutputWithContext(ctx context.C
 	}).(WorkflowEnginePtrOutput)
 }
 
+func (o WorkflowEngineOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowEngine] {
+	return pulumix.Output[WorkflowEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkflowEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1499,6 +1605,12 @@ func (o WorkflowEnginePtrOutput) ToWorkflowEnginePtrOutputWithContext(ctx contex
 	return o
 }
 
+func (o WorkflowEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowEngine] {
+	return pulumix.Output[*WorkflowEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkflowEnginePtrOutput) Elem() WorkflowEngineOutput {
 	return o.ApplyT(func(v *WorkflowEngine) WorkflowEngine {
 		if v != nil {
@@ -1523,12 +1635,10 @@ func (o WorkflowEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkflowEngineInput is an input type that accepts values of the WorkflowEngine enum
-// A concrete instance of `WorkflowEngineInput` can be one of the following:
+// WorkflowEngineInput is an input type that accepts WorkflowEngineArgs and WorkflowEngineOutput values.
+// You can construct a concrete instance of `WorkflowEngineInput` via:
 //
-//	WorkflowEngineWdl
-//	WorkflowEngineNextflow
-//	WorkflowEngineCwl
+//	WorkflowEngineArgs{...}
 type WorkflowEngineInput interface {
 	pulumi.Input
 
@@ -1603,6 +1713,12 @@ func (o WorkflowStatusOutput) ToWorkflowStatusPtrOutputWithContext(ctx context.C
 	}).(WorkflowStatusPtrOutput)
 }
 
+func (o WorkflowStatusOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStatus] {
+	return pulumix.Output[WorkflowStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkflowStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1636,6 +1752,12 @@ func (o WorkflowStatusPtrOutput) ToWorkflowStatusPtrOutput() WorkflowStatusPtrOu
 
 func (o WorkflowStatusPtrOutput) ToWorkflowStatusPtrOutputWithContext(ctx context.Context) WorkflowStatusPtrOutput {
 	return o
+}
+
+func (o WorkflowStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStatus] {
+	return pulumix.Output[*WorkflowStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowStatusPtrOutput) Elem() WorkflowStatusOutput {
@@ -1692,6 +1814,12 @@ func (o WorkflowTypeOutput) ToWorkflowTypePtrOutputWithContext(ctx context.Conte
 	}).(WorkflowTypePtrOutput)
 }
 
+func (o WorkflowTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowType] {
+	return pulumix.Output[WorkflowType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkflowTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1725,6 +1853,12 @@ func (o WorkflowTypePtrOutput) ToWorkflowTypePtrOutput() WorkflowTypePtrOutput {
 
 func (o WorkflowTypePtrOutput) ToWorkflowTypePtrOutputWithContext(ctx context.Context) WorkflowTypePtrOutput {
 	return o
+}
+
+func (o WorkflowTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowType] {
+	return pulumix.Output[*WorkflowType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowTypePtrOutput) Elem() WorkflowTypeOutput {

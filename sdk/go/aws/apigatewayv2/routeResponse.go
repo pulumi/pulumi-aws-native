@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGatewayV2::RouteResponse“ resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
@@ -138,6 +139,12 @@ func (i *RouteResponse) ToRouteResponseOutputWithContext(ctx context.Context) Ro
 	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseOutput)
 }
 
+func (i *RouteResponse) ToOutput(ctx context.Context) pulumix.Output[*RouteResponse] {
+	return pulumix.Output[*RouteResponse]{
+		OutputState: i.ToRouteResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteResponseOutput struct{ *pulumi.OutputState }
 
 func (RouteResponseOutput) ElementType() reflect.Type {
@@ -150,6 +157,12 @@ func (o RouteResponseOutput) ToRouteResponseOutput() RouteResponseOutput {
 
 func (o RouteResponseOutput) ToRouteResponseOutputWithContext(ctx context.Context) RouteResponseOutput {
 	return o
+}
+
+func (o RouteResponseOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteResponse] {
+	return pulumix.Output[*RouteResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The API identifier.

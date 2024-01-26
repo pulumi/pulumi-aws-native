@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::MediaPackageV2::ChannelPolicy Resource Type
@@ -104,6 +105,12 @@ func (i *ChannelPolicy) ToChannelPolicyOutputWithContext(ctx context.Context) Ch
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelPolicyOutput)
 }
 
+func (i *ChannelPolicy) ToOutput(ctx context.Context) pulumix.Output[*ChannelPolicy] {
+	return pulumix.Output[*ChannelPolicy]{
+		OutputState: i.ToChannelPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelPolicyOutput struct{ *pulumi.OutputState }
 
 func (ChannelPolicyOutput) ElementType() reflect.Type {
@@ -116,6 +123,12 @@ func (o ChannelPolicyOutput) ToChannelPolicyOutput() ChannelPolicyOutput {
 
 func (o ChannelPolicyOutput) ToChannelPolicyOutputWithContext(ctx context.Context) ChannelPolicyOutput {
 	return o
+}
+
+func (o ChannelPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelPolicy] {
+	return pulumix.Output[*ChannelPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelPolicyOutput) ChannelGroupName() pulumi.StringPtrOutput {

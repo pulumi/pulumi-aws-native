@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataBrew::Recipe.
@@ -113,6 +114,12 @@ func (i *Recipe) ToRecipeOutputWithContext(ctx context.Context) RecipeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecipeOutput)
 }
 
+func (i *Recipe) ToOutput(ctx context.Context) pulumix.Output[*Recipe] {
+	return pulumix.Output[*Recipe]{
+		OutputState: i.ToRecipeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RecipeOutput struct{ *pulumi.OutputState }
 
 func (RecipeOutput) ElementType() reflect.Type {
@@ -125,6 +132,12 @@ func (o RecipeOutput) ToRecipeOutput() RecipeOutput {
 
 func (o RecipeOutput) ToRecipeOutputWithContext(ctx context.Context) RecipeOutput {
 	return o
+}
+
+func (o RecipeOutput) ToOutput(ctx context.Context) pulumix.Output[*Recipe] {
+	return pulumix.Output[*Recipe]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the recipe

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::VerifiedAccessGroup resource creates an AWS EC2 Verified Access Group.
@@ -136,6 +137,12 @@ func (i *VerifiedAccessGroup) ToVerifiedAccessGroupOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessGroupOutput)
 }
 
+func (i *VerifiedAccessGroup) ToOutput(ctx context.Context) pulumix.Output[*VerifiedAccessGroup] {
+	return pulumix.Output[*VerifiedAccessGroup]{
+		OutputState: i.ToVerifiedAccessGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VerifiedAccessGroupOutput struct{ *pulumi.OutputState }
 
 func (VerifiedAccessGroupOutput) ElementType() reflect.Type {
@@ -148,6 +155,12 @@ func (o VerifiedAccessGroupOutput) ToVerifiedAccessGroupOutput() VerifiedAccessG
 
 func (o VerifiedAccessGroupOutput) ToVerifiedAccessGroupOutputWithContext(ctx context.Context) VerifiedAccessGroupOutput {
 	return o
+}
+
+func (o VerifiedAccessGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*VerifiedAccessGroup] {
+	return pulumix.Output[*VerifiedAccessGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Time this Verified Access Group was created.

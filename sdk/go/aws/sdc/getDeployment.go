@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AMZN::SDC::Deployment
@@ -69,6 +70,12 @@ func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutput() LookupDep
 
 func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutputWithContext(ctx context.Context) LookupDeploymentResultOutput {
 	return o
+}
+
+func (o LookupDeploymentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeploymentResult] {
+	return pulumix.Output[LookupDeploymentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDeploymentResultOutput) ConfigName() pulumi.StringPtrOutput {

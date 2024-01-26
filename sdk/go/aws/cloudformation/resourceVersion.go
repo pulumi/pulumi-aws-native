@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource that has been registered in the CloudFormation Registry.
@@ -154,6 +155,12 @@ func (i *ResourceVersion) ToResourceVersionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceVersionOutput)
 }
 
+func (i *ResourceVersion) ToOutput(ctx context.Context) pulumix.Output[*ResourceVersion] {
+	return pulumix.Output[*ResourceVersion]{
+		OutputState: i.ToResourceVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceVersionOutput struct{ *pulumi.OutputState }
 
 func (ResourceVersionOutput) ElementType() reflect.Type {
@@ -166,6 +173,12 @@ func (o ResourceVersionOutput) ToResourceVersionOutput() ResourceVersionOutput {
 
 func (o ResourceVersionOutput) ToResourceVersionOutputWithContext(ctx context.Context) ResourceVersionOutput {
 	return o
+}
+
+func (o ResourceVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceVersion] {
+	return pulumix.Output[*ResourceVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource

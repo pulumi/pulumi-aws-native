@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPool
@@ -89,6 +90,12 @@ func (o LookupUserPoolResultOutput) ToLookupUserPoolResultOutput() LookupUserPoo
 
 func (o LookupUserPoolResultOutput) ToLookupUserPoolResultOutputWithContext(ctx context.Context) LookupUserPoolResultOutput {
 	return o
+}
+
+func (o LookupUserPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserPoolResult] {
+	return pulumix.Output[LookupUserPoolResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupUserPoolResultOutput) AccountRecoverySetting() UserPoolAccountRecoverySettingPtrOutput {

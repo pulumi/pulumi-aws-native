@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a table that can be associated with collaborations
@@ -128,6 +129,12 @@ func (i *ConfiguredTable) ToConfiguredTableOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableOutput)
 }
 
+func (i *ConfiguredTable) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTable] {
+	return pulumix.Output[*ConfiguredTable]{
+		OutputState: i.ToConfiguredTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfiguredTableOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableOutput) ElementType() reflect.Type {
@@ -140,6 +147,12 @@ func (o ConfiguredTableOutput) ToConfiguredTableOutput() ConfiguredTableOutput {
 
 func (o ConfiguredTableOutput) ToConfiguredTableOutputWithContext(ctx context.Context) ConfiguredTableOutput {
 	return o
+}
+
+func (o ConfiguredTableOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTable] {
+	return pulumix.Output[*ConfiguredTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfiguredTableOutput) AllowedColumns() pulumi.StringArrayOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Contains the Rules that identify the requests that you want to allow, block, or count. In a RuleGroup, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a RuleGroup, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the RuleGroup with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a RuleGroup, a request needs to match only one of the specifications to be allowed, blocked, or counted.
@@ -142,6 +143,12 @@ func (i *RuleGroup) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOutput)
 }
 
+func (i *RuleGroup) ToOutput(ctx context.Context) pulumix.Output[*RuleGroup] {
+	return pulumix.Output[*RuleGroup]{
+		OutputState: i.ToRuleGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupOutput) ElementType() reflect.Type {
@@ -154,6 +161,12 @@ func (o RuleGroupOutput) ToRuleGroupOutput() RuleGroupOutput {
 
 func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupOutput {
 	return o
+}
+
+func (o RuleGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroup] {
+	return pulumix.Output[*RuleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupOutput) Arn() pulumi.StringOutput {

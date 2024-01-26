@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -112,6 +113,12 @@ func (i *CarrierGateway) ToCarrierGatewayOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayOutput)
 }
 
+func (i *CarrierGateway) ToOutput(ctx context.Context) pulumix.Output[*CarrierGateway] {
+	return pulumix.Output[*CarrierGateway]{
+		OutputState: i.ToCarrierGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CarrierGatewayOutput struct{ *pulumi.OutputState }
 
 func (CarrierGatewayOutput) ElementType() reflect.Type {
@@ -124,6 +131,12 @@ func (o CarrierGatewayOutput) ToCarrierGatewayOutput() CarrierGatewayOutput {
 
 func (o CarrierGatewayOutput) ToCarrierGatewayOutputWithContext(ctx context.Context) CarrierGatewayOutput {
 	return o
+}
+
+func (o CarrierGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*CarrierGateway] {
+	return pulumix.Output[*CarrierGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the carrier gateway.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables a control on a specified target.
@@ -116,6 +117,12 @@ func (i *EnabledControl) ToEnabledControlOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EnabledControlOutput)
 }
 
+func (i *EnabledControl) ToOutput(ctx context.Context) pulumix.Output[*EnabledControl] {
+	return pulumix.Output[*EnabledControl]{
+		OutputState: i.ToEnabledControlOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnabledControlOutput struct{ *pulumi.OutputState }
 
 func (EnabledControlOutput) ElementType() reflect.Type {
@@ -128,6 +135,12 @@ func (o EnabledControlOutput) ToEnabledControlOutput() EnabledControlOutput {
 
 func (o EnabledControlOutput) ToEnabledControlOutputWithContext(ctx context.Context) EnabledControlOutput {
 	return o
+}
+
+func (o EnabledControlOutput) ToOutput(ctx context.Context) pulumix.Output[*EnabledControl] {
+	return pulumix.Output[*EnabledControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Arn of the control.

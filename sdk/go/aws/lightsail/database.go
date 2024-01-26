@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lightsail::Database
@@ -202,6 +203,12 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseOutput)
 }
 
+func (i *Database) ToOutput(ctx context.Context) pulumix.Output[*Database] {
+	return pulumix.Output[*Database]{
+		OutputState: i.ToDatabaseOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseOutput) ElementType() reflect.Type {
@@ -214,6 +221,12 @@ func (o DatabaseOutput) ToDatabaseOutput() DatabaseOutput {
 
 func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutput {
 	return o
+}
+
+func (o DatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*Database] {
+	return pulumix.Output[*Database]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.

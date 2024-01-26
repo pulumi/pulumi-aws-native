@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An object representing an Amazon EKS IdentityProviderConfig.
@@ -76,6 +77,12 @@ func (o LookupIdentityProviderConfigResultOutput) ToLookupIdentityProviderConfig
 
 func (o LookupIdentityProviderConfigResultOutput) ToLookupIdentityProviderConfigResultOutputWithContext(ctx context.Context) LookupIdentityProviderConfigResultOutput {
 	return o
+}
+
+func (o LookupIdentityProviderConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIdentityProviderConfigResult] {
+	return pulumix.Output[LookupIdentityProviderConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the configuration.

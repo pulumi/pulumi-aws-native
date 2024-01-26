@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::ControlTower::LandingZone Resource Type
@@ -107,6 +108,12 @@ func (i *LandingZone) ToLandingZoneOutputWithContext(ctx context.Context) Landin
 	return pulumi.ToOutputWithContext(ctx, i).(LandingZoneOutput)
 }
 
+func (i *LandingZone) ToOutput(ctx context.Context) pulumix.Output[*LandingZone] {
+	return pulumix.Output[*LandingZone]{
+		OutputState: i.ToLandingZoneOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LandingZoneOutput struct{ *pulumi.OutputState }
 
 func (LandingZoneOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o LandingZoneOutput) ToLandingZoneOutput() LandingZoneOutput {
 
 func (o LandingZoneOutput) ToLandingZoneOutputWithContext(ctx context.Context) LandingZoneOutput {
 	return o
+}
+
+func (o LandingZoneOutput) ToOutput(ctx context.Context) pulumix.Output[*LandingZone] {
+	return pulumix.Output[*LandingZone]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LandingZoneOutput) Arn() pulumi.StringOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for a Redshift-managed VPC endpoint.
@@ -148,6 +149,12 @@ func (i *EndpointAccess) ToEndpointAccessOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessOutput)
 }
 
+func (i *EndpointAccess) ToOutput(ctx context.Context) pulumix.Output[*EndpointAccess] {
+	return pulumix.Output[*EndpointAccess]{
+		OutputState: i.ToEndpointAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointAccessOutput struct{ *pulumi.OutputState }
 
 func (EndpointAccessOutput) ElementType() reflect.Type {
@@ -160,6 +167,12 @@ func (o EndpointAccessOutput) ToEndpointAccessOutput() EndpointAccessOutput {
 
 func (o EndpointAccessOutput) ToEndpointAccessOutputWithContext(ctx context.Context) EndpointAccessOutput {
 	return o
+}
+
+func (o EndpointAccessOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointAccess] {
+	return pulumix.Output[*EndpointAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The DNS address of the endpoint.

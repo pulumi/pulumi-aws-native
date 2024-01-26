@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of the AWS::QuickSight::DataSource Resource Type.
@@ -171,6 +172,12 @@ func (i *DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSour
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOutput)
 }
 
+func (i *DataSource) ToOutput(ctx context.Context) pulumix.Output[*DataSource] {
+	return pulumix.Output[*DataSource]{
+		OutputState: i.ToDataSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceOutput struct{ *pulumi.OutputState }
 
 func (DataSourceOutput) ElementType() reflect.Type {
@@ -183,6 +190,12 @@ func (o DataSourceOutput) ToDataSourceOutput() DataSourceOutput {
 
 func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput {
 	return o
+}
+
+func (o DataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSource] {
+	return pulumix.Output[*DataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // <p>A set of alternate data source parameters that you want to share for the credentials

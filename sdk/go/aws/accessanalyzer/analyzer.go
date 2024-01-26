@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
@@ -125,6 +126,12 @@ func (i *Analyzer) ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerOutput)
 }
 
+func (i *Analyzer) ToOutput(ctx context.Context) pulumix.Output[*Analyzer] {
+	return pulumix.Output[*Analyzer]{
+		OutputState: i.ToAnalyzerOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyzerOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerOutput) ElementType() reflect.Type {
@@ -137,6 +144,12 @@ func (o AnalyzerOutput) ToAnalyzerOutput() AnalyzerOutput {
 
 func (o AnalyzerOutput) ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutput {
 	return o
+}
+
+func (o AnalyzerOutput) ToOutput(ctx context.Context) pulumix.Output[*Analyzer] {
+	return pulumix.Output[*Analyzer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The configuration for the analyzer

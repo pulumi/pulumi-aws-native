@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Test and Publish a resource that has been registered in the CloudFormation Registry.
@@ -136,6 +137,12 @@ func (i *PublicTypeVersion) ToPublicTypeVersionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PublicTypeVersionOutput)
 }
 
+func (i *PublicTypeVersion) ToOutput(ctx context.Context) pulumix.Output[*PublicTypeVersion] {
+	return pulumix.Output[*PublicTypeVersion]{
+		OutputState: i.ToPublicTypeVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PublicTypeVersionOutput struct{ *pulumi.OutputState }
 
 func (PublicTypeVersionOutput) ElementType() reflect.Type {
@@ -148,6 +155,12 @@ func (o PublicTypeVersionOutput) ToPublicTypeVersionOutput() PublicTypeVersionOu
 
 func (o PublicTypeVersionOutput) ToPublicTypeVersionOutputWithContext(ctx context.Context) PublicTypeVersionOutput {
 	return o
+}
+
+func (o PublicTypeVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicTypeVersion] {
+	return pulumix.Output[*PublicTypeVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Number (ARN) of the extension.

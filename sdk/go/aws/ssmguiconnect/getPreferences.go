@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::SSMGuiConnect::Preferences Resource Type
@@ -68,6 +69,12 @@ func (o LookupPreferencesResultOutput) ToLookupPreferencesResultOutput() LookupP
 
 func (o LookupPreferencesResultOutput) ToLookupPreferencesResultOutputWithContext(ctx context.Context) LookupPreferencesResultOutput {
 	return o
+}
+
+func (o LookupPreferencesResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPreferencesResult] {
+	return pulumix.Output[LookupPreferencesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS Account Id that the preference is associated with, used as the unique identifier for this resource.

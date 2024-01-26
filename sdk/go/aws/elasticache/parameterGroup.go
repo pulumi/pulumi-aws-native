@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElastiCache::ParameterGroup
@@ -111,6 +112,12 @@ func (i *ParameterGroup) ToParameterGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupOutput)
 }
 
+func (i *ParameterGroup) ToOutput(ctx context.Context) pulumix.Output[*ParameterGroup] {
+	return pulumix.Output[*ParameterGroup]{
+		OutputState: i.ToParameterGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupOutput) ElementType() reflect.Type {
@@ -123,6 +130,12 @@ func (o ParameterGroupOutput) ToParameterGroupOutput() ParameterGroupOutput {
 
 func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Context) ParameterGroupOutput {
 	return o
+}
+
+func (o ParameterGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterGroup] {
+	return pulumix.Output[*ParameterGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ParameterGroupOutput) CacheParameterGroupFamily() pulumi.StringOutput {

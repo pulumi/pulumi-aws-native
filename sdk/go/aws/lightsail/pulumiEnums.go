@@ -84,6 +84,12 @@ func (o DiskAddOnStatusOutput) ToDiskAddOnStatusPtrOutputWithContext(ctx context
 	}).(DiskAddOnStatusPtrOutput)
 }
 
+func (o DiskAddOnStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DiskAddOnStatus] {
+	return pulumix.Output[DiskAddOnStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DiskAddOnStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,6 +125,12 @@ func (o DiskAddOnStatusPtrOutput) ToDiskAddOnStatusPtrOutputWithContext(ctx cont
 	return o
 }
 
+func (o DiskAddOnStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiskAddOnStatus] {
+	return pulumix.Output[*DiskAddOnStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DiskAddOnStatusPtrOutput) Elem() DiskAddOnStatusOutput {
 	return o.ApplyT(func(v *DiskAddOnStatus) DiskAddOnStatus {
 		if v != nil {
@@ -143,16 +155,10 @@ func (o DiskAddOnStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DiskAddOnStatusInput is an input type that accepts values of the DiskAddOnStatus enum
-// A concrete instance of `DiskAddOnStatusInput` can be one of the following:
+// DiskAddOnStatusInput is an input type that accepts DiskAddOnStatusArgs and DiskAddOnStatusOutput values.
+// You can construct a concrete instance of `DiskAddOnStatusInput` via:
 //
-//	DiskAddOnStatusEnabling
-//	DiskAddOnStatusDisabling
-//	DiskAddOnStatusEnabled
-//	DiskAddOnStatusTerminating
-//	DiskAddOnStatusTerminated
-//	DiskAddOnStatusDisabled
-//	DiskAddOnStatusFailed
+//	DiskAddOnStatusArgs{...}
 type DiskAddOnStatusInput interface {
 	pulumi.Input
 
@@ -266,6 +272,12 @@ func (o InstanceAddOnStatusOutput) ToInstanceAddOnStatusPtrOutputWithContext(ctx
 	}).(InstanceAddOnStatusPtrOutput)
 }
 
+func (o InstanceAddOnStatusOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceAddOnStatus] {
+	return pulumix.Output[InstanceAddOnStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceAddOnStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,6 +313,12 @@ func (o InstanceAddOnStatusPtrOutput) ToInstanceAddOnStatusPtrOutputWithContext(
 	return o
 }
 
+func (o InstanceAddOnStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceAddOnStatus] {
+	return pulumix.Output[*InstanceAddOnStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceAddOnStatusPtrOutput) Elem() InstanceAddOnStatusOutput {
 	return o.ApplyT(func(v *InstanceAddOnStatus) InstanceAddOnStatus {
 		if v != nil {
@@ -325,16 +343,10 @@ func (o InstanceAddOnStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceAddOnStatusInput is an input type that accepts values of the InstanceAddOnStatus enum
-// A concrete instance of `InstanceAddOnStatusInput` can be one of the following:
+// InstanceAddOnStatusInput is an input type that accepts InstanceAddOnStatusArgs and InstanceAddOnStatusOutput values.
+// You can construct a concrete instance of `InstanceAddOnStatusInput` via:
 //
-//	InstanceAddOnStatusEnabling
-//	InstanceAddOnStatusDisabling
-//	InstanceAddOnStatusEnabled
-//	InstanceAddOnStatusTerminating
-//	InstanceAddOnStatusTerminated
-//	InstanceAddOnStatusDisabled
-//	InstanceAddOnStatusFailed
+//	InstanceAddOnStatusArgs{...}
 type InstanceAddOnStatusInput interface {
 	pulumi.Input
 

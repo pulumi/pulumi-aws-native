@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This structure contains information about one delivery destination in your account.
@@ -133,6 +134,12 @@ func (i *DeliveryDestination) ToDeliveryDestinationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryDestinationOutput)
 }
 
+func (i *DeliveryDestination) ToOutput(ctx context.Context) pulumix.Output[*DeliveryDestination] {
+	return pulumix.Output[*DeliveryDestination]{
+		OutputState: i.ToDeliveryDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeliveryDestinationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryDestinationOutput) ElementType() reflect.Type {
@@ -145,6 +152,12 @@ func (o DeliveryDestinationOutput) ToDeliveryDestinationOutput() DeliveryDestina
 
 func (o DeliveryDestinationOutput) ToDeliveryDestinationOutputWithContext(ctx context.Context) DeliveryDestinationOutput {
 	return o
+}
+
+func (o DeliveryDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryDestination] {
+	return pulumix.Output[*DeliveryDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.

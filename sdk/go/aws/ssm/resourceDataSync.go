@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSM::ResourceDataSync
@@ -128,6 +129,12 @@ func (i *ResourceDataSync) ToResourceDataSyncOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncOutput)
 }
 
+func (i *ResourceDataSync) ToOutput(ctx context.Context) pulumix.Output[*ResourceDataSync] {
+	return pulumix.Output[*ResourceDataSync]{
+		OutputState: i.ToResourceDataSyncOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceDataSyncOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncOutput) ElementType() reflect.Type {
@@ -140,6 +147,12 @@ func (o ResourceDataSyncOutput) ToResourceDataSyncOutput() ResourceDataSyncOutpu
 
 func (o ResourceDataSyncOutput) ToResourceDataSyncOutputWithContext(ctx context.Context) ResourceDataSyncOutput {
 	return o
+}
+
+func (o ResourceDataSyncOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDataSync] {
+	return pulumix.Output[*ResourceDataSync]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceDataSyncOutput) BucketName() pulumi.StringPtrOutput {

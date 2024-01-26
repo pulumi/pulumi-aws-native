@@ -77,6 +77,12 @@ func (o GeofenceCollectionPricingPlanOutput) ToGeofenceCollectionPricingPlanPtrO
 	}).(GeofenceCollectionPricingPlanPtrOutput)
 }
 
+func (o GeofenceCollectionPricingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[GeofenceCollectionPricingPlan] {
+	return pulumix.Output[GeofenceCollectionPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GeofenceCollectionPricingPlanOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +118,12 @@ func (o GeofenceCollectionPricingPlanPtrOutput) ToGeofenceCollectionPricingPlanP
 	return o
 }
 
+func (o GeofenceCollectionPricingPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GeofenceCollectionPricingPlan] {
+	return pulumix.Output[*GeofenceCollectionPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GeofenceCollectionPricingPlanPtrOutput) Elem() GeofenceCollectionPricingPlanOutput {
 	return o.ApplyT(func(v *GeofenceCollectionPricingPlan) GeofenceCollectionPricingPlan {
 		if v != nil {
@@ -136,10 +148,10 @@ func (o GeofenceCollectionPricingPlanPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// GeofenceCollectionPricingPlanInput is an input type that accepts values of the GeofenceCollectionPricingPlan enum
-// A concrete instance of `GeofenceCollectionPricingPlanInput` can be one of the following:
+// GeofenceCollectionPricingPlanInput is an input type that accepts GeofenceCollectionPricingPlanArgs and GeofenceCollectionPricingPlanOutput values.
+// You can construct a concrete instance of `GeofenceCollectionPricingPlanInput` via:
 //
-//	GeofenceCollectionPricingPlanRequestBasedUsage
+//	GeofenceCollectionPricingPlanArgs{...}
 type GeofenceCollectionPricingPlanInput interface {
 	pulumi.Input
 
@@ -246,6 +258,12 @@ func (o MapPricingPlanOutput) ToMapPricingPlanPtrOutputWithContext(ctx context.C
 	}).(MapPricingPlanPtrOutput)
 }
 
+func (o MapPricingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[MapPricingPlan] {
+	return pulumix.Output[MapPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MapPricingPlanOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -281,6 +299,12 @@ func (o MapPricingPlanPtrOutput) ToMapPricingPlanPtrOutputWithContext(ctx contex
 	return o
 }
 
+func (o MapPricingPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MapPricingPlan] {
+	return pulumix.Output[*MapPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MapPricingPlanPtrOutput) Elem() MapPricingPlanOutput {
 	return o.ApplyT(func(v *MapPricingPlan) MapPricingPlan {
 		if v != nil {
@@ -305,10 +329,10 @@ func (o MapPricingPlanPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// MapPricingPlanInput is an input type that accepts values of the MapPricingPlan enum
-// A concrete instance of `MapPricingPlanInput` can be one of the following:
+// MapPricingPlanInput is an input type that accepts MapPricingPlanArgs and MapPricingPlanOutput values.
+// You can construct a concrete instance of `MapPricingPlanInput` via:
 //
-//	MapPricingPlanRequestBasedUsage
+//	MapPricingPlanArgs{...}
 type MapPricingPlanInput interface {
 	pulumi.Input
 
@@ -416,6 +440,12 @@ func (o PlaceIndexIntendedUseOutput) ToPlaceIndexIntendedUsePtrOutputWithContext
 	}).(PlaceIndexIntendedUsePtrOutput)
 }
 
+func (o PlaceIndexIntendedUseOutput) ToOutput(ctx context.Context) pulumix.Output[PlaceIndexIntendedUse] {
+	return pulumix.Output[PlaceIndexIntendedUse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaceIndexIntendedUseOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -451,6 +481,12 @@ func (o PlaceIndexIntendedUsePtrOutput) ToPlaceIndexIntendedUsePtrOutputWithCont
 	return o
 }
 
+func (o PlaceIndexIntendedUsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndexIntendedUse] {
+	return pulumix.Output[*PlaceIndexIntendedUse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaceIndexIntendedUsePtrOutput) Elem() PlaceIndexIntendedUseOutput {
 	return o.ApplyT(func(v *PlaceIndexIntendedUse) PlaceIndexIntendedUse {
 		if v != nil {
@@ -475,11 +511,10 @@ func (o PlaceIndexIntendedUsePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// PlaceIndexIntendedUseInput is an input type that accepts values of the PlaceIndexIntendedUse enum
-// A concrete instance of `PlaceIndexIntendedUseInput` can be one of the following:
+// PlaceIndexIntendedUseInput is an input type that accepts PlaceIndexIntendedUseArgs and PlaceIndexIntendedUseOutput values.
+// You can construct a concrete instance of `PlaceIndexIntendedUseInput` via:
 //
-//	PlaceIndexIntendedUseSingleUse
-//	PlaceIndexIntendedUseStorage
+//	PlaceIndexIntendedUseArgs{...}
 type PlaceIndexIntendedUseInput interface {
 	pulumi.Input
 
@@ -586,6 +621,12 @@ func (o PlaceIndexPricingPlanOutput) ToPlaceIndexPricingPlanPtrOutputWithContext
 	}).(PlaceIndexPricingPlanPtrOutput)
 }
 
+func (o PlaceIndexPricingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[PlaceIndexPricingPlan] {
+	return pulumix.Output[PlaceIndexPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaceIndexPricingPlanOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -621,6 +662,12 @@ func (o PlaceIndexPricingPlanPtrOutput) ToPlaceIndexPricingPlanPtrOutputWithCont
 	return o
 }
 
+func (o PlaceIndexPricingPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndexPricingPlan] {
+	return pulumix.Output[*PlaceIndexPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaceIndexPricingPlanPtrOutput) Elem() PlaceIndexPricingPlanOutput {
 	return o.ApplyT(func(v *PlaceIndexPricingPlan) PlaceIndexPricingPlan {
 		if v != nil {
@@ -645,10 +692,10 @@ func (o PlaceIndexPricingPlanPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// PlaceIndexPricingPlanInput is an input type that accepts values of the PlaceIndexPricingPlan enum
-// A concrete instance of `PlaceIndexPricingPlanInput` can be one of the following:
+// PlaceIndexPricingPlanInput is an input type that accepts PlaceIndexPricingPlanArgs and PlaceIndexPricingPlanOutput values.
+// You can construct a concrete instance of `PlaceIndexPricingPlanInput` via:
 //
-//	PlaceIndexPricingPlanRequestBasedUsage
+//	PlaceIndexPricingPlanArgs{...}
 type PlaceIndexPricingPlanInput interface {
 	pulumi.Input
 
@@ -755,6 +802,12 @@ func (o RouteCalculatorPricingPlanOutput) ToRouteCalculatorPricingPlanPtrOutputW
 	}).(RouteCalculatorPricingPlanPtrOutput)
 }
 
+func (o RouteCalculatorPricingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[RouteCalculatorPricingPlan] {
+	return pulumix.Output[RouteCalculatorPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteCalculatorPricingPlanOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -790,6 +843,12 @@ func (o RouteCalculatorPricingPlanPtrOutput) ToRouteCalculatorPricingPlanPtrOutp
 	return o
 }
 
+func (o RouteCalculatorPricingPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteCalculatorPricingPlan] {
+	return pulumix.Output[*RouteCalculatorPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteCalculatorPricingPlanPtrOutput) Elem() RouteCalculatorPricingPlanOutput {
 	return o.ApplyT(func(v *RouteCalculatorPricingPlan) RouteCalculatorPricingPlan {
 		if v != nil {
@@ -814,10 +873,10 @@ func (o RouteCalculatorPricingPlanPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// RouteCalculatorPricingPlanInput is an input type that accepts values of the RouteCalculatorPricingPlan enum
-// A concrete instance of `RouteCalculatorPricingPlanInput` can be one of the following:
+// RouteCalculatorPricingPlanInput is an input type that accepts RouteCalculatorPricingPlanArgs and RouteCalculatorPricingPlanOutput values.
+// You can construct a concrete instance of `RouteCalculatorPricingPlanInput` via:
 //
-//	RouteCalculatorPricingPlanRequestBasedUsage
+//	RouteCalculatorPricingPlanArgs{...}
 type RouteCalculatorPricingPlanInput interface {
 	pulumi.Input
 
@@ -926,6 +985,12 @@ func (o TrackerPositionFilteringOutput) ToTrackerPositionFilteringPtrOutputWithC
 	}).(TrackerPositionFilteringPtrOutput)
 }
 
+func (o TrackerPositionFilteringOutput) ToOutput(ctx context.Context) pulumix.Output[TrackerPositionFiltering] {
+	return pulumix.Output[TrackerPositionFiltering]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrackerPositionFilteringOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -961,6 +1026,12 @@ func (o TrackerPositionFilteringPtrOutput) ToTrackerPositionFilteringPtrOutputWi
 	return o
 }
 
+func (o TrackerPositionFilteringPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrackerPositionFiltering] {
+	return pulumix.Output[*TrackerPositionFiltering]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrackerPositionFilteringPtrOutput) Elem() TrackerPositionFilteringOutput {
 	return o.ApplyT(func(v *TrackerPositionFiltering) TrackerPositionFiltering {
 		if v != nil {
@@ -985,12 +1056,10 @@ func (o TrackerPositionFilteringPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TrackerPositionFilteringInput is an input type that accepts values of the TrackerPositionFiltering enum
-// A concrete instance of `TrackerPositionFilteringInput` can be one of the following:
+// TrackerPositionFilteringInput is an input type that accepts TrackerPositionFilteringArgs and TrackerPositionFilteringOutput values.
+// You can construct a concrete instance of `TrackerPositionFilteringInput` via:
 //
-//	TrackerPositionFilteringTimeBased
-//	TrackerPositionFilteringDistanceBased
-//	TrackerPositionFilteringAccuracyBased
+//	TrackerPositionFilteringArgs{...}
 type TrackerPositionFilteringInput interface {
 	pulumi.Input
 
@@ -1097,6 +1166,12 @@ func (o TrackerPricingPlanOutput) ToTrackerPricingPlanPtrOutputWithContext(ctx c
 	}).(TrackerPricingPlanPtrOutput)
 }
 
+func (o TrackerPricingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[TrackerPricingPlan] {
+	return pulumix.Output[TrackerPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrackerPricingPlanOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1132,6 +1207,12 @@ func (o TrackerPricingPlanPtrOutput) ToTrackerPricingPlanPtrOutputWithContext(ct
 	return o
 }
 
+func (o TrackerPricingPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrackerPricingPlan] {
+	return pulumix.Output[*TrackerPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrackerPricingPlanPtrOutput) Elem() TrackerPricingPlanOutput {
 	return o.ApplyT(func(v *TrackerPricingPlan) TrackerPricingPlan {
 		if v != nil {
@@ -1156,10 +1237,10 @@ func (o TrackerPricingPlanPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TrackerPricingPlanInput is an input type that accepts values of the TrackerPricingPlan enum
-// A concrete instance of `TrackerPricingPlanInput` can be one of the following:
+// TrackerPricingPlanInput is an input type that accepts TrackerPricingPlanArgs and TrackerPricingPlanOutput values.
+// You can construct a concrete instance of `TrackerPricingPlanInput` via:
 //
-//	TrackerPricingPlanRequestBasedUsage
+//	TrackerPricingPlanArgs{...}
 type TrackerPricingPlanInput interface {
 	pulumi.Input
 

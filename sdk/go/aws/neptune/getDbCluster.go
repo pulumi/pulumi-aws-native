@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
@@ -104,6 +105,12 @@ func (o LookupDbClusterResultOutput) ToLookupDbClusterResultOutput() LookupDbClu
 
 func (o LookupDbClusterResultOutput) ToLookupDbClusterResultOutputWithContext(ctx context.Context) LookupDbClusterResultOutput {
 	return o
+}
+
+func (o LookupDbClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDbClusterResult] {
+	return pulumix.Output[LookupDbClusterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.

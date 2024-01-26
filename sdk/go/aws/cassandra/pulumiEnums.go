@@ -92,6 +92,12 @@ func (o KeyspaceRegionListItemOutput) ToKeyspaceRegionListItemPtrOutputWithConte
 	}).(KeyspaceRegionListItemPtrOutput)
 }
 
+func (o KeyspaceRegionListItemOutput) ToOutput(ctx context.Context) pulumix.Output[KeyspaceRegionListItem] {
+	return pulumix.Output[KeyspaceRegionListItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyspaceRegionListItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -127,6 +133,12 @@ func (o KeyspaceRegionListItemPtrOutput) ToKeyspaceRegionListItemPtrOutputWithCo
 	return o
 }
 
+func (o KeyspaceRegionListItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyspaceRegionListItem] {
+	return pulumix.Output[*KeyspaceRegionListItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyspaceRegionListItemPtrOutput) Elem() KeyspaceRegionListItemOutput {
 	return o.ApplyT(func(v *KeyspaceRegionListItem) KeyspaceRegionListItem {
 		if v != nil {
@@ -151,25 +163,10 @@ func (o KeyspaceRegionListItemPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyspaceRegionListItemInput is an input type that accepts values of the KeyspaceRegionListItem enum
-// A concrete instance of `KeyspaceRegionListItemInput` can be one of the following:
+// KeyspaceRegionListItemInput is an input type that accepts KeyspaceRegionListItemArgs and KeyspaceRegionListItemOutput values.
+// You can construct a concrete instance of `KeyspaceRegionListItemInput` via:
 //
-//	KeyspaceRegionListItemApNortheast1
-//	KeyspaceRegionListItemApNortheast2
-//	KeyspaceRegionListItemApSouth1
-//	KeyspaceRegionListItemApSoutheast1
-//	KeyspaceRegionListItemApSoutheast2
-//	KeyspaceRegionListItemCaCentral1
-//	KeyspaceRegionListItemEuCentral1
-//	KeyspaceRegionListItemEuNorth1
-//	KeyspaceRegionListItemEuWest1
-//	KeyspaceRegionListItemEuWest2
-//	KeyspaceRegionListItemEuWest3
-//	KeyspaceRegionListItemSaEast1
-//	KeyspaceRegionListItemUsEast1
-//	KeyspaceRegionListItemUsEast2
-//	KeyspaceRegionListItemUsWest1
-//	KeyspaceRegionListItemUsWest2
+//	KeyspaceRegionListItemArgs{...}
 type KeyspaceRegionListItemInput interface {
 	pulumi.Input
 
@@ -235,6 +232,12 @@ func (i KeyspaceRegionListItemArray) ToKeyspaceRegionListItemArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceRegionListItemArrayOutput)
 }
 
+func (i KeyspaceRegionListItemArray) ToOutput(ctx context.Context) pulumix.Output[[]KeyspaceRegionListItem] {
+	return pulumix.Output[[]KeyspaceRegionListItem]{
+		OutputState: i.ToKeyspaceRegionListItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KeyspaceRegionListItemArrayOutput struct{ *pulumi.OutputState }
 
 func (KeyspaceRegionListItemArrayOutput) ElementType() reflect.Type {
@@ -247,6 +250,12 @@ func (o KeyspaceRegionListItemArrayOutput) ToKeyspaceRegionListItemArrayOutput()
 
 func (o KeyspaceRegionListItemArrayOutput) ToKeyspaceRegionListItemArrayOutputWithContext(ctx context.Context) KeyspaceRegionListItemArrayOutput {
 	return o
+}
+
+func (o KeyspaceRegionListItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KeyspaceRegionListItem] {
+	return pulumix.Output[[]KeyspaceRegionListItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KeyspaceRegionListItemArrayOutput) Index(i pulumi.IntInput) KeyspaceRegionListItemOutput {
@@ -322,6 +331,12 @@ func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToKeyspaceRep
 	}).(KeyspaceReplicationSpecificationReplicationStrategyPtrOutput)
 }
 
+func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[KeyspaceReplicationSpecificationReplicationStrategy] {
+	return pulumix.Output[KeyspaceReplicationSpecificationReplicationStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -357,6 +372,12 @@ func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) ToKeyspace
 	return o
 }
 
+func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyspaceReplicationSpecificationReplicationStrategy] {
+	return pulumix.Output[*KeyspaceReplicationSpecificationReplicationStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) Elem() KeyspaceReplicationSpecificationReplicationStrategyOutput {
 	return o.ApplyT(func(v *KeyspaceReplicationSpecificationReplicationStrategy) KeyspaceReplicationSpecificationReplicationStrategy {
 		if v != nil {
@@ -381,11 +402,10 @@ func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyspaceReplicationSpecificationReplicationStrategyInput is an input type that accepts values of the KeyspaceReplicationSpecificationReplicationStrategy enum
-// A concrete instance of `KeyspaceReplicationSpecificationReplicationStrategyInput` can be one of the following:
+// KeyspaceReplicationSpecificationReplicationStrategyInput is an input type that accepts KeyspaceReplicationSpecificationReplicationStrategyArgs and KeyspaceReplicationSpecificationReplicationStrategyOutput values.
+// You can construct a concrete instance of `KeyspaceReplicationSpecificationReplicationStrategyInput` via:
 //
-//	KeyspaceReplicationSpecificationReplicationStrategySingleRegion
-//	KeyspaceReplicationSpecificationReplicationStrategyMultiRegion
+//	KeyspaceReplicationSpecificationReplicationStrategyArgs{...}
 type KeyspaceReplicationSpecificationReplicationStrategyInput interface {
 	pulumi.Input
 
@@ -493,6 +513,12 @@ func (o TableClusteringKeyColumnOrderByOutput) ToTableClusteringKeyColumnOrderBy
 	}).(TableClusteringKeyColumnOrderByPtrOutput)
 }
 
+func (o TableClusteringKeyColumnOrderByOutput) ToOutput(ctx context.Context) pulumix.Output[TableClusteringKeyColumnOrderBy] {
+	return pulumix.Output[TableClusteringKeyColumnOrderBy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TableClusteringKeyColumnOrderByOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -528,6 +554,12 @@ func (o TableClusteringKeyColumnOrderByPtrOutput) ToTableClusteringKeyColumnOrde
 	return o
 }
 
+func (o TableClusteringKeyColumnOrderByPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableClusteringKeyColumnOrderBy] {
+	return pulumix.Output[*TableClusteringKeyColumnOrderBy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TableClusteringKeyColumnOrderByPtrOutput) Elem() TableClusteringKeyColumnOrderByOutput {
 	return o.ApplyT(func(v *TableClusteringKeyColumnOrderBy) TableClusteringKeyColumnOrderBy {
 		if v != nil {
@@ -552,11 +584,10 @@ func (o TableClusteringKeyColumnOrderByPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TableClusteringKeyColumnOrderByInput is an input type that accepts values of the TableClusteringKeyColumnOrderBy enum
-// A concrete instance of `TableClusteringKeyColumnOrderByInput` can be one of the following:
+// TableClusteringKeyColumnOrderByInput is an input type that accepts TableClusteringKeyColumnOrderByArgs and TableClusteringKeyColumnOrderByOutput values.
+// You can construct a concrete instance of `TableClusteringKeyColumnOrderByInput` via:
 //
-//	TableClusteringKeyColumnOrderByAsc
-//	TableClusteringKeyColumnOrderByDesc
+//	TableClusteringKeyColumnOrderByArgs{...}
 type TableClusteringKeyColumnOrderByInput interface {
 	pulumi.Input
 
@@ -665,6 +696,12 @@ func (o TableEncryptionTypeOutput) ToTableEncryptionTypePtrOutputWithContext(ctx
 	}).(TableEncryptionTypePtrOutput)
 }
 
+func (o TableEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TableEncryptionType] {
+	return pulumix.Output[TableEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TableEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -700,6 +737,12 @@ func (o TableEncryptionTypePtrOutput) ToTableEncryptionTypePtrOutputWithContext(
 	return o
 }
 
+func (o TableEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableEncryptionType] {
+	return pulumix.Output[*TableEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TableEncryptionTypePtrOutput) Elem() TableEncryptionTypeOutput {
 	return o.ApplyT(func(v *TableEncryptionType) TableEncryptionType {
 		if v != nil {
@@ -724,11 +767,10 @@ func (o TableEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// TableEncryptionTypeInput is an input type that accepts values of the TableEncryptionType enum
-// A concrete instance of `TableEncryptionTypeInput` can be one of the following:
+// TableEncryptionTypeInput is an input type that accepts TableEncryptionTypeArgs and TableEncryptionTypeOutput values.
+// You can construct a concrete instance of `TableEncryptionTypeInput` via:
 //
-//	TableEncryptionTypeAwsOwnedKmsKey
-//	TableEncryptionTypeCustomerManagedKmsKey
+//	TableEncryptionTypeArgs{...}
 type TableEncryptionTypeInput interface {
 	pulumi.Input
 
@@ -837,6 +879,12 @@ func (o TableModeOutput) ToTableModePtrOutputWithContext(ctx context.Context) Ta
 	}).(TableModePtrOutput)
 }
 
+func (o TableModeOutput) ToOutput(ctx context.Context) pulumix.Output[TableMode] {
+	return pulumix.Output[TableMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TableModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -872,6 +920,12 @@ func (o TableModePtrOutput) ToTableModePtrOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o TableModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableMode] {
+	return pulumix.Output[*TableMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TableModePtrOutput) Elem() TableModeOutput {
 	return o.ApplyT(func(v *TableMode) TableMode {
 		if v != nil {
@@ -896,11 +950,10 @@ func (o TableModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// TableModeInput is an input type that accepts values of the TableMode enum
-// A concrete instance of `TableModeInput` can be one of the following:
+// TableModeInput is an input type that accepts TableModeArgs and TableModeOutput values.
+// You can construct a concrete instance of `TableModeInput` via:
 //
-//	TableModeProvisioned
-//	TableModeOnDemand
+//	TableModeArgs{...}
 type TableModeInput interface {
 	pulumi.Input
 

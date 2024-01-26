@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Events::ApiDestination.
@@ -129,6 +130,12 @@ func (i *ApiDestination) ToApiDestinationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDestinationOutput)
 }
 
+func (i *ApiDestination) ToOutput(ctx context.Context) pulumix.Output[*ApiDestination] {
+	return pulumix.Output[*ApiDestination]{
+		OutputState: i.ToApiDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDestinationOutput struct{ *pulumi.OutputState }
 
 func (ApiDestinationOutput) ElementType() reflect.Type {
@@ -141,6 +148,12 @@ func (o ApiDestinationOutput) ToApiDestinationOutput() ApiDestinationOutput {
 
 func (o ApiDestinationOutput) ToApiDestinationOutputWithContext(ctx context.Context) ApiDestinationOutput {
 	return o
+}
+
+func (o ApiDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiDestination] {
+	return pulumix.Output[*ApiDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The arn of the api destination.

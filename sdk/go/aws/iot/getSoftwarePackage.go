@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // resource definition
@@ -66,6 +67,12 @@ func (o LookupSoftwarePackageResultOutput) ToLookupSoftwarePackageResultOutput()
 
 func (o LookupSoftwarePackageResultOutput) ToLookupSoftwarePackageResultOutputWithContext(ctx context.Context) LookupSoftwarePackageResultOutput {
 	return o
+}
+
+func (o LookupSoftwarePackageResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSoftwarePackageResult] {
+	return pulumix.Output[LookupSoftwarePackageResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSoftwarePackageResultOutput) Description() pulumi.StringPtrOutput {

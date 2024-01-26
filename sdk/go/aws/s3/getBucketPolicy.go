@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::S3::BucketPolicy
@@ -66,6 +67,12 @@ func (o LookupBucketPolicyResultOutput) ToLookupBucketPolicyResultOutput() Looku
 
 func (o LookupBucketPolicyResultOutput) ToLookupBucketPolicyResultOutputWithContext(ctx context.Context) LookupBucketPolicyResultOutput {
 	return o
+}
+
+func (o LookupBucketPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBucketPolicyResult] {
+	return pulumix.Output[LookupBucketPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.

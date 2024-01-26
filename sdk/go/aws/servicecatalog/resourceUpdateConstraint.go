@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::ResourceUpdateConstraint
@@ -118,6 +119,12 @@ func (i *ResourceUpdateConstraint) ToResourceUpdateConstraintOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceUpdateConstraintOutput)
 }
 
+func (i *ResourceUpdateConstraint) ToOutput(ctx context.Context) pulumix.Output[*ResourceUpdateConstraint] {
+	return pulumix.Output[*ResourceUpdateConstraint]{
+		OutputState: i.ToResourceUpdateConstraintOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceUpdateConstraintOutput struct{ *pulumi.OutputState }
 
 func (ResourceUpdateConstraintOutput) ElementType() reflect.Type {
@@ -130,6 +137,12 @@ func (o ResourceUpdateConstraintOutput) ToResourceUpdateConstraintOutput() Resou
 
 func (o ResourceUpdateConstraintOutput) ToResourceUpdateConstraintOutputWithContext(ctx context.Context) ResourceUpdateConstraintOutput {
 	return o
+}
+
+func (o ResourceUpdateConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceUpdateConstraint] {
+	return pulumix.Output[*ResourceUpdateConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceUpdateConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {

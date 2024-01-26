@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::ImageBuilder
@@ -76,6 +77,12 @@ func (o LookupImageBuilderResultOutput) ToLookupImageBuilderResultOutput() Looku
 
 func (o LookupImageBuilderResultOutput) ToLookupImageBuilderResultOutputWithContext(ctx context.Context) LookupImageBuilderResultOutput {
 	return o
+}
+
+func (o LookupImageBuilderResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupImageBuilderResult] {
+	return pulumix.Output[LookupImageBuilderResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupImageBuilderResultOutput) AccessEndpoints() ImageBuilderAccessEndpointArrayOutput {

@@ -77,6 +77,12 @@ func (o CapabilityTypeOutput) ToCapabilityTypePtrOutputWithContext(ctx context.C
 	}).(CapabilityTypePtrOutput)
 }
 
+func (o CapabilityTypeOutput) ToOutput(ctx context.Context) pulumix.Output[CapabilityType] {
+	return pulumix.Output[CapabilityType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapabilityTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +118,12 @@ func (o CapabilityTypePtrOutput) ToCapabilityTypePtrOutputWithContext(ctx contex
 	return o
 }
 
+func (o CapabilityTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapabilityType] {
+	return pulumix.Output[*CapabilityType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapabilityTypePtrOutput) Elem() CapabilityTypeOutput {
 	return o.ApplyT(func(v *CapabilityType) CapabilityType {
 		if v != nil {
@@ -136,10 +148,10 @@ func (o CapabilityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// CapabilityTypeInput is an input type that accepts values of the CapabilityType enum
-// A concrete instance of `CapabilityTypeInput` can be one of the following:
+// CapabilityTypeInput is an input type that accepts CapabilityTypeArgs and CapabilityTypeOutput values.
+// You can construct a concrete instance of `CapabilityTypeInput` via:
 //
-//	CapabilityTypeEdi
+//	CapabilityTypeArgs{...}
 type CapabilityTypeInput interface {
 	pulumi.Input
 
@@ -270,6 +282,12 @@ func (o CapabilityX12TransactionSetOutput) ToCapabilityX12TransactionSetPtrOutpu
 	}).(CapabilityX12TransactionSetPtrOutput)
 }
 
+func (o CapabilityX12TransactionSetOutput) ToOutput(ctx context.Context) pulumix.Output[CapabilityX12TransactionSet] {
+	return pulumix.Output[CapabilityX12TransactionSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapabilityX12TransactionSetOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -305,6 +323,12 @@ func (o CapabilityX12TransactionSetPtrOutput) ToCapabilityX12TransactionSetPtrOu
 	return o
 }
 
+func (o CapabilityX12TransactionSetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapabilityX12TransactionSet] {
+	return pulumix.Output[*CapabilityX12TransactionSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapabilityX12TransactionSetPtrOutput) Elem() CapabilityX12TransactionSetOutput {
 	return o.ApplyT(func(v *CapabilityX12TransactionSet) CapabilityX12TransactionSet {
 		if v != nil {
@@ -329,34 +353,10 @@ func (o CapabilityX12TransactionSetPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// CapabilityX12TransactionSetInput is an input type that accepts values of the CapabilityX12TransactionSet enum
-// A concrete instance of `CapabilityX12TransactionSetInput` can be one of the following:
+// CapabilityX12TransactionSetInput is an input type that accepts CapabilityX12TransactionSetArgs and CapabilityX12TransactionSetOutput values.
+// You can construct a concrete instance of `CapabilityX12TransactionSetInput` via:
 //
-//	CapabilityX12TransactionSetX12110
-//	CapabilityX12TransactionSetX12180
-//	CapabilityX12TransactionSetX12204
-//	CapabilityX12TransactionSetX12210
-//	CapabilityX12TransactionSetX12214
-//	CapabilityX12TransactionSetX12215
-//	CapabilityX12TransactionSetX12310
-//	CapabilityX12TransactionSetX12315
-//	CapabilityX12TransactionSetX12322
-//	CapabilityX12TransactionSetX12404
-//	CapabilityX12TransactionSetX12410
-//	CapabilityX12TransactionSetX12820
-//	CapabilityX12TransactionSetX12824
-//	CapabilityX12TransactionSetX12830
-//	CapabilityX12TransactionSetX12846
-//	CapabilityX12TransactionSetX12850
-//	CapabilityX12TransactionSetX12852
-//	CapabilityX12TransactionSetX12855
-//	CapabilityX12TransactionSetX12856
-//	CapabilityX12TransactionSetX12860
-//	CapabilityX12TransactionSetX12861
-//	CapabilityX12TransactionSetX12864
-//	CapabilityX12TransactionSetX12940
-//	CapabilityX12TransactionSetX12990
-//	CapabilityX12TransactionSetX12997
+//	CapabilityX12TransactionSetArgs{...}
 type CapabilityX12TransactionSetInput interface {
 	pulumi.Input
 
@@ -465,6 +465,12 @@ func (o CapabilityX12VersionOutput) ToCapabilityX12VersionPtrOutputWithContext(c
 	}).(CapabilityX12VersionPtrOutput)
 }
 
+func (o CapabilityX12VersionOutput) ToOutput(ctx context.Context) pulumix.Output[CapabilityX12Version] {
+	return pulumix.Output[CapabilityX12Version]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapabilityX12VersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -500,6 +506,12 @@ func (o CapabilityX12VersionPtrOutput) ToCapabilityX12VersionPtrOutputWithContex
 	return o
 }
 
+func (o CapabilityX12VersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapabilityX12Version] {
+	return pulumix.Output[*CapabilityX12Version]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapabilityX12VersionPtrOutput) Elem() CapabilityX12VersionOutput {
 	return o.ApplyT(func(v *CapabilityX12Version) CapabilityX12Version {
 		if v != nil {
@@ -524,12 +536,10 @@ func (o CapabilityX12VersionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// CapabilityX12VersionInput is an input type that accepts values of the CapabilityX12Version enum
-// A concrete instance of `CapabilityX12VersionInput` can be one of the following:
+// CapabilityX12VersionInput is an input type that accepts CapabilityX12VersionArgs and CapabilityX12VersionOutput values.
+// You can construct a concrete instance of `CapabilityX12VersionInput` via:
 //
-//	CapabilityX12VersionVersion4010
-//	CapabilityX12VersionVersion4030
-//	CapabilityX12VersionVersion5010
+//	CapabilityX12VersionArgs{...}
 type CapabilityX12VersionInput interface {
 	pulumi.Input
 
@@ -637,6 +647,12 @@ func (o ProfileLoggingOutput) ToProfileLoggingPtrOutputWithContext(ctx context.C
 	}).(ProfileLoggingPtrOutput)
 }
 
+func (o ProfileLoggingOutput) ToOutput(ctx context.Context) pulumix.Output[ProfileLogging] {
+	return pulumix.Output[ProfileLogging]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProfileLoggingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -672,6 +688,12 @@ func (o ProfileLoggingPtrOutput) ToProfileLoggingPtrOutputWithContext(ctx contex
 	return o
 }
 
+func (o ProfileLoggingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfileLogging] {
+	return pulumix.Output[*ProfileLogging]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProfileLoggingPtrOutput) Elem() ProfileLoggingOutput {
 	return o.ApplyT(func(v *ProfileLogging) ProfileLogging {
 		if v != nil {
@@ -696,11 +718,10 @@ func (o ProfileLoggingPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProfileLoggingInput is an input type that accepts values of the ProfileLogging enum
-// A concrete instance of `ProfileLoggingInput` can be one of the following:
+// ProfileLoggingInput is an input type that accepts ProfileLoggingArgs and ProfileLoggingOutput values.
+// You can construct a concrete instance of `ProfileLoggingInput` via:
 //
-//	ProfileLoggingEnabled
-//	ProfileLoggingDisabled
+//	ProfileLoggingArgs{...}
 type ProfileLoggingInput interface {
 	pulumi.Input
 
@@ -808,6 +829,12 @@ func (o TransformerFileFormatOutput) ToTransformerFileFormatPtrOutputWithContext
 	}).(TransformerFileFormatPtrOutput)
 }
 
+func (o TransformerFileFormatOutput) ToOutput(ctx context.Context) pulumix.Output[TransformerFileFormat] {
+	return pulumix.Output[TransformerFileFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransformerFileFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -843,6 +870,12 @@ func (o TransformerFileFormatPtrOutput) ToTransformerFileFormatPtrOutputWithCont
 	return o
 }
 
+func (o TransformerFileFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformerFileFormat] {
+	return pulumix.Output[*TransformerFileFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransformerFileFormatPtrOutput) Elem() TransformerFileFormatOutput {
 	return o.ApplyT(func(v *TransformerFileFormat) TransformerFileFormat {
 		if v != nil {
@@ -867,11 +900,10 @@ func (o TransformerFileFormatPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// TransformerFileFormatInput is an input type that accepts values of the TransformerFileFormat enum
-// A concrete instance of `TransformerFileFormatInput` can be one of the following:
+// TransformerFileFormatInput is an input type that accepts TransformerFileFormatArgs and TransformerFileFormatOutput values.
+// You can construct a concrete instance of `TransformerFileFormatInput` via:
 //
-//	TransformerFileFormatXml
-//	TransformerFileFormatJson
+//	TransformerFileFormatArgs{...}
 type TransformerFileFormatInput interface {
 	pulumi.Input
 
@@ -979,6 +1011,12 @@ func (o TransformerStatusOutput) ToTransformerStatusPtrOutputWithContext(ctx con
 	}).(TransformerStatusPtrOutput)
 }
 
+func (o TransformerStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TransformerStatus] {
+	return pulumix.Output[TransformerStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransformerStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1014,6 +1052,12 @@ func (o TransformerStatusPtrOutput) ToTransformerStatusPtrOutputWithContext(ctx 
 	return o
 }
 
+func (o TransformerStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformerStatus] {
+	return pulumix.Output[*TransformerStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransformerStatusPtrOutput) Elem() TransformerStatusOutput {
 	return o.ApplyT(func(v *TransformerStatus) TransformerStatus {
 		if v != nil {
@@ -1038,11 +1082,10 @@ func (o TransformerStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TransformerStatusInput is an input type that accepts values of the TransformerStatus enum
-// A concrete instance of `TransformerStatusInput` can be one of the following:
+// TransformerStatusInput is an input type that accepts TransformerStatusArgs and TransformerStatusOutput values.
+// You can construct a concrete instance of `TransformerStatusInput` via:
 //
-//	TransformerStatusActive
-//	TransformerStatusInactive
+//	TransformerStatusArgs{...}
 type TransformerStatusInput interface {
 	pulumi.Input
 
@@ -1173,6 +1216,12 @@ func (o TransformerX12TransactionSetOutput) ToTransformerX12TransactionSetPtrOut
 	}).(TransformerX12TransactionSetPtrOutput)
 }
 
+func (o TransformerX12TransactionSetOutput) ToOutput(ctx context.Context) pulumix.Output[TransformerX12TransactionSet] {
+	return pulumix.Output[TransformerX12TransactionSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransformerX12TransactionSetOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1208,6 +1257,12 @@ func (o TransformerX12TransactionSetPtrOutput) ToTransformerX12TransactionSetPtr
 	return o
 }
 
+func (o TransformerX12TransactionSetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformerX12TransactionSet] {
+	return pulumix.Output[*TransformerX12TransactionSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransformerX12TransactionSetPtrOutput) Elem() TransformerX12TransactionSetOutput {
 	return o.ApplyT(func(v *TransformerX12TransactionSet) TransformerX12TransactionSet {
 		if v != nil {
@@ -1232,34 +1287,10 @@ func (o TransformerX12TransactionSetPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// TransformerX12TransactionSetInput is an input type that accepts values of the TransformerX12TransactionSet enum
-// A concrete instance of `TransformerX12TransactionSetInput` can be one of the following:
+// TransformerX12TransactionSetInput is an input type that accepts TransformerX12TransactionSetArgs and TransformerX12TransactionSetOutput values.
+// You can construct a concrete instance of `TransformerX12TransactionSetInput` via:
 //
-//	TransformerX12TransactionSetX12110
-//	TransformerX12TransactionSetX12180
-//	TransformerX12TransactionSetX12204
-//	TransformerX12TransactionSetX12210
-//	TransformerX12TransactionSetX12214
-//	TransformerX12TransactionSetX12215
-//	TransformerX12TransactionSetX12310
-//	TransformerX12TransactionSetX12315
-//	TransformerX12TransactionSetX12322
-//	TransformerX12TransactionSetX12404
-//	TransformerX12TransactionSetX12410
-//	TransformerX12TransactionSetX12820
-//	TransformerX12TransactionSetX12824
-//	TransformerX12TransactionSetX12830
-//	TransformerX12TransactionSetX12846
-//	TransformerX12TransactionSetX12850
-//	TransformerX12TransactionSetX12852
-//	TransformerX12TransactionSetX12855
-//	TransformerX12TransactionSetX12856
-//	TransformerX12TransactionSetX12860
-//	TransformerX12TransactionSetX12861
-//	TransformerX12TransactionSetX12864
-//	TransformerX12TransactionSetX12940
-//	TransformerX12TransactionSetX12990
-//	TransformerX12TransactionSetX12997
+//	TransformerX12TransactionSetArgs{...}
 type TransformerX12TransactionSetInput interface {
 	pulumi.Input
 
@@ -1368,6 +1399,12 @@ func (o TransformerX12VersionOutput) ToTransformerX12VersionPtrOutputWithContext
 	}).(TransformerX12VersionPtrOutput)
 }
 
+func (o TransformerX12VersionOutput) ToOutput(ctx context.Context) pulumix.Output[TransformerX12Version] {
+	return pulumix.Output[TransformerX12Version]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransformerX12VersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1403,6 +1440,12 @@ func (o TransformerX12VersionPtrOutput) ToTransformerX12VersionPtrOutputWithCont
 	return o
 }
 
+func (o TransformerX12VersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformerX12Version] {
+	return pulumix.Output[*TransformerX12Version]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransformerX12VersionPtrOutput) Elem() TransformerX12VersionOutput {
 	return o.ApplyT(func(v *TransformerX12Version) TransformerX12Version {
 		if v != nil {
@@ -1427,12 +1470,10 @@ func (o TransformerX12VersionPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// TransformerX12VersionInput is an input type that accepts values of the TransformerX12Version enum
-// A concrete instance of `TransformerX12VersionInput` can be one of the following:
+// TransformerX12VersionInput is an input type that accepts TransformerX12VersionArgs and TransformerX12VersionOutput values.
+// You can construct a concrete instance of `TransformerX12VersionInput` via:
 //
-//	TransformerX12VersionVersion4010
-//	TransformerX12VersionVersion4030
-//	TransformerX12VersionVersion5010
+//	TransformerX12VersionArgs{...}
 type TransformerX12VersionInput interface {
 	pulumi.Input
 

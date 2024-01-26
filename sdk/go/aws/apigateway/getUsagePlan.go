@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::UsagePlan“ resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see [Creating and Using API Usage Plans in Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide*.
@@ -77,6 +78,12 @@ func (o LookupUsagePlanResultOutput) ToLookupUsagePlanResultOutput() LookupUsage
 
 func (o LookupUsagePlanResultOutput) ToLookupUsagePlanResultOutputWithContext(ctx context.Context) LookupUsagePlanResultOutput {
 	return o
+}
+
+func (o LookupUsagePlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUsagePlanResult] {
+	return pulumix.Output[LookupUsagePlanResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The associated API stages of a usage plan.

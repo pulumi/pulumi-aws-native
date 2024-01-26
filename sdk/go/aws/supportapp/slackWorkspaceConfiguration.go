@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An AWS Support App resource that creates, updates, lists, and deletes Slack workspace configurations.
@@ -106,6 +107,12 @@ func (i *SlackWorkspaceConfiguration) ToSlackWorkspaceConfigurationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SlackWorkspaceConfigurationOutput)
 }
 
+func (i *SlackWorkspaceConfiguration) ToOutput(ctx context.Context) pulumix.Output[*SlackWorkspaceConfiguration] {
+	return pulumix.Output[*SlackWorkspaceConfiguration]{
+		OutputState: i.ToSlackWorkspaceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SlackWorkspaceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SlackWorkspaceConfigurationOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o SlackWorkspaceConfigurationOutput) ToSlackWorkspaceConfigurationOutput()
 
 func (o SlackWorkspaceConfigurationOutput) ToSlackWorkspaceConfigurationOutputWithContext(ctx context.Context) SlackWorkspaceConfigurationOutput {
 	return o
+}
+
+func (o SlackWorkspaceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*SlackWorkspaceConfiguration] {
+	return pulumix.Output[*SlackWorkspaceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The team ID in Slack, which uniquely identifies a workspace.

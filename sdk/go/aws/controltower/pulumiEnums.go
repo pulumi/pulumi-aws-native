@@ -42,6 +42,12 @@ func (o LandingZoneDriftStatusOutput) ToLandingZoneDriftStatusPtrOutputWithConte
 	}).(LandingZoneDriftStatusPtrOutput)
 }
 
+func (o LandingZoneDriftStatusOutput) ToOutput(ctx context.Context) pulumix.Output[LandingZoneDriftStatus] {
+	return pulumix.Output[LandingZoneDriftStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LandingZoneDriftStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -75,6 +81,12 @@ func (o LandingZoneDriftStatusPtrOutput) ToLandingZoneDriftStatusPtrOutput() Lan
 
 func (o LandingZoneDriftStatusPtrOutput) ToLandingZoneDriftStatusPtrOutputWithContext(ctx context.Context) LandingZoneDriftStatusPtrOutput {
 	return o
+}
+
+func (o LandingZoneDriftStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LandingZoneDriftStatus] {
+	return pulumix.Output[*LandingZoneDriftStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LandingZoneDriftStatusPtrOutput) Elem() LandingZoneDriftStatusOutput {
@@ -133,6 +145,12 @@ func (o LandingZoneStatusOutput) ToLandingZoneStatusPtrOutputWithContext(ctx con
 	}).(LandingZoneStatusPtrOutput)
 }
 
+func (o LandingZoneStatusOutput) ToOutput(ctx context.Context) pulumix.Output[LandingZoneStatus] {
+	return pulumix.Output[LandingZoneStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LandingZoneStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -166,6 +184,12 @@ func (o LandingZoneStatusPtrOutput) ToLandingZoneStatusPtrOutput() LandingZoneSt
 
 func (o LandingZoneStatusPtrOutput) ToLandingZoneStatusPtrOutputWithContext(ctx context.Context) LandingZoneStatusPtrOutput {
 	return o
+}
+
+func (o LandingZoneStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LandingZoneStatus] {
+	return pulumix.Output[*LandingZoneStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LandingZoneStatusPtrOutput) Elem() LandingZoneStatusOutput {

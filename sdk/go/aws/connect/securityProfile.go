@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::SecurityProfile
@@ -139,6 +140,12 @@ func (i *SecurityProfile) ToSecurityProfileOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileOutput)
 }
 
+func (i *SecurityProfile) ToOutput(ctx context.Context) pulumix.Output[*SecurityProfile] {
+	return pulumix.Output[*SecurityProfile]{
+		OutputState: i.ToSecurityProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityProfileOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileOutput) ElementType() reflect.Type {
@@ -151,6 +158,12 @@ func (o SecurityProfileOutput) ToSecurityProfileOutput() SecurityProfileOutput {
 
 func (o SecurityProfileOutput) ToSecurityProfileOutputWithContext(ctx context.Context) SecurityProfileOutput {
 	return o
+}
+
+func (o SecurityProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityProfile] {
+	return pulumix.Output[*SecurityProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of tags that a security profile uses to restrict access to resources in Amazon Connect.

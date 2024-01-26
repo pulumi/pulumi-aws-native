@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceDiscovery::PublicDnsNamespace
@@ -106,6 +107,12 @@ func (i *PublicDnsNamespace) ToPublicDnsNamespaceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceOutput)
 }
 
+func (i *PublicDnsNamespace) ToOutput(ctx context.Context) pulumix.Output[*PublicDnsNamespace] {
+	return pulumix.Output[*PublicDnsNamespace]{
+		OutputState: i.ToPublicDnsNamespaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PublicDnsNamespaceOutput struct{ *pulumi.OutputState }
 
 func (PublicDnsNamespaceOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutput() PublicDnsNamespac
 
 func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutputWithContext(ctx context.Context) PublicDnsNamespaceOutput {
 	return o
+}
+
+func (o PublicDnsNamespaceOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicDnsNamespace] {
+	return pulumix.Output[*PublicDnsNamespace]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PublicDnsNamespaceOutput) Arn() pulumi.StringOutput {

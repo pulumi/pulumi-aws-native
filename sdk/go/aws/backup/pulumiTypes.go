@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i BackupPlanAdvancedBackupSettingResourceTypeArgs) ToBackupPlanAdvancedBac
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanAdvancedBackupSettingResourceTypeOutput)
 }
 
+func (i BackupPlanAdvancedBackupSettingResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[BackupPlanAdvancedBackupSettingResourceType] {
+	return pulumix.Output[BackupPlanAdvancedBackupSettingResourceType]{
+		OutputState: i.ToBackupPlanAdvancedBackupSettingResourceTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BackupPlanAdvancedBackupSettingResourceTypeArrayInput is an input type that accepts BackupPlanAdvancedBackupSettingResourceTypeArray and BackupPlanAdvancedBackupSettingResourceTypeArrayOutput values.
 // You can construct a concrete instance of `BackupPlanAdvancedBackupSettingResourceTypeArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i BackupPlanAdvancedBackupSettingResourceTypeArray) ToBackupPlanAdvancedBa
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
 }
 
+func (i BackupPlanAdvancedBackupSettingResourceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]BackupPlanAdvancedBackupSettingResourceType] {
+	return pulumix.Output[[]BackupPlanAdvancedBackupSettingResourceType]{
+		OutputState: i.ToBackupPlanAdvancedBackupSettingResourceTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupPlanAdvancedBackupSettingResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanAdvancedBackupSettingResourceTypeOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o BackupPlanAdvancedBackupSettingResourceTypeOutput) ToBackupPlanAdvancedB
 
 func (o BackupPlanAdvancedBackupSettingResourceTypeOutput) ToBackupPlanAdvancedBackupSettingResourceTypeOutputWithContext(ctx context.Context) BackupPlanAdvancedBackupSettingResourceTypeOutput {
 	return o
+}
+
+func (o BackupPlanAdvancedBackupSettingResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BackupPlanAdvancedBackupSettingResourceType] {
+	return pulumix.Output[BackupPlanAdvancedBackupSettingResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupPlanAdvancedBackupSettingResourceTypeOutput) BackupOptions() pulumi.AnyOutput {
@@ -105,6 +124,12 @@ func (o BackupPlanAdvancedBackupSettingResourceTypeArrayOutput) ToBackupPlanAdva
 
 func (o BackupPlanAdvancedBackupSettingResourceTypeArrayOutput) ToBackupPlanAdvancedBackupSettingResourceTypeArrayOutputWithContext(ctx context.Context) BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
 	return o
+}
+
+func (o BackupPlanAdvancedBackupSettingResourceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BackupPlanAdvancedBackupSettingResourceType] {
+	return pulumix.Output[[]BackupPlanAdvancedBackupSettingResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupPlanAdvancedBackupSettingResourceTypeArrayOutput) Index(i pulumi.IntInput) BackupPlanAdvancedBackupSettingResourceTypeOutput {
@@ -162,6 +187,12 @@ func (i BackupPlanBackupRuleResourceTypeArgs) ToBackupPlanBackupRuleResourceType
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanBackupRuleResourceTypeOutput)
 }
 
+func (i BackupPlanBackupRuleResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[BackupPlanBackupRuleResourceType] {
+	return pulumix.Output[BackupPlanBackupRuleResourceType]{
+		OutputState: i.ToBackupPlanBackupRuleResourceTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BackupPlanBackupRuleResourceTypeArrayInput is an input type that accepts BackupPlanBackupRuleResourceTypeArray and BackupPlanBackupRuleResourceTypeArrayOutput values.
 // You can construct a concrete instance of `BackupPlanBackupRuleResourceTypeArrayInput` via:
 //
@@ -187,6 +218,12 @@ func (i BackupPlanBackupRuleResourceTypeArray) ToBackupPlanBackupRuleResourceTyp
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanBackupRuleResourceTypeArrayOutput)
 }
 
+func (i BackupPlanBackupRuleResourceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]BackupPlanBackupRuleResourceType] {
+	return pulumix.Output[[]BackupPlanBackupRuleResourceType]{
+		OutputState: i.ToBackupPlanBackupRuleResourceTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupPlanBackupRuleResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanBackupRuleResourceTypeOutput) ElementType() reflect.Type {
@@ -199,6 +236,12 @@ func (o BackupPlanBackupRuleResourceTypeOutput) ToBackupPlanBackupRuleResourceTy
 
 func (o BackupPlanBackupRuleResourceTypeOutput) ToBackupPlanBackupRuleResourceTypeOutputWithContext(ctx context.Context) BackupPlanBackupRuleResourceTypeOutput {
 	return o
+}
+
+func (o BackupPlanBackupRuleResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BackupPlanBackupRuleResourceType] {
+	return pulumix.Output[BackupPlanBackupRuleResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupPlanBackupRuleResourceTypeOutput) CompletionWindowMinutes() pulumi.Float64PtrOutput {
@@ -255,6 +298,12 @@ func (o BackupPlanBackupRuleResourceTypeArrayOutput) ToBackupPlanBackupRuleResou
 	return o
 }
 
+func (o BackupPlanBackupRuleResourceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BackupPlanBackupRuleResourceType] {
+	return pulumix.Output[[]BackupPlanBackupRuleResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BackupPlanBackupRuleResourceTypeArrayOutput) Index(i pulumi.IntInput) BackupPlanBackupRuleResourceTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPlanBackupRuleResourceType {
 		return vs[0].([]BackupPlanBackupRuleResourceType)[vs[1].(int)]
@@ -294,6 +343,12 @@ func (i BackupPlanCopyActionResourceTypeArgs) ToBackupPlanCopyActionResourceType
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanCopyActionResourceTypeOutput)
 }
 
+func (i BackupPlanCopyActionResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[BackupPlanCopyActionResourceType] {
+	return pulumix.Output[BackupPlanCopyActionResourceType]{
+		OutputState: i.ToBackupPlanCopyActionResourceTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BackupPlanCopyActionResourceTypeArrayInput is an input type that accepts BackupPlanCopyActionResourceTypeArray and BackupPlanCopyActionResourceTypeArrayOutput values.
 // You can construct a concrete instance of `BackupPlanCopyActionResourceTypeArrayInput` via:
 //
@@ -319,6 +374,12 @@ func (i BackupPlanCopyActionResourceTypeArray) ToBackupPlanCopyActionResourceTyp
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanCopyActionResourceTypeArrayOutput)
 }
 
+func (i BackupPlanCopyActionResourceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]BackupPlanCopyActionResourceType] {
+	return pulumix.Output[[]BackupPlanCopyActionResourceType]{
+		OutputState: i.ToBackupPlanCopyActionResourceTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupPlanCopyActionResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanCopyActionResourceTypeOutput) ElementType() reflect.Type {
@@ -331,6 +392,12 @@ func (o BackupPlanCopyActionResourceTypeOutput) ToBackupPlanCopyActionResourceTy
 
 func (o BackupPlanCopyActionResourceTypeOutput) ToBackupPlanCopyActionResourceTypeOutputWithContext(ctx context.Context) BackupPlanCopyActionResourceTypeOutput {
 	return o
+}
+
+func (o BackupPlanCopyActionResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BackupPlanCopyActionResourceType] {
+	return pulumix.Output[BackupPlanCopyActionResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupPlanCopyActionResourceTypeOutput) DestinationBackupVaultArn() pulumi.StringOutput {
@@ -353,6 +420,12 @@ func (o BackupPlanCopyActionResourceTypeArrayOutput) ToBackupPlanCopyActionResou
 
 func (o BackupPlanCopyActionResourceTypeArrayOutput) ToBackupPlanCopyActionResourceTypeArrayOutputWithContext(ctx context.Context) BackupPlanCopyActionResourceTypeArrayOutput {
 	return o
+}
+
+func (o BackupPlanCopyActionResourceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BackupPlanCopyActionResourceType] {
+	return pulumix.Output[[]BackupPlanCopyActionResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupPlanCopyActionResourceTypeArrayOutput) Index(i pulumi.IntInput) BackupPlanCopyActionResourceTypeOutput {
@@ -396,6 +469,12 @@ func (i BackupPlanLifecycleResourceTypeArgs) ToBackupPlanLifecycleResourceTypeOu
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanLifecycleResourceTypeOutput)
 }
 
+func (i BackupPlanLifecycleResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[BackupPlanLifecycleResourceType] {
+	return pulumix.Output[BackupPlanLifecycleResourceType]{
+		OutputState: i.ToBackupPlanLifecycleResourceTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BackupPlanLifecycleResourceTypeArgs) ToBackupPlanLifecycleResourceTypePtrOutput() BackupPlanLifecycleResourceTypePtrOutput {
 	return i.ToBackupPlanLifecycleResourceTypePtrOutputWithContext(context.Background())
 }
@@ -437,6 +516,12 @@ func (i *backupPlanLifecycleResourceTypePtrType) ToBackupPlanLifecycleResourceTy
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanLifecycleResourceTypePtrOutput)
 }
 
+func (i *backupPlanLifecycleResourceTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*BackupPlanLifecycleResourceType] {
+	return pulumix.Output[*BackupPlanLifecycleResourceType]{
+		OutputState: i.ToBackupPlanLifecycleResourceTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupPlanLifecycleResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanLifecycleResourceTypeOutput) ElementType() reflect.Type {
@@ -459,6 +544,12 @@ func (o BackupPlanLifecycleResourceTypeOutput) ToBackupPlanLifecycleResourceType
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPlanLifecycleResourceType) *BackupPlanLifecycleResourceType {
 		return &v
 	}).(BackupPlanLifecycleResourceTypePtrOutput)
+}
+
+func (o BackupPlanLifecycleResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BackupPlanLifecycleResourceType] {
+	return pulumix.Output[BackupPlanLifecycleResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupPlanLifecycleResourceTypeOutput) DeleteAfterDays() pulumi.Float64PtrOutput {
@@ -485,6 +576,12 @@ func (o BackupPlanLifecycleResourceTypePtrOutput) ToBackupPlanLifecycleResourceT
 
 func (o BackupPlanLifecycleResourceTypePtrOutput) ToBackupPlanLifecycleResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanLifecycleResourceTypePtrOutput {
 	return o
+}
+
+func (o BackupPlanLifecycleResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupPlanLifecycleResourceType] {
+	return pulumix.Output[*BackupPlanLifecycleResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupPlanLifecycleResourceTypePtrOutput) Elem() BackupPlanLifecycleResourceTypeOutput {
@@ -559,6 +656,12 @@ func (i BackupPlanResourceTypeArgs) ToBackupPlanResourceTypeOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanResourceTypeOutput)
 }
 
+func (i BackupPlanResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[BackupPlanResourceType] {
+	return pulumix.Output[BackupPlanResourceType]{
+		OutputState: i.ToBackupPlanResourceTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupPlanResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanResourceTypeOutput) ElementType() reflect.Type {
@@ -571,6 +674,12 @@ func (o BackupPlanResourceTypeOutput) ToBackupPlanResourceTypeOutput() BackupPla
 
 func (o BackupPlanResourceTypeOutput) ToBackupPlanResourceTypeOutputWithContext(ctx context.Context) BackupPlanResourceTypeOutput {
 	return o
+}
+
+func (o BackupPlanResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BackupPlanResourceType] {
+	return pulumix.Output[BackupPlanResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupPlanResourceTypeOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
@@ -599,6 +708,12 @@ func (o BackupPlanResourceTypePtrOutput) ToBackupPlanResourceTypePtrOutput() Bac
 
 func (o BackupPlanResourceTypePtrOutput) ToBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanResourceTypePtrOutput {
 	return o
+}
+
+func (o BackupPlanResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupPlanResourceType] {
+	return pulumix.Output[*BackupPlanResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupPlanResourceTypePtrOutput) Elem() BackupPlanResourceTypeOutput {
@@ -671,6 +786,12 @@ func (i BackupSelectionConditionParameterArgs) ToBackupSelectionConditionParamet
 	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionConditionParameterOutput)
 }
 
+func (i BackupSelectionConditionParameterArgs) ToOutput(ctx context.Context) pulumix.Output[BackupSelectionConditionParameter] {
+	return pulumix.Output[BackupSelectionConditionParameter]{
+		OutputState: i.ToBackupSelectionConditionParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BackupSelectionConditionParameterArrayInput is an input type that accepts BackupSelectionConditionParameterArray and BackupSelectionConditionParameterArrayOutput values.
 // You can construct a concrete instance of `BackupSelectionConditionParameterArrayInput` via:
 //
@@ -696,6 +817,12 @@ func (i BackupSelectionConditionParameterArray) ToBackupSelectionConditionParame
 	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionConditionParameterArrayOutput)
 }
 
+func (i BackupSelectionConditionParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]BackupSelectionConditionParameter] {
+	return pulumix.Output[[]BackupSelectionConditionParameter]{
+		OutputState: i.ToBackupSelectionConditionParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupSelectionConditionParameterOutput struct{ *pulumi.OutputState }
 
 func (BackupSelectionConditionParameterOutput) ElementType() reflect.Type {
@@ -708,6 +835,12 @@ func (o BackupSelectionConditionParameterOutput) ToBackupSelectionConditionParam
 
 func (o BackupSelectionConditionParameterOutput) ToBackupSelectionConditionParameterOutputWithContext(ctx context.Context) BackupSelectionConditionParameterOutput {
 	return o
+}
+
+func (o BackupSelectionConditionParameterOutput) ToOutput(ctx context.Context) pulumix.Output[BackupSelectionConditionParameter] {
+	return pulumix.Output[BackupSelectionConditionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupSelectionConditionParameterOutput) ConditionKey() pulumi.StringPtrOutput {
@@ -730,6 +863,12 @@ func (o BackupSelectionConditionParameterArrayOutput) ToBackupSelectionCondition
 
 func (o BackupSelectionConditionParameterArrayOutput) ToBackupSelectionConditionParameterArrayOutputWithContext(ctx context.Context) BackupSelectionConditionParameterArrayOutput {
 	return o
+}
+
+func (o BackupSelectionConditionParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BackupSelectionConditionParameter] {
+	return pulumix.Output[[]BackupSelectionConditionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupSelectionConditionParameterArrayOutput) Index(i pulumi.IntInput) BackupSelectionConditionParameterOutput {
@@ -773,6 +912,12 @@ func (i BackupSelectionConditionResourceTypeArgs) ToBackupSelectionConditionReso
 	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionConditionResourceTypeOutput)
 }
 
+func (i BackupSelectionConditionResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[BackupSelectionConditionResourceType] {
+	return pulumix.Output[BackupSelectionConditionResourceType]{
+		OutputState: i.ToBackupSelectionConditionResourceTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BackupSelectionConditionResourceTypeArrayInput is an input type that accepts BackupSelectionConditionResourceTypeArray and BackupSelectionConditionResourceTypeArrayOutput values.
 // You can construct a concrete instance of `BackupSelectionConditionResourceTypeArrayInput` via:
 //
@@ -798,6 +943,12 @@ func (i BackupSelectionConditionResourceTypeArray) ToBackupSelectionConditionRes
 	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionConditionResourceTypeArrayOutput)
 }
 
+func (i BackupSelectionConditionResourceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]BackupSelectionConditionResourceType] {
+	return pulumix.Output[[]BackupSelectionConditionResourceType]{
+		OutputState: i.ToBackupSelectionConditionResourceTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupSelectionConditionResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupSelectionConditionResourceTypeOutput) ElementType() reflect.Type {
@@ -810,6 +961,12 @@ func (o BackupSelectionConditionResourceTypeOutput) ToBackupSelectionConditionRe
 
 func (o BackupSelectionConditionResourceTypeOutput) ToBackupSelectionConditionResourceTypeOutputWithContext(ctx context.Context) BackupSelectionConditionResourceTypeOutput {
 	return o
+}
+
+func (o BackupSelectionConditionResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BackupSelectionConditionResourceType] {
+	return pulumix.Output[BackupSelectionConditionResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupSelectionConditionResourceTypeOutput) ConditionKey() pulumi.StringOutput {
@@ -836,6 +993,12 @@ func (o BackupSelectionConditionResourceTypeArrayOutput) ToBackupSelectionCondit
 
 func (o BackupSelectionConditionResourceTypeArrayOutput) ToBackupSelectionConditionResourceTypeArrayOutputWithContext(ctx context.Context) BackupSelectionConditionResourceTypeArrayOutput {
 	return o
+}
+
+func (o BackupSelectionConditionResourceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BackupSelectionConditionResourceType] {
+	return pulumix.Output[[]BackupSelectionConditionResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupSelectionConditionResourceTypeArrayOutput) Index(i pulumi.IntInput) BackupSelectionConditionResourceTypeOutput {
@@ -885,6 +1048,12 @@ func (i BackupSelectionResourceTypeArgs) ToBackupSelectionResourceTypeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionResourceTypeOutput)
 }
 
+func (i BackupSelectionResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[BackupSelectionResourceType] {
+	return pulumix.Output[BackupSelectionResourceType]{
+		OutputState: i.ToBackupSelectionResourceTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupSelectionResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupSelectionResourceTypeOutput) ElementType() reflect.Type {
@@ -897,6 +1066,12 @@ func (o BackupSelectionResourceTypeOutput) ToBackupSelectionResourceTypeOutput()
 
 func (o BackupSelectionResourceTypeOutput) ToBackupSelectionResourceTypeOutputWithContext(ctx context.Context) BackupSelectionResourceTypeOutput {
 	return o
+}
+
+func (o BackupSelectionResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BackupSelectionResourceType] {
+	return pulumix.Output[BackupSelectionResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupSelectionResourceTypeOutput) Conditions() BackupSelectionResourceTypeConditionsPropertiesPtrOutput {
@@ -962,6 +1137,12 @@ func (i BackupSelectionResourceTypeConditionsPropertiesArgs) ToBackupSelectionRe
 	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionResourceTypeConditionsPropertiesOutput)
 }
 
+func (i BackupSelectionResourceTypeConditionsPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[BackupSelectionResourceTypeConditionsProperties] {
+	return pulumix.Output[BackupSelectionResourceTypeConditionsProperties]{
+		OutputState: i.ToBackupSelectionResourceTypeConditionsPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BackupSelectionResourceTypeConditionsPropertiesArgs) ToBackupSelectionResourceTypeConditionsPropertiesPtrOutput() BackupSelectionResourceTypeConditionsPropertiesPtrOutput {
 	return i.ToBackupSelectionResourceTypeConditionsPropertiesPtrOutputWithContext(context.Background())
 }
@@ -1003,6 +1184,12 @@ func (i *backupSelectionResourceTypeConditionsPropertiesPtrType) ToBackupSelecti
 	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionResourceTypeConditionsPropertiesPtrOutput)
 }
 
+func (i *backupSelectionResourceTypeConditionsPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*BackupSelectionResourceTypeConditionsProperties] {
+	return pulumix.Output[*BackupSelectionResourceTypeConditionsProperties]{
+		OutputState: i.ToBackupSelectionResourceTypeConditionsPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupSelectionResourceTypeConditionsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BackupSelectionResourceTypeConditionsPropertiesOutput) ElementType() reflect.Type {
@@ -1025,6 +1212,12 @@ func (o BackupSelectionResourceTypeConditionsPropertiesOutput) ToBackupSelection
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupSelectionResourceTypeConditionsProperties) *BackupSelectionResourceTypeConditionsProperties {
 		return &v
 	}).(BackupSelectionResourceTypeConditionsPropertiesPtrOutput)
+}
+
+func (o BackupSelectionResourceTypeConditionsPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[BackupSelectionResourceTypeConditionsProperties] {
+	return pulumix.Output[BackupSelectionResourceTypeConditionsProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupSelectionResourceTypeConditionsPropertiesOutput) StringEquals() BackupSelectionConditionParameterArrayOutput {
@@ -1063,6 +1256,12 @@ func (o BackupSelectionResourceTypeConditionsPropertiesPtrOutput) ToBackupSelect
 
 func (o BackupSelectionResourceTypeConditionsPropertiesPtrOutput) ToBackupSelectionResourceTypeConditionsPropertiesPtrOutputWithContext(ctx context.Context) BackupSelectionResourceTypeConditionsPropertiesPtrOutput {
 	return o
+}
+
+func (o BackupSelectionResourceTypeConditionsPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupSelectionResourceTypeConditionsProperties] {
+	return pulumix.Output[*BackupSelectionResourceTypeConditionsProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupSelectionResourceTypeConditionsPropertiesPtrOutput) Elem() BackupSelectionResourceTypeConditionsPropertiesOutput {
@@ -1146,6 +1345,12 @@ func (i BackupVaultLockConfigurationTypeArgs) ToBackupVaultLockConfigurationType
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultLockConfigurationTypeOutput)
 }
 
+func (i BackupVaultLockConfigurationTypeArgs) ToOutput(ctx context.Context) pulumix.Output[BackupVaultLockConfigurationType] {
+	return pulumix.Output[BackupVaultLockConfigurationType]{
+		OutputState: i.ToBackupVaultLockConfigurationTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BackupVaultLockConfigurationTypeArgs) ToBackupVaultLockConfigurationTypePtrOutput() BackupVaultLockConfigurationTypePtrOutput {
 	return i.ToBackupVaultLockConfigurationTypePtrOutputWithContext(context.Background())
 }
@@ -1187,6 +1392,12 @@ func (i *backupVaultLockConfigurationTypePtrType) ToBackupVaultLockConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultLockConfigurationTypePtrOutput)
 }
 
+func (i *backupVaultLockConfigurationTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*BackupVaultLockConfigurationType] {
+	return pulumix.Output[*BackupVaultLockConfigurationType]{
+		OutputState: i.ToBackupVaultLockConfigurationTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupVaultLockConfigurationTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultLockConfigurationTypeOutput) ElementType() reflect.Type {
@@ -1209,6 +1420,12 @@ func (o BackupVaultLockConfigurationTypeOutput) ToBackupVaultLockConfigurationTy
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupVaultLockConfigurationType) *BackupVaultLockConfigurationType {
 		return &v
 	}).(BackupVaultLockConfigurationTypePtrOutput)
+}
+
+func (o BackupVaultLockConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BackupVaultLockConfigurationType] {
+	return pulumix.Output[BackupVaultLockConfigurationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupVaultLockConfigurationTypeOutput) ChangeableForDays() pulumi.IntPtrOutput {
@@ -1235,6 +1452,12 @@ func (o BackupVaultLockConfigurationTypePtrOutput) ToBackupVaultLockConfiguratio
 
 func (o BackupVaultLockConfigurationTypePtrOutput) ToBackupVaultLockConfigurationTypePtrOutputWithContext(ctx context.Context) BackupVaultLockConfigurationTypePtrOutput {
 	return o
+}
+
+func (o BackupVaultLockConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupVaultLockConfigurationType] {
+	return pulumix.Output[*BackupVaultLockConfigurationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupVaultLockConfigurationTypePtrOutput) Elem() BackupVaultLockConfigurationTypeOutput {
@@ -1307,6 +1530,12 @@ func (i BackupVaultNotificationObjectTypeArgs) ToBackupVaultNotificationObjectTy
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultNotificationObjectTypeOutput)
 }
 
+func (i BackupVaultNotificationObjectTypeArgs) ToOutput(ctx context.Context) pulumix.Output[BackupVaultNotificationObjectType] {
+	return pulumix.Output[BackupVaultNotificationObjectType]{
+		OutputState: i.ToBackupVaultNotificationObjectTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BackupVaultNotificationObjectTypeArgs) ToBackupVaultNotificationObjectTypePtrOutput() BackupVaultNotificationObjectTypePtrOutput {
 	return i.ToBackupVaultNotificationObjectTypePtrOutputWithContext(context.Background())
 }
@@ -1348,6 +1577,12 @@ func (i *backupVaultNotificationObjectTypePtrType) ToBackupVaultNotificationObje
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultNotificationObjectTypePtrOutput)
 }
 
+func (i *backupVaultNotificationObjectTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*BackupVaultNotificationObjectType] {
+	return pulumix.Output[*BackupVaultNotificationObjectType]{
+		OutputState: i.ToBackupVaultNotificationObjectTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupVaultNotificationObjectTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultNotificationObjectTypeOutput) ElementType() reflect.Type {
@@ -1372,6 +1607,12 @@ func (o BackupVaultNotificationObjectTypeOutput) ToBackupVaultNotificationObject
 	}).(BackupVaultNotificationObjectTypePtrOutput)
 }
 
+func (o BackupVaultNotificationObjectTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BackupVaultNotificationObjectType] {
+	return pulumix.Output[BackupVaultNotificationObjectType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BackupVaultNotificationObjectTypeOutput) BackupVaultEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupVaultNotificationObjectType) []string { return v.BackupVaultEvents }).(pulumi.StringArrayOutput)
 }
@@ -1392,6 +1633,12 @@ func (o BackupVaultNotificationObjectTypePtrOutput) ToBackupVaultNotificationObj
 
 func (o BackupVaultNotificationObjectTypePtrOutput) ToBackupVaultNotificationObjectTypePtrOutputWithContext(ctx context.Context) BackupVaultNotificationObjectTypePtrOutput {
 	return o
+}
+
+func (o BackupVaultNotificationObjectTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupVaultNotificationObjectType] {
+	return pulumix.Output[*BackupVaultNotificationObjectType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupVaultNotificationObjectTypePtrOutput) Elem() BackupVaultNotificationObjectTypeOutput {
@@ -1463,6 +1710,12 @@ func (i FrameworkControlArgs) ToFrameworkControlOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlOutput)
 }
 
+func (i FrameworkControlArgs) ToOutput(ctx context.Context) pulumix.Output[FrameworkControl] {
+	return pulumix.Output[FrameworkControl]{
+		OutputState: i.ToFrameworkControlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FrameworkControlArrayInput is an input type that accepts FrameworkControlArray and FrameworkControlArrayOutput values.
 // You can construct a concrete instance of `FrameworkControlArrayInput` via:
 //
@@ -1488,6 +1741,12 @@ func (i FrameworkControlArray) ToFrameworkControlArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlArrayOutput)
 }
 
+func (i FrameworkControlArray) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkControl] {
+	return pulumix.Output[[]FrameworkControl]{
+		OutputState: i.ToFrameworkControlArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FrameworkControlOutput struct{ *pulumi.OutputState }
 
 func (FrameworkControlOutput) ElementType() reflect.Type {
@@ -1500,6 +1759,12 @@ func (o FrameworkControlOutput) ToFrameworkControlOutput() FrameworkControlOutpu
 
 func (o FrameworkControlOutput) ToFrameworkControlOutputWithContext(ctx context.Context) FrameworkControlOutput {
 	return o
+}
+
+func (o FrameworkControlOutput) ToOutput(ctx context.Context) pulumix.Output[FrameworkControl] {
+	return pulumix.Output[FrameworkControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of ParameterName and ParameterValue pairs.
@@ -1529,6 +1794,12 @@ func (o FrameworkControlArrayOutput) ToFrameworkControlArrayOutput() FrameworkCo
 
 func (o FrameworkControlArrayOutput) ToFrameworkControlArrayOutputWithContext(ctx context.Context) FrameworkControlArrayOutput {
 	return o
+}
+
+func (o FrameworkControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkControl] {
+	return pulumix.Output[[]FrameworkControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrameworkControlArrayOutput) Index(i pulumi.IntInput) FrameworkControlOutput {
@@ -1580,6 +1851,12 @@ func (i FrameworkControlControlScopePropertiesArgs) ToFrameworkControlControlSco
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlControlScopePropertiesOutput)
 }
 
+func (i FrameworkControlControlScopePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[FrameworkControlControlScopeProperties] {
+	return pulumix.Output[FrameworkControlControlScopeProperties]{
+		OutputState: i.ToFrameworkControlControlScopePropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FrameworkControlControlScopePropertiesArgs) ToFrameworkControlControlScopePropertiesPtrOutput() FrameworkControlControlScopePropertiesPtrOutput {
 	return i.ToFrameworkControlControlScopePropertiesPtrOutputWithContext(context.Background())
 }
@@ -1621,6 +1898,12 @@ func (i *frameworkControlControlScopePropertiesPtrType) ToFrameworkControlContro
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlControlScopePropertiesPtrOutput)
 }
 
+func (i *frameworkControlControlScopePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*FrameworkControlControlScopeProperties] {
+	return pulumix.Output[*FrameworkControlControlScopeProperties]{
+		OutputState: i.ToFrameworkControlControlScopePropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.
 type FrameworkControlControlScopePropertiesOutput struct{ *pulumi.OutputState }
 
@@ -1644,6 +1927,12 @@ func (o FrameworkControlControlScopePropertiesOutput) ToFrameworkControlControlS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrameworkControlControlScopeProperties) *FrameworkControlControlScopeProperties {
 		return &v
 	}).(FrameworkControlControlScopePropertiesPtrOutput)
+}
+
+func (o FrameworkControlControlScopePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[FrameworkControlControlScopeProperties] {
+	return pulumix.Output[FrameworkControlControlScopeProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the only AWS resource that you want your control scope to contain.
@@ -1673,6 +1962,12 @@ func (o FrameworkControlControlScopePropertiesPtrOutput) ToFrameworkControlContr
 
 func (o FrameworkControlControlScopePropertiesPtrOutput) ToFrameworkControlControlScopePropertiesPtrOutputWithContext(ctx context.Context) FrameworkControlControlScopePropertiesPtrOutput {
 	return o
+}
+
+func (o FrameworkControlControlScopePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FrameworkControlControlScopeProperties] {
+	return pulumix.Output[*FrameworkControlControlScopeProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrameworkControlControlScopePropertiesPtrOutput) Elem() FrameworkControlControlScopePropertiesOutput {
@@ -1748,6 +2043,12 @@ func (i FrameworkControlInputParameterArgs) ToFrameworkControlInputParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlInputParameterOutput)
 }
 
+func (i FrameworkControlInputParameterArgs) ToOutput(ctx context.Context) pulumix.Output[FrameworkControlInputParameter] {
+	return pulumix.Output[FrameworkControlInputParameter]{
+		OutputState: i.ToFrameworkControlInputParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FrameworkControlInputParameterArrayInput is an input type that accepts FrameworkControlInputParameterArray and FrameworkControlInputParameterArrayOutput values.
 // You can construct a concrete instance of `FrameworkControlInputParameterArrayInput` via:
 //
@@ -1773,6 +2074,12 @@ func (i FrameworkControlInputParameterArray) ToFrameworkControlInputParameterArr
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlInputParameterArrayOutput)
 }
 
+func (i FrameworkControlInputParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkControlInputParameter] {
+	return pulumix.Output[[]FrameworkControlInputParameter]{
+		OutputState: i.ToFrameworkControlInputParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FrameworkControlInputParameterOutput struct{ *pulumi.OutputState }
 
 func (FrameworkControlInputParameterOutput) ElementType() reflect.Type {
@@ -1785,6 +2092,12 @@ func (o FrameworkControlInputParameterOutput) ToFrameworkControlInputParameterOu
 
 func (o FrameworkControlInputParameterOutput) ToFrameworkControlInputParameterOutputWithContext(ctx context.Context) FrameworkControlInputParameterOutput {
 	return o
+}
+
+func (o FrameworkControlInputParameterOutput) ToOutput(ctx context.Context) pulumix.Output[FrameworkControlInputParameter] {
+	return pulumix.Output[FrameworkControlInputParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrameworkControlInputParameterOutput) ParameterName() pulumi.StringOutput {
@@ -1807,6 +2120,12 @@ func (o FrameworkControlInputParameterArrayOutput) ToFrameworkControlInputParame
 
 func (o FrameworkControlInputParameterArrayOutput) ToFrameworkControlInputParameterArrayOutputWithContext(ctx context.Context) FrameworkControlInputParameterArrayOutput {
 	return o
+}
+
+func (o FrameworkControlInputParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkControlInputParameter] {
+	return pulumix.Output[[]FrameworkControlInputParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrameworkControlInputParameterArrayOutput) Index(i pulumi.IntInput) FrameworkControlInputParameterOutput {
@@ -1854,6 +2173,12 @@ func (i FrameworkTagArgs) ToFrameworkTagOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkTagOutput)
 }
 
+func (i FrameworkTagArgs) ToOutput(ctx context.Context) pulumix.Output[FrameworkTag] {
+	return pulumix.Output[FrameworkTag]{
+		OutputState: i.ToFrameworkTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FrameworkTagArrayInput is an input type that accepts FrameworkTagArray and FrameworkTagArrayOutput values.
 // You can construct a concrete instance of `FrameworkTagArrayInput` via:
 //
@@ -1879,6 +2204,12 @@ func (i FrameworkTagArray) ToFrameworkTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkTagArrayOutput)
 }
 
+func (i FrameworkTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkTag] {
+	return pulumix.Output[[]FrameworkTag]{
+		OutputState: i.ToFrameworkTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type FrameworkTagOutput struct{ *pulumi.OutputState }
 
@@ -1892,6 +2223,12 @@ func (o FrameworkTagOutput) ToFrameworkTagOutput() FrameworkTagOutput {
 
 func (o FrameworkTagOutput) ToFrameworkTagOutputWithContext(ctx context.Context) FrameworkTagOutput {
 	return o
+}
+
+func (o FrameworkTagOutput) ToOutput(ctx context.Context) pulumix.Output[FrameworkTag] {
+	return pulumix.Output[FrameworkTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1916,6 +2253,12 @@ func (o FrameworkTagArrayOutput) ToFrameworkTagArrayOutput() FrameworkTagArrayOu
 
 func (o FrameworkTagArrayOutput) ToFrameworkTagArrayOutputWithContext(ctx context.Context) FrameworkTagArrayOutput {
 	return o
+}
+
+func (o FrameworkTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkTag] {
+	return pulumix.Output[[]FrameworkTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrameworkTagArrayOutput) Index(i pulumi.IntInput) FrameworkTagOutput {
@@ -1967,6 +2310,12 @@ func (i ReportDeliveryChannelPropertiesArgs) ToReportDeliveryChannelPropertiesOu
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryChannelPropertiesOutput)
 }
 
+func (i ReportDeliveryChannelPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ReportDeliveryChannelProperties] {
+	return pulumix.Output[ReportDeliveryChannelProperties]{
+		OutputState: i.ToReportDeliveryChannelPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
 type ReportDeliveryChannelPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -1980,6 +2329,12 @@ func (o ReportDeliveryChannelPropertiesOutput) ToReportDeliveryChannelProperties
 
 func (o ReportDeliveryChannelPropertiesOutput) ToReportDeliveryChannelPropertiesOutputWithContext(ctx context.Context) ReportDeliveryChannelPropertiesOutput {
 	return o
+}
+
+func (o ReportDeliveryChannelPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDeliveryChannelProperties] {
+	return pulumix.Output[ReportDeliveryChannelProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
@@ -2009,6 +2364,12 @@ func (o ReportDeliveryChannelPropertiesPtrOutput) ToReportDeliveryChannelPropert
 
 func (o ReportDeliveryChannelPropertiesPtrOutput) ToReportDeliveryChannelPropertiesPtrOutputWithContext(ctx context.Context) ReportDeliveryChannelPropertiesPtrOutput {
 	return o
+}
+
+func (o ReportDeliveryChannelPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDeliveryChannelProperties] {
+	return pulumix.Output[*ReportDeliveryChannelProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReportDeliveryChannelPropertiesPtrOutput) Elem() ReportDeliveryChannelPropertiesOutput {
@@ -2090,6 +2451,12 @@ func (i ReportPlanTagArgs) ToReportPlanTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ReportPlanTagOutput)
 }
 
+func (i ReportPlanTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReportPlanTag] {
+	return pulumix.Output[ReportPlanTag]{
+		OutputState: i.ToReportPlanTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReportPlanTagArrayInput is an input type that accepts ReportPlanTagArray and ReportPlanTagArrayOutput values.
 // You can construct a concrete instance of `ReportPlanTagArrayInput` via:
 //
@@ -2115,6 +2482,12 @@ func (i ReportPlanTagArray) ToReportPlanTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ReportPlanTagArrayOutput)
 }
 
+func (i ReportPlanTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReportPlanTag] {
+	return pulumix.Output[[]ReportPlanTag]{
+		OutputState: i.ToReportPlanTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ReportPlanTagOutput struct{ *pulumi.OutputState }
 
@@ -2128,6 +2501,12 @@ func (o ReportPlanTagOutput) ToReportPlanTagOutput() ReportPlanTagOutput {
 
 func (o ReportPlanTagOutput) ToReportPlanTagOutputWithContext(ctx context.Context) ReportPlanTagOutput {
 	return o
+}
+
+func (o ReportPlanTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReportPlanTag] {
+	return pulumix.Output[ReportPlanTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2152,6 +2531,12 @@ func (o ReportPlanTagArrayOutput) ToReportPlanTagArrayOutput() ReportPlanTagArra
 
 func (o ReportPlanTagArrayOutput) ToReportPlanTagArrayOutputWithContext(ctx context.Context) ReportPlanTagArrayOutput {
 	return o
+}
+
+func (o ReportPlanTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReportPlanTag] {
+	return pulumix.Output[[]ReportPlanTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReportPlanTagArrayOutput) Index(i pulumi.IntInput) ReportPlanTagOutput {
@@ -2211,6 +2596,12 @@ func (i ReportSettingPropertiesArgs) ToReportSettingPropertiesOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReportSettingPropertiesOutput)
 }
 
+func (i ReportSettingPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ReportSettingProperties] {
+	return pulumix.Output[ReportSettingProperties]{
+		OutputState: i.ToReportSettingPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Identifies the report template for the report. Reports are built using a report template.
 type ReportSettingPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -2224,6 +2615,12 @@ func (o ReportSettingPropertiesOutput) ToReportSettingPropertiesOutput() ReportS
 
 func (o ReportSettingPropertiesOutput) ToReportSettingPropertiesOutputWithContext(ctx context.Context) ReportSettingPropertiesOutput {
 	return o
+}
+
+func (o ReportSettingPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ReportSettingProperties] {
+	return pulumix.Output[ReportSettingProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of AWS accounts that a report covers.
@@ -2263,6 +2660,12 @@ func (o ReportSettingPropertiesPtrOutput) ToReportSettingPropertiesPtrOutput() R
 
 func (o ReportSettingPropertiesPtrOutput) ToReportSettingPropertiesPtrOutputWithContext(ctx context.Context) ReportSettingPropertiesPtrOutput {
 	return o
+}
+
+func (o ReportSettingPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportSettingProperties] {
+	return pulumix.Output[*ReportSettingProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReportSettingPropertiesPtrOutput) Elem() ReportSettingPropertiesOutput {
@@ -2364,6 +2767,12 @@ func (i RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs) ToRestoreTes
 	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput)
 }
 
+func (i RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingPlanRestoreTestingRecoveryPointSelection] {
+	return pulumix.Output[RestoreTestingPlanRestoreTestingRecoveryPointSelection]{
+		OutputState: i.ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput struct{ *pulumi.OutputState }
 
 func (RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) ElementType() reflect.Type {
@@ -2376,6 +2785,12 @@ func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) ToRestoreT
 
 func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionOutputWithContext(ctx context.Context) RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput {
 	return o
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingPlanRestoreTestingRecoveryPointSelection] {
+	return pulumix.Output[RestoreTestingPlanRestoreTestingRecoveryPointSelection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) Algorithm() RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmOutput {
@@ -2414,6 +2829,12 @@ func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) ToResto
 
 func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutputWithContext(ctx context.Context) RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput {
 	return o
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingPlanRestoreTestingRecoveryPointSelection] {
+	return pulumix.Output[*RestoreTestingPlanRestoreTestingRecoveryPointSelection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) Elem() RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput {
@@ -2508,6 +2929,12 @@ func (i RestoreTestingPlanTagArgs) ToRestoreTestingPlanTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanTagOutput)
 }
 
+func (i RestoreTestingPlanTagArgs) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingPlanTag] {
+	return pulumix.Output[RestoreTestingPlanTag]{
+		OutputState: i.ToRestoreTestingPlanTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RestoreTestingPlanTagArrayInput is an input type that accepts RestoreTestingPlanTagArray and RestoreTestingPlanTagArrayOutput values.
 // You can construct a concrete instance of `RestoreTestingPlanTagArrayInput` via:
 //
@@ -2533,6 +2960,12 @@ func (i RestoreTestingPlanTagArray) ToRestoreTestingPlanTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanTagArrayOutput)
 }
 
+func (i RestoreTestingPlanTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RestoreTestingPlanTag] {
+	return pulumix.Output[[]RestoreTestingPlanTag]{
+		OutputState: i.ToRestoreTestingPlanTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RestoreTestingPlanTagOutput struct{ *pulumi.OutputState }
 
 func (RestoreTestingPlanTagOutput) ElementType() reflect.Type {
@@ -2545,6 +2978,12 @@ func (o RestoreTestingPlanTagOutput) ToRestoreTestingPlanTagOutput() RestoreTest
 
 func (o RestoreTestingPlanTagOutput) ToRestoreTestingPlanTagOutputWithContext(ctx context.Context) RestoreTestingPlanTagOutput {
 	return o
+}
+
+func (o RestoreTestingPlanTagOutput) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingPlanTag] {
+	return pulumix.Output[RestoreTestingPlanTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2569,6 +3008,12 @@ func (o RestoreTestingPlanTagArrayOutput) ToRestoreTestingPlanTagArrayOutput() R
 
 func (o RestoreTestingPlanTagArrayOutput) ToRestoreTestingPlanTagArrayOutputWithContext(ctx context.Context) RestoreTestingPlanTagArrayOutput {
 	return o
+}
+
+func (o RestoreTestingPlanTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RestoreTestingPlanTag] {
+	return pulumix.Output[[]RestoreTestingPlanTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RestoreTestingPlanTagArrayOutput) Index(i pulumi.IntInput) RestoreTestingPlanTagOutput {
@@ -2610,6 +3055,12 @@ func (i RestoreTestingSelectionKeyValueArgs) ToRestoreTestingSelectionKeyValueOu
 	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionKeyValueOutput)
 }
 
+func (i RestoreTestingSelectionKeyValueArgs) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingSelectionKeyValue] {
+	return pulumix.Output[RestoreTestingSelectionKeyValue]{
+		OutputState: i.ToRestoreTestingSelectionKeyValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RestoreTestingSelectionKeyValueArrayInput is an input type that accepts RestoreTestingSelectionKeyValueArray and RestoreTestingSelectionKeyValueArrayOutput values.
 // You can construct a concrete instance of `RestoreTestingSelectionKeyValueArrayInput` via:
 //
@@ -2635,6 +3086,12 @@ func (i RestoreTestingSelectionKeyValueArray) ToRestoreTestingSelectionKeyValueA
 	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionKeyValueArrayOutput)
 }
 
+func (i RestoreTestingSelectionKeyValueArray) ToOutput(ctx context.Context) pulumix.Output[[]RestoreTestingSelectionKeyValue] {
+	return pulumix.Output[[]RestoreTestingSelectionKeyValue]{
+		OutputState: i.ToRestoreTestingSelectionKeyValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RestoreTestingSelectionKeyValueOutput struct{ *pulumi.OutputState }
 
 func (RestoreTestingSelectionKeyValueOutput) ElementType() reflect.Type {
@@ -2647,6 +3104,12 @@ func (o RestoreTestingSelectionKeyValueOutput) ToRestoreTestingSelectionKeyValue
 
 func (o RestoreTestingSelectionKeyValueOutput) ToRestoreTestingSelectionKeyValueOutputWithContext(ctx context.Context) RestoreTestingSelectionKeyValueOutput {
 	return o
+}
+
+func (o RestoreTestingSelectionKeyValueOutput) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingSelectionKeyValue] {
+	return pulumix.Output[RestoreTestingSelectionKeyValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RestoreTestingSelectionKeyValueOutput) Key() pulumi.StringOutput {
@@ -2669,6 +3132,12 @@ func (o RestoreTestingSelectionKeyValueArrayOutput) ToRestoreTestingSelectionKey
 
 func (o RestoreTestingSelectionKeyValueArrayOutput) ToRestoreTestingSelectionKeyValueArrayOutputWithContext(ctx context.Context) RestoreTestingSelectionKeyValueArrayOutput {
 	return o
+}
+
+func (o RestoreTestingSelectionKeyValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RestoreTestingSelectionKeyValue] {
+	return pulumix.Output[[]RestoreTestingSelectionKeyValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RestoreTestingSelectionKeyValueArrayOutput) Index(i pulumi.IntInput) RestoreTestingSelectionKeyValueOutput {
@@ -2708,6 +3177,12 @@ func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToRestoreTesting
 
 func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToRestoreTestingSelectionProtectedResourceConditionsOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionProtectedResourceConditionsOutput)
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingSelectionProtectedResourceConditions] {
+	return pulumix.Output[RestoreTestingSelectionProtectedResourceConditions]{
+		OutputState: i.ToRestoreTestingSelectionProtectedResourceConditionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutput() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
@@ -2751,6 +3226,12 @@ func (i *restoreTestingSelectionProtectedResourceConditionsPtrType) ToRestoreTes
 	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionProtectedResourceConditionsPtrOutput)
 }
 
+func (i *restoreTestingSelectionProtectedResourceConditionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingSelectionProtectedResourceConditions] {
+	return pulumix.Output[*RestoreTestingSelectionProtectedResourceConditions]{
+		OutputState: i.ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RestoreTestingSelectionProtectedResourceConditionsOutput struct{ *pulumi.OutputState }
 
 func (RestoreTestingSelectionProtectedResourceConditionsOutput) ElementType() reflect.Type {
@@ -2773,6 +3254,12 @@ func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToRestoreTesti
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestoreTestingSelectionProtectedResourceConditions) *RestoreTestingSelectionProtectedResourceConditions {
 		return &v
 	}).(RestoreTestingSelectionProtectedResourceConditionsPtrOutput)
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingSelectionProtectedResourceConditions] {
+	return pulumix.Output[RestoreTestingSelectionProtectedResourceConditions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RestoreTestingSelectionProtectedResourceConditionsOutput) StringEquals() RestoreTestingSelectionKeyValueArrayOutput {
@@ -2799,6 +3286,12 @@ func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) ToRestoreTe
 
 func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
 	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingSelectionProtectedResourceConditions] {
+	return pulumix.Output[*RestoreTestingSelectionProtectedResourceConditions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) Elem() RestoreTestingSelectionProtectedResourceConditionsOutput {
@@ -2858,6 +3351,12 @@ func (i RestoreTestingSelectionSensitiveStringMapArgs) ToRestoreTestingSelection
 	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionSensitiveStringMapOutput)
 }
 
+func (i RestoreTestingSelectionSensitiveStringMapArgs) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingSelectionSensitiveStringMap] {
+	return pulumix.Output[RestoreTestingSelectionSensitiveStringMap]{
+		OutputState: i.ToRestoreTestingSelectionSensitiveStringMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RestoreTestingSelectionSensitiveStringMapArgs) ToRestoreTestingSelectionSensitiveStringMapPtrOutput() RestoreTestingSelectionSensitiveStringMapPtrOutput {
 	return i.ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(context.Background())
 }
@@ -2899,6 +3398,12 @@ func (i *restoreTestingSelectionSensitiveStringMapPtrType) ToRestoreTestingSelec
 	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionSensitiveStringMapPtrOutput)
 }
 
+func (i *restoreTestingSelectionSensitiveStringMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingSelectionSensitiveStringMap] {
+	return pulumix.Output[*RestoreTestingSelectionSensitiveStringMap]{
+		OutputState: i.ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RestoreTestingSelectionSensitiveStringMapOutput struct{ *pulumi.OutputState }
 
 func (RestoreTestingSelectionSensitiveStringMapOutput) ElementType() reflect.Type {
@@ -2923,6 +3428,12 @@ func (o RestoreTestingSelectionSensitiveStringMapOutput) ToRestoreTestingSelecti
 	}).(RestoreTestingSelectionSensitiveStringMapPtrOutput)
 }
 
+func (o RestoreTestingSelectionSensitiveStringMapOutput) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingSelectionSensitiveStringMap] {
+	return pulumix.Output[RestoreTestingSelectionSensitiveStringMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type RestoreTestingSelectionSensitiveStringMapPtrOutput struct{ *pulumi.OutputState }
 
 func (RestoreTestingSelectionSensitiveStringMapPtrOutput) ElementType() reflect.Type {
@@ -2935,6 +3446,12 @@ func (o RestoreTestingSelectionSensitiveStringMapPtrOutput) ToRestoreTestingSele
 
 func (o RestoreTestingSelectionSensitiveStringMapPtrOutput) ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapPtrOutput {
 	return o
+}
+
+func (o RestoreTestingSelectionSensitiveStringMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingSelectionSensitiveStringMap] {
+	return pulumix.Output[*RestoreTestingSelectionSensitiveStringMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RestoreTestingSelectionSensitiveStringMapPtrOutput) Elem() RestoreTestingSelectionSensitiveStringMapOutput {

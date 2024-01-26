@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
@@ -109,6 +110,12 @@ func (i *InstanceAccessControlAttributeConfiguration) ToInstanceAccessControlAtt
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributeConfigurationOutput)
 }
 
+func (i *InstanceAccessControlAttributeConfiguration) ToOutput(ctx context.Context) pulumix.Output[*InstanceAccessControlAttributeConfiguration] {
+	return pulumix.Output[*InstanceAccessControlAttributeConfiguration]{
+		OutputState: i.ToInstanceAccessControlAttributeConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceAccessControlAttributeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (InstanceAccessControlAttributeConfigurationOutput) ElementType() reflect.Type {
@@ -121,6 +128,12 @@ func (o InstanceAccessControlAttributeConfigurationOutput) ToInstanceAccessContr
 
 func (o InstanceAccessControlAttributeConfigurationOutput) ToInstanceAccessControlAttributeConfigurationOutputWithContext(ctx context.Context) InstanceAccessControlAttributeConfigurationOutput {
 	return o
+}
+
+func (o InstanceAccessControlAttributeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceAccessControlAttributeConfiguration] {
+	return pulumix.Output[*InstanceAccessControlAttributeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceAccessControlAttributeConfigurationOutput) AccessControlAttributes() InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAFRegional::RateBasedRule
@@ -119,6 +120,12 @@ func (i *RateBasedRule) ToRateBasedRuleOutputWithContext(ctx context.Context) Ra
 	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRuleOutput)
 }
 
+func (i *RateBasedRule) ToOutput(ctx context.Context) pulumix.Output[*RateBasedRule] {
+	return pulumix.Output[*RateBasedRule]{
+		OutputState: i.ToRateBasedRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RateBasedRuleOutput struct{ *pulumi.OutputState }
 
 func (RateBasedRuleOutput) ElementType() reflect.Type {
@@ -131,6 +138,12 @@ func (o RateBasedRuleOutput) ToRateBasedRuleOutput() RateBasedRuleOutput {
 
 func (o RateBasedRuleOutput) ToRateBasedRuleOutputWithContext(ctx context.Context) RateBasedRuleOutput {
 	return o
+}
+
+func (o RateBasedRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*RateBasedRule] {
+	return pulumix.Output[*RateBasedRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RateBasedRuleOutput) MatchPredicates() RateBasedRulePredicateArrayOutput {

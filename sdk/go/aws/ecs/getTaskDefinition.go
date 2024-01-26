@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema describing various properties for ECS TaskDefinition
@@ -67,6 +68,12 @@ func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutput() L
 
 func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutputWithContext(ctx context.Context) LookupTaskDefinitionResultOutput {
 	return o
+}
+
+func (o LookupTaskDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTaskDefinitionResult] {
+	return pulumix.Output[LookupTaskDefinitionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTaskDefinitionResultOutput) Tags() TaskDefinitionTagArrayOutput {

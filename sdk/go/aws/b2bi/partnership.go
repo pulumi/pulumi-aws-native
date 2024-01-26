@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::B2BI::Partnership Resource Type
@@ -122,6 +123,12 @@ func (i *Partnership) ToPartnershipOutputWithContext(ctx context.Context) Partne
 	return pulumi.ToOutputWithContext(ctx, i).(PartnershipOutput)
 }
 
+func (i *Partnership) ToOutput(ctx context.Context) pulumix.Output[*Partnership] {
+	return pulumix.Output[*Partnership]{
+		OutputState: i.ToPartnershipOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PartnershipOutput struct{ *pulumi.OutputState }
 
 func (PartnershipOutput) ElementType() reflect.Type {
@@ -134,6 +141,12 @@ func (o PartnershipOutput) ToPartnershipOutput() PartnershipOutput {
 
 func (o PartnershipOutput) ToPartnershipOutputWithContext(ctx context.Context) PartnershipOutput {
 	return o
+}
+
+func (o PartnershipOutput) ToOutput(ctx context.Context) pulumix.Output[*Partnership] {
+	return pulumix.Output[*Partnership]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PartnershipOutput) Capabilities() pulumi.StringArrayOutput {

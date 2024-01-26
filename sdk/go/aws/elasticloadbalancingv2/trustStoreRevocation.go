@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStoreRevocation
@@ -107,6 +108,12 @@ func (i *TrustStoreRevocation) ToTrustStoreRevocationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreRevocationOutput)
 }
 
+func (i *TrustStoreRevocation) ToOutput(ctx context.Context) pulumix.Output[*TrustStoreRevocation] {
+	return pulumix.Output[*TrustStoreRevocation]{
+		OutputState: i.ToTrustStoreRevocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrustStoreRevocationOutput struct{ *pulumi.OutputState }
 
 func (TrustStoreRevocationOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o TrustStoreRevocationOutput) ToTrustStoreRevocationOutput() TrustStoreRev
 
 func (o TrustStoreRevocationOutput) ToTrustStoreRevocationOutputWithContext(ctx context.Context) TrustStoreRevocationOutput {
 	return o
+}
+
+func (o TrustStoreRevocationOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustStoreRevocation] {
+	return pulumix.Output[*TrustStoreRevocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The attributes required to create a trust store revocation.

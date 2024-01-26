@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore
@@ -126,6 +127,12 @@ func (i *TrustStore) ToTrustStoreOutputWithContext(ctx context.Context) TrustSto
 	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreOutput)
 }
 
+func (i *TrustStore) ToOutput(ctx context.Context) pulumix.Output[*TrustStore] {
+	return pulumix.Output[*TrustStore]{
+		OutputState: i.ToTrustStoreOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrustStoreOutput struct{ *pulumi.OutputState }
 
 func (TrustStoreOutput) ElementType() reflect.Type {
@@ -138,6 +145,12 @@ func (o TrustStoreOutput) ToTrustStoreOutput() TrustStoreOutput {
 
 func (o TrustStoreOutput) ToTrustStoreOutputWithContext(ctx context.Context) TrustStoreOutput {
 	return o
+}
+
+func (o TrustStoreOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustStore] {
+	return pulumix.Output[*TrustStore]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the S3 bucket to fetch the CA certificate bundle from.

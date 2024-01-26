@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::GroupVersion
@@ -63,6 +64,12 @@ func (o LookupGroupVersionResultOutput) ToLookupGroupVersionResultOutput() Looku
 
 func (o LookupGroupVersionResultOutput) ToLookupGroupVersionResultOutputWithContext(ctx context.Context) LookupGroupVersionResultOutput {
 	return o
+}
+
+func (o LookupGroupVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGroupVersionResult] {
+	return pulumix.Output[LookupGroupVersionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupGroupVersionResultOutput) Id() pulumi.StringPtrOutput {

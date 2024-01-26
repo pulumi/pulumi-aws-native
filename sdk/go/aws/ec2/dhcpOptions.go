@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::DHCPOptions
@@ -131,6 +132,12 @@ func (i *DhcpOptions) ToDhcpOptionsOutputWithContext(ctx context.Context) DhcpOp
 	return pulumi.ToOutputWithContext(ctx, i).(DhcpOptionsOutput)
 }
 
+func (i *DhcpOptions) ToOutput(ctx context.Context) pulumix.Output[*DhcpOptions] {
+	return pulumix.Output[*DhcpOptions]{
+		OutputState: i.ToDhcpOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DhcpOptionsOutput struct{ *pulumi.OutputState }
 
 func (DhcpOptionsOutput) ElementType() reflect.Type {
@@ -143,6 +150,12 @@ func (o DhcpOptionsOutput) ToDhcpOptionsOutput() DhcpOptionsOutput {
 
 func (o DhcpOptionsOutput) ToDhcpOptionsOutputWithContext(ctx context.Context) DhcpOptionsOutput {
 	return o
+}
+
+func (o DhcpOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[*DhcpOptions] {
+	return pulumix.Output[*DhcpOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DhcpOptionsOutput) DhcpOptionsId() pulumi.StringOutput {

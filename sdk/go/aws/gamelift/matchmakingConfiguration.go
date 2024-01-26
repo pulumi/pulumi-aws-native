@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
@@ -204,6 +205,12 @@ func (i *MatchmakingConfiguration) ToMatchmakingConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationOutput)
 }
 
+func (i *MatchmakingConfiguration) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingConfiguration] {
+	return pulumix.Output[*MatchmakingConfiguration]{
+		OutputState: i.ToMatchmakingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MatchmakingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MatchmakingConfigurationOutput) ElementType() reflect.Type {
@@ -216,6 +223,12 @@ func (o MatchmakingConfigurationOutput) ToMatchmakingConfigurationOutput() Match
 
 func (o MatchmakingConfigurationOutput) ToMatchmakingConfigurationOutputWithContext(ctx context.Context) MatchmakingConfigurationOutput {
 	return o
+}
+
+func (o MatchmakingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingConfiguration] {
+	return pulumix.Output[*MatchmakingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A flag that indicates whether a match that was created with this configuration must be accepted by the matched players

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource
@@ -64,6 +65,12 @@ func (o LookupApplicationReferenceDataSourceResultOutput) ToLookupApplicationRef
 
 func (o LookupApplicationReferenceDataSourceResultOutput) ToLookupApplicationReferenceDataSourceResultOutputWithContext(ctx context.Context) LookupApplicationReferenceDataSourceResultOutput {
 	return o
+}
+
+func (o LookupApplicationReferenceDataSourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApplicationReferenceDataSourceResult] {
+	return pulumix.Output[LookupApplicationReferenceDataSourceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupApplicationReferenceDataSourceResultOutput) Id() pulumi.StringPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::Model“ resource defines the structure of a request or response payload for an API method.
@@ -74,6 +75,12 @@ func (o LookupModelResultOutput) ToLookupModelResultOutput() LookupModelResultOu
 
 func (o LookupModelResultOutput) ToLookupModelResultOutputWithContext(ctx context.Context) LookupModelResultOutput {
 	return o
+}
+
+func (o LookupModelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupModelResult] {
+	return pulumix.Output[LookupModelResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the model.

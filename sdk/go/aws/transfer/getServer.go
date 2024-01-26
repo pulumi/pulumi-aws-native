@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Transfer::Server
@@ -78,6 +79,12 @@ func (o LookupServerResultOutput) ToLookupServerResultOutput() LookupServerResul
 
 func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx context.Context) LookupServerResultOutput {
 	return o
+}
+
+func (o LookupServerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerResult] {
+	return pulumix.Output[LookupServerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupServerResultOutput) Arn() pulumi.StringPtrOutput {

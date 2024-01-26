@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaLive::Multiplex
@@ -134,6 +135,12 @@ func (i *Multiplex) ToMultiplexOutputWithContext(ctx context.Context) MultiplexO
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexOutput)
 }
 
+func (i *Multiplex) ToOutput(ctx context.Context) pulumix.Output[*Multiplex] {
+	return pulumix.Output[*Multiplex]{
+		OutputState: i.ToMultiplexOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MultiplexOutput struct{ *pulumi.OutputState }
 
 func (MultiplexOutput) ElementType() reflect.Type {
@@ -146,6 +153,12 @@ func (o MultiplexOutput) ToMultiplexOutput() MultiplexOutput {
 
 func (o MultiplexOutput) ToMultiplexOutputWithContext(ctx context.Context) MultiplexOutput {
 	return o
+}
+
+func (o MultiplexOutput) ToOutput(ctx context.Context) pulumix.Output[*Multiplex] {
+	return pulumix.Output[*Multiplex]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The unique arn of the multiplex.

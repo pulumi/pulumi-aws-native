@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::ImageBuilder::Image
@@ -166,6 +167,12 @@ func (i *Image) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutput)
 }
 
+func (i *Image) ToOutput(ctx context.Context) pulumix.Output[*Image] {
+	return pulumix.Output[*Image]{
+		OutputState: i.ToImageOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageOutput struct{ *pulumi.OutputState }
 
 func (ImageOutput) ElementType() reflect.Type {
@@ -178,6 +185,12 @@ func (o ImageOutput) ToImageOutput() ImageOutput {
 
 func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
+}
+
+func (o ImageOutput) ToOutput(ctx context.Context) pulumix.Output[*Image] {
+	return pulumix.Output[*Image]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the image.

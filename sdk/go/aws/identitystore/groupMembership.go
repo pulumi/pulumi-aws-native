@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type Definition for AWS:IdentityStore::GroupMembership
@@ -122,6 +123,12 @@ func (i *GroupMembership) ToGroupMembershipOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMembershipOutput)
 }
 
+func (i *GroupMembership) ToOutput(ctx context.Context) pulumix.Output[*GroupMembership] {
+	return pulumix.Output[*GroupMembership]{
+		OutputState: i.ToGroupMembershipOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMembershipOutput struct{ *pulumi.OutputState }
 
 func (GroupMembershipOutput) ElementType() reflect.Type {
@@ -134,6 +141,12 @@ func (o GroupMembershipOutput) ToGroupMembershipOutput() GroupMembershipOutput {
 
 func (o GroupMembershipOutput) ToGroupMembershipOutputWithContext(ctx context.Context) GroupMembershipOutput {
 	return o
+}
+
+func (o GroupMembershipOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMembership] {
+	return pulumix.Output[*GroupMembership]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The unique identifier for a group in the identity store.

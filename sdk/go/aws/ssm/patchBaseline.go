@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSM::PatchBaseline
@@ -171,6 +172,12 @@ func (i *PatchBaseline) ToPatchBaselineOutputWithContext(ctx context.Context) Pa
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineOutput)
 }
 
+func (i *PatchBaseline) ToOutput(ctx context.Context) pulumix.Output[*PatchBaseline] {
+	return pulumix.Output[*PatchBaseline]{
+		OutputState: i.ToPatchBaselineOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PatchBaselineOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineOutput) ElementType() reflect.Type {
@@ -183,6 +190,12 @@ func (o PatchBaselineOutput) ToPatchBaselineOutput() PatchBaselineOutput {
 
 func (o PatchBaselineOutput) ToPatchBaselineOutputWithContext(ctx context.Context) PatchBaselineOutput {
 	return o
+}
+
+func (o PatchBaselineOutput) ToOutput(ctx context.Context) pulumix.Output[*PatchBaseline] {
+	return pulumix.Output[*PatchBaseline]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PatchBaselineOutput) ApprovalRules() PatchBaselineRuleGroupPtrOutput {

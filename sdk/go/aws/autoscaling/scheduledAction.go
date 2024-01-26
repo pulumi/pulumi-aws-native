@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
@@ -144,6 +145,12 @@ func (i *ScheduledAction) ToScheduledActionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionOutput)
 }
 
+func (i *ScheduledAction) ToOutput(ctx context.Context) pulumix.Output[*ScheduledAction] {
+	return pulumix.Output[*ScheduledAction]{
+		OutputState: i.ToScheduledActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduledActionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionOutput) ElementType() reflect.Type {
@@ -156,6 +163,12 @@ func (o ScheduledActionOutput) ToScheduledActionOutput() ScheduledActionOutput {
 
 func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput {
 	return o
+}
+
+func (o ScheduledActionOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledAction] {
+	return pulumix.Output[*ScheduledAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Auto Scaling group.
