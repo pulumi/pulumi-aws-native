@@ -78,12 +78,6 @@ func (o ChannelAdMarkupTypeOutput) ToChannelAdMarkupTypePtrOutputWithContext(ctx
 	}).(ChannelAdMarkupTypePtrOutput)
 }
 
-func (o ChannelAdMarkupTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelAdMarkupType] {
-	return pulumix.Output[ChannelAdMarkupType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAdMarkupTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o ChannelAdMarkupTypePtrOutput) ToChannelAdMarkupTypePtrOutputWithContext(
 	return o
 }
 
-func (o ChannelAdMarkupTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAdMarkupType] {
-	return pulumix.Output[*ChannelAdMarkupType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelAdMarkupTypePtrOutput) Elem() ChannelAdMarkupTypeOutput {
 	return o.ApplyT(func(v *ChannelAdMarkupType) ChannelAdMarkupType {
 		if v != nil {
@@ -149,10 +137,11 @@ func (o ChannelAdMarkupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// ChannelAdMarkupTypeInput is an input type that accepts ChannelAdMarkupTypeArgs and ChannelAdMarkupTypeOutput values.
-// You can construct a concrete instance of `ChannelAdMarkupTypeInput` via:
+// ChannelAdMarkupTypeInput is an input type that accepts values of the ChannelAdMarkupType enum
+// A concrete instance of `ChannelAdMarkupTypeInput` can be one of the following:
 //
-//	ChannelAdMarkupTypeArgs{...}
+//	ChannelAdMarkupTypeDaterange
+//	ChannelAdMarkupTypeScte35Enhanced
 type ChannelAdMarkupTypeInput interface {
 	pulumi.Input
 
@@ -218,12 +207,6 @@ func (i ChannelAdMarkupTypeArray) ToChannelAdMarkupTypeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAdMarkupTypeArrayOutput)
 }
 
-func (i ChannelAdMarkupTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelAdMarkupType] {
-	return pulumix.Output[[]ChannelAdMarkupType]{
-		OutputState: i.ToChannelAdMarkupTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelAdMarkupTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelAdMarkupTypeArrayOutput) ElementType() reflect.Type {
@@ -236,12 +219,6 @@ func (o ChannelAdMarkupTypeArrayOutput) ToChannelAdMarkupTypeArrayOutput() Chann
 
 func (o ChannelAdMarkupTypeArrayOutput) ToChannelAdMarkupTypeArrayOutputWithContext(ctx context.Context) ChannelAdMarkupTypeArrayOutput {
 	return o
-}
-
-func (o ChannelAdMarkupTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelAdMarkupType] {
-	return pulumix.Output[[]ChannelAdMarkupType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelAdMarkupTypeArrayOutput) Index(i pulumi.IntInput) ChannelAdMarkupTypeOutput {
@@ -316,12 +293,6 @@ func (o ChannelLogTypeOutput) ToChannelLogTypePtrOutputWithContext(ctx context.C
 	}).(ChannelLogTypePtrOutput)
 }
 
-func (o ChannelLogTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelLogType] {
-	return pulumix.Output[ChannelLogType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelLogTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -357,12 +328,6 @@ func (o ChannelLogTypePtrOutput) ToChannelLogTypePtrOutputWithContext(ctx contex
 	return o
 }
 
-func (o ChannelLogTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelLogType] {
-	return pulumix.Output[*ChannelLogType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelLogTypePtrOutput) Elem() ChannelLogTypeOutput {
 	return o.ApplyT(func(v *ChannelLogType) ChannelLogType {
 		if v != nil {
@@ -387,10 +352,10 @@ func (o ChannelLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ChannelLogTypeInput is an input type that accepts ChannelLogTypeArgs and ChannelLogTypeOutput values.
-// You can construct a concrete instance of `ChannelLogTypeInput` via:
+// ChannelLogTypeInput is an input type that accepts values of the ChannelLogType enum
+// A concrete instance of `ChannelLogTypeInput` can be one of the following:
 //
-//	ChannelLogTypeArgs{...}
+//	ChannelLogTypeAsRun
 type ChannelLogTypeInput interface {
 	pulumi.Input
 
@@ -456,12 +421,6 @@ func (i ChannelLogTypeArray) ToChannelLogTypeArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogTypeArrayOutput)
 }
 
-func (i ChannelLogTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelLogType] {
-	return pulumix.Output[[]ChannelLogType]{
-		OutputState: i.ToChannelLogTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelLogTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelLogTypeArrayOutput) ElementType() reflect.Type {
@@ -474,12 +433,6 @@ func (o ChannelLogTypeArrayOutput) ToChannelLogTypeArrayOutput() ChannelLogTypeA
 
 func (o ChannelLogTypeArrayOutput) ToChannelLogTypeArrayOutputWithContext(ctx context.Context) ChannelLogTypeArrayOutput {
 	return o
-}
-
-func (o ChannelLogTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelLogType] {
-	return pulumix.Output[[]ChannelLogType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelLogTypeArrayOutput) Index(i pulumi.IntInput) ChannelLogTypeOutput {
@@ -555,12 +508,6 @@ func (o ChannelPlaybackModeOutput) ToChannelPlaybackModePtrOutputWithContext(ctx
 	}).(ChannelPlaybackModePtrOutput)
 }
 
-func (o ChannelPlaybackModeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelPlaybackMode] {
-	return pulumix.Output[ChannelPlaybackMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelPlaybackModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -596,12 +543,6 @@ func (o ChannelPlaybackModePtrOutput) ToChannelPlaybackModePtrOutputWithContext(
 	return o
 }
 
-func (o ChannelPlaybackModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelPlaybackMode] {
-	return pulumix.Output[*ChannelPlaybackMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelPlaybackModePtrOutput) Elem() ChannelPlaybackModeOutput {
 	return o.ApplyT(func(v *ChannelPlaybackMode) ChannelPlaybackMode {
 		if v != nil {
@@ -626,10 +567,11 @@ func (o ChannelPlaybackModePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// ChannelPlaybackModeInput is an input type that accepts ChannelPlaybackModeArgs and ChannelPlaybackModeOutput values.
-// You can construct a concrete instance of `ChannelPlaybackModeInput` via:
+// ChannelPlaybackModeInput is an input type that accepts values of the ChannelPlaybackMode enum
+// A concrete instance of `ChannelPlaybackModeInput` can be one of the following:
 //
-//	ChannelPlaybackModeArgs{...}
+//	ChannelPlaybackModeLoop
+//	ChannelPlaybackModeLinear
 type ChannelPlaybackModeInput interface {
 	pulumi.Input
 
@@ -737,12 +679,6 @@ func (o ChannelTierOutput) ToChannelTierPtrOutputWithContext(ctx context.Context
 	}).(ChannelTierPtrOutput)
 }
 
-func (o ChannelTierOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTier] {
-	return pulumix.Output[ChannelTier]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelTierOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -778,12 +714,6 @@ func (o ChannelTierPtrOutput) ToChannelTierPtrOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ChannelTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelTier] {
-	return pulumix.Output[*ChannelTier]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelTierPtrOutput) Elem() ChannelTierOutput {
 	return o.ApplyT(func(v *ChannelTier) ChannelTier {
 		if v != nil {
@@ -808,10 +738,11 @@ func (o ChannelTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ChannelTierInput is an input type that accepts ChannelTierArgs and ChannelTierOutput values.
-// You can construct a concrete instance of `ChannelTierInput` via:
+// ChannelTierInput is an input type that accepts values of the ChannelTier enum
+// A concrete instance of `ChannelTierInput` can be one of the following:
 //
-//	ChannelTierArgs{...}
+//	ChannelTierBasic
+//	ChannelTierStandard
 type ChannelTierInput interface {
 	pulumi.Input
 
@@ -919,12 +850,6 @@ func (o LiveSourceTypeOutput) ToLiveSourceTypePtrOutputWithContext(ctx context.C
 	}).(LiveSourceTypePtrOutput)
 }
 
-func (o LiveSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LiveSourceType] {
-	return pulumix.Output[LiveSourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LiveSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -960,12 +885,6 @@ func (o LiveSourceTypePtrOutput) ToLiveSourceTypePtrOutputWithContext(ctx contex
 	return o
 }
 
-func (o LiveSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LiveSourceType] {
-	return pulumix.Output[*LiveSourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LiveSourceTypePtrOutput) Elem() LiveSourceTypeOutput {
 	return o.ApplyT(func(v *LiveSourceType) LiveSourceType {
 		if v != nil {
@@ -990,10 +909,11 @@ func (o LiveSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// LiveSourceTypeInput is an input type that accepts LiveSourceTypeArgs and LiveSourceTypeOutput values.
-// You can construct a concrete instance of `LiveSourceTypeInput` via:
+// LiveSourceTypeInput is an input type that accepts values of the LiveSourceType enum
+// A concrete instance of `LiveSourceTypeInput` can be one of the following:
 //
-//	LiveSourceTypeArgs{...}
+//	LiveSourceTypeDash
+//	LiveSourceTypeHls
 type LiveSourceTypeInput interface {
 	pulumi.Input
 
@@ -1102,12 +1022,6 @@ func (o PlaybackConfigurationAvailSuppressionModeOutput) ToPlaybackConfiguration
 	}).(PlaybackConfigurationAvailSuppressionModePtrOutput)
 }
 
-func (o PlaybackConfigurationAvailSuppressionModeOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationAvailSuppressionMode] {
-	return pulumix.Output[PlaybackConfigurationAvailSuppressionMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PlaybackConfigurationAvailSuppressionModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1143,12 +1057,6 @@ func (o PlaybackConfigurationAvailSuppressionModePtrOutput) ToPlaybackConfigurat
 	return o
 }
 
-func (o PlaybackConfigurationAvailSuppressionModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAvailSuppressionMode] {
-	return pulumix.Output[*PlaybackConfigurationAvailSuppressionMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PlaybackConfigurationAvailSuppressionModePtrOutput) Elem() PlaybackConfigurationAvailSuppressionModeOutput {
 	return o.ApplyT(func(v *PlaybackConfigurationAvailSuppressionMode) PlaybackConfigurationAvailSuppressionMode {
 		if v != nil {
@@ -1173,10 +1081,11 @@ func (o PlaybackConfigurationAvailSuppressionModePtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// PlaybackConfigurationAvailSuppressionModeInput is an input type that accepts PlaybackConfigurationAvailSuppressionModeArgs and PlaybackConfigurationAvailSuppressionModeOutput values.
-// You can construct a concrete instance of `PlaybackConfigurationAvailSuppressionModeInput` via:
+// PlaybackConfigurationAvailSuppressionModeInput is an input type that accepts values of the PlaybackConfigurationAvailSuppressionMode enum
+// A concrete instance of `PlaybackConfigurationAvailSuppressionModeInput` can be one of the following:
 //
-//	PlaybackConfigurationAvailSuppressionModeArgs{...}
+//	PlaybackConfigurationAvailSuppressionModeOff
+//	PlaybackConfigurationAvailSuppressionModeBehindLiveEdge
 type PlaybackConfigurationAvailSuppressionModeInput interface {
 	pulumi.Input
 
@@ -1285,12 +1194,6 @@ func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToPlayba
 	}).(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput)
 }
 
-func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationDashConfigurationOriginManifestType] {
-	return pulumix.Output[PlaybackConfigurationDashConfigurationOriginManifestType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1326,12 +1229,6 @@ func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToPla
 	return o
 }
 
-func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationDashConfigurationOriginManifestType] {
-	return pulumix.Output[*PlaybackConfigurationDashConfigurationOriginManifestType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) Elem() PlaybackConfigurationDashConfigurationOriginManifestTypeOutput {
 	return o.ApplyT(func(v *PlaybackConfigurationDashConfigurationOriginManifestType) PlaybackConfigurationDashConfigurationOriginManifestType {
 		if v != nil {
@@ -1356,10 +1253,11 @@ func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// PlaybackConfigurationDashConfigurationOriginManifestTypeInput is an input type that accepts PlaybackConfigurationDashConfigurationOriginManifestTypeArgs and PlaybackConfigurationDashConfigurationOriginManifestTypeOutput values.
-// You can construct a concrete instance of `PlaybackConfigurationDashConfigurationOriginManifestTypeInput` via:
+// PlaybackConfigurationDashConfigurationOriginManifestTypeInput is an input type that accepts values of the PlaybackConfigurationDashConfigurationOriginManifestType enum
+// A concrete instance of `PlaybackConfigurationDashConfigurationOriginManifestTypeInput` can be one of the following:
 //
-//	PlaybackConfigurationDashConfigurationOriginManifestTypeArgs{...}
+//	PlaybackConfigurationDashConfigurationOriginManifestTypeSinglePeriod
+//	PlaybackConfigurationDashConfigurationOriginManifestTypeMultiPeriod
 type PlaybackConfigurationDashConfigurationOriginManifestTypeInput interface {
 	pulumi.Input
 
@@ -1468,12 +1366,6 @@ func (o SourceLocationAccessTypeOutput) ToSourceLocationAccessTypePtrOutputWithC
 	}).(SourceLocationAccessTypePtrOutput)
 }
 
-func (o SourceLocationAccessTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SourceLocationAccessType] {
-	return pulumix.Output[SourceLocationAccessType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SourceLocationAccessTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1509,12 +1401,6 @@ func (o SourceLocationAccessTypePtrOutput) ToSourceLocationAccessTypePtrOutputWi
 	return o
 }
 
-func (o SourceLocationAccessTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceLocationAccessType] {
-	return pulumix.Output[*SourceLocationAccessType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SourceLocationAccessTypePtrOutput) Elem() SourceLocationAccessTypeOutput {
 	return o.ApplyT(func(v *SourceLocationAccessType) SourceLocationAccessType {
 		if v != nil {
@@ -1539,10 +1425,12 @@ func (o SourceLocationAccessTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// SourceLocationAccessTypeInput is an input type that accepts SourceLocationAccessTypeArgs and SourceLocationAccessTypeOutput values.
-// You can construct a concrete instance of `SourceLocationAccessTypeInput` via:
+// SourceLocationAccessTypeInput is an input type that accepts values of the SourceLocationAccessType enum
+// A concrete instance of `SourceLocationAccessTypeInput` can be one of the following:
 //
-//	SourceLocationAccessTypeArgs{...}
+//	SourceLocationAccessTypeS3Sigv4
+//	SourceLocationAccessTypeSecretsManagerAccessToken
+//	SourceLocationAccessTypeAutodetectSigv4
 type SourceLocationAccessTypeInput interface {
 	pulumi.Input
 
@@ -1650,12 +1538,6 @@ func (o VodSourceTypeOutput) ToVodSourceTypePtrOutputWithContext(ctx context.Con
 	}).(VodSourceTypePtrOutput)
 }
 
-func (o VodSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[VodSourceType] {
-	return pulumix.Output[VodSourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VodSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1691,12 +1573,6 @@ func (o VodSourceTypePtrOutput) ToVodSourceTypePtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o VodSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VodSourceType] {
-	return pulumix.Output[*VodSourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VodSourceTypePtrOutput) Elem() VodSourceTypeOutput {
 	return o.ApplyT(func(v *VodSourceType) VodSourceType {
 		if v != nil {
@@ -1721,10 +1597,11 @@ func (o VodSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// VodSourceTypeInput is an input type that accepts VodSourceTypeArgs and VodSourceTypeOutput values.
-// You can construct a concrete instance of `VodSourceTypeInput` via:
+// VodSourceTypeInput is an input type that accepts values of the VodSourceType enum
+// A concrete instance of `VodSourceTypeInput` can be one of the following:
 //
-//	VodSourceTypeArgs{...}
+//	VodSourceTypeDash
+//	VodSourceTypeHls
 type VodSourceTypeInput interface {
 	pulumi.Input
 

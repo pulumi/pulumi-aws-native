@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of the AWS::QuickSight::RefreshSchedule Resource Type.
@@ -104,12 +103,6 @@ func (i *RefreshSchedule) ToRefreshScheduleOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleOutput)
 }
 
-func (i *RefreshSchedule) ToOutput(ctx context.Context) pulumix.Output[*RefreshSchedule] {
-	return pulumix.Output[*RefreshSchedule]{
-		OutputState: i.ToRefreshScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RefreshScheduleOutput struct{ *pulumi.OutputState }
 
 func (RefreshScheduleOutput) ElementType() reflect.Type {
@@ -122,12 +115,6 @@ func (o RefreshScheduleOutput) ToRefreshScheduleOutput() RefreshScheduleOutput {
 
 func (o RefreshScheduleOutput) ToRefreshScheduleOutputWithContext(ctx context.Context) RefreshScheduleOutput {
 	return o
-}
-
-func (o RefreshScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*RefreshSchedule] {
-	return pulumix.Output[*RefreshSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The Amazon Resource Name (ARN) of the data source.</p>

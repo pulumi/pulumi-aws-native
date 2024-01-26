@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MSK::BatchScramSecret
@@ -64,12 +63,6 @@ func (o LookupBatchScramSecretResultOutput) ToLookupBatchScramSecretResultOutput
 
 func (o LookupBatchScramSecretResultOutput) ToLookupBatchScramSecretResultOutputWithContext(ctx context.Context) LookupBatchScramSecretResultOutput {
 	return o
-}
-
-func (o LookupBatchScramSecretResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBatchScramSecretResult] {
-	return pulumix.Output[LookupBatchScramSecretResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupBatchScramSecretResultOutput) SecretArnList() pulumi.StringArrayOutput {

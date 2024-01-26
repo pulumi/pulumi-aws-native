@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::DomainNameApiAssociation
@@ -65,12 +64,6 @@ func (o LookupDomainNameApiAssociationResultOutput) ToLookupDomainNameApiAssocia
 
 func (o LookupDomainNameApiAssociationResultOutput) ToLookupDomainNameApiAssociationResultOutputWithContext(ctx context.Context) LookupDomainNameApiAssociationResultOutput {
 	return o
-}
-
-func (o LookupDomainNameApiAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDomainNameApiAssociationResult] {
-	return pulumix.Output[LookupDomainNameApiAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDomainNameApiAssociationResultOutput) ApiAssociationIdentifier() pulumi.StringPtrOutput {

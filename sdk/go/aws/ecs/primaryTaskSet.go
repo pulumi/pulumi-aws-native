@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A pseudo-resource that manages which of your ECS task sets is primary.
@@ -120,12 +119,6 @@ func (i *PrimaryTaskSet) ToPrimaryTaskSetOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PrimaryTaskSetOutput)
 }
 
-func (i *PrimaryTaskSet) ToOutput(ctx context.Context) pulumix.Output[*PrimaryTaskSet] {
-	return pulumix.Output[*PrimaryTaskSet]{
-		OutputState: i.ToPrimaryTaskSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrimaryTaskSetOutput struct{ *pulumi.OutputState }
 
 func (PrimaryTaskSetOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o PrimaryTaskSetOutput) ToPrimaryTaskSetOutput() PrimaryTaskSetOutput {
 
 func (o PrimaryTaskSetOutput) ToPrimaryTaskSetOutputWithContext(ctx context.Context) PrimaryTaskSetOutput {
 	return o
-}
-
-func (o PrimaryTaskSetOutput) ToOutput(ctx context.Context) pulumix.Output[*PrimaryTaskSet] {
-	return pulumix.Output[*PrimaryTaskSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.

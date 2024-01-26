@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
@@ -69,12 +68,6 @@ func (o LookupLoggingResultOutput) ToLookupLoggingResultOutput() LookupLoggingRe
 
 func (o LookupLoggingResultOutput) ToLookupLoggingResultOutputWithContext(ctx context.Context) LookupLoggingResultOutput {
 	return o
-}
-
-func (o LookupLoggingResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLoggingResult] {
-	return pulumix.Output[LookupLoggingResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.

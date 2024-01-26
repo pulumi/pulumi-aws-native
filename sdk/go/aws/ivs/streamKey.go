@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IVS::StreamKey
@@ -111,12 +110,6 @@ func (i *StreamKey) ToStreamKeyOutputWithContext(ctx context.Context) StreamKeyO
 	return pulumi.ToOutputWithContext(ctx, i).(StreamKeyOutput)
 }
 
-func (i *StreamKey) ToOutput(ctx context.Context) pulumix.Output[*StreamKey] {
-	return pulumix.Output[*StreamKey]{
-		OutputState: i.ToStreamKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamKeyOutput struct{ *pulumi.OutputState }
 
 func (StreamKeyOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o StreamKeyOutput) ToStreamKeyOutput() StreamKeyOutput {
 
 func (o StreamKeyOutput) ToStreamKeyOutputWithContext(ctx context.Context) StreamKeyOutput {
 	return o
-}
-
-func (o StreamKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamKey] {
-	return pulumix.Output[*StreamKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Stream Key ARN is automatically generated on creation and assigned as the unique identifier.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationEFS.
@@ -143,12 +142,6 @@ func (i *LocationEfs) ToLocationEfsOutputWithContext(ctx context.Context) Locati
 	return pulumi.ToOutputWithContext(ctx, i).(LocationEfsOutput)
 }
 
-func (i *LocationEfs) ToOutput(ctx context.Context) pulumix.Output[*LocationEfs] {
-	return pulumix.Output[*LocationEfs]{
-		OutputState: i.ToLocationEfsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationEfsOutput struct{ *pulumi.OutputState }
 
 func (LocationEfsOutput) ElementType() reflect.Type {
@@ -161,12 +154,6 @@ func (o LocationEfsOutput) ToLocationEfsOutput() LocationEfsOutput {
 
 func (o LocationEfsOutput) ToLocationEfsOutputWithContext(ctx context.Context) LocationEfsOutput {
 	return o
-}
-
-func (o LocationEfsOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationEfs] {
-	return pulumix.Output[*LocationEfs]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Macie AllowList resource schema
@@ -79,12 +78,6 @@ func (o LookupAllowListResultOutput) ToLookupAllowListResultOutput() LookupAllow
 
 func (o LookupAllowListResultOutput) ToLookupAllowListResultOutputWithContext(ctx context.Context) LookupAllowListResultOutput {
 	return o
-}
-
-func (o LookupAllowListResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAllowListResult] {
-	return pulumix.Output[LookupAllowListResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // AllowList ARN.

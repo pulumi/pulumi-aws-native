@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::ManagedBlockchain::com.amazonaws.taiga.webservice.api#Accessor Resource Type
@@ -114,12 +113,6 @@ func (i *Accessor) ToAccessorOutputWithContext(ctx context.Context) AccessorOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AccessorOutput)
 }
 
-func (i *Accessor) ToOutput(ctx context.Context) pulumix.Output[*Accessor] {
-	return pulumix.Output[*Accessor]{
-		OutputState: i.ToAccessorOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessorOutput struct{ *pulumi.OutputState }
 
 func (AccessorOutput) ElementType() reflect.Type {
@@ -132,12 +125,6 @@ func (o AccessorOutput) ToAccessorOutput() AccessorOutput {
 
 func (o AccessorOutput) ToAccessorOutputWithContext(ctx context.Context) AccessorOutput {
 	return o
-}
-
-func (o AccessorOutput) ToOutput(ctx context.Context) pulumix.Output[*Accessor] {
-	return pulumix.Output[*Accessor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessorOutput) AccessorType() AccessorTypeOutput {

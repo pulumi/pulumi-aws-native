@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationFSxWindows.
@@ -149,12 +148,6 @@ func (i *LocationFSxWindows) ToLocationFSxWindowsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxWindowsOutput)
 }
 
-func (i *LocationFSxWindows) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxWindows] {
-	return pulumix.Output[*LocationFSxWindows]{
-		OutputState: i.ToLocationFSxWindowsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationFSxWindowsOutput struct{ *pulumi.OutputState }
 
 func (LocationFSxWindowsOutput) ElementType() reflect.Type {
@@ -167,12 +160,6 @@ func (o LocationFSxWindowsOutput) ToLocationFSxWindowsOutput() LocationFSxWindow
 
 func (o LocationFSxWindowsOutput) ToLocationFSxWindowsOutputWithContext(ctx context.Context) LocationFSxWindowsOutput {
 	return o
-}
-
-func (o LocationFSxWindowsOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxWindows] {
-	return pulumix.Output[*LocationFSxWindows]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Windows domain that the FSx for Windows server belongs to.

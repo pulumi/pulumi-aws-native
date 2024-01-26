@@ -45,12 +45,6 @@ func (o IndexStateEnumOutput) ToIndexStateEnumPtrOutputWithContext(ctx context.C
 	}).(IndexStateEnumPtrOutput)
 }
 
-func (o IndexStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[IndexStateEnum] {
-	return pulumix.Output[IndexStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IndexStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -84,12 +78,6 @@ func (o IndexStateEnumPtrOutput) ToIndexStateEnumPtrOutput() IndexStateEnumPtrOu
 
 func (o IndexStateEnumPtrOutput) ToIndexStateEnumPtrOutputWithContext(ctx context.Context) IndexStateEnumPtrOutput {
 	return o
-}
-
-func (o IndexStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexStateEnum] {
-	return pulumix.Output[*IndexStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IndexStateEnumPtrOutput) Elem() IndexStateEnumOutput {
@@ -183,12 +171,6 @@ func (o IndexTypeOutput) ToIndexTypePtrOutputWithContext(ctx context.Context) In
 	}).(IndexTypePtrOutput)
 }
 
-func (o IndexTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IndexType] {
-	return pulumix.Output[IndexType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IndexTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -224,12 +206,6 @@ func (o IndexTypePtrOutput) ToIndexTypePtrOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o IndexTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexType] {
-	return pulumix.Output[*IndexType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IndexTypePtrOutput) Elem() IndexTypeOutput {
 	return o.ApplyT(func(v *IndexType) IndexType {
 		if v != nil {
@@ -254,10 +230,11 @@ func (o IndexTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// IndexTypeInput is an input type that accepts IndexTypeArgs and IndexTypeOutput values.
-// You can construct a concrete instance of `IndexTypeInput` via:
+// IndexTypeInput is an input type that accepts values of the IndexType enum
+// A concrete instance of `IndexTypeInput` can be one of the following:
 //
-//	IndexTypeArgs{...}
+//	IndexTypeLocal
+//	IndexTypeAggregator
 type IndexTypeInput interface {
 	pulumi.Input
 

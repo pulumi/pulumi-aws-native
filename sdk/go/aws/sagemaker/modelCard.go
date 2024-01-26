@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::ModelCard.
@@ -145,12 +144,6 @@ func (i *ModelCard) ToModelCardOutputWithContext(ctx context.Context) ModelCardO
 	return pulumi.ToOutputWithContext(ctx, i).(ModelCardOutput)
 }
 
-func (i *ModelCard) ToOutput(ctx context.Context) pulumix.Output[*ModelCard] {
-	return pulumix.Output[*ModelCard]{
-		OutputState: i.ToModelCardOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ModelCardOutput struct{ *pulumi.OutputState }
 
 func (ModelCardOutput) ElementType() reflect.Type {
@@ -163,12 +156,6 @@ func (o ModelCardOutput) ToModelCardOutput() ModelCardOutput {
 
 func (o ModelCardOutput) ToModelCardOutputWithContext(ctx context.Context) ModelCardOutput {
 	return o
-}
-
-func (o ModelCardOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelCard] {
-	return pulumix.Output[*ModelCard]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelCardOutput) Content() ModelCardContentOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::LakeFormation::Resource
@@ -68,12 +67,6 @@ func (o LookupResourceResultOutput) ToLookupResourceResultOutput() LookupResourc
 
 func (o LookupResourceResultOutput) ToLookupResourceResultOutputWithContext(ctx context.Context) LookupResourceResultOutput {
 	return o
-}
-
-func (o LookupResourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResourceResult] {
-	return pulumix.Output[LookupResourceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupResourceResultOutput) HybridAccessEnabled() pulumi.BoolPtrOutput {

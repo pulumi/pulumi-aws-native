@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
@@ -78,12 +77,6 @@ func (o LookupAppResultOutput) ToLookupAppResultOutput() LookupAppResultOutput {
 
 func (o LookupAppResultOutput) ToLookupAppResultOutputWithContext(ctx context.Context) LookupAppResultOutput {
 	return o
-}
-
-func (o LookupAppResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAppResult] {
-	return pulumix.Output[LookupAppResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAppResultOutput) AppId() pulumi.StringPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS Datazone Environment Profile is pre-configured set of resources and blueprints that provide reusable templates for creating environments.
@@ -93,12 +92,6 @@ func (o LookupEnvironmentProfileResultOutput) ToLookupEnvironmentProfileResultOu
 
 func (o LookupEnvironmentProfileResultOutput) ToLookupEnvironmentProfileResultOutputWithContext(ctx context.Context) LookupEnvironmentProfileResultOutput {
 	return o
-}
-
-func (o LookupEnvironmentProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEnvironmentProfileResult] {
-	return pulumix.Output[LookupEnvironmentProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AWS account in which the Amazon DataZone environment is created.

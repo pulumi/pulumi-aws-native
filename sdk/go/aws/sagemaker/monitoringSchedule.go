@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::MonitoringSchedule
@@ -134,12 +133,6 @@ func (i *MonitoringSchedule) ToMonitoringScheduleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleOutput)
 }
 
-func (i *MonitoringSchedule) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSchedule] {
-	return pulumix.Output[*MonitoringSchedule]{
-		OutputState: i.ToMonitoringScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitoringScheduleOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleOutput) ElementType() reflect.Type {
@@ -152,12 +145,6 @@ func (o MonitoringScheduleOutput) ToMonitoringScheduleOutput() MonitoringSchedul
 
 func (o MonitoringScheduleOutput) ToMonitoringScheduleOutputWithContext(ctx context.Context) MonitoringScheduleOutput {
 	return o
-}
-
-func (o MonitoringScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSchedule] {
-	return pulumix.Output[*MonitoringSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time at which the schedule was created.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
@@ -126,12 +125,6 @@ func (i *MetricFilter) ToMetricFilterOutputWithContext(ctx context.Context) Metr
 	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterOutput)
 }
 
-func (i *MetricFilter) ToOutput(ctx context.Context) pulumix.Output[*MetricFilter] {
-	return pulumix.Output[*MetricFilter]{
-		OutputState: i.ToMetricFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MetricFilterOutput struct{ *pulumi.OutputState }
 
 func (MetricFilterOutput) ElementType() reflect.Type {
@@ -144,12 +137,6 @@ func (o MetricFilterOutput) ToMetricFilterOutput() MetricFilterOutput {
 
 func (o MetricFilterOutput) ToMetricFilterOutputWithContext(ctx context.Context) MetricFilterOutput {
 	return o
-}
-
-func (o MetricFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricFilter] {
-	return pulumix.Output[*MetricFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A name for the metric filter.

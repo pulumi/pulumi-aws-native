@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoTThingsGraph::FlowTemplate
@@ -99,12 +98,6 @@ func (i *FlowTemplate) ToFlowTemplateOutputWithContext(ctx context.Context) Flow
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTemplateOutput)
 }
 
-func (i *FlowTemplate) ToOutput(ctx context.Context) pulumix.Output[*FlowTemplate] {
-	return pulumix.Output[*FlowTemplate]{
-		OutputState: i.ToFlowTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowTemplateOutput struct{ *pulumi.OutputState }
 
 func (FlowTemplateOutput) ElementType() reflect.Type {
@@ -117,12 +110,6 @@ func (o FlowTemplateOutput) ToFlowTemplateOutput() FlowTemplateOutput {
 
 func (o FlowTemplateOutput) ToFlowTemplateOutputWithContext(ctx context.Context) FlowTemplateOutput {
 	return o
-}
-
-func (o FlowTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowTemplate] {
-	return pulumix.Output[*FlowTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowTemplateOutput) CompatibleNamespaceVersion() pulumi.Float64PtrOutput {

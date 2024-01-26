@@ -78,12 +78,6 @@ func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmOutput) T
 	}).(RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmPtrOutput)
 }
 
-func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm] {
-	return pulumix.Output[RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmPtrOutput
 	return o
 }
 
-func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm] {
-	return pulumix.Output[*RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmPtrOutput) Elem() RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmOutput {
 	return o.ApplyT(func(v *RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm) RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm {
 		if v != nil {
@@ -149,10 +137,11 @@ func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmInput is an input type that accepts RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmArgs and RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmOutput values.
-// You can construct a concrete instance of `RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmInput` via:
+// RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmInput is an input type that accepts values of the RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm enum
+// A concrete instance of `RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmInput` can be one of the following:
 //
-//	RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmArgs{...}
+//	RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmLatestWithinWindow
+//	RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmRandomWithinWindow
 type RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmInput interface {
 	pulumi.Input
 
@@ -260,12 +249,6 @@ func (o RestoreTestingPlanRestoreTestingRecoveryPointTypeOutput) ToRestoreTestin
 	}).(RestoreTestingPlanRestoreTestingRecoveryPointTypePtrOutput)
 }
 
-func (o RestoreTestingPlanRestoreTestingRecoveryPointTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingPlanRestoreTestingRecoveryPointType] {
-	return pulumix.Output[RestoreTestingPlanRestoreTestingRecoveryPointType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RestoreTestingPlanRestoreTestingRecoveryPointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +284,6 @@ func (o RestoreTestingPlanRestoreTestingRecoveryPointTypePtrOutput) ToRestoreTes
 	return o
 }
 
-func (o RestoreTestingPlanRestoreTestingRecoveryPointTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingPlanRestoreTestingRecoveryPointType] {
-	return pulumix.Output[*RestoreTestingPlanRestoreTestingRecoveryPointType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RestoreTestingPlanRestoreTestingRecoveryPointTypePtrOutput) Elem() RestoreTestingPlanRestoreTestingRecoveryPointTypeOutput {
 	return o.ApplyT(func(v *RestoreTestingPlanRestoreTestingRecoveryPointType) RestoreTestingPlanRestoreTestingRecoveryPointType {
 		if v != nil {
@@ -331,10 +308,11 @@ func (o RestoreTestingPlanRestoreTestingRecoveryPointTypePtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// RestoreTestingPlanRestoreTestingRecoveryPointTypeInput is an input type that accepts RestoreTestingPlanRestoreTestingRecoveryPointTypeArgs and RestoreTestingPlanRestoreTestingRecoveryPointTypeOutput values.
-// You can construct a concrete instance of `RestoreTestingPlanRestoreTestingRecoveryPointTypeInput` via:
+// RestoreTestingPlanRestoreTestingRecoveryPointTypeInput is an input type that accepts values of the RestoreTestingPlanRestoreTestingRecoveryPointType enum
+// A concrete instance of `RestoreTestingPlanRestoreTestingRecoveryPointTypeInput` can be one of the following:
 //
-//	RestoreTestingPlanRestoreTestingRecoveryPointTypeArgs{...}
+//	RestoreTestingPlanRestoreTestingRecoveryPointTypeSnapshot
+//	RestoreTestingPlanRestoreTestingRecoveryPointTypeContinuous
 type RestoreTestingPlanRestoreTestingRecoveryPointTypeInput interface {
 	pulumi.Input
 
@@ -400,12 +378,6 @@ func (i RestoreTestingPlanRestoreTestingRecoveryPointTypeArray) ToRestoreTesting
 	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput)
 }
 
-func (i RestoreTestingPlanRestoreTestingRecoveryPointTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]RestoreTestingPlanRestoreTestingRecoveryPointType] {
-	return pulumix.Output[[]RestoreTestingPlanRestoreTestingRecoveryPointType]{
-		OutputState: i.ToRestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput) ElementType() reflect.Type {
@@ -418,12 +390,6 @@ func (o RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput) ToRestoreT
 
 func (o RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput) ToRestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutputWithContext(ctx context.Context) RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput {
 	return o
-}
-
-func (o RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RestoreTestingPlanRestoreTestingRecoveryPointType] {
-	return pulumix.Output[[]RestoreTestingPlanRestoreTestingRecoveryPointType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput) Index(i pulumi.IntInput) RestoreTestingPlanRestoreTestingRecoveryPointTypeOutput {

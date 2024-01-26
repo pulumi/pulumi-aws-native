@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::ImageBuilder::ContainerRecipe
@@ -197,12 +196,6 @@ func (i *ContainerRecipe) ToContainerRecipeOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeOutput)
 }
 
-func (i *ContainerRecipe) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipe] {
-	return pulumix.Output[*ContainerRecipe]{
-		OutputState: i.ToContainerRecipeOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContainerRecipeOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeOutput) ElementType() reflect.Type {
@@ -215,12 +208,6 @@ func (o ContainerRecipeOutput) ToContainerRecipeOutput() ContainerRecipeOutput {
 
 func (o ContainerRecipeOutput) ToContainerRecipeOutputWithContext(ctx context.Context) ContainerRecipeOutput {
 	return o
-}
-
-func (o ContainerRecipeOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipe] {
-	return pulumix.Output[*ContainerRecipe]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the container recipe.

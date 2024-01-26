@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource represents an individual schema version of a schema defined in Glue Schema Registry.
@@ -67,12 +66,6 @@ func (o LookupSchemaVersionResultOutput) ToLookupSchemaVersionResultOutput() Loo
 
 func (o LookupSchemaVersionResultOutput) ToLookupSchemaVersionResultOutputWithContext(ctx context.Context) LookupSchemaVersionResultOutput {
 	return o
-}
-
-func (o LookupSchemaVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSchemaVersionResult] {
-	return pulumix.Output[LookupSchemaVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Represents the version ID associated with the schema version.

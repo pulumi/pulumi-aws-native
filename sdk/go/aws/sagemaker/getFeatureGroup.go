@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::FeatureGroup
@@ -72,12 +71,6 @@ func (o LookupFeatureGroupResultOutput) ToLookupFeatureGroupResultOutput() Looku
 
 func (o LookupFeatureGroupResultOutput) ToLookupFeatureGroupResultOutputWithContext(ctx context.Context) LookupFeatureGroupResultOutput {
 	return o
-}
-
-func (o LookupFeatureGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFeatureGroupResult] {
-	return pulumix.Output[LookupFeatureGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A timestamp of FeatureGroup creation time.

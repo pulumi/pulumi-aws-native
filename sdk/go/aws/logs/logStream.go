@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Logs::LogStream
@@ -108,12 +107,6 @@ func (i *LogStream) ToLogStreamOutputWithContext(ctx context.Context) LogStreamO
 	return pulumi.ToOutputWithContext(ctx, i).(LogStreamOutput)
 }
 
-func (i *LogStream) ToOutput(ctx context.Context) pulumix.Output[*LogStream] {
-	return pulumix.Output[*LogStream]{
-		OutputState: i.ToLogStreamOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogStreamOutput struct{ *pulumi.OutputState }
 
 func (LogStreamOutput) ElementType() reflect.Type {
@@ -126,12 +119,6 @@ func (o LogStreamOutput) ToLogStreamOutput() LogStreamOutput {
 
 func (o LogStreamOutput) ToLogStreamOutputWithContext(ctx context.Context) LogStreamOutput {
 	return o
-}
-
-func (o LogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[*LogStream] {
-	return pulumix.Output[*LogStream]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the log group where the log stream is created.

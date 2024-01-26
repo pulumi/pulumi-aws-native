@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::SecurityHub::Standard resource represents the implementation of an individual AWS Security Hub Standard in your account. It requires you have SecurityHub enabled before you can enable the Standard.
@@ -109,12 +108,6 @@ func (i *Standard) ToStandardOutputWithContext(ctx context.Context) StandardOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StandardOutput)
 }
 
-func (i *Standard) ToOutput(ctx context.Context) pulumix.Output[*Standard] {
-	return pulumix.Output[*Standard]{
-		OutputState: i.ToStandardOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardOutput struct{ *pulumi.OutputState }
 
 func (StandardOutput) ElementType() reflect.Type {
@@ -127,12 +120,6 @@ func (o StandardOutput) ToStandardOutput() StandardOutput {
 
 func (o StandardOutput) ToStandardOutputWithContext(ctx context.Context) StandardOutput {
 	return o
-}
-
-func (o StandardOutput) ToOutput(ctx context.Context) pulumix.Output[*Standard] {
-	return pulumix.Output[*Standard]{
-		OutputState: o.OutputState,
-	}
 }
 
 // StandardsControls to disable from this Standard.

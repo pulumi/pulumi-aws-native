@@ -78,12 +78,6 @@ func (o NotificationRuleDetailTypeOutput) ToNotificationRuleDetailTypePtrOutputW
 	}).(NotificationRuleDetailTypePtrOutput)
 }
 
-func (o NotificationRuleDetailTypeOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleDetailType] {
-	return pulumix.Output[NotificationRuleDetailType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationRuleDetailTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o NotificationRuleDetailTypePtrOutput) ToNotificationRuleDetailTypePtrOutp
 	return o
 }
 
-func (o NotificationRuleDetailTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationRuleDetailType] {
-	return pulumix.Output[*NotificationRuleDetailType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationRuleDetailTypePtrOutput) Elem() NotificationRuleDetailTypeOutput {
 	return o.ApplyT(func(v *NotificationRuleDetailType) NotificationRuleDetailType {
 		if v != nil {
@@ -149,10 +137,11 @@ func (o NotificationRuleDetailTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// NotificationRuleDetailTypeInput is an input type that accepts NotificationRuleDetailTypeArgs and NotificationRuleDetailTypeOutput values.
-// You can construct a concrete instance of `NotificationRuleDetailTypeInput` via:
+// NotificationRuleDetailTypeInput is an input type that accepts values of the NotificationRuleDetailType enum
+// A concrete instance of `NotificationRuleDetailTypeInput` can be one of the following:
 //
-//	NotificationRuleDetailTypeArgs{...}
+//	NotificationRuleDetailTypeBasic
+//	NotificationRuleDetailTypeFull
 type NotificationRuleDetailTypeInput interface {
 	pulumi.Input
 
@@ -260,12 +249,6 @@ func (o NotificationRuleStatusOutput) ToNotificationRuleStatusPtrOutputWithConte
 	}).(NotificationRuleStatusPtrOutput)
 }
 
-func (o NotificationRuleStatusOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleStatus] {
-	return pulumix.Output[NotificationRuleStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +284,6 @@ func (o NotificationRuleStatusPtrOutput) ToNotificationRuleStatusPtrOutputWithCo
 	return o
 }
 
-func (o NotificationRuleStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationRuleStatus] {
-	return pulumix.Output[*NotificationRuleStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationRuleStatusPtrOutput) Elem() NotificationRuleStatusOutput {
 	return o.ApplyT(func(v *NotificationRuleStatus) NotificationRuleStatus {
 		if v != nil {
@@ -331,10 +308,11 @@ func (o NotificationRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// NotificationRuleStatusInput is an input type that accepts NotificationRuleStatusArgs and NotificationRuleStatusOutput values.
-// You can construct a concrete instance of `NotificationRuleStatusInput` via:
+// NotificationRuleStatusInput is an input type that accepts values of the NotificationRuleStatus enum
+// A concrete instance of `NotificationRuleStatusInput` can be one of the following:
 //
-//	NotificationRuleStatusArgs{...}
+//	NotificationRuleStatusEnabled
+//	NotificationRuleStatusDisabled
 type NotificationRuleStatusInput interface {
 	pulumi.Input
 

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a streaming session machine image that can be used to launch a streaming session
@@ -135,12 +134,6 @@ func (i *StreamingImage) ToStreamingImageOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageOutput)
 }
 
-func (i *StreamingImage) ToOutput(ctx context.Context) pulumix.Output[*StreamingImage] {
-	return pulumix.Output[*StreamingImage]{
-		OutputState: i.ToStreamingImageOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingImageOutput struct{ *pulumi.OutputState }
 
 func (StreamingImageOutput) ElementType() reflect.Type {
@@ -153,12 +146,6 @@ func (o StreamingImageOutput) ToStreamingImageOutput() StreamingImageOutput {
 
 func (o StreamingImageOutput) ToStreamingImageOutputWithContext(ctx context.Context) StreamingImageOutput {
 	return o
-}
-
-func (o StreamingImageOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingImage] {
-	return pulumix.Output[*StreamingImage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>A human-readable description of the streaming image.</p>

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Aws Route53 Recovery Readiness Check Schema and API specification.
@@ -111,12 +110,6 @@ func (i *ReadinessCheck) ToReadinessCheckOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ReadinessCheckOutput)
 }
 
-func (i *ReadinessCheck) ToOutput(ctx context.Context) pulumix.Output[*ReadinessCheck] {
-	return pulumix.Output[*ReadinessCheck]{
-		OutputState: i.ToReadinessCheckOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReadinessCheckOutput struct{ *pulumi.OutputState }
 
 func (ReadinessCheckOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o ReadinessCheckOutput) ToReadinessCheckOutput() ReadinessCheckOutput {
 
 func (o ReadinessCheckOutput) ToReadinessCheckOutputWithContext(ctx context.Context) ReadinessCheckOutput {
 	return o
-}
-
-func (o ReadinessCheckOutput) ToOutput(ctx context.Context) pulumix.Output[*ReadinessCheck] {
-	return pulumix.Output[*ReadinessCheck]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the readiness check.

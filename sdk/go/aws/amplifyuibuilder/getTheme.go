@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::AmplifyUIBuilder::Theme Resource Type
@@ -73,12 +72,6 @@ func (o LookupThemeResultOutput) ToLookupThemeResultOutput() LookupThemeResultOu
 
 func (o LookupThemeResultOutput) ToLookupThemeResultOutputWithContext(ctx context.Context) LookupThemeResultOutput {
 	return o
-}
-
-func (o LookupThemeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupThemeResult] {
-	return pulumix.Output[LookupThemeResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupThemeResultOutput) AppId() pulumi.StringPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i AppDataSourceArgs) ToAppDataSourceOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AppDataSourceOutput)
 }
 
-func (i AppDataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[AppDataSource] {
-	return pulumix.Output[AppDataSource]{
-		OutputState: i.ToAppDataSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppDataSourceArrayInput is an input type that accepts AppDataSourceArray and AppDataSourceArrayOutput values.
 // You can construct a concrete instance of `AppDataSourceArrayInput` via:
 //
@@ -80,12 +73,6 @@ func (i AppDataSourceArray) ToAppDataSourceArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AppDataSourceArrayOutput)
 }
 
-func (i AppDataSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]AppDataSource] {
-	return pulumix.Output[[]AppDataSource]{
-		OutputState: i.ToAppDataSourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppDataSourceOutput struct{ *pulumi.OutputState }
 
 func (AppDataSourceOutput) ElementType() reflect.Type {
@@ -98,12 +85,6 @@ func (o AppDataSourceOutput) ToAppDataSourceOutput() AppDataSourceOutput {
 
 func (o AppDataSourceOutput) ToAppDataSourceOutputWithContext(ctx context.Context) AppDataSourceOutput {
 	return o
-}
-
-func (o AppDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[AppDataSource] {
-	return pulumix.Output[AppDataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppDataSourceOutput) Arn() pulumi.StringPtrOutput {
@@ -130,12 +111,6 @@ func (o AppDataSourceArrayOutput) ToAppDataSourceArrayOutput() AppDataSourceArra
 
 func (o AppDataSourceArrayOutput) ToAppDataSourceArrayOutputWithContext(ctx context.Context) AppDataSourceArrayOutput {
 	return o
-}
-
-func (o AppDataSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppDataSource] {
-	return pulumix.Output[[]AppDataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppDataSourceArrayOutput) Index(i pulumi.IntInput) AppDataSourceOutput {
@@ -179,12 +154,6 @@ func (i AppEnvironmentVariableArgs) ToAppEnvironmentVariableOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AppEnvironmentVariableOutput)
 }
 
-func (i AppEnvironmentVariableArgs) ToOutput(ctx context.Context) pulumix.Output[AppEnvironmentVariable] {
-	return pulumix.Output[AppEnvironmentVariable]{
-		OutputState: i.ToAppEnvironmentVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppEnvironmentVariableArrayInput is an input type that accepts AppEnvironmentVariableArray and AppEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `AppEnvironmentVariableArrayInput` via:
 //
@@ -210,12 +179,6 @@ func (i AppEnvironmentVariableArray) ToAppEnvironmentVariableArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AppEnvironmentVariableArrayOutput)
 }
 
-func (i AppEnvironmentVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]AppEnvironmentVariable] {
-	return pulumix.Output[[]AppEnvironmentVariable]{
-		OutputState: i.ToAppEnvironmentVariableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppEnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (AppEnvironmentVariableOutput) ElementType() reflect.Type {
@@ -228,12 +191,6 @@ func (o AppEnvironmentVariableOutput) ToAppEnvironmentVariableOutput() AppEnviro
 
 func (o AppEnvironmentVariableOutput) ToAppEnvironmentVariableOutputWithContext(ctx context.Context) AppEnvironmentVariableOutput {
 	return o
-}
-
-func (o AppEnvironmentVariableOutput) ToOutput(ctx context.Context) pulumix.Output[AppEnvironmentVariable] {
-	return pulumix.Output[AppEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppEnvironmentVariableOutput) Key() pulumi.StringOutput {
@@ -260,12 +217,6 @@ func (o AppEnvironmentVariableArrayOutput) ToAppEnvironmentVariableArrayOutput()
 
 func (o AppEnvironmentVariableArrayOutput) ToAppEnvironmentVariableArrayOutputWithContext(ctx context.Context) AppEnvironmentVariableArrayOutput {
 	return o
-}
-
-func (o AppEnvironmentVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppEnvironmentVariable] {
-	return pulumix.Output[[]AppEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) AppEnvironmentVariableOutput {
@@ -315,12 +266,6 @@ func (i AppSourceArgs) ToAppSourceOutputWithContext(ctx context.Context) AppSour
 	return pulumi.ToOutputWithContext(ctx, i).(AppSourceOutput)
 }
 
-func (i AppSourceArgs) ToOutput(ctx context.Context) pulumix.Output[AppSource] {
-	return pulumix.Output[AppSource]{
-		OutputState: i.ToAppSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AppSourceArgs) ToAppSourcePtrOutput() AppSourcePtrOutput {
 	return i.ToAppSourcePtrOutputWithContext(context.Background())
 }
@@ -362,12 +307,6 @@ func (i *appSourcePtrType) ToAppSourcePtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AppSourcePtrOutput)
 }
 
-func (i *appSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*AppSource] {
-	return pulumix.Output[*AppSource]{
-		OutputState: i.ToAppSourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppSourceOutput struct{ *pulumi.OutputState }
 
 func (AppSourceOutput) ElementType() reflect.Type {
@@ -390,12 +329,6 @@ func (o AppSourceOutput) ToAppSourcePtrOutputWithContext(ctx context.Context) Ap
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSource) *AppSource {
 		return &v
 	}).(AppSourcePtrOutput)
-}
-
-func (o AppSourceOutput) ToOutput(ctx context.Context) pulumix.Output[AppSource] {
-	return pulumix.Output[AppSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppSourceOutput) Password() pulumi.StringPtrOutput {
@@ -434,12 +367,6 @@ func (o AppSourcePtrOutput) ToAppSourcePtrOutput() AppSourcePtrOutput {
 
 func (o AppSourcePtrOutput) ToAppSourcePtrOutputWithContext(ctx context.Context) AppSourcePtrOutput {
 	return o
-}
-
-func (o AppSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppSource] {
-	return pulumix.Output[*AppSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppSourcePtrOutput) Elem() AppSourceOutput {
@@ -541,12 +468,6 @@ func (i AppSslConfigurationArgs) ToAppSslConfigurationOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AppSslConfigurationOutput)
 }
 
-func (i AppSslConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AppSslConfiguration] {
-	return pulumix.Output[AppSslConfiguration]{
-		OutputState: i.ToAppSslConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AppSslConfigurationArgs) ToAppSslConfigurationPtrOutput() AppSslConfigurationPtrOutput {
 	return i.ToAppSslConfigurationPtrOutputWithContext(context.Background())
 }
@@ -588,12 +509,6 @@ func (i *appSslConfigurationPtrType) ToAppSslConfigurationPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AppSslConfigurationPtrOutput)
 }
 
-func (i *appSslConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppSslConfiguration] {
-	return pulumix.Output[*AppSslConfiguration]{
-		OutputState: i.ToAppSslConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppSslConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AppSslConfigurationOutput) ElementType() reflect.Type {
@@ -616,12 +531,6 @@ func (o AppSslConfigurationOutput) ToAppSslConfigurationPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSslConfiguration) *AppSslConfiguration {
 		return &v
 	}).(AppSslConfigurationPtrOutput)
-}
-
-func (o AppSslConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AppSslConfiguration] {
-	return pulumix.Output[AppSslConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppSslConfigurationOutput) Certificate() pulumi.StringPtrOutput {
@@ -648,12 +557,6 @@ func (o AppSslConfigurationPtrOutput) ToAppSslConfigurationPtrOutput() AppSslCon
 
 func (o AppSslConfigurationPtrOutput) ToAppSslConfigurationPtrOutputWithContext(ctx context.Context) AppSslConfigurationPtrOutput {
 	return o
-}
-
-func (o AppSslConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppSslConfiguration] {
-	return pulumix.Output[*AppSslConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppSslConfigurationPtrOutput) Elem() AppSslConfigurationOutput {
@@ -730,12 +633,6 @@ func (i InstanceBlockDeviceMappingArgs) ToInstanceBlockDeviceMappingOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceBlockDeviceMappingOutput)
 }
 
-func (i InstanceBlockDeviceMappingArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceBlockDeviceMapping] {
-	return pulumix.Output[InstanceBlockDeviceMapping]{
-		OutputState: i.ToInstanceBlockDeviceMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceBlockDeviceMappingArrayInput is an input type that accepts InstanceBlockDeviceMappingArray and InstanceBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `InstanceBlockDeviceMappingArrayInput` via:
 //
@@ -761,12 +658,6 @@ func (i InstanceBlockDeviceMappingArray) ToInstanceBlockDeviceMappingArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceBlockDeviceMappingArrayOutput)
 }
 
-func (i InstanceBlockDeviceMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceBlockDeviceMapping] {
-	return pulumix.Output[[]InstanceBlockDeviceMapping]{
-		OutputState: i.ToInstanceBlockDeviceMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
 func (InstanceBlockDeviceMappingOutput) ElementType() reflect.Type {
@@ -779,12 +670,6 @@ func (o InstanceBlockDeviceMappingOutput) ToInstanceBlockDeviceMappingOutput() I
 
 func (o InstanceBlockDeviceMappingOutput) ToInstanceBlockDeviceMappingOutputWithContext(ctx context.Context) InstanceBlockDeviceMappingOutput {
 	return o
-}
-
-func (o InstanceBlockDeviceMappingOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceBlockDeviceMapping] {
-	return pulumix.Output[InstanceBlockDeviceMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
@@ -815,12 +700,6 @@ func (o InstanceBlockDeviceMappingArrayOutput) ToInstanceBlockDeviceMappingArray
 
 func (o InstanceBlockDeviceMappingArrayOutput) ToInstanceBlockDeviceMappingArrayOutputWithContext(ctx context.Context) InstanceBlockDeviceMappingArrayOutput {
 	return o
-}
-
-func (o InstanceBlockDeviceMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceBlockDeviceMapping] {
-	return pulumix.Output[[]InstanceBlockDeviceMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) InstanceBlockDeviceMappingOutput {
@@ -868,12 +747,6 @@ func (i InstanceEbsBlockDeviceArgs) ToInstanceEbsBlockDeviceOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceEbsBlockDeviceOutput)
 }
 
-func (i InstanceEbsBlockDeviceArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceEbsBlockDevice] {
-	return pulumix.Output[InstanceEbsBlockDevice]{
-		OutputState: i.ToInstanceEbsBlockDeviceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceEbsBlockDeviceArgs) ToInstanceEbsBlockDevicePtrOutput() InstanceEbsBlockDevicePtrOutput {
 	return i.ToInstanceEbsBlockDevicePtrOutputWithContext(context.Background())
 }
@@ -915,12 +788,6 @@ func (i *instanceEbsBlockDevicePtrType) ToInstanceEbsBlockDevicePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceEbsBlockDevicePtrOutput)
 }
 
-func (i *instanceEbsBlockDevicePtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceEbsBlockDevice] {
-	return pulumix.Output[*InstanceEbsBlockDevice]{
-		OutputState: i.ToInstanceEbsBlockDevicePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceEbsBlockDeviceOutput struct{ *pulumi.OutputState }
 
 func (InstanceEbsBlockDeviceOutput) ElementType() reflect.Type {
@@ -943,12 +810,6 @@ func (o InstanceEbsBlockDeviceOutput) ToInstanceEbsBlockDevicePtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceEbsBlockDevice) *InstanceEbsBlockDevice {
 		return &v
 	}).(InstanceEbsBlockDevicePtrOutput)
-}
-
-func (o InstanceEbsBlockDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceEbsBlockDevice] {
-	return pulumix.Output[InstanceEbsBlockDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
@@ -983,12 +844,6 @@ func (o InstanceEbsBlockDevicePtrOutput) ToInstanceEbsBlockDevicePtrOutput() Ins
 
 func (o InstanceEbsBlockDevicePtrOutput) ToInstanceEbsBlockDevicePtrOutputWithContext(ctx context.Context) InstanceEbsBlockDevicePtrOutput {
 	return o
-}
-
-func (o InstanceEbsBlockDevicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceEbsBlockDevice] {
-	return pulumix.Output[*InstanceEbsBlockDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceEbsBlockDevicePtrOutput) Elem() InstanceEbsBlockDeviceOutput {
@@ -1089,12 +944,6 @@ func (i InstanceTimeBasedAutoScalingArgs) ToInstanceTimeBasedAutoScalingOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceTimeBasedAutoScalingOutput)
 }
 
-func (i InstanceTimeBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceTimeBasedAutoScaling] {
-	return pulumix.Output[InstanceTimeBasedAutoScaling]{
-		OutputState: i.ToInstanceTimeBasedAutoScalingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceTimeBasedAutoScalingArgs) ToInstanceTimeBasedAutoScalingPtrOutput() InstanceTimeBasedAutoScalingPtrOutput {
 	return i.ToInstanceTimeBasedAutoScalingPtrOutputWithContext(context.Background())
 }
@@ -1136,12 +985,6 @@ func (i *instanceTimeBasedAutoScalingPtrType) ToInstanceTimeBasedAutoScalingPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceTimeBasedAutoScalingPtrOutput)
 }
 
-func (i *instanceTimeBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceTimeBasedAutoScaling] {
-	return pulumix.Output[*InstanceTimeBasedAutoScaling]{
-		OutputState: i.ToInstanceTimeBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceTimeBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (InstanceTimeBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -1164,12 +1007,6 @@ func (o InstanceTimeBasedAutoScalingOutput) ToInstanceTimeBasedAutoScalingPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceTimeBasedAutoScaling) *InstanceTimeBasedAutoScaling {
 		return &v
 	}).(InstanceTimeBasedAutoScalingPtrOutput)
-}
-
-func (o InstanceTimeBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceTimeBasedAutoScaling] {
-	return pulumix.Output[InstanceTimeBasedAutoScaling]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceTimeBasedAutoScalingOutput) Friday() pulumi.AnyOutput {
@@ -1212,12 +1049,6 @@ func (o InstanceTimeBasedAutoScalingPtrOutput) ToInstanceTimeBasedAutoScalingPtr
 
 func (o InstanceTimeBasedAutoScalingPtrOutput) ToInstanceTimeBasedAutoScalingPtrOutputWithContext(ctx context.Context) InstanceTimeBasedAutoScalingPtrOutput {
 	return o
-}
-
-func (o InstanceTimeBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceTimeBasedAutoScaling] {
-	return pulumix.Output[*InstanceTimeBasedAutoScaling]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceTimeBasedAutoScalingPtrOutput) Elem() InstanceTimeBasedAutoScalingOutput {
@@ -1334,12 +1165,6 @@ func (i LayerAutoScalingThresholdsArgs) ToLayerAutoScalingThresholdsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(LayerAutoScalingThresholdsOutput)
 }
 
-func (i LayerAutoScalingThresholdsArgs) ToOutput(ctx context.Context) pulumix.Output[LayerAutoScalingThresholds] {
-	return pulumix.Output[LayerAutoScalingThresholds]{
-		OutputState: i.ToLayerAutoScalingThresholdsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LayerAutoScalingThresholdsArgs) ToLayerAutoScalingThresholdsPtrOutput() LayerAutoScalingThresholdsPtrOutput {
 	return i.ToLayerAutoScalingThresholdsPtrOutputWithContext(context.Background())
 }
@@ -1381,12 +1206,6 @@ func (i *layerAutoScalingThresholdsPtrType) ToLayerAutoScalingThresholdsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LayerAutoScalingThresholdsPtrOutput)
 }
 
-func (i *layerAutoScalingThresholdsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LayerAutoScalingThresholds] {
-	return pulumix.Output[*LayerAutoScalingThresholds]{
-		OutputState: i.ToLayerAutoScalingThresholdsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LayerAutoScalingThresholdsOutput struct{ *pulumi.OutputState }
 
 func (LayerAutoScalingThresholdsOutput) ElementType() reflect.Type {
@@ -1409,12 +1228,6 @@ func (o LayerAutoScalingThresholdsOutput) ToLayerAutoScalingThresholdsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LayerAutoScalingThresholds) *LayerAutoScalingThresholds {
 		return &v
 	}).(LayerAutoScalingThresholdsPtrOutput)
-}
-
-func (o LayerAutoScalingThresholdsOutput) ToOutput(ctx context.Context) pulumix.Output[LayerAutoScalingThresholds] {
-	return pulumix.Output[LayerAutoScalingThresholds]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LayerAutoScalingThresholdsOutput) CpuThreshold() pulumi.Float64PtrOutput {
@@ -1453,12 +1266,6 @@ func (o LayerAutoScalingThresholdsPtrOutput) ToLayerAutoScalingThresholdsPtrOutp
 
 func (o LayerAutoScalingThresholdsPtrOutput) ToLayerAutoScalingThresholdsPtrOutputWithContext(ctx context.Context) LayerAutoScalingThresholdsPtrOutput {
 	return o
-}
-
-func (o LayerAutoScalingThresholdsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LayerAutoScalingThresholds] {
-	return pulumix.Output[*LayerAutoScalingThresholds]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LayerAutoScalingThresholdsPtrOutput) Elem() LayerAutoScalingThresholdsOutput {
@@ -1556,12 +1363,6 @@ func (i LayerLifecycleEventConfigurationArgs) ToLayerLifecycleEventConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(LayerLifecycleEventConfigurationOutput)
 }
 
-func (i LayerLifecycleEventConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LayerLifecycleEventConfiguration] {
-	return pulumix.Output[LayerLifecycleEventConfiguration]{
-		OutputState: i.ToLayerLifecycleEventConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LayerLifecycleEventConfigurationArgs) ToLayerLifecycleEventConfigurationPtrOutput() LayerLifecycleEventConfigurationPtrOutput {
 	return i.ToLayerLifecycleEventConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1603,12 +1404,6 @@ func (i *layerLifecycleEventConfigurationPtrType) ToLayerLifecycleEventConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(LayerLifecycleEventConfigurationPtrOutput)
 }
 
-func (i *layerLifecycleEventConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LayerLifecycleEventConfiguration] {
-	return pulumix.Output[*LayerLifecycleEventConfiguration]{
-		OutputState: i.ToLayerLifecycleEventConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LayerLifecycleEventConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LayerLifecycleEventConfigurationOutput) ElementType() reflect.Type {
@@ -1633,12 +1428,6 @@ func (o LayerLifecycleEventConfigurationOutput) ToLayerLifecycleEventConfigurati
 	}).(LayerLifecycleEventConfigurationPtrOutput)
 }
 
-func (o LayerLifecycleEventConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LayerLifecycleEventConfiguration] {
-	return pulumix.Output[LayerLifecycleEventConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LayerLifecycleEventConfigurationOutput) ShutdownEventConfiguration() LayerShutdownEventConfigurationPtrOutput {
 	return o.ApplyT(func(v LayerLifecycleEventConfiguration) *LayerShutdownEventConfiguration {
 		return v.ShutdownEventConfiguration
@@ -1657,12 +1446,6 @@ func (o LayerLifecycleEventConfigurationPtrOutput) ToLayerLifecycleEventConfigur
 
 func (o LayerLifecycleEventConfigurationPtrOutput) ToLayerLifecycleEventConfigurationPtrOutputWithContext(ctx context.Context) LayerLifecycleEventConfigurationPtrOutput {
 	return o
-}
-
-func (o LayerLifecycleEventConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LayerLifecycleEventConfiguration] {
-	return pulumix.Output[*LayerLifecycleEventConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LayerLifecycleEventConfigurationPtrOutput) Elem() LayerLifecycleEventConfigurationOutput {
@@ -1719,12 +1502,6 @@ func (i LayerLoadBasedAutoScalingArgs) ToLayerLoadBasedAutoScalingOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LayerLoadBasedAutoScalingOutput)
 }
 
-func (i LayerLoadBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[LayerLoadBasedAutoScaling] {
-	return pulumix.Output[LayerLoadBasedAutoScaling]{
-		OutputState: i.ToLayerLoadBasedAutoScalingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LayerLoadBasedAutoScalingArgs) ToLayerLoadBasedAutoScalingPtrOutput() LayerLoadBasedAutoScalingPtrOutput {
 	return i.ToLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
 }
@@ -1766,12 +1543,6 @@ func (i *layerLoadBasedAutoScalingPtrType) ToLayerLoadBasedAutoScalingPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LayerLoadBasedAutoScalingPtrOutput)
 }
 
-func (i *layerLoadBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*LayerLoadBasedAutoScaling] {
-	return pulumix.Output[*LayerLoadBasedAutoScaling]{
-		OutputState: i.ToLayerLoadBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (LayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -1794,12 +1565,6 @@ func (o LayerLoadBasedAutoScalingOutput) ToLayerLoadBasedAutoScalingPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LayerLoadBasedAutoScaling) *LayerLoadBasedAutoScaling {
 		return &v
 	}).(LayerLoadBasedAutoScalingPtrOutput)
-}
-
-func (o LayerLoadBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[LayerLoadBasedAutoScaling] {
-	return pulumix.Output[LayerLoadBasedAutoScaling]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LayerLoadBasedAutoScalingOutput) DownScaling() LayerAutoScalingThresholdsPtrOutput {
@@ -1826,12 +1591,6 @@ func (o LayerLoadBasedAutoScalingPtrOutput) ToLayerLoadBasedAutoScalingPtrOutput
 
 func (o LayerLoadBasedAutoScalingPtrOutput) ToLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) LayerLoadBasedAutoScalingPtrOutput {
 	return o
-}
-
-func (o LayerLoadBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LayerLoadBasedAutoScaling] {
-	return pulumix.Output[*LayerLoadBasedAutoScaling]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LayerLoadBasedAutoScalingPtrOutput) Elem() LayerLoadBasedAutoScalingOutput {
@@ -1910,12 +1669,6 @@ func (i LayerRecipesArgs) ToLayerRecipesOutputWithContext(ctx context.Context) L
 	return pulumi.ToOutputWithContext(ctx, i).(LayerRecipesOutput)
 }
 
-func (i LayerRecipesArgs) ToOutput(ctx context.Context) pulumix.Output[LayerRecipes] {
-	return pulumix.Output[LayerRecipes]{
-		OutputState: i.ToLayerRecipesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LayerRecipesArgs) ToLayerRecipesPtrOutput() LayerRecipesPtrOutput {
 	return i.ToLayerRecipesPtrOutputWithContext(context.Background())
 }
@@ -1957,12 +1710,6 @@ func (i *layerRecipesPtrType) ToLayerRecipesPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LayerRecipesPtrOutput)
 }
 
-func (i *layerRecipesPtrType) ToOutput(ctx context.Context) pulumix.Output[*LayerRecipes] {
-	return pulumix.Output[*LayerRecipes]{
-		OutputState: i.ToLayerRecipesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LayerRecipesOutput struct{ *pulumi.OutputState }
 
 func (LayerRecipesOutput) ElementType() reflect.Type {
@@ -1985,12 +1732,6 @@ func (o LayerRecipesOutput) ToLayerRecipesPtrOutputWithContext(ctx context.Conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LayerRecipes) *LayerRecipes {
 		return &v
 	}).(LayerRecipesPtrOutput)
-}
-
-func (o LayerRecipesOutput) ToOutput(ctx context.Context) pulumix.Output[LayerRecipes] {
-	return pulumix.Output[LayerRecipes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LayerRecipesOutput) Configure() pulumi.StringArrayOutput {
@@ -2025,12 +1766,6 @@ func (o LayerRecipesPtrOutput) ToLayerRecipesPtrOutput() LayerRecipesPtrOutput {
 
 func (o LayerRecipesPtrOutput) ToLayerRecipesPtrOutputWithContext(ctx context.Context) LayerRecipesPtrOutput {
 	return o
-}
-
-func (o LayerRecipesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LayerRecipes] {
-	return pulumix.Output[*LayerRecipes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LayerRecipesPtrOutput) Elem() LayerRecipesOutput {
@@ -2121,12 +1856,6 @@ func (i LayerShutdownEventConfigurationArgs) ToLayerShutdownEventConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(LayerShutdownEventConfigurationOutput)
 }
 
-func (i LayerShutdownEventConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LayerShutdownEventConfiguration] {
-	return pulumix.Output[LayerShutdownEventConfiguration]{
-		OutputState: i.ToLayerShutdownEventConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LayerShutdownEventConfigurationArgs) ToLayerShutdownEventConfigurationPtrOutput() LayerShutdownEventConfigurationPtrOutput {
 	return i.ToLayerShutdownEventConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2168,12 +1897,6 @@ func (i *layerShutdownEventConfigurationPtrType) ToLayerShutdownEventConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(LayerShutdownEventConfigurationPtrOutput)
 }
 
-func (i *layerShutdownEventConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LayerShutdownEventConfiguration] {
-	return pulumix.Output[*LayerShutdownEventConfiguration]{
-		OutputState: i.ToLayerShutdownEventConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LayerShutdownEventConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LayerShutdownEventConfigurationOutput) ElementType() reflect.Type {
@@ -2198,12 +1921,6 @@ func (o LayerShutdownEventConfigurationOutput) ToLayerShutdownEventConfiguration
 	}).(LayerShutdownEventConfigurationPtrOutput)
 }
 
-func (o LayerShutdownEventConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LayerShutdownEventConfiguration] {
-	return pulumix.Output[LayerShutdownEventConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LayerShutdownEventConfigurationOutput) DelayUntilElbConnectionsDrained() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LayerShutdownEventConfiguration) *bool { return v.DelayUntilElbConnectionsDrained }).(pulumi.BoolPtrOutput)
 }
@@ -2224,12 +1941,6 @@ func (o LayerShutdownEventConfigurationPtrOutput) ToLayerShutdownEventConfigurat
 
 func (o LayerShutdownEventConfigurationPtrOutput) ToLayerShutdownEventConfigurationPtrOutputWithContext(ctx context.Context) LayerShutdownEventConfigurationPtrOutput {
 	return o
-}
-
-func (o LayerShutdownEventConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LayerShutdownEventConfiguration] {
-	return pulumix.Output[*LayerShutdownEventConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LayerShutdownEventConfigurationPtrOutput) Elem() LayerShutdownEventConfigurationOutput {
@@ -2293,12 +2004,6 @@ func (i LayerTagArgs) ToLayerTagOutputWithContext(ctx context.Context) LayerTagO
 	return pulumi.ToOutputWithContext(ctx, i).(LayerTagOutput)
 }
 
-func (i LayerTagArgs) ToOutput(ctx context.Context) pulumix.Output[LayerTag] {
-	return pulumix.Output[LayerTag]{
-		OutputState: i.ToLayerTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LayerTagArrayInput is an input type that accepts LayerTagArray and LayerTagArrayOutput values.
 // You can construct a concrete instance of `LayerTagArrayInput` via:
 //
@@ -2324,12 +2029,6 @@ func (i LayerTagArray) ToLayerTagArrayOutputWithContext(ctx context.Context) Lay
 	return pulumi.ToOutputWithContext(ctx, i).(LayerTagArrayOutput)
 }
 
-func (i LayerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LayerTag] {
-	return pulumix.Output[[]LayerTag]{
-		OutputState: i.ToLayerTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LayerTagOutput struct{ *pulumi.OutputState }
 
 func (LayerTagOutput) ElementType() reflect.Type {
@@ -2342,12 +2041,6 @@ func (o LayerTagOutput) ToLayerTagOutput() LayerTagOutput {
 
 func (o LayerTagOutput) ToLayerTagOutputWithContext(ctx context.Context) LayerTagOutput {
 	return o
-}
-
-func (o LayerTagOutput) ToOutput(ctx context.Context) pulumix.Output[LayerTag] {
-	return pulumix.Output[LayerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LayerTagOutput) Key() pulumi.StringOutput {
@@ -2370,12 +2063,6 @@ func (o LayerTagArrayOutput) ToLayerTagArrayOutput() LayerTagArrayOutput {
 
 func (o LayerTagArrayOutput) ToLayerTagArrayOutputWithContext(ctx context.Context) LayerTagArrayOutput {
 	return o
-}
-
-func (o LayerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LayerTag] {
-	return pulumix.Output[[]LayerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LayerTagArrayOutput) Index(i pulumi.IntInput) LayerTagOutput {
@@ -2427,12 +2114,6 @@ func (i LayerVolumeConfigurationArgs) ToLayerVolumeConfigurationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVolumeConfigurationOutput)
 }
 
-func (i LayerVolumeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LayerVolumeConfiguration] {
-	return pulumix.Output[LayerVolumeConfiguration]{
-		OutputState: i.ToLayerVolumeConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LayerVolumeConfigurationArrayInput is an input type that accepts LayerVolumeConfigurationArray and LayerVolumeConfigurationArrayOutput values.
 // You can construct a concrete instance of `LayerVolumeConfigurationArrayInput` via:
 //
@@ -2458,12 +2139,6 @@ func (i LayerVolumeConfigurationArray) ToLayerVolumeConfigurationArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVolumeConfigurationArrayOutput)
 }
 
-func (i LayerVolumeConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]LayerVolumeConfiguration] {
-	return pulumix.Output[[]LayerVolumeConfiguration]{
-		OutputState: i.ToLayerVolumeConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LayerVolumeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LayerVolumeConfigurationOutput) ElementType() reflect.Type {
@@ -2476,12 +2151,6 @@ func (o LayerVolumeConfigurationOutput) ToLayerVolumeConfigurationOutput() Layer
 
 func (o LayerVolumeConfigurationOutput) ToLayerVolumeConfigurationOutputWithContext(ctx context.Context) LayerVolumeConfigurationOutput {
 	return o
-}
-
-func (o LayerVolumeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LayerVolumeConfiguration] {
-	return pulumix.Output[LayerVolumeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LayerVolumeConfigurationOutput) Encrypted() pulumi.BoolPtrOutput {
@@ -2526,12 +2195,6 @@ func (o LayerVolumeConfigurationArrayOutput) ToLayerVolumeConfigurationArrayOutp
 	return o
 }
 
-func (o LayerVolumeConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LayerVolumeConfiguration] {
-	return pulumix.Output[[]LayerVolumeConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LayerVolumeConfigurationArrayOutput) Index(i pulumi.IntInput) LayerVolumeConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LayerVolumeConfiguration {
 		return vs[0].([]LayerVolumeConfiguration)[vs[1].(int)]
@@ -2569,12 +2232,6 @@ func (i StackChefConfigurationArgs) ToStackChefConfigurationOutput() StackChefCo
 
 func (i StackChefConfigurationArgs) ToStackChefConfigurationOutputWithContext(ctx context.Context) StackChefConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackChefConfigurationOutput)
-}
-
-func (i StackChefConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StackChefConfiguration] {
-	return pulumix.Output[StackChefConfiguration]{
-		OutputState: i.ToStackChefConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i StackChefConfigurationArgs) ToStackChefConfigurationPtrOutput() StackChefConfigurationPtrOutput {
@@ -2618,12 +2275,6 @@ func (i *stackChefConfigurationPtrType) ToStackChefConfigurationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StackChefConfigurationPtrOutput)
 }
 
-func (i *stackChefConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StackChefConfiguration] {
-	return pulumix.Output[*StackChefConfiguration]{
-		OutputState: i.ToStackChefConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackChefConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StackChefConfigurationOutput) ElementType() reflect.Type {
@@ -2648,12 +2299,6 @@ func (o StackChefConfigurationOutput) ToStackChefConfigurationPtrOutputWithConte
 	}).(StackChefConfigurationPtrOutput)
 }
 
-func (o StackChefConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StackChefConfiguration] {
-	return pulumix.Output[StackChefConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackChefConfigurationOutput) BerkshelfVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackChefConfiguration) *string { return v.BerkshelfVersion }).(pulumi.StringPtrOutput)
 }
@@ -2674,12 +2319,6 @@ func (o StackChefConfigurationPtrOutput) ToStackChefConfigurationPtrOutput() Sta
 
 func (o StackChefConfigurationPtrOutput) ToStackChefConfigurationPtrOutputWithContext(ctx context.Context) StackChefConfigurationPtrOutput {
 	return o
-}
-
-func (o StackChefConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackChefConfiguration] {
-	return pulumix.Output[*StackChefConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackChefConfigurationPtrOutput) Elem() StackChefConfigurationOutput {
@@ -2743,12 +2382,6 @@ func (i StackConfigurationManagerArgs) ToStackConfigurationManagerOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StackConfigurationManagerOutput)
 }
 
-func (i StackConfigurationManagerArgs) ToOutput(ctx context.Context) pulumix.Output[StackConfigurationManager] {
-	return pulumix.Output[StackConfigurationManager]{
-		OutputState: i.ToStackConfigurationManagerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StackConfigurationManagerArgs) ToStackConfigurationManagerPtrOutput() StackConfigurationManagerPtrOutput {
 	return i.ToStackConfigurationManagerPtrOutputWithContext(context.Background())
 }
@@ -2790,12 +2423,6 @@ func (i *stackConfigurationManagerPtrType) ToStackConfigurationManagerPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(StackConfigurationManagerPtrOutput)
 }
 
-func (i *stackConfigurationManagerPtrType) ToOutput(ctx context.Context) pulumix.Output[*StackConfigurationManager] {
-	return pulumix.Output[*StackConfigurationManager]{
-		OutputState: i.ToStackConfigurationManagerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackConfigurationManagerOutput struct{ *pulumi.OutputState }
 
 func (StackConfigurationManagerOutput) ElementType() reflect.Type {
@@ -2820,12 +2447,6 @@ func (o StackConfigurationManagerOutput) ToStackConfigurationManagerPtrOutputWit
 	}).(StackConfigurationManagerPtrOutput)
 }
 
-func (o StackConfigurationManagerOutput) ToOutput(ctx context.Context) pulumix.Output[StackConfigurationManager] {
-	return pulumix.Output[StackConfigurationManager]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackConfigurationManagerOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackConfigurationManager) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2846,12 +2467,6 @@ func (o StackConfigurationManagerPtrOutput) ToStackConfigurationManagerPtrOutput
 
 func (o StackConfigurationManagerPtrOutput) ToStackConfigurationManagerPtrOutputWithContext(ctx context.Context) StackConfigurationManagerPtrOutput {
 	return o
-}
-
-func (o StackConfigurationManagerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackConfigurationManager] {
-	return pulumix.Output[*StackConfigurationManager]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackConfigurationManagerPtrOutput) Elem() StackConfigurationManagerOutput {
@@ -2915,12 +2530,6 @@ func (i StackElasticIpArgs) ToStackElasticIpOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(StackElasticIpOutput)
 }
 
-func (i StackElasticIpArgs) ToOutput(ctx context.Context) pulumix.Output[StackElasticIp] {
-	return pulumix.Output[StackElasticIp]{
-		OutputState: i.ToStackElasticIpOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StackElasticIpArrayInput is an input type that accepts StackElasticIpArray and StackElasticIpArrayOutput values.
 // You can construct a concrete instance of `StackElasticIpArrayInput` via:
 //
@@ -2946,12 +2555,6 @@ func (i StackElasticIpArray) ToStackElasticIpArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StackElasticIpArrayOutput)
 }
 
-func (i StackElasticIpArray) ToOutput(ctx context.Context) pulumix.Output[[]StackElasticIp] {
-	return pulumix.Output[[]StackElasticIp]{
-		OutputState: i.ToStackElasticIpArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackElasticIpOutput struct{ *pulumi.OutputState }
 
 func (StackElasticIpOutput) ElementType() reflect.Type {
@@ -2964,12 +2567,6 @@ func (o StackElasticIpOutput) ToStackElasticIpOutput() StackElasticIpOutput {
 
 func (o StackElasticIpOutput) ToStackElasticIpOutputWithContext(ctx context.Context) StackElasticIpOutput {
 	return o
-}
-
-func (o StackElasticIpOutput) ToOutput(ctx context.Context) pulumix.Output[StackElasticIp] {
-	return pulumix.Output[StackElasticIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackElasticIpOutput) Ip() pulumi.StringOutput {
@@ -2992,12 +2589,6 @@ func (o StackElasticIpArrayOutput) ToStackElasticIpArrayOutput() StackElasticIpA
 
 func (o StackElasticIpArrayOutput) ToStackElasticIpArrayOutputWithContext(ctx context.Context) StackElasticIpArrayOutput {
 	return o
-}
-
-func (o StackElasticIpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackElasticIp] {
-	return pulumix.Output[[]StackElasticIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackElasticIpArrayOutput) Index(i pulumi.IntInput) StackElasticIpOutput {
@@ -3041,12 +2632,6 @@ func (i StackRdsDbInstanceArgs) ToStackRdsDbInstanceOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StackRdsDbInstanceOutput)
 }
 
-func (i StackRdsDbInstanceArgs) ToOutput(ctx context.Context) pulumix.Output[StackRdsDbInstance] {
-	return pulumix.Output[StackRdsDbInstance]{
-		OutputState: i.ToStackRdsDbInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StackRdsDbInstanceArrayInput is an input type that accepts StackRdsDbInstanceArray and StackRdsDbInstanceArrayOutput values.
 // You can construct a concrete instance of `StackRdsDbInstanceArrayInput` via:
 //
@@ -3072,12 +2657,6 @@ func (i StackRdsDbInstanceArray) ToStackRdsDbInstanceArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StackRdsDbInstanceArrayOutput)
 }
 
-func (i StackRdsDbInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]StackRdsDbInstance] {
-	return pulumix.Output[[]StackRdsDbInstance]{
-		OutputState: i.ToStackRdsDbInstanceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackRdsDbInstanceOutput struct{ *pulumi.OutputState }
 
 func (StackRdsDbInstanceOutput) ElementType() reflect.Type {
@@ -3090,12 +2669,6 @@ func (o StackRdsDbInstanceOutput) ToStackRdsDbInstanceOutput() StackRdsDbInstanc
 
 func (o StackRdsDbInstanceOutput) ToStackRdsDbInstanceOutputWithContext(ctx context.Context) StackRdsDbInstanceOutput {
 	return o
-}
-
-func (o StackRdsDbInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[StackRdsDbInstance] {
-	return pulumix.Output[StackRdsDbInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackRdsDbInstanceOutput) DbPassword() pulumi.StringOutput {
@@ -3122,12 +2695,6 @@ func (o StackRdsDbInstanceArrayOutput) ToStackRdsDbInstanceArrayOutput() StackRd
 
 func (o StackRdsDbInstanceArrayOutput) ToStackRdsDbInstanceArrayOutputWithContext(ctx context.Context) StackRdsDbInstanceArrayOutput {
 	return o
-}
-
-func (o StackRdsDbInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackRdsDbInstance] {
-	return pulumix.Output[[]StackRdsDbInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackRdsDbInstanceArrayOutput) Index(i pulumi.IntInput) StackRdsDbInstanceOutput {
@@ -3177,12 +2744,6 @@ func (i StackSourceArgs) ToStackSourceOutputWithContext(ctx context.Context) Sta
 	return pulumi.ToOutputWithContext(ctx, i).(StackSourceOutput)
 }
 
-func (i StackSourceArgs) ToOutput(ctx context.Context) pulumix.Output[StackSource] {
-	return pulumix.Output[StackSource]{
-		OutputState: i.ToStackSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StackSourceArgs) ToStackSourcePtrOutput() StackSourcePtrOutput {
 	return i.ToStackSourcePtrOutputWithContext(context.Background())
 }
@@ -3224,12 +2785,6 @@ func (i *stackSourcePtrType) ToStackSourcePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(StackSourcePtrOutput)
 }
 
-func (i *stackSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*StackSource] {
-	return pulumix.Output[*StackSource]{
-		OutputState: i.ToStackSourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackSourceOutput struct{ *pulumi.OutputState }
 
 func (StackSourceOutput) ElementType() reflect.Type {
@@ -3252,12 +2807,6 @@ func (o StackSourceOutput) ToStackSourcePtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSource) *StackSource {
 		return &v
 	}).(StackSourcePtrOutput)
-}
-
-func (o StackSourceOutput) ToOutput(ctx context.Context) pulumix.Output[StackSource] {
-	return pulumix.Output[StackSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackSourceOutput) Password() pulumi.StringPtrOutput {
@@ -3296,12 +2845,6 @@ func (o StackSourcePtrOutput) ToStackSourcePtrOutput() StackSourcePtrOutput {
 
 func (o StackSourcePtrOutput) ToStackSourcePtrOutputWithContext(ctx context.Context) StackSourcePtrOutput {
 	return o
-}
-
-func (o StackSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSource] {
-	return pulumix.Output[*StackSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackSourcePtrOutput) Elem() StackSourceOutput {
@@ -3401,12 +2944,6 @@ func (i StackTagArgs) ToStackTagOutputWithContext(ctx context.Context) StackTagO
 	return pulumi.ToOutputWithContext(ctx, i).(StackTagOutput)
 }
 
-func (i StackTagArgs) ToOutput(ctx context.Context) pulumix.Output[StackTag] {
-	return pulumix.Output[StackTag]{
-		OutputState: i.ToStackTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StackTagArrayInput is an input type that accepts StackTagArray and StackTagArrayOutput values.
 // You can construct a concrete instance of `StackTagArrayInput` via:
 //
@@ -3432,12 +2969,6 @@ func (i StackTagArray) ToStackTagArrayOutputWithContext(ctx context.Context) Sta
 	return pulumi.ToOutputWithContext(ctx, i).(StackTagArrayOutput)
 }
 
-func (i StackTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StackTag] {
-	return pulumix.Output[[]StackTag]{
-		OutputState: i.ToStackTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackTagOutput struct{ *pulumi.OutputState }
 
 func (StackTagOutput) ElementType() reflect.Type {
@@ -3450,12 +2981,6 @@ func (o StackTagOutput) ToStackTagOutput() StackTagOutput {
 
 func (o StackTagOutput) ToStackTagOutputWithContext(ctx context.Context) StackTagOutput {
 	return o
-}
-
-func (o StackTagOutput) ToOutput(ctx context.Context) pulumix.Output[StackTag] {
-	return pulumix.Output[StackTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackTagOutput) Key() pulumi.StringOutput {
@@ -3478,12 +3003,6 @@ func (o StackTagArrayOutput) ToStackTagArrayOutput() StackTagArrayOutput {
 
 func (o StackTagArrayOutput) ToStackTagArrayOutputWithContext(ctx context.Context) StackTagArrayOutput {
 	return o
-}
-
-func (o StackTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackTag] {
-	return pulumix.Output[[]StackTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackTagArrayOutput) Index(i pulumi.IntInput) StackTagOutput {

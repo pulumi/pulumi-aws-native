@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Oam::Sink
@@ -71,12 +70,6 @@ func (o LookupSinkResultOutput) ToLookupSinkResultOutput() LookupSinkResultOutpu
 
 func (o LookupSinkResultOutput) ToLookupSinkResultOutputWithContext(ctx context.Context) LookupSinkResultOutput {
 	return o
-}
-
-func (o LookupSinkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSinkResult] {
-	return pulumix.Output[LookupSinkResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon resource name (ARN) of the ObservabilityAccessManager Sink

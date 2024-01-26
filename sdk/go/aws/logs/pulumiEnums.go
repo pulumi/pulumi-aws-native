@@ -79,12 +79,6 @@ func (o AccountPolicyPolicyTypeOutput) ToAccountPolicyPolicyTypePtrOutputWithCon
 	}).(AccountPolicyPolicyTypePtrOutput)
 }
 
-func (o AccountPolicyPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccountPolicyPolicyType] {
-	return pulumix.Output[AccountPolicyPolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountPolicyPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o AccountPolicyPolicyTypePtrOutput) ToAccountPolicyPolicyTypePtrOutputWith
 	return o
 }
 
-func (o AccountPolicyPolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountPolicyPolicyType] {
-	return pulumix.Output[*AccountPolicyPolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountPolicyPolicyTypePtrOutput) Elem() AccountPolicyPolicyTypeOutput {
 	return o.ApplyT(func(v *AccountPolicyPolicyType) AccountPolicyPolicyType {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o AccountPolicyPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AccountPolicyPolicyTypeInput is an input type that accepts AccountPolicyPolicyTypeArgs and AccountPolicyPolicyTypeOutput values.
-// You can construct a concrete instance of `AccountPolicyPolicyTypeInput` via:
+// AccountPolicyPolicyTypeInput is an input type that accepts values of the AccountPolicyPolicyType enum
+// A concrete instance of `AccountPolicyPolicyTypeInput` can be one of the following:
 //
-//	AccountPolicyPolicyTypeArgs{...}
+//	AccountPolicyPolicyTypeDataProtectionPolicy
+//	AccountPolicyPolicyTypeSubscriptionFilterPolicy
 type AccountPolicyPolicyTypeInput interface {
 	pulumi.Input
 
@@ -261,12 +250,6 @@ func (o AccountPolicyScopeOutput) ToAccountPolicyScopePtrOutputWithContext(ctx c
 	}).(AccountPolicyScopePtrOutput)
 }
 
-func (o AccountPolicyScopeOutput) ToOutput(ctx context.Context) pulumix.Output[AccountPolicyScope] {
-	return pulumix.Output[AccountPolicyScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountPolicyScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +285,6 @@ func (o AccountPolicyScopePtrOutput) ToAccountPolicyScopePtrOutputWithContext(ct
 	return o
 }
 
-func (o AccountPolicyScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountPolicyScope] {
-	return pulumix.Output[*AccountPolicyScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountPolicyScopePtrOutput) Elem() AccountPolicyScopeOutput {
 	return o.ApplyT(func(v *AccountPolicyScope) AccountPolicyScope {
 		if v != nil {
@@ -332,10 +309,10 @@ func (o AccountPolicyScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AccountPolicyScopeInput is an input type that accepts AccountPolicyScopeArgs and AccountPolicyScopeOutput values.
-// You can construct a concrete instance of `AccountPolicyScopeInput` via:
+// AccountPolicyScopeInput is an input type that accepts values of the AccountPolicyScope enum
+// A concrete instance of `AccountPolicyScopeInput` can be one of the following:
 //
-//	AccountPolicyScopeArgs{...}
+//	AccountPolicyScopeAll
 type AccountPolicyScopeInput interface {
 	pulumi.Input
 
@@ -447,12 +424,6 @@ func (o LogAnomalyDetectorEvaluationFrequencyOutput) ToLogAnomalyDetectorEvaluat
 	}).(LogAnomalyDetectorEvaluationFrequencyPtrOutput)
 }
 
-func (o LogAnomalyDetectorEvaluationFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[LogAnomalyDetectorEvaluationFrequency] {
-	return pulumix.Output[LogAnomalyDetectorEvaluationFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogAnomalyDetectorEvaluationFrequencyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -488,12 +459,6 @@ func (o LogAnomalyDetectorEvaluationFrequencyPtrOutput) ToLogAnomalyDetectorEval
 	return o
 }
 
-func (o LogAnomalyDetectorEvaluationFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LogAnomalyDetectorEvaluationFrequency] {
-	return pulumix.Output[*LogAnomalyDetectorEvaluationFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogAnomalyDetectorEvaluationFrequencyPtrOutput) Elem() LogAnomalyDetectorEvaluationFrequencyOutput {
 	return o.ApplyT(func(v *LogAnomalyDetectorEvaluationFrequency) LogAnomalyDetectorEvaluationFrequency {
 		if v != nil {
@@ -518,10 +483,14 @@ func (o LogAnomalyDetectorEvaluationFrequencyPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// LogAnomalyDetectorEvaluationFrequencyInput is an input type that accepts LogAnomalyDetectorEvaluationFrequencyArgs and LogAnomalyDetectorEvaluationFrequencyOutput values.
-// You can construct a concrete instance of `LogAnomalyDetectorEvaluationFrequencyInput` via:
+// LogAnomalyDetectorEvaluationFrequencyInput is an input type that accepts values of the LogAnomalyDetectorEvaluationFrequency enum
+// A concrete instance of `LogAnomalyDetectorEvaluationFrequencyInput` can be one of the following:
 //
-//	LogAnomalyDetectorEvaluationFrequencyArgs{...}
+//	LogAnomalyDetectorEvaluationFrequencyFiveMin
+//	LogAnomalyDetectorEvaluationFrequencyTenMin
+//	LogAnomalyDetectorEvaluationFrequencyFifteenMin
+//	LogAnomalyDetectorEvaluationFrequencyThirtyMin
+//	LogAnomalyDetectorEvaluationFrequencyOneHour
 type LogAnomalyDetectorEvaluationFrequencyInput interface {
 	pulumi.Input
 
@@ -630,12 +599,6 @@ func (o LogGroupClassOutput) ToLogGroupClassPtrOutputWithContext(ctx context.Con
 	}).(LogGroupClassPtrOutput)
 }
 
-func (o LogGroupClassOutput) ToOutput(ctx context.Context) pulumix.Output[LogGroupClass] {
-	return pulumix.Output[LogGroupClass]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogGroupClassOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -671,12 +634,6 @@ func (o LogGroupClassPtrOutput) ToLogGroupClassPtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o LogGroupClassPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LogGroupClass] {
-	return pulumix.Output[*LogGroupClass]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogGroupClassPtrOutput) Elem() LogGroupClassOutput {
 	return o.ApplyT(func(v *LogGroupClass) LogGroupClass {
 		if v != nil {
@@ -701,10 +658,11 @@ func (o LogGroupClassPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// LogGroupClassInput is an input type that accepts LogGroupClassArgs and LogGroupClassOutput values.
-// You can construct a concrete instance of `LogGroupClassInput` via:
+// LogGroupClassInput is an input type that accepts values of the LogGroupClass enum
+// A concrete instance of `LogGroupClassInput` can be one of the following:
 //
-//	LogGroupClassArgs{...}
+//	LogGroupClassStandard
+//	LogGroupClassInfrequentAccess
 type LogGroupClassInput interface {
 	pulumi.Input
 
@@ -838,12 +796,6 @@ func (o MetricFilterMetricTransformationUnitOutput) ToMetricFilterMetricTransfor
 	}).(MetricFilterMetricTransformationUnitPtrOutput)
 }
 
-func (o MetricFilterMetricTransformationUnitOutput) ToOutput(ctx context.Context) pulumix.Output[MetricFilterMetricTransformationUnit] {
-	return pulumix.Output[MetricFilterMetricTransformationUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MetricFilterMetricTransformationUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -879,12 +831,6 @@ func (o MetricFilterMetricTransformationUnitPtrOutput) ToMetricFilterMetricTrans
 	return o
 }
 
-func (o MetricFilterMetricTransformationUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricFilterMetricTransformationUnit] {
-	return pulumix.Output[*MetricFilterMetricTransformationUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MetricFilterMetricTransformationUnitPtrOutput) Elem() MetricFilterMetricTransformationUnitOutput {
 	return o.ApplyT(func(v *MetricFilterMetricTransformationUnit) MetricFilterMetricTransformationUnit {
 		if v != nil {
@@ -909,10 +855,36 @@ func (o MetricFilterMetricTransformationUnitPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricFilterMetricTransformationUnitInput is an input type that accepts MetricFilterMetricTransformationUnitArgs and MetricFilterMetricTransformationUnitOutput values.
-// You can construct a concrete instance of `MetricFilterMetricTransformationUnitInput` via:
+// MetricFilterMetricTransformationUnitInput is an input type that accepts values of the MetricFilterMetricTransformationUnit enum
+// A concrete instance of `MetricFilterMetricTransformationUnitInput` can be one of the following:
 //
-//	MetricFilterMetricTransformationUnitArgs{...}
+//	MetricFilterMetricTransformationUnitSeconds
+//	MetricFilterMetricTransformationUnitMicroseconds
+//	MetricFilterMetricTransformationUnitMilliseconds
+//	MetricFilterMetricTransformationUnitBytes
+//	MetricFilterMetricTransformationUnitKilobytes
+//	MetricFilterMetricTransformationUnitMegabytes
+//	MetricFilterMetricTransformationUnitGigabytes
+//	MetricFilterMetricTransformationUnitTerabytes
+//	MetricFilterMetricTransformationUnitBits
+//	MetricFilterMetricTransformationUnitKilobits
+//	MetricFilterMetricTransformationUnitMegabits
+//	MetricFilterMetricTransformationUnitGigabits
+//	MetricFilterMetricTransformationUnitTerabits
+//	MetricFilterMetricTransformationUnitPercent
+//	MetricFilterMetricTransformationUnitCount
+//	MetricFilterMetricTransformationUnitBytesSecond
+//	MetricFilterMetricTransformationUnitKilobytesSecond
+//	MetricFilterMetricTransformationUnitMegabytesSecond
+//	MetricFilterMetricTransformationUnitGigabytesSecond
+//	MetricFilterMetricTransformationUnitTerabytesSecond
+//	MetricFilterMetricTransformationUnitBitsSecond
+//	MetricFilterMetricTransformationUnitKilobitsSecond
+//	MetricFilterMetricTransformationUnitMegabitsSecond
+//	MetricFilterMetricTransformationUnitGigabitsSecond
+//	MetricFilterMetricTransformationUnitTerabitsSecond
+//	MetricFilterMetricTransformationUnitCountSecond
+//	MetricFilterMetricTransformationUnitNone
 type MetricFilterMetricTransformationUnitInput interface {
 	pulumi.Input
 
@@ -1021,12 +993,6 @@ func (o SubscriptionFilterDistributionOutput) ToSubscriptionFilterDistributionPt
 	}).(SubscriptionFilterDistributionPtrOutput)
 }
 
-func (o SubscriptionFilterDistributionOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionFilterDistribution] {
-	return pulumix.Output[SubscriptionFilterDistribution]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SubscriptionFilterDistributionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1062,12 +1028,6 @@ func (o SubscriptionFilterDistributionPtrOutput) ToSubscriptionFilterDistributio
 	return o
 }
 
-func (o SubscriptionFilterDistributionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionFilterDistribution] {
-	return pulumix.Output[*SubscriptionFilterDistribution]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SubscriptionFilterDistributionPtrOutput) Elem() SubscriptionFilterDistributionOutput {
 	return o.ApplyT(func(v *SubscriptionFilterDistribution) SubscriptionFilterDistribution {
 		if v != nil {
@@ -1092,10 +1052,11 @@ func (o SubscriptionFilterDistributionPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// SubscriptionFilterDistributionInput is an input type that accepts SubscriptionFilterDistributionArgs and SubscriptionFilterDistributionOutput values.
-// You can construct a concrete instance of `SubscriptionFilterDistributionInput` via:
+// SubscriptionFilterDistributionInput is an input type that accepts values of the SubscriptionFilterDistribution enum
+// A concrete instance of `SubscriptionFilterDistributionInput` can be one of the following:
 //
-//	SubscriptionFilterDistributionArgs{...}
+//	SubscriptionFilterDistributionRandom
+//	SubscriptionFilterDistributionByLogStream
 type SubscriptionFilterDistributionInput interface {
 	pulumi.Input
 

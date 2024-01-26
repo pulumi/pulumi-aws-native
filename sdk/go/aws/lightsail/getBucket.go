@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lightsail::Bucket
@@ -81,12 +80,6 @@ func (o LookupBucketResultOutput) ToLookupBucketResultOutput() LookupBucketResul
 
 func (o LookupBucketResultOutput) ToLookupBucketResultOutputWithContext(ctx context.Context) LookupBucketResultOutput {
 	return o
-}
-
-func (o LookupBucketResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBucketResult] {
-	return pulumix.Output[LookupBucketResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle.

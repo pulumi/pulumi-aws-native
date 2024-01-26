@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
@@ -112,12 +111,6 @@ func (i *GatewayRouteTableAssociation) ToGatewayRouteTableAssociationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteTableAssociationOutput)
 }
 
-func (i *GatewayRouteTableAssociation) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteTableAssociation] {
-	return pulumix.Output[*GatewayRouteTableAssociation]{
-		OutputState: i.ToGatewayRouteTableAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GatewayRouteTableAssociationOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteTableAssociationOutput) ElementType() reflect.Type {
@@ -130,12 +123,6 @@ func (o GatewayRouteTableAssociationOutput) ToGatewayRouteTableAssociationOutput
 
 func (o GatewayRouteTableAssociationOutput) ToGatewayRouteTableAssociationOutputWithContext(ctx context.Context) GatewayRouteTableAssociationOutput {
 	return o
-}
-
-func (o GatewayRouteTableAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRouteTableAssociation] {
-	return pulumix.Output[*GatewayRouteTableAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The route table association ID.

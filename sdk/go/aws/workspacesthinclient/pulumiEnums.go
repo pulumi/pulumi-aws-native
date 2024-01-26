@@ -83,12 +83,6 @@ func (o EnvironmentDayOfWeekOutput) ToEnvironmentDayOfWeekPtrOutputWithContext(c
 	}).(EnvironmentDayOfWeekPtrOutput)
 }
 
-func (o EnvironmentDayOfWeekOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentDayOfWeek] {
-	return pulumix.Output[EnvironmentDayOfWeek]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentDayOfWeekOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -124,12 +118,6 @@ func (o EnvironmentDayOfWeekPtrOutput) ToEnvironmentDayOfWeekPtrOutputWithContex
 	return o
 }
 
-func (o EnvironmentDayOfWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentDayOfWeek] {
-	return pulumix.Output[*EnvironmentDayOfWeek]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentDayOfWeekPtrOutput) Elem() EnvironmentDayOfWeekOutput {
 	return o.ApplyT(func(v *EnvironmentDayOfWeek) EnvironmentDayOfWeek {
 		if v != nil {
@@ -154,10 +142,16 @@ func (o EnvironmentDayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentDayOfWeekInput is an input type that accepts EnvironmentDayOfWeekArgs and EnvironmentDayOfWeekOutput values.
-// You can construct a concrete instance of `EnvironmentDayOfWeekInput` via:
+// EnvironmentDayOfWeekInput is an input type that accepts values of the EnvironmentDayOfWeek enum
+// A concrete instance of `EnvironmentDayOfWeekInput` can be one of the following:
 //
-//	EnvironmentDayOfWeekArgs{...}
+//	EnvironmentDayOfWeekMonday
+//	EnvironmentDayOfWeekTuesday
+//	EnvironmentDayOfWeekWednesday
+//	EnvironmentDayOfWeekThursday
+//	EnvironmentDayOfWeekFriday
+//	EnvironmentDayOfWeekSaturday
+//	EnvironmentDayOfWeekSunday
 type EnvironmentDayOfWeekInput interface {
 	pulumi.Input
 
@@ -223,12 +217,6 @@ func (i EnvironmentDayOfWeekArray) ToEnvironmentDayOfWeekArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDayOfWeekArrayOutput)
 }
 
-func (i EnvironmentDayOfWeekArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentDayOfWeek] {
-	return pulumix.Output[[]EnvironmentDayOfWeek]{
-		OutputState: i.ToEnvironmentDayOfWeekArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentDayOfWeekArrayOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentDayOfWeekArrayOutput) ElementType() reflect.Type {
@@ -241,12 +229,6 @@ func (o EnvironmentDayOfWeekArrayOutput) ToEnvironmentDayOfWeekArrayOutput() Env
 
 func (o EnvironmentDayOfWeekArrayOutput) ToEnvironmentDayOfWeekArrayOutputWithContext(ctx context.Context) EnvironmentDayOfWeekArrayOutput {
 	return o
-}
-
-func (o EnvironmentDayOfWeekArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentDayOfWeek] {
-	return pulumix.Output[[]EnvironmentDayOfWeek]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentDayOfWeekArrayOutput) Index(i pulumi.IntInput) EnvironmentDayOfWeekOutput {
@@ -288,12 +270,6 @@ func (o EnvironmentDesktopTypeOutput) ToEnvironmentDesktopTypePtrOutputWithConte
 	}).(EnvironmentDesktopTypePtrOutput)
 }
 
-func (o EnvironmentDesktopTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentDesktopType] {
-	return pulumix.Output[EnvironmentDesktopType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentDesktopTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -327,12 +303,6 @@ func (o EnvironmentDesktopTypePtrOutput) ToEnvironmentDesktopTypePtrOutput() Env
 
 func (o EnvironmentDesktopTypePtrOutput) ToEnvironmentDesktopTypePtrOutputWithContext(ctx context.Context) EnvironmentDesktopTypePtrOutput {
 	return o
-}
-
-func (o EnvironmentDesktopTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentDesktopType] {
-	return pulumix.Output[*EnvironmentDesktopType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentDesktopTypePtrOutput) Elem() EnvironmentDesktopTypeOutput {
@@ -427,12 +397,6 @@ func (o EnvironmentMaintenanceWindowApplyTimeOfOutput) ToEnvironmentMaintenanceW
 	}).(EnvironmentMaintenanceWindowApplyTimeOfPtrOutput)
 }
 
-func (o EnvironmentMaintenanceWindowApplyTimeOfOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentMaintenanceWindowApplyTimeOf] {
-	return pulumix.Output[EnvironmentMaintenanceWindowApplyTimeOf]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentMaintenanceWindowApplyTimeOfOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -468,12 +432,6 @@ func (o EnvironmentMaintenanceWindowApplyTimeOfPtrOutput) ToEnvironmentMaintenan
 	return o
 }
 
-func (o EnvironmentMaintenanceWindowApplyTimeOfPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentMaintenanceWindowApplyTimeOf] {
-	return pulumix.Output[*EnvironmentMaintenanceWindowApplyTimeOf]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentMaintenanceWindowApplyTimeOfPtrOutput) Elem() EnvironmentMaintenanceWindowApplyTimeOfOutput {
 	return o.ApplyT(func(v *EnvironmentMaintenanceWindowApplyTimeOf) EnvironmentMaintenanceWindowApplyTimeOf {
 		if v != nil {
@@ -498,10 +456,11 @@ func (o EnvironmentMaintenanceWindowApplyTimeOfPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentMaintenanceWindowApplyTimeOfInput is an input type that accepts EnvironmentMaintenanceWindowApplyTimeOfArgs and EnvironmentMaintenanceWindowApplyTimeOfOutput values.
-// You can construct a concrete instance of `EnvironmentMaintenanceWindowApplyTimeOfInput` via:
+// EnvironmentMaintenanceWindowApplyTimeOfInput is an input type that accepts values of the EnvironmentMaintenanceWindowApplyTimeOf enum
+// A concrete instance of `EnvironmentMaintenanceWindowApplyTimeOfInput` can be one of the following:
 //
-//	EnvironmentMaintenanceWindowApplyTimeOfArgs{...}
+//	EnvironmentMaintenanceWindowApplyTimeOfUtc
+//	EnvironmentMaintenanceWindowApplyTimeOfDevice
 type EnvironmentMaintenanceWindowApplyTimeOfInput interface {
 	pulumi.Input
 
@@ -610,12 +569,6 @@ func (o EnvironmentMaintenanceWindowTypeOutput) ToEnvironmentMaintenanceWindowTy
 	}).(EnvironmentMaintenanceWindowTypePtrOutput)
 }
 
-func (o EnvironmentMaintenanceWindowTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentMaintenanceWindowType] {
-	return pulumix.Output[EnvironmentMaintenanceWindowType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentMaintenanceWindowTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -651,12 +604,6 @@ func (o EnvironmentMaintenanceWindowTypePtrOutput) ToEnvironmentMaintenanceWindo
 	return o
 }
 
-func (o EnvironmentMaintenanceWindowTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentMaintenanceWindowType] {
-	return pulumix.Output[*EnvironmentMaintenanceWindowType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentMaintenanceWindowTypePtrOutput) Elem() EnvironmentMaintenanceWindowTypeOutput {
 	return o.ApplyT(func(v *EnvironmentMaintenanceWindowType) EnvironmentMaintenanceWindowType {
 		if v != nil {
@@ -681,10 +628,11 @@ func (o EnvironmentMaintenanceWindowTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentMaintenanceWindowTypeInput is an input type that accepts EnvironmentMaintenanceWindowTypeArgs and EnvironmentMaintenanceWindowTypeOutput values.
-// You can construct a concrete instance of `EnvironmentMaintenanceWindowTypeInput` via:
+// EnvironmentMaintenanceWindowTypeInput is an input type that accepts values of the EnvironmentMaintenanceWindowType enum
+// A concrete instance of `EnvironmentMaintenanceWindowTypeInput` can be one of the following:
 //
-//	EnvironmentMaintenanceWindowTypeArgs{...}
+//	EnvironmentMaintenanceWindowTypeSystem
+//	EnvironmentMaintenanceWindowTypeCustom
 type EnvironmentMaintenanceWindowTypeInput interface {
 	pulumi.Input
 
@@ -758,12 +706,6 @@ func (o EnvironmentSoftwareSetComplianceStatusOutput) ToEnvironmentSoftwareSetCo
 	}).(EnvironmentSoftwareSetComplianceStatusPtrOutput)
 }
 
-func (o EnvironmentSoftwareSetComplianceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentSoftwareSetComplianceStatus] {
-	return pulumix.Output[EnvironmentSoftwareSetComplianceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentSoftwareSetComplianceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -797,12 +739,6 @@ func (o EnvironmentSoftwareSetComplianceStatusPtrOutput) ToEnvironmentSoftwareSe
 
 func (o EnvironmentSoftwareSetComplianceStatusPtrOutput) ToEnvironmentSoftwareSetComplianceStatusPtrOutputWithContext(ctx context.Context) EnvironmentSoftwareSetComplianceStatusPtrOutput {
 	return o
-}
-
-func (o EnvironmentSoftwareSetComplianceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentSoftwareSetComplianceStatus] {
-	return pulumix.Output[*EnvironmentSoftwareSetComplianceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentSoftwareSetComplianceStatusPtrOutput) Elem() EnvironmentSoftwareSetComplianceStatusOutput {
@@ -897,12 +833,6 @@ func (o EnvironmentSoftwareSetUpdateModeOutput) ToEnvironmentSoftwareSetUpdateMo
 	}).(EnvironmentSoftwareSetUpdateModePtrOutput)
 }
 
-func (o EnvironmentSoftwareSetUpdateModeOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentSoftwareSetUpdateMode] {
-	return pulumix.Output[EnvironmentSoftwareSetUpdateMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentSoftwareSetUpdateModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -938,12 +868,6 @@ func (o EnvironmentSoftwareSetUpdateModePtrOutput) ToEnvironmentSoftwareSetUpdat
 	return o
 }
 
-func (o EnvironmentSoftwareSetUpdateModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentSoftwareSetUpdateMode] {
-	return pulumix.Output[*EnvironmentSoftwareSetUpdateMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentSoftwareSetUpdateModePtrOutput) Elem() EnvironmentSoftwareSetUpdateModeOutput {
 	return o.ApplyT(func(v *EnvironmentSoftwareSetUpdateMode) EnvironmentSoftwareSetUpdateMode {
 		if v != nil {
@@ -968,10 +892,11 @@ func (o EnvironmentSoftwareSetUpdateModePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentSoftwareSetUpdateModeInput is an input type that accepts EnvironmentSoftwareSetUpdateModeArgs and EnvironmentSoftwareSetUpdateModeOutput values.
-// You can construct a concrete instance of `EnvironmentSoftwareSetUpdateModeInput` via:
+// EnvironmentSoftwareSetUpdateModeInput is an input type that accepts values of the EnvironmentSoftwareSetUpdateMode enum
+// A concrete instance of `EnvironmentSoftwareSetUpdateModeInput` can be one of the following:
 //
-//	EnvironmentSoftwareSetUpdateModeArgs{...}
+//	EnvironmentSoftwareSetUpdateModeUseLatest
+//	EnvironmentSoftwareSetUpdateModeUseDesired
 type EnvironmentSoftwareSetUpdateModeInput interface {
 	pulumi.Input
 
@@ -1080,12 +1005,6 @@ func (o EnvironmentSoftwareSetUpdateScheduleOutput) ToEnvironmentSoftwareSetUpda
 	}).(EnvironmentSoftwareSetUpdateSchedulePtrOutput)
 }
 
-func (o EnvironmentSoftwareSetUpdateScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentSoftwareSetUpdateSchedule] {
-	return pulumix.Output[EnvironmentSoftwareSetUpdateSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentSoftwareSetUpdateScheduleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1121,12 +1040,6 @@ func (o EnvironmentSoftwareSetUpdateSchedulePtrOutput) ToEnvironmentSoftwareSetU
 	return o
 }
 
-func (o EnvironmentSoftwareSetUpdateSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentSoftwareSetUpdateSchedule] {
-	return pulumix.Output[*EnvironmentSoftwareSetUpdateSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentSoftwareSetUpdateSchedulePtrOutput) Elem() EnvironmentSoftwareSetUpdateScheduleOutput {
 	return o.ApplyT(func(v *EnvironmentSoftwareSetUpdateSchedule) EnvironmentSoftwareSetUpdateSchedule {
 		if v != nil {
@@ -1151,10 +1064,11 @@ func (o EnvironmentSoftwareSetUpdateSchedulePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentSoftwareSetUpdateScheduleInput is an input type that accepts EnvironmentSoftwareSetUpdateScheduleArgs and EnvironmentSoftwareSetUpdateScheduleOutput values.
-// You can construct a concrete instance of `EnvironmentSoftwareSetUpdateScheduleInput` via:
+// EnvironmentSoftwareSetUpdateScheduleInput is an input type that accepts values of the EnvironmentSoftwareSetUpdateSchedule enum
+// A concrete instance of `EnvironmentSoftwareSetUpdateScheduleInput` can be one of the following:
 //
-//	EnvironmentSoftwareSetUpdateScheduleArgs{...}
+//	EnvironmentSoftwareSetUpdateScheduleUseMaintenanceWindow
+//	EnvironmentSoftwareSetUpdateScheduleApplyImmediately
 type EnvironmentSoftwareSetUpdateScheduleInput interface {
 	pulumi.Input
 

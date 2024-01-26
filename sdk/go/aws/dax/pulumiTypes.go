@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -43,12 +42,6 @@ func (i ClusterSseSpecificationArgs) ToClusterSseSpecificationOutput() ClusterSs
 
 func (i ClusterSseSpecificationArgs) ToClusterSseSpecificationOutputWithContext(ctx context.Context) ClusterSseSpecificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSseSpecificationOutput)
-}
-
-func (i ClusterSseSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterSseSpecification] {
-	return pulumix.Output[ClusterSseSpecification]{
-		OutputState: i.ToClusterSseSpecificationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ClusterSseSpecificationArgs) ToClusterSseSpecificationPtrOutput() ClusterSseSpecificationPtrOutput {
@@ -92,12 +85,6 @@ func (i *clusterSseSpecificationPtrType) ToClusterSseSpecificationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSseSpecificationPtrOutput)
 }
 
-func (i *clusterSseSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterSseSpecification] {
-	return pulumix.Output[*ClusterSseSpecification]{
-		OutputState: i.ToClusterSseSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterSseSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ClusterSseSpecificationOutput) ElementType() reflect.Type {
@@ -122,12 +109,6 @@ func (o ClusterSseSpecificationOutput) ToClusterSseSpecificationPtrOutputWithCon
 	}).(ClusterSseSpecificationPtrOutput)
 }
 
-func (o ClusterSseSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterSseSpecification] {
-	return pulumix.Output[ClusterSseSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterSseSpecificationOutput) SseEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterSseSpecification) *bool { return v.SseEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -144,12 +125,6 @@ func (o ClusterSseSpecificationPtrOutput) ToClusterSseSpecificationPtrOutput() C
 
 func (o ClusterSseSpecificationPtrOutput) ToClusterSseSpecificationPtrOutputWithContext(ctx context.Context) ClusterSseSpecificationPtrOutput {
 	return o
-}
-
-func (o ClusterSseSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterSseSpecification] {
-	return pulumix.Output[*ClusterSseSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterSseSpecificationPtrOutput) Elem() ClusterSseSpecificationOutput {

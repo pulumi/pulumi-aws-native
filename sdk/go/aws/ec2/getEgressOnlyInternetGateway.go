@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
@@ -67,12 +66,6 @@ func (o LookupEgressOnlyInternetGatewayResultOutput) ToLookupEgressOnlyInternetG
 
 func (o LookupEgressOnlyInternetGatewayResultOutput) ToLookupEgressOnlyInternetGatewayResultOutputWithContext(ctx context.Context) LookupEgressOnlyInternetGatewayResultOutput {
 	return o
-}
-
-func (o LookupEgressOnlyInternetGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEgressOnlyInternetGatewayResult] {
-	return pulumix.Output[LookupEgressOnlyInternetGatewayResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Service Generated ID of the EgressOnlyInternetGateway

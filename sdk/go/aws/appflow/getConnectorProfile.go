@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppFlow::ConnectorProfile
@@ -71,12 +70,6 @@ func (o LookupConnectorProfileResultOutput) ToLookupConnectorProfileResultOutput
 
 func (o LookupConnectorProfileResultOutput) ToLookupConnectorProfileResultOutputWithContext(ctx context.Context) LookupConnectorProfileResultOutput {
 	return o
-}
-
-func (o LookupConnectorProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConnectorProfileResult] {
-	return pulumix.Output[LookupConnectorProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding “scratch_1“ deployment type.
@@ -75,12 +74,6 @@ func (o LookupDataRepositoryAssociationResultOutput) ToLookupDataRepositoryAssoc
 
 func (o LookupDataRepositoryAssociationResultOutput) ToLookupDataRepositoryAssociationResultOutputWithContext(ctx context.Context) LookupDataRepositoryAssociationResultOutput {
 	return o
-}
-
-func (o LookupDataRepositoryAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataRepositoryAssociationResult] {
-	return pulumix.Output[LookupDataRepositoryAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDataRepositoryAssociationResultOutput) AssociationId() pulumi.StringPtrOutput {

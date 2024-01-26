@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Chatbot::MicrosoftTeamsChannelConfiguration.
@@ -165,12 +164,6 @@ func (i *MicrosoftTeamsChannelConfiguration) ToMicrosoftTeamsChannelConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(MicrosoftTeamsChannelConfigurationOutput)
 }
 
-func (i *MicrosoftTeamsChannelConfiguration) ToOutput(ctx context.Context) pulumix.Output[*MicrosoftTeamsChannelConfiguration] {
-	return pulumix.Output[*MicrosoftTeamsChannelConfiguration]{
-		OutputState: i.ToMicrosoftTeamsChannelConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MicrosoftTeamsChannelConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MicrosoftTeamsChannelConfigurationOutput) ElementType() reflect.Type {
@@ -183,12 +176,6 @@ func (o MicrosoftTeamsChannelConfigurationOutput) ToMicrosoftTeamsChannelConfigu
 
 func (o MicrosoftTeamsChannelConfigurationOutput) ToMicrosoftTeamsChannelConfigurationOutputWithContext(ctx context.Context) MicrosoftTeamsChannelConfigurationOutput {
 	return o
-}
-
-func (o MicrosoftTeamsChannelConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*MicrosoftTeamsChannelConfiguration] {
-	return pulumix.Output[*MicrosoftTeamsChannelConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the configuration

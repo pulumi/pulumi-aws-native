@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
@@ -71,12 +70,6 @@ func (o LookupVpcEndpointConnectionNotificationResultOutput) ToLookupVpcEndpoint
 
 func (o LookupVpcEndpointConnectionNotificationResultOutput) ToLookupVpcEndpointConnectionNotificationResultOutputWithContext(ctx context.Context) LookupVpcEndpointConnectionNotificationResultOutput {
 	return o
-}
-
-func (o LookupVpcEndpointConnectionNotificationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcEndpointConnectionNotificationResult] {
-	return pulumix.Output[LookupVpcEndpointConnectionNotificationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The endpoint events for which to receive notifications.

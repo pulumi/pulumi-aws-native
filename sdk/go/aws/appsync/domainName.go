@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::DomainName
@@ -110,12 +109,6 @@ func (i *DomainName) ToDomainNameOutputWithContext(ctx context.Context) DomainNa
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameOutput)
 }
 
-func (i *DomainName) ToOutput(ctx context.Context) pulumix.Output[*DomainName] {
-	return pulumix.Output[*DomainName]{
-		OutputState: i.ToDomainNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainNameOutput struct{ *pulumi.OutputState }
 
 func (DomainNameOutput) ElementType() reflect.Type {
@@ -128,12 +121,6 @@ func (o DomainNameOutput) ToDomainNameOutput() DomainNameOutput {
 
 func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) DomainNameOutput {
 	return o
-}
-
-func (o DomainNameOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainName] {
-	return pulumix.Output[*DomainName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainNameOutput) AppSyncDomainName() pulumi.StringOutput {

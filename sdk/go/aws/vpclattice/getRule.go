@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.
@@ -69,12 +68,6 @@ func (o LookupRuleResultOutput) ToLookupRuleResultOutput() LookupRuleResultOutpu
 
 func (o LookupRuleResultOutput) ToLookupRuleResultOutputWithContext(ctx context.Context) LookupRuleResultOutput {
 	return o
-}
-
-func (o LookupRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRuleResult] {
-	return pulumix.Output[LookupRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRuleResultOutput) Action() RuleActionPtrOutput {

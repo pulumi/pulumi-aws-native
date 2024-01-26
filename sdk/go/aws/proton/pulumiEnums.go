@@ -43,12 +43,6 @@ func (o EnvironmentAccountConnectionStatusOutput) ToEnvironmentAccountConnection
 	}).(EnvironmentAccountConnectionStatusPtrOutput)
 }
 
-func (o EnvironmentAccountConnectionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentAccountConnectionStatus] {
-	return pulumix.Output[EnvironmentAccountConnectionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentAccountConnectionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -82,12 +76,6 @@ func (o EnvironmentAccountConnectionStatusPtrOutput) ToEnvironmentAccountConnect
 
 func (o EnvironmentAccountConnectionStatusPtrOutput) ToEnvironmentAccountConnectionStatusPtrOutputWithContext(ctx context.Context) EnvironmentAccountConnectionStatusPtrOutput {
 	return o
-}
-
-func (o EnvironmentAccountConnectionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentAccountConnectionStatus] {
-	return pulumix.Output[*EnvironmentAccountConnectionStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentAccountConnectionStatusPtrOutput) Elem() EnvironmentAccountConnectionStatusOutput {
@@ -180,12 +168,6 @@ func (o EnvironmentTemplateProvisioningOutput) ToEnvironmentTemplateProvisioning
 	}).(EnvironmentTemplateProvisioningPtrOutput)
 }
 
-func (o EnvironmentTemplateProvisioningOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTemplateProvisioning] {
-	return pulumix.Output[EnvironmentTemplateProvisioning]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentTemplateProvisioningOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -221,12 +203,6 @@ func (o EnvironmentTemplateProvisioningPtrOutput) ToEnvironmentTemplateProvision
 	return o
 }
 
-func (o EnvironmentTemplateProvisioningPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentTemplateProvisioning] {
-	return pulumix.Output[*EnvironmentTemplateProvisioning]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentTemplateProvisioningPtrOutput) Elem() EnvironmentTemplateProvisioningOutput {
 	return o.ApplyT(func(v *EnvironmentTemplateProvisioning) EnvironmentTemplateProvisioning {
 		if v != nil {
@@ -251,10 +227,10 @@ func (o EnvironmentTemplateProvisioningPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentTemplateProvisioningInput is an input type that accepts EnvironmentTemplateProvisioningArgs and EnvironmentTemplateProvisioningOutput values.
-// You can construct a concrete instance of `EnvironmentTemplateProvisioningInput` via:
+// EnvironmentTemplateProvisioningInput is an input type that accepts values of the EnvironmentTemplateProvisioning enum
+// A concrete instance of `EnvironmentTemplateProvisioningInput` can be one of the following:
 //
-//	EnvironmentTemplateProvisioningArgs{...}
+//	EnvironmentTemplateProvisioningCustomerManaged
 type EnvironmentTemplateProvisioningInput interface {
 	pulumi.Input
 
@@ -361,12 +337,6 @@ func (o ServiceTemplateProvisioningOutput) ToServiceTemplateProvisioningPtrOutpu
 	}).(ServiceTemplateProvisioningPtrOutput)
 }
 
-func (o ServiceTemplateProvisioningOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceTemplateProvisioning] {
-	return pulumix.Output[ServiceTemplateProvisioning]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceTemplateProvisioningOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -402,12 +372,6 @@ func (o ServiceTemplateProvisioningPtrOutput) ToServiceTemplateProvisioningPtrOu
 	return o
 }
 
-func (o ServiceTemplateProvisioningPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceTemplateProvisioning] {
-	return pulumix.Output[*ServiceTemplateProvisioning]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceTemplateProvisioningPtrOutput) Elem() ServiceTemplateProvisioningOutput {
 	return o.ApplyT(func(v *ServiceTemplateProvisioning) ServiceTemplateProvisioning {
 		if v != nil {
@@ -432,10 +396,10 @@ func (o ServiceTemplateProvisioningPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceTemplateProvisioningInput is an input type that accepts ServiceTemplateProvisioningArgs and ServiceTemplateProvisioningOutput values.
-// You can construct a concrete instance of `ServiceTemplateProvisioningInput` via:
+// ServiceTemplateProvisioningInput is an input type that accepts values of the ServiceTemplateProvisioning enum
+// A concrete instance of `ServiceTemplateProvisioningInput` can be one of the following:
 //
-//	ServiceTemplateProvisioningArgs{...}
+//	ServiceTemplateProvisioningCustomerManaged
 type ServiceTemplateProvisioningInput interface {
 	pulumi.Input
 

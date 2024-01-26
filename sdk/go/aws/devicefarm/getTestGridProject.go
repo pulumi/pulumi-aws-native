@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
@@ -67,12 +66,6 @@ func (o LookupTestGridProjectResultOutput) ToLookupTestGridProjectResultOutput()
 
 func (o LookupTestGridProjectResultOutput) ToLookupTestGridProjectResultOutputWithContext(ctx context.Context) LookupTestGridProjectResultOutput {
 	return o
-}
-
-func (o LookupTestGridProjectResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTestGridProjectResult] {
-	return pulumix.Output[LookupTestGridProjectResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTestGridProjectResultOutput) Arn() pulumi.StringPtrOutput {

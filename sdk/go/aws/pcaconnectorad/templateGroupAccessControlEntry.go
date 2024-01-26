@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::PCAConnectorAD::TemplateGroupAccessControlEntry Resource Type
@@ -111,12 +110,6 @@ func (i *TemplateGroupAccessControlEntry) ToTemplateGroupAccessControlEntryOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateGroupAccessControlEntryOutput)
 }
 
-func (i *TemplateGroupAccessControlEntry) ToOutput(ctx context.Context) pulumix.Output[*TemplateGroupAccessControlEntry] {
-	return pulumix.Output[*TemplateGroupAccessControlEntry]{
-		OutputState: i.ToTemplateGroupAccessControlEntryOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TemplateGroupAccessControlEntryOutput struct{ *pulumi.OutputState }
 
 func (TemplateGroupAccessControlEntryOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o TemplateGroupAccessControlEntryOutput) ToTemplateGroupAccessControlEntry
 
 func (o TemplateGroupAccessControlEntryOutput) ToTemplateGroupAccessControlEntryOutputWithContext(ctx context.Context) TemplateGroupAccessControlEntryOutput {
 	return o
-}
-
-func (o TemplateGroupAccessControlEntryOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateGroupAccessControlEntry] {
-	return pulumix.Output[*TemplateGroupAccessControlEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateGroupAccessControlEntryOutput) AccessRights() TemplateGroupAccessControlEntryAccessRightsOutput {

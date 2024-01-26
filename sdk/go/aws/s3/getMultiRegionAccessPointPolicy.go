@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The policy to be attached to a Multi Region Access Point
@@ -69,12 +68,6 @@ func (o LookupMultiRegionAccessPointPolicyResultOutput) ToLookupMultiRegionAcces
 
 func (o LookupMultiRegionAccessPointPolicyResultOutput) ToLookupMultiRegionAccessPointPolicyResultOutputWithContext(ctx context.Context) LookupMultiRegionAccessPointPolicyResultOutput {
 	return o
-}
-
-func (o LookupMultiRegionAccessPointPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMultiRegionAccessPointPolicyResult] {
-	return pulumix.Output[LookupMultiRegionAccessPointPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Policy document to apply to a Multi Region Access Point

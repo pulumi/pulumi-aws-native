@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPNConnectionRoute
@@ -111,12 +110,6 @@ func (i *VpnConnectionRoute) ToVpnConnectionRouteOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteOutput)
 }
 
-func (i *VpnConnectionRoute) ToOutput(ctx context.Context) pulumix.Output[*VpnConnectionRoute] {
-	return pulumix.Output[*VpnConnectionRoute]{
-		OutputState: i.ToVpnConnectionRouteOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpnConnectionRouteOutput struct{ *pulumi.OutputState }
 
 func (VpnConnectionRouteOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o VpnConnectionRouteOutput) ToVpnConnectionRouteOutput() VpnConnectionRout
 
 func (o VpnConnectionRouteOutput) ToVpnConnectionRouteOutputWithContext(ctx context.Context) VpnConnectionRouteOutput {
 	return o
-}
-
-func (o VpnConnectionRouteOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnConnectionRoute] {
-	return pulumix.Output[*VpnConnectionRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The CIDR block associated with the local subnet of the customer network.

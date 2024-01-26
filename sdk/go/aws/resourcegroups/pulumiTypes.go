@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i GroupConfigurationItemArgs) ToGroupConfigurationItemOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationItemOutput)
 }
 
-func (i GroupConfigurationItemArgs) ToOutput(ctx context.Context) pulumix.Output[GroupConfigurationItem] {
-	return pulumix.Output[GroupConfigurationItem]{
-		OutputState: i.ToGroupConfigurationItemOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupConfigurationItemArrayInput is an input type that accepts GroupConfigurationItemArray and GroupConfigurationItemArrayOutput values.
 // You can construct a concrete instance of `GroupConfigurationItemArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i GroupConfigurationItemArray) ToGroupConfigurationItemArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationItemArrayOutput)
 }
 
-func (i GroupConfigurationItemArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupConfigurationItem] {
-	return pulumix.Output[[]GroupConfigurationItem]{
-		OutputState: i.ToGroupConfigurationItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupConfigurationItemOutput struct{ *pulumi.OutputState }
 
 func (GroupConfigurationItemOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o GroupConfigurationItemOutput) ToGroupConfigurationItemOutput() GroupConf
 
 func (o GroupConfigurationItemOutput) ToGroupConfigurationItemOutputWithContext(ctx context.Context) GroupConfigurationItemOutput {
 	return o
-}
-
-func (o GroupConfigurationItemOutput) ToOutput(ctx context.Context) pulumix.Output[GroupConfigurationItem] {
-	return pulumix.Output[GroupConfigurationItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupConfigurationItemOutput) Parameters() GroupConfigurationParameterArrayOutput {
@@ -124,12 +105,6 @@ func (o GroupConfigurationItemArrayOutput) ToGroupConfigurationItemArrayOutput()
 
 func (o GroupConfigurationItemArrayOutput) ToGroupConfigurationItemArrayOutputWithContext(ctx context.Context) GroupConfigurationItemArrayOutput {
 	return o
-}
-
-func (o GroupConfigurationItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupConfigurationItem] {
-	return pulumix.Output[[]GroupConfigurationItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupConfigurationItemArrayOutput) Index(i pulumi.IntInput) GroupConfigurationItemOutput {
@@ -171,12 +146,6 @@ func (i GroupConfigurationParameterArgs) ToGroupConfigurationParameterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationParameterOutput)
 }
 
-func (i GroupConfigurationParameterArgs) ToOutput(ctx context.Context) pulumix.Output[GroupConfigurationParameter] {
-	return pulumix.Output[GroupConfigurationParameter]{
-		OutputState: i.ToGroupConfigurationParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupConfigurationParameterArrayInput is an input type that accepts GroupConfigurationParameterArray and GroupConfigurationParameterArrayOutput values.
 // You can construct a concrete instance of `GroupConfigurationParameterArrayInput` via:
 //
@@ -202,12 +171,6 @@ func (i GroupConfigurationParameterArray) ToGroupConfigurationParameterArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationParameterArrayOutput)
 }
 
-func (i GroupConfigurationParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupConfigurationParameter] {
-	return pulumix.Output[[]GroupConfigurationParameter]{
-		OutputState: i.ToGroupConfigurationParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupConfigurationParameterOutput struct{ *pulumi.OutputState }
 
 func (GroupConfigurationParameterOutput) ElementType() reflect.Type {
@@ -220,12 +183,6 @@ func (o GroupConfigurationParameterOutput) ToGroupConfigurationParameterOutput()
 
 func (o GroupConfigurationParameterOutput) ToGroupConfigurationParameterOutputWithContext(ctx context.Context) GroupConfigurationParameterOutput {
 	return o
-}
-
-func (o GroupConfigurationParameterOutput) ToOutput(ctx context.Context) pulumix.Output[GroupConfigurationParameter] {
-	return pulumix.Output[GroupConfigurationParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupConfigurationParameterOutput) Name() pulumi.StringPtrOutput {
@@ -248,12 +205,6 @@ func (o GroupConfigurationParameterArrayOutput) ToGroupConfigurationParameterArr
 
 func (o GroupConfigurationParameterArrayOutput) ToGroupConfigurationParameterArrayOutputWithContext(ctx context.Context) GroupConfigurationParameterArrayOutput {
 	return o
-}
-
-func (o GroupConfigurationParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupConfigurationParameter] {
-	return pulumix.Output[[]GroupConfigurationParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupConfigurationParameterArrayOutput) Index(i pulumi.IntInput) GroupConfigurationParameterOutput {
@@ -297,12 +248,6 @@ func (i GroupQueryArgs) ToGroupQueryOutputWithContext(ctx context.Context) Group
 	return pulumi.ToOutputWithContext(ctx, i).(GroupQueryOutput)
 }
 
-func (i GroupQueryArgs) ToOutput(ctx context.Context) pulumix.Output[GroupQuery] {
-	return pulumix.Output[GroupQuery]{
-		OutputState: i.ToGroupQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GroupQueryArgs) ToGroupQueryPtrOutput() GroupQueryPtrOutput {
 	return i.ToGroupQueryPtrOutputWithContext(context.Background())
 }
@@ -344,12 +289,6 @@ func (i *groupQueryPtrType) ToGroupQueryPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(GroupQueryPtrOutput)
 }
 
-func (i *groupQueryPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupQuery] {
-	return pulumix.Output[*GroupQuery]{
-		OutputState: i.ToGroupQueryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupQueryOutput struct{ *pulumi.OutputState }
 
 func (GroupQueryOutput) ElementType() reflect.Type {
@@ -372,12 +311,6 @@ func (o GroupQueryOutput) ToGroupQueryPtrOutputWithContext(ctx context.Context) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupQuery) *GroupQuery {
 		return &v
 	}).(GroupQueryPtrOutput)
-}
-
-func (o GroupQueryOutput) ToOutput(ctx context.Context) pulumix.Output[GroupQuery] {
-	return pulumix.Output[GroupQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupQueryOutput) ResourceTypeFilters() pulumi.StringArrayOutput {
@@ -404,12 +337,6 @@ func (o GroupQueryPtrOutput) ToGroupQueryPtrOutput() GroupQueryPtrOutput {
 
 func (o GroupQueryPtrOutput) ToGroupQueryPtrOutputWithContext(ctx context.Context) GroupQueryPtrOutput {
 	return o
-}
-
-func (o GroupQueryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupQuery] {
-	return pulumix.Output[*GroupQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupQueryPtrOutput) Elem() GroupQueryOutput {
@@ -482,12 +409,6 @@ func (i GroupResourceQueryArgs) ToGroupResourceQueryOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupResourceQueryOutput)
 }
 
-func (i GroupResourceQueryArgs) ToOutput(ctx context.Context) pulumix.Output[GroupResourceQuery] {
-	return pulumix.Output[GroupResourceQuery]{
-		OutputState: i.ToGroupResourceQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GroupResourceQueryArgs) ToGroupResourceQueryPtrOutput() GroupResourceQueryPtrOutput {
 	return i.ToGroupResourceQueryPtrOutputWithContext(context.Background())
 }
@@ -529,12 +450,6 @@ func (i *groupResourceQueryPtrType) ToGroupResourceQueryPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GroupResourceQueryPtrOutput)
 }
 
-func (i *groupResourceQueryPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupResourceQuery] {
-	return pulumix.Output[*GroupResourceQuery]{
-		OutputState: i.ToGroupResourceQueryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupResourceQueryOutput struct{ *pulumi.OutputState }
 
 func (GroupResourceQueryOutput) ElementType() reflect.Type {
@@ -559,12 +474,6 @@ func (o GroupResourceQueryOutput) ToGroupResourceQueryPtrOutputWithContext(ctx c
 	}).(GroupResourceQueryPtrOutput)
 }
 
-func (o GroupResourceQueryOutput) ToOutput(ctx context.Context) pulumix.Output[GroupResourceQuery] {
-	return pulumix.Output[GroupResourceQuery]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GroupResourceQueryOutput) Query() GroupQueryPtrOutput {
 	return o.ApplyT(func(v GroupResourceQuery) *GroupQuery { return v.Query }).(GroupQueryPtrOutput)
 }
@@ -585,12 +494,6 @@ func (o GroupResourceQueryPtrOutput) ToGroupResourceQueryPtrOutput() GroupResour
 
 func (o GroupResourceQueryPtrOutput) ToGroupResourceQueryPtrOutputWithContext(ctx context.Context) GroupResourceQueryPtrOutput {
 	return o
-}
-
-func (o GroupResourceQueryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupResourceQuery] {
-	return pulumix.Output[*GroupResourceQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupResourceQueryPtrOutput) Elem() GroupResourceQueryOutput {
@@ -654,12 +557,6 @@ func (i GroupTagArgs) ToGroupTagOutputWithContext(ctx context.Context) GroupTagO
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTagOutput)
 }
 
-func (i GroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[GroupTag] {
-	return pulumix.Output[GroupTag]{
-		OutputState: i.ToGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupTagArrayInput is an input type that accepts GroupTagArray and GroupTagArrayOutput values.
 // You can construct a concrete instance of `GroupTagArrayInput` via:
 //
@@ -685,12 +582,6 @@ func (i GroupTagArray) ToGroupTagArrayOutputWithContext(ctx context.Context) Gro
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTagArrayOutput)
 }
 
-func (i GroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupTag] {
-	return pulumix.Output[[]GroupTag]{
-		OutputState: i.ToGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupTagOutput struct{ *pulumi.OutputState }
 
 func (GroupTagOutput) ElementType() reflect.Type {
@@ -703,12 +594,6 @@ func (o GroupTagOutput) ToGroupTagOutput() GroupTagOutput {
 
 func (o GroupTagOutput) ToGroupTagOutputWithContext(ctx context.Context) GroupTagOutput {
 	return o
-}
-
-func (o GroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[GroupTag] {
-	return pulumix.Output[GroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupTagOutput) Key() pulumi.StringPtrOutput {
@@ -731,12 +616,6 @@ func (o GroupTagArrayOutput) ToGroupTagArrayOutput() GroupTagArrayOutput {
 
 func (o GroupTagArrayOutput) ToGroupTagArrayOutputWithContext(ctx context.Context) GroupTagArrayOutput {
 	return o
-}
-
-func (o GroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupTag] {
-	return pulumix.Output[[]GroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupTagArrayOutput) Index(i pulumi.IntInput) GroupTagOutput {
@@ -778,12 +657,6 @@ func (i GroupTagFilterArgs) ToGroupTagFilterOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTagFilterOutput)
 }
 
-func (i GroupTagFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GroupTagFilter] {
-	return pulumix.Output[GroupTagFilter]{
-		OutputState: i.ToGroupTagFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupTagFilterArrayInput is an input type that accepts GroupTagFilterArray and GroupTagFilterArrayOutput values.
 // You can construct a concrete instance of `GroupTagFilterArrayInput` via:
 //
@@ -809,12 +682,6 @@ func (i GroupTagFilterArray) ToGroupTagFilterArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTagFilterArrayOutput)
 }
 
-func (i GroupTagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupTagFilter] {
-	return pulumix.Output[[]GroupTagFilter]{
-		OutputState: i.ToGroupTagFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupTagFilterOutput struct{ *pulumi.OutputState }
 
 func (GroupTagFilterOutput) ElementType() reflect.Type {
@@ -827,12 +694,6 @@ func (o GroupTagFilterOutput) ToGroupTagFilterOutput() GroupTagFilterOutput {
 
 func (o GroupTagFilterOutput) ToGroupTagFilterOutputWithContext(ctx context.Context) GroupTagFilterOutput {
 	return o
-}
-
-func (o GroupTagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GroupTagFilter] {
-	return pulumix.Output[GroupTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupTagFilterOutput) Key() pulumi.StringPtrOutput {
@@ -855,12 +716,6 @@ func (o GroupTagFilterArrayOutput) ToGroupTagFilterArrayOutput() GroupTagFilterA
 
 func (o GroupTagFilterArrayOutput) ToGroupTagFilterArrayOutputWithContext(ctx context.Context) GroupTagFilterArrayOutput {
 	return o
-}
-
-func (o GroupTagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupTagFilter] {
-	return pulumix.Output[[]GroupTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupTagFilterArrayOutput) Index(i pulumi.IntInput) GroupTagFilterOutput {

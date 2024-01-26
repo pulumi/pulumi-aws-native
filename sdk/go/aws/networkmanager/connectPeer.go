@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::NetworkManager::ConnectPeer Resource Type Definition.
@@ -157,12 +156,6 @@ func (i *ConnectPeer) ToConnectPeerOutputWithContext(ctx context.Context) Connec
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerOutput)
 }
 
-func (i *ConnectPeer) ToOutput(ctx context.Context) pulumix.Output[*ConnectPeer] {
-	return pulumix.Output[*ConnectPeer]{
-		OutputState: i.ToConnectPeerOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectPeerOutput struct{ *pulumi.OutputState }
 
 func (ConnectPeerOutput) ElementType() reflect.Type {
@@ -175,12 +168,6 @@ func (o ConnectPeerOutput) ToConnectPeerOutput() ConnectPeerOutput {
 
 func (o ConnectPeerOutput) ToConnectPeerOutputWithContext(ctx context.Context) ConnectPeerOutput {
 	return o
-}
-
-func (o ConnectPeerOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectPeer] {
-	return pulumix.Output[*ConnectPeer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Bgp options for connect peer.

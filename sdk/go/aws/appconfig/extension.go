@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppConfig::Extension
@@ -125,12 +124,6 @@ func (i *Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionO
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionOutput)
 }
 
-func (i *Extension) ToOutput(ctx context.Context) pulumix.Output[*Extension] {
-	return pulumix.Output[*Extension]{
-		OutputState: i.ToExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExtensionOutput struct{ *pulumi.OutputState }
 
 func (ExtensionOutput) ElementType() reflect.Type {
@@ -143,12 +136,6 @@ func (o ExtensionOutput) ToExtensionOutput() ExtensionOutput {
 
 func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) ExtensionOutput {
 	return o
-}
-
-func (o ExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[*Extension] {
-	return pulumix.Output[*Extension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExtensionOutput) Actions() pulumi.AnyOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AutoScaling::LifecycleHook
@@ -81,12 +80,6 @@ func (o LookupLifecycleHookResultOutput) ToLookupLifecycleHookResultOutput() Loo
 
 func (o LookupLifecycleHookResultOutput) ToLookupLifecycleHookResultOutputWithContext(ctx context.Context) LookupLifecycleHookResultOutput {
 	return o
-}
-
-func (o LookupLifecycleHookResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLifecycleHookResult] {
-	return pulumix.Output[LookupLifecycleHookResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are CONTINUE and ABANDON (default).

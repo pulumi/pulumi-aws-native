@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Used to install the certificate authority certificate and update the certificate authority status.
@@ -69,12 +68,6 @@ func (o LookupCertificateAuthorityActivationResultOutput) ToLookupCertificateAut
 
 func (o LookupCertificateAuthorityActivationResultOutput) ToLookupCertificateAuthorityActivationResultOutputWithContext(ctx context.Context) LookupCertificateAuthorityActivationResultOutput {
 	return o
-}
-
-func (o LookupCertificateAuthorityActivationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCertificateAuthorityActivationResult] {
-	return pulumix.Output[LookupCertificateAuthorityActivationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The complete certificate chain, including the Certificate Authority certificate.

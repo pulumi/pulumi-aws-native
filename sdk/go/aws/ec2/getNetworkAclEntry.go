@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::NetworkAclEntry
@@ -76,12 +75,6 @@ func (o LookupNetworkAclEntryResultOutput) ToLookupNetworkAclEntryResultOutput()
 
 func (o LookupNetworkAclEntryResultOutput) ToLookupNetworkAclEntryResultOutputWithContext(ctx context.Context) LookupNetworkAclEntryResultOutput {
 	return o
-}
-
-func (o LookupNetworkAclEntryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkAclEntryResult] {
-	return pulumix.Output[LookupNetworkAclEntryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property

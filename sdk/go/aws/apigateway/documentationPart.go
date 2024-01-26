@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::DocumentationPart“ resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
@@ -121,12 +120,6 @@ func (i *DocumentationPart) ToDocumentationPartOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartOutput)
 }
 
-func (i *DocumentationPart) ToOutput(ctx context.Context) pulumix.Output[*DocumentationPart] {
-	return pulumix.Output[*DocumentationPart]{
-		OutputState: i.ToDocumentationPartOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentationPartOutput struct{ *pulumi.OutputState }
 
 func (DocumentationPartOutput) ElementType() reflect.Type {
@@ -139,12 +132,6 @@ func (o DocumentationPartOutput) ToDocumentationPartOutput() DocumentationPartOu
 
 func (o DocumentationPartOutput) ToDocumentationPartOutputWithContext(ctx context.Context) DocumentationPartOutput {
 	return o
-}
-
-func (o DocumentationPartOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentationPart] {
-	return pulumix.Output[*DocumentationPart]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentationPartOutput) DocumentationPartId() pulumi.StringOutput {

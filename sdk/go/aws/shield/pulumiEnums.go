@@ -80,12 +80,6 @@ func (o ProactiveEngagementStatusOutput) ToProactiveEngagementStatusPtrOutputWit
 	}).(ProactiveEngagementStatusPtrOutput)
 }
 
-func (o ProactiveEngagementStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ProactiveEngagementStatus] {
-	return pulumix.Output[ProactiveEngagementStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProactiveEngagementStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +115,6 @@ func (o ProactiveEngagementStatusPtrOutput) ToProactiveEngagementStatusPtrOutput
 	return o
 }
 
-func (o ProactiveEngagementStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProactiveEngagementStatus] {
-	return pulumix.Output[*ProactiveEngagementStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProactiveEngagementStatusPtrOutput) Elem() ProactiveEngagementStatusOutput {
 	return o.ApplyT(func(v *ProactiveEngagementStatus) ProactiveEngagementStatus {
 		if v != nil {
@@ -151,10 +139,11 @@ func (o ProactiveEngagementStatusPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProactiveEngagementStatusInput is an input type that accepts ProactiveEngagementStatusArgs and ProactiveEngagementStatusOutput values.
-// You can construct a concrete instance of `ProactiveEngagementStatusInput` via:
+// ProactiveEngagementStatusInput is an input type that accepts values of the ProactiveEngagementStatus enum
+// A concrete instance of `ProactiveEngagementStatusInput` can be one of the following:
 //
-//	ProactiveEngagementStatusArgs{...}
+//	ProactiveEngagementStatusEnabled
+//	ProactiveEngagementStatusDisabled
 type ProactiveEngagementStatusInput interface {
 	pulumi.Input
 
@@ -263,12 +252,6 @@ func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput) To
 	}).(ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput)
 }
 
-func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionApplicationLayerAutomaticResponseConfigurationStatus] {
-	return pulumix.Output[ProtectionApplicationLayerAutomaticResponseConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -304,12 +287,6 @@ func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput)
 	return o
 }
 
-func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfigurationStatus] {
-	return pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput) Elem() ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput {
 	return o.ApplyT(func(v *ProtectionApplicationLayerAutomaticResponseConfigurationStatus) ProtectionApplicationLayerAutomaticResponseConfigurationStatus {
 		if v != nil {
@@ -334,10 +311,11 @@ func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProtectionApplicationLayerAutomaticResponseConfigurationStatusInput is an input type that accepts ProtectionApplicationLayerAutomaticResponseConfigurationStatusArgs and ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput values.
-// You can construct a concrete instance of `ProtectionApplicationLayerAutomaticResponseConfigurationStatusInput` via:
+// ProtectionApplicationLayerAutomaticResponseConfigurationStatusInput is an input type that accepts values of the ProtectionApplicationLayerAutomaticResponseConfigurationStatus enum
+// A concrete instance of `ProtectionApplicationLayerAutomaticResponseConfigurationStatusInput` can be one of the following:
 //
-//	ProtectionApplicationLayerAutomaticResponseConfigurationStatusArgs{...}
+//	ProtectionApplicationLayerAutomaticResponseConfigurationStatusEnabled
+//	ProtectionApplicationLayerAutomaticResponseConfigurationStatusDisabled
 type ProtectionApplicationLayerAutomaticResponseConfigurationStatusInput interface {
 	pulumi.Input
 
@@ -450,12 +428,6 @@ func (o ProtectionGroupAggregationOutput) ToProtectionGroupAggregationPtrOutputW
 	}).(ProtectionGroupAggregationPtrOutput)
 }
 
-func (o ProtectionGroupAggregationOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupAggregation] {
-	return pulumix.Output[ProtectionGroupAggregation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupAggregationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -491,12 +463,6 @@ func (o ProtectionGroupAggregationPtrOutput) ToProtectionGroupAggregationPtrOutp
 	return o
 }
 
-func (o ProtectionGroupAggregationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupAggregation] {
-	return pulumix.Output[*ProtectionGroupAggregation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupAggregationPtrOutput) Elem() ProtectionGroupAggregationOutput {
 	return o.ApplyT(func(v *ProtectionGroupAggregation) ProtectionGroupAggregation {
 		if v != nil {
@@ -521,10 +487,12 @@ func (o ProtectionGroupAggregationPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProtectionGroupAggregationInput is an input type that accepts ProtectionGroupAggregationArgs and ProtectionGroupAggregationOutput values.
-// You can construct a concrete instance of `ProtectionGroupAggregationInput` via:
+// ProtectionGroupAggregationInput is an input type that accepts values of the ProtectionGroupAggregation enum
+// A concrete instance of `ProtectionGroupAggregationInput` can be one of the following:
 //
-//	ProtectionGroupAggregationArgs{...}
+//	ProtectionGroupAggregationSum
+//	ProtectionGroupAggregationMean
+//	ProtectionGroupAggregationMax
 type ProtectionGroupAggregationInput interface {
 	pulumi.Input
 
@@ -634,12 +602,6 @@ func (o ProtectionGroupPatternOutput) ToProtectionGroupPatternPtrOutputWithConte
 	}).(ProtectionGroupPatternPtrOutput)
 }
 
-func (o ProtectionGroupPatternOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupPattern] {
-	return pulumix.Output[ProtectionGroupPattern]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupPatternOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -675,12 +637,6 @@ func (o ProtectionGroupPatternPtrOutput) ToProtectionGroupPatternPtrOutputWithCo
 	return o
 }
 
-func (o ProtectionGroupPatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupPattern] {
-	return pulumix.Output[*ProtectionGroupPattern]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupPatternPtrOutput) Elem() ProtectionGroupPatternOutput {
 	return o.ApplyT(func(v *ProtectionGroupPattern) ProtectionGroupPattern {
 		if v != nil {
@@ -705,10 +661,12 @@ func (o ProtectionGroupPatternPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProtectionGroupPatternInput is an input type that accepts ProtectionGroupPatternArgs and ProtectionGroupPatternOutput values.
-// You can construct a concrete instance of `ProtectionGroupPatternInput` via:
+// ProtectionGroupPatternInput is an input type that accepts values of the ProtectionGroupPattern enum
+// A concrete instance of `ProtectionGroupPatternInput` can be one of the following:
 //
-//	ProtectionGroupPatternArgs{...}
+//	ProtectionGroupPatternAll
+//	ProtectionGroupPatternArbitrary
+//	ProtectionGroupPatternByResourceType
 type ProtectionGroupPatternInput interface {
 	pulumi.Input
 
@@ -821,12 +779,6 @@ func (o ProtectionGroupResourceTypeOutput) ToProtectionGroupResourceTypePtrOutpu
 	}).(ProtectionGroupResourceTypePtrOutput)
 }
 
-func (o ProtectionGroupResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupResourceType] {
-	return pulumix.Output[ProtectionGroupResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -862,12 +814,6 @@ func (o ProtectionGroupResourceTypePtrOutput) ToProtectionGroupResourceTypePtrOu
 	return o
 }
 
-func (o ProtectionGroupResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupResourceType] {
-	return pulumix.Output[*ProtectionGroupResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupResourceTypePtrOutput) Elem() ProtectionGroupResourceTypeOutput {
 	return o.ApplyT(func(v *ProtectionGroupResourceType) ProtectionGroupResourceType {
 		if v != nil {
@@ -892,10 +838,15 @@ func (o ProtectionGroupResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProtectionGroupResourceTypeInput is an input type that accepts ProtectionGroupResourceTypeArgs and ProtectionGroupResourceTypeOutput values.
-// You can construct a concrete instance of `ProtectionGroupResourceTypeInput` via:
+// ProtectionGroupResourceTypeInput is an input type that accepts values of the ProtectionGroupResourceType enum
+// A concrete instance of `ProtectionGroupResourceTypeInput` can be one of the following:
 //
-//	ProtectionGroupResourceTypeArgs{...}
+//	ProtectionGroupResourceTypeCloudfrontDistribution
+//	ProtectionGroupResourceTypeRoute53HostedZone
+//	ProtectionGroupResourceTypeElasticIpAllocation
+//	ProtectionGroupResourceTypeClassicLoadBalancer
+//	ProtectionGroupResourceTypeApplicationLoadBalancer
+//	ProtectionGroupResourceTypeGlobalAccelerator
 type ProtectionGroupResourceTypeInput interface {
 	pulumi.Input
 

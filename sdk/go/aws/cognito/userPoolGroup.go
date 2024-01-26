@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolGroup
@@ -111,12 +110,6 @@ func (i *UserPoolGroup) ToUserPoolGroupOutputWithContext(ctx context.Context) Us
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolGroupOutput)
 }
 
-func (i *UserPoolGroup) ToOutput(ctx context.Context) pulumix.Output[*UserPoolGroup] {
-	return pulumix.Output[*UserPoolGroup]{
-		OutputState: i.ToUserPoolGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolGroupOutput struct{ *pulumi.OutputState }
 
 func (UserPoolGroupOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o UserPoolGroupOutput) ToUserPoolGroupOutput() UserPoolGroupOutput {
 
 func (o UserPoolGroupOutput) ToUserPoolGroupOutputWithContext(ctx context.Context) UserPoolGroupOutput {
 	return o
-}
-
-func (o UserPoolGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolGroup] {
-	return pulumix.Output[*UserPoolGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolGroupOutput) Description() pulumi.StringPtrOutput {

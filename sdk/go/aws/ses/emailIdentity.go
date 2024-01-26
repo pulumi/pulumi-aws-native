@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SES::EmailIdentity
@@ -122,12 +121,6 @@ func (i *EmailIdentity) ToEmailIdentityOutputWithContext(ctx context.Context) Em
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityOutput)
 }
 
-func (i *EmailIdentity) ToOutput(ctx context.Context) pulumix.Output[*EmailIdentity] {
-	return pulumix.Output[*EmailIdentity]{
-		OutputState: i.ToEmailIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmailIdentityOutput struct{ *pulumi.OutputState }
 
 func (EmailIdentityOutput) ElementType() reflect.Type {
@@ -140,12 +133,6 @@ func (o EmailIdentityOutput) ToEmailIdentityOutput() EmailIdentityOutput {
 
 func (o EmailIdentityOutput) ToEmailIdentityOutputWithContext(ctx context.Context) EmailIdentityOutput {
 	return o
-}
-
-func (o EmailIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailIdentity] {
-	return pulumix.Output[*EmailIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmailIdentityOutput) ConfigurationSetAttributes() EmailIdentityConfigurationSetAttributesPtrOutput {
