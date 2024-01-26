@@ -52,7 +52,7 @@ func getDefaultName(
 	}
 
 	// Generate random name that fits the length constraints.
-	name := urn.Name().String()
+	name := urn.Name()
 	prefix := name + "-"
 	randLength := 7
 	if len(prefix)+namingTrivia.Length()+randLength < autoNamingSpec.MinLength {
