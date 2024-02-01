@@ -27,10 +27,8 @@ export interface GetFormArgs {
 }
 
 export interface GetFormResult {
-    readonly appId?: string;
     readonly cta?: outputs.amplifyuibuilder.FormCta;
     readonly dataType?: outputs.amplifyuibuilder.FormDataTypeConfig;
-    readonly environmentName?: string;
     readonly fields?: outputs.amplifyuibuilder.FormFieldsMap;
     readonly formActionType?: enums.amplifyuibuilder.FormActionType;
     readonly id?: string;
@@ -39,6 +37,7 @@ export interface GetFormResult {
     readonly schemaVersion?: string;
     readonly sectionalElements?: outputs.amplifyuibuilder.FormSectionalElementMap;
     readonly style?: outputs.amplifyuibuilder.FormStyle;
+    readonly tags?: outputs.amplifyuibuilder.FormTags;
 }
 /**
  * Definition of AWS::AmplifyUIBuilder::Form Resource Type

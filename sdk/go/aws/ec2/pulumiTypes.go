@@ -15025,11 +15025,13 @@ type LaunchTemplateInstanceRequirements struct {
 	// The user data to make available to the instance.
 	LocalStorage *string `pulumi:"localStorage"`
 	// The type of local storage that is required.
-	LocalStorageTypes     []string                             `pulumi:"localStorageTypes"`
-	MemoryGiBPerVCpu      *LaunchTemplateMemoryGiBPerVCpu      `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB             *LaunchTemplateMemoryMiB             `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps  *LaunchTemplateNetworkBandwidthGbps  `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount *LaunchTemplateNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
+	LocalStorageTypes []string `pulumi:"localStorageTypes"`
+	// The price protection threshold for Spot Instances.
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int                                 `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGiBPerVCpu                               *LaunchTemplateMemoryGiBPerVCpu      `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                      *LaunchTemplateMemoryMiB             `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                           *LaunchTemplateNetworkBandwidthGbps  `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          *LaunchTemplateNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances.
 	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
@@ -15076,11 +15078,13 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// The user data to make available to the instance.
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// The type of local storage that is required.
-	LocalStorageTypes     pulumi.StringArrayInput                     `pulumi:"localStorageTypes"`
-	MemoryGiBPerVCpu      LaunchTemplateMemoryGiBPerVCpuPtrInput      `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB             LaunchTemplateMemoryMiBPtrInput             `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps  LaunchTemplateNetworkBandwidthGbpsPtrInput  `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount LaunchTemplateNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
+	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
+	// The price protection threshold for Spot Instances.
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput                          `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGiBPerVCpu                               LaunchTemplateMemoryGiBPerVCpuPtrInput      `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                      LaunchTemplateMemoryMiBPtrInput             `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                           LaunchTemplateNetworkBandwidthGbpsPtrInput  `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          LaunchTemplateNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances.
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
@@ -15255,6 +15259,13 @@ func (o LaunchTemplateInstanceRequirementsOutput) LocalStorage() pulumi.StringPt
 // The type of local storage that is required.
 func (o LaunchTemplateInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
+}
+
+// The price protection threshold for Spot Instances.
+func (o LaunchTemplateInstanceRequirementsOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int {
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o LaunchTemplateInstanceRequirementsOutput) MemoryGiBPerVCpu() LaunchTemplateMemoryGiBPerVCpuPtrOutput {
@@ -15466,6 +15477,16 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.
 		}
 		return v.LocalStorageTypes
 	}).(pulumi.StringArrayOutput)
+}
+
+// The price protection threshold for Spot Instances.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o LaunchTemplateInstanceRequirementsPtrOutput) MemoryGiBPerVCpu() LaunchTemplateMemoryGiBPerVCpuPtrOutput {

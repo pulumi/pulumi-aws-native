@@ -14,19 +14,18 @@ export function getUserPoolDomain(args: GetUserPoolDomainArgs, opts?: pulumi.Inv
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolDomain", {
-        "domain": args.domain,
-        "userPoolId": args.userPoolId,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetUserPoolDomainArgs {
-    domain: string;
-    userPoolId: string;
+    id: string;
 }
 
 export interface GetUserPoolDomainResult {
     readonly cloudFrontDistribution?: string;
     readonly customDomainConfig?: outputs.cognito.UserPoolDomainCustomDomainConfigType;
+    readonly id?: string;
 }
 /**
  * Resource Type definition for AWS::Cognito::UserPoolDomain
@@ -36,6 +35,5 @@ export function getUserPoolDomainOutput(args: GetUserPoolDomainOutputArgs, opts?
 }
 
 export interface GetUserPoolDomainOutputArgs {
-    domain: pulumi.Input<string>;
-    userPoolId: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -125,6 +125,11 @@ export const getTable: typeof import("./getTable").getTable = null as any;
 export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
 utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
 
+export { GetTableOptimizerArgs, GetTableOptimizerResult, GetTableOptimizerOutputArgs } from "./getTableOptimizer";
+export const getTableOptimizer: typeof import("./getTableOptimizer").getTableOptimizer = null as any;
+export const getTableOptimizerOutput: typeof import("./getTableOptimizer").getTableOptimizerOutput = null as any;
+utilities.lazyLoad(exports, ["getTableOptimizer","getTableOptimizerOutput"], () => require("./getTableOptimizer"));
+
 export { GetTriggerArgs, GetTriggerResult, GetTriggerOutputArgs } from "./getTrigger";
 export const getTrigger: typeof import("./getTrigger").getTrigger = null as any;
 export const getTriggerOutput: typeof import("./getTrigger").getTriggerOutput = null as any;
@@ -180,6 +185,11 @@ export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
 utilities.lazyLoad(exports, ["Table"], () => require("./table"));
 
+export { TableOptimizerArgs } from "./tableOptimizer";
+export type TableOptimizer = import("./tableOptimizer").TableOptimizer;
+export const TableOptimizer: typeof import("./tableOptimizer").TableOptimizer = null as any;
+utilities.lazyLoad(exports, ["TableOptimizer"], () => require("./tableOptimizer"));
+
 export { TriggerArgs } from "./trigger";
 export type Trigger = import("./trigger").Trigger;
 export const Trigger: typeof import("./trigger").Trigger = null as any;
@@ -232,6 +242,8 @@ const _module = {
                 return new SecurityConfiguration(name, <any>undefined, { urn })
             case "aws-native:glue:Table":
                 return new Table(name, <any>undefined, { urn })
+            case "aws-native:glue:TableOptimizer":
+                return new TableOptimizer(name, <any>undefined, { urn })
             case "aws-native:glue:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
             case "aws-native:glue:Workflow":

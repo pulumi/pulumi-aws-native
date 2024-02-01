@@ -150,6 +150,10 @@
       "properties" : {
         "StreamArn" : {
           "type" : "string"
+        },
+        "ApproximateCreationDateTimePrecision" : {
+          "type" : "string",
+          "enum" : [ "MICROSECOND", "MILLISECOND" ]
         }
       },
       "required" : [ "StreamArn" ]
@@ -376,7 +380,7 @@
       "permissions" : [ "dynamodb:DescribeTable", "dynamodb:DescribeContinuousBackups", "dynamodb:DescribeContributorInsights", "dynamodb:DescribeKinesisStreamingDestination", "dynamodb:ListTagsOfResource" ]
     },
     "update" : {
-      "permissions" : [ "dynamodb:UpdateTable", "dynamodb:DescribeTable", "dynamodb:DescribeTimeToLive", "dynamodb:UpdateTimeToLive", "dynamodb:UpdateContinuousBackups", "dynamodb:UpdateContributorInsights", "dynamodb:DescribeContinuousBackups", "dynamodb:DescribeKinesisStreamingDestination", "dynamodb:ListTagsOfResource", "dynamodb:TagResource", "dynamodb:UntagResource", "dynamodb:DescribeContributorInsights", "dynamodb:EnableKinesisStreamingDestination", "dynamodb:DisableKinesisStreamingDestination", "kinesis:DescribeStream", "kinesis:PutRecords", "iam:CreateServiceLinkedRole", "kms:CreateGrant", "kms:DescribeKey", "kms:ListAliases", "kms:RevokeGrant" ],
+      "permissions" : [ "dynamodb:UpdateTable", "dynamodb:DescribeTable", "dynamodb:DescribeTimeToLive", "dynamodb:UpdateTimeToLive", "dynamodb:UpdateContinuousBackups", "dynamodb:UpdateContributorInsights", "dynamodb:UpdateKinesisStreamingDestination", "dynamodb:DescribeContinuousBackups", "dynamodb:DescribeKinesisStreamingDestination", "dynamodb:ListTagsOfResource", "dynamodb:TagResource", "dynamodb:UntagResource", "dynamodb:DescribeContributorInsights", "dynamodb:EnableKinesisStreamingDestination", "dynamodb:DisableKinesisStreamingDestination", "kinesis:DescribeStream", "kinesis:PutRecords", "iam:CreateServiceLinkedRole", "kms:CreateGrant", "kms:DescribeKey", "kms:ListAliases", "kms:RevokeGrant" ],
       "timeoutInMinutes" : 720
     },
     "delete" : {

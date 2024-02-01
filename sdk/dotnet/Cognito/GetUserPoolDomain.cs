@@ -27,11 +27,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolDomainArgs : global::Pulumi.InvokeArgs
     {
-        [Input("domain", required: true)]
-        public string Domain { get; set; } = null!;
-
-        [Input("userPoolId", required: true)]
-        public string UserPoolId { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetUserPoolDomainArgs()
         {
@@ -41,11 +38,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("domain", required: true)]
-        public Input<string> Domain { get; set; } = null!;
-
-        [Input("userPoolId", required: true)]
-        public Input<string> UserPoolId { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetUserPoolDomainInvokeArgs()
         {
@@ -59,15 +53,19 @@ namespace Pulumi.AwsNative.Cognito
     {
         public readonly string? CloudFrontDistribution;
         public readonly Outputs.UserPoolDomainCustomDomainConfigType? CustomDomainConfig;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetUserPoolDomainResult(
             string? cloudFrontDistribution,
 
-            Outputs.UserPoolDomainCustomDomainConfigType? customDomainConfig)
+            Outputs.UserPoolDomainCustomDomainConfigType? customDomainConfig,
+
+            string? id)
         {
             CloudFrontDistribution = cloudFrontDistribution;
             CustomDomainConfig = customDomainConfig;
+            Id = id;
         }
     }
 }

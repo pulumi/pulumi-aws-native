@@ -423,8 +423,6 @@ if typing.TYPE_CHECKING:
     scheduler = __scheduler
     import pulumi_aws_native.sdb as __sdb
     sdb = __sdb
-    import pulumi_aws_native.sdc as __sdc
-    sdc = __sdc
     import pulumi_aws_native.secretsmanager as __secretsmanager
     secretsmanager = __secretsmanager
     import pulumi_aws_native.securityhub as __securityhub
@@ -693,7 +691,6 @@ else:
     sagemaker = _utilities.lazy_import('pulumi_aws_native.sagemaker')
     scheduler = _utilities.lazy_import('pulumi_aws_native.scheduler')
     sdb = _utilities.lazy_import('pulumi_aws_native.sdb')
-    sdc = _utilities.lazy_import('pulumi_aws_native.sdc')
     secretsmanager = _utilities.lazy_import('pulumi_aws_native.secretsmanager')
     securityhub = _utilities.lazy_import('pulumi_aws_native.securityhub')
     servicecatalog = _utilities.lazy_import('pulumi_aws_native.servicecatalog')
@@ -1957,6 +1954,7 @@ _utilities.register(
    "aws-native:glue:SchemaVersionMetadata": "SchemaVersionMetadata",
    "aws-native:glue:SecurityConfiguration": "SecurityConfiguration",
    "aws-native:glue:Table": "Table",
+   "aws-native:glue:TableOptimizer": "TableOptimizer",
    "aws-native:glue:Trigger": "Trigger",
    "aws-native:glue:Workflow": "Workflow"
   }
@@ -2111,6 +2109,7 @@ _utilities.register(
   "mod": "inspectorv2",
   "fqn": "pulumi_aws_native.inspectorv2",
   "classes": {
+   "aws-native:inspectorv2:CisScanConfiguration": "CisScanConfiguration",
    "aws-native:inspectorv2:Filter": "Filter"
   }
  },
@@ -2937,6 +2936,7 @@ _utilities.register(
    "aws-native:rds:DbSubnetGroup": "DbSubnetGroup",
    "aws-native:rds:EventSubscription": "EventSubscription",
    "aws-native:rds:GlobalCluster": "GlobalCluster",
+   "aws-native:rds:Integration": "Integration",
    "aws-native:rds:OptionGroup": "OptionGroup"
   }
  },
@@ -3195,14 +3195,6 @@ _utilities.register(
   "fqn": "pulumi_aws_native.sdb",
   "classes": {
    "aws-native:sdb:Domain": "Domain"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "sdc",
-  "fqn": "pulumi_aws_native.sdc",
-  "classes": {
-   "aws-native:sdc:Deployment": "Deployment"
   }
  },
  {

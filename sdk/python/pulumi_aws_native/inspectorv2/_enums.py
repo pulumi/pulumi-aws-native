@@ -5,10 +5,27 @@
 from enum import Enum
 
 __all__ = [
+    'CisScanConfigurationCisSecurityLevel',
+    'CisScanConfigurationDay',
     'FilterAction',
     'FilterMapComparison',
     'FilterStringComparison',
 ]
+
+
+class CisScanConfigurationCisSecurityLevel(str, Enum):
+    LEVEL1 = "LEVEL_1"
+    LEVEL2 = "LEVEL_2"
+
+
+class CisScanConfigurationDay(str, Enum):
+    MON = "MON"
+    TUE = "TUE"
+    WED = "WED"
+    THU = "THU"
+    FRI = "FRI"
+    SAT = "SAT"
+    SUN = "SUN"
 
 
 class FilterAction(str, Enum):

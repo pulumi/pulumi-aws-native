@@ -4471,6 +4471,8 @@ class LaunchTemplateInstanceRequirements(dict):
             suggest = "local_storage"
         elif key == "localStorageTypes":
             suggest = "local_storage_types"
+        elif key == "maxSpotPriceAsPercentageOfOptimalOnDemandPrice":
+            suggest = "max_spot_price_as_percentage_of_optimal_on_demand_price"
         elif key == "memoryGiBPerVCpu":
             suggest = "memory_gi_b_per_v_cpu"
         elif key == "memoryMiB":
@@ -4516,6 +4518,7 @@ class LaunchTemplateInstanceRequirements(dict):
                  instance_generations: Optional[Sequence[str]] = None,
                  local_storage: Optional[str] = None,
                  local_storage_types: Optional[Sequence[str]] = None,
+                 max_spot_price_as_percentage_of_optimal_on_demand_price: Optional[int] = None,
                  memory_gi_b_per_v_cpu: Optional['outputs.LaunchTemplateMemoryGiBPerVCpu'] = None,
                  memory_mi_b: Optional['outputs.LaunchTemplateMemoryMiB'] = None,
                  network_bandwidth_gbps: Optional['outputs.LaunchTemplateNetworkBandwidthGbps'] = None,
@@ -4537,6 +4540,7 @@ class LaunchTemplateInstanceRequirements(dict):
         :param Sequence[str] instance_generations: Indicates whether current or previous generation instance types are included.
         :param str local_storage: The user data to make available to the instance.
         :param Sequence[str] local_storage_types: The type of local storage that is required.
+        :param int max_spot_price_as_percentage_of_optimal_on_demand_price: The price protection threshold for Spot Instances.
         :param int on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances.
         :param bool require_hibernate_support: Indicates whether instance types must support hibernation for On-Demand Instances.
         :param int spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances.
@@ -4569,6 +4573,8 @@ class LaunchTemplateInstanceRequirements(dict):
             pulumi.set(__self__, "local_storage", local_storage)
         if local_storage_types is not None:
             pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if max_spot_price_as_percentage_of_optimal_on_demand_price is not None:
+            pulumi.set(__self__, "max_spot_price_as_percentage_of_optimal_on_demand_price", max_spot_price_as_percentage_of_optimal_on_demand_price)
         if memory_gi_b_per_v_cpu is not None:
             pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
         if memory_mi_b is not None:
@@ -4687,6 +4693,14 @@ class LaunchTemplateInstanceRequirements(dict):
         The type of local storage that is required.
         """
         return pulumi.get(self, "local_storage_types")
+
+    @property
+    @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> Optional[int]:
+        """
+        The price protection threshold for Spot Instances.
+        """
+        return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
 
     @property
     @pulumi.getter(name="memoryGiBPerVCpu")

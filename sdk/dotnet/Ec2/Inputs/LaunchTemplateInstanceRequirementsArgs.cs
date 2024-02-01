@@ -135,6 +135,12 @@ namespace Pulumi.AwsNative.Ec2.Inputs
             set => _localStorageTypes = value;
         }
 
+        /// <summary>
+        /// The price protection threshold for Spot Instances.
+        /// </summary>
+        [Input("maxSpotPriceAsPercentageOfOptimalOnDemandPrice")]
+        public Input<int>? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice { get; set; }
+
         [Input("memoryGiBPerVCpu")]
         public Input<Inputs.LaunchTemplateMemoryGiBPerVCpuArgs>? MemoryGiBPerVCpu { get; set; }
 

@@ -4367,6 +4367,7 @@ class LaunchTemplateInstanceRequirementsArgs:
                  instance_generations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  local_storage: Optional[pulumi.Input[str]] = None,
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 max_spot_price_as_percentage_of_optimal_on_demand_price: Optional[pulumi.Input[int]] = None,
                  memory_gi_b_per_v_cpu: Optional[pulumi.Input['LaunchTemplateMemoryGiBPerVCpuArgs']] = None,
                  memory_mi_b: Optional[pulumi.Input['LaunchTemplateMemoryMiBArgs']] = None,
                  network_bandwidth_gbps: Optional[pulumi.Input['LaunchTemplateNetworkBandwidthGbpsArgs']] = None,
@@ -4388,6 +4389,7 @@ class LaunchTemplateInstanceRequirementsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: Indicates whether current or previous generation instance types are included.
         :param pulumi.Input[str] local_storage: The user data to make available to the instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: The type of local storage that is required.
+        :param pulumi.Input[int] max_spot_price_as_percentage_of_optimal_on_demand_price: The price protection threshold for Spot Instances.
         :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances.
         :param pulumi.Input[bool] require_hibernate_support: Indicates whether instance types must support hibernation for On-Demand Instances.
         :param pulumi.Input[int] spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances.
@@ -4420,6 +4422,8 @@ class LaunchTemplateInstanceRequirementsArgs:
             pulumi.set(__self__, "local_storage", local_storage)
         if local_storage_types is not None:
             pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if max_spot_price_as_percentage_of_optimal_on_demand_price is not None:
+            pulumi.set(__self__, "max_spot_price_as_percentage_of_optimal_on_demand_price", max_spot_price_as_percentage_of_optimal_on_demand_price)
         if memory_gi_b_per_v_cpu is not None:
             pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
         if memory_mi_b is not None:
@@ -4594,6 +4598,18 @@ class LaunchTemplateInstanceRequirementsArgs:
     @local_storage_types.setter
     def local_storage_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "local_storage_types", value)
+
+    @property
+    @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> Optional[pulumi.Input[int]]:
+        """
+        The price protection threshold for Spot Instances.
+        """
+        return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
+
+    @max_spot_price_as_percentage_of_optimal_on_demand_price.setter
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_spot_price_as_percentage_of_optimal_on_demand_price", value)
 
     @property
     @pulumi.getter(name="memoryGiBPerVCpu")

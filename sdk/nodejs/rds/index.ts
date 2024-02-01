@@ -130,6 +130,11 @@ export const getGlobalCluster: typeof import("./getGlobalCluster").getGlobalClus
 export const getGlobalClusterOutput: typeof import("./getGlobalCluster").getGlobalClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getGlobalCluster","getGlobalClusterOutput"], () => require("./getGlobalCluster"));
 
+export { GetIntegrationArgs, GetIntegrationResult, GetIntegrationOutputArgs } from "./getIntegration";
+export const getIntegration: typeof import("./getIntegration").getIntegration = null as any;
+export const getIntegrationOutput: typeof import("./getIntegration").getIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegration","getIntegrationOutput"], () => require("./getIntegration"));
+
 export { GetOptionGroupArgs, GetOptionGroupResult, GetOptionGroupOutputArgs } from "./getOptionGroup";
 export const getOptionGroup: typeof import("./getOptionGroup").getOptionGroup = null as any;
 export const getOptionGroupOutput: typeof import("./getOptionGroup").getOptionGroupOutput = null as any;
@@ -139,6 +144,11 @@ export { GlobalClusterArgs } from "./globalCluster";
 export type GlobalCluster = import("./globalCluster").GlobalCluster;
 export const GlobalCluster: typeof import("./globalCluster").GlobalCluster = null as any;
 utilities.lazyLoad(exports, ["GlobalCluster"], () => require("./globalCluster"));
+
+export { IntegrationArgs } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
 export { OptionGroupArgs } from "./optionGroup";
 export type OptionGroup = import("./optionGroup").OptionGroup;
@@ -179,6 +189,8 @@ const _module = {
                 return new EventSubscription(name, <any>undefined, { urn })
             case "aws-native:rds:GlobalCluster":
                 return new GlobalCluster(name, <any>undefined, { urn })
+            case "aws-native:rds:Integration":
+                return new Integration(name, <any>undefined, { urn })
             case "aws-native:rds:OptionGroup":
                 return new OptionGroup(name, <any>undefined, { urn })
             default:

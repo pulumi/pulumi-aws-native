@@ -60,6 +60,10 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The type of local storage that is required.
         /// </summary>
         public readonly ImmutableArray<string> LocalStorageTypes;
+        /// <summary>
+        /// The price protection threshold for Spot Instances.
+        /// </summary>
+        public readonly int? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
         public readonly Outputs.LaunchTemplateMemoryGiBPerVCpu? MemoryGiBPerVCpu;
         public readonly Outputs.LaunchTemplateMemoryMiB? MemoryMiB;
         public readonly Outputs.LaunchTemplateNetworkBandwidthGbps? NetworkBandwidthGbps;
@@ -109,6 +113,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             ImmutableArray<string> localStorageTypes,
 
+            int? maxSpotPriceAsPercentageOfOptimalOnDemandPrice,
+
             Outputs.LaunchTemplateMemoryGiBPerVCpu? memoryGiBPerVCpu,
 
             Outputs.LaunchTemplateMemoryMiB? memoryMiB,
@@ -141,6 +147,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             InstanceGenerations = instanceGenerations;
             LocalStorage = localStorage;
             LocalStorageTypes = localStorageTypes;
+            MaxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
             MemoryGiBPerVCpu = memoryGiBPerVCpu;
             MemoryMiB = memoryMiB;
             NetworkBandwidthGbps = networkBandwidthGbps;

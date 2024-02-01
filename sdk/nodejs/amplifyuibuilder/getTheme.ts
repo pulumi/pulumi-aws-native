@@ -27,11 +27,12 @@ export interface GetThemeArgs {
 }
 
 export interface GetThemeResult {
-    readonly appId?: string;
-    readonly environmentName?: string;
+    readonly createdAt?: string;
     readonly id?: string;
+    readonly modifiedAt?: string;
     readonly name?: string;
     readonly overrides?: outputs.amplifyuibuilder.ThemeValues[];
+    readonly tags?: outputs.amplifyuibuilder.ThemeTags;
     readonly values?: outputs.amplifyuibuilder.ThemeValues[];
 }
 /**

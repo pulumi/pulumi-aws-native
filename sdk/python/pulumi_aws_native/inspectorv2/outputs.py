@@ -12,6 +12,15 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CisScanConfigurationCisTagMap',
+    'CisScanConfigurationCisTargets',
+    'CisScanConfigurationDailySchedule',
+    'CisScanConfigurationMonthlySchedule',
+    'CisScanConfigurationOneTimeSchedule',
+    'CisScanConfigurationSchedule',
+    'CisScanConfigurationTargetResourceTags',
+    'CisScanConfigurationTime',
+    'CisScanConfigurationWeeklySchedule',
     'FilterCriteria',
     'FilterDateFilter',
     'FilterMapFilter',
@@ -20,6 +29,262 @@ __all__ = [
     'FilterPortRangeFilter',
     'FilterStringFilter',
 ]
+
+@pulumi.output_type
+class CisScanConfigurationCisTagMap(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class CisScanConfigurationCisTargets(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountIds":
+            suggest = "account_ids"
+        elif key == "targetResourceTags":
+            suggest = "target_resource_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CisScanConfigurationCisTargets. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CisScanConfigurationCisTargets.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CisScanConfigurationCisTargets.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_ids: Sequence[str],
+                 target_resource_tags: Optional['outputs.CisScanConfigurationTargetResourceTags'] = None):
+        pulumi.set(__self__, "account_ids", account_ids)
+        if target_resource_tags is not None:
+            pulumi.set(__self__, "target_resource_tags", target_resource_tags)
+
+    @property
+    @pulumi.getter(name="accountIds")
+    def account_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "account_ids")
+
+    @property
+    @pulumi.getter(name="targetResourceTags")
+    def target_resource_tags(self) -> Optional['outputs.CisScanConfigurationTargetResourceTags']:
+        return pulumi.get(self, "target_resource_tags")
+
+
+@pulumi.output_type
+class CisScanConfigurationDailySchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CisScanConfigurationDailySchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CisScanConfigurationDailySchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CisScanConfigurationDailySchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start_time: 'outputs.CisScanConfigurationTime'):
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> 'outputs.CisScanConfigurationTime':
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class CisScanConfigurationMonthlySchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CisScanConfigurationMonthlySchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CisScanConfigurationMonthlySchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CisScanConfigurationMonthlySchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day: 'CisScanConfigurationDay',
+                 start_time: 'outputs.CisScanConfigurationTime'):
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter
+    def day(self) -> 'CisScanConfigurationDay':
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> 'outputs.CisScanConfigurationTime':
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class CisScanConfigurationOneTimeSchedule(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class CisScanConfigurationSchedule(dict):
+    """
+    Choose a Schedule cadence
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oneTime":
+            suggest = "one_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CisScanConfigurationSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CisScanConfigurationSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CisScanConfigurationSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 daily: Optional['outputs.CisScanConfigurationDailySchedule'] = None,
+                 monthly: Optional['outputs.CisScanConfigurationMonthlySchedule'] = None,
+                 one_time: Optional['outputs.CisScanConfigurationOneTimeSchedule'] = None,
+                 weekly: Optional['outputs.CisScanConfigurationWeeklySchedule'] = None):
+        """
+        Choose a Schedule cadence
+        """
+        if daily is not None:
+            pulumi.set(__self__, "daily", daily)
+        if monthly is not None:
+            pulumi.set(__self__, "monthly", monthly)
+        if one_time is not None:
+            pulumi.set(__self__, "one_time", one_time)
+        if weekly is not None:
+            pulumi.set(__self__, "weekly", weekly)
+
+    @property
+    @pulumi.getter
+    def daily(self) -> Optional['outputs.CisScanConfigurationDailySchedule']:
+        return pulumi.get(self, "daily")
+
+    @property
+    @pulumi.getter
+    def monthly(self) -> Optional['outputs.CisScanConfigurationMonthlySchedule']:
+        return pulumi.get(self, "monthly")
+
+    @property
+    @pulumi.getter(name="oneTime")
+    def one_time(self) -> Optional['outputs.CisScanConfigurationOneTimeSchedule']:
+        return pulumi.get(self, "one_time")
+
+    @property
+    @pulumi.getter
+    def weekly(self) -> Optional['outputs.CisScanConfigurationWeeklySchedule']:
+        return pulumi.get(self, "weekly")
+
+
+@pulumi.output_type
+class CisScanConfigurationTargetResourceTags(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class CisScanConfigurationTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeOfDay":
+            suggest = "time_of_day"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CisScanConfigurationTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CisScanConfigurationTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CisScanConfigurationTime.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time_of_day: str,
+                 time_zone: str):
+        pulumi.set(__self__, "time_of_day", time_of_day)
+        pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="timeOfDay")
+    def time_of_day(self) -> str:
+        return pulumi.get(self, "time_of_day")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> str:
+        return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
+class CisScanConfigurationWeeklySchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CisScanConfigurationWeeklySchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CisScanConfigurationWeeklySchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CisScanConfigurationWeeklySchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days: Sequence['CisScanConfigurationDay'],
+                 start_time: 'outputs.CisScanConfigurationTime'):
+        pulumi.set(__self__, "days", days)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Sequence['CisScanConfigurationDay']:
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> 'outputs.CisScanConfigurationTime':
+        return pulumi.get(self, "start_time")
+
 
 @pulumi.output_type
 class FilterCriteria(dict):

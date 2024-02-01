@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
@@ -17,47 +16,30 @@ import (
 type Form struct {
 	pulumi.CustomResourceState
 
-	AppId             pulumi.StringPtrOutput        `pulumi:"appId"`
-	Cta               FormCtaPtrOutput              `pulumi:"cta"`
-	DataType          FormDataTypeConfigOutput      `pulumi:"dataType"`
-	EnvironmentName   pulumi.StringPtrOutput        `pulumi:"environmentName"`
-	Fields            FormFieldsMapOutput           `pulumi:"fields"`
-	FormActionType    FormActionTypeOutput          `pulumi:"formActionType"`
-	LabelDecorator    FormLabelDecoratorPtrOutput   `pulumi:"labelDecorator"`
-	Name              pulumi.StringOutput           `pulumi:"name"`
-	SchemaVersion     pulumi.StringOutput           `pulumi:"schemaVersion"`
-	SectionalElements FormSectionalElementMapOutput `pulumi:"sectionalElements"`
-	Style             FormStyleOutput               `pulumi:"style"`
-	Tags              FormTagsPtrOutput             `pulumi:"tags"`
+	AppId             pulumi.StringPtrOutput           `pulumi:"appId"`
+	Cta               FormCtaPtrOutput                 `pulumi:"cta"`
+	DataType          FormDataTypeConfigPtrOutput      `pulumi:"dataType"`
+	EnvironmentName   pulumi.StringPtrOutput           `pulumi:"environmentName"`
+	Fields            FormFieldsMapPtrOutput           `pulumi:"fields"`
+	FormActionType    FormActionTypePtrOutput          `pulumi:"formActionType"`
+	LabelDecorator    FormLabelDecoratorPtrOutput      `pulumi:"labelDecorator"`
+	Name              pulumi.StringPtrOutput           `pulumi:"name"`
+	SchemaVersion     pulumi.StringPtrOutput           `pulumi:"schemaVersion"`
+	SectionalElements FormSectionalElementMapPtrOutput `pulumi:"sectionalElements"`
+	Style             FormStylePtrOutput               `pulumi:"style"`
+	Tags              FormTagsPtrOutput                `pulumi:"tags"`
 }
 
 // NewForm registers a new resource with the given unique name, arguments, and options.
 func NewForm(ctx *pulumi.Context,
 	name string, args *FormArgs, opts ...pulumi.ResourceOption) (*Form, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &FormArgs{}
 	}
 
-	if args.DataType == nil {
-		return nil, errors.New("invalid value for required argument 'DataType'")
-	}
-	if args.Fields == nil {
-		return nil, errors.New("invalid value for required argument 'Fields'")
-	}
-	if args.FormActionType == nil {
-		return nil, errors.New("invalid value for required argument 'FormActionType'")
-	}
-	if args.SchemaVersion == nil {
-		return nil, errors.New("invalid value for required argument 'SchemaVersion'")
-	}
-	if args.SectionalElements == nil {
-		return nil, errors.New("invalid value for required argument 'SectionalElements'")
-	}
-	if args.Style == nil {
-		return nil, errors.New("invalid value for required argument 'Style'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"tags",
+		"appId",
+		"environmentName",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -93,33 +75,33 @@ func (FormState) ElementType() reflect.Type {
 }
 
 type formArgs struct {
-	AppId             *string                 `pulumi:"appId"`
-	Cta               *FormCta                `pulumi:"cta"`
-	DataType          FormDataTypeConfig      `pulumi:"dataType"`
-	EnvironmentName   *string                 `pulumi:"environmentName"`
-	Fields            FormFieldsMap           `pulumi:"fields"`
-	FormActionType    FormActionType          `pulumi:"formActionType"`
-	LabelDecorator    *FormLabelDecorator     `pulumi:"labelDecorator"`
-	Name              *string                 `pulumi:"name"`
-	SchemaVersion     string                  `pulumi:"schemaVersion"`
-	SectionalElements FormSectionalElementMap `pulumi:"sectionalElements"`
-	Style             FormStyle               `pulumi:"style"`
-	Tags              *FormTags               `pulumi:"tags"`
+	AppId             *string                  `pulumi:"appId"`
+	Cta               *FormCta                 `pulumi:"cta"`
+	DataType          *FormDataTypeConfig      `pulumi:"dataType"`
+	EnvironmentName   *string                  `pulumi:"environmentName"`
+	Fields            *FormFieldsMap           `pulumi:"fields"`
+	FormActionType    *FormActionType          `pulumi:"formActionType"`
+	LabelDecorator    *FormLabelDecorator      `pulumi:"labelDecorator"`
+	Name              *string                  `pulumi:"name"`
+	SchemaVersion     *string                  `pulumi:"schemaVersion"`
+	SectionalElements *FormSectionalElementMap `pulumi:"sectionalElements"`
+	Style             *FormStyle               `pulumi:"style"`
+	Tags              *FormTags                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Form resource.
 type FormArgs struct {
 	AppId             pulumi.StringPtrInput
 	Cta               FormCtaPtrInput
-	DataType          FormDataTypeConfigInput
+	DataType          FormDataTypeConfigPtrInput
 	EnvironmentName   pulumi.StringPtrInput
-	Fields            FormFieldsMapInput
-	FormActionType    FormActionTypeInput
+	Fields            FormFieldsMapPtrInput
+	FormActionType    FormActionTypePtrInput
 	LabelDecorator    FormLabelDecoratorPtrInput
 	Name              pulumi.StringPtrInput
-	SchemaVersion     pulumi.StringInput
-	SectionalElements FormSectionalElementMapInput
-	Style             FormStyleInput
+	SchemaVersion     pulumi.StringPtrInput
+	SectionalElements FormSectionalElementMapPtrInput
+	Style             FormStylePtrInput
 	Tags              FormTagsPtrInput
 }
 
@@ -180,40 +162,40 @@ func (o FormOutput) Cta() FormCtaPtrOutput {
 	return o.ApplyT(func(v *Form) FormCtaPtrOutput { return v.Cta }).(FormCtaPtrOutput)
 }
 
-func (o FormOutput) DataType() FormDataTypeConfigOutput {
-	return o.ApplyT(func(v *Form) FormDataTypeConfigOutput { return v.DataType }).(FormDataTypeConfigOutput)
+func (o FormOutput) DataType() FormDataTypeConfigPtrOutput {
+	return o.ApplyT(func(v *Form) FormDataTypeConfigPtrOutput { return v.DataType }).(FormDataTypeConfigPtrOutput)
 }
 
 func (o FormOutput) EnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Form) pulumi.StringPtrOutput { return v.EnvironmentName }).(pulumi.StringPtrOutput)
 }
 
-func (o FormOutput) Fields() FormFieldsMapOutput {
-	return o.ApplyT(func(v *Form) FormFieldsMapOutput { return v.Fields }).(FormFieldsMapOutput)
+func (o FormOutput) Fields() FormFieldsMapPtrOutput {
+	return o.ApplyT(func(v *Form) FormFieldsMapPtrOutput { return v.Fields }).(FormFieldsMapPtrOutput)
 }
 
-func (o FormOutput) FormActionType() FormActionTypeOutput {
-	return o.ApplyT(func(v *Form) FormActionTypeOutput { return v.FormActionType }).(FormActionTypeOutput)
+func (o FormOutput) FormActionType() FormActionTypePtrOutput {
+	return o.ApplyT(func(v *Form) FormActionTypePtrOutput { return v.FormActionType }).(FormActionTypePtrOutput)
 }
 
 func (o FormOutput) LabelDecorator() FormLabelDecoratorPtrOutput {
 	return o.ApplyT(func(v *Form) FormLabelDecoratorPtrOutput { return v.LabelDecorator }).(FormLabelDecoratorPtrOutput)
 }
 
-func (o FormOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *Form) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o FormOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Form) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o FormOutput) SchemaVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Form) pulumi.StringOutput { return v.SchemaVersion }).(pulumi.StringOutput)
+func (o FormOutput) SchemaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Form) pulumi.StringPtrOutput { return v.SchemaVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o FormOutput) SectionalElements() FormSectionalElementMapOutput {
-	return o.ApplyT(func(v *Form) FormSectionalElementMapOutput { return v.SectionalElements }).(FormSectionalElementMapOutput)
+func (o FormOutput) SectionalElements() FormSectionalElementMapPtrOutput {
+	return o.ApplyT(func(v *Form) FormSectionalElementMapPtrOutput { return v.SectionalElements }).(FormSectionalElementMapPtrOutput)
 }
 
-func (o FormOutput) Style() FormStyleOutput {
-	return o.ApplyT(func(v *Form) FormStyleOutput { return v.Style }).(FormStyleOutput)
+func (o FormOutput) Style() FormStylePtrOutput {
+	return o.ApplyT(func(v *Form) FormStylePtrOutput { return v.Style }).(FormStylePtrOutput)
 }
 
 func (o FormOutput) Tags() FormTagsPtrOutput {

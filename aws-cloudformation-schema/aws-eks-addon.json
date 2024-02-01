@@ -98,6 +98,14 @@
       "permissions" : [ "eks:DeleteAddon", "eks:DescribeAddon" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "ClusterName" : {
+            "$ref" : "resource-schema.json#/properties/ClusterName"
+          }
+        },
+        "required" : [ "ClusterName" ]
+      },
       "permissions" : [ "eks:ListAddons" ]
     },
     "update" : {

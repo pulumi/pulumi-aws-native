@@ -19,10 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetComponentResult:
-    def __init__(__self__, app_id=None, binding_properties=None, children=None, collection_properties=None, component_type=None, environment_name=None, events=None, id=None, name=None, overrides=None, properties=None, schema_version=None, source_id=None, variants=None):
-        if app_id and not isinstance(app_id, str):
-            raise TypeError("Expected argument 'app_id' to be a str")
-        pulumi.set(__self__, "app_id", app_id)
+    def __init__(__self__, binding_properties=None, children=None, collection_properties=None, component_type=None, created_at=None, events=None, id=None, modified_at=None, name=None, overrides=None, properties=None, schema_version=None, source_id=None, tags=None, variants=None):
         if binding_properties and not isinstance(binding_properties, dict):
             raise TypeError("Expected argument 'binding_properties' to be a dict")
         pulumi.set(__self__, "binding_properties", binding_properties)
@@ -35,15 +32,18 @@ class GetComponentResult:
         if component_type and not isinstance(component_type, str):
             raise TypeError("Expected argument 'component_type' to be a str")
         pulumi.set(__self__, "component_type", component_type)
-        if environment_name and not isinstance(environment_name, str):
-            raise TypeError("Expected argument 'environment_name' to be a str")
-        pulumi.set(__self__, "environment_name", environment_name)
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        pulumi.set(__self__, "created_at", created_at)
         if events and not isinstance(events, dict):
             raise TypeError("Expected argument 'events' to be a dict")
         pulumi.set(__self__, "events", events)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if modified_at and not isinstance(modified_at, str):
+            raise TypeError("Expected argument 'modified_at' to be a str")
+        pulumi.set(__self__, "modified_at", modified_at)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -59,14 +59,12 @@ class GetComponentResult:
         if source_id and not isinstance(source_id, str):
             raise TypeError("Expected argument 'source_id' to be a str")
         pulumi.set(__self__, "source_id", source_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if variants and not isinstance(variants, list):
             raise TypeError("Expected argument 'variants' to be a list")
         pulumi.set(__self__, "variants", variants)
-
-    @property
-    @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[str]:
-        return pulumi.get(self, "app_id")
 
     @property
     @pulumi.getter(name="bindingProperties")
@@ -89,9 +87,9 @@ class GetComponentResult:
         return pulumi.get(self, "component_type")
 
     @property
-    @pulumi.getter(name="environmentName")
-    def environment_name(self) -> Optional[str]:
-        return pulumi.get(self, "environment_name")
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
@@ -102,6 +100,11 @@ class GetComponentResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="modifiedAt")
+    def modified_at(self) -> Optional[str]:
+        return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
@@ -130,6 +133,11 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional['outputs.ComponentTags']:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def variants(self) -> Optional[Sequence['outputs.ComponentVariant']]:
         return pulumi.get(self, "variants")
 
@@ -140,19 +148,20 @@ class AwaitableGetComponentResult(GetComponentResult):
         if False:
             yield self
         return GetComponentResult(
-            app_id=self.app_id,
             binding_properties=self.binding_properties,
             children=self.children,
             collection_properties=self.collection_properties,
             component_type=self.component_type,
-            environment_name=self.environment_name,
+            created_at=self.created_at,
             events=self.events,
             id=self.id,
+            modified_at=self.modified_at,
             name=self.name,
             overrides=self.overrides,
             properties=self.properties,
             schema_version=self.schema_version,
             source_id=self.source_id,
+            tags=self.tags,
             variants=self.variants)
 
 
@@ -171,19 +180,20 @@ def get_component(app_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:amplifyuibuilder:getComponent', __args__, opts=opts, typ=GetComponentResult).value
 
     return AwaitableGetComponentResult(
-        app_id=pulumi.get(__ret__, 'app_id'),
         binding_properties=pulumi.get(__ret__, 'binding_properties'),
         children=pulumi.get(__ret__, 'children'),
         collection_properties=pulumi.get(__ret__, 'collection_properties'),
         component_type=pulumi.get(__ret__, 'component_type'),
-        environment_name=pulumi.get(__ret__, 'environment_name'),
+        created_at=pulumi.get(__ret__, 'created_at'),
         events=pulumi.get(__ret__, 'events'),
         id=pulumi.get(__ret__, 'id'),
+        modified_at=pulumi.get(__ret__, 'modified_at'),
         name=pulumi.get(__ret__, 'name'),
         overrides=pulumi.get(__ret__, 'overrides'),
         properties=pulumi.get(__ret__, 'properties'),
         schema_version=pulumi.get(__ret__, 'schema_version'),
         source_id=pulumi.get(__ret__, 'source_id'),
+        tags=pulumi.get(__ret__, 'tags'),
         variants=pulumi.get(__ret__, 'variants'))
 
 

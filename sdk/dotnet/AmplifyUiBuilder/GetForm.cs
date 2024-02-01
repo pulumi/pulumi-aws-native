@@ -63,10 +63,8 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
     [OutputType]
     public sealed class GetFormResult
     {
-        public readonly string? AppId;
         public readonly Outputs.FormCta? Cta;
         public readonly Outputs.FormDataTypeConfig? DataType;
-        public readonly string? EnvironmentName;
         public readonly Outputs.FormFieldsMap? Fields;
         public readonly Pulumi.AwsNative.AmplifyUiBuilder.FormActionType? FormActionType;
         public readonly string? Id;
@@ -75,16 +73,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public readonly string? SchemaVersion;
         public readonly Outputs.FormSectionalElementMap? SectionalElements;
         public readonly Outputs.FormStyle? Style;
+        public readonly Outputs.FormTags? Tags;
 
         [OutputConstructor]
         private GetFormResult(
-            string? appId,
-
             Outputs.FormCta? cta,
 
             Outputs.FormDataTypeConfig? dataType,
-
-            string? environmentName,
 
             Outputs.FormFieldsMap? fields,
 
@@ -100,12 +95,12 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
             Outputs.FormSectionalElementMap? sectionalElements,
 
-            Outputs.FormStyle? style)
+            Outputs.FormStyle? style,
+
+            Outputs.FormTags? tags)
         {
-            AppId = appId;
             Cta = cta;
             DataType = dataType;
-            EnvironmentName = environmentName;
             Fields = fields;
             FormActionType = formActionType;
             Id = id;
@@ -114,6 +109,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
             SchemaVersion = schemaVersion;
             SectionalElements = sectionalElements;
             Style = style;
+            Tags = tags;
         }
     }
 }

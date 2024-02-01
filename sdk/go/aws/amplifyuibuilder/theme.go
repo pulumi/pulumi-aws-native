@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
@@ -18,8 +17,10 @@ type Theme struct {
 	pulumi.CustomResourceState
 
 	AppId           pulumi.StringPtrOutput `pulumi:"appId"`
+	CreatedAt       pulumi.StringOutput    `pulumi:"createdAt"`
 	EnvironmentName pulumi.StringPtrOutput `pulumi:"environmentName"`
-	Name            pulumi.StringOutput    `pulumi:"name"`
+	ModifiedAt      pulumi.StringOutput    `pulumi:"modifiedAt"`
+	Name            pulumi.StringPtrOutput `pulumi:"name"`
 	Overrides       ThemeValuesArrayOutput `pulumi:"overrides"`
 	Tags            ThemeTagsPtrOutput     `pulumi:"tags"`
 	Values          ThemeValuesArrayOutput `pulumi:"values"`
@@ -29,14 +30,12 @@ type Theme struct {
 func NewTheme(ctx *pulumi.Context,
 	name string, args *ThemeArgs, opts ...pulumi.ResourceOption) (*Theme, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ThemeArgs{}
 	}
 
-	if args.Values == nil {
-		return nil, errors.New("invalid value for required argument 'Values'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"tags",
+		"appId",
+		"environmentName",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -143,12 +142,20 @@ func (o ThemeOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
+func (o ThemeOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
 func (o ThemeOutput) EnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.EnvironmentName }).(pulumi.StringPtrOutput)
 }
 
-func (o ThemeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o ThemeOutput) ModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
+}
+
+func (o ThemeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o ThemeOutput) Overrides() ThemeValuesArrayOutput {

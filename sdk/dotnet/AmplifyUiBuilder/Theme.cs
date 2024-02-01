@@ -18,11 +18,17 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         [Output("appId")]
         public Output<string?> AppId { get; private set; } = null!;
 
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
         [Output("environmentName")]
         public Output<string?> EnvironmentName { get; private set; } = null!;
 
+        [Output("modifiedAt")]
+        public Output<string> ModifiedAt { get; private set; } = null!;
+
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         [Output("overrides")]
         public Output<ImmutableArray<Outputs.ThemeValues>> Overrides { get; private set; } = null!;
@@ -41,7 +47,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Theme(string name, ThemeArgs args, CustomResourceOptions? options = null)
+        public Theme(string name, ThemeArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:amplifyuibuilder:Theme", name, args ?? new ThemeArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -58,7 +64,8 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "tags",
+                    "appId",
+                    "environmentName",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +109,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         [Input("tags")]
         public Input<Inputs.ThemeTagsArgs>? Tags { get; set; }
 
-        [Input("values", required: true)]
+        [Input("values")]
         private InputList<Inputs.ThemeValuesArgs>? _values;
         public InputList<Inputs.ThemeValuesArgs> Values
         {

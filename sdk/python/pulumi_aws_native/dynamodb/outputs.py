@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GlobalTableAttributeDefinition',
@@ -256,6 +257,8 @@ class GlobalTableKinesisStreamSpecification(dict):
         suggest = None
         if key == "streamArn":
             suggest = "stream_arn"
+        elif key == "approximateCreationDateTimePrecision":
+            suggest = "approximate_creation_date_time_precision"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GlobalTableKinesisStreamSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -269,13 +272,21 @@ class GlobalTableKinesisStreamSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 stream_arn: str):
+                 stream_arn: str,
+                 approximate_creation_date_time_precision: Optional['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision'] = None):
         pulumi.set(__self__, "stream_arn", stream_arn)
+        if approximate_creation_date_time_precision is not None:
+            pulumi.set(__self__, "approximate_creation_date_time_precision", approximate_creation_date_time_precision)
 
     @property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> str:
         return pulumi.get(self, "stream_arn")
+
+    @property
+    @pulumi.getter(name="approximateCreationDateTimePrecision")
+    def approximate_creation_date_time_precision(self) -> Optional['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']:
+        return pulumi.get(self, "approximate_creation_date_time_precision")
 
 
 @pulumi.output_type
@@ -1108,6 +1119,8 @@ class TableKinesisStreamSpecification(dict):
         suggest = None
         if key == "streamArn":
             suggest = "stream_arn"
+        elif key == "approximateCreationDateTimePrecision":
+            suggest = "approximate_creation_date_time_precision"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TableKinesisStreamSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -1121,13 +1134,21 @@ class TableKinesisStreamSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 stream_arn: str):
+                 stream_arn: str,
+                 approximate_creation_date_time_precision: Optional['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision'] = None):
         pulumi.set(__self__, "stream_arn", stream_arn)
+        if approximate_creation_date_time_precision is not None:
+            pulumi.set(__self__, "approximate_creation_date_time_precision", approximate_creation_date_time_precision)
 
     @property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> str:
         return pulumi.get(self, "stream_arn")
+
+    @property
+    @pulumi.getter(name="approximateCreationDateTimePrecision")
+    def approximate_creation_date_time_precision(self) -> Optional['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']:
+        return pulumi.get(self, "approximate_creation_date_time_precision")
 
 
 @pulumi.output_type

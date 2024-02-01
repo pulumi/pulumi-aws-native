@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CisScanConfigurationArgs } from "./cisScanConfiguration";
+export type CisScanConfiguration = import("./cisScanConfiguration").CisScanConfiguration;
+export const CisScanConfiguration: typeof import("./cisScanConfiguration").CisScanConfiguration = null as any;
+utilities.lazyLoad(exports, ["CisScanConfiguration"], () => require("./cisScanConfiguration"));
+
 export { FilterArgs } from "./filter";
 export type Filter = import("./filter").Filter;
 export const Filter: typeof import("./filter").Filter = null as any;
 utilities.lazyLoad(exports, ["Filter"], () => require("./filter"));
+
+export { GetCisScanConfigurationArgs, GetCisScanConfigurationResult, GetCisScanConfigurationOutputArgs } from "./getCisScanConfiguration";
+export const getCisScanConfiguration: typeof import("./getCisScanConfiguration").getCisScanConfiguration = null as any;
+export const getCisScanConfigurationOutput: typeof import("./getCisScanConfiguration").getCisScanConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getCisScanConfiguration","getCisScanConfigurationOutput"], () => require("./getCisScanConfiguration"));
 
 export { GetFilterArgs, GetFilterResult, GetFilterOutputArgs } from "./getFilter";
 export const getFilter: typeof import("./getFilter").getFilter = null as any;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:inspectorv2:CisScanConfiguration":
+                return new CisScanConfiguration(name, <any>undefined, { urn })
             case "aws-native:inspectorv2:Filter":
                 return new Filter(name, <any>undefined, { urn })
             default:

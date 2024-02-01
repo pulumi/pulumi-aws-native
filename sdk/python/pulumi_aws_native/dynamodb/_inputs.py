@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GlobalTableAttributeDefinitionArgs',
@@ -221,8 +222,11 @@ class GlobalTableKeySchemaArgs:
 @pulumi.input_type
 class GlobalTableKinesisStreamSpecificationArgs:
     def __init__(__self__, *,
-                 stream_arn: pulumi.Input[str]):
+                 stream_arn: pulumi.Input[str],
+                 approximate_creation_date_time_precision: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']] = None):
         pulumi.set(__self__, "stream_arn", stream_arn)
+        if approximate_creation_date_time_precision is not None:
+            pulumi.set(__self__, "approximate_creation_date_time_precision", approximate_creation_date_time_precision)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -232,6 +236,15 @@ class GlobalTableKinesisStreamSpecificationArgs:
     @stream_arn.setter
     def stream_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_arn", value)
+
+    @property
+    @pulumi.getter(name="approximateCreationDateTimePrecision")
+    def approximate_creation_date_time_precision(self) -> Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]:
+        return pulumi.get(self, "approximate_creation_date_time_precision")
+
+    @approximate_creation_date_time_precision.setter
+    def approximate_creation_date_time_precision(self, value: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]):
+        pulumi.set(self, "approximate_creation_date_time_precision", value)
 
 
 @pulumi.input_type
@@ -927,8 +940,11 @@ class TableKeySchemaArgs:
 @pulumi.input_type
 class TableKinesisStreamSpecificationArgs:
     def __init__(__self__, *,
-                 stream_arn: pulumi.Input[str]):
+                 stream_arn: pulumi.Input[str],
+                 approximate_creation_date_time_precision: Optional[pulumi.Input['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']] = None):
         pulumi.set(__self__, "stream_arn", stream_arn)
+        if approximate_creation_date_time_precision is not None:
+            pulumi.set(__self__, "approximate_creation_date_time_precision", approximate_creation_date_time_precision)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -938,6 +954,15 @@ class TableKinesisStreamSpecificationArgs:
     @stream_arn.setter
     def stream_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_arn", value)
+
+    @property
+    @pulumi.getter(name="approximateCreationDateTimePrecision")
+    def approximate_creation_date_time_precision(self) -> Optional[pulumi.Input['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]:
+        return pulumi.get(self, "approximate_creation_date_time_precision")
+
+    @approximate_creation_date_time_precision.setter
+    def approximate_creation_date_time_precision(self, value: Optional[pulumi.Input['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]):
+        pulumi.set(self, "approximate_creation_date_time_precision", value)
 
 
 @pulumi.input_type

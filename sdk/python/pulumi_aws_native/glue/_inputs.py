@@ -70,6 +70,7 @@ __all__ = [
     'TableInputArgs',
     'TableMetadataOperationArgs',
     'TableOpenTableFormatInputArgs',
+    'TableOptimizerConfigurationArgs',
     'TableOrderArgs',
     'TableSchemaIdArgs',
     'TableSchemaReferenceArgs',
@@ -2576,6 +2577,35 @@ class TableOpenTableFormatInputArgs:
     @iceberg_input.setter
     def iceberg_input(self, value: Optional[pulumi.Input['TableIcebergInputArgs']]):
         pulumi.set(self, "iceberg_input", value)
+
+
+@pulumi.input_type
+class TableOptimizerConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
 
 
 @pulumi.input_type

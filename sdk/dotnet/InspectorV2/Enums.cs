@@ -8,6 +8,67 @@ using Pulumi;
 namespace Pulumi.AwsNative.InspectorV2
 {
     [EnumType]
+    public readonly struct CisScanConfigurationCisSecurityLevel : IEquatable<CisScanConfigurationCisSecurityLevel>
+    {
+        private readonly string _value;
+
+        private CisScanConfigurationCisSecurityLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CisScanConfigurationCisSecurityLevel Level1 { get; } = new CisScanConfigurationCisSecurityLevel("LEVEL_1");
+        public static CisScanConfigurationCisSecurityLevel Level2 { get; } = new CisScanConfigurationCisSecurityLevel("LEVEL_2");
+
+        public static bool operator ==(CisScanConfigurationCisSecurityLevel left, CisScanConfigurationCisSecurityLevel right) => left.Equals(right);
+        public static bool operator !=(CisScanConfigurationCisSecurityLevel left, CisScanConfigurationCisSecurityLevel right) => !left.Equals(right);
+
+        public static explicit operator string(CisScanConfigurationCisSecurityLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CisScanConfigurationCisSecurityLevel other && Equals(other);
+        public bool Equals(CisScanConfigurationCisSecurityLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CisScanConfigurationDay : IEquatable<CisScanConfigurationDay>
+    {
+        private readonly string _value;
+
+        private CisScanConfigurationDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CisScanConfigurationDay Mon { get; } = new CisScanConfigurationDay("MON");
+        public static CisScanConfigurationDay Tue { get; } = new CisScanConfigurationDay("TUE");
+        public static CisScanConfigurationDay Wed { get; } = new CisScanConfigurationDay("WED");
+        public static CisScanConfigurationDay Thu { get; } = new CisScanConfigurationDay("THU");
+        public static CisScanConfigurationDay Fri { get; } = new CisScanConfigurationDay("FRI");
+        public static CisScanConfigurationDay Sat { get; } = new CisScanConfigurationDay("SAT");
+        public static CisScanConfigurationDay Sun { get; } = new CisScanConfigurationDay("SUN");
+
+        public static bool operator ==(CisScanConfigurationDay left, CisScanConfigurationDay right) => left.Equals(right);
+        public static bool operator !=(CisScanConfigurationDay left, CisScanConfigurationDay right) => !left.Equals(right);
+
+        public static explicit operator string(CisScanConfigurationDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CisScanConfigurationDay other && Equals(other);
+        public bool Equals(CisScanConfigurationDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct FilterAction : IEquatable<FilterAction>
     {
         private readonly string _value;

@@ -30,12 +30,13 @@ type LookupThemeArgs struct {
 }
 
 type LookupThemeResult struct {
-	AppId           *string       `pulumi:"appId"`
-	EnvironmentName *string       `pulumi:"environmentName"`
-	Id              *string       `pulumi:"id"`
-	Name            *string       `pulumi:"name"`
-	Overrides       []ThemeValues `pulumi:"overrides"`
-	Values          []ThemeValues `pulumi:"values"`
+	CreatedAt  *string       `pulumi:"createdAt"`
+	Id         *string       `pulumi:"id"`
+	ModifiedAt *string       `pulumi:"modifiedAt"`
+	Name       *string       `pulumi:"name"`
+	Overrides  []ThemeValues `pulumi:"overrides"`
+	Tags       *ThemeTags    `pulumi:"tags"`
+	Values     []ThemeValues `pulumi:"values"`
 }
 
 func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...pulumi.InvokeOption) LookupThemeResultOutput {
@@ -81,16 +82,16 @@ func (o LookupThemeResultOutput) ToOutput(ctx context.Context) pulumix.Output[Lo
 	}
 }
 
-func (o LookupThemeResultOutput) AppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupThemeResult) *string { return v.AppId }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupThemeResultOutput) EnvironmentName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupThemeResult) *string { return v.EnvironmentName }).(pulumi.StringPtrOutput)
+func (o LookupThemeResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupThemeResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupThemeResultOutput) ModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupThemeResultOutput) Name() pulumi.StringPtrOutput {
@@ -99,6 +100,10 @@ func (o LookupThemeResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupThemeResultOutput) Overrides() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []ThemeValues { return v.Overrides }).(ThemeValuesArrayOutput)
+}
+
+func (o LookupThemeResultOutput) Tags() ThemeTagsPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *ThemeTags { return v.Tags }).(ThemeTagsPtrOutput)
 }
 
 func (o LookupThemeResultOutput) Values() ThemeValuesArrayOutput {

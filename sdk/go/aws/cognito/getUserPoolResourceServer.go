@@ -24,11 +24,11 @@ func LookupUserPoolResourceServer(ctx *pulumi.Context, args *LookupUserPoolResou
 }
 
 type LookupUserPoolResourceServerArgs struct {
-	Identifier string `pulumi:"identifier"`
-	UserPoolId string `pulumi:"userPoolId"`
+	Id string `pulumi:"id"`
 }
 
 type LookupUserPoolResourceServerResult struct {
+	Id     *string                                         `pulumi:"id"`
 	Name   *string                                         `pulumi:"name"`
 	Scopes []UserPoolResourceServerResourceServerScopeType `pulumi:"scopes"`
 }
@@ -47,8 +47,7 @@ func LookupUserPoolResourceServerOutput(ctx *pulumi.Context, args LookupUserPool
 }
 
 type LookupUserPoolResourceServerOutputArgs struct {
-	Identifier pulumi.StringInput `pulumi:"identifier"`
-	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupUserPoolResourceServerOutputArgs) ElementType() reflect.Type {
@@ -73,6 +72,10 @@ func (o LookupUserPoolResourceServerResultOutput) ToOutput(ctx context.Context) 
 	return pulumix.Output[LookupUserPoolResourceServerResult]{
 		OutputState: o.OutputState,
 	}
+}
+
+func (o LookupUserPoolResourceServerResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolResourceServerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserPoolResourceServerResultOutput) Name() pulumi.StringPtrOutput {

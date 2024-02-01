@@ -17,93 +17,45 @@ __all__ = ['FormArgs', 'Form']
 @pulumi.input_type
 class FormArgs:
     def __init__(__self__, *,
-                 data_type: pulumi.Input['FormDataTypeConfigArgs'],
-                 fields: pulumi.Input['FormFieldsMapArgs'],
-                 form_action_type: pulumi.Input['FormActionType'],
-                 schema_version: pulumi.Input[str],
-                 sectional_elements: pulumi.Input['FormSectionalElementMapArgs'],
-                 style: pulumi.Input['FormStyleArgs'],
                  app_id: Optional[pulumi.Input[str]] = None,
                  cta: Optional[pulumi.Input['FormCtaArgs']] = None,
+                 data_type: Optional[pulumi.Input['FormDataTypeConfigArgs']] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
+                 fields: Optional[pulumi.Input['FormFieldsMapArgs']] = None,
+                 form_action_type: Optional[pulumi.Input['FormActionType']] = None,
                  label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 schema_version: Optional[pulumi.Input[str]] = None,
+                 sectional_elements: Optional[pulumi.Input['FormSectionalElementMapArgs']] = None,
+                 style: Optional[pulumi.Input['FormStyleArgs']] = None,
                  tags: Optional[pulumi.Input['FormTagsArgs']] = None):
         """
         The set of arguments for constructing a Form resource.
         """
-        pulumi.set(__self__, "data_type", data_type)
-        pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "form_action_type", form_action_type)
-        pulumi.set(__self__, "schema_version", schema_version)
-        pulumi.set(__self__, "sectional_elements", sectional_elements)
-        pulumi.set(__self__, "style", style)
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
         if cta is not None:
             pulumi.set(__self__, "cta", cta)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
         if environment_name is not None:
             pulumi.set(__self__, "environment_name", environment_name)
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+        if form_action_type is not None:
+            pulumi.set(__self__, "form_action_type", form_action_type)
         if label_decorator is not None:
             pulumi.set(__self__, "label_decorator", label_decorator)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if schema_version is not None:
+            pulumi.set(__self__, "schema_version", schema_version)
+        if sectional_elements is not None:
+            pulumi.set(__self__, "sectional_elements", sectional_elements)
+        if style is not None:
+            pulumi.set(__self__, "style", style)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="dataType")
-    def data_type(self) -> pulumi.Input['FormDataTypeConfigArgs']:
-        return pulumi.get(self, "data_type")
-
-    @data_type.setter
-    def data_type(self, value: pulumi.Input['FormDataTypeConfigArgs']):
-        pulumi.set(self, "data_type", value)
-
-    @property
-    @pulumi.getter
-    def fields(self) -> pulumi.Input['FormFieldsMapArgs']:
-        return pulumi.get(self, "fields")
-
-    @fields.setter
-    def fields(self, value: pulumi.Input['FormFieldsMapArgs']):
-        pulumi.set(self, "fields", value)
-
-    @property
-    @pulumi.getter(name="formActionType")
-    def form_action_type(self) -> pulumi.Input['FormActionType']:
-        return pulumi.get(self, "form_action_type")
-
-    @form_action_type.setter
-    def form_action_type(self, value: pulumi.Input['FormActionType']):
-        pulumi.set(self, "form_action_type", value)
-
-    @property
-    @pulumi.getter(name="schemaVersion")
-    def schema_version(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "schema_version")
-
-    @schema_version.setter
-    def schema_version(self, value: pulumi.Input[str]):
-        pulumi.set(self, "schema_version", value)
-
-    @property
-    @pulumi.getter(name="sectionalElements")
-    def sectional_elements(self) -> pulumi.Input['FormSectionalElementMapArgs']:
-        return pulumi.get(self, "sectional_elements")
-
-    @sectional_elements.setter
-    def sectional_elements(self, value: pulumi.Input['FormSectionalElementMapArgs']):
-        pulumi.set(self, "sectional_elements", value)
-
-    @property
-    @pulumi.getter
-    def style(self) -> pulumi.Input['FormStyleArgs']:
-        return pulumi.get(self, "style")
-
-    @style.setter
-    def style(self, value: pulumi.Input['FormStyleArgs']):
-        pulumi.set(self, "style", value)
 
     @property
     @pulumi.getter(name="appId")
@@ -124,6 +76,15 @@ class FormArgs:
         pulumi.set(self, "cta", value)
 
     @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[pulumi.Input['FormDataTypeConfigArgs']]:
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: Optional[pulumi.Input['FormDataTypeConfigArgs']]):
+        pulumi.set(self, "data_type", value)
+
+    @property
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "environment_name")
@@ -131,6 +92,24 @@ class FormArgs:
     @environment_name.setter
     def environment_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "environment_name", value)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Optional[pulumi.Input['FormFieldsMapArgs']]:
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: Optional[pulumi.Input['FormFieldsMapArgs']]):
+        pulumi.set(self, "fields", value)
+
+    @property
+    @pulumi.getter(name="formActionType")
+    def form_action_type(self) -> Optional[pulumi.Input['FormActionType']]:
+        return pulumi.get(self, "form_action_type")
+
+    @form_action_type.setter
+    def form_action_type(self, value: Optional[pulumi.Input['FormActionType']]):
+        pulumi.set(self, "form_action_type", value)
 
     @property
     @pulumi.getter(name="labelDecorator")
@@ -149,6 +128,33 @@ class FormArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="schemaVersion")
+    def schema_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "schema_version")
+
+    @schema_version.setter
+    def schema_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_version", value)
+
+    @property
+    @pulumi.getter(name="sectionalElements")
+    def sectional_elements(self) -> Optional[pulumi.Input['FormSectionalElementMapArgs']]:
+        return pulumi.get(self, "sectional_elements")
+
+    @sectional_elements.setter
+    def sectional_elements(self, value: Optional[pulumi.Input['FormSectionalElementMapArgs']]):
+        pulumi.set(self, "sectional_elements", value)
+
+    @property
+    @pulumi.getter
+    def style(self) -> Optional[pulumi.Input['FormStyleArgs']]:
+        return pulumi.get(self, "style")
+
+    @style.setter
+    def style(self, value: Optional[pulumi.Input['FormStyleArgs']]):
+        pulumi.set(self, "style", value)
 
     @property
     @pulumi.getter
@@ -188,7 +194,7 @@ class Form(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FormArgs,
+                 args: Optional[FormArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::AmplifyUIBuilder::Form Resource Type
@@ -231,29 +237,17 @@ class Form(pulumi.CustomResource):
 
             __props__.__dict__["app_id"] = app_id
             __props__.__dict__["cta"] = cta
-            if data_type is None and not opts.urn:
-                raise TypeError("Missing required property 'data_type'")
             __props__.__dict__["data_type"] = data_type
             __props__.__dict__["environment_name"] = environment_name
-            if fields is None and not opts.urn:
-                raise TypeError("Missing required property 'fields'")
             __props__.__dict__["fields"] = fields
-            if form_action_type is None and not opts.urn:
-                raise TypeError("Missing required property 'form_action_type'")
             __props__.__dict__["form_action_type"] = form_action_type
             __props__.__dict__["label_decorator"] = label_decorator
             __props__.__dict__["name"] = name
-            if schema_version is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_version'")
             __props__.__dict__["schema_version"] = schema_version
-            if sectional_elements is None and not opts.urn:
-                raise TypeError("Missing required property 'sectional_elements'")
             __props__.__dict__["sectional_elements"] = sectional_elements
-            if style is None and not opts.urn:
-                raise TypeError("Missing required property 'style'")
             __props__.__dict__["style"] = style
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tags"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["app_id", "environment_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Form, __self__).__init__(
             'aws-native:amplifyuibuilder:Form',
@@ -303,7 +297,7 @@ class Form(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> pulumi.Output['outputs.FormDataTypeConfig']:
+    def data_type(self) -> pulumi.Output[Optional['outputs.FormDataTypeConfig']]:
         return pulumi.get(self, "data_type")
 
     @property
@@ -313,12 +307,12 @@ class Form(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fields(self) -> pulumi.Output['outputs.FormFieldsMap']:
+    def fields(self) -> pulumi.Output[Optional['outputs.FormFieldsMap']]:
         return pulumi.get(self, "fields")
 
     @property
     @pulumi.getter(name="formActionType")
-    def form_action_type(self) -> pulumi.Output['FormActionType']:
+    def form_action_type(self) -> pulumi.Output[Optional['FormActionType']]:
         return pulumi.get(self, "form_action_type")
 
     @property
@@ -328,22 +322,22 @@ class Form(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="schemaVersion")
-    def schema_version(self) -> pulumi.Output[str]:
+    def schema_version(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "schema_version")
 
     @property
     @pulumi.getter(name="sectionalElements")
-    def sectional_elements(self) -> pulumi.Output['outputs.FormSectionalElementMap']:
+    def sectional_elements(self) -> pulumi.Output[Optional['outputs.FormSectionalElementMap']]:
         return pulumi.get(self, "sectional_elements")
 
     @property
     @pulumi.getter
-    def style(self) -> pulumi.Output['outputs.FormStyle']:
+    def style(self) -> pulumi.Output[Optional['outputs.FormStyle']]:
         return pulumi.get(self, "style")
 
     @property

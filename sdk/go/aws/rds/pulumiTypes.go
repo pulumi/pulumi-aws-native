@@ -3717,6 +3717,284 @@ func (o EventSubscriptionTagArrayOutput) Index(i pulumi.IntInput) EventSubscript
 	}).(EventSubscriptionTagOutput)
 }
 
+// An optional set of non-secret key–value pairs that contains additional contextual information about the data.
+type IntegrationEncryptionContextMap struct {
+}
+
+// IntegrationEncryptionContextMapInput is an input type that accepts IntegrationEncryptionContextMap and IntegrationEncryptionContextMapOutput values.
+// You can construct a concrete instance of `IntegrationEncryptionContextMapInput` via:
+//
+//	IntegrationEncryptionContextMap{ "key": IntegrationEncryptionContextArgs{...} }
+type IntegrationEncryptionContextMapInput interface {
+	pulumi.Input
+
+	ToIntegrationEncryptionContextMapOutput() IntegrationEncryptionContextMapOutput
+	ToIntegrationEncryptionContextMapOutputWithContext(context.Context) IntegrationEncryptionContextMapOutput
+}
+
+// An optional set of non-secret key–value pairs that contains additional contextual information about the data.
+type IntegrationEncryptionContextMapArgs struct {
+}
+
+func (IntegrationEncryptionContextMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationEncryptionContextMap)(nil)).Elem()
+}
+
+func (i IntegrationEncryptionContextMapArgs) ToIntegrationEncryptionContextMapOutput() IntegrationEncryptionContextMapOutput {
+	return i.ToIntegrationEncryptionContextMapOutputWithContext(context.Background())
+}
+
+func (i IntegrationEncryptionContextMapArgs) ToIntegrationEncryptionContextMapOutputWithContext(ctx context.Context) IntegrationEncryptionContextMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationEncryptionContextMapOutput)
+}
+
+func (i IntegrationEncryptionContextMapArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationEncryptionContextMap] {
+	return pulumix.Output[IntegrationEncryptionContextMap]{
+		OutputState: i.ToIntegrationEncryptionContextMapOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i IntegrationEncryptionContextMapArgs) ToIntegrationEncryptionContextMapPtrOutput() IntegrationEncryptionContextMapPtrOutput {
+	return i.ToIntegrationEncryptionContextMapPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationEncryptionContextMapArgs) ToIntegrationEncryptionContextMapPtrOutputWithContext(ctx context.Context) IntegrationEncryptionContextMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationEncryptionContextMapOutput).ToIntegrationEncryptionContextMapPtrOutputWithContext(ctx)
+}
+
+// IntegrationEncryptionContextMapPtrInput is an input type that accepts IntegrationEncryptionContextMapArgs, IntegrationEncryptionContextMapPtr and IntegrationEncryptionContextMapPtrOutput values.
+// You can construct a concrete instance of `IntegrationEncryptionContextMapPtrInput` via:
+//
+//	        IntegrationEncryptionContextMapArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationEncryptionContextMapPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationEncryptionContextMapPtrOutput() IntegrationEncryptionContextMapPtrOutput
+	ToIntegrationEncryptionContextMapPtrOutputWithContext(context.Context) IntegrationEncryptionContextMapPtrOutput
+}
+
+type integrationEncryptionContextMapPtrType IntegrationEncryptionContextMapArgs
+
+func IntegrationEncryptionContextMapPtr(v *IntegrationEncryptionContextMapArgs) IntegrationEncryptionContextMapPtrInput {
+	return (*integrationEncryptionContextMapPtrType)(v)
+}
+
+func (*integrationEncryptionContextMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationEncryptionContextMap)(nil)).Elem()
+}
+
+func (i *integrationEncryptionContextMapPtrType) ToIntegrationEncryptionContextMapPtrOutput() IntegrationEncryptionContextMapPtrOutput {
+	return i.ToIntegrationEncryptionContextMapPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationEncryptionContextMapPtrType) ToIntegrationEncryptionContextMapPtrOutputWithContext(ctx context.Context) IntegrationEncryptionContextMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationEncryptionContextMapPtrOutput)
+}
+
+func (i *integrationEncryptionContextMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntegrationEncryptionContextMap] {
+	return pulumix.Output[*IntegrationEncryptionContextMap]{
+		OutputState: i.ToIntegrationEncryptionContextMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// An optional set of non-secret key–value pairs that contains additional contextual information about the data.
+type IntegrationEncryptionContextMapOutput struct{ *pulumi.OutputState }
+
+func (IntegrationEncryptionContextMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationEncryptionContextMap)(nil)).Elem()
+}
+
+func (o IntegrationEncryptionContextMapOutput) ToIntegrationEncryptionContextMapOutput() IntegrationEncryptionContextMapOutput {
+	return o
+}
+
+func (o IntegrationEncryptionContextMapOutput) ToIntegrationEncryptionContextMapOutputWithContext(ctx context.Context) IntegrationEncryptionContextMapOutput {
+	return o
+}
+
+func (o IntegrationEncryptionContextMapOutput) ToIntegrationEncryptionContextMapPtrOutput() IntegrationEncryptionContextMapPtrOutput {
+	return o.ToIntegrationEncryptionContextMapPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationEncryptionContextMapOutput) ToIntegrationEncryptionContextMapPtrOutputWithContext(ctx context.Context) IntegrationEncryptionContextMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationEncryptionContextMap) *IntegrationEncryptionContextMap {
+		return &v
+	}).(IntegrationEncryptionContextMapPtrOutput)
+}
+
+func (o IntegrationEncryptionContextMapOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationEncryptionContextMap] {
+	return pulumix.Output[IntegrationEncryptionContextMap]{
+		OutputState: o.OutputState,
+	}
+}
+
+type IntegrationEncryptionContextMapPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationEncryptionContextMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationEncryptionContextMap)(nil)).Elem()
+}
+
+func (o IntegrationEncryptionContextMapPtrOutput) ToIntegrationEncryptionContextMapPtrOutput() IntegrationEncryptionContextMapPtrOutput {
+	return o
+}
+
+func (o IntegrationEncryptionContextMapPtrOutput) ToIntegrationEncryptionContextMapPtrOutputWithContext(ctx context.Context) IntegrationEncryptionContextMapPtrOutput {
+	return o
+}
+
+func (o IntegrationEncryptionContextMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationEncryptionContextMap] {
+	return pulumix.Output[*IntegrationEncryptionContextMap]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o IntegrationEncryptionContextMapPtrOutput) Elem() IntegrationEncryptionContextMapOutput {
+	return o.ApplyT(func(v *IntegrationEncryptionContextMap) IntegrationEncryptionContextMap {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationEncryptionContextMap
+		return ret
+	}).(IntegrationEncryptionContextMapOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IntegrationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// IntegrationTagInput is an input type that accepts IntegrationTagArgs and IntegrationTagOutput values.
+// You can construct a concrete instance of `IntegrationTagInput` via:
+//
+//	IntegrationTagArgs{...}
+type IntegrationTagInput interface {
+	pulumi.Input
+
+	ToIntegrationTagOutput() IntegrationTagOutput
+	ToIntegrationTagOutputWithContext(context.Context) IntegrationTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IntegrationTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (IntegrationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationTag)(nil)).Elem()
+}
+
+func (i IntegrationTagArgs) ToIntegrationTagOutput() IntegrationTagOutput {
+	return i.ToIntegrationTagOutputWithContext(context.Background())
+}
+
+func (i IntegrationTagArgs) ToIntegrationTagOutputWithContext(ctx context.Context) IntegrationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTagOutput)
+}
+
+func (i IntegrationTagArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationTag] {
+	return pulumix.Output[IntegrationTag]{
+		OutputState: i.ToIntegrationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// IntegrationTagArrayInput is an input type that accepts IntegrationTagArray and IntegrationTagArrayOutput values.
+// You can construct a concrete instance of `IntegrationTagArrayInput` via:
+//
+//	IntegrationTagArray{ IntegrationTagArgs{...} }
+type IntegrationTagArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationTagArrayOutput() IntegrationTagArrayOutput
+	ToIntegrationTagArrayOutputWithContext(context.Context) IntegrationTagArrayOutput
+}
+
+type IntegrationTagArray []IntegrationTagInput
+
+func (IntegrationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationTag)(nil)).Elem()
+}
+
+func (i IntegrationTagArray) ToIntegrationTagArrayOutput() IntegrationTagArrayOutput {
+	return i.ToIntegrationTagArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationTagArray) ToIntegrationTagArrayOutputWithContext(ctx context.Context) IntegrationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTagArrayOutput)
+}
+
+func (i IntegrationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationTag] {
+	return pulumix.Output[[]IntegrationTag]{
+		OutputState: i.ToIntegrationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type IntegrationTagOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationTag)(nil)).Elem()
+}
+
+func (o IntegrationTagOutput) ToIntegrationTagOutput() IntegrationTagOutput {
+	return o
+}
+
+func (o IntegrationTagOutput) ToIntegrationTagOutputWithContext(ctx context.Context) IntegrationTagOutput {
+	return o
+}
+
+func (o IntegrationTagOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationTag] {
+	return pulumix.Output[IntegrationTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IntegrationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IntegrationTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationTag)(nil)).Elem()
+}
+
+func (o IntegrationTagArrayOutput) ToIntegrationTagArrayOutput() IntegrationTagArrayOutput {
+	return o
+}
+
+func (o IntegrationTagArrayOutput) ToIntegrationTagArrayOutputWithContext(ctx context.Context) IntegrationTagArrayOutput {
+	return o
+}
+
+func (o IntegrationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationTag] {
+	return pulumix.Output[[]IntegrationTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o IntegrationTagArrayOutput) Index(i pulumi.IntInput) IntegrationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationTag {
+		return vs[0].([]IntegrationTag)[vs[1].(int)]
+	}).(IntegrationTagOutput)
+}
+
 // The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
 type OptionGroupOptionConfiguration struct {
 	// A list of DBSecurityGroupMembership name strings used for this option.
@@ -4199,6 +4477,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DbSubnetGroupTagArrayInput)(nil)).Elem(), DbSubnetGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagInput)(nil)).Elem(), EventSubscriptionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagArrayInput)(nil)).Elem(), EventSubscriptionTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationEncryptionContextMapInput)(nil)).Elem(), IntegrationEncryptionContextMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationEncryptionContextMapPtrInput)(nil)).Elem(), IntegrationEncryptionContextMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTagInput)(nil)).Elem(), IntegrationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTagArrayInput)(nil)).Elem(), IntegrationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionConfigurationInput)(nil)).Elem(), OptionGroupOptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionConfigurationArrayInput)(nil)).Elem(), OptionGroupOptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionSettingInput)(nil)).Elem(), OptionGroupOptionSettingArgs{})
@@ -4253,6 +4535,10 @@ func init() {
 	pulumi.RegisterOutputType(DbSubnetGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionTagOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionTagArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationEncryptionContextMapOutput{})
+	pulumi.RegisterOutputType(IntegrationEncryptionContextMapPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationTagOutput{})
+	pulumi.RegisterOutputType(IntegrationTagArrayOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionConfigurationOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionSettingOutput{})

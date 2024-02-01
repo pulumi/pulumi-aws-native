@@ -762,7 +762,8 @@ func (o GlobalTableKeySchemaArrayOutput) Index(i pulumi.IntInput) GlobalTableKey
 }
 
 type GlobalTableKinesisStreamSpecification struct {
-	StreamArn string `pulumi:"streamArn"`
+	ApproximateCreationDateTimePrecision *GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision `pulumi:"approximateCreationDateTimePrecision"`
+	StreamArn                            string                                                                     `pulumi:"streamArn"`
 }
 
 // GlobalTableKinesisStreamSpecificationInput is an input type that accepts GlobalTableKinesisStreamSpecificationArgs and GlobalTableKinesisStreamSpecificationOutput values.
@@ -777,7 +778,8 @@ type GlobalTableKinesisStreamSpecificationInput interface {
 }
 
 type GlobalTableKinesisStreamSpecificationArgs struct {
-	StreamArn pulumi.StringInput `pulumi:"streamArn"`
+	ApproximateCreationDateTimePrecision GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrInput `pulumi:"approximateCreationDateTimePrecision"`
+	StreamArn                            pulumi.StringInput                                                                `pulumi:"streamArn"`
 }
 
 func (GlobalTableKinesisStreamSpecificationArgs) ElementType() reflect.Type {
@@ -875,6 +877,12 @@ func (o GlobalTableKinesisStreamSpecificationOutput) ToOutput(ctx context.Contex
 	}
 }
 
+func (o GlobalTableKinesisStreamSpecificationOutput) ApproximateCreationDateTimePrecision() GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput {
+	return o.ApplyT(func(v GlobalTableKinesisStreamSpecification) *GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision {
+		return v.ApproximateCreationDateTimePrecision
+	}).(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
+}
+
 func (o GlobalTableKinesisStreamSpecificationOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableKinesisStreamSpecification) string { return v.StreamArn }).(pulumi.StringOutput)
 }
@@ -907,6 +915,15 @@ func (o GlobalTableKinesisStreamSpecificationPtrOutput) Elem() GlobalTableKinesi
 		var ret GlobalTableKinesisStreamSpecification
 		return ret
 	}).(GlobalTableKinesisStreamSpecificationOutput)
+}
+
+func (o GlobalTableKinesisStreamSpecificationPtrOutput) ApproximateCreationDateTimePrecision() GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput {
+	return o.ApplyT(func(v *GlobalTableKinesisStreamSpecification) *GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision {
+		if v == nil {
+			return nil
+		}
+		return v.ApproximateCreationDateTimePrecision
+	}).(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
 }
 
 func (o GlobalTableKinesisStreamSpecificationPtrOutput) StreamArn() pulumi.StringPtrOutput {
@@ -3986,7 +4003,8 @@ func (o TableKeySchemaArrayOutput) Index(i pulumi.IntInput) TableKeySchemaOutput
 }
 
 type TableKinesisStreamSpecification struct {
-	StreamArn string `pulumi:"streamArn"`
+	ApproximateCreationDateTimePrecision *TableKinesisStreamSpecificationApproximateCreationDateTimePrecision `pulumi:"approximateCreationDateTimePrecision"`
+	StreamArn                            string                                                               `pulumi:"streamArn"`
 }
 
 // TableKinesisStreamSpecificationInput is an input type that accepts TableKinesisStreamSpecificationArgs and TableKinesisStreamSpecificationOutput values.
@@ -4001,7 +4019,8 @@ type TableKinesisStreamSpecificationInput interface {
 }
 
 type TableKinesisStreamSpecificationArgs struct {
-	StreamArn pulumi.StringInput `pulumi:"streamArn"`
+	ApproximateCreationDateTimePrecision TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrInput `pulumi:"approximateCreationDateTimePrecision"`
+	StreamArn                            pulumi.StringInput                                                          `pulumi:"streamArn"`
 }
 
 func (TableKinesisStreamSpecificationArgs) ElementType() reflect.Type {
@@ -4099,6 +4118,12 @@ func (o TableKinesisStreamSpecificationOutput) ToOutput(ctx context.Context) pul
 	}
 }
 
+func (o TableKinesisStreamSpecificationOutput) ApproximateCreationDateTimePrecision() TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput {
+	return o.ApplyT(func(v TableKinesisStreamSpecification) *TableKinesisStreamSpecificationApproximateCreationDateTimePrecision {
+		return v.ApproximateCreationDateTimePrecision
+	}).(TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
+}
+
 func (o TableKinesisStreamSpecificationOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TableKinesisStreamSpecification) string { return v.StreamArn }).(pulumi.StringOutput)
 }
@@ -4131,6 +4156,15 @@ func (o TableKinesisStreamSpecificationPtrOutput) Elem() TableKinesisStreamSpeci
 		var ret TableKinesisStreamSpecification
 		return ret
 	}).(TableKinesisStreamSpecificationOutput)
+}
+
+func (o TableKinesisStreamSpecificationPtrOutput) ApproximateCreationDateTimePrecision() TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput {
+	return o.ApplyT(func(v *TableKinesisStreamSpecification) *TableKinesisStreamSpecificationApproximateCreationDateTimePrecision {
+		if v == nil {
+			return nil
+		}
+		return v.ApproximateCreationDateTimePrecision
+	}).(TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
 }
 
 func (o TableKinesisStreamSpecificationPtrOutput) StreamArn() pulumi.StringPtrOutput {

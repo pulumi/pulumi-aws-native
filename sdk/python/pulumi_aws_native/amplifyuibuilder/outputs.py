@@ -51,6 +51,8 @@ class ComponentChild(dict):
         suggest = None
         if key == "componentType":
             suggest = "component_type"
+        elif key == "sourceId":
+            suggest = "source_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ComponentChild. Access the value via the '{suggest}' property getter instead.")
@@ -68,7 +70,8 @@ class ComponentChild(dict):
                  name: str,
                  properties: 'outputs.ComponentProperties',
                  children: Optional[Sequence['outputs.ComponentChild']] = None,
-                 events: Optional['outputs.ComponentEvents'] = None):
+                 events: Optional['outputs.ComponentEvents'] = None,
+                 source_id: Optional[str] = None):
         pulumi.set(__self__, "component_type", component_type)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
@@ -76,6 +79,8 @@ class ComponentChild(dict):
             pulumi.set(__self__, "children", children)
         if events is not None:
             pulumi.set(__self__, "events", events)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
 
     @property
     @pulumi.getter(name="componentType")
@@ -101,6 +106,11 @@ class ComponentChild(dict):
     @pulumi.getter
     def events(self) -> Optional['outputs.ComponentEvents']:
         return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[str]:
+        return pulumi.get(self, "source_id")
 
 
 @pulumi.output_type

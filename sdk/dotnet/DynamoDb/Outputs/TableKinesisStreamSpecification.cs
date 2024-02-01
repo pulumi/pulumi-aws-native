@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     [OutputType]
     public sealed class TableKinesisStreamSpecification
     {
+        public readonly Pulumi.AwsNative.DynamoDb.TableKinesisStreamSpecificationApproximateCreationDateTimePrecision? ApproximateCreationDateTimePrecision;
         public readonly string StreamArn;
 
         [OutputConstructor]
-        private TableKinesisStreamSpecification(string streamArn)
+        private TableKinesisStreamSpecification(
+            Pulumi.AwsNative.DynamoDb.TableKinesisStreamSpecificationApproximateCreationDateTimePrecision? approximateCreationDateTimePrecision,
+
+            string streamArn)
         {
+            ApproximateCreationDateTimePrecision = approximateCreationDateTimePrecision;
             StreamArn = streamArn;
         }
     }

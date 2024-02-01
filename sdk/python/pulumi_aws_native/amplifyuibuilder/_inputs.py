@@ -50,7 +50,8 @@ class ComponentChildArgs:
                  name: pulumi.Input[str],
                  properties: pulumi.Input['ComponentPropertiesArgs'],
                  children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
-                 events: Optional[pulumi.Input['ComponentEventsArgs']] = None):
+                 events: Optional[pulumi.Input['ComponentEventsArgs']] = None,
+                 source_id: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "component_type", component_type)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
@@ -58,6 +59,8 @@ class ComponentChildArgs:
             pulumi.set(__self__, "children", children)
         if events is not None:
             pulumi.set(__self__, "events", events)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
 
     @property
     @pulumi.getter(name="componentType")
@@ -103,6 +106,15 @@ class ComponentChildArgs:
     @events.setter
     def events(self, value: Optional[pulumi.Input['ComponentEventsArgs']]):
         pulumi.set(self, "events", value)
+
+    @property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_id")
+
+    @source_id.setter
+    def source_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_id", value)
 
 
 @pulumi.input_type

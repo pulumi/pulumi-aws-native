@@ -2,6 +2,25 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CisScanConfigurationCisSecurityLevel = {
+    Level1: "LEVEL_1",
+    Level2: "LEVEL_2",
+} as const;
+
+export type CisScanConfigurationCisSecurityLevel = (typeof CisScanConfigurationCisSecurityLevel)[keyof typeof CisScanConfigurationCisSecurityLevel];
+
+export const CisScanConfigurationDay = {
+    Mon: "MON",
+    Tue: "TUE",
+    Wed: "WED",
+    Thu: "THU",
+    Fri: "FRI",
+    Sat: "SAT",
+    Sun: "SUN",
+} as const;
+
+export type CisScanConfigurationDay = (typeof CisScanConfigurationDay)[keyof typeof CisScanConfigurationDay];
+
 export const FilterAction = {
     None: "NONE",
     Suppress: "SUPPRESS",

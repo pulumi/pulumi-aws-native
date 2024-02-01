@@ -39,15 +39,15 @@ export class Form extends pulumi.CustomResource {
 
     public readonly appId!: pulumi.Output<string | undefined>;
     public readonly cta!: pulumi.Output<outputs.amplifyuibuilder.FormCta | undefined>;
-    public readonly dataType!: pulumi.Output<outputs.amplifyuibuilder.FormDataTypeConfig>;
+    public readonly dataType!: pulumi.Output<outputs.amplifyuibuilder.FormDataTypeConfig | undefined>;
     public readonly environmentName!: pulumi.Output<string | undefined>;
-    public readonly fields!: pulumi.Output<outputs.amplifyuibuilder.FormFieldsMap>;
-    public readonly formActionType!: pulumi.Output<enums.amplifyuibuilder.FormActionType>;
+    public readonly fields!: pulumi.Output<outputs.amplifyuibuilder.FormFieldsMap | undefined>;
+    public readonly formActionType!: pulumi.Output<enums.amplifyuibuilder.FormActionType | undefined>;
     public readonly labelDecorator!: pulumi.Output<enums.amplifyuibuilder.FormLabelDecorator | undefined>;
-    public readonly name!: pulumi.Output<string>;
-    public readonly schemaVersion!: pulumi.Output<string>;
-    public readonly sectionalElements!: pulumi.Output<outputs.amplifyuibuilder.FormSectionalElementMap>;
-    public readonly style!: pulumi.Output<outputs.amplifyuibuilder.FormStyle>;
+    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly schemaVersion!: pulumi.Output<string | undefined>;
+    public readonly sectionalElements!: pulumi.Output<outputs.amplifyuibuilder.FormSectionalElementMap | undefined>;
+    public readonly style!: pulumi.Output<outputs.amplifyuibuilder.FormStyle | undefined>;
     public readonly tags!: pulumi.Output<outputs.amplifyuibuilder.FormTags | undefined>;
 
     /**
@@ -57,28 +57,10 @@ export class Form extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FormArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: FormArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataType'");
-            }
-            if ((!args || args.fields === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fields'");
-            }
-            if ((!args || args.formActionType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'formActionType'");
-            }
-            if ((!args || args.schemaVersion === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'schemaVersion'");
-            }
-            if ((!args || args.sectionalElements === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sectionalElements'");
-            }
-            if ((!args || args.style === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'style'");
-            }
             resourceInputs["appId"] = args ? args.appId : undefined;
             resourceInputs["cta"] = args ? args.cta : undefined;
             resourceInputs["dataType"] = args ? args.dataType : undefined;
@@ -106,7 +88,7 @@ export class Form extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["appId", "environmentName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Form.__pulumiType, name, resourceInputs, opts);
     }
@@ -118,14 +100,14 @@ export class Form extends pulumi.CustomResource {
 export interface FormArgs {
     appId?: pulumi.Input<string>;
     cta?: pulumi.Input<inputs.amplifyuibuilder.FormCtaArgs>;
-    dataType: pulumi.Input<inputs.amplifyuibuilder.FormDataTypeConfigArgs>;
+    dataType?: pulumi.Input<inputs.amplifyuibuilder.FormDataTypeConfigArgs>;
     environmentName?: pulumi.Input<string>;
-    fields: pulumi.Input<inputs.amplifyuibuilder.FormFieldsMapArgs>;
-    formActionType: pulumi.Input<enums.amplifyuibuilder.FormActionType>;
+    fields?: pulumi.Input<inputs.amplifyuibuilder.FormFieldsMapArgs>;
+    formActionType?: pulumi.Input<enums.amplifyuibuilder.FormActionType>;
     labelDecorator?: pulumi.Input<enums.amplifyuibuilder.FormLabelDecorator>;
     name?: pulumi.Input<string>;
-    schemaVersion: pulumi.Input<string>;
-    sectionalElements: pulumi.Input<inputs.amplifyuibuilder.FormSectionalElementMapArgs>;
-    style: pulumi.Input<inputs.amplifyuibuilder.FormStyleArgs>;
+    schemaVersion?: pulumi.Input<string>;
+    sectionalElements?: pulumi.Input<inputs.amplifyuibuilder.FormSectionalElementMapArgs>;
+    style?: pulumi.Input<inputs.amplifyuibuilder.FormStyleArgs>;
     tags?: pulumi.Input<inputs.amplifyuibuilder.FormTagsArgs>;
 }

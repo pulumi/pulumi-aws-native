@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolDomainResult:
-    def __init__(__self__, cloud_front_distribution=None, custom_domain_config=None):
+    def __init__(__self__, cloud_front_distribution=None, custom_domain_config=None, id=None):
         if cloud_front_distribution and not isinstance(cloud_front_distribution, str):
             raise TypeError("Expected argument 'cloud_front_distribution' to be a str")
         pulumi.set(__self__, "cloud_front_distribution", cloud_front_distribution)
         if custom_domain_config and not isinstance(custom_domain_config, dict):
             raise TypeError("Expected argument 'custom_domain_config' to be a dict")
         pulumi.set(__self__, "custom_domain_config", custom_domain_config)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter(name="cloudFrontDistribution")
@@ -37,6 +40,11 @@ class GetUserPoolDomainResult:
     def custom_domain_config(self) -> Optional['outputs.UserPoolDomainCustomDomainConfigType']:
         return pulumi.get(self, "custom_domain_config")
 
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
 
 class AwaitableGetUserPoolDomainResult(GetUserPoolDomainResult):
     # pylint: disable=using-constant-test
@@ -45,29 +53,28 @@ class AwaitableGetUserPoolDomainResult(GetUserPoolDomainResult):
             yield self
         return GetUserPoolDomainResult(
             cloud_front_distribution=self.cloud_front_distribution,
-            custom_domain_config=self.custom_domain_config)
+            custom_domain_config=self.custom_domain_config,
+            id=self.id)
 
 
-def get_user_pool_domain(domain: Optional[str] = None,
-                         user_pool_id: Optional[str] = None,
+def get_user_pool_domain(id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolDomainResult:
     """
     Resource Type definition for AWS::Cognito::UserPoolDomain
     """
     __args__ = dict()
-    __args__['domain'] = domain
-    __args__['userPoolId'] = user_pool_id
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolDomain', __args__, opts=opts, typ=GetUserPoolDomainResult).value
 
     return AwaitableGetUserPoolDomainResult(
         cloud_front_distribution=pulumi.get(__ret__, 'cloud_front_distribution'),
-        custom_domain_config=pulumi.get(__ret__, 'custom_domain_config'))
+        custom_domain_config=pulumi.get(__ret__, 'custom_domain_config'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_user_pool_domain)
-def get_user_pool_domain_output(domain: Optional[pulumi.Input[str]] = None,
-                                user_pool_id: Optional[pulumi.Input[str]] = None,
+def get_user_pool_domain_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolDomainResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolDomain

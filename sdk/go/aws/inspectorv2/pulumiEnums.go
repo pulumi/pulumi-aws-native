@@ -11,6 +11,432 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+type CisScanConfigurationCisSecurityLevel string
+
+const (
+	CisScanConfigurationCisSecurityLevelLevel1 = CisScanConfigurationCisSecurityLevel("LEVEL_1")
+	CisScanConfigurationCisSecurityLevelLevel2 = CisScanConfigurationCisSecurityLevel("LEVEL_2")
+)
+
+func (CisScanConfigurationCisSecurityLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*CisScanConfigurationCisSecurityLevel)(nil)).Elem()
+}
+
+func (e CisScanConfigurationCisSecurityLevel) ToCisScanConfigurationCisSecurityLevelOutput() CisScanConfigurationCisSecurityLevelOutput {
+	return pulumi.ToOutput(e).(CisScanConfigurationCisSecurityLevelOutput)
+}
+
+func (e CisScanConfigurationCisSecurityLevel) ToCisScanConfigurationCisSecurityLevelOutputWithContext(ctx context.Context) CisScanConfigurationCisSecurityLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CisScanConfigurationCisSecurityLevelOutput)
+}
+
+func (e CisScanConfigurationCisSecurityLevel) ToCisScanConfigurationCisSecurityLevelPtrOutput() CisScanConfigurationCisSecurityLevelPtrOutput {
+	return e.ToCisScanConfigurationCisSecurityLevelPtrOutputWithContext(context.Background())
+}
+
+func (e CisScanConfigurationCisSecurityLevel) ToCisScanConfigurationCisSecurityLevelPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisSecurityLevelPtrOutput {
+	return CisScanConfigurationCisSecurityLevel(e).ToCisScanConfigurationCisSecurityLevelOutputWithContext(ctx).ToCisScanConfigurationCisSecurityLevelPtrOutputWithContext(ctx)
+}
+
+func (e CisScanConfigurationCisSecurityLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CisScanConfigurationCisSecurityLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CisScanConfigurationCisSecurityLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CisScanConfigurationCisSecurityLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CisScanConfigurationCisSecurityLevelOutput struct{ *pulumi.OutputState }
+
+func (CisScanConfigurationCisSecurityLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CisScanConfigurationCisSecurityLevel)(nil)).Elem()
+}
+
+func (o CisScanConfigurationCisSecurityLevelOutput) ToCisScanConfigurationCisSecurityLevelOutput() CisScanConfigurationCisSecurityLevelOutput {
+	return o
+}
+
+func (o CisScanConfigurationCisSecurityLevelOutput) ToCisScanConfigurationCisSecurityLevelOutputWithContext(ctx context.Context) CisScanConfigurationCisSecurityLevelOutput {
+	return o
+}
+
+func (o CisScanConfigurationCisSecurityLevelOutput) ToCisScanConfigurationCisSecurityLevelPtrOutput() CisScanConfigurationCisSecurityLevelPtrOutput {
+	return o.ToCisScanConfigurationCisSecurityLevelPtrOutputWithContext(context.Background())
+}
+
+func (o CisScanConfigurationCisSecurityLevelOutput) ToCisScanConfigurationCisSecurityLevelPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisSecurityLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CisScanConfigurationCisSecurityLevel) *CisScanConfigurationCisSecurityLevel {
+		return &v
+	}).(CisScanConfigurationCisSecurityLevelPtrOutput)
+}
+
+func (o CisScanConfigurationCisSecurityLevelOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationCisSecurityLevel] {
+	return pulumix.Output[CisScanConfigurationCisSecurityLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CisScanConfigurationCisSecurityLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CisScanConfigurationCisSecurityLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CisScanConfigurationCisSecurityLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CisScanConfigurationCisSecurityLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CisScanConfigurationCisSecurityLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CisScanConfigurationCisSecurityLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CisScanConfigurationCisSecurityLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (CisScanConfigurationCisSecurityLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CisScanConfigurationCisSecurityLevel)(nil)).Elem()
+}
+
+func (o CisScanConfigurationCisSecurityLevelPtrOutput) ToCisScanConfigurationCisSecurityLevelPtrOutput() CisScanConfigurationCisSecurityLevelPtrOutput {
+	return o
+}
+
+func (o CisScanConfigurationCisSecurityLevelPtrOutput) ToCisScanConfigurationCisSecurityLevelPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisSecurityLevelPtrOutput {
+	return o
+}
+
+func (o CisScanConfigurationCisSecurityLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationCisSecurityLevel] {
+	return pulumix.Output[*CisScanConfigurationCisSecurityLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CisScanConfigurationCisSecurityLevelPtrOutput) Elem() CisScanConfigurationCisSecurityLevelOutput {
+	return o.ApplyT(func(v *CisScanConfigurationCisSecurityLevel) CisScanConfigurationCisSecurityLevel {
+		if v != nil {
+			return *v
+		}
+		var ret CisScanConfigurationCisSecurityLevel
+		return ret
+	}).(CisScanConfigurationCisSecurityLevelOutput)
+}
+
+func (o CisScanConfigurationCisSecurityLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CisScanConfigurationCisSecurityLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CisScanConfigurationCisSecurityLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CisScanConfigurationCisSecurityLevelInput is an input type that accepts CisScanConfigurationCisSecurityLevelArgs and CisScanConfigurationCisSecurityLevelOutput values.
+// You can construct a concrete instance of `CisScanConfigurationCisSecurityLevelInput` via:
+//
+//	CisScanConfigurationCisSecurityLevelArgs{...}
+type CisScanConfigurationCisSecurityLevelInput interface {
+	pulumi.Input
+
+	ToCisScanConfigurationCisSecurityLevelOutput() CisScanConfigurationCisSecurityLevelOutput
+	ToCisScanConfigurationCisSecurityLevelOutputWithContext(context.Context) CisScanConfigurationCisSecurityLevelOutput
+}
+
+var cisScanConfigurationCisSecurityLevelPtrType = reflect.TypeOf((**CisScanConfigurationCisSecurityLevel)(nil)).Elem()
+
+type CisScanConfigurationCisSecurityLevelPtrInput interface {
+	pulumi.Input
+
+	ToCisScanConfigurationCisSecurityLevelPtrOutput() CisScanConfigurationCisSecurityLevelPtrOutput
+	ToCisScanConfigurationCisSecurityLevelPtrOutputWithContext(context.Context) CisScanConfigurationCisSecurityLevelPtrOutput
+}
+
+type cisScanConfigurationCisSecurityLevelPtr string
+
+func CisScanConfigurationCisSecurityLevelPtr(v string) CisScanConfigurationCisSecurityLevelPtrInput {
+	return (*cisScanConfigurationCisSecurityLevelPtr)(&v)
+}
+
+func (*cisScanConfigurationCisSecurityLevelPtr) ElementType() reflect.Type {
+	return cisScanConfigurationCisSecurityLevelPtrType
+}
+
+func (in *cisScanConfigurationCisSecurityLevelPtr) ToCisScanConfigurationCisSecurityLevelPtrOutput() CisScanConfigurationCisSecurityLevelPtrOutput {
+	return pulumi.ToOutput(in).(CisScanConfigurationCisSecurityLevelPtrOutput)
+}
+
+func (in *cisScanConfigurationCisSecurityLevelPtr) ToCisScanConfigurationCisSecurityLevelPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisSecurityLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CisScanConfigurationCisSecurityLevelPtrOutput)
+}
+
+func (in *cisScanConfigurationCisSecurityLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationCisSecurityLevel] {
+	return pulumix.Output[*CisScanConfigurationCisSecurityLevel]{
+		OutputState: in.ToCisScanConfigurationCisSecurityLevelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CisScanConfigurationDay string
+
+const (
+	CisScanConfigurationDayMon = CisScanConfigurationDay("MON")
+	CisScanConfigurationDayTue = CisScanConfigurationDay("TUE")
+	CisScanConfigurationDayWed = CisScanConfigurationDay("WED")
+	CisScanConfigurationDayThu = CisScanConfigurationDay("THU")
+	CisScanConfigurationDayFri = CisScanConfigurationDay("FRI")
+	CisScanConfigurationDaySat = CisScanConfigurationDay("SAT")
+	CisScanConfigurationDaySun = CisScanConfigurationDay("SUN")
+)
+
+func (CisScanConfigurationDay) ElementType() reflect.Type {
+	return reflect.TypeOf((*CisScanConfigurationDay)(nil)).Elem()
+}
+
+func (e CisScanConfigurationDay) ToCisScanConfigurationDayOutput() CisScanConfigurationDayOutput {
+	return pulumi.ToOutput(e).(CisScanConfigurationDayOutput)
+}
+
+func (e CisScanConfigurationDay) ToCisScanConfigurationDayOutputWithContext(ctx context.Context) CisScanConfigurationDayOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CisScanConfigurationDayOutput)
+}
+
+func (e CisScanConfigurationDay) ToCisScanConfigurationDayPtrOutput() CisScanConfigurationDayPtrOutput {
+	return e.ToCisScanConfigurationDayPtrOutputWithContext(context.Background())
+}
+
+func (e CisScanConfigurationDay) ToCisScanConfigurationDayPtrOutputWithContext(ctx context.Context) CisScanConfigurationDayPtrOutput {
+	return CisScanConfigurationDay(e).ToCisScanConfigurationDayOutputWithContext(ctx).ToCisScanConfigurationDayPtrOutputWithContext(ctx)
+}
+
+func (e CisScanConfigurationDay) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CisScanConfigurationDay) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CisScanConfigurationDay) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CisScanConfigurationDay) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CisScanConfigurationDayOutput struct{ *pulumi.OutputState }
+
+func (CisScanConfigurationDayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CisScanConfigurationDay)(nil)).Elem()
+}
+
+func (o CisScanConfigurationDayOutput) ToCisScanConfigurationDayOutput() CisScanConfigurationDayOutput {
+	return o
+}
+
+func (o CisScanConfigurationDayOutput) ToCisScanConfigurationDayOutputWithContext(ctx context.Context) CisScanConfigurationDayOutput {
+	return o
+}
+
+func (o CisScanConfigurationDayOutput) ToCisScanConfigurationDayPtrOutput() CisScanConfigurationDayPtrOutput {
+	return o.ToCisScanConfigurationDayPtrOutputWithContext(context.Background())
+}
+
+func (o CisScanConfigurationDayOutput) ToCisScanConfigurationDayPtrOutputWithContext(ctx context.Context) CisScanConfigurationDayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CisScanConfigurationDay) *CisScanConfigurationDay {
+		return &v
+	}).(CisScanConfigurationDayPtrOutput)
+}
+
+func (o CisScanConfigurationDayOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationDay] {
+	return pulumix.Output[CisScanConfigurationDay]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CisScanConfigurationDayOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CisScanConfigurationDayOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CisScanConfigurationDay) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CisScanConfigurationDayOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CisScanConfigurationDayOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CisScanConfigurationDay) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CisScanConfigurationDayPtrOutput struct{ *pulumi.OutputState }
+
+func (CisScanConfigurationDayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CisScanConfigurationDay)(nil)).Elem()
+}
+
+func (o CisScanConfigurationDayPtrOutput) ToCisScanConfigurationDayPtrOutput() CisScanConfigurationDayPtrOutput {
+	return o
+}
+
+func (o CisScanConfigurationDayPtrOutput) ToCisScanConfigurationDayPtrOutputWithContext(ctx context.Context) CisScanConfigurationDayPtrOutput {
+	return o
+}
+
+func (o CisScanConfigurationDayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationDay] {
+	return pulumix.Output[*CisScanConfigurationDay]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CisScanConfigurationDayPtrOutput) Elem() CisScanConfigurationDayOutput {
+	return o.ApplyT(func(v *CisScanConfigurationDay) CisScanConfigurationDay {
+		if v != nil {
+			return *v
+		}
+		var ret CisScanConfigurationDay
+		return ret
+	}).(CisScanConfigurationDayOutput)
+}
+
+func (o CisScanConfigurationDayPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CisScanConfigurationDayPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CisScanConfigurationDay) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CisScanConfigurationDayInput is an input type that accepts CisScanConfigurationDayArgs and CisScanConfigurationDayOutput values.
+// You can construct a concrete instance of `CisScanConfigurationDayInput` via:
+//
+//	CisScanConfigurationDayArgs{...}
+type CisScanConfigurationDayInput interface {
+	pulumi.Input
+
+	ToCisScanConfigurationDayOutput() CisScanConfigurationDayOutput
+	ToCisScanConfigurationDayOutputWithContext(context.Context) CisScanConfigurationDayOutput
+}
+
+var cisScanConfigurationDayPtrType = reflect.TypeOf((**CisScanConfigurationDay)(nil)).Elem()
+
+type CisScanConfigurationDayPtrInput interface {
+	pulumi.Input
+
+	ToCisScanConfigurationDayPtrOutput() CisScanConfigurationDayPtrOutput
+	ToCisScanConfigurationDayPtrOutputWithContext(context.Context) CisScanConfigurationDayPtrOutput
+}
+
+type cisScanConfigurationDayPtr string
+
+func CisScanConfigurationDayPtr(v string) CisScanConfigurationDayPtrInput {
+	return (*cisScanConfigurationDayPtr)(&v)
+}
+
+func (*cisScanConfigurationDayPtr) ElementType() reflect.Type {
+	return cisScanConfigurationDayPtrType
+}
+
+func (in *cisScanConfigurationDayPtr) ToCisScanConfigurationDayPtrOutput() CisScanConfigurationDayPtrOutput {
+	return pulumi.ToOutput(in).(CisScanConfigurationDayPtrOutput)
+}
+
+func (in *cisScanConfigurationDayPtr) ToCisScanConfigurationDayPtrOutputWithContext(ctx context.Context) CisScanConfigurationDayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CisScanConfigurationDayPtrOutput)
+}
+
+func (in *cisScanConfigurationDayPtr) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationDay] {
+	return pulumix.Output[*CisScanConfigurationDay]{
+		OutputState: in.ToCisScanConfigurationDayPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// CisScanConfigurationDayArrayInput is an input type that accepts CisScanConfigurationDayArray and CisScanConfigurationDayArrayOutput values.
+// You can construct a concrete instance of `CisScanConfigurationDayArrayInput` via:
+//
+//	CisScanConfigurationDayArray{ CisScanConfigurationDayArgs{...} }
+type CisScanConfigurationDayArrayInput interface {
+	pulumi.Input
+
+	ToCisScanConfigurationDayArrayOutput() CisScanConfigurationDayArrayOutput
+	ToCisScanConfigurationDayArrayOutputWithContext(context.Context) CisScanConfigurationDayArrayOutput
+}
+
+type CisScanConfigurationDayArray []CisScanConfigurationDay
+
+func (CisScanConfigurationDayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CisScanConfigurationDay)(nil)).Elem()
+}
+
+func (i CisScanConfigurationDayArray) ToCisScanConfigurationDayArrayOutput() CisScanConfigurationDayArrayOutput {
+	return i.ToCisScanConfigurationDayArrayOutputWithContext(context.Background())
+}
+
+func (i CisScanConfigurationDayArray) ToCisScanConfigurationDayArrayOutputWithContext(ctx context.Context) CisScanConfigurationDayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationDayArrayOutput)
+}
+
+func (i CisScanConfigurationDayArray) ToOutput(ctx context.Context) pulumix.Output[[]CisScanConfigurationDay] {
+	return pulumix.Output[[]CisScanConfigurationDay]{
+		OutputState: i.ToCisScanConfigurationDayArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CisScanConfigurationDayArrayOutput struct{ *pulumi.OutputState }
+
+func (CisScanConfigurationDayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CisScanConfigurationDay)(nil)).Elem()
+}
+
+func (o CisScanConfigurationDayArrayOutput) ToCisScanConfigurationDayArrayOutput() CisScanConfigurationDayArrayOutput {
+	return o
+}
+
+func (o CisScanConfigurationDayArrayOutput) ToCisScanConfigurationDayArrayOutputWithContext(ctx context.Context) CisScanConfigurationDayArrayOutput {
+	return o
+}
+
+func (o CisScanConfigurationDayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CisScanConfigurationDay] {
+	return pulumix.Output[[]CisScanConfigurationDay]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CisScanConfigurationDayArrayOutput) Index(i pulumi.IntInput) CisScanConfigurationDayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CisScanConfigurationDay {
+		return vs[0].([]CisScanConfigurationDay)[vs[1].(int)]
+	}).(CisScanConfigurationDayOutput)
+}
+
 type FilterAction string
 
 const (
@@ -558,12 +984,22 @@ func (in *filterStringComparisonPtr) ToOutput(ctx context.Context) pulumix.Outpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationCisSecurityLevelInput)(nil)).Elem(), CisScanConfigurationCisSecurityLevel("LEVEL_1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationCisSecurityLevelPtrInput)(nil)).Elem(), CisScanConfigurationCisSecurityLevel("LEVEL_1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationDayInput)(nil)).Elem(), CisScanConfigurationDay("MON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationDayPtrInput)(nil)).Elem(), CisScanConfigurationDay("MON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationDayArrayInput)(nil)).Elem(), CisScanConfigurationDayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterActionInput)(nil)).Elem(), FilterAction("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterActionPtrInput)(nil)).Elem(), FilterAction("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterMapComparisonInput)(nil)).Elem(), FilterMapComparison("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterMapComparisonPtrInput)(nil)).Elem(), FilterMapComparison("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterStringComparisonInput)(nil)).Elem(), FilterStringComparison("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterStringComparisonPtrInput)(nil)).Elem(), FilterStringComparison("EQUALS"))
+	pulumi.RegisterOutputType(CisScanConfigurationCisSecurityLevelOutput{})
+	pulumi.RegisterOutputType(CisScanConfigurationCisSecurityLevelPtrOutput{})
+	pulumi.RegisterOutputType(CisScanConfigurationDayOutput{})
+	pulumi.RegisterOutputType(CisScanConfigurationDayPtrOutput{})
+	pulumi.RegisterOutputType(CisScanConfigurationDayArrayOutput{})
 	pulumi.RegisterOutputType(FilterActionOutput{})
 	pulumi.RegisterOutputType(FilterActionPtrOutput{})
 	pulumi.RegisterOutputType(FilterMapComparisonOutput{})

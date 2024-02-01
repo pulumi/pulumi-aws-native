@@ -22,31 +22,31 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<Outputs.FormCta?> Cta { get; private set; } = null!;
 
         [Output("dataType")]
-        public Output<Outputs.FormDataTypeConfig> DataType { get; private set; } = null!;
+        public Output<Outputs.FormDataTypeConfig?> DataType { get; private set; } = null!;
 
         [Output("environmentName")]
         public Output<string?> EnvironmentName { get; private set; } = null!;
 
         [Output("fields")]
-        public Output<Outputs.FormFieldsMap> Fields { get; private set; } = null!;
+        public Output<Outputs.FormFieldsMap?> Fields { get; private set; } = null!;
 
         [Output("formActionType")]
-        public Output<Pulumi.AwsNative.AmplifyUiBuilder.FormActionType> FormActionType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.AmplifyUiBuilder.FormActionType?> FormActionType { get; private set; } = null!;
 
         [Output("labelDecorator")]
         public Output<Pulumi.AwsNative.AmplifyUiBuilder.FormLabelDecorator?> LabelDecorator { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         [Output("schemaVersion")]
-        public Output<string> SchemaVersion { get; private set; } = null!;
+        public Output<string?> SchemaVersion { get; private set; } = null!;
 
         [Output("sectionalElements")]
-        public Output<Outputs.FormSectionalElementMap> SectionalElements { get; private set; } = null!;
+        public Output<Outputs.FormSectionalElementMap?> SectionalElements { get; private set; } = null!;
 
         [Output("style")]
-        public Output<Outputs.FormStyle> Style { get; private set; } = null!;
+        public Output<Outputs.FormStyle?> Style { get; private set; } = null!;
 
         [Output("tags")]
         public Output<Outputs.FormTags?> Tags { get; private set; } = null!;
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Form(string name, FormArgs args, CustomResourceOptions? options = null)
+        public Form(string name, FormArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:amplifyuibuilder:Form", name, args ?? new FormArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -76,7 +76,8 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "tags",
+                    "appId",
+                    "environmentName",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,17 +107,17 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         [Input("cta")]
         public Input<Inputs.FormCtaArgs>? Cta { get; set; }
 
-        [Input("dataType", required: true)]
-        public Input<Inputs.FormDataTypeConfigArgs> DataType { get; set; } = null!;
+        [Input("dataType")]
+        public Input<Inputs.FormDataTypeConfigArgs>? DataType { get; set; }
 
         [Input("environmentName")]
         public Input<string>? EnvironmentName { get; set; }
 
-        [Input("fields", required: true)]
-        public Input<Inputs.FormFieldsMapArgs> Fields { get; set; } = null!;
+        [Input("fields")]
+        public Input<Inputs.FormFieldsMapArgs>? Fields { get; set; }
 
-        [Input("formActionType", required: true)]
-        public Input<Pulumi.AwsNative.AmplifyUiBuilder.FormActionType> FormActionType { get; set; } = null!;
+        [Input("formActionType")]
+        public Input<Pulumi.AwsNative.AmplifyUiBuilder.FormActionType>? FormActionType { get; set; }
 
         [Input("labelDecorator")]
         public Input<Pulumi.AwsNative.AmplifyUiBuilder.FormLabelDecorator>? LabelDecorator { get; set; }
@@ -124,14 +125,14 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("schemaVersion", required: true)]
-        public Input<string> SchemaVersion { get; set; } = null!;
+        [Input("schemaVersion")]
+        public Input<string>? SchemaVersion { get; set; }
 
-        [Input("sectionalElements", required: true)]
-        public Input<Inputs.FormSectionalElementMapArgs> SectionalElements { get; set; } = null!;
+        [Input("sectionalElements")]
+        public Input<Inputs.FormSectionalElementMapArgs>? SectionalElements { get; set; }
 
-        [Input("style", required: true)]
-        public Input<Inputs.FormStyleArgs> Style { get; set; } = null!;
+        [Input("style")]
+        public Input<Inputs.FormStyleArgs>? Style { get; set; }
 
         [Input("tags")]
         public Input<Inputs.FormTagsArgs>? Tags { get; set; }

@@ -27,11 +27,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolIdentityProviderArgs : global::Pulumi.InvokeArgs
     {
-        [Input("providerName", required: true)]
-        public string ProviderName { get; set; } = null!;
-
-        [Input("userPoolId", required: true)]
-        public string UserPoolId { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetUserPoolIdentityProviderArgs()
         {
@@ -41,11 +38,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolIdentityProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("providerName", required: true)]
-        public Input<string> ProviderName { get; set; } = null!;
-
-        [Input("userPoolId", required: true)]
-        public Input<string> UserPoolId { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetUserPoolIdentityProviderInvokeArgs()
         {
@@ -58,6 +52,7 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolIdentityProviderResult
     {
         public readonly object? AttributeMapping;
+        public readonly string? Id;
         public readonly ImmutableArray<string> IdpIdentifiers;
         public readonly object? ProviderDetails;
 
@@ -65,11 +60,14 @@ namespace Pulumi.AwsNative.Cognito
         private GetUserPoolIdentityProviderResult(
             object? attributeMapping,
 
+            string? id,
+
             ImmutableArray<string> idpIdentifiers,
 
             object? providerDetails)
         {
             AttributeMapping = attributeMapping;
+            Id = id;
             IdpIdentifiers = idpIdentifiers;
             ProviderDetails = providerDetails;
         }

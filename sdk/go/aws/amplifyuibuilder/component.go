@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
@@ -18,15 +17,17 @@ type Component struct {
 	pulumi.CustomResourceState
 
 	AppId                pulumi.StringPtrOutput                 `pulumi:"appId"`
-	BindingProperties    ComponentBindingPropertiesOutput       `pulumi:"bindingProperties"`
+	BindingProperties    ComponentBindingPropertiesPtrOutput    `pulumi:"bindingProperties"`
 	Children             ComponentChildArrayOutput              `pulumi:"children"`
 	CollectionProperties ComponentCollectionPropertiesPtrOutput `pulumi:"collectionProperties"`
-	ComponentType        pulumi.StringOutput                    `pulumi:"componentType"`
+	ComponentType        pulumi.StringPtrOutput                 `pulumi:"componentType"`
+	CreatedAt            pulumi.StringOutput                    `pulumi:"createdAt"`
 	EnvironmentName      pulumi.StringPtrOutput                 `pulumi:"environmentName"`
 	Events               ComponentEventsPtrOutput               `pulumi:"events"`
-	Name                 pulumi.StringOutput                    `pulumi:"name"`
-	Overrides            ComponentOverridesOutput               `pulumi:"overrides"`
-	Properties           ComponentPropertiesOutput              `pulumi:"properties"`
+	ModifiedAt           pulumi.StringOutput                    `pulumi:"modifiedAt"`
+	Name                 pulumi.StringPtrOutput                 `pulumi:"name"`
+	Overrides            ComponentOverridesPtrOutput            `pulumi:"overrides"`
+	Properties           ComponentPropertiesPtrOutput           `pulumi:"properties"`
 	SchemaVersion        pulumi.StringPtrOutput                 `pulumi:"schemaVersion"`
 	SourceId             pulumi.StringPtrOutput                 `pulumi:"sourceId"`
 	Tags                 ComponentTagsPtrOutput                 `pulumi:"tags"`
@@ -37,26 +38,12 @@ type Component struct {
 func NewComponent(ctx *pulumi.Context,
 	name string, args *ComponentArgs, opts ...pulumi.ResourceOption) (*Component, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ComponentArgs{}
 	}
 
-	if args.BindingProperties == nil {
-		return nil, errors.New("invalid value for required argument 'BindingProperties'")
-	}
-	if args.ComponentType == nil {
-		return nil, errors.New("invalid value for required argument 'ComponentType'")
-	}
-	if args.Overrides == nil {
-		return nil, errors.New("invalid value for required argument 'Overrides'")
-	}
-	if args.Properties == nil {
-		return nil, errors.New("invalid value for required argument 'Properties'")
-	}
-	if args.Variants == nil {
-		return nil, errors.New("invalid value for required argument 'Variants'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"tags",
+		"appId",
+		"environmentName",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -93,15 +80,15 @@ func (ComponentState) ElementType() reflect.Type {
 
 type componentArgs struct {
 	AppId                *string                        `pulumi:"appId"`
-	BindingProperties    ComponentBindingProperties     `pulumi:"bindingProperties"`
+	BindingProperties    *ComponentBindingProperties    `pulumi:"bindingProperties"`
 	Children             []ComponentChild               `pulumi:"children"`
 	CollectionProperties *ComponentCollectionProperties `pulumi:"collectionProperties"`
-	ComponentType        string                         `pulumi:"componentType"`
+	ComponentType        *string                        `pulumi:"componentType"`
 	EnvironmentName      *string                        `pulumi:"environmentName"`
 	Events               *ComponentEvents               `pulumi:"events"`
 	Name                 *string                        `pulumi:"name"`
-	Overrides            ComponentOverrides             `pulumi:"overrides"`
-	Properties           ComponentProperties            `pulumi:"properties"`
+	Overrides            *ComponentOverrides            `pulumi:"overrides"`
+	Properties           *ComponentProperties           `pulumi:"properties"`
 	SchemaVersion        *string                        `pulumi:"schemaVersion"`
 	SourceId             *string                        `pulumi:"sourceId"`
 	Tags                 *ComponentTags                 `pulumi:"tags"`
@@ -111,15 +98,15 @@ type componentArgs struct {
 // The set of arguments for constructing a Component resource.
 type ComponentArgs struct {
 	AppId                pulumi.StringPtrInput
-	BindingProperties    ComponentBindingPropertiesInput
+	BindingProperties    ComponentBindingPropertiesPtrInput
 	Children             ComponentChildArrayInput
 	CollectionProperties ComponentCollectionPropertiesPtrInput
-	ComponentType        pulumi.StringInput
+	ComponentType        pulumi.StringPtrInput
 	EnvironmentName      pulumi.StringPtrInput
 	Events               ComponentEventsPtrInput
 	Name                 pulumi.StringPtrInput
-	Overrides            ComponentOverridesInput
-	Properties           ComponentPropertiesInput
+	Overrides            ComponentOverridesPtrInput
+	Properties           ComponentPropertiesPtrInput
 	SchemaVersion        pulumi.StringPtrInput
 	SourceId             pulumi.StringPtrInput
 	Tags                 ComponentTagsPtrInput
@@ -179,8 +166,8 @@ func (o ComponentOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-func (o ComponentOutput) BindingProperties() ComponentBindingPropertiesOutput {
-	return o.ApplyT(func(v *Component) ComponentBindingPropertiesOutput { return v.BindingProperties }).(ComponentBindingPropertiesOutput)
+func (o ComponentOutput) BindingProperties() ComponentBindingPropertiesPtrOutput {
+	return o.ApplyT(func(v *Component) ComponentBindingPropertiesPtrOutput { return v.BindingProperties }).(ComponentBindingPropertiesPtrOutput)
 }
 
 func (o ComponentOutput) Children() ComponentChildArrayOutput {
@@ -191,8 +178,12 @@ func (o ComponentOutput) CollectionProperties() ComponentCollectionPropertiesPtr
 	return o.ApplyT(func(v *Component) ComponentCollectionPropertiesPtrOutput { return v.CollectionProperties }).(ComponentCollectionPropertiesPtrOutput)
 }
 
-func (o ComponentOutput) ComponentType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.ComponentType }).(pulumi.StringOutput)
+func (o ComponentOutput) ComponentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.ComponentType }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
 func (o ComponentOutput) EnvironmentName() pulumi.StringPtrOutput {
@@ -203,16 +194,20 @@ func (o ComponentOutput) Events() ComponentEventsPtrOutput {
 	return o.ApplyT(func(v *Component) ComponentEventsPtrOutput { return v.Events }).(ComponentEventsPtrOutput)
 }
 
-func (o ComponentOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o ComponentOutput) ModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
-func (o ComponentOutput) Overrides() ComponentOverridesOutput {
-	return o.ApplyT(func(v *Component) ComponentOverridesOutput { return v.Overrides }).(ComponentOverridesOutput)
+func (o ComponentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o ComponentOutput) Properties() ComponentPropertiesOutput {
-	return o.ApplyT(func(v *Component) ComponentPropertiesOutput { return v.Properties }).(ComponentPropertiesOutput)
+func (o ComponentOutput) Overrides() ComponentOverridesPtrOutput {
+	return o.ApplyT(func(v *Component) ComponentOverridesPtrOutput { return v.Overrides }).(ComponentOverridesPtrOutput)
+}
+
+func (o ComponentOutput) Properties() ComponentPropertiesPtrOutput {
+	return o.ApplyT(func(v *Component) ComponentPropertiesPtrOutput { return v.Properties }).(ComponentPropertiesPtrOutput)
 }
 
 func (o ComponentOutput) SchemaVersion() pulumi.StringPtrOutput {

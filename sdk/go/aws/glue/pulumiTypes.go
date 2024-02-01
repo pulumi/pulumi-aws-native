@@ -9624,6 +9624,121 @@ func (o TableOpenTableFormatInputPtrOutput) IcebergInput() TableIcebergInputPtrO
 	}).(TableIcebergInputPtrOutput)
 }
 
+type TableOptimizerConfiguration struct {
+	Enabled *bool   `pulumi:"enabled"`
+	RoleArn *string `pulumi:"roleArn"`
+}
+
+// TableOptimizerConfigurationInput is an input type that accepts TableOptimizerConfigurationArgs and TableOptimizerConfigurationOutput values.
+// You can construct a concrete instance of `TableOptimizerConfigurationInput` via:
+//
+//	TableOptimizerConfigurationArgs{...}
+type TableOptimizerConfigurationInput interface {
+	pulumi.Input
+
+	ToTableOptimizerConfigurationOutput() TableOptimizerConfigurationOutput
+	ToTableOptimizerConfigurationOutputWithContext(context.Context) TableOptimizerConfigurationOutput
+}
+
+type TableOptimizerConfigurationArgs struct {
+	Enabled pulumi.BoolPtrInput   `pulumi:"enabled"`
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+}
+
+func (TableOptimizerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerConfiguration)(nil)).Elem()
+}
+
+func (i TableOptimizerConfigurationArgs) ToTableOptimizerConfigurationOutput() TableOptimizerConfigurationOutput {
+	return i.ToTableOptimizerConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerConfigurationArgs) ToTableOptimizerConfigurationOutputWithContext(ctx context.Context) TableOptimizerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerConfigurationOutput)
+}
+
+func (i TableOptimizerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[TableOptimizerConfiguration] {
+	return pulumix.Output[TableOptimizerConfiguration]{
+		OutputState: i.ToTableOptimizerConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TableOptimizerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerConfigurationOutput) ToTableOptimizerConfigurationOutput() TableOptimizerConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerConfigurationOutput) ToTableOptimizerConfigurationOutputWithContext(ctx context.Context) TableOptimizerConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TableOptimizerConfiguration] {
+	return pulumix.Output[TableOptimizerConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TableOptimizerConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableOptimizerConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o TableOptimizerConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableOptimizerConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+type TableOptimizerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerConfigurationPtrOutput) ToTableOptimizerConfigurationPtrOutput() TableOptimizerConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerConfigurationPtrOutput) ToTableOptimizerConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableOptimizerConfiguration] {
+	return pulumix.Output[*TableOptimizerConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TableOptimizerConfigurationPtrOutput) Elem() TableOptimizerConfigurationOutput {
+	return o.ApplyT(func(v *TableOptimizerConfiguration) TableOptimizerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableOptimizerConfiguration
+		return ret
+	}).(TableOptimizerConfigurationOutput)
+}
+
+func (o TableOptimizerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TableOptimizerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type TableOrder struct {
 	Column    string `pulumi:"column"`
 	SortOrder int    `pulumi:"sortOrder"`
@@ -11732,6 +11847,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataOperationPtrInput)(nil)).Elem(), TableMetadataOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOpenTableFormatInputInput)(nil)).Elem(), TableOpenTableFormatInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOpenTableFormatInputPtrInput)(nil)).Elem(), TableOpenTableFormatInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerConfigurationInput)(nil)).Elem(), TableOptimizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOrderInput)(nil)).Elem(), TableOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOrderArrayInput)(nil)).Elem(), TableOrderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaIdInput)(nil)).Elem(), TableSchemaIdArgs{})
@@ -11870,6 +11986,8 @@ func init() {
 	pulumi.RegisterOutputType(TableMetadataOperationPtrOutput{})
 	pulumi.RegisterOutputType(TableOpenTableFormatInputOutput{})
 	pulumi.RegisterOutputType(TableOpenTableFormatInputPtrOutput{})
+	pulumi.RegisterOutputType(TableOptimizerConfigurationOutput{})
+	pulumi.RegisterOutputType(TableOptimizerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableOrderOutput{})
 	pulumi.RegisterOutputType(TableOrderArrayOutput{})
 	pulumi.RegisterOutputType(TableSchemaIdOutput{})

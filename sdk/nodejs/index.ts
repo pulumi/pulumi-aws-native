@@ -266,7 +266,6 @@ import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
 import * as sdb from "./sdb";
-import * as sdc from "./sdc";
 import * as secretsmanager from "./secretsmanager";
 import * as securityhub from "./securityhub";
 import * as servicecatalog from "./servicecatalog";
@@ -504,7 +503,6 @@ export {
     sagemaker,
     scheduler,
     sdb,
-    sdc,
     secretsmanager,
     securityhub,
     servicecatalog,

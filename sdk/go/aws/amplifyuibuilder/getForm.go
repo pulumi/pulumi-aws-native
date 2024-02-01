@@ -30,10 +30,8 @@ type LookupFormArgs struct {
 }
 
 type LookupFormResult struct {
-	AppId             *string                  `pulumi:"appId"`
 	Cta               *FormCta                 `pulumi:"cta"`
 	DataType          *FormDataTypeConfig      `pulumi:"dataType"`
-	EnvironmentName   *string                  `pulumi:"environmentName"`
 	Fields            *FormFieldsMap           `pulumi:"fields"`
 	FormActionType    *FormActionType          `pulumi:"formActionType"`
 	Id                *string                  `pulumi:"id"`
@@ -42,6 +40,7 @@ type LookupFormResult struct {
 	SchemaVersion     *string                  `pulumi:"schemaVersion"`
 	SectionalElements *FormSectionalElementMap `pulumi:"sectionalElements"`
 	Style             *FormStyle               `pulumi:"style"`
+	Tags              *FormTags                `pulumi:"tags"`
 }
 
 func LookupFormOutput(ctx *pulumi.Context, args LookupFormOutputArgs, opts ...pulumi.InvokeOption) LookupFormResultOutput {
@@ -87,20 +86,12 @@ func (o LookupFormResultOutput) ToOutput(ctx context.Context) pulumix.Output[Loo
 	}
 }
 
-func (o LookupFormResultOutput) AppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupFormResult) *string { return v.AppId }).(pulumi.StringPtrOutput)
-}
-
 func (o LookupFormResultOutput) Cta() FormCtaPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormCta { return v.Cta }).(FormCtaPtrOutput)
 }
 
 func (o LookupFormResultOutput) DataType() FormDataTypeConfigPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormDataTypeConfig { return v.DataType }).(FormDataTypeConfigPtrOutput)
-}
-
-func (o LookupFormResultOutput) EnvironmentName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupFormResult) *string { return v.EnvironmentName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFormResultOutput) Fields() FormFieldsMapPtrOutput {
@@ -133,6 +124,10 @@ func (o LookupFormResultOutput) SectionalElements() FormSectionalElementMapPtrOu
 
 func (o LookupFormResultOutput) Style() FormStylePtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormStyle { return v.Style }).(FormStylePtrOutput)
+}
+
+func (o LookupFormResultOutput) Tags() FormTagsPtrOutput {
+	return o.ApplyT(func(v LookupFormResult) *FormTags { return v.Tags }).(FormTagsPtrOutput)
 }
 
 func init() {

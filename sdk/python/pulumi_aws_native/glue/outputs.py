@@ -71,6 +71,7 @@ __all__ = [
     'TableInput',
     'TableMetadataOperation',
     'TableOpenTableFormatInput',
+    'TableOptimizerConfiguration',
     'TableOrder',
     'TableSchemaId',
     'TableSchemaReference',
@@ -2845,6 +2846,44 @@ class TableOpenTableFormatInput(dict):
     @pulumi.getter(name="icebergInput")
     def iceberg_input(self) -> Optional['outputs.TableIcebergInput']:
         return pulumi.get(self, "iceberg_input")
+
+
+@pulumi.output_type
+class TableOptimizerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableOptimizerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableOptimizerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableOptimizerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 role_arn: Optional[str] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type

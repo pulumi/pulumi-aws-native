@@ -19,40 +19,43 @@ __all__ = [
 
 @pulumi.output_type
 class GetThemeResult:
-    def __init__(__self__, app_id=None, environment_name=None, id=None, name=None, overrides=None, values=None):
-        if app_id and not isinstance(app_id, str):
-            raise TypeError("Expected argument 'app_id' to be a str")
-        pulumi.set(__self__, "app_id", app_id)
-        if environment_name and not isinstance(environment_name, str):
-            raise TypeError("Expected argument 'environment_name' to be a str")
-        pulumi.set(__self__, "environment_name", environment_name)
+    def __init__(__self__, created_at=None, id=None, modified_at=None, name=None, overrides=None, tags=None, values=None):
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        pulumi.set(__self__, "created_at", created_at)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if modified_at and not isinstance(modified_at, str):
+            raise TypeError("Expected argument 'modified_at' to be a str")
+        pulumi.set(__self__, "modified_at", modified_at)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if overrides and not isinstance(overrides, list):
             raise TypeError("Expected argument 'overrides' to be a list")
         pulumi.set(__self__, "overrides", overrides)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if values and not isinstance(values, list):
             raise TypeError("Expected argument 'values' to be a list")
         pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[str]:
-        return pulumi.get(self, "app_id")
-
-    @property
-    @pulumi.getter(name="environmentName")
-    def environment_name(self) -> Optional[str]:
-        return pulumi.get(self, "environment_name")
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="modifiedAt")
+    def modified_at(self) -> Optional[str]:
+        return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
@@ -66,6 +69,11 @@ class GetThemeResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional['outputs.ThemeTags']:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def values(self) -> Optional[Sequence['outputs.ThemeValues']]:
         return pulumi.get(self, "values")
 
@@ -76,11 +84,12 @@ class AwaitableGetThemeResult(GetThemeResult):
         if False:
             yield self
         return GetThemeResult(
-            app_id=self.app_id,
-            environment_name=self.environment_name,
+            created_at=self.created_at,
             id=self.id,
+            modified_at=self.modified_at,
             name=self.name,
             overrides=self.overrides,
+            tags=self.tags,
             values=self.values)
 
 
@@ -99,11 +108,12 @@ def get_theme(app_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:amplifyuibuilder:getTheme', __args__, opts=opts, typ=GetThemeResult).value
 
     return AwaitableGetThemeResult(
-        app_id=pulumi.get(__ret__, 'app_id'),
-        environment_name=pulumi.get(__ret__, 'environment_name'),
+        created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
+        modified_at=pulumi.get(__ret__, 'modified_at'),
         name=pulumi.get(__ret__, 'name'),
         overrides=pulumi.get(__ret__, 'overrides'),
+        tags=pulumi.get(__ret__, 'tags'),
         values=pulumi.get(__ret__, 'values'))
 
 

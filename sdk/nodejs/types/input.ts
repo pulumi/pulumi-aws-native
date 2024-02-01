@@ -1175,6 +1175,7 @@ export namespace amplifyuibuilder {
         events?: pulumi.Input<inputs.amplifyuibuilder.ComponentEventsArgs>;
         name: pulumi.Input<string>;
         properties: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertiesArgs>;
+        sourceId?: pulumi.Input<string>;
     }
 
     export interface ComponentCollectionPropertiesArgs {
@@ -12761,6 +12762,7 @@ export namespace dynamodb {
     }
 
     export interface GlobalTableKinesisStreamSpecificationArgs {
+        approximateCreationDateTimePrecision?: pulumi.Input<enums.dynamodb.GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision>;
         streamArn: pulumi.Input<string>;
     }
 
@@ -12876,6 +12878,7 @@ export namespace dynamodb {
     }
 
     export interface TableKinesisStreamSpecificationArgs {
+        approximateCreationDateTimePrecision?: pulumi.Input<enums.dynamodb.TableKinesisStreamSpecificationApproximateCreationDateTimePrecision>;
         streamArn: pulumi.Input<string>;
     }
 
@@ -13823,6 +13826,10 @@ export namespace ec2 {
          * The type of local storage that is required.
          */
         localStorageTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The price protection threshold for Spot Instances.
+         */
+        maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: pulumi.Input<number>;
         memoryGiBPerVCpu?: pulumi.Input<inputs.ec2.LaunchTemplateMemoryGiBPerVCpuArgs>;
         memoryMiB?: pulumi.Input<inputs.ec2.LaunchTemplateMemoryMiBArgs>;
         networkBandwidthGbps?: pulumi.Input<inputs.ec2.LaunchTemplateNetworkBandwidthGbpsArgs>;
@@ -19805,6 +19812,11 @@ export namespace glue {
         icebergInput?: pulumi.Input<inputs.glue.TableIcebergInputArgs>;
     }
 
+    export interface TableOptimizerConfigurationArgs {
+        enabled?: pulumi.Input<boolean>;
+        roleArn?: pulumi.Input<string>;
+    }
+
     export interface TableOrderArgs {
         column: pulumi.Input<string>;
         sortOrder: pulumi.Input<number>;
@@ -21630,6 +21642,49 @@ export namespace inspector {
 }
 
 export namespace inspectorv2 {
+    export interface CisScanConfigurationCisTagMapArgs {
+    }
+
+    export interface CisScanConfigurationCisTargetsArgs {
+        accountIds: pulumi.Input<pulumi.Input<string>[]>;
+        targetResourceTags?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationTargetResourceTagsArgs>;
+    }
+
+    export interface CisScanConfigurationDailyScheduleArgs {
+        startTime: pulumi.Input<inputs.inspectorv2.CisScanConfigurationTimeArgs>;
+    }
+
+    export interface CisScanConfigurationMonthlyScheduleArgs {
+        day: pulumi.Input<enums.inspectorv2.CisScanConfigurationDay>;
+        startTime: pulumi.Input<inputs.inspectorv2.CisScanConfigurationTimeArgs>;
+    }
+
+    export interface CisScanConfigurationOneTimeScheduleArgs {
+    }
+
+    /**
+     * Choose a Schedule cadence
+     */
+    export interface CisScanConfigurationScheduleArgs {
+        daily?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationDailyScheduleArgs>;
+        monthly?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationMonthlyScheduleArgs>;
+        oneTime?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationOneTimeScheduleArgs>;
+        weekly?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationWeeklyScheduleArgs>;
+    }
+
+    export interface CisScanConfigurationTargetResourceTagsArgs {
+    }
+
+    export interface CisScanConfigurationTimeArgs {
+        timeOfDay: pulumi.Input<string>;
+        timeZone: pulumi.Input<string>;
+    }
+
+    export interface CisScanConfigurationWeeklyScheduleArgs {
+        days: pulumi.Input<pulumi.Input<enums.inspectorv2.CisScanConfigurationDay>[]>;
+        startTime: pulumi.Input<inputs.inspectorv2.CisScanConfigurationTimeArgs>;
+    }
+
     export interface FilterCriteriaArgs {
         awsAccountId?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
         componentId?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
@@ -46663,6 +46718,26 @@ export namespace rds {
         key: pulumi.Input<string>;
         /**
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * An optional set of non-secret key–value pairs that contains additional contextual information about the data.
+     */
+    export interface IntegrationEncryptionContextMapArgs {
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IntegrationTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value?: pulumi.Input<string>;
     }

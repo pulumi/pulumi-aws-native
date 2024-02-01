@@ -11,6 +11,15 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CisScanConfigurationCisTagMapArgs',
+    'CisScanConfigurationCisTargetsArgs',
+    'CisScanConfigurationDailyScheduleArgs',
+    'CisScanConfigurationMonthlyScheduleArgs',
+    'CisScanConfigurationOneTimeScheduleArgs',
+    'CisScanConfigurationScheduleArgs',
+    'CisScanConfigurationTargetResourceTagsArgs',
+    'CisScanConfigurationTimeArgs',
+    'CisScanConfigurationWeeklyScheduleArgs',
     'FilterCriteriaArgs',
     'FilterDateFilterArgs',
     'FilterMapFilterArgs',
@@ -19,6 +28,205 @@ __all__ = [
     'FilterPortRangeFilterArgs',
     'FilterStringFilterArgs',
 ]
+
+@pulumi.input_type
+class CisScanConfigurationCisTagMapArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class CisScanConfigurationCisTargetsArgs:
+    def __init__(__self__, *,
+                 account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 target_resource_tags: Optional[pulumi.Input['CisScanConfigurationTargetResourceTagsArgs']] = None):
+        pulumi.set(__self__, "account_ids", account_ids)
+        if target_resource_tags is not None:
+            pulumi.set(__self__, "target_resource_tags", target_resource_tags)
+
+    @property
+    @pulumi.getter(name="accountIds")
+    def account_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "account_ids")
+
+    @account_ids.setter
+    def account_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "account_ids", value)
+
+    @property
+    @pulumi.getter(name="targetResourceTags")
+    def target_resource_tags(self) -> Optional[pulumi.Input['CisScanConfigurationTargetResourceTagsArgs']]:
+        return pulumi.get(self, "target_resource_tags")
+
+    @target_resource_tags.setter
+    def target_resource_tags(self, value: Optional[pulumi.Input['CisScanConfigurationTargetResourceTagsArgs']]):
+        pulumi.set(self, "target_resource_tags", value)
+
+
+@pulumi.input_type
+class CisScanConfigurationDailyScheduleArgs:
+    def __init__(__self__, *,
+                 start_time: pulumi.Input['CisScanConfigurationTimeArgs']):
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input['CisScanConfigurationTimeArgs']:
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input['CisScanConfigurationTimeArgs']):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class CisScanConfigurationMonthlyScheduleArgs:
+    def __init__(__self__, *,
+                 day: pulumi.Input['CisScanConfigurationDay'],
+                 start_time: pulumi.Input['CisScanConfigurationTimeArgs']):
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter
+    def day(self) -> pulumi.Input['CisScanConfigurationDay']:
+        return pulumi.get(self, "day")
+
+    @day.setter
+    def day(self, value: pulumi.Input['CisScanConfigurationDay']):
+        pulumi.set(self, "day", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input['CisScanConfigurationTimeArgs']:
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input['CisScanConfigurationTimeArgs']):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class CisScanConfigurationOneTimeScheduleArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class CisScanConfigurationScheduleArgs:
+    def __init__(__self__, *,
+                 daily: Optional[pulumi.Input['CisScanConfigurationDailyScheduleArgs']] = None,
+                 monthly: Optional[pulumi.Input['CisScanConfigurationMonthlyScheduleArgs']] = None,
+                 one_time: Optional[pulumi.Input['CisScanConfigurationOneTimeScheduleArgs']] = None,
+                 weekly: Optional[pulumi.Input['CisScanConfigurationWeeklyScheduleArgs']] = None):
+        """
+        Choose a Schedule cadence
+        """
+        if daily is not None:
+            pulumi.set(__self__, "daily", daily)
+        if monthly is not None:
+            pulumi.set(__self__, "monthly", monthly)
+        if one_time is not None:
+            pulumi.set(__self__, "one_time", one_time)
+        if weekly is not None:
+            pulumi.set(__self__, "weekly", weekly)
+
+    @property
+    @pulumi.getter
+    def daily(self) -> Optional[pulumi.Input['CisScanConfigurationDailyScheduleArgs']]:
+        return pulumi.get(self, "daily")
+
+    @daily.setter
+    def daily(self, value: Optional[pulumi.Input['CisScanConfigurationDailyScheduleArgs']]):
+        pulumi.set(self, "daily", value)
+
+    @property
+    @pulumi.getter
+    def monthly(self) -> Optional[pulumi.Input['CisScanConfigurationMonthlyScheduleArgs']]:
+        return pulumi.get(self, "monthly")
+
+    @monthly.setter
+    def monthly(self, value: Optional[pulumi.Input['CisScanConfigurationMonthlyScheduleArgs']]):
+        pulumi.set(self, "monthly", value)
+
+    @property
+    @pulumi.getter(name="oneTime")
+    def one_time(self) -> Optional[pulumi.Input['CisScanConfigurationOneTimeScheduleArgs']]:
+        return pulumi.get(self, "one_time")
+
+    @one_time.setter
+    def one_time(self, value: Optional[pulumi.Input['CisScanConfigurationOneTimeScheduleArgs']]):
+        pulumi.set(self, "one_time", value)
+
+    @property
+    @pulumi.getter
+    def weekly(self) -> Optional[pulumi.Input['CisScanConfigurationWeeklyScheduleArgs']]:
+        return pulumi.get(self, "weekly")
+
+    @weekly.setter
+    def weekly(self, value: Optional[pulumi.Input['CisScanConfigurationWeeklyScheduleArgs']]):
+        pulumi.set(self, "weekly", value)
+
+
+@pulumi.input_type
+class CisScanConfigurationTargetResourceTagsArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class CisScanConfigurationTimeArgs:
+    def __init__(__self__, *,
+                 time_of_day: pulumi.Input[str],
+                 time_zone: pulumi.Input[str]):
+        pulumi.set(__self__, "time_of_day", time_of_day)
+        pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="timeOfDay")
+    def time_of_day(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "time_of_day")
+
+    @time_of_day.setter
+    def time_of_day(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_of_day", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class CisScanConfigurationWeeklyScheduleArgs:
+    def __init__(__self__, *,
+                 days: pulumi.Input[Sequence[pulumi.Input['CisScanConfigurationDay']]],
+                 start_time: pulumi.Input['CisScanConfigurationTimeArgs']):
+        pulumi.set(__self__, "days", days)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter
+    def days(self) -> pulumi.Input[Sequence[pulumi.Input['CisScanConfigurationDay']]]:
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: pulumi.Input[Sequence[pulumi.Input['CisScanConfigurationDay']]]):
+        pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input['CisScanConfigurationTimeArgs']:
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input['CisScanConfigurationTimeArgs']):
+        pulumi.set(self, "start_time", value)
+
 
 @pulumi.input_type
 class FilterCriteriaArgs:

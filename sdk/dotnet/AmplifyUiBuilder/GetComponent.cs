@@ -63,25 +63,24 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
     [OutputType]
     public sealed class GetComponentResult
     {
-        public readonly string? AppId;
         public readonly Outputs.ComponentBindingProperties? BindingProperties;
         public readonly ImmutableArray<Outputs.ComponentChild> Children;
         public readonly Outputs.ComponentCollectionProperties? CollectionProperties;
         public readonly string? ComponentType;
-        public readonly string? EnvironmentName;
+        public readonly string? CreatedAt;
         public readonly Outputs.ComponentEvents? Events;
         public readonly string? Id;
+        public readonly string? ModifiedAt;
         public readonly string? Name;
         public readonly Outputs.ComponentOverrides? Overrides;
         public readonly Outputs.ComponentProperties? Properties;
         public readonly string? SchemaVersion;
         public readonly string? SourceId;
+        public readonly Outputs.ComponentTags? Tags;
         public readonly ImmutableArray<Outputs.ComponentVariant> Variants;
 
         [OutputConstructor]
         private GetComponentResult(
-            string? appId,
-
             Outputs.ComponentBindingProperties? bindingProperties,
 
             ImmutableArray<Outputs.ComponentChild> children,
@@ -90,11 +89,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
             string? componentType,
 
-            string? environmentName,
+            string? createdAt,
 
             Outputs.ComponentEvents? events,
 
             string? id,
+
+            string? modifiedAt,
 
             string? name,
 
@@ -106,21 +107,24 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
             string? sourceId,
 
+            Outputs.ComponentTags? tags,
+
             ImmutableArray<Outputs.ComponentVariant> variants)
         {
-            AppId = appId;
             BindingProperties = bindingProperties;
             Children = children;
             CollectionProperties = collectionProperties;
             ComponentType = componentType;
-            EnvironmentName = environmentName;
+            CreatedAt = createdAt;
             Events = events;
             Id = id;
+            ModifiedAt = modifiedAt;
             Name = name;
             Overrides = overrides;
             Properties = properties;
             SchemaVersion = schemaVersion;
             SourceId = sourceId;
+            Tags = tags;
             Variants = variants;
         }
     }

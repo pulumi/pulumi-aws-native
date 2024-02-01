@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventSubscription{}
 	case "aws-native:rds:GlobalCluster":
 		r = &GlobalCluster{}
+	case "aws-native:rds:Integration":
+		r = &Integration{}
 	case "aws-native:rds:OptionGroup":
 		r = &OptionGroup{}
 	default:

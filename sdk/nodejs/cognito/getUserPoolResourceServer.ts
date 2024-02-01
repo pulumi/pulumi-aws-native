@@ -14,17 +14,16 @@ export function getUserPoolResourceServer(args: GetUserPoolResourceServerArgs, o
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolResourceServer", {
-        "identifier": args.identifier,
-        "userPoolId": args.userPoolId,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetUserPoolResourceServerArgs {
-    identifier: string;
-    userPoolId: string;
+    id: string;
 }
 
 export interface GetUserPoolResourceServerResult {
+    readonly id?: string;
     readonly name?: string;
     readonly scopes?: outputs.cognito.UserPoolResourceServerResourceServerScopeType[];
 }
@@ -36,6 +35,5 @@ export function getUserPoolResourceServerOutput(args: GetUserPoolResourceServerO
 }
 
 export interface GetUserPoolResourceServerOutputArgs {
-    identifier: pulumi.Input<string>;
-    userPoolId: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

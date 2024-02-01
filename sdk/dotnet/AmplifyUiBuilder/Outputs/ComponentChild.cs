@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         public readonly Outputs.ComponentEvents? Events;
         public readonly string Name;
         public readonly Outputs.ComponentProperties Properties;
+        public readonly string? SourceId;
 
         [OutputConstructor]
         private ComponentChild(
@@ -29,13 +30,16 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
 
             string name,
 
-            Outputs.ComponentProperties properties)
+            Outputs.ComponentProperties properties,
+
+            string? sourceId)
         {
             Children = children;
             ComponentType = componentType;
             Events = events;
             Name = name;
             Properties = properties;
+            SourceId = sourceId;
         }
     }
 }

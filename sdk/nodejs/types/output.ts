@@ -476,6 +476,7 @@ export namespace amplifyuibuilder {
         events?: outputs.amplifyuibuilder.ComponentEvents;
         name: string;
         properties: outputs.amplifyuibuilder.ComponentProperties;
+        sourceId?: string;
     }
 
     export interface ComponentCollectionProperties {
@@ -12871,6 +12872,7 @@ export namespace dynamodb {
     }
 
     export interface GlobalTableKinesisStreamSpecification {
+        approximateCreationDateTimePrecision?: enums.dynamodb.GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision;
         streamArn: string;
     }
 
@@ -12986,6 +12988,7 @@ export namespace dynamodb {
     }
 
     export interface TableKinesisStreamSpecification {
+        approximateCreationDateTimePrecision?: enums.dynamodb.TableKinesisStreamSpecificationApproximateCreationDateTimePrecision;
         streamArn: string;
     }
 
@@ -13934,6 +13937,10 @@ export namespace ec2 {
          * The type of local storage that is required.
          */
         localStorageTypes?: string[];
+        /**
+         * The price protection threshold for Spot Instances.
+         */
+        maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
         memoryGiBPerVCpu?: outputs.ec2.LaunchTemplateMemoryGiBPerVCpu;
         memoryMiB?: outputs.ec2.LaunchTemplateMemoryMiB;
         networkBandwidthGbps?: outputs.ec2.LaunchTemplateNetworkBandwidthGbps;
@@ -20117,6 +20124,11 @@ export namespace glue {
         icebergInput?: outputs.glue.TableIcebergInput;
     }
 
+    export interface TableOptimizerConfiguration {
+        enabled?: boolean;
+        roleArn?: string;
+    }
+
     export interface TableOrder {
         column: string;
         sortOrder: number;
@@ -21968,6 +21980,49 @@ export namespace inspector {
 }
 
 export namespace inspectorv2 {
+    export interface CisScanConfigurationCisTagMap {
+    }
+
+    export interface CisScanConfigurationCisTargets {
+        accountIds: string[];
+        targetResourceTags?: outputs.inspectorv2.CisScanConfigurationTargetResourceTags;
+    }
+
+    export interface CisScanConfigurationDailySchedule {
+        startTime: outputs.inspectorv2.CisScanConfigurationTime;
+    }
+
+    export interface CisScanConfigurationMonthlySchedule {
+        day: enums.inspectorv2.CisScanConfigurationDay;
+        startTime: outputs.inspectorv2.CisScanConfigurationTime;
+    }
+
+    export interface CisScanConfigurationOneTimeSchedule {
+    }
+
+    /**
+     * Choose a Schedule cadence
+     */
+    export interface CisScanConfigurationSchedule {
+        daily?: outputs.inspectorv2.CisScanConfigurationDailySchedule;
+        monthly?: outputs.inspectorv2.CisScanConfigurationMonthlySchedule;
+        oneTime?: outputs.inspectorv2.CisScanConfigurationOneTimeSchedule;
+        weekly?: outputs.inspectorv2.CisScanConfigurationWeeklySchedule;
+    }
+
+    export interface CisScanConfigurationTargetResourceTags {
+    }
+
+    export interface CisScanConfigurationTime {
+        timeOfDay: string;
+        timeZone: string;
+    }
+
+    export interface CisScanConfigurationWeeklySchedule {
+        days: enums.inspectorv2.CisScanConfigurationDay[];
+        startTime: outputs.inspectorv2.CisScanConfigurationTime;
+    }
+
     export interface FilterCriteria {
         awsAccountId?: outputs.inspectorv2.FilterStringFilter[];
         componentId?: outputs.inspectorv2.FilterStringFilter[];
@@ -47322,6 +47377,26 @@ export namespace rds {
         key: string;
         /**
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
+    }
+
+    /**
+     * An optional set of non-secret key–value pairs that contains additional contextual information about the data.
+     */
+    export interface IntegrationEncryptionContextMap {
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IntegrationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value?: string;
     }

@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         [Input("properties", required: true)]
         public Input<Inputs.ComponentPropertiesArgs> Properties { get; set; } = null!;
 
+        [Input("sourceId")]
+        public Input<string>? SourceId { get; set; }
+
         public ComponentChildArgs()
         {
         }

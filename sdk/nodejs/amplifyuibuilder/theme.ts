@@ -38,11 +38,13 @@ export class Theme extends pulumi.CustomResource {
     }
 
     public readonly appId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly environmentName!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     public readonly overrides!: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.amplifyuibuilder.ThemeTags | undefined>;
-    public readonly values!: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[]>;
+    public readonly values!: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
 
     /**
      * Create a Theme resource with the given unique name, arguments, and options.
@@ -51,29 +53,30 @@ export class Theme extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ThemeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ThemeArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.values === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'values'");
-            }
             resourceInputs["appId"] = args ? args.appId : undefined;
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["overrides"] = args ? args.overrides : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["values"] = args ? args.values : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["modifiedAt"] = undefined /*out*/;
         } else {
             resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["environmentName"] = undefined /*out*/;
+            resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["overrides"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["values"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["appId", "environmentName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Theme.__pulumiType, name, resourceInputs, opts);
     }
@@ -88,5 +91,5 @@ export interface ThemeArgs {
     name?: pulumi.Input<string>;
     overrides?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
     tags?: pulumi.Input<inputs.amplifyuibuilder.ThemeTagsArgs>;
-    values: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
+    values?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
 }

@@ -24,12 +24,12 @@ func LookupUserPoolIdentityProvider(ctx *pulumi.Context, args *LookupUserPoolIde
 }
 
 type LookupUserPoolIdentityProviderArgs struct {
-	ProviderName string `pulumi:"providerName"`
-	UserPoolId   string `pulumi:"userPoolId"`
+	Id string `pulumi:"id"`
 }
 
 type LookupUserPoolIdentityProviderResult struct {
 	AttributeMapping interface{} `pulumi:"attributeMapping"`
+	Id               *string     `pulumi:"id"`
 	IdpIdentifiers   []string    `pulumi:"idpIdentifiers"`
 	ProviderDetails  interface{} `pulumi:"providerDetails"`
 }
@@ -48,8 +48,7 @@ func LookupUserPoolIdentityProviderOutput(ctx *pulumi.Context, args LookupUserPo
 }
 
 type LookupUserPoolIdentityProviderOutputArgs struct {
-	ProviderName pulumi.StringInput `pulumi:"providerName"`
-	UserPoolId   pulumi.StringInput `pulumi:"userPoolId"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupUserPoolIdentityProviderOutputArgs) ElementType() reflect.Type {
@@ -78,6 +77,10 @@ func (o LookupUserPoolIdentityProviderResultOutput) ToOutput(ctx context.Context
 
 func (o LookupUserPoolIdentityProviderResultOutput) AttributeMapping() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupUserPoolIdentityProviderResult) interface{} { return v.AttributeMapping }).(pulumi.AnyOutput)
+}
+
+func (o LookupUserPoolIdentityProviderResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolIdentityProviderResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserPoolIdentityProviderResultOutput) IdpIdentifiers() pulumi.StringArrayOutput {
