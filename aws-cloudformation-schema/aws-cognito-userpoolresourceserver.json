@@ -1,28 +1,7 @@
 {
   "typeName" : "AWS::Cognito::UserPoolResourceServer",
   "description" : "Resource Type definition for AWS::Cognito::UserPoolResourceServer",
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "tagging" : {
-    "taggable" : false,
-    "tagOnCreate" : false,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
-  },
-  "definitions" : {
-    "ResourceServerScopeType" : {
-      "type" : "object",
-      "properties" : {
-        "ScopeDescription" : {
-          "type" : "string"
-        },
-        "ScopeName" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "ScopeDescription", "ScopeName" ],
-      "additionalProperties" : false
-    }
-  },
+  "additionalProperties" : false,
   "properties" : {
     "UserPoolId" : {
       "type" : "string"
@@ -30,46 +9,37 @@
     "Identifier" : {
       "type" : "string"
     },
-    "Name" : {
+    "Id" : {
       "type" : "string"
     },
     "Scopes" : {
       "type" : "array",
+      "uniqueItems" : false,
       "items" : {
         "$ref" : "#/definitions/ResourceServerScopeType"
       }
+    },
+    "Name" : {
+      "type" : "string"
     }
   },
-  "additionalProperties" : false,
-  "required" : [ "UserPoolId", "Identifier", "Name" ],
-  "createOnlyProperties" : [ "/properties/UserPoolId", "/properties/Identifier" ],
-  "primaryIdentifier" : [ "/properties/UserPoolId", "/properties/Identifier" ],
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "cognito-idp:CreateResourceServer", "iam:PassRole" ],
-      "timeoutInMinutes" : 2
-    },
-    "read" : {
-      "permissions" : [ "cognito-idp:DescribeResourceServer" ]
-    },
-    "update" : {
-      "permissions" : [ "cognito-idp:UpdateResourceServer", "iam:PassRole" ],
-      "timeoutInMinutes" : 2
-    },
-    "delete" : {
-      "permissions" : [ "cognito-idp:DeleteResourceServer" ],
-      "timeoutInMinutes" : 2
-    },
-    "list" : {
-      "handlerSchema" : {
-        "properties" : {
-          "UserPoolId" : {
-            "$ref" : "resource-schema.json#/properties/UserPoolId"
-          }
+  "definitions" : {
+    "ResourceServerScopeType" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ScopeName" : {
+          "type" : "string"
         },
-        "required" : [ "UserPoolId" ]
+        "ScopeDescription" : {
+          "type" : "string"
+        }
       },
-      "permissions" : [ "cognito-idp:ListResourceServers" ]
+      "required" : [ "ScopeName", "ScopeDescription" ]
     }
-  }
+  },
+  "required" : [ "UserPoolId", "Identifier", "Name" ],
+  "createOnlyProperties" : [ "/properties/Identifier", "/properties/UserPoolId" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id" ]
 }
