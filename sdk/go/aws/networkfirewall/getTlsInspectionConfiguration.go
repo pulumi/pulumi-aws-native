@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration
@@ -68,12 +67,6 @@ func (o LookupTlsInspectionConfigurationResultOutput) ToLookupTlsInspectionConfi
 
 func (o LookupTlsInspectionConfigurationResultOutput) ToLookupTlsInspectionConfigurationResultOutputWithContext(ctx context.Context) LookupTlsInspectionConfigurationResultOutput {
 	return o
-}
-
-func (o LookupTlsInspectionConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTlsInspectionConfigurationResult] {
-	return pulumix.Output[LookupTlsInspectionConfigurationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTlsInspectionConfigurationResultOutput) Description() pulumi.StringPtrOutput {

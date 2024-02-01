@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::InternetGateway
@@ -69,12 +68,6 @@ func (o LookupInternetGatewayResultOutput) ToLookupInternetGatewayResultOutput()
 
 func (o LookupInternetGatewayResultOutput) ToLookupInternetGatewayResultOutputWithContext(ctx context.Context) LookupInternetGatewayResultOutput {
 	return o
-}
-
-func (o LookupInternetGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInternetGatewayResult] {
-	return pulumix.Output[LookupInternetGatewayResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of internet gateway.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::DataZone::DataSource Resource Type
@@ -101,12 +100,6 @@ func (o LookupDataSourceResultOutput) ToLookupDataSourceResultOutput() LookupDat
 
 func (o LookupDataSourceResultOutput) ToLookupDataSourceResultOutputWithContext(ctx context.Context) LookupDataSourceResultOutput {
 	return o
-}
-
-func (o LookupDataSourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataSourceResult] {
-	return pulumix.Output[LookupDataSourceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The timestamp of when the data source was created.

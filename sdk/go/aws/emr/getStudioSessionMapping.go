@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -75,12 +74,6 @@ func (o LookupStudioSessionMappingResultOutput) ToLookupStudioSessionMappingResu
 
 func (o LookupStudioSessionMappingResultOutput) ToLookupStudioSessionMappingResultOutputWithContext(ctx context.Context) LookupStudioSessionMappingResultOutput {
 	return o
-}
-
-func (o LookupStudioSessionMappingResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStudioSessionMappingResult] {
-	return pulumix.Output[LookupStudioSessionMappingResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.

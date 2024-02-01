@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Type of addresses in the IPSet, use IPV4 for IPV4 IP addresses, IPV6 for IPV6 address.
@@ -79,12 +78,6 @@ func (o IpSetIpAddressVersionOutput) ToIpSetIpAddressVersionPtrOutputWithContext
 	}).(IpSetIpAddressVersionPtrOutput)
 }
 
-func (o IpSetIpAddressVersionOutput) ToOutput(ctx context.Context) pulumix.Output[IpSetIpAddressVersion] {
-	return pulumix.Output[IpSetIpAddressVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IpSetIpAddressVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o IpSetIpAddressVersionPtrOutput) ToIpSetIpAddressVersionPtrOutputWithCont
 	return o
 }
 
-func (o IpSetIpAddressVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IpSetIpAddressVersion] {
-	return pulumix.Output[*IpSetIpAddressVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IpSetIpAddressVersionPtrOutput) Elem() IpSetIpAddressVersionOutput {
 	return o.ApplyT(func(v *IpSetIpAddressVersion) IpSetIpAddressVersion {
 		if v != nil {
@@ -150,10 +137,11 @@ func (o IpSetIpAddressVersionPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// IpSetIpAddressVersionInput is an input type that accepts IpSetIpAddressVersionArgs and IpSetIpAddressVersionOutput values.
-// You can construct a concrete instance of `IpSetIpAddressVersionInput` via:
+// IpSetIpAddressVersionInput is an input type that accepts values of the IpSetIpAddressVersion enum
+// A concrete instance of `IpSetIpAddressVersionInput` can be one of the following:
 //
-//	IpSetIpAddressVersionArgs{...}
+//	IpSetIpAddressVersionIpv4
+//	IpSetIpAddressVersionIpv6
 type IpSetIpAddressVersionInput interface {
 	pulumi.Input
 
@@ -186,12 +174,6 @@ func (in *ipSetIpAddressVersionPtr) ToIpSetIpAddressVersionPtrOutput() IpSetIpAd
 
 func (in *ipSetIpAddressVersionPtr) ToIpSetIpAddressVersionPtrOutputWithContext(ctx context.Context) IpSetIpAddressVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IpSetIpAddressVersionPtrOutput)
-}
-
-func (in *ipSetIpAddressVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*IpSetIpAddressVersion] {
-	return pulumix.Output[*IpSetIpAddressVersion]{
-		OutputState: in.ToIpSetIpAddressVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Use CLOUDFRONT for CloudFront IPSet, use REGIONAL for Application Load Balancer and API Gateway.
@@ -262,12 +244,6 @@ func (o IpSetScopeOutput) ToIpSetScopePtrOutputWithContext(ctx context.Context) 
 	}).(IpSetScopePtrOutput)
 }
 
-func (o IpSetScopeOutput) ToOutput(ctx context.Context) pulumix.Output[IpSetScope] {
-	return pulumix.Output[IpSetScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IpSetScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +279,6 @@ func (o IpSetScopePtrOutput) ToIpSetScopePtrOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o IpSetScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IpSetScope] {
-	return pulumix.Output[*IpSetScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IpSetScopePtrOutput) Elem() IpSetScopeOutput {
 	return o.ApplyT(func(v *IpSetScope) IpSetScope {
 		if v != nil {
@@ -333,10 +303,11 @@ func (o IpSetScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// IpSetScopeInput is an input type that accepts IpSetScopeArgs and IpSetScopeOutput values.
-// You can construct a concrete instance of `IpSetScopeInput` via:
+// IpSetScopeInput is an input type that accepts values of the IpSetScope enum
+// A concrete instance of `IpSetScopeInput` can be one of the following:
 //
-//	IpSetScopeArgs{...}
+//	IpSetScopeCloudfront
+//	IpSetScopeRegional
 type IpSetScopeInput interface {
 	pulumi.Input
 
@@ -369,12 +340,6 @@ func (in *ipSetScopePtr) ToIpSetScopePtrOutput() IpSetScopePtrOutput {
 
 func (in *ipSetScopePtr) ToIpSetScopePtrOutputWithContext(ctx context.Context) IpSetScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IpSetScopePtrOutput)
-}
-
-func (in *ipSetScopePtr) ToOutput(ctx context.Context) pulumix.Output[*IpSetScope] {
-	return pulumix.Output[*IpSetScope]{
-		OutputState: in.ToIpSetScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
@@ -449,12 +414,6 @@ func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToLo
 	}).(LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput)
 }
 
-func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationConditionActionConditionPropertiesAction] {
-	return pulumix.Output[LoggingConfigurationConditionActionConditionPropertiesAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -490,12 +449,6 @@ func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) T
 	return o
 }
 
-func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationConditionActionConditionPropertiesAction] {
-	return pulumix.Output[*LoggingConfigurationConditionActionConditionPropertiesAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) Elem() LoggingConfigurationConditionActionConditionPropertiesActionOutput {
 	return o.ApplyT(func(v *LoggingConfigurationConditionActionConditionPropertiesAction) LoggingConfigurationConditionActionConditionPropertiesAction {
 		if v != nil {
@@ -520,10 +473,15 @@ func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) T
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoggingConfigurationConditionActionConditionPropertiesActionInput is an input type that accepts LoggingConfigurationConditionActionConditionPropertiesActionArgs and LoggingConfigurationConditionActionConditionPropertiesActionOutput values.
-// You can construct a concrete instance of `LoggingConfigurationConditionActionConditionPropertiesActionInput` via:
+// LoggingConfigurationConditionActionConditionPropertiesActionInput is an input type that accepts values of the LoggingConfigurationConditionActionConditionPropertiesAction enum
+// A concrete instance of `LoggingConfigurationConditionActionConditionPropertiesActionInput` can be one of the following:
 //
-//	LoggingConfigurationConditionActionConditionPropertiesActionArgs{...}
+//	LoggingConfigurationConditionActionConditionPropertiesActionAllow
+//	LoggingConfigurationConditionActionConditionPropertiesActionBlock
+//	LoggingConfigurationConditionActionConditionPropertiesActionCount
+//	LoggingConfigurationConditionActionConditionPropertiesActionCaptcha
+//	LoggingConfigurationConditionActionConditionPropertiesActionChallenge
+//	LoggingConfigurationConditionActionConditionPropertiesActionExcludedAsCount
 type LoggingConfigurationConditionActionConditionPropertiesActionInput interface {
 	pulumi.Input
 
@@ -556,12 +514,6 @@ func (in *loggingConfigurationConditionActionConditionPropertiesActionPtr) ToLog
 
 func (in *loggingConfigurationConditionActionConditionPropertiesActionPtr) ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput)
-}
-
-func (in *loggingConfigurationConditionActionConditionPropertiesActionPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationConditionActionConditionPropertiesAction] {
-	return pulumix.Output[*LoggingConfigurationConditionActionConditionPropertiesAction]{
-		OutputState: in.ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // What AWS WAF should do if it fails to completely parse the JSON body.
@@ -633,12 +585,6 @@ func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavio
 	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput)
 }
 
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior] {
-	return pulumix.Output[LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -674,12 +620,6 @@ func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavio
 	return o
 }
 
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior] {
-	return pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput) Elem() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput {
 	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior {
 		if v != nil {
@@ -704,10 +644,12 @@ func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavio
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorArgs and LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput values.
-// You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorInput` via:
+// LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorInput is an input type that accepts values of the LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior enum
+// A concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorInput` can be one of the following:
 //
-//	LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorArgs{...}
+//	LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorMatch
+//	LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorNoMatch
+//	LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorEvaluateAsString
 type LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -740,12 +682,6 @@ func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehav
 
 func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtr) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput)
-}
-
-func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior] {
-	return pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior]{
-		OutputState: in.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values.
@@ -817,12 +753,6 @@ func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToLo
 	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput)
 }
 
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope] {
-	return pulumix.Output[LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -858,12 +788,6 @@ func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) T
 	return o
 }
 
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope] {
-	return pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) Elem() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput {
 	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope {
 		if v != nil {
@@ -888,10 +812,12 @@ func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) T
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeArgs and LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput values.
-// You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput` via:
+// LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput is an input type that accepts values of the LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope enum
+// A concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput` can be one of the following:
 //
-//	LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeArgs{...}
+//	LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeAll
+//	LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeKey
+//	LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeValue
 type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput interface {
 	pulumi.Input
 
@@ -924,12 +850,6 @@ func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtr) ToLog
 
 func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtr) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput)
-}
-
-func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope] {
-	return pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope]{
-		OutputState: in.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // How to handle logs that satisfy the filter's conditions and requirement.
@@ -1000,12 +920,6 @@ func (o LoggingConfigurationFilterBehaviorOutput) ToLoggingConfigurationFilterBe
 	}).(LoggingConfigurationFilterBehaviorPtrOutput)
 }
 
-func (o LoggingConfigurationFilterBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationFilterBehavior] {
-	return pulumix.Output[LoggingConfigurationFilterBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationFilterBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1041,12 +955,6 @@ func (o LoggingConfigurationFilterBehaviorPtrOutput) ToLoggingConfigurationFilte
 	return o
 }
 
-func (o LoggingConfigurationFilterBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFilterBehavior] {
-	return pulumix.Output[*LoggingConfigurationFilterBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationFilterBehaviorPtrOutput) Elem() LoggingConfigurationFilterBehaviorOutput {
 	return o.ApplyT(func(v *LoggingConfigurationFilterBehavior) LoggingConfigurationFilterBehavior {
 		if v != nil {
@@ -1071,10 +979,11 @@ func (o LoggingConfigurationFilterBehaviorPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoggingConfigurationFilterBehaviorInput is an input type that accepts LoggingConfigurationFilterBehaviorArgs and LoggingConfigurationFilterBehaviorOutput values.
-// You can construct a concrete instance of `LoggingConfigurationFilterBehaviorInput` via:
+// LoggingConfigurationFilterBehaviorInput is an input type that accepts values of the LoggingConfigurationFilterBehavior enum
+// A concrete instance of `LoggingConfigurationFilterBehaviorInput` can be one of the following:
 //
-//	LoggingConfigurationFilterBehaviorArgs{...}
+//	LoggingConfigurationFilterBehaviorKeep
+//	LoggingConfigurationFilterBehaviorDrop
 type LoggingConfigurationFilterBehaviorInput interface {
 	pulumi.Input
 
@@ -1107,12 +1016,6 @@ func (in *loggingConfigurationFilterBehaviorPtr) ToLoggingConfigurationFilterBeh
 
 func (in *loggingConfigurationFilterBehaviorPtr) ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationFilterBehaviorPtrOutput)
-}
-
-func (in *loggingConfigurationFilterBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFilterBehavior] {
-	return pulumix.Output[*LoggingConfigurationFilterBehavior]{
-		OutputState: in.ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
@@ -1183,12 +1086,6 @@ func (o LoggingConfigurationFilterRequirementOutput) ToLoggingConfigurationFilte
 	}).(LoggingConfigurationFilterRequirementPtrOutput)
 }
 
-func (o LoggingConfigurationFilterRequirementOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationFilterRequirement] {
-	return pulumix.Output[LoggingConfigurationFilterRequirement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationFilterRequirementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1224,12 +1121,6 @@ func (o LoggingConfigurationFilterRequirementPtrOutput) ToLoggingConfigurationFi
 	return o
 }
 
-func (o LoggingConfigurationFilterRequirementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFilterRequirement] {
-	return pulumix.Output[*LoggingConfigurationFilterRequirement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationFilterRequirementPtrOutput) Elem() LoggingConfigurationFilterRequirementOutput {
 	return o.ApplyT(func(v *LoggingConfigurationFilterRequirement) LoggingConfigurationFilterRequirement {
 		if v != nil {
@@ -1254,10 +1145,11 @@ func (o LoggingConfigurationFilterRequirementPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoggingConfigurationFilterRequirementInput is an input type that accepts LoggingConfigurationFilterRequirementArgs and LoggingConfigurationFilterRequirementOutput values.
-// You can construct a concrete instance of `LoggingConfigurationFilterRequirementInput` via:
+// LoggingConfigurationFilterRequirementInput is an input type that accepts values of the LoggingConfigurationFilterRequirement enum
+// A concrete instance of `LoggingConfigurationFilterRequirementInput` can be one of the following:
 //
-//	LoggingConfigurationFilterRequirementArgs{...}
+//	LoggingConfigurationFilterRequirementMeetsAll
+//	LoggingConfigurationFilterRequirementMeetsAny
 type LoggingConfigurationFilterRequirementInput interface {
 	pulumi.Input
 
@@ -1290,12 +1182,6 @@ func (in *loggingConfigurationFilterRequirementPtr) ToLoggingConfigurationFilter
 
 func (in *loggingConfigurationFilterRequirementPtr) ToLoggingConfigurationFilterRequirementPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterRequirementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationFilterRequirementPtrOutput)
-}
-
-func (in *loggingConfigurationFilterRequirementPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFilterRequirement] {
-	return pulumix.Output[*LoggingConfigurationFilterRequirement]{
-		OutputState: in.ToLoggingConfigurationFilterRequirementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Default handling for logs that don't match any of the specified filtering conditions.
@@ -1366,12 +1252,6 @@ func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToLogg
 	}).(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput)
 }
 
-func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationLoggingFilterPropertiesDefaultBehavior] {
-	return pulumix.Output[LoggingConfigurationLoggingFilterPropertiesDefaultBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1407,12 +1287,6 @@ func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) ToL
 	return o
 }
 
-func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationLoggingFilterPropertiesDefaultBehavior] {
-	return pulumix.Output[*LoggingConfigurationLoggingFilterPropertiesDefaultBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) Elem() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput {
 	return o.ApplyT(func(v *LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) LoggingConfigurationLoggingFilterPropertiesDefaultBehavior {
 		if v != nil {
@@ -1437,10 +1311,11 @@ func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorInput is an input type that accepts LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorArgs and LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput values.
-// You can construct a concrete instance of `LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorInput` via:
+// LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorInput is an input type that accepts values of the LoggingConfigurationLoggingFilterPropertiesDefaultBehavior enum
+// A concrete instance of `LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorInput` can be one of the following:
 //
-//	LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorArgs{...}
+//	LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorKeep
+//	LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorDrop
 type LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorInput interface {
 	pulumi.Input
 
@@ -1473,12 +1348,6 @@ func (in *loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtr) ToLoggi
 
 func (in *loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtr) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput)
-}
-
-func (in *loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationLoggingFilterPropertiesDefaultBehavior] {
-	return pulumix.Output[*LoggingConfigurationLoggingFilterPropertiesDefaultBehavior]{
-		OutputState: in.ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
@@ -1549,12 +1418,6 @@ func (o RegexPatternSetScopeOutput) ToRegexPatternSetScopePtrOutputWithContext(c
 	}).(RegexPatternSetScopePtrOutput)
 }
 
-func (o RegexPatternSetScopeOutput) ToOutput(ctx context.Context) pulumix.Output[RegexPatternSetScope] {
-	return pulumix.Output[RegexPatternSetScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RegexPatternSetScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1590,12 +1453,6 @@ func (o RegexPatternSetScopePtrOutput) ToRegexPatternSetScopePtrOutputWithContex
 	return o
 }
 
-func (o RegexPatternSetScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegexPatternSetScope] {
-	return pulumix.Output[*RegexPatternSetScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RegexPatternSetScopePtrOutput) Elem() RegexPatternSetScopeOutput {
 	return o.ApplyT(func(v *RegexPatternSetScope) RegexPatternSetScope {
 		if v != nil {
@@ -1620,10 +1477,11 @@ func (o RegexPatternSetScopePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// RegexPatternSetScopeInput is an input type that accepts RegexPatternSetScopeArgs and RegexPatternSetScopeOutput values.
-// You can construct a concrete instance of `RegexPatternSetScopeInput` via:
+// RegexPatternSetScopeInput is an input type that accepts values of the RegexPatternSetScope enum
+// A concrete instance of `RegexPatternSetScopeInput` can be one of the following:
 //
-//	RegexPatternSetScopeArgs{...}
+//	RegexPatternSetScopeCloudfront
+//	RegexPatternSetScopeRegional
 type RegexPatternSetScopeInput interface {
 	pulumi.Input
 
@@ -1656,12 +1514,6 @@ func (in *regexPatternSetScopePtr) ToRegexPatternSetScopePtrOutput() RegexPatter
 
 func (in *regexPatternSetScopePtr) ToRegexPatternSetScopePtrOutputWithContext(ctx context.Context) RegexPatternSetScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RegexPatternSetScopePtrOutput)
-}
-
-func (in *regexPatternSetScopePtr) ToOutput(ctx context.Context) pulumix.Output[*RegexPatternSetScope] {
-	return pulumix.Output[*RegexPatternSetScope]{
-		OutputState: in.ToRegexPatternSetScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The inspection behavior to fall back to if the JSON in the request body is invalid.
@@ -1733,12 +1585,6 @@ func (o RuleGroupBodyParsingFallbackBehaviorOutput) ToRuleGroupBodyParsingFallba
 	}).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
 }
 
-func (o RuleGroupBodyParsingFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupBodyParsingFallbackBehavior] {
-	return pulumix.Output[RuleGroupBodyParsingFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupBodyParsingFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1774,12 +1620,6 @@ func (o RuleGroupBodyParsingFallbackBehaviorPtrOutput) ToRuleGroupBodyParsingFal
 	return o
 }
 
-func (o RuleGroupBodyParsingFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupBodyParsingFallbackBehavior] {
-	return pulumix.Output[*RuleGroupBodyParsingFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupBodyParsingFallbackBehaviorPtrOutput) Elem() RuleGroupBodyParsingFallbackBehaviorOutput {
 	return o.ApplyT(func(v *RuleGroupBodyParsingFallbackBehavior) RuleGroupBodyParsingFallbackBehavior {
 		if v != nil {
@@ -1804,10 +1644,12 @@ func (o RuleGroupBodyParsingFallbackBehaviorPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupBodyParsingFallbackBehaviorInput is an input type that accepts RuleGroupBodyParsingFallbackBehaviorArgs and RuleGroupBodyParsingFallbackBehaviorOutput values.
-// You can construct a concrete instance of `RuleGroupBodyParsingFallbackBehaviorInput` via:
+// RuleGroupBodyParsingFallbackBehaviorInput is an input type that accepts values of the RuleGroupBodyParsingFallbackBehavior enum
+// A concrete instance of `RuleGroupBodyParsingFallbackBehaviorInput` can be one of the following:
 //
-//	RuleGroupBodyParsingFallbackBehaviorArgs{...}
+//	RuleGroupBodyParsingFallbackBehaviorMatch
+//	RuleGroupBodyParsingFallbackBehaviorNoMatch
+//	RuleGroupBodyParsingFallbackBehaviorEvaluateAsString
 type RuleGroupBodyParsingFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -1840,12 +1682,6 @@ func (in *ruleGroupBodyParsingFallbackBehaviorPtr) ToRuleGroupBodyParsingFallbac
 
 func (in *ruleGroupBodyParsingFallbackBehaviorPtr) ToRuleGroupBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupBodyParsingFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
-}
-
-func (in *ruleGroupBodyParsingFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupBodyParsingFallbackBehavior] {
-	return pulumix.Output[*RuleGroupBodyParsingFallbackBehavior]{
-		OutputState: in.ToRuleGroupBodyParsingFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RuleGroupForwardedIpConfigurationFallbackBehavior string
@@ -1915,12 +1751,6 @@ func (o RuleGroupForwardedIpConfigurationFallbackBehaviorOutput) ToRuleGroupForw
 	}).(RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-func (o RuleGroupForwardedIpConfigurationFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupForwardedIpConfigurationFallbackBehavior] {
-	return pulumix.Output[RuleGroupForwardedIpConfigurationFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupForwardedIpConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1956,12 +1786,6 @@ func (o RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput) ToRuleGroupF
 	return o
 }
 
-func (o RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupForwardedIpConfigurationFallbackBehavior] {
-	return pulumix.Output[*RuleGroupForwardedIpConfigurationFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput) Elem() RuleGroupForwardedIpConfigurationFallbackBehaviorOutput {
 	return o.ApplyT(func(v *RuleGroupForwardedIpConfigurationFallbackBehavior) RuleGroupForwardedIpConfigurationFallbackBehavior {
 		if v != nil {
@@ -1986,10 +1810,11 @@ func (o RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupForwardedIpConfigurationFallbackBehaviorInput is an input type that accepts RuleGroupForwardedIpConfigurationFallbackBehaviorArgs and RuleGroupForwardedIpConfigurationFallbackBehaviorOutput values.
-// You can construct a concrete instance of `RuleGroupForwardedIpConfigurationFallbackBehaviorInput` via:
+// RuleGroupForwardedIpConfigurationFallbackBehaviorInput is an input type that accepts values of the RuleGroupForwardedIpConfigurationFallbackBehavior enum
+// A concrete instance of `RuleGroupForwardedIpConfigurationFallbackBehaviorInput` can be one of the following:
 //
-//	RuleGroupForwardedIpConfigurationFallbackBehaviorArgs{...}
+//	RuleGroupForwardedIpConfigurationFallbackBehaviorMatch
+//	RuleGroupForwardedIpConfigurationFallbackBehaviorNoMatch
 type RuleGroupForwardedIpConfigurationFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -2022,12 +1847,6 @@ func (in *ruleGroupForwardedIpConfigurationFallbackBehaviorPtr) ToRuleGroupForwa
 
 func (in *ruleGroupForwardedIpConfigurationFallbackBehaviorPtr) ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput)
-}
-
-func (in *ruleGroupForwardedIpConfigurationFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupForwardedIpConfigurationFallbackBehavior] {
-	return pulumix.Output[*RuleGroupForwardedIpConfigurationFallbackBehavior]{
-		OutputState: in.ToRuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RuleGroupIpSetForwardedIpConfigurationFallbackBehavior string
@@ -2097,12 +1916,6 @@ func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToRuleGrou
 	}).(RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupIpSetForwardedIpConfigurationFallbackBehavior] {
-	return pulumix.Output[RuleGroupIpSetForwardedIpConfigurationFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2138,12 +1951,6 @@ func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToRuleG
 	return o
 }
 
-func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupIpSetForwardedIpConfigurationFallbackBehavior] {
-	return pulumix.Output[*RuleGroupIpSetForwardedIpConfigurationFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) Elem() RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput {
 	return o.ApplyT(func(v *RuleGroupIpSetForwardedIpConfigurationFallbackBehavior) RuleGroupIpSetForwardedIpConfigurationFallbackBehavior {
 		if v != nil {
@@ -2168,10 +1975,11 @@ func (o RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorInput is an input type that accepts RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorArgs and RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput values.
-// You can construct a concrete instance of `RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorInput` via:
+// RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorInput is an input type that accepts values of the RuleGroupIpSetForwardedIpConfigurationFallbackBehavior enum
+// A concrete instance of `RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorInput` can be one of the following:
 //
-//	RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorArgs{...}
+//	RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorMatch
+//	RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorNoMatch
 type RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -2204,12 +2012,6 @@ func (in *ruleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtr) ToRuleGroup
 
 func (in *ruleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtr) ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput)
-}
-
-func (in *ruleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupIpSetForwardedIpConfigurationFallbackBehavior] {
-	return pulumix.Output[*RuleGroupIpSetForwardedIpConfigurationFallbackBehavior]{
-		OutputState: in.ToRuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RuleGroupIpSetForwardedIpConfigurationPosition string
@@ -2280,12 +2082,6 @@ func (o RuleGroupIpSetForwardedIpConfigurationPositionOutput) ToRuleGroupIpSetFo
 	}).(RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput)
 }
 
-func (o RuleGroupIpSetForwardedIpConfigurationPositionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupIpSetForwardedIpConfigurationPosition] {
-	return pulumix.Output[RuleGroupIpSetForwardedIpConfigurationPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupIpSetForwardedIpConfigurationPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2321,12 +2117,6 @@ func (o RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput) ToRuleGroupIpSe
 	return o
 }
 
-func (o RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupIpSetForwardedIpConfigurationPosition] {
-	return pulumix.Output[*RuleGroupIpSetForwardedIpConfigurationPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput) Elem() RuleGroupIpSetForwardedIpConfigurationPositionOutput {
 	return o.ApplyT(func(v *RuleGroupIpSetForwardedIpConfigurationPosition) RuleGroupIpSetForwardedIpConfigurationPosition {
 		if v != nil {
@@ -2351,10 +2141,12 @@ func (o RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupIpSetForwardedIpConfigurationPositionInput is an input type that accepts RuleGroupIpSetForwardedIpConfigurationPositionArgs and RuleGroupIpSetForwardedIpConfigurationPositionOutput values.
-// You can construct a concrete instance of `RuleGroupIpSetForwardedIpConfigurationPositionInput` via:
+// RuleGroupIpSetForwardedIpConfigurationPositionInput is an input type that accepts values of the RuleGroupIpSetForwardedIpConfigurationPosition enum
+// A concrete instance of `RuleGroupIpSetForwardedIpConfigurationPositionInput` can be one of the following:
 //
-//	RuleGroupIpSetForwardedIpConfigurationPositionArgs{...}
+//	RuleGroupIpSetForwardedIpConfigurationPositionFirst
+//	RuleGroupIpSetForwardedIpConfigurationPositionLast
+//	RuleGroupIpSetForwardedIpConfigurationPositionAny
 type RuleGroupIpSetForwardedIpConfigurationPositionInput interface {
 	pulumi.Input
 
@@ -2387,12 +2179,6 @@ func (in *ruleGroupIpSetForwardedIpConfigurationPositionPtr) ToRuleGroupIpSetFor
 
 func (in *ruleGroupIpSetForwardedIpConfigurationPositionPtr) ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx context.Context) RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput)
-}
-
-func (in *ruleGroupIpSetForwardedIpConfigurationPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupIpSetForwardedIpConfigurationPosition] {
-	return pulumix.Output[*RuleGroupIpSetForwardedIpConfigurationPosition]{
-		OutputState: in.ToRuleGroupIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The parts of the JSON to match against using the MatchPattern.
@@ -2464,12 +2250,6 @@ func (o RuleGroupJsonMatchScopeOutput) ToRuleGroupJsonMatchScopePtrOutputWithCon
 	}).(RuleGroupJsonMatchScopePtrOutput)
 }
 
-func (o RuleGroupJsonMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupJsonMatchScope] {
-	return pulumix.Output[RuleGroupJsonMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupJsonMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2505,12 +2285,6 @@ func (o RuleGroupJsonMatchScopePtrOutput) ToRuleGroupJsonMatchScopePtrOutputWith
 	return o
 }
 
-func (o RuleGroupJsonMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupJsonMatchScope] {
-	return pulumix.Output[*RuleGroupJsonMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupJsonMatchScopePtrOutput) Elem() RuleGroupJsonMatchScopeOutput {
 	return o.ApplyT(func(v *RuleGroupJsonMatchScope) RuleGroupJsonMatchScope {
 		if v != nil {
@@ -2535,10 +2309,12 @@ func (o RuleGroupJsonMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupJsonMatchScopeInput is an input type that accepts RuleGroupJsonMatchScopeArgs and RuleGroupJsonMatchScopeOutput values.
-// You can construct a concrete instance of `RuleGroupJsonMatchScopeInput` via:
+// RuleGroupJsonMatchScopeInput is an input type that accepts values of the RuleGroupJsonMatchScope enum
+// A concrete instance of `RuleGroupJsonMatchScopeInput` can be one of the following:
 //
-//	RuleGroupJsonMatchScopeArgs{...}
+//	RuleGroupJsonMatchScopeAll
+//	RuleGroupJsonMatchScopeKey
+//	RuleGroupJsonMatchScopeValue
 type RuleGroupJsonMatchScopeInput interface {
 	pulumi.Input
 
@@ -2571,12 +2347,6 @@ func (in *ruleGroupJsonMatchScopePtr) ToRuleGroupJsonMatchScopePtrOutput() RuleG
 
 func (in *ruleGroupJsonMatchScopePtr) ToRuleGroupJsonMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupJsonMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupJsonMatchScopePtrOutput)
-}
-
-func (in *ruleGroupJsonMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupJsonMatchScope] {
-	return pulumix.Output[*RuleGroupJsonMatchScope]{
-		OutputState: in.ToRuleGroupJsonMatchScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RuleGroupLabelMatchScope string
@@ -2646,12 +2416,6 @@ func (o RuleGroupLabelMatchScopeOutput) ToRuleGroupLabelMatchScopePtrOutputWithC
 	}).(RuleGroupLabelMatchScopePtrOutput)
 }
 
-func (o RuleGroupLabelMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupLabelMatchScope] {
-	return pulumix.Output[RuleGroupLabelMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupLabelMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2687,12 +2451,6 @@ func (o RuleGroupLabelMatchScopePtrOutput) ToRuleGroupLabelMatchScopePtrOutputWi
 	return o
 }
 
-func (o RuleGroupLabelMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupLabelMatchScope] {
-	return pulumix.Output[*RuleGroupLabelMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupLabelMatchScopePtrOutput) Elem() RuleGroupLabelMatchScopeOutput {
 	return o.ApplyT(func(v *RuleGroupLabelMatchScope) RuleGroupLabelMatchScope {
 		if v != nil {
@@ -2717,10 +2475,11 @@ func (o RuleGroupLabelMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupLabelMatchScopeInput is an input type that accepts RuleGroupLabelMatchScopeArgs and RuleGroupLabelMatchScopeOutput values.
-// You can construct a concrete instance of `RuleGroupLabelMatchScopeInput` via:
+// RuleGroupLabelMatchScopeInput is an input type that accepts values of the RuleGroupLabelMatchScope enum
+// A concrete instance of `RuleGroupLabelMatchScopeInput` can be one of the following:
 //
-//	RuleGroupLabelMatchScopeArgs{...}
+//	RuleGroupLabelMatchScopeLabel
+//	RuleGroupLabelMatchScopeNamespace
 type RuleGroupLabelMatchScopeInput interface {
 	pulumi.Input
 
@@ -2753,12 +2512,6 @@ func (in *ruleGroupLabelMatchScopePtr) ToRuleGroupLabelMatchScopePtrOutput() Rul
 
 func (in *ruleGroupLabelMatchScopePtr) ToRuleGroupLabelMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupLabelMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupLabelMatchScopePtrOutput)
-}
-
-func (in *ruleGroupLabelMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupLabelMatchScope] {
-	return pulumix.Output[*RuleGroupLabelMatchScope]{
-		OutputState: in.ToRuleGroupLabelMatchScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The parts of the request to match against using the MatchPattern.
@@ -2830,12 +2583,6 @@ func (o RuleGroupMapMatchScopeOutput) ToRuleGroupMapMatchScopePtrOutputWithConte
 	}).(RuleGroupMapMatchScopePtrOutput)
 }
 
-func (o RuleGroupMapMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupMapMatchScope] {
-	return pulumix.Output[RuleGroupMapMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupMapMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2871,12 +2618,6 @@ func (o RuleGroupMapMatchScopePtrOutput) ToRuleGroupMapMatchScopePtrOutputWithCo
 	return o
 }
 
-func (o RuleGroupMapMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupMapMatchScope] {
-	return pulumix.Output[*RuleGroupMapMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupMapMatchScopePtrOutput) Elem() RuleGroupMapMatchScopeOutput {
 	return o.ApplyT(func(v *RuleGroupMapMatchScope) RuleGroupMapMatchScope {
 		if v != nil {
@@ -2901,10 +2642,12 @@ func (o RuleGroupMapMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupMapMatchScopeInput is an input type that accepts RuleGroupMapMatchScopeArgs and RuleGroupMapMatchScopeOutput values.
-// You can construct a concrete instance of `RuleGroupMapMatchScopeInput` via:
+// RuleGroupMapMatchScopeInput is an input type that accepts values of the RuleGroupMapMatchScope enum
+// A concrete instance of `RuleGroupMapMatchScopeInput` can be one of the following:
 //
-//	RuleGroupMapMatchScopeArgs{...}
+//	RuleGroupMapMatchScopeAll
+//	RuleGroupMapMatchScopeKey
+//	RuleGroupMapMatchScopeValue
 type RuleGroupMapMatchScopeInput interface {
 	pulumi.Input
 
@@ -2937,12 +2680,6 @@ func (in *ruleGroupMapMatchScopePtr) ToRuleGroupMapMatchScopePtrOutput() RuleGro
 
 func (in *ruleGroupMapMatchScopePtr) ToRuleGroupMapMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupMapMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupMapMatchScopePtrOutput)
-}
-
-func (in *ruleGroupMapMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupMapMatchScope] {
-	return pulumix.Output[*RuleGroupMapMatchScope]{
-		OutputState: in.ToRuleGroupMapMatchScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Handling of requests containing oversize fields
@@ -3014,12 +2751,6 @@ func (o RuleGroupOversizeHandlingOutput) ToRuleGroupOversizeHandlingPtrOutputWit
 	}).(RuleGroupOversizeHandlingPtrOutput)
 }
 
-func (o RuleGroupOversizeHandlingOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupOversizeHandling] {
-	return pulumix.Output[RuleGroupOversizeHandling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupOversizeHandlingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3055,12 +2786,6 @@ func (o RuleGroupOversizeHandlingPtrOutput) ToRuleGroupOversizeHandlingPtrOutput
 	return o
 }
 
-func (o RuleGroupOversizeHandlingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupOversizeHandling] {
-	return pulumix.Output[*RuleGroupOversizeHandling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupOversizeHandlingPtrOutput) Elem() RuleGroupOversizeHandlingOutput {
 	return o.ApplyT(func(v *RuleGroupOversizeHandling) RuleGroupOversizeHandling {
 		if v != nil {
@@ -3085,10 +2810,12 @@ func (o RuleGroupOversizeHandlingPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupOversizeHandlingInput is an input type that accepts RuleGroupOversizeHandlingArgs and RuleGroupOversizeHandlingOutput values.
-// You can construct a concrete instance of `RuleGroupOversizeHandlingInput` via:
+// RuleGroupOversizeHandlingInput is an input type that accepts values of the RuleGroupOversizeHandling enum
+// A concrete instance of `RuleGroupOversizeHandlingInput` can be one of the following:
 //
-//	RuleGroupOversizeHandlingArgs{...}
+//	RuleGroupOversizeHandlingContinue
+//	RuleGroupOversizeHandlingMatch
+//	RuleGroupOversizeHandlingNoMatch
 type RuleGroupOversizeHandlingInput interface {
 	pulumi.Input
 
@@ -3121,12 +2848,6 @@ func (in *ruleGroupOversizeHandlingPtr) ToRuleGroupOversizeHandlingPtrOutput() R
 
 func (in *ruleGroupOversizeHandlingPtr) ToRuleGroupOversizeHandlingPtrOutputWithContext(ctx context.Context) RuleGroupOversizeHandlingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupOversizeHandlingPtrOutput)
-}
-
-func (in *ruleGroupOversizeHandlingPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupOversizeHandling] {
-	return pulumix.Output[*RuleGroupOversizeHandling]{
-		OutputState: in.ToRuleGroupOversizeHandlingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Position of the evaluation in the FieldToMatch of request.
@@ -3200,12 +2921,6 @@ func (o RuleGroupPositionalConstraintOutput) ToRuleGroupPositionalConstraintPtrO
 	}).(RuleGroupPositionalConstraintPtrOutput)
 }
 
-func (o RuleGroupPositionalConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupPositionalConstraint] {
-	return pulumix.Output[RuleGroupPositionalConstraint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupPositionalConstraintOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3241,12 +2956,6 @@ func (o RuleGroupPositionalConstraintPtrOutput) ToRuleGroupPositionalConstraintP
 	return o
 }
 
-func (o RuleGroupPositionalConstraintPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupPositionalConstraint] {
-	return pulumix.Output[*RuleGroupPositionalConstraint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupPositionalConstraintPtrOutput) Elem() RuleGroupPositionalConstraintOutput {
 	return o.ApplyT(func(v *RuleGroupPositionalConstraint) RuleGroupPositionalConstraint {
 		if v != nil {
@@ -3271,10 +2980,14 @@ func (o RuleGroupPositionalConstraintPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupPositionalConstraintInput is an input type that accepts RuleGroupPositionalConstraintArgs and RuleGroupPositionalConstraintOutput values.
-// You can construct a concrete instance of `RuleGroupPositionalConstraintInput` via:
+// RuleGroupPositionalConstraintInput is an input type that accepts values of the RuleGroupPositionalConstraint enum
+// A concrete instance of `RuleGroupPositionalConstraintInput` can be one of the following:
 //
-//	RuleGroupPositionalConstraintArgs{...}
+//	RuleGroupPositionalConstraintExactly
+//	RuleGroupPositionalConstraintStartsWith
+//	RuleGroupPositionalConstraintEndsWith
+//	RuleGroupPositionalConstraintContains
+//	RuleGroupPositionalConstraintContainsWord
 type RuleGroupPositionalConstraintInput interface {
 	pulumi.Input
 
@@ -3307,12 +3020,6 @@ func (in *ruleGroupPositionalConstraintPtr) ToRuleGroupPositionalConstraintPtrOu
 
 func (in *ruleGroupPositionalConstraintPtr) ToRuleGroupPositionalConstraintPtrOutputWithContext(ctx context.Context) RuleGroupPositionalConstraintPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupPositionalConstraintPtrOutput)
-}
-
-func (in *ruleGroupPositionalConstraintPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupPositionalConstraint] {
-	return pulumix.Output[*RuleGroupPositionalConstraint]{
-		OutputState: in.ToRuleGroupPositionalConstraintPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RuleGroupRateBasedStatementAggregateKeyType string
@@ -3384,12 +3091,6 @@ func (o RuleGroupRateBasedStatementAggregateKeyTypeOutput) ToRuleGroupRateBasedS
 	}).(RuleGroupRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
-func (o RuleGroupRateBasedStatementAggregateKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRateBasedStatementAggregateKeyType] {
-	return pulumix.Output[RuleGroupRateBasedStatementAggregateKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupRateBasedStatementAggregateKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3425,12 +3126,6 @@ func (o RuleGroupRateBasedStatementAggregateKeyTypePtrOutput) ToRuleGroupRateBas
 	return o
 }
 
-func (o RuleGroupRateBasedStatementAggregateKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRateBasedStatementAggregateKeyType] {
-	return pulumix.Output[*RuleGroupRateBasedStatementAggregateKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupRateBasedStatementAggregateKeyTypePtrOutput) Elem() RuleGroupRateBasedStatementAggregateKeyTypeOutput {
 	return o.ApplyT(func(v *RuleGroupRateBasedStatementAggregateKeyType) RuleGroupRateBasedStatementAggregateKeyType {
 		if v != nil {
@@ -3455,10 +3150,13 @@ func (o RuleGroupRateBasedStatementAggregateKeyTypePtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupRateBasedStatementAggregateKeyTypeInput is an input type that accepts RuleGroupRateBasedStatementAggregateKeyTypeArgs and RuleGroupRateBasedStatementAggregateKeyTypeOutput values.
-// You can construct a concrete instance of `RuleGroupRateBasedStatementAggregateKeyTypeInput` via:
+// RuleGroupRateBasedStatementAggregateKeyTypeInput is an input type that accepts values of the RuleGroupRateBasedStatementAggregateKeyType enum
+// A concrete instance of `RuleGroupRateBasedStatementAggregateKeyTypeInput` can be one of the following:
 //
-//	RuleGroupRateBasedStatementAggregateKeyTypeArgs{...}
+//	RuleGroupRateBasedStatementAggregateKeyTypeIp
+//	RuleGroupRateBasedStatementAggregateKeyTypeForwardedIp
+//	RuleGroupRateBasedStatementAggregateKeyTypeConstant
+//	RuleGroupRateBasedStatementAggregateKeyTypeCustomKeys
 type RuleGroupRateBasedStatementAggregateKeyTypeInput interface {
 	pulumi.Input
 
@@ -3491,12 +3189,6 @@ func (in *ruleGroupRateBasedStatementAggregateKeyTypePtr) ToRuleGroupRateBasedSt
 
 func (in *ruleGroupRateBasedStatementAggregateKeyTypePtr) ToRuleGroupRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementAggregateKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupRateBasedStatementAggregateKeyTypePtrOutput)
-}
-
-func (in *ruleGroupRateBasedStatementAggregateKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRateBasedStatementAggregateKeyType] {
-	return pulumix.Output[*RuleGroupRateBasedStatementAggregateKeyType]{
-		OutputState: in.ToRuleGroupRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Use CLOUDFRONT for CloudFront RuleGroup, use REGIONAL for Application Load Balancer and API Gateway.
@@ -3567,12 +3259,6 @@ func (o RuleGroupScopeOutput) ToRuleGroupScopePtrOutputWithContext(ctx context.C
 	}).(RuleGroupScopePtrOutput)
 }
 
-func (o RuleGroupScopeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupScope] {
-	return pulumix.Output[RuleGroupScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3608,12 +3294,6 @@ func (o RuleGroupScopePtrOutput) ToRuleGroupScopePtrOutputWithContext(ctx contex
 	return o
 }
 
-func (o RuleGroupScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupScope] {
-	return pulumix.Output[*RuleGroupScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupScopePtrOutput) Elem() RuleGroupScopeOutput {
 	return o.ApplyT(func(v *RuleGroupScope) RuleGroupScope {
 		if v != nil {
@@ -3638,10 +3318,11 @@ func (o RuleGroupScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupScopeInput is an input type that accepts RuleGroupScopeArgs and RuleGroupScopeOutput values.
-// You can construct a concrete instance of `RuleGroupScopeInput` via:
+// RuleGroupScopeInput is an input type that accepts values of the RuleGroupScope enum
+// A concrete instance of `RuleGroupScopeInput` can be one of the following:
 //
-//	RuleGroupScopeArgs{...}
+//	RuleGroupScopeCloudfront
+//	RuleGroupScopeRegional
 type RuleGroupScopeInput interface {
 	pulumi.Input
 
@@ -3674,12 +3355,6 @@ func (in *ruleGroupScopePtr) ToRuleGroupScopePtrOutput() RuleGroupScopePtrOutput
 
 func (in *ruleGroupScopePtr) ToRuleGroupScopePtrOutputWithContext(ctx context.Context) RuleGroupScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupScopePtrOutput)
-}
-
-func (in *ruleGroupScopePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupScope] {
-	return pulumix.Output[*RuleGroupScope]{
-		OutputState: in.ToRuleGroupScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Sensitivity Level current only used for sqli match statements.
@@ -3750,12 +3425,6 @@ func (o RuleGroupSensitivityLevelOutput) ToRuleGroupSensitivityLevelPtrOutputWit
 	}).(RuleGroupSensitivityLevelPtrOutput)
 }
 
-func (o RuleGroupSensitivityLevelOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupSensitivityLevel] {
-	return pulumix.Output[RuleGroupSensitivityLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupSensitivityLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3791,12 +3460,6 @@ func (o RuleGroupSensitivityLevelPtrOutput) ToRuleGroupSensitivityLevelPtrOutput
 	return o
 }
 
-func (o RuleGroupSensitivityLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupSensitivityLevel] {
-	return pulumix.Output[*RuleGroupSensitivityLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupSensitivityLevelPtrOutput) Elem() RuleGroupSensitivityLevelOutput {
 	return o.ApplyT(func(v *RuleGroupSensitivityLevel) RuleGroupSensitivityLevel {
 		if v != nil {
@@ -3821,10 +3484,11 @@ func (o RuleGroupSensitivityLevelPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupSensitivityLevelInput is an input type that accepts RuleGroupSensitivityLevelArgs and RuleGroupSensitivityLevelOutput values.
-// You can construct a concrete instance of `RuleGroupSensitivityLevelInput` via:
+// RuleGroupSensitivityLevelInput is an input type that accepts values of the RuleGroupSensitivityLevel enum
+// A concrete instance of `RuleGroupSensitivityLevelInput` can be one of the following:
 //
-//	RuleGroupSensitivityLevelArgs{...}
+//	RuleGroupSensitivityLevelLow
+//	RuleGroupSensitivityLevelHigh
 type RuleGroupSensitivityLevelInput interface {
 	pulumi.Input
 
@@ -3857,12 +3521,6 @@ func (in *ruleGroupSensitivityLevelPtr) ToRuleGroupSensitivityLevelPtrOutput() R
 
 func (in *ruleGroupSensitivityLevelPtr) ToRuleGroupSensitivityLevelPtrOutputWithContext(ctx context.Context) RuleGroupSensitivityLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupSensitivityLevelPtrOutput)
-}
-
-func (in *ruleGroupSensitivityLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupSensitivityLevel] {
-	return pulumix.Output[*RuleGroupSensitivityLevel]{
-		OutputState: in.ToRuleGroupSensitivityLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RuleGroupSizeConstraintStatementComparisonOperator string
@@ -3936,12 +3594,6 @@ func (o RuleGroupSizeConstraintStatementComparisonOperatorOutput) ToRuleGroupSiz
 	}).(RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput)
 }
 
-func (o RuleGroupSizeConstraintStatementComparisonOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupSizeConstraintStatementComparisonOperator] {
-	return pulumix.Output[RuleGroupSizeConstraintStatementComparisonOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupSizeConstraintStatementComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3977,12 +3629,6 @@ func (o RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput) ToRuleGroup
 	return o
 }
 
-func (o RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupSizeConstraintStatementComparisonOperator] {
-	return pulumix.Output[*RuleGroupSizeConstraintStatementComparisonOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput) Elem() RuleGroupSizeConstraintStatementComparisonOperatorOutput {
 	return o.ApplyT(func(v *RuleGroupSizeConstraintStatementComparisonOperator) RuleGroupSizeConstraintStatementComparisonOperator {
 		if v != nil {
@@ -4007,10 +3653,15 @@ func (o RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupSizeConstraintStatementComparisonOperatorInput is an input type that accepts RuleGroupSizeConstraintStatementComparisonOperatorArgs and RuleGroupSizeConstraintStatementComparisonOperatorOutput values.
-// You can construct a concrete instance of `RuleGroupSizeConstraintStatementComparisonOperatorInput` via:
+// RuleGroupSizeConstraintStatementComparisonOperatorInput is an input type that accepts values of the RuleGroupSizeConstraintStatementComparisonOperator enum
+// A concrete instance of `RuleGroupSizeConstraintStatementComparisonOperatorInput` can be one of the following:
 //
-//	RuleGroupSizeConstraintStatementComparisonOperatorArgs{...}
+//	RuleGroupSizeConstraintStatementComparisonOperatorEq
+//	RuleGroupSizeConstraintStatementComparisonOperatorNe
+//	RuleGroupSizeConstraintStatementComparisonOperatorLe
+//	RuleGroupSizeConstraintStatementComparisonOperatorLt
+//	RuleGroupSizeConstraintStatementComparisonOperatorGe
+//	RuleGroupSizeConstraintStatementComparisonOperatorGt
 type RuleGroupSizeConstraintStatementComparisonOperatorInput interface {
 	pulumi.Input
 
@@ -4043,12 +3694,6 @@ func (in *ruleGroupSizeConstraintStatementComparisonOperatorPtr) ToRuleGroupSize
 
 func (in *ruleGroupSizeConstraintStatementComparisonOperatorPtr) ToRuleGroupSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput)
-}
-
-func (in *ruleGroupSizeConstraintStatementComparisonOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupSizeConstraintStatementComparisonOperator] {
-	return pulumix.Output[*RuleGroupSizeConstraintStatementComparisonOperator]{
-		OutputState: in.ToRuleGroupSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of text transformation.
@@ -4138,12 +3783,6 @@ func (o RuleGroupTextTransformationTypeOutput) ToRuleGroupTextTransformationType
 	}).(RuleGroupTextTransformationTypePtrOutput)
 }
 
-func (o RuleGroupTextTransformationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupTextTransformationType] {
-	return pulumix.Output[RuleGroupTextTransformationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupTextTransformationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4179,12 +3818,6 @@ func (o RuleGroupTextTransformationTypePtrOutput) ToRuleGroupTextTransformationT
 	return o
 }
 
-func (o RuleGroupTextTransformationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupTextTransformationType] {
-	return pulumix.Output[*RuleGroupTextTransformationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleGroupTextTransformationTypePtrOutput) Elem() RuleGroupTextTransformationTypeOutput {
 	return o.ApplyT(func(v *RuleGroupTextTransformationType) RuleGroupTextTransformationType {
 		if v != nil {
@@ -4209,10 +3842,30 @@ func (o RuleGroupTextTransformationTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupTextTransformationTypeInput is an input type that accepts RuleGroupTextTransformationTypeArgs and RuleGroupTextTransformationTypeOutput values.
-// You can construct a concrete instance of `RuleGroupTextTransformationTypeInput` via:
+// RuleGroupTextTransformationTypeInput is an input type that accepts values of the RuleGroupTextTransformationType enum
+// A concrete instance of `RuleGroupTextTransformationTypeInput` can be one of the following:
 //
-//	RuleGroupTextTransformationTypeArgs{...}
+//	RuleGroupTextTransformationTypeNone
+//	RuleGroupTextTransformationTypeCompressWhiteSpace
+//	RuleGroupTextTransformationTypeHtmlEntityDecode
+//	RuleGroupTextTransformationTypeLowercase
+//	RuleGroupTextTransformationTypeCmdLine
+//	RuleGroupTextTransformationTypeUrlDecode
+//	RuleGroupTextTransformationTypeBase64Decode
+//	RuleGroupTextTransformationTypeHexDecode
+//	RuleGroupTextTransformationTypeMd5
+//	RuleGroupTextTransformationTypeReplaceComments
+//	RuleGroupTextTransformationTypeEscapeSeqDecode
+//	RuleGroupTextTransformationTypeSqlHexDecode
+//	RuleGroupTextTransformationTypeCssDecode
+//	RuleGroupTextTransformationTypeJsDecode
+//	RuleGroupTextTransformationTypeNormalizePath
+//	RuleGroupTextTransformationTypeNormalizePathWin
+//	RuleGroupTextTransformationTypeRemoveNulls
+//	RuleGroupTextTransformationTypeReplaceNulls
+//	RuleGroupTextTransformationTypeBase64DecodeExt
+//	RuleGroupTextTransformationTypeUrlDecodeUni
+//	RuleGroupTextTransformationTypeUtf8ToUnicode
 type RuleGroupTextTransformationTypeInput interface {
 	pulumi.Input
 
@@ -4245,12 +3898,6 @@ func (in *ruleGroupTextTransformationTypePtr) ToRuleGroupTextTransformationTypeP
 
 func (in *ruleGroupTextTransformationTypePtr) ToRuleGroupTextTransformationTypePtrOutputWithContext(ctx context.Context) RuleGroupTextTransformationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupTextTransformationTypePtrOutput)
-}
-
-func (in *ruleGroupTextTransformationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupTextTransformationType] {
-	return pulumix.Output[*RuleGroupTextTransformationType]{
-		OutputState: in.ToRuleGroupTextTransformationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WebAclAwsManagedRulesBotControlRuleSetInspectionLevel string
@@ -4320,12 +3967,6 @@ func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebAclAws
 	}).(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
 }
 
-func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclAwsManagedRulesBotControlRuleSetInspectionLevel] {
-	return pulumix.Output[WebAclAwsManagedRulesBotControlRuleSetInspectionLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4361,12 +4002,6 @@ func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToWebAcl
 	return o
 }
 
-func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclAwsManagedRulesBotControlRuleSetInspectionLevel] {
-	return pulumix.Output[*WebAclAwsManagedRulesBotControlRuleSetInspectionLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput) Elem() WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput {
 	return o.ApplyT(func(v *WebAclAwsManagedRulesBotControlRuleSetInspectionLevel) WebAclAwsManagedRulesBotControlRuleSetInspectionLevel {
 		if v != nil {
@@ -4391,10 +4026,11 @@ func (o WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput is an input type that accepts WebAclAwsManagedRulesBotControlRuleSetInspectionLevelArgs and WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput values.
-// You can construct a concrete instance of `WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput` via:
+// WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput is an input type that accepts values of the WebAclAwsManagedRulesBotControlRuleSetInspectionLevel enum
+// A concrete instance of `WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput` can be one of the following:
 //
-//	WebAclAwsManagedRulesBotControlRuleSetInspectionLevelArgs{...}
+//	WebAclAwsManagedRulesBotControlRuleSetInspectionLevelCommon
+//	WebAclAwsManagedRulesBotControlRuleSetInspectionLevelTargeted
 type WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput interface {
 	pulumi.Input
 
@@ -4427,12 +4063,6 @@ func (in *webAclAwsManagedRulesBotControlRuleSetInspectionLevelPtr) ToWebAclAwsM
 
 func (in *webAclAwsManagedRulesBotControlRuleSetInspectionLevelPtr) ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
-}
-
-func (in *webAclAwsManagedRulesBotControlRuleSetInspectionLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclAwsManagedRulesBotControlRuleSetInspectionLevel] {
-	return pulumix.Output[*WebAclAwsManagedRulesBotControlRuleSetInspectionLevel]{
-		OutputState: in.ToWebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The inspection behavior to fall back to if the JSON in the request body is invalid.
@@ -4504,12 +4134,6 @@ func (o WebAclBodyParsingFallbackBehaviorOutput) ToWebAclBodyParsingFallbackBeha
 	}).(WebAclBodyParsingFallbackBehaviorPtrOutput)
 }
 
-func (o WebAclBodyParsingFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclBodyParsingFallbackBehavior] {
-	return pulumix.Output[WebAclBodyParsingFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclBodyParsingFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4545,12 +4169,6 @@ func (o WebAclBodyParsingFallbackBehaviorPtrOutput) ToWebAclBodyParsingFallbackB
 	return o
 }
 
-func (o WebAclBodyParsingFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclBodyParsingFallbackBehavior] {
-	return pulumix.Output[*WebAclBodyParsingFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclBodyParsingFallbackBehaviorPtrOutput) Elem() WebAclBodyParsingFallbackBehaviorOutput {
 	return o.ApplyT(func(v *WebAclBodyParsingFallbackBehavior) WebAclBodyParsingFallbackBehavior {
 		if v != nil {
@@ -4575,10 +4193,12 @@ func (o WebAclBodyParsingFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclBodyParsingFallbackBehaviorInput is an input type that accepts WebAclBodyParsingFallbackBehaviorArgs and WebAclBodyParsingFallbackBehaviorOutput values.
-// You can construct a concrete instance of `WebAclBodyParsingFallbackBehaviorInput` via:
+// WebAclBodyParsingFallbackBehaviorInput is an input type that accepts values of the WebAclBodyParsingFallbackBehavior enum
+// A concrete instance of `WebAclBodyParsingFallbackBehaviorInput` can be one of the following:
 //
-//	WebAclBodyParsingFallbackBehaviorArgs{...}
+//	WebAclBodyParsingFallbackBehaviorMatch
+//	WebAclBodyParsingFallbackBehaviorNoMatch
+//	WebAclBodyParsingFallbackBehaviorEvaluateAsString
 type WebAclBodyParsingFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -4611,12 +4231,6 @@ func (in *webAclBodyParsingFallbackBehaviorPtr) ToWebAclBodyParsingFallbackBehav
 
 func (in *webAclBodyParsingFallbackBehaviorPtr) ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclBodyParsingFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclBodyParsingFallbackBehaviorPtrOutput)
-}
-
-func (in *webAclBodyParsingFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclBodyParsingFallbackBehavior] {
-	return pulumix.Output[*WebAclBodyParsingFallbackBehavior]{
-		OutputState: in.ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WebAclForwardedIpConfigurationFallbackBehavior string
@@ -4686,12 +4300,6 @@ func (o WebAclForwardedIpConfigurationFallbackBehaviorOutput) ToWebAclForwardedI
 	}).(WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-func (o WebAclForwardedIpConfigurationFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclForwardedIpConfigurationFallbackBehavior] {
-	return pulumix.Output[WebAclForwardedIpConfigurationFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclForwardedIpConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4727,12 +4335,6 @@ func (o WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput) ToWebAclForward
 	return o
 }
 
-func (o WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclForwardedIpConfigurationFallbackBehavior] {
-	return pulumix.Output[*WebAclForwardedIpConfigurationFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput) Elem() WebAclForwardedIpConfigurationFallbackBehaviorOutput {
 	return o.ApplyT(func(v *WebAclForwardedIpConfigurationFallbackBehavior) WebAclForwardedIpConfigurationFallbackBehavior {
 		if v != nil {
@@ -4757,10 +4359,11 @@ func (o WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclForwardedIpConfigurationFallbackBehaviorInput is an input type that accepts WebAclForwardedIpConfigurationFallbackBehaviorArgs and WebAclForwardedIpConfigurationFallbackBehaviorOutput values.
-// You can construct a concrete instance of `WebAclForwardedIpConfigurationFallbackBehaviorInput` via:
+// WebAclForwardedIpConfigurationFallbackBehaviorInput is an input type that accepts values of the WebAclForwardedIpConfigurationFallbackBehavior enum
+// A concrete instance of `WebAclForwardedIpConfigurationFallbackBehaviorInput` can be one of the following:
 //
-//	WebAclForwardedIpConfigurationFallbackBehaviorArgs{...}
+//	WebAclForwardedIpConfigurationFallbackBehaviorMatch
+//	WebAclForwardedIpConfigurationFallbackBehaviorNoMatch
 type WebAclForwardedIpConfigurationFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -4793,12 +4396,6 @@ func (in *webAclForwardedIpConfigurationFallbackBehaviorPtr) ToWebAclForwardedIp
 
 func (in *webAclForwardedIpConfigurationFallbackBehaviorPtr) ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput)
-}
-
-func (in *webAclForwardedIpConfigurationFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclForwardedIpConfigurationFallbackBehavior] {
-	return pulumix.Output[*WebAclForwardedIpConfigurationFallbackBehavior]{
-		OutputState: in.ToWebAclForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WebAclIpSetForwardedIpConfigurationFallbackBehavior string
@@ -4868,12 +4465,6 @@ func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToWebAclIpSet
 	}).(WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
-func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclIpSetForwardedIpConfigurationFallbackBehavior] {
-	return pulumix.Output[WebAclIpSetForwardedIpConfigurationFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4909,12 +4500,6 @@ func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToWebAclIp
 	return o
 }
 
-func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclIpSetForwardedIpConfigurationFallbackBehavior] {
-	return pulumix.Output[*WebAclIpSetForwardedIpConfigurationFallbackBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) Elem() WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput {
 	return o.ApplyT(func(v *WebAclIpSetForwardedIpConfigurationFallbackBehavior) WebAclIpSetForwardedIpConfigurationFallbackBehavior {
 		if v != nil {
@@ -4939,10 +4524,11 @@ func (o WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclIpSetForwardedIpConfigurationFallbackBehaviorInput is an input type that accepts WebAclIpSetForwardedIpConfigurationFallbackBehaviorArgs and WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput values.
-// You can construct a concrete instance of `WebAclIpSetForwardedIpConfigurationFallbackBehaviorInput` via:
+// WebAclIpSetForwardedIpConfigurationFallbackBehaviorInput is an input type that accepts values of the WebAclIpSetForwardedIpConfigurationFallbackBehavior enum
+// A concrete instance of `WebAclIpSetForwardedIpConfigurationFallbackBehaviorInput` can be one of the following:
 //
-//	WebAclIpSetForwardedIpConfigurationFallbackBehaviorArgs{...}
+//	WebAclIpSetForwardedIpConfigurationFallbackBehaviorMatch
+//	WebAclIpSetForwardedIpConfigurationFallbackBehaviorNoMatch
 type WebAclIpSetForwardedIpConfigurationFallbackBehaviorInput interface {
 	pulumi.Input
 
@@ -4975,12 +4561,6 @@ func (in *webAclIpSetForwardedIpConfigurationFallbackBehaviorPtr) ToWebAclIpSetF
 
 func (in *webAclIpSetForwardedIpConfigurationFallbackBehaviorPtr) ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput)
-}
-
-func (in *webAclIpSetForwardedIpConfigurationFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclIpSetForwardedIpConfigurationFallbackBehavior] {
-	return pulumix.Output[*WebAclIpSetForwardedIpConfigurationFallbackBehavior]{
-		OutputState: in.ToWebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WebAclIpSetForwardedIpConfigurationPosition string
@@ -5051,12 +4631,6 @@ func (o WebAclIpSetForwardedIpConfigurationPositionOutput) ToWebAclIpSetForwarde
 	}).(WebAclIpSetForwardedIpConfigurationPositionPtrOutput)
 }
 
-func (o WebAclIpSetForwardedIpConfigurationPositionOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclIpSetForwardedIpConfigurationPosition] {
-	return pulumix.Output[WebAclIpSetForwardedIpConfigurationPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclIpSetForwardedIpConfigurationPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5092,12 +4666,6 @@ func (o WebAclIpSetForwardedIpConfigurationPositionPtrOutput) ToWebAclIpSetForwa
 	return o
 }
 
-func (o WebAclIpSetForwardedIpConfigurationPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclIpSetForwardedIpConfigurationPosition] {
-	return pulumix.Output[*WebAclIpSetForwardedIpConfigurationPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclIpSetForwardedIpConfigurationPositionPtrOutput) Elem() WebAclIpSetForwardedIpConfigurationPositionOutput {
 	return o.ApplyT(func(v *WebAclIpSetForwardedIpConfigurationPosition) WebAclIpSetForwardedIpConfigurationPosition {
 		if v != nil {
@@ -5122,10 +4690,12 @@ func (o WebAclIpSetForwardedIpConfigurationPositionPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclIpSetForwardedIpConfigurationPositionInput is an input type that accepts WebAclIpSetForwardedIpConfigurationPositionArgs and WebAclIpSetForwardedIpConfigurationPositionOutput values.
-// You can construct a concrete instance of `WebAclIpSetForwardedIpConfigurationPositionInput` via:
+// WebAclIpSetForwardedIpConfigurationPositionInput is an input type that accepts values of the WebAclIpSetForwardedIpConfigurationPosition enum
+// A concrete instance of `WebAclIpSetForwardedIpConfigurationPositionInput` can be one of the following:
 //
-//	WebAclIpSetForwardedIpConfigurationPositionArgs{...}
+//	WebAclIpSetForwardedIpConfigurationPositionFirst
+//	WebAclIpSetForwardedIpConfigurationPositionLast
+//	WebAclIpSetForwardedIpConfigurationPositionAny
 type WebAclIpSetForwardedIpConfigurationPositionInput interface {
 	pulumi.Input
 
@@ -5158,12 +4728,6 @@ func (in *webAclIpSetForwardedIpConfigurationPositionPtr) ToWebAclIpSetForwarded
 
 func (in *webAclIpSetForwardedIpConfigurationPositionPtr) ToWebAclIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx context.Context) WebAclIpSetForwardedIpConfigurationPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclIpSetForwardedIpConfigurationPositionPtrOutput)
-}
-
-func (in *webAclIpSetForwardedIpConfigurationPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclIpSetForwardedIpConfigurationPosition] {
-	return pulumix.Output[*WebAclIpSetForwardedIpConfigurationPosition]{
-		OutputState: in.ToWebAclIpSetForwardedIpConfigurationPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The parts of the JSON to match against using the MatchPattern.
@@ -5235,12 +4799,6 @@ func (o WebAclJsonMatchScopeOutput) ToWebAclJsonMatchScopePtrOutputWithContext(c
 	}).(WebAclJsonMatchScopePtrOutput)
 }
 
-func (o WebAclJsonMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclJsonMatchScope] {
-	return pulumix.Output[WebAclJsonMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclJsonMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5276,12 +4834,6 @@ func (o WebAclJsonMatchScopePtrOutput) ToWebAclJsonMatchScopePtrOutputWithContex
 	return o
 }
 
-func (o WebAclJsonMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclJsonMatchScope] {
-	return pulumix.Output[*WebAclJsonMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclJsonMatchScopePtrOutput) Elem() WebAclJsonMatchScopeOutput {
 	return o.ApplyT(func(v *WebAclJsonMatchScope) WebAclJsonMatchScope {
 		if v != nil {
@@ -5306,10 +4858,12 @@ func (o WebAclJsonMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclJsonMatchScopeInput is an input type that accepts WebAclJsonMatchScopeArgs and WebAclJsonMatchScopeOutput values.
-// You can construct a concrete instance of `WebAclJsonMatchScopeInput` via:
+// WebAclJsonMatchScopeInput is an input type that accepts values of the WebAclJsonMatchScope enum
+// A concrete instance of `WebAclJsonMatchScopeInput` can be one of the following:
 //
-//	WebAclJsonMatchScopeArgs{...}
+//	WebAclJsonMatchScopeAll
+//	WebAclJsonMatchScopeKey
+//	WebAclJsonMatchScopeValue
 type WebAclJsonMatchScopeInput interface {
 	pulumi.Input
 
@@ -5342,12 +4896,6 @@ func (in *webAclJsonMatchScopePtr) ToWebAclJsonMatchScopePtrOutput() WebAclJsonM
 
 func (in *webAclJsonMatchScopePtr) ToWebAclJsonMatchScopePtrOutputWithContext(ctx context.Context) WebAclJsonMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclJsonMatchScopePtrOutput)
-}
-
-func (in *webAclJsonMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclJsonMatchScope] {
-	return pulumix.Output[*WebAclJsonMatchScope]{
-		OutputState: in.ToWebAclJsonMatchScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WebAclLabelMatchScope string
@@ -5417,12 +4965,6 @@ func (o WebAclLabelMatchScopeOutput) ToWebAclLabelMatchScopePtrOutputWithContext
 	}).(WebAclLabelMatchScopePtrOutput)
 }
 
-func (o WebAclLabelMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclLabelMatchScope] {
-	return pulumix.Output[WebAclLabelMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclLabelMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5458,12 +5000,6 @@ func (o WebAclLabelMatchScopePtrOutput) ToWebAclLabelMatchScopePtrOutputWithCont
 	return o
 }
 
-func (o WebAclLabelMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclLabelMatchScope] {
-	return pulumix.Output[*WebAclLabelMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclLabelMatchScopePtrOutput) Elem() WebAclLabelMatchScopeOutput {
 	return o.ApplyT(func(v *WebAclLabelMatchScope) WebAclLabelMatchScope {
 		if v != nil {
@@ -5488,10 +5024,11 @@ func (o WebAclLabelMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclLabelMatchScopeInput is an input type that accepts WebAclLabelMatchScopeArgs and WebAclLabelMatchScopeOutput values.
-// You can construct a concrete instance of `WebAclLabelMatchScopeInput` via:
+// WebAclLabelMatchScopeInput is an input type that accepts values of the WebAclLabelMatchScope enum
+// A concrete instance of `WebAclLabelMatchScopeInput` can be one of the following:
 //
-//	WebAclLabelMatchScopeArgs{...}
+//	WebAclLabelMatchScopeLabel
+//	WebAclLabelMatchScopeNamespace
 type WebAclLabelMatchScopeInput interface {
 	pulumi.Input
 
@@ -5524,12 +5061,6 @@ func (in *webAclLabelMatchScopePtr) ToWebAclLabelMatchScopePtrOutput() WebAclLab
 
 func (in *webAclLabelMatchScopePtr) ToWebAclLabelMatchScopePtrOutputWithContext(ctx context.Context) WebAclLabelMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclLabelMatchScopePtrOutput)
-}
-
-func (in *webAclLabelMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclLabelMatchScope] {
-	return pulumix.Output[*WebAclLabelMatchScope]{
-		OutputState: in.ToWebAclLabelMatchScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WebAclManagedRuleGroupConfigPayloadType string
@@ -5599,12 +5130,6 @@ func (o WebAclManagedRuleGroupConfigPayloadTypeOutput) ToWebAclManagedRuleGroupC
 	}).(WebAclManagedRuleGroupConfigPayloadTypePtrOutput)
 }
 
-func (o WebAclManagedRuleGroupConfigPayloadTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclManagedRuleGroupConfigPayloadType] {
-	return pulumix.Output[WebAclManagedRuleGroupConfigPayloadType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclManagedRuleGroupConfigPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5640,12 +5165,6 @@ func (o WebAclManagedRuleGroupConfigPayloadTypePtrOutput) ToWebAclManagedRuleGro
 	return o
 }
 
-func (o WebAclManagedRuleGroupConfigPayloadTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclManagedRuleGroupConfigPayloadType] {
-	return pulumix.Output[*WebAclManagedRuleGroupConfigPayloadType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclManagedRuleGroupConfigPayloadTypePtrOutput) Elem() WebAclManagedRuleGroupConfigPayloadTypeOutput {
 	return o.ApplyT(func(v *WebAclManagedRuleGroupConfigPayloadType) WebAclManagedRuleGroupConfigPayloadType {
 		if v != nil {
@@ -5670,10 +5189,11 @@ func (o WebAclManagedRuleGroupConfigPayloadTypePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclManagedRuleGroupConfigPayloadTypeInput is an input type that accepts WebAclManagedRuleGroupConfigPayloadTypeArgs and WebAclManagedRuleGroupConfigPayloadTypeOutput values.
-// You can construct a concrete instance of `WebAclManagedRuleGroupConfigPayloadTypeInput` via:
+// WebAclManagedRuleGroupConfigPayloadTypeInput is an input type that accepts values of the WebAclManagedRuleGroupConfigPayloadType enum
+// A concrete instance of `WebAclManagedRuleGroupConfigPayloadTypeInput` can be one of the following:
 //
-//	WebAclManagedRuleGroupConfigPayloadTypeArgs{...}
+//	WebAclManagedRuleGroupConfigPayloadTypeJson
+//	WebAclManagedRuleGroupConfigPayloadTypeFormEncoded
 type WebAclManagedRuleGroupConfigPayloadTypeInput interface {
 	pulumi.Input
 
@@ -5706,12 +5226,6 @@ func (in *webAclManagedRuleGroupConfigPayloadTypePtr) ToWebAclManagedRuleGroupCo
 
 func (in *webAclManagedRuleGroupConfigPayloadTypePtr) ToWebAclManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebAclManagedRuleGroupConfigPayloadTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclManagedRuleGroupConfigPayloadTypePtrOutput)
-}
-
-func (in *webAclManagedRuleGroupConfigPayloadTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclManagedRuleGroupConfigPayloadType] {
-	return pulumix.Output[*WebAclManagedRuleGroupConfigPayloadType]{
-		OutputState: in.ToWebAclManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The parts of the request to match against using the MatchPattern.
@@ -5783,12 +5297,6 @@ func (o WebAclMapMatchScopeOutput) ToWebAclMapMatchScopePtrOutputWithContext(ctx
 	}).(WebAclMapMatchScopePtrOutput)
 }
 
-func (o WebAclMapMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclMapMatchScope] {
-	return pulumix.Output[WebAclMapMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclMapMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5824,12 +5332,6 @@ func (o WebAclMapMatchScopePtrOutput) ToWebAclMapMatchScopePtrOutputWithContext(
 	return o
 }
 
-func (o WebAclMapMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclMapMatchScope] {
-	return pulumix.Output[*WebAclMapMatchScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclMapMatchScopePtrOutput) Elem() WebAclMapMatchScopeOutput {
 	return o.ApplyT(func(v *WebAclMapMatchScope) WebAclMapMatchScope {
 		if v != nil {
@@ -5854,10 +5356,12 @@ func (o WebAclMapMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclMapMatchScopeInput is an input type that accepts WebAclMapMatchScopeArgs and WebAclMapMatchScopeOutput values.
-// You can construct a concrete instance of `WebAclMapMatchScopeInput` via:
+// WebAclMapMatchScopeInput is an input type that accepts values of the WebAclMapMatchScope enum
+// A concrete instance of `WebAclMapMatchScopeInput` can be one of the following:
 //
-//	WebAclMapMatchScopeArgs{...}
+//	WebAclMapMatchScopeAll
+//	WebAclMapMatchScopeKey
+//	WebAclMapMatchScopeValue
 type WebAclMapMatchScopeInput interface {
 	pulumi.Input
 
@@ -5890,12 +5394,6 @@ func (in *webAclMapMatchScopePtr) ToWebAclMapMatchScopePtrOutput() WebAclMapMatc
 
 func (in *webAclMapMatchScopePtr) ToWebAclMapMatchScopePtrOutputWithContext(ctx context.Context) WebAclMapMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclMapMatchScopePtrOutput)
-}
-
-func (in *webAclMapMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclMapMatchScope] {
-	return pulumix.Output[*WebAclMapMatchScope]{
-		OutputState: in.ToWebAclMapMatchScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Handling of requests containing oversize fields
@@ -5967,12 +5465,6 @@ func (o WebAclOversizeHandlingOutput) ToWebAclOversizeHandlingPtrOutputWithConte
 	}).(WebAclOversizeHandlingPtrOutput)
 }
 
-func (o WebAclOversizeHandlingOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclOversizeHandling] {
-	return pulumix.Output[WebAclOversizeHandling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclOversizeHandlingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6008,12 +5500,6 @@ func (o WebAclOversizeHandlingPtrOutput) ToWebAclOversizeHandlingPtrOutputWithCo
 	return o
 }
 
-func (o WebAclOversizeHandlingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclOversizeHandling] {
-	return pulumix.Output[*WebAclOversizeHandling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclOversizeHandlingPtrOutput) Elem() WebAclOversizeHandlingOutput {
 	return o.ApplyT(func(v *WebAclOversizeHandling) WebAclOversizeHandling {
 		if v != nil {
@@ -6038,10 +5524,12 @@ func (o WebAclOversizeHandlingPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclOversizeHandlingInput is an input type that accepts WebAclOversizeHandlingArgs and WebAclOversizeHandlingOutput values.
-// You can construct a concrete instance of `WebAclOversizeHandlingInput` via:
+// WebAclOversizeHandlingInput is an input type that accepts values of the WebAclOversizeHandling enum
+// A concrete instance of `WebAclOversizeHandlingInput` can be one of the following:
 //
-//	WebAclOversizeHandlingArgs{...}
+//	WebAclOversizeHandlingContinue
+//	WebAclOversizeHandlingMatch
+//	WebAclOversizeHandlingNoMatch
 type WebAclOversizeHandlingInput interface {
 	pulumi.Input
 
@@ -6074,12 +5562,6 @@ func (in *webAclOversizeHandlingPtr) ToWebAclOversizeHandlingPtrOutput() WebAclO
 
 func (in *webAclOversizeHandlingPtr) ToWebAclOversizeHandlingPtrOutputWithContext(ctx context.Context) WebAclOversizeHandlingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclOversizeHandlingPtrOutput)
-}
-
-func (in *webAclOversizeHandlingPtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclOversizeHandling] {
-	return pulumix.Output[*WebAclOversizeHandling]{
-		OutputState: in.ToWebAclOversizeHandlingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Position of the evaluation in the FieldToMatch of request.
@@ -6153,12 +5635,6 @@ func (o WebAclPositionalConstraintOutput) ToWebAclPositionalConstraintPtrOutputW
 	}).(WebAclPositionalConstraintPtrOutput)
 }
 
-func (o WebAclPositionalConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclPositionalConstraint] {
-	return pulumix.Output[WebAclPositionalConstraint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclPositionalConstraintOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6194,12 +5670,6 @@ func (o WebAclPositionalConstraintPtrOutput) ToWebAclPositionalConstraintPtrOutp
 	return o
 }
 
-func (o WebAclPositionalConstraintPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclPositionalConstraint] {
-	return pulumix.Output[*WebAclPositionalConstraint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclPositionalConstraintPtrOutput) Elem() WebAclPositionalConstraintOutput {
 	return o.ApplyT(func(v *WebAclPositionalConstraint) WebAclPositionalConstraint {
 		if v != nil {
@@ -6224,10 +5694,14 @@ func (o WebAclPositionalConstraintPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclPositionalConstraintInput is an input type that accepts WebAclPositionalConstraintArgs and WebAclPositionalConstraintOutput values.
-// You can construct a concrete instance of `WebAclPositionalConstraintInput` via:
+// WebAclPositionalConstraintInput is an input type that accepts values of the WebAclPositionalConstraint enum
+// A concrete instance of `WebAclPositionalConstraintInput` can be one of the following:
 //
-//	WebAclPositionalConstraintArgs{...}
+//	WebAclPositionalConstraintExactly
+//	WebAclPositionalConstraintStartsWith
+//	WebAclPositionalConstraintEndsWith
+//	WebAclPositionalConstraintContains
+//	WebAclPositionalConstraintContainsWord
 type WebAclPositionalConstraintInput interface {
 	pulumi.Input
 
@@ -6260,12 +5734,6 @@ func (in *webAclPositionalConstraintPtr) ToWebAclPositionalConstraintPtrOutput()
 
 func (in *webAclPositionalConstraintPtr) ToWebAclPositionalConstraintPtrOutputWithContext(ctx context.Context) WebAclPositionalConstraintPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclPositionalConstraintPtrOutput)
-}
-
-func (in *webAclPositionalConstraintPtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclPositionalConstraint] {
-	return pulumix.Output[*WebAclPositionalConstraint]{
-		OutputState: in.ToWebAclPositionalConstraintPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WebAclRateBasedStatementAggregateKeyType string
@@ -6337,12 +5805,6 @@ func (o WebAclRateBasedStatementAggregateKeyTypeOutput) ToWebAclRateBasedStateme
 	}).(WebAclRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
-func (o WebAclRateBasedStatementAggregateKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclRateBasedStatementAggregateKeyType] {
-	return pulumix.Output[WebAclRateBasedStatementAggregateKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclRateBasedStatementAggregateKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6378,12 +5840,6 @@ func (o WebAclRateBasedStatementAggregateKeyTypePtrOutput) ToWebAclRateBasedStat
 	return o
 }
 
-func (o WebAclRateBasedStatementAggregateKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclRateBasedStatementAggregateKeyType] {
-	return pulumix.Output[*WebAclRateBasedStatementAggregateKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclRateBasedStatementAggregateKeyTypePtrOutput) Elem() WebAclRateBasedStatementAggregateKeyTypeOutput {
 	return o.ApplyT(func(v *WebAclRateBasedStatementAggregateKeyType) WebAclRateBasedStatementAggregateKeyType {
 		if v != nil {
@@ -6408,10 +5864,13 @@ func (o WebAclRateBasedStatementAggregateKeyTypePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclRateBasedStatementAggregateKeyTypeInput is an input type that accepts WebAclRateBasedStatementAggregateKeyTypeArgs and WebAclRateBasedStatementAggregateKeyTypeOutput values.
-// You can construct a concrete instance of `WebAclRateBasedStatementAggregateKeyTypeInput` via:
+// WebAclRateBasedStatementAggregateKeyTypeInput is an input type that accepts values of the WebAclRateBasedStatementAggregateKeyType enum
+// A concrete instance of `WebAclRateBasedStatementAggregateKeyTypeInput` can be one of the following:
 //
-//	WebAclRateBasedStatementAggregateKeyTypeArgs{...}
+//	WebAclRateBasedStatementAggregateKeyTypeConstant
+//	WebAclRateBasedStatementAggregateKeyTypeIp
+//	WebAclRateBasedStatementAggregateKeyTypeForwardedIp
+//	WebAclRateBasedStatementAggregateKeyTypeCustomKeys
 type WebAclRateBasedStatementAggregateKeyTypeInput interface {
 	pulumi.Input
 
@@ -6444,12 +5903,6 @@ func (in *webAclRateBasedStatementAggregateKeyTypePtr) ToWebAclRateBasedStatemen
 
 func (in *webAclRateBasedStatementAggregateKeyTypePtr) ToWebAclRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) WebAclRateBasedStatementAggregateKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclRateBasedStatementAggregateKeyTypePtrOutput)
-}
-
-func (in *webAclRateBasedStatementAggregateKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclRateBasedStatementAggregateKeyType] {
-	return pulumix.Output[*WebAclRateBasedStatementAggregateKeyType]{
-		OutputState: in.ToWebAclRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WebAclRequestInspectionAcfpPayloadType string
@@ -6519,12 +5972,6 @@ func (o WebAclRequestInspectionAcfpPayloadTypeOutput) ToWebAclRequestInspectionA
 	}).(WebAclRequestInspectionAcfpPayloadTypePtrOutput)
 }
 
-func (o WebAclRequestInspectionAcfpPayloadTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclRequestInspectionAcfpPayloadType] {
-	return pulumix.Output[WebAclRequestInspectionAcfpPayloadType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclRequestInspectionAcfpPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6560,12 +6007,6 @@ func (o WebAclRequestInspectionAcfpPayloadTypePtrOutput) ToWebAclRequestInspecti
 	return o
 }
 
-func (o WebAclRequestInspectionAcfpPayloadTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclRequestInspectionAcfpPayloadType] {
-	return pulumix.Output[*WebAclRequestInspectionAcfpPayloadType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclRequestInspectionAcfpPayloadTypePtrOutput) Elem() WebAclRequestInspectionAcfpPayloadTypeOutput {
 	return o.ApplyT(func(v *WebAclRequestInspectionAcfpPayloadType) WebAclRequestInspectionAcfpPayloadType {
 		if v != nil {
@@ -6590,10 +6031,11 @@ func (o WebAclRequestInspectionAcfpPayloadTypePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclRequestInspectionAcfpPayloadTypeInput is an input type that accepts WebAclRequestInspectionAcfpPayloadTypeArgs and WebAclRequestInspectionAcfpPayloadTypeOutput values.
-// You can construct a concrete instance of `WebAclRequestInspectionAcfpPayloadTypeInput` via:
+// WebAclRequestInspectionAcfpPayloadTypeInput is an input type that accepts values of the WebAclRequestInspectionAcfpPayloadType enum
+// A concrete instance of `WebAclRequestInspectionAcfpPayloadTypeInput` can be one of the following:
 //
-//	WebAclRequestInspectionAcfpPayloadTypeArgs{...}
+//	WebAclRequestInspectionAcfpPayloadTypeJson
+//	WebAclRequestInspectionAcfpPayloadTypeFormEncoded
 type WebAclRequestInspectionAcfpPayloadTypeInput interface {
 	pulumi.Input
 
@@ -6626,12 +6068,6 @@ func (in *webAclRequestInspectionAcfpPayloadTypePtr) ToWebAclRequestInspectionAc
 
 func (in *webAclRequestInspectionAcfpPayloadTypePtr) ToWebAclRequestInspectionAcfpPayloadTypePtrOutputWithContext(ctx context.Context) WebAclRequestInspectionAcfpPayloadTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclRequestInspectionAcfpPayloadTypePtrOutput)
-}
-
-func (in *webAclRequestInspectionAcfpPayloadTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclRequestInspectionAcfpPayloadType] {
-	return pulumix.Output[*WebAclRequestInspectionAcfpPayloadType]{
-		OutputState: in.ToWebAclRequestInspectionAcfpPayloadTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WebAclRequestInspectionPayloadType string
@@ -6701,12 +6137,6 @@ func (o WebAclRequestInspectionPayloadTypeOutput) ToWebAclRequestInspectionPaylo
 	}).(WebAclRequestInspectionPayloadTypePtrOutput)
 }
 
-func (o WebAclRequestInspectionPayloadTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclRequestInspectionPayloadType] {
-	return pulumix.Output[WebAclRequestInspectionPayloadType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclRequestInspectionPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6742,12 +6172,6 @@ func (o WebAclRequestInspectionPayloadTypePtrOutput) ToWebAclRequestInspectionPa
 	return o
 }
 
-func (o WebAclRequestInspectionPayloadTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclRequestInspectionPayloadType] {
-	return pulumix.Output[*WebAclRequestInspectionPayloadType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclRequestInspectionPayloadTypePtrOutput) Elem() WebAclRequestInspectionPayloadTypeOutput {
 	return o.ApplyT(func(v *WebAclRequestInspectionPayloadType) WebAclRequestInspectionPayloadType {
 		if v != nil {
@@ -6772,10 +6196,11 @@ func (o WebAclRequestInspectionPayloadTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclRequestInspectionPayloadTypeInput is an input type that accepts WebAclRequestInspectionPayloadTypeArgs and WebAclRequestInspectionPayloadTypeOutput values.
-// You can construct a concrete instance of `WebAclRequestInspectionPayloadTypeInput` via:
+// WebAclRequestInspectionPayloadTypeInput is an input type that accepts values of the WebAclRequestInspectionPayloadType enum
+// A concrete instance of `WebAclRequestInspectionPayloadTypeInput` can be one of the following:
 //
-//	WebAclRequestInspectionPayloadTypeArgs{...}
+//	WebAclRequestInspectionPayloadTypeJson
+//	WebAclRequestInspectionPayloadTypeFormEncoded
 type WebAclRequestInspectionPayloadTypeInput interface {
 	pulumi.Input
 
@@ -6808,12 +6233,6 @@ func (in *webAclRequestInspectionPayloadTypePtr) ToWebAclRequestInspectionPayloa
 
 func (in *webAclRequestInspectionPayloadTypePtr) ToWebAclRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebAclRequestInspectionPayloadTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclRequestInspectionPayloadTypePtrOutput)
-}
-
-func (in *webAclRequestInspectionPayloadTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclRequestInspectionPayloadType] {
-	return pulumix.Output[*WebAclRequestInspectionPayloadType]{
-		OutputState: in.ToWebAclRequestInspectionPayloadTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.
@@ -6884,12 +6303,6 @@ func (o WebAclScopeOutput) ToWebAclScopePtrOutputWithContext(ctx context.Context
 	}).(WebAclScopePtrOutput)
 }
 
-func (o WebAclScopeOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclScope] {
-	return pulumix.Output[WebAclScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6925,12 +6338,6 @@ func (o WebAclScopePtrOutput) ToWebAclScopePtrOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o WebAclScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclScope] {
-	return pulumix.Output[*WebAclScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclScopePtrOutput) Elem() WebAclScopeOutput {
 	return o.ApplyT(func(v *WebAclScope) WebAclScope {
 		if v != nil {
@@ -6955,10 +6362,11 @@ func (o WebAclScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclScopeInput is an input type that accepts WebAclScopeArgs and WebAclScopeOutput values.
-// You can construct a concrete instance of `WebAclScopeInput` via:
+// WebAclScopeInput is an input type that accepts values of the WebAclScope enum
+// A concrete instance of `WebAclScopeInput` can be one of the following:
 //
-//	WebAclScopeArgs{...}
+//	WebAclScopeCloudfront
+//	WebAclScopeRegional
 type WebAclScopeInput interface {
 	pulumi.Input
 
@@ -6991,12 +6399,6 @@ func (in *webAclScopePtr) ToWebAclScopePtrOutput() WebAclScopePtrOutput {
 
 func (in *webAclScopePtr) ToWebAclScopePtrOutputWithContext(ctx context.Context) WebAclScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclScopePtrOutput)
-}
-
-func (in *webAclScopePtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclScope] {
-	return pulumix.Output[*WebAclScope]{
-		OutputState: in.ToWebAclScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Sensitivity Level current only used for sqli match statements.
@@ -7067,12 +6469,6 @@ func (o WebAclSensitivityLevelOutput) ToWebAclSensitivityLevelPtrOutputWithConte
 	}).(WebAclSensitivityLevelPtrOutput)
 }
 
-func (o WebAclSensitivityLevelOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclSensitivityLevel] {
-	return pulumix.Output[WebAclSensitivityLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclSensitivityLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7108,12 +6504,6 @@ func (o WebAclSensitivityLevelPtrOutput) ToWebAclSensitivityLevelPtrOutputWithCo
 	return o
 }
 
-func (o WebAclSensitivityLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclSensitivityLevel] {
-	return pulumix.Output[*WebAclSensitivityLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclSensitivityLevelPtrOutput) Elem() WebAclSensitivityLevelOutput {
 	return o.ApplyT(func(v *WebAclSensitivityLevel) WebAclSensitivityLevel {
 		if v != nil {
@@ -7138,10 +6528,11 @@ func (o WebAclSensitivityLevelPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclSensitivityLevelInput is an input type that accepts WebAclSensitivityLevelArgs and WebAclSensitivityLevelOutput values.
-// You can construct a concrete instance of `WebAclSensitivityLevelInput` via:
+// WebAclSensitivityLevelInput is an input type that accepts values of the WebAclSensitivityLevel enum
+// A concrete instance of `WebAclSensitivityLevelInput` can be one of the following:
 //
-//	WebAclSensitivityLevelArgs{...}
+//	WebAclSensitivityLevelLow
+//	WebAclSensitivityLevelHigh
 type WebAclSensitivityLevelInput interface {
 	pulumi.Input
 
@@ -7174,12 +6565,6 @@ func (in *webAclSensitivityLevelPtr) ToWebAclSensitivityLevelPtrOutput() WebAclS
 
 func (in *webAclSensitivityLevelPtr) ToWebAclSensitivityLevelPtrOutputWithContext(ctx context.Context) WebAclSensitivityLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclSensitivityLevelPtrOutput)
-}
-
-func (in *webAclSensitivityLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclSensitivityLevel] {
-	return pulumix.Output[*WebAclSensitivityLevel]{
-		OutputState: in.ToWebAclSensitivityLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WebAclSizeConstraintStatementComparisonOperator string
@@ -7253,12 +6638,6 @@ func (o WebAclSizeConstraintStatementComparisonOperatorOutput) ToWebAclSizeConst
 	}).(WebAclSizeConstraintStatementComparisonOperatorPtrOutput)
 }
 
-func (o WebAclSizeConstraintStatementComparisonOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclSizeConstraintStatementComparisonOperator] {
-	return pulumix.Output[WebAclSizeConstraintStatementComparisonOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclSizeConstraintStatementComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7294,12 +6673,6 @@ func (o WebAclSizeConstraintStatementComparisonOperatorPtrOutput) ToWebAclSizeCo
 	return o
 }
 
-func (o WebAclSizeConstraintStatementComparisonOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclSizeConstraintStatementComparisonOperator] {
-	return pulumix.Output[*WebAclSizeConstraintStatementComparisonOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclSizeConstraintStatementComparisonOperatorPtrOutput) Elem() WebAclSizeConstraintStatementComparisonOperatorOutput {
 	return o.ApplyT(func(v *WebAclSizeConstraintStatementComparisonOperator) WebAclSizeConstraintStatementComparisonOperator {
 		if v != nil {
@@ -7324,10 +6697,15 @@ func (o WebAclSizeConstraintStatementComparisonOperatorPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclSizeConstraintStatementComparisonOperatorInput is an input type that accepts WebAclSizeConstraintStatementComparisonOperatorArgs and WebAclSizeConstraintStatementComparisonOperatorOutput values.
-// You can construct a concrete instance of `WebAclSizeConstraintStatementComparisonOperatorInput` via:
+// WebAclSizeConstraintStatementComparisonOperatorInput is an input type that accepts values of the WebAclSizeConstraintStatementComparisonOperator enum
+// A concrete instance of `WebAclSizeConstraintStatementComparisonOperatorInput` can be one of the following:
 //
-//	WebAclSizeConstraintStatementComparisonOperatorArgs{...}
+//	WebAclSizeConstraintStatementComparisonOperatorEq
+//	WebAclSizeConstraintStatementComparisonOperatorNe
+//	WebAclSizeConstraintStatementComparisonOperatorLe
+//	WebAclSizeConstraintStatementComparisonOperatorLt
+//	WebAclSizeConstraintStatementComparisonOperatorGe
+//	WebAclSizeConstraintStatementComparisonOperatorGt
 type WebAclSizeConstraintStatementComparisonOperatorInput interface {
 	pulumi.Input
 
@@ -7360,12 +6738,6 @@ func (in *webAclSizeConstraintStatementComparisonOperatorPtr) ToWebAclSizeConstr
 
 func (in *webAclSizeConstraintStatementComparisonOperatorPtr) ToWebAclSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) WebAclSizeConstraintStatementComparisonOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclSizeConstraintStatementComparisonOperatorPtrOutput)
-}
-
-func (in *webAclSizeConstraintStatementComparisonOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclSizeConstraintStatementComparisonOperator] {
-	return pulumix.Output[*WebAclSizeConstraintStatementComparisonOperator]{
-		OutputState: in.ToWebAclSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of text transformation.
@@ -7455,12 +6827,6 @@ func (o WebAclTextTransformationTypeOutput) ToWebAclTextTransformationTypePtrOut
 	}).(WebAclTextTransformationTypePtrOutput)
 }
 
-func (o WebAclTextTransformationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclTextTransformationType] {
-	return pulumix.Output[WebAclTextTransformationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclTextTransformationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7496,12 +6862,6 @@ func (o WebAclTextTransformationTypePtrOutput) ToWebAclTextTransformationTypePtr
 	return o
 }
 
-func (o WebAclTextTransformationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclTextTransformationType] {
-	return pulumix.Output[*WebAclTextTransformationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclTextTransformationTypePtrOutput) Elem() WebAclTextTransformationTypeOutput {
 	return o.ApplyT(func(v *WebAclTextTransformationType) WebAclTextTransformationType {
 		if v != nil {
@@ -7526,10 +6886,30 @@ func (o WebAclTextTransformationTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebAclTextTransformationTypeInput is an input type that accepts WebAclTextTransformationTypeArgs and WebAclTextTransformationTypeOutput values.
-// You can construct a concrete instance of `WebAclTextTransformationTypeInput` via:
+// WebAclTextTransformationTypeInput is an input type that accepts values of the WebAclTextTransformationType enum
+// A concrete instance of `WebAclTextTransformationTypeInput` can be one of the following:
 //
-//	WebAclTextTransformationTypeArgs{...}
+//	WebAclTextTransformationTypeNone
+//	WebAclTextTransformationTypeCompressWhiteSpace
+//	WebAclTextTransformationTypeHtmlEntityDecode
+//	WebAclTextTransformationTypeLowercase
+//	WebAclTextTransformationTypeCmdLine
+//	WebAclTextTransformationTypeUrlDecode
+//	WebAclTextTransformationTypeBase64Decode
+//	WebAclTextTransformationTypeHexDecode
+//	WebAclTextTransformationTypeMd5
+//	WebAclTextTransformationTypeReplaceComments
+//	WebAclTextTransformationTypeEscapeSeqDecode
+//	WebAclTextTransformationTypeSqlHexDecode
+//	WebAclTextTransformationTypeCssDecode
+//	WebAclTextTransformationTypeJsDecode
+//	WebAclTextTransformationTypeNormalizePath
+//	WebAclTextTransformationTypeNormalizePathWin
+//	WebAclTextTransformationTypeRemoveNulls
+//	WebAclTextTransformationTypeReplaceNulls
+//	WebAclTextTransformationTypeBase64DecodeExt
+//	WebAclTextTransformationTypeUrlDecodeUni
+//	WebAclTextTransformationTypeUtf8ToUnicode
 type WebAclTextTransformationTypeInput interface {
 	pulumi.Input
 
@@ -7562,12 +6942,6 @@ func (in *webAclTextTransformationTypePtr) ToWebAclTextTransformationTypePtrOutp
 
 func (in *webAclTextTransformationTypePtr) ToWebAclTextTransformationTypePtrOutputWithContext(ctx context.Context) WebAclTextTransformationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclTextTransformationTypePtrOutput)
-}
-
-func (in *webAclTextTransformationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WebAclTextTransformationType] {
-	return pulumix.Output[*WebAclTextTransformationType]{
-		OutputState: in.ToWebAclTextTransformationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

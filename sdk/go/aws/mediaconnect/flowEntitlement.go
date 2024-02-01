@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::FlowEntitlement
@@ -146,12 +145,6 @@ func (i *FlowEntitlement) ToFlowEntitlementOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FlowEntitlementOutput)
 }
 
-func (i *FlowEntitlement) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlement] {
-	return pulumix.Output[*FlowEntitlement]{
-		OutputState: i.ToFlowEntitlementOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowEntitlementOutput struct{ *pulumi.OutputState }
 
 func (FlowEntitlementOutput) ElementType() reflect.Type {
@@ -164,12 +157,6 @@ func (o FlowEntitlementOutput) ToFlowEntitlementOutput() FlowEntitlementOutput {
 
 func (o FlowEntitlementOutput) ToFlowEntitlementOutputWithContext(ctx context.Context) FlowEntitlementOutput {
 	return o
-}
-
-func (o FlowEntitlementOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlement] {
-	return pulumix.Output[*FlowEntitlement]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Percentage from 0-100 of the data transfer cost to be billed to the subscriber.

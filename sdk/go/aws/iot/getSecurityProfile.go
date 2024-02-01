@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A security profile defines a set of expected behaviors for devices in your account.
@@ -81,12 +80,6 @@ func (o LookupSecurityProfileResultOutput) ToLookupSecurityProfileResultOutput()
 
 func (o LookupSecurityProfileResultOutput) ToLookupSecurityProfileResultOutputWithContext(ctx context.Context) LookupSecurityProfileResultOutput {
 	return o
-}
-
-func (o LookupSecurityProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecurityProfileResult] {
-	return pulumix.Output[LookupSecurityProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.

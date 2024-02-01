@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -43,12 +42,6 @@ func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsOu
 
 func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDeliveryOptionsOutput)
-}
-
-func (i ConfigurationSetDeliveryOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetDeliveryOptions] {
-	return pulumix.Output[ConfigurationSetDeliveryOptions]{
-		OutputState: i.ToConfigurationSetDeliveryOptionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput {
@@ -92,12 +85,6 @@ func (i *configurationSetDeliveryOptionsPtrType) ToConfigurationSetDeliveryOptio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
-func (i *configurationSetDeliveryOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetDeliveryOptions] {
-	return pulumix.Output[*ConfigurationSetDeliveryOptions]{
-		OutputState: i.ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetDeliveryOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetDeliveryOptionsOutput) ElementType() reflect.Type {
@@ -122,12 +109,6 @@ func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptions
 	}).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
-func (o ConfigurationSetDeliveryOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetDeliveryOptions] {
-	return pulumix.Output[ConfigurationSetDeliveryOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationSetDeliveryOptionsOutput) SendingPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *string { return v.SendingPoolName }).(pulumi.StringPtrOutput)
 }
@@ -144,12 +125,6 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) ToConfigurationSetDeliveryOpti
 
 func (o ConfigurationSetDeliveryOptionsPtrOutput) ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetDeliveryOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetDeliveryOptions] {
-	return pulumix.Output[*ConfigurationSetDeliveryOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetDeliveryOptionsPtrOutput) Elem() ConfigurationSetDeliveryOptionsOutput {
@@ -202,12 +177,6 @@ func (i ConfigurationSetEventDestinationCloudWatchDestinationArgs) ToConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationCloudWatchDestinationOutput)
 }
 
-func (i ConfigurationSetEventDestinationCloudWatchDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationCloudWatchDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationCloudWatchDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationCloudWatchDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetEventDestinationCloudWatchDestinationArgs) ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutput() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
 	return i.ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutputWithContext(context.Background())
 }
@@ -249,12 +218,6 @@ func (i *configurationSetEventDestinationCloudWatchDestinationPtrType) ToConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput)
 }
 
-func (i *configurationSetEventDestinationCloudWatchDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationCloudWatchDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationCloudWatchDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationCloudWatchDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationCloudWatchDestinationOutput) ElementType() reflect.Type {
@@ -279,12 +242,6 @@ func (o ConfigurationSetEventDestinationCloudWatchDestinationOutput) ToConfigura
 	}).(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput)
 }
 
-func (o ConfigurationSetEventDestinationCloudWatchDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationCloudWatchDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationCloudWatchDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationSetEventDestinationCloudWatchDestinationOutput) DimensionConfigurations() ConfigurationSetEventDestinationDimensionConfigurationArrayOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationCloudWatchDestination) []ConfigurationSetEventDestinationDimensionConfiguration {
 		return v.DimensionConfigurations
@@ -303,12 +260,6 @@ func (o ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput) ToConfig
 
 func (o ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput) ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationCloudWatchDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationCloudWatchDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput) Elem() ConfigurationSetEventDestinationCloudWatchDestinationOutput {
@@ -365,12 +316,6 @@ func (i ConfigurationSetEventDestinationDimensionConfigurationArgs) ToConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationDimensionConfigurationOutput)
 }
 
-func (i ConfigurationSetEventDestinationDimensionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationDimensionConfiguration] {
-	return pulumix.Output[ConfigurationSetEventDestinationDimensionConfiguration]{
-		OutputState: i.ToConfigurationSetEventDestinationDimensionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationSetEventDestinationDimensionConfigurationArrayInput is an input type that accepts ConfigurationSetEventDestinationDimensionConfigurationArray and ConfigurationSetEventDestinationDimensionConfigurationArrayOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationDimensionConfigurationArrayInput` via:
 //
@@ -396,12 +341,6 @@ func (i ConfigurationSetEventDestinationDimensionConfigurationArray) ToConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationDimensionConfigurationArrayOutput)
 }
 
-func (i ConfigurationSetEventDestinationDimensionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationSetEventDestinationDimensionConfiguration] {
-	return pulumix.Output[[]ConfigurationSetEventDestinationDimensionConfiguration]{
-		OutputState: i.ToConfigurationSetEventDestinationDimensionConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationDimensionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationDimensionConfigurationOutput) ElementType() reflect.Type {
@@ -414,12 +353,6 @@ func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) ToConfigur
 
 func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) ToConfigurationSetEventDestinationDimensionConfigurationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationDimensionConfigurationOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationDimensionConfiguration] {
-	return pulumix.Output[ConfigurationSetEventDestinationDimensionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) DefaultDimensionValue() pulumi.StringOutput {
@@ -446,12 +379,6 @@ func (o ConfigurationSetEventDestinationDimensionConfigurationArrayOutput) ToCon
 
 func (o ConfigurationSetEventDestinationDimensionConfigurationArrayOutput) ToConfigurationSetEventDestinationDimensionConfigurationArrayOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationDimensionConfigurationArrayOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationDimensionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationSetEventDestinationDimensionConfiguration] {
-	return pulumix.Output[[]ConfigurationSetEventDestinationDimensionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationDimensionConfigurationArrayOutput) Index(i pulumi.IntInput) ConfigurationSetEventDestinationDimensionConfigurationOutput {
@@ -501,12 +428,6 @@ func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSet
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationOutput)
 }
 
-func (i ConfigurationSetEventDestinationEventDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
 	return i.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Background())
 }
@@ -548,12 +469,6 @@ func (i *configurationSetEventDestinationEventDestinationPtrType) ToConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
 }
 
-func (i *configurationSetEventDestinationEventDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationEventDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationEventDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationEventDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationEventDestinationOutput) ElementType() reflect.Type {
@@ -576,12 +491,6 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestination {
 		return &v
 	}).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationEventDestinationOutput) CloudWatchDestination() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
@@ -628,12 +537,6 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToConfigurati
 
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationEventDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationEventDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationOutput {
@@ -733,12 +636,6 @@ func (i ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs) ToConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput)
 }
 
-func (i ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationKinesisFirehoseDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationKinesisFirehoseDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationKinesisFirehoseDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs) ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput() ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
 	return i.ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Background())
 }
@@ -780,12 +677,6 @@ func (i *configurationSetEventDestinationKinesisFirehoseDestinationPtrType) ToCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
 }
 
-func (i *configurationSetEventDestinationKinesisFirehoseDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationKinesisFirehoseDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationKinesisFirehoseDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) ElementType() reflect.Type {
@@ -810,12 +701,6 @@ func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) ToConf
 	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
 }
 
-func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationKinesisFirehoseDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationKinesisFirehoseDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) DeliveryStreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationKinesisFirehoseDestination) string { return v.DeliveryStreamArn }).(pulumi.StringOutput)
 }
@@ -836,12 +721,6 @@ func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) ToC
 
 func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationKinesisFirehoseDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationKinesisFirehoseDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) Elem() ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput {
@@ -903,12 +782,6 @@ func (i ConfigurationSetEventDestinationPinpointDestinationArgs) ToConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationPinpointDestinationOutput)
 }
 
-func (i ConfigurationSetEventDestinationPinpointDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationPinpointDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationPinpointDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationPinpointDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetEventDestinationPinpointDestinationArgs) ToConfigurationSetEventDestinationPinpointDestinationPtrOutput() ConfigurationSetEventDestinationPinpointDestinationPtrOutput {
 	return i.ToConfigurationSetEventDestinationPinpointDestinationPtrOutputWithContext(context.Background())
 }
@@ -950,12 +823,6 @@ func (i *configurationSetEventDestinationPinpointDestinationPtrType) ToConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationPinpointDestinationPtrOutput)
 }
 
-func (i *configurationSetEventDestinationPinpointDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationPinpointDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationPinpointDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationPinpointDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationPinpointDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationPinpointDestinationOutput) ElementType() reflect.Type {
@@ -980,12 +847,6 @@ func (o ConfigurationSetEventDestinationPinpointDestinationOutput) ToConfigurati
 	}).(ConfigurationSetEventDestinationPinpointDestinationPtrOutput)
 }
 
-func (o ConfigurationSetEventDestinationPinpointDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationPinpointDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationPinpointDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationSetEventDestinationPinpointDestinationOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationPinpointDestination) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
@@ -1002,12 +863,6 @@ func (o ConfigurationSetEventDestinationPinpointDestinationPtrOutput) ToConfigur
 
 func (o ConfigurationSetEventDestinationPinpointDestinationPtrOutput) ToConfigurationSetEventDestinationPinpointDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationPinpointDestinationPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationPinpointDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationPinpointDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationPinpointDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationPinpointDestinationPtrOutput) Elem() ConfigurationSetEventDestinationPinpointDestinationOutput {
@@ -1060,12 +915,6 @@ func (i ConfigurationSetEventDestinationSnsDestinationArgs) ToConfigurationSetEv
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationSnsDestinationOutput)
 }
 
-func (i ConfigurationSetEventDestinationSnsDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationSnsDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationSnsDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationSnsDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetEventDestinationSnsDestinationArgs) ToConfigurationSetEventDestinationSnsDestinationPtrOutput() ConfigurationSetEventDestinationSnsDestinationPtrOutput {
 	return i.ToConfigurationSetEventDestinationSnsDestinationPtrOutputWithContext(context.Background())
 }
@@ -1107,12 +956,6 @@ func (i *configurationSetEventDestinationSnsDestinationPtrType) ToConfigurationS
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationSnsDestinationPtrOutput)
 }
 
-func (i *configurationSetEventDestinationSnsDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationSnsDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationSnsDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationSnsDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationSnsDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationSnsDestinationOutput) ElementType() reflect.Type {
@@ -1137,12 +980,6 @@ func (o ConfigurationSetEventDestinationSnsDestinationOutput) ToConfigurationSet
 	}).(ConfigurationSetEventDestinationSnsDestinationPtrOutput)
 }
 
-func (o ConfigurationSetEventDestinationSnsDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationSnsDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationSnsDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationSetEventDestinationSnsDestinationOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationSnsDestination) string { return v.TopicArn }).(pulumi.StringOutput)
 }
@@ -1159,12 +996,6 @@ func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) ToConfiguration
 
 func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) ToConfigurationSetEventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationSnsDestinationPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationSnsDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationSnsDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) Elem() ConfigurationSetEventDestinationSnsDestinationOutput {
@@ -1217,12 +1048,6 @@ func (i ConfigurationSetReputationOptionsArgs) ToConfigurationSetReputationOptio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetReputationOptionsOutput)
 }
 
-func (i ConfigurationSetReputationOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetReputationOptions] {
-	return pulumix.Output[ConfigurationSetReputationOptions]{
-		OutputState: i.ToConfigurationSetReputationOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetReputationOptionsArgs) ToConfigurationSetReputationOptionsPtrOutput() ConfigurationSetReputationOptionsPtrOutput {
 	return i.ToConfigurationSetReputationOptionsPtrOutputWithContext(context.Background())
 }
@@ -1264,12 +1089,6 @@ func (i *configurationSetReputationOptionsPtrType) ToConfigurationSetReputationO
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetReputationOptionsPtrOutput)
 }
 
-func (i *configurationSetReputationOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetReputationOptions] {
-	return pulumix.Output[*ConfigurationSetReputationOptions]{
-		OutputState: i.ToConfigurationSetReputationOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetReputationOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetReputationOptionsOutput) ElementType() reflect.Type {
@@ -1294,12 +1113,6 @@ func (o ConfigurationSetReputationOptionsOutput) ToConfigurationSetReputationOpt
 	}).(ConfigurationSetReputationOptionsPtrOutput)
 }
 
-func (o ConfigurationSetReputationOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetReputationOptions] {
-	return pulumix.Output[ConfigurationSetReputationOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationSetReputationOptionsOutput) ReputationMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetReputationOptions) *bool { return v.ReputationMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1316,12 +1129,6 @@ func (o ConfigurationSetReputationOptionsPtrOutput) ToConfigurationSetReputation
 
 func (o ConfigurationSetReputationOptionsPtrOutput) ToConfigurationSetReputationOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetReputationOptionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetReputationOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetReputationOptions] {
-	return pulumix.Output[*ConfigurationSetReputationOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetReputationOptionsPtrOutput) Elem() ConfigurationSetReputationOptionsOutput {
@@ -1374,12 +1181,6 @@ func (i ConfigurationSetSendingOptionsArgs) ToConfigurationSetSendingOptionsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSendingOptionsOutput)
 }
 
-func (i ConfigurationSetSendingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetSendingOptions] {
-	return pulumix.Output[ConfigurationSetSendingOptions]{
-		OutputState: i.ToConfigurationSetSendingOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetSendingOptionsArgs) ToConfigurationSetSendingOptionsPtrOutput() ConfigurationSetSendingOptionsPtrOutput {
 	return i.ToConfigurationSetSendingOptionsPtrOutputWithContext(context.Background())
 }
@@ -1421,12 +1222,6 @@ func (i *configurationSetSendingOptionsPtrType) ToConfigurationSetSendingOptions
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSendingOptionsPtrOutput)
 }
 
-func (i *configurationSetSendingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetSendingOptions] {
-	return pulumix.Output[*ConfigurationSetSendingOptions]{
-		OutputState: i.ToConfigurationSetSendingOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetSendingOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetSendingOptionsOutput) ElementType() reflect.Type {
@@ -1451,12 +1246,6 @@ func (o ConfigurationSetSendingOptionsOutput) ToConfigurationSetSendingOptionsPt
 	}).(ConfigurationSetSendingOptionsPtrOutput)
 }
 
-func (o ConfigurationSetSendingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetSendingOptions] {
-	return pulumix.Output[ConfigurationSetSendingOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationSetSendingOptionsOutput) SendingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetSendingOptions) *bool { return v.SendingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1473,12 +1262,6 @@ func (o ConfigurationSetSendingOptionsPtrOutput) ToConfigurationSetSendingOption
 
 func (o ConfigurationSetSendingOptionsPtrOutput) ToConfigurationSetSendingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetSendingOptionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetSendingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetSendingOptions] {
-	return pulumix.Output[*ConfigurationSetSendingOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetSendingOptionsPtrOutput) Elem() ConfigurationSetSendingOptionsOutput {
@@ -1533,12 +1316,6 @@ func (i ConfigurationSetTagsArgs) ToConfigurationSetTagsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTagsOutput)
 }
 
-func (i ConfigurationSetTagsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetTags] {
-	return pulumix.Output[ConfigurationSetTags]{
-		OutputState: i.ToConfigurationSetTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationSetTagsArrayInput is an input type that accepts ConfigurationSetTagsArray and ConfigurationSetTagsArrayOutput values.
 // You can construct a concrete instance of `ConfigurationSetTagsArrayInput` via:
 //
@@ -1564,12 +1341,6 @@ func (i ConfigurationSetTagsArray) ToConfigurationSetTagsArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTagsArrayOutput)
 }
 
-func (i ConfigurationSetTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationSetTags] {
-	return pulumix.Output[[]ConfigurationSetTags]{
-		OutputState: i.ToConfigurationSetTagsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetTagsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetTagsOutput) ElementType() reflect.Type {
@@ -1582,12 +1353,6 @@ func (o ConfigurationSetTagsOutput) ToConfigurationSetTagsOutput() Configuration
 
 func (o ConfigurationSetTagsOutput) ToConfigurationSetTagsOutputWithContext(ctx context.Context) ConfigurationSetTagsOutput {
 	return o
-}
-
-func (o ConfigurationSetTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetTags] {
-	return pulumix.Output[ConfigurationSetTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetTagsOutput) Key() pulumi.StringPtrOutput {
@@ -1610,12 +1375,6 @@ func (o ConfigurationSetTagsArrayOutput) ToConfigurationSetTagsArrayOutput() Con
 
 func (o ConfigurationSetTagsArrayOutput) ToConfigurationSetTagsArrayOutputWithContext(ctx context.Context) ConfigurationSetTagsArrayOutput {
 	return o
-}
-
-func (o ConfigurationSetTagsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationSetTags] {
-	return pulumix.Output[[]ConfigurationSetTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetTagsArrayOutput) Index(i pulumi.IntInput) ConfigurationSetTagsOutput {
@@ -1653,12 +1412,6 @@ func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsOu
 
 func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTrackingOptionsOutput)
-}
-
-func (i ConfigurationSetTrackingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetTrackingOptions] {
-	return pulumix.Output[ConfigurationSetTrackingOptions]{
-		OutputState: i.ToConfigurationSetTrackingOptionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput {
@@ -1702,12 +1455,6 @@ func (i *configurationSetTrackingOptionsPtrType) ToConfigurationSetTrackingOptio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTrackingOptionsPtrOutput)
 }
 
-func (i *configurationSetTrackingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetTrackingOptions] {
-	return pulumix.Output[*ConfigurationSetTrackingOptions]{
-		OutputState: i.ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetTrackingOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetTrackingOptionsOutput) ElementType() reflect.Type {
@@ -1732,12 +1479,6 @@ func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptions
 	}).(ConfigurationSetTrackingOptionsPtrOutput)
 }
 
-func (o ConfigurationSetTrackingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetTrackingOptions] {
-	return pulumix.Output[ConfigurationSetTrackingOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetTrackingOptions) *string { return v.CustomRedirectDomain }).(pulumi.StringPtrOutput)
 }
@@ -1754,12 +1495,6 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) ToConfigurationSetTrackingOpti
 
 func (o ConfigurationSetTrackingOptionsPtrOutput) ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetTrackingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetTrackingOptions] {
-	return pulumix.Output[*ConfigurationSetTrackingOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetTrackingOptionsPtrOutput) Elem() ConfigurationSetTrackingOptionsOutput {
@@ -1814,12 +1549,6 @@ func (i DedicatedIpPoolTagsArgs) ToDedicatedIpPoolTagsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedIpPoolTagsOutput)
 }
 
-func (i DedicatedIpPoolTagsArgs) ToOutput(ctx context.Context) pulumix.Output[DedicatedIpPoolTags] {
-	return pulumix.Output[DedicatedIpPoolTags]{
-		OutputState: i.ToDedicatedIpPoolTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DedicatedIpPoolTagsArrayInput is an input type that accepts DedicatedIpPoolTagsArray and DedicatedIpPoolTagsArrayOutput values.
 // You can construct a concrete instance of `DedicatedIpPoolTagsArrayInput` via:
 //
@@ -1845,12 +1574,6 @@ func (i DedicatedIpPoolTagsArray) ToDedicatedIpPoolTagsArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedIpPoolTagsArrayOutput)
 }
 
-func (i DedicatedIpPoolTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]DedicatedIpPoolTags] {
-	return pulumix.Output[[]DedicatedIpPoolTags]{
-		OutputState: i.ToDedicatedIpPoolTagsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DedicatedIpPoolTagsOutput struct{ *pulumi.OutputState }
 
 func (DedicatedIpPoolTagsOutput) ElementType() reflect.Type {
@@ -1863,12 +1586,6 @@ func (o DedicatedIpPoolTagsOutput) ToDedicatedIpPoolTagsOutput() DedicatedIpPool
 
 func (o DedicatedIpPoolTagsOutput) ToDedicatedIpPoolTagsOutputWithContext(ctx context.Context) DedicatedIpPoolTagsOutput {
 	return o
-}
-
-func (o DedicatedIpPoolTagsOutput) ToOutput(ctx context.Context) pulumix.Output[DedicatedIpPoolTags] {
-	return pulumix.Output[DedicatedIpPoolTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DedicatedIpPoolTagsOutput) Key() pulumi.StringPtrOutput {
@@ -1891,12 +1608,6 @@ func (o DedicatedIpPoolTagsArrayOutput) ToDedicatedIpPoolTagsArrayOutput() Dedic
 
 func (o DedicatedIpPoolTagsArrayOutput) ToDedicatedIpPoolTagsArrayOutputWithContext(ctx context.Context) DedicatedIpPoolTagsArrayOutput {
 	return o
-}
-
-func (o DedicatedIpPoolTagsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DedicatedIpPoolTags] {
-	return pulumix.Output[[]DedicatedIpPoolTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DedicatedIpPoolTagsArrayOutput) Index(i pulumi.IntInput) DedicatedIpPoolTagsOutput {
@@ -1936,12 +1647,6 @@ func (i IdentityMailFromAttributesArgs) ToIdentityMailFromAttributesOutput() Ide
 
 func (i IdentityMailFromAttributesArgs) ToIdentityMailFromAttributesOutputWithContext(ctx context.Context) IdentityMailFromAttributesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityMailFromAttributesOutput)
-}
-
-func (i IdentityMailFromAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[IdentityMailFromAttributes] {
-	return pulumix.Output[IdentityMailFromAttributes]{
-		OutputState: i.ToIdentityMailFromAttributesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i IdentityMailFromAttributesArgs) ToIdentityMailFromAttributesPtrOutput() IdentityMailFromAttributesPtrOutput {
@@ -1985,12 +1690,6 @@ func (i *identityMailFromAttributesPtrType) ToIdentityMailFromAttributesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityMailFromAttributesPtrOutput)
 }
 
-func (i *identityMailFromAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*IdentityMailFromAttributes] {
-	return pulumix.Output[*IdentityMailFromAttributes]{
-		OutputState: i.ToIdentityMailFromAttributesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityMailFromAttributesOutput struct{ *pulumi.OutputState }
 
 func (IdentityMailFromAttributesOutput) ElementType() reflect.Type {
@@ -2015,12 +1714,6 @@ func (o IdentityMailFromAttributesOutput) ToIdentityMailFromAttributesPtrOutputW
 	}).(IdentityMailFromAttributesPtrOutput)
 }
 
-func (o IdentityMailFromAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityMailFromAttributes] {
-	return pulumix.Output[IdentityMailFromAttributes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityMailFromAttributesOutput) BehaviorOnMxFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityMailFromAttributes) *string { return v.BehaviorOnMxFailure }).(pulumi.StringPtrOutput)
 }
@@ -2041,12 +1734,6 @@ func (o IdentityMailFromAttributesPtrOutput) ToIdentityMailFromAttributesPtrOutp
 
 func (o IdentityMailFromAttributesPtrOutput) ToIdentityMailFromAttributesPtrOutputWithContext(ctx context.Context) IdentityMailFromAttributesPtrOutput {
 	return o
-}
-
-func (o IdentityMailFromAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityMailFromAttributes] {
-	return pulumix.Output[*IdentityMailFromAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityMailFromAttributesPtrOutput) Elem() IdentityMailFromAttributesOutput {
@@ -2110,12 +1797,6 @@ func (i IdentityTagsArgs) ToIdentityTagsOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityTagsOutput)
 }
 
-func (i IdentityTagsArgs) ToOutput(ctx context.Context) pulumix.Output[IdentityTags] {
-	return pulumix.Output[IdentityTags]{
-		OutputState: i.ToIdentityTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IdentityTagsArrayInput is an input type that accepts IdentityTagsArray and IdentityTagsArrayOutput values.
 // You can construct a concrete instance of `IdentityTagsArrayInput` via:
 //
@@ -2141,12 +1822,6 @@ func (i IdentityTagsArray) ToIdentityTagsArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityTagsArrayOutput)
 }
 
-func (i IdentityTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]IdentityTags] {
-	return pulumix.Output[[]IdentityTags]{
-		OutputState: i.ToIdentityTagsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityTagsOutput struct{ *pulumi.OutputState }
 
 func (IdentityTagsOutput) ElementType() reflect.Type {
@@ -2159,12 +1834,6 @@ func (o IdentityTagsOutput) ToIdentityTagsOutput() IdentityTagsOutput {
 
 func (o IdentityTagsOutput) ToIdentityTagsOutputWithContext(ctx context.Context) IdentityTagsOutput {
 	return o
-}
-
-func (o IdentityTagsOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityTags] {
-	return pulumix.Output[IdentityTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityTagsOutput) Key() pulumi.StringPtrOutput {
@@ -2187,12 +1856,6 @@ func (o IdentityTagsArrayOutput) ToIdentityTagsArrayOutput() IdentityTagsArrayOu
 
 func (o IdentityTagsArrayOutput) ToIdentityTagsArrayOutputWithContext(ctx context.Context) IdentityTagsArrayOutput {
 	return o
-}
-
-func (o IdentityTagsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IdentityTags] {
-	return pulumix.Output[[]IdentityTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityTagsArrayOutput) Index(i pulumi.IntInput) IdentityTagsOutput {

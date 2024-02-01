@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AnalysisAnchorOption string
@@ -77,12 +76,6 @@ func (o AnalysisAnchorOptionOutput) ToAnalysisAnchorOptionPtrOutputWithContext(c
 	}).(AnalysisAnchorOptionPtrOutput)
 }
 
-func (o AnalysisAnchorOptionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisAnchorOption] {
-	return pulumix.Output[AnalysisAnchorOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisAnchorOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +111,6 @@ func (o AnalysisAnchorOptionPtrOutput) ToAnalysisAnchorOptionPtrOutputWithContex
 	return o
 }
 
-func (o AnalysisAnchorOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisAnchorOption] {
-	return pulumix.Output[*AnalysisAnchorOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisAnchorOptionPtrOutput) Elem() AnalysisAnchorOptionOutput {
 	return o.ApplyT(func(v *AnalysisAnchorOption) AnalysisAnchorOption {
 		if v != nil {
@@ -148,10 +135,10 @@ func (o AnalysisAnchorOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisAnchorOptionInput is an input type that accepts AnalysisAnchorOptionArgs and AnalysisAnchorOptionOutput values.
-// You can construct a concrete instance of `AnalysisAnchorOptionInput` via:
+// AnalysisAnchorOptionInput is an input type that accepts values of the AnalysisAnchorOption enum
+// A concrete instance of `AnalysisAnchorOptionInput` can be one of the following:
 //
-//	AnalysisAnchorOptionArgs{...}
+//	AnalysisAnchorOptionNow
 type AnalysisAnchorOptionInput interface {
 	pulumi.Input
 
@@ -184,12 +171,6 @@ func (in *analysisAnchorOptionPtr) ToAnalysisAnchorOptionPtrOutput() AnalysisAnc
 
 func (in *analysisAnchorOptionPtr) ToAnalysisAnchorOptionPtrOutputWithContext(ctx context.Context) AnalysisAnchorOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisAnchorOptionPtrOutput)
-}
-
-func (in *analysisAnchorOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisAnchorOption] {
-	return pulumix.Output[*AnalysisAnchorOption]{
-		OutputState: in.ToAnalysisAnchorOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisArcThickness string
@@ -261,12 +242,6 @@ func (o AnalysisArcThicknessOutput) ToAnalysisArcThicknessPtrOutputWithContext(c
 	}).(AnalysisArcThicknessPtrOutput)
 }
 
-func (o AnalysisArcThicknessOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisArcThickness] {
-	return pulumix.Output[AnalysisArcThickness]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisArcThicknessOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +277,6 @@ func (o AnalysisArcThicknessPtrOutput) ToAnalysisArcThicknessPtrOutputWithContex
 	return o
 }
 
-func (o AnalysisArcThicknessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisArcThickness] {
-	return pulumix.Output[*AnalysisArcThickness]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisArcThicknessPtrOutput) Elem() AnalysisArcThicknessOutput {
 	return o.ApplyT(func(v *AnalysisArcThickness) AnalysisArcThickness {
 		if v != nil {
@@ -332,10 +301,13 @@ func (o AnalysisArcThicknessPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisArcThicknessInput is an input type that accepts AnalysisArcThicknessArgs and AnalysisArcThicknessOutput values.
-// You can construct a concrete instance of `AnalysisArcThicknessInput` via:
+// AnalysisArcThicknessInput is an input type that accepts values of the AnalysisArcThickness enum
+// A concrete instance of `AnalysisArcThicknessInput` can be one of the following:
 //
-//	AnalysisArcThicknessArgs{...}
+//	AnalysisArcThicknessSmall
+//	AnalysisArcThicknessMedium
+//	AnalysisArcThicknessLarge
+//	AnalysisArcThicknessWhole
 type AnalysisArcThicknessInput interface {
 	pulumi.Input
 
@@ -368,12 +340,6 @@ func (in *analysisArcThicknessPtr) ToAnalysisArcThicknessPtrOutput() AnalysisArc
 
 func (in *analysisArcThicknessPtr) ToAnalysisArcThicknessPtrOutputWithContext(ctx context.Context) AnalysisArcThicknessPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisArcThicknessPtrOutput)
-}
-
-func (in *analysisArcThicknessPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisArcThickness] {
-	return pulumix.Output[*AnalysisArcThickness]{
-		OutputState: in.ToAnalysisArcThicknessPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisArcThicknessOptions string
@@ -444,12 +410,6 @@ func (o AnalysisArcThicknessOptionsOutput) ToAnalysisArcThicknessOptionsPtrOutpu
 	}).(AnalysisArcThicknessOptionsPtrOutput)
 }
 
-func (o AnalysisArcThicknessOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisArcThicknessOptions] {
-	return pulumix.Output[AnalysisArcThicknessOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisArcThicknessOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -485,12 +445,6 @@ func (o AnalysisArcThicknessOptionsPtrOutput) ToAnalysisArcThicknessOptionsPtrOu
 	return o
 }
 
-func (o AnalysisArcThicknessOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisArcThicknessOptions] {
-	return pulumix.Output[*AnalysisArcThicknessOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisArcThicknessOptionsPtrOutput) Elem() AnalysisArcThicknessOptionsOutput {
 	return o.ApplyT(func(v *AnalysisArcThicknessOptions) AnalysisArcThicknessOptions {
 		if v != nil {
@@ -515,10 +469,12 @@ func (o AnalysisArcThicknessOptionsPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisArcThicknessOptionsInput is an input type that accepts AnalysisArcThicknessOptionsArgs and AnalysisArcThicknessOptionsOutput values.
-// You can construct a concrete instance of `AnalysisArcThicknessOptionsInput` via:
+// AnalysisArcThicknessOptionsInput is an input type that accepts values of the AnalysisArcThicknessOptions enum
+// A concrete instance of `AnalysisArcThicknessOptionsInput` can be one of the following:
 //
-//	AnalysisArcThicknessOptionsArgs{...}
+//	AnalysisArcThicknessOptionsSmall
+//	AnalysisArcThicknessOptionsMedium
+//	AnalysisArcThicknessOptionsLarge
 type AnalysisArcThicknessOptionsInput interface {
 	pulumi.Input
 
@@ -551,12 +507,6 @@ func (in *analysisArcThicknessOptionsPtr) ToAnalysisArcThicknessOptionsPtrOutput
 
 func (in *analysisArcThicknessOptionsPtr) ToAnalysisArcThicknessOptionsPtrOutputWithContext(ctx context.Context) AnalysisArcThicknessOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisArcThicknessOptionsPtrOutput)
-}
-
-func (in *analysisArcThicknessOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisArcThicknessOptions] {
-	return pulumix.Output[*AnalysisArcThicknessOptions]{
-		OutputState: in.ToAnalysisArcThicknessOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisAxisBinding string
@@ -626,12 +576,6 @@ func (o AnalysisAxisBindingOutput) ToAnalysisAxisBindingPtrOutputWithContext(ctx
 	}).(AnalysisAxisBindingPtrOutput)
 }
 
-func (o AnalysisAxisBindingOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisAxisBinding] {
-	return pulumix.Output[AnalysisAxisBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisAxisBindingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -667,12 +611,6 @@ func (o AnalysisAxisBindingPtrOutput) ToAnalysisAxisBindingPtrOutputWithContext(
 	return o
 }
 
-func (o AnalysisAxisBindingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisAxisBinding] {
-	return pulumix.Output[*AnalysisAxisBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisAxisBindingPtrOutput) Elem() AnalysisAxisBindingOutput {
 	return o.ApplyT(func(v *AnalysisAxisBinding) AnalysisAxisBinding {
 		if v != nil {
@@ -697,10 +635,11 @@ func (o AnalysisAxisBindingPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisAxisBindingInput is an input type that accepts AnalysisAxisBindingArgs and AnalysisAxisBindingOutput values.
-// You can construct a concrete instance of `AnalysisAxisBindingInput` via:
+// AnalysisAxisBindingInput is an input type that accepts values of the AnalysisAxisBinding enum
+// A concrete instance of `AnalysisAxisBindingInput` can be one of the following:
 //
-//	AnalysisAxisBindingArgs{...}
+//	AnalysisAxisBindingPrimaryYaxis
+//	AnalysisAxisBindingSecondaryYaxis
 type AnalysisAxisBindingInput interface {
 	pulumi.Input
 
@@ -733,12 +672,6 @@ func (in *analysisAxisBindingPtr) ToAnalysisAxisBindingPtrOutput() AnalysisAxisB
 
 func (in *analysisAxisBindingPtr) ToAnalysisAxisBindingPtrOutputWithContext(ctx context.Context) AnalysisAxisBindingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisAxisBindingPtrOutput)
-}
-
-func (in *analysisAxisBindingPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisAxisBinding] {
-	return pulumix.Output[*AnalysisAxisBinding]{
-		OutputState: in.ToAnalysisAxisBindingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisBarChartOrientation string
@@ -808,12 +741,6 @@ func (o AnalysisBarChartOrientationOutput) ToAnalysisBarChartOrientationPtrOutpu
 	}).(AnalysisBarChartOrientationPtrOutput)
 }
 
-func (o AnalysisBarChartOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisBarChartOrientation] {
-	return pulumix.Output[AnalysisBarChartOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisBarChartOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -849,12 +776,6 @@ func (o AnalysisBarChartOrientationPtrOutput) ToAnalysisBarChartOrientationPtrOu
 	return o
 }
 
-func (o AnalysisBarChartOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisBarChartOrientation] {
-	return pulumix.Output[*AnalysisBarChartOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisBarChartOrientationPtrOutput) Elem() AnalysisBarChartOrientationOutput {
 	return o.ApplyT(func(v *AnalysisBarChartOrientation) AnalysisBarChartOrientation {
 		if v != nil {
@@ -879,10 +800,11 @@ func (o AnalysisBarChartOrientationPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisBarChartOrientationInput is an input type that accepts AnalysisBarChartOrientationArgs and AnalysisBarChartOrientationOutput values.
-// You can construct a concrete instance of `AnalysisBarChartOrientationInput` via:
+// AnalysisBarChartOrientationInput is an input type that accepts values of the AnalysisBarChartOrientation enum
+// A concrete instance of `AnalysisBarChartOrientationInput` can be one of the following:
 //
-//	AnalysisBarChartOrientationArgs{...}
+//	AnalysisBarChartOrientationHorizontal
+//	AnalysisBarChartOrientationVertical
 type AnalysisBarChartOrientationInput interface {
 	pulumi.Input
 
@@ -915,12 +837,6 @@ func (in *analysisBarChartOrientationPtr) ToAnalysisBarChartOrientationPtrOutput
 
 func (in *analysisBarChartOrientationPtr) ToAnalysisBarChartOrientationPtrOutputWithContext(ctx context.Context) AnalysisBarChartOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisBarChartOrientationPtrOutput)
-}
-
-func (in *analysisBarChartOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisBarChartOrientation] {
-	return pulumix.Output[*AnalysisBarChartOrientation]{
-		OutputState: in.ToAnalysisBarChartOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisBarsArrangement string
@@ -991,12 +907,6 @@ func (o AnalysisBarsArrangementOutput) ToAnalysisBarsArrangementPtrOutputWithCon
 	}).(AnalysisBarsArrangementPtrOutput)
 }
 
-func (o AnalysisBarsArrangementOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisBarsArrangement] {
-	return pulumix.Output[AnalysisBarsArrangement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisBarsArrangementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1032,12 +942,6 @@ func (o AnalysisBarsArrangementPtrOutput) ToAnalysisBarsArrangementPtrOutputWith
 	return o
 }
 
-func (o AnalysisBarsArrangementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisBarsArrangement] {
-	return pulumix.Output[*AnalysisBarsArrangement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisBarsArrangementPtrOutput) Elem() AnalysisBarsArrangementOutput {
 	return o.ApplyT(func(v *AnalysisBarsArrangement) AnalysisBarsArrangement {
 		if v != nil {
@@ -1062,10 +966,12 @@ func (o AnalysisBarsArrangementPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisBarsArrangementInput is an input type that accepts AnalysisBarsArrangementArgs and AnalysisBarsArrangementOutput values.
-// You can construct a concrete instance of `AnalysisBarsArrangementInput` via:
+// AnalysisBarsArrangementInput is an input type that accepts values of the AnalysisBarsArrangement enum
+// A concrete instance of `AnalysisBarsArrangementInput` can be one of the following:
 //
-//	AnalysisBarsArrangementArgs{...}
+//	AnalysisBarsArrangementClustered
+//	AnalysisBarsArrangementStacked
+//	AnalysisBarsArrangementStackedPercent
 type AnalysisBarsArrangementInput interface {
 	pulumi.Input
 
@@ -1098,12 +1004,6 @@ func (in *analysisBarsArrangementPtr) ToAnalysisBarsArrangementPtrOutput() Analy
 
 func (in *analysisBarsArrangementPtr) ToAnalysisBarsArrangementPtrOutputWithContext(ctx context.Context) AnalysisBarsArrangementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisBarsArrangementPtrOutput)
-}
-
-func (in *analysisBarsArrangementPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisBarsArrangement] {
-	return pulumix.Output[*AnalysisBarsArrangement]{
-		OutputState: in.ToAnalysisBarsArrangementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisBaseMapStyleType string
@@ -1175,12 +1075,6 @@ func (o AnalysisBaseMapStyleTypeOutput) ToAnalysisBaseMapStyleTypePtrOutputWithC
 	}).(AnalysisBaseMapStyleTypePtrOutput)
 }
 
-func (o AnalysisBaseMapStyleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisBaseMapStyleType] {
-	return pulumix.Output[AnalysisBaseMapStyleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisBaseMapStyleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1216,12 +1110,6 @@ func (o AnalysisBaseMapStyleTypePtrOutput) ToAnalysisBaseMapStyleTypePtrOutputWi
 	return o
 }
 
-func (o AnalysisBaseMapStyleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisBaseMapStyleType] {
-	return pulumix.Output[*AnalysisBaseMapStyleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisBaseMapStyleTypePtrOutput) Elem() AnalysisBaseMapStyleTypeOutput {
 	return o.ApplyT(func(v *AnalysisBaseMapStyleType) AnalysisBaseMapStyleType {
 		if v != nil {
@@ -1246,10 +1134,13 @@ func (o AnalysisBaseMapStyleTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisBaseMapStyleTypeInput is an input type that accepts AnalysisBaseMapStyleTypeArgs and AnalysisBaseMapStyleTypeOutput values.
-// You can construct a concrete instance of `AnalysisBaseMapStyleTypeInput` via:
+// AnalysisBaseMapStyleTypeInput is an input type that accepts values of the AnalysisBaseMapStyleType enum
+// A concrete instance of `AnalysisBaseMapStyleTypeInput` can be one of the following:
 //
-//	AnalysisBaseMapStyleTypeArgs{...}
+//	AnalysisBaseMapStyleTypeLightGray
+//	AnalysisBaseMapStyleTypeDarkGray
+//	AnalysisBaseMapStyleTypeStreet
+//	AnalysisBaseMapStyleTypeImagery
 type AnalysisBaseMapStyleTypeInput interface {
 	pulumi.Input
 
@@ -1282,12 +1173,6 @@ func (in *analysisBaseMapStyleTypePtr) ToAnalysisBaseMapStyleTypePtrOutput() Ana
 
 func (in *analysisBaseMapStyleTypePtr) ToAnalysisBaseMapStyleTypePtrOutputWithContext(ctx context.Context) AnalysisBaseMapStyleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisBaseMapStyleTypePtrOutput)
-}
-
-func (in *analysisBaseMapStyleTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisBaseMapStyleType] {
-	return pulumix.Output[*AnalysisBaseMapStyleType]{
-		OutputState: in.ToAnalysisBaseMapStyleTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisBoxPlotFillStyle string
@@ -1357,12 +1242,6 @@ func (o AnalysisBoxPlotFillStyleOutput) ToAnalysisBoxPlotFillStylePtrOutputWithC
 	}).(AnalysisBoxPlotFillStylePtrOutput)
 }
 
-func (o AnalysisBoxPlotFillStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisBoxPlotFillStyle] {
-	return pulumix.Output[AnalysisBoxPlotFillStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisBoxPlotFillStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1398,12 +1277,6 @@ func (o AnalysisBoxPlotFillStylePtrOutput) ToAnalysisBoxPlotFillStylePtrOutputWi
 	return o
 }
 
-func (o AnalysisBoxPlotFillStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisBoxPlotFillStyle] {
-	return pulumix.Output[*AnalysisBoxPlotFillStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisBoxPlotFillStylePtrOutput) Elem() AnalysisBoxPlotFillStyleOutput {
 	return o.ApplyT(func(v *AnalysisBoxPlotFillStyle) AnalysisBoxPlotFillStyle {
 		if v != nil {
@@ -1428,10 +1301,11 @@ func (o AnalysisBoxPlotFillStylePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisBoxPlotFillStyleInput is an input type that accepts AnalysisBoxPlotFillStyleArgs and AnalysisBoxPlotFillStyleOutput values.
-// You can construct a concrete instance of `AnalysisBoxPlotFillStyleInput` via:
+// AnalysisBoxPlotFillStyleInput is an input type that accepts values of the AnalysisBoxPlotFillStyle enum
+// A concrete instance of `AnalysisBoxPlotFillStyleInput` can be one of the following:
 //
-//	AnalysisBoxPlotFillStyleArgs{...}
+//	AnalysisBoxPlotFillStyleSolid
+//	AnalysisBoxPlotFillStyleTransparent
 type AnalysisBoxPlotFillStyleInput interface {
 	pulumi.Input
 
@@ -1464,12 +1338,6 @@ func (in *analysisBoxPlotFillStylePtr) ToAnalysisBoxPlotFillStylePtrOutput() Ana
 
 func (in *analysisBoxPlotFillStylePtr) ToAnalysisBoxPlotFillStylePtrOutputWithContext(ctx context.Context) AnalysisBoxPlotFillStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisBoxPlotFillStylePtrOutput)
-}
-
-func (in *analysisBoxPlotFillStylePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisBoxPlotFillStyle] {
-	return pulumix.Output[*AnalysisBoxPlotFillStyle]{
-		OutputState: in.ToAnalysisBoxPlotFillStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisCategoricalAggregationFunction string
@@ -1539,12 +1407,6 @@ func (o AnalysisCategoricalAggregationFunctionOutput) ToAnalysisCategoricalAggre
 	}).(AnalysisCategoricalAggregationFunctionPtrOutput)
 }
 
-func (o AnalysisCategoricalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisCategoricalAggregationFunction] {
-	return pulumix.Output[AnalysisCategoricalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCategoricalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1580,12 +1442,6 @@ func (o AnalysisCategoricalAggregationFunctionPtrOutput) ToAnalysisCategoricalAg
 	return o
 }
 
-func (o AnalysisCategoricalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCategoricalAggregationFunction] {
-	return pulumix.Output[*AnalysisCategoricalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCategoricalAggregationFunctionPtrOutput) Elem() AnalysisCategoricalAggregationFunctionOutput {
 	return o.ApplyT(func(v *AnalysisCategoricalAggregationFunction) AnalysisCategoricalAggregationFunction {
 		if v != nil {
@@ -1610,10 +1466,11 @@ func (o AnalysisCategoricalAggregationFunctionPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisCategoricalAggregationFunctionInput is an input type that accepts AnalysisCategoricalAggregationFunctionArgs and AnalysisCategoricalAggregationFunctionOutput values.
-// You can construct a concrete instance of `AnalysisCategoricalAggregationFunctionInput` via:
+// AnalysisCategoricalAggregationFunctionInput is an input type that accepts values of the AnalysisCategoricalAggregationFunction enum
+// A concrete instance of `AnalysisCategoricalAggregationFunctionInput` can be one of the following:
 //
-//	AnalysisCategoricalAggregationFunctionArgs{...}
+//	AnalysisCategoricalAggregationFunctionCount
+//	AnalysisCategoricalAggregationFunctionDistinctCount
 type AnalysisCategoricalAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -1646,12 +1503,6 @@ func (in *analysisCategoricalAggregationFunctionPtr) ToAnalysisCategoricalAggreg
 
 func (in *analysisCategoricalAggregationFunctionPtr) ToAnalysisCategoricalAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisCategoricalAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisCategoricalAggregationFunctionPtrOutput)
-}
-
-func (in *analysisCategoricalAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCategoricalAggregationFunction] {
-	return pulumix.Output[*AnalysisCategoricalAggregationFunction]{
-		OutputState: in.ToAnalysisCategoricalAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisCategoryFilterMatchOperator string
@@ -1725,12 +1576,6 @@ func (o AnalysisCategoryFilterMatchOperatorOutput) ToAnalysisCategoryFilterMatch
 	}).(AnalysisCategoryFilterMatchOperatorPtrOutput)
 }
 
-func (o AnalysisCategoryFilterMatchOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisCategoryFilterMatchOperator] {
-	return pulumix.Output[AnalysisCategoryFilterMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCategoryFilterMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1766,12 +1611,6 @@ func (o AnalysisCategoryFilterMatchOperatorPtrOutput) ToAnalysisCategoryFilterMa
 	return o
 }
 
-func (o AnalysisCategoryFilterMatchOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCategoryFilterMatchOperator] {
-	return pulumix.Output[*AnalysisCategoryFilterMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCategoryFilterMatchOperatorPtrOutput) Elem() AnalysisCategoryFilterMatchOperatorOutput {
 	return o.ApplyT(func(v *AnalysisCategoryFilterMatchOperator) AnalysisCategoryFilterMatchOperator {
 		if v != nil {
@@ -1796,10 +1635,15 @@ func (o AnalysisCategoryFilterMatchOperatorPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisCategoryFilterMatchOperatorInput is an input type that accepts AnalysisCategoryFilterMatchOperatorArgs and AnalysisCategoryFilterMatchOperatorOutput values.
-// You can construct a concrete instance of `AnalysisCategoryFilterMatchOperatorInput` via:
+// AnalysisCategoryFilterMatchOperatorInput is an input type that accepts values of the AnalysisCategoryFilterMatchOperator enum
+// A concrete instance of `AnalysisCategoryFilterMatchOperatorInput` can be one of the following:
 //
-//	AnalysisCategoryFilterMatchOperatorArgs{...}
+//	AnalysisCategoryFilterMatchOperatorEquals
+//	AnalysisCategoryFilterMatchOperatorDoesNotEqual
+//	AnalysisCategoryFilterMatchOperatorContains
+//	AnalysisCategoryFilterMatchOperatorDoesNotContain
+//	AnalysisCategoryFilterMatchOperatorStartsWith
+//	AnalysisCategoryFilterMatchOperatorEndsWith
 type AnalysisCategoryFilterMatchOperatorInput interface {
 	pulumi.Input
 
@@ -1832,12 +1676,6 @@ func (in *analysisCategoryFilterMatchOperatorPtr) ToAnalysisCategoryFilterMatchO
 
 func (in *analysisCategoryFilterMatchOperatorPtr) ToAnalysisCategoryFilterMatchOperatorPtrOutputWithContext(ctx context.Context) AnalysisCategoryFilterMatchOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisCategoryFilterMatchOperatorPtrOutput)
-}
-
-func (in *analysisCategoryFilterMatchOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCategoryFilterMatchOperator] {
-	return pulumix.Output[*AnalysisCategoryFilterMatchOperator]{
-		OutputState: in.ToAnalysisCategoryFilterMatchOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisCategoryFilterSelectAllOptions string
@@ -1906,12 +1744,6 @@ func (o AnalysisCategoryFilterSelectAllOptionsOutput) ToAnalysisCategoryFilterSe
 	}).(AnalysisCategoryFilterSelectAllOptionsPtrOutput)
 }
 
-func (o AnalysisCategoryFilterSelectAllOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisCategoryFilterSelectAllOptions] {
-	return pulumix.Output[AnalysisCategoryFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCategoryFilterSelectAllOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1947,12 +1779,6 @@ func (o AnalysisCategoryFilterSelectAllOptionsPtrOutput) ToAnalysisCategoryFilte
 	return o
 }
 
-func (o AnalysisCategoryFilterSelectAllOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCategoryFilterSelectAllOptions] {
-	return pulumix.Output[*AnalysisCategoryFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCategoryFilterSelectAllOptionsPtrOutput) Elem() AnalysisCategoryFilterSelectAllOptionsOutput {
 	return o.ApplyT(func(v *AnalysisCategoryFilterSelectAllOptions) AnalysisCategoryFilterSelectAllOptions {
 		if v != nil {
@@ -1977,10 +1803,10 @@ func (o AnalysisCategoryFilterSelectAllOptionsPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisCategoryFilterSelectAllOptionsInput is an input type that accepts AnalysisCategoryFilterSelectAllOptionsArgs and AnalysisCategoryFilterSelectAllOptionsOutput values.
-// You can construct a concrete instance of `AnalysisCategoryFilterSelectAllOptionsInput` via:
+// AnalysisCategoryFilterSelectAllOptionsInput is an input type that accepts values of the AnalysisCategoryFilterSelectAllOptions enum
+// A concrete instance of `AnalysisCategoryFilterSelectAllOptionsInput` can be one of the following:
 //
-//	AnalysisCategoryFilterSelectAllOptionsArgs{...}
+//	AnalysisCategoryFilterSelectAllOptionsFilterAllValues
 type AnalysisCategoryFilterSelectAllOptionsInput interface {
 	pulumi.Input
 
@@ -2013,12 +1839,6 @@ func (in *analysisCategoryFilterSelectAllOptionsPtr) ToAnalysisCategoryFilterSel
 
 func (in *analysisCategoryFilterSelectAllOptionsPtr) ToAnalysisCategoryFilterSelectAllOptionsPtrOutputWithContext(ctx context.Context) AnalysisCategoryFilterSelectAllOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisCategoryFilterSelectAllOptionsPtrOutput)
-}
-
-func (in *analysisCategoryFilterSelectAllOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCategoryFilterSelectAllOptions] {
-	return pulumix.Output[*AnalysisCategoryFilterSelectAllOptions]{
-		OutputState: in.ToAnalysisCategoryFilterSelectAllOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisColorFillType string
@@ -2088,12 +1908,6 @@ func (o AnalysisColorFillTypeOutput) ToAnalysisColorFillTypePtrOutputWithContext
 	}).(AnalysisColorFillTypePtrOutput)
 }
 
-func (o AnalysisColorFillTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisColorFillType] {
-	return pulumix.Output[AnalysisColorFillType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisColorFillTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2129,12 +1943,6 @@ func (o AnalysisColorFillTypePtrOutput) ToAnalysisColorFillTypePtrOutputWithCont
 	return o
 }
 
-func (o AnalysisColorFillTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisColorFillType] {
-	return pulumix.Output[*AnalysisColorFillType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisColorFillTypePtrOutput) Elem() AnalysisColorFillTypeOutput {
 	return o.ApplyT(func(v *AnalysisColorFillType) AnalysisColorFillType {
 		if v != nil {
@@ -2159,10 +1967,11 @@ func (o AnalysisColorFillTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisColorFillTypeInput is an input type that accepts AnalysisColorFillTypeArgs and AnalysisColorFillTypeOutput values.
-// You can construct a concrete instance of `AnalysisColorFillTypeInput` via:
+// AnalysisColorFillTypeInput is an input type that accepts values of the AnalysisColorFillType enum
+// A concrete instance of `AnalysisColorFillTypeInput` can be one of the following:
 //
-//	AnalysisColorFillTypeArgs{...}
+//	AnalysisColorFillTypeDiscrete
+//	AnalysisColorFillTypeGradient
 type AnalysisColorFillTypeInput interface {
 	pulumi.Input
 
@@ -2195,12 +2004,6 @@ func (in *analysisColorFillTypePtr) ToAnalysisColorFillTypePtrOutput() AnalysisC
 
 func (in *analysisColorFillTypePtr) ToAnalysisColorFillTypePtrOutputWithContext(ctx context.Context) AnalysisColorFillTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisColorFillTypePtrOutput)
-}
-
-func (in *analysisColorFillTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisColorFillType] {
-	return pulumix.Output[*AnalysisColorFillType]{
-		OutputState: in.ToAnalysisColorFillTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisColumnRole string
@@ -2270,12 +2073,6 @@ func (o AnalysisColumnRoleOutput) ToAnalysisColumnRolePtrOutputWithContext(ctx c
 	}).(AnalysisColumnRolePtrOutput)
 }
 
-func (o AnalysisColumnRoleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisColumnRole] {
-	return pulumix.Output[AnalysisColumnRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisColumnRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2311,12 +2108,6 @@ func (o AnalysisColumnRolePtrOutput) ToAnalysisColumnRolePtrOutputWithContext(ct
 	return o
 }
 
-func (o AnalysisColumnRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisColumnRole] {
-	return pulumix.Output[*AnalysisColumnRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisColumnRolePtrOutput) Elem() AnalysisColumnRoleOutput {
 	return o.ApplyT(func(v *AnalysisColumnRole) AnalysisColumnRole {
 		if v != nil {
@@ -2341,10 +2132,11 @@ func (o AnalysisColumnRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisColumnRoleInput is an input type that accepts AnalysisColumnRoleArgs and AnalysisColumnRoleOutput values.
-// You can construct a concrete instance of `AnalysisColumnRoleInput` via:
+// AnalysisColumnRoleInput is an input type that accepts values of the AnalysisColumnRole enum
+// A concrete instance of `AnalysisColumnRoleInput` can be one of the following:
 //
-//	AnalysisColumnRoleArgs{...}
+//	AnalysisColumnRoleDimension
+//	AnalysisColumnRoleMeasure
 type AnalysisColumnRoleInput interface {
 	pulumi.Input
 
@@ -2377,12 +2169,6 @@ func (in *analysisColumnRolePtr) ToAnalysisColumnRolePtrOutput() AnalysisColumnR
 
 func (in *analysisColumnRolePtr) ToAnalysisColumnRolePtrOutputWithContext(ctx context.Context) AnalysisColumnRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisColumnRolePtrOutput)
-}
-
-func (in *analysisColumnRolePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisColumnRole] {
-	return pulumix.Output[*AnalysisColumnRole]{
-		OutputState: in.ToAnalysisColumnRolePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisComparisonMethod string
@@ -2453,12 +2239,6 @@ func (o AnalysisComparisonMethodOutput) ToAnalysisComparisonMethodPtrOutputWithC
 	}).(AnalysisComparisonMethodPtrOutput)
 }
 
-func (o AnalysisComparisonMethodOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisComparisonMethod] {
-	return pulumix.Output[AnalysisComparisonMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisComparisonMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2494,12 +2274,6 @@ func (o AnalysisComparisonMethodPtrOutput) ToAnalysisComparisonMethodPtrOutputWi
 	return o
 }
 
-func (o AnalysisComparisonMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisComparisonMethod] {
-	return pulumix.Output[*AnalysisComparisonMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisComparisonMethodPtrOutput) Elem() AnalysisComparisonMethodOutput {
 	return o.ApplyT(func(v *AnalysisComparisonMethod) AnalysisComparisonMethod {
 		if v != nil {
@@ -2524,10 +2298,12 @@ func (o AnalysisComparisonMethodPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisComparisonMethodInput is an input type that accepts AnalysisComparisonMethodArgs and AnalysisComparisonMethodOutput values.
-// You can construct a concrete instance of `AnalysisComparisonMethodInput` via:
+// AnalysisComparisonMethodInput is an input type that accepts values of the AnalysisComparisonMethod enum
+// A concrete instance of `AnalysisComparisonMethodInput` can be one of the following:
 //
-//	AnalysisComparisonMethodArgs{...}
+//	AnalysisComparisonMethodDifference
+//	AnalysisComparisonMethodPercentDifference
+//	AnalysisComparisonMethodPercent
 type AnalysisComparisonMethodInput interface {
 	pulumi.Input
 
@@ -2560,12 +2336,6 @@ func (in *analysisComparisonMethodPtr) ToAnalysisComparisonMethodPtrOutput() Ana
 
 func (in *analysisComparisonMethodPtr) ToAnalysisComparisonMethodPtrOutputWithContext(ctx context.Context) AnalysisComparisonMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisComparisonMethodPtrOutput)
-}
-
-func (in *analysisComparisonMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisComparisonMethod] {
-	return pulumix.Output[*AnalysisComparisonMethod]{
-		OutputState: in.ToAnalysisComparisonMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisConditionalFormattingIconDisplayOption string
@@ -2634,12 +2404,6 @@ func (o AnalysisConditionalFormattingIconDisplayOptionOutput) ToAnalysisConditio
 	}).(AnalysisConditionalFormattingIconDisplayOptionPtrOutput)
 }
 
-func (o AnalysisConditionalFormattingIconDisplayOptionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[AnalysisConditionalFormattingIconDisplayOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisConditionalFormattingIconDisplayOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2675,12 +2439,6 @@ func (o AnalysisConditionalFormattingIconDisplayOptionPtrOutput) ToAnalysisCondi
 	return o
 }
 
-func (o AnalysisConditionalFormattingIconDisplayOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[*AnalysisConditionalFormattingIconDisplayOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisConditionalFormattingIconDisplayOptionPtrOutput) Elem() AnalysisConditionalFormattingIconDisplayOptionOutput {
 	return o.ApplyT(func(v *AnalysisConditionalFormattingIconDisplayOption) AnalysisConditionalFormattingIconDisplayOption {
 		if v != nil {
@@ -2705,10 +2463,10 @@ func (o AnalysisConditionalFormattingIconDisplayOptionPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisConditionalFormattingIconDisplayOptionInput is an input type that accepts AnalysisConditionalFormattingIconDisplayOptionArgs and AnalysisConditionalFormattingIconDisplayOptionOutput values.
-// You can construct a concrete instance of `AnalysisConditionalFormattingIconDisplayOptionInput` via:
+// AnalysisConditionalFormattingIconDisplayOptionInput is an input type that accepts values of the AnalysisConditionalFormattingIconDisplayOption enum
+// A concrete instance of `AnalysisConditionalFormattingIconDisplayOptionInput` can be one of the following:
 //
-//	AnalysisConditionalFormattingIconDisplayOptionArgs{...}
+//	AnalysisConditionalFormattingIconDisplayOptionIconOnly
 type AnalysisConditionalFormattingIconDisplayOptionInput interface {
 	pulumi.Input
 
@@ -2741,12 +2499,6 @@ func (in *analysisConditionalFormattingIconDisplayOptionPtr) ToAnalysisCondition
 
 func (in *analysisConditionalFormattingIconDisplayOptionPtr) ToAnalysisConditionalFormattingIconDisplayOptionPtrOutputWithContext(ctx context.Context) AnalysisConditionalFormattingIconDisplayOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisConditionalFormattingIconDisplayOptionPtrOutput)
-}
-
-func (in *analysisConditionalFormattingIconDisplayOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[*AnalysisConditionalFormattingIconDisplayOption]{
-		OutputState: in.ToAnalysisConditionalFormattingIconDisplayOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisConditionalFormattingIconSetType string
@@ -2825,12 +2577,6 @@ func (o AnalysisConditionalFormattingIconSetTypeOutput) ToAnalysisConditionalFor
 	}).(AnalysisConditionalFormattingIconSetTypePtrOutput)
 }
 
-func (o AnalysisConditionalFormattingIconSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisConditionalFormattingIconSetType] {
-	return pulumix.Output[AnalysisConditionalFormattingIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisConditionalFormattingIconSetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2866,12 +2612,6 @@ func (o AnalysisConditionalFormattingIconSetTypePtrOutput) ToAnalysisConditional
 	return o
 }
 
-func (o AnalysisConditionalFormattingIconSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisConditionalFormattingIconSetType] {
-	return pulumix.Output[*AnalysisConditionalFormattingIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisConditionalFormattingIconSetTypePtrOutput) Elem() AnalysisConditionalFormattingIconSetTypeOutput {
 	return o.ApplyT(func(v *AnalysisConditionalFormattingIconSetType) AnalysisConditionalFormattingIconSetType {
 		if v != nil {
@@ -2896,10 +2636,20 @@ func (o AnalysisConditionalFormattingIconSetTypePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisConditionalFormattingIconSetTypeInput is an input type that accepts AnalysisConditionalFormattingIconSetTypeArgs and AnalysisConditionalFormattingIconSetTypeOutput values.
-// You can construct a concrete instance of `AnalysisConditionalFormattingIconSetTypeInput` via:
+// AnalysisConditionalFormattingIconSetTypeInput is an input type that accepts values of the AnalysisConditionalFormattingIconSetType enum
+// A concrete instance of `AnalysisConditionalFormattingIconSetTypeInput` can be one of the following:
 //
-//	AnalysisConditionalFormattingIconSetTypeArgs{...}
+//	AnalysisConditionalFormattingIconSetTypePlusMinus
+//	AnalysisConditionalFormattingIconSetTypeCheckX
+//	AnalysisConditionalFormattingIconSetTypeThreeColorArrow
+//	AnalysisConditionalFormattingIconSetTypeThreeGrayArrow
+//	AnalysisConditionalFormattingIconSetTypeCaretUpMinusDown
+//	AnalysisConditionalFormattingIconSetTypeThreeShape
+//	AnalysisConditionalFormattingIconSetTypeThreeCircle
+//	AnalysisConditionalFormattingIconSetTypeFlags
+//	AnalysisConditionalFormattingIconSetTypeBars
+//	AnalysisConditionalFormattingIconSetTypeFourColorArrow
+//	AnalysisConditionalFormattingIconSetTypeFourGrayArrow
 type AnalysisConditionalFormattingIconSetTypeInput interface {
 	pulumi.Input
 
@@ -2932,12 +2682,6 @@ func (in *analysisConditionalFormattingIconSetTypePtr) ToAnalysisConditionalForm
 
 func (in *analysisConditionalFormattingIconSetTypePtr) ToAnalysisConditionalFormattingIconSetTypePtrOutputWithContext(ctx context.Context) AnalysisConditionalFormattingIconSetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisConditionalFormattingIconSetTypePtrOutput)
-}
-
-func (in *analysisConditionalFormattingIconSetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisConditionalFormattingIconSetType] {
-	return pulumix.Output[*AnalysisConditionalFormattingIconSetType]{
-		OutputState: in.ToAnalysisConditionalFormattingIconSetTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisCrossDatasetTypes string
@@ -3007,12 +2751,6 @@ func (o AnalysisCrossDatasetTypesOutput) ToAnalysisCrossDatasetTypesPtrOutputWit
 	}).(AnalysisCrossDatasetTypesPtrOutput)
 }
 
-func (o AnalysisCrossDatasetTypesOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisCrossDatasetTypes] {
-	return pulumix.Output[AnalysisCrossDatasetTypes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCrossDatasetTypesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3048,12 +2786,6 @@ func (o AnalysisCrossDatasetTypesPtrOutput) ToAnalysisCrossDatasetTypesPtrOutput
 	return o
 }
 
-func (o AnalysisCrossDatasetTypesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCrossDatasetTypes] {
-	return pulumix.Output[*AnalysisCrossDatasetTypes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCrossDatasetTypesPtrOutput) Elem() AnalysisCrossDatasetTypesOutput {
 	return o.ApplyT(func(v *AnalysisCrossDatasetTypes) AnalysisCrossDatasetTypes {
 		if v != nil {
@@ -3078,10 +2810,11 @@ func (o AnalysisCrossDatasetTypesPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisCrossDatasetTypesInput is an input type that accepts AnalysisCrossDatasetTypesArgs and AnalysisCrossDatasetTypesOutput values.
-// You can construct a concrete instance of `AnalysisCrossDatasetTypesInput` via:
+// AnalysisCrossDatasetTypesInput is an input type that accepts values of the AnalysisCrossDatasetTypes enum
+// A concrete instance of `AnalysisCrossDatasetTypesInput` can be one of the following:
 //
-//	AnalysisCrossDatasetTypesArgs{...}
+//	AnalysisCrossDatasetTypesAllDatasets
+//	AnalysisCrossDatasetTypesSingleDataset
 type AnalysisCrossDatasetTypesInput interface {
 	pulumi.Input
 
@@ -3114,12 +2847,6 @@ func (in *analysisCrossDatasetTypesPtr) ToAnalysisCrossDatasetTypesPtrOutput() A
 
 func (in *analysisCrossDatasetTypesPtr) ToAnalysisCrossDatasetTypesPtrOutputWithContext(ctx context.Context) AnalysisCrossDatasetTypesPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisCrossDatasetTypesPtrOutput)
-}
-
-func (in *analysisCrossDatasetTypesPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCrossDatasetTypes] {
-	return pulumix.Output[*AnalysisCrossDatasetTypes]{
-		OutputState: in.ToAnalysisCrossDatasetTypesPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisCustomContentImageScalingConfiguration string
@@ -3191,12 +2918,6 @@ func (o AnalysisCustomContentImageScalingConfigurationOutput) ToAnalysisCustomCo
 	}).(AnalysisCustomContentImageScalingConfigurationPtrOutput)
 }
 
-func (o AnalysisCustomContentImageScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisCustomContentImageScalingConfiguration] {
-	return pulumix.Output[AnalysisCustomContentImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCustomContentImageScalingConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3232,12 +2953,6 @@ func (o AnalysisCustomContentImageScalingConfigurationPtrOutput) ToAnalysisCusto
 	return o
 }
 
-func (o AnalysisCustomContentImageScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCustomContentImageScalingConfiguration] {
-	return pulumix.Output[*AnalysisCustomContentImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCustomContentImageScalingConfigurationPtrOutput) Elem() AnalysisCustomContentImageScalingConfigurationOutput {
 	return o.ApplyT(func(v *AnalysisCustomContentImageScalingConfiguration) AnalysisCustomContentImageScalingConfiguration {
 		if v != nil {
@@ -3262,10 +2977,13 @@ func (o AnalysisCustomContentImageScalingConfigurationPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisCustomContentImageScalingConfigurationInput is an input type that accepts AnalysisCustomContentImageScalingConfigurationArgs and AnalysisCustomContentImageScalingConfigurationOutput values.
-// You can construct a concrete instance of `AnalysisCustomContentImageScalingConfigurationInput` via:
+// AnalysisCustomContentImageScalingConfigurationInput is an input type that accepts values of the AnalysisCustomContentImageScalingConfiguration enum
+// A concrete instance of `AnalysisCustomContentImageScalingConfigurationInput` can be one of the following:
 //
-//	AnalysisCustomContentImageScalingConfigurationArgs{...}
+//	AnalysisCustomContentImageScalingConfigurationFitToHeight
+//	AnalysisCustomContentImageScalingConfigurationFitToWidth
+//	AnalysisCustomContentImageScalingConfigurationDoNotScale
+//	AnalysisCustomContentImageScalingConfigurationScaleToVisual
 type AnalysisCustomContentImageScalingConfigurationInput interface {
 	pulumi.Input
 
@@ -3298,12 +3016,6 @@ func (in *analysisCustomContentImageScalingConfigurationPtr) ToAnalysisCustomCon
 
 func (in *analysisCustomContentImageScalingConfigurationPtr) ToAnalysisCustomContentImageScalingConfigurationPtrOutputWithContext(ctx context.Context) AnalysisCustomContentImageScalingConfigurationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisCustomContentImageScalingConfigurationPtrOutput)
-}
-
-func (in *analysisCustomContentImageScalingConfigurationPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCustomContentImageScalingConfiguration] {
-	return pulumix.Output[*AnalysisCustomContentImageScalingConfiguration]{
-		OutputState: in.ToAnalysisCustomContentImageScalingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisCustomContentType string
@@ -3373,12 +3085,6 @@ func (o AnalysisCustomContentTypeOutput) ToAnalysisCustomContentTypePtrOutputWit
 	}).(AnalysisCustomContentTypePtrOutput)
 }
 
-func (o AnalysisCustomContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisCustomContentType] {
-	return pulumix.Output[AnalysisCustomContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCustomContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3414,12 +3120,6 @@ func (o AnalysisCustomContentTypePtrOutput) ToAnalysisCustomContentTypePtrOutput
 	return o
 }
 
-func (o AnalysisCustomContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCustomContentType] {
-	return pulumix.Output[*AnalysisCustomContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCustomContentTypePtrOutput) Elem() AnalysisCustomContentTypeOutput {
 	return o.ApplyT(func(v *AnalysisCustomContentType) AnalysisCustomContentType {
 		if v != nil {
@@ -3444,10 +3144,11 @@ func (o AnalysisCustomContentTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisCustomContentTypeInput is an input type that accepts AnalysisCustomContentTypeArgs and AnalysisCustomContentTypeOutput values.
-// You can construct a concrete instance of `AnalysisCustomContentTypeInput` via:
+// AnalysisCustomContentTypeInput is an input type that accepts values of the AnalysisCustomContentType enum
+// A concrete instance of `AnalysisCustomContentTypeInput` can be one of the following:
 //
-//	AnalysisCustomContentTypeArgs{...}
+//	AnalysisCustomContentTypeImage
+//	AnalysisCustomContentTypeOtherEmbeddedContent
 type AnalysisCustomContentTypeInput interface {
 	pulumi.Input
 
@@ -3480,12 +3181,6 @@ func (in *analysisCustomContentTypePtr) ToAnalysisCustomContentTypePtrOutput() A
 
 func (in *analysisCustomContentTypePtr) ToAnalysisCustomContentTypePtrOutputWithContext(ctx context.Context) AnalysisCustomContentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisCustomContentTypePtrOutput)
-}
-
-func (in *analysisCustomContentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCustomContentType] {
-	return pulumix.Output[*AnalysisCustomContentType]{
-		OutputState: in.ToAnalysisCustomContentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisDataLabelContent string
@@ -3556,12 +3251,6 @@ func (o AnalysisDataLabelContentOutput) ToAnalysisDataLabelContentPtrOutputWithC
 	}).(AnalysisDataLabelContentPtrOutput)
 }
 
-func (o AnalysisDataLabelContentOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisDataLabelContent] {
-	return pulumix.Output[AnalysisDataLabelContent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDataLabelContentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3597,12 +3286,6 @@ func (o AnalysisDataLabelContentPtrOutput) ToAnalysisDataLabelContentPtrOutputWi
 	return o
 }
 
-func (o AnalysisDataLabelContentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDataLabelContent] {
-	return pulumix.Output[*AnalysisDataLabelContent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDataLabelContentPtrOutput) Elem() AnalysisDataLabelContentOutput {
 	return o.ApplyT(func(v *AnalysisDataLabelContent) AnalysisDataLabelContent {
 		if v != nil {
@@ -3627,10 +3310,12 @@ func (o AnalysisDataLabelContentPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisDataLabelContentInput is an input type that accepts AnalysisDataLabelContentArgs and AnalysisDataLabelContentOutput values.
-// You can construct a concrete instance of `AnalysisDataLabelContentInput` via:
+// AnalysisDataLabelContentInput is an input type that accepts values of the AnalysisDataLabelContent enum
+// A concrete instance of `AnalysisDataLabelContentInput` can be one of the following:
 //
-//	AnalysisDataLabelContentArgs{...}
+//	AnalysisDataLabelContentValue
+//	AnalysisDataLabelContentPercent
+//	AnalysisDataLabelContentValueAndPercent
 type AnalysisDataLabelContentInput interface {
 	pulumi.Input
 
@@ -3663,12 +3348,6 @@ func (in *analysisDataLabelContentPtr) ToAnalysisDataLabelContentPtrOutput() Ana
 
 func (in *analysisDataLabelContentPtr) ToAnalysisDataLabelContentPtrOutputWithContext(ctx context.Context) AnalysisDataLabelContentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisDataLabelContentPtrOutput)
-}
-
-func (in *analysisDataLabelContentPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDataLabelContent] {
-	return pulumix.Output[*AnalysisDataLabelContent]{
-		OutputState: in.ToAnalysisDataLabelContentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisDataLabelOverlap string
@@ -3738,12 +3417,6 @@ func (o AnalysisDataLabelOverlapOutput) ToAnalysisDataLabelOverlapPtrOutputWithC
 	}).(AnalysisDataLabelOverlapPtrOutput)
 }
 
-func (o AnalysisDataLabelOverlapOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisDataLabelOverlap] {
-	return pulumix.Output[AnalysisDataLabelOverlap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDataLabelOverlapOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3779,12 +3452,6 @@ func (o AnalysisDataLabelOverlapPtrOutput) ToAnalysisDataLabelOverlapPtrOutputWi
 	return o
 }
 
-func (o AnalysisDataLabelOverlapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDataLabelOverlap] {
-	return pulumix.Output[*AnalysisDataLabelOverlap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDataLabelOverlapPtrOutput) Elem() AnalysisDataLabelOverlapOutput {
 	return o.ApplyT(func(v *AnalysisDataLabelOverlap) AnalysisDataLabelOverlap {
 		if v != nil {
@@ -3809,10 +3476,11 @@ func (o AnalysisDataLabelOverlapPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisDataLabelOverlapInput is an input type that accepts AnalysisDataLabelOverlapArgs and AnalysisDataLabelOverlapOutput values.
-// You can construct a concrete instance of `AnalysisDataLabelOverlapInput` via:
+// AnalysisDataLabelOverlapInput is an input type that accepts values of the AnalysisDataLabelOverlap enum
+// A concrete instance of `AnalysisDataLabelOverlapInput` can be one of the following:
 //
-//	AnalysisDataLabelOverlapArgs{...}
+//	AnalysisDataLabelOverlapDisableOverlap
+//	AnalysisDataLabelOverlapEnableOverlap
 type AnalysisDataLabelOverlapInput interface {
 	pulumi.Input
 
@@ -3845,12 +3513,6 @@ func (in *analysisDataLabelOverlapPtr) ToAnalysisDataLabelOverlapPtrOutput() Ana
 
 func (in *analysisDataLabelOverlapPtr) ToAnalysisDataLabelOverlapPtrOutputWithContext(ctx context.Context) AnalysisDataLabelOverlapPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisDataLabelOverlapPtrOutput)
-}
-
-func (in *analysisDataLabelOverlapPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDataLabelOverlap] {
-	return pulumix.Output[*AnalysisDataLabelOverlap]{
-		OutputState: in.ToAnalysisDataLabelOverlapPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisDataLabelPosition string
@@ -3924,12 +3586,6 @@ func (o AnalysisDataLabelPositionOutput) ToAnalysisDataLabelPositionPtrOutputWit
 	}).(AnalysisDataLabelPositionPtrOutput)
 }
 
-func (o AnalysisDataLabelPositionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisDataLabelPosition] {
-	return pulumix.Output[AnalysisDataLabelPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDataLabelPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3965,12 +3621,6 @@ func (o AnalysisDataLabelPositionPtrOutput) ToAnalysisDataLabelPositionPtrOutput
 	return o
 }
 
-func (o AnalysisDataLabelPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDataLabelPosition] {
-	return pulumix.Output[*AnalysisDataLabelPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDataLabelPositionPtrOutput) Elem() AnalysisDataLabelPositionOutput {
 	return o.ApplyT(func(v *AnalysisDataLabelPosition) AnalysisDataLabelPosition {
 		if v != nil {
@@ -3995,10 +3645,15 @@ func (o AnalysisDataLabelPositionPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisDataLabelPositionInput is an input type that accepts AnalysisDataLabelPositionArgs and AnalysisDataLabelPositionOutput values.
-// You can construct a concrete instance of `AnalysisDataLabelPositionInput` via:
+// AnalysisDataLabelPositionInput is an input type that accepts values of the AnalysisDataLabelPosition enum
+// A concrete instance of `AnalysisDataLabelPositionInput` can be one of the following:
 //
-//	AnalysisDataLabelPositionArgs{...}
+//	AnalysisDataLabelPositionInside
+//	AnalysisDataLabelPositionOutside
+//	AnalysisDataLabelPositionLeft
+//	AnalysisDataLabelPositionTop
+//	AnalysisDataLabelPositionBottom
+//	AnalysisDataLabelPositionRight
 type AnalysisDataLabelPositionInput interface {
 	pulumi.Input
 
@@ -4031,12 +3686,6 @@ func (in *analysisDataLabelPositionPtr) ToAnalysisDataLabelPositionPtrOutput() A
 
 func (in *analysisDataLabelPositionPtr) ToAnalysisDataLabelPositionPtrOutputWithContext(ctx context.Context) AnalysisDataLabelPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisDataLabelPositionPtrOutput)
-}
-
-func (in *analysisDataLabelPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDataLabelPosition] {
-	return pulumix.Output[*AnalysisDataLabelPosition]{
-		OutputState: in.ToAnalysisDataLabelPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisDateAggregationFunction string
@@ -4108,12 +3757,6 @@ func (o AnalysisDateAggregationFunctionOutput) ToAnalysisDateAggregationFunction
 	}).(AnalysisDateAggregationFunctionPtrOutput)
 }
 
-func (o AnalysisDateAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisDateAggregationFunction] {
-	return pulumix.Output[AnalysisDateAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDateAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4149,12 +3792,6 @@ func (o AnalysisDateAggregationFunctionPtrOutput) ToAnalysisDateAggregationFunct
 	return o
 }
 
-func (o AnalysisDateAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDateAggregationFunction] {
-	return pulumix.Output[*AnalysisDateAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDateAggregationFunctionPtrOutput) Elem() AnalysisDateAggregationFunctionOutput {
 	return o.ApplyT(func(v *AnalysisDateAggregationFunction) AnalysisDateAggregationFunction {
 		if v != nil {
@@ -4179,10 +3816,13 @@ func (o AnalysisDateAggregationFunctionPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisDateAggregationFunctionInput is an input type that accepts AnalysisDateAggregationFunctionArgs and AnalysisDateAggregationFunctionOutput values.
-// You can construct a concrete instance of `AnalysisDateAggregationFunctionInput` via:
+// AnalysisDateAggregationFunctionInput is an input type that accepts values of the AnalysisDateAggregationFunction enum
+// A concrete instance of `AnalysisDateAggregationFunctionInput` can be one of the following:
 //
-//	AnalysisDateAggregationFunctionArgs{...}
+//	AnalysisDateAggregationFunctionCount
+//	AnalysisDateAggregationFunctionDistinctCount
+//	AnalysisDateAggregationFunctionMin
+//	AnalysisDateAggregationFunctionMax
 type AnalysisDateAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -4215,12 +3855,6 @@ func (in *analysisDateAggregationFunctionPtr) ToAnalysisDateAggregationFunctionP
 
 func (in *analysisDateAggregationFunctionPtr) ToAnalysisDateAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisDateAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisDateAggregationFunctionPtrOutput)
-}
-
-func (in *analysisDateAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDateAggregationFunction] {
-	return pulumix.Output[*AnalysisDateAggregationFunction]{
-		OutputState: in.ToAnalysisDateAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisDayOfTheWeek string
@@ -4295,12 +3929,6 @@ func (o AnalysisDayOfTheWeekOutput) ToAnalysisDayOfTheWeekPtrOutputWithContext(c
 	}).(AnalysisDayOfTheWeekPtrOutput)
 }
 
-func (o AnalysisDayOfTheWeekOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisDayOfTheWeek] {
-	return pulumix.Output[AnalysisDayOfTheWeek]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDayOfTheWeekOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4336,12 +3964,6 @@ func (o AnalysisDayOfTheWeekPtrOutput) ToAnalysisDayOfTheWeekPtrOutputWithContex
 	return o
 }
 
-func (o AnalysisDayOfTheWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDayOfTheWeek] {
-	return pulumix.Output[*AnalysisDayOfTheWeek]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDayOfTheWeekPtrOutput) Elem() AnalysisDayOfTheWeekOutput {
 	return o.ApplyT(func(v *AnalysisDayOfTheWeek) AnalysisDayOfTheWeek {
 		if v != nil {
@@ -4366,10 +3988,16 @@ func (o AnalysisDayOfTheWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisDayOfTheWeekInput is an input type that accepts AnalysisDayOfTheWeekArgs and AnalysisDayOfTheWeekOutput values.
-// You can construct a concrete instance of `AnalysisDayOfTheWeekInput` via:
+// AnalysisDayOfTheWeekInput is an input type that accepts values of the AnalysisDayOfTheWeek enum
+// A concrete instance of `AnalysisDayOfTheWeekInput` can be one of the following:
 //
-//	AnalysisDayOfTheWeekArgs{...}
+//	AnalysisDayOfTheWeekSunday
+//	AnalysisDayOfTheWeekMonday
+//	AnalysisDayOfTheWeekTuesday
+//	AnalysisDayOfTheWeekWednesday
+//	AnalysisDayOfTheWeekThursday
+//	AnalysisDayOfTheWeekFriday
+//	AnalysisDayOfTheWeekSaturday
 type AnalysisDayOfTheWeekInput interface {
 	pulumi.Input
 
@@ -4402,12 +4030,6 @@ func (in *analysisDayOfTheWeekPtr) ToAnalysisDayOfTheWeekPtrOutput() AnalysisDay
 
 func (in *analysisDayOfTheWeekPtr) ToAnalysisDayOfTheWeekPtrOutputWithContext(ctx context.Context) AnalysisDayOfTheWeekPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisDayOfTheWeekPtrOutput)
-}
-
-func (in *analysisDayOfTheWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDayOfTheWeek] {
-	return pulumix.Output[*AnalysisDayOfTheWeek]{
-		OutputState: in.ToAnalysisDayOfTheWeekPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisErrorType string
@@ -4485,12 +4107,6 @@ func (o AnalysisErrorTypeOutput) ToAnalysisErrorTypePtrOutputWithContext(ctx con
 	}).(AnalysisErrorTypePtrOutput)
 }
 
-func (o AnalysisErrorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisErrorType] {
-	return pulumix.Output[AnalysisErrorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisErrorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4526,12 +4142,6 @@ func (o AnalysisErrorTypePtrOutput) ToAnalysisErrorTypePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o AnalysisErrorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisErrorType] {
-	return pulumix.Output[*AnalysisErrorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisErrorTypePtrOutput) Elem() AnalysisErrorTypeOutput {
 	return o.ApplyT(func(v *AnalysisErrorType) AnalysisErrorType {
 		if v != nil {
@@ -4556,10 +4166,19 @@ func (o AnalysisErrorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisErrorTypeInput is an input type that accepts AnalysisErrorTypeArgs and AnalysisErrorTypeOutput values.
-// You can construct a concrete instance of `AnalysisErrorTypeInput` via:
+// AnalysisErrorTypeInput is an input type that accepts values of the AnalysisErrorType enum
+// A concrete instance of `AnalysisErrorTypeInput` can be one of the following:
 //
-//	AnalysisErrorTypeArgs{...}
+//	AnalysisErrorTypeAccessDenied
+//	AnalysisErrorTypeSourceNotFound
+//	AnalysisErrorTypeDataSetNotFound
+//	AnalysisErrorTypeInternalFailure
+//	AnalysisErrorTypeParameterValueIncompatible
+//	AnalysisErrorTypeParameterTypeInvalid
+//	AnalysisErrorTypeParameterNotFound
+//	AnalysisErrorTypeColumnTypeMismatch
+//	AnalysisErrorTypeColumnGeographicRoleMismatch
+//	AnalysisErrorTypeColumnReplacementMissing
 type AnalysisErrorTypeInput interface {
 	pulumi.Input
 
@@ -4592,12 +4211,6 @@ func (in *analysisErrorTypePtr) ToAnalysisErrorTypePtrOutput() AnalysisErrorType
 
 func (in *analysisErrorTypePtr) ToAnalysisErrorTypePtrOutputWithContext(ctx context.Context) AnalysisErrorTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisErrorTypePtrOutput)
-}
-
-func (in *analysisErrorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisErrorType] {
-	return pulumix.Output[*AnalysisErrorType]{
-		OutputState: in.ToAnalysisErrorTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisFilterNullOption string
@@ -4668,12 +4281,6 @@ func (o AnalysisFilterNullOptionOutput) ToAnalysisFilterNullOptionPtrOutputWithC
 	}).(AnalysisFilterNullOptionPtrOutput)
 }
 
-func (o AnalysisFilterNullOptionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisFilterNullOption] {
-	return pulumix.Output[AnalysisFilterNullOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFilterNullOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4709,12 +4316,6 @@ func (o AnalysisFilterNullOptionPtrOutput) ToAnalysisFilterNullOptionPtrOutputWi
 	return o
 }
 
-func (o AnalysisFilterNullOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFilterNullOption] {
-	return pulumix.Output[*AnalysisFilterNullOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFilterNullOptionPtrOutput) Elem() AnalysisFilterNullOptionOutput {
 	return o.ApplyT(func(v *AnalysisFilterNullOption) AnalysisFilterNullOption {
 		if v != nil {
@@ -4739,10 +4340,12 @@ func (o AnalysisFilterNullOptionPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisFilterNullOptionInput is an input type that accepts AnalysisFilterNullOptionArgs and AnalysisFilterNullOptionOutput values.
-// You can construct a concrete instance of `AnalysisFilterNullOptionInput` via:
+// AnalysisFilterNullOptionInput is an input type that accepts values of the AnalysisFilterNullOption enum
+// A concrete instance of `AnalysisFilterNullOptionInput` can be one of the following:
 //
-//	AnalysisFilterNullOptionArgs{...}
+//	AnalysisFilterNullOptionAllValues
+//	AnalysisFilterNullOptionNullsOnly
+//	AnalysisFilterNullOptionNonNullsOnly
 type AnalysisFilterNullOptionInput interface {
 	pulumi.Input
 
@@ -4775,12 +4378,6 @@ func (in *analysisFilterNullOptionPtr) ToAnalysisFilterNullOptionPtrOutput() Ana
 
 func (in *analysisFilterNullOptionPtr) ToAnalysisFilterNullOptionPtrOutputWithContext(ctx context.Context) AnalysisFilterNullOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisFilterNullOptionPtrOutput)
-}
-
-func (in *analysisFilterNullOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFilterNullOption] {
-	return pulumix.Output[*AnalysisFilterNullOption]{
-		OutputState: in.ToAnalysisFilterNullOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisFilterVisualScope string
@@ -4850,12 +4447,6 @@ func (o AnalysisFilterVisualScopeOutput) ToAnalysisFilterVisualScopePtrOutputWit
 	}).(AnalysisFilterVisualScopePtrOutput)
 }
 
-func (o AnalysisFilterVisualScopeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisFilterVisualScope] {
-	return pulumix.Output[AnalysisFilterVisualScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFilterVisualScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4891,12 +4482,6 @@ func (o AnalysisFilterVisualScopePtrOutput) ToAnalysisFilterVisualScopePtrOutput
 	return o
 }
 
-func (o AnalysisFilterVisualScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFilterVisualScope] {
-	return pulumix.Output[*AnalysisFilterVisualScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFilterVisualScopePtrOutput) Elem() AnalysisFilterVisualScopeOutput {
 	return o.ApplyT(func(v *AnalysisFilterVisualScope) AnalysisFilterVisualScope {
 		if v != nil {
@@ -4921,10 +4506,11 @@ func (o AnalysisFilterVisualScopePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisFilterVisualScopeInput is an input type that accepts AnalysisFilterVisualScopeArgs and AnalysisFilterVisualScopeOutput values.
-// You can construct a concrete instance of `AnalysisFilterVisualScopeInput` via:
+// AnalysisFilterVisualScopeInput is an input type that accepts values of the AnalysisFilterVisualScope enum
+// A concrete instance of `AnalysisFilterVisualScopeInput` can be one of the following:
 //
-//	AnalysisFilterVisualScopeArgs{...}
+//	AnalysisFilterVisualScopeAllVisuals
+//	AnalysisFilterVisualScopeSelectedVisuals
 type AnalysisFilterVisualScopeInput interface {
 	pulumi.Input
 
@@ -4957,12 +4543,6 @@ func (in *analysisFilterVisualScopePtr) ToAnalysisFilterVisualScopePtrOutput() A
 
 func (in *analysisFilterVisualScopePtr) ToAnalysisFilterVisualScopePtrOutputWithContext(ctx context.Context) AnalysisFilterVisualScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisFilterVisualScopePtrOutput)
-}
-
-func (in *analysisFilterVisualScopePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFilterVisualScope] {
-	return pulumix.Output[*AnalysisFilterVisualScope]{
-		OutputState: in.ToAnalysisFilterVisualScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisFontDecoration string
@@ -5032,12 +4612,6 @@ func (o AnalysisFontDecorationOutput) ToAnalysisFontDecorationPtrOutputWithConte
 	}).(AnalysisFontDecorationPtrOutput)
 }
 
-func (o AnalysisFontDecorationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisFontDecoration] {
-	return pulumix.Output[AnalysisFontDecoration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFontDecorationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5073,12 +4647,6 @@ func (o AnalysisFontDecorationPtrOutput) ToAnalysisFontDecorationPtrOutputWithCo
 	return o
 }
 
-func (o AnalysisFontDecorationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFontDecoration] {
-	return pulumix.Output[*AnalysisFontDecoration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFontDecorationPtrOutput) Elem() AnalysisFontDecorationOutput {
 	return o.ApplyT(func(v *AnalysisFontDecoration) AnalysisFontDecoration {
 		if v != nil {
@@ -5103,10 +4671,11 @@ func (o AnalysisFontDecorationPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisFontDecorationInput is an input type that accepts AnalysisFontDecorationArgs and AnalysisFontDecorationOutput values.
-// You can construct a concrete instance of `AnalysisFontDecorationInput` via:
+// AnalysisFontDecorationInput is an input type that accepts values of the AnalysisFontDecoration enum
+// A concrete instance of `AnalysisFontDecorationInput` can be one of the following:
 //
-//	AnalysisFontDecorationArgs{...}
+//	AnalysisFontDecorationUnderline
+//	AnalysisFontDecorationNone
 type AnalysisFontDecorationInput interface {
 	pulumi.Input
 
@@ -5139,12 +4708,6 @@ func (in *analysisFontDecorationPtr) ToAnalysisFontDecorationPtrOutput() Analysi
 
 func (in *analysisFontDecorationPtr) ToAnalysisFontDecorationPtrOutputWithContext(ctx context.Context) AnalysisFontDecorationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisFontDecorationPtrOutput)
-}
-
-func (in *analysisFontDecorationPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFontDecoration] {
-	return pulumix.Output[*AnalysisFontDecoration]{
-		OutputState: in.ToAnalysisFontDecorationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisFontStyle string
@@ -5214,12 +4777,6 @@ func (o AnalysisFontStyleOutput) ToAnalysisFontStylePtrOutputWithContext(ctx con
 	}).(AnalysisFontStylePtrOutput)
 }
 
-func (o AnalysisFontStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisFontStyle] {
-	return pulumix.Output[AnalysisFontStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFontStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5255,12 +4812,6 @@ func (o AnalysisFontStylePtrOutput) ToAnalysisFontStylePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o AnalysisFontStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFontStyle] {
-	return pulumix.Output[*AnalysisFontStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFontStylePtrOutput) Elem() AnalysisFontStyleOutput {
 	return o.ApplyT(func(v *AnalysisFontStyle) AnalysisFontStyle {
 		if v != nil {
@@ -5285,10 +4836,11 @@ func (o AnalysisFontStylePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisFontStyleInput is an input type that accepts AnalysisFontStyleArgs and AnalysisFontStyleOutput values.
-// You can construct a concrete instance of `AnalysisFontStyleInput` via:
+// AnalysisFontStyleInput is an input type that accepts values of the AnalysisFontStyle enum
+// A concrete instance of `AnalysisFontStyleInput` can be one of the following:
 //
-//	AnalysisFontStyleArgs{...}
+//	AnalysisFontStyleNormal
+//	AnalysisFontStyleItalic
 type AnalysisFontStyleInput interface {
 	pulumi.Input
 
@@ -5321,12 +4873,6 @@ func (in *analysisFontStylePtr) ToAnalysisFontStylePtrOutput() AnalysisFontStyle
 
 func (in *analysisFontStylePtr) ToAnalysisFontStylePtrOutputWithContext(ctx context.Context) AnalysisFontStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisFontStylePtrOutput)
-}
-
-func (in *analysisFontStylePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFontStyle] {
-	return pulumix.Output[*AnalysisFontStyle]{
-		OutputState: in.ToAnalysisFontStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisFontWeightName string
@@ -5396,12 +4942,6 @@ func (o AnalysisFontWeightNameOutput) ToAnalysisFontWeightNamePtrOutputWithConte
 	}).(AnalysisFontWeightNamePtrOutput)
 }
 
-func (o AnalysisFontWeightNameOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisFontWeightName] {
-	return pulumix.Output[AnalysisFontWeightName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFontWeightNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5437,12 +4977,6 @@ func (o AnalysisFontWeightNamePtrOutput) ToAnalysisFontWeightNamePtrOutputWithCo
 	return o
 }
 
-func (o AnalysisFontWeightNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFontWeightName] {
-	return pulumix.Output[*AnalysisFontWeightName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFontWeightNamePtrOutput) Elem() AnalysisFontWeightNameOutput {
 	return o.ApplyT(func(v *AnalysisFontWeightName) AnalysisFontWeightName {
 		if v != nil {
@@ -5467,10 +5001,11 @@ func (o AnalysisFontWeightNamePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisFontWeightNameInput is an input type that accepts AnalysisFontWeightNameArgs and AnalysisFontWeightNameOutput values.
-// You can construct a concrete instance of `AnalysisFontWeightNameInput` via:
+// AnalysisFontWeightNameInput is an input type that accepts values of the AnalysisFontWeightName enum
+// A concrete instance of `AnalysisFontWeightNameInput` can be one of the following:
 //
-//	AnalysisFontWeightNameArgs{...}
+//	AnalysisFontWeightNameNormal
+//	AnalysisFontWeightNameBold
 type AnalysisFontWeightNameInput interface {
 	pulumi.Input
 
@@ -5503,12 +5038,6 @@ func (in *analysisFontWeightNamePtr) ToAnalysisFontWeightNamePtrOutput() Analysi
 
 func (in *analysisFontWeightNamePtr) ToAnalysisFontWeightNamePtrOutputWithContext(ctx context.Context) AnalysisFontWeightNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisFontWeightNamePtrOutput)
-}
-
-func (in *analysisFontWeightNamePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFontWeightName] {
-	return pulumix.Output[*AnalysisFontWeightName]{
-		OutputState: in.ToAnalysisFontWeightNamePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisForecastComputationSeasonality string
@@ -5578,12 +5107,6 @@ func (o AnalysisForecastComputationSeasonalityOutput) ToAnalysisForecastComputat
 	}).(AnalysisForecastComputationSeasonalityPtrOutput)
 }
 
-func (o AnalysisForecastComputationSeasonalityOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisForecastComputationSeasonality] {
-	return pulumix.Output[AnalysisForecastComputationSeasonality]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisForecastComputationSeasonalityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5619,12 +5142,6 @@ func (o AnalysisForecastComputationSeasonalityPtrOutput) ToAnalysisForecastCompu
 	return o
 }
 
-func (o AnalysisForecastComputationSeasonalityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisForecastComputationSeasonality] {
-	return pulumix.Output[*AnalysisForecastComputationSeasonality]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisForecastComputationSeasonalityPtrOutput) Elem() AnalysisForecastComputationSeasonalityOutput {
 	return o.ApplyT(func(v *AnalysisForecastComputationSeasonality) AnalysisForecastComputationSeasonality {
 		if v != nil {
@@ -5649,10 +5166,11 @@ func (o AnalysisForecastComputationSeasonalityPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisForecastComputationSeasonalityInput is an input type that accepts AnalysisForecastComputationSeasonalityArgs and AnalysisForecastComputationSeasonalityOutput values.
-// You can construct a concrete instance of `AnalysisForecastComputationSeasonalityInput` via:
+// AnalysisForecastComputationSeasonalityInput is an input type that accepts values of the AnalysisForecastComputationSeasonality enum
+// A concrete instance of `AnalysisForecastComputationSeasonalityInput` can be one of the following:
 //
-//	AnalysisForecastComputationSeasonalityArgs{...}
+//	AnalysisForecastComputationSeasonalityAutomatic
+//	AnalysisForecastComputationSeasonalityCustom
 type AnalysisForecastComputationSeasonalityInput interface {
 	pulumi.Input
 
@@ -5685,12 +5203,6 @@ func (in *analysisForecastComputationSeasonalityPtr) ToAnalysisForecastComputati
 
 func (in *analysisForecastComputationSeasonalityPtr) ToAnalysisForecastComputationSeasonalityPtrOutputWithContext(ctx context.Context) AnalysisForecastComputationSeasonalityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisForecastComputationSeasonalityPtrOutput)
-}
-
-func (in *analysisForecastComputationSeasonalityPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisForecastComputationSeasonality] {
-	return pulumix.Output[*AnalysisForecastComputationSeasonality]{
-		OutputState: in.ToAnalysisForecastComputationSeasonalityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisFunnelChartMeasureDataLabelStyle string
@@ -5763,12 +5275,6 @@ func (o AnalysisFunnelChartMeasureDataLabelStyleOutput) ToAnalysisFunnelChartMea
 	}).(AnalysisFunnelChartMeasureDataLabelStylePtrOutput)
 }
 
-func (o AnalysisFunnelChartMeasureDataLabelStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[AnalysisFunnelChartMeasureDataLabelStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFunnelChartMeasureDataLabelStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5804,12 +5310,6 @@ func (o AnalysisFunnelChartMeasureDataLabelStylePtrOutput) ToAnalysisFunnelChart
 	return o
 }
 
-func (o AnalysisFunnelChartMeasureDataLabelStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[*AnalysisFunnelChartMeasureDataLabelStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFunnelChartMeasureDataLabelStylePtrOutput) Elem() AnalysisFunnelChartMeasureDataLabelStyleOutput {
 	return o.ApplyT(func(v *AnalysisFunnelChartMeasureDataLabelStyle) AnalysisFunnelChartMeasureDataLabelStyle {
 		if v != nil {
@@ -5834,10 +5334,14 @@ func (o AnalysisFunnelChartMeasureDataLabelStylePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisFunnelChartMeasureDataLabelStyleInput is an input type that accepts AnalysisFunnelChartMeasureDataLabelStyleArgs and AnalysisFunnelChartMeasureDataLabelStyleOutput values.
-// You can construct a concrete instance of `AnalysisFunnelChartMeasureDataLabelStyleInput` via:
+// AnalysisFunnelChartMeasureDataLabelStyleInput is an input type that accepts values of the AnalysisFunnelChartMeasureDataLabelStyle enum
+// A concrete instance of `AnalysisFunnelChartMeasureDataLabelStyleInput` can be one of the following:
 //
-//	AnalysisFunnelChartMeasureDataLabelStyleArgs{...}
+//	AnalysisFunnelChartMeasureDataLabelStyleValueOnly
+//	AnalysisFunnelChartMeasureDataLabelStylePercentageByFirstStage
+//	AnalysisFunnelChartMeasureDataLabelStylePercentageByPreviousStage
+//	AnalysisFunnelChartMeasureDataLabelStyleValueAndPercentageByFirstStage
+//	AnalysisFunnelChartMeasureDataLabelStyleValueAndPercentageByPreviousStage
 type AnalysisFunnelChartMeasureDataLabelStyleInput interface {
 	pulumi.Input
 
@@ -5870,12 +5374,6 @@ func (in *analysisFunnelChartMeasureDataLabelStylePtr) ToAnalysisFunnelChartMeas
 
 func (in *analysisFunnelChartMeasureDataLabelStylePtr) ToAnalysisFunnelChartMeasureDataLabelStylePtrOutputWithContext(ctx context.Context) AnalysisFunnelChartMeasureDataLabelStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisFunnelChartMeasureDataLabelStylePtrOutput)
-}
-
-func (in *analysisFunnelChartMeasureDataLabelStylePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[*AnalysisFunnelChartMeasureDataLabelStyle]{
-		OutputState: in.ToAnalysisFunnelChartMeasureDataLabelStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisGeospatialSelectedPointStyle string
@@ -5946,12 +5444,6 @@ func (o AnalysisGeospatialSelectedPointStyleOutput) ToAnalysisGeospatialSelected
 	}).(AnalysisGeospatialSelectedPointStylePtrOutput)
 }
 
-func (o AnalysisGeospatialSelectedPointStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisGeospatialSelectedPointStyle] {
-	return pulumix.Output[AnalysisGeospatialSelectedPointStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisGeospatialSelectedPointStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5987,12 +5479,6 @@ func (o AnalysisGeospatialSelectedPointStylePtrOutput) ToAnalysisGeospatialSelec
 	return o
 }
 
-func (o AnalysisGeospatialSelectedPointStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisGeospatialSelectedPointStyle] {
-	return pulumix.Output[*AnalysisGeospatialSelectedPointStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisGeospatialSelectedPointStylePtrOutput) Elem() AnalysisGeospatialSelectedPointStyleOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialSelectedPointStyle) AnalysisGeospatialSelectedPointStyle {
 		if v != nil {
@@ -6017,10 +5503,12 @@ func (o AnalysisGeospatialSelectedPointStylePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisGeospatialSelectedPointStyleInput is an input type that accepts AnalysisGeospatialSelectedPointStyleArgs and AnalysisGeospatialSelectedPointStyleOutput values.
-// You can construct a concrete instance of `AnalysisGeospatialSelectedPointStyleInput` via:
+// AnalysisGeospatialSelectedPointStyleInput is an input type that accepts values of the AnalysisGeospatialSelectedPointStyle enum
+// A concrete instance of `AnalysisGeospatialSelectedPointStyleInput` can be one of the following:
 //
-//	AnalysisGeospatialSelectedPointStyleArgs{...}
+//	AnalysisGeospatialSelectedPointStylePoint
+//	AnalysisGeospatialSelectedPointStyleCluster
+//	AnalysisGeospatialSelectedPointStyleHeatmap
 type AnalysisGeospatialSelectedPointStyleInput interface {
 	pulumi.Input
 
@@ -6053,12 +5541,6 @@ func (in *analysisGeospatialSelectedPointStylePtr) ToAnalysisGeospatialSelectedP
 
 func (in *analysisGeospatialSelectedPointStylePtr) ToAnalysisGeospatialSelectedPointStylePtrOutputWithContext(ctx context.Context) AnalysisGeospatialSelectedPointStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisGeospatialSelectedPointStylePtrOutput)
-}
-
-func (in *analysisGeospatialSelectedPointStylePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisGeospatialSelectedPointStyle] {
-	return pulumix.Output[*AnalysisGeospatialSelectedPointStyle]{
-		OutputState: in.ToAnalysisGeospatialSelectedPointStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisHistogramBinType string
@@ -6128,12 +5610,6 @@ func (o AnalysisHistogramBinTypeOutput) ToAnalysisHistogramBinTypePtrOutputWithC
 	}).(AnalysisHistogramBinTypePtrOutput)
 }
 
-func (o AnalysisHistogramBinTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisHistogramBinType] {
-	return pulumix.Output[AnalysisHistogramBinType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisHistogramBinTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6169,12 +5645,6 @@ func (o AnalysisHistogramBinTypePtrOutput) ToAnalysisHistogramBinTypePtrOutputWi
 	return o
 }
 
-func (o AnalysisHistogramBinTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisHistogramBinType] {
-	return pulumix.Output[*AnalysisHistogramBinType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisHistogramBinTypePtrOutput) Elem() AnalysisHistogramBinTypeOutput {
 	return o.ApplyT(func(v *AnalysisHistogramBinType) AnalysisHistogramBinType {
 		if v != nil {
@@ -6199,10 +5669,11 @@ func (o AnalysisHistogramBinTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisHistogramBinTypeInput is an input type that accepts AnalysisHistogramBinTypeArgs and AnalysisHistogramBinTypeOutput values.
-// You can construct a concrete instance of `AnalysisHistogramBinTypeInput` via:
+// AnalysisHistogramBinTypeInput is an input type that accepts values of the AnalysisHistogramBinType enum
+// A concrete instance of `AnalysisHistogramBinTypeInput` can be one of the following:
 //
-//	AnalysisHistogramBinTypeArgs{...}
+//	AnalysisHistogramBinTypeBinCount
+//	AnalysisHistogramBinTypeBinWidth
 type AnalysisHistogramBinTypeInput interface {
 	pulumi.Input
 
@@ -6235,12 +5706,6 @@ func (in *analysisHistogramBinTypePtr) ToAnalysisHistogramBinTypePtrOutput() Ana
 
 func (in *analysisHistogramBinTypePtr) ToAnalysisHistogramBinTypePtrOutputWithContext(ctx context.Context) AnalysisHistogramBinTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisHistogramBinTypePtrOutput)
-}
-
-func (in *analysisHistogramBinTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisHistogramBinType] {
-	return pulumix.Output[*AnalysisHistogramBinType]{
-		OutputState: in.ToAnalysisHistogramBinTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisHorizontalTextAlignment string
@@ -6312,12 +5777,6 @@ func (o AnalysisHorizontalTextAlignmentOutput) ToAnalysisHorizontalTextAlignment
 	}).(AnalysisHorizontalTextAlignmentPtrOutput)
 }
 
-func (o AnalysisHorizontalTextAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisHorizontalTextAlignment] {
-	return pulumix.Output[AnalysisHorizontalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisHorizontalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6353,12 +5812,6 @@ func (o AnalysisHorizontalTextAlignmentPtrOutput) ToAnalysisHorizontalTextAlignm
 	return o
 }
 
-func (o AnalysisHorizontalTextAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisHorizontalTextAlignment] {
-	return pulumix.Output[*AnalysisHorizontalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisHorizontalTextAlignmentPtrOutput) Elem() AnalysisHorizontalTextAlignmentOutput {
 	return o.ApplyT(func(v *AnalysisHorizontalTextAlignment) AnalysisHorizontalTextAlignment {
 		if v != nil {
@@ -6383,10 +5836,13 @@ func (o AnalysisHorizontalTextAlignmentPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisHorizontalTextAlignmentInput is an input type that accepts AnalysisHorizontalTextAlignmentArgs and AnalysisHorizontalTextAlignmentOutput values.
-// You can construct a concrete instance of `AnalysisHorizontalTextAlignmentInput` via:
+// AnalysisHorizontalTextAlignmentInput is an input type that accepts values of the AnalysisHorizontalTextAlignment enum
+// A concrete instance of `AnalysisHorizontalTextAlignmentInput` can be one of the following:
 //
-//	AnalysisHorizontalTextAlignmentArgs{...}
+//	AnalysisHorizontalTextAlignmentLeft
+//	AnalysisHorizontalTextAlignmentCenter
+//	AnalysisHorizontalTextAlignmentRight
+//	AnalysisHorizontalTextAlignmentAuto
 type AnalysisHorizontalTextAlignmentInput interface {
 	pulumi.Input
 
@@ -6419,12 +5875,6 @@ func (in *analysisHorizontalTextAlignmentPtr) ToAnalysisHorizontalTextAlignmentP
 
 func (in *analysisHorizontalTextAlignmentPtr) ToAnalysisHorizontalTextAlignmentPtrOutputWithContext(ctx context.Context) AnalysisHorizontalTextAlignmentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisHorizontalTextAlignmentPtrOutput)
-}
-
-func (in *analysisHorizontalTextAlignmentPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisHorizontalTextAlignment] {
-	return pulumix.Output[*AnalysisHorizontalTextAlignment]{
-		OutputState: in.ToAnalysisHorizontalTextAlignmentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisIcon string
@@ -6518,12 +5968,6 @@ func (o AnalysisIconOutput) ToAnalysisIconPtrOutputWithContext(ctx context.Conte
 	}).(AnalysisIconPtrOutput)
 }
 
-func (o AnalysisIconOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisIcon] {
-	return pulumix.Output[AnalysisIcon]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisIconOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6559,12 +6003,6 @@ func (o AnalysisIconPtrOutput) ToAnalysisIconPtrOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o AnalysisIconPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisIcon] {
-	return pulumix.Output[*AnalysisIcon]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisIconPtrOutput) Elem() AnalysisIconOutput {
 	return o.ApplyT(func(v *AnalysisIcon) AnalysisIcon {
 		if v != nil {
@@ -6589,10 +6027,35 @@ func (o AnalysisIconPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisIconInput is an input type that accepts AnalysisIconArgs and AnalysisIconOutput values.
-// You can construct a concrete instance of `AnalysisIconInput` via:
+// AnalysisIconInput is an input type that accepts values of the AnalysisIcon enum
+// A concrete instance of `AnalysisIconInput` can be one of the following:
 //
-//	AnalysisIconArgs{...}
+//	AnalysisIconCaretUp
+//	AnalysisIconCaretDown
+//	AnalysisIconPlus
+//	AnalysisIconMinus
+//	AnalysisIconArrowUp
+//	AnalysisIconArrowDown
+//	AnalysisIconArrowLeft
+//	AnalysisIconArrowUpLeft
+//	AnalysisIconArrowDownLeft
+//	AnalysisIconArrowRight
+//	AnalysisIconArrowUpRight
+//	AnalysisIconArrowDownRight
+//	AnalysisIconFaceUp
+//	AnalysisIconFaceDown
+//	AnalysisIconFaceFlat
+//	AnalysisIconOneBar
+//	AnalysisIconTwoBar
+//	AnalysisIconThreeBar
+//	AnalysisIconCircle
+//	AnalysisIconTriangle
+//	AnalysisIconSquare
+//	AnalysisIconFlag
+//	AnalysisIconThumbsUp
+//	AnalysisIconThumbsDown
+//	AnalysisIconCheckmark
+//	AnalysisIconX
 type AnalysisIconInput interface {
 	pulumi.Input
 
@@ -6625,12 +6088,6 @@ func (in *analysisIconPtr) ToAnalysisIconPtrOutput() AnalysisIconPtrOutput {
 
 func (in *analysisIconPtr) ToAnalysisIconPtrOutputWithContext(ctx context.Context) AnalysisIconPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisIconPtrOutput)
-}
-
-func (in *analysisIconPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisIcon] {
-	return pulumix.Output[*AnalysisIcon]{
-		OutputState: in.ToAnalysisIconPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisKpiSparklineType string
@@ -6700,12 +6157,6 @@ func (o AnalysisKpiSparklineTypeOutput) ToAnalysisKpiSparklineTypePtrOutputWithC
 	}).(AnalysisKpiSparklineTypePtrOutput)
 }
 
-func (o AnalysisKpiSparklineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisKpiSparklineType] {
-	return pulumix.Output[AnalysisKpiSparklineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisKpiSparklineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6741,12 +6192,6 @@ func (o AnalysisKpiSparklineTypePtrOutput) ToAnalysisKpiSparklineTypePtrOutputWi
 	return o
 }
 
-func (o AnalysisKpiSparklineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisKpiSparklineType] {
-	return pulumix.Output[*AnalysisKpiSparklineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisKpiSparklineTypePtrOutput) Elem() AnalysisKpiSparklineTypeOutput {
 	return o.ApplyT(func(v *AnalysisKpiSparklineType) AnalysisKpiSparklineType {
 		if v != nil {
@@ -6771,10 +6216,11 @@ func (o AnalysisKpiSparklineTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisKpiSparklineTypeInput is an input type that accepts AnalysisKpiSparklineTypeArgs and AnalysisKpiSparklineTypeOutput values.
-// You can construct a concrete instance of `AnalysisKpiSparklineTypeInput` via:
+// AnalysisKpiSparklineTypeInput is an input type that accepts values of the AnalysisKpiSparklineType enum
+// A concrete instance of `AnalysisKpiSparklineTypeInput` can be one of the following:
 //
-//	AnalysisKpiSparklineTypeArgs{...}
+//	AnalysisKpiSparklineTypeLine
+//	AnalysisKpiSparklineTypeArea
 type AnalysisKpiSparklineTypeInput interface {
 	pulumi.Input
 
@@ -6807,12 +6253,6 @@ func (in *analysisKpiSparklineTypePtr) ToAnalysisKpiSparklineTypePtrOutput() Ana
 
 func (in *analysisKpiSparklineTypePtr) ToAnalysisKpiSparklineTypePtrOutputWithContext(ctx context.Context) AnalysisKpiSparklineTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisKpiSparklineTypePtrOutput)
-}
-
-func (in *analysisKpiSparklineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisKpiSparklineType] {
-	return pulumix.Output[*AnalysisKpiSparklineType]{
-		OutputState: in.ToAnalysisKpiSparklineTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisKpiVisualStandardLayoutType string
@@ -6882,12 +6322,6 @@ func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToAnalysisKpiVisualStandardLa
 	}).(AnalysisKpiVisualStandardLayoutTypePtrOutput)
 }
 
-func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisKpiVisualStandardLayoutType] {
-	return pulumix.Output[AnalysisKpiVisualStandardLayoutType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6923,12 +6357,6 @@ func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) ToAnalysisKpiVisualStandar
 	return o
 }
 
-func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisKpiVisualStandardLayoutType] {
-	return pulumix.Output[*AnalysisKpiVisualStandardLayoutType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) Elem() AnalysisKpiVisualStandardLayoutTypeOutput {
 	return o.ApplyT(func(v *AnalysisKpiVisualStandardLayoutType) AnalysisKpiVisualStandardLayoutType {
 		if v != nil {
@@ -6953,10 +6381,11 @@ func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisKpiVisualStandardLayoutTypeInput is an input type that accepts AnalysisKpiVisualStandardLayoutTypeArgs and AnalysisKpiVisualStandardLayoutTypeOutput values.
-// You can construct a concrete instance of `AnalysisKpiVisualStandardLayoutTypeInput` via:
+// AnalysisKpiVisualStandardLayoutTypeInput is an input type that accepts values of the AnalysisKpiVisualStandardLayoutType enum
+// A concrete instance of `AnalysisKpiVisualStandardLayoutTypeInput` can be one of the following:
 //
-//	AnalysisKpiVisualStandardLayoutTypeArgs{...}
+//	AnalysisKpiVisualStandardLayoutTypeClassic
+//	AnalysisKpiVisualStandardLayoutTypeVertical
 type AnalysisKpiVisualStandardLayoutTypeInput interface {
 	pulumi.Input
 
@@ -6989,12 +6418,6 @@ func (in *analysisKpiVisualStandardLayoutTypePtr) ToAnalysisKpiVisualStandardLay
 
 func (in *analysisKpiVisualStandardLayoutTypePtr) ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) AnalysisKpiVisualStandardLayoutTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisKpiVisualStandardLayoutTypePtrOutput)
-}
-
-func (in *analysisKpiVisualStandardLayoutTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisKpiVisualStandardLayoutType] {
-	return pulumix.Output[*AnalysisKpiVisualStandardLayoutType]{
-		OutputState: in.ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisLayoutElementType string
@@ -7066,12 +6489,6 @@ func (o AnalysisLayoutElementTypeOutput) ToAnalysisLayoutElementTypePtrOutputWit
 	}).(AnalysisLayoutElementTypePtrOutput)
 }
 
-func (o AnalysisLayoutElementTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisLayoutElementType] {
-	return pulumix.Output[AnalysisLayoutElementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLayoutElementTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7107,12 +6524,6 @@ func (o AnalysisLayoutElementTypePtrOutput) ToAnalysisLayoutElementTypePtrOutput
 	return o
 }
 
-func (o AnalysisLayoutElementTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLayoutElementType] {
-	return pulumix.Output[*AnalysisLayoutElementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLayoutElementTypePtrOutput) Elem() AnalysisLayoutElementTypeOutput {
 	return o.ApplyT(func(v *AnalysisLayoutElementType) AnalysisLayoutElementType {
 		if v != nil {
@@ -7137,10 +6548,13 @@ func (o AnalysisLayoutElementTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisLayoutElementTypeInput is an input type that accepts AnalysisLayoutElementTypeArgs and AnalysisLayoutElementTypeOutput values.
-// You can construct a concrete instance of `AnalysisLayoutElementTypeInput` via:
+// AnalysisLayoutElementTypeInput is an input type that accepts values of the AnalysisLayoutElementType enum
+// A concrete instance of `AnalysisLayoutElementTypeInput` can be one of the following:
 //
-//	AnalysisLayoutElementTypeArgs{...}
+//	AnalysisLayoutElementTypeVisual
+//	AnalysisLayoutElementTypeFilterControl
+//	AnalysisLayoutElementTypeParameterControl
+//	AnalysisLayoutElementTypeTextBox
 type AnalysisLayoutElementTypeInput interface {
 	pulumi.Input
 
@@ -7173,12 +6587,6 @@ func (in *analysisLayoutElementTypePtr) ToAnalysisLayoutElementTypePtrOutput() A
 
 func (in *analysisLayoutElementTypePtr) ToAnalysisLayoutElementTypePtrOutputWithContext(ctx context.Context) AnalysisLayoutElementTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisLayoutElementTypePtrOutput)
-}
-
-func (in *analysisLayoutElementTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLayoutElementType] {
-	return pulumix.Output[*AnalysisLayoutElementType]{
-		OutputState: in.ToAnalysisLayoutElementTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisLegendPosition string
@@ -7250,12 +6658,6 @@ func (o AnalysisLegendPositionOutput) ToAnalysisLegendPositionPtrOutputWithConte
 	}).(AnalysisLegendPositionPtrOutput)
 }
 
-func (o AnalysisLegendPositionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisLegendPosition] {
-	return pulumix.Output[AnalysisLegendPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLegendPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7291,12 +6693,6 @@ func (o AnalysisLegendPositionPtrOutput) ToAnalysisLegendPositionPtrOutputWithCo
 	return o
 }
 
-func (o AnalysisLegendPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLegendPosition] {
-	return pulumix.Output[*AnalysisLegendPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLegendPositionPtrOutput) Elem() AnalysisLegendPositionOutput {
 	return o.ApplyT(func(v *AnalysisLegendPosition) AnalysisLegendPosition {
 		if v != nil {
@@ -7321,10 +6717,13 @@ func (o AnalysisLegendPositionPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisLegendPositionInput is an input type that accepts AnalysisLegendPositionArgs and AnalysisLegendPositionOutput values.
-// You can construct a concrete instance of `AnalysisLegendPositionInput` via:
+// AnalysisLegendPositionInput is an input type that accepts values of the AnalysisLegendPosition enum
+// A concrete instance of `AnalysisLegendPositionInput` can be one of the following:
 //
-//	AnalysisLegendPositionArgs{...}
+//	AnalysisLegendPositionAuto
+//	AnalysisLegendPositionRight
+//	AnalysisLegendPositionBottom
+//	AnalysisLegendPositionTop
 type AnalysisLegendPositionInput interface {
 	pulumi.Input
 
@@ -7357,12 +6756,6 @@ func (in *analysisLegendPositionPtr) ToAnalysisLegendPositionPtrOutput() Analysi
 
 func (in *analysisLegendPositionPtr) ToAnalysisLegendPositionPtrOutputWithContext(ctx context.Context) AnalysisLegendPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisLegendPositionPtrOutput)
-}
-
-func (in *analysisLegendPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLegendPosition] {
-	return pulumix.Output[*AnalysisLegendPosition]{
-		OutputState: in.ToAnalysisLegendPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisLineChartLineStyle string
@@ -7433,12 +6826,6 @@ func (o AnalysisLineChartLineStyleOutput) ToAnalysisLineChartLineStylePtrOutputW
 	}).(AnalysisLineChartLineStylePtrOutput)
 }
 
-func (o AnalysisLineChartLineStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisLineChartLineStyle] {
-	return pulumix.Output[AnalysisLineChartLineStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLineChartLineStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7474,12 +6861,6 @@ func (o AnalysisLineChartLineStylePtrOutput) ToAnalysisLineChartLineStylePtrOutp
 	return o
 }
 
-func (o AnalysisLineChartLineStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLineChartLineStyle] {
-	return pulumix.Output[*AnalysisLineChartLineStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLineChartLineStylePtrOutput) Elem() AnalysisLineChartLineStyleOutput {
 	return o.ApplyT(func(v *AnalysisLineChartLineStyle) AnalysisLineChartLineStyle {
 		if v != nil {
@@ -7504,10 +6885,12 @@ func (o AnalysisLineChartLineStylePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisLineChartLineStyleInput is an input type that accepts AnalysisLineChartLineStyleArgs and AnalysisLineChartLineStyleOutput values.
-// You can construct a concrete instance of `AnalysisLineChartLineStyleInput` via:
+// AnalysisLineChartLineStyleInput is an input type that accepts values of the AnalysisLineChartLineStyle enum
+// A concrete instance of `AnalysisLineChartLineStyleInput` can be one of the following:
 //
-//	AnalysisLineChartLineStyleArgs{...}
+//	AnalysisLineChartLineStyleSolid
+//	AnalysisLineChartLineStyleDotted
+//	AnalysisLineChartLineStyleDashed
 type AnalysisLineChartLineStyleInput interface {
 	pulumi.Input
 
@@ -7540,12 +6923,6 @@ func (in *analysisLineChartLineStylePtr) ToAnalysisLineChartLineStylePtrOutput()
 
 func (in *analysisLineChartLineStylePtr) ToAnalysisLineChartLineStylePtrOutputWithContext(ctx context.Context) AnalysisLineChartLineStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisLineChartLineStylePtrOutput)
-}
-
-func (in *analysisLineChartLineStylePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLineChartLineStyle] {
-	return pulumix.Output[*AnalysisLineChartLineStyle]{
-		OutputState: in.ToAnalysisLineChartLineStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisLineChartMarkerShape string
@@ -7618,12 +6995,6 @@ func (o AnalysisLineChartMarkerShapeOutput) ToAnalysisLineChartMarkerShapePtrOut
 	}).(AnalysisLineChartMarkerShapePtrOutput)
 }
 
-func (o AnalysisLineChartMarkerShapeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisLineChartMarkerShape] {
-	return pulumix.Output[AnalysisLineChartMarkerShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLineChartMarkerShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7659,12 +7030,6 @@ func (o AnalysisLineChartMarkerShapePtrOutput) ToAnalysisLineChartMarkerShapePtr
 	return o
 }
 
-func (o AnalysisLineChartMarkerShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLineChartMarkerShape] {
-	return pulumix.Output[*AnalysisLineChartMarkerShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLineChartMarkerShapePtrOutput) Elem() AnalysisLineChartMarkerShapeOutput {
 	return o.ApplyT(func(v *AnalysisLineChartMarkerShape) AnalysisLineChartMarkerShape {
 		if v != nil {
@@ -7689,10 +7054,14 @@ func (o AnalysisLineChartMarkerShapePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisLineChartMarkerShapeInput is an input type that accepts AnalysisLineChartMarkerShapeArgs and AnalysisLineChartMarkerShapeOutput values.
-// You can construct a concrete instance of `AnalysisLineChartMarkerShapeInput` via:
+// AnalysisLineChartMarkerShapeInput is an input type that accepts values of the AnalysisLineChartMarkerShape enum
+// A concrete instance of `AnalysisLineChartMarkerShapeInput` can be one of the following:
 //
-//	AnalysisLineChartMarkerShapeArgs{...}
+//	AnalysisLineChartMarkerShapeCircle
+//	AnalysisLineChartMarkerShapeTriangle
+//	AnalysisLineChartMarkerShapeSquare
+//	AnalysisLineChartMarkerShapeDiamond
+//	AnalysisLineChartMarkerShapeRoundedSquare
 type AnalysisLineChartMarkerShapeInput interface {
 	pulumi.Input
 
@@ -7725,12 +7094,6 @@ func (in *analysisLineChartMarkerShapePtr) ToAnalysisLineChartMarkerShapePtrOutp
 
 func (in *analysisLineChartMarkerShapePtr) ToAnalysisLineChartMarkerShapePtrOutputWithContext(ctx context.Context) AnalysisLineChartMarkerShapePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisLineChartMarkerShapePtrOutput)
-}
-
-func (in *analysisLineChartMarkerShapePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLineChartMarkerShape] {
-	return pulumix.Output[*AnalysisLineChartMarkerShape]{
-		OutputState: in.ToAnalysisLineChartMarkerShapePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisLineChartType string
@@ -7801,12 +7164,6 @@ func (o AnalysisLineChartTypeOutput) ToAnalysisLineChartTypePtrOutputWithContext
 	}).(AnalysisLineChartTypePtrOutput)
 }
 
-func (o AnalysisLineChartTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisLineChartType] {
-	return pulumix.Output[AnalysisLineChartType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLineChartTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7842,12 +7199,6 @@ func (o AnalysisLineChartTypePtrOutput) ToAnalysisLineChartTypePtrOutputWithCont
 	return o
 }
 
-func (o AnalysisLineChartTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLineChartType] {
-	return pulumix.Output[*AnalysisLineChartType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLineChartTypePtrOutput) Elem() AnalysisLineChartTypeOutput {
 	return o.ApplyT(func(v *AnalysisLineChartType) AnalysisLineChartType {
 		if v != nil {
@@ -7872,10 +7223,12 @@ func (o AnalysisLineChartTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisLineChartTypeInput is an input type that accepts AnalysisLineChartTypeArgs and AnalysisLineChartTypeOutput values.
-// You can construct a concrete instance of `AnalysisLineChartTypeInput` via:
+// AnalysisLineChartTypeInput is an input type that accepts values of the AnalysisLineChartType enum
+// A concrete instance of `AnalysisLineChartTypeInput` can be one of the following:
 //
-//	AnalysisLineChartTypeArgs{...}
+//	AnalysisLineChartTypeLine
+//	AnalysisLineChartTypeArea
+//	AnalysisLineChartTypeStackedArea
 type AnalysisLineChartTypeInput interface {
 	pulumi.Input
 
@@ -7908,12 +7261,6 @@ func (in *analysisLineChartTypePtr) ToAnalysisLineChartTypePtrOutput() AnalysisL
 
 func (in *analysisLineChartTypePtr) ToAnalysisLineChartTypePtrOutputWithContext(ctx context.Context) AnalysisLineChartTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisLineChartTypePtrOutput)
-}
-
-func (in *analysisLineChartTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLineChartType] {
-	return pulumix.Output[*AnalysisLineChartType]{
-		OutputState: in.ToAnalysisLineChartTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisLineInterpolation string
@@ -7984,12 +7331,6 @@ func (o AnalysisLineInterpolationOutput) ToAnalysisLineInterpolationPtrOutputWit
 	}).(AnalysisLineInterpolationPtrOutput)
 }
 
-func (o AnalysisLineInterpolationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisLineInterpolation] {
-	return pulumix.Output[AnalysisLineInterpolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLineInterpolationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8025,12 +7366,6 @@ func (o AnalysisLineInterpolationPtrOutput) ToAnalysisLineInterpolationPtrOutput
 	return o
 }
 
-func (o AnalysisLineInterpolationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLineInterpolation] {
-	return pulumix.Output[*AnalysisLineInterpolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLineInterpolationPtrOutput) Elem() AnalysisLineInterpolationOutput {
 	return o.ApplyT(func(v *AnalysisLineInterpolation) AnalysisLineInterpolation {
 		if v != nil {
@@ -8055,10 +7390,12 @@ func (o AnalysisLineInterpolationPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisLineInterpolationInput is an input type that accepts AnalysisLineInterpolationArgs and AnalysisLineInterpolationOutput values.
-// You can construct a concrete instance of `AnalysisLineInterpolationInput` via:
+// AnalysisLineInterpolationInput is an input type that accepts values of the AnalysisLineInterpolation enum
+// A concrete instance of `AnalysisLineInterpolationInput` can be one of the following:
 //
-//	AnalysisLineInterpolationArgs{...}
+//	AnalysisLineInterpolationLinear
+//	AnalysisLineInterpolationSmooth
+//	AnalysisLineInterpolationStepped
 type AnalysisLineInterpolationInput interface {
 	pulumi.Input
 
@@ -8091,12 +7428,6 @@ func (in *analysisLineInterpolationPtr) ToAnalysisLineInterpolationPtrOutput() A
 
 func (in *analysisLineInterpolationPtr) ToAnalysisLineInterpolationPtrOutputWithContext(ctx context.Context) AnalysisLineInterpolationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisLineInterpolationPtrOutput)
-}
-
-func (in *analysisLineInterpolationPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLineInterpolation] {
-	return pulumix.Output[*AnalysisLineInterpolation]{
-		OutputState: in.ToAnalysisLineInterpolationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisMapZoomMode string
@@ -8166,12 +7497,6 @@ func (o AnalysisMapZoomModeOutput) ToAnalysisMapZoomModePtrOutputWithContext(ctx
 	}).(AnalysisMapZoomModePtrOutput)
 }
 
-func (o AnalysisMapZoomModeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisMapZoomMode] {
-	return pulumix.Output[AnalysisMapZoomMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisMapZoomModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8207,12 +7532,6 @@ func (o AnalysisMapZoomModePtrOutput) ToAnalysisMapZoomModePtrOutputWithContext(
 	return o
 }
 
-func (o AnalysisMapZoomModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisMapZoomMode] {
-	return pulumix.Output[*AnalysisMapZoomMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisMapZoomModePtrOutput) Elem() AnalysisMapZoomModeOutput {
 	return o.ApplyT(func(v *AnalysisMapZoomMode) AnalysisMapZoomMode {
 		if v != nil {
@@ -8237,10 +7556,11 @@ func (o AnalysisMapZoomModePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisMapZoomModeInput is an input type that accepts AnalysisMapZoomModeArgs and AnalysisMapZoomModeOutput values.
-// You can construct a concrete instance of `AnalysisMapZoomModeInput` via:
+// AnalysisMapZoomModeInput is an input type that accepts values of the AnalysisMapZoomMode enum
+// A concrete instance of `AnalysisMapZoomModeInput` can be one of the following:
 //
-//	AnalysisMapZoomModeArgs{...}
+//	AnalysisMapZoomModeAuto
+//	AnalysisMapZoomModeManual
 type AnalysisMapZoomModeInput interface {
 	pulumi.Input
 
@@ -8273,12 +7593,6 @@ func (in *analysisMapZoomModePtr) ToAnalysisMapZoomModePtrOutput() AnalysisMapZo
 
 func (in *analysisMapZoomModePtr) ToAnalysisMapZoomModePtrOutputWithContext(ctx context.Context) AnalysisMapZoomModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisMapZoomModePtrOutput)
-}
-
-func (in *analysisMapZoomModePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisMapZoomMode] {
-	return pulumix.Output[*AnalysisMapZoomMode]{
-		OutputState: in.ToAnalysisMapZoomModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisMaximumMinimumComputationType string
@@ -8348,12 +7662,6 @@ func (o AnalysisMaximumMinimumComputationTypeOutput) ToAnalysisMaximumMinimumCom
 	}).(AnalysisMaximumMinimumComputationTypePtrOutput)
 }
 
-func (o AnalysisMaximumMinimumComputationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisMaximumMinimumComputationType] {
-	return pulumix.Output[AnalysisMaximumMinimumComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisMaximumMinimumComputationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8389,12 +7697,6 @@ func (o AnalysisMaximumMinimumComputationTypePtrOutput) ToAnalysisMaximumMinimum
 	return o
 }
 
-func (o AnalysisMaximumMinimumComputationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisMaximumMinimumComputationType] {
-	return pulumix.Output[*AnalysisMaximumMinimumComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisMaximumMinimumComputationTypePtrOutput) Elem() AnalysisMaximumMinimumComputationTypeOutput {
 	return o.ApplyT(func(v *AnalysisMaximumMinimumComputationType) AnalysisMaximumMinimumComputationType {
 		if v != nil {
@@ -8419,10 +7721,11 @@ func (o AnalysisMaximumMinimumComputationTypePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisMaximumMinimumComputationTypeInput is an input type that accepts AnalysisMaximumMinimumComputationTypeArgs and AnalysisMaximumMinimumComputationTypeOutput values.
-// You can construct a concrete instance of `AnalysisMaximumMinimumComputationTypeInput` via:
+// AnalysisMaximumMinimumComputationTypeInput is an input type that accepts values of the AnalysisMaximumMinimumComputationType enum
+// A concrete instance of `AnalysisMaximumMinimumComputationTypeInput` can be one of the following:
 //
-//	AnalysisMaximumMinimumComputationTypeArgs{...}
+//	AnalysisMaximumMinimumComputationTypeMaximum
+//	AnalysisMaximumMinimumComputationTypeMinimum
 type AnalysisMaximumMinimumComputationTypeInput interface {
 	pulumi.Input
 
@@ -8455,12 +7758,6 @@ func (in *analysisMaximumMinimumComputationTypePtr) ToAnalysisMaximumMinimumComp
 
 func (in *analysisMaximumMinimumComputationTypePtr) ToAnalysisMaximumMinimumComputationTypePtrOutputWithContext(ctx context.Context) AnalysisMaximumMinimumComputationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisMaximumMinimumComputationTypePtrOutput)
-}
-
-func (in *analysisMaximumMinimumComputationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisMaximumMinimumComputationType] {
-	return pulumix.Output[*AnalysisMaximumMinimumComputationType]{
-		OutputState: in.ToAnalysisMaximumMinimumComputationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisMissingDataTreatmentOption string
@@ -8531,12 +7828,6 @@ func (o AnalysisMissingDataTreatmentOptionOutput) ToAnalysisMissingDataTreatment
 	}).(AnalysisMissingDataTreatmentOptionPtrOutput)
 }
 
-func (o AnalysisMissingDataTreatmentOptionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisMissingDataTreatmentOption] {
-	return pulumix.Output[AnalysisMissingDataTreatmentOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisMissingDataTreatmentOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8572,12 +7863,6 @@ func (o AnalysisMissingDataTreatmentOptionPtrOutput) ToAnalysisMissingDataTreatm
 	return o
 }
 
-func (o AnalysisMissingDataTreatmentOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisMissingDataTreatmentOption] {
-	return pulumix.Output[*AnalysisMissingDataTreatmentOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisMissingDataTreatmentOptionPtrOutput) Elem() AnalysisMissingDataTreatmentOptionOutput {
 	return o.ApplyT(func(v *AnalysisMissingDataTreatmentOption) AnalysisMissingDataTreatmentOption {
 		if v != nil {
@@ -8602,10 +7887,12 @@ func (o AnalysisMissingDataTreatmentOptionPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisMissingDataTreatmentOptionInput is an input type that accepts AnalysisMissingDataTreatmentOptionArgs and AnalysisMissingDataTreatmentOptionOutput values.
-// You can construct a concrete instance of `AnalysisMissingDataTreatmentOptionInput` via:
+// AnalysisMissingDataTreatmentOptionInput is an input type that accepts values of the AnalysisMissingDataTreatmentOption enum
+// A concrete instance of `AnalysisMissingDataTreatmentOptionInput` can be one of the following:
 //
-//	AnalysisMissingDataTreatmentOptionArgs{...}
+//	AnalysisMissingDataTreatmentOptionInterpolate
+//	AnalysisMissingDataTreatmentOptionShowAsZero
+//	AnalysisMissingDataTreatmentOptionShowAsBlank
 type AnalysisMissingDataTreatmentOptionInput interface {
 	pulumi.Input
 
@@ -8638,12 +7925,6 @@ func (in *analysisMissingDataTreatmentOptionPtr) ToAnalysisMissingDataTreatmentO
 
 func (in *analysisMissingDataTreatmentOptionPtr) ToAnalysisMissingDataTreatmentOptionPtrOutputWithContext(ctx context.Context) AnalysisMissingDataTreatmentOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisMissingDataTreatmentOptionPtrOutput)
-}
-
-func (in *analysisMissingDataTreatmentOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisMissingDataTreatmentOption] {
-	return pulumix.Output[*AnalysisMissingDataTreatmentOption]{
-		OutputState: in.ToAnalysisMissingDataTreatmentOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisNegativeValueDisplayMode string
@@ -8713,12 +7994,6 @@ func (o AnalysisNegativeValueDisplayModeOutput) ToAnalysisNegativeValueDisplayMo
 	}).(AnalysisNegativeValueDisplayModePtrOutput)
 }
 
-func (o AnalysisNegativeValueDisplayModeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisNegativeValueDisplayMode] {
-	return pulumix.Output[AnalysisNegativeValueDisplayMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNegativeValueDisplayModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8754,12 +8029,6 @@ func (o AnalysisNegativeValueDisplayModePtrOutput) ToAnalysisNegativeValueDispla
 	return o
 }
 
-func (o AnalysisNegativeValueDisplayModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNegativeValueDisplayMode] {
-	return pulumix.Output[*AnalysisNegativeValueDisplayMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNegativeValueDisplayModePtrOutput) Elem() AnalysisNegativeValueDisplayModeOutput {
 	return o.ApplyT(func(v *AnalysisNegativeValueDisplayMode) AnalysisNegativeValueDisplayMode {
 		if v != nil {
@@ -8784,10 +8053,11 @@ func (o AnalysisNegativeValueDisplayModePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisNegativeValueDisplayModeInput is an input type that accepts AnalysisNegativeValueDisplayModeArgs and AnalysisNegativeValueDisplayModeOutput values.
-// You can construct a concrete instance of `AnalysisNegativeValueDisplayModeInput` via:
+// AnalysisNegativeValueDisplayModeInput is an input type that accepts values of the AnalysisNegativeValueDisplayMode enum
+// A concrete instance of `AnalysisNegativeValueDisplayModeInput` can be one of the following:
 //
-//	AnalysisNegativeValueDisplayModeArgs{...}
+//	AnalysisNegativeValueDisplayModePositive
+//	AnalysisNegativeValueDisplayModeNegative
 type AnalysisNegativeValueDisplayModeInput interface {
 	pulumi.Input
 
@@ -8820,12 +8090,6 @@ func (in *analysisNegativeValueDisplayModePtr) ToAnalysisNegativeValueDisplayMod
 
 func (in *analysisNegativeValueDisplayModePtr) ToAnalysisNegativeValueDisplayModePtrOutputWithContext(ctx context.Context) AnalysisNegativeValueDisplayModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisNegativeValueDisplayModePtrOutput)
-}
-
-func (in *analysisNegativeValueDisplayModePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNegativeValueDisplayMode] {
-	return pulumix.Output[*AnalysisNegativeValueDisplayMode]{
-		OutputState: in.ToAnalysisNegativeValueDisplayModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisNumberScale string
@@ -8899,12 +8163,6 @@ func (o AnalysisNumberScaleOutput) ToAnalysisNumberScalePtrOutputWithContext(ctx
 	}).(AnalysisNumberScalePtrOutput)
 }
 
-func (o AnalysisNumberScaleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisNumberScale] {
-	return pulumix.Output[AnalysisNumberScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNumberScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8940,12 +8198,6 @@ func (o AnalysisNumberScalePtrOutput) ToAnalysisNumberScalePtrOutputWithContext(
 	return o
 }
 
-func (o AnalysisNumberScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNumberScale] {
-	return pulumix.Output[*AnalysisNumberScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNumberScalePtrOutput) Elem() AnalysisNumberScaleOutput {
 	return o.ApplyT(func(v *AnalysisNumberScale) AnalysisNumberScale {
 		if v != nil {
@@ -8970,10 +8222,15 @@ func (o AnalysisNumberScalePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisNumberScaleInput is an input type that accepts AnalysisNumberScaleArgs and AnalysisNumberScaleOutput values.
-// You can construct a concrete instance of `AnalysisNumberScaleInput` via:
+// AnalysisNumberScaleInput is an input type that accepts values of the AnalysisNumberScale enum
+// A concrete instance of `AnalysisNumberScaleInput` can be one of the following:
 //
-//	AnalysisNumberScaleArgs{...}
+//	AnalysisNumberScaleNone
+//	AnalysisNumberScaleAuto
+//	AnalysisNumberScaleThousands
+//	AnalysisNumberScaleMillions
+//	AnalysisNumberScaleBillions
+//	AnalysisNumberScaleTrillions
 type AnalysisNumberScaleInput interface {
 	pulumi.Input
 
@@ -9006,12 +8263,6 @@ func (in *analysisNumberScalePtr) ToAnalysisNumberScalePtrOutput() AnalysisNumbe
 
 func (in *analysisNumberScalePtr) ToAnalysisNumberScalePtrOutputWithContext(ctx context.Context) AnalysisNumberScalePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisNumberScalePtrOutput)
-}
-
-func (in *analysisNumberScalePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNumberScale] {
-	return pulumix.Output[*AnalysisNumberScale]{
-		OutputState: in.ToAnalysisNumberScalePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisNumericEqualityMatchOperator string
@@ -9081,12 +8332,6 @@ func (o AnalysisNumericEqualityMatchOperatorOutput) ToAnalysisNumericEqualityMat
 	}).(AnalysisNumericEqualityMatchOperatorPtrOutput)
 }
 
-func (o AnalysisNumericEqualityMatchOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisNumericEqualityMatchOperator] {
-	return pulumix.Output[AnalysisNumericEqualityMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNumericEqualityMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9122,12 +8367,6 @@ func (o AnalysisNumericEqualityMatchOperatorPtrOutput) ToAnalysisNumericEquality
 	return o
 }
 
-func (o AnalysisNumericEqualityMatchOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNumericEqualityMatchOperator] {
-	return pulumix.Output[*AnalysisNumericEqualityMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNumericEqualityMatchOperatorPtrOutput) Elem() AnalysisNumericEqualityMatchOperatorOutput {
 	return o.ApplyT(func(v *AnalysisNumericEqualityMatchOperator) AnalysisNumericEqualityMatchOperator {
 		if v != nil {
@@ -9152,10 +8391,11 @@ func (o AnalysisNumericEqualityMatchOperatorPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisNumericEqualityMatchOperatorInput is an input type that accepts AnalysisNumericEqualityMatchOperatorArgs and AnalysisNumericEqualityMatchOperatorOutput values.
-// You can construct a concrete instance of `AnalysisNumericEqualityMatchOperatorInput` via:
+// AnalysisNumericEqualityMatchOperatorInput is an input type that accepts values of the AnalysisNumericEqualityMatchOperator enum
+// A concrete instance of `AnalysisNumericEqualityMatchOperatorInput` can be one of the following:
 //
-//	AnalysisNumericEqualityMatchOperatorArgs{...}
+//	AnalysisNumericEqualityMatchOperatorEquals
+//	AnalysisNumericEqualityMatchOperatorDoesNotEqual
 type AnalysisNumericEqualityMatchOperatorInput interface {
 	pulumi.Input
 
@@ -9188,12 +8428,6 @@ func (in *analysisNumericEqualityMatchOperatorPtr) ToAnalysisNumericEqualityMatc
 
 func (in *analysisNumericEqualityMatchOperatorPtr) ToAnalysisNumericEqualityMatchOperatorPtrOutputWithContext(ctx context.Context) AnalysisNumericEqualityMatchOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisNumericEqualityMatchOperatorPtrOutput)
-}
-
-func (in *analysisNumericEqualityMatchOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNumericEqualityMatchOperator] {
-	return pulumix.Output[*AnalysisNumericEqualityMatchOperator]{
-		OutputState: in.ToAnalysisNumericEqualityMatchOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisNumericFilterSelectAllOptions string
@@ -9262,12 +8496,6 @@ func (o AnalysisNumericFilterSelectAllOptionsOutput) ToAnalysisNumericFilterSele
 	}).(AnalysisNumericFilterSelectAllOptionsPtrOutput)
 }
 
-func (o AnalysisNumericFilterSelectAllOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisNumericFilterSelectAllOptions] {
-	return pulumix.Output[AnalysisNumericFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNumericFilterSelectAllOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9303,12 +8531,6 @@ func (o AnalysisNumericFilterSelectAllOptionsPtrOutput) ToAnalysisNumericFilterS
 	return o
 }
 
-func (o AnalysisNumericFilterSelectAllOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNumericFilterSelectAllOptions] {
-	return pulumix.Output[*AnalysisNumericFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNumericFilterSelectAllOptionsPtrOutput) Elem() AnalysisNumericFilterSelectAllOptionsOutput {
 	return o.ApplyT(func(v *AnalysisNumericFilterSelectAllOptions) AnalysisNumericFilterSelectAllOptions {
 		if v != nil {
@@ -9333,10 +8555,10 @@ func (o AnalysisNumericFilterSelectAllOptionsPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisNumericFilterSelectAllOptionsInput is an input type that accepts AnalysisNumericFilterSelectAllOptionsArgs and AnalysisNumericFilterSelectAllOptionsOutput values.
-// You can construct a concrete instance of `AnalysisNumericFilterSelectAllOptionsInput` via:
+// AnalysisNumericFilterSelectAllOptionsInput is an input type that accepts values of the AnalysisNumericFilterSelectAllOptions enum
+// A concrete instance of `AnalysisNumericFilterSelectAllOptionsInput` can be one of the following:
 //
-//	AnalysisNumericFilterSelectAllOptionsArgs{...}
+//	AnalysisNumericFilterSelectAllOptionsFilterAllValues
 type AnalysisNumericFilterSelectAllOptionsInput interface {
 	pulumi.Input
 
@@ -9369,12 +8591,6 @@ func (in *analysisNumericFilterSelectAllOptionsPtr) ToAnalysisNumericFilterSelec
 
 func (in *analysisNumericFilterSelectAllOptionsPtr) ToAnalysisNumericFilterSelectAllOptionsPtrOutputWithContext(ctx context.Context) AnalysisNumericFilterSelectAllOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisNumericFilterSelectAllOptionsPtrOutput)
-}
-
-func (in *analysisNumericFilterSelectAllOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNumericFilterSelectAllOptions] {
-	return pulumix.Output[*AnalysisNumericFilterSelectAllOptions]{
-		OutputState: in.ToAnalysisNumericFilterSelectAllOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisNumericSeparatorSymbol string
@@ -9445,12 +8661,6 @@ func (o AnalysisNumericSeparatorSymbolOutput) ToAnalysisNumericSeparatorSymbolPt
 	}).(AnalysisNumericSeparatorSymbolPtrOutput)
 }
 
-func (o AnalysisNumericSeparatorSymbolOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisNumericSeparatorSymbol] {
-	return pulumix.Output[AnalysisNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNumericSeparatorSymbolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9486,12 +8696,6 @@ func (o AnalysisNumericSeparatorSymbolPtrOutput) ToAnalysisNumericSeparatorSymbo
 	return o
 }
 
-func (o AnalysisNumericSeparatorSymbolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNumericSeparatorSymbol] {
-	return pulumix.Output[*AnalysisNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNumericSeparatorSymbolPtrOutput) Elem() AnalysisNumericSeparatorSymbolOutput {
 	return o.ApplyT(func(v *AnalysisNumericSeparatorSymbol) AnalysisNumericSeparatorSymbol {
 		if v != nil {
@@ -9516,10 +8720,12 @@ func (o AnalysisNumericSeparatorSymbolPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisNumericSeparatorSymbolInput is an input type that accepts AnalysisNumericSeparatorSymbolArgs and AnalysisNumericSeparatorSymbolOutput values.
-// You can construct a concrete instance of `AnalysisNumericSeparatorSymbolInput` via:
+// AnalysisNumericSeparatorSymbolInput is an input type that accepts values of the AnalysisNumericSeparatorSymbol enum
+// A concrete instance of `AnalysisNumericSeparatorSymbolInput` can be one of the following:
 //
-//	AnalysisNumericSeparatorSymbolArgs{...}
+//	AnalysisNumericSeparatorSymbolComma
+//	AnalysisNumericSeparatorSymbolDot
+//	AnalysisNumericSeparatorSymbolSpace
 type AnalysisNumericSeparatorSymbolInput interface {
 	pulumi.Input
 
@@ -9552,12 +8758,6 @@ func (in *analysisNumericSeparatorSymbolPtr) ToAnalysisNumericSeparatorSymbolPtr
 
 func (in *analysisNumericSeparatorSymbolPtr) ToAnalysisNumericSeparatorSymbolPtrOutputWithContext(ctx context.Context) AnalysisNumericSeparatorSymbolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisNumericSeparatorSymbolPtrOutput)
-}
-
-func (in *analysisNumericSeparatorSymbolPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNumericSeparatorSymbol] {
-	return pulumix.Output[*AnalysisNumericSeparatorSymbol]{
-		OutputState: in.ToAnalysisNumericSeparatorSymbolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisOtherCategories string
@@ -9627,12 +8827,6 @@ func (o AnalysisOtherCategoriesOutput) ToAnalysisOtherCategoriesPtrOutputWithCon
 	}).(AnalysisOtherCategoriesPtrOutput)
 }
 
-func (o AnalysisOtherCategoriesOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisOtherCategories] {
-	return pulumix.Output[AnalysisOtherCategories]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisOtherCategoriesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9668,12 +8862,6 @@ func (o AnalysisOtherCategoriesPtrOutput) ToAnalysisOtherCategoriesPtrOutputWith
 	return o
 }
 
-func (o AnalysisOtherCategoriesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisOtherCategories] {
-	return pulumix.Output[*AnalysisOtherCategories]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisOtherCategoriesPtrOutput) Elem() AnalysisOtherCategoriesOutput {
 	return o.ApplyT(func(v *AnalysisOtherCategories) AnalysisOtherCategories {
 		if v != nil {
@@ -9698,10 +8886,11 @@ func (o AnalysisOtherCategoriesPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisOtherCategoriesInput is an input type that accepts AnalysisOtherCategoriesArgs and AnalysisOtherCategoriesOutput values.
-// You can construct a concrete instance of `AnalysisOtherCategoriesInput` via:
+// AnalysisOtherCategoriesInput is an input type that accepts values of the AnalysisOtherCategories enum
+// A concrete instance of `AnalysisOtherCategoriesInput` can be one of the following:
 //
-//	AnalysisOtherCategoriesArgs{...}
+//	AnalysisOtherCategoriesInclude
+//	AnalysisOtherCategoriesExclude
 type AnalysisOtherCategoriesInput interface {
 	pulumi.Input
 
@@ -9734,12 +8923,6 @@ func (in *analysisOtherCategoriesPtr) ToAnalysisOtherCategoriesPtrOutput() Analy
 
 func (in *analysisOtherCategoriesPtr) ToAnalysisOtherCategoriesPtrOutputWithContext(ctx context.Context) AnalysisOtherCategoriesPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisOtherCategoriesPtrOutput)
-}
-
-func (in *analysisOtherCategoriesPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisOtherCategories] {
-	return pulumix.Output[*AnalysisOtherCategories]{
-		OutputState: in.ToAnalysisOtherCategoriesPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisPanelBorderStyle string
@@ -9810,12 +8993,6 @@ func (o AnalysisPanelBorderStyleOutput) ToAnalysisPanelBorderStylePtrOutputWithC
 	}).(AnalysisPanelBorderStylePtrOutput)
 }
 
-func (o AnalysisPanelBorderStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPanelBorderStyle] {
-	return pulumix.Output[AnalysisPanelBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPanelBorderStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9851,12 +9028,6 @@ func (o AnalysisPanelBorderStylePtrOutput) ToAnalysisPanelBorderStylePtrOutputWi
 	return o
 }
 
-func (o AnalysisPanelBorderStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPanelBorderStyle] {
-	return pulumix.Output[*AnalysisPanelBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPanelBorderStylePtrOutput) Elem() AnalysisPanelBorderStyleOutput {
 	return o.ApplyT(func(v *AnalysisPanelBorderStyle) AnalysisPanelBorderStyle {
 		if v != nil {
@@ -9881,10 +9052,12 @@ func (o AnalysisPanelBorderStylePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisPanelBorderStyleInput is an input type that accepts AnalysisPanelBorderStyleArgs and AnalysisPanelBorderStyleOutput values.
-// You can construct a concrete instance of `AnalysisPanelBorderStyleInput` via:
+// AnalysisPanelBorderStyleInput is an input type that accepts values of the AnalysisPanelBorderStyle enum
+// A concrete instance of `AnalysisPanelBorderStyleInput` can be one of the following:
 //
-//	AnalysisPanelBorderStyleArgs{...}
+//	AnalysisPanelBorderStyleSolid
+//	AnalysisPanelBorderStyleDashed
+//	AnalysisPanelBorderStyleDotted
 type AnalysisPanelBorderStyleInput interface {
 	pulumi.Input
 
@@ -9917,12 +9090,6 @@ func (in *analysisPanelBorderStylePtr) ToAnalysisPanelBorderStylePtrOutput() Ana
 
 func (in *analysisPanelBorderStylePtr) ToAnalysisPanelBorderStylePtrOutputWithContext(ctx context.Context) AnalysisPanelBorderStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPanelBorderStylePtrOutput)
-}
-
-func (in *analysisPanelBorderStylePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPanelBorderStyle] {
-	return pulumix.Output[*AnalysisPanelBorderStyle]{
-		OutputState: in.ToAnalysisPanelBorderStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisPaperOrientation string
@@ -9992,12 +9159,6 @@ func (o AnalysisPaperOrientationOutput) ToAnalysisPaperOrientationPtrOutputWithC
 	}).(AnalysisPaperOrientationPtrOutput)
 }
 
-func (o AnalysisPaperOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPaperOrientation] {
-	return pulumix.Output[AnalysisPaperOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPaperOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10033,12 +9194,6 @@ func (o AnalysisPaperOrientationPtrOutput) ToAnalysisPaperOrientationPtrOutputWi
 	return o
 }
 
-func (o AnalysisPaperOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPaperOrientation] {
-	return pulumix.Output[*AnalysisPaperOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPaperOrientationPtrOutput) Elem() AnalysisPaperOrientationOutput {
 	return o.ApplyT(func(v *AnalysisPaperOrientation) AnalysisPaperOrientation {
 		if v != nil {
@@ -10063,10 +9218,11 @@ func (o AnalysisPaperOrientationPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisPaperOrientationInput is an input type that accepts AnalysisPaperOrientationArgs and AnalysisPaperOrientationOutput values.
-// You can construct a concrete instance of `AnalysisPaperOrientationInput` via:
+// AnalysisPaperOrientationInput is an input type that accepts values of the AnalysisPaperOrientation enum
+// A concrete instance of `AnalysisPaperOrientationInput` can be one of the following:
 //
-//	AnalysisPaperOrientationArgs{...}
+//	AnalysisPaperOrientationPortrait
+//	AnalysisPaperOrientationLandscape
 type AnalysisPaperOrientationInput interface {
 	pulumi.Input
 
@@ -10099,12 +9255,6 @@ func (in *analysisPaperOrientationPtr) ToAnalysisPaperOrientationPtrOutput() Ana
 
 func (in *analysisPaperOrientationPtr) ToAnalysisPaperOrientationPtrOutputWithContext(ctx context.Context) AnalysisPaperOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPaperOrientationPtrOutput)
-}
-
-func (in *analysisPaperOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPaperOrientation] {
-	return pulumix.Output[*AnalysisPaperOrientation]{
-		OutputState: in.ToAnalysisPaperOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisPaperSize string
@@ -10183,12 +9333,6 @@ func (o AnalysisPaperSizeOutput) ToAnalysisPaperSizePtrOutputWithContext(ctx con
 	}).(AnalysisPaperSizePtrOutput)
 }
 
-func (o AnalysisPaperSizeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPaperSize] {
-	return pulumix.Output[AnalysisPaperSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPaperSizeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10224,12 +9368,6 @@ func (o AnalysisPaperSizePtrOutput) ToAnalysisPaperSizePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o AnalysisPaperSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPaperSize] {
-	return pulumix.Output[*AnalysisPaperSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPaperSizePtrOutput) Elem() AnalysisPaperSizeOutput {
 	return o.ApplyT(func(v *AnalysisPaperSize) AnalysisPaperSize {
 		if v != nil {
@@ -10254,10 +9392,20 @@ func (o AnalysisPaperSizePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisPaperSizeInput is an input type that accepts AnalysisPaperSizeArgs and AnalysisPaperSizeOutput values.
-// You can construct a concrete instance of `AnalysisPaperSizeInput` via:
+// AnalysisPaperSizeInput is an input type that accepts values of the AnalysisPaperSize enum
+// A concrete instance of `AnalysisPaperSizeInput` can be one of the following:
 //
-//	AnalysisPaperSizeArgs{...}
+//	AnalysisPaperSizeUsLetter
+//	AnalysisPaperSizeUsLegal
+//	AnalysisPaperSizeUsTabloidLedger
+//	AnalysisPaperSizeA0
+//	AnalysisPaperSizeA1
+//	AnalysisPaperSizeA2
+//	AnalysisPaperSizeA3
+//	AnalysisPaperSizeA4
+//	AnalysisPaperSizeA5
+//	AnalysisPaperSizeJisB4
+//	AnalysisPaperSizeJisB5
 type AnalysisPaperSizeInput interface {
 	pulumi.Input
 
@@ -10290,12 +9438,6 @@ func (in *analysisPaperSizePtr) ToAnalysisPaperSizePtrOutput() AnalysisPaperSize
 
 func (in *analysisPaperSizePtr) ToAnalysisPaperSizePtrOutputWithContext(ctx context.Context) AnalysisPaperSizePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPaperSizePtrOutput)
-}
-
-func (in *analysisPaperSizePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPaperSize] {
-	return pulumix.Output[*AnalysisPaperSize]{
-		OutputState: in.ToAnalysisPaperSizePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisParameterValueType string
@@ -10365,12 +9507,6 @@ func (o AnalysisParameterValueTypeOutput) ToAnalysisParameterValueTypePtrOutputW
 	}).(AnalysisParameterValueTypePtrOutput)
 }
 
-func (o AnalysisParameterValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisParameterValueType] {
-	return pulumix.Output[AnalysisParameterValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisParameterValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10406,12 +9542,6 @@ func (o AnalysisParameterValueTypePtrOutput) ToAnalysisParameterValueTypePtrOutp
 	return o
 }
 
-func (o AnalysisParameterValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisParameterValueType] {
-	return pulumix.Output[*AnalysisParameterValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisParameterValueTypePtrOutput) Elem() AnalysisParameterValueTypeOutput {
 	return o.ApplyT(func(v *AnalysisParameterValueType) AnalysisParameterValueType {
 		if v != nil {
@@ -10436,10 +9566,11 @@ func (o AnalysisParameterValueTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisParameterValueTypeInput is an input type that accepts AnalysisParameterValueTypeArgs and AnalysisParameterValueTypeOutput values.
-// You can construct a concrete instance of `AnalysisParameterValueTypeInput` via:
+// AnalysisParameterValueTypeInput is an input type that accepts values of the AnalysisParameterValueType enum
+// A concrete instance of `AnalysisParameterValueTypeInput` can be one of the following:
 //
-//	AnalysisParameterValueTypeArgs{...}
+//	AnalysisParameterValueTypeMultiValued
+//	AnalysisParameterValueTypeSingleValued
 type AnalysisParameterValueTypeInput interface {
 	pulumi.Input
 
@@ -10472,12 +9603,6 @@ func (in *analysisParameterValueTypePtr) ToAnalysisParameterValueTypePtrOutput()
 
 func (in *analysisParameterValueTypePtr) ToAnalysisParameterValueTypePtrOutputWithContext(ctx context.Context) AnalysisParameterValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisParameterValueTypePtrOutput)
-}
-
-func (in *analysisParameterValueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisParameterValueType] {
-	return pulumix.Output[*AnalysisParameterValueType]{
-		OutputState: in.ToAnalysisParameterValueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisPivotTableConditionalFormattingScopeRole string
@@ -10548,12 +9673,6 @@ func (o AnalysisPivotTableConditionalFormattingScopeRoleOutput) ToAnalysisPivotT
 	}).(AnalysisPivotTableConditionalFormattingScopeRolePtrOutput)
 }
 
-func (o AnalysisPivotTableConditionalFormattingScopeRoleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[AnalysisPivotTableConditionalFormattingScopeRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableConditionalFormattingScopeRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10589,12 +9708,6 @@ func (o AnalysisPivotTableConditionalFormattingScopeRolePtrOutput) ToAnalysisPiv
 	return o
 }
 
-func (o AnalysisPivotTableConditionalFormattingScopeRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[*AnalysisPivotTableConditionalFormattingScopeRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableConditionalFormattingScopeRolePtrOutput) Elem() AnalysisPivotTableConditionalFormattingScopeRoleOutput {
 	return o.ApplyT(func(v *AnalysisPivotTableConditionalFormattingScopeRole) AnalysisPivotTableConditionalFormattingScopeRole {
 		if v != nil {
@@ -10619,10 +9732,12 @@ func (o AnalysisPivotTableConditionalFormattingScopeRolePtrOutput) ToStringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisPivotTableConditionalFormattingScopeRoleInput is an input type that accepts AnalysisPivotTableConditionalFormattingScopeRoleArgs and AnalysisPivotTableConditionalFormattingScopeRoleOutput values.
-// You can construct a concrete instance of `AnalysisPivotTableConditionalFormattingScopeRoleInput` via:
+// AnalysisPivotTableConditionalFormattingScopeRoleInput is an input type that accepts values of the AnalysisPivotTableConditionalFormattingScopeRole enum
+// A concrete instance of `AnalysisPivotTableConditionalFormattingScopeRoleInput` can be one of the following:
 //
-//	AnalysisPivotTableConditionalFormattingScopeRoleArgs{...}
+//	AnalysisPivotTableConditionalFormattingScopeRoleField
+//	AnalysisPivotTableConditionalFormattingScopeRoleFieldTotal
+//	AnalysisPivotTableConditionalFormattingScopeRoleGrandTotal
 type AnalysisPivotTableConditionalFormattingScopeRoleInput interface {
 	pulumi.Input
 
@@ -10655,12 +9770,6 @@ func (in *analysisPivotTableConditionalFormattingScopeRolePtr) ToAnalysisPivotTa
 
 func (in *analysisPivotTableConditionalFormattingScopeRolePtr) ToAnalysisPivotTableConditionalFormattingScopeRolePtrOutputWithContext(ctx context.Context) AnalysisPivotTableConditionalFormattingScopeRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPivotTableConditionalFormattingScopeRolePtrOutput)
-}
-
-func (in *analysisPivotTableConditionalFormattingScopeRolePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[*AnalysisPivotTableConditionalFormattingScopeRole]{
-		OutputState: in.ToAnalysisPivotTableConditionalFormattingScopeRolePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisPivotTableDataPathType string
@@ -10732,12 +9841,6 @@ func (o AnalysisPivotTableDataPathTypeOutput) ToAnalysisPivotTableDataPathTypePt
 	}).(AnalysisPivotTableDataPathTypePtrOutput)
 }
 
-func (o AnalysisPivotTableDataPathTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPivotTableDataPathType] {
-	return pulumix.Output[AnalysisPivotTableDataPathType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableDataPathTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10773,12 +9876,6 @@ func (o AnalysisPivotTableDataPathTypePtrOutput) ToAnalysisPivotTableDataPathTyp
 	return o
 }
 
-func (o AnalysisPivotTableDataPathTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableDataPathType] {
-	return pulumix.Output[*AnalysisPivotTableDataPathType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableDataPathTypePtrOutput) Elem() AnalysisPivotTableDataPathTypeOutput {
 	return o.ApplyT(func(v *AnalysisPivotTableDataPathType) AnalysisPivotTableDataPathType {
 		if v != nil {
@@ -10803,10 +9900,13 @@ func (o AnalysisPivotTableDataPathTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisPivotTableDataPathTypeInput is an input type that accepts AnalysisPivotTableDataPathTypeArgs and AnalysisPivotTableDataPathTypeOutput values.
-// You can construct a concrete instance of `AnalysisPivotTableDataPathTypeInput` via:
+// AnalysisPivotTableDataPathTypeInput is an input type that accepts values of the AnalysisPivotTableDataPathType enum
+// A concrete instance of `AnalysisPivotTableDataPathTypeInput` can be one of the following:
 //
-//	AnalysisPivotTableDataPathTypeArgs{...}
+//	AnalysisPivotTableDataPathTypeHierarchyRowsLayoutColumn
+//	AnalysisPivotTableDataPathTypeMultipleRowMetricsColumn
+//	AnalysisPivotTableDataPathTypeEmptyColumnHeader
+//	AnalysisPivotTableDataPathTypeCountMetricColumn
 type AnalysisPivotTableDataPathTypeInput interface {
 	pulumi.Input
 
@@ -10839,12 +9939,6 @@ func (in *analysisPivotTableDataPathTypePtr) ToAnalysisPivotTableDataPathTypePtr
 
 func (in *analysisPivotTableDataPathTypePtr) ToAnalysisPivotTableDataPathTypePtrOutputWithContext(ctx context.Context) AnalysisPivotTableDataPathTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPivotTableDataPathTypePtrOutput)
-}
-
-func (in *analysisPivotTableDataPathTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableDataPathType] {
-	return pulumix.Output[*AnalysisPivotTableDataPathType]{
-		OutputState: in.ToAnalysisPivotTableDataPathTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisPivotTableFieldCollapseState string
@@ -10914,12 +10008,6 @@ func (o AnalysisPivotTableFieldCollapseStateOutput) ToAnalysisPivotTableFieldCol
 	}).(AnalysisPivotTableFieldCollapseStatePtrOutput)
 }
 
-func (o AnalysisPivotTableFieldCollapseStateOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPivotTableFieldCollapseState] {
-	return pulumix.Output[AnalysisPivotTableFieldCollapseState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableFieldCollapseStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10955,12 +10043,6 @@ func (o AnalysisPivotTableFieldCollapseStatePtrOutput) ToAnalysisPivotTableField
 	return o
 }
 
-func (o AnalysisPivotTableFieldCollapseStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableFieldCollapseState] {
-	return pulumix.Output[*AnalysisPivotTableFieldCollapseState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableFieldCollapseStatePtrOutput) Elem() AnalysisPivotTableFieldCollapseStateOutput {
 	return o.ApplyT(func(v *AnalysisPivotTableFieldCollapseState) AnalysisPivotTableFieldCollapseState {
 		if v != nil {
@@ -10985,10 +10067,11 @@ func (o AnalysisPivotTableFieldCollapseStatePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisPivotTableFieldCollapseStateInput is an input type that accepts AnalysisPivotTableFieldCollapseStateArgs and AnalysisPivotTableFieldCollapseStateOutput values.
-// You can construct a concrete instance of `AnalysisPivotTableFieldCollapseStateInput` via:
+// AnalysisPivotTableFieldCollapseStateInput is an input type that accepts values of the AnalysisPivotTableFieldCollapseState enum
+// A concrete instance of `AnalysisPivotTableFieldCollapseStateInput` can be one of the following:
 //
-//	AnalysisPivotTableFieldCollapseStateArgs{...}
+//	AnalysisPivotTableFieldCollapseStateCollapsed
+//	AnalysisPivotTableFieldCollapseStateExpanded
 type AnalysisPivotTableFieldCollapseStateInput interface {
 	pulumi.Input
 
@@ -11021,12 +10104,6 @@ func (in *analysisPivotTableFieldCollapseStatePtr) ToAnalysisPivotTableFieldColl
 
 func (in *analysisPivotTableFieldCollapseStatePtr) ToAnalysisPivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPivotTableFieldCollapseStatePtrOutput)
-}
-
-func (in *analysisPivotTableFieldCollapseStatePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableFieldCollapseState] {
-	return pulumix.Output[*AnalysisPivotTableFieldCollapseState]{
-		OutputState: in.ToAnalysisPivotTableFieldCollapseStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisPivotTableMetricPlacement string
@@ -11096,12 +10173,6 @@ func (o AnalysisPivotTableMetricPlacementOutput) ToAnalysisPivotTableMetricPlace
 	}).(AnalysisPivotTableMetricPlacementPtrOutput)
 }
 
-func (o AnalysisPivotTableMetricPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPivotTableMetricPlacement] {
-	return pulumix.Output[AnalysisPivotTableMetricPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableMetricPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11137,12 +10208,6 @@ func (o AnalysisPivotTableMetricPlacementPtrOutput) ToAnalysisPivotTableMetricPl
 	return o
 }
 
-func (o AnalysisPivotTableMetricPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableMetricPlacement] {
-	return pulumix.Output[*AnalysisPivotTableMetricPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableMetricPlacementPtrOutput) Elem() AnalysisPivotTableMetricPlacementOutput {
 	return o.ApplyT(func(v *AnalysisPivotTableMetricPlacement) AnalysisPivotTableMetricPlacement {
 		if v != nil {
@@ -11167,10 +10232,11 @@ func (o AnalysisPivotTableMetricPlacementPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisPivotTableMetricPlacementInput is an input type that accepts AnalysisPivotTableMetricPlacementArgs and AnalysisPivotTableMetricPlacementOutput values.
-// You can construct a concrete instance of `AnalysisPivotTableMetricPlacementInput` via:
+// AnalysisPivotTableMetricPlacementInput is an input type that accepts values of the AnalysisPivotTableMetricPlacement enum
+// A concrete instance of `AnalysisPivotTableMetricPlacementInput` can be one of the following:
 //
-//	AnalysisPivotTableMetricPlacementArgs{...}
+//	AnalysisPivotTableMetricPlacementRow
+//	AnalysisPivotTableMetricPlacementColumn
 type AnalysisPivotTableMetricPlacementInput interface {
 	pulumi.Input
 
@@ -11203,12 +10269,6 @@ func (in *analysisPivotTableMetricPlacementPtr) ToAnalysisPivotTableMetricPlacem
 
 func (in *analysisPivotTableMetricPlacementPtr) ToAnalysisPivotTableMetricPlacementPtrOutputWithContext(ctx context.Context) AnalysisPivotTableMetricPlacementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPivotTableMetricPlacementPtrOutput)
-}
-
-func (in *analysisPivotTableMetricPlacementPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableMetricPlacement] {
-	return pulumix.Output[*AnalysisPivotTableMetricPlacement]{
-		OutputState: in.ToAnalysisPivotTableMetricPlacementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisPivotTableRowsLayout string
@@ -11278,12 +10338,6 @@ func (o AnalysisPivotTableRowsLayoutOutput) ToAnalysisPivotTableRowsLayoutPtrOut
 	}).(AnalysisPivotTableRowsLayoutPtrOutput)
 }
 
-func (o AnalysisPivotTableRowsLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPivotTableRowsLayout] {
-	return pulumix.Output[AnalysisPivotTableRowsLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableRowsLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11319,12 +10373,6 @@ func (o AnalysisPivotTableRowsLayoutPtrOutput) ToAnalysisPivotTableRowsLayoutPtr
 	return o
 }
 
-func (o AnalysisPivotTableRowsLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableRowsLayout] {
-	return pulumix.Output[*AnalysisPivotTableRowsLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableRowsLayoutPtrOutput) Elem() AnalysisPivotTableRowsLayoutOutput {
 	return o.ApplyT(func(v *AnalysisPivotTableRowsLayout) AnalysisPivotTableRowsLayout {
 		if v != nil {
@@ -11349,10 +10397,11 @@ func (o AnalysisPivotTableRowsLayoutPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisPivotTableRowsLayoutInput is an input type that accepts AnalysisPivotTableRowsLayoutArgs and AnalysisPivotTableRowsLayoutOutput values.
-// You can construct a concrete instance of `AnalysisPivotTableRowsLayoutInput` via:
+// AnalysisPivotTableRowsLayoutInput is an input type that accepts values of the AnalysisPivotTableRowsLayout enum
+// A concrete instance of `AnalysisPivotTableRowsLayoutInput` can be one of the following:
 //
-//	AnalysisPivotTableRowsLayoutArgs{...}
+//	AnalysisPivotTableRowsLayoutTabular
+//	AnalysisPivotTableRowsLayoutHierarchy
 type AnalysisPivotTableRowsLayoutInput interface {
 	pulumi.Input
 
@@ -11385,12 +10434,6 @@ func (in *analysisPivotTableRowsLayoutPtr) ToAnalysisPivotTableRowsLayoutPtrOutp
 
 func (in *analysisPivotTableRowsLayoutPtr) ToAnalysisPivotTableRowsLayoutPtrOutputWithContext(ctx context.Context) AnalysisPivotTableRowsLayoutPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPivotTableRowsLayoutPtrOutput)
-}
-
-func (in *analysisPivotTableRowsLayoutPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableRowsLayout] {
-	return pulumix.Output[*AnalysisPivotTableRowsLayout]{
-		OutputState: in.ToAnalysisPivotTableRowsLayoutPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisPivotTableSubtotalLevel string
@@ -11461,12 +10504,6 @@ func (o AnalysisPivotTableSubtotalLevelOutput) ToAnalysisPivotTableSubtotalLevel
 	}).(AnalysisPivotTableSubtotalLevelPtrOutput)
 }
 
-func (o AnalysisPivotTableSubtotalLevelOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPivotTableSubtotalLevel] {
-	return pulumix.Output[AnalysisPivotTableSubtotalLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableSubtotalLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11502,12 +10539,6 @@ func (o AnalysisPivotTableSubtotalLevelPtrOutput) ToAnalysisPivotTableSubtotalLe
 	return o
 }
 
-func (o AnalysisPivotTableSubtotalLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableSubtotalLevel] {
-	return pulumix.Output[*AnalysisPivotTableSubtotalLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableSubtotalLevelPtrOutput) Elem() AnalysisPivotTableSubtotalLevelOutput {
 	return o.ApplyT(func(v *AnalysisPivotTableSubtotalLevel) AnalysisPivotTableSubtotalLevel {
 		if v != nil {
@@ -11532,10 +10563,12 @@ func (o AnalysisPivotTableSubtotalLevelPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisPivotTableSubtotalLevelInput is an input type that accepts AnalysisPivotTableSubtotalLevelArgs and AnalysisPivotTableSubtotalLevelOutput values.
-// You can construct a concrete instance of `AnalysisPivotTableSubtotalLevelInput` via:
+// AnalysisPivotTableSubtotalLevelInput is an input type that accepts values of the AnalysisPivotTableSubtotalLevel enum
+// A concrete instance of `AnalysisPivotTableSubtotalLevelInput` can be one of the following:
 //
-//	AnalysisPivotTableSubtotalLevelArgs{...}
+//	AnalysisPivotTableSubtotalLevelAll
+//	AnalysisPivotTableSubtotalLevelCustom
+//	AnalysisPivotTableSubtotalLevelLast
 type AnalysisPivotTableSubtotalLevelInput interface {
 	pulumi.Input
 
@@ -11568,12 +10601,6 @@ func (in *analysisPivotTableSubtotalLevelPtr) ToAnalysisPivotTableSubtotalLevelP
 
 func (in *analysisPivotTableSubtotalLevelPtr) ToAnalysisPivotTableSubtotalLevelPtrOutputWithContext(ctx context.Context) AnalysisPivotTableSubtotalLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPivotTableSubtotalLevelPtrOutput)
-}
-
-func (in *analysisPivotTableSubtotalLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableSubtotalLevel] {
-	return pulumix.Output[*AnalysisPivotTableSubtotalLevel]{
-		OutputState: in.ToAnalysisPivotTableSubtotalLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisPrimaryValueDisplayType string
@@ -11644,12 +10671,6 @@ func (o AnalysisPrimaryValueDisplayTypeOutput) ToAnalysisPrimaryValueDisplayType
 	}).(AnalysisPrimaryValueDisplayTypePtrOutput)
 }
 
-func (o AnalysisPrimaryValueDisplayTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPrimaryValueDisplayType] {
-	return pulumix.Output[AnalysisPrimaryValueDisplayType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPrimaryValueDisplayTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11685,12 +10706,6 @@ func (o AnalysisPrimaryValueDisplayTypePtrOutput) ToAnalysisPrimaryValueDisplayT
 	return o
 }
 
-func (o AnalysisPrimaryValueDisplayTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPrimaryValueDisplayType] {
-	return pulumix.Output[*AnalysisPrimaryValueDisplayType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPrimaryValueDisplayTypePtrOutput) Elem() AnalysisPrimaryValueDisplayTypeOutput {
 	return o.ApplyT(func(v *AnalysisPrimaryValueDisplayType) AnalysisPrimaryValueDisplayType {
 		if v != nil {
@@ -11715,10 +10730,12 @@ func (o AnalysisPrimaryValueDisplayTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisPrimaryValueDisplayTypeInput is an input type that accepts AnalysisPrimaryValueDisplayTypeArgs and AnalysisPrimaryValueDisplayTypeOutput values.
-// You can construct a concrete instance of `AnalysisPrimaryValueDisplayTypeInput` via:
+// AnalysisPrimaryValueDisplayTypeInput is an input type that accepts values of the AnalysisPrimaryValueDisplayType enum
+// A concrete instance of `AnalysisPrimaryValueDisplayTypeInput` can be one of the following:
 //
-//	AnalysisPrimaryValueDisplayTypeArgs{...}
+//	AnalysisPrimaryValueDisplayTypeHidden
+//	AnalysisPrimaryValueDisplayTypeComparison
+//	AnalysisPrimaryValueDisplayTypeActual
 type AnalysisPrimaryValueDisplayTypeInput interface {
 	pulumi.Input
 
@@ -11751,12 +10768,6 @@ func (in *analysisPrimaryValueDisplayTypePtr) ToAnalysisPrimaryValueDisplayTypeP
 
 func (in *analysisPrimaryValueDisplayTypePtr) ToAnalysisPrimaryValueDisplayTypePtrOutputWithContext(ctx context.Context) AnalysisPrimaryValueDisplayTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPrimaryValueDisplayTypePtrOutput)
-}
-
-func (in *analysisPrimaryValueDisplayTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPrimaryValueDisplayType] {
-	return pulumix.Output[*AnalysisPrimaryValueDisplayType]{
-		OutputState: in.ToAnalysisPrimaryValueDisplayTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisRadarChartAxesRangeScale string
@@ -11827,12 +10838,6 @@ func (o AnalysisRadarChartAxesRangeScaleOutput) ToAnalysisRadarChartAxesRangeSca
 	}).(AnalysisRadarChartAxesRangeScalePtrOutput)
 }
 
-func (o AnalysisRadarChartAxesRangeScaleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisRadarChartAxesRangeScale] {
-	return pulumix.Output[AnalysisRadarChartAxesRangeScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisRadarChartAxesRangeScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11868,12 +10873,6 @@ func (o AnalysisRadarChartAxesRangeScalePtrOutput) ToAnalysisRadarChartAxesRange
 	return o
 }
 
-func (o AnalysisRadarChartAxesRangeScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisRadarChartAxesRangeScale] {
-	return pulumix.Output[*AnalysisRadarChartAxesRangeScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisRadarChartAxesRangeScalePtrOutput) Elem() AnalysisRadarChartAxesRangeScaleOutput {
 	return o.ApplyT(func(v *AnalysisRadarChartAxesRangeScale) AnalysisRadarChartAxesRangeScale {
 		if v != nil {
@@ -11898,10 +10897,12 @@ func (o AnalysisRadarChartAxesRangeScalePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisRadarChartAxesRangeScaleInput is an input type that accepts AnalysisRadarChartAxesRangeScaleArgs and AnalysisRadarChartAxesRangeScaleOutput values.
-// You can construct a concrete instance of `AnalysisRadarChartAxesRangeScaleInput` via:
+// AnalysisRadarChartAxesRangeScaleInput is an input type that accepts values of the AnalysisRadarChartAxesRangeScale enum
+// A concrete instance of `AnalysisRadarChartAxesRangeScaleInput` can be one of the following:
 //
-//	AnalysisRadarChartAxesRangeScaleArgs{...}
+//	AnalysisRadarChartAxesRangeScaleAuto
+//	AnalysisRadarChartAxesRangeScaleIndependent
+//	AnalysisRadarChartAxesRangeScaleShared
 type AnalysisRadarChartAxesRangeScaleInput interface {
 	pulumi.Input
 
@@ -11934,12 +10935,6 @@ func (in *analysisRadarChartAxesRangeScalePtr) ToAnalysisRadarChartAxesRangeScal
 
 func (in *analysisRadarChartAxesRangeScalePtr) ToAnalysisRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) AnalysisRadarChartAxesRangeScalePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisRadarChartAxesRangeScalePtrOutput)
-}
-
-func (in *analysisRadarChartAxesRangeScalePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisRadarChartAxesRangeScale] {
-	return pulumix.Output[*AnalysisRadarChartAxesRangeScale]{
-		OutputState: in.ToAnalysisRadarChartAxesRangeScalePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisRadarChartShape string
@@ -12009,12 +11004,6 @@ func (o AnalysisRadarChartShapeOutput) ToAnalysisRadarChartShapePtrOutputWithCon
 	}).(AnalysisRadarChartShapePtrOutput)
 }
 
-func (o AnalysisRadarChartShapeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisRadarChartShape] {
-	return pulumix.Output[AnalysisRadarChartShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisRadarChartShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12050,12 +11039,6 @@ func (o AnalysisRadarChartShapePtrOutput) ToAnalysisRadarChartShapePtrOutputWith
 	return o
 }
 
-func (o AnalysisRadarChartShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisRadarChartShape] {
-	return pulumix.Output[*AnalysisRadarChartShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisRadarChartShapePtrOutput) Elem() AnalysisRadarChartShapeOutput {
 	return o.ApplyT(func(v *AnalysisRadarChartShape) AnalysisRadarChartShape {
 		if v != nil {
@@ -12080,10 +11063,11 @@ func (o AnalysisRadarChartShapePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisRadarChartShapeInput is an input type that accepts AnalysisRadarChartShapeArgs and AnalysisRadarChartShapeOutput values.
-// You can construct a concrete instance of `AnalysisRadarChartShapeInput` via:
+// AnalysisRadarChartShapeInput is an input type that accepts values of the AnalysisRadarChartShape enum
+// A concrete instance of `AnalysisRadarChartShapeInput` can be one of the following:
 //
-//	AnalysisRadarChartShapeArgs{...}
+//	AnalysisRadarChartShapeCircle
+//	AnalysisRadarChartShapePolygon
 type AnalysisRadarChartShapeInput interface {
 	pulumi.Input
 
@@ -12116,12 +11100,6 @@ func (in *analysisRadarChartShapePtr) ToAnalysisRadarChartShapePtrOutput() Analy
 
 func (in *analysisRadarChartShapePtr) ToAnalysisRadarChartShapePtrOutputWithContext(ctx context.Context) AnalysisRadarChartShapePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisRadarChartShapePtrOutput)
-}
-
-func (in *analysisRadarChartShapePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisRadarChartShape] {
-	return pulumix.Output[*AnalysisRadarChartShape]{
-		OutputState: in.ToAnalysisRadarChartShapePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisReferenceLineLabelHorizontalPosition string
@@ -12192,12 +11170,6 @@ func (o AnalysisReferenceLineLabelHorizontalPositionOutput) ToAnalysisReferenceL
 	}).(AnalysisReferenceLineLabelHorizontalPositionPtrOutput)
 }
 
-func (o AnalysisReferenceLineLabelHorizontalPositionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[AnalysisReferenceLineLabelHorizontalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLineLabelHorizontalPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12233,12 +11205,6 @@ func (o AnalysisReferenceLineLabelHorizontalPositionPtrOutput) ToAnalysisReferen
 	return o
 }
 
-func (o AnalysisReferenceLineLabelHorizontalPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[*AnalysisReferenceLineLabelHorizontalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLineLabelHorizontalPositionPtrOutput) Elem() AnalysisReferenceLineLabelHorizontalPositionOutput {
 	return o.ApplyT(func(v *AnalysisReferenceLineLabelHorizontalPosition) AnalysisReferenceLineLabelHorizontalPosition {
 		if v != nil {
@@ -12263,10 +11229,12 @@ func (o AnalysisReferenceLineLabelHorizontalPositionPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisReferenceLineLabelHorizontalPositionInput is an input type that accepts AnalysisReferenceLineLabelHorizontalPositionArgs and AnalysisReferenceLineLabelHorizontalPositionOutput values.
-// You can construct a concrete instance of `AnalysisReferenceLineLabelHorizontalPositionInput` via:
+// AnalysisReferenceLineLabelHorizontalPositionInput is an input type that accepts values of the AnalysisReferenceLineLabelHorizontalPosition enum
+// A concrete instance of `AnalysisReferenceLineLabelHorizontalPositionInput` can be one of the following:
 //
-//	AnalysisReferenceLineLabelHorizontalPositionArgs{...}
+//	AnalysisReferenceLineLabelHorizontalPositionLeft
+//	AnalysisReferenceLineLabelHorizontalPositionCenter
+//	AnalysisReferenceLineLabelHorizontalPositionRight
 type AnalysisReferenceLineLabelHorizontalPositionInput interface {
 	pulumi.Input
 
@@ -12299,12 +11267,6 @@ func (in *analysisReferenceLineLabelHorizontalPositionPtr) ToAnalysisReferenceLi
 
 func (in *analysisReferenceLineLabelHorizontalPositionPtr) ToAnalysisReferenceLineLabelHorizontalPositionPtrOutputWithContext(ctx context.Context) AnalysisReferenceLineLabelHorizontalPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisReferenceLineLabelHorizontalPositionPtrOutput)
-}
-
-func (in *analysisReferenceLineLabelHorizontalPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[*AnalysisReferenceLineLabelHorizontalPosition]{
-		OutputState: in.ToAnalysisReferenceLineLabelHorizontalPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisReferenceLineLabelVerticalPosition string
@@ -12374,12 +11336,6 @@ func (o AnalysisReferenceLineLabelVerticalPositionOutput) ToAnalysisReferenceLin
 	}).(AnalysisReferenceLineLabelVerticalPositionPtrOutput)
 }
 
-func (o AnalysisReferenceLineLabelVerticalPositionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[AnalysisReferenceLineLabelVerticalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLineLabelVerticalPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12415,12 +11371,6 @@ func (o AnalysisReferenceLineLabelVerticalPositionPtrOutput) ToAnalysisReference
 	return o
 }
 
-func (o AnalysisReferenceLineLabelVerticalPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[*AnalysisReferenceLineLabelVerticalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLineLabelVerticalPositionPtrOutput) Elem() AnalysisReferenceLineLabelVerticalPositionOutput {
 	return o.ApplyT(func(v *AnalysisReferenceLineLabelVerticalPosition) AnalysisReferenceLineLabelVerticalPosition {
 		if v != nil {
@@ -12445,10 +11395,11 @@ func (o AnalysisReferenceLineLabelVerticalPositionPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisReferenceLineLabelVerticalPositionInput is an input type that accepts AnalysisReferenceLineLabelVerticalPositionArgs and AnalysisReferenceLineLabelVerticalPositionOutput values.
-// You can construct a concrete instance of `AnalysisReferenceLineLabelVerticalPositionInput` via:
+// AnalysisReferenceLineLabelVerticalPositionInput is an input type that accepts values of the AnalysisReferenceLineLabelVerticalPosition enum
+// A concrete instance of `AnalysisReferenceLineLabelVerticalPositionInput` can be one of the following:
 //
-//	AnalysisReferenceLineLabelVerticalPositionArgs{...}
+//	AnalysisReferenceLineLabelVerticalPositionAbove
+//	AnalysisReferenceLineLabelVerticalPositionBelow
 type AnalysisReferenceLineLabelVerticalPositionInput interface {
 	pulumi.Input
 
@@ -12481,12 +11432,6 @@ func (in *analysisReferenceLineLabelVerticalPositionPtr) ToAnalysisReferenceLine
 
 func (in *analysisReferenceLineLabelVerticalPositionPtr) ToAnalysisReferenceLineLabelVerticalPositionPtrOutputWithContext(ctx context.Context) AnalysisReferenceLineLabelVerticalPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisReferenceLineLabelVerticalPositionPtrOutput)
-}
-
-func (in *analysisReferenceLineLabelVerticalPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[*AnalysisReferenceLineLabelVerticalPosition]{
-		OutputState: in.ToAnalysisReferenceLineLabelVerticalPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisReferenceLinePatternType string
@@ -12557,12 +11502,6 @@ func (o AnalysisReferenceLinePatternTypeOutput) ToAnalysisReferenceLinePatternTy
 	}).(AnalysisReferenceLinePatternTypePtrOutput)
 }
 
-func (o AnalysisReferenceLinePatternTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisReferenceLinePatternType] {
-	return pulumix.Output[AnalysisReferenceLinePatternType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLinePatternTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12598,12 +11537,6 @@ func (o AnalysisReferenceLinePatternTypePtrOutput) ToAnalysisReferenceLinePatter
 	return o
 }
 
-func (o AnalysisReferenceLinePatternTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLinePatternType] {
-	return pulumix.Output[*AnalysisReferenceLinePatternType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLinePatternTypePtrOutput) Elem() AnalysisReferenceLinePatternTypeOutput {
 	return o.ApplyT(func(v *AnalysisReferenceLinePatternType) AnalysisReferenceLinePatternType {
 		if v != nil {
@@ -12628,10 +11561,12 @@ func (o AnalysisReferenceLinePatternTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisReferenceLinePatternTypeInput is an input type that accepts AnalysisReferenceLinePatternTypeArgs and AnalysisReferenceLinePatternTypeOutput values.
-// You can construct a concrete instance of `AnalysisReferenceLinePatternTypeInput` via:
+// AnalysisReferenceLinePatternTypeInput is an input type that accepts values of the AnalysisReferenceLinePatternType enum
+// A concrete instance of `AnalysisReferenceLinePatternTypeInput` can be one of the following:
 //
-//	AnalysisReferenceLinePatternTypeArgs{...}
+//	AnalysisReferenceLinePatternTypeSolid
+//	AnalysisReferenceLinePatternTypeDashed
+//	AnalysisReferenceLinePatternTypeDotted
 type AnalysisReferenceLinePatternTypeInput interface {
 	pulumi.Input
 
@@ -12664,12 +11599,6 @@ func (in *analysisReferenceLinePatternTypePtr) ToAnalysisReferenceLinePatternTyp
 
 func (in *analysisReferenceLinePatternTypePtr) ToAnalysisReferenceLinePatternTypePtrOutputWithContext(ctx context.Context) AnalysisReferenceLinePatternTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisReferenceLinePatternTypePtrOutput)
-}
-
-func (in *analysisReferenceLinePatternTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLinePatternType] {
-	return pulumix.Output[*AnalysisReferenceLinePatternType]{
-		OutputState: in.ToAnalysisReferenceLinePatternTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisReferenceLineSeriesType string
@@ -12739,12 +11668,6 @@ func (o AnalysisReferenceLineSeriesTypeOutput) ToAnalysisReferenceLineSeriesType
 	}).(AnalysisReferenceLineSeriesTypePtrOutput)
 }
 
-func (o AnalysisReferenceLineSeriesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisReferenceLineSeriesType] {
-	return pulumix.Output[AnalysisReferenceLineSeriesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLineSeriesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12780,12 +11703,6 @@ func (o AnalysisReferenceLineSeriesTypePtrOutput) ToAnalysisReferenceLineSeriesT
 	return o
 }
 
-func (o AnalysisReferenceLineSeriesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLineSeriesType] {
-	return pulumix.Output[*AnalysisReferenceLineSeriesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLineSeriesTypePtrOutput) Elem() AnalysisReferenceLineSeriesTypeOutput {
 	return o.ApplyT(func(v *AnalysisReferenceLineSeriesType) AnalysisReferenceLineSeriesType {
 		if v != nil {
@@ -12810,10 +11727,11 @@ func (o AnalysisReferenceLineSeriesTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisReferenceLineSeriesTypeInput is an input type that accepts AnalysisReferenceLineSeriesTypeArgs and AnalysisReferenceLineSeriesTypeOutput values.
-// You can construct a concrete instance of `AnalysisReferenceLineSeriesTypeInput` via:
+// AnalysisReferenceLineSeriesTypeInput is an input type that accepts values of the AnalysisReferenceLineSeriesType enum
+// A concrete instance of `AnalysisReferenceLineSeriesTypeInput` can be one of the following:
 //
-//	AnalysisReferenceLineSeriesTypeArgs{...}
+//	AnalysisReferenceLineSeriesTypeBar
+//	AnalysisReferenceLineSeriesTypeLine
 type AnalysisReferenceLineSeriesTypeInput interface {
 	pulumi.Input
 
@@ -12846,12 +11764,6 @@ func (in *analysisReferenceLineSeriesTypePtr) ToAnalysisReferenceLineSeriesTypeP
 
 func (in *analysisReferenceLineSeriesTypePtr) ToAnalysisReferenceLineSeriesTypePtrOutputWithContext(ctx context.Context) AnalysisReferenceLineSeriesTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisReferenceLineSeriesTypePtrOutput)
-}
-
-func (in *analysisReferenceLineSeriesTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLineSeriesType] {
-	return pulumix.Output[*AnalysisReferenceLineSeriesType]{
-		OutputState: in.ToAnalysisReferenceLineSeriesTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisReferenceLineValueLabelRelativePosition string
@@ -12921,12 +11833,6 @@ func (o AnalysisReferenceLineValueLabelRelativePositionOutput) ToAnalysisReferen
 	}).(AnalysisReferenceLineValueLabelRelativePositionPtrOutput)
 }
 
-func (o AnalysisReferenceLineValueLabelRelativePositionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[AnalysisReferenceLineValueLabelRelativePosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLineValueLabelRelativePositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12962,12 +11868,6 @@ func (o AnalysisReferenceLineValueLabelRelativePositionPtrOutput) ToAnalysisRefe
 	return o
 }
 
-func (o AnalysisReferenceLineValueLabelRelativePositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[*AnalysisReferenceLineValueLabelRelativePosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLineValueLabelRelativePositionPtrOutput) Elem() AnalysisReferenceLineValueLabelRelativePositionOutput {
 	return o.ApplyT(func(v *AnalysisReferenceLineValueLabelRelativePosition) AnalysisReferenceLineValueLabelRelativePosition {
 		if v != nil {
@@ -12992,10 +11892,11 @@ func (o AnalysisReferenceLineValueLabelRelativePositionPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisReferenceLineValueLabelRelativePositionInput is an input type that accepts AnalysisReferenceLineValueLabelRelativePositionArgs and AnalysisReferenceLineValueLabelRelativePositionOutput values.
-// You can construct a concrete instance of `AnalysisReferenceLineValueLabelRelativePositionInput` via:
+// AnalysisReferenceLineValueLabelRelativePositionInput is an input type that accepts values of the AnalysisReferenceLineValueLabelRelativePosition enum
+// A concrete instance of `AnalysisReferenceLineValueLabelRelativePositionInput` can be one of the following:
 //
-//	AnalysisReferenceLineValueLabelRelativePositionArgs{...}
+//	AnalysisReferenceLineValueLabelRelativePositionBeforeCustomLabel
+//	AnalysisReferenceLineValueLabelRelativePositionAfterCustomLabel
 type AnalysisReferenceLineValueLabelRelativePositionInput interface {
 	pulumi.Input
 
@@ -13028,12 +11929,6 @@ func (in *analysisReferenceLineValueLabelRelativePositionPtr) ToAnalysisReferenc
 
 func (in *analysisReferenceLineValueLabelRelativePositionPtr) ToAnalysisReferenceLineValueLabelRelativePositionPtrOutputWithContext(ctx context.Context) AnalysisReferenceLineValueLabelRelativePositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisReferenceLineValueLabelRelativePositionPtrOutput)
-}
-
-func (in *analysisReferenceLineValueLabelRelativePositionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[*AnalysisReferenceLineValueLabelRelativePosition]{
-		OutputState: in.ToAnalysisReferenceLineValueLabelRelativePositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisRelativeDateType string
@@ -13106,12 +12001,6 @@ func (o AnalysisRelativeDateTypeOutput) ToAnalysisRelativeDateTypePtrOutputWithC
 	}).(AnalysisRelativeDateTypePtrOutput)
 }
 
-func (o AnalysisRelativeDateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisRelativeDateType] {
-	return pulumix.Output[AnalysisRelativeDateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisRelativeDateTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -13147,12 +12036,6 @@ func (o AnalysisRelativeDateTypePtrOutput) ToAnalysisRelativeDateTypePtrOutputWi
 	return o
 }
 
-func (o AnalysisRelativeDateTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisRelativeDateType] {
-	return pulumix.Output[*AnalysisRelativeDateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisRelativeDateTypePtrOutput) Elem() AnalysisRelativeDateTypeOutput {
 	return o.ApplyT(func(v *AnalysisRelativeDateType) AnalysisRelativeDateType {
 		if v != nil {
@@ -13177,10 +12060,14 @@ func (o AnalysisRelativeDateTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisRelativeDateTypeInput is an input type that accepts AnalysisRelativeDateTypeArgs and AnalysisRelativeDateTypeOutput values.
-// You can construct a concrete instance of `AnalysisRelativeDateTypeInput` via:
+// AnalysisRelativeDateTypeInput is an input type that accepts values of the AnalysisRelativeDateType enum
+// A concrete instance of `AnalysisRelativeDateTypeInput` can be one of the following:
 //
-//	AnalysisRelativeDateTypeArgs{...}
+//	AnalysisRelativeDateTypePrevious
+//	AnalysisRelativeDateTypeThis
+//	AnalysisRelativeDateTypeLast
+//	AnalysisRelativeDateTypeNow
+//	AnalysisRelativeDateTypeNext
 type AnalysisRelativeDateTypeInput interface {
 	pulumi.Input
 
@@ -13213,12 +12100,6 @@ func (in *analysisRelativeDateTypePtr) ToAnalysisRelativeDateTypePtrOutput() Ana
 
 func (in *analysisRelativeDateTypePtr) ToAnalysisRelativeDateTypePtrOutputWithContext(ctx context.Context) AnalysisRelativeDateTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisRelativeDateTypePtrOutput)
-}
-
-func (in *analysisRelativeDateTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisRelativeDateType] {
-	return pulumix.Output[*AnalysisRelativeDateType]{
-		OutputState: in.ToAnalysisRelativeDateTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisRelativeFontSize string
@@ -13291,12 +12172,6 @@ func (o AnalysisRelativeFontSizeOutput) ToAnalysisRelativeFontSizePtrOutputWithC
 	}).(AnalysisRelativeFontSizePtrOutput)
 }
 
-func (o AnalysisRelativeFontSizeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisRelativeFontSize] {
-	return pulumix.Output[AnalysisRelativeFontSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisRelativeFontSizeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -13332,12 +12207,6 @@ func (o AnalysisRelativeFontSizePtrOutput) ToAnalysisRelativeFontSizePtrOutputWi
 	return o
 }
 
-func (o AnalysisRelativeFontSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisRelativeFontSize] {
-	return pulumix.Output[*AnalysisRelativeFontSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisRelativeFontSizePtrOutput) Elem() AnalysisRelativeFontSizeOutput {
 	return o.ApplyT(func(v *AnalysisRelativeFontSize) AnalysisRelativeFontSize {
 		if v != nil {
@@ -13362,10 +12231,14 @@ func (o AnalysisRelativeFontSizePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisRelativeFontSizeInput is an input type that accepts AnalysisRelativeFontSizeArgs and AnalysisRelativeFontSizeOutput values.
-// You can construct a concrete instance of `AnalysisRelativeFontSizeInput` via:
+// AnalysisRelativeFontSizeInput is an input type that accepts values of the AnalysisRelativeFontSize enum
+// A concrete instance of `AnalysisRelativeFontSizeInput` can be one of the following:
 //
-//	AnalysisRelativeFontSizeArgs{...}
+//	AnalysisRelativeFontSizeExtraSmall
+//	AnalysisRelativeFontSizeSmall
+//	AnalysisRelativeFontSizeMedium
+//	AnalysisRelativeFontSizeLarge
+//	AnalysisRelativeFontSizeExtraLarge
 type AnalysisRelativeFontSizeInput interface {
 	pulumi.Input
 
@@ -13398,12 +12271,6 @@ func (in *analysisRelativeFontSizePtr) ToAnalysisRelativeFontSizePtrOutput() Ana
 
 func (in *analysisRelativeFontSizePtr) ToAnalysisRelativeFontSizePtrOutputWithContext(ctx context.Context) AnalysisRelativeFontSizePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisRelativeFontSizePtrOutput)
-}
-
-func (in *analysisRelativeFontSizePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisRelativeFontSize] {
-	return pulumix.Output[*AnalysisRelativeFontSize]{
-		OutputState: in.ToAnalysisRelativeFontSizePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisResizeOption string
@@ -13473,12 +12340,6 @@ func (o AnalysisResizeOptionOutput) ToAnalysisResizeOptionPtrOutputWithContext(c
 	}).(AnalysisResizeOptionPtrOutput)
 }
 
-func (o AnalysisResizeOptionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisResizeOption] {
-	return pulumix.Output[AnalysisResizeOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisResizeOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -13514,12 +12375,6 @@ func (o AnalysisResizeOptionPtrOutput) ToAnalysisResizeOptionPtrOutputWithContex
 	return o
 }
 
-func (o AnalysisResizeOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisResizeOption] {
-	return pulumix.Output[*AnalysisResizeOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisResizeOptionPtrOutput) Elem() AnalysisResizeOptionOutput {
 	return o.ApplyT(func(v *AnalysisResizeOption) AnalysisResizeOption {
 		if v != nil {
@@ -13544,10 +12399,11 @@ func (o AnalysisResizeOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisResizeOptionInput is an input type that accepts AnalysisResizeOptionArgs and AnalysisResizeOptionOutput values.
-// You can construct a concrete instance of `AnalysisResizeOptionInput` via:
+// AnalysisResizeOptionInput is an input type that accepts values of the AnalysisResizeOption enum
+// A concrete instance of `AnalysisResizeOptionInput` can be one of the following:
 //
-//	AnalysisResizeOptionArgs{...}
+//	AnalysisResizeOptionFixed
+//	AnalysisResizeOptionResponsive
 type AnalysisResizeOptionInput interface {
 	pulumi.Input
 
@@ -13580,12 +12436,6 @@ func (in *analysisResizeOptionPtr) ToAnalysisResizeOptionPtrOutput() AnalysisRes
 
 func (in *analysisResizeOptionPtr) ToAnalysisResizeOptionPtrOutputWithContext(ctx context.Context) AnalysisResizeOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisResizeOptionPtrOutput)
-}
-
-func (in *analysisResizeOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisResizeOption] {
-	return pulumix.Output[*AnalysisResizeOption]{
-		OutputState: in.ToAnalysisResizeOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisResourceStatus string
@@ -13660,12 +12510,6 @@ func (o AnalysisResourceStatusOutput) ToAnalysisResourceStatusPtrOutputWithConte
 	}).(AnalysisResourceStatusPtrOutput)
 }
 
-func (o AnalysisResourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisResourceStatus] {
-	return pulumix.Output[AnalysisResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -13701,12 +12545,6 @@ func (o AnalysisResourceStatusPtrOutput) ToAnalysisResourceStatusPtrOutputWithCo
 	return o
 }
 
-func (o AnalysisResourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisResourceStatus] {
-	return pulumix.Output[*AnalysisResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisResourceStatusPtrOutput) Elem() AnalysisResourceStatusOutput {
 	return o.ApplyT(func(v *AnalysisResourceStatus) AnalysisResourceStatus {
 		if v != nil {
@@ -13731,10 +12569,16 @@ func (o AnalysisResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisResourceStatusInput is an input type that accepts AnalysisResourceStatusArgs and AnalysisResourceStatusOutput values.
-// You can construct a concrete instance of `AnalysisResourceStatusInput` via:
+// AnalysisResourceStatusInput is an input type that accepts values of the AnalysisResourceStatus enum
+// A concrete instance of `AnalysisResourceStatusInput` can be one of the following:
 //
-//	AnalysisResourceStatusArgs{...}
+//	AnalysisResourceStatusCreationInProgress
+//	AnalysisResourceStatusCreationSuccessful
+//	AnalysisResourceStatusCreationFailed
+//	AnalysisResourceStatusUpdateInProgress
+//	AnalysisResourceStatusUpdateSuccessful
+//	AnalysisResourceStatusUpdateFailed
+//	AnalysisResourceStatusDeleted
 type AnalysisResourceStatusInput interface {
 	pulumi.Input
 
@@ -13767,12 +12611,6 @@ func (in *analysisResourceStatusPtr) ToAnalysisResourceStatusPtrOutput() Analysi
 
 func (in *analysisResourceStatusPtr) ToAnalysisResourceStatusPtrOutputWithContext(ctx context.Context) AnalysisResourceStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisResourceStatusPtrOutput)
-}
-
-func (in *analysisResourceStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisResourceStatus] {
-	return pulumix.Output[*AnalysisResourceStatus]{
-		OutputState: in.ToAnalysisResourceStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSectionPageBreakStatus string
@@ -13842,12 +12680,6 @@ func (o AnalysisSectionPageBreakStatusOutput) ToAnalysisSectionPageBreakStatusPt
 	}).(AnalysisSectionPageBreakStatusPtrOutput)
 }
 
-func (o AnalysisSectionPageBreakStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSectionPageBreakStatus] {
-	return pulumix.Output[AnalysisSectionPageBreakStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSectionPageBreakStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -13883,12 +12715,6 @@ func (o AnalysisSectionPageBreakStatusPtrOutput) ToAnalysisSectionPageBreakStatu
 	return o
 }
 
-func (o AnalysisSectionPageBreakStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSectionPageBreakStatus] {
-	return pulumix.Output[*AnalysisSectionPageBreakStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSectionPageBreakStatusPtrOutput) Elem() AnalysisSectionPageBreakStatusOutput {
 	return o.ApplyT(func(v *AnalysisSectionPageBreakStatus) AnalysisSectionPageBreakStatus {
 		if v != nil {
@@ -13913,10 +12739,11 @@ func (o AnalysisSectionPageBreakStatusPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSectionPageBreakStatusInput is an input type that accepts AnalysisSectionPageBreakStatusArgs and AnalysisSectionPageBreakStatusOutput values.
-// You can construct a concrete instance of `AnalysisSectionPageBreakStatusInput` via:
+// AnalysisSectionPageBreakStatusInput is an input type that accepts values of the AnalysisSectionPageBreakStatus enum
+// A concrete instance of `AnalysisSectionPageBreakStatusInput` can be one of the following:
 //
-//	AnalysisSectionPageBreakStatusArgs{...}
+//	AnalysisSectionPageBreakStatusEnabled
+//	AnalysisSectionPageBreakStatusDisabled
 type AnalysisSectionPageBreakStatusInput interface {
 	pulumi.Input
 
@@ -13949,12 +12776,6 @@ func (in *analysisSectionPageBreakStatusPtr) ToAnalysisSectionPageBreakStatusPtr
 
 func (in *analysisSectionPageBreakStatusPtr) ToAnalysisSectionPageBreakStatusPtrOutputWithContext(ctx context.Context) AnalysisSectionPageBreakStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSectionPageBreakStatusPtrOutput)
-}
-
-func (in *analysisSectionPageBreakStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSectionPageBreakStatus] {
-	return pulumix.Output[*AnalysisSectionPageBreakStatus]{
-		OutputState: in.ToAnalysisSectionPageBreakStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSelectAllValueOptions string
@@ -14023,12 +12844,6 @@ func (o AnalysisSelectAllValueOptionsOutput) ToAnalysisSelectAllValueOptionsPtrO
 	}).(AnalysisSelectAllValueOptionsPtrOutput)
 }
 
-func (o AnalysisSelectAllValueOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSelectAllValueOptions] {
-	return pulumix.Output[AnalysisSelectAllValueOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSelectAllValueOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -14064,12 +12879,6 @@ func (o AnalysisSelectAllValueOptionsPtrOutput) ToAnalysisSelectAllValueOptionsP
 	return o
 }
 
-func (o AnalysisSelectAllValueOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSelectAllValueOptions] {
-	return pulumix.Output[*AnalysisSelectAllValueOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSelectAllValueOptionsPtrOutput) Elem() AnalysisSelectAllValueOptionsOutput {
 	return o.ApplyT(func(v *AnalysisSelectAllValueOptions) AnalysisSelectAllValueOptions {
 		if v != nil {
@@ -14094,10 +12903,10 @@ func (o AnalysisSelectAllValueOptionsPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSelectAllValueOptionsInput is an input type that accepts AnalysisSelectAllValueOptionsArgs and AnalysisSelectAllValueOptionsOutput values.
-// You can construct a concrete instance of `AnalysisSelectAllValueOptionsInput` via:
+// AnalysisSelectAllValueOptionsInput is an input type that accepts values of the AnalysisSelectAllValueOptions enum
+// A concrete instance of `AnalysisSelectAllValueOptionsInput` can be one of the following:
 //
-//	AnalysisSelectAllValueOptionsArgs{...}
+//	AnalysisSelectAllValueOptionsAllValues
 type AnalysisSelectAllValueOptionsInput interface {
 	pulumi.Input
 
@@ -14130,12 +12939,6 @@ func (in *analysisSelectAllValueOptionsPtr) ToAnalysisSelectAllValueOptionsPtrOu
 
 func (in *analysisSelectAllValueOptionsPtr) ToAnalysisSelectAllValueOptionsPtrOutputWithContext(ctx context.Context) AnalysisSelectAllValueOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSelectAllValueOptionsPtrOutput)
-}
-
-func (in *analysisSelectAllValueOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSelectAllValueOptions] {
-	return pulumix.Output[*AnalysisSelectAllValueOptions]{
-		OutputState: in.ToAnalysisSelectAllValueOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSelectedFieldOptions string
@@ -14204,12 +13007,6 @@ func (o AnalysisSelectedFieldOptionsOutput) ToAnalysisSelectedFieldOptionsPtrOut
 	}).(AnalysisSelectedFieldOptionsPtrOutput)
 }
 
-func (o AnalysisSelectedFieldOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSelectedFieldOptions] {
-	return pulumix.Output[AnalysisSelectedFieldOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSelectedFieldOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -14245,12 +13042,6 @@ func (o AnalysisSelectedFieldOptionsPtrOutput) ToAnalysisSelectedFieldOptionsPtr
 	return o
 }
 
-func (o AnalysisSelectedFieldOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSelectedFieldOptions] {
-	return pulumix.Output[*AnalysisSelectedFieldOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSelectedFieldOptionsPtrOutput) Elem() AnalysisSelectedFieldOptionsOutput {
 	return o.ApplyT(func(v *AnalysisSelectedFieldOptions) AnalysisSelectedFieldOptions {
 		if v != nil {
@@ -14275,10 +13066,10 @@ func (o AnalysisSelectedFieldOptionsPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSelectedFieldOptionsInput is an input type that accepts AnalysisSelectedFieldOptionsArgs and AnalysisSelectedFieldOptionsOutput values.
-// You can construct a concrete instance of `AnalysisSelectedFieldOptionsInput` via:
+// AnalysisSelectedFieldOptionsInput is an input type that accepts values of the AnalysisSelectedFieldOptions enum
+// A concrete instance of `AnalysisSelectedFieldOptionsInput` can be one of the following:
 //
-//	AnalysisSelectedFieldOptionsArgs{...}
+//	AnalysisSelectedFieldOptionsAllFields
 type AnalysisSelectedFieldOptionsInput interface {
 	pulumi.Input
 
@@ -14311,12 +13102,6 @@ func (in *analysisSelectedFieldOptionsPtr) ToAnalysisSelectedFieldOptionsPtrOutp
 
 func (in *analysisSelectedFieldOptionsPtr) ToAnalysisSelectedFieldOptionsPtrOutputWithContext(ctx context.Context) AnalysisSelectedFieldOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSelectedFieldOptionsPtrOutput)
-}
-
-func (in *analysisSelectedFieldOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSelectedFieldOptions] {
-	return pulumix.Output[*AnalysisSelectedFieldOptions]{
-		OutputState: in.ToAnalysisSelectedFieldOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSelectedTooltipType string
@@ -14386,12 +13171,6 @@ func (o AnalysisSelectedTooltipTypeOutput) ToAnalysisSelectedTooltipTypePtrOutpu
 	}).(AnalysisSelectedTooltipTypePtrOutput)
 }
 
-func (o AnalysisSelectedTooltipTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSelectedTooltipType] {
-	return pulumix.Output[AnalysisSelectedTooltipType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSelectedTooltipTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -14427,12 +13206,6 @@ func (o AnalysisSelectedTooltipTypePtrOutput) ToAnalysisSelectedTooltipTypePtrOu
 	return o
 }
 
-func (o AnalysisSelectedTooltipTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSelectedTooltipType] {
-	return pulumix.Output[*AnalysisSelectedTooltipType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSelectedTooltipTypePtrOutput) Elem() AnalysisSelectedTooltipTypeOutput {
 	return o.ApplyT(func(v *AnalysisSelectedTooltipType) AnalysisSelectedTooltipType {
 		if v != nil {
@@ -14457,10 +13230,11 @@ func (o AnalysisSelectedTooltipTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSelectedTooltipTypeInput is an input type that accepts AnalysisSelectedTooltipTypeArgs and AnalysisSelectedTooltipTypeOutput values.
-// You can construct a concrete instance of `AnalysisSelectedTooltipTypeInput` via:
+// AnalysisSelectedTooltipTypeInput is an input type that accepts values of the AnalysisSelectedTooltipType enum
+// A concrete instance of `AnalysisSelectedTooltipTypeInput` can be one of the following:
 //
-//	AnalysisSelectedTooltipTypeArgs{...}
+//	AnalysisSelectedTooltipTypeBasic
+//	AnalysisSelectedTooltipTypeDetailed
 type AnalysisSelectedTooltipTypeInput interface {
 	pulumi.Input
 
@@ -14493,12 +13267,6 @@ func (in *analysisSelectedTooltipTypePtr) ToAnalysisSelectedTooltipTypePtrOutput
 
 func (in *analysisSelectedTooltipTypePtr) ToAnalysisSelectedTooltipTypePtrOutputWithContext(ctx context.Context) AnalysisSelectedTooltipTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSelectedTooltipTypePtrOutput)
-}
-
-func (in *analysisSelectedTooltipTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSelectedTooltipType] {
-	return pulumix.Output[*AnalysisSelectedTooltipType]{
-		OutputState: in.ToAnalysisSelectedTooltipTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSheetContentType string
@@ -14568,12 +13336,6 @@ func (o AnalysisSheetContentTypeOutput) ToAnalysisSheetContentTypePtrOutputWithC
 	}).(AnalysisSheetContentTypePtrOutput)
 }
 
-func (o AnalysisSheetContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSheetContentType] {
-	return pulumix.Output[AnalysisSheetContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSheetContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -14609,12 +13371,6 @@ func (o AnalysisSheetContentTypePtrOutput) ToAnalysisSheetContentTypePtrOutputWi
 	return o
 }
 
-func (o AnalysisSheetContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSheetContentType] {
-	return pulumix.Output[*AnalysisSheetContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSheetContentTypePtrOutput) Elem() AnalysisSheetContentTypeOutput {
 	return o.ApplyT(func(v *AnalysisSheetContentType) AnalysisSheetContentType {
 		if v != nil {
@@ -14639,10 +13395,11 @@ func (o AnalysisSheetContentTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSheetContentTypeInput is an input type that accepts AnalysisSheetContentTypeArgs and AnalysisSheetContentTypeOutput values.
-// You can construct a concrete instance of `AnalysisSheetContentTypeInput` via:
+// AnalysisSheetContentTypeInput is an input type that accepts values of the AnalysisSheetContentType enum
+// A concrete instance of `AnalysisSheetContentTypeInput` can be one of the following:
 //
-//	AnalysisSheetContentTypeArgs{...}
+//	AnalysisSheetContentTypePaginated
+//	AnalysisSheetContentTypeInteractive
 type AnalysisSheetContentTypeInput interface {
 	pulumi.Input
 
@@ -14675,12 +13432,6 @@ func (in *analysisSheetContentTypePtr) ToAnalysisSheetContentTypePtrOutput() Ana
 
 func (in *analysisSheetContentTypePtr) ToAnalysisSheetContentTypePtrOutputWithContext(ctx context.Context) AnalysisSheetContentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSheetContentTypePtrOutput)
-}
-
-func (in *analysisSheetContentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSheetContentType] {
-	return pulumix.Output[*AnalysisSheetContentType]{
-		OutputState: in.ToAnalysisSheetContentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSheetControlDateTimePickerType string
@@ -14750,12 +13501,6 @@ func (o AnalysisSheetControlDateTimePickerTypeOutput) ToAnalysisSheetControlDate
 	}).(AnalysisSheetControlDateTimePickerTypePtrOutput)
 }
 
-func (o AnalysisSheetControlDateTimePickerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSheetControlDateTimePickerType] {
-	return pulumix.Output[AnalysisSheetControlDateTimePickerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSheetControlDateTimePickerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -14791,12 +13536,6 @@ func (o AnalysisSheetControlDateTimePickerTypePtrOutput) ToAnalysisSheetControlD
 	return o
 }
 
-func (o AnalysisSheetControlDateTimePickerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSheetControlDateTimePickerType] {
-	return pulumix.Output[*AnalysisSheetControlDateTimePickerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSheetControlDateTimePickerTypePtrOutput) Elem() AnalysisSheetControlDateTimePickerTypeOutput {
 	return o.ApplyT(func(v *AnalysisSheetControlDateTimePickerType) AnalysisSheetControlDateTimePickerType {
 		if v != nil {
@@ -14821,10 +13560,11 @@ func (o AnalysisSheetControlDateTimePickerTypePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSheetControlDateTimePickerTypeInput is an input type that accepts AnalysisSheetControlDateTimePickerTypeArgs and AnalysisSheetControlDateTimePickerTypeOutput values.
-// You can construct a concrete instance of `AnalysisSheetControlDateTimePickerTypeInput` via:
+// AnalysisSheetControlDateTimePickerTypeInput is an input type that accepts values of the AnalysisSheetControlDateTimePickerType enum
+// A concrete instance of `AnalysisSheetControlDateTimePickerTypeInput` can be one of the following:
 //
-//	AnalysisSheetControlDateTimePickerTypeArgs{...}
+//	AnalysisSheetControlDateTimePickerTypeSingleValued
+//	AnalysisSheetControlDateTimePickerTypeDateRange
 type AnalysisSheetControlDateTimePickerTypeInput interface {
 	pulumi.Input
 
@@ -14857,12 +13597,6 @@ func (in *analysisSheetControlDateTimePickerTypePtr) ToAnalysisSheetControlDateT
 
 func (in *analysisSheetControlDateTimePickerTypePtr) ToAnalysisSheetControlDateTimePickerTypePtrOutputWithContext(ctx context.Context) AnalysisSheetControlDateTimePickerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSheetControlDateTimePickerTypePtrOutput)
-}
-
-func (in *analysisSheetControlDateTimePickerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSheetControlDateTimePickerType] {
-	return pulumix.Output[*AnalysisSheetControlDateTimePickerType]{
-		OutputState: in.ToAnalysisSheetControlDateTimePickerTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSheetControlListType string
@@ -14932,12 +13666,6 @@ func (o AnalysisSheetControlListTypeOutput) ToAnalysisSheetControlListTypePtrOut
 	}).(AnalysisSheetControlListTypePtrOutput)
 }
 
-func (o AnalysisSheetControlListTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSheetControlListType] {
-	return pulumix.Output[AnalysisSheetControlListType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSheetControlListTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -14973,12 +13701,6 @@ func (o AnalysisSheetControlListTypePtrOutput) ToAnalysisSheetControlListTypePtr
 	return o
 }
 
-func (o AnalysisSheetControlListTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSheetControlListType] {
-	return pulumix.Output[*AnalysisSheetControlListType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSheetControlListTypePtrOutput) Elem() AnalysisSheetControlListTypeOutput {
 	return o.ApplyT(func(v *AnalysisSheetControlListType) AnalysisSheetControlListType {
 		if v != nil {
@@ -15003,10 +13725,11 @@ func (o AnalysisSheetControlListTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSheetControlListTypeInput is an input type that accepts AnalysisSheetControlListTypeArgs and AnalysisSheetControlListTypeOutput values.
-// You can construct a concrete instance of `AnalysisSheetControlListTypeInput` via:
+// AnalysisSheetControlListTypeInput is an input type that accepts values of the AnalysisSheetControlListType enum
+// A concrete instance of `AnalysisSheetControlListTypeInput` can be one of the following:
 //
-//	AnalysisSheetControlListTypeArgs{...}
+//	AnalysisSheetControlListTypeMultiSelect
+//	AnalysisSheetControlListTypeSingleSelect
 type AnalysisSheetControlListTypeInput interface {
 	pulumi.Input
 
@@ -15039,12 +13762,6 @@ func (in *analysisSheetControlListTypePtr) ToAnalysisSheetControlListTypePtrOutp
 
 func (in *analysisSheetControlListTypePtr) ToAnalysisSheetControlListTypePtrOutputWithContext(ctx context.Context) AnalysisSheetControlListTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSheetControlListTypePtrOutput)
-}
-
-func (in *analysisSheetControlListTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSheetControlListType] {
-	return pulumix.Output[*AnalysisSheetControlListType]{
-		OutputState: in.ToAnalysisSheetControlListTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSheetControlSliderType string
@@ -15114,12 +13831,6 @@ func (o AnalysisSheetControlSliderTypeOutput) ToAnalysisSheetControlSliderTypePt
 	}).(AnalysisSheetControlSliderTypePtrOutput)
 }
 
-func (o AnalysisSheetControlSliderTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSheetControlSliderType] {
-	return pulumix.Output[AnalysisSheetControlSliderType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSheetControlSliderTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -15155,12 +13866,6 @@ func (o AnalysisSheetControlSliderTypePtrOutput) ToAnalysisSheetControlSliderTyp
 	return o
 }
 
-func (o AnalysisSheetControlSliderTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSheetControlSliderType] {
-	return pulumix.Output[*AnalysisSheetControlSliderType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSheetControlSliderTypePtrOutput) Elem() AnalysisSheetControlSliderTypeOutput {
 	return o.ApplyT(func(v *AnalysisSheetControlSliderType) AnalysisSheetControlSliderType {
 		if v != nil {
@@ -15185,10 +13890,11 @@ func (o AnalysisSheetControlSliderTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSheetControlSliderTypeInput is an input type that accepts AnalysisSheetControlSliderTypeArgs and AnalysisSheetControlSliderTypeOutput values.
-// You can construct a concrete instance of `AnalysisSheetControlSliderTypeInput` via:
+// AnalysisSheetControlSliderTypeInput is an input type that accepts values of the AnalysisSheetControlSliderType enum
+// A concrete instance of `AnalysisSheetControlSliderTypeInput` can be one of the following:
 //
-//	AnalysisSheetControlSliderTypeArgs{...}
+//	AnalysisSheetControlSliderTypeSinglePoint
+//	AnalysisSheetControlSliderTypeRange
 type AnalysisSheetControlSliderTypeInput interface {
 	pulumi.Input
 
@@ -15221,12 +13927,6 @@ func (in *analysisSheetControlSliderTypePtr) ToAnalysisSheetControlSliderTypePtr
 
 func (in *analysisSheetControlSliderTypePtr) ToAnalysisSheetControlSliderTypePtrOutputWithContext(ctx context.Context) AnalysisSheetControlSliderTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSheetControlSliderTypePtrOutput)
-}
-
-func (in *analysisSheetControlSliderTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSheetControlSliderType] {
-	return pulumix.Output[*AnalysisSheetControlSliderType]{
-		OutputState: in.ToAnalysisSheetControlSliderTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSimpleAttributeAggregationFunction string
@@ -15295,12 +13995,6 @@ func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToAnalysisSimpleAttrib
 	}).(AnalysisSimpleAttributeAggregationFunctionPtrOutput)
 }
 
-func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSimpleAttributeAggregationFunction] {
-	return pulumix.Output[AnalysisSimpleAttributeAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -15336,12 +14030,6 @@ func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) ToAnalysisSimpleAtt
 	return o
 }
 
-func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSimpleAttributeAggregationFunction] {
-	return pulumix.Output[*AnalysisSimpleAttributeAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) Elem() AnalysisSimpleAttributeAggregationFunctionOutput {
 	return o.ApplyT(func(v *AnalysisSimpleAttributeAggregationFunction) AnalysisSimpleAttributeAggregationFunction {
 		if v != nil {
@@ -15366,10 +14054,10 @@ func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSimpleAttributeAggregationFunctionInput is an input type that accepts AnalysisSimpleAttributeAggregationFunctionArgs and AnalysisSimpleAttributeAggregationFunctionOutput values.
-// You can construct a concrete instance of `AnalysisSimpleAttributeAggregationFunctionInput` via:
+// AnalysisSimpleAttributeAggregationFunctionInput is an input type that accepts values of the AnalysisSimpleAttributeAggregationFunction enum
+// A concrete instance of `AnalysisSimpleAttributeAggregationFunctionInput` can be one of the following:
 //
-//	AnalysisSimpleAttributeAggregationFunctionArgs{...}
+//	AnalysisSimpleAttributeAggregationFunctionUniqueValue
 type AnalysisSimpleAttributeAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -15402,12 +14090,6 @@ func (in *analysisSimpleAttributeAggregationFunctionPtr) ToAnalysisSimpleAttribu
 
 func (in *analysisSimpleAttributeAggregationFunctionPtr) ToAnalysisSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisSimpleAttributeAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSimpleAttributeAggregationFunctionPtrOutput)
-}
-
-func (in *analysisSimpleAttributeAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSimpleAttributeAggregationFunction] {
-	return pulumix.Output[*AnalysisSimpleAttributeAggregationFunction]{
-		OutputState: in.ToAnalysisSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSimpleNumericalAggregationFunction string
@@ -15486,12 +14168,6 @@ func (o AnalysisSimpleNumericalAggregationFunctionOutput) ToAnalysisSimpleNumeri
 	}).(AnalysisSimpleNumericalAggregationFunctionPtrOutput)
 }
 
-func (o AnalysisSimpleNumericalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSimpleNumericalAggregationFunction] {
-	return pulumix.Output[AnalysisSimpleNumericalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSimpleNumericalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -15527,12 +14203,6 @@ func (o AnalysisSimpleNumericalAggregationFunctionPtrOutput) ToAnalysisSimpleNum
 	return o
 }
 
-func (o AnalysisSimpleNumericalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSimpleNumericalAggregationFunction] {
-	return pulumix.Output[*AnalysisSimpleNumericalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSimpleNumericalAggregationFunctionPtrOutput) Elem() AnalysisSimpleNumericalAggregationFunctionOutput {
 	return o.ApplyT(func(v *AnalysisSimpleNumericalAggregationFunction) AnalysisSimpleNumericalAggregationFunction {
 		if v != nil {
@@ -15557,10 +14227,20 @@ func (o AnalysisSimpleNumericalAggregationFunctionPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSimpleNumericalAggregationFunctionInput is an input type that accepts AnalysisSimpleNumericalAggregationFunctionArgs and AnalysisSimpleNumericalAggregationFunctionOutput values.
-// You can construct a concrete instance of `AnalysisSimpleNumericalAggregationFunctionInput` via:
+// AnalysisSimpleNumericalAggregationFunctionInput is an input type that accepts values of the AnalysisSimpleNumericalAggregationFunction enum
+// A concrete instance of `AnalysisSimpleNumericalAggregationFunctionInput` can be one of the following:
 //
-//	AnalysisSimpleNumericalAggregationFunctionArgs{...}
+//	AnalysisSimpleNumericalAggregationFunctionSum
+//	AnalysisSimpleNumericalAggregationFunctionAverage
+//	AnalysisSimpleNumericalAggregationFunctionMin
+//	AnalysisSimpleNumericalAggregationFunctionMax
+//	AnalysisSimpleNumericalAggregationFunctionCount
+//	AnalysisSimpleNumericalAggregationFunctionDistinctCount
+//	AnalysisSimpleNumericalAggregationFunctionVar
+//	AnalysisSimpleNumericalAggregationFunctionVarp
+//	AnalysisSimpleNumericalAggregationFunctionStdev
+//	AnalysisSimpleNumericalAggregationFunctionStdevp
+//	AnalysisSimpleNumericalAggregationFunctionMedian
 type AnalysisSimpleNumericalAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -15593,12 +14273,6 @@ func (in *analysisSimpleNumericalAggregationFunctionPtr) ToAnalysisSimpleNumeric
 
 func (in *analysisSimpleNumericalAggregationFunctionPtr) ToAnalysisSimpleNumericalAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisSimpleNumericalAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSimpleNumericalAggregationFunctionPtrOutput)
-}
-
-func (in *analysisSimpleNumericalAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSimpleNumericalAggregationFunction] {
-	return pulumix.Output[*AnalysisSimpleNumericalAggregationFunction]{
-		OutputState: in.ToAnalysisSimpleNumericalAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSimpleTotalAggregationFunction string
@@ -15672,12 +14346,6 @@ func (o AnalysisSimpleTotalAggregationFunctionOutput) ToAnalysisSimpleTotalAggre
 	}).(AnalysisSimpleTotalAggregationFunctionPtrOutput)
 }
 
-func (o AnalysisSimpleTotalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSimpleTotalAggregationFunction] {
-	return pulumix.Output[AnalysisSimpleTotalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSimpleTotalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -15713,12 +14381,6 @@ func (o AnalysisSimpleTotalAggregationFunctionPtrOutput) ToAnalysisSimpleTotalAg
 	return o
 }
 
-func (o AnalysisSimpleTotalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSimpleTotalAggregationFunction] {
-	return pulumix.Output[*AnalysisSimpleTotalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSimpleTotalAggregationFunctionPtrOutput) Elem() AnalysisSimpleTotalAggregationFunctionOutput {
 	return o.ApplyT(func(v *AnalysisSimpleTotalAggregationFunction) AnalysisSimpleTotalAggregationFunction {
 		if v != nil {
@@ -15743,10 +14405,15 @@ func (o AnalysisSimpleTotalAggregationFunctionPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSimpleTotalAggregationFunctionInput is an input type that accepts AnalysisSimpleTotalAggregationFunctionArgs and AnalysisSimpleTotalAggregationFunctionOutput values.
-// You can construct a concrete instance of `AnalysisSimpleTotalAggregationFunctionInput` via:
+// AnalysisSimpleTotalAggregationFunctionInput is an input type that accepts values of the AnalysisSimpleTotalAggregationFunction enum
+// A concrete instance of `AnalysisSimpleTotalAggregationFunctionInput` can be one of the following:
 //
-//	AnalysisSimpleTotalAggregationFunctionArgs{...}
+//	AnalysisSimpleTotalAggregationFunctionDefault
+//	AnalysisSimpleTotalAggregationFunctionSum
+//	AnalysisSimpleTotalAggregationFunctionAverage
+//	AnalysisSimpleTotalAggregationFunctionMin
+//	AnalysisSimpleTotalAggregationFunctionMax
+//	AnalysisSimpleTotalAggregationFunctionNone
 type AnalysisSimpleTotalAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -15779,12 +14446,6 @@ func (in *analysisSimpleTotalAggregationFunctionPtr) ToAnalysisSimpleTotalAggreg
 
 func (in *analysisSimpleTotalAggregationFunctionPtr) ToAnalysisSimpleTotalAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisSimpleTotalAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSimpleTotalAggregationFunctionPtrOutput)
-}
-
-func (in *analysisSimpleTotalAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSimpleTotalAggregationFunction] {
-	return pulumix.Output[*AnalysisSimpleTotalAggregationFunction]{
-		OutputState: in.ToAnalysisSimpleTotalAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSmallMultiplesAxisPlacement string
@@ -15854,12 +14515,6 @@ func (o AnalysisSmallMultiplesAxisPlacementOutput) ToAnalysisSmallMultiplesAxisP
 	}).(AnalysisSmallMultiplesAxisPlacementPtrOutput)
 }
 
-func (o AnalysisSmallMultiplesAxisPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSmallMultiplesAxisPlacement] {
-	return pulumix.Output[AnalysisSmallMultiplesAxisPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSmallMultiplesAxisPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -15895,12 +14550,6 @@ func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) ToAnalysisSmallMultiplesAx
 	return o
 }
 
-func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSmallMultiplesAxisPlacement] {
-	return pulumix.Output[*AnalysisSmallMultiplesAxisPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) Elem() AnalysisSmallMultiplesAxisPlacementOutput {
 	return o.ApplyT(func(v *AnalysisSmallMultiplesAxisPlacement) AnalysisSmallMultiplesAxisPlacement {
 		if v != nil {
@@ -15925,10 +14574,11 @@ func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSmallMultiplesAxisPlacementInput is an input type that accepts AnalysisSmallMultiplesAxisPlacementArgs and AnalysisSmallMultiplesAxisPlacementOutput values.
-// You can construct a concrete instance of `AnalysisSmallMultiplesAxisPlacementInput` via:
+// AnalysisSmallMultiplesAxisPlacementInput is an input type that accepts values of the AnalysisSmallMultiplesAxisPlacement enum
+// A concrete instance of `AnalysisSmallMultiplesAxisPlacementInput` can be one of the following:
 //
-//	AnalysisSmallMultiplesAxisPlacementArgs{...}
+//	AnalysisSmallMultiplesAxisPlacementOutside
+//	AnalysisSmallMultiplesAxisPlacementInside
 type AnalysisSmallMultiplesAxisPlacementInput interface {
 	pulumi.Input
 
@@ -15961,12 +14611,6 @@ func (in *analysisSmallMultiplesAxisPlacementPtr) ToAnalysisSmallMultiplesAxisPl
 
 func (in *analysisSmallMultiplesAxisPlacementPtr) ToAnalysisSmallMultiplesAxisPlacementPtrOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisPlacementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSmallMultiplesAxisPlacementPtrOutput)
-}
-
-func (in *analysisSmallMultiplesAxisPlacementPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSmallMultiplesAxisPlacement] {
-	return pulumix.Output[*AnalysisSmallMultiplesAxisPlacement]{
-		OutputState: in.ToAnalysisSmallMultiplesAxisPlacementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSmallMultiplesAxisScale string
@@ -16036,12 +14680,6 @@ func (o AnalysisSmallMultiplesAxisScaleOutput) ToAnalysisSmallMultiplesAxisScale
 	}).(AnalysisSmallMultiplesAxisScalePtrOutput)
 }
 
-func (o AnalysisSmallMultiplesAxisScaleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSmallMultiplesAxisScale] {
-	return pulumix.Output[AnalysisSmallMultiplesAxisScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSmallMultiplesAxisScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -16077,12 +14715,6 @@ func (o AnalysisSmallMultiplesAxisScalePtrOutput) ToAnalysisSmallMultiplesAxisSc
 	return o
 }
 
-func (o AnalysisSmallMultiplesAxisScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSmallMultiplesAxisScale] {
-	return pulumix.Output[*AnalysisSmallMultiplesAxisScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSmallMultiplesAxisScalePtrOutput) Elem() AnalysisSmallMultiplesAxisScaleOutput {
 	return o.ApplyT(func(v *AnalysisSmallMultiplesAxisScale) AnalysisSmallMultiplesAxisScale {
 		if v != nil {
@@ -16107,10 +14739,11 @@ func (o AnalysisSmallMultiplesAxisScalePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSmallMultiplesAxisScaleInput is an input type that accepts AnalysisSmallMultiplesAxisScaleArgs and AnalysisSmallMultiplesAxisScaleOutput values.
-// You can construct a concrete instance of `AnalysisSmallMultiplesAxisScaleInput` via:
+// AnalysisSmallMultiplesAxisScaleInput is an input type that accepts values of the AnalysisSmallMultiplesAxisScale enum
+// A concrete instance of `AnalysisSmallMultiplesAxisScaleInput` can be one of the following:
 //
-//	AnalysisSmallMultiplesAxisScaleArgs{...}
+//	AnalysisSmallMultiplesAxisScaleShared
+//	AnalysisSmallMultiplesAxisScaleIndependent
 type AnalysisSmallMultiplesAxisScaleInput interface {
 	pulumi.Input
 
@@ -16143,12 +14776,6 @@ func (in *analysisSmallMultiplesAxisScalePtr) ToAnalysisSmallMultiplesAxisScaleP
 
 func (in *analysisSmallMultiplesAxisScalePtr) ToAnalysisSmallMultiplesAxisScalePtrOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisScalePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSmallMultiplesAxisScalePtrOutput)
-}
-
-func (in *analysisSmallMultiplesAxisScalePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSmallMultiplesAxisScale] {
-	return pulumix.Output[*AnalysisSmallMultiplesAxisScale]{
-		OutputState: in.ToAnalysisSmallMultiplesAxisScalePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSortDirection string
@@ -16218,12 +14845,6 @@ func (o AnalysisSortDirectionOutput) ToAnalysisSortDirectionPtrOutputWithContext
 	}).(AnalysisSortDirectionPtrOutput)
 }
 
-func (o AnalysisSortDirectionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSortDirection] {
-	return pulumix.Output[AnalysisSortDirection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSortDirectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -16259,12 +14880,6 @@ func (o AnalysisSortDirectionPtrOutput) ToAnalysisSortDirectionPtrOutputWithCont
 	return o
 }
 
-func (o AnalysisSortDirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSortDirection] {
-	return pulumix.Output[*AnalysisSortDirection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSortDirectionPtrOutput) Elem() AnalysisSortDirectionOutput {
 	return o.ApplyT(func(v *AnalysisSortDirection) AnalysisSortDirection {
 		if v != nil {
@@ -16289,10 +14904,11 @@ func (o AnalysisSortDirectionPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSortDirectionInput is an input type that accepts AnalysisSortDirectionArgs and AnalysisSortDirectionOutput values.
-// You can construct a concrete instance of `AnalysisSortDirectionInput` via:
+// AnalysisSortDirectionInput is an input type that accepts values of the AnalysisSortDirection enum
+// A concrete instance of `AnalysisSortDirectionInput` can be one of the following:
 //
-//	AnalysisSortDirectionArgs{...}
+//	AnalysisSortDirectionAsc
+//	AnalysisSortDirectionDesc
 type AnalysisSortDirectionInput interface {
 	pulumi.Input
 
@@ -16325,12 +14941,6 @@ func (in *analysisSortDirectionPtr) ToAnalysisSortDirectionPtrOutput() AnalysisS
 
 func (in *analysisSortDirectionPtr) ToAnalysisSortDirectionPtrOutputWithContext(ctx context.Context) AnalysisSortDirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSortDirectionPtrOutput)
-}
-
-func (in *analysisSortDirectionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSortDirection] {
-	return pulumix.Output[*AnalysisSortDirection]{
-		OutputState: in.ToAnalysisSortDirectionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisSpecialValue string
@@ -16401,12 +15011,6 @@ func (o AnalysisSpecialValueOutput) ToAnalysisSpecialValuePtrOutputWithContext(c
 	}).(AnalysisSpecialValuePtrOutput)
 }
 
-func (o AnalysisSpecialValueOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSpecialValue] {
-	return pulumix.Output[AnalysisSpecialValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSpecialValueOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -16442,12 +15046,6 @@ func (o AnalysisSpecialValuePtrOutput) ToAnalysisSpecialValuePtrOutputWithContex
 	return o
 }
 
-func (o AnalysisSpecialValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSpecialValue] {
-	return pulumix.Output[*AnalysisSpecialValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSpecialValuePtrOutput) Elem() AnalysisSpecialValueOutput {
 	return o.ApplyT(func(v *AnalysisSpecialValue) AnalysisSpecialValue {
 		if v != nil {
@@ -16472,10 +15070,12 @@ func (o AnalysisSpecialValuePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisSpecialValueInput is an input type that accepts AnalysisSpecialValueArgs and AnalysisSpecialValueOutput values.
-// You can construct a concrete instance of `AnalysisSpecialValueInput` via:
+// AnalysisSpecialValueInput is an input type that accepts values of the AnalysisSpecialValue enum
+// A concrete instance of `AnalysisSpecialValueInput` can be one of the following:
 //
-//	AnalysisSpecialValueArgs{...}
+//	AnalysisSpecialValueEmpty
+//	AnalysisSpecialValueNull
+//	AnalysisSpecialValueOther
 type AnalysisSpecialValueInput interface {
 	pulumi.Input
 
@@ -16508,12 +15108,6 @@ func (in *analysisSpecialValuePtr) ToAnalysisSpecialValuePtrOutput() AnalysisSpe
 
 func (in *analysisSpecialValuePtr) ToAnalysisSpecialValuePtrOutputWithContext(ctx context.Context) AnalysisSpecialValuePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSpecialValuePtrOutput)
-}
-
-func (in *analysisSpecialValuePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSpecialValue] {
-	return pulumix.Output[*AnalysisSpecialValue]{
-		OutputState: in.ToAnalysisSpecialValuePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisStyledCellType string
@@ -16584,12 +15178,6 @@ func (o AnalysisStyledCellTypeOutput) ToAnalysisStyledCellTypePtrOutputWithConte
 	}).(AnalysisStyledCellTypePtrOutput)
 }
 
-func (o AnalysisStyledCellTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisStyledCellType] {
-	return pulumix.Output[AnalysisStyledCellType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisStyledCellTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -16625,12 +15213,6 @@ func (o AnalysisStyledCellTypePtrOutput) ToAnalysisStyledCellTypePtrOutputWithCo
 	return o
 }
 
-func (o AnalysisStyledCellTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisStyledCellType] {
-	return pulumix.Output[*AnalysisStyledCellType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisStyledCellTypePtrOutput) Elem() AnalysisStyledCellTypeOutput {
 	return o.ApplyT(func(v *AnalysisStyledCellType) AnalysisStyledCellType {
 		if v != nil {
@@ -16655,10 +15237,12 @@ func (o AnalysisStyledCellTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisStyledCellTypeInput is an input type that accepts AnalysisStyledCellTypeArgs and AnalysisStyledCellTypeOutput values.
-// You can construct a concrete instance of `AnalysisStyledCellTypeInput` via:
+// AnalysisStyledCellTypeInput is an input type that accepts values of the AnalysisStyledCellType enum
+// A concrete instance of `AnalysisStyledCellTypeInput` can be one of the following:
 //
-//	AnalysisStyledCellTypeArgs{...}
+//	AnalysisStyledCellTypeTotal
+//	AnalysisStyledCellTypeMetricHeader
+//	AnalysisStyledCellTypeValue
 type AnalysisStyledCellTypeInput interface {
 	pulumi.Input
 
@@ -16691,12 +15275,6 @@ func (in *analysisStyledCellTypePtr) ToAnalysisStyledCellTypePtrOutput() Analysi
 
 func (in *analysisStyledCellTypePtr) ToAnalysisStyledCellTypePtrOutputWithContext(ctx context.Context) AnalysisStyledCellTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisStyledCellTypePtrOutput)
-}
-
-func (in *analysisStyledCellTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisStyledCellType] {
-	return pulumix.Output[*AnalysisStyledCellType]{
-		OutputState: in.ToAnalysisStyledCellTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTableBorderStyle string
@@ -16766,12 +15344,6 @@ func (o AnalysisTableBorderStyleOutput) ToAnalysisTableBorderStylePtrOutputWithC
 	}).(AnalysisTableBorderStylePtrOutput)
 }
 
-func (o AnalysisTableBorderStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTableBorderStyle] {
-	return pulumix.Output[AnalysisTableBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableBorderStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -16807,12 +15379,6 @@ func (o AnalysisTableBorderStylePtrOutput) ToAnalysisTableBorderStylePtrOutputWi
 	return o
 }
 
-func (o AnalysisTableBorderStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableBorderStyle] {
-	return pulumix.Output[*AnalysisTableBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableBorderStylePtrOutput) Elem() AnalysisTableBorderStyleOutput {
 	return o.ApplyT(func(v *AnalysisTableBorderStyle) AnalysisTableBorderStyle {
 		if v != nil {
@@ -16837,10 +15403,11 @@ func (o AnalysisTableBorderStylePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTableBorderStyleInput is an input type that accepts AnalysisTableBorderStyleArgs and AnalysisTableBorderStyleOutput values.
-// You can construct a concrete instance of `AnalysisTableBorderStyleInput` via:
+// AnalysisTableBorderStyleInput is an input type that accepts values of the AnalysisTableBorderStyle enum
+// A concrete instance of `AnalysisTableBorderStyleInput` can be one of the following:
 //
-//	AnalysisTableBorderStyleArgs{...}
+//	AnalysisTableBorderStyleNone
+//	AnalysisTableBorderStyleSolid
 type AnalysisTableBorderStyleInput interface {
 	pulumi.Input
 
@@ -16873,12 +15440,6 @@ func (in *analysisTableBorderStylePtr) ToAnalysisTableBorderStylePtrOutput() Ana
 
 func (in *analysisTableBorderStylePtr) ToAnalysisTableBorderStylePtrOutputWithContext(ctx context.Context) AnalysisTableBorderStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTableBorderStylePtrOutput)
-}
-
-func (in *analysisTableBorderStylePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableBorderStyle] {
-	return pulumix.Output[*AnalysisTableBorderStyle]{
-		OutputState: in.ToAnalysisTableBorderStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTableCellImageScalingConfiguration string
@@ -16949,12 +15510,6 @@ func (o AnalysisTableCellImageScalingConfigurationOutput) ToAnalysisTableCellIma
 	}).(AnalysisTableCellImageScalingConfigurationPtrOutput)
 }
 
-func (o AnalysisTableCellImageScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTableCellImageScalingConfiguration] {
-	return pulumix.Output[AnalysisTableCellImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableCellImageScalingConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -16990,12 +15545,6 @@ func (o AnalysisTableCellImageScalingConfigurationPtrOutput) ToAnalysisTableCell
 	return o
 }
 
-func (o AnalysisTableCellImageScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableCellImageScalingConfiguration] {
-	return pulumix.Output[*AnalysisTableCellImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableCellImageScalingConfigurationPtrOutput) Elem() AnalysisTableCellImageScalingConfigurationOutput {
 	return o.ApplyT(func(v *AnalysisTableCellImageScalingConfiguration) AnalysisTableCellImageScalingConfiguration {
 		if v != nil {
@@ -17020,10 +15569,12 @@ func (o AnalysisTableCellImageScalingConfigurationPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTableCellImageScalingConfigurationInput is an input type that accepts AnalysisTableCellImageScalingConfigurationArgs and AnalysisTableCellImageScalingConfigurationOutput values.
-// You can construct a concrete instance of `AnalysisTableCellImageScalingConfigurationInput` via:
+// AnalysisTableCellImageScalingConfigurationInput is an input type that accepts values of the AnalysisTableCellImageScalingConfiguration enum
+// A concrete instance of `AnalysisTableCellImageScalingConfigurationInput` can be one of the following:
 //
-//	AnalysisTableCellImageScalingConfigurationArgs{...}
+//	AnalysisTableCellImageScalingConfigurationFitToCellHeight
+//	AnalysisTableCellImageScalingConfigurationFitToCellWidth
+//	AnalysisTableCellImageScalingConfigurationDoNotScale
 type AnalysisTableCellImageScalingConfigurationInput interface {
 	pulumi.Input
 
@@ -17056,12 +15607,6 @@ func (in *analysisTableCellImageScalingConfigurationPtr) ToAnalysisTableCellImag
 
 func (in *analysisTableCellImageScalingConfigurationPtr) ToAnalysisTableCellImageScalingConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableCellImageScalingConfigurationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTableCellImageScalingConfigurationPtrOutput)
-}
-
-func (in *analysisTableCellImageScalingConfigurationPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableCellImageScalingConfiguration] {
-	return pulumix.Output[*AnalysisTableCellImageScalingConfiguration]{
-		OutputState: in.ToAnalysisTableCellImageScalingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTableFieldIconSetType string
@@ -17130,12 +15675,6 @@ func (o AnalysisTableFieldIconSetTypeOutput) ToAnalysisTableFieldIconSetTypePtrO
 	}).(AnalysisTableFieldIconSetTypePtrOutput)
 }
 
-func (o AnalysisTableFieldIconSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTableFieldIconSetType] {
-	return pulumix.Output[AnalysisTableFieldIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableFieldIconSetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -17171,12 +15710,6 @@ func (o AnalysisTableFieldIconSetTypePtrOutput) ToAnalysisTableFieldIconSetTypeP
 	return o
 }
 
-func (o AnalysisTableFieldIconSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableFieldIconSetType] {
-	return pulumix.Output[*AnalysisTableFieldIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableFieldIconSetTypePtrOutput) Elem() AnalysisTableFieldIconSetTypeOutput {
 	return o.ApplyT(func(v *AnalysisTableFieldIconSetType) AnalysisTableFieldIconSetType {
 		if v != nil {
@@ -17201,10 +15734,10 @@ func (o AnalysisTableFieldIconSetTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTableFieldIconSetTypeInput is an input type that accepts AnalysisTableFieldIconSetTypeArgs and AnalysisTableFieldIconSetTypeOutput values.
-// You can construct a concrete instance of `AnalysisTableFieldIconSetTypeInput` via:
+// AnalysisTableFieldIconSetTypeInput is an input type that accepts values of the AnalysisTableFieldIconSetType enum
+// A concrete instance of `AnalysisTableFieldIconSetTypeInput` can be one of the following:
 //
-//	AnalysisTableFieldIconSetTypeArgs{...}
+//	AnalysisTableFieldIconSetTypeLink
 type AnalysisTableFieldIconSetTypeInput interface {
 	pulumi.Input
 
@@ -17237,12 +15770,6 @@ func (in *analysisTableFieldIconSetTypePtr) ToAnalysisTableFieldIconSetTypePtrOu
 
 func (in *analysisTableFieldIconSetTypePtr) ToAnalysisTableFieldIconSetTypePtrOutputWithContext(ctx context.Context) AnalysisTableFieldIconSetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTableFieldIconSetTypePtrOutput)
-}
-
-func (in *analysisTableFieldIconSetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableFieldIconSetType] {
-	return pulumix.Output[*AnalysisTableFieldIconSetType]{
-		OutputState: in.ToAnalysisTableFieldIconSetTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTableOrientation string
@@ -17312,12 +15839,6 @@ func (o AnalysisTableOrientationOutput) ToAnalysisTableOrientationPtrOutputWithC
 	}).(AnalysisTableOrientationPtrOutput)
 }
 
-func (o AnalysisTableOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTableOrientation] {
-	return pulumix.Output[AnalysisTableOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -17353,12 +15874,6 @@ func (o AnalysisTableOrientationPtrOutput) ToAnalysisTableOrientationPtrOutputWi
 	return o
 }
 
-func (o AnalysisTableOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableOrientation] {
-	return pulumix.Output[*AnalysisTableOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableOrientationPtrOutput) Elem() AnalysisTableOrientationOutput {
 	return o.ApplyT(func(v *AnalysisTableOrientation) AnalysisTableOrientation {
 		if v != nil {
@@ -17383,10 +15898,11 @@ func (o AnalysisTableOrientationPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTableOrientationInput is an input type that accepts AnalysisTableOrientationArgs and AnalysisTableOrientationOutput values.
-// You can construct a concrete instance of `AnalysisTableOrientationInput` via:
+// AnalysisTableOrientationInput is an input type that accepts values of the AnalysisTableOrientation enum
+// A concrete instance of `AnalysisTableOrientationInput` can be one of the following:
 //
-//	AnalysisTableOrientationArgs{...}
+//	AnalysisTableOrientationVertical
+//	AnalysisTableOrientationHorizontal
 type AnalysisTableOrientationInput interface {
 	pulumi.Input
 
@@ -17419,12 +15935,6 @@ func (in *analysisTableOrientationPtr) ToAnalysisTableOrientationPtrOutput() Ana
 
 func (in *analysisTableOrientationPtr) ToAnalysisTableOrientationPtrOutputWithContext(ctx context.Context) AnalysisTableOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTableOrientationPtrOutput)
-}
-
-func (in *analysisTableOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableOrientation] {
-	return pulumix.Output[*AnalysisTableOrientation]{
-		OutputState: in.ToAnalysisTableOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTableTotalsPlacement string
@@ -17495,12 +16005,6 @@ func (o AnalysisTableTotalsPlacementOutput) ToAnalysisTableTotalsPlacementPtrOut
 	}).(AnalysisTableTotalsPlacementPtrOutput)
 }
 
-func (o AnalysisTableTotalsPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTableTotalsPlacement] {
-	return pulumix.Output[AnalysisTableTotalsPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableTotalsPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -17536,12 +16040,6 @@ func (o AnalysisTableTotalsPlacementPtrOutput) ToAnalysisTableTotalsPlacementPtr
 	return o
 }
 
-func (o AnalysisTableTotalsPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableTotalsPlacement] {
-	return pulumix.Output[*AnalysisTableTotalsPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableTotalsPlacementPtrOutput) Elem() AnalysisTableTotalsPlacementOutput {
 	return o.ApplyT(func(v *AnalysisTableTotalsPlacement) AnalysisTableTotalsPlacement {
 		if v != nil {
@@ -17566,10 +16064,12 @@ func (o AnalysisTableTotalsPlacementPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTableTotalsPlacementInput is an input type that accepts AnalysisTableTotalsPlacementArgs and AnalysisTableTotalsPlacementOutput values.
-// You can construct a concrete instance of `AnalysisTableTotalsPlacementInput` via:
+// AnalysisTableTotalsPlacementInput is an input type that accepts values of the AnalysisTableTotalsPlacement enum
+// A concrete instance of `AnalysisTableTotalsPlacementInput` can be one of the following:
 //
-//	AnalysisTableTotalsPlacementArgs{...}
+//	AnalysisTableTotalsPlacementStart
+//	AnalysisTableTotalsPlacementEnd
+//	AnalysisTableTotalsPlacementAuto
 type AnalysisTableTotalsPlacementInput interface {
 	pulumi.Input
 
@@ -17602,12 +16102,6 @@ func (in *analysisTableTotalsPlacementPtr) ToAnalysisTableTotalsPlacementPtrOutp
 
 func (in *analysisTableTotalsPlacementPtr) ToAnalysisTableTotalsPlacementPtrOutputWithContext(ctx context.Context) AnalysisTableTotalsPlacementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTableTotalsPlacementPtrOutput)
-}
-
-func (in *analysisTableTotalsPlacementPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableTotalsPlacement] {
-	return pulumix.Output[*AnalysisTableTotalsPlacement]{
-		OutputState: in.ToAnalysisTableTotalsPlacementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTableTotalsScrollStatus string
@@ -17677,12 +16171,6 @@ func (o AnalysisTableTotalsScrollStatusOutput) ToAnalysisTableTotalsScrollStatus
 	}).(AnalysisTableTotalsScrollStatusPtrOutput)
 }
 
-func (o AnalysisTableTotalsScrollStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTableTotalsScrollStatus] {
-	return pulumix.Output[AnalysisTableTotalsScrollStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableTotalsScrollStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -17718,12 +16206,6 @@ func (o AnalysisTableTotalsScrollStatusPtrOutput) ToAnalysisTableTotalsScrollSta
 	return o
 }
 
-func (o AnalysisTableTotalsScrollStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableTotalsScrollStatus] {
-	return pulumix.Output[*AnalysisTableTotalsScrollStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableTotalsScrollStatusPtrOutput) Elem() AnalysisTableTotalsScrollStatusOutput {
 	return o.ApplyT(func(v *AnalysisTableTotalsScrollStatus) AnalysisTableTotalsScrollStatus {
 		if v != nil {
@@ -17748,10 +16230,11 @@ func (o AnalysisTableTotalsScrollStatusPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTableTotalsScrollStatusInput is an input type that accepts AnalysisTableTotalsScrollStatusArgs and AnalysisTableTotalsScrollStatusOutput values.
-// You can construct a concrete instance of `AnalysisTableTotalsScrollStatusInput` via:
+// AnalysisTableTotalsScrollStatusInput is an input type that accepts values of the AnalysisTableTotalsScrollStatus enum
+// A concrete instance of `AnalysisTableTotalsScrollStatusInput` can be one of the following:
 //
-//	AnalysisTableTotalsScrollStatusArgs{...}
+//	AnalysisTableTotalsScrollStatusPinned
+//	AnalysisTableTotalsScrollStatusScrolled
 type AnalysisTableTotalsScrollStatusInput interface {
 	pulumi.Input
 
@@ -17784,12 +16267,6 @@ func (in *analysisTableTotalsScrollStatusPtr) ToAnalysisTableTotalsScrollStatusP
 
 func (in *analysisTableTotalsScrollStatusPtr) ToAnalysisTableTotalsScrollStatusPtrOutputWithContext(ctx context.Context) AnalysisTableTotalsScrollStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTableTotalsScrollStatusPtrOutput)
-}
-
-func (in *analysisTableTotalsScrollStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableTotalsScrollStatus] {
-	return pulumix.Output[*AnalysisTableTotalsScrollStatus]{
-		OutputState: in.ToAnalysisTableTotalsScrollStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTargetVisualOptions string
@@ -17858,12 +16335,6 @@ func (o AnalysisTargetVisualOptionsOutput) ToAnalysisTargetVisualOptionsPtrOutpu
 	}).(AnalysisTargetVisualOptionsPtrOutput)
 }
 
-func (o AnalysisTargetVisualOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTargetVisualOptions] {
-	return pulumix.Output[AnalysisTargetVisualOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTargetVisualOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -17899,12 +16370,6 @@ func (o AnalysisTargetVisualOptionsPtrOutput) ToAnalysisTargetVisualOptionsPtrOu
 	return o
 }
 
-func (o AnalysisTargetVisualOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTargetVisualOptions] {
-	return pulumix.Output[*AnalysisTargetVisualOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTargetVisualOptionsPtrOutput) Elem() AnalysisTargetVisualOptionsOutput {
 	return o.ApplyT(func(v *AnalysisTargetVisualOptions) AnalysisTargetVisualOptions {
 		if v != nil {
@@ -17929,10 +16394,10 @@ func (o AnalysisTargetVisualOptionsPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTargetVisualOptionsInput is an input type that accepts AnalysisTargetVisualOptionsArgs and AnalysisTargetVisualOptionsOutput values.
-// You can construct a concrete instance of `AnalysisTargetVisualOptionsInput` via:
+// AnalysisTargetVisualOptionsInput is an input type that accepts values of the AnalysisTargetVisualOptions enum
+// A concrete instance of `AnalysisTargetVisualOptionsInput` can be one of the following:
 //
-//	AnalysisTargetVisualOptionsArgs{...}
+//	AnalysisTargetVisualOptionsAllVisuals
 type AnalysisTargetVisualOptionsInput interface {
 	pulumi.Input
 
@@ -17965,12 +16430,6 @@ func (in *analysisTargetVisualOptionsPtr) ToAnalysisTargetVisualOptionsPtrOutput
 
 func (in *analysisTargetVisualOptionsPtr) ToAnalysisTargetVisualOptionsPtrOutputWithContext(ctx context.Context) AnalysisTargetVisualOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTargetVisualOptionsPtrOutput)
-}
-
-func (in *analysisTargetVisualOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTargetVisualOptions] {
-	return pulumix.Output[*AnalysisTargetVisualOptions]{
-		OutputState: in.ToAnalysisTargetVisualOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTextWrap string
@@ -18040,12 +16499,6 @@ func (o AnalysisTextWrapOutput) ToAnalysisTextWrapPtrOutputWithContext(ctx conte
 	}).(AnalysisTextWrapPtrOutput)
 }
 
-func (o AnalysisTextWrapOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTextWrap] {
-	return pulumix.Output[AnalysisTextWrap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTextWrapOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -18081,12 +16534,6 @@ func (o AnalysisTextWrapPtrOutput) ToAnalysisTextWrapPtrOutputWithContext(ctx co
 	return o
 }
 
-func (o AnalysisTextWrapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTextWrap] {
-	return pulumix.Output[*AnalysisTextWrap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTextWrapPtrOutput) Elem() AnalysisTextWrapOutput {
 	return o.ApplyT(func(v *AnalysisTextWrap) AnalysisTextWrap {
 		if v != nil {
@@ -18111,10 +16558,11 @@ func (o AnalysisTextWrapPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTextWrapInput is an input type that accepts AnalysisTextWrapArgs and AnalysisTextWrapOutput values.
-// You can construct a concrete instance of `AnalysisTextWrapInput` via:
+// AnalysisTextWrapInput is an input type that accepts values of the AnalysisTextWrap enum
+// A concrete instance of `AnalysisTextWrapInput` can be one of the following:
 //
-//	AnalysisTextWrapArgs{...}
+//	AnalysisTextWrapNone
+//	AnalysisTextWrapWrap
 type AnalysisTextWrapInput interface {
 	pulumi.Input
 
@@ -18147,12 +16595,6 @@ func (in *analysisTextWrapPtr) ToAnalysisTextWrapPtrOutput() AnalysisTextWrapPtr
 
 func (in *analysisTextWrapPtr) ToAnalysisTextWrapPtrOutputWithContext(ctx context.Context) AnalysisTextWrapPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTextWrapPtrOutput)
-}
-
-func (in *analysisTextWrapPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTextWrap] {
-	return pulumix.Output[*AnalysisTextWrap]{
-		OutputState: in.ToAnalysisTextWrapPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTimeGranularity string
@@ -18229,12 +16671,6 @@ func (o AnalysisTimeGranularityOutput) ToAnalysisTimeGranularityPtrOutputWithCon
 	}).(AnalysisTimeGranularityPtrOutput)
 }
 
-func (o AnalysisTimeGranularityOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTimeGranularity] {
-	return pulumix.Output[AnalysisTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTimeGranularityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -18270,12 +16706,6 @@ func (o AnalysisTimeGranularityPtrOutput) ToAnalysisTimeGranularityPtrOutputWith
 	return o
 }
 
-func (o AnalysisTimeGranularityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTimeGranularity] {
-	return pulumix.Output[*AnalysisTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTimeGranularityPtrOutput) Elem() AnalysisTimeGranularityOutput {
 	return o.ApplyT(func(v *AnalysisTimeGranularity) AnalysisTimeGranularity {
 		if v != nil {
@@ -18300,10 +16730,18 @@ func (o AnalysisTimeGranularityPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTimeGranularityInput is an input type that accepts AnalysisTimeGranularityArgs and AnalysisTimeGranularityOutput values.
-// You can construct a concrete instance of `AnalysisTimeGranularityInput` via:
+// AnalysisTimeGranularityInput is an input type that accepts values of the AnalysisTimeGranularity enum
+// A concrete instance of `AnalysisTimeGranularityInput` can be one of the following:
 //
-//	AnalysisTimeGranularityArgs{...}
+//	AnalysisTimeGranularityYear
+//	AnalysisTimeGranularityQuarter
+//	AnalysisTimeGranularityMonth
+//	AnalysisTimeGranularityWeek
+//	AnalysisTimeGranularityDay
+//	AnalysisTimeGranularityHour
+//	AnalysisTimeGranularityMinute
+//	AnalysisTimeGranularitySecond
+//	AnalysisTimeGranularityMillisecond
 type AnalysisTimeGranularityInput interface {
 	pulumi.Input
 
@@ -18336,12 +16774,6 @@ func (in *analysisTimeGranularityPtr) ToAnalysisTimeGranularityPtrOutput() Analy
 
 func (in *analysisTimeGranularityPtr) ToAnalysisTimeGranularityPtrOutputWithContext(ctx context.Context) AnalysisTimeGranularityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTimeGranularityPtrOutput)
-}
-
-func (in *analysisTimeGranularityPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTimeGranularity] {
-	return pulumix.Output[*AnalysisTimeGranularity]{
-		OutputState: in.ToAnalysisTimeGranularityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTooltipTitleType string
@@ -18411,12 +16843,6 @@ func (o AnalysisTooltipTitleTypeOutput) ToAnalysisTooltipTitleTypePtrOutputWithC
 	}).(AnalysisTooltipTitleTypePtrOutput)
 }
 
-func (o AnalysisTooltipTitleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTooltipTitleType] {
-	return pulumix.Output[AnalysisTooltipTitleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTooltipTitleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -18452,12 +16878,6 @@ func (o AnalysisTooltipTitleTypePtrOutput) ToAnalysisTooltipTitleTypePtrOutputWi
 	return o
 }
 
-func (o AnalysisTooltipTitleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTooltipTitleType] {
-	return pulumix.Output[*AnalysisTooltipTitleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTooltipTitleTypePtrOutput) Elem() AnalysisTooltipTitleTypeOutput {
 	return o.ApplyT(func(v *AnalysisTooltipTitleType) AnalysisTooltipTitleType {
 		if v != nil {
@@ -18482,10 +16902,11 @@ func (o AnalysisTooltipTitleTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTooltipTitleTypeInput is an input type that accepts AnalysisTooltipTitleTypeArgs and AnalysisTooltipTitleTypeOutput values.
-// You can construct a concrete instance of `AnalysisTooltipTitleTypeInput` via:
+// AnalysisTooltipTitleTypeInput is an input type that accepts values of the AnalysisTooltipTitleType enum
+// A concrete instance of `AnalysisTooltipTitleTypeInput` can be one of the following:
 //
-//	AnalysisTooltipTitleTypeArgs{...}
+//	AnalysisTooltipTitleTypeNone
+//	AnalysisTooltipTitleTypePrimaryValue
 type AnalysisTooltipTitleTypeInput interface {
 	pulumi.Input
 
@@ -18518,12 +16939,6 @@ func (in *analysisTooltipTitleTypePtr) ToAnalysisTooltipTitleTypePtrOutput() Ana
 
 func (in *analysisTooltipTitleTypePtr) ToAnalysisTooltipTitleTypePtrOutputWithContext(ctx context.Context) AnalysisTooltipTitleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTooltipTitleTypePtrOutput)
-}
-
-func (in *analysisTooltipTitleTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTooltipTitleType] {
-	return pulumix.Output[*AnalysisTooltipTitleType]{
-		OutputState: in.ToAnalysisTooltipTitleTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTopBottomComputationType string
@@ -18593,12 +17008,6 @@ func (o AnalysisTopBottomComputationTypeOutput) ToAnalysisTopBottomComputationTy
 	}).(AnalysisTopBottomComputationTypePtrOutput)
 }
 
-func (o AnalysisTopBottomComputationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTopBottomComputationType] {
-	return pulumix.Output[AnalysisTopBottomComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTopBottomComputationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -18634,12 +17043,6 @@ func (o AnalysisTopBottomComputationTypePtrOutput) ToAnalysisTopBottomComputatio
 	return o
 }
 
-func (o AnalysisTopBottomComputationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTopBottomComputationType] {
-	return pulumix.Output[*AnalysisTopBottomComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTopBottomComputationTypePtrOutput) Elem() AnalysisTopBottomComputationTypeOutput {
 	return o.ApplyT(func(v *AnalysisTopBottomComputationType) AnalysisTopBottomComputationType {
 		if v != nil {
@@ -18664,10 +17067,11 @@ func (o AnalysisTopBottomComputationTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTopBottomComputationTypeInput is an input type that accepts AnalysisTopBottomComputationTypeArgs and AnalysisTopBottomComputationTypeOutput values.
-// You can construct a concrete instance of `AnalysisTopBottomComputationTypeInput` via:
+// AnalysisTopBottomComputationTypeInput is an input type that accepts values of the AnalysisTopBottomComputationType enum
+// A concrete instance of `AnalysisTopBottomComputationTypeInput` can be one of the following:
 //
-//	AnalysisTopBottomComputationTypeArgs{...}
+//	AnalysisTopBottomComputationTypeTop
+//	AnalysisTopBottomComputationTypeBottom
 type AnalysisTopBottomComputationTypeInput interface {
 	pulumi.Input
 
@@ -18700,12 +17104,6 @@ func (in *analysisTopBottomComputationTypePtr) ToAnalysisTopBottomComputationTyp
 
 func (in *analysisTopBottomComputationTypePtr) ToAnalysisTopBottomComputationTypePtrOutputWithContext(ctx context.Context) AnalysisTopBottomComputationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTopBottomComputationTypePtrOutput)
-}
-
-func (in *analysisTopBottomComputationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTopBottomComputationType] {
-	return pulumix.Output[*AnalysisTopBottomComputationType]{
-		OutputState: in.ToAnalysisTopBottomComputationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTopBottomSortOrder string
@@ -18775,12 +17173,6 @@ func (o AnalysisTopBottomSortOrderOutput) ToAnalysisTopBottomSortOrderPtrOutputW
 	}).(AnalysisTopBottomSortOrderPtrOutput)
 }
 
-func (o AnalysisTopBottomSortOrderOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTopBottomSortOrder] {
-	return pulumix.Output[AnalysisTopBottomSortOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTopBottomSortOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -18816,12 +17208,6 @@ func (o AnalysisTopBottomSortOrderPtrOutput) ToAnalysisTopBottomSortOrderPtrOutp
 	return o
 }
 
-func (o AnalysisTopBottomSortOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTopBottomSortOrder] {
-	return pulumix.Output[*AnalysisTopBottomSortOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTopBottomSortOrderPtrOutput) Elem() AnalysisTopBottomSortOrderOutput {
 	return o.ApplyT(func(v *AnalysisTopBottomSortOrder) AnalysisTopBottomSortOrder {
 		if v != nil {
@@ -18846,10 +17232,11 @@ func (o AnalysisTopBottomSortOrderPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTopBottomSortOrderInput is an input type that accepts AnalysisTopBottomSortOrderArgs and AnalysisTopBottomSortOrderOutput values.
-// You can construct a concrete instance of `AnalysisTopBottomSortOrderInput` via:
+// AnalysisTopBottomSortOrderInput is an input type that accepts values of the AnalysisTopBottomSortOrder enum
+// A concrete instance of `AnalysisTopBottomSortOrderInput` can be one of the following:
 //
-//	AnalysisTopBottomSortOrderArgs{...}
+//	AnalysisTopBottomSortOrderPercentDifference
+//	AnalysisTopBottomSortOrderAbsoluteDifference
 type AnalysisTopBottomSortOrderInput interface {
 	pulumi.Input
 
@@ -18882,12 +17269,6 @@ func (in *analysisTopBottomSortOrderPtr) ToAnalysisTopBottomSortOrderPtrOutput()
 
 func (in *analysisTopBottomSortOrderPtr) ToAnalysisTopBottomSortOrderPtrOutputWithContext(ctx context.Context) AnalysisTopBottomSortOrderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTopBottomSortOrderPtrOutput)
-}
-
-func (in *analysisTopBottomSortOrderPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTopBottomSortOrder] {
-	return pulumix.Output[*AnalysisTopBottomSortOrder]{
-		OutputState: in.ToAnalysisTopBottomSortOrderPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisUrlTargetConfiguration string
@@ -18958,12 +17339,6 @@ func (o AnalysisUrlTargetConfigurationOutput) ToAnalysisUrlTargetConfigurationPt
 	}).(AnalysisUrlTargetConfigurationPtrOutput)
 }
 
-func (o AnalysisUrlTargetConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisUrlTargetConfiguration] {
-	return pulumix.Output[AnalysisUrlTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisUrlTargetConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -18999,12 +17374,6 @@ func (o AnalysisUrlTargetConfigurationPtrOutput) ToAnalysisUrlTargetConfiguratio
 	return o
 }
 
-func (o AnalysisUrlTargetConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisUrlTargetConfiguration] {
-	return pulumix.Output[*AnalysisUrlTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisUrlTargetConfigurationPtrOutput) Elem() AnalysisUrlTargetConfigurationOutput {
 	return o.ApplyT(func(v *AnalysisUrlTargetConfiguration) AnalysisUrlTargetConfiguration {
 		if v != nil {
@@ -19029,10 +17398,12 @@ func (o AnalysisUrlTargetConfigurationPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisUrlTargetConfigurationInput is an input type that accepts AnalysisUrlTargetConfigurationArgs and AnalysisUrlTargetConfigurationOutput values.
-// You can construct a concrete instance of `AnalysisUrlTargetConfigurationInput` via:
+// AnalysisUrlTargetConfigurationInput is an input type that accepts values of the AnalysisUrlTargetConfiguration enum
+// A concrete instance of `AnalysisUrlTargetConfigurationInput` can be one of the following:
 //
-//	AnalysisUrlTargetConfigurationArgs{...}
+//	AnalysisUrlTargetConfigurationNewTab
+//	AnalysisUrlTargetConfigurationNewWindow
+//	AnalysisUrlTargetConfigurationSameTab
 type AnalysisUrlTargetConfigurationInput interface {
 	pulumi.Input
 
@@ -19065,12 +17436,6 @@ func (in *analysisUrlTargetConfigurationPtr) ToAnalysisUrlTargetConfigurationPtr
 
 func (in *analysisUrlTargetConfigurationPtr) ToAnalysisUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisUrlTargetConfigurationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisUrlTargetConfigurationPtrOutput)
-}
-
-func (in *analysisUrlTargetConfigurationPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisUrlTargetConfiguration] {
-	return pulumix.Output[*AnalysisUrlTargetConfiguration]{
-		OutputState: in.ToAnalysisUrlTargetConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisValidationStrategyMode string
@@ -19140,12 +17505,6 @@ func (o AnalysisValidationStrategyModeOutput) ToAnalysisValidationStrategyModePt
 	}).(AnalysisValidationStrategyModePtrOutput)
 }
 
-func (o AnalysisValidationStrategyModeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisValidationStrategyMode] {
-	return pulumix.Output[AnalysisValidationStrategyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisValidationStrategyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -19181,12 +17540,6 @@ func (o AnalysisValidationStrategyModePtrOutput) ToAnalysisValidationStrategyMod
 	return o
 }
 
-func (o AnalysisValidationStrategyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisValidationStrategyMode] {
-	return pulumix.Output[*AnalysisValidationStrategyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisValidationStrategyModePtrOutput) Elem() AnalysisValidationStrategyModeOutput {
 	return o.ApplyT(func(v *AnalysisValidationStrategyMode) AnalysisValidationStrategyMode {
 		if v != nil {
@@ -19211,10 +17564,11 @@ func (o AnalysisValidationStrategyModePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisValidationStrategyModeInput is an input type that accepts AnalysisValidationStrategyModeArgs and AnalysisValidationStrategyModeOutput values.
-// You can construct a concrete instance of `AnalysisValidationStrategyModeInput` via:
+// AnalysisValidationStrategyModeInput is an input type that accepts values of the AnalysisValidationStrategyMode enum
+// A concrete instance of `AnalysisValidationStrategyModeInput` can be one of the following:
 //
-//	AnalysisValidationStrategyModeArgs{...}
+//	AnalysisValidationStrategyModeStrict
+//	AnalysisValidationStrategyModeLenient
 type AnalysisValidationStrategyModeInput interface {
 	pulumi.Input
 
@@ -19247,12 +17601,6 @@ func (in *analysisValidationStrategyModePtr) ToAnalysisValidationStrategyModePtr
 
 func (in *analysisValidationStrategyModePtr) ToAnalysisValidationStrategyModePtrOutputWithContext(ctx context.Context) AnalysisValidationStrategyModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisValidationStrategyModePtrOutput)
-}
-
-func (in *analysisValidationStrategyModePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisValidationStrategyMode] {
-	return pulumix.Output[*AnalysisValidationStrategyMode]{
-		OutputState: in.ToAnalysisValidationStrategyModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisValueWhenUnsetOption string
@@ -19322,12 +17670,6 @@ func (o AnalysisValueWhenUnsetOptionOutput) ToAnalysisValueWhenUnsetOptionPtrOut
 	}).(AnalysisValueWhenUnsetOptionPtrOutput)
 }
 
-func (o AnalysisValueWhenUnsetOptionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisValueWhenUnsetOption] {
-	return pulumix.Output[AnalysisValueWhenUnsetOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisValueWhenUnsetOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -19363,12 +17705,6 @@ func (o AnalysisValueWhenUnsetOptionPtrOutput) ToAnalysisValueWhenUnsetOptionPtr
 	return o
 }
 
-func (o AnalysisValueWhenUnsetOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisValueWhenUnsetOption] {
-	return pulumix.Output[*AnalysisValueWhenUnsetOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisValueWhenUnsetOptionPtrOutput) Elem() AnalysisValueWhenUnsetOptionOutput {
 	return o.ApplyT(func(v *AnalysisValueWhenUnsetOption) AnalysisValueWhenUnsetOption {
 		if v != nil {
@@ -19393,10 +17729,11 @@ func (o AnalysisValueWhenUnsetOptionPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisValueWhenUnsetOptionInput is an input type that accepts AnalysisValueWhenUnsetOptionArgs and AnalysisValueWhenUnsetOptionOutput values.
-// You can construct a concrete instance of `AnalysisValueWhenUnsetOptionInput` via:
+// AnalysisValueWhenUnsetOptionInput is an input type that accepts values of the AnalysisValueWhenUnsetOption enum
+// A concrete instance of `AnalysisValueWhenUnsetOptionInput` can be one of the following:
 //
-//	AnalysisValueWhenUnsetOptionArgs{...}
+//	AnalysisValueWhenUnsetOptionRecommendedValue
+//	AnalysisValueWhenUnsetOptionNull
 type AnalysisValueWhenUnsetOptionInput interface {
 	pulumi.Input
 
@@ -19429,12 +17766,6 @@ func (in *analysisValueWhenUnsetOptionPtr) ToAnalysisValueWhenUnsetOptionPtrOutp
 
 func (in *analysisValueWhenUnsetOptionPtr) ToAnalysisValueWhenUnsetOptionPtrOutputWithContext(ctx context.Context) AnalysisValueWhenUnsetOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisValueWhenUnsetOptionPtrOutput)
-}
-
-func (in *analysisValueWhenUnsetOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisValueWhenUnsetOption] {
-	return pulumix.Output[*AnalysisValueWhenUnsetOption]{
-		OutputState: in.ToAnalysisValueWhenUnsetOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisVerticalTextAlignment string
@@ -19506,12 +17837,6 @@ func (o AnalysisVerticalTextAlignmentOutput) ToAnalysisVerticalTextAlignmentPtrO
 	}).(AnalysisVerticalTextAlignmentPtrOutput)
 }
 
-func (o AnalysisVerticalTextAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisVerticalTextAlignment] {
-	return pulumix.Output[AnalysisVerticalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisVerticalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -19547,12 +17872,6 @@ func (o AnalysisVerticalTextAlignmentPtrOutput) ToAnalysisVerticalTextAlignmentP
 	return o
 }
 
-func (o AnalysisVerticalTextAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisVerticalTextAlignment] {
-	return pulumix.Output[*AnalysisVerticalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisVerticalTextAlignmentPtrOutput) Elem() AnalysisVerticalTextAlignmentOutput {
 	return o.ApplyT(func(v *AnalysisVerticalTextAlignment) AnalysisVerticalTextAlignment {
 		if v != nil {
@@ -19577,10 +17896,13 @@ func (o AnalysisVerticalTextAlignmentPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisVerticalTextAlignmentInput is an input type that accepts AnalysisVerticalTextAlignmentArgs and AnalysisVerticalTextAlignmentOutput values.
-// You can construct a concrete instance of `AnalysisVerticalTextAlignmentInput` via:
+// AnalysisVerticalTextAlignmentInput is an input type that accepts values of the AnalysisVerticalTextAlignment enum
+// A concrete instance of `AnalysisVerticalTextAlignmentInput` can be one of the following:
 //
-//	AnalysisVerticalTextAlignmentArgs{...}
+//	AnalysisVerticalTextAlignmentTop
+//	AnalysisVerticalTextAlignmentMiddle
+//	AnalysisVerticalTextAlignmentBottom
+//	AnalysisVerticalTextAlignmentAuto
 type AnalysisVerticalTextAlignmentInput interface {
 	pulumi.Input
 
@@ -19613,12 +17935,6 @@ func (in *analysisVerticalTextAlignmentPtr) ToAnalysisVerticalTextAlignmentPtrOu
 
 func (in *analysisVerticalTextAlignmentPtr) ToAnalysisVerticalTextAlignmentPtrOutputWithContext(ctx context.Context) AnalysisVerticalTextAlignmentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisVerticalTextAlignmentPtrOutput)
-}
-
-func (in *analysisVerticalTextAlignmentPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisVerticalTextAlignment] {
-	return pulumix.Output[*AnalysisVerticalTextAlignment]{
-		OutputState: in.ToAnalysisVerticalTextAlignmentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisVisibility string
@@ -19688,12 +18004,6 @@ func (o AnalysisVisibilityOutput) ToAnalysisVisibilityPtrOutputWithContext(ctx c
 	}).(AnalysisVisibilityPtrOutput)
 }
 
-func (o AnalysisVisibilityOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisVisibility] {
-	return pulumix.Output[AnalysisVisibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisVisibilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -19729,12 +18039,6 @@ func (o AnalysisVisibilityPtrOutput) ToAnalysisVisibilityPtrOutputWithContext(ct
 	return o
 }
 
-func (o AnalysisVisibilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisVisibility] {
-	return pulumix.Output[*AnalysisVisibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisVisibilityPtrOutput) Elem() AnalysisVisibilityOutput {
 	return o.ApplyT(func(v *AnalysisVisibility) AnalysisVisibility {
 		if v != nil {
@@ -19759,10 +18063,11 @@ func (o AnalysisVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisVisibilityInput is an input type that accepts AnalysisVisibilityArgs and AnalysisVisibilityOutput values.
-// You can construct a concrete instance of `AnalysisVisibilityInput` via:
+// AnalysisVisibilityInput is an input type that accepts values of the AnalysisVisibility enum
+// A concrete instance of `AnalysisVisibilityInput` can be one of the following:
 //
-//	AnalysisVisibilityArgs{...}
+//	AnalysisVisibilityHidden
+//	AnalysisVisibilityVisible
 type AnalysisVisibilityInput interface {
 	pulumi.Input
 
@@ -19795,12 +18100,6 @@ func (in *analysisVisibilityPtr) ToAnalysisVisibilityPtrOutput() AnalysisVisibil
 
 func (in *analysisVisibilityPtr) ToAnalysisVisibilityPtrOutputWithContext(ctx context.Context) AnalysisVisibilityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisVisibilityPtrOutput)
-}
-
-func (in *analysisVisibilityPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisVisibility] {
-	return pulumix.Output[*AnalysisVisibility]{
-		OutputState: in.ToAnalysisVisibilityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisVisualCustomActionTrigger string
@@ -19870,12 +18169,6 @@ func (o AnalysisVisualCustomActionTriggerOutput) ToAnalysisVisualCustomActionTri
 	}).(AnalysisVisualCustomActionTriggerPtrOutput)
 }
 
-func (o AnalysisVisualCustomActionTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisVisualCustomActionTrigger] {
-	return pulumix.Output[AnalysisVisualCustomActionTrigger]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisVisualCustomActionTriggerOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -19911,12 +18204,6 @@ func (o AnalysisVisualCustomActionTriggerPtrOutput) ToAnalysisVisualCustomAction
 	return o
 }
 
-func (o AnalysisVisualCustomActionTriggerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisVisualCustomActionTrigger] {
-	return pulumix.Output[*AnalysisVisualCustomActionTrigger]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisVisualCustomActionTriggerPtrOutput) Elem() AnalysisVisualCustomActionTriggerOutput {
 	return o.ApplyT(func(v *AnalysisVisualCustomActionTrigger) AnalysisVisualCustomActionTrigger {
 		if v != nil {
@@ -19941,10 +18228,11 @@ func (o AnalysisVisualCustomActionTriggerPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisVisualCustomActionTriggerInput is an input type that accepts AnalysisVisualCustomActionTriggerArgs and AnalysisVisualCustomActionTriggerOutput values.
-// You can construct a concrete instance of `AnalysisVisualCustomActionTriggerInput` via:
+// AnalysisVisualCustomActionTriggerInput is an input type that accepts values of the AnalysisVisualCustomActionTrigger enum
+// A concrete instance of `AnalysisVisualCustomActionTriggerInput` can be one of the following:
 //
-//	AnalysisVisualCustomActionTriggerArgs{...}
+//	AnalysisVisualCustomActionTriggerDataPointClick
+//	AnalysisVisualCustomActionTriggerDataPointMenu
 type AnalysisVisualCustomActionTriggerInput interface {
 	pulumi.Input
 
@@ -19977,12 +18265,6 @@ func (in *analysisVisualCustomActionTriggerPtr) ToAnalysisVisualCustomActionTrig
 
 func (in *analysisVisualCustomActionTriggerPtr) ToAnalysisVisualCustomActionTriggerPtrOutputWithContext(ctx context.Context) AnalysisVisualCustomActionTriggerPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisVisualCustomActionTriggerPtrOutput)
-}
-
-func (in *analysisVisualCustomActionTriggerPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisVisualCustomActionTrigger] {
-	return pulumix.Output[*AnalysisVisualCustomActionTrigger]{
-		OutputState: in.ToAnalysisVisualCustomActionTriggerPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisWidgetStatus string
@@ -20052,12 +18334,6 @@ func (o AnalysisWidgetStatusOutput) ToAnalysisWidgetStatusPtrOutputWithContext(c
 	}).(AnalysisWidgetStatusPtrOutput)
 }
 
-func (o AnalysisWidgetStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisWidgetStatus] {
-	return pulumix.Output[AnalysisWidgetStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWidgetStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -20093,12 +18369,6 @@ func (o AnalysisWidgetStatusPtrOutput) ToAnalysisWidgetStatusPtrOutputWithContex
 	return o
 }
 
-func (o AnalysisWidgetStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWidgetStatus] {
-	return pulumix.Output[*AnalysisWidgetStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWidgetStatusPtrOutput) Elem() AnalysisWidgetStatusOutput {
 	return o.ApplyT(func(v *AnalysisWidgetStatus) AnalysisWidgetStatus {
 		if v != nil {
@@ -20123,10 +18393,11 @@ func (o AnalysisWidgetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisWidgetStatusInput is an input type that accepts AnalysisWidgetStatusArgs and AnalysisWidgetStatusOutput values.
-// You can construct a concrete instance of `AnalysisWidgetStatusInput` via:
+// AnalysisWidgetStatusInput is an input type that accepts values of the AnalysisWidgetStatus enum
+// A concrete instance of `AnalysisWidgetStatusInput` can be one of the following:
 //
-//	AnalysisWidgetStatusArgs{...}
+//	AnalysisWidgetStatusEnabled
+//	AnalysisWidgetStatusDisabled
 type AnalysisWidgetStatusInput interface {
 	pulumi.Input
 
@@ -20159,12 +18430,6 @@ func (in *analysisWidgetStatusPtr) ToAnalysisWidgetStatusPtrOutput() AnalysisWid
 
 func (in *analysisWidgetStatusPtr) ToAnalysisWidgetStatusPtrOutputWithContext(ctx context.Context) AnalysisWidgetStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisWidgetStatusPtrOutput)
-}
-
-func (in *analysisWidgetStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWidgetStatus] {
-	return pulumix.Output[*AnalysisWidgetStatus]{
-		OutputState: in.ToAnalysisWidgetStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisWordCloudCloudLayout string
@@ -20234,12 +18499,6 @@ func (o AnalysisWordCloudCloudLayoutOutput) ToAnalysisWordCloudCloudLayoutPtrOut
 	}).(AnalysisWordCloudCloudLayoutPtrOutput)
 }
 
-func (o AnalysisWordCloudCloudLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisWordCloudCloudLayout] {
-	return pulumix.Output[AnalysisWordCloudCloudLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudCloudLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -20275,12 +18534,6 @@ func (o AnalysisWordCloudCloudLayoutPtrOutput) ToAnalysisWordCloudCloudLayoutPtr
 	return o
 }
 
-func (o AnalysisWordCloudCloudLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudCloudLayout] {
-	return pulumix.Output[*AnalysisWordCloudCloudLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudCloudLayoutPtrOutput) Elem() AnalysisWordCloudCloudLayoutOutput {
 	return o.ApplyT(func(v *AnalysisWordCloudCloudLayout) AnalysisWordCloudCloudLayout {
 		if v != nil {
@@ -20305,10 +18558,11 @@ func (o AnalysisWordCloudCloudLayoutPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisWordCloudCloudLayoutInput is an input type that accepts AnalysisWordCloudCloudLayoutArgs and AnalysisWordCloudCloudLayoutOutput values.
-// You can construct a concrete instance of `AnalysisWordCloudCloudLayoutInput` via:
+// AnalysisWordCloudCloudLayoutInput is an input type that accepts values of the AnalysisWordCloudCloudLayout enum
+// A concrete instance of `AnalysisWordCloudCloudLayoutInput` can be one of the following:
 //
-//	AnalysisWordCloudCloudLayoutArgs{...}
+//	AnalysisWordCloudCloudLayoutFluid
+//	AnalysisWordCloudCloudLayoutNormal
 type AnalysisWordCloudCloudLayoutInput interface {
 	pulumi.Input
 
@@ -20341,12 +18595,6 @@ func (in *analysisWordCloudCloudLayoutPtr) ToAnalysisWordCloudCloudLayoutPtrOutp
 
 func (in *analysisWordCloudCloudLayoutPtr) ToAnalysisWordCloudCloudLayoutPtrOutputWithContext(ctx context.Context) AnalysisWordCloudCloudLayoutPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisWordCloudCloudLayoutPtrOutput)
-}
-
-func (in *analysisWordCloudCloudLayoutPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudCloudLayout] {
-	return pulumix.Output[*AnalysisWordCloudCloudLayout]{
-		OutputState: in.ToAnalysisWordCloudCloudLayoutPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisWordCloudWordCasing string
@@ -20416,12 +18664,6 @@ func (o AnalysisWordCloudWordCasingOutput) ToAnalysisWordCloudWordCasingPtrOutpu
 	}).(AnalysisWordCloudWordCasingPtrOutput)
 }
 
-func (o AnalysisWordCloudWordCasingOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisWordCloudWordCasing] {
-	return pulumix.Output[AnalysisWordCloudWordCasing]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudWordCasingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -20457,12 +18699,6 @@ func (o AnalysisWordCloudWordCasingPtrOutput) ToAnalysisWordCloudWordCasingPtrOu
 	return o
 }
 
-func (o AnalysisWordCloudWordCasingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudWordCasing] {
-	return pulumix.Output[*AnalysisWordCloudWordCasing]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudWordCasingPtrOutput) Elem() AnalysisWordCloudWordCasingOutput {
 	return o.ApplyT(func(v *AnalysisWordCloudWordCasing) AnalysisWordCloudWordCasing {
 		if v != nil {
@@ -20487,10 +18723,11 @@ func (o AnalysisWordCloudWordCasingPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisWordCloudWordCasingInput is an input type that accepts AnalysisWordCloudWordCasingArgs and AnalysisWordCloudWordCasingOutput values.
-// You can construct a concrete instance of `AnalysisWordCloudWordCasingInput` via:
+// AnalysisWordCloudWordCasingInput is an input type that accepts values of the AnalysisWordCloudWordCasing enum
+// A concrete instance of `AnalysisWordCloudWordCasingInput` can be one of the following:
 //
-//	AnalysisWordCloudWordCasingArgs{...}
+//	AnalysisWordCloudWordCasingLowerCase
+//	AnalysisWordCloudWordCasingExistingCase
 type AnalysisWordCloudWordCasingInput interface {
 	pulumi.Input
 
@@ -20523,12 +18760,6 @@ func (in *analysisWordCloudWordCasingPtr) ToAnalysisWordCloudWordCasingPtrOutput
 
 func (in *analysisWordCloudWordCasingPtr) ToAnalysisWordCloudWordCasingPtrOutputWithContext(ctx context.Context) AnalysisWordCloudWordCasingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisWordCloudWordCasingPtrOutput)
-}
-
-func (in *analysisWordCloudWordCasingPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudWordCasing] {
-	return pulumix.Output[*AnalysisWordCloudWordCasing]{
-		OutputState: in.ToAnalysisWordCloudWordCasingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisWordCloudWordOrientation string
@@ -20598,12 +18829,6 @@ func (o AnalysisWordCloudWordOrientationOutput) ToAnalysisWordCloudWordOrientati
 	}).(AnalysisWordCloudWordOrientationPtrOutput)
 }
 
-func (o AnalysisWordCloudWordOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisWordCloudWordOrientation] {
-	return pulumix.Output[AnalysisWordCloudWordOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudWordOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -20639,12 +18864,6 @@ func (o AnalysisWordCloudWordOrientationPtrOutput) ToAnalysisWordCloudWordOrient
 	return o
 }
 
-func (o AnalysisWordCloudWordOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudWordOrientation] {
-	return pulumix.Output[*AnalysisWordCloudWordOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudWordOrientationPtrOutput) Elem() AnalysisWordCloudWordOrientationOutput {
 	return o.ApplyT(func(v *AnalysisWordCloudWordOrientation) AnalysisWordCloudWordOrientation {
 		if v != nil {
@@ -20669,10 +18888,11 @@ func (o AnalysisWordCloudWordOrientationPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisWordCloudWordOrientationInput is an input type that accepts AnalysisWordCloudWordOrientationArgs and AnalysisWordCloudWordOrientationOutput values.
-// You can construct a concrete instance of `AnalysisWordCloudWordOrientationInput` via:
+// AnalysisWordCloudWordOrientationInput is an input type that accepts values of the AnalysisWordCloudWordOrientation enum
+// A concrete instance of `AnalysisWordCloudWordOrientationInput` can be one of the following:
 //
-//	AnalysisWordCloudWordOrientationArgs{...}
+//	AnalysisWordCloudWordOrientationHorizontal
+//	AnalysisWordCloudWordOrientationHorizontalAndVertical
 type AnalysisWordCloudWordOrientationInput interface {
 	pulumi.Input
 
@@ -20705,12 +18925,6 @@ func (in *analysisWordCloudWordOrientationPtr) ToAnalysisWordCloudWordOrientatio
 
 func (in *analysisWordCloudWordOrientationPtr) ToAnalysisWordCloudWordOrientationPtrOutputWithContext(ctx context.Context) AnalysisWordCloudWordOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisWordCloudWordOrientationPtrOutput)
-}
-
-func (in *analysisWordCloudWordOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudWordOrientation] {
-	return pulumix.Output[*AnalysisWordCloudWordOrientation]{
-		OutputState: in.ToAnalysisWordCloudWordOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisWordCloudWordPadding string
@@ -20782,12 +18996,6 @@ func (o AnalysisWordCloudWordPaddingOutput) ToAnalysisWordCloudWordPaddingPtrOut
 	}).(AnalysisWordCloudWordPaddingPtrOutput)
 }
 
-func (o AnalysisWordCloudWordPaddingOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisWordCloudWordPadding] {
-	return pulumix.Output[AnalysisWordCloudWordPadding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudWordPaddingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -20823,12 +19031,6 @@ func (o AnalysisWordCloudWordPaddingPtrOutput) ToAnalysisWordCloudWordPaddingPtr
 	return o
 }
 
-func (o AnalysisWordCloudWordPaddingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudWordPadding] {
-	return pulumix.Output[*AnalysisWordCloudWordPadding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudWordPaddingPtrOutput) Elem() AnalysisWordCloudWordPaddingOutput {
 	return o.ApplyT(func(v *AnalysisWordCloudWordPadding) AnalysisWordCloudWordPadding {
 		if v != nil {
@@ -20853,10 +19055,13 @@ func (o AnalysisWordCloudWordPaddingPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisWordCloudWordPaddingInput is an input type that accepts AnalysisWordCloudWordPaddingArgs and AnalysisWordCloudWordPaddingOutput values.
-// You can construct a concrete instance of `AnalysisWordCloudWordPaddingInput` via:
+// AnalysisWordCloudWordPaddingInput is an input type that accepts values of the AnalysisWordCloudWordPadding enum
+// A concrete instance of `AnalysisWordCloudWordPaddingInput` can be one of the following:
 //
-//	AnalysisWordCloudWordPaddingArgs{...}
+//	AnalysisWordCloudWordPaddingNone
+//	AnalysisWordCloudWordPaddingSmall
+//	AnalysisWordCloudWordPaddingMedium
+//	AnalysisWordCloudWordPaddingLarge
 type AnalysisWordCloudWordPaddingInput interface {
 	pulumi.Input
 
@@ -20889,12 +19094,6 @@ func (in *analysisWordCloudWordPaddingPtr) ToAnalysisWordCloudWordPaddingPtrOutp
 
 func (in *analysisWordCloudWordPaddingPtr) ToAnalysisWordCloudWordPaddingPtrOutputWithContext(ctx context.Context) AnalysisWordCloudWordPaddingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisWordCloudWordPaddingPtrOutput)
-}
-
-func (in *analysisWordCloudWordPaddingPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudWordPadding] {
-	return pulumix.Output[*AnalysisWordCloudWordPadding]{
-		OutputState: in.ToAnalysisWordCloudWordPaddingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisWordCloudWordScaling string
@@ -20964,12 +19163,6 @@ func (o AnalysisWordCloudWordScalingOutput) ToAnalysisWordCloudWordScalingPtrOut
 	}).(AnalysisWordCloudWordScalingPtrOutput)
 }
 
-func (o AnalysisWordCloudWordScalingOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisWordCloudWordScaling] {
-	return pulumix.Output[AnalysisWordCloudWordScaling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudWordScalingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -21005,12 +19198,6 @@ func (o AnalysisWordCloudWordScalingPtrOutput) ToAnalysisWordCloudWordScalingPtr
 	return o
 }
 
-func (o AnalysisWordCloudWordScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudWordScaling] {
-	return pulumix.Output[*AnalysisWordCloudWordScaling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudWordScalingPtrOutput) Elem() AnalysisWordCloudWordScalingOutput {
 	return o.ApplyT(func(v *AnalysisWordCloudWordScaling) AnalysisWordCloudWordScaling {
 		if v != nil {
@@ -21035,10 +19222,11 @@ func (o AnalysisWordCloudWordScalingPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisWordCloudWordScalingInput is an input type that accepts AnalysisWordCloudWordScalingArgs and AnalysisWordCloudWordScalingOutput values.
-// You can construct a concrete instance of `AnalysisWordCloudWordScalingInput` via:
+// AnalysisWordCloudWordScalingInput is an input type that accepts values of the AnalysisWordCloudWordScaling enum
+// A concrete instance of `AnalysisWordCloudWordScalingInput` can be one of the following:
 //
-//	AnalysisWordCloudWordScalingArgs{...}
+//	AnalysisWordCloudWordScalingEmphasize
+//	AnalysisWordCloudWordScalingNormal
 type AnalysisWordCloudWordScalingInput interface {
 	pulumi.Input
 
@@ -21071,12 +19259,6 @@ func (in *analysisWordCloudWordScalingPtr) ToAnalysisWordCloudWordScalingPtrOutp
 
 func (in *analysisWordCloudWordScalingPtr) ToAnalysisWordCloudWordScalingPtrOutputWithContext(ctx context.Context) AnalysisWordCloudWordScalingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisWordCloudWordScalingPtrOutput)
-}
-
-func (in *analysisWordCloudWordScalingPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudWordScaling] {
-	return pulumix.Output[*AnalysisWordCloudWordScaling]{
-		OutputState: in.ToAnalysisWordCloudWordScalingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardAnchorOption string
@@ -21145,12 +19327,6 @@ func (o DashboardAnchorOptionOutput) ToDashboardAnchorOptionPtrOutputWithContext
 	}).(DashboardAnchorOptionPtrOutput)
 }
 
-func (o DashboardAnchorOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardAnchorOption] {
-	return pulumix.Output[DashboardAnchorOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardAnchorOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -21186,12 +19362,6 @@ func (o DashboardAnchorOptionPtrOutput) ToDashboardAnchorOptionPtrOutputWithCont
 	return o
 }
 
-func (o DashboardAnchorOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardAnchorOption] {
-	return pulumix.Output[*DashboardAnchorOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardAnchorOptionPtrOutput) Elem() DashboardAnchorOptionOutput {
 	return o.ApplyT(func(v *DashboardAnchorOption) DashboardAnchorOption {
 		if v != nil {
@@ -21216,10 +19386,10 @@ func (o DashboardAnchorOptionPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardAnchorOptionInput is an input type that accepts DashboardAnchorOptionArgs and DashboardAnchorOptionOutput values.
-// You can construct a concrete instance of `DashboardAnchorOptionInput` via:
+// DashboardAnchorOptionInput is an input type that accepts values of the DashboardAnchorOption enum
+// A concrete instance of `DashboardAnchorOptionInput` can be one of the following:
 //
-//	DashboardAnchorOptionArgs{...}
+//	DashboardAnchorOptionNow
 type DashboardAnchorOptionInput interface {
 	pulumi.Input
 
@@ -21252,12 +19422,6 @@ func (in *dashboardAnchorOptionPtr) ToDashboardAnchorOptionPtrOutput() Dashboard
 
 func (in *dashboardAnchorOptionPtr) ToDashboardAnchorOptionPtrOutputWithContext(ctx context.Context) DashboardAnchorOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardAnchorOptionPtrOutput)
-}
-
-func (in *dashboardAnchorOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardAnchorOption] {
-	return pulumix.Output[*DashboardAnchorOption]{
-		OutputState: in.ToDashboardAnchorOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardArcThickness string
@@ -21329,12 +19493,6 @@ func (o DashboardArcThicknessOutput) ToDashboardArcThicknessPtrOutputWithContext
 	}).(DashboardArcThicknessPtrOutput)
 }
 
-func (o DashboardArcThicknessOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardArcThickness] {
-	return pulumix.Output[DashboardArcThickness]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardArcThicknessOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -21370,12 +19528,6 @@ func (o DashboardArcThicknessPtrOutput) ToDashboardArcThicknessPtrOutputWithCont
 	return o
 }
 
-func (o DashboardArcThicknessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardArcThickness] {
-	return pulumix.Output[*DashboardArcThickness]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardArcThicknessPtrOutput) Elem() DashboardArcThicknessOutput {
 	return o.ApplyT(func(v *DashboardArcThickness) DashboardArcThickness {
 		if v != nil {
@@ -21400,10 +19552,13 @@ func (o DashboardArcThicknessPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardArcThicknessInput is an input type that accepts DashboardArcThicknessArgs and DashboardArcThicknessOutput values.
-// You can construct a concrete instance of `DashboardArcThicknessInput` via:
+// DashboardArcThicknessInput is an input type that accepts values of the DashboardArcThickness enum
+// A concrete instance of `DashboardArcThicknessInput` can be one of the following:
 //
-//	DashboardArcThicknessArgs{...}
+//	DashboardArcThicknessSmall
+//	DashboardArcThicknessMedium
+//	DashboardArcThicknessLarge
+//	DashboardArcThicknessWhole
 type DashboardArcThicknessInput interface {
 	pulumi.Input
 
@@ -21436,12 +19591,6 @@ func (in *dashboardArcThicknessPtr) ToDashboardArcThicknessPtrOutput() Dashboard
 
 func (in *dashboardArcThicknessPtr) ToDashboardArcThicknessPtrOutputWithContext(ctx context.Context) DashboardArcThicknessPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardArcThicknessPtrOutput)
-}
-
-func (in *dashboardArcThicknessPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardArcThickness] {
-	return pulumix.Output[*DashboardArcThickness]{
-		OutputState: in.ToDashboardArcThicknessPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardArcThicknessOptions string
@@ -21512,12 +19661,6 @@ func (o DashboardArcThicknessOptionsOutput) ToDashboardArcThicknessOptionsPtrOut
 	}).(DashboardArcThicknessOptionsPtrOutput)
 }
 
-func (o DashboardArcThicknessOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardArcThicknessOptions] {
-	return pulumix.Output[DashboardArcThicknessOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardArcThicknessOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -21553,12 +19696,6 @@ func (o DashboardArcThicknessOptionsPtrOutput) ToDashboardArcThicknessOptionsPtr
 	return o
 }
 
-func (o DashboardArcThicknessOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardArcThicknessOptions] {
-	return pulumix.Output[*DashboardArcThicknessOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardArcThicknessOptionsPtrOutput) Elem() DashboardArcThicknessOptionsOutput {
 	return o.ApplyT(func(v *DashboardArcThicknessOptions) DashboardArcThicknessOptions {
 		if v != nil {
@@ -21583,10 +19720,12 @@ func (o DashboardArcThicknessOptionsPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardArcThicknessOptionsInput is an input type that accepts DashboardArcThicknessOptionsArgs and DashboardArcThicknessOptionsOutput values.
-// You can construct a concrete instance of `DashboardArcThicknessOptionsInput` via:
+// DashboardArcThicknessOptionsInput is an input type that accepts values of the DashboardArcThicknessOptions enum
+// A concrete instance of `DashboardArcThicknessOptionsInput` can be one of the following:
 //
-//	DashboardArcThicknessOptionsArgs{...}
+//	DashboardArcThicknessOptionsSmall
+//	DashboardArcThicknessOptionsMedium
+//	DashboardArcThicknessOptionsLarge
 type DashboardArcThicknessOptionsInput interface {
 	pulumi.Input
 
@@ -21619,12 +19758,6 @@ func (in *dashboardArcThicknessOptionsPtr) ToDashboardArcThicknessOptionsPtrOutp
 
 func (in *dashboardArcThicknessOptionsPtr) ToDashboardArcThicknessOptionsPtrOutputWithContext(ctx context.Context) DashboardArcThicknessOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardArcThicknessOptionsPtrOutput)
-}
-
-func (in *dashboardArcThicknessOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardArcThicknessOptions] {
-	return pulumix.Output[*DashboardArcThicknessOptions]{
-		OutputState: in.ToDashboardArcThicknessOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardAxisBinding string
@@ -21694,12 +19827,6 @@ func (o DashboardAxisBindingOutput) ToDashboardAxisBindingPtrOutputWithContext(c
 	}).(DashboardAxisBindingPtrOutput)
 }
 
-func (o DashboardAxisBindingOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardAxisBinding] {
-	return pulumix.Output[DashboardAxisBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardAxisBindingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -21735,12 +19862,6 @@ func (o DashboardAxisBindingPtrOutput) ToDashboardAxisBindingPtrOutputWithContex
 	return o
 }
 
-func (o DashboardAxisBindingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardAxisBinding] {
-	return pulumix.Output[*DashboardAxisBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardAxisBindingPtrOutput) Elem() DashboardAxisBindingOutput {
 	return o.ApplyT(func(v *DashboardAxisBinding) DashboardAxisBinding {
 		if v != nil {
@@ -21765,10 +19886,11 @@ func (o DashboardAxisBindingPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardAxisBindingInput is an input type that accepts DashboardAxisBindingArgs and DashboardAxisBindingOutput values.
-// You can construct a concrete instance of `DashboardAxisBindingInput` via:
+// DashboardAxisBindingInput is an input type that accepts values of the DashboardAxisBinding enum
+// A concrete instance of `DashboardAxisBindingInput` can be one of the following:
 //
-//	DashboardAxisBindingArgs{...}
+//	DashboardAxisBindingPrimaryYaxis
+//	DashboardAxisBindingSecondaryYaxis
 type DashboardAxisBindingInput interface {
 	pulumi.Input
 
@@ -21801,12 +19923,6 @@ func (in *dashboardAxisBindingPtr) ToDashboardAxisBindingPtrOutput() DashboardAx
 
 func (in *dashboardAxisBindingPtr) ToDashboardAxisBindingPtrOutputWithContext(ctx context.Context) DashboardAxisBindingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardAxisBindingPtrOutput)
-}
-
-func (in *dashboardAxisBindingPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardAxisBinding] {
-	return pulumix.Output[*DashboardAxisBinding]{
-		OutputState: in.ToDashboardAxisBindingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardBarChartOrientation string
@@ -21876,12 +19992,6 @@ func (o DashboardBarChartOrientationOutput) ToDashboardBarChartOrientationPtrOut
 	}).(DashboardBarChartOrientationPtrOutput)
 }
 
-func (o DashboardBarChartOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardBarChartOrientation] {
-	return pulumix.Output[DashboardBarChartOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBarChartOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -21917,12 +20027,6 @@ func (o DashboardBarChartOrientationPtrOutput) ToDashboardBarChartOrientationPtr
 	return o
 }
 
-func (o DashboardBarChartOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardBarChartOrientation] {
-	return pulumix.Output[*DashboardBarChartOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBarChartOrientationPtrOutput) Elem() DashboardBarChartOrientationOutput {
 	return o.ApplyT(func(v *DashboardBarChartOrientation) DashboardBarChartOrientation {
 		if v != nil {
@@ -21947,10 +20051,11 @@ func (o DashboardBarChartOrientationPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardBarChartOrientationInput is an input type that accepts DashboardBarChartOrientationArgs and DashboardBarChartOrientationOutput values.
-// You can construct a concrete instance of `DashboardBarChartOrientationInput` via:
+// DashboardBarChartOrientationInput is an input type that accepts values of the DashboardBarChartOrientation enum
+// A concrete instance of `DashboardBarChartOrientationInput` can be one of the following:
 //
-//	DashboardBarChartOrientationArgs{...}
+//	DashboardBarChartOrientationHorizontal
+//	DashboardBarChartOrientationVertical
 type DashboardBarChartOrientationInput interface {
 	pulumi.Input
 
@@ -21983,12 +20088,6 @@ func (in *dashboardBarChartOrientationPtr) ToDashboardBarChartOrientationPtrOutp
 
 func (in *dashboardBarChartOrientationPtr) ToDashboardBarChartOrientationPtrOutputWithContext(ctx context.Context) DashboardBarChartOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardBarChartOrientationPtrOutput)
-}
-
-func (in *dashboardBarChartOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardBarChartOrientation] {
-	return pulumix.Output[*DashboardBarChartOrientation]{
-		OutputState: in.ToDashboardBarChartOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardBarsArrangement string
@@ -22059,12 +20158,6 @@ func (o DashboardBarsArrangementOutput) ToDashboardBarsArrangementPtrOutputWithC
 	}).(DashboardBarsArrangementPtrOutput)
 }
 
-func (o DashboardBarsArrangementOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardBarsArrangement] {
-	return pulumix.Output[DashboardBarsArrangement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBarsArrangementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -22100,12 +20193,6 @@ func (o DashboardBarsArrangementPtrOutput) ToDashboardBarsArrangementPtrOutputWi
 	return o
 }
 
-func (o DashboardBarsArrangementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardBarsArrangement] {
-	return pulumix.Output[*DashboardBarsArrangement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBarsArrangementPtrOutput) Elem() DashboardBarsArrangementOutput {
 	return o.ApplyT(func(v *DashboardBarsArrangement) DashboardBarsArrangement {
 		if v != nil {
@@ -22130,10 +20217,12 @@ func (o DashboardBarsArrangementPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardBarsArrangementInput is an input type that accepts DashboardBarsArrangementArgs and DashboardBarsArrangementOutput values.
-// You can construct a concrete instance of `DashboardBarsArrangementInput` via:
+// DashboardBarsArrangementInput is an input type that accepts values of the DashboardBarsArrangement enum
+// A concrete instance of `DashboardBarsArrangementInput` can be one of the following:
 //
-//	DashboardBarsArrangementArgs{...}
+//	DashboardBarsArrangementClustered
+//	DashboardBarsArrangementStacked
+//	DashboardBarsArrangementStackedPercent
 type DashboardBarsArrangementInput interface {
 	pulumi.Input
 
@@ -22166,12 +20255,6 @@ func (in *dashboardBarsArrangementPtr) ToDashboardBarsArrangementPtrOutput() Das
 
 func (in *dashboardBarsArrangementPtr) ToDashboardBarsArrangementPtrOutputWithContext(ctx context.Context) DashboardBarsArrangementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardBarsArrangementPtrOutput)
-}
-
-func (in *dashboardBarsArrangementPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardBarsArrangement] {
-	return pulumix.Output[*DashboardBarsArrangement]{
-		OutputState: in.ToDashboardBarsArrangementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardBaseMapStyleType string
@@ -22243,12 +20326,6 @@ func (o DashboardBaseMapStyleTypeOutput) ToDashboardBaseMapStyleTypePtrOutputWit
 	}).(DashboardBaseMapStyleTypePtrOutput)
 }
 
-func (o DashboardBaseMapStyleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardBaseMapStyleType] {
-	return pulumix.Output[DashboardBaseMapStyleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBaseMapStyleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -22284,12 +20361,6 @@ func (o DashboardBaseMapStyleTypePtrOutput) ToDashboardBaseMapStyleTypePtrOutput
 	return o
 }
 
-func (o DashboardBaseMapStyleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardBaseMapStyleType] {
-	return pulumix.Output[*DashboardBaseMapStyleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBaseMapStyleTypePtrOutput) Elem() DashboardBaseMapStyleTypeOutput {
 	return o.ApplyT(func(v *DashboardBaseMapStyleType) DashboardBaseMapStyleType {
 		if v != nil {
@@ -22314,10 +20385,13 @@ func (o DashboardBaseMapStyleTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardBaseMapStyleTypeInput is an input type that accepts DashboardBaseMapStyleTypeArgs and DashboardBaseMapStyleTypeOutput values.
-// You can construct a concrete instance of `DashboardBaseMapStyleTypeInput` via:
+// DashboardBaseMapStyleTypeInput is an input type that accepts values of the DashboardBaseMapStyleType enum
+// A concrete instance of `DashboardBaseMapStyleTypeInput` can be one of the following:
 //
-//	DashboardBaseMapStyleTypeArgs{...}
+//	DashboardBaseMapStyleTypeLightGray
+//	DashboardBaseMapStyleTypeDarkGray
+//	DashboardBaseMapStyleTypeStreet
+//	DashboardBaseMapStyleTypeImagery
 type DashboardBaseMapStyleTypeInput interface {
 	pulumi.Input
 
@@ -22350,12 +20424,6 @@ func (in *dashboardBaseMapStyleTypePtr) ToDashboardBaseMapStyleTypePtrOutput() D
 
 func (in *dashboardBaseMapStyleTypePtr) ToDashboardBaseMapStyleTypePtrOutputWithContext(ctx context.Context) DashboardBaseMapStyleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardBaseMapStyleTypePtrOutput)
-}
-
-func (in *dashboardBaseMapStyleTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardBaseMapStyleType] {
-	return pulumix.Output[*DashboardBaseMapStyleType]{
-		OutputState: in.ToDashboardBaseMapStyleTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardBehavior string
@@ -22425,12 +20493,6 @@ func (o DashboardBehaviorOutput) ToDashboardBehaviorPtrOutputWithContext(ctx con
 	}).(DashboardBehaviorPtrOutput)
 }
 
-func (o DashboardBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardBehavior] {
-	return pulumix.Output[DashboardBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -22466,12 +20528,6 @@ func (o DashboardBehaviorPtrOutput) ToDashboardBehaviorPtrOutputWithContext(ctx 
 	return o
 }
 
-func (o DashboardBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardBehavior] {
-	return pulumix.Output[*DashboardBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBehaviorPtrOutput) Elem() DashboardBehaviorOutput {
 	return o.ApplyT(func(v *DashboardBehavior) DashboardBehavior {
 		if v != nil {
@@ -22496,10 +20552,11 @@ func (o DashboardBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardBehaviorInput is an input type that accepts DashboardBehaviorArgs and DashboardBehaviorOutput values.
-// You can construct a concrete instance of `DashboardBehaviorInput` via:
+// DashboardBehaviorInput is an input type that accepts values of the DashboardBehavior enum
+// A concrete instance of `DashboardBehaviorInput` can be one of the following:
 //
-//	DashboardBehaviorArgs{...}
+//	DashboardBehaviorEnabled
+//	DashboardBehaviorDisabled
 type DashboardBehaviorInput interface {
 	pulumi.Input
 
@@ -22532,12 +20589,6 @@ func (in *dashboardBehaviorPtr) ToDashboardBehaviorPtrOutput() DashboardBehavior
 
 func (in *dashboardBehaviorPtr) ToDashboardBehaviorPtrOutputWithContext(ctx context.Context) DashboardBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardBehaviorPtrOutput)
-}
-
-func (in *dashboardBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardBehavior] {
-	return pulumix.Output[*DashboardBehavior]{
-		OutputState: in.ToDashboardBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardBoxPlotFillStyle string
@@ -22607,12 +20658,6 @@ func (o DashboardBoxPlotFillStyleOutput) ToDashboardBoxPlotFillStylePtrOutputWit
 	}).(DashboardBoxPlotFillStylePtrOutput)
 }
 
-func (o DashboardBoxPlotFillStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardBoxPlotFillStyle] {
-	return pulumix.Output[DashboardBoxPlotFillStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBoxPlotFillStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -22648,12 +20693,6 @@ func (o DashboardBoxPlotFillStylePtrOutput) ToDashboardBoxPlotFillStylePtrOutput
 	return o
 }
 
-func (o DashboardBoxPlotFillStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardBoxPlotFillStyle] {
-	return pulumix.Output[*DashboardBoxPlotFillStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBoxPlotFillStylePtrOutput) Elem() DashboardBoxPlotFillStyleOutput {
 	return o.ApplyT(func(v *DashboardBoxPlotFillStyle) DashboardBoxPlotFillStyle {
 		if v != nil {
@@ -22678,10 +20717,11 @@ func (o DashboardBoxPlotFillStylePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardBoxPlotFillStyleInput is an input type that accepts DashboardBoxPlotFillStyleArgs and DashboardBoxPlotFillStyleOutput values.
-// You can construct a concrete instance of `DashboardBoxPlotFillStyleInput` via:
+// DashboardBoxPlotFillStyleInput is an input type that accepts values of the DashboardBoxPlotFillStyle enum
+// A concrete instance of `DashboardBoxPlotFillStyleInput` can be one of the following:
 //
-//	DashboardBoxPlotFillStyleArgs{...}
+//	DashboardBoxPlotFillStyleSolid
+//	DashboardBoxPlotFillStyleTransparent
 type DashboardBoxPlotFillStyleInput interface {
 	pulumi.Input
 
@@ -22714,12 +20754,6 @@ func (in *dashboardBoxPlotFillStylePtr) ToDashboardBoxPlotFillStylePtrOutput() D
 
 func (in *dashboardBoxPlotFillStylePtr) ToDashboardBoxPlotFillStylePtrOutputWithContext(ctx context.Context) DashboardBoxPlotFillStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardBoxPlotFillStylePtrOutput)
-}
-
-func (in *dashboardBoxPlotFillStylePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardBoxPlotFillStyle] {
-	return pulumix.Output[*DashboardBoxPlotFillStyle]{
-		OutputState: in.ToDashboardBoxPlotFillStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardCategoricalAggregationFunction string
@@ -22789,12 +20823,6 @@ func (o DashboardCategoricalAggregationFunctionOutput) ToDashboardCategoricalAgg
 	}).(DashboardCategoricalAggregationFunctionPtrOutput)
 }
 
-func (o DashboardCategoricalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardCategoricalAggregationFunction] {
-	return pulumix.Output[DashboardCategoricalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCategoricalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -22830,12 +20858,6 @@ func (o DashboardCategoricalAggregationFunctionPtrOutput) ToDashboardCategorical
 	return o
 }
 
-func (o DashboardCategoricalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardCategoricalAggregationFunction] {
-	return pulumix.Output[*DashboardCategoricalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCategoricalAggregationFunctionPtrOutput) Elem() DashboardCategoricalAggregationFunctionOutput {
 	return o.ApplyT(func(v *DashboardCategoricalAggregationFunction) DashboardCategoricalAggregationFunction {
 		if v != nil {
@@ -22860,10 +20882,11 @@ func (o DashboardCategoricalAggregationFunctionPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardCategoricalAggregationFunctionInput is an input type that accepts DashboardCategoricalAggregationFunctionArgs and DashboardCategoricalAggregationFunctionOutput values.
-// You can construct a concrete instance of `DashboardCategoricalAggregationFunctionInput` via:
+// DashboardCategoricalAggregationFunctionInput is an input type that accepts values of the DashboardCategoricalAggregationFunction enum
+// A concrete instance of `DashboardCategoricalAggregationFunctionInput` can be one of the following:
 //
-//	DashboardCategoricalAggregationFunctionArgs{...}
+//	DashboardCategoricalAggregationFunctionCount
+//	DashboardCategoricalAggregationFunctionDistinctCount
 type DashboardCategoricalAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -22896,12 +20919,6 @@ func (in *dashboardCategoricalAggregationFunctionPtr) ToDashboardCategoricalAggr
 
 func (in *dashboardCategoricalAggregationFunctionPtr) ToDashboardCategoricalAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardCategoricalAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardCategoricalAggregationFunctionPtrOutput)
-}
-
-func (in *dashboardCategoricalAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardCategoricalAggregationFunction] {
-	return pulumix.Output[*DashboardCategoricalAggregationFunction]{
-		OutputState: in.ToDashboardCategoricalAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardCategoryFilterMatchOperator string
@@ -22975,12 +20992,6 @@ func (o DashboardCategoryFilterMatchOperatorOutput) ToDashboardCategoryFilterMat
 	}).(DashboardCategoryFilterMatchOperatorPtrOutput)
 }
 
-func (o DashboardCategoryFilterMatchOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardCategoryFilterMatchOperator] {
-	return pulumix.Output[DashboardCategoryFilterMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCategoryFilterMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -23016,12 +21027,6 @@ func (o DashboardCategoryFilterMatchOperatorPtrOutput) ToDashboardCategoryFilter
 	return o
 }
 
-func (o DashboardCategoryFilterMatchOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardCategoryFilterMatchOperator] {
-	return pulumix.Output[*DashboardCategoryFilterMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCategoryFilterMatchOperatorPtrOutput) Elem() DashboardCategoryFilterMatchOperatorOutput {
 	return o.ApplyT(func(v *DashboardCategoryFilterMatchOperator) DashboardCategoryFilterMatchOperator {
 		if v != nil {
@@ -23046,10 +21051,15 @@ func (o DashboardCategoryFilterMatchOperatorPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardCategoryFilterMatchOperatorInput is an input type that accepts DashboardCategoryFilterMatchOperatorArgs and DashboardCategoryFilterMatchOperatorOutput values.
-// You can construct a concrete instance of `DashboardCategoryFilterMatchOperatorInput` via:
+// DashboardCategoryFilterMatchOperatorInput is an input type that accepts values of the DashboardCategoryFilterMatchOperator enum
+// A concrete instance of `DashboardCategoryFilterMatchOperatorInput` can be one of the following:
 //
-//	DashboardCategoryFilterMatchOperatorArgs{...}
+//	DashboardCategoryFilterMatchOperatorEquals
+//	DashboardCategoryFilterMatchOperatorDoesNotEqual
+//	DashboardCategoryFilterMatchOperatorContains
+//	DashboardCategoryFilterMatchOperatorDoesNotContain
+//	DashboardCategoryFilterMatchOperatorStartsWith
+//	DashboardCategoryFilterMatchOperatorEndsWith
 type DashboardCategoryFilterMatchOperatorInput interface {
 	pulumi.Input
 
@@ -23082,12 +21092,6 @@ func (in *dashboardCategoryFilterMatchOperatorPtr) ToDashboardCategoryFilterMatc
 
 func (in *dashboardCategoryFilterMatchOperatorPtr) ToDashboardCategoryFilterMatchOperatorPtrOutputWithContext(ctx context.Context) DashboardCategoryFilterMatchOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardCategoryFilterMatchOperatorPtrOutput)
-}
-
-func (in *dashboardCategoryFilterMatchOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardCategoryFilterMatchOperator] {
-	return pulumix.Output[*DashboardCategoryFilterMatchOperator]{
-		OutputState: in.ToDashboardCategoryFilterMatchOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardCategoryFilterSelectAllOptions string
@@ -23156,12 +21160,6 @@ func (o DashboardCategoryFilterSelectAllOptionsOutput) ToDashboardCategoryFilter
 	}).(DashboardCategoryFilterSelectAllOptionsPtrOutput)
 }
 
-func (o DashboardCategoryFilterSelectAllOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardCategoryFilterSelectAllOptions] {
-	return pulumix.Output[DashboardCategoryFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCategoryFilterSelectAllOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -23197,12 +21195,6 @@ func (o DashboardCategoryFilterSelectAllOptionsPtrOutput) ToDashboardCategoryFil
 	return o
 }
 
-func (o DashboardCategoryFilterSelectAllOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardCategoryFilterSelectAllOptions] {
-	return pulumix.Output[*DashboardCategoryFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCategoryFilterSelectAllOptionsPtrOutput) Elem() DashboardCategoryFilterSelectAllOptionsOutput {
 	return o.ApplyT(func(v *DashboardCategoryFilterSelectAllOptions) DashboardCategoryFilterSelectAllOptions {
 		if v != nil {
@@ -23227,10 +21219,10 @@ func (o DashboardCategoryFilterSelectAllOptionsPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardCategoryFilterSelectAllOptionsInput is an input type that accepts DashboardCategoryFilterSelectAllOptionsArgs and DashboardCategoryFilterSelectAllOptionsOutput values.
-// You can construct a concrete instance of `DashboardCategoryFilterSelectAllOptionsInput` via:
+// DashboardCategoryFilterSelectAllOptionsInput is an input type that accepts values of the DashboardCategoryFilterSelectAllOptions enum
+// A concrete instance of `DashboardCategoryFilterSelectAllOptionsInput` can be one of the following:
 //
-//	DashboardCategoryFilterSelectAllOptionsArgs{...}
+//	DashboardCategoryFilterSelectAllOptionsFilterAllValues
 type DashboardCategoryFilterSelectAllOptionsInput interface {
 	pulumi.Input
 
@@ -23263,12 +21255,6 @@ func (in *dashboardCategoryFilterSelectAllOptionsPtr) ToDashboardCategoryFilterS
 
 func (in *dashboardCategoryFilterSelectAllOptionsPtr) ToDashboardCategoryFilterSelectAllOptionsPtrOutputWithContext(ctx context.Context) DashboardCategoryFilterSelectAllOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardCategoryFilterSelectAllOptionsPtrOutput)
-}
-
-func (in *dashboardCategoryFilterSelectAllOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardCategoryFilterSelectAllOptions] {
-	return pulumix.Output[*DashboardCategoryFilterSelectAllOptions]{
-		OutputState: in.ToDashboardCategoryFilterSelectAllOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardColorFillType string
@@ -23338,12 +21324,6 @@ func (o DashboardColorFillTypeOutput) ToDashboardColorFillTypePtrOutputWithConte
 	}).(DashboardColorFillTypePtrOutput)
 }
 
-func (o DashboardColorFillTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardColorFillType] {
-	return pulumix.Output[DashboardColorFillType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardColorFillTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -23379,12 +21359,6 @@ func (o DashboardColorFillTypePtrOutput) ToDashboardColorFillTypePtrOutputWithCo
 	return o
 }
 
-func (o DashboardColorFillTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardColorFillType] {
-	return pulumix.Output[*DashboardColorFillType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardColorFillTypePtrOutput) Elem() DashboardColorFillTypeOutput {
 	return o.ApplyT(func(v *DashboardColorFillType) DashboardColorFillType {
 		if v != nil {
@@ -23409,10 +21383,11 @@ func (o DashboardColorFillTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardColorFillTypeInput is an input type that accepts DashboardColorFillTypeArgs and DashboardColorFillTypeOutput values.
-// You can construct a concrete instance of `DashboardColorFillTypeInput` via:
+// DashboardColorFillTypeInput is an input type that accepts values of the DashboardColorFillType enum
+// A concrete instance of `DashboardColorFillTypeInput` can be one of the following:
 //
-//	DashboardColorFillTypeArgs{...}
+//	DashboardColorFillTypeDiscrete
+//	DashboardColorFillTypeGradient
 type DashboardColorFillTypeInput interface {
 	pulumi.Input
 
@@ -23445,12 +21420,6 @@ func (in *dashboardColorFillTypePtr) ToDashboardColorFillTypePtrOutput() Dashboa
 
 func (in *dashboardColorFillTypePtr) ToDashboardColorFillTypePtrOutputWithContext(ctx context.Context) DashboardColorFillTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardColorFillTypePtrOutput)
-}
-
-func (in *dashboardColorFillTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardColorFillType] {
-	return pulumix.Output[*DashboardColorFillType]{
-		OutputState: in.ToDashboardColorFillTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardColumnRole string
@@ -23520,12 +21489,6 @@ func (o DashboardColumnRoleOutput) ToDashboardColumnRolePtrOutputWithContext(ctx
 	}).(DashboardColumnRolePtrOutput)
 }
 
-func (o DashboardColumnRoleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardColumnRole] {
-	return pulumix.Output[DashboardColumnRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardColumnRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -23561,12 +21524,6 @@ func (o DashboardColumnRolePtrOutput) ToDashboardColumnRolePtrOutputWithContext(
 	return o
 }
 
-func (o DashboardColumnRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardColumnRole] {
-	return pulumix.Output[*DashboardColumnRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardColumnRolePtrOutput) Elem() DashboardColumnRoleOutput {
 	return o.ApplyT(func(v *DashboardColumnRole) DashboardColumnRole {
 		if v != nil {
@@ -23591,10 +21548,11 @@ func (o DashboardColumnRolePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardColumnRoleInput is an input type that accepts DashboardColumnRoleArgs and DashboardColumnRoleOutput values.
-// You can construct a concrete instance of `DashboardColumnRoleInput` via:
+// DashboardColumnRoleInput is an input type that accepts values of the DashboardColumnRole enum
+// A concrete instance of `DashboardColumnRoleInput` can be one of the following:
 //
-//	DashboardColumnRoleArgs{...}
+//	DashboardColumnRoleDimension
+//	DashboardColumnRoleMeasure
 type DashboardColumnRoleInput interface {
 	pulumi.Input
 
@@ -23627,12 +21585,6 @@ func (in *dashboardColumnRolePtr) ToDashboardColumnRolePtrOutput() DashboardColu
 
 func (in *dashboardColumnRolePtr) ToDashboardColumnRolePtrOutputWithContext(ctx context.Context) DashboardColumnRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardColumnRolePtrOutput)
-}
-
-func (in *dashboardColumnRolePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardColumnRole] {
-	return pulumix.Output[*DashboardColumnRole]{
-		OutputState: in.ToDashboardColumnRolePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardComparisonMethod string
@@ -23703,12 +21655,6 @@ func (o DashboardComparisonMethodOutput) ToDashboardComparisonMethodPtrOutputWit
 	}).(DashboardComparisonMethodPtrOutput)
 }
 
-func (o DashboardComparisonMethodOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardComparisonMethod] {
-	return pulumix.Output[DashboardComparisonMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardComparisonMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -23744,12 +21690,6 @@ func (o DashboardComparisonMethodPtrOutput) ToDashboardComparisonMethodPtrOutput
 	return o
 }
 
-func (o DashboardComparisonMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardComparisonMethod] {
-	return pulumix.Output[*DashboardComparisonMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardComparisonMethodPtrOutput) Elem() DashboardComparisonMethodOutput {
 	return o.ApplyT(func(v *DashboardComparisonMethod) DashboardComparisonMethod {
 		if v != nil {
@@ -23774,10 +21714,12 @@ func (o DashboardComparisonMethodPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardComparisonMethodInput is an input type that accepts DashboardComparisonMethodArgs and DashboardComparisonMethodOutput values.
-// You can construct a concrete instance of `DashboardComparisonMethodInput` via:
+// DashboardComparisonMethodInput is an input type that accepts values of the DashboardComparisonMethod enum
+// A concrete instance of `DashboardComparisonMethodInput` can be one of the following:
 //
-//	DashboardComparisonMethodArgs{...}
+//	DashboardComparisonMethodDifference
+//	DashboardComparisonMethodPercentDifference
+//	DashboardComparisonMethodPercent
 type DashboardComparisonMethodInput interface {
 	pulumi.Input
 
@@ -23810,12 +21752,6 @@ func (in *dashboardComparisonMethodPtr) ToDashboardComparisonMethodPtrOutput() D
 
 func (in *dashboardComparisonMethodPtr) ToDashboardComparisonMethodPtrOutputWithContext(ctx context.Context) DashboardComparisonMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardComparisonMethodPtrOutput)
-}
-
-func (in *dashboardComparisonMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardComparisonMethod] {
-	return pulumix.Output[*DashboardComparisonMethod]{
-		OutputState: in.ToDashboardComparisonMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardConditionalFormattingIconDisplayOption string
@@ -23884,12 +21820,6 @@ func (o DashboardConditionalFormattingIconDisplayOptionOutput) ToDashboardCondit
 	}).(DashboardConditionalFormattingIconDisplayOptionPtrOutput)
 }
 
-func (o DashboardConditionalFormattingIconDisplayOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[DashboardConditionalFormattingIconDisplayOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardConditionalFormattingIconDisplayOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -23925,12 +21855,6 @@ func (o DashboardConditionalFormattingIconDisplayOptionPtrOutput) ToDashboardCon
 	return o
 }
 
-func (o DashboardConditionalFormattingIconDisplayOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[*DashboardConditionalFormattingIconDisplayOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardConditionalFormattingIconDisplayOptionPtrOutput) Elem() DashboardConditionalFormattingIconDisplayOptionOutput {
 	return o.ApplyT(func(v *DashboardConditionalFormattingIconDisplayOption) DashboardConditionalFormattingIconDisplayOption {
 		if v != nil {
@@ -23955,10 +21879,10 @@ func (o DashboardConditionalFormattingIconDisplayOptionPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardConditionalFormattingIconDisplayOptionInput is an input type that accepts DashboardConditionalFormattingIconDisplayOptionArgs and DashboardConditionalFormattingIconDisplayOptionOutput values.
-// You can construct a concrete instance of `DashboardConditionalFormattingIconDisplayOptionInput` via:
+// DashboardConditionalFormattingIconDisplayOptionInput is an input type that accepts values of the DashboardConditionalFormattingIconDisplayOption enum
+// A concrete instance of `DashboardConditionalFormattingIconDisplayOptionInput` can be one of the following:
 //
-//	DashboardConditionalFormattingIconDisplayOptionArgs{...}
+//	DashboardConditionalFormattingIconDisplayOptionIconOnly
 type DashboardConditionalFormattingIconDisplayOptionInput interface {
 	pulumi.Input
 
@@ -23991,12 +21915,6 @@ func (in *dashboardConditionalFormattingIconDisplayOptionPtr) ToDashboardConditi
 
 func (in *dashboardConditionalFormattingIconDisplayOptionPtr) ToDashboardConditionalFormattingIconDisplayOptionPtrOutputWithContext(ctx context.Context) DashboardConditionalFormattingIconDisplayOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardConditionalFormattingIconDisplayOptionPtrOutput)
-}
-
-func (in *dashboardConditionalFormattingIconDisplayOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[*DashboardConditionalFormattingIconDisplayOption]{
-		OutputState: in.ToDashboardConditionalFormattingIconDisplayOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardConditionalFormattingIconSetType string
@@ -24075,12 +21993,6 @@ func (o DashboardConditionalFormattingIconSetTypeOutput) ToDashboardConditionalF
 	}).(DashboardConditionalFormattingIconSetTypePtrOutput)
 }
 
-func (o DashboardConditionalFormattingIconSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardConditionalFormattingIconSetType] {
-	return pulumix.Output[DashboardConditionalFormattingIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardConditionalFormattingIconSetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -24116,12 +22028,6 @@ func (o DashboardConditionalFormattingIconSetTypePtrOutput) ToDashboardCondition
 	return o
 }
 
-func (o DashboardConditionalFormattingIconSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardConditionalFormattingIconSetType] {
-	return pulumix.Output[*DashboardConditionalFormattingIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardConditionalFormattingIconSetTypePtrOutput) Elem() DashboardConditionalFormattingIconSetTypeOutput {
 	return o.ApplyT(func(v *DashboardConditionalFormattingIconSetType) DashboardConditionalFormattingIconSetType {
 		if v != nil {
@@ -24146,10 +22052,20 @@ func (o DashboardConditionalFormattingIconSetTypePtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardConditionalFormattingIconSetTypeInput is an input type that accepts DashboardConditionalFormattingIconSetTypeArgs and DashboardConditionalFormattingIconSetTypeOutput values.
-// You can construct a concrete instance of `DashboardConditionalFormattingIconSetTypeInput` via:
+// DashboardConditionalFormattingIconSetTypeInput is an input type that accepts values of the DashboardConditionalFormattingIconSetType enum
+// A concrete instance of `DashboardConditionalFormattingIconSetTypeInput` can be one of the following:
 //
-//	DashboardConditionalFormattingIconSetTypeArgs{...}
+//	DashboardConditionalFormattingIconSetTypePlusMinus
+//	DashboardConditionalFormattingIconSetTypeCheckX
+//	DashboardConditionalFormattingIconSetTypeThreeColorArrow
+//	DashboardConditionalFormattingIconSetTypeThreeGrayArrow
+//	DashboardConditionalFormattingIconSetTypeCaretUpMinusDown
+//	DashboardConditionalFormattingIconSetTypeThreeShape
+//	DashboardConditionalFormattingIconSetTypeThreeCircle
+//	DashboardConditionalFormattingIconSetTypeFlags
+//	DashboardConditionalFormattingIconSetTypeBars
+//	DashboardConditionalFormattingIconSetTypeFourColorArrow
+//	DashboardConditionalFormattingIconSetTypeFourGrayArrow
 type DashboardConditionalFormattingIconSetTypeInput interface {
 	pulumi.Input
 
@@ -24182,12 +22098,6 @@ func (in *dashboardConditionalFormattingIconSetTypePtr) ToDashboardConditionalFo
 
 func (in *dashboardConditionalFormattingIconSetTypePtr) ToDashboardConditionalFormattingIconSetTypePtrOutputWithContext(ctx context.Context) DashboardConditionalFormattingIconSetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardConditionalFormattingIconSetTypePtrOutput)
-}
-
-func (in *dashboardConditionalFormattingIconSetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardConditionalFormattingIconSetType] {
-	return pulumix.Output[*DashboardConditionalFormattingIconSetType]{
-		OutputState: in.ToDashboardConditionalFormattingIconSetTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardCrossDatasetTypes string
@@ -24257,12 +22167,6 @@ func (o DashboardCrossDatasetTypesOutput) ToDashboardCrossDatasetTypesPtrOutputW
 	}).(DashboardCrossDatasetTypesPtrOutput)
 }
 
-func (o DashboardCrossDatasetTypesOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardCrossDatasetTypes] {
-	return pulumix.Output[DashboardCrossDatasetTypes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCrossDatasetTypesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -24298,12 +22202,6 @@ func (o DashboardCrossDatasetTypesPtrOutput) ToDashboardCrossDatasetTypesPtrOutp
 	return o
 }
 
-func (o DashboardCrossDatasetTypesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardCrossDatasetTypes] {
-	return pulumix.Output[*DashboardCrossDatasetTypes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCrossDatasetTypesPtrOutput) Elem() DashboardCrossDatasetTypesOutput {
 	return o.ApplyT(func(v *DashboardCrossDatasetTypes) DashboardCrossDatasetTypes {
 		if v != nil {
@@ -24328,10 +22226,11 @@ func (o DashboardCrossDatasetTypesPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardCrossDatasetTypesInput is an input type that accepts DashboardCrossDatasetTypesArgs and DashboardCrossDatasetTypesOutput values.
-// You can construct a concrete instance of `DashboardCrossDatasetTypesInput` via:
+// DashboardCrossDatasetTypesInput is an input type that accepts values of the DashboardCrossDatasetTypes enum
+// A concrete instance of `DashboardCrossDatasetTypesInput` can be one of the following:
 //
-//	DashboardCrossDatasetTypesArgs{...}
+//	DashboardCrossDatasetTypesAllDatasets
+//	DashboardCrossDatasetTypesSingleDataset
 type DashboardCrossDatasetTypesInput interface {
 	pulumi.Input
 
@@ -24364,12 +22263,6 @@ func (in *dashboardCrossDatasetTypesPtr) ToDashboardCrossDatasetTypesPtrOutput()
 
 func (in *dashboardCrossDatasetTypesPtr) ToDashboardCrossDatasetTypesPtrOutputWithContext(ctx context.Context) DashboardCrossDatasetTypesPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardCrossDatasetTypesPtrOutput)
-}
-
-func (in *dashboardCrossDatasetTypesPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardCrossDatasetTypes] {
-	return pulumix.Output[*DashboardCrossDatasetTypes]{
-		OutputState: in.ToDashboardCrossDatasetTypesPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardCustomContentImageScalingConfiguration string
@@ -24441,12 +22334,6 @@ func (o DashboardCustomContentImageScalingConfigurationOutput) ToDashboardCustom
 	}).(DashboardCustomContentImageScalingConfigurationPtrOutput)
 }
 
-func (o DashboardCustomContentImageScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardCustomContentImageScalingConfiguration] {
-	return pulumix.Output[DashboardCustomContentImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCustomContentImageScalingConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -24482,12 +22369,6 @@ func (o DashboardCustomContentImageScalingConfigurationPtrOutput) ToDashboardCus
 	return o
 }
 
-func (o DashboardCustomContentImageScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardCustomContentImageScalingConfiguration] {
-	return pulumix.Output[*DashboardCustomContentImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCustomContentImageScalingConfigurationPtrOutput) Elem() DashboardCustomContentImageScalingConfigurationOutput {
 	return o.ApplyT(func(v *DashboardCustomContentImageScalingConfiguration) DashboardCustomContentImageScalingConfiguration {
 		if v != nil {
@@ -24512,10 +22393,13 @@ func (o DashboardCustomContentImageScalingConfigurationPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardCustomContentImageScalingConfigurationInput is an input type that accepts DashboardCustomContentImageScalingConfigurationArgs and DashboardCustomContentImageScalingConfigurationOutput values.
-// You can construct a concrete instance of `DashboardCustomContentImageScalingConfigurationInput` via:
+// DashboardCustomContentImageScalingConfigurationInput is an input type that accepts values of the DashboardCustomContentImageScalingConfiguration enum
+// A concrete instance of `DashboardCustomContentImageScalingConfigurationInput` can be one of the following:
 //
-//	DashboardCustomContentImageScalingConfigurationArgs{...}
+//	DashboardCustomContentImageScalingConfigurationFitToHeight
+//	DashboardCustomContentImageScalingConfigurationFitToWidth
+//	DashboardCustomContentImageScalingConfigurationDoNotScale
+//	DashboardCustomContentImageScalingConfigurationScaleToVisual
 type DashboardCustomContentImageScalingConfigurationInput interface {
 	pulumi.Input
 
@@ -24548,12 +22432,6 @@ func (in *dashboardCustomContentImageScalingConfigurationPtr) ToDashboardCustomC
 
 func (in *dashboardCustomContentImageScalingConfigurationPtr) ToDashboardCustomContentImageScalingConfigurationPtrOutputWithContext(ctx context.Context) DashboardCustomContentImageScalingConfigurationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardCustomContentImageScalingConfigurationPtrOutput)
-}
-
-func (in *dashboardCustomContentImageScalingConfigurationPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardCustomContentImageScalingConfiguration] {
-	return pulumix.Output[*DashboardCustomContentImageScalingConfiguration]{
-		OutputState: in.ToDashboardCustomContentImageScalingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardCustomContentType string
@@ -24623,12 +22501,6 @@ func (o DashboardCustomContentTypeOutput) ToDashboardCustomContentTypePtrOutputW
 	}).(DashboardCustomContentTypePtrOutput)
 }
 
-func (o DashboardCustomContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardCustomContentType] {
-	return pulumix.Output[DashboardCustomContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCustomContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -24664,12 +22536,6 @@ func (o DashboardCustomContentTypePtrOutput) ToDashboardCustomContentTypePtrOutp
 	return o
 }
 
-func (o DashboardCustomContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardCustomContentType] {
-	return pulumix.Output[*DashboardCustomContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCustomContentTypePtrOutput) Elem() DashboardCustomContentTypeOutput {
 	return o.ApplyT(func(v *DashboardCustomContentType) DashboardCustomContentType {
 		if v != nil {
@@ -24694,10 +22560,11 @@ func (o DashboardCustomContentTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardCustomContentTypeInput is an input type that accepts DashboardCustomContentTypeArgs and DashboardCustomContentTypeOutput values.
-// You can construct a concrete instance of `DashboardCustomContentTypeInput` via:
+// DashboardCustomContentTypeInput is an input type that accepts values of the DashboardCustomContentType enum
+// A concrete instance of `DashboardCustomContentTypeInput` can be one of the following:
 //
-//	DashboardCustomContentTypeArgs{...}
+//	DashboardCustomContentTypeImage
+//	DashboardCustomContentTypeOtherEmbeddedContent
 type DashboardCustomContentTypeInput interface {
 	pulumi.Input
 
@@ -24730,12 +22597,6 @@ func (in *dashboardCustomContentTypePtr) ToDashboardCustomContentTypePtrOutput()
 
 func (in *dashboardCustomContentTypePtr) ToDashboardCustomContentTypePtrOutputWithContext(ctx context.Context) DashboardCustomContentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardCustomContentTypePtrOutput)
-}
-
-func (in *dashboardCustomContentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardCustomContentType] {
-	return pulumix.Output[*DashboardCustomContentType]{
-		OutputState: in.ToDashboardCustomContentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardDataLabelContent string
@@ -24806,12 +22667,6 @@ func (o DashboardDataLabelContentOutput) ToDashboardDataLabelContentPtrOutputWit
 	}).(DashboardDataLabelContentPtrOutput)
 }
 
-func (o DashboardDataLabelContentOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardDataLabelContent] {
-	return pulumix.Output[DashboardDataLabelContent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDataLabelContentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -24847,12 +22702,6 @@ func (o DashboardDataLabelContentPtrOutput) ToDashboardDataLabelContentPtrOutput
 	return o
 }
 
-func (o DashboardDataLabelContentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardDataLabelContent] {
-	return pulumix.Output[*DashboardDataLabelContent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDataLabelContentPtrOutput) Elem() DashboardDataLabelContentOutput {
 	return o.ApplyT(func(v *DashboardDataLabelContent) DashboardDataLabelContent {
 		if v != nil {
@@ -24877,10 +22726,12 @@ func (o DashboardDataLabelContentPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardDataLabelContentInput is an input type that accepts DashboardDataLabelContentArgs and DashboardDataLabelContentOutput values.
-// You can construct a concrete instance of `DashboardDataLabelContentInput` via:
+// DashboardDataLabelContentInput is an input type that accepts values of the DashboardDataLabelContent enum
+// A concrete instance of `DashboardDataLabelContentInput` can be one of the following:
 //
-//	DashboardDataLabelContentArgs{...}
+//	DashboardDataLabelContentValue
+//	DashboardDataLabelContentPercent
+//	DashboardDataLabelContentValueAndPercent
 type DashboardDataLabelContentInput interface {
 	pulumi.Input
 
@@ -24913,12 +22764,6 @@ func (in *dashboardDataLabelContentPtr) ToDashboardDataLabelContentPtrOutput() D
 
 func (in *dashboardDataLabelContentPtr) ToDashboardDataLabelContentPtrOutputWithContext(ctx context.Context) DashboardDataLabelContentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardDataLabelContentPtrOutput)
-}
-
-func (in *dashboardDataLabelContentPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardDataLabelContent] {
-	return pulumix.Output[*DashboardDataLabelContent]{
-		OutputState: in.ToDashboardDataLabelContentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardDataLabelOverlap string
@@ -24988,12 +22833,6 @@ func (o DashboardDataLabelOverlapOutput) ToDashboardDataLabelOverlapPtrOutputWit
 	}).(DashboardDataLabelOverlapPtrOutput)
 }
 
-func (o DashboardDataLabelOverlapOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardDataLabelOverlap] {
-	return pulumix.Output[DashboardDataLabelOverlap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDataLabelOverlapOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -25029,12 +22868,6 @@ func (o DashboardDataLabelOverlapPtrOutput) ToDashboardDataLabelOverlapPtrOutput
 	return o
 }
 
-func (o DashboardDataLabelOverlapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardDataLabelOverlap] {
-	return pulumix.Output[*DashboardDataLabelOverlap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDataLabelOverlapPtrOutput) Elem() DashboardDataLabelOverlapOutput {
 	return o.ApplyT(func(v *DashboardDataLabelOverlap) DashboardDataLabelOverlap {
 		if v != nil {
@@ -25059,10 +22892,11 @@ func (o DashboardDataLabelOverlapPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardDataLabelOverlapInput is an input type that accepts DashboardDataLabelOverlapArgs and DashboardDataLabelOverlapOutput values.
-// You can construct a concrete instance of `DashboardDataLabelOverlapInput` via:
+// DashboardDataLabelOverlapInput is an input type that accepts values of the DashboardDataLabelOverlap enum
+// A concrete instance of `DashboardDataLabelOverlapInput` can be one of the following:
 //
-//	DashboardDataLabelOverlapArgs{...}
+//	DashboardDataLabelOverlapDisableOverlap
+//	DashboardDataLabelOverlapEnableOverlap
 type DashboardDataLabelOverlapInput interface {
 	pulumi.Input
 
@@ -25095,12 +22929,6 @@ func (in *dashboardDataLabelOverlapPtr) ToDashboardDataLabelOverlapPtrOutput() D
 
 func (in *dashboardDataLabelOverlapPtr) ToDashboardDataLabelOverlapPtrOutputWithContext(ctx context.Context) DashboardDataLabelOverlapPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardDataLabelOverlapPtrOutput)
-}
-
-func (in *dashboardDataLabelOverlapPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardDataLabelOverlap] {
-	return pulumix.Output[*DashboardDataLabelOverlap]{
-		OutputState: in.ToDashboardDataLabelOverlapPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardDataLabelPosition string
@@ -25174,12 +23002,6 @@ func (o DashboardDataLabelPositionOutput) ToDashboardDataLabelPositionPtrOutputW
 	}).(DashboardDataLabelPositionPtrOutput)
 }
 
-func (o DashboardDataLabelPositionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardDataLabelPosition] {
-	return pulumix.Output[DashboardDataLabelPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDataLabelPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -25215,12 +23037,6 @@ func (o DashboardDataLabelPositionPtrOutput) ToDashboardDataLabelPositionPtrOutp
 	return o
 }
 
-func (o DashboardDataLabelPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardDataLabelPosition] {
-	return pulumix.Output[*DashboardDataLabelPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDataLabelPositionPtrOutput) Elem() DashboardDataLabelPositionOutput {
 	return o.ApplyT(func(v *DashboardDataLabelPosition) DashboardDataLabelPosition {
 		if v != nil {
@@ -25245,10 +23061,15 @@ func (o DashboardDataLabelPositionPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardDataLabelPositionInput is an input type that accepts DashboardDataLabelPositionArgs and DashboardDataLabelPositionOutput values.
-// You can construct a concrete instance of `DashboardDataLabelPositionInput` via:
+// DashboardDataLabelPositionInput is an input type that accepts values of the DashboardDataLabelPosition enum
+// A concrete instance of `DashboardDataLabelPositionInput` can be one of the following:
 //
-//	DashboardDataLabelPositionArgs{...}
+//	DashboardDataLabelPositionInside
+//	DashboardDataLabelPositionOutside
+//	DashboardDataLabelPositionLeft
+//	DashboardDataLabelPositionTop
+//	DashboardDataLabelPositionBottom
+//	DashboardDataLabelPositionRight
 type DashboardDataLabelPositionInput interface {
 	pulumi.Input
 
@@ -25281,12 +23102,6 @@ func (in *dashboardDataLabelPositionPtr) ToDashboardDataLabelPositionPtrOutput()
 
 func (in *dashboardDataLabelPositionPtr) ToDashboardDataLabelPositionPtrOutputWithContext(ctx context.Context) DashboardDataLabelPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardDataLabelPositionPtrOutput)
-}
-
-func (in *dashboardDataLabelPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardDataLabelPosition] {
-	return pulumix.Output[*DashboardDataLabelPosition]{
-		OutputState: in.ToDashboardDataLabelPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardDateAggregationFunction string
@@ -25358,12 +23173,6 @@ func (o DashboardDateAggregationFunctionOutput) ToDashboardDateAggregationFuncti
 	}).(DashboardDateAggregationFunctionPtrOutput)
 }
 
-func (o DashboardDateAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardDateAggregationFunction] {
-	return pulumix.Output[DashboardDateAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDateAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -25399,12 +23208,6 @@ func (o DashboardDateAggregationFunctionPtrOutput) ToDashboardDateAggregationFun
 	return o
 }
 
-func (o DashboardDateAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardDateAggregationFunction] {
-	return pulumix.Output[*DashboardDateAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDateAggregationFunctionPtrOutput) Elem() DashboardDateAggregationFunctionOutput {
 	return o.ApplyT(func(v *DashboardDateAggregationFunction) DashboardDateAggregationFunction {
 		if v != nil {
@@ -25429,10 +23232,13 @@ func (o DashboardDateAggregationFunctionPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardDateAggregationFunctionInput is an input type that accepts DashboardDateAggregationFunctionArgs and DashboardDateAggregationFunctionOutput values.
-// You can construct a concrete instance of `DashboardDateAggregationFunctionInput` via:
+// DashboardDateAggregationFunctionInput is an input type that accepts values of the DashboardDateAggregationFunction enum
+// A concrete instance of `DashboardDateAggregationFunctionInput` can be one of the following:
 //
-//	DashboardDateAggregationFunctionArgs{...}
+//	DashboardDateAggregationFunctionCount
+//	DashboardDateAggregationFunctionDistinctCount
+//	DashboardDateAggregationFunctionMin
+//	DashboardDateAggregationFunctionMax
 type DashboardDateAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -25465,12 +23271,6 @@ func (in *dashboardDateAggregationFunctionPtr) ToDashboardDateAggregationFunctio
 
 func (in *dashboardDateAggregationFunctionPtr) ToDashboardDateAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardDateAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardDateAggregationFunctionPtrOutput)
-}
-
-func (in *dashboardDateAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardDateAggregationFunction] {
-	return pulumix.Output[*DashboardDateAggregationFunction]{
-		OutputState: in.ToDashboardDateAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardDayOfTheWeek string
@@ -25545,12 +23345,6 @@ func (o DashboardDayOfTheWeekOutput) ToDashboardDayOfTheWeekPtrOutputWithContext
 	}).(DashboardDayOfTheWeekPtrOutput)
 }
 
-func (o DashboardDayOfTheWeekOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardDayOfTheWeek] {
-	return pulumix.Output[DashboardDayOfTheWeek]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDayOfTheWeekOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -25586,12 +23380,6 @@ func (o DashboardDayOfTheWeekPtrOutput) ToDashboardDayOfTheWeekPtrOutputWithCont
 	return o
 }
 
-func (o DashboardDayOfTheWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardDayOfTheWeek] {
-	return pulumix.Output[*DashboardDayOfTheWeek]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDayOfTheWeekPtrOutput) Elem() DashboardDayOfTheWeekOutput {
 	return o.ApplyT(func(v *DashboardDayOfTheWeek) DashboardDayOfTheWeek {
 		if v != nil {
@@ -25616,10 +23404,16 @@ func (o DashboardDayOfTheWeekPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardDayOfTheWeekInput is an input type that accepts DashboardDayOfTheWeekArgs and DashboardDayOfTheWeekOutput values.
-// You can construct a concrete instance of `DashboardDayOfTheWeekInput` via:
+// DashboardDayOfTheWeekInput is an input type that accepts values of the DashboardDayOfTheWeek enum
+// A concrete instance of `DashboardDayOfTheWeekInput` can be one of the following:
 //
-//	DashboardDayOfTheWeekArgs{...}
+//	DashboardDayOfTheWeekSunday
+//	DashboardDayOfTheWeekMonday
+//	DashboardDayOfTheWeekTuesday
+//	DashboardDayOfTheWeekWednesday
+//	DashboardDayOfTheWeekThursday
+//	DashboardDayOfTheWeekFriday
+//	DashboardDayOfTheWeekSaturday
 type DashboardDayOfTheWeekInput interface {
 	pulumi.Input
 
@@ -25652,12 +23446,6 @@ func (in *dashboardDayOfTheWeekPtr) ToDashboardDayOfTheWeekPtrOutput() Dashboard
 
 func (in *dashboardDayOfTheWeekPtr) ToDashboardDayOfTheWeekPtrOutputWithContext(ctx context.Context) DashboardDayOfTheWeekPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardDayOfTheWeekPtrOutput)
-}
-
-func (in *dashboardDayOfTheWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardDayOfTheWeek] {
-	return pulumix.Output[*DashboardDayOfTheWeek]{
-		OutputState: in.ToDashboardDayOfTheWeekPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardErrorType string
@@ -25699,12 +23487,6 @@ func (o DashboardErrorTypeOutput) ToDashboardErrorTypePtrOutputWithContext(ctx c
 	}).(DashboardErrorTypePtrOutput)
 }
 
-func (o DashboardErrorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardErrorType] {
-	return pulumix.Output[DashboardErrorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardErrorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -25738,12 +23520,6 @@ func (o DashboardErrorTypePtrOutput) ToDashboardErrorTypePtrOutput() DashboardEr
 
 func (o DashboardErrorTypePtrOutput) ToDashboardErrorTypePtrOutputWithContext(ctx context.Context) DashboardErrorTypePtrOutput {
 	return o
-}
-
-func (o DashboardErrorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardErrorType] {
-	return pulumix.Output[*DashboardErrorType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardErrorTypePtrOutput) Elem() DashboardErrorTypeOutput {
@@ -25838,12 +23614,6 @@ func (o DashboardFilterNullOptionOutput) ToDashboardFilterNullOptionPtrOutputWit
 	}).(DashboardFilterNullOptionPtrOutput)
 }
 
-func (o DashboardFilterNullOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardFilterNullOption] {
-	return pulumix.Output[DashboardFilterNullOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFilterNullOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -25879,12 +23649,6 @@ func (o DashboardFilterNullOptionPtrOutput) ToDashboardFilterNullOptionPtrOutput
 	return o
 }
 
-func (o DashboardFilterNullOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardFilterNullOption] {
-	return pulumix.Output[*DashboardFilterNullOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFilterNullOptionPtrOutput) Elem() DashboardFilterNullOptionOutput {
 	return o.ApplyT(func(v *DashboardFilterNullOption) DashboardFilterNullOption {
 		if v != nil {
@@ -25909,10 +23673,12 @@ func (o DashboardFilterNullOptionPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardFilterNullOptionInput is an input type that accepts DashboardFilterNullOptionArgs and DashboardFilterNullOptionOutput values.
-// You can construct a concrete instance of `DashboardFilterNullOptionInput` via:
+// DashboardFilterNullOptionInput is an input type that accepts values of the DashboardFilterNullOption enum
+// A concrete instance of `DashboardFilterNullOptionInput` can be one of the following:
 //
-//	DashboardFilterNullOptionArgs{...}
+//	DashboardFilterNullOptionAllValues
+//	DashboardFilterNullOptionNullsOnly
+//	DashboardFilterNullOptionNonNullsOnly
 type DashboardFilterNullOptionInput interface {
 	pulumi.Input
 
@@ -25945,12 +23711,6 @@ func (in *dashboardFilterNullOptionPtr) ToDashboardFilterNullOptionPtrOutput() D
 
 func (in *dashboardFilterNullOptionPtr) ToDashboardFilterNullOptionPtrOutputWithContext(ctx context.Context) DashboardFilterNullOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardFilterNullOptionPtrOutput)
-}
-
-func (in *dashboardFilterNullOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardFilterNullOption] {
-	return pulumix.Output[*DashboardFilterNullOption]{
-		OutputState: in.ToDashboardFilterNullOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardFilterVisualScope string
@@ -26020,12 +23780,6 @@ func (o DashboardFilterVisualScopeOutput) ToDashboardFilterVisualScopePtrOutputW
 	}).(DashboardFilterVisualScopePtrOutput)
 }
 
-func (o DashboardFilterVisualScopeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardFilterVisualScope] {
-	return pulumix.Output[DashboardFilterVisualScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFilterVisualScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -26061,12 +23815,6 @@ func (o DashboardFilterVisualScopePtrOutput) ToDashboardFilterVisualScopePtrOutp
 	return o
 }
 
-func (o DashboardFilterVisualScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardFilterVisualScope] {
-	return pulumix.Output[*DashboardFilterVisualScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFilterVisualScopePtrOutput) Elem() DashboardFilterVisualScopeOutput {
 	return o.ApplyT(func(v *DashboardFilterVisualScope) DashboardFilterVisualScope {
 		if v != nil {
@@ -26091,10 +23839,11 @@ func (o DashboardFilterVisualScopePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardFilterVisualScopeInput is an input type that accepts DashboardFilterVisualScopeArgs and DashboardFilterVisualScopeOutput values.
-// You can construct a concrete instance of `DashboardFilterVisualScopeInput` via:
+// DashboardFilterVisualScopeInput is an input type that accepts values of the DashboardFilterVisualScope enum
+// A concrete instance of `DashboardFilterVisualScopeInput` can be one of the following:
 //
-//	DashboardFilterVisualScopeArgs{...}
+//	DashboardFilterVisualScopeAllVisuals
+//	DashboardFilterVisualScopeSelectedVisuals
 type DashboardFilterVisualScopeInput interface {
 	pulumi.Input
 
@@ -26127,12 +23876,6 @@ func (in *dashboardFilterVisualScopePtr) ToDashboardFilterVisualScopePtrOutput()
 
 func (in *dashboardFilterVisualScopePtr) ToDashboardFilterVisualScopePtrOutputWithContext(ctx context.Context) DashboardFilterVisualScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardFilterVisualScopePtrOutput)
-}
-
-func (in *dashboardFilterVisualScopePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardFilterVisualScope] {
-	return pulumix.Output[*DashboardFilterVisualScope]{
-		OutputState: in.ToDashboardFilterVisualScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardFontDecoration string
@@ -26202,12 +23945,6 @@ func (o DashboardFontDecorationOutput) ToDashboardFontDecorationPtrOutputWithCon
 	}).(DashboardFontDecorationPtrOutput)
 }
 
-func (o DashboardFontDecorationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardFontDecoration] {
-	return pulumix.Output[DashboardFontDecoration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFontDecorationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -26243,12 +23980,6 @@ func (o DashboardFontDecorationPtrOutput) ToDashboardFontDecorationPtrOutputWith
 	return o
 }
 
-func (o DashboardFontDecorationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardFontDecoration] {
-	return pulumix.Output[*DashboardFontDecoration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFontDecorationPtrOutput) Elem() DashboardFontDecorationOutput {
 	return o.ApplyT(func(v *DashboardFontDecoration) DashboardFontDecoration {
 		if v != nil {
@@ -26273,10 +24004,11 @@ func (o DashboardFontDecorationPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardFontDecorationInput is an input type that accepts DashboardFontDecorationArgs and DashboardFontDecorationOutput values.
-// You can construct a concrete instance of `DashboardFontDecorationInput` via:
+// DashboardFontDecorationInput is an input type that accepts values of the DashboardFontDecoration enum
+// A concrete instance of `DashboardFontDecorationInput` can be one of the following:
 //
-//	DashboardFontDecorationArgs{...}
+//	DashboardFontDecorationUnderline
+//	DashboardFontDecorationNone
 type DashboardFontDecorationInput interface {
 	pulumi.Input
 
@@ -26309,12 +24041,6 @@ func (in *dashboardFontDecorationPtr) ToDashboardFontDecorationPtrOutput() Dashb
 
 func (in *dashboardFontDecorationPtr) ToDashboardFontDecorationPtrOutputWithContext(ctx context.Context) DashboardFontDecorationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardFontDecorationPtrOutput)
-}
-
-func (in *dashboardFontDecorationPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardFontDecoration] {
-	return pulumix.Output[*DashboardFontDecoration]{
-		OutputState: in.ToDashboardFontDecorationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardFontStyle string
@@ -26384,12 +24110,6 @@ func (o DashboardFontStyleOutput) ToDashboardFontStylePtrOutputWithContext(ctx c
 	}).(DashboardFontStylePtrOutput)
 }
 
-func (o DashboardFontStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardFontStyle] {
-	return pulumix.Output[DashboardFontStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFontStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -26425,12 +24145,6 @@ func (o DashboardFontStylePtrOutput) ToDashboardFontStylePtrOutputWithContext(ct
 	return o
 }
 
-func (o DashboardFontStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardFontStyle] {
-	return pulumix.Output[*DashboardFontStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFontStylePtrOutput) Elem() DashboardFontStyleOutput {
 	return o.ApplyT(func(v *DashboardFontStyle) DashboardFontStyle {
 		if v != nil {
@@ -26455,10 +24169,11 @@ func (o DashboardFontStylePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardFontStyleInput is an input type that accepts DashboardFontStyleArgs and DashboardFontStyleOutput values.
-// You can construct a concrete instance of `DashboardFontStyleInput` via:
+// DashboardFontStyleInput is an input type that accepts values of the DashboardFontStyle enum
+// A concrete instance of `DashboardFontStyleInput` can be one of the following:
 //
-//	DashboardFontStyleArgs{...}
+//	DashboardFontStyleNormal
+//	DashboardFontStyleItalic
 type DashboardFontStyleInput interface {
 	pulumi.Input
 
@@ -26491,12 +24206,6 @@ func (in *dashboardFontStylePtr) ToDashboardFontStylePtrOutput() DashboardFontSt
 
 func (in *dashboardFontStylePtr) ToDashboardFontStylePtrOutputWithContext(ctx context.Context) DashboardFontStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardFontStylePtrOutput)
-}
-
-func (in *dashboardFontStylePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardFontStyle] {
-	return pulumix.Output[*DashboardFontStyle]{
-		OutputState: in.ToDashboardFontStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardFontWeightName string
@@ -26566,12 +24275,6 @@ func (o DashboardFontWeightNameOutput) ToDashboardFontWeightNamePtrOutputWithCon
 	}).(DashboardFontWeightNamePtrOutput)
 }
 
-func (o DashboardFontWeightNameOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardFontWeightName] {
-	return pulumix.Output[DashboardFontWeightName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFontWeightNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -26607,12 +24310,6 @@ func (o DashboardFontWeightNamePtrOutput) ToDashboardFontWeightNamePtrOutputWith
 	return o
 }
 
-func (o DashboardFontWeightNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardFontWeightName] {
-	return pulumix.Output[*DashboardFontWeightName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFontWeightNamePtrOutput) Elem() DashboardFontWeightNameOutput {
 	return o.ApplyT(func(v *DashboardFontWeightName) DashboardFontWeightName {
 		if v != nil {
@@ -26637,10 +24334,11 @@ func (o DashboardFontWeightNamePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardFontWeightNameInput is an input type that accepts DashboardFontWeightNameArgs and DashboardFontWeightNameOutput values.
-// You can construct a concrete instance of `DashboardFontWeightNameInput` via:
+// DashboardFontWeightNameInput is an input type that accepts values of the DashboardFontWeightName enum
+// A concrete instance of `DashboardFontWeightNameInput` can be one of the following:
 //
-//	DashboardFontWeightNameArgs{...}
+//	DashboardFontWeightNameNormal
+//	DashboardFontWeightNameBold
 type DashboardFontWeightNameInput interface {
 	pulumi.Input
 
@@ -26673,12 +24371,6 @@ func (in *dashboardFontWeightNamePtr) ToDashboardFontWeightNamePtrOutput() Dashb
 
 func (in *dashboardFontWeightNamePtr) ToDashboardFontWeightNamePtrOutputWithContext(ctx context.Context) DashboardFontWeightNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardFontWeightNamePtrOutput)
-}
-
-func (in *dashboardFontWeightNamePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardFontWeightName] {
-	return pulumix.Output[*DashboardFontWeightName]{
-		OutputState: in.ToDashboardFontWeightNamePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardForecastComputationSeasonality string
@@ -26748,12 +24440,6 @@ func (o DashboardForecastComputationSeasonalityOutput) ToDashboardForecastComput
 	}).(DashboardForecastComputationSeasonalityPtrOutput)
 }
 
-func (o DashboardForecastComputationSeasonalityOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardForecastComputationSeasonality] {
-	return pulumix.Output[DashboardForecastComputationSeasonality]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardForecastComputationSeasonalityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -26789,12 +24475,6 @@ func (o DashboardForecastComputationSeasonalityPtrOutput) ToDashboardForecastCom
 	return o
 }
 
-func (o DashboardForecastComputationSeasonalityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardForecastComputationSeasonality] {
-	return pulumix.Output[*DashboardForecastComputationSeasonality]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardForecastComputationSeasonalityPtrOutput) Elem() DashboardForecastComputationSeasonalityOutput {
 	return o.ApplyT(func(v *DashboardForecastComputationSeasonality) DashboardForecastComputationSeasonality {
 		if v != nil {
@@ -26819,10 +24499,11 @@ func (o DashboardForecastComputationSeasonalityPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardForecastComputationSeasonalityInput is an input type that accepts DashboardForecastComputationSeasonalityArgs and DashboardForecastComputationSeasonalityOutput values.
-// You can construct a concrete instance of `DashboardForecastComputationSeasonalityInput` via:
+// DashboardForecastComputationSeasonalityInput is an input type that accepts values of the DashboardForecastComputationSeasonality enum
+// A concrete instance of `DashboardForecastComputationSeasonalityInput` can be one of the following:
 //
-//	DashboardForecastComputationSeasonalityArgs{...}
+//	DashboardForecastComputationSeasonalityAutomatic
+//	DashboardForecastComputationSeasonalityCustom
 type DashboardForecastComputationSeasonalityInput interface {
 	pulumi.Input
 
@@ -26855,12 +24536,6 @@ func (in *dashboardForecastComputationSeasonalityPtr) ToDashboardForecastComputa
 
 func (in *dashboardForecastComputationSeasonalityPtr) ToDashboardForecastComputationSeasonalityPtrOutputWithContext(ctx context.Context) DashboardForecastComputationSeasonalityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardForecastComputationSeasonalityPtrOutput)
-}
-
-func (in *dashboardForecastComputationSeasonalityPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardForecastComputationSeasonality] {
-	return pulumix.Output[*DashboardForecastComputationSeasonality]{
-		OutputState: in.ToDashboardForecastComputationSeasonalityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardFunnelChartMeasureDataLabelStyle string
@@ -26933,12 +24608,6 @@ func (o DashboardFunnelChartMeasureDataLabelStyleOutput) ToDashboardFunnelChartM
 	}).(DashboardFunnelChartMeasureDataLabelStylePtrOutput)
 }
 
-func (o DashboardFunnelChartMeasureDataLabelStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[DashboardFunnelChartMeasureDataLabelStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFunnelChartMeasureDataLabelStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -26974,12 +24643,6 @@ func (o DashboardFunnelChartMeasureDataLabelStylePtrOutput) ToDashboardFunnelCha
 	return o
 }
 
-func (o DashboardFunnelChartMeasureDataLabelStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[*DashboardFunnelChartMeasureDataLabelStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFunnelChartMeasureDataLabelStylePtrOutput) Elem() DashboardFunnelChartMeasureDataLabelStyleOutput {
 	return o.ApplyT(func(v *DashboardFunnelChartMeasureDataLabelStyle) DashboardFunnelChartMeasureDataLabelStyle {
 		if v != nil {
@@ -27004,10 +24667,14 @@ func (o DashboardFunnelChartMeasureDataLabelStylePtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardFunnelChartMeasureDataLabelStyleInput is an input type that accepts DashboardFunnelChartMeasureDataLabelStyleArgs and DashboardFunnelChartMeasureDataLabelStyleOutput values.
-// You can construct a concrete instance of `DashboardFunnelChartMeasureDataLabelStyleInput` via:
+// DashboardFunnelChartMeasureDataLabelStyleInput is an input type that accepts values of the DashboardFunnelChartMeasureDataLabelStyle enum
+// A concrete instance of `DashboardFunnelChartMeasureDataLabelStyleInput` can be one of the following:
 //
-//	DashboardFunnelChartMeasureDataLabelStyleArgs{...}
+//	DashboardFunnelChartMeasureDataLabelStyleValueOnly
+//	DashboardFunnelChartMeasureDataLabelStylePercentageByFirstStage
+//	DashboardFunnelChartMeasureDataLabelStylePercentageByPreviousStage
+//	DashboardFunnelChartMeasureDataLabelStyleValueAndPercentageByFirstStage
+//	DashboardFunnelChartMeasureDataLabelStyleValueAndPercentageByPreviousStage
 type DashboardFunnelChartMeasureDataLabelStyleInput interface {
 	pulumi.Input
 
@@ -27040,12 +24707,6 @@ func (in *dashboardFunnelChartMeasureDataLabelStylePtr) ToDashboardFunnelChartMe
 
 func (in *dashboardFunnelChartMeasureDataLabelStylePtr) ToDashboardFunnelChartMeasureDataLabelStylePtrOutputWithContext(ctx context.Context) DashboardFunnelChartMeasureDataLabelStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardFunnelChartMeasureDataLabelStylePtrOutput)
-}
-
-func (in *dashboardFunnelChartMeasureDataLabelStylePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[*DashboardFunnelChartMeasureDataLabelStyle]{
-		OutputState: in.ToDashboardFunnelChartMeasureDataLabelStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardGeospatialSelectedPointStyle string
@@ -27116,12 +24777,6 @@ func (o DashboardGeospatialSelectedPointStyleOutput) ToDashboardGeospatialSelect
 	}).(DashboardGeospatialSelectedPointStylePtrOutput)
 }
 
-func (o DashboardGeospatialSelectedPointStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardGeospatialSelectedPointStyle] {
-	return pulumix.Output[DashboardGeospatialSelectedPointStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardGeospatialSelectedPointStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -27157,12 +24812,6 @@ func (o DashboardGeospatialSelectedPointStylePtrOutput) ToDashboardGeospatialSel
 	return o
 }
 
-func (o DashboardGeospatialSelectedPointStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardGeospatialSelectedPointStyle] {
-	return pulumix.Output[*DashboardGeospatialSelectedPointStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardGeospatialSelectedPointStylePtrOutput) Elem() DashboardGeospatialSelectedPointStyleOutput {
 	return o.ApplyT(func(v *DashboardGeospatialSelectedPointStyle) DashboardGeospatialSelectedPointStyle {
 		if v != nil {
@@ -27187,10 +24836,12 @@ func (o DashboardGeospatialSelectedPointStylePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardGeospatialSelectedPointStyleInput is an input type that accepts DashboardGeospatialSelectedPointStyleArgs and DashboardGeospatialSelectedPointStyleOutput values.
-// You can construct a concrete instance of `DashboardGeospatialSelectedPointStyleInput` via:
+// DashboardGeospatialSelectedPointStyleInput is an input type that accepts values of the DashboardGeospatialSelectedPointStyle enum
+// A concrete instance of `DashboardGeospatialSelectedPointStyleInput` can be one of the following:
 //
-//	DashboardGeospatialSelectedPointStyleArgs{...}
+//	DashboardGeospatialSelectedPointStylePoint
+//	DashboardGeospatialSelectedPointStyleCluster
+//	DashboardGeospatialSelectedPointStyleHeatmap
 type DashboardGeospatialSelectedPointStyleInput interface {
 	pulumi.Input
 
@@ -27223,12 +24874,6 @@ func (in *dashboardGeospatialSelectedPointStylePtr) ToDashboardGeospatialSelecte
 
 func (in *dashboardGeospatialSelectedPointStylePtr) ToDashboardGeospatialSelectedPointStylePtrOutputWithContext(ctx context.Context) DashboardGeospatialSelectedPointStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardGeospatialSelectedPointStylePtrOutput)
-}
-
-func (in *dashboardGeospatialSelectedPointStylePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardGeospatialSelectedPointStyle] {
-	return pulumix.Output[*DashboardGeospatialSelectedPointStyle]{
-		OutputState: in.ToDashboardGeospatialSelectedPointStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardHistogramBinType string
@@ -27298,12 +24943,6 @@ func (o DashboardHistogramBinTypeOutput) ToDashboardHistogramBinTypePtrOutputWit
 	}).(DashboardHistogramBinTypePtrOutput)
 }
 
-func (o DashboardHistogramBinTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardHistogramBinType] {
-	return pulumix.Output[DashboardHistogramBinType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardHistogramBinTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -27339,12 +24978,6 @@ func (o DashboardHistogramBinTypePtrOutput) ToDashboardHistogramBinTypePtrOutput
 	return o
 }
 
-func (o DashboardHistogramBinTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardHistogramBinType] {
-	return pulumix.Output[*DashboardHistogramBinType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardHistogramBinTypePtrOutput) Elem() DashboardHistogramBinTypeOutput {
 	return o.ApplyT(func(v *DashboardHistogramBinType) DashboardHistogramBinType {
 		if v != nil {
@@ -27369,10 +25002,11 @@ func (o DashboardHistogramBinTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardHistogramBinTypeInput is an input type that accepts DashboardHistogramBinTypeArgs and DashboardHistogramBinTypeOutput values.
-// You can construct a concrete instance of `DashboardHistogramBinTypeInput` via:
+// DashboardHistogramBinTypeInput is an input type that accepts values of the DashboardHistogramBinType enum
+// A concrete instance of `DashboardHistogramBinTypeInput` can be one of the following:
 //
-//	DashboardHistogramBinTypeArgs{...}
+//	DashboardHistogramBinTypeBinCount
+//	DashboardHistogramBinTypeBinWidth
 type DashboardHistogramBinTypeInput interface {
 	pulumi.Input
 
@@ -27405,12 +25039,6 @@ func (in *dashboardHistogramBinTypePtr) ToDashboardHistogramBinTypePtrOutput() D
 
 func (in *dashboardHistogramBinTypePtr) ToDashboardHistogramBinTypePtrOutputWithContext(ctx context.Context) DashboardHistogramBinTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardHistogramBinTypePtrOutput)
-}
-
-func (in *dashboardHistogramBinTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardHistogramBinType] {
-	return pulumix.Output[*DashboardHistogramBinType]{
-		OutputState: in.ToDashboardHistogramBinTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardHorizontalTextAlignment string
@@ -27482,12 +25110,6 @@ func (o DashboardHorizontalTextAlignmentOutput) ToDashboardHorizontalTextAlignme
 	}).(DashboardHorizontalTextAlignmentPtrOutput)
 }
 
-func (o DashboardHorizontalTextAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardHorizontalTextAlignment] {
-	return pulumix.Output[DashboardHorizontalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardHorizontalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -27523,12 +25145,6 @@ func (o DashboardHorizontalTextAlignmentPtrOutput) ToDashboardHorizontalTextAlig
 	return o
 }
 
-func (o DashboardHorizontalTextAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardHorizontalTextAlignment] {
-	return pulumix.Output[*DashboardHorizontalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardHorizontalTextAlignmentPtrOutput) Elem() DashboardHorizontalTextAlignmentOutput {
 	return o.ApplyT(func(v *DashboardHorizontalTextAlignment) DashboardHorizontalTextAlignment {
 		if v != nil {
@@ -27553,10 +25169,13 @@ func (o DashboardHorizontalTextAlignmentPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardHorizontalTextAlignmentInput is an input type that accepts DashboardHorizontalTextAlignmentArgs and DashboardHorizontalTextAlignmentOutput values.
-// You can construct a concrete instance of `DashboardHorizontalTextAlignmentInput` via:
+// DashboardHorizontalTextAlignmentInput is an input type that accepts values of the DashboardHorizontalTextAlignment enum
+// A concrete instance of `DashboardHorizontalTextAlignmentInput` can be one of the following:
 //
-//	DashboardHorizontalTextAlignmentArgs{...}
+//	DashboardHorizontalTextAlignmentLeft
+//	DashboardHorizontalTextAlignmentCenter
+//	DashboardHorizontalTextAlignmentRight
+//	DashboardHorizontalTextAlignmentAuto
 type DashboardHorizontalTextAlignmentInput interface {
 	pulumi.Input
 
@@ -27589,12 +25208,6 @@ func (in *dashboardHorizontalTextAlignmentPtr) ToDashboardHorizontalTextAlignmen
 
 func (in *dashboardHorizontalTextAlignmentPtr) ToDashboardHorizontalTextAlignmentPtrOutputWithContext(ctx context.Context) DashboardHorizontalTextAlignmentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardHorizontalTextAlignmentPtrOutput)
-}
-
-func (in *dashboardHorizontalTextAlignmentPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardHorizontalTextAlignment] {
-	return pulumix.Output[*DashboardHorizontalTextAlignment]{
-		OutputState: in.ToDashboardHorizontalTextAlignmentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardIcon string
@@ -27688,12 +25301,6 @@ func (o DashboardIconOutput) ToDashboardIconPtrOutputWithContext(ctx context.Con
 	}).(DashboardIconPtrOutput)
 }
 
-func (o DashboardIconOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardIcon] {
-	return pulumix.Output[DashboardIcon]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardIconOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -27729,12 +25336,6 @@ func (o DashboardIconPtrOutput) ToDashboardIconPtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o DashboardIconPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardIcon] {
-	return pulumix.Output[*DashboardIcon]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardIconPtrOutput) Elem() DashboardIconOutput {
 	return o.ApplyT(func(v *DashboardIcon) DashboardIcon {
 		if v != nil {
@@ -27759,10 +25360,35 @@ func (o DashboardIconPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardIconInput is an input type that accepts DashboardIconArgs and DashboardIconOutput values.
-// You can construct a concrete instance of `DashboardIconInput` via:
+// DashboardIconInput is an input type that accepts values of the DashboardIcon enum
+// A concrete instance of `DashboardIconInput` can be one of the following:
 //
-//	DashboardIconArgs{...}
+//	DashboardIconCaretUp
+//	DashboardIconCaretDown
+//	DashboardIconPlus
+//	DashboardIconMinus
+//	DashboardIconArrowUp
+//	DashboardIconArrowDown
+//	DashboardIconArrowLeft
+//	DashboardIconArrowUpLeft
+//	DashboardIconArrowDownLeft
+//	DashboardIconArrowRight
+//	DashboardIconArrowUpRight
+//	DashboardIconArrowDownRight
+//	DashboardIconFaceUp
+//	DashboardIconFaceDown
+//	DashboardIconFaceFlat
+//	DashboardIconOneBar
+//	DashboardIconTwoBar
+//	DashboardIconThreeBar
+//	DashboardIconCircle
+//	DashboardIconTriangle
+//	DashboardIconSquare
+//	DashboardIconFlag
+//	DashboardIconThumbsUp
+//	DashboardIconThumbsDown
+//	DashboardIconCheckmark
+//	DashboardIconX
 type DashboardIconInput interface {
 	pulumi.Input
 
@@ -27795,12 +25421,6 @@ func (in *dashboardIconPtr) ToDashboardIconPtrOutput() DashboardIconPtrOutput {
 
 func (in *dashboardIconPtr) ToDashboardIconPtrOutputWithContext(ctx context.Context) DashboardIconPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardIconPtrOutput)
-}
-
-func (in *dashboardIconPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardIcon] {
-	return pulumix.Output[*DashboardIcon]{
-		OutputState: in.ToDashboardIconPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardKpiSparklineType string
@@ -27870,12 +25490,6 @@ func (o DashboardKpiSparklineTypeOutput) ToDashboardKpiSparklineTypePtrOutputWit
 	}).(DashboardKpiSparklineTypePtrOutput)
 }
 
-func (o DashboardKpiSparklineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardKpiSparklineType] {
-	return pulumix.Output[DashboardKpiSparklineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardKpiSparklineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -27911,12 +25525,6 @@ func (o DashboardKpiSparklineTypePtrOutput) ToDashboardKpiSparklineTypePtrOutput
 	return o
 }
 
-func (o DashboardKpiSparklineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardKpiSparklineType] {
-	return pulumix.Output[*DashboardKpiSparklineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardKpiSparklineTypePtrOutput) Elem() DashboardKpiSparklineTypeOutput {
 	return o.ApplyT(func(v *DashboardKpiSparklineType) DashboardKpiSparklineType {
 		if v != nil {
@@ -27941,10 +25549,11 @@ func (o DashboardKpiSparklineTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardKpiSparklineTypeInput is an input type that accepts DashboardKpiSparklineTypeArgs and DashboardKpiSparklineTypeOutput values.
-// You can construct a concrete instance of `DashboardKpiSparklineTypeInput` via:
+// DashboardKpiSparklineTypeInput is an input type that accepts values of the DashboardKpiSparklineType enum
+// A concrete instance of `DashboardKpiSparklineTypeInput` can be one of the following:
 //
-//	DashboardKpiSparklineTypeArgs{...}
+//	DashboardKpiSparklineTypeLine
+//	DashboardKpiSparklineTypeArea
 type DashboardKpiSparklineTypeInput interface {
 	pulumi.Input
 
@@ -27977,12 +25586,6 @@ func (in *dashboardKpiSparklineTypePtr) ToDashboardKpiSparklineTypePtrOutput() D
 
 func (in *dashboardKpiSparklineTypePtr) ToDashboardKpiSparklineTypePtrOutputWithContext(ctx context.Context) DashboardKpiSparklineTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardKpiSparklineTypePtrOutput)
-}
-
-func (in *dashboardKpiSparklineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardKpiSparklineType] {
-	return pulumix.Output[*DashboardKpiSparklineType]{
-		OutputState: in.ToDashboardKpiSparklineTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardKpiVisualStandardLayoutType string
@@ -28052,12 +25655,6 @@ func (o DashboardKpiVisualStandardLayoutTypeOutput) ToDashboardKpiVisualStandard
 	}).(DashboardKpiVisualStandardLayoutTypePtrOutput)
 }
 
-func (o DashboardKpiVisualStandardLayoutTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardKpiVisualStandardLayoutType] {
-	return pulumix.Output[DashboardKpiVisualStandardLayoutType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardKpiVisualStandardLayoutTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -28093,12 +25690,6 @@ func (o DashboardKpiVisualStandardLayoutTypePtrOutput) ToDashboardKpiVisualStand
 	return o
 }
 
-func (o DashboardKpiVisualStandardLayoutTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardKpiVisualStandardLayoutType] {
-	return pulumix.Output[*DashboardKpiVisualStandardLayoutType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardKpiVisualStandardLayoutTypePtrOutput) Elem() DashboardKpiVisualStandardLayoutTypeOutput {
 	return o.ApplyT(func(v *DashboardKpiVisualStandardLayoutType) DashboardKpiVisualStandardLayoutType {
 		if v != nil {
@@ -28123,10 +25714,11 @@ func (o DashboardKpiVisualStandardLayoutTypePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardKpiVisualStandardLayoutTypeInput is an input type that accepts DashboardKpiVisualStandardLayoutTypeArgs and DashboardKpiVisualStandardLayoutTypeOutput values.
-// You can construct a concrete instance of `DashboardKpiVisualStandardLayoutTypeInput` via:
+// DashboardKpiVisualStandardLayoutTypeInput is an input type that accepts values of the DashboardKpiVisualStandardLayoutType enum
+// A concrete instance of `DashboardKpiVisualStandardLayoutTypeInput` can be one of the following:
 //
-//	DashboardKpiVisualStandardLayoutTypeArgs{...}
+//	DashboardKpiVisualStandardLayoutTypeClassic
+//	DashboardKpiVisualStandardLayoutTypeVertical
 type DashboardKpiVisualStandardLayoutTypeInput interface {
 	pulumi.Input
 
@@ -28159,12 +25751,6 @@ func (in *dashboardKpiVisualStandardLayoutTypePtr) ToDashboardKpiVisualStandardL
 
 func (in *dashboardKpiVisualStandardLayoutTypePtr) ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) DashboardKpiVisualStandardLayoutTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardKpiVisualStandardLayoutTypePtrOutput)
-}
-
-func (in *dashboardKpiVisualStandardLayoutTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardKpiVisualStandardLayoutType] {
-	return pulumix.Output[*DashboardKpiVisualStandardLayoutType]{
-		OutputState: in.ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardLayoutElementType string
@@ -28236,12 +25822,6 @@ func (o DashboardLayoutElementTypeOutput) ToDashboardLayoutElementTypePtrOutputW
 	}).(DashboardLayoutElementTypePtrOutput)
 }
 
-func (o DashboardLayoutElementTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardLayoutElementType] {
-	return pulumix.Output[DashboardLayoutElementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLayoutElementTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -28277,12 +25857,6 @@ func (o DashboardLayoutElementTypePtrOutput) ToDashboardLayoutElementTypePtrOutp
 	return o
 }
 
-func (o DashboardLayoutElementTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardLayoutElementType] {
-	return pulumix.Output[*DashboardLayoutElementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLayoutElementTypePtrOutput) Elem() DashboardLayoutElementTypeOutput {
 	return o.ApplyT(func(v *DashboardLayoutElementType) DashboardLayoutElementType {
 		if v != nil {
@@ -28307,10 +25881,13 @@ func (o DashboardLayoutElementTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardLayoutElementTypeInput is an input type that accepts DashboardLayoutElementTypeArgs and DashboardLayoutElementTypeOutput values.
-// You can construct a concrete instance of `DashboardLayoutElementTypeInput` via:
+// DashboardLayoutElementTypeInput is an input type that accepts values of the DashboardLayoutElementType enum
+// A concrete instance of `DashboardLayoutElementTypeInput` can be one of the following:
 //
-//	DashboardLayoutElementTypeArgs{...}
+//	DashboardLayoutElementTypeVisual
+//	DashboardLayoutElementTypeFilterControl
+//	DashboardLayoutElementTypeParameterControl
+//	DashboardLayoutElementTypeTextBox
 type DashboardLayoutElementTypeInput interface {
 	pulumi.Input
 
@@ -28343,12 +25920,6 @@ func (in *dashboardLayoutElementTypePtr) ToDashboardLayoutElementTypePtrOutput()
 
 func (in *dashboardLayoutElementTypePtr) ToDashboardLayoutElementTypePtrOutputWithContext(ctx context.Context) DashboardLayoutElementTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardLayoutElementTypePtrOutput)
-}
-
-func (in *dashboardLayoutElementTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardLayoutElementType] {
-	return pulumix.Output[*DashboardLayoutElementType]{
-		OutputState: in.ToDashboardLayoutElementTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardLegendPosition string
@@ -28420,12 +25991,6 @@ func (o DashboardLegendPositionOutput) ToDashboardLegendPositionPtrOutputWithCon
 	}).(DashboardLegendPositionPtrOutput)
 }
 
-func (o DashboardLegendPositionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardLegendPosition] {
-	return pulumix.Output[DashboardLegendPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLegendPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -28461,12 +26026,6 @@ func (o DashboardLegendPositionPtrOutput) ToDashboardLegendPositionPtrOutputWith
 	return o
 }
 
-func (o DashboardLegendPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardLegendPosition] {
-	return pulumix.Output[*DashboardLegendPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLegendPositionPtrOutput) Elem() DashboardLegendPositionOutput {
 	return o.ApplyT(func(v *DashboardLegendPosition) DashboardLegendPosition {
 		if v != nil {
@@ -28491,10 +26050,13 @@ func (o DashboardLegendPositionPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardLegendPositionInput is an input type that accepts DashboardLegendPositionArgs and DashboardLegendPositionOutput values.
-// You can construct a concrete instance of `DashboardLegendPositionInput` via:
+// DashboardLegendPositionInput is an input type that accepts values of the DashboardLegendPosition enum
+// A concrete instance of `DashboardLegendPositionInput` can be one of the following:
 //
-//	DashboardLegendPositionArgs{...}
+//	DashboardLegendPositionAuto
+//	DashboardLegendPositionRight
+//	DashboardLegendPositionBottom
+//	DashboardLegendPositionTop
 type DashboardLegendPositionInput interface {
 	pulumi.Input
 
@@ -28527,12 +26089,6 @@ func (in *dashboardLegendPositionPtr) ToDashboardLegendPositionPtrOutput() Dashb
 
 func (in *dashboardLegendPositionPtr) ToDashboardLegendPositionPtrOutputWithContext(ctx context.Context) DashboardLegendPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardLegendPositionPtrOutput)
-}
-
-func (in *dashboardLegendPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardLegendPosition] {
-	return pulumix.Output[*DashboardLegendPosition]{
-		OutputState: in.ToDashboardLegendPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardLineChartLineStyle string
@@ -28603,12 +26159,6 @@ func (o DashboardLineChartLineStyleOutput) ToDashboardLineChartLineStylePtrOutpu
 	}).(DashboardLineChartLineStylePtrOutput)
 }
 
-func (o DashboardLineChartLineStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardLineChartLineStyle] {
-	return pulumix.Output[DashboardLineChartLineStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLineChartLineStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -28644,12 +26194,6 @@ func (o DashboardLineChartLineStylePtrOutput) ToDashboardLineChartLineStylePtrOu
 	return o
 }
 
-func (o DashboardLineChartLineStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardLineChartLineStyle] {
-	return pulumix.Output[*DashboardLineChartLineStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLineChartLineStylePtrOutput) Elem() DashboardLineChartLineStyleOutput {
 	return o.ApplyT(func(v *DashboardLineChartLineStyle) DashboardLineChartLineStyle {
 		if v != nil {
@@ -28674,10 +26218,12 @@ func (o DashboardLineChartLineStylePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardLineChartLineStyleInput is an input type that accepts DashboardLineChartLineStyleArgs and DashboardLineChartLineStyleOutput values.
-// You can construct a concrete instance of `DashboardLineChartLineStyleInput` via:
+// DashboardLineChartLineStyleInput is an input type that accepts values of the DashboardLineChartLineStyle enum
+// A concrete instance of `DashboardLineChartLineStyleInput` can be one of the following:
 //
-//	DashboardLineChartLineStyleArgs{...}
+//	DashboardLineChartLineStyleSolid
+//	DashboardLineChartLineStyleDotted
+//	DashboardLineChartLineStyleDashed
 type DashboardLineChartLineStyleInput interface {
 	pulumi.Input
 
@@ -28710,12 +26256,6 @@ func (in *dashboardLineChartLineStylePtr) ToDashboardLineChartLineStylePtrOutput
 
 func (in *dashboardLineChartLineStylePtr) ToDashboardLineChartLineStylePtrOutputWithContext(ctx context.Context) DashboardLineChartLineStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardLineChartLineStylePtrOutput)
-}
-
-func (in *dashboardLineChartLineStylePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardLineChartLineStyle] {
-	return pulumix.Output[*DashboardLineChartLineStyle]{
-		OutputState: in.ToDashboardLineChartLineStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardLineChartMarkerShape string
@@ -28788,12 +26328,6 @@ func (o DashboardLineChartMarkerShapeOutput) ToDashboardLineChartMarkerShapePtrO
 	}).(DashboardLineChartMarkerShapePtrOutput)
 }
 
-func (o DashboardLineChartMarkerShapeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardLineChartMarkerShape] {
-	return pulumix.Output[DashboardLineChartMarkerShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLineChartMarkerShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -28829,12 +26363,6 @@ func (o DashboardLineChartMarkerShapePtrOutput) ToDashboardLineChartMarkerShapeP
 	return o
 }
 
-func (o DashboardLineChartMarkerShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardLineChartMarkerShape] {
-	return pulumix.Output[*DashboardLineChartMarkerShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLineChartMarkerShapePtrOutput) Elem() DashboardLineChartMarkerShapeOutput {
 	return o.ApplyT(func(v *DashboardLineChartMarkerShape) DashboardLineChartMarkerShape {
 		if v != nil {
@@ -28859,10 +26387,14 @@ func (o DashboardLineChartMarkerShapePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardLineChartMarkerShapeInput is an input type that accepts DashboardLineChartMarkerShapeArgs and DashboardLineChartMarkerShapeOutput values.
-// You can construct a concrete instance of `DashboardLineChartMarkerShapeInput` via:
+// DashboardLineChartMarkerShapeInput is an input type that accepts values of the DashboardLineChartMarkerShape enum
+// A concrete instance of `DashboardLineChartMarkerShapeInput` can be one of the following:
 //
-//	DashboardLineChartMarkerShapeArgs{...}
+//	DashboardLineChartMarkerShapeCircle
+//	DashboardLineChartMarkerShapeTriangle
+//	DashboardLineChartMarkerShapeSquare
+//	DashboardLineChartMarkerShapeDiamond
+//	DashboardLineChartMarkerShapeRoundedSquare
 type DashboardLineChartMarkerShapeInput interface {
 	pulumi.Input
 
@@ -28895,12 +26427,6 @@ func (in *dashboardLineChartMarkerShapePtr) ToDashboardLineChartMarkerShapePtrOu
 
 func (in *dashboardLineChartMarkerShapePtr) ToDashboardLineChartMarkerShapePtrOutputWithContext(ctx context.Context) DashboardLineChartMarkerShapePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardLineChartMarkerShapePtrOutput)
-}
-
-func (in *dashboardLineChartMarkerShapePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardLineChartMarkerShape] {
-	return pulumix.Output[*DashboardLineChartMarkerShape]{
-		OutputState: in.ToDashboardLineChartMarkerShapePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardLineChartType string
@@ -28971,12 +26497,6 @@ func (o DashboardLineChartTypeOutput) ToDashboardLineChartTypePtrOutputWithConte
 	}).(DashboardLineChartTypePtrOutput)
 }
 
-func (o DashboardLineChartTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardLineChartType] {
-	return pulumix.Output[DashboardLineChartType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLineChartTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -29012,12 +26532,6 @@ func (o DashboardLineChartTypePtrOutput) ToDashboardLineChartTypePtrOutputWithCo
 	return o
 }
 
-func (o DashboardLineChartTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardLineChartType] {
-	return pulumix.Output[*DashboardLineChartType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLineChartTypePtrOutput) Elem() DashboardLineChartTypeOutput {
 	return o.ApplyT(func(v *DashboardLineChartType) DashboardLineChartType {
 		if v != nil {
@@ -29042,10 +26556,12 @@ func (o DashboardLineChartTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardLineChartTypeInput is an input type that accepts DashboardLineChartTypeArgs and DashboardLineChartTypeOutput values.
-// You can construct a concrete instance of `DashboardLineChartTypeInput` via:
+// DashboardLineChartTypeInput is an input type that accepts values of the DashboardLineChartType enum
+// A concrete instance of `DashboardLineChartTypeInput` can be one of the following:
 //
-//	DashboardLineChartTypeArgs{...}
+//	DashboardLineChartTypeLine
+//	DashboardLineChartTypeArea
+//	DashboardLineChartTypeStackedArea
 type DashboardLineChartTypeInput interface {
 	pulumi.Input
 
@@ -29078,12 +26594,6 @@ func (in *dashboardLineChartTypePtr) ToDashboardLineChartTypePtrOutput() Dashboa
 
 func (in *dashboardLineChartTypePtr) ToDashboardLineChartTypePtrOutputWithContext(ctx context.Context) DashboardLineChartTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardLineChartTypePtrOutput)
-}
-
-func (in *dashboardLineChartTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardLineChartType] {
-	return pulumix.Output[*DashboardLineChartType]{
-		OutputState: in.ToDashboardLineChartTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardLineInterpolation string
@@ -29154,12 +26664,6 @@ func (o DashboardLineInterpolationOutput) ToDashboardLineInterpolationPtrOutputW
 	}).(DashboardLineInterpolationPtrOutput)
 }
 
-func (o DashboardLineInterpolationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardLineInterpolation] {
-	return pulumix.Output[DashboardLineInterpolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLineInterpolationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -29195,12 +26699,6 @@ func (o DashboardLineInterpolationPtrOutput) ToDashboardLineInterpolationPtrOutp
 	return o
 }
 
-func (o DashboardLineInterpolationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardLineInterpolation] {
-	return pulumix.Output[*DashboardLineInterpolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLineInterpolationPtrOutput) Elem() DashboardLineInterpolationOutput {
 	return o.ApplyT(func(v *DashboardLineInterpolation) DashboardLineInterpolation {
 		if v != nil {
@@ -29225,10 +26723,12 @@ func (o DashboardLineInterpolationPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardLineInterpolationInput is an input type that accepts DashboardLineInterpolationArgs and DashboardLineInterpolationOutput values.
-// You can construct a concrete instance of `DashboardLineInterpolationInput` via:
+// DashboardLineInterpolationInput is an input type that accepts values of the DashboardLineInterpolation enum
+// A concrete instance of `DashboardLineInterpolationInput` can be one of the following:
 //
-//	DashboardLineInterpolationArgs{...}
+//	DashboardLineInterpolationLinear
+//	DashboardLineInterpolationSmooth
+//	DashboardLineInterpolationStepped
 type DashboardLineInterpolationInput interface {
 	pulumi.Input
 
@@ -29261,12 +26761,6 @@ func (in *dashboardLineInterpolationPtr) ToDashboardLineInterpolationPtrOutput()
 
 func (in *dashboardLineInterpolationPtr) ToDashboardLineInterpolationPtrOutputWithContext(ctx context.Context) DashboardLineInterpolationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardLineInterpolationPtrOutput)
-}
-
-func (in *dashboardLineInterpolationPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardLineInterpolation] {
-	return pulumix.Output[*DashboardLineInterpolation]{
-		OutputState: in.ToDashboardLineInterpolationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardMapZoomMode string
@@ -29336,12 +26830,6 @@ func (o DashboardMapZoomModeOutput) ToDashboardMapZoomModePtrOutputWithContext(c
 	}).(DashboardMapZoomModePtrOutput)
 }
 
-func (o DashboardMapZoomModeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardMapZoomMode] {
-	return pulumix.Output[DashboardMapZoomMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardMapZoomModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -29377,12 +26865,6 @@ func (o DashboardMapZoomModePtrOutput) ToDashboardMapZoomModePtrOutputWithContex
 	return o
 }
 
-func (o DashboardMapZoomModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardMapZoomMode] {
-	return pulumix.Output[*DashboardMapZoomMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardMapZoomModePtrOutput) Elem() DashboardMapZoomModeOutput {
 	return o.ApplyT(func(v *DashboardMapZoomMode) DashboardMapZoomMode {
 		if v != nil {
@@ -29407,10 +26889,11 @@ func (o DashboardMapZoomModePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardMapZoomModeInput is an input type that accepts DashboardMapZoomModeArgs and DashboardMapZoomModeOutput values.
-// You can construct a concrete instance of `DashboardMapZoomModeInput` via:
+// DashboardMapZoomModeInput is an input type that accepts values of the DashboardMapZoomMode enum
+// A concrete instance of `DashboardMapZoomModeInput` can be one of the following:
 //
-//	DashboardMapZoomModeArgs{...}
+//	DashboardMapZoomModeAuto
+//	DashboardMapZoomModeManual
 type DashboardMapZoomModeInput interface {
 	pulumi.Input
 
@@ -29443,12 +26926,6 @@ func (in *dashboardMapZoomModePtr) ToDashboardMapZoomModePtrOutput() DashboardMa
 
 func (in *dashboardMapZoomModePtr) ToDashboardMapZoomModePtrOutputWithContext(ctx context.Context) DashboardMapZoomModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardMapZoomModePtrOutput)
-}
-
-func (in *dashboardMapZoomModePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardMapZoomMode] {
-	return pulumix.Output[*DashboardMapZoomMode]{
-		OutputState: in.ToDashboardMapZoomModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardMaximumMinimumComputationType string
@@ -29518,12 +26995,6 @@ func (o DashboardMaximumMinimumComputationTypeOutput) ToDashboardMaximumMinimumC
 	}).(DashboardMaximumMinimumComputationTypePtrOutput)
 }
 
-func (o DashboardMaximumMinimumComputationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardMaximumMinimumComputationType] {
-	return pulumix.Output[DashboardMaximumMinimumComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardMaximumMinimumComputationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -29559,12 +27030,6 @@ func (o DashboardMaximumMinimumComputationTypePtrOutput) ToDashboardMaximumMinim
 	return o
 }
 
-func (o DashboardMaximumMinimumComputationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardMaximumMinimumComputationType] {
-	return pulumix.Output[*DashboardMaximumMinimumComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardMaximumMinimumComputationTypePtrOutput) Elem() DashboardMaximumMinimumComputationTypeOutput {
 	return o.ApplyT(func(v *DashboardMaximumMinimumComputationType) DashboardMaximumMinimumComputationType {
 		if v != nil {
@@ -29589,10 +27054,11 @@ func (o DashboardMaximumMinimumComputationTypePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardMaximumMinimumComputationTypeInput is an input type that accepts DashboardMaximumMinimumComputationTypeArgs and DashboardMaximumMinimumComputationTypeOutput values.
-// You can construct a concrete instance of `DashboardMaximumMinimumComputationTypeInput` via:
+// DashboardMaximumMinimumComputationTypeInput is an input type that accepts values of the DashboardMaximumMinimumComputationType enum
+// A concrete instance of `DashboardMaximumMinimumComputationTypeInput` can be one of the following:
 //
-//	DashboardMaximumMinimumComputationTypeArgs{...}
+//	DashboardMaximumMinimumComputationTypeMaximum
+//	DashboardMaximumMinimumComputationTypeMinimum
 type DashboardMaximumMinimumComputationTypeInput interface {
 	pulumi.Input
 
@@ -29625,12 +27091,6 @@ func (in *dashboardMaximumMinimumComputationTypePtr) ToDashboardMaximumMinimumCo
 
 func (in *dashboardMaximumMinimumComputationTypePtr) ToDashboardMaximumMinimumComputationTypePtrOutputWithContext(ctx context.Context) DashboardMaximumMinimumComputationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardMaximumMinimumComputationTypePtrOutput)
-}
-
-func (in *dashboardMaximumMinimumComputationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardMaximumMinimumComputationType] {
-	return pulumix.Output[*DashboardMaximumMinimumComputationType]{
-		OutputState: in.ToDashboardMaximumMinimumComputationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardMissingDataTreatmentOption string
@@ -29701,12 +27161,6 @@ func (o DashboardMissingDataTreatmentOptionOutput) ToDashboardMissingDataTreatme
 	}).(DashboardMissingDataTreatmentOptionPtrOutput)
 }
 
-func (o DashboardMissingDataTreatmentOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardMissingDataTreatmentOption] {
-	return pulumix.Output[DashboardMissingDataTreatmentOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardMissingDataTreatmentOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -29742,12 +27196,6 @@ func (o DashboardMissingDataTreatmentOptionPtrOutput) ToDashboardMissingDataTrea
 	return o
 }
 
-func (o DashboardMissingDataTreatmentOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardMissingDataTreatmentOption] {
-	return pulumix.Output[*DashboardMissingDataTreatmentOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardMissingDataTreatmentOptionPtrOutput) Elem() DashboardMissingDataTreatmentOptionOutput {
 	return o.ApplyT(func(v *DashboardMissingDataTreatmentOption) DashboardMissingDataTreatmentOption {
 		if v != nil {
@@ -29772,10 +27220,12 @@ func (o DashboardMissingDataTreatmentOptionPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardMissingDataTreatmentOptionInput is an input type that accepts DashboardMissingDataTreatmentOptionArgs and DashboardMissingDataTreatmentOptionOutput values.
-// You can construct a concrete instance of `DashboardMissingDataTreatmentOptionInput` via:
+// DashboardMissingDataTreatmentOptionInput is an input type that accepts values of the DashboardMissingDataTreatmentOption enum
+// A concrete instance of `DashboardMissingDataTreatmentOptionInput` can be one of the following:
 //
-//	DashboardMissingDataTreatmentOptionArgs{...}
+//	DashboardMissingDataTreatmentOptionInterpolate
+//	DashboardMissingDataTreatmentOptionShowAsZero
+//	DashboardMissingDataTreatmentOptionShowAsBlank
 type DashboardMissingDataTreatmentOptionInput interface {
 	pulumi.Input
 
@@ -29808,12 +27258,6 @@ func (in *dashboardMissingDataTreatmentOptionPtr) ToDashboardMissingDataTreatmen
 
 func (in *dashboardMissingDataTreatmentOptionPtr) ToDashboardMissingDataTreatmentOptionPtrOutputWithContext(ctx context.Context) DashboardMissingDataTreatmentOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardMissingDataTreatmentOptionPtrOutput)
-}
-
-func (in *dashboardMissingDataTreatmentOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardMissingDataTreatmentOption] {
-	return pulumix.Output[*DashboardMissingDataTreatmentOption]{
-		OutputState: in.ToDashboardMissingDataTreatmentOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardNegativeValueDisplayMode string
@@ -29883,12 +27327,6 @@ func (o DashboardNegativeValueDisplayModeOutput) ToDashboardNegativeValueDisplay
 	}).(DashboardNegativeValueDisplayModePtrOutput)
 }
 
-func (o DashboardNegativeValueDisplayModeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardNegativeValueDisplayMode] {
-	return pulumix.Output[DashboardNegativeValueDisplayMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNegativeValueDisplayModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -29924,12 +27362,6 @@ func (o DashboardNegativeValueDisplayModePtrOutput) ToDashboardNegativeValueDisp
 	return o
 }
 
-func (o DashboardNegativeValueDisplayModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardNegativeValueDisplayMode] {
-	return pulumix.Output[*DashboardNegativeValueDisplayMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNegativeValueDisplayModePtrOutput) Elem() DashboardNegativeValueDisplayModeOutput {
 	return o.ApplyT(func(v *DashboardNegativeValueDisplayMode) DashboardNegativeValueDisplayMode {
 		if v != nil {
@@ -29954,10 +27386,11 @@ func (o DashboardNegativeValueDisplayModePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardNegativeValueDisplayModeInput is an input type that accepts DashboardNegativeValueDisplayModeArgs and DashboardNegativeValueDisplayModeOutput values.
-// You can construct a concrete instance of `DashboardNegativeValueDisplayModeInput` via:
+// DashboardNegativeValueDisplayModeInput is an input type that accepts values of the DashboardNegativeValueDisplayMode enum
+// A concrete instance of `DashboardNegativeValueDisplayModeInput` can be one of the following:
 //
-//	DashboardNegativeValueDisplayModeArgs{...}
+//	DashboardNegativeValueDisplayModePositive
+//	DashboardNegativeValueDisplayModeNegative
 type DashboardNegativeValueDisplayModeInput interface {
 	pulumi.Input
 
@@ -29990,12 +27423,6 @@ func (in *dashboardNegativeValueDisplayModePtr) ToDashboardNegativeValueDisplayM
 
 func (in *dashboardNegativeValueDisplayModePtr) ToDashboardNegativeValueDisplayModePtrOutputWithContext(ctx context.Context) DashboardNegativeValueDisplayModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardNegativeValueDisplayModePtrOutput)
-}
-
-func (in *dashboardNegativeValueDisplayModePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardNegativeValueDisplayMode] {
-	return pulumix.Output[*DashboardNegativeValueDisplayMode]{
-		OutputState: in.ToDashboardNegativeValueDisplayModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardNumberScale string
@@ -30069,12 +27496,6 @@ func (o DashboardNumberScaleOutput) ToDashboardNumberScalePtrOutputWithContext(c
 	}).(DashboardNumberScalePtrOutput)
 }
 
-func (o DashboardNumberScaleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardNumberScale] {
-	return pulumix.Output[DashboardNumberScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNumberScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -30110,12 +27531,6 @@ func (o DashboardNumberScalePtrOutput) ToDashboardNumberScalePtrOutputWithContex
 	return o
 }
 
-func (o DashboardNumberScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardNumberScale] {
-	return pulumix.Output[*DashboardNumberScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNumberScalePtrOutput) Elem() DashboardNumberScaleOutput {
 	return o.ApplyT(func(v *DashboardNumberScale) DashboardNumberScale {
 		if v != nil {
@@ -30140,10 +27555,15 @@ func (o DashboardNumberScalePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardNumberScaleInput is an input type that accepts DashboardNumberScaleArgs and DashboardNumberScaleOutput values.
-// You can construct a concrete instance of `DashboardNumberScaleInput` via:
+// DashboardNumberScaleInput is an input type that accepts values of the DashboardNumberScale enum
+// A concrete instance of `DashboardNumberScaleInput` can be one of the following:
 //
-//	DashboardNumberScaleArgs{...}
+//	DashboardNumberScaleNone
+//	DashboardNumberScaleAuto
+//	DashboardNumberScaleThousands
+//	DashboardNumberScaleMillions
+//	DashboardNumberScaleBillions
+//	DashboardNumberScaleTrillions
 type DashboardNumberScaleInput interface {
 	pulumi.Input
 
@@ -30176,12 +27596,6 @@ func (in *dashboardNumberScalePtr) ToDashboardNumberScalePtrOutput() DashboardNu
 
 func (in *dashboardNumberScalePtr) ToDashboardNumberScalePtrOutputWithContext(ctx context.Context) DashboardNumberScalePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardNumberScalePtrOutput)
-}
-
-func (in *dashboardNumberScalePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardNumberScale] {
-	return pulumix.Output[*DashboardNumberScale]{
-		OutputState: in.ToDashboardNumberScalePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardNumericEqualityMatchOperator string
@@ -30251,12 +27665,6 @@ func (o DashboardNumericEqualityMatchOperatorOutput) ToDashboardNumericEqualityM
 	}).(DashboardNumericEqualityMatchOperatorPtrOutput)
 }
 
-func (o DashboardNumericEqualityMatchOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardNumericEqualityMatchOperator] {
-	return pulumix.Output[DashboardNumericEqualityMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNumericEqualityMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -30292,12 +27700,6 @@ func (o DashboardNumericEqualityMatchOperatorPtrOutput) ToDashboardNumericEquali
 	return o
 }
 
-func (o DashboardNumericEqualityMatchOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardNumericEqualityMatchOperator] {
-	return pulumix.Output[*DashboardNumericEqualityMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNumericEqualityMatchOperatorPtrOutput) Elem() DashboardNumericEqualityMatchOperatorOutput {
 	return o.ApplyT(func(v *DashboardNumericEqualityMatchOperator) DashboardNumericEqualityMatchOperator {
 		if v != nil {
@@ -30322,10 +27724,11 @@ func (o DashboardNumericEqualityMatchOperatorPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardNumericEqualityMatchOperatorInput is an input type that accepts DashboardNumericEqualityMatchOperatorArgs and DashboardNumericEqualityMatchOperatorOutput values.
-// You can construct a concrete instance of `DashboardNumericEqualityMatchOperatorInput` via:
+// DashboardNumericEqualityMatchOperatorInput is an input type that accepts values of the DashboardNumericEqualityMatchOperator enum
+// A concrete instance of `DashboardNumericEqualityMatchOperatorInput` can be one of the following:
 //
-//	DashboardNumericEqualityMatchOperatorArgs{...}
+//	DashboardNumericEqualityMatchOperatorEquals
+//	DashboardNumericEqualityMatchOperatorDoesNotEqual
 type DashboardNumericEqualityMatchOperatorInput interface {
 	pulumi.Input
 
@@ -30358,12 +27761,6 @@ func (in *dashboardNumericEqualityMatchOperatorPtr) ToDashboardNumericEqualityMa
 
 func (in *dashboardNumericEqualityMatchOperatorPtr) ToDashboardNumericEqualityMatchOperatorPtrOutputWithContext(ctx context.Context) DashboardNumericEqualityMatchOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardNumericEqualityMatchOperatorPtrOutput)
-}
-
-func (in *dashboardNumericEqualityMatchOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardNumericEqualityMatchOperator] {
-	return pulumix.Output[*DashboardNumericEqualityMatchOperator]{
-		OutputState: in.ToDashboardNumericEqualityMatchOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardNumericFilterSelectAllOptions string
@@ -30432,12 +27829,6 @@ func (o DashboardNumericFilterSelectAllOptionsOutput) ToDashboardNumericFilterSe
 	}).(DashboardNumericFilterSelectAllOptionsPtrOutput)
 }
 
-func (o DashboardNumericFilterSelectAllOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardNumericFilterSelectAllOptions] {
-	return pulumix.Output[DashboardNumericFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNumericFilterSelectAllOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -30473,12 +27864,6 @@ func (o DashboardNumericFilterSelectAllOptionsPtrOutput) ToDashboardNumericFilte
 	return o
 }
 
-func (o DashboardNumericFilterSelectAllOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardNumericFilterSelectAllOptions] {
-	return pulumix.Output[*DashboardNumericFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNumericFilterSelectAllOptionsPtrOutput) Elem() DashboardNumericFilterSelectAllOptionsOutput {
 	return o.ApplyT(func(v *DashboardNumericFilterSelectAllOptions) DashboardNumericFilterSelectAllOptions {
 		if v != nil {
@@ -30503,10 +27888,10 @@ func (o DashboardNumericFilterSelectAllOptionsPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardNumericFilterSelectAllOptionsInput is an input type that accepts DashboardNumericFilterSelectAllOptionsArgs and DashboardNumericFilterSelectAllOptionsOutput values.
-// You can construct a concrete instance of `DashboardNumericFilterSelectAllOptionsInput` via:
+// DashboardNumericFilterSelectAllOptionsInput is an input type that accepts values of the DashboardNumericFilterSelectAllOptions enum
+// A concrete instance of `DashboardNumericFilterSelectAllOptionsInput` can be one of the following:
 //
-//	DashboardNumericFilterSelectAllOptionsArgs{...}
+//	DashboardNumericFilterSelectAllOptionsFilterAllValues
 type DashboardNumericFilterSelectAllOptionsInput interface {
 	pulumi.Input
 
@@ -30539,12 +27924,6 @@ func (in *dashboardNumericFilterSelectAllOptionsPtr) ToDashboardNumericFilterSel
 
 func (in *dashboardNumericFilterSelectAllOptionsPtr) ToDashboardNumericFilterSelectAllOptionsPtrOutputWithContext(ctx context.Context) DashboardNumericFilterSelectAllOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardNumericFilterSelectAllOptionsPtrOutput)
-}
-
-func (in *dashboardNumericFilterSelectAllOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardNumericFilterSelectAllOptions] {
-	return pulumix.Output[*DashboardNumericFilterSelectAllOptions]{
-		OutputState: in.ToDashboardNumericFilterSelectAllOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardNumericSeparatorSymbol string
@@ -30615,12 +27994,6 @@ func (o DashboardNumericSeparatorSymbolOutput) ToDashboardNumericSeparatorSymbol
 	}).(DashboardNumericSeparatorSymbolPtrOutput)
 }
 
-func (o DashboardNumericSeparatorSymbolOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardNumericSeparatorSymbol] {
-	return pulumix.Output[DashboardNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNumericSeparatorSymbolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -30656,12 +28029,6 @@ func (o DashboardNumericSeparatorSymbolPtrOutput) ToDashboardNumericSeparatorSym
 	return o
 }
 
-func (o DashboardNumericSeparatorSymbolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardNumericSeparatorSymbol] {
-	return pulumix.Output[*DashboardNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNumericSeparatorSymbolPtrOutput) Elem() DashboardNumericSeparatorSymbolOutput {
 	return o.ApplyT(func(v *DashboardNumericSeparatorSymbol) DashboardNumericSeparatorSymbol {
 		if v != nil {
@@ -30686,10 +28053,12 @@ func (o DashboardNumericSeparatorSymbolPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardNumericSeparatorSymbolInput is an input type that accepts DashboardNumericSeparatorSymbolArgs and DashboardNumericSeparatorSymbolOutput values.
-// You can construct a concrete instance of `DashboardNumericSeparatorSymbolInput` via:
+// DashboardNumericSeparatorSymbolInput is an input type that accepts values of the DashboardNumericSeparatorSymbol enum
+// A concrete instance of `DashboardNumericSeparatorSymbolInput` can be one of the following:
 //
-//	DashboardNumericSeparatorSymbolArgs{...}
+//	DashboardNumericSeparatorSymbolComma
+//	DashboardNumericSeparatorSymbolDot
+//	DashboardNumericSeparatorSymbolSpace
 type DashboardNumericSeparatorSymbolInput interface {
 	pulumi.Input
 
@@ -30722,12 +28091,6 @@ func (in *dashboardNumericSeparatorSymbolPtr) ToDashboardNumericSeparatorSymbolP
 
 func (in *dashboardNumericSeparatorSymbolPtr) ToDashboardNumericSeparatorSymbolPtrOutputWithContext(ctx context.Context) DashboardNumericSeparatorSymbolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardNumericSeparatorSymbolPtrOutput)
-}
-
-func (in *dashboardNumericSeparatorSymbolPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardNumericSeparatorSymbol] {
-	return pulumix.Output[*DashboardNumericSeparatorSymbol]{
-		OutputState: in.ToDashboardNumericSeparatorSymbolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardOtherCategories string
@@ -30797,12 +28160,6 @@ func (o DashboardOtherCategoriesOutput) ToDashboardOtherCategoriesPtrOutputWithC
 	}).(DashboardOtherCategoriesPtrOutput)
 }
 
-func (o DashboardOtherCategoriesOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardOtherCategories] {
-	return pulumix.Output[DashboardOtherCategories]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardOtherCategoriesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -30838,12 +28195,6 @@ func (o DashboardOtherCategoriesPtrOutput) ToDashboardOtherCategoriesPtrOutputWi
 	return o
 }
 
-func (o DashboardOtherCategoriesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardOtherCategories] {
-	return pulumix.Output[*DashboardOtherCategories]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardOtherCategoriesPtrOutput) Elem() DashboardOtherCategoriesOutput {
 	return o.ApplyT(func(v *DashboardOtherCategories) DashboardOtherCategories {
 		if v != nil {
@@ -30868,10 +28219,11 @@ func (o DashboardOtherCategoriesPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardOtherCategoriesInput is an input type that accepts DashboardOtherCategoriesArgs and DashboardOtherCategoriesOutput values.
-// You can construct a concrete instance of `DashboardOtherCategoriesInput` via:
+// DashboardOtherCategoriesInput is an input type that accepts values of the DashboardOtherCategories enum
+// A concrete instance of `DashboardOtherCategoriesInput` can be one of the following:
 //
-//	DashboardOtherCategoriesArgs{...}
+//	DashboardOtherCategoriesInclude
+//	DashboardOtherCategoriesExclude
 type DashboardOtherCategoriesInput interface {
 	pulumi.Input
 
@@ -30904,12 +28256,6 @@ func (in *dashboardOtherCategoriesPtr) ToDashboardOtherCategoriesPtrOutput() Das
 
 func (in *dashboardOtherCategoriesPtr) ToDashboardOtherCategoriesPtrOutputWithContext(ctx context.Context) DashboardOtherCategoriesPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardOtherCategoriesPtrOutput)
-}
-
-func (in *dashboardOtherCategoriesPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardOtherCategories] {
-	return pulumix.Output[*DashboardOtherCategories]{
-		OutputState: in.ToDashboardOtherCategoriesPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardPanelBorderStyle string
@@ -30980,12 +28326,6 @@ func (o DashboardPanelBorderStyleOutput) ToDashboardPanelBorderStylePtrOutputWit
 	}).(DashboardPanelBorderStylePtrOutput)
 }
 
-func (o DashboardPanelBorderStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPanelBorderStyle] {
-	return pulumix.Output[DashboardPanelBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPanelBorderStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -31021,12 +28361,6 @@ func (o DashboardPanelBorderStylePtrOutput) ToDashboardPanelBorderStylePtrOutput
 	return o
 }
 
-func (o DashboardPanelBorderStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPanelBorderStyle] {
-	return pulumix.Output[*DashboardPanelBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPanelBorderStylePtrOutput) Elem() DashboardPanelBorderStyleOutput {
 	return o.ApplyT(func(v *DashboardPanelBorderStyle) DashboardPanelBorderStyle {
 		if v != nil {
@@ -31051,10 +28385,12 @@ func (o DashboardPanelBorderStylePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardPanelBorderStyleInput is an input type that accepts DashboardPanelBorderStyleArgs and DashboardPanelBorderStyleOutput values.
-// You can construct a concrete instance of `DashboardPanelBorderStyleInput` via:
+// DashboardPanelBorderStyleInput is an input type that accepts values of the DashboardPanelBorderStyle enum
+// A concrete instance of `DashboardPanelBorderStyleInput` can be one of the following:
 //
-//	DashboardPanelBorderStyleArgs{...}
+//	DashboardPanelBorderStyleSolid
+//	DashboardPanelBorderStyleDashed
+//	DashboardPanelBorderStyleDotted
 type DashboardPanelBorderStyleInput interface {
 	pulumi.Input
 
@@ -31087,12 +28423,6 @@ func (in *dashboardPanelBorderStylePtr) ToDashboardPanelBorderStylePtrOutput() D
 
 func (in *dashboardPanelBorderStylePtr) ToDashboardPanelBorderStylePtrOutputWithContext(ctx context.Context) DashboardPanelBorderStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPanelBorderStylePtrOutput)
-}
-
-func (in *dashboardPanelBorderStylePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardPanelBorderStyle] {
-	return pulumix.Output[*DashboardPanelBorderStyle]{
-		OutputState: in.ToDashboardPanelBorderStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardPaperOrientation string
@@ -31162,12 +28492,6 @@ func (o DashboardPaperOrientationOutput) ToDashboardPaperOrientationPtrOutputWit
 	}).(DashboardPaperOrientationPtrOutput)
 }
 
-func (o DashboardPaperOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPaperOrientation] {
-	return pulumix.Output[DashboardPaperOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPaperOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -31203,12 +28527,6 @@ func (o DashboardPaperOrientationPtrOutput) ToDashboardPaperOrientationPtrOutput
 	return o
 }
 
-func (o DashboardPaperOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPaperOrientation] {
-	return pulumix.Output[*DashboardPaperOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPaperOrientationPtrOutput) Elem() DashboardPaperOrientationOutput {
 	return o.ApplyT(func(v *DashboardPaperOrientation) DashboardPaperOrientation {
 		if v != nil {
@@ -31233,10 +28551,11 @@ func (o DashboardPaperOrientationPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardPaperOrientationInput is an input type that accepts DashboardPaperOrientationArgs and DashboardPaperOrientationOutput values.
-// You can construct a concrete instance of `DashboardPaperOrientationInput` via:
+// DashboardPaperOrientationInput is an input type that accepts values of the DashboardPaperOrientation enum
+// A concrete instance of `DashboardPaperOrientationInput` can be one of the following:
 //
-//	DashboardPaperOrientationArgs{...}
+//	DashboardPaperOrientationPortrait
+//	DashboardPaperOrientationLandscape
 type DashboardPaperOrientationInput interface {
 	pulumi.Input
 
@@ -31269,12 +28588,6 @@ func (in *dashboardPaperOrientationPtr) ToDashboardPaperOrientationPtrOutput() D
 
 func (in *dashboardPaperOrientationPtr) ToDashboardPaperOrientationPtrOutputWithContext(ctx context.Context) DashboardPaperOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPaperOrientationPtrOutput)
-}
-
-func (in *dashboardPaperOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardPaperOrientation] {
-	return pulumix.Output[*DashboardPaperOrientation]{
-		OutputState: in.ToDashboardPaperOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardPaperSize string
@@ -31353,12 +28666,6 @@ func (o DashboardPaperSizeOutput) ToDashboardPaperSizePtrOutputWithContext(ctx c
 	}).(DashboardPaperSizePtrOutput)
 }
 
-func (o DashboardPaperSizeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPaperSize] {
-	return pulumix.Output[DashboardPaperSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPaperSizeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -31394,12 +28701,6 @@ func (o DashboardPaperSizePtrOutput) ToDashboardPaperSizePtrOutputWithContext(ct
 	return o
 }
 
-func (o DashboardPaperSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPaperSize] {
-	return pulumix.Output[*DashboardPaperSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPaperSizePtrOutput) Elem() DashboardPaperSizeOutput {
 	return o.ApplyT(func(v *DashboardPaperSize) DashboardPaperSize {
 		if v != nil {
@@ -31424,10 +28725,20 @@ func (o DashboardPaperSizePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardPaperSizeInput is an input type that accepts DashboardPaperSizeArgs and DashboardPaperSizeOutput values.
-// You can construct a concrete instance of `DashboardPaperSizeInput` via:
+// DashboardPaperSizeInput is an input type that accepts values of the DashboardPaperSize enum
+// A concrete instance of `DashboardPaperSizeInput` can be one of the following:
 //
-//	DashboardPaperSizeArgs{...}
+//	DashboardPaperSizeUsLetter
+//	DashboardPaperSizeUsLegal
+//	DashboardPaperSizeUsTabloidLedger
+//	DashboardPaperSizeA0
+//	DashboardPaperSizeA1
+//	DashboardPaperSizeA2
+//	DashboardPaperSizeA3
+//	DashboardPaperSizeA4
+//	DashboardPaperSizeA5
+//	DashboardPaperSizeJisB4
+//	DashboardPaperSizeJisB5
 type DashboardPaperSizeInput interface {
 	pulumi.Input
 
@@ -31460,12 +28771,6 @@ func (in *dashboardPaperSizePtr) ToDashboardPaperSizePtrOutput() DashboardPaperS
 
 func (in *dashboardPaperSizePtr) ToDashboardPaperSizePtrOutputWithContext(ctx context.Context) DashboardPaperSizePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPaperSizePtrOutput)
-}
-
-func (in *dashboardPaperSizePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardPaperSize] {
-	return pulumix.Output[*DashboardPaperSize]{
-		OutputState: in.ToDashboardPaperSizePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardParameterValueType string
@@ -31535,12 +28840,6 @@ func (o DashboardParameterValueTypeOutput) ToDashboardParameterValueTypePtrOutpu
 	}).(DashboardParameterValueTypePtrOutput)
 }
 
-func (o DashboardParameterValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardParameterValueType] {
-	return pulumix.Output[DashboardParameterValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardParameterValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -31576,12 +28875,6 @@ func (o DashboardParameterValueTypePtrOutput) ToDashboardParameterValueTypePtrOu
 	return o
 }
 
-func (o DashboardParameterValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardParameterValueType] {
-	return pulumix.Output[*DashboardParameterValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardParameterValueTypePtrOutput) Elem() DashboardParameterValueTypeOutput {
 	return o.ApplyT(func(v *DashboardParameterValueType) DashboardParameterValueType {
 		if v != nil {
@@ -31606,10 +28899,11 @@ func (o DashboardParameterValueTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardParameterValueTypeInput is an input type that accepts DashboardParameterValueTypeArgs and DashboardParameterValueTypeOutput values.
-// You can construct a concrete instance of `DashboardParameterValueTypeInput` via:
+// DashboardParameterValueTypeInput is an input type that accepts values of the DashboardParameterValueType enum
+// A concrete instance of `DashboardParameterValueTypeInput` can be one of the following:
 //
-//	DashboardParameterValueTypeArgs{...}
+//	DashboardParameterValueTypeMultiValued
+//	DashboardParameterValueTypeSingleValued
 type DashboardParameterValueTypeInput interface {
 	pulumi.Input
 
@@ -31642,12 +28936,6 @@ func (in *dashboardParameterValueTypePtr) ToDashboardParameterValueTypePtrOutput
 
 func (in *dashboardParameterValueTypePtr) ToDashboardParameterValueTypePtrOutputWithContext(ctx context.Context) DashboardParameterValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardParameterValueTypePtrOutput)
-}
-
-func (in *dashboardParameterValueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardParameterValueType] {
-	return pulumix.Output[*DashboardParameterValueType]{
-		OutputState: in.ToDashboardParameterValueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardPivotTableConditionalFormattingScopeRole string
@@ -31718,12 +29006,6 @@ func (o DashboardPivotTableConditionalFormattingScopeRoleOutput) ToDashboardPivo
 	}).(DashboardPivotTableConditionalFormattingScopeRolePtrOutput)
 }
 
-func (o DashboardPivotTableConditionalFormattingScopeRoleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[DashboardPivotTableConditionalFormattingScopeRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableConditionalFormattingScopeRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -31759,12 +29041,6 @@ func (o DashboardPivotTableConditionalFormattingScopeRolePtrOutput) ToDashboardP
 	return o
 }
 
-func (o DashboardPivotTableConditionalFormattingScopeRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[*DashboardPivotTableConditionalFormattingScopeRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableConditionalFormattingScopeRolePtrOutput) Elem() DashboardPivotTableConditionalFormattingScopeRoleOutput {
 	return o.ApplyT(func(v *DashboardPivotTableConditionalFormattingScopeRole) DashboardPivotTableConditionalFormattingScopeRole {
 		if v != nil {
@@ -31789,10 +29065,12 @@ func (o DashboardPivotTableConditionalFormattingScopeRolePtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardPivotTableConditionalFormattingScopeRoleInput is an input type that accepts DashboardPivotTableConditionalFormattingScopeRoleArgs and DashboardPivotTableConditionalFormattingScopeRoleOutput values.
-// You can construct a concrete instance of `DashboardPivotTableConditionalFormattingScopeRoleInput` via:
+// DashboardPivotTableConditionalFormattingScopeRoleInput is an input type that accepts values of the DashboardPivotTableConditionalFormattingScopeRole enum
+// A concrete instance of `DashboardPivotTableConditionalFormattingScopeRoleInput` can be one of the following:
 //
-//	DashboardPivotTableConditionalFormattingScopeRoleArgs{...}
+//	DashboardPivotTableConditionalFormattingScopeRoleField
+//	DashboardPivotTableConditionalFormattingScopeRoleFieldTotal
+//	DashboardPivotTableConditionalFormattingScopeRoleGrandTotal
 type DashboardPivotTableConditionalFormattingScopeRoleInput interface {
 	pulumi.Input
 
@@ -31825,12 +29103,6 @@ func (in *dashboardPivotTableConditionalFormattingScopeRolePtr) ToDashboardPivot
 
 func (in *dashboardPivotTableConditionalFormattingScopeRolePtr) ToDashboardPivotTableConditionalFormattingScopeRolePtrOutputWithContext(ctx context.Context) DashboardPivotTableConditionalFormattingScopeRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPivotTableConditionalFormattingScopeRolePtrOutput)
-}
-
-func (in *dashboardPivotTableConditionalFormattingScopeRolePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[*DashboardPivotTableConditionalFormattingScopeRole]{
-		OutputState: in.ToDashboardPivotTableConditionalFormattingScopeRolePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardPivotTableDataPathType string
@@ -31902,12 +29174,6 @@ func (o DashboardPivotTableDataPathTypeOutput) ToDashboardPivotTableDataPathType
 	}).(DashboardPivotTableDataPathTypePtrOutput)
 }
 
-func (o DashboardPivotTableDataPathTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPivotTableDataPathType] {
-	return pulumix.Output[DashboardPivotTableDataPathType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableDataPathTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -31943,12 +29209,6 @@ func (o DashboardPivotTableDataPathTypePtrOutput) ToDashboardPivotTableDataPathT
 	return o
 }
 
-func (o DashboardPivotTableDataPathTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableDataPathType] {
-	return pulumix.Output[*DashboardPivotTableDataPathType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableDataPathTypePtrOutput) Elem() DashboardPivotTableDataPathTypeOutput {
 	return o.ApplyT(func(v *DashboardPivotTableDataPathType) DashboardPivotTableDataPathType {
 		if v != nil {
@@ -31973,10 +29233,13 @@ func (o DashboardPivotTableDataPathTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardPivotTableDataPathTypeInput is an input type that accepts DashboardPivotTableDataPathTypeArgs and DashboardPivotTableDataPathTypeOutput values.
-// You can construct a concrete instance of `DashboardPivotTableDataPathTypeInput` via:
+// DashboardPivotTableDataPathTypeInput is an input type that accepts values of the DashboardPivotTableDataPathType enum
+// A concrete instance of `DashboardPivotTableDataPathTypeInput` can be one of the following:
 //
-//	DashboardPivotTableDataPathTypeArgs{...}
+//	DashboardPivotTableDataPathTypeHierarchyRowsLayoutColumn
+//	DashboardPivotTableDataPathTypeMultipleRowMetricsColumn
+//	DashboardPivotTableDataPathTypeEmptyColumnHeader
+//	DashboardPivotTableDataPathTypeCountMetricColumn
 type DashboardPivotTableDataPathTypeInput interface {
 	pulumi.Input
 
@@ -32009,12 +29272,6 @@ func (in *dashboardPivotTableDataPathTypePtr) ToDashboardPivotTableDataPathTypeP
 
 func (in *dashboardPivotTableDataPathTypePtr) ToDashboardPivotTableDataPathTypePtrOutputWithContext(ctx context.Context) DashboardPivotTableDataPathTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPivotTableDataPathTypePtrOutput)
-}
-
-func (in *dashboardPivotTableDataPathTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableDataPathType] {
-	return pulumix.Output[*DashboardPivotTableDataPathType]{
-		OutputState: in.ToDashboardPivotTableDataPathTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardPivotTableFieldCollapseState string
@@ -32084,12 +29341,6 @@ func (o DashboardPivotTableFieldCollapseStateOutput) ToDashboardPivotTableFieldC
 	}).(DashboardPivotTableFieldCollapseStatePtrOutput)
 }
 
-func (o DashboardPivotTableFieldCollapseStateOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPivotTableFieldCollapseState] {
-	return pulumix.Output[DashboardPivotTableFieldCollapseState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableFieldCollapseStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -32125,12 +29376,6 @@ func (o DashboardPivotTableFieldCollapseStatePtrOutput) ToDashboardPivotTableFie
 	return o
 }
 
-func (o DashboardPivotTableFieldCollapseStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableFieldCollapseState] {
-	return pulumix.Output[*DashboardPivotTableFieldCollapseState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableFieldCollapseStatePtrOutput) Elem() DashboardPivotTableFieldCollapseStateOutput {
 	return o.ApplyT(func(v *DashboardPivotTableFieldCollapseState) DashboardPivotTableFieldCollapseState {
 		if v != nil {
@@ -32155,10 +29400,11 @@ func (o DashboardPivotTableFieldCollapseStatePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardPivotTableFieldCollapseStateInput is an input type that accepts DashboardPivotTableFieldCollapseStateArgs and DashboardPivotTableFieldCollapseStateOutput values.
-// You can construct a concrete instance of `DashboardPivotTableFieldCollapseStateInput` via:
+// DashboardPivotTableFieldCollapseStateInput is an input type that accepts values of the DashboardPivotTableFieldCollapseState enum
+// A concrete instance of `DashboardPivotTableFieldCollapseStateInput` can be one of the following:
 //
-//	DashboardPivotTableFieldCollapseStateArgs{...}
+//	DashboardPivotTableFieldCollapseStateCollapsed
+//	DashboardPivotTableFieldCollapseStateExpanded
 type DashboardPivotTableFieldCollapseStateInput interface {
 	pulumi.Input
 
@@ -32191,12 +29437,6 @@ func (in *dashboardPivotTableFieldCollapseStatePtr) ToDashboardPivotTableFieldCo
 
 func (in *dashboardPivotTableFieldCollapseStatePtr) ToDashboardPivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) DashboardPivotTableFieldCollapseStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPivotTableFieldCollapseStatePtrOutput)
-}
-
-func (in *dashboardPivotTableFieldCollapseStatePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableFieldCollapseState] {
-	return pulumix.Output[*DashboardPivotTableFieldCollapseState]{
-		OutputState: in.ToDashboardPivotTableFieldCollapseStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardPivotTableMetricPlacement string
@@ -32266,12 +29506,6 @@ func (o DashboardPivotTableMetricPlacementOutput) ToDashboardPivotTableMetricPla
 	}).(DashboardPivotTableMetricPlacementPtrOutput)
 }
 
-func (o DashboardPivotTableMetricPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPivotTableMetricPlacement] {
-	return pulumix.Output[DashboardPivotTableMetricPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableMetricPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -32307,12 +29541,6 @@ func (o DashboardPivotTableMetricPlacementPtrOutput) ToDashboardPivotTableMetric
 	return o
 }
 
-func (o DashboardPivotTableMetricPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableMetricPlacement] {
-	return pulumix.Output[*DashboardPivotTableMetricPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableMetricPlacementPtrOutput) Elem() DashboardPivotTableMetricPlacementOutput {
 	return o.ApplyT(func(v *DashboardPivotTableMetricPlacement) DashboardPivotTableMetricPlacement {
 		if v != nil {
@@ -32337,10 +29565,11 @@ func (o DashboardPivotTableMetricPlacementPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardPivotTableMetricPlacementInput is an input type that accepts DashboardPivotTableMetricPlacementArgs and DashboardPivotTableMetricPlacementOutput values.
-// You can construct a concrete instance of `DashboardPivotTableMetricPlacementInput` via:
+// DashboardPivotTableMetricPlacementInput is an input type that accepts values of the DashboardPivotTableMetricPlacement enum
+// A concrete instance of `DashboardPivotTableMetricPlacementInput` can be one of the following:
 //
-//	DashboardPivotTableMetricPlacementArgs{...}
+//	DashboardPivotTableMetricPlacementRow
+//	DashboardPivotTableMetricPlacementColumn
 type DashboardPivotTableMetricPlacementInput interface {
 	pulumi.Input
 
@@ -32373,12 +29602,6 @@ func (in *dashboardPivotTableMetricPlacementPtr) ToDashboardPivotTableMetricPlac
 
 func (in *dashboardPivotTableMetricPlacementPtr) ToDashboardPivotTableMetricPlacementPtrOutputWithContext(ctx context.Context) DashboardPivotTableMetricPlacementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPivotTableMetricPlacementPtrOutput)
-}
-
-func (in *dashboardPivotTableMetricPlacementPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableMetricPlacement] {
-	return pulumix.Output[*DashboardPivotTableMetricPlacement]{
-		OutputState: in.ToDashboardPivotTableMetricPlacementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardPivotTableRowsLayout string
@@ -32448,12 +29671,6 @@ func (o DashboardPivotTableRowsLayoutOutput) ToDashboardPivotTableRowsLayoutPtrO
 	}).(DashboardPivotTableRowsLayoutPtrOutput)
 }
 
-func (o DashboardPivotTableRowsLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPivotTableRowsLayout] {
-	return pulumix.Output[DashboardPivotTableRowsLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableRowsLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -32489,12 +29706,6 @@ func (o DashboardPivotTableRowsLayoutPtrOutput) ToDashboardPivotTableRowsLayoutP
 	return o
 }
 
-func (o DashboardPivotTableRowsLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableRowsLayout] {
-	return pulumix.Output[*DashboardPivotTableRowsLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableRowsLayoutPtrOutput) Elem() DashboardPivotTableRowsLayoutOutput {
 	return o.ApplyT(func(v *DashboardPivotTableRowsLayout) DashboardPivotTableRowsLayout {
 		if v != nil {
@@ -32519,10 +29730,11 @@ func (o DashboardPivotTableRowsLayoutPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardPivotTableRowsLayoutInput is an input type that accepts DashboardPivotTableRowsLayoutArgs and DashboardPivotTableRowsLayoutOutput values.
-// You can construct a concrete instance of `DashboardPivotTableRowsLayoutInput` via:
+// DashboardPivotTableRowsLayoutInput is an input type that accepts values of the DashboardPivotTableRowsLayout enum
+// A concrete instance of `DashboardPivotTableRowsLayoutInput` can be one of the following:
 //
-//	DashboardPivotTableRowsLayoutArgs{...}
+//	DashboardPivotTableRowsLayoutTabular
+//	DashboardPivotTableRowsLayoutHierarchy
 type DashboardPivotTableRowsLayoutInput interface {
 	pulumi.Input
 
@@ -32555,12 +29767,6 @@ func (in *dashboardPivotTableRowsLayoutPtr) ToDashboardPivotTableRowsLayoutPtrOu
 
 func (in *dashboardPivotTableRowsLayoutPtr) ToDashboardPivotTableRowsLayoutPtrOutputWithContext(ctx context.Context) DashboardPivotTableRowsLayoutPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPivotTableRowsLayoutPtrOutput)
-}
-
-func (in *dashboardPivotTableRowsLayoutPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableRowsLayout] {
-	return pulumix.Output[*DashboardPivotTableRowsLayout]{
-		OutputState: in.ToDashboardPivotTableRowsLayoutPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardPivotTableSubtotalLevel string
@@ -32631,12 +29837,6 @@ func (o DashboardPivotTableSubtotalLevelOutput) ToDashboardPivotTableSubtotalLev
 	}).(DashboardPivotTableSubtotalLevelPtrOutput)
 }
 
-func (o DashboardPivotTableSubtotalLevelOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPivotTableSubtotalLevel] {
-	return pulumix.Output[DashboardPivotTableSubtotalLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableSubtotalLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -32672,12 +29872,6 @@ func (o DashboardPivotTableSubtotalLevelPtrOutput) ToDashboardPivotTableSubtotal
 	return o
 }
 
-func (o DashboardPivotTableSubtotalLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableSubtotalLevel] {
-	return pulumix.Output[*DashboardPivotTableSubtotalLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableSubtotalLevelPtrOutput) Elem() DashboardPivotTableSubtotalLevelOutput {
 	return o.ApplyT(func(v *DashboardPivotTableSubtotalLevel) DashboardPivotTableSubtotalLevel {
 		if v != nil {
@@ -32702,10 +29896,12 @@ func (o DashboardPivotTableSubtotalLevelPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardPivotTableSubtotalLevelInput is an input type that accepts DashboardPivotTableSubtotalLevelArgs and DashboardPivotTableSubtotalLevelOutput values.
-// You can construct a concrete instance of `DashboardPivotTableSubtotalLevelInput` via:
+// DashboardPivotTableSubtotalLevelInput is an input type that accepts values of the DashboardPivotTableSubtotalLevel enum
+// A concrete instance of `DashboardPivotTableSubtotalLevelInput` can be one of the following:
 //
-//	DashboardPivotTableSubtotalLevelArgs{...}
+//	DashboardPivotTableSubtotalLevelAll
+//	DashboardPivotTableSubtotalLevelCustom
+//	DashboardPivotTableSubtotalLevelLast
 type DashboardPivotTableSubtotalLevelInput interface {
 	pulumi.Input
 
@@ -32738,12 +29934,6 @@ func (in *dashboardPivotTableSubtotalLevelPtr) ToDashboardPivotTableSubtotalLeve
 
 func (in *dashboardPivotTableSubtotalLevelPtr) ToDashboardPivotTableSubtotalLevelPtrOutputWithContext(ctx context.Context) DashboardPivotTableSubtotalLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPivotTableSubtotalLevelPtrOutput)
-}
-
-func (in *dashboardPivotTableSubtotalLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableSubtotalLevel] {
-	return pulumix.Output[*DashboardPivotTableSubtotalLevel]{
-		OutputState: in.ToDashboardPivotTableSubtotalLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardPrimaryValueDisplayType string
@@ -32814,12 +30004,6 @@ func (o DashboardPrimaryValueDisplayTypeOutput) ToDashboardPrimaryValueDisplayTy
 	}).(DashboardPrimaryValueDisplayTypePtrOutput)
 }
 
-func (o DashboardPrimaryValueDisplayTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPrimaryValueDisplayType] {
-	return pulumix.Output[DashboardPrimaryValueDisplayType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPrimaryValueDisplayTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -32855,12 +30039,6 @@ func (o DashboardPrimaryValueDisplayTypePtrOutput) ToDashboardPrimaryValueDispla
 	return o
 }
 
-func (o DashboardPrimaryValueDisplayTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPrimaryValueDisplayType] {
-	return pulumix.Output[*DashboardPrimaryValueDisplayType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPrimaryValueDisplayTypePtrOutput) Elem() DashboardPrimaryValueDisplayTypeOutput {
 	return o.ApplyT(func(v *DashboardPrimaryValueDisplayType) DashboardPrimaryValueDisplayType {
 		if v != nil {
@@ -32885,10 +30063,12 @@ func (o DashboardPrimaryValueDisplayTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardPrimaryValueDisplayTypeInput is an input type that accepts DashboardPrimaryValueDisplayTypeArgs and DashboardPrimaryValueDisplayTypeOutput values.
-// You can construct a concrete instance of `DashboardPrimaryValueDisplayTypeInput` via:
+// DashboardPrimaryValueDisplayTypeInput is an input type that accepts values of the DashboardPrimaryValueDisplayType enum
+// A concrete instance of `DashboardPrimaryValueDisplayTypeInput` can be one of the following:
 //
-//	DashboardPrimaryValueDisplayTypeArgs{...}
+//	DashboardPrimaryValueDisplayTypeHidden
+//	DashboardPrimaryValueDisplayTypeComparison
+//	DashboardPrimaryValueDisplayTypeActual
 type DashboardPrimaryValueDisplayTypeInput interface {
 	pulumi.Input
 
@@ -32921,12 +30101,6 @@ func (in *dashboardPrimaryValueDisplayTypePtr) ToDashboardPrimaryValueDisplayTyp
 
 func (in *dashboardPrimaryValueDisplayTypePtr) ToDashboardPrimaryValueDisplayTypePtrOutputWithContext(ctx context.Context) DashboardPrimaryValueDisplayTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPrimaryValueDisplayTypePtrOutput)
-}
-
-func (in *dashboardPrimaryValueDisplayTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardPrimaryValueDisplayType] {
-	return pulumix.Output[*DashboardPrimaryValueDisplayType]{
-		OutputState: in.ToDashboardPrimaryValueDisplayTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardRadarChartAxesRangeScale string
@@ -32997,12 +30171,6 @@ func (o DashboardRadarChartAxesRangeScaleOutput) ToDashboardRadarChartAxesRangeS
 	}).(DashboardRadarChartAxesRangeScalePtrOutput)
 }
 
-func (o DashboardRadarChartAxesRangeScaleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardRadarChartAxesRangeScale] {
-	return pulumix.Output[DashboardRadarChartAxesRangeScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardRadarChartAxesRangeScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -33038,12 +30206,6 @@ func (o DashboardRadarChartAxesRangeScalePtrOutput) ToDashboardRadarChartAxesRan
 	return o
 }
 
-func (o DashboardRadarChartAxesRangeScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardRadarChartAxesRangeScale] {
-	return pulumix.Output[*DashboardRadarChartAxesRangeScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardRadarChartAxesRangeScalePtrOutput) Elem() DashboardRadarChartAxesRangeScaleOutput {
 	return o.ApplyT(func(v *DashboardRadarChartAxesRangeScale) DashboardRadarChartAxesRangeScale {
 		if v != nil {
@@ -33068,10 +30230,12 @@ func (o DashboardRadarChartAxesRangeScalePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardRadarChartAxesRangeScaleInput is an input type that accepts DashboardRadarChartAxesRangeScaleArgs and DashboardRadarChartAxesRangeScaleOutput values.
-// You can construct a concrete instance of `DashboardRadarChartAxesRangeScaleInput` via:
+// DashboardRadarChartAxesRangeScaleInput is an input type that accepts values of the DashboardRadarChartAxesRangeScale enum
+// A concrete instance of `DashboardRadarChartAxesRangeScaleInput` can be one of the following:
 //
-//	DashboardRadarChartAxesRangeScaleArgs{...}
+//	DashboardRadarChartAxesRangeScaleAuto
+//	DashboardRadarChartAxesRangeScaleIndependent
+//	DashboardRadarChartAxesRangeScaleShared
 type DashboardRadarChartAxesRangeScaleInput interface {
 	pulumi.Input
 
@@ -33104,12 +30268,6 @@ func (in *dashboardRadarChartAxesRangeScalePtr) ToDashboardRadarChartAxesRangeSc
 
 func (in *dashboardRadarChartAxesRangeScalePtr) ToDashboardRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) DashboardRadarChartAxesRangeScalePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardRadarChartAxesRangeScalePtrOutput)
-}
-
-func (in *dashboardRadarChartAxesRangeScalePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardRadarChartAxesRangeScale] {
-	return pulumix.Output[*DashboardRadarChartAxesRangeScale]{
-		OutputState: in.ToDashboardRadarChartAxesRangeScalePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardRadarChartShape string
@@ -33179,12 +30337,6 @@ func (o DashboardRadarChartShapeOutput) ToDashboardRadarChartShapePtrOutputWithC
 	}).(DashboardRadarChartShapePtrOutput)
 }
 
-func (o DashboardRadarChartShapeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardRadarChartShape] {
-	return pulumix.Output[DashboardRadarChartShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardRadarChartShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -33220,12 +30372,6 @@ func (o DashboardRadarChartShapePtrOutput) ToDashboardRadarChartShapePtrOutputWi
 	return o
 }
 
-func (o DashboardRadarChartShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardRadarChartShape] {
-	return pulumix.Output[*DashboardRadarChartShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardRadarChartShapePtrOutput) Elem() DashboardRadarChartShapeOutput {
 	return o.ApplyT(func(v *DashboardRadarChartShape) DashboardRadarChartShape {
 		if v != nil {
@@ -33250,10 +30396,11 @@ func (o DashboardRadarChartShapePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardRadarChartShapeInput is an input type that accepts DashboardRadarChartShapeArgs and DashboardRadarChartShapeOutput values.
-// You can construct a concrete instance of `DashboardRadarChartShapeInput` via:
+// DashboardRadarChartShapeInput is an input type that accepts values of the DashboardRadarChartShape enum
+// A concrete instance of `DashboardRadarChartShapeInput` can be one of the following:
 //
-//	DashboardRadarChartShapeArgs{...}
+//	DashboardRadarChartShapeCircle
+//	DashboardRadarChartShapePolygon
 type DashboardRadarChartShapeInput interface {
 	pulumi.Input
 
@@ -33286,12 +30433,6 @@ func (in *dashboardRadarChartShapePtr) ToDashboardRadarChartShapePtrOutput() Das
 
 func (in *dashboardRadarChartShapePtr) ToDashboardRadarChartShapePtrOutputWithContext(ctx context.Context) DashboardRadarChartShapePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardRadarChartShapePtrOutput)
-}
-
-func (in *dashboardRadarChartShapePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardRadarChartShape] {
-	return pulumix.Output[*DashboardRadarChartShape]{
-		OutputState: in.ToDashboardRadarChartShapePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardReferenceLineLabelHorizontalPosition string
@@ -33362,12 +30503,6 @@ func (o DashboardReferenceLineLabelHorizontalPositionOutput) ToDashboardReferenc
 	}).(DashboardReferenceLineLabelHorizontalPositionPtrOutput)
 }
 
-func (o DashboardReferenceLineLabelHorizontalPositionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[DashboardReferenceLineLabelHorizontalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLineLabelHorizontalPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -33403,12 +30538,6 @@ func (o DashboardReferenceLineLabelHorizontalPositionPtrOutput) ToDashboardRefer
 	return o
 }
 
-func (o DashboardReferenceLineLabelHorizontalPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[*DashboardReferenceLineLabelHorizontalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLineLabelHorizontalPositionPtrOutput) Elem() DashboardReferenceLineLabelHorizontalPositionOutput {
 	return o.ApplyT(func(v *DashboardReferenceLineLabelHorizontalPosition) DashboardReferenceLineLabelHorizontalPosition {
 		if v != nil {
@@ -33433,10 +30562,12 @@ func (o DashboardReferenceLineLabelHorizontalPositionPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardReferenceLineLabelHorizontalPositionInput is an input type that accepts DashboardReferenceLineLabelHorizontalPositionArgs and DashboardReferenceLineLabelHorizontalPositionOutput values.
-// You can construct a concrete instance of `DashboardReferenceLineLabelHorizontalPositionInput` via:
+// DashboardReferenceLineLabelHorizontalPositionInput is an input type that accepts values of the DashboardReferenceLineLabelHorizontalPosition enum
+// A concrete instance of `DashboardReferenceLineLabelHorizontalPositionInput` can be one of the following:
 //
-//	DashboardReferenceLineLabelHorizontalPositionArgs{...}
+//	DashboardReferenceLineLabelHorizontalPositionLeft
+//	DashboardReferenceLineLabelHorizontalPositionCenter
+//	DashboardReferenceLineLabelHorizontalPositionRight
 type DashboardReferenceLineLabelHorizontalPositionInput interface {
 	pulumi.Input
 
@@ -33469,12 +30600,6 @@ func (in *dashboardReferenceLineLabelHorizontalPositionPtr) ToDashboardReference
 
 func (in *dashboardReferenceLineLabelHorizontalPositionPtr) ToDashboardReferenceLineLabelHorizontalPositionPtrOutputWithContext(ctx context.Context) DashboardReferenceLineLabelHorizontalPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardReferenceLineLabelHorizontalPositionPtrOutput)
-}
-
-func (in *dashboardReferenceLineLabelHorizontalPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[*DashboardReferenceLineLabelHorizontalPosition]{
-		OutputState: in.ToDashboardReferenceLineLabelHorizontalPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardReferenceLineLabelVerticalPosition string
@@ -33544,12 +30669,6 @@ func (o DashboardReferenceLineLabelVerticalPositionOutput) ToDashboardReferenceL
 	}).(DashboardReferenceLineLabelVerticalPositionPtrOutput)
 }
 
-func (o DashboardReferenceLineLabelVerticalPositionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[DashboardReferenceLineLabelVerticalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLineLabelVerticalPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -33585,12 +30704,6 @@ func (o DashboardReferenceLineLabelVerticalPositionPtrOutput) ToDashboardReferen
 	return o
 }
 
-func (o DashboardReferenceLineLabelVerticalPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[*DashboardReferenceLineLabelVerticalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLineLabelVerticalPositionPtrOutput) Elem() DashboardReferenceLineLabelVerticalPositionOutput {
 	return o.ApplyT(func(v *DashboardReferenceLineLabelVerticalPosition) DashboardReferenceLineLabelVerticalPosition {
 		if v != nil {
@@ -33615,10 +30728,11 @@ func (o DashboardReferenceLineLabelVerticalPositionPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardReferenceLineLabelVerticalPositionInput is an input type that accepts DashboardReferenceLineLabelVerticalPositionArgs and DashboardReferenceLineLabelVerticalPositionOutput values.
-// You can construct a concrete instance of `DashboardReferenceLineLabelVerticalPositionInput` via:
+// DashboardReferenceLineLabelVerticalPositionInput is an input type that accepts values of the DashboardReferenceLineLabelVerticalPosition enum
+// A concrete instance of `DashboardReferenceLineLabelVerticalPositionInput` can be one of the following:
 //
-//	DashboardReferenceLineLabelVerticalPositionArgs{...}
+//	DashboardReferenceLineLabelVerticalPositionAbove
+//	DashboardReferenceLineLabelVerticalPositionBelow
 type DashboardReferenceLineLabelVerticalPositionInput interface {
 	pulumi.Input
 
@@ -33651,12 +30765,6 @@ func (in *dashboardReferenceLineLabelVerticalPositionPtr) ToDashboardReferenceLi
 
 func (in *dashboardReferenceLineLabelVerticalPositionPtr) ToDashboardReferenceLineLabelVerticalPositionPtrOutputWithContext(ctx context.Context) DashboardReferenceLineLabelVerticalPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardReferenceLineLabelVerticalPositionPtrOutput)
-}
-
-func (in *dashboardReferenceLineLabelVerticalPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[*DashboardReferenceLineLabelVerticalPosition]{
-		OutputState: in.ToDashboardReferenceLineLabelVerticalPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardReferenceLinePatternType string
@@ -33727,12 +30835,6 @@ func (o DashboardReferenceLinePatternTypeOutput) ToDashboardReferenceLinePattern
 	}).(DashboardReferenceLinePatternTypePtrOutput)
 }
 
-func (o DashboardReferenceLinePatternTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardReferenceLinePatternType] {
-	return pulumix.Output[DashboardReferenceLinePatternType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLinePatternTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -33768,12 +30870,6 @@ func (o DashboardReferenceLinePatternTypePtrOutput) ToDashboardReferenceLinePatt
 	return o
 }
 
-func (o DashboardReferenceLinePatternTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLinePatternType] {
-	return pulumix.Output[*DashboardReferenceLinePatternType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLinePatternTypePtrOutput) Elem() DashboardReferenceLinePatternTypeOutput {
 	return o.ApplyT(func(v *DashboardReferenceLinePatternType) DashboardReferenceLinePatternType {
 		if v != nil {
@@ -33798,10 +30894,12 @@ func (o DashboardReferenceLinePatternTypePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardReferenceLinePatternTypeInput is an input type that accepts DashboardReferenceLinePatternTypeArgs and DashboardReferenceLinePatternTypeOutput values.
-// You can construct a concrete instance of `DashboardReferenceLinePatternTypeInput` via:
+// DashboardReferenceLinePatternTypeInput is an input type that accepts values of the DashboardReferenceLinePatternType enum
+// A concrete instance of `DashboardReferenceLinePatternTypeInput` can be one of the following:
 //
-//	DashboardReferenceLinePatternTypeArgs{...}
+//	DashboardReferenceLinePatternTypeSolid
+//	DashboardReferenceLinePatternTypeDashed
+//	DashboardReferenceLinePatternTypeDotted
 type DashboardReferenceLinePatternTypeInput interface {
 	pulumi.Input
 
@@ -33834,12 +30932,6 @@ func (in *dashboardReferenceLinePatternTypePtr) ToDashboardReferenceLinePatternT
 
 func (in *dashboardReferenceLinePatternTypePtr) ToDashboardReferenceLinePatternTypePtrOutputWithContext(ctx context.Context) DashboardReferenceLinePatternTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardReferenceLinePatternTypePtrOutput)
-}
-
-func (in *dashboardReferenceLinePatternTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLinePatternType] {
-	return pulumix.Output[*DashboardReferenceLinePatternType]{
-		OutputState: in.ToDashboardReferenceLinePatternTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardReferenceLineSeriesType string
@@ -33909,12 +31001,6 @@ func (o DashboardReferenceLineSeriesTypeOutput) ToDashboardReferenceLineSeriesTy
 	}).(DashboardReferenceLineSeriesTypePtrOutput)
 }
 
-func (o DashboardReferenceLineSeriesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardReferenceLineSeriesType] {
-	return pulumix.Output[DashboardReferenceLineSeriesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLineSeriesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -33950,12 +31036,6 @@ func (o DashboardReferenceLineSeriesTypePtrOutput) ToDashboardReferenceLineSerie
 	return o
 }
 
-func (o DashboardReferenceLineSeriesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLineSeriesType] {
-	return pulumix.Output[*DashboardReferenceLineSeriesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLineSeriesTypePtrOutput) Elem() DashboardReferenceLineSeriesTypeOutput {
 	return o.ApplyT(func(v *DashboardReferenceLineSeriesType) DashboardReferenceLineSeriesType {
 		if v != nil {
@@ -33980,10 +31060,11 @@ func (o DashboardReferenceLineSeriesTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardReferenceLineSeriesTypeInput is an input type that accepts DashboardReferenceLineSeriesTypeArgs and DashboardReferenceLineSeriesTypeOutput values.
-// You can construct a concrete instance of `DashboardReferenceLineSeriesTypeInput` via:
+// DashboardReferenceLineSeriesTypeInput is an input type that accepts values of the DashboardReferenceLineSeriesType enum
+// A concrete instance of `DashboardReferenceLineSeriesTypeInput` can be one of the following:
 //
-//	DashboardReferenceLineSeriesTypeArgs{...}
+//	DashboardReferenceLineSeriesTypeBar
+//	DashboardReferenceLineSeriesTypeLine
 type DashboardReferenceLineSeriesTypeInput interface {
 	pulumi.Input
 
@@ -34016,12 +31097,6 @@ func (in *dashboardReferenceLineSeriesTypePtr) ToDashboardReferenceLineSeriesTyp
 
 func (in *dashboardReferenceLineSeriesTypePtr) ToDashboardReferenceLineSeriesTypePtrOutputWithContext(ctx context.Context) DashboardReferenceLineSeriesTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardReferenceLineSeriesTypePtrOutput)
-}
-
-func (in *dashboardReferenceLineSeriesTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLineSeriesType] {
-	return pulumix.Output[*DashboardReferenceLineSeriesType]{
-		OutputState: in.ToDashboardReferenceLineSeriesTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardReferenceLineValueLabelRelativePosition string
@@ -34091,12 +31166,6 @@ func (o DashboardReferenceLineValueLabelRelativePositionOutput) ToDashboardRefer
 	}).(DashboardReferenceLineValueLabelRelativePositionPtrOutput)
 }
 
-func (o DashboardReferenceLineValueLabelRelativePositionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[DashboardReferenceLineValueLabelRelativePosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLineValueLabelRelativePositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -34132,12 +31201,6 @@ func (o DashboardReferenceLineValueLabelRelativePositionPtrOutput) ToDashboardRe
 	return o
 }
 
-func (o DashboardReferenceLineValueLabelRelativePositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[*DashboardReferenceLineValueLabelRelativePosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLineValueLabelRelativePositionPtrOutput) Elem() DashboardReferenceLineValueLabelRelativePositionOutput {
 	return o.ApplyT(func(v *DashboardReferenceLineValueLabelRelativePosition) DashboardReferenceLineValueLabelRelativePosition {
 		if v != nil {
@@ -34162,10 +31225,11 @@ func (o DashboardReferenceLineValueLabelRelativePositionPtrOutput) ToStringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardReferenceLineValueLabelRelativePositionInput is an input type that accepts DashboardReferenceLineValueLabelRelativePositionArgs and DashboardReferenceLineValueLabelRelativePositionOutput values.
-// You can construct a concrete instance of `DashboardReferenceLineValueLabelRelativePositionInput` via:
+// DashboardReferenceLineValueLabelRelativePositionInput is an input type that accepts values of the DashboardReferenceLineValueLabelRelativePosition enum
+// A concrete instance of `DashboardReferenceLineValueLabelRelativePositionInput` can be one of the following:
 //
-//	DashboardReferenceLineValueLabelRelativePositionArgs{...}
+//	DashboardReferenceLineValueLabelRelativePositionBeforeCustomLabel
+//	DashboardReferenceLineValueLabelRelativePositionAfterCustomLabel
 type DashboardReferenceLineValueLabelRelativePositionInput interface {
 	pulumi.Input
 
@@ -34198,12 +31262,6 @@ func (in *dashboardReferenceLineValueLabelRelativePositionPtr) ToDashboardRefere
 
 func (in *dashboardReferenceLineValueLabelRelativePositionPtr) ToDashboardReferenceLineValueLabelRelativePositionPtrOutputWithContext(ctx context.Context) DashboardReferenceLineValueLabelRelativePositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardReferenceLineValueLabelRelativePositionPtrOutput)
-}
-
-func (in *dashboardReferenceLineValueLabelRelativePositionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[*DashboardReferenceLineValueLabelRelativePosition]{
-		OutputState: in.ToDashboardReferenceLineValueLabelRelativePositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardRelativeDateType string
@@ -34276,12 +31334,6 @@ func (o DashboardRelativeDateTypeOutput) ToDashboardRelativeDateTypePtrOutputWit
 	}).(DashboardRelativeDateTypePtrOutput)
 }
 
-func (o DashboardRelativeDateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardRelativeDateType] {
-	return pulumix.Output[DashboardRelativeDateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardRelativeDateTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -34317,12 +31369,6 @@ func (o DashboardRelativeDateTypePtrOutput) ToDashboardRelativeDateTypePtrOutput
 	return o
 }
 
-func (o DashboardRelativeDateTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardRelativeDateType] {
-	return pulumix.Output[*DashboardRelativeDateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardRelativeDateTypePtrOutput) Elem() DashboardRelativeDateTypeOutput {
 	return o.ApplyT(func(v *DashboardRelativeDateType) DashboardRelativeDateType {
 		if v != nil {
@@ -34347,10 +31393,14 @@ func (o DashboardRelativeDateTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardRelativeDateTypeInput is an input type that accepts DashboardRelativeDateTypeArgs and DashboardRelativeDateTypeOutput values.
-// You can construct a concrete instance of `DashboardRelativeDateTypeInput` via:
+// DashboardRelativeDateTypeInput is an input type that accepts values of the DashboardRelativeDateType enum
+// A concrete instance of `DashboardRelativeDateTypeInput` can be one of the following:
 //
-//	DashboardRelativeDateTypeArgs{...}
+//	DashboardRelativeDateTypePrevious
+//	DashboardRelativeDateTypeThis
+//	DashboardRelativeDateTypeLast
+//	DashboardRelativeDateTypeNow
+//	DashboardRelativeDateTypeNext
 type DashboardRelativeDateTypeInput interface {
 	pulumi.Input
 
@@ -34383,12 +31433,6 @@ func (in *dashboardRelativeDateTypePtr) ToDashboardRelativeDateTypePtrOutput() D
 
 func (in *dashboardRelativeDateTypePtr) ToDashboardRelativeDateTypePtrOutputWithContext(ctx context.Context) DashboardRelativeDateTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardRelativeDateTypePtrOutput)
-}
-
-func (in *dashboardRelativeDateTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardRelativeDateType] {
-	return pulumix.Output[*DashboardRelativeDateType]{
-		OutputState: in.ToDashboardRelativeDateTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardRelativeFontSize string
@@ -34461,12 +31505,6 @@ func (o DashboardRelativeFontSizeOutput) ToDashboardRelativeFontSizePtrOutputWit
 	}).(DashboardRelativeFontSizePtrOutput)
 }
 
-func (o DashboardRelativeFontSizeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardRelativeFontSize] {
-	return pulumix.Output[DashboardRelativeFontSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardRelativeFontSizeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -34502,12 +31540,6 @@ func (o DashboardRelativeFontSizePtrOutput) ToDashboardRelativeFontSizePtrOutput
 	return o
 }
 
-func (o DashboardRelativeFontSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardRelativeFontSize] {
-	return pulumix.Output[*DashboardRelativeFontSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardRelativeFontSizePtrOutput) Elem() DashboardRelativeFontSizeOutput {
 	return o.ApplyT(func(v *DashboardRelativeFontSize) DashboardRelativeFontSize {
 		if v != nil {
@@ -34532,10 +31564,14 @@ func (o DashboardRelativeFontSizePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardRelativeFontSizeInput is an input type that accepts DashboardRelativeFontSizeArgs and DashboardRelativeFontSizeOutput values.
-// You can construct a concrete instance of `DashboardRelativeFontSizeInput` via:
+// DashboardRelativeFontSizeInput is an input type that accepts values of the DashboardRelativeFontSize enum
+// A concrete instance of `DashboardRelativeFontSizeInput` can be one of the following:
 //
-//	DashboardRelativeFontSizeArgs{...}
+//	DashboardRelativeFontSizeExtraSmall
+//	DashboardRelativeFontSizeSmall
+//	DashboardRelativeFontSizeMedium
+//	DashboardRelativeFontSizeLarge
+//	DashboardRelativeFontSizeExtraLarge
 type DashboardRelativeFontSizeInput interface {
 	pulumi.Input
 
@@ -34568,12 +31604,6 @@ func (in *dashboardRelativeFontSizePtr) ToDashboardRelativeFontSizePtrOutput() D
 
 func (in *dashboardRelativeFontSizePtr) ToDashboardRelativeFontSizePtrOutputWithContext(ctx context.Context) DashboardRelativeFontSizePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardRelativeFontSizePtrOutput)
-}
-
-func (in *dashboardRelativeFontSizePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardRelativeFontSize] {
-	return pulumix.Output[*DashboardRelativeFontSize]{
-		OutputState: in.ToDashboardRelativeFontSizePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardResizeOption string
@@ -34643,12 +31673,6 @@ func (o DashboardResizeOptionOutput) ToDashboardResizeOptionPtrOutputWithContext
 	}).(DashboardResizeOptionPtrOutput)
 }
 
-func (o DashboardResizeOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardResizeOption] {
-	return pulumix.Output[DashboardResizeOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardResizeOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -34684,12 +31708,6 @@ func (o DashboardResizeOptionPtrOutput) ToDashboardResizeOptionPtrOutputWithCont
 	return o
 }
 
-func (o DashboardResizeOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardResizeOption] {
-	return pulumix.Output[*DashboardResizeOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardResizeOptionPtrOutput) Elem() DashboardResizeOptionOutput {
 	return o.ApplyT(func(v *DashboardResizeOption) DashboardResizeOption {
 		if v != nil {
@@ -34714,10 +31732,11 @@ func (o DashboardResizeOptionPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardResizeOptionInput is an input type that accepts DashboardResizeOptionArgs and DashboardResizeOptionOutput values.
-// You can construct a concrete instance of `DashboardResizeOptionInput` via:
+// DashboardResizeOptionInput is an input type that accepts values of the DashboardResizeOption enum
+// A concrete instance of `DashboardResizeOptionInput` can be one of the following:
 //
-//	DashboardResizeOptionArgs{...}
+//	DashboardResizeOptionFixed
+//	DashboardResizeOptionResponsive
 type DashboardResizeOptionInput interface {
 	pulumi.Input
 
@@ -34750,12 +31769,6 @@ func (in *dashboardResizeOptionPtr) ToDashboardResizeOptionPtrOutput() Dashboard
 
 func (in *dashboardResizeOptionPtr) ToDashboardResizeOptionPtrOutputWithContext(ctx context.Context) DashboardResizeOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardResizeOptionPtrOutput)
-}
-
-func (in *dashboardResizeOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardResizeOption] {
-	return pulumix.Output[*DashboardResizeOption]{
-		OutputState: in.ToDashboardResizeOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardResourceStatus string
@@ -34794,12 +31807,6 @@ func (o DashboardResourceStatusOutput) ToDashboardResourceStatusPtrOutputWithCon
 	}).(DashboardResourceStatusPtrOutput)
 }
 
-func (o DashboardResourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardResourceStatus] {
-	return pulumix.Output[DashboardResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -34833,12 +31840,6 @@ func (o DashboardResourceStatusPtrOutput) ToDashboardResourceStatusPtrOutput() D
 
 func (o DashboardResourceStatusPtrOutput) ToDashboardResourceStatusPtrOutputWithContext(ctx context.Context) DashboardResourceStatusPtrOutput {
 	return o
-}
-
-func (o DashboardResourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardResourceStatus] {
-	return pulumix.Output[*DashboardResourceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardResourceStatusPtrOutput) Elem() DashboardResourceStatusOutput {
@@ -34932,12 +31933,6 @@ func (o DashboardSectionPageBreakStatusOutput) ToDashboardSectionPageBreakStatus
 	}).(DashboardSectionPageBreakStatusPtrOutput)
 }
 
-func (o DashboardSectionPageBreakStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSectionPageBreakStatus] {
-	return pulumix.Output[DashboardSectionPageBreakStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSectionPageBreakStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -34973,12 +31968,6 @@ func (o DashboardSectionPageBreakStatusPtrOutput) ToDashboardSectionPageBreakSta
 	return o
 }
 
-func (o DashboardSectionPageBreakStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSectionPageBreakStatus] {
-	return pulumix.Output[*DashboardSectionPageBreakStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSectionPageBreakStatusPtrOutput) Elem() DashboardSectionPageBreakStatusOutput {
 	return o.ApplyT(func(v *DashboardSectionPageBreakStatus) DashboardSectionPageBreakStatus {
 		if v != nil {
@@ -35003,10 +31992,11 @@ func (o DashboardSectionPageBreakStatusPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSectionPageBreakStatusInput is an input type that accepts DashboardSectionPageBreakStatusArgs and DashboardSectionPageBreakStatusOutput values.
-// You can construct a concrete instance of `DashboardSectionPageBreakStatusInput` via:
+// DashboardSectionPageBreakStatusInput is an input type that accepts values of the DashboardSectionPageBreakStatus enum
+// A concrete instance of `DashboardSectionPageBreakStatusInput` can be one of the following:
 //
-//	DashboardSectionPageBreakStatusArgs{...}
+//	DashboardSectionPageBreakStatusEnabled
+//	DashboardSectionPageBreakStatusDisabled
 type DashboardSectionPageBreakStatusInput interface {
 	pulumi.Input
 
@@ -35039,12 +32029,6 @@ func (in *dashboardSectionPageBreakStatusPtr) ToDashboardSectionPageBreakStatusP
 
 func (in *dashboardSectionPageBreakStatusPtr) ToDashboardSectionPageBreakStatusPtrOutputWithContext(ctx context.Context) DashboardSectionPageBreakStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSectionPageBreakStatusPtrOutput)
-}
-
-func (in *dashboardSectionPageBreakStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSectionPageBreakStatus] {
-	return pulumix.Output[*DashboardSectionPageBreakStatus]{
-		OutputState: in.ToDashboardSectionPageBreakStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSelectAllValueOptions string
@@ -35113,12 +32097,6 @@ func (o DashboardSelectAllValueOptionsOutput) ToDashboardSelectAllValueOptionsPt
 	}).(DashboardSelectAllValueOptionsPtrOutput)
 }
 
-func (o DashboardSelectAllValueOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSelectAllValueOptions] {
-	return pulumix.Output[DashboardSelectAllValueOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSelectAllValueOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -35154,12 +32132,6 @@ func (o DashboardSelectAllValueOptionsPtrOutput) ToDashboardSelectAllValueOption
 	return o
 }
 
-func (o DashboardSelectAllValueOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSelectAllValueOptions] {
-	return pulumix.Output[*DashboardSelectAllValueOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSelectAllValueOptionsPtrOutput) Elem() DashboardSelectAllValueOptionsOutput {
 	return o.ApplyT(func(v *DashboardSelectAllValueOptions) DashboardSelectAllValueOptions {
 		if v != nil {
@@ -35184,10 +32156,10 @@ func (o DashboardSelectAllValueOptionsPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSelectAllValueOptionsInput is an input type that accepts DashboardSelectAllValueOptionsArgs and DashboardSelectAllValueOptionsOutput values.
-// You can construct a concrete instance of `DashboardSelectAllValueOptionsInput` via:
+// DashboardSelectAllValueOptionsInput is an input type that accepts values of the DashboardSelectAllValueOptions enum
+// A concrete instance of `DashboardSelectAllValueOptionsInput` can be one of the following:
 //
-//	DashboardSelectAllValueOptionsArgs{...}
+//	DashboardSelectAllValueOptionsAllValues
 type DashboardSelectAllValueOptionsInput interface {
 	pulumi.Input
 
@@ -35220,12 +32192,6 @@ func (in *dashboardSelectAllValueOptionsPtr) ToDashboardSelectAllValueOptionsPtr
 
 func (in *dashboardSelectAllValueOptionsPtr) ToDashboardSelectAllValueOptionsPtrOutputWithContext(ctx context.Context) DashboardSelectAllValueOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSelectAllValueOptionsPtrOutput)
-}
-
-func (in *dashboardSelectAllValueOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSelectAllValueOptions] {
-	return pulumix.Output[*DashboardSelectAllValueOptions]{
-		OutputState: in.ToDashboardSelectAllValueOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSelectedFieldOptions string
@@ -35294,12 +32260,6 @@ func (o DashboardSelectedFieldOptionsOutput) ToDashboardSelectedFieldOptionsPtrO
 	}).(DashboardSelectedFieldOptionsPtrOutput)
 }
 
-func (o DashboardSelectedFieldOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSelectedFieldOptions] {
-	return pulumix.Output[DashboardSelectedFieldOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSelectedFieldOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -35335,12 +32295,6 @@ func (o DashboardSelectedFieldOptionsPtrOutput) ToDashboardSelectedFieldOptionsP
 	return o
 }
 
-func (o DashboardSelectedFieldOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSelectedFieldOptions] {
-	return pulumix.Output[*DashboardSelectedFieldOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSelectedFieldOptionsPtrOutput) Elem() DashboardSelectedFieldOptionsOutput {
 	return o.ApplyT(func(v *DashboardSelectedFieldOptions) DashboardSelectedFieldOptions {
 		if v != nil {
@@ -35365,10 +32319,10 @@ func (o DashboardSelectedFieldOptionsPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSelectedFieldOptionsInput is an input type that accepts DashboardSelectedFieldOptionsArgs and DashboardSelectedFieldOptionsOutput values.
-// You can construct a concrete instance of `DashboardSelectedFieldOptionsInput` via:
+// DashboardSelectedFieldOptionsInput is an input type that accepts values of the DashboardSelectedFieldOptions enum
+// A concrete instance of `DashboardSelectedFieldOptionsInput` can be one of the following:
 //
-//	DashboardSelectedFieldOptionsArgs{...}
+//	DashboardSelectedFieldOptionsAllFields
 type DashboardSelectedFieldOptionsInput interface {
 	pulumi.Input
 
@@ -35401,12 +32355,6 @@ func (in *dashboardSelectedFieldOptionsPtr) ToDashboardSelectedFieldOptionsPtrOu
 
 func (in *dashboardSelectedFieldOptionsPtr) ToDashboardSelectedFieldOptionsPtrOutputWithContext(ctx context.Context) DashboardSelectedFieldOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSelectedFieldOptionsPtrOutput)
-}
-
-func (in *dashboardSelectedFieldOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSelectedFieldOptions] {
-	return pulumix.Output[*DashboardSelectedFieldOptions]{
-		OutputState: in.ToDashboardSelectedFieldOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSelectedTooltipType string
@@ -35476,12 +32424,6 @@ func (o DashboardSelectedTooltipTypeOutput) ToDashboardSelectedTooltipTypePtrOut
 	}).(DashboardSelectedTooltipTypePtrOutput)
 }
 
-func (o DashboardSelectedTooltipTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSelectedTooltipType] {
-	return pulumix.Output[DashboardSelectedTooltipType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSelectedTooltipTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -35517,12 +32459,6 @@ func (o DashboardSelectedTooltipTypePtrOutput) ToDashboardSelectedTooltipTypePtr
 	return o
 }
 
-func (o DashboardSelectedTooltipTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSelectedTooltipType] {
-	return pulumix.Output[*DashboardSelectedTooltipType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSelectedTooltipTypePtrOutput) Elem() DashboardSelectedTooltipTypeOutput {
 	return o.ApplyT(func(v *DashboardSelectedTooltipType) DashboardSelectedTooltipType {
 		if v != nil {
@@ -35547,10 +32483,11 @@ func (o DashboardSelectedTooltipTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSelectedTooltipTypeInput is an input type that accepts DashboardSelectedTooltipTypeArgs and DashboardSelectedTooltipTypeOutput values.
-// You can construct a concrete instance of `DashboardSelectedTooltipTypeInput` via:
+// DashboardSelectedTooltipTypeInput is an input type that accepts values of the DashboardSelectedTooltipType enum
+// A concrete instance of `DashboardSelectedTooltipTypeInput` can be one of the following:
 //
-//	DashboardSelectedTooltipTypeArgs{...}
+//	DashboardSelectedTooltipTypeBasic
+//	DashboardSelectedTooltipTypeDetailed
 type DashboardSelectedTooltipTypeInput interface {
 	pulumi.Input
 
@@ -35583,12 +32520,6 @@ func (in *dashboardSelectedTooltipTypePtr) ToDashboardSelectedTooltipTypePtrOutp
 
 func (in *dashboardSelectedTooltipTypePtr) ToDashboardSelectedTooltipTypePtrOutputWithContext(ctx context.Context) DashboardSelectedTooltipTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSelectedTooltipTypePtrOutput)
-}
-
-func (in *dashboardSelectedTooltipTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSelectedTooltipType] {
-	return pulumix.Output[*DashboardSelectedTooltipType]{
-		OutputState: in.ToDashboardSelectedTooltipTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSheetContentType string
@@ -35658,12 +32589,6 @@ func (o DashboardSheetContentTypeOutput) ToDashboardSheetContentTypePtrOutputWit
 	}).(DashboardSheetContentTypePtrOutput)
 }
 
-func (o DashboardSheetContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSheetContentType] {
-	return pulumix.Output[DashboardSheetContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSheetContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -35699,12 +32624,6 @@ func (o DashboardSheetContentTypePtrOutput) ToDashboardSheetContentTypePtrOutput
 	return o
 }
 
-func (o DashboardSheetContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSheetContentType] {
-	return pulumix.Output[*DashboardSheetContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSheetContentTypePtrOutput) Elem() DashboardSheetContentTypeOutput {
 	return o.ApplyT(func(v *DashboardSheetContentType) DashboardSheetContentType {
 		if v != nil {
@@ -35729,10 +32648,11 @@ func (o DashboardSheetContentTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSheetContentTypeInput is an input type that accepts DashboardSheetContentTypeArgs and DashboardSheetContentTypeOutput values.
-// You can construct a concrete instance of `DashboardSheetContentTypeInput` via:
+// DashboardSheetContentTypeInput is an input type that accepts values of the DashboardSheetContentType enum
+// A concrete instance of `DashboardSheetContentTypeInput` can be one of the following:
 //
-//	DashboardSheetContentTypeArgs{...}
+//	DashboardSheetContentTypePaginated
+//	DashboardSheetContentTypeInteractive
 type DashboardSheetContentTypeInput interface {
 	pulumi.Input
 
@@ -35765,12 +32685,6 @@ func (in *dashboardSheetContentTypePtr) ToDashboardSheetContentTypePtrOutput() D
 
 func (in *dashboardSheetContentTypePtr) ToDashboardSheetContentTypePtrOutputWithContext(ctx context.Context) DashboardSheetContentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSheetContentTypePtrOutput)
-}
-
-func (in *dashboardSheetContentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSheetContentType] {
-	return pulumix.Output[*DashboardSheetContentType]{
-		OutputState: in.ToDashboardSheetContentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSheetControlDateTimePickerType string
@@ -35840,12 +32754,6 @@ func (o DashboardSheetControlDateTimePickerTypeOutput) ToDashboardSheetControlDa
 	}).(DashboardSheetControlDateTimePickerTypePtrOutput)
 }
 
-func (o DashboardSheetControlDateTimePickerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSheetControlDateTimePickerType] {
-	return pulumix.Output[DashboardSheetControlDateTimePickerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSheetControlDateTimePickerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -35881,12 +32789,6 @@ func (o DashboardSheetControlDateTimePickerTypePtrOutput) ToDashboardSheetContro
 	return o
 }
 
-func (o DashboardSheetControlDateTimePickerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSheetControlDateTimePickerType] {
-	return pulumix.Output[*DashboardSheetControlDateTimePickerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSheetControlDateTimePickerTypePtrOutput) Elem() DashboardSheetControlDateTimePickerTypeOutput {
 	return o.ApplyT(func(v *DashboardSheetControlDateTimePickerType) DashboardSheetControlDateTimePickerType {
 		if v != nil {
@@ -35911,10 +32813,11 @@ func (o DashboardSheetControlDateTimePickerTypePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSheetControlDateTimePickerTypeInput is an input type that accepts DashboardSheetControlDateTimePickerTypeArgs and DashboardSheetControlDateTimePickerTypeOutput values.
-// You can construct a concrete instance of `DashboardSheetControlDateTimePickerTypeInput` via:
+// DashboardSheetControlDateTimePickerTypeInput is an input type that accepts values of the DashboardSheetControlDateTimePickerType enum
+// A concrete instance of `DashboardSheetControlDateTimePickerTypeInput` can be one of the following:
 //
-//	DashboardSheetControlDateTimePickerTypeArgs{...}
+//	DashboardSheetControlDateTimePickerTypeSingleValued
+//	DashboardSheetControlDateTimePickerTypeDateRange
 type DashboardSheetControlDateTimePickerTypeInput interface {
 	pulumi.Input
 
@@ -35947,12 +32850,6 @@ func (in *dashboardSheetControlDateTimePickerTypePtr) ToDashboardSheetControlDat
 
 func (in *dashboardSheetControlDateTimePickerTypePtr) ToDashboardSheetControlDateTimePickerTypePtrOutputWithContext(ctx context.Context) DashboardSheetControlDateTimePickerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSheetControlDateTimePickerTypePtrOutput)
-}
-
-func (in *dashboardSheetControlDateTimePickerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSheetControlDateTimePickerType] {
-	return pulumix.Output[*DashboardSheetControlDateTimePickerType]{
-		OutputState: in.ToDashboardSheetControlDateTimePickerTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSheetControlListType string
@@ -36022,12 +32919,6 @@ func (o DashboardSheetControlListTypeOutput) ToDashboardSheetControlListTypePtrO
 	}).(DashboardSheetControlListTypePtrOutput)
 }
 
-func (o DashboardSheetControlListTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSheetControlListType] {
-	return pulumix.Output[DashboardSheetControlListType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSheetControlListTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -36063,12 +32954,6 @@ func (o DashboardSheetControlListTypePtrOutput) ToDashboardSheetControlListTypeP
 	return o
 }
 
-func (o DashboardSheetControlListTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSheetControlListType] {
-	return pulumix.Output[*DashboardSheetControlListType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSheetControlListTypePtrOutput) Elem() DashboardSheetControlListTypeOutput {
 	return o.ApplyT(func(v *DashboardSheetControlListType) DashboardSheetControlListType {
 		if v != nil {
@@ -36093,10 +32978,11 @@ func (o DashboardSheetControlListTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSheetControlListTypeInput is an input type that accepts DashboardSheetControlListTypeArgs and DashboardSheetControlListTypeOutput values.
-// You can construct a concrete instance of `DashboardSheetControlListTypeInput` via:
+// DashboardSheetControlListTypeInput is an input type that accepts values of the DashboardSheetControlListType enum
+// A concrete instance of `DashboardSheetControlListTypeInput` can be one of the following:
 //
-//	DashboardSheetControlListTypeArgs{...}
+//	DashboardSheetControlListTypeMultiSelect
+//	DashboardSheetControlListTypeSingleSelect
 type DashboardSheetControlListTypeInput interface {
 	pulumi.Input
 
@@ -36129,12 +33015,6 @@ func (in *dashboardSheetControlListTypePtr) ToDashboardSheetControlListTypePtrOu
 
 func (in *dashboardSheetControlListTypePtr) ToDashboardSheetControlListTypePtrOutputWithContext(ctx context.Context) DashboardSheetControlListTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSheetControlListTypePtrOutput)
-}
-
-func (in *dashboardSheetControlListTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSheetControlListType] {
-	return pulumix.Output[*DashboardSheetControlListType]{
-		OutputState: in.ToDashboardSheetControlListTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSheetControlSliderType string
@@ -36204,12 +33084,6 @@ func (o DashboardSheetControlSliderTypeOutput) ToDashboardSheetControlSliderType
 	}).(DashboardSheetControlSliderTypePtrOutput)
 }
 
-func (o DashboardSheetControlSliderTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSheetControlSliderType] {
-	return pulumix.Output[DashboardSheetControlSliderType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSheetControlSliderTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -36245,12 +33119,6 @@ func (o DashboardSheetControlSliderTypePtrOutput) ToDashboardSheetControlSliderT
 	return o
 }
 
-func (o DashboardSheetControlSliderTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSheetControlSliderType] {
-	return pulumix.Output[*DashboardSheetControlSliderType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSheetControlSliderTypePtrOutput) Elem() DashboardSheetControlSliderTypeOutput {
 	return o.ApplyT(func(v *DashboardSheetControlSliderType) DashboardSheetControlSliderType {
 		if v != nil {
@@ -36275,10 +33143,11 @@ func (o DashboardSheetControlSliderTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSheetControlSliderTypeInput is an input type that accepts DashboardSheetControlSliderTypeArgs and DashboardSheetControlSliderTypeOutput values.
-// You can construct a concrete instance of `DashboardSheetControlSliderTypeInput` via:
+// DashboardSheetControlSliderTypeInput is an input type that accepts values of the DashboardSheetControlSliderType enum
+// A concrete instance of `DashboardSheetControlSliderTypeInput` can be one of the following:
 //
-//	DashboardSheetControlSliderTypeArgs{...}
+//	DashboardSheetControlSliderTypeSinglePoint
+//	DashboardSheetControlSliderTypeRange
 type DashboardSheetControlSliderTypeInput interface {
 	pulumi.Input
 
@@ -36311,12 +33180,6 @@ func (in *dashboardSheetControlSliderTypePtr) ToDashboardSheetControlSliderTypeP
 
 func (in *dashboardSheetControlSliderTypePtr) ToDashboardSheetControlSliderTypePtrOutputWithContext(ctx context.Context) DashboardSheetControlSliderTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSheetControlSliderTypePtrOutput)
-}
-
-func (in *dashboardSheetControlSliderTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSheetControlSliderType] {
-	return pulumix.Output[*DashboardSheetControlSliderType]{
-		OutputState: in.ToDashboardSheetControlSliderTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSimpleAttributeAggregationFunction string
@@ -36385,12 +33248,6 @@ func (o DashboardSimpleAttributeAggregationFunctionOutput) ToDashboardSimpleAttr
 	}).(DashboardSimpleAttributeAggregationFunctionPtrOutput)
 }
 
-func (o DashboardSimpleAttributeAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSimpleAttributeAggregationFunction] {
-	return pulumix.Output[DashboardSimpleAttributeAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSimpleAttributeAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -36426,12 +33283,6 @@ func (o DashboardSimpleAttributeAggregationFunctionPtrOutput) ToDashboardSimpleA
 	return o
 }
 
-func (o DashboardSimpleAttributeAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSimpleAttributeAggregationFunction] {
-	return pulumix.Output[*DashboardSimpleAttributeAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSimpleAttributeAggregationFunctionPtrOutput) Elem() DashboardSimpleAttributeAggregationFunctionOutput {
 	return o.ApplyT(func(v *DashboardSimpleAttributeAggregationFunction) DashboardSimpleAttributeAggregationFunction {
 		if v != nil {
@@ -36456,10 +33307,10 @@ func (o DashboardSimpleAttributeAggregationFunctionPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSimpleAttributeAggregationFunctionInput is an input type that accepts DashboardSimpleAttributeAggregationFunctionArgs and DashboardSimpleAttributeAggregationFunctionOutput values.
-// You can construct a concrete instance of `DashboardSimpleAttributeAggregationFunctionInput` via:
+// DashboardSimpleAttributeAggregationFunctionInput is an input type that accepts values of the DashboardSimpleAttributeAggregationFunction enum
+// A concrete instance of `DashboardSimpleAttributeAggregationFunctionInput` can be one of the following:
 //
-//	DashboardSimpleAttributeAggregationFunctionArgs{...}
+//	DashboardSimpleAttributeAggregationFunctionUniqueValue
 type DashboardSimpleAttributeAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -36492,12 +33343,6 @@ func (in *dashboardSimpleAttributeAggregationFunctionPtr) ToDashboardSimpleAttri
 
 func (in *dashboardSimpleAttributeAggregationFunctionPtr) ToDashboardSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardSimpleAttributeAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSimpleAttributeAggregationFunctionPtrOutput)
-}
-
-func (in *dashboardSimpleAttributeAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSimpleAttributeAggregationFunction] {
-	return pulumix.Output[*DashboardSimpleAttributeAggregationFunction]{
-		OutputState: in.ToDashboardSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSimpleNumericalAggregationFunction string
@@ -36576,12 +33421,6 @@ func (o DashboardSimpleNumericalAggregationFunctionOutput) ToDashboardSimpleNume
 	}).(DashboardSimpleNumericalAggregationFunctionPtrOutput)
 }
 
-func (o DashboardSimpleNumericalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSimpleNumericalAggregationFunction] {
-	return pulumix.Output[DashboardSimpleNumericalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSimpleNumericalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -36617,12 +33456,6 @@ func (o DashboardSimpleNumericalAggregationFunctionPtrOutput) ToDashboardSimpleN
 	return o
 }
 
-func (o DashboardSimpleNumericalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSimpleNumericalAggregationFunction] {
-	return pulumix.Output[*DashboardSimpleNumericalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSimpleNumericalAggregationFunctionPtrOutput) Elem() DashboardSimpleNumericalAggregationFunctionOutput {
 	return o.ApplyT(func(v *DashboardSimpleNumericalAggregationFunction) DashboardSimpleNumericalAggregationFunction {
 		if v != nil {
@@ -36647,10 +33480,20 @@ func (o DashboardSimpleNumericalAggregationFunctionPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSimpleNumericalAggregationFunctionInput is an input type that accepts DashboardSimpleNumericalAggregationFunctionArgs and DashboardSimpleNumericalAggregationFunctionOutput values.
-// You can construct a concrete instance of `DashboardSimpleNumericalAggregationFunctionInput` via:
+// DashboardSimpleNumericalAggregationFunctionInput is an input type that accepts values of the DashboardSimpleNumericalAggregationFunction enum
+// A concrete instance of `DashboardSimpleNumericalAggregationFunctionInput` can be one of the following:
 //
-//	DashboardSimpleNumericalAggregationFunctionArgs{...}
+//	DashboardSimpleNumericalAggregationFunctionSum
+//	DashboardSimpleNumericalAggregationFunctionAverage
+//	DashboardSimpleNumericalAggregationFunctionMin
+//	DashboardSimpleNumericalAggregationFunctionMax
+//	DashboardSimpleNumericalAggregationFunctionCount
+//	DashboardSimpleNumericalAggregationFunctionDistinctCount
+//	DashboardSimpleNumericalAggregationFunctionVar
+//	DashboardSimpleNumericalAggregationFunctionVarp
+//	DashboardSimpleNumericalAggregationFunctionStdev
+//	DashboardSimpleNumericalAggregationFunctionStdevp
+//	DashboardSimpleNumericalAggregationFunctionMedian
 type DashboardSimpleNumericalAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -36683,12 +33526,6 @@ func (in *dashboardSimpleNumericalAggregationFunctionPtr) ToDashboardSimpleNumer
 
 func (in *dashboardSimpleNumericalAggregationFunctionPtr) ToDashboardSimpleNumericalAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardSimpleNumericalAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSimpleNumericalAggregationFunctionPtrOutput)
-}
-
-func (in *dashboardSimpleNumericalAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSimpleNumericalAggregationFunction] {
-	return pulumix.Output[*DashboardSimpleNumericalAggregationFunction]{
-		OutputState: in.ToDashboardSimpleNumericalAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSimpleTotalAggregationFunction string
@@ -36762,12 +33599,6 @@ func (o DashboardSimpleTotalAggregationFunctionOutput) ToDashboardSimpleTotalAgg
 	}).(DashboardSimpleTotalAggregationFunctionPtrOutput)
 }
 
-func (o DashboardSimpleTotalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSimpleTotalAggregationFunction] {
-	return pulumix.Output[DashboardSimpleTotalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSimpleTotalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -36803,12 +33634,6 @@ func (o DashboardSimpleTotalAggregationFunctionPtrOutput) ToDashboardSimpleTotal
 	return o
 }
 
-func (o DashboardSimpleTotalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSimpleTotalAggregationFunction] {
-	return pulumix.Output[*DashboardSimpleTotalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSimpleTotalAggregationFunctionPtrOutput) Elem() DashboardSimpleTotalAggregationFunctionOutput {
 	return o.ApplyT(func(v *DashboardSimpleTotalAggregationFunction) DashboardSimpleTotalAggregationFunction {
 		if v != nil {
@@ -36833,10 +33658,15 @@ func (o DashboardSimpleTotalAggregationFunctionPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSimpleTotalAggregationFunctionInput is an input type that accepts DashboardSimpleTotalAggregationFunctionArgs and DashboardSimpleTotalAggregationFunctionOutput values.
-// You can construct a concrete instance of `DashboardSimpleTotalAggregationFunctionInput` via:
+// DashboardSimpleTotalAggregationFunctionInput is an input type that accepts values of the DashboardSimpleTotalAggregationFunction enum
+// A concrete instance of `DashboardSimpleTotalAggregationFunctionInput` can be one of the following:
 //
-//	DashboardSimpleTotalAggregationFunctionArgs{...}
+//	DashboardSimpleTotalAggregationFunctionDefault
+//	DashboardSimpleTotalAggregationFunctionSum
+//	DashboardSimpleTotalAggregationFunctionAverage
+//	DashboardSimpleTotalAggregationFunctionMin
+//	DashboardSimpleTotalAggregationFunctionMax
+//	DashboardSimpleTotalAggregationFunctionNone
 type DashboardSimpleTotalAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -36869,12 +33699,6 @@ func (in *dashboardSimpleTotalAggregationFunctionPtr) ToDashboardSimpleTotalAggr
 
 func (in *dashboardSimpleTotalAggregationFunctionPtr) ToDashboardSimpleTotalAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardSimpleTotalAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSimpleTotalAggregationFunctionPtrOutput)
-}
-
-func (in *dashboardSimpleTotalAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSimpleTotalAggregationFunction] {
-	return pulumix.Output[*DashboardSimpleTotalAggregationFunction]{
-		OutputState: in.ToDashboardSimpleTotalAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSmallMultiplesAxisPlacement string
@@ -36944,12 +33768,6 @@ func (o DashboardSmallMultiplesAxisPlacementOutput) ToDashboardSmallMultiplesAxi
 	}).(DashboardSmallMultiplesAxisPlacementPtrOutput)
 }
 
-func (o DashboardSmallMultiplesAxisPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSmallMultiplesAxisPlacement] {
-	return pulumix.Output[DashboardSmallMultiplesAxisPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSmallMultiplesAxisPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -36985,12 +33803,6 @@ func (o DashboardSmallMultiplesAxisPlacementPtrOutput) ToDashboardSmallMultiples
 	return o
 }
 
-func (o DashboardSmallMultiplesAxisPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSmallMultiplesAxisPlacement] {
-	return pulumix.Output[*DashboardSmallMultiplesAxisPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSmallMultiplesAxisPlacementPtrOutput) Elem() DashboardSmallMultiplesAxisPlacementOutput {
 	return o.ApplyT(func(v *DashboardSmallMultiplesAxisPlacement) DashboardSmallMultiplesAxisPlacement {
 		if v != nil {
@@ -37015,10 +33827,11 @@ func (o DashboardSmallMultiplesAxisPlacementPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSmallMultiplesAxisPlacementInput is an input type that accepts DashboardSmallMultiplesAxisPlacementArgs and DashboardSmallMultiplesAxisPlacementOutput values.
-// You can construct a concrete instance of `DashboardSmallMultiplesAxisPlacementInput` via:
+// DashboardSmallMultiplesAxisPlacementInput is an input type that accepts values of the DashboardSmallMultiplesAxisPlacement enum
+// A concrete instance of `DashboardSmallMultiplesAxisPlacementInput` can be one of the following:
 //
-//	DashboardSmallMultiplesAxisPlacementArgs{...}
+//	DashboardSmallMultiplesAxisPlacementOutside
+//	DashboardSmallMultiplesAxisPlacementInside
 type DashboardSmallMultiplesAxisPlacementInput interface {
 	pulumi.Input
 
@@ -37051,12 +33864,6 @@ func (in *dashboardSmallMultiplesAxisPlacementPtr) ToDashboardSmallMultiplesAxis
 
 func (in *dashboardSmallMultiplesAxisPlacementPtr) ToDashboardSmallMultiplesAxisPlacementPtrOutputWithContext(ctx context.Context) DashboardSmallMultiplesAxisPlacementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSmallMultiplesAxisPlacementPtrOutput)
-}
-
-func (in *dashboardSmallMultiplesAxisPlacementPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSmallMultiplesAxisPlacement] {
-	return pulumix.Output[*DashboardSmallMultiplesAxisPlacement]{
-		OutputState: in.ToDashboardSmallMultiplesAxisPlacementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSmallMultiplesAxisScale string
@@ -37126,12 +33933,6 @@ func (o DashboardSmallMultiplesAxisScaleOutput) ToDashboardSmallMultiplesAxisSca
 	}).(DashboardSmallMultiplesAxisScalePtrOutput)
 }
 
-func (o DashboardSmallMultiplesAxisScaleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSmallMultiplesAxisScale] {
-	return pulumix.Output[DashboardSmallMultiplesAxisScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSmallMultiplesAxisScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -37167,12 +33968,6 @@ func (o DashboardSmallMultiplesAxisScalePtrOutput) ToDashboardSmallMultiplesAxis
 	return o
 }
 
-func (o DashboardSmallMultiplesAxisScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSmallMultiplesAxisScale] {
-	return pulumix.Output[*DashboardSmallMultiplesAxisScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSmallMultiplesAxisScalePtrOutput) Elem() DashboardSmallMultiplesAxisScaleOutput {
 	return o.ApplyT(func(v *DashboardSmallMultiplesAxisScale) DashboardSmallMultiplesAxisScale {
 		if v != nil {
@@ -37197,10 +33992,11 @@ func (o DashboardSmallMultiplesAxisScalePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSmallMultiplesAxisScaleInput is an input type that accepts DashboardSmallMultiplesAxisScaleArgs and DashboardSmallMultiplesAxisScaleOutput values.
-// You can construct a concrete instance of `DashboardSmallMultiplesAxisScaleInput` via:
+// DashboardSmallMultiplesAxisScaleInput is an input type that accepts values of the DashboardSmallMultiplesAxisScale enum
+// A concrete instance of `DashboardSmallMultiplesAxisScaleInput` can be one of the following:
 //
-//	DashboardSmallMultiplesAxisScaleArgs{...}
+//	DashboardSmallMultiplesAxisScaleShared
+//	DashboardSmallMultiplesAxisScaleIndependent
 type DashboardSmallMultiplesAxisScaleInput interface {
 	pulumi.Input
 
@@ -37233,12 +34029,6 @@ func (in *dashboardSmallMultiplesAxisScalePtr) ToDashboardSmallMultiplesAxisScal
 
 func (in *dashboardSmallMultiplesAxisScalePtr) ToDashboardSmallMultiplesAxisScalePtrOutputWithContext(ctx context.Context) DashboardSmallMultiplesAxisScalePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSmallMultiplesAxisScalePtrOutput)
-}
-
-func (in *dashboardSmallMultiplesAxisScalePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSmallMultiplesAxisScale] {
-	return pulumix.Output[*DashboardSmallMultiplesAxisScale]{
-		OutputState: in.ToDashboardSmallMultiplesAxisScalePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSortDirection string
@@ -37308,12 +34098,6 @@ func (o DashboardSortDirectionOutput) ToDashboardSortDirectionPtrOutputWithConte
 	}).(DashboardSortDirectionPtrOutput)
 }
 
-func (o DashboardSortDirectionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSortDirection] {
-	return pulumix.Output[DashboardSortDirection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSortDirectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -37349,12 +34133,6 @@ func (o DashboardSortDirectionPtrOutput) ToDashboardSortDirectionPtrOutputWithCo
 	return o
 }
 
-func (o DashboardSortDirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSortDirection] {
-	return pulumix.Output[*DashboardSortDirection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSortDirectionPtrOutput) Elem() DashboardSortDirectionOutput {
 	return o.ApplyT(func(v *DashboardSortDirection) DashboardSortDirection {
 		if v != nil {
@@ -37379,10 +34157,11 @@ func (o DashboardSortDirectionPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSortDirectionInput is an input type that accepts DashboardSortDirectionArgs and DashboardSortDirectionOutput values.
-// You can construct a concrete instance of `DashboardSortDirectionInput` via:
+// DashboardSortDirectionInput is an input type that accepts values of the DashboardSortDirection enum
+// A concrete instance of `DashboardSortDirectionInput` can be one of the following:
 //
-//	DashboardSortDirectionArgs{...}
+//	DashboardSortDirectionAsc
+//	DashboardSortDirectionDesc
 type DashboardSortDirectionInput interface {
 	pulumi.Input
 
@@ -37415,12 +34194,6 @@ func (in *dashboardSortDirectionPtr) ToDashboardSortDirectionPtrOutput() Dashboa
 
 func (in *dashboardSortDirectionPtr) ToDashboardSortDirectionPtrOutputWithContext(ctx context.Context) DashboardSortDirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSortDirectionPtrOutput)
-}
-
-func (in *dashboardSortDirectionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSortDirection] {
-	return pulumix.Output[*DashboardSortDirection]{
-		OutputState: in.ToDashboardSortDirectionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardSpecialValue string
@@ -37491,12 +34264,6 @@ func (o DashboardSpecialValueOutput) ToDashboardSpecialValuePtrOutputWithContext
 	}).(DashboardSpecialValuePtrOutput)
 }
 
-func (o DashboardSpecialValueOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSpecialValue] {
-	return pulumix.Output[DashboardSpecialValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSpecialValueOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -37532,12 +34299,6 @@ func (o DashboardSpecialValuePtrOutput) ToDashboardSpecialValuePtrOutputWithCont
 	return o
 }
 
-func (o DashboardSpecialValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSpecialValue] {
-	return pulumix.Output[*DashboardSpecialValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSpecialValuePtrOutput) Elem() DashboardSpecialValueOutput {
 	return o.ApplyT(func(v *DashboardSpecialValue) DashboardSpecialValue {
 		if v != nil {
@@ -37562,10 +34323,12 @@ func (o DashboardSpecialValuePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardSpecialValueInput is an input type that accepts DashboardSpecialValueArgs and DashboardSpecialValueOutput values.
-// You can construct a concrete instance of `DashboardSpecialValueInput` via:
+// DashboardSpecialValueInput is an input type that accepts values of the DashboardSpecialValue enum
+// A concrete instance of `DashboardSpecialValueInput` can be one of the following:
 //
-//	DashboardSpecialValueArgs{...}
+//	DashboardSpecialValueEmpty
+//	DashboardSpecialValueNull
+//	DashboardSpecialValueOther
 type DashboardSpecialValueInput interface {
 	pulumi.Input
 
@@ -37598,12 +34361,6 @@ func (in *dashboardSpecialValuePtr) ToDashboardSpecialValuePtrOutput() Dashboard
 
 func (in *dashboardSpecialValuePtr) ToDashboardSpecialValuePtrOutputWithContext(ctx context.Context) DashboardSpecialValuePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSpecialValuePtrOutput)
-}
-
-func (in *dashboardSpecialValuePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardSpecialValue] {
-	return pulumix.Output[*DashboardSpecialValue]{
-		OutputState: in.ToDashboardSpecialValuePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardStyledCellType string
@@ -37674,12 +34431,6 @@ func (o DashboardStyledCellTypeOutput) ToDashboardStyledCellTypePtrOutputWithCon
 	}).(DashboardStyledCellTypePtrOutput)
 }
 
-func (o DashboardStyledCellTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardStyledCellType] {
-	return pulumix.Output[DashboardStyledCellType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardStyledCellTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -37715,12 +34466,6 @@ func (o DashboardStyledCellTypePtrOutput) ToDashboardStyledCellTypePtrOutputWith
 	return o
 }
 
-func (o DashboardStyledCellTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardStyledCellType] {
-	return pulumix.Output[*DashboardStyledCellType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardStyledCellTypePtrOutput) Elem() DashboardStyledCellTypeOutput {
 	return o.ApplyT(func(v *DashboardStyledCellType) DashboardStyledCellType {
 		if v != nil {
@@ -37745,10 +34490,12 @@ func (o DashboardStyledCellTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardStyledCellTypeInput is an input type that accepts DashboardStyledCellTypeArgs and DashboardStyledCellTypeOutput values.
-// You can construct a concrete instance of `DashboardStyledCellTypeInput` via:
+// DashboardStyledCellTypeInput is an input type that accepts values of the DashboardStyledCellType enum
+// A concrete instance of `DashboardStyledCellTypeInput` can be one of the following:
 //
-//	DashboardStyledCellTypeArgs{...}
+//	DashboardStyledCellTypeTotal
+//	DashboardStyledCellTypeMetricHeader
+//	DashboardStyledCellTypeValue
 type DashboardStyledCellTypeInput interface {
 	pulumi.Input
 
@@ -37781,12 +34528,6 @@ func (in *dashboardStyledCellTypePtr) ToDashboardStyledCellTypePtrOutput() Dashb
 
 func (in *dashboardStyledCellTypePtr) ToDashboardStyledCellTypePtrOutputWithContext(ctx context.Context) DashboardStyledCellTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardStyledCellTypePtrOutput)
-}
-
-func (in *dashboardStyledCellTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardStyledCellType] {
-	return pulumix.Output[*DashboardStyledCellType]{
-		OutputState: in.ToDashboardStyledCellTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardTableBorderStyle string
@@ -37856,12 +34597,6 @@ func (o DashboardTableBorderStyleOutput) ToDashboardTableBorderStylePtrOutputWit
 	}).(DashboardTableBorderStylePtrOutput)
 }
 
-func (o DashboardTableBorderStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTableBorderStyle] {
-	return pulumix.Output[DashboardTableBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableBorderStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -37897,12 +34632,6 @@ func (o DashboardTableBorderStylePtrOutput) ToDashboardTableBorderStylePtrOutput
 	return o
 }
 
-func (o DashboardTableBorderStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableBorderStyle] {
-	return pulumix.Output[*DashboardTableBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableBorderStylePtrOutput) Elem() DashboardTableBorderStyleOutput {
 	return o.ApplyT(func(v *DashboardTableBorderStyle) DashboardTableBorderStyle {
 		if v != nil {
@@ -37927,10 +34656,11 @@ func (o DashboardTableBorderStylePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardTableBorderStyleInput is an input type that accepts DashboardTableBorderStyleArgs and DashboardTableBorderStyleOutput values.
-// You can construct a concrete instance of `DashboardTableBorderStyleInput` via:
+// DashboardTableBorderStyleInput is an input type that accepts values of the DashboardTableBorderStyle enum
+// A concrete instance of `DashboardTableBorderStyleInput` can be one of the following:
 //
-//	DashboardTableBorderStyleArgs{...}
+//	DashboardTableBorderStyleNone
+//	DashboardTableBorderStyleSolid
 type DashboardTableBorderStyleInput interface {
 	pulumi.Input
 
@@ -37963,12 +34693,6 @@ func (in *dashboardTableBorderStylePtr) ToDashboardTableBorderStylePtrOutput() D
 
 func (in *dashboardTableBorderStylePtr) ToDashboardTableBorderStylePtrOutputWithContext(ctx context.Context) DashboardTableBorderStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTableBorderStylePtrOutput)
-}
-
-func (in *dashboardTableBorderStylePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableBorderStyle] {
-	return pulumix.Output[*DashboardTableBorderStyle]{
-		OutputState: in.ToDashboardTableBorderStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardTableCellImageScalingConfiguration string
@@ -38039,12 +34763,6 @@ func (o DashboardTableCellImageScalingConfigurationOutput) ToDashboardTableCellI
 	}).(DashboardTableCellImageScalingConfigurationPtrOutput)
 }
 
-func (o DashboardTableCellImageScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTableCellImageScalingConfiguration] {
-	return pulumix.Output[DashboardTableCellImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableCellImageScalingConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -38080,12 +34798,6 @@ func (o DashboardTableCellImageScalingConfigurationPtrOutput) ToDashboardTableCe
 	return o
 }
 
-func (o DashboardTableCellImageScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableCellImageScalingConfiguration] {
-	return pulumix.Output[*DashboardTableCellImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableCellImageScalingConfigurationPtrOutput) Elem() DashboardTableCellImageScalingConfigurationOutput {
 	return o.ApplyT(func(v *DashboardTableCellImageScalingConfiguration) DashboardTableCellImageScalingConfiguration {
 		if v != nil {
@@ -38110,10 +34822,12 @@ func (o DashboardTableCellImageScalingConfigurationPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardTableCellImageScalingConfigurationInput is an input type that accepts DashboardTableCellImageScalingConfigurationArgs and DashboardTableCellImageScalingConfigurationOutput values.
-// You can construct a concrete instance of `DashboardTableCellImageScalingConfigurationInput` via:
+// DashboardTableCellImageScalingConfigurationInput is an input type that accepts values of the DashboardTableCellImageScalingConfiguration enum
+// A concrete instance of `DashboardTableCellImageScalingConfigurationInput` can be one of the following:
 //
-//	DashboardTableCellImageScalingConfigurationArgs{...}
+//	DashboardTableCellImageScalingConfigurationFitToCellHeight
+//	DashboardTableCellImageScalingConfigurationFitToCellWidth
+//	DashboardTableCellImageScalingConfigurationDoNotScale
 type DashboardTableCellImageScalingConfigurationInput interface {
 	pulumi.Input
 
@@ -38146,12 +34860,6 @@ func (in *dashboardTableCellImageScalingConfigurationPtr) ToDashboardTableCellIm
 
 func (in *dashboardTableCellImageScalingConfigurationPtr) ToDashboardTableCellImageScalingConfigurationPtrOutputWithContext(ctx context.Context) DashboardTableCellImageScalingConfigurationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTableCellImageScalingConfigurationPtrOutput)
-}
-
-func (in *dashboardTableCellImageScalingConfigurationPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableCellImageScalingConfiguration] {
-	return pulumix.Output[*DashboardTableCellImageScalingConfiguration]{
-		OutputState: in.ToDashboardTableCellImageScalingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardTableFieldIconSetType string
@@ -38220,12 +34928,6 @@ func (o DashboardTableFieldIconSetTypeOutput) ToDashboardTableFieldIconSetTypePt
 	}).(DashboardTableFieldIconSetTypePtrOutput)
 }
 
-func (o DashboardTableFieldIconSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTableFieldIconSetType] {
-	return pulumix.Output[DashboardTableFieldIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableFieldIconSetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -38261,12 +34963,6 @@ func (o DashboardTableFieldIconSetTypePtrOutput) ToDashboardTableFieldIconSetTyp
 	return o
 }
 
-func (o DashboardTableFieldIconSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableFieldIconSetType] {
-	return pulumix.Output[*DashboardTableFieldIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableFieldIconSetTypePtrOutput) Elem() DashboardTableFieldIconSetTypeOutput {
 	return o.ApplyT(func(v *DashboardTableFieldIconSetType) DashboardTableFieldIconSetType {
 		if v != nil {
@@ -38291,10 +34987,10 @@ func (o DashboardTableFieldIconSetTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardTableFieldIconSetTypeInput is an input type that accepts DashboardTableFieldIconSetTypeArgs and DashboardTableFieldIconSetTypeOutput values.
-// You can construct a concrete instance of `DashboardTableFieldIconSetTypeInput` via:
+// DashboardTableFieldIconSetTypeInput is an input type that accepts values of the DashboardTableFieldIconSetType enum
+// A concrete instance of `DashboardTableFieldIconSetTypeInput` can be one of the following:
 //
-//	DashboardTableFieldIconSetTypeArgs{...}
+//	DashboardTableFieldIconSetTypeLink
 type DashboardTableFieldIconSetTypeInput interface {
 	pulumi.Input
 
@@ -38327,12 +35023,6 @@ func (in *dashboardTableFieldIconSetTypePtr) ToDashboardTableFieldIconSetTypePtr
 
 func (in *dashboardTableFieldIconSetTypePtr) ToDashboardTableFieldIconSetTypePtrOutputWithContext(ctx context.Context) DashboardTableFieldIconSetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTableFieldIconSetTypePtrOutput)
-}
-
-func (in *dashboardTableFieldIconSetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableFieldIconSetType] {
-	return pulumix.Output[*DashboardTableFieldIconSetType]{
-		OutputState: in.ToDashboardTableFieldIconSetTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardTableOrientation string
@@ -38402,12 +35092,6 @@ func (o DashboardTableOrientationOutput) ToDashboardTableOrientationPtrOutputWit
 	}).(DashboardTableOrientationPtrOutput)
 }
 
-func (o DashboardTableOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTableOrientation] {
-	return pulumix.Output[DashboardTableOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -38443,12 +35127,6 @@ func (o DashboardTableOrientationPtrOutput) ToDashboardTableOrientationPtrOutput
 	return o
 }
 
-func (o DashboardTableOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableOrientation] {
-	return pulumix.Output[*DashboardTableOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableOrientationPtrOutput) Elem() DashboardTableOrientationOutput {
 	return o.ApplyT(func(v *DashboardTableOrientation) DashboardTableOrientation {
 		if v != nil {
@@ -38473,10 +35151,11 @@ func (o DashboardTableOrientationPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardTableOrientationInput is an input type that accepts DashboardTableOrientationArgs and DashboardTableOrientationOutput values.
-// You can construct a concrete instance of `DashboardTableOrientationInput` via:
+// DashboardTableOrientationInput is an input type that accepts values of the DashboardTableOrientation enum
+// A concrete instance of `DashboardTableOrientationInput` can be one of the following:
 //
-//	DashboardTableOrientationArgs{...}
+//	DashboardTableOrientationVertical
+//	DashboardTableOrientationHorizontal
 type DashboardTableOrientationInput interface {
 	pulumi.Input
 
@@ -38509,12 +35188,6 @@ func (in *dashboardTableOrientationPtr) ToDashboardTableOrientationPtrOutput() D
 
 func (in *dashboardTableOrientationPtr) ToDashboardTableOrientationPtrOutputWithContext(ctx context.Context) DashboardTableOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTableOrientationPtrOutput)
-}
-
-func (in *dashboardTableOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableOrientation] {
-	return pulumix.Output[*DashboardTableOrientation]{
-		OutputState: in.ToDashboardTableOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardTableTotalsPlacement string
@@ -38585,12 +35258,6 @@ func (o DashboardTableTotalsPlacementOutput) ToDashboardTableTotalsPlacementPtrO
 	}).(DashboardTableTotalsPlacementPtrOutput)
 }
 
-func (o DashboardTableTotalsPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTableTotalsPlacement] {
-	return pulumix.Output[DashboardTableTotalsPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableTotalsPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -38626,12 +35293,6 @@ func (o DashboardTableTotalsPlacementPtrOutput) ToDashboardTableTotalsPlacementP
 	return o
 }
 
-func (o DashboardTableTotalsPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableTotalsPlacement] {
-	return pulumix.Output[*DashboardTableTotalsPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableTotalsPlacementPtrOutput) Elem() DashboardTableTotalsPlacementOutput {
 	return o.ApplyT(func(v *DashboardTableTotalsPlacement) DashboardTableTotalsPlacement {
 		if v != nil {
@@ -38656,10 +35317,12 @@ func (o DashboardTableTotalsPlacementPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardTableTotalsPlacementInput is an input type that accepts DashboardTableTotalsPlacementArgs and DashboardTableTotalsPlacementOutput values.
-// You can construct a concrete instance of `DashboardTableTotalsPlacementInput` via:
+// DashboardTableTotalsPlacementInput is an input type that accepts values of the DashboardTableTotalsPlacement enum
+// A concrete instance of `DashboardTableTotalsPlacementInput` can be one of the following:
 //
-//	DashboardTableTotalsPlacementArgs{...}
+//	DashboardTableTotalsPlacementStart
+//	DashboardTableTotalsPlacementEnd
+//	DashboardTableTotalsPlacementAuto
 type DashboardTableTotalsPlacementInput interface {
 	pulumi.Input
 
@@ -38692,12 +35355,6 @@ func (in *dashboardTableTotalsPlacementPtr) ToDashboardTableTotalsPlacementPtrOu
 
 func (in *dashboardTableTotalsPlacementPtr) ToDashboardTableTotalsPlacementPtrOutputWithContext(ctx context.Context) DashboardTableTotalsPlacementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTableTotalsPlacementPtrOutput)
-}
-
-func (in *dashboardTableTotalsPlacementPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableTotalsPlacement] {
-	return pulumix.Output[*DashboardTableTotalsPlacement]{
-		OutputState: in.ToDashboardTableTotalsPlacementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardTableTotalsScrollStatus string
@@ -38767,12 +35424,6 @@ func (o DashboardTableTotalsScrollStatusOutput) ToDashboardTableTotalsScrollStat
 	}).(DashboardTableTotalsScrollStatusPtrOutput)
 }
 
-func (o DashboardTableTotalsScrollStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTableTotalsScrollStatus] {
-	return pulumix.Output[DashboardTableTotalsScrollStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableTotalsScrollStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -38808,12 +35459,6 @@ func (o DashboardTableTotalsScrollStatusPtrOutput) ToDashboardTableTotalsScrollS
 	return o
 }
 
-func (o DashboardTableTotalsScrollStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableTotalsScrollStatus] {
-	return pulumix.Output[*DashboardTableTotalsScrollStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableTotalsScrollStatusPtrOutput) Elem() DashboardTableTotalsScrollStatusOutput {
 	return o.ApplyT(func(v *DashboardTableTotalsScrollStatus) DashboardTableTotalsScrollStatus {
 		if v != nil {
@@ -38838,10 +35483,11 @@ func (o DashboardTableTotalsScrollStatusPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardTableTotalsScrollStatusInput is an input type that accepts DashboardTableTotalsScrollStatusArgs and DashboardTableTotalsScrollStatusOutput values.
-// You can construct a concrete instance of `DashboardTableTotalsScrollStatusInput` via:
+// DashboardTableTotalsScrollStatusInput is an input type that accepts values of the DashboardTableTotalsScrollStatus enum
+// A concrete instance of `DashboardTableTotalsScrollStatusInput` can be one of the following:
 //
-//	DashboardTableTotalsScrollStatusArgs{...}
+//	DashboardTableTotalsScrollStatusPinned
+//	DashboardTableTotalsScrollStatusScrolled
 type DashboardTableTotalsScrollStatusInput interface {
 	pulumi.Input
 
@@ -38874,12 +35520,6 @@ func (in *dashboardTableTotalsScrollStatusPtr) ToDashboardTableTotalsScrollStatu
 
 func (in *dashboardTableTotalsScrollStatusPtr) ToDashboardTableTotalsScrollStatusPtrOutputWithContext(ctx context.Context) DashboardTableTotalsScrollStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTableTotalsScrollStatusPtrOutput)
-}
-
-func (in *dashboardTableTotalsScrollStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableTotalsScrollStatus] {
-	return pulumix.Output[*DashboardTableTotalsScrollStatus]{
-		OutputState: in.ToDashboardTableTotalsScrollStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardTargetVisualOptions string
@@ -38948,12 +35588,6 @@ func (o DashboardTargetVisualOptionsOutput) ToDashboardTargetVisualOptionsPtrOut
 	}).(DashboardTargetVisualOptionsPtrOutput)
 }
 
-func (o DashboardTargetVisualOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTargetVisualOptions] {
-	return pulumix.Output[DashboardTargetVisualOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTargetVisualOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -38989,12 +35623,6 @@ func (o DashboardTargetVisualOptionsPtrOutput) ToDashboardTargetVisualOptionsPtr
 	return o
 }
 
-func (o DashboardTargetVisualOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTargetVisualOptions] {
-	return pulumix.Output[*DashboardTargetVisualOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTargetVisualOptionsPtrOutput) Elem() DashboardTargetVisualOptionsOutput {
 	return o.ApplyT(func(v *DashboardTargetVisualOptions) DashboardTargetVisualOptions {
 		if v != nil {
@@ -39019,10 +35647,10 @@ func (o DashboardTargetVisualOptionsPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardTargetVisualOptionsInput is an input type that accepts DashboardTargetVisualOptionsArgs and DashboardTargetVisualOptionsOutput values.
-// You can construct a concrete instance of `DashboardTargetVisualOptionsInput` via:
+// DashboardTargetVisualOptionsInput is an input type that accepts values of the DashboardTargetVisualOptions enum
+// A concrete instance of `DashboardTargetVisualOptionsInput` can be one of the following:
 //
-//	DashboardTargetVisualOptionsArgs{...}
+//	DashboardTargetVisualOptionsAllVisuals
 type DashboardTargetVisualOptionsInput interface {
 	pulumi.Input
 
@@ -39055,12 +35683,6 @@ func (in *dashboardTargetVisualOptionsPtr) ToDashboardTargetVisualOptionsPtrOutp
 
 func (in *dashboardTargetVisualOptionsPtr) ToDashboardTargetVisualOptionsPtrOutputWithContext(ctx context.Context) DashboardTargetVisualOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTargetVisualOptionsPtrOutput)
-}
-
-func (in *dashboardTargetVisualOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardTargetVisualOptions] {
-	return pulumix.Output[*DashboardTargetVisualOptions]{
-		OutputState: in.ToDashboardTargetVisualOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardTextWrap string
@@ -39130,12 +35752,6 @@ func (o DashboardTextWrapOutput) ToDashboardTextWrapPtrOutputWithContext(ctx con
 	}).(DashboardTextWrapPtrOutput)
 }
 
-func (o DashboardTextWrapOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTextWrap] {
-	return pulumix.Output[DashboardTextWrap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTextWrapOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -39171,12 +35787,6 @@ func (o DashboardTextWrapPtrOutput) ToDashboardTextWrapPtrOutputWithContext(ctx 
 	return o
 }
 
-func (o DashboardTextWrapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTextWrap] {
-	return pulumix.Output[*DashboardTextWrap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTextWrapPtrOutput) Elem() DashboardTextWrapOutput {
 	return o.ApplyT(func(v *DashboardTextWrap) DashboardTextWrap {
 		if v != nil {
@@ -39201,10 +35811,11 @@ func (o DashboardTextWrapPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardTextWrapInput is an input type that accepts DashboardTextWrapArgs and DashboardTextWrapOutput values.
-// You can construct a concrete instance of `DashboardTextWrapInput` via:
+// DashboardTextWrapInput is an input type that accepts values of the DashboardTextWrap enum
+// A concrete instance of `DashboardTextWrapInput` can be one of the following:
 //
-//	DashboardTextWrapArgs{...}
+//	DashboardTextWrapNone
+//	DashboardTextWrapWrap
 type DashboardTextWrapInput interface {
 	pulumi.Input
 
@@ -39237,12 +35848,6 @@ func (in *dashboardTextWrapPtr) ToDashboardTextWrapPtrOutput() DashboardTextWrap
 
 func (in *dashboardTextWrapPtr) ToDashboardTextWrapPtrOutputWithContext(ctx context.Context) DashboardTextWrapPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTextWrapPtrOutput)
-}
-
-func (in *dashboardTextWrapPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardTextWrap] {
-	return pulumix.Output[*DashboardTextWrap]{
-		OutputState: in.ToDashboardTextWrapPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardTimeGranularity string
@@ -39319,12 +35924,6 @@ func (o DashboardTimeGranularityOutput) ToDashboardTimeGranularityPtrOutputWithC
 	}).(DashboardTimeGranularityPtrOutput)
 }
 
-func (o DashboardTimeGranularityOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTimeGranularity] {
-	return pulumix.Output[DashboardTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTimeGranularityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -39360,12 +35959,6 @@ func (o DashboardTimeGranularityPtrOutput) ToDashboardTimeGranularityPtrOutputWi
 	return o
 }
 
-func (o DashboardTimeGranularityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTimeGranularity] {
-	return pulumix.Output[*DashboardTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTimeGranularityPtrOutput) Elem() DashboardTimeGranularityOutput {
 	return o.ApplyT(func(v *DashboardTimeGranularity) DashboardTimeGranularity {
 		if v != nil {
@@ -39390,10 +35983,18 @@ func (o DashboardTimeGranularityPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardTimeGranularityInput is an input type that accepts DashboardTimeGranularityArgs and DashboardTimeGranularityOutput values.
-// You can construct a concrete instance of `DashboardTimeGranularityInput` via:
+// DashboardTimeGranularityInput is an input type that accepts values of the DashboardTimeGranularity enum
+// A concrete instance of `DashboardTimeGranularityInput` can be one of the following:
 //
-//	DashboardTimeGranularityArgs{...}
+//	DashboardTimeGranularityYear
+//	DashboardTimeGranularityQuarter
+//	DashboardTimeGranularityMonth
+//	DashboardTimeGranularityWeek
+//	DashboardTimeGranularityDay
+//	DashboardTimeGranularityHour
+//	DashboardTimeGranularityMinute
+//	DashboardTimeGranularitySecond
+//	DashboardTimeGranularityMillisecond
 type DashboardTimeGranularityInput interface {
 	pulumi.Input
 
@@ -39426,12 +36027,6 @@ func (in *dashboardTimeGranularityPtr) ToDashboardTimeGranularityPtrOutput() Das
 
 func (in *dashboardTimeGranularityPtr) ToDashboardTimeGranularityPtrOutputWithContext(ctx context.Context) DashboardTimeGranularityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTimeGranularityPtrOutput)
-}
-
-func (in *dashboardTimeGranularityPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardTimeGranularity] {
-	return pulumix.Output[*DashboardTimeGranularity]{
-		OutputState: in.ToDashboardTimeGranularityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardTooltipTitleType string
@@ -39501,12 +36096,6 @@ func (o DashboardTooltipTitleTypeOutput) ToDashboardTooltipTitleTypePtrOutputWit
 	}).(DashboardTooltipTitleTypePtrOutput)
 }
 
-func (o DashboardTooltipTitleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTooltipTitleType] {
-	return pulumix.Output[DashboardTooltipTitleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTooltipTitleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -39542,12 +36131,6 @@ func (o DashboardTooltipTitleTypePtrOutput) ToDashboardTooltipTitleTypePtrOutput
 	return o
 }
 
-func (o DashboardTooltipTitleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTooltipTitleType] {
-	return pulumix.Output[*DashboardTooltipTitleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTooltipTitleTypePtrOutput) Elem() DashboardTooltipTitleTypeOutput {
 	return o.ApplyT(func(v *DashboardTooltipTitleType) DashboardTooltipTitleType {
 		if v != nil {
@@ -39572,10 +36155,11 @@ func (o DashboardTooltipTitleTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardTooltipTitleTypeInput is an input type that accepts DashboardTooltipTitleTypeArgs and DashboardTooltipTitleTypeOutput values.
-// You can construct a concrete instance of `DashboardTooltipTitleTypeInput` via:
+// DashboardTooltipTitleTypeInput is an input type that accepts values of the DashboardTooltipTitleType enum
+// A concrete instance of `DashboardTooltipTitleTypeInput` can be one of the following:
 //
-//	DashboardTooltipTitleTypeArgs{...}
+//	DashboardTooltipTitleTypeNone
+//	DashboardTooltipTitleTypePrimaryValue
 type DashboardTooltipTitleTypeInput interface {
 	pulumi.Input
 
@@ -39608,12 +36192,6 @@ func (in *dashboardTooltipTitleTypePtr) ToDashboardTooltipTitleTypePtrOutput() D
 
 func (in *dashboardTooltipTitleTypePtr) ToDashboardTooltipTitleTypePtrOutputWithContext(ctx context.Context) DashboardTooltipTitleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTooltipTitleTypePtrOutput)
-}
-
-func (in *dashboardTooltipTitleTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardTooltipTitleType] {
-	return pulumix.Output[*DashboardTooltipTitleType]{
-		OutputState: in.ToDashboardTooltipTitleTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardTopBottomComputationType string
@@ -39683,12 +36261,6 @@ func (o DashboardTopBottomComputationTypeOutput) ToDashboardTopBottomComputation
 	}).(DashboardTopBottomComputationTypePtrOutput)
 }
 
-func (o DashboardTopBottomComputationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTopBottomComputationType] {
-	return pulumix.Output[DashboardTopBottomComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTopBottomComputationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -39724,12 +36296,6 @@ func (o DashboardTopBottomComputationTypePtrOutput) ToDashboardTopBottomComputat
 	return o
 }
 
-func (o DashboardTopBottomComputationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTopBottomComputationType] {
-	return pulumix.Output[*DashboardTopBottomComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTopBottomComputationTypePtrOutput) Elem() DashboardTopBottomComputationTypeOutput {
 	return o.ApplyT(func(v *DashboardTopBottomComputationType) DashboardTopBottomComputationType {
 		if v != nil {
@@ -39754,10 +36320,11 @@ func (o DashboardTopBottomComputationTypePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardTopBottomComputationTypeInput is an input type that accepts DashboardTopBottomComputationTypeArgs and DashboardTopBottomComputationTypeOutput values.
-// You can construct a concrete instance of `DashboardTopBottomComputationTypeInput` via:
+// DashboardTopBottomComputationTypeInput is an input type that accepts values of the DashboardTopBottomComputationType enum
+// A concrete instance of `DashboardTopBottomComputationTypeInput` can be one of the following:
 //
-//	DashboardTopBottomComputationTypeArgs{...}
+//	DashboardTopBottomComputationTypeTop
+//	DashboardTopBottomComputationTypeBottom
 type DashboardTopBottomComputationTypeInput interface {
 	pulumi.Input
 
@@ -39790,12 +36357,6 @@ func (in *dashboardTopBottomComputationTypePtr) ToDashboardTopBottomComputationT
 
 func (in *dashboardTopBottomComputationTypePtr) ToDashboardTopBottomComputationTypePtrOutputWithContext(ctx context.Context) DashboardTopBottomComputationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTopBottomComputationTypePtrOutput)
-}
-
-func (in *dashboardTopBottomComputationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardTopBottomComputationType] {
-	return pulumix.Output[*DashboardTopBottomComputationType]{
-		OutputState: in.ToDashboardTopBottomComputationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardTopBottomSortOrder string
@@ -39865,12 +36426,6 @@ func (o DashboardTopBottomSortOrderOutput) ToDashboardTopBottomSortOrderPtrOutpu
 	}).(DashboardTopBottomSortOrderPtrOutput)
 }
 
-func (o DashboardTopBottomSortOrderOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTopBottomSortOrder] {
-	return pulumix.Output[DashboardTopBottomSortOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTopBottomSortOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -39906,12 +36461,6 @@ func (o DashboardTopBottomSortOrderPtrOutput) ToDashboardTopBottomSortOrderPtrOu
 	return o
 }
 
-func (o DashboardTopBottomSortOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTopBottomSortOrder] {
-	return pulumix.Output[*DashboardTopBottomSortOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTopBottomSortOrderPtrOutput) Elem() DashboardTopBottomSortOrderOutput {
 	return o.ApplyT(func(v *DashboardTopBottomSortOrder) DashboardTopBottomSortOrder {
 		if v != nil {
@@ -39936,10 +36485,11 @@ func (o DashboardTopBottomSortOrderPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardTopBottomSortOrderInput is an input type that accepts DashboardTopBottomSortOrderArgs and DashboardTopBottomSortOrderOutput values.
-// You can construct a concrete instance of `DashboardTopBottomSortOrderInput` via:
+// DashboardTopBottomSortOrderInput is an input type that accepts values of the DashboardTopBottomSortOrder enum
+// A concrete instance of `DashboardTopBottomSortOrderInput` can be one of the following:
 //
-//	DashboardTopBottomSortOrderArgs{...}
+//	DashboardTopBottomSortOrderPercentDifference
+//	DashboardTopBottomSortOrderAbsoluteDifference
 type DashboardTopBottomSortOrderInput interface {
 	pulumi.Input
 
@@ -39972,12 +36522,6 @@ func (in *dashboardTopBottomSortOrderPtr) ToDashboardTopBottomSortOrderPtrOutput
 
 func (in *dashboardTopBottomSortOrderPtr) ToDashboardTopBottomSortOrderPtrOutputWithContext(ctx context.Context) DashboardTopBottomSortOrderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTopBottomSortOrderPtrOutput)
-}
-
-func (in *dashboardTopBottomSortOrderPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardTopBottomSortOrder] {
-	return pulumix.Output[*DashboardTopBottomSortOrder]{
-		OutputState: in.ToDashboardTopBottomSortOrderPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardUiState string
@@ -40047,12 +36591,6 @@ func (o DashboardUiStateOutput) ToDashboardUiStatePtrOutputWithContext(ctx conte
 	}).(DashboardUiStatePtrOutput)
 }
 
-func (o DashboardUiStateOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardUiState] {
-	return pulumix.Output[DashboardUiState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardUiStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -40088,12 +36626,6 @@ func (o DashboardUiStatePtrOutput) ToDashboardUiStatePtrOutputWithContext(ctx co
 	return o
 }
 
-func (o DashboardUiStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardUiState] {
-	return pulumix.Output[*DashboardUiState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardUiStatePtrOutput) Elem() DashboardUiStateOutput {
 	return o.ApplyT(func(v *DashboardUiState) DashboardUiState {
 		if v != nil {
@@ -40118,10 +36650,11 @@ func (o DashboardUiStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardUiStateInput is an input type that accepts DashboardUiStateArgs and DashboardUiStateOutput values.
-// You can construct a concrete instance of `DashboardUiStateInput` via:
+// DashboardUiStateInput is an input type that accepts values of the DashboardUiState enum
+// A concrete instance of `DashboardUiStateInput` can be one of the following:
 //
-//	DashboardUiStateArgs{...}
+//	DashboardUiStateExpanded
+//	DashboardUiStateCollapsed
 type DashboardUiStateInput interface {
 	pulumi.Input
 
@@ -40154,12 +36687,6 @@ func (in *dashboardUiStatePtr) ToDashboardUiStatePtrOutput() DashboardUiStatePtr
 
 func (in *dashboardUiStatePtr) ToDashboardUiStatePtrOutputWithContext(ctx context.Context) DashboardUiStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardUiStatePtrOutput)
-}
-
-func (in *dashboardUiStatePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardUiState] {
-	return pulumix.Output[*DashboardUiState]{
-		OutputState: in.ToDashboardUiStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardUrlTargetConfiguration string
@@ -40230,12 +36757,6 @@ func (o DashboardUrlTargetConfigurationOutput) ToDashboardUrlTargetConfiguration
 	}).(DashboardUrlTargetConfigurationPtrOutput)
 }
 
-func (o DashboardUrlTargetConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardUrlTargetConfiguration] {
-	return pulumix.Output[DashboardUrlTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardUrlTargetConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -40271,12 +36792,6 @@ func (o DashboardUrlTargetConfigurationPtrOutput) ToDashboardUrlTargetConfigurat
 	return o
 }
 
-func (o DashboardUrlTargetConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardUrlTargetConfiguration] {
-	return pulumix.Output[*DashboardUrlTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardUrlTargetConfigurationPtrOutput) Elem() DashboardUrlTargetConfigurationOutput {
 	return o.ApplyT(func(v *DashboardUrlTargetConfiguration) DashboardUrlTargetConfiguration {
 		if v != nil {
@@ -40301,10 +36816,12 @@ func (o DashboardUrlTargetConfigurationPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardUrlTargetConfigurationInput is an input type that accepts DashboardUrlTargetConfigurationArgs and DashboardUrlTargetConfigurationOutput values.
-// You can construct a concrete instance of `DashboardUrlTargetConfigurationInput` via:
+// DashboardUrlTargetConfigurationInput is an input type that accepts values of the DashboardUrlTargetConfiguration enum
+// A concrete instance of `DashboardUrlTargetConfigurationInput` can be one of the following:
 //
-//	DashboardUrlTargetConfigurationArgs{...}
+//	DashboardUrlTargetConfigurationNewTab
+//	DashboardUrlTargetConfigurationNewWindow
+//	DashboardUrlTargetConfigurationSameTab
 type DashboardUrlTargetConfigurationInput interface {
 	pulumi.Input
 
@@ -40337,12 +36854,6 @@ func (in *dashboardUrlTargetConfigurationPtr) ToDashboardUrlTargetConfigurationP
 
 func (in *dashboardUrlTargetConfigurationPtr) ToDashboardUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) DashboardUrlTargetConfigurationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardUrlTargetConfigurationPtrOutput)
-}
-
-func (in *dashboardUrlTargetConfigurationPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardUrlTargetConfiguration] {
-	return pulumix.Output[*DashboardUrlTargetConfiguration]{
-		OutputState: in.ToDashboardUrlTargetConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardValidationStrategyMode string
@@ -40412,12 +36923,6 @@ func (o DashboardValidationStrategyModeOutput) ToDashboardValidationStrategyMode
 	}).(DashboardValidationStrategyModePtrOutput)
 }
 
-func (o DashboardValidationStrategyModeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardValidationStrategyMode] {
-	return pulumix.Output[DashboardValidationStrategyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardValidationStrategyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -40453,12 +36958,6 @@ func (o DashboardValidationStrategyModePtrOutput) ToDashboardValidationStrategyM
 	return o
 }
 
-func (o DashboardValidationStrategyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardValidationStrategyMode] {
-	return pulumix.Output[*DashboardValidationStrategyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardValidationStrategyModePtrOutput) Elem() DashboardValidationStrategyModeOutput {
 	return o.ApplyT(func(v *DashboardValidationStrategyMode) DashboardValidationStrategyMode {
 		if v != nil {
@@ -40483,10 +36982,11 @@ func (o DashboardValidationStrategyModePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardValidationStrategyModeInput is an input type that accepts DashboardValidationStrategyModeArgs and DashboardValidationStrategyModeOutput values.
-// You can construct a concrete instance of `DashboardValidationStrategyModeInput` via:
+// DashboardValidationStrategyModeInput is an input type that accepts values of the DashboardValidationStrategyMode enum
+// A concrete instance of `DashboardValidationStrategyModeInput` can be one of the following:
 //
-//	DashboardValidationStrategyModeArgs{...}
+//	DashboardValidationStrategyModeStrict
+//	DashboardValidationStrategyModeLenient
 type DashboardValidationStrategyModeInput interface {
 	pulumi.Input
 
@@ -40519,12 +37019,6 @@ func (in *dashboardValidationStrategyModePtr) ToDashboardValidationStrategyModeP
 
 func (in *dashboardValidationStrategyModePtr) ToDashboardValidationStrategyModePtrOutputWithContext(ctx context.Context) DashboardValidationStrategyModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardValidationStrategyModePtrOutput)
-}
-
-func (in *dashboardValidationStrategyModePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardValidationStrategyMode] {
-	return pulumix.Output[*DashboardValidationStrategyMode]{
-		OutputState: in.ToDashboardValidationStrategyModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardValueWhenUnsetOption string
@@ -40594,12 +37088,6 @@ func (o DashboardValueWhenUnsetOptionOutput) ToDashboardValueWhenUnsetOptionPtrO
 	}).(DashboardValueWhenUnsetOptionPtrOutput)
 }
 
-func (o DashboardValueWhenUnsetOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardValueWhenUnsetOption] {
-	return pulumix.Output[DashboardValueWhenUnsetOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardValueWhenUnsetOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -40635,12 +37123,6 @@ func (o DashboardValueWhenUnsetOptionPtrOutput) ToDashboardValueWhenUnsetOptionP
 	return o
 }
 
-func (o DashboardValueWhenUnsetOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardValueWhenUnsetOption] {
-	return pulumix.Output[*DashboardValueWhenUnsetOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardValueWhenUnsetOptionPtrOutput) Elem() DashboardValueWhenUnsetOptionOutput {
 	return o.ApplyT(func(v *DashboardValueWhenUnsetOption) DashboardValueWhenUnsetOption {
 		if v != nil {
@@ -40665,10 +37147,11 @@ func (o DashboardValueWhenUnsetOptionPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardValueWhenUnsetOptionInput is an input type that accepts DashboardValueWhenUnsetOptionArgs and DashboardValueWhenUnsetOptionOutput values.
-// You can construct a concrete instance of `DashboardValueWhenUnsetOptionInput` via:
+// DashboardValueWhenUnsetOptionInput is an input type that accepts values of the DashboardValueWhenUnsetOption enum
+// A concrete instance of `DashboardValueWhenUnsetOptionInput` can be one of the following:
 //
-//	DashboardValueWhenUnsetOptionArgs{...}
+//	DashboardValueWhenUnsetOptionRecommendedValue
+//	DashboardValueWhenUnsetOptionNull
 type DashboardValueWhenUnsetOptionInput interface {
 	pulumi.Input
 
@@ -40701,12 +37184,6 @@ func (in *dashboardValueWhenUnsetOptionPtr) ToDashboardValueWhenUnsetOptionPtrOu
 
 func (in *dashboardValueWhenUnsetOptionPtr) ToDashboardValueWhenUnsetOptionPtrOutputWithContext(ctx context.Context) DashboardValueWhenUnsetOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardValueWhenUnsetOptionPtrOutput)
-}
-
-func (in *dashboardValueWhenUnsetOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardValueWhenUnsetOption] {
-	return pulumix.Output[*DashboardValueWhenUnsetOption]{
-		OutputState: in.ToDashboardValueWhenUnsetOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardVerticalTextAlignment string
@@ -40778,12 +37255,6 @@ func (o DashboardVerticalTextAlignmentOutput) ToDashboardVerticalTextAlignmentPt
 	}).(DashboardVerticalTextAlignmentPtrOutput)
 }
 
-func (o DashboardVerticalTextAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardVerticalTextAlignment] {
-	return pulumix.Output[DashboardVerticalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardVerticalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -40819,12 +37290,6 @@ func (o DashboardVerticalTextAlignmentPtrOutput) ToDashboardVerticalTextAlignmen
 	return o
 }
 
-func (o DashboardVerticalTextAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardVerticalTextAlignment] {
-	return pulumix.Output[*DashboardVerticalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardVerticalTextAlignmentPtrOutput) Elem() DashboardVerticalTextAlignmentOutput {
 	return o.ApplyT(func(v *DashboardVerticalTextAlignment) DashboardVerticalTextAlignment {
 		if v != nil {
@@ -40849,10 +37314,13 @@ func (o DashboardVerticalTextAlignmentPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardVerticalTextAlignmentInput is an input type that accepts DashboardVerticalTextAlignmentArgs and DashboardVerticalTextAlignmentOutput values.
-// You can construct a concrete instance of `DashboardVerticalTextAlignmentInput` via:
+// DashboardVerticalTextAlignmentInput is an input type that accepts values of the DashboardVerticalTextAlignment enum
+// A concrete instance of `DashboardVerticalTextAlignmentInput` can be one of the following:
 //
-//	DashboardVerticalTextAlignmentArgs{...}
+//	DashboardVerticalTextAlignmentTop
+//	DashboardVerticalTextAlignmentMiddle
+//	DashboardVerticalTextAlignmentBottom
+//	DashboardVerticalTextAlignmentAuto
 type DashboardVerticalTextAlignmentInput interface {
 	pulumi.Input
 
@@ -40885,12 +37353,6 @@ func (in *dashboardVerticalTextAlignmentPtr) ToDashboardVerticalTextAlignmentPtr
 
 func (in *dashboardVerticalTextAlignmentPtr) ToDashboardVerticalTextAlignmentPtrOutputWithContext(ctx context.Context) DashboardVerticalTextAlignmentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardVerticalTextAlignmentPtrOutput)
-}
-
-func (in *dashboardVerticalTextAlignmentPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardVerticalTextAlignment] {
-	return pulumix.Output[*DashboardVerticalTextAlignment]{
-		OutputState: in.ToDashboardVerticalTextAlignmentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardVisibility string
@@ -40960,12 +37422,6 @@ func (o DashboardVisibilityOutput) ToDashboardVisibilityPtrOutputWithContext(ctx
 	}).(DashboardVisibilityPtrOutput)
 }
 
-func (o DashboardVisibilityOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardVisibility] {
-	return pulumix.Output[DashboardVisibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardVisibilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -41001,12 +37457,6 @@ func (o DashboardVisibilityPtrOutput) ToDashboardVisibilityPtrOutputWithContext(
 	return o
 }
 
-func (o DashboardVisibilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardVisibility] {
-	return pulumix.Output[*DashboardVisibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardVisibilityPtrOutput) Elem() DashboardVisibilityOutput {
 	return o.ApplyT(func(v *DashboardVisibility) DashboardVisibility {
 		if v != nil {
@@ -41031,10 +37481,11 @@ func (o DashboardVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardVisibilityInput is an input type that accepts DashboardVisibilityArgs and DashboardVisibilityOutput values.
-// You can construct a concrete instance of `DashboardVisibilityInput` via:
+// DashboardVisibilityInput is an input type that accepts values of the DashboardVisibility enum
+// A concrete instance of `DashboardVisibilityInput` can be one of the following:
 //
-//	DashboardVisibilityArgs{...}
+//	DashboardVisibilityHidden
+//	DashboardVisibilityVisible
 type DashboardVisibilityInput interface {
 	pulumi.Input
 
@@ -41067,12 +37518,6 @@ func (in *dashboardVisibilityPtr) ToDashboardVisibilityPtrOutput() DashboardVisi
 
 func (in *dashboardVisibilityPtr) ToDashboardVisibilityPtrOutputWithContext(ctx context.Context) DashboardVisibilityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardVisibilityPtrOutput)
-}
-
-func (in *dashboardVisibilityPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardVisibility] {
-	return pulumix.Output[*DashboardVisibility]{
-		OutputState: in.ToDashboardVisibilityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardVisualCustomActionTrigger string
@@ -41142,12 +37587,6 @@ func (o DashboardVisualCustomActionTriggerOutput) ToDashboardVisualCustomActionT
 	}).(DashboardVisualCustomActionTriggerPtrOutput)
 }
 
-func (o DashboardVisualCustomActionTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardVisualCustomActionTrigger] {
-	return pulumix.Output[DashboardVisualCustomActionTrigger]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardVisualCustomActionTriggerOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -41183,12 +37622,6 @@ func (o DashboardVisualCustomActionTriggerPtrOutput) ToDashboardVisualCustomActi
 	return o
 }
 
-func (o DashboardVisualCustomActionTriggerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardVisualCustomActionTrigger] {
-	return pulumix.Output[*DashboardVisualCustomActionTrigger]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardVisualCustomActionTriggerPtrOutput) Elem() DashboardVisualCustomActionTriggerOutput {
 	return o.ApplyT(func(v *DashboardVisualCustomActionTrigger) DashboardVisualCustomActionTrigger {
 		if v != nil {
@@ -41213,10 +37646,11 @@ func (o DashboardVisualCustomActionTriggerPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardVisualCustomActionTriggerInput is an input type that accepts DashboardVisualCustomActionTriggerArgs and DashboardVisualCustomActionTriggerOutput values.
-// You can construct a concrete instance of `DashboardVisualCustomActionTriggerInput` via:
+// DashboardVisualCustomActionTriggerInput is an input type that accepts values of the DashboardVisualCustomActionTrigger enum
+// A concrete instance of `DashboardVisualCustomActionTriggerInput` can be one of the following:
 //
-//	DashboardVisualCustomActionTriggerArgs{...}
+//	DashboardVisualCustomActionTriggerDataPointClick
+//	DashboardVisualCustomActionTriggerDataPointMenu
 type DashboardVisualCustomActionTriggerInput interface {
 	pulumi.Input
 
@@ -41249,12 +37683,6 @@ func (in *dashboardVisualCustomActionTriggerPtr) ToDashboardVisualCustomActionTr
 
 func (in *dashboardVisualCustomActionTriggerPtr) ToDashboardVisualCustomActionTriggerPtrOutputWithContext(ctx context.Context) DashboardVisualCustomActionTriggerPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardVisualCustomActionTriggerPtrOutput)
-}
-
-func (in *dashboardVisualCustomActionTriggerPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardVisualCustomActionTrigger] {
-	return pulumix.Output[*DashboardVisualCustomActionTrigger]{
-		OutputState: in.ToDashboardVisualCustomActionTriggerPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardWidgetStatus string
@@ -41324,12 +37752,6 @@ func (o DashboardWidgetStatusOutput) ToDashboardWidgetStatusPtrOutputWithContext
 	}).(DashboardWidgetStatusPtrOutput)
 }
 
-func (o DashboardWidgetStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWidgetStatus] {
-	return pulumix.Output[DashboardWidgetStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWidgetStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -41365,12 +37787,6 @@ func (o DashboardWidgetStatusPtrOutput) ToDashboardWidgetStatusPtrOutputWithCont
 	return o
 }
 
-func (o DashboardWidgetStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWidgetStatus] {
-	return pulumix.Output[*DashboardWidgetStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWidgetStatusPtrOutput) Elem() DashboardWidgetStatusOutput {
 	return o.ApplyT(func(v *DashboardWidgetStatus) DashboardWidgetStatus {
 		if v != nil {
@@ -41395,10 +37811,11 @@ func (o DashboardWidgetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardWidgetStatusInput is an input type that accepts DashboardWidgetStatusArgs and DashboardWidgetStatusOutput values.
-// You can construct a concrete instance of `DashboardWidgetStatusInput` via:
+// DashboardWidgetStatusInput is an input type that accepts values of the DashboardWidgetStatus enum
+// A concrete instance of `DashboardWidgetStatusInput` can be one of the following:
 //
-//	DashboardWidgetStatusArgs{...}
+//	DashboardWidgetStatusEnabled
+//	DashboardWidgetStatusDisabled
 type DashboardWidgetStatusInput interface {
 	pulumi.Input
 
@@ -41431,12 +37848,6 @@ func (in *dashboardWidgetStatusPtr) ToDashboardWidgetStatusPtrOutput() Dashboard
 
 func (in *dashboardWidgetStatusPtr) ToDashboardWidgetStatusPtrOutputWithContext(ctx context.Context) DashboardWidgetStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardWidgetStatusPtrOutput)
-}
-
-func (in *dashboardWidgetStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardWidgetStatus] {
-	return pulumix.Output[*DashboardWidgetStatus]{
-		OutputState: in.ToDashboardWidgetStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardWordCloudCloudLayout string
@@ -41506,12 +37917,6 @@ func (o DashboardWordCloudCloudLayoutOutput) ToDashboardWordCloudCloudLayoutPtrO
 	}).(DashboardWordCloudCloudLayoutPtrOutput)
 }
 
-func (o DashboardWordCloudCloudLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWordCloudCloudLayout] {
-	return pulumix.Output[DashboardWordCloudCloudLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudCloudLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -41547,12 +37952,6 @@ func (o DashboardWordCloudCloudLayoutPtrOutput) ToDashboardWordCloudCloudLayoutP
 	return o
 }
 
-func (o DashboardWordCloudCloudLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudCloudLayout] {
-	return pulumix.Output[*DashboardWordCloudCloudLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudCloudLayoutPtrOutput) Elem() DashboardWordCloudCloudLayoutOutput {
 	return o.ApplyT(func(v *DashboardWordCloudCloudLayout) DashboardWordCloudCloudLayout {
 		if v != nil {
@@ -41577,10 +37976,11 @@ func (o DashboardWordCloudCloudLayoutPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardWordCloudCloudLayoutInput is an input type that accepts DashboardWordCloudCloudLayoutArgs and DashboardWordCloudCloudLayoutOutput values.
-// You can construct a concrete instance of `DashboardWordCloudCloudLayoutInput` via:
+// DashboardWordCloudCloudLayoutInput is an input type that accepts values of the DashboardWordCloudCloudLayout enum
+// A concrete instance of `DashboardWordCloudCloudLayoutInput` can be one of the following:
 //
-//	DashboardWordCloudCloudLayoutArgs{...}
+//	DashboardWordCloudCloudLayoutFluid
+//	DashboardWordCloudCloudLayoutNormal
 type DashboardWordCloudCloudLayoutInput interface {
 	pulumi.Input
 
@@ -41613,12 +38013,6 @@ func (in *dashboardWordCloudCloudLayoutPtr) ToDashboardWordCloudCloudLayoutPtrOu
 
 func (in *dashboardWordCloudCloudLayoutPtr) ToDashboardWordCloudCloudLayoutPtrOutputWithContext(ctx context.Context) DashboardWordCloudCloudLayoutPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardWordCloudCloudLayoutPtrOutput)
-}
-
-func (in *dashboardWordCloudCloudLayoutPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudCloudLayout] {
-	return pulumix.Output[*DashboardWordCloudCloudLayout]{
-		OutputState: in.ToDashboardWordCloudCloudLayoutPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardWordCloudWordCasing string
@@ -41688,12 +38082,6 @@ func (o DashboardWordCloudWordCasingOutput) ToDashboardWordCloudWordCasingPtrOut
 	}).(DashboardWordCloudWordCasingPtrOutput)
 }
 
-func (o DashboardWordCloudWordCasingOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWordCloudWordCasing] {
-	return pulumix.Output[DashboardWordCloudWordCasing]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudWordCasingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -41729,12 +38117,6 @@ func (o DashboardWordCloudWordCasingPtrOutput) ToDashboardWordCloudWordCasingPtr
 	return o
 }
 
-func (o DashboardWordCloudWordCasingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudWordCasing] {
-	return pulumix.Output[*DashboardWordCloudWordCasing]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudWordCasingPtrOutput) Elem() DashboardWordCloudWordCasingOutput {
 	return o.ApplyT(func(v *DashboardWordCloudWordCasing) DashboardWordCloudWordCasing {
 		if v != nil {
@@ -41759,10 +38141,11 @@ func (o DashboardWordCloudWordCasingPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardWordCloudWordCasingInput is an input type that accepts DashboardWordCloudWordCasingArgs and DashboardWordCloudWordCasingOutput values.
-// You can construct a concrete instance of `DashboardWordCloudWordCasingInput` via:
+// DashboardWordCloudWordCasingInput is an input type that accepts values of the DashboardWordCloudWordCasing enum
+// A concrete instance of `DashboardWordCloudWordCasingInput` can be one of the following:
 //
-//	DashboardWordCloudWordCasingArgs{...}
+//	DashboardWordCloudWordCasingLowerCase
+//	DashboardWordCloudWordCasingExistingCase
 type DashboardWordCloudWordCasingInput interface {
 	pulumi.Input
 
@@ -41795,12 +38178,6 @@ func (in *dashboardWordCloudWordCasingPtr) ToDashboardWordCloudWordCasingPtrOutp
 
 func (in *dashboardWordCloudWordCasingPtr) ToDashboardWordCloudWordCasingPtrOutputWithContext(ctx context.Context) DashboardWordCloudWordCasingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardWordCloudWordCasingPtrOutput)
-}
-
-func (in *dashboardWordCloudWordCasingPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudWordCasing] {
-	return pulumix.Output[*DashboardWordCloudWordCasing]{
-		OutputState: in.ToDashboardWordCloudWordCasingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardWordCloudWordOrientation string
@@ -41870,12 +38247,6 @@ func (o DashboardWordCloudWordOrientationOutput) ToDashboardWordCloudWordOrienta
 	}).(DashboardWordCloudWordOrientationPtrOutput)
 }
 
-func (o DashboardWordCloudWordOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWordCloudWordOrientation] {
-	return pulumix.Output[DashboardWordCloudWordOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudWordOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -41911,12 +38282,6 @@ func (o DashboardWordCloudWordOrientationPtrOutput) ToDashboardWordCloudWordOrie
 	return o
 }
 
-func (o DashboardWordCloudWordOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudWordOrientation] {
-	return pulumix.Output[*DashboardWordCloudWordOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudWordOrientationPtrOutput) Elem() DashboardWordCloudWordOrientationOutput {
 	return o.ApplyT(func(v *DashboardWordCloudWordOrientation) DashboardWordCloudWordOrientation {
 		if v != nil {
@@ -41941,10 +38306,11 @@ func (o DashboardWordCloudWordOrientationPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardWordCloudWordOrientationInput is an input type that accepts DashboardWordCloudWordOrientationArgs and DashboardWordCloudWordOrientationOutput values.
-// You can construct a concrete instance of `DashboardWordCloudWordOrientationInput` via:
+// DashboardWordCloudWordOrientationInput is an input type that accepts values of the DashboardWordCloudWordOrientation enum
+// A concrete instance of `DashboardWordCloudWordOrientationInput` can be one of the following:
 //
-//	DashboardWordCloudWordOrientationArgs{...}
+//	DashboardWordCloudWordOrientationHorizontal
+//	DashboardWordCloudWordOrientationHorizontalAndVertical
 type DashboardWordCloudWordOrientationInput interface {
 	pulumi.Input
 
@@ -41977,12 +38343,6 @@ func (in *dashboardWordCloudWordOrientationPtr) ToDashboardWordCloudWordOrientat
 
 func (in *dashboardWordCloudWordOrientationPtr) ToDashboardWordCloudWordOrientationPtrOutputWithContext(ctx context.Context) DashboardWordCloudWordOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardWordCloudWordOrientationPtrOutput)
-}
-
-func (in *dashboardWordCloudWordOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudWordOrientation] {
-	return pulumix.Output[*DashboardWordCloudWordOrientation]{
-		OutputState: in.ToDashboardWordCloudWordOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardWordCloudWordPadding string
@@ -42054,12 +38414,6 @@ func (o DashboardWordCloudWordPaddingOutput) ToDashboardWordCloudWordPaddingPtrO
 	}).(DashboardWordCloudWordPaddingPtrOutput)
 }
 
-func (o DashboardWordCloudWordPaddingOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWordCloudWordPadding] {
-	return pulumix.Output[DashboardWordCloudWordPadding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudWordPaddingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -42095,12 +38449,6 @@ func (o DashboardWordCloudWordPaddingPtrOutput) ToDashboardWordCloudWordPaddingP
 	return o
 }
 
-func (o DashboardWordCloudWordPaddingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudWordPadding] {
-	return pulumix.Output[*DashboardWordCloudWordPadding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudWordPaddingPtrOutput) Elem() DashboardWordCloudWordPaddingOutput {
 	return o.ApplyT(func(v *DashboardWordCloudWordPadding) DashboardWordCloudWordPadding {
 		if v != nil {
@@ -42125,10 +38473,13 @@ func (o DashboardWordCloudWordPaddingPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardWordCloudWordPaddingInput is an input type that accepts DashboardWordCloudWordPaddingArgs and DashboardWordCloudWordPaddingOutput values.
-// You can construct a concrete instance of `DashboardWordCloudWordPaddingInput` via:
+// DashboardWordCloudWordPaddingInput is an input type that accepts values of the DashboardWordCloudWordPadding enum
+// A concrete instance of `DashboardWordCloudWordPaddingInput` can be one of the following:
 //
-//	DashboardWordCloudWordPaddingArgs{...}
+//	DashboardWordCloudWordPaddingNone
+//	DashboardWordCloudWordPaddingSmall
+//	DashboardWordCloudWordPaddingMedium
+//	DashboardWordCloudWordPaddingLarge
 type DashboardWordCloudWordPaddingInput interface {
 	pulumi.Input
 
@@ -42161,12 +38512,6 @@ func (in *dashboardWordCloudWordPaddingPtr) ToDashboardWordCloudWordPaddingPtrOu
 
 func (in *dashboardWordCloudWordPaddingPtr) ToDashboardWordCloudWordPaddingPtrOutputWithContext(ctx context.Context) DashboardWordCloudWordPaddingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardWordCloudWordPaddingPtrOutput)
-}
-
-func (in *dashboardWordCloudWordPaddingPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudWordPadding] {
-	return pulumix.Output[*DashboardWordCloudWordPadding]{
-		OutputState: in.ToDashboardWordCloudWordPaddingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DashboardWordCloudWordScaling string
@@ -42236,12 +38581,6 @@ func (o DashboardWordCloudWordScalingOutput) ToDashboardWordCloudWordScalingPtrO
 	}).(DashboardWordCloudWordScalingPtrOutput)
 }
 
-func (o DashboardWordCloudWordScalingOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWordCloudWordScaling] {
-	return pulumix.Output[DashboardWordCloudWordScaling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudWordScalingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -42277,12 +38616,6 @@ func (o DashboardWordCloudWordScalingPtrOutput) ToDashboardWordCloudWordScalingP
 	return o
 }
 
-func (o DashboardWordCloudWordScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudWordScaling] {
-	return pulumix.Output[*DashboardWordCloudWordScaling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudWordScalingPtrOutput) Elem() DashboardWordCloudWordScalingOutput {
 	return o.ApplyT(func(v *DashboardWordCloudWordScaling) DashboardWordCloudWordScaling {
 		if v != nil {
@@ -42307,10 +38640,11 @@ func (o DashboardWordCloudWordScalingPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardWordCloudWordScalingInput is an input type that accepts DashboardWordCloudWordScalingArgs and DashboardWordCloudWordScalingOutput values.
-// You can construct a concrete instance of `DashboardWordCloudWordScalingInput` via:
+// DashboardWordCloudWordScalingInput is an input type that accepts values of the DashboardWordCloudWordScaling enum
+// A concrete instance of `DashboardWordCloudWordScalingInput` can be one of the following:
 //
-//	DashboardWordCloudWordScalingArgs{...}
+//	DashboardWordCloudWordScalingEmphasize
+//	DashboardWordCloudWordScalingNormal
 type DashboardWordCloudWordScalingInput interface {
 	pulumi.Input
 
@@ -42343,12 +38677,6 @@ func (in *dashboardWordCloudWordScalingPtr) ToDashboardWordCloudWordScalingPtrOu
 
 func (in *dashboardWordCloudWordScalingPtr) ToDashboardWordCloudWordScalingPtrOutputWithContext(ctx context.Context) DashboardWordCloudWordScalingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardWordCloudWordScalingPtrOutput)
-}
-
-func (in *dashboardWordCloudWordScalingPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudWordScaling] {
-	return pulumix.Output[*DashboardWordCloudWordScaling]{
-		OutputState: in.ToDashboardWordCloudWordScalingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataSetColumnDataType string
@@ -42384,12 +38712,6 @@ func (o DataSetColumnDataTypeOutput) ToDataSetColumnDataTypePtrOutputWithContext
 	}).(DataSetColumnDataTypePtrOutput)
 }
 
-func (o DataSetColumnDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetColumnDataType] {
-	return pulumix.Output[DataSetColumnDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetColumnDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -42423,12 +38745,6 @@ func (o DataSetColumnDataTypePtrOutput) ToDataSetColumnDataTypePtrOutput() DataS
 
 func (o DataSetColumnDataTypePtrOutput) ToDataSetColumnDataTypePtrOutputWithContext(ctx context.Context) DataSetColumnDataTypePtrOutput {
 	return o
-}
-
-func (o DataSetColumnDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetColumnDataType] {
-	return pulumix.Output[*DataSetColumnDataType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSetColumnDataTypePtrOutput) Elem() DataSetColumnDataTypeOutput {
@@ -42486,12 +38802,6 @@ func (o DataSetColumnSubDataTypeOutput) ToDataSetColumnSubDataTypePtrOutputWithC
 	}).(DataSetColumnSubDataTypePtrOutput)
 }
 
-func (o DataSetColumnSubDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetColumnSubDataType] {
-	return pulumix.Output[DataSetColumnSubDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetColumnSubDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -42525,12 +38835,6 @@ func (o DataSetColumnSubDataTypePtrOutput) ToDataSetColumnSubDataTypePtrOutput()
 
 func (o DataSetColumnSubDataTypePtrOutput) ToDataSetColumnSubDataTypePtrOutputWithContext(ctx context.Context) DataSetColumnSubDataTypePtrOutput {
 	return o
-}
-
-func (o DataSetColumnSubDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetColumnSubDataType] {
-	return pulumix.Output[*DataSetColumnSubDataType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSetColumnSubDataTypePtrOutput) Elem() DataSetColumnSubDataTypeOutput {
@@ -42625,12 +38929,6 @@ func (o DataSetDatasetParameterValueTypeOutput) ToDataSetDatasetParameterValueTy
 	}).(DataSetDatasetParameterValueTypePtrOutput)
 }
 
-func (o DataSetDatasetParameterValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetDatasetParameterValueType] {
-	return pulumix.Output[DataSetDatasetParameterValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetDatasetParameterValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -42666,12 +38964,6 @@ func (o DataSetDatasetParameterValueTypePtrOutput) ToDataSetDatasetParameterValu
 	return o
 }
 
-func (o DataSetDatasetParameterValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetDatasetParameterValueType] {
-	return pulumix.Output[*DataSetDatasetParameterValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetDatasetParameterValueTypePtrOutput) Elem() DataSetDatasetParameterValueTypeOutput {
 	return o.ApplyT(func(v *DataSetDatasetParameterValueType) DataSetDatasetParameterValueType {
 		if v != nil {
@@ -42696,10 +38988,11 @@ func (o DataSetDatasetParameterValueTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSetDatasetParameterValueTypeInput is an input type that accepts DataSetDatasetParameterValueTypeArgs and DataSetDatasetParameterValueTypeOutput values.
-// You can construct a concrete instance of `DataSetDatasetParameterValueTypeInput` via:
+// DataSetDatasetParameterValueTypeInput is an input type that accepts values of the DataSetDatasetParameterValueType enum
+// A concrete instance of `DataSetDatasetParameterValueTypeInput` can be one of the following:
 //
-//	DataSetDatasetParameterValueTypeArgs{...}
+//	DataSetDatasetParameterValueTypeMultiValued
+//	DataSetDatasetParameterValueTypeSingleValued
 type DataSetDatasetParameterValueTypeInput interface {
 	pulumi.Input
 
@@ -42732,12 +39025,6 @@ func (in *dataSetDatasetParameterValueTypePtr) ToDataSetDatasetParameterValueTyp
 
 func (in *dataSetDatasetParameterValueTypePtr) ToDataSetDatasetParameterValueTypePtrOutputWithContext(ctx context.Context) DataSetDatasetParameterValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetDatasetParameterValueTypePtrOutput)
-}
-
-func (in *dataSetDatasetParameterValueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSetDatasetParameterValueType] {
-	return pulumix.Output[*DataSetDatasetParameterValueType]{
-		OutputState: in.ToDataSetDatasetParameterValueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataSetGeoSpatialCountryCode string
@@ -42806,12 +39093,6 @@ func (o DataSetGeoSpatialCountryCodeOutput) ToDataSetGeoSpatialCountryCodePtrOut
 	}).(DataSetGeoSpatialCountryCodePtrOutput)
 }
 
-func (o DataSetGeoSpatialCountryCodeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetGeoSpatialCountryCode] {
-	return pulumix.Output[DataSetGeoSpatialCountryCode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetGeoSpatialCountryCodeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -42847,12 +39128,6 @@ func (o DataSetGeoSpatialCountryCodePtrOutput) ToDataSetGeoSpatialCountryCodePtr
 	return o
 }
 
-func (o DataSetGeoSpatialCountryCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetGeoSpatialCountryCode] {
-	return pulumix.Output[*DataSetGeoSpatialCountryCode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetGeoSpatialCountryCodePtrOutput) Elem() DataSetGeoSpatialCountryCodeOutput {
 	return o.ApplyT(func(v *DataSetGeoSpatialCountryCode) DataSetGeoSpatialCountryCode {
 		if v != nil {
@@ -42877,10 +39152,10 @@ func (o DataSetGeoSpatialCountryCodePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSetGeoSpatialCountryCodeInput is an input type that accepts DataSetGeoSpatialCountryCodeArgs and DataSetGeoSpatialCountryCodeOutput values.
-// You can construct a concrete instance of `DataSetGeoSpatialCountryCodeInput` via:
+// DataSetGeoSpatialCountryCodeInput is an input type that accepts values of the DataSetGeoSpatialCountryCode enum
+// A concrete instance of `DataSetGeoSpatialCountryCodeInput` can be one of the following:
 //
-//	DataSetGeoSpatialCountryCodeArgs{...}
+//	DataSetGeoSpatialCountryCodeUs
 type DataSetGeoSpatialCountryCodeInput interface {
 	pulumi.Input
 
@@ -42913,12 +39188,6 @@ func (in *dataSetGeoSpatialCountryCodePtr) ToDataSetGeoSpatialCountryCodePtrOutp
 
 func (in *dataSetGeoSpatialCountryCodePtr) ToDataSetGeoSpatialCountryCodePtrOutputWithContext(ctx context.Context) DataSetGeoSpatialCountryCodePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetGeoSpatialCountryCodePtrOutput)
-}
-
-func (in *dataSetGeoSpatialCountryCodePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSetGeoSpatialCountryCode] {
-	return pulumix.Output[*DataSetGeoSpatialCountryCode]{
-		OutputState: in.ToDataSetGeoSpatialCountryCodePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataSetImportMode string
@@ -42988,12 +39257,6 @@ func (o DataSetImportModeOutput) ToDataSetImportModePtrOutputWithContext(ctx con
 	}).(DataSetImportModePtrOutput)
 }
 
-func (o DataSetImportModeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetImportMode] {
-	return pulumix.Output[DataSetImportMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetImportModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -43029,12 +39292,6 @@ func (o DataSetImportModePtrOutput) ToDataSetImportModePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o DataSetImportModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetImportMode] {
-	return pulumix.Output[*DataSetImportMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetImportModePtrOutput) Elem() DataSetImportModeOutput {
 	return o.ApplyT(func(v *DataSetImportMode) DataSetImportMode {
 		if v != nil {
@@ -43059,10 +39316,11 @@ func (o DataSetImportModePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSetImportModeInput is an input type that accepts DataSetImportModeArgs and DataSetImportModeOutput values.
-// You can construct a concrete instance of `DataSetImportModeInput` via:
+// DataSetImportModeInput is an input type that accepts values of the DataSetImportMode enum
+// A concrete instance of `DataSetImportModeInput` can be one of the following:
 //
-//	DataSetImportModeArgs{...}
+//	DataSetImportModeSpice
+//	DataSetImportModeDirectQuery
 type DataSetImportModeInput interface {
 	pulumi.Input
 
@@ -43095,12 +39353,6 @@ func (in *dataSetImportModePtr) ToDataSetImportModePtrOutput() DataSetImportMode
 
 func (in *dataSetImportModePtr) ToDataSetImportModePtrOutputWithContext(ctx context.Context) DataSetImportModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetImportModePtrOutput)
-}
-
-func (in *dataSetImportModePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSetImportMode] {
-	return pulumix.Output[*DataSetImportMode]{
-		OutputState: in.ToDataSetImportModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataSetRowLevelPermissionFormatVersion string
@@ -43170,12 +39422,6 @@ func (o DataSetRowLevelPermissionFormatVersionOutput) ToDataSetRowLevelPermissio
 	}).(DataSetRowLevelPermissionFormatVersionPtrOutput)
 }
 
-func (o DataSetRowLevelPermissionFormatVersionOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetRowLevelPermissionFormatVersion] {
-	return pulumix.Output[DataSetRowLevelPermissionFormatVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetRowLevelPermissionFormatVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -43211,12 +39457,6 @@ func (o DataSetRowLevelPermissionFormatVersionPtrOutput) ToDataSetRowLevelPermis
 	return o
 }
 
-func (o DataSetRowLevelPermissionFormatVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetRowLevelPermissionFormatVersion] {
-	return pulumix.Output[*DataSetRowLevelPermissionFormatVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetRowLevelPermissionFormatVersionPtrOutput) Elem() DataSetRowLevelPermissionFormatVersionOutput {
 	return o.ApplyT(func(v *DataSetRowLevelPermissionFormatVersion) DataSetRowLevelPermissionFormatVersion {
 		if v != nil {
@@ -43241,10 +39481,11 @@ func (o DataSetRowLevelPermissionFormatVersionPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSetRowLevelPermissionFormatVersionInput is an input type that accepts DataSetRowLevelPermissionFormatVersionArgs and DataSetRowLevelPermissionFormatVersionOutput values.
-// You can construct a concrete instance of `DataSetRowLevelPermissionFormatVersionInput` via:
+// DataSetRowLevelPermissionFormatVersionInput is an input type that accepts values of the DataSetRowLevelPermissionFormatVersion enum
+// A concrete instance of `DataSetRowLevelPermissionFormatVersionInput` can be one of the following:
 //
-//	DataSetRowLevelPermissionFormatVersionArgs{...}
+//	DataSetRowLevelPermissionFormatVersionVersion1
+//	DataSetRowLevelPermissionFormatVersionVersion2
 type DataSetRowLevelPermissionFormatVersionInput interface {
 	pulumi.Input
 
@@ -43277,12 +39518,6 @@ func (in *dataSetRowLevelPermissionFormatVersionPtr) ToDataSetRowLevelPermission
 
 func (in *dataSetRowLevelPermissionFormatVersionPtr) ToDataSetRowLevelPermissionFormatVersionPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionFormatVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetRowLevelPermissionFormatVersionPtrOutput)
-}
-
-func (in *dataSetRowLevelPermissionFormatVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*DataSetRowLevelPermissionFormatVersion] {
-	return pulumix.Output[*DataSetRowLevelPermissionFormatVersion]{
-		OutputState: in.ToDataSetRowLevelPermissionFormatVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataSetRowLevelPermissionPolicy string
@@ -43352,12 +39587,6 @@ func (o DataSetRowLevelPermissionPolicyOutput) ToDataSetRowLevelPermissionPolicy
 	}).(DataSetRowLevelPermissionPolicyPtrOutput)
 }
 
-func (o DataSetRowLevelPermissionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetRowLevelPermissionPolicy] {
-	return pulumix.Output[DataSetRowLevelPermissionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetRowLevelPermissionPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -43393,12 +39622,6 @@ func (o DataSetRowLevelPermissionPolicyPtrOutput) ToDataSetRowLevelPermissionPol
 	return o
 }
 
-func (o DataSetRowLevelPermissionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetRowLevelPermissionPolicy] {
-	return pulumix.Output[*DataSetRowLevelPermissionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetRowLevelPermissionPolicyPtrOutput) Elem() DataSetRowLevelPermissionPolicyOutput {
 	return o.ApplyT(func(v *DataSetRowLevelPermissionPolicy) DataSetRowLevelPermissionPolicy {
 		if v != nil {
@@ -43423,10 +39646,11 @@ func (o DataSetRowLevelPermissionPolicyPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSetRowLevelPermissionPolicyInput is an input type that accepts DataSetRowLevelPermissionPolicyArgs and DataSetRowLevelPermissionPolicyOutput values.
-// You can construct a concrete instance of `DataSetRowLevelPermissionPolicyInput` via:
+// DataSetRowLevelPermissionPolicyInput is an input type that accepts values of the DataSetRowLevelPermissionPolicy enum
+// A concrete instance of `DataSetRowLevelPermissionPolicyInput` can be one of the following:
 //
-//	DataSetRowLevelPermissionPolicyArgs{...}
+//	DataSetRowLevelPermissionPolicyGrantAccess
+//	DataSetRowLevelPermissionPolicyDenyAccess
 type DataSetRowLevelPermissionPolicyInput interface {
 	pulumi.Input
 
@@ -43459,12 +39683,6 @@ func (in *dataSetRowLevelPermissionPolicyPtr) ToDataSetRowLevelPermissionPolicyP
 
 func (in *dataSetRowLevelPermissionPolicyPtr) ToDataSetRowLevelPermissionPolicyPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetRowLevelPermissionPolicyPtrOutput)
-}
-
-func (in *dataSetRowLevelPermissionPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*DataSetRowLevelPermissionPolicy] {
-	return pulumix.Output[*DataSetRowLevelPermissionPolicy]{
-		OutputState: in.ToDataSetRowLevelPermissionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataSetSizeUnit string
@@ -43535,12 +39753,6 @@ func (o DataSetSizeUnitOutput) ToDataSetSizeUnitPtrOutputWithContext(ctx context
 	}).(DataSetSizeUnitPtrOutput)
 }
 
-func (o DataSetSizeUnitOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetSizeUnit] {
-	return pulumix.Output[DataSetSizeUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetSizeUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -43576,12 +39788,6 @@ func (o DataSetSizeUnitPtrOutput) ToDataSetSizeUnitPtrOutputWithContext(ctx cont
 	return o
 }
 
-func (o DataSetSizeUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetSizeUnit] {
-	return pulumix.Output[*DataSetSizeUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetSizeUnitPtrOutput) Elem() DataSetSizeUnitOutput {
 	return o.ApplyT(func(v *DataSetSizeUnit) DataSetSizeUnit {
 		if v != nil {
@@ -43606,10 +39812,12 @@ func (o DataSetSizeUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSetSizeUnitInput is an input type that accepts DataSetSizeUnitArgs and DataSetSizeUnitOutput values.
-// You can construct a concrete instance of `DataSetSizeUnitInput` via:
+// DataSetSizeUnitInput is an input type that accepts values of the DataSetSizeUnit enum
+// A concrete instance of `DataSetSizeUnitInput` can be one of the following:
 //
-//	DataSetSizeUnitArgs{...}
+//	DataSetSizeUnitHour
+//	DataSetSizeUnitDay
+//	DataSetSizeUnitWeek
 type DataSetSizeUnitInput interface {
 	pulumi.Input
 
@@ -43642,12 +39850,6 @@ func (in *dataSetSizeUnitPtr) ToDataSetSizeUnitPtrOutput() DataSetSizeUnitPtrOut
 
 func (in *dataSetSizeUnitPtr) ToDataSetSizeUnitPtrOutputWithContext(ctx context.Context) DataSetSizeUnitPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetSizeUnitPtrOutput)
-}
-
-func (in *dataSetSizeUnitPtr) ToOutput(ctx context.Context) pulumix.Output[*DataSetSizeUnit] {
-	return pulumix.Output[*DataSetSizeUnit]{
-		OutputState: in.ToDataSetSizeUnitPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataSetStatus string
@@ -43717,12 +39919,6 @@ func (o DataSetStatusOutput) ToDataSetStatusPtrOutputWithContext(ctx context.Con
 	}).(DataSetStatusPtrOutput)
 }
 
-func (o DataSetStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetStatus] {
-	return pulumix.Output[DataSetStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -43758,12 +39954,6 @@ func (o DataSetStatusPtrOutput) ToDataSetStatusPtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o DataSetStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetStatus] {
-	return pulumix.Output[*DataSetStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetStatusPtrOutput) Elem() DataSetStatusOutput {
 	return o.ApplyT(func(v *DataSetStatus) DataSetStatus {
 		if v != nil {
@@ -43788,10 +39978,11 @@ func (o DataSetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSetStatusInput is an input type that accepts DataSetStatusArgs and DataSetStatusOutput values.
-// You can construct a concrete instance of `DataSetStatusInput` via:
+// DataSetStatusInput is an input type that accepts values of the DataSetStatus enum
+// A concrete instance of `DataSetStatusInput` can be one of the following:
 //
-//	DataSetStatusArgs{...}
+//	DataSetStatusEnabled
+//	DataSetStatusDisabled
 type DataSetStatusInput interface {
 	pulumi.Input
 
@@ -43824,12 +40015,6 @@ func (in *dataSetStatusPtr) ToDataSetStatusPtrOutput() DataSetStatusPtrOutput {
 
 func (in *dataSetStatusPtr) ToDataSetStatusPtrOutputWithContext(ctx context.Context) DataSetStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetStatusPtrOutput)
-}
-
-func (in *dataSetStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*DataSetStatus] {
-	return pulumix.Output[*DataSetStatus]{
-		OutputState: in.ToDataSetStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataSetTimeGranularity string
@@ -43906,12 +40091,6 @@ func (o DataSetTimeGranularityOutput) ToDataSetTimeGranularityPtrOutputWithConte
 	}).(DataSetTimeGranularityPtrOutput)
 }
 
-func (o DataSetTimeGranularityOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetTimeGranularity] {
-	return pulumix.Output[DataSetTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetTimeGranularityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -43947,12 +40126,6 @@ func (o DataSetTimeGranularityPtrOutput) ToDataSetTimeGranularityPtrOutputWithCo
 	return o
 }
 
-func (o DataSetTimeGranularityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetTimeGranularity] {
-	return pulumix.Output[*DataSetTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetTimeGranularityPtrOutput) Elem() DataSetTimeGranularityOutput {
 	return o.ApplyT(func(v *DataSetTimeGranularity) DataSetTimeGranularity {
 		if v != nil {
@@ -43977,10 +40150,18 @@ func (o DataSetTimeGranularityPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSetTimeGranularityInput is an input type that accepts DataSetTimeGranularityArgs and DataSetTimeGranularityOutput values.
-// You can construct a concrete instance of `DataSetTimeGranularityInput` via:
+// DataSetTimeGranularityInput is an input type that accepts values of the DataSetTimeGranularity enum
+// A concrete instance of `DataSetTimeGranularityInput` can be one of the following:
 //
-//	DataSetTimeGranularityArgs{...}
+//	DataSetTimeGranularityYear
+//	DataSetTimeGranularityQuarter
+//	DataSetTimeGranularityMonth
+//	DataSetTimeGranularityWeek
+//	DataSetTimeGranularityDay
+//	DataSetTimeGranularityHour
+//	DataSetTimeGranularityMinute
+//	DataSetTimeGranularitySecond
+//	DataSetTimeGranularityMillisecond
 type DataSetTimeGranularityInput interface {
 	pulumi.Input
 
@@ -44013,12 +40194,6 @@ func (in *dataSetTimeGranularityPtr) ToDataSetTimeGranularityPtrOutput() DataSet
 
 func (in *dataSetTimeGranularityPtr) ToDataSetTimeGranularityPtrOutputWithContext(ctx context.Context) DataSetTimeGranularityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetTimeGranularityPtrOutput)
-}
-
-func (in *dataSetTimeGranularityPtr) ToOutput(ctx context.Context) pulumix.Output[*DataSetTimeGranularity] {
-	return pulumix.Output[*DataSetTimeGranularity]{
-		OutputState: in.ToDataSetTimeGranularityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataSourceErrorInfoType string
@@ -44094,12 +40269,6 @@ func (o DataSourceErrorInfoTypeOutput) ToDataSourceErrorInfoTypePtrOutputWithCon
 	}).(DataSourceErrorInfoTypePtrOutput)
 }
 
-func (o DataSourceErrorInfoTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceErrorInfoType] {
-	return pulumix.Output[DataSourceErrorInfoType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceErrorInfoTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -44135,12 +40304,6 @@ func (o DataSourceErrorInfoTypePtrOutput) ToDataSourceErrorInfoTypePtrOutputWith
 	return o
 }
 
-func (o DataSourceErrorInfoTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceErrorInfoType] {
-	return pulumix.Output[*DataSourceErrorInfoType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceErrorInfoTypePtrOutput) Elem() DataSourceErrorInfoTypeOutput {
 	return o.ApplyT(func(v *DataSourceErrorInfoType) DataSourceErrorInfoType {
 		if v != nil {
@@ -44165,10 +40328,17 @@ func (o DataSourceErrorInfoTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceErrorInfoTypeInput is an input type that accepts DataSourceErrorInfoTypeArgs and DataSourceErrorInfoTypeOutput values.
-// You can construct a concrete instance of `DataSourceErrorInfoTypeInput` via:
+// DataSourceErrorInfoTypeInput is an input type that accepts values of the DataSourceErrorInfoType enum
+// A concrete instance of `DataSourceErrorInfoTypeInput` can be one of the following:
 //
-//	DataSourceErrorInfoTypeArgs{...}
+//	DataSourceErrorInfoTypeAccessDenied
+//	DataSourceErrorInfoTypeCopySourceNotFound
+//	DataSourceErrorInfoTypeTimeout
+//	DataSourceErrorInfoTypeEngineVersionNotSupported
+//	DataSourceErrorInfoTypeUnknownHost
+//	DataSourceErrorInfoTypeGenericSqlFailure
+//	DataSourceErrorInfoTypeConflict
+//	DataSourceErrorInfoTypeUnknown
 type DataSourceErrorInfoTypeInput interface {
 	pulumi.Input
 
@@ -44201,12 +40371,6 @@ func (in *dataSourceErrorInfoTypePtr) ToDataSourceErrorInfoTypePtrOutput() DataS
 
 func (in *dataSourceErrorInfoTypePtr) ToDataSourceErrorInfoTypePtrOutputWithContext(ctx context.Context) DataSourceErrorInfoTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceErrorInfoTypePtrOutput)
-}
-
-func (in *dataSourceErrorInfoTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceErrorInfoType] {
-	return pulumix.Output[*DataSourceErrorInfoType]{
-		OutputState: in.ToDataSourceErrorInfoTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataSourceResourceStatus string
@@ -44245,12 +40409,6 @@ func (o DataSourceResourceStatusOutput) ToDataSourceResourceStatusPtrOutputWithC
 	}).(DataSourceResourceStatusPtrOutput)
 }
 
-func (o DataSourceResourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceResourceStatus] {
-	return pulumix.Output[DataSourceResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -44284,12 +40442,6 @@ func (o DataSourceResourceStatusPtrOutput) ToDataSourceResourceStatusPtrOutput()
 
 func (o DataSourceResourceStatusPtrOutput) ToDataSourceResourceStatusPtrOutputWithContext(ctx context.Context) DataSourceResourceStatusPtrOutput {
 	return o
-}
-
-func (o DataSourceResourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceResourceStatus] {
-	return pulumix.Output[*DataSourceResourceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSourceResourceStatusPtrOutput) Elem() DataSourceResourceStatusOutput {
@@ -44383,12 +40535,6 @@ func (o DataSourceStarburstProductTypeOutput) ToDataSourceStarburstProductTypePt
 	}).(DataSourceStarburstProductTypePtrOutput)
 }
 
-func (o DataSourceStarburstProductTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceStarburstProductType] {
-	return pulumix.Output[DataSourceStarburstProductType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceStarburstProductTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -44424,12 +40570,6 @@ func (o DataSourceStarburstProductTypePtrOutput) ToDataSourceStarburstProductTyp
 	return o
 }
 
-func (o DataSourceStarburstProductTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceStarburstProductType] {
-	return pulumix.Output[*DataSourceStarburstProductType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceStarburstProductTypePtrOutput) Elem() DataSourceStarburstProductTypeOutput {
 	return o.ApplyT(func(v *DataSourceStarburstProductType) DataSourceStarburstProductType {
 		if v != nil {
@@ -44454,10 +40594,11 @@ func (o DataSourceStarburstProductTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceStarburstProductTypeInput is an input type that accepts DataSourceStarburstProductTypeArgs and DataSourceStarburstProductTypeOutput values.
-// You can construct a concrete instance of `DataSourceStarburstProductTypeInput` via:
+// DataSourceStarburstProductTypeInput is an input type that accepts values of the DataSourceStarburstProductType enum
+// A concrete instance of `DataSourceStarburstProductTypeInput` can be one of the following:
 //
-//	DataSourceStarburstProductTypeArgs{...}
+//	DataSourceStarburstProductTypeGalaxy
+//	DataSourceStarburstProductTypeEnterprise
 type DataSourceStarburstProductTypeInput interface {
 	pulumi.Input
 
@@ -44490,12 +40631,6 @@ func (in *dataSourceStarburstProductTypePtr) ToDataSourceStarburstProductTypePtr
 
 func (in *dataSourceStarburstProductTypePtr) ToDataSourceStarburstProductTypePtrOutputWithContext(ctx context.Context) DataSourceStarburstProductTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceStarburstProductTypePtrOutput)
-}
-
-func (in *dataSourceStarburstProductTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceStarburstProductType] {
-	return pulumix.Output[*DataSourceStarburstProductType]{
-		OutputState: in.ToDataSourceStarburstProductTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataSourceType string
@@ -44590,12 +40725,6 @@ func (o DataSourceTypeOutput) ToDataSourceTypePtrOutputWithContext(ctx context.C
 	}).(DataSourceTypePtrOutput)
 }
 
-func (o DataSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceType] {
-	return pulumix.Output[DataSourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -44631,12 +40760,6 @@ func (o DataSourceTypePtrOutput) ToDataSourceTypePtrOutputWithContext(ctx contex
 	return o
 }
 
-func (o DataSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceType] {
-	return pulumix.Output[*DataSourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceTypePtrOutput) Elem() DataSourceTypeOutput {
 	return o.ApplyT(func(v *DataSourceType) DataSourceType {
 		if v != nil {
@@ -44661,10 +40784,36 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceTypeInput is an input type that accepts DataSourceTypeArgs and DataSourceTypeOutput values.
-// You can construct a concrete instance of `DataSourceTypeInput` via:
+// DataSourceTypeInput is an input type that accepts values of the DataSourceType enum
+// A concrete instance of `DataSourceTypeInput` can be one of the following:
 //
-//	DataSourceTypeArgs{...}
+//	DataSourceTypeAdobeAnalytics
+//	DataSourceTypeAmazonElasticsearch
+//	DataSourceTypeAmazonOpensearch
+//	DataSourceTypeAthena
+//	DataSourceTypeAurora
+//	DataSourceTypeAuroraPostgresql
+//	DataSourceTypeAwsIotAnalytics
+//	DataSourceTypeDatabricks
+//	DataSourceTypeGithub
+//	DataSourceTypeJira
+//	DataSourceTypeMariadb
+//	DataSourceTypeMysql
+//	DataSourceTypeOracle
+//	DataSourceTypePostgresql
+//	DataSourceTypePresto
+//	DataSourceTypeRedshift
+//	DataSourceTypeS3
+//	DataSourceTypeSalesforce
+//	DataSourceTypeServicenow
+//	DataSourceTypeSnowflake
+//	DataSourceTypeSpark
+//	DataSourceTypeSqlserver
+//	DataSourceTypeTeradata
+//	DataSourceTypeTwitter
+//	DataSourceTypeTimestream
+//	DataSourceTypeStarburst
+//	DataSourceTypeTrino
 type DataSourceTypeInput interface {
 	pulumi.Input
 
@@ -44697,12 +40846,6 @@ func (in *dataSourceTypePtr) ToDataSourceTypePtrOutput() DataSourceTypePtrOutput
 
 func (in *dataSourceTypePtr) ToDataSourceTypePtrOutputWithContext(ctx context.Context) DataSourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceTypePtrOutput)
-}
-
-func (in *dataSourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceType] {
-	return pulumix.Output[*DataSourceType]{
-		OutputState: in.ToDataSourceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RefreshScheduleMapRefreshType string
@@ -44772,12 +40915,6 @@ func (o RefreshScheduleMapRefreshTypeOutput) ToRefreshScheduleMapRefreshTypePtrO
 	}).(RefreshScheduleMapRefreshTypePtrOutput)
 }
 
-func (o RefreshScheduleMapRefreshTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RefreshScheduleMapRefreshType] {
-	return pulumix.Output[RefreshScheduleMapRefreshType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RefreshScheduleMapRefreshTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -44813,12 +40950,6 @@ func (o RefreshScheduleMapRefreshTypePtrOutput) ToRefreshScheduleMapRefreshTypeP
 	return o
 }
 
-func (o RefreshScheduleMapRefreshTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RefreshScheduleMapRefreshType] {
-	return pulumix.Output[*RefreshScheduleMapRefreshType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RefreshScheduleMapRefreshTypePtrOutput) Elem() RefreshScheduleMapRefreshTypeOutput {
 	return o.ApplyT(func(v *RefreshScheduleMapRefreshType) RefreshScheduleMapRefreshType {
 		if v != nil {
@@ -44843,10 +40974,11 @@ func (o RefreshScheduleMapRefreshTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// RefreshScheduleMapRefreshTypeInput is an input type that accepts RefreshScheduleMapRefreshTypeArgs and RefreshScheduleMapRefreshTypeOutput values.
-// You can construct a concrete instance of `RefreshScheduleMapRefreshTypeInput` via:
+// RefreshScheduleMapRefreshTypeInput is an input type that accepts values of the RefreshScheduleMapRefreshType enum
+// A concrete instance of `RefreshScheduleMapRefreshTypeInput` can be one of the following:
 //
-//	RefreshScheduleMapRefreshTypeArgs{...}
+//	RefreshScheduleMapRefreshTypeFullRefresh
+//	RefreshScheduleMapRefreshTypeIncrementalRefresh
 type RefreshScheduleMapRefreshTypeInput interface {
 	pulumi.Input
 
@@ -44879,12 +41011,6 @@ func (in *refreshScheduleMapRefreshTypePtr) ToRefreshScheduleMapRefreshTypePtrOu
 
 func (in *refreshScheduleMapRefreshTypePtr) ToRefreshScheduleMapRefreshTypePtrOutputWithContext(ctx context.Context) RefreshScheduleMapRefreshTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RefreshScheduleMapRefreshTypePtrOutput)
-}
-
-func (in *refreshScheduleMapRefreshTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RefreshScheduleMapRefreshType] {
-	return pulumix.Output[*RefreshScheduleMapRefreshType]{
-		OutputState: in.ToRefreshScheduleMapRefreshTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RefreshScheduleMapScheduleFrequencyPropertiesInterval string
@@ -44958,12 +41084,6 @@ func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToRefreshSc
 	}).(RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput)
 }
 
-func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToOutput(ctx context.Context) pulumix.Output[RefreshScheduleMapScheduleFrequencyPropertiesInterval] {
-	return pulumix.Output[RefreshScheduleMapScheduleFrequencyPropertiesInterval]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -44999,12 +41119,6 @@ func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) ToRefres
 	return o
 }
 
-func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RefreshScheduleMapScheduleFrequencyPropertiesInterval] {
-	return pulumix.Output[*RefreshScheduleMapScheduleFrequencyPropertiesInterval]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) Elem() RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput {
 	return o.ApplyT(func(v *RefreshScheduleMapScheduleFrequencyPropertiesInterval) RefreshScheduleMapScheduleFrequencyPropertiesInterval {
 		if v != nil {
@@ -45029,10 +41143,15 @@ func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// RefreshScheduleMapScheduleFrequencyPropertiesIntervalInput is an input type that accepts RefreshScheduleMapScheduleFrequencyPropertiesIntervalArgs and RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput values.
-// You can construct a concrete instance of `RefreshScheduleMapScheduleFrequencyPropertiesIntervalInput` via:
+// RefreshScheduleMapScheduleFrequencyPropertiesIntervalInput is an input type that accepts values of the RefreshScheduleMapScheduleFrequencyPropertiesInterval enum
+// A concrete instance of `RefreshScheduleMapScheduleFrequencyPropertiesIntervalInput` can be one of the following:
 //
-//	RefreshScheduleMapScheduleFrequencyPropertiesIntervalArgs{...}
+//	RefreshScheduleMapScheduleFrequencyPropertiesIntervalMinute15
+//	RefreshScheduleMapScheduleFrequencyPropertiesIntervalMinute30
+//	RefreshScheduleMapScheduleFrequencyPropertiesIntervalHourly
+//	RefreshScheduleMapScheduleFrequencyPropertiesIntervalDaily
+//	RefreshScheduleMapScheduleFrequencyPropertiesIntervalWeekly
+//	RefreshScheduleMapScheduleFrequencyPropertiesIntervalMonthly
 type RefreshScheduleMapScheduleFrequencyPropertiesIntervalInput interface {
 	pulumi.Input
 
@@ -45065,12 +41184,6 @@ func (in *refreshScheduleMapScheduleFrequencyPropertiesIntervalPtr) ToRefreshSch
 
 func (in *refreshScheduleMapScheduleFrequencyPropertiesIntervalPtr) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput)
-}
-
-func (in *refreshScheduleMapScheduleFrequencyPropertiesIntervalPtr) ToOutput(ctx context.Context) pulumix.Output[*RefreshScheduleMapScheduleFrequencyPropertiesInterval] {
-	return pulumix.Output[*RefreshScheduleMapScheduleFrequencyPropertiesInterval]{
-		OutputState: in.ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek string
@@ -45145,12 +41258,6 @@ func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOf
 	}).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput)
 }
 
-func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ToOutput(ctx context.Context) pulumix.Output[RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek] {
-	return pulumix.Output[RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -45186,12 +41293,6 @@ func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOf
 	return o
 }
 
-func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek] {
-	return pulumix.Output[*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput) Elem() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput {
 	return o.ApplyT(func(v *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek {
 		if v != nil {
@@ -45216,10 +41317,16 @@ func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOf
 	}).(pulumi.StringPtrOutput)
 }
 
-// RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekInput is an input type that accepts RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekArgs and RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput values.
-// You can construct a concrete instance of `RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekInput` via:
+// RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekInput is an input type that accepts values of the RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek enum
+// A concrete instance of `RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekInput` can be one of the following:
 //
-//	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekArgs{...}
+//	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekSunday
+//	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekMonday
+//	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekTuesday
+//	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekWednesday
+//	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekThursday
+//	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekFriday
+//	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekSaturday
 type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekInput interface {
 	pulumi.Input
 
@@ -45252,12 +41359,6 @@ func (in *refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDay
 
 func (in *refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtr) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput)
-}
-
-func (in *refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek] {
-	return pulumix.Output[*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek]{
-		OutputState: in.ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateAnchorOption string
@@ -45326,12 +41427,6 @@ func (o TemplateAnchorOptionOutput) ToTemplateAnchorOptionPtrOutputWithContext(c
 	}).(TemplateAnchorOptionPtrOutput)
 }
 
-func (o TemplateAnchorOptionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateAnchorOption] {
-	return pulumix.Output[TemplateAnchorOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateAnchorOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -45367,12 +41462,6 @@ func (o TemplateAnchorOptionPtrOutput) ToTemplateAnchorOptionPtrOutputWithContex
 	return o
 }
 
-func (o TemplateAnchorOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateAnchorOption] {
-	return pulumix.Output[*TemplateAnchorOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateAnchorOptionPtrOutput) Elem() TemplateAnchorOptionOutput {
 	return o.ApplyT(func(v *TemplateAnchorOption) TemplateAnchorOption {
 		if v != nil {
@@ -45397,10 +41486,10 @@ func (o TemplateAnchorOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateAnchorOptionInput is an input type that accepts TemplateAnchorOptionArgs and TemplateAnchorOptionOutput values.
-// You can construct a concrete instance of `TemplateAnchorOptionInput` via:
+// TemplateAnchorOptionInput is an input type that accepts values of the TemplateAnchorOption enum
+// A concrete instance of `TemplateAnchorOptionInput` can be one of the following:
 //
-//	TemplateAnchorOptionArgs{...}
+//	TemplateAnchorOptionNow
 type TemplateAnchorOptionInput interface {
 	pulumi.Input
 
@@ -45433,12 +41522,6 @@ func (in *templateAnchorOptionPtr) ToTemplateAnchorOptionPtrOutput() TemplateAnc
 
 func (in *templateAnchorOptionPtr) ToTemplateAnchorOptionPtrOutputWithContext(ctx context.Context) TemplateAnchorOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateAnchorOptionPtrOutput)
-}
-
-func (in *templateAnchorOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateAnchorOption] {
-	return pulumix.Output[*TemplateAnchorOption]{
-		OutputState: in.ToTemplateAnchorOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateArcThickness string
@@ -45510,12 +41593,6 @@ func (o TemplateArcThicknessOutput) ToTemplateArcThicknessPtrOutputWithContext(c
 	}).(TemplateArcThicknessPtrOutput)
 }
 
-func (o TemplateArcThicknessOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateArcThickness] {
-	return pulumix.Output[TemplateArcThickness]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateArcThicknessOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -45551,12 +41628,6 @@ func (o TemplateArcThicknessPtrOutput) ToTemplateArcThicknessPtrOutputWithContex
 	return o
 }
 
-func (o TemplateArcThicknessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateArcThickness] {
-	return pulumix.Output[*TemplateArcThickness]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateArcThicknessPtrOutput) Elem() TemplateArcThicknessOutput {
 	return o.ApplyT(func(v *TemplateArcThickness) TemplateArcThickness {
 		if v != nil {
@@ -45581,10 +41652,13 @@ func (o TemplateArcThicknessPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateArcThicknessInput is an input type that accepts TemplateArcThicknessArgs and TemplateArcThicknessOutput values.
-// You can construct a concrete instance of `TemplateArcThicknessInput` via:
+// TemplateArcThicknessInput is an input type that accepts values of the TemplateArcThickness enum
+// A concrete instance of `TemplateArcThicknessInput` can be one of the following:
 //
-//	TemplateArcThicknessArgs{...}
+//	TemplateArcThicknessSmall
+//	TemplateArcThicknessMedium
+//	TemplateArcThicknessLarge
+//	TemplateArcThicknessWhole
 type TemplateArcThicknessInput interface {
 	pulumi.Input
 
@@ -45617,12 +41691,6 @@ func (in *templateArcThicknessPtr) ToTemplateArcThicknessPtrOutput() TemplateArc
 
 func (in *templateArcThicknessPtr) ToTemplateArcThicknessPtrOutputWithContext(ctx context.Context) TemplateArcThicknessPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateArcThicknessPtrOutput)
-}
-
-func (in *templateArcThicknessPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateArcThickness] {
-	return pulumix.Output[*TemplateArcThickness]{
-		OutputState: in.ToTemplateArcThicknessPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateArcThicknessOptions string
@@ -45693,12 +41761,6 @@ func (o TemplateArcThicknessOptionsOutput) ToTemplateArcThicknessOptionsPtrOutpu
 	}).(TemplateArcThicknessOptionsPtrOutput)
 }
 
-func (o TemplateArcThicknessOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateArcThicknessOptions] {
-	return pulumix.Output[TemplateArcThicknessOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateArcThicknessOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -45734,12 +41796,6 @@ func (o TemplateArcThicknessOptionsPtrOutput) ToTemplateArcThicknessOptionsPtrOu
 	return o
 }
 
-func (o TemplateArcThicknessOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateArcThicknessOptions] {
-	return pulumix.Output[*TemplateArcThicknessOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateArcThicknessOptionsPtrOutput) Elem() TemplateArcThicknessOptionsOutput {
 	return o.ApplyT(func(v *TemplateArcThicknessOptions) TemplateArcThicknessOptions {
 		if v != nil {
@@ -45764,10 +41820,12 @@ func (o TemplateArcThicknessOptionsPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateArcThicknessOptionsInput is an input type that accepts TemplateArcThicknessOptionsArgs and TemplateArcThicknessOptionsOutput values.
-// You can construct a concrete instance of `TemplateArcThicknessOptionsInput` via:
+// TemplateArcThicknessOptionsInput is an input type that accepts values of the TemplateArcThicknessOptions enum
+// A concrete instance of `TemplateArcThicknessOptionsInput` can be one of the following:
 //
-//	TemplateArcThicknessOptionsArgs{...}
+//	TemplateArcThicknessOptionsSmall
+//	TemplateArcThicknessOptionsMedium
+//	TemplateArcThicknessOptionsLarge
 type TemplateArcThicknessOptionsInput interface {
 	pulumi.Input
 
@@ -45800,12 +41858,6 @@ func (in *templateArcThicknessOptionsPtr) ToTemplateArcThicknessOptionsPtrOutput
 
 func (in *templateArcThicknessOptionsPtr) ToTemplateArcThicknessOptionsPtrOutputWithContext(ctx context.Context) TemplateArcThicknessOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateArcThicknessOptionsPtrOutput)
-}
-
-func (in *templateArcThicknessOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateArcThicknessOptions] {
-	return pulumix.Output[*TemplateArcThicknessOptions]{
-		OutputState: in.ToTemplateArcThicknessOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateAxisBinding string
@@ -45875,12 +41927,6 @@ func (o TemplateAxisBindingOutput) ToTemplateAxisBindingPtrOutputWithContext(ctx
 	}).(TemplateAxisBindingPtrOutput)
 }
 
-func (o TemplateAxisBindingOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateAxisBinding] {
-	return pulumix.Output[TemplateAxisBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateAxisBindingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -45916,12 +41962,6 @@ func (o TemplateAxisBindingPtrOutput) ToTemplateAxisBindingPtrOutputWithContext(
 	return o
 }
 
-func (o TemplateAxisBindingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateAxisBinding] {
-	return pulumix.Output[*TemplateAxisBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateAxisBindingPtrOutput) Elem() TemplateAxisBindingOutput {
 	return o.ApplyT(func(v *TemplateAxisBinding) TemplateAxisBinding {
 		if v != nil {
@@ -45946,10 +41986,11 @@ func (o TemplateAxisBindingPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateAxisBindingInput is an input type that accepts TemplateAxisBindingArgs and TemplateAxisBindingOutput values.
-// You can construct a concrete instance of `TemplateAxisBindingInput` via:
+// TemplateAxisBindingInput is an input type that accepts values of the TemplateAxisBinding enum
+// A concrete instance of `TemplateAxisBindingInput` can be one of the following:
 //
-//	TemplateAxisBindingArgs{...}
+//	TemplateAxisBindingPrimaryYaxis
+//	TemplateAxisBindingSecondaryYaxis
 type TemplateAxisBindingInput interface {
 	pulumi.Input
 
@@ -45982,12 +42023,6 @@ func (in *templateAxisBindingPtr) ToTemplateAxisBindingPtrOutput() TemplateAxisB
 
 func (in *templateAxisBindingPtr) ToTemplateAxisBindingPtrOutputWithContext(ctx context.Context) TemplateAxisBindingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateAxisBindingPtrOutput)
-}
-
-func (in *templateAxisBindingPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateAxisBinding] {
-	return pulumix.Output[*TemplateAxisBinding]{
-		OutputState: in.ToTemplateAxisBindingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateBarChartOrientation string
@@ -46057,12 +42092,6 @@ func (o TemplateBarChartOrientationOutput) ToTemplateBarChartOrientationPtrOutpu
 	}).(TemplateBarChartOrientationPtrOutput)
 }
 
-func (o TemplateBarChartOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateBarChartOrientation] {
-	return pulumix.Output[TemplateBarChartOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateBarChartOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -46098,12 +42127,6 @@ func (o TemplateBarChartOrientationPtrOutput) ToTemplateBarChartOrientationPtrOu
 	return o
 }
 
-func (o TemplateBarChartOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateBarChartOrientation] {
-	return pulumix.Output[*TemplateBarChartOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateBarChartOrientationPtrOutput) Elem() TemplateBarChartOrientationOutput {
 	return o.ApplyT(func(v *TemplateBarChartOrientation) TemplateBarChartOrientation {
 		if v != nil {
@@ -46128,10 +42151,11 @@ func (o TemplateBarChartOrientationPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateBarChartOrientationInput is an input type that accepts TemplateBarChartOrientationArgs and TemplateBarChartOrientationOutput values.
-// You can construct a concrete instance of `TemplateBarChartOrientationInput` via:
+// TemplateBarChartOrientationInput is an input type that accepts values of the TemplateBarChartOrientation enum
+// A concrete instance of `TemplateBarChartOrientationInput` can be one of the following:
 //
-//	TemplateBarChartOrientationArgs{...}
+//	TemplateBarChartOrientationHorizontal
+//	TemplateBarChartOrientationVertical
 type TemplateBarChartOrientationInput interface {
 	pulumi.Input
 
@@ -46164,12 +42188,6 @@ func (in *templateBarChartOrientationPtr) ToTemplateBarChartOrientationPtrOutput
 
 func (in *templateBarChartOrientationPtr) ToTemplateBarChartOrientationPtrOutputWithContext(ctx context.Context) TemplateBarChartOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateBarChartOrientationPtrOutput)
-}
-
-func (in *templateBarChartOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateBarChartOrientation] {
-	return pulumix.Output[*TemplateBarChartOrientation]{
-		OutputState: in.ToTemplateBarChartOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateBarsArrangement string
@@ -46240,12 +42258,6 @@ func (o TemplateBarsArrangementOutput) ToTemplateBarsArrangementPtrOutputWithCon
 	}).(TemplateBarsArrangementPtrOutput)
 }
 
-func (o TemplateBarsArrangementOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateBarsArrangement] {
-	return pulumix.Output[TemplateBarsArrangement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateBarsArrangementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -46281,12 +42293,6 @@ func (o TemplateBarsArrangementPtrOutput) ToTemplateBarsArrangementPtrOutputWith
 	return o
 }
 
-func (o TemplateBarsArrangementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateBarsArrangement] {
-	return pulumix.Output[*TemplateBarsArrangement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateBarsArrangementPtrOutput) Elem() TemplateBarsArrangementOutput {
 	return o.ApplyT(func(v *TemplateBarsArrangement) TemplateBarsArrangement {
 		if v != nil {
@@ -46311,10 +42317,12 @@ func (o TemplateBarsArrangementPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateBarsArrangementInput is an input type that accepts TemplateBarsArrangementArgs and TemplateBarsArrangementOutput values.
-// You can construct a concrete instance of `TemplateBarsArrangementInput` via:
+// TemplateBarsArrangementInput is an input type that accepts values of the TemplateBarsArrangement enum
+// A concrete instance of `TemplateBarsArrangementInput` can be one of the following:
 //
-//	TemplateBarsArrangementArgs{...}
+//	TemplateBarsArrangementClustered
+//	TemplateBarsArrangementStacked
+//	TemplateBarsArrangementStackedPercent
 type TemplateBarsArrangementInput interface {
 	pulumi.Input
 
@@ -46347,12 +42355,6 @@ func (in *templateBarsArrangementPtr) ToTemplateBarsArrangementPtrOutput() Templ
 
 func (in *templateBarsArrangementPtr) ToTemplateBarsArrangementPtrOutputWithContext(ctx context.Context) TemplateBarsArrangementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateBarsArrangementPtrOutput)
-}
-
-func (in *templateBarsArrangementPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateBarsArrangement] {
-	return pulumix.Output[*TemplateBarsArrangement]{
-		OutputState: in.ToTemplateBarsArrangementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateBaseMapStyleType string
@@ -46424,12 +42426,6 @@ func (o TemplateBaseMapStyleTypeOutput) ToTemplateBaseMapStyleTypePtrOutputWithC
 	}).(TemplateBaseMapStyleTypePtrOutput)
 }
 
-func (o TemplateBaseMapStyleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateBaseMapStyleType] {
-	return pulumix.Output[TemplateBaseMapStyleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateBaseMapStyleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -46465,12 +42461,6 @@ func (o TemplateBaseMapStyleTypePtrOutput) ToTemplateBaseMapStyleTypePtrOutputWi
 	return o
 }
 
-func (o TemplateBaseMapStyleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateBaseMapStyleType] {
-	return pulumix.Output[*TemplateBaseMapStyleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateBaseMapStyleTypePtrOutput) Elem() TemplateBaseMapStyleTypeOutput {
 	return o.ApplyT(func(v *TemplateBaseMapStyleType) TemplateBaseMapStyleType {
 		if v != nil {
@@ -46495,10 +42485,13 @@ func (o TemplateBaseMapStyleTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateBaseMapStyleTypeInput is an input type that accepts TemplateBaseMapStyleTypeArgs and TemplateBaseMapStyleTypeOutput values.
-// You can construct a concrete instance of `TemplateBaseMapStyleTypeInput` via:
+// TemplateBaseMapStyleTypeInput is an input type that accepts values of the TemplateBaseMapStyleType enum
+// A concrete instance of `TemplateBaseMapStyleTypeInput` can be one of the following:
 //
-//	TemplateBaseMapStyleTypeArgs{...}
+//	TemplateBaseMapStyleTypeLightGray
+//	TemplateBaseMapStyleTypeDarkGray
+//	TemplateBaseMapStyleTypeStreet
+//	TemplateBaseMapStyleTypeImagery
 type TemplateBaseMapStyleTypeInput interface {
 	pulumi.Input
 
@@ -46531,12 +42524,6 @@ func (in *templateBaseMapStyleTypePtr) ToTemplateBaseMapStyleTypePtrOutput() Tem
 
 func (in *templateBaseMapStyleTypePtr) ToTemplateBaseMapStyleTypePtrOutputWithContext(ctx context.Context) TemplateBaseMapStyleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateBaseMapStyleTypePtrOutput)
-}
-
-func (in *templateBaseMapStyleTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateBaseMapStyleType] {
-	return pulumix.Output[*TemplateBaseMapStyleType]{
-		OutputState: in.ToTemplateBaseMapStyleTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateBoxPlotFillStyle string
@@ -46606,12 +42593,6 @@ func (o TemplateBoxPlotFillStyleOutput) ToTemplateBoxPlotFillStylePtrOutputWithC
 	}).(TemplateBoxPlotFillStylePtrOutput)
 }
 
-func (o TemplateBoxPlotFillStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateBoxPlotFillStyle] {
-	return pulumix.Output[TemplateBoxPlotFillStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateBoxPlotFillStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -46647,12 +42628,6 @@ func (o TemplateBoxPlotFillStylePtrOutput) ToTemplateBoxPlotFillStylePtrOutputWi
 	return o
 }
 
-func (o TemplateBoxPlotFillStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateBoxPlotFillStyle] {
-	return pulumix.Output[*TemplateBoxPlotFillStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateBoxPlotFillStylePtrOutput) Elem() TemplateBoxPlotFillStyleOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotFillStyle) TemplateBoxPlotFillStyle {
 		if v != nil {
@@ -46677,10 +42652,11 @@ func (o TemplateBoxPlotFillStylePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateBoxPlotFillStyleInput is an input type that accepts TemplateBoxPlotFillStyleArgs and TemplateBoxPlotFillStyleOutput values.
-// You can construct a concrete instance of `TemplateBoxPlotFillStyleInput` via:
+// TemplateBoxPlotFillStyleInput is an input type that accepts values of the TemplateBoxPlotFillStyle enum
+// A concrete instance of `TemplateBoxPlotFillStyleInput` can be one of the following:
 //
-//	TemplateBoxPlotFillStyleArgs{...}
+//	TemplateBoxPlotFillStyleSolid
+//	TemplateBoxPlotFillStyleTransparent
 type TemplateBoxPlotFillStyleInput interface {
 	pulumi.Input
 
@@ -46713,12 +42689,6 @@ func (in *templateBoxPlotFillStylePtr) ToTemplateBoxPlotFillStylePtrOutput() Tem
 
 func (in *templateBoxPlotFillStylePtr) ToTemplateBoxPlotFillStylePtrOutputWithContext(ctx context.Context) TemplateBoxPlotFillStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateBoxPlotFillStylePtrOutput)
-}
-
-func (in *templateBoxPlotFillStylePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateBoxPlotFillStyle] {
-	return pulumix.Output[*TemplateBoxPlotFillStyle]{
-		OutputState: in.ToTemplateBoxPlotFillStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateCategoricalAggregationFunction string
@@ -46788,12 +42758,6 @@ func (o TemplateCategoricalAggregationFunctionOutput) ToTemplateCategoricalAggre
 	}).(TemplateCategoricalAggregationFunctionPtrOutput)
 }
 
-func (o TemplateCategoricalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateCategoricalAggregationFunction] {
-	return pulumix.Output[TemplateCategoricalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCategoricalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -46829,12 +42793,6 @@ func (o TemplateCategoricalAggregationFunctionPtrOutput) ToTemplateCategoricalAg
 	return o
 }
 
-func (o TemplateCategoricalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateCategoricalAggregationFunction] {
-	return pulumix.Output[*TemplateCategoricalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCategoricalAggregationFunctionPtrOutput) Elem() TemplateCategoricalAggregationFunctionOutput {
 	return o.ApplyT(func(v *TemplateCategoricalAggregationFunction) TemplateCategoricalAggregationFunction {
 		if v != nil {
@@ -46859,10 +42817,11 @@ func (o TemplateCategoricalAggregationFunctionPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateCategoricalAggregationFunctionInput is an input type that accepts TemplateCategoricalAggregationFunctionArgs and TemplateCategoricalAggregationFunctionOutput values.
-// You can construct a concrete instance of `TemplateCategoricalAggregationFunctionInput` via:
+// TemplateCategoricalAggregationFunctionInput is an input type that accepts values of the TemplateCategoricalAggregationFunction enum
+// A concrete instance of `TemplateCategoricalAggregationFunctionInput` can be one of the following:
 //
-//	TemplateCategoricalAggregationFunctionArgs{...}
+//	TemplateCategoricalAggregationFunctionCount
+//	TemplateCategoricalAggregationFunctionDistinctCount
 type TemplateCategoricalAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -46895,12 +42854,6 @@ func (in *templateCategoricalAggregationFunctionPtr) ToTemplateCategoricalAggreg
 
 func (in *templateCategoricalAggregationFunctionPtr) ToTemplateCategoricalAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateCategoricalAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateCategoricalAggregationFunctionPtrOutput)
-}
-
-func (in *templateCategoricalAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateCategoricalAggregationFunction] {
-	return pulumix.Output[*TemplateCategoricalAggregationFunction]{
-		OutputState: in.ToTemplateCategoricalAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateCategoryFilterMatchOperator string
@@ -46974,12 +42927,6 @@ func (o TemplateCategoryFilterMatchOperatorOutput) ToTemplateCategoryFilterMatch
 	}).(TemplateCategoryFilterMatchOperatorPtrOutput)
 }
 
-func (o TemplateCategoryFilterMatchOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateCategoryFilterMatchOperator] {
-	return pulumix.Output[TemplateCategoryFilterMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCategoryFilterMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -47015,12 +42962,6 @@ func (o TemplateCategoryFilterMatchOperatorPtrOutput) ToTemplateCategoryFilterMa
 	return o
 }
 
-func (o TemplateCategoryFilterMatchOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateCategoryFilterMatchOperator] {
-	return pulumix.Output[*TemplateCategoryFilterMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCategoryFilterMatchOperatorPtrOutput) Elem() TemplateCategoryFilterMatchOperatorOutput {
 	return o.ApplyT(func(v *TemplateCategoryFilterMatchOperator) TemplateCategoryFilterMatchOperator {
 		if v != nil {
@@ -47045,10 +42986,15 @@ func (o TemplateCategoryFilterMatchOperatorPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateCategoryFilterMatchOperatorInput is an input type that accepts TemplateCategoryFilterMatchOperatorArgs and TemplateCategoryFilterMatchOperatorOutput values.
-// You can construct a concrete instance of `TemplateCategoryFilterMatchOperatorInput` via:
+// TemplateCategoryFilterMatchOperatorInput is an input type that accepts values of the TemplateCategoryFilterMatchOperator enum
+// A concrete instance of `TemplateCategoryFilterMatchOperatorInput` can be one of the following:
 //
-//	TemplateCategoryFilterMatchOperatorArgs{...}
+//	TemplateCategoryFilterMatchOperatorEquals
+//	TemplateCategoryFilterMatchOperatorDoesNotEqual
+//	TemplateCategoryFilterMatchOperatorContains
+//	TemplateCategoryFilterMatchOperatorDoesNotContain
+//	TemplateCategoryFilterMatchOperatorStartsWith
+//	TemplateCategoryFilterMatchOperatorEndsWith
 type TemplateCategoryFilterMatchOperatorInput interface {
 	pulumi.Input
 
@@ -47081,12 +43027,6 @@ func (in *templateCategoryFilterMatchOperatorPtr) ToTemplateCategoryFilterMatchO
 
 func (in *templateCategoryFilterMatchOperatorPtr) ToTemplateCategoryFilterMatchOperatorPtrOutputWithContext(ctx context.Context) TemplateCategoryFilterMatchOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateCategoryFilterMatchOperatorPtrOutput)
-}
-
-func (in *templateCategoryFilterMatchOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateCategoryFilterMatchOperator] {
-	return pulumix.Output[*TemplateCategoryFilterMatchOperator]{
-		OutputState: in.ToTemplateCategoryFilterMatchOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateCategoryFilterSelectAllOptions string
@@ -47155,12 +43095,6 @@ func (o TemplateCategoryFilterSelectAllOptionsOutput) ToTemplateCategoryFilterSe
 	}).(TemplateCategoryFilterSelectAllOptionsPtrOutput)
 }
 
-func (o TemplateCategoryFilterSelectAllOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateCategoryFilterSelectAllOptions] {
-	return pulumix.Output[TemplateCategoryFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCategoryFilterSelectAllOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -47196,12 +43130,6 @@ func (o TemplateCategoryFilterSelectAllOptionsPtrOutput) ToTemplateCategoryFilte
 	return o
 }
 
-func (o TemplateCategoryFilterSelectAllOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateCategoryFilterSelectAllOptions] {
-	return pulumix.Output[*TemplateCategoryFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCategoryFilterSelectAllOptionsPtrOutput) Elem() TemplateCategoryFilterSelectAllOptionsOutput {
 	return o.ApplyT(func(v *TemplateCategoryFilterSelectAllOptions) TemplateCategoryFilterSelectAllOptions {
 		if v != nil {
@@ -47226,10 +43154,10 @@ func (o TemplateCategoryFilterSelectAllOptionsPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateCategoryFilterSelectAllOptionsInput is an input type that accepts TemplateCategoryFilterSelectAllOptionsArgs and TemplateCategoryFilterSelectAllOptionsOutput values.
-// You can construct a concrete instance of `TemplateCategoryFilterSelectAllOptionsInput` via:
+// TemplateCategoryFilterSelectAllOptionsInput is an input type that accepts values of the TemplateCategoryFilterSelectAllOptions enum
+// A concrete instance of `TemplateCategoryFilterSelectAllOptionsInput` can be one of the following:
 //
-//	TemplateCategoryFilterSelectAllOptionsArgs{...}
+//	TemplateCategoryFilterSelectAllOptionsFilterAllValues
 type TemplateCategoryFilterSelectAllOptionsInput interface {
 	pulumi.Input
 
@@ -47262,12 +43190,6 @@ func (in *templateCategoryFilterSelectAllOptionsPtr) ToTemplateCategoryFilterSel
 
 func (in *templateCategoryFilterSelectAllOptionsPtr) ToTemplateCategoryFilterSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateCategoryFilterSelectAllOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateCategoryFilterSelectAllOptionsPtrOutput)
-}
-
-func (in *templateCategoryFilterSelectAllOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateCategoryFilterSelectAllOptions] {
-	return pulumix.Output[*TemplateCategoryFilterSelectAllOptions]{
-		OutputState: in.ToTemplateCategoryFilterSelectAllOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateColorFillType string
@@ -47337,12 +43259,6 @@ func (o TemplateColorFillTypeOutput) ToTemplateColorFillTypePtrOutputWithContext
 	}).(TemplateColorFillTypePtrOutput)
 }
 
-func (o TemplateColorFillTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateColorFillType] {
-	return pulumix.Output[TemplateColorFillType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateColorFillTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -47378,12 +43294,6 @@ func (o TemplateColorFillTypePtrOutput) ToTemplateColorFillTypePtrOutputWithCont
 	return o
 }
 
-func (o TemplateColorFillTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateColorFillType] {
-	return pulumix.Output[*TemplateColorFillType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateColorFillTypePtrOutput) Elem() TemplateColorFillTypeOutput {
 	return o.ApplyT(func(v *TemplateColorFillType) TemplateColorFillType {
 		if v != nil {
@@ -47408,10 +43318,11 @@ func (o TemplateColorFillTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateColorFillTypeInput is an input type that accepts TemplateColorFillTypeArgs and TemplateColorFillTypeOutput values.
-// You can construct a concrete instance of `TemplateColorFillTypeInput` via:
+// TemplateColorFillTypeInput is an input type that accepts values of the TemplateColorFillType enum
+// A concrete instance of `TemplateColorFillTypeInput` can be one of the following:
 //
-//	TemplateColorFillTypeArgs{...}
+//	TemplateColorFillTypeDiscrete
+//	TemplateColorFillTypeGradient
 type TemplateColorFillTypeInput interface {
 	pulumi.Input
 
@@ -47444,12 +43355,6 @@ func (in *templateColorFillTypePtr) ToTemplateColorFillTypePtrOutput() TemplateC
 
 func (in *templateColorFillTypePtr) ToTemplateColorFillTypePtrOutputWithContext(ctx context.Context) TemplateColorFillTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateColorFillTypePtrOutput)
-}
-
-func (in *templateColorFillTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateColorFillType] {
-	return pulumix.Output[*TemplateColorFillType]{
-		OutputState: in.ToTemplateColorFillTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateColumnRole string
@@ -47519,12 +43424,6 @@ func (o TemplateColumnRoleOutput) ToTemplateColumnRolePtrOutputWithContext(ctx c
 	}).(TemplateColumnRolePtrOutput)
 }
 
-func (o TemplateColumnRoleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateColumnRole] {
-	return pulumix.Output[TemplateColumnRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateColumnRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -47560,12 +43459,6 @@ func (o TemplateColumnRolePtrOutput) ToTemplateColumnRolePtrOutputWithContext(ct
 	return o
 }
 
-func (o TemplateColumnRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateColumnRole] {
-	return pulumix.Output[*TemplateColumnRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateColumnRolePtrOutput) Elem() TemplateColumnRoleOutput {
 	return o.ApplyT(func(v *TemplateColumnRole) TemplateColumnRole {
 		if v != nil {
@@ -47590,10 +43483,11 @@ func (o TemplateColumnRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateColumnRoleInput is an input type that accepts TemplateColumnRoleArgs and TemplateColumnRoleOutput values.
-// You can construct a concrete instance of `TemplateColumnRoleInput` via:
+// TemplateColumnRoleInput is an input type that accepts values of the TemplateColumnRole enum
+// A concrete instance of `TemplateColumnRoleInput` can be one of the following:
 //
-//	TemplateColumnRoleArgs{...}
+//	TemplateColumnRoleDimension
+//	TemplateColumnRoleMeasure
 type TemplateColumnRoleInput interface {
 	pulumi.Input
 
@@ -47626,12 +43520,6 @@ func (in *templateColumnRolePtr) ToTemplateColumnRolePtrOutput() TemplateColumnR
 
 func (in *templateColumnRolePtr) ToTemplateColumnRolePtrOutputWithContext(ctx context.Context) TemplateColumnRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateColumnRolePtrOutput)
-}
-
-func (in *templateColumnRolePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateColumnRole] {
-	return pulumix.Output[*TemplateColumnRole]{
-		OutputState: in.ToTemplateColumnRolePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateComparisonMethod string
@@ -47702,12 +43590,6 @@ func (o TemplateComparisonMethodOutput) ToTemplateComparisonMethodPtrOutputWithC
 	}).(TemplateComparisonMethodPtrOutput)
 }
 
-func (o TemplateComparisonMethodOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateComparisonMethod] {
-	return pulumix.Output[TemplateComparisonMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateComparisonMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -47743,12 +43625,6 @@ func (o TemplateComparisonMethodPtrOutput) ToTemplateComparisonMethodPtrOutputWi
 	return o
 }
 
-func (o TemplateComparisonMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateComparisonMethod] {
-	return pulumix.Output[*TemplateComparisonMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateComparisonMethodPtrOutput) Elem() TemplateComparisonMethodOutput {
 	return o.ApplyT(func(v *TemplateComparisonMethod) TemplateComparisonMethod {
 		if v != nil {
@@ -47773,10 +43649,12 @@ func (o TemplateComparisonMethodPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateComparisonMethodInput is an input type that accepts TemplateComparisonMethodArgs and TemplateComparisonMethodOutput values.
-// You can construct a concrete instance of `TemplateComparisonMethodInput` via:
+// TemplateComparisonMethodInput is an input type that accepts values of the TemplateComparisonMethod enum
+// A concrete instance of `TemplateComparisonMethodInput` can be one of the following:
 //
-//	TemplateComparisonMethodArgs{...}
+//	TemplateComparisonMethodDifference
+//	TemplateComparisonMethodPercentDifference
+//	TemplateComparisonMethodPercent
 type TemplateComparisonMethodInput interface {
 	pulumi.Input
 
@@ -47809,12 +43687,6 @@ func (in *templateComparisonMethodPtr) ToTemplateComparisonMethodPtrOutput() Tem
 
 func (in *templateComparisonMethodPtr) ToTemplateComparisonMethodPtrOutputWithContext(ctx context.Context) TemplateComparisonMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateComparisonMethodPtrOutput)
-}
-
-func (in *templateComparisonMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateComparisonMethod] {
-	return pulumix.Output[*TemplateComparisonMethod]{
-		OutputState: in.ToTemplateComparisonMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateConditionalFormattingIconDisplayOption string
@@ -47883,12 +43755,6 @@ func (o TemplateConditionalFormattingIconDisplayOptionOutput) ToTemplateConditio
 	}).(TemplateConditionalFormattingIconDisplayOptionPtrOutput)
 }
 
-func (o TemplateConditionalFormattingIconDisplayOptionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[TemplateConditionalFormattingIconDisplayOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateConditionalFormattingIconDisplayOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -47924,12 +43790,6 @@ func (o TemplateConditionalFormattingIconDisplayOptionPtrOutput) ToTemplateCondi
 	return o
 }
 
-func (o TemplateConditionalFormattingIconDisplayOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[*TemplateConditionalFormattingIconDisplayOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateConditionalFormattingIconDisplayOptionPtrOutput) Elem() TemplateConditionalFormattingIconDisplayOptionOutput {
 	return o.ApplyT(func(v *TemplateConditionalFormattingIconDisplayOption) TemplateConditionalFormattingIconDisplayOption {
 		if v != nil {
@@ -47954,10 +43814,10 @@ func (o TemplateConditionalFormattingIconDisplayOptionPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateConditionalFormattingIconDisplayOptionInput is an input type that accepts TemplateConditionalFormattingIconDisplayOptionArgs and TemplateConditionalFormattingIconDisplayOptionOutput values.
-// You can construct a concrete instance of `TemplateConditionalFormattingIconDisplayOptionInput` via:
+// TemplateConditionalFormattingIconDisplayOptionInput is an input type that accepts values of the TemplateConditionalFormattingIconDisplayOption enum
+// A concrete instance of `TemplateConditionalFormattingIconDisplayOptionInput` can be one of the following:
 //
-//	TemplateConditionalFormattingIconDisplayOptionArgs{...}
+//	TemplateConditionalFormattingIconDisplayOptionIconOnly
 type TemplateConditionalFormattingIconDisplayOptionInput interface {
 	pulumi.Input
 
@@ -47990,12 +43850,6 @@ func (in *templateConditionalFormattingIconDisplayOptionPtr) ToTemplateCondition
 
 func (in *templateConditionalFormattingIconDisplayOptionPtr) ToTemplateConditionalFormattingIconDisplayOptionPtrOutputWithContext(ctx context.Context) TemplateConditionalFormattingIconDisplayOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateConditionalFormattingIconDisplayOptionPtrOutput)
-}
-
-func (in *templateConditionalFormattingIconDisplayOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[*TemplateConditionalFormattingIconDisplayOption]{
-		OutputState: in.ToTemplateConditionalFormattingIconDisplayOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateConditionalFormattingIconSetType string
@@ -48074,12 +43928,6 @@ func (o TemplateConditionalFormattingIconSetTypeOutput) ToTemplateConditionalFor
 	}).(TemplateConditionalFormattingIconSetTypePtrOutput)
 }
 
-func (o TemplateConditionalFormattingIconSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateConditionalFormattingIconSetType] {
-	return pulumix.Output[TemplateConditionalFormattingIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateConditionalFormattingIconSetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -48115,12 +43963,6 @@ func (o TemplateConditionalFormattingIconSetTypePtrOutput) ToTemplateConditional
 	return o
 }
 
-func (o TemplateConditionalFormattingIconSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateConditionalFormattingIconSetType] {
-	return pulumix.Output[*TemplateConditionalFormattingIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateConditionalFormattingIconSetTypePtrOutput) Elem() TemplateConditionalFormattingIconSetTypeOutput {
 	return o.ApplyT(func(v *TemplateConditionalFormattingIconSetType) TemplateConditionalFormattingIconSetType {
 		if v != nil {
@@ -48145,10 +43987,20 @@ func (o TemplateConditionalFormattingIconSetTypePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateConditionalFormattingIconSetTypeInput is an input type that accepts TemplateConditionalFormattingIconSetTypeArgs and TemplateConditionalFormattingIconSetTypeOutput values.
-// You can construct a concrete instance of `TemplateConditionalFormattingIconSetTypeInput` via:
+// TemplateConditionalFormattingIconSetTypeInput is an input type that accepts values of the TemplateConditionalFormattingIconSetType enum
+// A concrete instance of `TemplateConditionalFormattingIconSetTypeInput` can be one of the following:
 //
-//	TemplateConditionalFormattingIconSetTypeArgs{...}
+//	TemplateConditionalFormattingIconSetTypePlusMinus
+//	TemplateConditionalFormattingIconSetTypeCheckX
+//	TemplateConditionalFormattingIconSetTypeThreeColorArrow
+//	TemplateConditionalFormattingIconSetTypeThreeGrayArrow
+//	TemplateConditionalFormattingIconSetTypeCaretUpMinusDown
+//	TemplateConditionalFormattingIconSetTypeThreeShape
+//	TemplateConditionalFormattingIconSetTypeThreeCircle
+//	TemplateConditionalFormattingIconSetTypeFlags
+//	TemplateConditionalFormattingIconSetTypeBars
+//	TemplateConditionalFormattingIconSetTypeFourColorArrow
+//	TemplateConditionalFormattingIconSetTypeFourGrayArrow
 type TemplateConditionalFormattingIconSetTypeInput interface {
 	pulumi.Input
 
@@ -48181,12 +44033,6 @@ func (in *templateConditionalFormattingIconSetTypePtr) ToTemplateConditionalForm
 
 func (in *templateConditionalFormattingIconSetTypePtr) ToTemplateConditionalFormattingIconSetTypePtrOutputWithContext(ctx context.Context) TemplateConditionalFormattingIconSetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateConditionalFormattingIconSetTypePtrOutput)
-}
-
-func (in *templateConditionalFormattingIconSetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateConditionalFormattingIconSetType] {
-	return pulumix.Output[*TemplateConditionalFormattingIconSetType]{
-		OutputState: in.ToTemplateConditionalFormattingIconSetTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateCrossDatasetTypes string
@@ -48256,12 +44102,6 @@ func (o TemplateCrossDatasetTypesOutput) ToTemplateCrossDatasetTypesPtrOutputWit
 	}).(TemplateCrossDatasetTypesPtrOutput)
 }
 
-func (o TemplateCrossDatasetTypesOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateCrossDatasetTypes] {
-	return pulumix.Output[TemplateCrossDatasetTypes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCrossDatasetTypesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -48297,12 +44137,6 @@ func (o TemplateCrossDatasetTypesPtrOutput) ToTemplateCrossDatasetTypesPtrOutput
 	return o
 }
 
-func (o TemplateCrossDatasetTypesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateCrossDatasetTypes] {
-	return pulumix.Output[*TemplateCrossDatasetTypes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCrossDatasetTypesPtrOutput) Elem() TemplateCrossDatasetTypesOutput {
 	return o.ApplyT(func(v *TemplateCrossDatasetTypes) TemplateCrossDatasetTypes {
 		if v != nil {
@@ -48327,10 +44161,11 @@ func (o TemplateCrossDatasetTypesPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateCrossDatasetTypesInput is an input type that accepts TemplateCrossDatasetTypesArgs and TemplateCrossDatasetTypesOutput values.
-// You can construct a concrete instance of `TemplateCrossDatasetTypesInput` via:
+// TemplateCrossDatasetTypesInput is an input type that accepts values of the TemplateCrossDatasetTypes enum
+// A concrete instance of `TemplateCrossDatasetTypesInput` can be one of the following:
 //
-//	TemplateCrossDatasetTypesArgs{...}
+//	TemplateCrossDatasetTypesAllDatasets
+//	TemplateCrossDatasetTypesSingleDataset
 type TemplateCrossDatasetTypesInput interface {
 	pulumi.Input
 
@@ -48363,12 +44198,6 @@ func (in *templateCrossDatasetTypesPtr) ToTemplateCrossDatasetTypesPtrOutput() T
 
 func (in *templateCrossDatasetTypesPtr) ToTemplateCrossDatasetTypesPtrOutputWithContext(ctx context.Context) TemplateCrossDatasetTypesPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateCrossDatasetTypesPtrOutput)
-}
-
-func (in *templateCrossDatasetTypesPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateCrossDatasetTypes] {
-	return pulumix.Output[*TemplateCrossDatasetTypes]{
-		OutputState: in.ToTemplateCrossDatasetTypesPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateCustomContentImageScalingConfiguration string
@@ -48440,12 +44269,6 @@ func (o TemplateCustomContentImageScalingConfigurationOutput) ToTemplateCustomCo
 	}).(TemplateCustomContentImageScalingConfigurationPtrOutput)
 }
 
-func (o TemplateCustomContentImageScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateCustomContentImageScalingConfiguration] {
-	return pulumix.Output[TemplateCustomContentImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCustomContentImageScalingConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -48481,12 +44304,6 @@ func (o TemplateCustomContentImageScalingConfigurationPtrOutput) ToTemplateCusto
 	return o
 }
 
-func (o TemplateCustomContentImageScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateCustomContentImageScalingConfiguration] {
-	return pulumix.Output[*TemplateCustomContentImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCustomContentImageScalingConfigurationPtrOutput) Elem() TemplateCustomContentImageScalingConfigurationOutput {
 	return o.ApplyT(func(v *TemplateCustomContentImageScalingConfiguration) TemplateCustomContentImageScalingConfiguration {
 		if v != nil {
@@ -48511,10 +44328,13 @@ func (o TemplateCustomContentImageScalingConfigurationPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateCustomContentImageScalingConfigurationInput is an input type that accepts TemplateCustomContentImageScalingConfigurationArgs and TemplateCustomContentImageScalingConfigurationOutput values.
-// You can construct a concrete instance of `TemplateCustomContentImageScalingConfigurationInput` via:
+// TemplateCustomContentImageScalingConfigurationInput is an input type that accepts values of the TemplateCustomContentImageScalingConfiguration enum
+// A concrete instance of `TemplateCustomContentImageScalingConfigurationInput` can be one of the following:
 //
-//	TemplateCustomContentImageScalingConfigurationArgs{...}
+//	TemplateCustomContentImageScalingConfigurationFitToHeight
+//	TemplateCustomContentImageScalingConfigurationFitToWidth
+//	TemplateCustomContentImageScalingConfigurationDoNotScale
+//	TemplateCustomContentImageScalingConfigurationScaleToVisual
 type TemplateCustomContentImageScalingConfigurationInput interface {
 	pulumi.Input
 
@@ -48547,12 +44367,6 @@ func (in *templateCustomContentImageScalingConfigurationPtr) ToTemplateCustomCon
 
 func (in *templateCustomContentImageScalingConfigurationPtr) ToTemplateCustomContentImageScalingConfigurationPtrOutputWithContext(ctx context.Context) TemplateCustomContentImageScalingConfigurationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateCustomContentImageScalingConfigurationPtrOutput)
-}
-
-func (in *templateCustomContentImageScalingConfigurationPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateCustomContentImageScalingConfiguration] {
-	return pulumix.Output[*TemplateCustomContentImageScalingConfiguration]{
-		OutputState: in.ToTemplateCustomContentImageScalingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateCustomContentType string
@@ -48622,12 +44436,6 @@ func (o TemplateCustomContentTypeOutput) ToTemplateCustomContentTypePtrOutputWit
 	}).(TemplateCustomContentTypePtrOutput)
 }
 
-func (o TemplateCustomContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateCustomContentType] {
-	return pulumix.Output[TemplateCustomContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCustomContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -48663,12 +44471,6 @@ func (o TemplateCustomContentTypePtrOutput) ToTemplateCustomContentTypePtrOutput
 	return o
 }
 
-func (o TemplateCustomContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateCustomContentType] {
-	return pulumix.Output[*TemplateCustomContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCustomContentTypePtrOutput) Elem() TemplateCustomContentTypeOutput {
 	return o.ApplyT(func(v *TemplateCustomContentType) TemplateCustomContentType {
 		if v != nil {
@@ -48693,10 +44495,11 @@ func (o TemplateCustomContentTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateCustomContentTypeInput is an input type that accepts TemplateCustomContentTypeArgs and TemplateCustomContentTypeOutput values.
-// You can construct a concrete instance of `TemplateCustomContentTypeInput` via:
+// TemplateCustomContentTypeInput is an input type that accepts values of the TemplateCustomContentType enum
+// A concrete instance of `TemplateCustomContentTypeInput` can be one of the following:
 //
-//	TemplateCustomContentTypeArgs{...}
+//	TemplateCustomContentTypeImage
+//	TemplateCustomContentTypeOtherEmbeddedContent
 type TemplateCustomContentTypeInput interface {
 	pulumi.Input
 
@@ -48729,12 +44532,6 @@ func (in *templateCustomContentTypePtr) ToTemplateCustomContentTypePtrOutput() T
 
 func (in *templateCustomContentTypePtr) ToTemplateCustomContentTypePtrOutputWithContext(ctx context.Context) TemplateCustomContentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateCustomContentTypePtrOutput)
-}
-
-func (in *templateCustomContentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateCustomContentType] {
-	return pulumix.Output[*TemplateCustomContentType]{
-		OutputState: in.ToTemplateCustomContentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateDataLabelContent string
@@ -48805,12 +44602,6 @@ func (o TemplateDataLabelContentOutput) ToTemplateDataLabelContentPtrOutputWithC
 	}).(TemplateDataLabelContentPtrOutput)
 }
 
-func (o TemplateDataLabelContentOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateDataLabelContent] {
-	return pulumix.Output[TemplateDataLabelContent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDataLabelContentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -48846,12 +44637,6 @@ func (o TemplateDataLabelContentPtrOutput) ToTemplateDataLabelContentPtrOutputWi
 	return o
 }
 
-func (o TemplateDataLabelContentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateDataLabelContent] {
-	return pulumix.Output[*TemplateDataLabelContent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDataLabelContentPtrOutput) Elem() TemplateDataLabelContentOutput {
 	return o.ApplyT(func(v *TemplateDataLabelContent) TemplateDataLabelContent {
 		if v != nil {
@@ -48876,10 +44661,12 @@ func (o TemplateDataLabelContentPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateDataLabelContentInput is an input type that accepts TemplateDataLabelContentArgs and TemplateDataLabelContentOutput values.
-// You can construct a concrete instance of `TemplateDataLabelContentInput` via:
+// TemplateDataLabelContentInput is an input type that accepts values of the TemplateDataLabelContent enum
+// A concrete instance of `TemplateDataLabelContentInput` can be one of the following:
 //
-//	TemplateDataLabelContentArgs{...}
+//	TemplateDataLabelContentValue
+//	TemplateDataLabelContentPercent
+//	TemplateDataLabelContentValueAndPercent
 type TemplateDataLabelContentInput interface {
 	pulumi.Input
 
@@ -48912,12 +44699,6 @@ func (in *templateDataLabelContentPtr) ToTemplateDataLabelContentPtrOutput() Tem
 
 func (in *templateDataLabelContentPtr) ToTemplateDataLabelContentPtrOutputWithContext(ctx context.Context) TemplateDataLabelContentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateDataLabelContentPtrOutput)
-}
-
-func (in *templateDataLabelContentPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateDataLabelContent] {
-	return pulumix.Output[*TemplateDataLabelContent]{
-		OutputState: in.ToTemplateDataLabelContentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateDataLabelOverlap string
@@ -48987,12 +44768,6 @@ func (o TemplateDataLabelOverlapOutput) ToTemplateDataLabelOverlapPtrOutputWithC
 	}).(TemplateDataLabelOverlapPtrOutput)
 }
 
-func (o TemplateDataLabelOverlapOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateDataLabelOverlap] {
-	return pulumix.Output[TemplateDataLabelOverlap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDataLabelOverlapOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -49028,12 +44803,6 @@ func (o TemplateDataLabelOverlapPtrOutput) ToTemplateDataLabelOverlapPtrOutputWi
 	return o
 }
 
-func (o TemplateDataLabelOverlapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateDataLabelOverlap] {
-	return pulumix.Output[*TemplateDataLabelOverlap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDataLabelOverlapPtrOutput) Elem() TemplateDataLabelOverlapOutput {
 	return o.ApplyT(func(v *TemplateDataLabelOverlap) TemplateDataLabelOverlap {
 		if v != nil {
@@ -49058,10 +44827,11 @@ func (o TemplateDataLabelOverlapPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateDataLabelOverlapInput is an input type that accepts TemplateDataLabelOverlapArgs and TemplateDataLabelOverlapOutput values.
-// You can construct a concrete instance of `TemplateDataLabelOverlapInput` via:
+// TemplateDataLabelOverlapInput is an input type that accepts values of the TemplateDataLabelOverlap enum
+// A concrete instance of `TemplateDataLabelOverlapInput` can be one of the following:
 //
-//	TemplateDataLabelOverlapArgs{...}
+//	TemplateDataLabelOverlapDisableOverlap
+//	TemplateDataLabelOverlapEnableOverlap
 type TemplateDataLabelOverlapInput interface {
 	pulumi.Input
 
@@ -49094,12 +44864,6 @@ func (in *templateDataLabelOverlapPtr) ToTemplateDataLabelOverlapPtrOutput() Tem
 
 func (in *templateDataLabelOverlapPtr) ToTemplateDataLabelOverlapPtrOutputWithContext(ctx context.Context) TemplateDataLabelOverlapPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateDataLabelOverlapPtrOutput)
-}
-
-func (in *templateDataLabelOverlapPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateDataLabelOverlap] {
-	return pulumix.Output[*TemplateDataLabelOverlap]{
-		OutputState: in.ToTemplateDataLabelOverlapPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateDataLabelPosition string
@@ -49173,12 +44937,6 @@ func (o TemplateDataLabelPositionOutput) ToTemplateDataLabelPositionPtrOutputWit
 	}).(TemplateDataLabelPositionPtrOutput)
 }
 
-func (o TemplateDataLabelPositionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateDataLabelPosition] {
-	return pulumix.Output[TemplateDataLabelPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDataLabelPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -49214,12 +44972,6 @@ func (o TemplateDataLabelPositionPtrOutput) ToTemplateDataLabelPositionPtrOutput
 	return o
 }
 
-func (o TemplateDataLabelPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateDataLabelPosition] {
-	return pulumix.Output[*TemplateDataLabelPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDataLabelPositionPtrOutput) Elem() TemplateDataLabelPositionOutput {
 	return o.ApplyT(func(v *TemplateDataLabelPosition) TemplateDataLabelPosition {
 		if v != nil {
@@ -49244,10 +44996,15 @@ func (o TemplateDataLabelPositionPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateDataLabelPositionInput is an input type that accepts TemplateDataLabelPositionArgs and TemplateDataLabelPositionOutput values.
-// You can construct a concrete instance of `TemplateDataLabelPositionInput` via:
+// TemplateDataLabelPositionInput is an input type that accepts values of the TemplateDataLabelPosition enum
+// A concrete instance of `TemplateDataLabelPositionInput` can be one of the following:
 //
-//	TemplateDataLabelPositionArgs{...}
+//	TemplateDataLabelPositionInside
+//	TemplateDataLabelPositionOutside
+//	TemplateDataLabelPositionLeft
+//	TemplateDataLabelPositionTop
+//	TemplateDataLabelPositionBottom
+//	TemplateDataLabelPositionRight
 type TemplateDataLabelPositionInput interface {
 	pulumi.Input
 
@@ -49280,12 +45037,6 @@ func (in *templateDataLabelPositionPtr) ToTemplateDataLabelPositionPtrOutput() T
 
 func (in *templateDataLabelPositionPtr) ToTemplateDataLabelPositionPtrOutputWithContext(ctx context.Context) TemplateDataLabelPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateDataLabelPositionPtrOutput)
-}
-
-func (in *templateDataLabelPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateDataLabelPosition] {
-	return pulumix.Output[*TemplateDataLabelPosition]{
-		OutputState: in.ToTemplateDataLabelPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateDateAggregationFunction string
@@ -49357,12 +45108,6 @@ func (o TemplateDateAggregationFunctionOutput) ToTemplateDateAggregationFunction
 	}).(TemplateDateAggregationFunctionPtrOutput)
 }
 
-func (o TemplateDateAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateDateAggregationFunction] {
-	return pulumix.Output[TemplateDateAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDateAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -49398,12 +45143,6 @@ func (o TemplateDateAggregationFunctionPtrOutput) ToTemplateDateAggregationFunct
 	return o
 }
 
-func (o TemplateDateAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateDateAggregationFunction] {
-	return pulumix.Output[*TemplateDateAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDateAggregationFunctionPtrOutput) Elem() TemplateDateAggregationFunctionOutput {
 	return o.ApplyT(func(v *TemplateDateAggregationFunction) TemplateDateAggregationFunction {
 		if v != nil {
@@ -49428,10 +45167,13 @@ func (o TemplateDateAggregationFunctionPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateDateAggregationFunctionInput is an input type that accepts TemplateDateAggregationFunctionArgs and TemplateDateAggregationFunctionOutput values.
-// You can construct a concrete instance of `TemplateDateAggregationFunctionInput` via:
+// TemplateDateAggregationFunctionInput is an input type that accepts values of the TemplateDateAggregationFunction enum
+// A concrete instance of `TemplateDateAggregationFunctionInput` can be one of the following:
 //
-//	TemplateDateAggregationFunctionArgs{...}
+//	TemplateDateAggregationFunctionCount
+//	TemplateDateAggregationFunctionDistinctCount
+//	TemplateDateAggregationFunctionMin
+//	TemplateDateAggregationFunctionMax
 type TemplateDateAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -49464,12 +45206,6 @@ func (in *templateDateAggregationFunctionPtr) ToTemplateDateAggregationFunctionP
 
 func (in *templateDateAggregationFunctionPtr) ToTemplateDateAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateDateAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateDateAggregationFunctionPtrOutput)
-}
-
-func (in *templateDateAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateDateAggregationFunction] {
-	return pulumix.Output[*TemplateDateAggregationFunction]{
-		OutputState: in.ToTemplateDateAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateDayOfTheWeek string
@@ -49544,12 +45280,6 @@ func (o TemplateDayOfTheWeekOutput) ToTemplateDayOfTheWeekPtrOutputWithContext(c
 	}).(TemplateDayOfTheWeekPtrOutput)
 }
 
-func (o TemplateDayOfTheWeekOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateDayOfTheWeek] {
-	return pulumix.Output[TemplateDayOfTheWeek]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDayOfTheWeekOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -49585,12 +45315,6 @@ func (o TemplateDayOfTheWeekPtrOutput) ToTemplateDayOfTheWeekPtrOutputWithContex
 	return o
 }
 
-func (o TemplateDayOfTheWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateDayOfTheWeek] {
-	return pulumix.Output[*TemplateDayOfTheWeek]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDayOfTheWeekPtrOutput) Elem() TemplateDayOfTheWeekOutput {
 	return o.ApplyT(func(v *TemplateDayOfTheWeek) TemplateDayOfTheWeek {
 		if v != nil {
@@ -49615,10 +45339,16 @@ func (o TemplateDayOfTheWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateDayOfTheWeekInput is an input type that accepts TemplateDayOfTheWeekArgs and TemplateDayOfTheWeekOutput values.
-// You can construct a concrete instance of `TemplateDayOfTheWeekInput` via:
+// TemplateDayOfTheWeekInput is an input type that accepts values of the TemplateDayOfTheWeek enum
+// A concrete instance of `TemplateDayOfTheWeekInput` can be one of the following:
 //
-//	TemplateDayOfTheWeekArgs{...}
+//	TemplateDayOfTheWeekSunday
+//	TemplateDayOfTheWeekMonday
+//	TemplateDayOfTheWeekTuesday
+//	TemplateDayOfTheWeekWednesday
+//	TemplateDayOfTheWeekThursday
+//	TemplateDayOfTheWeekFriday
+//	TemplateDayOfTheWeekSaturday
 type TemplateDayOfTheWeekInput interface {
 	pulumi.Input
 
@@ -49651,12 +45381,6 @@ func (in *templateDayOfTheWeekPtr) ToTemplateDayOfTheWeekPtrOutput() TemplateDay
 
 func (in *templateDayOfTheWeekPtr) ToTemplateDayOfTheWeekPtrOutputWithContext(ctx context.Context) TemplateDayOfTheWeekPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateDayOfTheWeekPtrOutput)
-}
-
-func (in *templateDayOfTheWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateDayOfTheWeek] {
-	return pulumix.Output[*TemplateDayOfTheWeek]{
-		OutputState: in.ToTemplateDayOfTheWeekPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateErrorType string
@@ -49692,12 +45416,6 @@ func (o TemplateErrorTypeOutput) ToTemplateErrorTypePtrOutputWithContext(ctx con
 	}).(TemplateErrorTypePtrOutput)
 }
 
-func (o TemplateErrorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateErrorType] {
-	return pulumix.Output[TemplateErrorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateErrorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -49731,12 +45449,6 @@ func (o TemplateErrorTypePtrOutput) ToTemplateErrorTypePtrOutput() TemplateError
 
 func (o TemplateErrorTypePtrOutput) ToTemplateErrorTypePtrOutputWithContext(ctx context.Context) TemplateErrorTypePtrOutput {
 	return o
-}
-
-func (o TemplateErrorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateErrorType] {
-	return pulumix.Output[*TemplateErrorType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateErrorTypePtrOutput) Elem() TemplateErrorTypeOutput {
@@ -49831,12 +45543,6 @@ func (o TemplateFilterNullOptionOutput) ToTemplateFilterNullOptionPtrOutputWithC
 	}).(TemplateFilterNullOptionPtrOutput)
 }
 
-func (o TemplateFilterNullOptionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateFilterNullOption] {
-	return pulumix.Output[TemplateFilterNullOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFilterNullOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -49872,12 +45578,6 @@ func (o TemplateFilterNullOptionPtrOutput) ToTemplateFilterNullOptionPtrOutputWi
 	return o
 }
 
-func (o TemplateFilterNullOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateFilterNullOption] {
-	return pulumix.Output[*TemplateFilterNullOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFilterNullOptionPtrOutput) Elem() TemplateFilterNullOptionOutput {
 	return o.ApplyT(func(v *TemplateFilterNullOption) TemplateFilterNullOption {
 		if v != nil {
@@ -49902,10 +45602,12 @@ func (o TemplateFilterNullOptionPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateFilterNullOptionInput is an input type that accepts TemplateFilterNullOptionArgs and TemplateFilterNullOptionOutput values.
-// You can construct a concrete instance of `TemplateFilterNullOptionInput` via:
+// TemplateFilterNullOptionInput is an input type that accepts values of the TemplateFilterNullOption enum
+// A concrete instance of `TemplateFilterNullOptionInput` can be one of the following:
 //
-//	TemplateFilterNullOptionArgs{...}
+//	TemplateFilterNullOptionAllValues
+//	TemplateFilterNullOptionNullsOnly
+//	TemplateFilterNullOptionNonNullsOnly
 type TemplateFilterNullOptionInput interface {
 	pulumi.Input
 
@@ -49938,12 +45640,6 @@ func (in *templateFilterNullOptionPtr) ToTemplateFilterNullOptionPtrOutput() Tem
 
 func (in *templateFilterNullOptionPtr) ToTemplateFilterNullOptionPtrOutputWithContext(ctx context.Context) TemplateFilterNullOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateFilterNullOptionPtrOutput)
-}
-
-func (in *templateFilterNullOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateFilterNullOption] {
-	return pulumix.Output[*TemplateFilterNullOption]{
-		OutputState: in.ToTemplateFilterNullOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateFilterVisualScope string
@@ -50013,12 +45709,6 @@ func (o TemplateFilterVisualScopeOutput) ToTemplateFilterVisualScopePtrOutputWit
 	}).(TemplateFilterVisualScopePtrOutput)
 }
 
-func (o TemplateFilterVisualScopeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateFilterVisualScope] {
-	return pulumix.Output[TemplateFilterVisualScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFilterVisualScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -50054,12 +45744,6 @@ func (o TemplateFilterVisualScopePtrOutput) ToTemplateFilterVisualScopePtrOutput
 	return o
 }
 
-func (o TemplateFilterVisualScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateFilterVisualScope] {
-	return pulumix.Output[*TemplateFilterVisualScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFilterVisualScopePtrOutput) Elem() TemplateFilterVisualScopeOutput {
 	return o.ApplyT(func(v *TemplateFilterVisualScope) TemplateFilterVisualScope {
 		if v != nil {
@@ -50084,10 +45768,11 @@ func (o TemplateFilterVisualScopePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateFilterVisualScopeInput is an input type that accepts TemplateFilterVisualScopeArgs and TemplateFilterVisualScopeOutput values.
-// You can construct a concrete instance of `TemplateFilterVisualScopeInput` via:
+// TemplateFilterVisualScopeInput is an input type that accepts values of the TemplateFilterVisualScope enum
+// A concrete instance of `TemplateFilterVisualScopeInput` can be one of the following:
 //
-//	TemplateFilterVisualScopeArgs{...}
+//	TemplateFilterVisualScopeAllVisuals
+//	TemplateFilterVisualScopeSelectedVisuals
 type TemplateFilterVisualScopeInput interface {
 	pulumi.Input
 
@@ -50120,12 +45805,6 @@ func (in *templateFilterVisualScopePtr) ToTemplateFilterVisualScopePtrOutput() T
 
 func (in *templateFilterVisualScopePtr) ToTemplateFilterVisualScopePtrOutputWithContext(ctx context.Context) TemplateFilterVisualScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateFilterVisualScopePtrOutput)
-}
-
-func (in *templateFilterVisualScopePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateFilterVisualScope] {
-	return pulumix.Output[*TemplateFilterVisualScope]{
-		OutputState: in.ToTemplateFilterVisualScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateFontDecoration string
@@ -50195,12 +45874,6 @@ func (o TemplateFontDecorationOutput) ToTemplateFontDecorationPtrOutputWithConte
 	}).(TemplateFontDecorationPtrOutput)
 }
 
-func (o TemplateFontDecorationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateFontDecoration] {
-	return pulumix.Output[TemplateFontDecoration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFontDecorationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -50236,12 +45909,6 @@ func (o TemplateFontDecorationPtrOutput) ToTemplateFontDecorationPtrOutputWithCo
 	return o
 }
 
-func (o TemplateFontDecorationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateFontDecoration] {
-	return pulumix.Output[*TemplateFontDecoration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFontDecorationPtrOutput) Elem() TemplateFontDecorationOutput {
 	return o.ApplyT(func(v *TemplateFontDecoration) TemplateFontDecoration {
 		if v != nil {
@@ -50266,10 +45933,11 @@ func (o TemplateFontDecorationPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateFontDecorationInput is an input type that accepts TemplateFontDecorationArgs and TemplateFontDecorationOutput values.
-// You can construct a concrete instance of `TemplateFontDecorationInput` via:
+// TemplateFontDecorationInput is an input type that accepts values of the TemplateFontDecoration enum
+// A concrete instance of `TemplateFontDecorationInput` can be one of the following:
 //
-//	TemplateFontDecorationArgs{...}
+//	TemplateFontDecorationUnderline
+//	TemplateFontDecorationNone
 type TemplateFontDecorationInput interface {
 	pulumi.Input
 
@@ -50302,12 +45970,6 @@ func (in *templateFontDecorationPtr) ToTemplateFontDecorationPtrOutput() Templat
 
 func (in *templateFontDecorationPtr) ToTemplateFontDecorationPtrOutputWithContext(ctx context.Context) TemplateFontDecorationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateFontDecorationPtrOutput)
-}
-
-func (in *templateFontDecorationPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateFontDecoration] {
-	return pulumix.Output[*TemplateFontDecoration]{
-		OutputState: in.ToTemplateFontDecorationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateFontStyle string
@@ -50377,12 +46039,6 @@ func (o TemplateFontStyleOutput) ToTemplateFontStylePtrOutputWithContext(ctx con
 	}).(TemplateFontStylePtrOutput)
 }
 
-func (o TemplateFontStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateFontStyle] {
-	return pulumix.Output[TemplateFontStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFontStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -50418,12 +46074,6 @@ func (o TemplateFontStylePtrOutput) ToTemplateFontStylePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o TemplateFontStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateFontStyle] {
-	return pulumix.Output[*TemplateFontStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFontStylePtrOutput) Elem() TemplateFontStyleOutput {
 	return o.ApplyT(func(v *TemplateFontStyle) TemplateFontStyle {
 		if v != nil {
@@ -50448,10 +46098,11 @@ func (o TemplateFontStylePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateFontStyleInput is an input type that accepts TemplateFontStyleArgs and TemplateFontStyleOutput values.
-// You can construct a concrete instance of `TemplateFontStyleInput` via:
+// TemplateFontStyleInput is an input type that accepts values of the TemplateFontStyle enum
+// A concrete instance of `TemplateFontStyleInput` can be one of the following:
 //
-//	TemplateFontStyleArgs{...}
+//	TemplateFontStyleNormal
+//	TemplateFontStyleItalic
 type TemplateFontStyleInput interface {
 	pulumi.Input
 
@@ -50484,12 +46135,6 @@ func (in *templateFontStylePtr) ToTemplateFontStylePtrOutput() TemplateFontStyle
 
 func (in *templateFontStylePtr) ToTemplateFontStylePtrOutputWithContext(ctx context.Context) TemplateFontStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateFontStylePtrOutput)
-}
-
-func (in *templateFontStylePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateFontStyle] {
-	return pulumix.Output[*TemplateFontStyle]{
-		OutputState: in.ToTemplateFontStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateFontWeightName string
@@ -50559,12 +46204,6 @@ func (o TemplateFontWeightNameOutput) ToTemplateFontWeightNamePtrOutputWithConte
 	}).(TemplateFontWeightNamePtrOutput)
 }
 
-func (o TemplateFontWeightNameOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateFontWeightName] {
-	return pulumix.Output[TemplateFontWeightName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFontWeightNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -50600,12 +46239,6 @@ func (o TemplateFontWeightNamePtrOutput) ToTemplateFontWeightNamePtrOutputWithCo
 	return o
 }
 
-func (o TemplateFontWeightNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateFontWeightName] {
-	return pulumix.Output[*TemplateFontWeightName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFontWeightNamePtrOutput) Elem() TemplateFontWeightNameOutput {
 	return o.ApplyT(func(v *TemplateFontWeightName) TemplateFontWeightName {
 		if v != nil {
@@ -50630,10 +46263,11 @@ func (o TemplateFontWeightNamePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateFontWeightNameInput is an input type that accepts TemplateFontWeightNameArgs and TemplateFontWeightNameOutput values.
-// You can construct a concrete instance of `TemplateFontWeightNameInput` via:
+// TemplateFontWeightNameInput is an input type that accepts values of the TemplateFontWeightName enum
+// A concrete instance of `TemplateFontWeightNameInput` can be one of the following:
 //
-//	TemplateFontWeightNameArgs{...}
+//	TemplateFontWeightNameNormal
+//	TemplateFontWeightNameBold
 type TemplateFontWeightNameInput interface {
 	pulumi.Input
 
@@ -50666,12 +46300,6 @@ func (in *templateFontWeightNamePtr) ToTemplateFontWeightNamePtrOutput() Templat
 
 func (in *templateFontWeightNamePtr) ToTemplateFontWeightNamePtrOutputWithContext(ctx context.Context) TemplateFontWeightNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateFontWeightNamePtrOutput)
-}
-
-func (in *templateFontWeightNamePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateFontWeightName] {
-	return pulumix.Output[*TemplateFontWeightName]{
-		OutputState: in.ToTemplateFontWeightNamePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateForecastComputationSeasonality string
@@ -50741,12 +46369,6 @@ func (o TemplateForecastComputationSeasonalityOutput) ToTemplateForecastComputat
 	}).(TemplateForecastComputationSeasonalityPtrOutput)
 }
 
-func (o TemplateForecastComputationSeasonalityOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateForecastComputationSeasonality] {
-	return pulumix.Output[TemplateForecastComputationSeasonality]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateForecastComputationSeasonalityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -50782,12 +46404,6 @@ func (o TemplateForecastComputationSeasonalityPtrOutput) ToTemplateForecastCompu
 	return o
 }
 
-func (o TemplateForecastComputationSeasonalityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateForecastComputationSeasonality] {
-	return pulumix.Output[*TemplateForecastComputationSeasonality]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateForecastComputationSeasonalityPtrOutput) Elem() TemplateForecastComputationSeasonalityOutput {
 	return o.ApplyT(func(v *TemplateForecastComputationSeasonality) TemplateForecastComputationSeasonality {
 		if v != nil {
@@ -50812,10 +46428,11 @@ func (o TemplateForecastComputationSeasonalityPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateForecastComputationSeasonalityInput is an input type that accepts TemplateForecastComputationSeasonalityArgs and TemplateForecastComputationSeasonalityOutput values.
-// You can construct a concrete instance of `TemplateForecastComputationSeasonalityInput` via:
+// TemplateForecastComputationSeasonalityInput is an input type that accepts values of the TemplateForecastComputationSeasonality enum
+// A concrete instance of `TemplateForecastComputationSeasonalityInput` can be one of the following:
 //
-//	TemplateForecastComputationSeasonalityArgs{...}
+//	TemplateForecastComputationSeasonalityAutomatic
+//	TemplateForecastComputationSeasonalityCustom
 type TemplateForecastComputationSeasonalityInput interface {
 	pulumi.Input
 
@@ -50848,12 +46465,6 @@ func (in *templateForecastComputationSeasonalityPtr) ToTemplateForecastComputati
 
 func (in *templateForecastComputationSeasonalityPtr) ToTemplateForecastComputationSeasonalityPtrOutputWithContext(ctx context.Context) TemplateForecastComputationSeasonalityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateForecastComputationSeasonalityPtrOutput)
-}
-
-func (in *templateForecastComputationSeasonalityPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateForecastComputationSeasonality] {
-	return pulumix.Output[*TemplateForecastComputationSeasonality]{
-		OutputState: in.ToTemplateForecastComputationSeasonalityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateFunnelChartMeasureDataLabelStyle string
@@ -50926,12 +46537,6 @@ func (o TemplateFunnelChartMeasureDataLabelStyleOutput) ToTemplateFunnelChartMea
 	}).(TemplateFunnelChartMeasureDataLabelStylePtrOutput)
 }
 
-func (o TemplateFunnelChartMeasureDataLabelStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[TemplateFunnelChartMeasureDataLabelStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFunnelChartMeasureDataLabelStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -50967,12 +46572,6 @@ func (o TemplateFunnelChartMeasureDataLabelStylePtrOutput) ToTemplateFunnelChart
 	return o
 }
 
-func (o TemplateFunnelChartMeasureDataLabelStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[*TemplateFunnelChartMeasureDataLabelStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFunnelChartMeasureDataLabelStylePtrOutput) Elem() TemplateFunnelChartMeasureDataLabelStyleOutput {
 	return o.ApplyT(func(v *TemplateFunnelChartMeasureDataLabelStyle) TemplateFunnelChartMeasureDataLabelStyle {
 		if v != nil {
@@ -50997,10 +46596,14 @@ func (o TemplateFunnelChartMeasureDataLabelStylePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateFunnelChartMeasureDataLabelStyleInput is an input type that accepts TemplateFunnelChartMeasureDataLabelStyleArgs and TemplateFunnelChartMeasureDataLabelStyleOutput values.
-// You can construct a concrete instance of `TemplateFunnelChartMeasureDataLabelStyleInput` via:
+// TemplateFunnelChartMeasureDataLabelStyleInput is an input type that accepts values of the TemplateFunnelChartMeasureDataLabelStyle enum
+// A concrete instance of `TemplateFunnelChartMeasureDataLabelStyleInput` can be one of the following:
 //
-//	TemplateFunnelChartMeasureDataLabelStyleArgs{...}
+//	TemplateFunnelChartMeasureDataLabelStyleValueOnly
+//	TemplateFunnelChartMeasureDataLabelStylePercentageByFirstStage
+//	TemplateFunnelChartMeasureDataLabelStylePercentageByPreviousStage
+//	TemplateFunnelChartMeasureDataLabelStyleValueAndPercentageByFirstStage
+//	TemplateFunnelChartMeasureDataLabelStyleValueAndPercentageByPreviousStage
 type TemplateFunnelChartMeasureDataLabelStyleInput interface {
 	pulumi.Input
 
@@ -51033,12 +46636,6 @@ func (in *templateFunnelChartMeasureDataLabelStylePtr) ToTemplateFunnelChartMeas
 
 func (in *templateFunnelChartMeasureDataLabelStylePtr) ToTemplateFunnelChartMeasureDataLabelStylePtrOutputWithContext(ctx context.Context) TemplateFunnelChartMeasureDataLabelStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateFunnelChartMeasureDataLabelStylePtrOutput)
-}
-
-func (in *templateFunnelChartMeasureDataLabelStylePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[*TemplateFunnelChartMeasureDataLabelStyle]{
-		OutputState: in.ToTemplateFunnelChartMeasureDataLabelStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateGeospatialSelectedPointStyle string
@@ -51109,12 +46706,6 @@ func (o TemplateGeospatialSelectedPointStyleOutput) ToTemplateGeospatialSelected
 	}).(TemplateGeospatialSelectedPointStylePtrOutput)
 }
 
-func (o TemplateGeospatialSelectedPointStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateGeospatialSelectedPointStyle] {
-	return pulumix.Output[TemplateGeospatialSelectedPointStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateGeospatialSelectedPointStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -51150,12 +46741,6 @@ func (o TemplateGeospatialSelectedPointStylePtrOutput) ToTemplateGeospatialSelec
 	return o
 }
 
-func (o TemplateGeospatialSelectedPointStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateGeospatialSelectedPointStyle] {
-	return pulumix.Output[*TemplateGeospatialSelectedPointStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateGeospatialSelectedPointStylePtrOutput) Elem() TemplateGeospatialSelectedPointStyleOutput {
 	return o.ApplyT(func(v *TemplateGeospatialSelectedPointStyle) TemplateGeospatialSelectedPointStyle {
 		if v != nil {
@@ -51180,10 +46765,12 @@ func (o TemplateGeospatialSelectedPointStylePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateGeospatialSelectedPointStyleInput is an input type that accepts TemplateGeospatialSelectedPointStyleArgs and TemplateGeospatialSelectedPointStyleOutput values.
-// You can construct a concrete instance of `TemplateGeospatialSelectedPointStyleInput` via:
+// TemplateGeospatialSelectedPointStyleInput is an input type that accepts values of the TemplateGeospatialSelectedPointStyle enum
+// A concrete instance of `TemplateGeospatialSelectedPointStyleInput` can be one of the following:
 //
-//	TemplateGeospatialSelectedPointStyleArgs{...}
+//	TemplateGeospatialSelectedPointStylePoint
+//	TemplateGeospatialSelectedPointStyleCluster
+//	TemplateGeospatialSelectedPointStyleHeatmap
 type TemplateGeospatialSelectedPointStyleInput interface {
 	pulumi.Input
 
@@ -51216,12 +46803,6 @@ func (in *templateGeospatialSelectedPointStylePtr) ToTemplateGeospatialSelectedP
 
 func (in *templateGeospatialSelectedPointStylePtr) ToTemplateGeospatialSelectedPointStylePtrOutputWithContext(ctx context.Context) TemplateGeospatialSelectedPointStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateGeospatialSelectedPointStylePtrOutput)
-}
-
-func (in *templateGeospatialSelectedPointStylePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateGeospatialSelectedPointStyle] {
-	return pulumix.Output[*TemplateGeospatialSelectedPointStyle]{
-		OutputState: in.ToTemplateGeospatialSelectedPointStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateHistogramBinType string
@@ -51291,12 +46872,6 @@ func (o TemplateHistogramBinTypeOutput) ToTemplateHistogramBinTypePtrOutputWithC
 	}).(TemplateHistogramBinTypePtrOutput)
 }
 
-func (o TemplateHistogramBinTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateHistogramBinType] {
-	return pulumix.Output[TemplateHistogramBinType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateHistogramBinTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -51332,12 +46907,6 @@ func (o TemplateHistogramBinTypePtrOutput) ToTemplateHistogramBinTypePtrOutputWi
 	return o
 }
 
-func (o TemplateHistogramBinTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateHistogramBinType] {
-	return pulumix.Output[*TemplateHistogramBinType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateHistogramBinTypePtrOutput) Elem() TemplateHistogramBinTypeOutput {
 	return o.ApplyT(func(v *TemplateHistogramBinType) TemplateHistogramBinType {
 		if v != nil {
@@ -51362,10 +46931,11 @@ func (o TemplateHistogramBinTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateHistogramBinTypeInput is an input type that accepts TemplateHistogramBinTypeArgs and TemplateHistogramBinTypeOutput values.
-// You can construct a concrete instance of `TemplateHistogramBinTypeInput` via:
+// TemplateHistogramBinTypeInput is an input type that accepts values of the TemplateHistogramBinType enum
+// A concrete instance of `TemplateHistogramBinTypeInput` can be one of the following:
 //
-//	TemplateHistogramBinTypeArgs{...}
+//	TemplateHistogramBinTypeBinCount
+//	TemplateHistogramBinTypeBinWidth
 type TemplateHistogramBinTypeInput interface {
 	pulumi.Input
 
@@ -51398,12 +46968,6 @@ func (in *templateHistogramBinTypePtr) ToTemplateHistogramBinTypePtrOutput() Tem
 
 func (in *templateHistogramBinTypePtr) ToTemplateHistogramBinTypePtrOutputWithContext(ctx context.Context) TemplateHistogramBinTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateHistogramBinTypePtrOutput)
-}
-
-func (in *templateHistogramBinTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateHistogramBinType] {
-	return pulumix.Output[*TemplateHistogramBinType]{
-		OutputState: in.ToTemplateHistogramBinTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateHorizontalTextAlignment string
@@ -51475,12 +47039,6 @@ func (o TemplateHorizontalTextAlignmentOutput) ToTemplateHorizontalTextAlignment
 	}).(TemplateHorizontalTextAlignmentPtrOutput)
 }
 
-func (o TemplateHorizontalTextAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateHorizontalTextAlignment] {
-	return pulumix.Output[TemplateHorizontalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateHorizontalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -51516,12 +47074,6 @@ func (o TemplateHorizontalTextAlignmentPtrOutput) ToTemplateHorizontalTextAlignm
 	return o
 }
 
-func (o TemplateHorizontalTextAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateHorizontalTextAlignment] {
-	return pulumix.Output[*TemplateHorizontalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateHorizontalTextAlignmentPtrOutput) Elem() TemplateHorizontalTextAlignmentOutput {
 	return o.ApplyT(func(v *TemplateHorizontalTextAlignment) TemplateHorizontalTextAlignment {
 		if v != nil {
@@ -51546,10 +47098,13 @@ func (o TemplateHorizontalTextAlignmentPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateHorizontalTextAlignmentInput is an input type that accepts TemplateHorizontalTextAlignmentArgs and TemplateHorizontalTextAlignmentOutput values.
-// You can construct a concrete instance of `TemplateHorizontalTextAlignmentInput` via:
+// TemplateHorizontalTextAlignmentInput is an input type that accepts values of the TemplateHorizontalTextAlignment enum
+// A concrete instance of `TemplateHorizontalTextAlignmentInput` can be one of the following:
 //
-//	TemplateHorizontalTextAlignmentArgs{...}
+//	TemplateHorizontalTextAlignmentLeft
+//	TemplateHorizontalTextAlignmentCenter
+//	TemplateHorizontalTextAlignmentRight
+//	TemplateHorizontalTextAlignmentAuto
 type TemplateHorizontalTextAlignmentInput interface {
 	pulumi.Input
 
@@ -51582,12 +47137,6 @@ func (in *templateHorizontalTextAlignmentPtr) ToTemplateHorizontalTextAlignmentP
 
 func (in *templateHorizontalTextAlignmentPtr) ToTemplateHorizontalTextAlignmentPtrOutputWithContext(ctx context.Context) TemplateHorizontalTextAlignmentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateHorizontalTextAlignmentPtrOutput)
-}
-
-func (in *templateHorizontalTextAlignmentPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateHorizontalTextAlignment] {
-	return pulumix.Output[*TemplateHorizontalTextAlignment]{
-		OutputState: in.ToTemplateHorizontalTextAlignmentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateIcon string
@@ -51681,12 +47230,6 @@ func (o TemplateIconOutput) ToTemplateIconPtrOutputWithContext(ctx context.Conte
 	}).(TemplateIconPtrOutput)
 }
 
-func (o TemplateIconOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateIcon] {
-	return pulumix.Output[TemplateIcon]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateIconOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -51722,12 +47265,6 @@ func (o TemplateIconPtrOutput) ToTemplateIconPtrOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o TemplateIconPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateIcon] {
-	return pulumix.Output[*TemplateIcon]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateIconPtrOutput) Elem() TemplateIconOutput {
 	return o.ApplyT(func(v *TemplateIcon) TemplateIcon {
 		if v != nil {
@@ -51752,10 +47289,35 @@ func (o TemplateIconPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateIconInput is an input type that accepts TemplateIconArgs and TemplateIconOutput values.
-// You can construct a concrete instance of `TemplateIconInput` via:
+// TemplateIconInput is an input type that accepts values of the TemplateIcon enum
+// A concrete instance of `TemplateIconInput` can be one of the following:
 //
-//	TemplateIconArgs{...}
+//	TemplateIconCaretUp
+//	TemplateIconCaretDown
+//	TemplateIconPlus
+//	TemplateIconMinus
+//	TemplateIconArrowUp
+//	TemplateIconArrowDown
+//	TemplateIconArrowLeft
+//	TemplateIconArrowUpLeft
+//	TemplateIconArrowDownLeft
+//	TemplateIconArrowRight
+//	TemplateIconArrowUpRight
+//	TemplateIconArrowDownRight
+//	TemplateIconFaceUp
+//	TemplateIconFaceDown
+//	TemplateIconFaceFlat
+//	TemplateIconOneBar
+//	TemplateIconTwoBar
+//	TemplateIconThreeBar
+//	TemplateIconCircle
+//	TemplateIconTriangle
+//	TemplateIconSquare
+//	TemplateIconFlag
+//	TemplateIconThumbsUp
+//	TemplateIconThumbsDown
+//	TemplateIconCheckmark
+//	TemplateIconX
 type TemplateIconInput interface {
 	pulumi.Input
 
@@ -51788,12 +47350,6 @@ func (in *templateIconPtr) ToTemplateIconPtrOutput() TemplateIconPtrOutput {
 
 func (in *templateIconPtr) ToTemplateIconPtrOutputWithContext(ctx context.Context) TemplateIconPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateIconPtrOutput)
-}
-
-func (in *templateIconPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateIcon] {
-	return pulumix.Output[*TemplateIcon]{
-		OutputState: in.ToTemplateIconPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateKpiSparklineType string
@@ -51863,12 +47419,6 @@ func (o TemplateKpiSparklineTypeOutput) ToTemplateKpiSparklineTypePtrOutputWithC
 	}).(TemplateKpiSparklineTypePtrOutput)
 }
 
-func (o TemplateKpiSparklineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateKpiSparklineType] {
-	return pulumix.Output[TemplateKpiSparklineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateKpiSparklineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -51904,12 +47454,6 @@ func (o TemplateKpiSparklineTypePtrOutput) ToTemplateKpiSparklineTypePtrOutputWi
 	return o
 }
 
-func (o TemplateKpiSparklineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateKpiSparklineType] {
-	return pulumix.Output[*TemplateKpiSparklineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateKpiSparklineTypePtrOutput) Elem() TemplateKpiSparklineTypeOutput {
 	return o.ApplyT(func(v *TemplateKpiSparklineType) TemplateKpiSparklineType {
 		if v != nil {
@@ -51934,10 +47478,11 @@ func (o TemplateKpiSparklineTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateKpiSparklineTypeInput is an input type that accepts TemplateKpiSparklineTypeArgs and TemplateKpiSparklineTypeOutput values.
-// You can construct a concrete instance of `TemplateKpiSparklineTypeInput` via:
+// TemplateKpiSparklineTypeInput is an input type that accepts values of the TemplateKpiSparklineType enum
+// A concrete instance of `TemplateKpiSparklineTypeInput` can be one of the following:
 //
-//	TemplateKpiSparklineTypeArgs{...}
+//	TemplateKpiSparklineTypeLine
+//	TemplateKpiSparklineTypeArea
 type TemplateKpiSparklineTypeInput interface {
 	pulumi.Input
 
@@ -51970,12 +47515,6 @@ func (in *templateKpiSparklineTypePtr) ToTemplateKpiSparklineTypePtrOutput() Tem
 
 func (in *templateKpiSparklineTypePtr) ToTemplateKpiSparklineTypePtrOutputWithContext(ctx context.Context) TemplateKpiSparklineTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateKpiSparklineTypePtrOutput)
-}
-
-func (in *templateKpiSparklineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateKpiSparklineType] {
-	return pulumix.Output[*TemplateKpiSparklineType]{
-		OutputState: in.ToTemplateKpiSparklineTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateKpiVisualStandardLayoutType string
@@ -52045,12 +47584,6 @@ func (o TemplateKpiVisualStandardLayoutTypeOutput) ToTemplateKpiVisualStandardLa
 	}).(TemplateKpiVisualStandardLayoutTypePtrOutput)
 }
 
-func (o TemplateKpiVisualStandardLayoutTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateKpiVisualStandardLayoutType] {
-	return pulumix.Output[TemplateKpiVisualStandardLayoutType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateKpiVisualStandardLayoutTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -52086,12 +47619,6 @@ func (o TemplateKpiVisualStandardLayoutTypePtrOutput) ToTemplateKpiVisualStandar
 	return o
 }
 
-func (o TemplateKpiVisualStandardLayoutTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateKpiVisualStandardLayoutType] {
-	return pulumix.Output[*TemplateKpiVisualStandardLayoutType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateKpiVisualStandardLayoutTypePtrOutput) Elem() TemplateKpiVisualStandardLayoutTypeOutput {
 	return o.ApplyT(func(v *TemplateKpiVisualStandardLayoutType) TemplateKpiVisualStandardLayoutType {
 		if v != nil {
@@ -52116,10 +47643,11 @@ func (o TemplateKpiVisualStandardLayoutTypePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateKpiVisualStandardLayoutTypeInput is an input type that accepts TemplateKpiVisualStandardLayoutTypeArgs and TemplateKpiVisualStandardLayoutTypeOutput values.
-// You can construct a concrete instance of `TemplateKpiVisualStandardLayoutTypeInput` via:
+// TemplateKpiVisualStandardLayoutTypeInput is an input type that accepts values of the TemplateKpiVisualStandardLayoutType enum
+// A concrete instance of `TemplateKpiVisualStandardLayoutTypeInput` can be one of the following:
 //
-//	TemplateKpiVisualStandardLayoutTypeArgs{...}
+//	TemplateKpiVisualStandardLayoutTypeClassic
+//	TemplateKpiVisualStandardLayoutTypeVertical
 type TemplateKpiVisualStandardLayoutTypeInput interface {
 	pulumi.Input
 
@@ -52152,12 +47680,6 @@ func (in *templateKpiVisualStandardLayoutTypePtr) ToTemplateKpiVisualStandardLay
 
 func (in *templateKpiVisualStandardLayoutTypePtr) ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) TemplateKpiVisualStandardLayoutTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateKpiVisualStandardLayoutTypePtrOutput)
-}
-
-func (in *templateKpiVisualStandardLayoutTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateKpiVisualStandardLayoutType] {
-	return pulumix.Output[*TemplateKpiVisualStandardLayoutType]{
-		OutputState: in.ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateLayoutElementType string
@@ -52229,12 +47751,6 @@ func (o TemplateLayoutElementTypeOutput) ToTemplateLayoutElementTypePtrOutputWit
 	}).(TemplateLayoutElementTypePtrOutput)
 }
 
-func (o TemplateLayoutElementTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateLayoutElementType] {
-	return pulumix.Output[TemplateLayoutElementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLayoutElementTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -52270,12 +47786,6 @@ func (o TemplateLayoutElementTypePtrOutput) ToTemplateLayoutElementTypePtrOutput
 	return o
 }
 
-func (o TemplateLayoutElementTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateLayoutElementType] {
-	return pulumix.Output[*TemplateLayoutElementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLayoutElementTypePtrOutput) Elem() TemplateLayoutElementTypeOutput {
 	return o.ApplyT(func(v *TemplateLayoutElementType) TemplateLayoutElementType {
 		if v != nil {
@@ -52300,10 +47810,13 @@ func (o TemplateLayoutElementTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateLayoutElementTypeInput is an input type that accepts TemplateLayoutElementTypeArgs and TemplateLayoutElementTypeOutput values.
-// You can construct a concrete instance of `TemplateLayoutElementTypeInput` via:
+// TemplateLayoutElementTypeInput is an input type that accepts values of the TemplateLayoutElementType enum
+// A concrete instance of `TemplateLayoutElementTypeInput` can be one of the following:
 //
-//	TemplateLayoutElementTypeArgs{...}
+//	TemplateLayoutElementTypeVisual
+//	TemplateLayoutElementTypeFilterControl
+//	TemplateLayoutElementTypeParameterControl
+//	TemplateLayoutElementTypeTextBox
 type TemplateLayoutElementTypeInput interface {
 	pulumi.Input
 
@@ -52336,12 +47849,6 @@ func (in *templateLayoutElementTypePtr) ToTemplateLayoutElementTypePtrOutput() T
 
 func (in *templateLayoutElementTypePtr) ToTemplateLayoutElementTypePtrOutputWithContext(ctx context.Context) TemplateLayoutElementTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateLayoutElementTypePtrOutput)
-}
-
-func (in *templateLayoutElementTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateLayoutElementType] {
-	return pulumix.Output[*TemplateLayoutElementType]{
-		OutputState: in.ToTemplateLayoutElementTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateLegendPosition string
@@ -52413,12 +47920,6 @@ func (o TemplateLegendPositionOutput) ToTemplateLegendPositionPtrOutputWithConte
 	}).(TemplateLegendPositionPtrOutput)
 }
 
-func (o TemplateLegendPositionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateLegendPosition] {
-	return pulumix.Output[TemplateLegendPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLegendPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -52454,12 +47955,6 @@ func (o TemplateLegendPositionPtrOutput) ToTemplateLegendPositionPtrOutputWithCo
 	return o
 }
 
-func (o TemplateLegendPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateLegendPosition] {
-	return pulumix.Output[*TemplateLegendPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLegendPositionPtrOutput) Elem() TemplateLegendPositionOutput {
 	return o.ApplyT(func(v *TemplateLegendPosition) TemplateLegendPosition {
 		if v != nil {
@@ -52484,10 +47979,13 @@ func (o TemplateLegendPositionPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateLegendPositionInput is an input type that accepts TemplateLegendPositionArgs and TemplateLegendPositionOutput values.
-// You can construct a concrete instance of `TemplateLegendPositionInput` via:
+// TemplateLegendPositionInput is an input type that accepts values of the TemplateLegendPosition enum
+// A concrete instance of `TemplateLegendPositionInput` can be one of the following:
 //
-//	TemplateLegendPositionArgs{...}
+//	TemplateLegendPositionAuto
+//	TemplateLegendPositionRight
+//	TemplateLegendPositionBottom
+//	TemplateLegendPositionTop
 type TemplateLegendPositionInput interface {
 	pulumi.Input
 
@@ -52520,12 +48018,6 @@ func (in *templateLegendPositionPtr) ToTemplateLegendPositionPtrOutput() Templat
 
 func (in *templateLegendPositionPtr) ToTemplateLegendPositionPtrOutputWithContext(ctx context.Context) TemplateLegendPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateLegendPositionPtrOutput)
-}
-
-func (in *templateLegendPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateLegendPosition] {
-	return pulumix.Output[*TemplateLegendPosition]{
-		OutputState: in.ToTemplateLegendPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateLineChartLineStyle string
@@ -52596,12 +48088,6 @@ func (o TemplateLineChartLineStyleOutput) ToTemplateLineChartLineStylePtrOutputW
 	}).(TemplateLineChartLineStylePtrOutput)
 }
 
-func (o TemplateLineChartLineStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateLineChartLineStyle] {
-	return pulumix.Output[TemplateLineChartLineStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLineChartLineStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -52637,12 +48123,6 @@ func (o TemplateLineChartLineStylePtrOutput) ToTemplateLineChartLineStylePtrOutp
 	return o
 }
 
-func (o TemplateLineChartLineStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateLineChartLineStyle] {
-	return pulumix.Output[*TemplateLineChartLineStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLineChartLineStylePtrOutput) Elem() TemplateLineChartLineStyleOutput {
 	return o.ApplyT(func(v *TemplateLineChartLineStyle) TemplateLineChartLineStyle {
 		if v != nil {
@@ -52667,10 +48147,12 @@ func (o TemplateLineChartLineStylePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateLineChartLineStyleInput is an input type that accepts TemplateLineChartLineStyleArgs and TemplateLineChartLineStyleOutput values.
-// You can construct a concrete instance of `TemplateLineChartLineStyleInput` via:
+// TemplateLineChartLineStyleInput is an input type that accepts values of the TemplateLineChartLineStyle enum
+// A concrete instance of `TemplateLineChartLineStyleInput` can be one of the following:
 //
-//	TemplateLineChartLineStyleArgs{...}
+//	TemplateLineChartLineStyleSolid
+//	TemplateLineChartLineStyleDotted
+//	TemplateLineChartLineStyleDashed
 type TemplateLineChartLineStyleInput interface {
 	pulumi.Input
 
@@ -52703,12 +48185,6 @@ func (in *templateLineChartLineStylePtr) ToTemplateLineChartLineStylePtrOutput()
 
 func (in *templateLineChartLineStylePtr) ToTemplateLineChartLineStylePtrOutputWithContext(ctx context.Context) TemplateLineChartLineStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateLineChartLineStylePtrOutput)
-}
-
-func (in *templateLineChartLineStylePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateLineChartLineStyle] {
-	return pulumix.Output[*TemplateLineChartLineStyle]{
-		OutputState: in.ToTemplateLineChartLineStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateLineChartMarkerShape string
@@ -52781,12 +48257,6 @@ func (o TemplateLineChartMarkerShapeOutput) ToTemplateLineChartMarkerShapePtrOut
 	}).(TemplateLineChartMarkerShapePtrOutput)
 }
 
-func (o TemplateLineChartMarkerShapeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateLineChartMarkerShape] {
-	return pulumix.Output[TemplateLineChartMarkerShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLineChartMarkerShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -52822,12 +48292,6 @@ func (o TemplateLineChartMarkerShapePtrOutput) ToTemplateLineChartMarkerShapePtr
 	return o
 }
 
-func (o TemplateLineChartMarkerShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateLineChartMarkerShape] {
-	return pulumix.Output[*TemplateLineChartMarkerShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLineChartMarkerShapePtrOutput) Elem() TemplateLineChartMarkerShapeOutput {
 	return o.ApplyT(func(v *TemplateLineChartMarkerShape) TemplateLineChartMarkerShape {
 		if v != nil {
@@ -52852,10 +48316,14 @@ func (o TemplateLineChartMarkerShapePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateLineChartMarkerShapeInput is an input type that accepts TemplateLineChartMarkerShapeArgs and TemplateLineChartMarkerShapeOutput values.
-// You can construct a concrete instance of `TemplateLineChartMarkerShapeInput` via:
+// TemplateLineChartMarkerShapeInput is an input type that accepts values of the TemplateLineChartMarkerShape enum
+// A concrete instance of `TemplateLineChartMarkerShapeInput` can be one of the following:
 //
-//	TemplateLineChartMarkerShapeArgs{...}
+//	TemplateLineChartMarkerShapeCircle
+//	TemplateLineChartMarkerShapeTriangle
+//	TemplateLineChartMarkerShapeSquare
+//	TemplateLineChartMarkerShapeDiamond
+//	TemplateLineChartMarkerShapeRoundedSquare
 type TemplateLineChartMarkerShapeInput interface {
 	pulumi.Input
 
@@ -52888,12 +48356,6 @@ func (in *templateLineChartMarkerShapePtr) ToTemplateLineChartMarkerShapePtrOutp
 
 func (in *templateLineChartMarkerShapePtr) ToTemplateLineChartMarkerShapePtrOutputWithContext(ctx context.Context) TemplateLineChartMarkerShapePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateLineChartMarkerShapePtrOutput)
-}
-
-func (in *templateLineChartMarkerShapePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateLineChartMarkerShape] {
-	return pulumix.Output[*TemplateLineChartMarkerShape]{
-		OutputState: in.ToTemplateLineChartMarkerShapePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateLineChartType string
@@ -52964,12 +48426,6 @@ func (o TemplateLineChartTypeOutput) ToTemplateLineChartTypePtrOutputWithContext
 	}).(TemplateLineChartTypePtrOutput)
 }
 
-func (o TemplateLineChartTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateLineChartType] {
-	return pulumix.Output[TemplateLineChartType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLineChartTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -53005,12 +48461,6 @@ func (o TemplateLineChartTypePtrOutput) ToTemplateLineChartTypePtrOutputWithCont
 	return o
 }
 
-func (o TemplateLineChartTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateLineChartType] {
-	return pulumix.Output[*TemplateLineChartType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLineChartTypePtrOutput) Elem() TemplateLineChartTypeOutput {
 	return o.ApplyT(func(v *TemplateLineChartType) TemplateLineChartType {
 		if v != nil {
@@ -53035,10 +48485,12 @@ func (o TemplateLineChartTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateLineChartTypeInput is an input type that accepts TemplateLineChartTypeArgs and TemplateLineChartTypeOutput values.
-// You can construct a concrete instance of `TemplateLineChartTypeInput` via:
+// TemplateLineChartTypeInput is an input type that accepts values of the TemplateLineChartType enum
+// A concrete instance of `TemplateLineChartTypeInput` can be one of the following:
 //
-//	TemplateLineChartTypeArgs{...}
+//	TemplateLineChartTypeLine
+//	TemplateLineChartTypeArea
+//	TemplateLineChartTypeStackedArea
 type TemplateLineChartTypeInput interface {
 	pulumi.Input
 
@@ -53071,12 +48523,6 @@ func (in *templateLineChartTypePtr) ToTemplateLineChartTypePtrOutput() TemplateL
 
 func (in *templateLineChartTypePtr) ToTemplateLineChartTypePtrOutputWithContext(ctx context.Context) TemplateLineChartTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateLineChartTypePtrOutput)
-}
-
-func (in *templateLineChartTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateLineChartType] {
-	return pulumix.Output[*TemplateLineChartType]{
-		OutputState: in.ToTemplateLineChartTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateLineInterpolation string
@@ -53147,12 +48593,6 @@ func (o TemplateLineInterpolationOutput) ToTemplateLineInterpolationPtrOutputWit
 	}).(TemplateLineInterpolationPtrOutput)
 }
 
-func (o TemplateLineInterpolationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateLineInterpolation] {
-	return pulumix.Output[TemplateLineInterpolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLineInterpolationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -53188,12 +48628,6 @@ func (o TemplateLineInterpolationPtrOutput) ToTemplateLineInterpolationPtrOutput
 	return o
 }
 
-func (o TemplateLineInterpolationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateLineInterpolation] {
-	return pulumix.Output[*TemplateLineInterpolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLineInterpolationPtrOutput) Elem() TemplateLineInterpolationOutput {
 	return o.ApplyT(func(v *TemplateLineInterpolation) TemplateLineInterpolation {
 		if v != nil {
@@ -53218,10 +48652,12 @@ func (o TemplateLineInterpolationPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateLineInterpolationInput is an input type that accepts TemplateLineInterpolationArgs and TemplateLineInterpolationOutput values.
-// You can construct a concrete instance of `TemplateLineInterpolationInput` via:
+// TemplateLineInterpolationInput is an input type that accepts values of the TemplateLineInterpolation enum
+// A concrete instance of `TemplateLineInterpolationInput` can be one of the following:
 //
-//	TemplateLineInterpolationArgs{...}
+//	TemplateLineInterpolationLinear
+//	TemplateLineInterpolationSmooth
+//	TemplateLineInterpolationStepped
 type TemplateLineInterpolationInput interface {
 	pulumi.Input
 
@@ -53254,12 +48690,6 @@ func (in *templateLineInterpolationPtr) ToTemplateLineInterpolationPtrOutput() T
 
 func (in *templateLineInterpolationPtr) ToTemplateLineInterpolationPtrOutputWithContext(ctx context.Context) TemplateLineInterpolationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateLineInterpolationPtrOutput)
-}
-
-func (in *templateLineInterpolationPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateLineInterpolation] {
-	return pulumix.Output[*TemplateLineInterpolation]{
-		OutputState: in.ToTemplateLineInterpolationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateMapZoomMode string
@@ -53329,12 +48759,6 @@ func (o TemplateMapZoomModeOutput) ToTemplateMapZoomModePtrOutputWithContext(ctx
 	}).(TemplateMapZoomModePtrOutput)
 }
 
-func (o TemplateMapZoomModeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateMapZoomMode] {
-	return pulumix.Output[TemplateMapZoomMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateMapZoomModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -53370,12 +48794,6 @@ func (o TemplateMapZoomModePtrOutput) ToTemplateMapZoomModePtrOutputWithContext(
 	return o
 }
 
-func (o TemplateMapZoomModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateMapZoomMode] {
-	return pulumix.Output[*TemplateMapZoomMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateMapZoomModePtrOutput) Elem() TemplateMapZoomModeOutput {
 	return o.ApplyT(func(v *TemplateMapZoomMode) TemplateMapZoomMode {
 		if v != nil {
@@ -53400,10 +48818,11 @@ func (o TemplateMapZoomModePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateMapZoomModeInput is an input type that accepts TemplateMapZoomModeArgs and TemplateMapZoomModeOutput values.
-// You can construct a concrete instance of `TemplateMapZoomModeInput` via:
+// TemplateMapZoomModeInput is an input type that accepts values of the TemplateMapZoomMode enum
+// A concrete instance of `TemplateMapZoomModeInput` can be one of the following:
 //
-//	TemplateMapZoomModeArgs{...}
+//	TemplateMapZoomModeAuto
+//	TemplateMapZoomModeManual
 type TemplateMapZoomModeInput interface {
 	pulumi.Input
 
@@ -53436,12 +48855,6 @@ func (in *templateMapZoomModePtr) ToTemplateMapZoomModePtrOutput() TemplateMapZo
 
 func (in *templateMapZoomModePtr) ToTemplateMapZoomModePtrOutputWithContext(ctx context.Context) TemplateMapZoomModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateMapZoomModePtrOutput)
-}
-
-func (in *templateMapZoomModePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateMapZoomMode] {
-	return pulumix.Output[*TemplateMapZoomMode]{
-		OutputState: in.ToTemplateMapZoomModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateMaximumMinimumComputationType string
@@ -53511,12 +48924,6 @@ func (o TemplateMaximumMinimumComputationTypeOutput) ToTemplateMaximumMinimumCom
 	}).(TemplateMaximumMinimumComputationTypePtrOutput)
 }
 
-func (o TemplateMaximumMinimumComputationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateMaximumMinimumComputationType] {
-	return pulumix.Output[TemplateMaximumMinimumComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateMaximumMinimumComputationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -53552,12 +48959,6 @@ func (o TemplateMaximumMinimumComputationTypePtrOutput) ToTemplateMaximumMinimum
 	return o
 }
 
-func (o TemplateMaximumMinimumComputationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateMaximumMinimumComputationType] {
-	return pulumix.Output[*TemplateMaximumMinimumComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateMaximumMinimumComputationTypePtrOutput) Elem() TemplateMaximumMinimumComputationTypeOutput {
 	return o.ApplyT(func(v *TemplateMaximumMinimumComputationType) TemplateMaximumMinimumComputationType {
 		if v != nil {
@@ -53582,10 +48983,11 @@ func (o TemplateMaximumMinimumComputationTypePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateMaximumMinimumComputationTypeInput is an input type that accepts TemplateMaximumMinimumComputationTypeArgs and TemplateMaximumMinimumComputationTypeOutput values.
-// You can construct a concrete instance of `TemplateMaximumMinimumComputationTypeInput` via:
+// TemplateMaximumMinimumComputationTypeInput is an input type that accepts values of the TemplateMaximumMinimumComputationType enum
+// A concrete instance of `TemplateMaximumMinimumComputationTypeInput` can be one of the following:
 //
-//	TemplateMaximumMinimumComputationTypeArgs{...}
+//	TemplateMaximumMinimumComputationTypeMaximum
+//	TemplateMaximumMinimumComputationTypeMinimum
 type TemplateMaximumMinimumComputationTypeInput interface {
 	pulumi.Input
 
@@ -53618,12 +49020,6 @@ func (in *templateMaximumMinimumComputationTypePtr) ToTemplateMaximumMinimumComp
 
 func (in *templateMaximumMinimumComputationTypePtr) ToTemplateMaximumMinimumComputationTypePtrOutputWithContext(ctx context.Context) TemplateMaximumMinimumComputationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateMaximumMinimumComputationTypePtrOutput)
-}
-
-func (in *templateMaximumMinimumComputationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateMaximumMinimumComputationType] {
-	return pulumix.Output[*TemplateMaximumMinimumComputationType]{
-		OutputState: in.ToTemplateMaximumMinimumComputationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateMissingDataTreatmentOption string
@@ -53694,12 +49090,6 @@ func (o TemplateMissingDataTreatmentOptionOutput) ToTemplateMissingDataTreatment
 	}).(TemplateMissingDataTreatmentOptionPtrOutput)
 }
 
-func (o TemplateMissingDataTreatmentOptionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateMissingDataTreatmentOption] {
-	return pulumix.Output[TemplateMissingDataTreatmentOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateMissingDataTreatmentOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -53735,12 +49125,6 @@ func (o TemplateMissingDataTreatmentOptionPtrOutput) ToTemplateMissingDataTreatm
 	return o
 }
 
-func (o TemplateMissingDataTreatmentOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateMissingDataTreatmentOption] {
-	return pulumix.Output[*TemplateMissingDataTreatmentOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateMissingDataTreatmentOptionPtrOutput) Elem() TemplateMissingDataTreatmentOptionOutput {
 	return o.ApplyT(func(v *TemplateMissingDataTreatmentOption) TemplateMissingDataTreatmentOption {
 		if v != nil {
@@ -53765,10 +49149,12 @@ func (o TemplateMissingDataTreatmentOptionPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateMissingDataTreatmentOptionInput is an input type that accepts TemplateMissingDataTreatmentOptionArgs and TemplateMissingDataTreatmentOptionOutput values.
-// You can construct a concrete instance of `TemplateMissingDataTreatmentOptionInput` via:
+// TemplateMissingDataTreatmentOptionInput is an input type that accepts values of the TemplateMissingDataTreatmentOption enum
+// A concrete instance of `TemplateMissingDataTreatmentOptionInput` can be one of the following:
 //
-//	TemplateMissingDataTreatmentOptionArgs{...}
+//	TemplateMissingDataTreatmentOptionInterpolate
+//	TemplateMissingDataTreatmentOptionShowAsZero
+//	TemplateMissingDataTreatmentOptionShowAsBlank
 type TemplateMissingDataTreatmentOptionInput interface {
 	pulumi.Input
 
@@ -53801,12 +49187,6 @@ func (in *templateMissingDataTreatmentOptionPtr) ToTemplateMissingDataTreatmentO
 
 func (in *templateMissingDataTreatmentOptionPtr) ToTemplateMissingDataTreatmentOptionPtrOutputWithContext(ctx context.Context) TemplateMissingDataTreatmentOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateMissingDataTreatmentOptionPtrOutput)
-}
-
-func (in *templateMissingDataTreatmentOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateMissingDataTreatmentOption] {
-	return pulumix.Output[*TemplateMissingDataTreatmentOption]{
-		OutputState: in.ToTemplateMissingDataTreatmentOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateNegativeValueDisplayMode string
@@ -53876,12 +49256,6 @@ func (o TemplateNegativeValueDisplayModeOutput) ToTemplateNegativeValueDisplayMo
 	}).(TemplateNegativeValueDisplayModePtrOutput)
 }
 
-func (o TemplateNegativeValueDisplayModeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateNegativeValueDisplayMode] {
-	return pulumix.Output[TemplateNegativeValueDisplayMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNegativeValueDisplayModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -53917,12 +49291,6 @@ func (o TemplateNegativeValueDisplayModePtrOutput) ToTemplateNegativeValueDispla
 	return o
 }
 
-func (o TemplateNegativeValueDisplayModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateNegativeValueDisplayMode] {
-	return pulumix.Output[*TemplateNegativeValueDisplayMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNegativeValueDisplayModePtrOutput) Elem() TemplateNegativeValueDisplayModeOutput {
 	return o.ApplyT(func(v *TemplateNegativeValueDisplayMode) TemplateNegativeValueDisplayMode {
 		if v != nil {
@@ -53947,10 +49315,11 @@ func (o TemplateNegativeValueDisplayModePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateNegativeValueDisplayModeInput is an input type that accepts TemplateNegativeValueDisplayModeArgs and TemplateNegativeValueDisplayModeOutput values.
-// You can construct a concrete instance of `TemplateNegativeValueDisplayModeInput` via:
+// TemplateNegativeValueDisplayModeInput is an input type that accepts values of the TemplateNegativeValueDisplayMode enum
+// A concrete instance of `TemplateNegativeValueDisplayModeInput` can be one of the following:
 //
-//	TemplateNegativeValueDisplayModeArgs{...}
+//	TemplateNegativeValueDisplayModePositive
+//	TemplateNegativeValueDisplayModeNegative
 type TemplateNegativeValueDisplayModeInput interface {
 	pulumi.Input
 
@@ -53983,12 +49352,6 @@ func (in *templateNegativeValueDisplayModePtr) ToTemplateNegativeValueDisplayMod
 
 func (in *templateNegativeValueDisplayModePtr) ToTemplateNegativeValueDisplayModePtrOutputWithContext(ctx context.Context) TemplateNegativeValueDisplayModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateNegativeValueDisplayModePtrOutput)
-}
-
-func (in *templateNegativeValueDisplayModePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateNegativeValueDisplayMode] {
-	return pulumix.Output[*TemplateNegativeValueDisplayMode]{
-		OutputState: in.ToTemplateNegativeValueDisplayModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateNumberScale string
@@ -54062,12 +49425,6 @@ func (o TemplateNumberScaleOutput) ToTemplateNumberScalePtrOutputWithContext(ctx
 	}).(TemplateNumberScalePtrOutput)
 }
 
-func (o TemplateNumberScaleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateNumberScale] {
-	return pulumix.Output[TemplateNumberScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNumberScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -54103,12 +49460,6 @@ func (o TemplateNumberScalePtrOutput) ToTemplateNumberScalePtrOutputWithContext(
 	return o
 }
 
-func (o TemplateNumberScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateNumberScale] {
-	return pulumix.Output[*TemplateNumberScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNumberScalePtrOutput) Elem() TemplateNumberScaleOutput {
 	return o.ApplyT(func(v *TemplateNumberScale) TemplateNumberScale {
 		if v != nil {
@@ -54133,10 +49484,15 @@ func (o TemplateNumberScalePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateNumberScaleInput is an input type that accepts TemplateNumberScaleArgs and TemplateNumberScaleOutput values.
-// You can construct a concrete instance of `TemplateNumberScaleInput` via:
+// TemplateNumberScaleInput is an input type that accepts values of the TemplateNumberScale enum
+// A concrete instance of `TemplateNumberScaleInput` can be one of the following:
 //
-//	TemplateNumberScaleArgs{...}
+//	TemplateNumberScaleNone
+//	TemplateNumberScaleAuto
+//	TemplateNumberScaleThousands
+//	TemplateNumberScaleMillions
+//	TemplateNumberScaleBillions
+//	TemplateNumberScaleTrillions
 type TemplateNumberScaleInput interface {
 	pulumi.Input
 
@@ -54169,12 +49525,6 @@ func (in *templateNumberScalePtr) ToTemplateNumberScalePtrOutput() TemplateNumbe
 
 func (in *templateNumberScalePtr) ToTemplateNumberScalePtrOutputWithContext(ctx context.Context) TemplateNumberScalePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateNumberScalePtrOutput)
-}
-
-func (in *templateNumberScalePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateNumberScale] {
-	return pulumix.Output[*TemplateNumberScale]{
-		OutputState: in.ToTemplateNumberScalePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateNumericEqualityMatchOperator string
@@ -54244,12 +49594,6 @@ func (o TemplateNumericEqualityMatchOperatorOutput) ToTemplateNumericEqualityMat
 	}).(TemplateNumericEqualityMatchOperatorPtrOutput)
 }
 
-func (o TemplateNumericEqualityMatchOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateNumericEqualityMatchOperator] {
-	return pulumix.Output[TemplateNumericEqualityMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNumericEqualityMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -54285,12 +49629,6 @@ func (o TemplateNumericEqualityMatchOperatorPtrOutput) ToTemplateNumericEquality
 	return o
 }
 
-func (o TemplateNumericEqualityMatchOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateNumericEqualityMatchOperator] {
-	return pulumix.Output[*TemplateNumericEqualityMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNumericEqualityMatchOperatorPtrOutput) Elem() TemplateNumericEqualityMatchOperatorOutput {
 	return o.ApplyT(func(v *TemplateNumericEqualityMatchOperator) TemplateNumericEqualityMatchOperator {
 		if v != nil {
@@ -54315,10 +49653,11 @@ func (o TemplateNumericEqualityMatchOperatorPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateNumericEqualityMatchOperatorInput is an input type that accepts TemplateNumericEqualityMatchOperatorArgs and TemplateNumericEqualityMatchOperatorOutput values.
-// You can construct a concrete instance of `TemplateNumericEqualityMatchOperatorInput` via:
+// TemplateNumericEqualityMatchOperatorInput is an input type that accepts values of the TemplateNumericEqualityMatchOperator enum
+// A concrete instance of `TemplateNumericEqualityMatchOperatorInput` can be one of the following:
 //
-//	TemplateNumericEqualityMatchOperatorArgs{...}
+//	TemplateNumericEqualityMatchOperatorEquals
+//	TemplateNumericEqualityMatchOperatorDoesNotEqual
 type TemplateNumericEqualityMatchOperatorInput interface {
 	pulumi.Input
 
@@ -54351,12 +49690,6 @@ func (in *templateNumericEqualityMatchOperatorPtr) ToTemplateNumericEqualityMatc
 
 func (in *templateNumericEqualityMatchOperatorPtr) ToTemplateNumericEqualityMatchOperatorPtrOutputWithContext(ctx context.Context) TemplateNumericEqualityMatchOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateNumericEqualityMatchOperatorPtrOutput)
-}
-
-func (in *templateNumericEqualityMatchOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateNumericEqualityMatchOperator] {
-	return pulumix.Output[*TemplateNumericEqualityMatchOperator]{
-		OutputState: in.ToTemplateNumericEqualityMatchOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateNumericFilterSelectAllOptions string
@@ -54425,12 +49758,6 @@ func (o TemplateNumericFilterSelectAllOptionsOutput) ToTemplateNumericFilterSele
 	}).(TemplateNumericFilterSelectAllOptionsPtrOutput)
 }
 
-func (o TemplateNumericFilterSelectAllOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateNumericFilterSelectAllOptions] {
-	return pulumix.Output[TemplateNumericFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNumericFilterSelectAllOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -54466,12 +49793,6 @@ func (o TemplateNumericFilterSelectAllOptionsPtrOutput) ToTemplateNumericFilterS
 	return o
 }
 
-func (o TemplateNumericFilterSelectAllOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateNumericFilterSelectAllOptions] {
-	return pulumix.Output[*TemplateNumericFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNumericFilterSelectAllOptionsPtrOutput) Elem() TemplateNumericFilterSelectAllOptionsOutput {
 	return o.ApplyT(func(v *TemplateNumericFilterSelectAllOptions) TemplateNumericFilterSelectAllOptions {
 		if v != nil {
@@ -54496,10 +49817,10 @@ func (o TemplateNumericFilterSelectAllOptionsPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateNumericFilterSelectAllOptionsInput is an input type that accepts TemplateNumericFilterSelectAllOptionsArgs and TemplateNumericFilterSelectAllOptionsOutput values.
-// You can construct a concrete instance of `TemplateNumericFilterSelectAllOptionsInput` via:
+// TemplateNumericFilterSelectAllOptionsInput is an input type that accepts values of the TemplateNumericFilterSelectAllOptions enum
+// A concrete instance of `TemplateNumericFilterSelectAllOptionsInput` can be one of the following:
 //
-//	TemplateNumericFilterSelectAllOptionsArgs{...}
+//	TemplateNumericFilterSelectAllOptionsFilterAllValues
 type TemplateNumericFilterSelectAllOptionsInput interface {
 	pulumi.Input
 
@@ -54532,12 +49853,6 @@ func (in *templateNumericFilterSelectAllOptionsPtr) ToTemplateNumericFilterSelec
 
 func (in *templateNumericFilterSelectAllOptionsPtr) ToTemplateNumericFilterSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateNumericFilterSelectAllOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateNumericFilterSelectAllOptionsPtrOutput)
-}
-
-func (in *templateNumericFilterSelectAllOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateNumericFilterSelectAllOptions] {
-	return pulumix.Output[*TemplateNumericFilterSelectAllOptions]{
-		OutputState: in.ToTemplateNumericFilterSelectAllOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateNumericSeparatorSymbol string
@@ -54608,12 +49923,6 @@ func (o TemplateNumericSeparatorSymbolOutput) ToTemplateNumericSeparatorSymbolPt
 	}).(TemplateNumericSeparatorSymbolPtrOutput)
 }
 
-func (o TemplateNumericSeparatorSymbolOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateNumericSeparatorSymbol] {
-	return pulumix.Output[TemplateNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNumericSeparatorSymbolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -54649,12 +49958,6 @@ func (o TemplateNumericSeparatorSymbolPtrOutput) ToTemplateNumericSeparatorSymbo
 	return o
 }
 
-func (o TemplateNumericSeparatorSymbolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateNumericSeparatorSymbol] {
-	return pulumix.Output[*TemplateNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNumericSeparatorSymbolPtrOutput) Elem() TemplateNumericSeparatorSymbolOutput {
 	return o.ApplyT(func(v *TemplateNumericSeparatorSymbol) TemplateNumericSeparatorSymbol {
 		if v != nil {
@@ -54679,10 +49982,12 @@ func (o TemplateNumericSeparatorSymbolPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateNumericSeparatorSymbolInput is an input type that accepts TemplateNumericSeparatorSymbolArgs and TemplateNumericSeparatorSymbolOutput values.
-// You can construct a concrete instance of `TemplateNumericSeparatorSymbolInput` via:
+// TemplateNumericSeparatorSymbolInput is an input type that accepts values of the TemplateNumericSeparatorSymbol enum
+// A concrete instance of `TemplateNumericSeparatorSymbolInput` can be one of the following:
 //
-//	TemplateNumericSeparatorSymbolArgs{...}
+//	TemplateNumericSeparatorSymbolComma
+//	TemplateNumericSeparatorSymbolDot
+//	TemplateNumericSeparatorSymbolSpace
 type TemplateNumericSeparatorSymbolInput interface {
 	pulumi.Input
 
@@ -54715,12 +50020,6 @@ func (in *templateNumericSeparatorSymbolPtr) ToTemplateNumericSeparatorSymbolPtr
 
 func (in *templateNumericSeparatorSymbolPtr) ToTemplateNumericSeparatorSymbolPtrOutputWithContext(ctx context.Context) TemplateNumericSeparatorSymbolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateNumericSeparatorSymbolPtrOutput)
-}
-
-func (in *templateNumericSeparatorSymbolPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateNumericSeparatorSymbol] {
-	return pulumix.Output[*TemplateNumericSeparatorSymbol]{
-		OutputState: in.ToTemplateNumericSeparatorSymbolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateOtherCategories string
@@ -54790,12 +50089,6 @@ func (o TemplateOtherCategoriesOutput) ToTemplateOtherCategoriesPtrOutputWithCon
 	}).(TemplateOtherCategoriesPtrOutput)
 }
 
-func (o TemplateOtherCategoriesOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateOtherCategories] {
-	return pulumix.Output[TemplateOtherCategories]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateOtherCategoriesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -54831,12 +50124,6 @@ func (o TemplateOtherCategoriesPtrOutput) ToTemplateOtherCategoriesPtrOutputWith
 	return o
 }
 
-func (o TemplateOtherCategoriesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateOtherCategories] {
-	return pulumix.Output[*TemplateOtherCategories]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateOtherCategoriesPtrOutput) Elem() TemplateOtherCategoriesOutput {
 	return o.ApplyT(func(v *TemplateOtherCategories) TemplateOtherCategories {
 		if v != nil {
@@ -54861,10 +50148,11 @@ func (o TemplateOtherCategoriesPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateOtherCategoriesInput is an input type that accepts TemplateOtherCategoriesArgs and TemplateOtherCategoriesOutput values.
-// You can construct a concrete instance of `TemplateOtherCategoriesInput` via:
+// TemplateOtherCategoriesInput is an input type that accepts values of the TemplateOtherCategories enum
+// A concrete instance of `TemplateOtherCategoriesInput` can be one of the following:
 //
-//	TemplateOtherCategoriesArgs{...}
+//	TemplateOtherCategoriesInclude
+//	TemplateOtherCategoriesExclude
 type TemplateOtherCategoriesInput interface {
 	pulumi.Input
 
@@ -54897,12 +50185,6 @@ func (in *templateOtherCategoriesPtr) ToTemplateOtherCategoriesPtrOutput() Templ
 
 func (in *templateOtherCategoriesPtr) ToTemplateOtherCategoriesPtrOutputWithContext(ctx context.Context) TemplateOtherCategoriesPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateOtherCategoriesPtrOutput)
-}
-
-func (in *templateOtherCategoriesPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateOtherCategories] {
-	return pulumix.Output[*TemplateOtherCategories]{
-		OutputState: in.ToTemplateOtherCategoriesPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplatePanelBorderStyle string
@@ -54973,12 +50255,6 @@ func (o TemplatePanelBorderStyleOutput) ToTemplatePanelBorderStylePtrOutputWithC
 	}).(TemplatePanelBorderStylePtrOutput)
 }
 
-func (o TemplatePanelBorderStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePanelBorderStyle] {
-	return pulumix.Output[TemplatePanelBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePanelBorderStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -55014,12 +50290,6 @@ func (o TemplatePanelBorderStylePtrOutput) ToTemplatePanelBorderStylePtrOutputWi
 	return o
 }
 
-func (o TemplatePanelBorderStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePanelBorderStyle] {
-	return pulumix.Output[*TemplatePanelBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePanelBorderStylePtrOutput) Elem() TemplatePanelBorderStyleOutput {
 	return o.ApplyT(func(v *TemplatePanelBorderStyle) TemplatePanelBorderStyle {
 		if v != nil {
@@ -55044,10 +50314,12 @@ func (o TemplatePanelBorderStylePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplatePanelBorderStyleInput is an input type that accepts TemplatePanelBorderStyleArgs and TemplatePanelBorderStyleOutput values.
-// You can construct a concrete instance of `TemplatePanelBorderStyleInput` via:
+// TemplatePanelBorderStyleInput is an input type that accepts values of the TemplatePanelBorderStyle enum
+// A concrete instance of `TemplatePanelBorderStyleInput` can be one of the following:
 //
-//	TemplatePanelBorderStyleArgs{...}
+//	TemplatePanelBorderStyleSolid
+//	TemplatePanelBorderStyleDashed
+//	TemplatePanelBorderStyleDotted
 type TemplatePanelBorderStyleInput interface {
 	pulumi.Input
 
@@ -55080,12 +50352,6 @@ func (in *templatePanelBorderStylePtr) ToTemplatePanelBorderStylePtrOutput() Tem
 
 func (in *templatePanelBorderStylePtr) ToTemplatePanelBorderStylePtrOutputWithContext(ctx context.Context) TemplatePanelBorderStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePanelBorderStylePtrOutput)
-}
-
-func (in *templatePanelBorderStylePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplatePanelBorderStyle] {
-	return pulumix.Output[*TemplatePanelBorderStyle]{
-		OutputState: in.ToTemplatePanelBorderStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplatePaperOrientation string
@@ -55155,12 +50421,6 @@ func (o TemplatePaperOrientationOutput) ToTemplatePaperOrientationPtrOutputWithC
 	}).(TemplatePaperOrientationPtrOutput)
 }
 
-func (o TemplatePaperOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePaperOrientation] {
-	return pulumix.Output[TemplatePaperOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePaperOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -55196,12 +50456,6 @@ func (o TemplatePaperOrientationPtrOutput) ToTemplatePaperOrientationPtrOutputWi
 	return o
 }
 
-func (o TemplatePaperOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePaperOrientation] {
-	return pulumix.Output[*TemplatePaperOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePaperOrientationPtrOutput) Elem() TemplatePaperOrientationOutput {
 	return o.ApplyT(func(v *TemplatePaperOrientation) TemplatePaperOrientation {
 		if v != nil {
@@ -55226,10 +50480,11 @@ func (o TemplatePaperOrientationPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplatePaperOrientationInput is an input type that accepts TemplatePaperOrientationArgs and TemplatePaperOrientationOutput values.
-// You can construct a concrete instance of `TemplatePaperOrientationInput` via:
+// TemplatePaperOrientationInput is an input type that accepts values of the TemplatePaperOrientation enum
+// A concrete instance of `TemplatePaperOrientationInput` can be one of the following:
 //
-//	TemplatePaperOrientationArgs{...}
+//	TemplatePaperOrientationPortrait
+//	TemplatePaperOrientationLandscape
 type TemplatePaperOrientationInput interface {
 	pulumi.Input
 
@@ -55262,12 +50517,6 @@ func (in *templatePaperOrientationPtr) ToTemplatePaperOrientationPtrOutput() Tem
 
 func (in *templatePaperOrientationPtr) ToTemplatePaperOrientationPtrOutputWithContext(ctx context.Context) TemplatePaperOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePaperOrientationPtrOutput)
-}
-
-func (in *templatePaperOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplatePaperOrientation] {
-	return pulumix.Output[*TemplatePaperOrientation]{
-		OutputState: in.ToTemplatePaperOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplatePaperSize string
@@ -55346,12 +50595,6 @@ func (o TemplatePaperSizeOutput) ToTemplatePaperSizePtrOutputWithContext(ctx con
 	}).(TemplatePaperSizePtrOutput)
 }
 
-func (o TemplatePaperSizeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePaperSize] {
-	return pulumix.Output[TemplatePaperSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePaperSizeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -55387,12 +50630,6 @@ func (o TemplatePaperSizePtrOutput) ToTemplatePaperSizePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o TemplatePaperSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePaperSize] {
-	return pulumix.Output[*TemplatePaperSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePaperSizePtrOutput) Elem() TemplatePaperSizeOutput {
 	return o.ApplyT(func(v *TemplatePaperSize) TemplatePaperSize {
 		if v != nil {
@@ -55417,10 +50654,20 @@ func (o TemplatePaperSizePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplatePaperSizeInput is an input type that accepts TemplatePaperSizeArgs and TemplatePaperSizeOutput values.
-// You can construct a concrete instance of `TemplatePaperSizeInput` via:
+// TemplatePaperSizeInput is an input type that accepts values of the TemplatePaperSize enum
+// A concrete instance of `TemplatePaperSizeInput` can be one of the following:
 //
-//	TemplatePaperSizeArgs{...}
+//	TemplatePaperSizeUsLetter
+//	TemplatePaperSizeUsLegal
+//	TemplatePaperSizeUsTabloidLedger
+//	TemplatePaperSizeA0
+//	TemplatePaperSizeA1
+//	TemplatePaperSizeA2
+//	TemplatePaperSizeA3
+//	TemplatePaperSizeA4
+//	TemplatePaperSizeA5
+//	TemplatePaperSizeJisB4
+//	TemplatePaperSizeJisB5
 type TemplatePaperSizeInput interface {
 	pulumi.Input
 
@@ -55453,12 +50700,6 @@ func (in *templatePaperSizePtr) ToTemplatePaperSizePtrOutput() TemplatePaperSize
 
 func (in *templatePaperSizePtr) ToTemplatePaperSizePtrOutputWithContext(ctx context.Context) TemplatePaperSizePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePaperSizePtrOutput)
-}
-
-func (in *templatePaperSizePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplatePaperSize] {
-	return pulumix.Output[*TemplatePaperSize]{
-		OutputState: in.ToTemplatePaperSizePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateParameterValueType string
@@ -55528,12 +50769,6 @@ func (o TemplateParameterValueTypeOutput) ToTemplateParameterValueTypePtrOutputW
 	}).(TemplateParameterValueTypePtrOutput)
 }
 
-func (o TemplateParameterValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateParameterValueType] {
-	return pulumix.Output[TemplateParameterValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateParameterValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -55569,12 +50804,6 @@ func (o TemplateParameterValueTypePtrOutput) ToTemplateParameterValueTypePtrOutp
 	return o
 }
 
-func (o TemplateParameterValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateParameterValueType] {
-	return pulumix.Output[*TemplateParameterValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateParameterValueTypePtrOutput) Elem() TemplateParameterValueTypeOutput {
 	return o.ApplyT(func(v *TemplateParameterValueType) TemplateParameterValueType {
 		if v != nil {
@@ -55599,10 +50828,11 @@ func (o TemplateParameterValueTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateParameterValueTypeInput is an input type that accepts TemplateParameterValueTypeArgs and TemplateParameterValueTypeOutput values.
-// You can construct a concrete instance of `TemplateParameterValueTypeInput` via:
+// TemplateParameterValueTypeInput is an input type that accepts values of the TemplateParameterValueType enum
+// A concrete instance of `TemplateParameterValueTypeInput` can be one of the following:
 //
-//	TemplateParameterValueTypeArgs{...}
+//	TemplateParameterValueTypeMultiValued
+//	TemplateParameterValueTypeSingleValued
 type TemplateParameterValueTypeInput interface {
 	pulumi.Input
 
@@ -55635,12 +50865,6 @@ func (in *templateParameterValueTypePtr) ToTemplateParameterValueTypePtrOutput()
 
 func (in *templateParameterValueTypePtr) ToTemplateParameterValueTypePtrOutputWithContext(ctx context.Context) TemplateParameterValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateParameterValueTypePtrOutput)
-}
-
-func (in *templateParameterValueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateParameterValueType] {
-	return pulumix.Output[*TemplateParameterValueType]{
-		OutputState: in.ToTemplateParameterValueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplatePivotTableConditionalFormattingScopeRole string
@@ -55711,12 +50935,6 @@ func (o TemplatePivotTableConditionalFormattingScopeRoleOutput) ToTemplatePivotT
 	}).(TemplatePivotTableConditionalFormattingScopeRolePtrOutput)
 }
 
-func (o TemplatePivotTableConditionalFormattingScopeRoleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[TemplatePivotTableConditionalFormattingScopeRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableConditionalFormattingScopeRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -55752,12 +50970,6 @@ func (o TemplatePivotTableConditionalFormattingScopeRolePtrOutput) ToTemplatePiv
 	return o
 }
 
-func (o TemplatePivotTableConditionalFormattingScopeRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[*TemplatePivotTableConditionalFormattingScopeRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableConditionalFormattingScopeRolePtrOutput) Elem() TemplatePivotTableConditionalFormattingScopeRoleOutput {
 	return o.ApplyT(func(v *TemplatePivotTableConditionalFormattingScopeRole) TemplatePivotTableConditionalFormattingScopeRole {
 		if v != nil {
@@ -55782,10 +50994,12 @@ func (o TemplatePivotTableConditionalFormattingScopeRolePtrOutput) ToStringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplatePivotTableConditionalFormattingScopeRoleInput is an input type that accepts TemplatePivotTableConditionalFormattingScopeRoleArgs and TemplatePivotTableConditionalFormattingScopeRoleOutput values.
-// You can construct a concrete instance of `TemplatePivotTableConditionalFormattingScopeRoleInput` via:
+// TemplatePivotTableConditionalFormattingScopeRoleInput is an input type that accepts values of the TemplatePivotTableConditionalFormattingScopeRole enum
+// A concrete instance of `TemplatePivotTableConditionalFormattingScopeRoleInput` can be one of the following:
 //
-//	TemplatePivotTableConditionalFormattingScopeRoleArgs{...}
+//	TemplatePivotTableConditionalFormattingScopeRoleField
+//	TemplatePivotTableConditionalFormattingScopeRoleFieldTotal
+//	TemplatePivotTableConditionalFormattingScopeRoleGrandTotal
 type TemplatePivotTableConditionalFormattingScopeRoleInput interface {
 	pulumi.Input
 
@@ -55818,12 +51032,6 @@ func (in *templatePivotTableConditionalFormattingScopeRolePtr) ToTemplatePivotTa
 
 func (in *templatePivotTableConditionalFormattingScopeRolePtr) ToTemplatePivotTableConditionalFormattingScopeRolePtrOutputWithContext(ctx context.Context) TemplatePivotTableConditionalFormattingScopeRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePivotTableConditionalFormattingScopeRolePtrOutput)
-}
-
-func (in *templatePivotTableConditionalFormattingScopeRolePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[*TemplatePivotTableConditionalFormattingScopeRole]{
-		OutputState: in.ToTemplatePivotTableConditionalFormattingScopeRolePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplatePivotTableDataPathType string
@@ -55895,12 +51103,6 @@ func (o TemplatePivotTableDataPathTypeOutput) ToTemplatePivotTableDataPathTypePt
 	}).(TemplatePivotTableDataPathTypePtrOutput)
 }
 
-func (o TemplatePivotTableDataPathTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePivotTableDataPathType] {
-	return pulumix.Output[TemplatePivotTableDataPathType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableDataPathTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -55936,12 +51138,6 @@ func (o TemplatePivotTableDataPathTypePtrOutput) ToTemplatePivotTableDataPathTyp
 	return o
 }
 
-func (o TemplatePivotTableDataPathTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableDataPathType] {
-	return pulumix.Output[*TemplatePivotTableDataPathType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableDataPathTypePtrOutput) Elem() TemplatePivotTableDataPathTypeOutput {
 	return o.ApplyT(func(v *TemplatePivotTableDataPathType) TemplatePivotTableDataPathType {
 		if v != nil {
@@ -55966,10 +51162,13 @@ func (o TemplatePivotTableDataPathTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplatePivotTableDataPathTypeInput is an input type that accepts TemplatePivotTableDataPathTypeArgs and TemplatePivotTableDataPathTypeOutput values.
-// You can construct a concrete instance of `TemplatePivotTableDataPathTypeInput` via:
+// TemplatePivotTableDataPathTypeInput is an input type that accepts values of the TemplatePivotTableDataPathType enum
+// A concrete instance of `TemplatePivotTableDataPathTypeInput` can be one of the following:
 //
-//	TemplatePivotTableDataPathTypeArgs{...}
+//	TemplatePivotTableDataPathTypeHierarchyRowsLayoutColumn
+//	TemplatePivotTableDataPathTypeMultipleRowMetricsColumn
+//	TemplatePivotTableDataPathTypeEmptyColumnHeader
+//	TemplatePivotTableDataPathTypeCountMetricColumn
 type TemplatePivotTableDataPathTypeInput interface {
 	pulumi.Input
 
@@ -56002,12 +51201,6 @@ func (in *templatePivotTableDataPathTypePtr) ToTemplatePivotTableDataPathTypePtr
 
 func (in *templatePivotTableDataPathTypePtr) ToTemplatePivotTableDataPathTypePtrOutputWithContext(ctx context.Context) TemplatePivotTableDataPathTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePivotTableDataPathTypePtrOutput)
-}
-
-func (in *templatePivotTableDataPathTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableDataPathType] {
-	return pulumix.Output[*TemplatePivotTableDataPathType]{
-		OutputState: in.ToTemplatePivotTableDataPathTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplatePivotTableFieldCollapseState string
@@ -56077,12 +51270,6 @@ func (o TemplatePivotTableFieldCollapseStateOutput) ToTemplatePivotTableFieldCol
 	}).(TemplatePivotTableFieldCollapseStatePtrOutput)
 }
 
-func (o TemplatePivotTableFieldCollapseStateOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePivotTableFieldCollapseState] {
-	return pulumix.Output[TemplatePivotTableFieldCollapseState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableFieldCollapseStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -56118,12 +51305,6 @@ func (o TemplatePivotTableFieldCollapseStatePtrOutput) ToTemplatePivotTableField
 	return o
 }
 
-func (o TemplatePivotTableFieldCollapseStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableFieldCollapseState] {
-	return pulumix.Output[*TemplatePivotTableFieldCollapseState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableFieldCollapseStatePtrOutput) Elem() TemplatePivotTableFieldCollapseStateOutput {
 	return o.ApplyT(func(v *TemplatePivotTableFieldCollapseState) TemplatePivotTableFieldCollapseState {
 		if v != nil {
@@ -56148,10 +51329,11 @@ func (o TemplatePivotTableFieldCollapseStatePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplatePivotTableFieldCollapseStateInput is an input type that accepts TemplatePivotTableFieldCollapseStateArgs and TemplatePivotTableFieldCollapseStateOutput values.
-// You can construct a concrete instance of `TemplatePivotTableFieldCollapseStateInput` via:
+// TemplatePivotTableFieldCollapseStateInput is an input type that accepts values of the TemplatePivotTableFieldCollapseState enum
+// A concrete instance of `TemplatePivotTableFieldCollapseStateInput` can be one of the following:
 //
-//	TemplatePivotTableFieldCollapseStateArgs{...}
+//	TemplatePivotTableFieldCollapseStateCollapsed
+//	TemplatePivotTableFieldCollapseStateExpanded
 type TemplatePivotTableFieldCollapseStateInput interface {
 	pulumi.Input
 
@@ -56184,12 +51366,6 @@ func (in *templatePivotTableFieldCollapseStatePtr) ToTemplatePivotTableFieldColl
 
 func (in *templatePivotTableFieldCollapseStatePtr) ToTemplatePivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) TemplatePivotTableFieldCollapseStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePivotTableFieldCollapseStatePtrOutput)
-}
-
-func (in *templatePivotTableFieldCollapseStatePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableFieldCollapseState] {
-	return pulumix.Output[*TemplatePivotTableFieldCollapseState]{
-		OutputState: in.ToTemplatePivotTableFieldCollapseStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplatePivotTableMetricPlacement string
@@ -56259,12 +51435,6 @@ func (o TemplatePivotTableMetricPlacementOutput) ToTemplatePivotTableMetricPlace
 	}).(TemplatePivotTableMetricPlacementPtrOutput)
 }
 
-func (o TemplatePivotTableMetricPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePivotTableMetricPlacement] {
-	return pulumix.Output[TemplatePivotTableMetricPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableMetricPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -56300,12 +51470,6 @@ func (o TemplatePivotTableMetricPlacementPtrOutput) ToTemplatePivotTableMetricPl
 	return o
 }
 
-func (o TemplatePivotTableMetricPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableMetricPlacement] {
-	return pulumix.Output[*TemplatePivotTableMetricPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableMetricPlacementPtrOutput) Elem() TemplatePivotTableMetricPlacementOutput {
 	return o.ApplyT(func(v *TemplatePivotTableMetricPlacement) TemplatePivotTableMetricPlacement {
 		if v != nil {
@@ -56330,10 +51494,11 @@ func (o TemplatePivotTableMetricPlacementPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplatePivotTableMetricPlacementInput is an input type that accepts TemplatePivotTableMetricPlacementArgs and TemplatePivotTableMetricPlacementOutput values.
-// You can construct a concrete instance of `TemplatePivotTableMetricPlacementInput` via:
+// TemplatePivotTableMetricPlacementInput is an input type that accepts values of the TemplatePivotTableMetricPlacement enum
+// A concrete instance of `TemplatePivotTableMetricPlacementInput` can be one of the following:
 //
-//	TemplatePivotTableMetricPlacementArgs{...}
+//	TemplatePivotTableMetricPlacementRow
+//	TemplatePivotTableMetricPlacementColumn
 type TemplatePivotTableMetricPlacementInput interface {
 	pulumi.Input
 
@@ -56366,12 +51531,6 @@ func (in *templatePivotTableMetricPlacementPtr) ToTemplatePivotTableMetricPlacem
 
 func (in *templatePivotTableMetricPlacementPtr) ToTemplatePivotTableMetricPlacementPtrOutputWithContext(ctx context.Context) TemplatePivotTableMetricPlacementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePivotTableMetricPlacementPtrOutput)
-}
-
-func (in *templatePivotTableMetricPlacementPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableMetricPlacement] {
-	return pulumix.Output[*TemplatePivotTableMetricPlacement]{
-		OutputState: in.ToTemplatePivotTableMetricPlacementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplatePivotTableRowsLayout string
@@ -56441,12 +51600,6 @@ func (o TemplatePivotTableRowsLayoutOutput) ToTemplatePivotTableRowsLayoutPtrOut
 	}).(TemplatePivotTableRowsLayoutPtrOutput)
 }
 
-func (o TemplatePivotTableRowsLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePivotTableRowsLayout] {
-	return pulumix.Output[TemplatePivotTableRowsLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableRowsLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -56482,12 +51635,6 @@ func (o TemplatePivotTableRowsLayoutPtrOutput) ToTemplatePivotTableRowsLayoutPtr
 	return o
 }
 
-func (o TemplatePivotTableRowsLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableRowsLayout] {
-	return pulumix.Output[*TemplatePivotTableRowsLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableRowsLayoutPtrOutput) Elem() TemplatePivotTableRowsLayoutOutput {
 	return o.ApplyT(func(v *TemplatePivotTableRowsLayout) TemplatePivotTableRowsLayout {
 		if v != nil {
@@ -56512,10 +51659,11 @@ func (o TemplatePivotTableRowsLayoutPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplatePivotTableRowsLayoutInput is an input type that accepts TemplatePivotTableRowsLayoutArgs and TemplatePivotTableRowsLayoutOutput values.
-// You can construct a concrete instance of `TemplatePivotTableRowsLayoutInput` via:
+// TemplatePivotTableRowsLayoutInput is an input type that accepts values of the TemplatePivotTableRowsLayout enum
+// A concrete instance of `TemplatePivotTableRowsLayoutInput` can be one of the following:
 //
-//	TemplatePivotTableRowsLayoutArgs{...}
+//	TemplatePivotTableRowsLayoutTabular
+//	TemplatePivotTableRowsLayoutHierarchy
 type TemplatePivotTableRowsLayoutInput interface {
 	pulumi.Input
 
@@ -56548,12 +51696,6 @@ func (in *templatePivotTableRowsLayoutPtr) ToTemplatePivotTableRowsLayoutPtrOutp
 
 func (in *templatePivotTableRowsLayoutPtr) ToTemplatePivotTableRowsLayoutPtrOutputWithContext(ctx context.Context) TemplatePivotTableRowsLayoutPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePivotTableRowsLayoutPtrOutput)
-}
-
-func (in *templatePivotTableRowsLayoutPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableRowsLayout] {
-	return pulumix.Output[*TemplatePivotTableRowsLayout]{
-		OutputState: in.ToTemplatePivotTableRowsLayoutPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplatePivotTableSubtotalLevel string
@@ -56624,12 +51766,6 @@ func (o TemplatePivotTableSubtotalLevelOutput) ToTemplatePivotTableSubtotalLevel
 	}).(TemplatePivotTableSubtotalLevelPtrOutput)
 }
 
-func (o TemplatePivotTableSubtotalLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePivotTableSubtotalLevel] {
-	return pulumix.Output[TemplatePivotTableSubtotalLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableSubtotalLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -56665,12 +51801,6 @@ func (o TemplatePivotTableSubtotalLevelPtrOutput) ToTemplatePivotTableSubtotalLe
 	return o
 }
 
-func (o TemplatePivotTableSubtotalLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableSubtotalLevel] {
-	return pulumix.Output[*TemplatePivotTableSubtotalLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableSubtotalLevelPtrOutput) Elem() TemplatePivotTableSubtotalLevelOutput {
 	return o.ApplyT(func(v *TemplatePivotTableSubtotalLevel) TemplatePivotTableSubtotalLevel {
 		if v != nil {
@@ -56695,10 +51825,12 @@ func (o TemplatePivotTableSubtotalLevelPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplatePivotTableSubtotalLevelInput is an input type that accepts TemplatePivotTableSubtotalLevelArgs and TemplatePivotTableSubtotalLevelOutput values.
-// You can construct a concrete instance of `TemplatePivotTableSubtotalLevelInput` via:
+// TemplatePivotTableSubtotalLevelInput is an input type that accepts values of the TemplatePivotTableSubtotalLevel enum
+// A concrete instance of `TemplatePivotTableSubtotalLevelInput` can be one of the following:
 //
-//	TemplatePivotTableSubtotalLevelArgs{...}
+//	TemplatePivotTableSubtotalLevelAll
+//	TemplatePivotTableSubtotalLevelCustom
+//	TemplatePivotTableSubtotalLevelLast
 type TemplatePivotTableSubtotalLevelInput interface {
 	pulumi.Input
 
@@ -56731,12 +51863,6 @@ func (in *templatePivotTableSubtotalLevelPtr) ToTemplatePivotTableSubtotalLevelP
 
 func (in *templatePivotTableSubtotalLevelPtr) ToTemplatePivotTableSubtotalLevelPtrOutputWithContext(ctx context.Context) TemplatePivotTableSubtotalLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePivotTableSubtotalLevelPtrOutput)
-}
-
-func (in *templatePivotTableSubtotalLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableSubtotalLevel] {
-	return pulumix.Output[*TemplatePivotTableSubtotalLevel]{
-		OutputState: in.ToTemplatePivotTableSubtotalLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplatePrimaryValueDisplayType string
@@ -56807,12 +51933,6 @@ func (o TemplatePrimaryValueDisplayTypeOutput) ToTemplatePrimaryValueDisplayType
 	}).(TemplatePrimaryValueDisplayTypePtrOutput)
 }
 
-func (o TemplatePrimaryValueDisplayTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePrimaryValueDisplayType] {
-	return pulumix.Output[TemplatePrimaryValueDisplayType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePrimaryValueDisplayTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -56848,12 +51968,6 @@ func (o TemplatePrimaryValueDisplayTypePtrOutput) ToTemplatePrimaryValueDisplayT
 	return o
 }
 
-func (o TemplatePrimaryValueDisplayTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePrimaryValueDisplayType] {
-	return pulumix.Output[*TemplatePrimaryValueDisplayType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePrimaryValueDisplayTypePtrOutput) Elem() TemplatePrimaryValueDisplayTypeOutput {
 	return o.ApplyT(func(v *TemplatePrimaryValueDisplayType) TemplatePrimaryValueDisplayType {
 		if v != nil {
@@ -56878,10 +51992,12 @@ func (o TemplatePrimaryValueDisplayTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplatePrimaryValueDisplayTypeInput is an input type that accepts TemplatePrimaryValueDisplayTypeArgs and TemplatePrimaryValueDisplayTypeOutput values.
-// You can construct a concrete instance of `TemplatePrimaryValueDisplayTypeInput` via:
+// TemplatePrimaryValueDisplayTypeInput is an input type that accepts values of the TemplatePrimaryValueDisplayType enum
+// A concrete instance of `TemplatePrimaryValueDisplayTypeInput` can be one of the following:
 //
-//	TemplatePrimaryValueDisplayTypeArgs{...}
+//	TemplatePrimaryValueDisplayTypeHidden
+//	TemplatePrimaryValueDisplayTypeComparison
+//	TemplatePrimaryValueDisplayTypeActual
 type TemplatePrimaryValueDisplayTypeInput interface {
 	pulumi.Input
 
@@ -56914,12 +52030,6 @@ func (in *templatePrimaryValueDisplayTypePtr) ToTemplatePrimaryValueDisplayTypeP
 
 func (in *templatePrimaryValueDisplayTypePtr) ToTemplatePrimaryValueDisplayTypePtrOutputWithContext(ctx context.Context) TemplatePrimaryValueDisplayTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePrimaryValueDisplayTypePtrOutput)
-}
-
-func (in *templatePrimaryValueDisplayTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplatePrimaryValueDisplayType] {
-	return pulumix.Output[*TemplatePrimaryValueDisplayType]{
-		OutputState: in.ToTemplatePrimaryValueDisplayTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateRadarChartAxesRangeScale string
@@ -56990,12 +52100,6 @@ func (o TemplateRadarChartAxesRangeScaleOutput) ToTemplateRadarChartAxesRangeSca
 	}).(TemplateRadarChartAxesRangeScalePtrOutput)
 }
 
-func (o TemplateRadarChartAxesRangeScaleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateRadarChartAxesRangeScale] {
-	return pulumix.Output[TemplateRadarChartAxesRangeScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateRadarChartAxesRangeScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -57031,12 +52135,6 @@ func (o TemplateRadarChartAxesRangeScalePtrOutput) ToTemplateRadarChartAxesRange
 	return o
 }
 
-func (o TemplateRadarChartAxesRangeScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateRadarChartAxesRangeScale] {
-	return pulumix.Output[*TemplateRadarChartAxesRangeScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateRadarChartAxesRangeScalePtrOutput) Elem() TemplateRadarChartAxesRangeScaleOutput {
 	return o.ApplyT(func(v *TemplateRadarChartAxesRangeScale) TemplateRadarChartAxesRangeScale {
 		if v != nil {
@@ -57061,10 +52159,12 @@ func (o TemplateRadarChartAxesRangeScalePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateRadarChartAxesRangeScaleInput is an input type that accepts TemplateRadarChartAxesRangeScaleArgs and TemplateRadarChartAxesRangeScaleOutput values.
-// You can construct a concrete instance of `TemplateRadarChartAxesRangeScaleInput` via:
+// TemplateRadarChartAxesRangeScaleInput is an input type that accepts values of the TemplateRadarChartAxesRangeScale enum
+// A concrete instance of `TemplateRadarChartAxesRangeScaleInput` can be one of the following:
 //
-//	TemplateRadarChartAxesRangeScaleArgs{...}
+//	TemplateRadarChartAxesRangeScaleAuto
+//	TemplateRadarChartAxesRangeScaleIndependent
+//	TemplateRadarChartAxesRangeScaleShared
 type TemplateRadarChartAxesRangeScaleInput interface {
 	pulumi.Input
 
@@ -57097,12 +52197,6 @@ func (in *templateRadarChartAxesRangeScalePtr) ToTemplateRadarChartAxesRangeScal
 
 func (in *templateRadarChartAxesRangeScalePtr) ToTemplateRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) TemplateRadarChartAxesRangeScalePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateRadarChartAxesRangeScalePtrOutput)
-}
-
-func (in *templateRadarChartAxesRangeScalePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateRadarChartAxesRangeScale] {
-	return pulumix.Output[*TemplateRadarChartAxesRangeScale]{
-		OutputState: in.ToTemplateRadarChartAxesRangeScalePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateRadarChartShape string
@@ -57172,12 +52266,6 @@ func (o TemplateRadarChartShapeOutput) ToTemplateRadarChartShapePtrOutputWithCon
 	}).(TemplateRadarChartShapePtrOutput)
 }
 
-func (o TemplateRadarChartShapeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateRadarChartShape] {
-	return pulumix.Output[TemplateRadarChartShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateRadarChartShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -57213,12 +52301,6 @@ func (o TemplateRadarChartShapePtrOutput) ToTemplateRadarChartShapePtrOutputWith
 	return o
 }
 
-func (o TemplateRadarChartShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateRadarChartShape] {
-	return pulumix.Output[*TemplateRadarChartShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateRadarChartShapePtrOutput) Elem() TemplateRadarChartShapeOutput {
 	return o.ApplyT(func(v *TemplateRadarChartShape) TemplateRadarChartShape {
 		if v != nil {
@@ -57243,10 +52325,11 @@ func (o TemplateRadarChartShapePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateRadarChartShapeInput is an input type that accepts TemplateRadarChartShapeArgs and TemplateRadarChartShapeOutput values.
-// You can construct a concrete instance of `TemplateRadarChartShapeInput` via:
+// TemplateRadarChartShapeInput is an input type that accepts values of the TemplateRadarChartShape enum
+// A concrete instance of `TemplateRadarChartShapeInput` can be one of the following:
 //
-//	TemplateRadarChartShapeArgs{...}
+//	TemplateRadarChartShapeCircle
+//	TemplateRadarChartShapePolygon
 type TemplateRadarChartShapeInput interface {
 	pulumi.Input
 
@@ -57279,12 +52362,6 @@ func (in *templateRadarChartShapePtr) ToTemplateRadarChartShapePtrOutput() Templ
 
 func (in *templateRadarChartShapePtr) ToTemplateRadarChartShapePtrOutputWithContext(ctx context.Context) TemplateRadarChartShapePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateRadarChartShapePtrOutput)
-}
-
-func (in *templateRadarChartShapePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateRadarChartShape] {
-	return pulumix.Output[*TemplateRadarChartShape]{
-		OutputState: in.ToTemplateRadarChartShapePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateReferenceLineLabelHorizontalPosition string
@@ -57355,12 +52432,6 @@ func (o TemplateReferenceLineLabelHorizontalPositionOutput) ToTemplateReferenceL
 	}).(TemplateReferenceLineLabelHorizontalPositionPtrOutput)
 }
 
-func (o TemplateReferenceLineLabelHorizontalPositionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[TemplateReferenceLineLabelHorizontalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLineLabelHorizontalPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -57396,12 +52467,6 @@ func (o TemplateReferenceLineLabelHorizontalPositionPtrOutput) ToTemplateReferen
 	return o
 }
 
-func (o TemplateReferenceLineLabelHorizontalPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[*TemplateReferenceLineLabelHorizontalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLineLabelHorizontalPositionPtrOutput) Elem() TemplateReferenceLineLabelHorizontalPositionOutput {
 	return o.ApplyT(func(v *TemplateReferenceLineLabelHorizontalPosition) TemplateReferenceLineLabelHorizontalPosition {
 		if v != nil {
@@ -57426,10 +52491,12 @@ func (o TemplateReferenceLineLabelHorizontalPositionPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateReferenceLineLabelHorizontalPositionInput is an input type that accepts TemplateReferenceLineLabelHorizontalPositionArgs and TemplateReferenceLineLabelHorizontalPositionOutput values.
-// You can construct a concrete instance of `TemplateReferenceLineLabelHorizontalPositionInput` via:
+// TemplateReferenceLineLabelHorizontalPositionInput is an input type that accepts values of the TemplateReferenceLineLabelHorizontalPosition enum
+// A concrete instance of `TemplateReferenceLineLabelHorizontalPositionInput` can be one of the following:
 //
-//	TemplateReferenceLineLabelHorizontalPositionArgs{...}
+//	TemplateReferenceLineLabelHorizontalPositionLeft
+//	TemplateReferenceLineLabelHorizontalPositionCenter
+//	TemplateReferenceLineLabelHorizontalPositionRight
 type TemplateReferenceLineLabelHorizontalPositionInput interface {
 	pulumi.Input
 
@@ -57462,12 +52529,6 @@ func (in *templateReferenceLineLabelHorizontalPositionPtr) ToTemplateReferenceLi
 
 func (in *templateReferenceLineLabelHorizontalPositionPtr) ToTemplateReferenceLineLabelHorizontalPositionPtrOutputWithContext(ctx context.Context) TemplateReferenceLineLabelHorizontalPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateReferenceLineLabelHorizontalPositionPtrOutput)
-}
-
-func (in *templateReferenceLineLabelHorizontalPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[*TemplateReferenceLineLabelHorizontalPosition]{
-		OutputState: in.ToTemplateReferenceLineLabelHorizontalPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateReferenceLineLabelVerticalPosition string
@@ -57537,12 +52598,6 @@ func (o TemplateReferenceLineLabelVerticalPositionOutput) ToTemplateReferenceLin
 	}).(TemplateReferenceLineLabelVerticalPositionPtrOutput)
 }
 
-func (o TemplateReferenceLineLabelVerticalPositionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[TemplateReferenceLineLabelVerticalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLineLabelVerticalPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -57578,12 +52633,6 @@ func (o TemplateReferenceLineLabelVerticalPositionPtrOutput) ToTemplateReference
 	return o
 }
 
-func (o TemplateReferenceLineLabelVerticalPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[*TemplateReferenceLineLabelVerticalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLineLabelVerticalPositionPtrOutput) Elem() TemplateReferenceLineLabelVerticalPositionOutput {
 	return o.ApplyT(func(v *TemplateReferenceLineLabelVerticalPosition) TemplateReferenceLineLabelVerticalPosition {
 		if v != nil {
@@ -57608,10 +52657,11 @@ func (o TemplateReferenceLineLabelVerticalPositionPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateReferenceLineLabelVerticalPositionInput is an input type that accepts TemplateReferenceLineLabelVerticalPositionArgs and TemplateReferenceLineLabelVerticalPositionOutput values.
-// You can construct a concrete instance of `TemplateReferenceLineLabelVerticalPositionInput` via:
+// TemplateReferenceLineLabelVerticalPositionInput is an input type that accepts values of the TemplateReferenceLineLabelVerticalPosition enum
+// A concrete instance of `TemplateReferenceLineLabelVerticalPositionInput` can be one of the following:
 //
-//	TemplateReferenceLineLabelVerticalPositionArgs{...}
+//	TemplateReferenceLineLabelVerticalPositionAbove
+//	TemplateReferenceLineLabelVerticalPositionBelow
 type TemplateReferenceLineLabelVerticalPositionInput interface {
 	pulumi.Input
 
@@ -57644,12 +52694,6 @@ func (in *templateReferenceLineLabelVerticalPositionPtr) ToTemplateReferenceLine
 
 func (in *templateReferenceLineLabelVerticalPositionPtr) ToTemplateReferenceLineLabelVerticalPositionPtrOutputWithContext(ctx context.Context) TemplateReferenceLineLabelVerticalPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateReferenceLineLabelVerticalPositionPtrOutput)
-}
-
-func (in *templateReferenceLineLabelVerticalPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[*TemplateReferenceLineLabelVerticalPosition]{
-		OutputState: in.ToTemplateReferenceLineLabelVerticalPositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateReferenceLinePatternType string
@@ -57720,12 +52764,6 @@ func (o TemplateReferenceLinePatternTypeOutput) ToTemplateReferenceLinePatternTy
 	}).(TemplateReferenceLinePatternTypePtrOutput)
 }
 
-func (o TemplateReferenceLinePatternTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateReferenceLinePatternType] {
-	return pulumix.Output[TemplateReferenceLinePatternType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLinePatternTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -57761,12 +52799,6 @@ func (o TemplateReferenceLinePatternTypePtrOutput) ToTemplateReferenceLinePatter
 	return o
 }
 
-func (o TemplateReferenceLinePatternTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLinePatternType] {
-	return pulumix.Output[*TemplateReferenceLinePatternType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLinePatternTypePtrOutput) Elem() TemplateReferenceLinePatternTypeOutput {
 	return o.ApplyT(func(v *TemplateReferenceLinePatternType) TemplateReferenceLinePatternType {
 		if v != nil {
@@ -57791,10 +52823,12 @@ func (o TemplateReferenceLinePatternTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateReferenceLinePatternTypeInput is an input type that accepts TemplateReferenceLinePatternTypeArgs and TemplateReferenceLinePatternTypeOutput values.
-// You can construct a concrete instance of `TemplateReferenceLinePatternTypeInput` via:
+// TemplateReferenceLinePatternTypeInput is an input type that accepts values of the TemplateReferenceLinePatternType enum
+// A concrete instance of `TemplateReferenceLinePatternTypeInput` can be one of the following:
 //
-//	TemplateReferenceLinePatternTypeArgs{...}
+//	TemplateReferenceLinePatternTypeSolid
+//	TemplateReferenceLinePatternTypeDashed
+//	TemplateReferenceLinePatternTypeDotted
 type TemplateReferenceLinePatternTypeInput interface {
 	pulumi.Input
 
@@ -57827,12 +52861,6 @@ func (in *templateReferenceLinePatternTypePtr) ToTemplateReferenceLinePatternTyp
 
 func (in *templateReferenceLinePatternTypePtr) ToTemplateReferenceLinePatternTypePtrOutputWithContext(ctx context.Context) TemplateReferenceLinePatternTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateReferenceLinePatternTypePtrOutput)
-}
-
-func (in *templateReferenceLinePatternTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLinePatternType] {
-	return pulumix.Output[*TemplateReferenceLinePatternType]{
-		OutputState: in.ToTemplateReferenceLinePatternTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateReferenceLineSeriesType string
@@ -57902,12 +52930,6 @@ func (o TemplateReferenceLineSeriesTypeOutput) ToTemplateReferenceLineSeriesType
 	}).(TemplateReferenceLineSeriesTypePtrOutput)
 }
 
-func (o TemplateReferenceLineSeriesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateReferenceLineSeriesType] {
-	return pulumix.Output[TemplateReferenceLineSeriesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLineSeriesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -57943,12 +52965,6 @@ func (o TemplateReferenceLineSeriesTypePtrOutput) ToTemplateReferenceLineSeriesT
 	return o
 }
 
-func (o TemplateReferenceLineSeriesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLineSeriesType] {
-	return pulumix.Output[*TemplateReferenceLineSeriesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLineSeriesTypePtrOutput) Elem() TemplateReferenceLineSeriesTypeOutput {
 	return o.ApplyT(func(v *TemplateReferenceLineSeriesType) TemplateReferenceLineSeriesType {
 		if v != nil {
@@ -57973,10 +52989,11 @@ func (o TemplateReferenceLineSeriesTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateReferenceLineSeriesTypeInput is an input type that accepts TemplateReferenceLineSeriesTypeArgs and TemplateReferenceLineSeriesTypeOutput values.
-// You can construct a concrete instance of `TemplateReferenceLineSeriesTypeInput` via:
+// TemplateReferenceLineSeriesTypeInput is an input type that accepts values of the TemplateReferenceLineSeriesType enum
+// A concrete instance of `TemplateReferenceLineSeriesTypeInput` can be one of the following:
 //
-//	TemplateReferenceLineSeriesTypeArgs{...}
+//	TemplateReferenceLineSeriesTypeBar
+//	TemplateReferenceLineSeriesTypeLine
 type TemplateReferenceLineSeriesTypeInput interface {
 	pulumi.Input
 
@@ -58009,12 +53026,6 @@ func (in *templateReferenceLineSeriesTypePtr) ToTemplateReferenceLineSeriesTypeP
 
 func (in *templateReferenceLineSeriesTypePtr) ToTemplateReferenceLineSeriesTypePtrOutputWithContext(ctx context.Context) TemplateReferenceLineSeriesTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateReferenceLineSeriesTypePtrOutput)
-}
-
-func (in *templateReferenceLineSeriesTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLineSeriesType] {
-	return pulumix.Output[*TemplateReferenceLineSeriesType]{
-		OutputState: in.ToTemplateReferenceLineSeriesTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateReferenceLineValueLabelRelativePosition string
@@ -58084,12 +53095,6 @@ func (o TemplateReferenceLineValueLabelRelativePositionOutput) ToTemplateReferen
 	}).(TemplateReferenceLineValueLabelRelativePositionPtrOutput)
 }
 
-func (o TemplateReferenceLineValueLabelRelativePositionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[TemplateReferenceLineValueLabelRelativePosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLineValueLabelRelativePositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -58125,12 +53130,6 @@ func (o TemplateReferenceLineValueLabelRelativePositionPtrOutput) ToTemplateRefe
 	return o
 }
 
-func (o TemplateReferenceLineValueLabelRelativePositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[*TemplateReferenceLineValueLabelRelativePosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLineValueLabelRelativePositionPtrOutput) Elem() TemplateReferenceLineValueLabelRelativePositionOutput {
 	return o.ApplyT(func(v *TemplateReferenceLineValueLabelRelativePosition) TemplateReferenceLineValueLabelRelativePosition {
 		if v != nil {
@@ -58155,10 +53154,11 @@ func (o TemplateReferenceLineValueLabelRelativePositionPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateReferenceLineValueLabelRelativePositionInput is an input type that accepts TemplateReferenceLineValueLabelRelativePositionArgs and TemplateReferenceLineValueLabelRelativePositionOutput values.
-// You can construct a concrete instance of `TemplateReferenceLineValueLabelRelativePositionInput` via:
+// TemplateReferenceLineValueLabelRelativePositionInput is an input type that accepts values of the TemplateReferenceLineValueLabelRelativePosition enum
+// A concrete instance of `TemplateReferenceLineValueLabelRelativePositionInput` can be one of the following:
 //
-//	TemplateReferenceLineValueLabelRelativePositionArgs{...}
+//	TemplateReferenceLineValueLabelRelativePositionBeforeCustomLabel
+//	TemplateReferenceLineValueLabelRelativePositionAfterCustomLabel
 type TemplateReferenceLineValueLabelRelativePositionInput interface {
 	pulumi.Input
 
@@ -58191,12 +53191,6 @@ func (in *templateReferenceLineValueLabelRelativePositionPtr) ToTemplateReferenc
 
 func (in *templateReferenceLineValueLabelRelativePositionPtr) ToTemplateReferenceLineValueLabelRelativePositionPtrOutputWithContext(ctx context.Context) TemplateReferenceLineValueLabelRelativePositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateReferenceLineValueLabelRelativePositionPtrOutput)
-}
-
-func (in *templateReferenceLineValueLabelRelativePositionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[*TemplateReferenceLineValueLabelRelativePosition]{
-		OutputState: in.ToTemplateReferenceLineValueLabelRelativePositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateRelativeDateType string
@@ -58269,12 +53263,6 @@ func (o TemplateRelativeDateTypeOutput) ToTemplateRelativeDateTypePtrOutputWithC
 	}).(TemplateRelativeDateTypePtrOutput)
 }
 
-func (o TemplateRelativeDateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateRelativeDateType] {
-	return pulumix.Output[TemplateRelativeDateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateRelativeDateTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -58310,12 +53298,6 @@ func (o TemplateRelativeDateTypePtrOutput) ToTemplateRelativeDateTypePtrOutputWi
 	return o
 }
 
-func (o TemplateRelativeDateTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateRelativeDateType] {
-	return pulumix.Output[*TemplateRelativeDateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateRelativeDateTypePtrOutput) Elem() TemplateRelativeDateTypeOutput {
 	return o.ApplyT(func(v *TemplateRelativeDateType) TemplateRelativeDateType {
 		if v != nil {
@@ -58340,10 +53322,14 @@ func (o TemplateRelativeDateTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateRelativeDateTypeInput is an input type that accepts TemplateRelativeDateTypeArgs and TemplateRelativeDateTypeOutput values.
-// You can construct a concrete instance of `TemplateRelativeDateTypeInput` via:
+// TemplateRelativeDateTypeInput is an input type that accepts values of the TemplateRelativeDateType enum
+// A concrete instance of `TemplateRelativeDateTypeInput` can be one of the following:
 //
-//	TemplateRelativeDateTypeArgs{...}
+//	TemplateRelativeDateTypePrevious
+//	TemplateRelativeDateTypeThis
+//	TemplateRelativeDateTypeLast
+//	TemplateRelativeDateTypeNow
+//	TemplateRelativeDateTypeNext
 type TemplateRelativeDateTypeInput interface {
 	pulumi.Input
 
@@ -58376,12 +53362,6 @@ func (in *templateRelativeDateTypePtr) ToTemplateRelativeDateTypePtrOutput() Tem
 
 func (in *templateRelativeDateTypePtr) ToTemplateRelativeDateTypePtrOutputWithContext(ctx context.Context) TemplateRelativeDateTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateRelativeDateTypePtrOutput)
-}
-
-func (in *templateRelativeDateTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateRelativeDateType] {
-	return pulumix.Output[*TemplateRelativeDateType]{
-		OutputState: in.ToTemplateRelativeDateTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateRelativeFontSize string
@@ -58454,12 +53434,6 @@ func (o TemplateRelativeFontSizeOutput) ToTemplateRelativeFontSizePtrOutputWithC
 	}).(TemplateRelativeFontSizePtrOutput)
 }
 
-func (o TemplateRelativeFontSizeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateRelativeFontSize] {
-	return pulumix.Output[TemplateRelativeFontSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateRelativeFontSizeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -58495,12 +53469,6 @@ func (o TemplateRelativeFontSizePtrOutput) ToTemplateRelativeFontSizePtrOutputWi
 	return o
 }
 
-func (o TemplateRelativeFontSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateRelativeFontSize] {
-	return pulumix.Output[*TemplateRelativeFontSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateRelativeFontSizePtrOutput) Elem() TemplateRelativeFontSizeOutput {
 	return o.ApplyT(func(v *TemplateRelativeFontSize) TemplateRelativeFontSize {
 		if v != nil {
@@ -58525,10 +53493,14 @@ func (o TemplateRelativeFontSizePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateRelativeFontSizeInput is an input type that accepts TemplateRelativeFontSizeArgs and TemplateRelativeFontSizeOutput values.
-// You can construct a concrete instance of `TemplateRelativeFontSizeInput` via:
+// TemplateRelativeFontSizeInput is an input type that accepts values of the TemplateRelativeFontSize enum
+// A concrete instance of `TemplateRelativeFontSizeInput` can be one of the following:
 //
-//	TemplateRelativeFontSizeArgs{...}
+//	TemplateRelativeFontSizeExtraSmall
+//	TemplateRelativeFontSizeSmall
+//	TemplateRelativeFontSizeMedium
+//	TemplateRelativeFontSizeLarge
+//	TemplateRelativeFontSizeExtraLarge
 type TemplateRelativeFontSizeInput interface {
 	pulumi.Input
 
@@ -58561,12 +53533,6 @@ func (in *templateRelativeFontSizePtr) ToTemplateRelativeFontSizePtrOutput() Tem
 
 func (in *templateRelativeFontSizePtr) ToTemplateRelativeFontSizePtrOutputWithContext(ctx context.Context) TemplateRelativeFontSizePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateRelativeFontSizePtrOutput)
-}
-
-func (in *templateRelativeFontSizePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateRelativeFontSize] {
-	return pulumix.Output[*TemplateRelativeFontSize]{
-		OutputState: in.ToTemplateRelativeFontSizePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateResizeOption string
@@ -58636,12 +53602,6 @@ func (o TemplateResizeOptionOutput) ToTemplateResizeOptionPtrOutputWithContext(c
 	}).(TemplateResizeOptionPtrOutput)
 }
 
-func (o TemplateResizeOptionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateResizeOption] {
-	return pulumix.Output[TemplateResizeOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateResizeOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -58677,12 +53637,6 @@ func (o TemplateResizeOptionPtrOutput) ToTemplateResizeOptionPtrOutputWithContex
 	return o
 }
 
-func (o TemplateResizeOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateResizeOption] {
-	return pulumix.Output[*TemplateResizeOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateResizeOptionPtrOutput) Elem() TemplateResizeOptionOutput {
 	return o.ApplyT(func(v *TemplateResizeOption) TemplateResizeOption {
 		if v != nil {
@@ -58707,10 +53661,11 @@ func (o TemplateResizeOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateResizeOptionInput is an input type that accepts TemplateResizeOptionArgs and TemplateResizeOptionOutput values.
-// You can construct a concrete instance of `TemplateResizeOptionInput` via:
+// TemplateResizeOptionInput is an input type that accepts values of the TemplateResizeOption enum
+// A concrete instance of `TemplateResizeOptionInput` can be one of the following:
 //
-//	TemplateResizeOptionArgs{...}
+//	TemplateResizeOptionFixed
+//	TemplateResizeOptionResponsive
 type TemplateResizeOptionInput interface {
 	pulumi.Input
 
@@ -58743,12 +53698,6 @@ func (in *templateResizeOptionPtr) ToTemplateResizeOptionPtrOutput() TemplateRes
 
 func (in *templateResizeOptionPtr) ToTemplateResizeOptionPtrOutputWithContext(ctx context.Context) TemplateResizeOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateResizeOptionPtrOutput)
-}
-
-func (in *templateResizeOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateResizeOption] {
-	return pulumix.Output[*TemplateResizeOption]{
-		OutputState: in.ToTemplateResizeOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateResourceStatus string
@@ -58787,12 +53736,6 @@ func (o TemplateResourceStatusOutput) ToTemplateResourceStatusPtrOutputWithConte
 	}).(TemplateResourceStatusPtrOutput)
 }
 
-func (o TemplateResourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateResourceStatus] {
-	return pulumix.Output[TemplateResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -58826,12 +53769,6 @@ func (o TemplateResourceStatusPtrOutput) ToTemplateResourceStatusPtrOutput() Tem
 
 func (o TemplateResourceStatusPtrOutput) ToTemplateResourceStatusPtrOutputWithContext(ctx context.Context) TemplateResourceStatusPtrOutput {
 	return o
-}
-
-func (o TemplateResourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateResourceStatus] {
-	return pulumix.Output[*TemplateResourceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateResourceStatusPtrOutput) Elem() TemplateResourceStatusOutput {
@@ -58925,12 +53862,6 @@ func (o TemplateSectionPageBreakStatusOutput) ToTemplateSectionPageBreakStatusPt
 	}).(TemplateSectionPageBreakStatusPtrOutput)
 }
 
-func (o TemplateSectionPageBreakStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSectionPageBreakStatus] {
-	return pulumix.Output[TemplateSectionPageBreakStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSectionPageBreakStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -58966,12 +53897,6 @@ func (o TemplateSectionPageBreakStatusPtrOutput) ToTemplateSectionPageBreakStatu
 	return o
 }
 
-func (o TemplateSectionPageBreakStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSectionPageBreakStatus] {
-	return pulumix.Output[*TemplateSectionPageBreakStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSectionPageBreakStatusPtrOutput) Elem() TemplateSectionPageBreakStatusOutput {
 	return o.ApplyT(func(v *TemplateSectionPageBreakStatus) TemplateSectionPageBreakStatus {
 		if v != nil {
@@ -58996,10 +53921,11 @@ func (o TemplateSectionPageBreakStatusPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSectionPageBreakStatusInput is an input type that accepts TemplateSectionPageBreakStatusArgs and TemplateSectionPageBreakStatusOutput values.
-// You can construct a concrete instance of `TemplateSectionPageBreakStatusInput` via:
+// TemplateSectionPageBreakStatusInput is an input type that accepts values of the TemplateSectionPageBreakStatus enum
+// A concrete instance of `TemplateSectionPageBreakStatusInput` can be one of the following:
 //
-//	TemplateSectionPageBreakStatusArgs{...}
+//	TemplateSectionPageBreakStatusEnabled
+//	TemplateSectionPageBreakStatusDisabled
 type TemplateSectionPageBreakStatusInput interface {
 	pulumi.Input
 
@@ -59032,12 +53958,6 @@ func (in *templateSectionPageBreakStatusPtr) ToTemplateSectionPageBreakStatusPtr
 
 func (in *templateSectionPageBreakStatusPtr) ToTemplateSectionPageBreakStatusPtrOutputWithContext(ctx context.Context) TemplateSectionPageBreakStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSectionPageBreakStatusPtrOutput)
-}
-
-func (in *templateSectionPageBreakStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSectionPageBreakStatus] {
-	return pulumix.Output[*TemplateSectionPageBreakStatus]{
-		OutputState: in.ToTemplateSectionPageBreakStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSelectAllValueOptions string
@@ -59106,12 +54026,6 @@ func (o TemplateSelectAllValueOptionsOutput) ToTemplateSelectAllValueOptionsPtrO
 	}).(TemplateSelectAllValueOptionsPtrOutput)
 }
 
-func (o TemplateSelectAllValueOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSelectAllValueOptions] {
-	return pulumix.Output[TemplateSelectAllValueOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSelectAllValueOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -59147,12 +54061,6 @@ func (o TemplateSelectAllValueOptionsPtrOutput) ToTemplateSelectAllValueOptionsP
 	return o
 }
 
-func (o TemplateSelectAllValueOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSelectAllValueOptions] {
-	return pulumix.Output[*TemplateSelectAllValueOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSelectAllValueOptionsPtrOutput) Elem() TemplateSelectAllValueOptionsOutput {
 	return o.ApplyT(func(v *TemplateSelectAllValueOptions) TemplateSelectAllValueOptions {
 		if v != nil {
@@ -59177,10 +54085,10 @@ func (o TemplateSelectAllValueOptionsPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSelectAllValueOptionsInput is an input type that accepts TemplateSelectAllValueOptionsArgs and TemplateSelectAllValueOptionsOutput values.
-// You can construct a concrete instance of `TemplateSelectAllValueOptionsInput` via:
+// TemplateSelectAllValueOptionsInput is an input type that accepts values of the TemplateSelectAllValueOptions enum
+// A concrete instance of `TemplateSelectAllValueOptionsInput` can be one of the following:
 //
-//	TemplateSelectAllValueOptionsArgs{...}
+//	TemplateSelectAllValueOptionsAllValues
 type TemplateSelectAllValueOptionsInput interface {
 	pulumi.Input
 
@@ -59213,12 +54121,6 @@ func (in *templateSelectAllValueOptionsPtr) ToTemplateSelectAllValueOptionsPtrOu
 
 func (in *templateSelectAllValueOptionsPtr) ToTemplateSelectAllValueOptionsPtrOutputWithContext(ctx context.Context) TemplateSelectAllValueOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSelectAllValueOptionsPtrOutput)
-}
-
-func (in *templateSelectAllValueOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSelectAllValueOptions] {
-	return pulumix.Output[*TemplateSelectAllValueOptions]{
-		OutputState: in.ToTemplateSelectAllValueOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSelectedFieldOptions string
@@ -59287,12 +54189,6 @@ func (o TemplateSelectedFieldOptionsOutput) ToTemplateSelectedFieldOptionsPtrOut
 	}).(TemplateSelectedFieldOptionsPtrOutput)
 }
 
-func (o TemplateSelectedFieldOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSelectedFieldOptions] {
-	return pulumix.Output[TemplateSelectedFieldOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSelectedFieldOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -59328,12 +54224,6 @@ func (o TemplateSelectedFieldOptionsPtrOutput) ToTemplateSelectedFieldOptionsPtr
 	return o
 }
 
-func (o TemplateSelectedFieldOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSelectedFieldOptions] {
-	return pulumix.Output[*TemplateSelectedFieldOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSelectedFieldOptionsPtrOutput) Elem() TemplateSelectedFieldOptionsOutput {
 	return o.ApplyT(func(v *TemplateSelectedFieldOptions) TemplateSelectedFieldOptions {
 		if v != nil {
@@ -59358,10 +54248,10 @@ func (o TemplateSelectedFieldOptionsPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSelectedFieldOptionsInput is an input type that accepts TemplateSelectedFieldOptionsArgs and TemplateSelectedFieldOptionsOutput values.
-// You can construct a concrete instance of `TemplateSelectedFieldOptionsInput` via:
+// TemplateSelectedFieldOptionsInput is an input type that accepts values of the TemplateSelectedFieldOptions enum
+// A concrete instance of `TemplateSelectedFieldOptionsInput` can be one of the following:
 //
-//	TemplateSelectedFieldOptionsArgs{...}
+//	TemplateSelectedFieldOptionsAllFields
 type TemplateSelectedFieldOptionsInput interface {
 	pulumi.Input
 
@@ -59394,12 +54284,6 @@ func (in *templateSelectedFieldOptionsPtr) ToTemplateSelectedFieldOptionsPtrOutp
 
 func (in *templateSelectedFieldOptionsPtr) ToTemplateSelectedFieldOptionsPtrOutputWithContext(ctx context.Context) TemplateSelectedFieldOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSelectedFieldOptionsPtrOutput)
-}
-
-func (in *templateSelectedFieldOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSelectedFieldOptions] {
-	return pulumix.Output[*TemplateSelectedFieldOptions]{
-		OutputState: in.ToTemplateSelectedFieldOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSelectedTooltipType string
@@ -59469,12 +54353,6 @@ func (o TemplateSelectedTooltipTypeOutput) ToTemplateSelectedTooltipTypePtrOutpu
 	}).(TemplateSelectedTooltipTypePtrOutput)
 }
 
-func (o TemplateSelectedTooltipTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSelectedTooltipType] {
-	return pulumix.Output[TemplateSelectedTooltipType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSelectedTooltipTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -59510,12 +54388,6 @@ func (o TemplateSelectedTooltipTypePtrOutput) ToTemplateSelectedTooltipTypePtrOu
 	return o
 }
 
-func (o TemplateSelectedTooltipTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSelectedTooltipType] {
-	return pulumix.Output[*TemplateSelectedTooltipType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSelectedTooltipTypePtrOutput) Elem() TemplateSelectedTooltipTypeOutput {
 	return o.ApplyT(func(v *TemplateSelectedTooltipType) TemplateSelectedTooltipType {
 		if v != nil {
@@ -59540,10 +54412,11 @@ func (o TemplateSelectedTooltipTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSelectedTooltipTypeInput is an input type that accepts TemplateSelectedTooltipTypeArgs and TemplateSelectedTooltipTypeOutput values.
-// You can construct a concrete instance of `TemplateSelectedTooltipTypeInput` via:
+// TemplateSelectedTooltipTypeInput is an input type that accepts values of the TemplateSelectedTooltipType enum
+// A concrete instance of `TemplateSelectedTooltipTypeInput` can be one of the following:
 //
-//	TemplateSelectedTooltipTypeArgs{...}
+//	TemplateSelectedTooltipTypeBasic
+//	TemplateSelectedTooltipTypeDetailed
 type TemplateSelectedTooltipTypeInput interface {
 	pulumi.Input
 
@@ -59576,12 +54449,6 @@ func (in *templateSelectedTooltipTypePtr) ToTemplateSelectedTooltipTypePtrOutput
 
 func (in *templateSelectedTooltipTypePtr) ToTemplateSelectedTooltipTypePtrOutputWithContext(ctx context.Context) TemplateSelectedTooltipTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSelectedTooltipTypePtrOutput)
-}
-
-func (in *templateSelectedTooltipTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSelectedTooltipType] {
-	return pulumix.Output[*TemplateSelectedTooltipType]{
-		OutputState: in.ToTemplateSelectedTooltipTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSheetContentType string
@@ -59651,12 +54518,6 @@ func (o TemplateSheetContentTypeOutput) ToTemplateSheetContentTypePtrOutputWithC
 	}).(TemplateSheetContentTypePtrOutput)
 }
 
-func (o TemplateSheetContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSheetContentType] {
-	return pulumix.Output[TemplateSheetContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSheetContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -59692,12 +54553,6 @@ func (o TemplateSheetContentTypePtrOutput) ToTemplateSheetContentTypePtrOutputWi
 	return o
 }
 
-func (o TemplateSheetContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSheetContentType] {
-	return pulumix.Output[*TemplateSheetContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSheetContentTypePtrOutput) Elem() TemplateSheetContentTypeOutput {
 	return o.ApplyT(func(v *TemplateSheetContentType) TemplateSheetContentType {
 		if v != nil {
@@ -59722,10 +54577,11 @@ func (o TemplateSheetContentTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSheetContentTypeInput is an input type that accepts TemplateSheetContentTypeArgs and TemplateSheetContentTypeOutput values.
-// You can construct a concrete instance of `TemplateSheetContentTypeInput` via:
+// TemplateSheetContentTypeInput is an input type that accepts values of the TemplateSheetContentType enum
+// A concrete instance of `TemplateSheetContentTypeInput` can be one of the following:
 //
-//	TemplateSheetContentTypeArgs{...}
+//	TemplateSheetContentTypePaginated
+//	TemplateSheetContentTypeInteractive
 type TemplateSheetContentTypeInput interface {
 	pulumi.Input
 
@@ -59758,12 +54614,6 @@ func (in *templateSheetContentTypePtr) ToTemplateSheetContentTypePtrOutput() Tem
 
 func (in *templateSheetContentTypePtr) ToTemplateSheetContentTypePtrOutputWithContext(ctx context.Context) TemplateSheetContentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSheetContentTypePtrOutput)
-}
-
-func (in *templateSheetContentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSheetContentType] {
-	return pulumix.Output[*TemplateSheetContentType]{
-		OutputState: in.ToTemplateSheetContentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSheetControlDateTimePickerType string
@@ -59833,12 +54683,6 @@ func (o TemplateSheetControlDateTimePickerTypeOutput) ToTemplateSheetControlDate
 	}).(TemplateSheetControlDateTimePickerTypePtrOutput)
 }
 
-func (o TemplateSheetControlDateTimePickerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSheetControlDateTimePickerType] {
-	return pulumix.Output[TemplateSheetControlDateTimePickerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSheetControlDateTimePickerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -59874,12 +54718,6 @@ func (o TemplateSheetControlDateTimePickerTypePtrOutput) ToTemplateSheetControlD
 	return o
 }
 
-func (o TemplateSheetControlDateTimePickerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSheetControlDateTimePickerType] {
-	return pulumix.Output[*TemplateSheetControlDateTimePickerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSheetControlDateTimePickerTypePtrOutput) Elem() TemplateSheetControlDateTimePickerTypeOutput {
 	return o.ApplyT(func(v *TemplateSheetControlDateTimePickerType) TemplateSheetControlDateTimePickerType {
 		if v != nil {
@@ -59904,10 +54742,11 @@ func (o TemplateSheetControlDateTimePickerTypePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSheetControlDateTimePickerTypeInput is an input type that accepts TemplateSheetControlDateTimePickerTypeArgs and TemplateSheetControlDateTimePickerTypeOutput values.
-// You can construct a concrete instance of `TemplateSheetControlDateTimePickerTypeInput` via:
+// TemplateSheetControlDateTimePickerTypeInput is an input type that accepts values of the TemplateSheetControlDateTimePickerType enum
+// A concrete instance of `TemplateSheetControlDateTimePickerTypeInput` can be one of the following:
 //
-//	TemplateSheetControlDateTimePickerTypeArgs{...}
+//	TemplateSheetControlDateTimePickerTypeSingleValued
+//	TemplateSheetControlDateTimePickerTypeDateRange
 type TemplateSheetControlDateTimePickerTypeInput interface {
 	pulumi.Input
 
@@ -59940,12 +54779,6 @@ func (in *templateSheetControlDateTimePickerTypePtr) ToTemplateSheetControlDateT
 
 func (in *templateSheetControlDateTimePickerTypePtr) ToTemplateSheetControlDateTimePickerTypePtrOutputWithContext(ctx context.Context) TemplateSheetControlDateTimePickerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSheetControlDateTimePickerTypePtrOutput)
-}
-
-func (in *templateSheetControlDateTimePickerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSheetControlDateTimePickerType] {
-	return pulumix.Output[*TemplateSheetControlDateTimePickerType]{
-		OutputState: in.ToTemplateSheetControlDateTimePickerTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSheetControlListType string
@@ -60015,12 +54848,6 @@ func (o TemplateSheetControlListTypeOutput) ToTemplateSheetControlListTypePtrOut
 	}).(TemplateSheetControlListTypePtrOutput)
 }
 
-func (o TemplateSheetControlListTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSheetControlListType] {
-	return pulumix.Output[TemplateSheetControlListType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSheetControlListTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -60056,12 +54883,6 @@ func (o TemplateSheetControlListTypePtrOutput) ToTemplateSheetControlListTypePtr
 	return o
 }
 
-func (o TemplateSheetControlListTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSheetControlListType] {
-	return pulumix.Output[*TemplateSheetControlListType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSheetControlListTypePtrOutput) Elem() TemplateSheetControlListTypeOutput {
 	return o.ApplyT(func(v *TemplateSheetControlListType) TemplateSheetControlListType {
 		if v != nil {
@@ -60086,10 +54907,11 @@ func (o TemplateSheetControlListTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSheetControlListTypeInput is an input type that accepts TemplateSheetControlListTypeArgs and TemplateSheetControlListTypeOutput values.
-// You can construct a concrete instance of `TemplateSheetControlListTypeInput` via:
+// TemplateSheetControlListTypeInput is an input type that accepts values of the TemplateSheetControlListType enum
+// A concrete instance of `TemplateSheetControlListTypeInput` can be one of the following:
 //
-//	TemplateSheetControlListTypeArgs{...}
+//	TemplateSheetControlListTypeMultiSelect
+//	TemplateSheetControlListTypeSingleSelect
 type TemplateSheetControlListTypeInput interface {
 	pulumi.Input
 
@@ -60122,12 +54944,6 @@ func (in *templateSheetControlListTypePtr) ToTemplateSheetControlListTypePtrOutp
 
 func (in *templateSheetControlListTypePtr) ToTemplateSheetControlListTypePtrOutputWithContext(ctx context.Context) TemplateSheetControlListTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSheetControlListTypePtrOutput)
-}
-
-func (in *templateSheetControlListTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSheetControlListType] {
-	return pulumix.Output[*TemplateSheetControlListType]{
-		OutputState: in.ToTemplateSheetControlListTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSheetControlSliderType string
@@ -60197,12 +55013,6 @@ func (o TemplateSheetControlSliderTypeOutput) ToTemplateSheetControlSliderTypePt
 	}).(TemplateSheetControlSliderTypePtrOutput)
 }
 
-func (o TemplateSheetControlSliderTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSheetControlSliderType] {
-	return pulumix.Output[TemplateSheetControlSliderType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSheetControlSliderTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -60238,12 +55048,6 @@ func (o TemplateSheetControlSliderTypePtrOutput) ToTemplateSheetControlSliderTyp
 	return o
 }
 
-func (o TemplateSheetControlSliderTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSheetControlSliderType] {
-	return pulumix.Output[*TemplateSheetControlSliderType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSheetControlSliderTypePtrOutput) Elem() TemplateSheetControlSliderTypeOutput {
 	return o.ApplyT(func(v *TemplateSheetControlSliderType) TemplateSheetControlSliderType {
 		if v != nil {
@@ -60268,10 +55072,11 @@ func (o TemplateSheetControlSliderTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSheetControlSliderTypeInput is an input type that accepts TemplateSheetControlSliderTypeArgs and TemplateSheetControlSliderTypeOutput values.
-// You can construct a concrete instance of `TemplateSheetControlSliderTypeInput` via:
+// TemplateSheetControlSliderTypeInput is an input type that accepts values of the TemplateSheetControlSliderType enum
+// A concrete instance of `TemplateSheetControlSliderTypeInput` can be one of the following:
 //
-//	TemplateSheetControlSliderTypeArgs{...}
+//	TemplateSheetControlSliderTypeSinglePoint
+//	TemplateSheetControlSliderTypeRange
 type TemplateSheetControlSliderTypeInput interface {
 	pulumi.Input
 
@@ -60304,12 +55109,6 @@ func (in *templateSheetControlSliderTypePtr) ToTemplateSheetControlSliderTypePtr
 
 func (in *templateSheetControlSliderTypePtr) ToTemplateSheetControlSliderTypePtrOutputWithContext(ctx context.Context) TemplateSheetControlSliderTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSheetControlSliderTypePtrOutput)
-}
-
-func (in *templateSheetControlSliderTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSheetControlSliderType] {
-	return pulumix.Output[*TemplateSheetControlSliderType]{
-		OutputState: in.ToTemplateSheetControlSliderTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSimpleAttributeAggregationFunction string
@@ -60378,12 +55177,6 @@ func (o TemplateSimpleAttributeAggregationFunctionOutput) ToTemplateSimpleAttrib
 	}).(TemplateSimpleAttributeAggregationFunctionPtrOutput)
 }
 
-func (o TemplateSimpleAttributeAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSimpleAttributeAggregationFunction] {
-	return pulumix.Output[TemplateSimpleAttributeAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSimpleAttributeAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -60419,12 +55212,6 @@ func (o TemplateSimpleAttributeAggregationFunctionPtrOutput) ToTemplateSimpleAtt
 	return o
 }
 
-func (o TemplateSimpleAttributeAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSimpleAttributeAggregationFunction] {
-	return pulumix.Output[*TemplateSimpleAttributeAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSimpleAttributeAggregationFunctionPtrOutput) Elem() TemplateSimpleAttributeAggregationFunctionOutput {
 	return o.ApplyT(func(v *TemplateSimpleAttributeAggregationFunction) TemplateSimpleAttributeAggregationFunction {
 		if v != nil {
@@ -60449,10 +55236,10 @@ func (o TemplateSimpleAttributeAggregationFunctionPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSimpleAttributeAggregationFunctionInput is an input type that accepts TemplateSimpleAttributeAggregationFunctionArgs and TemplateSimpleAttributeAggregationFunctionOutput values.
-// You can construct a concrete instance of `TemplateSimpleAttributeAggregationFunctionInput` via:
+// TemplateSimpleAttributeAggregationFunctionInput is an input type that accepts values of the TemplateSimpleAttributeAggregationFunction enum
+// A concrete instance of `TemplateSimpleAttributeAggregationFunctionInput` can be one of the following:
 //
-//	TemplateSimpleAttributeAggregationFunctionArgs{...}
+//	TemplateSimpleAttributeAggregationFunctionUniqueValue
 type TemplateSimpleAttributeAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -60485,12 +55272,6 @@ func (in *templateSimpleAttributeAggregationFunctionPtr) ToTemplateSimpleAttribu
 
 func (in *templateSimpleAttributeAggregationFunctionPtr) ToTemplateSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateSimpleAttributeAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSimpleAttributeAggregationFunctionPtrOutput)
-}
-
-func (in *templateSimpleAttributeAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSimpleAttributeAggregationFunction] {
-	return pulumix.Output[*TemplateSimpleAttributeAggregationFunction]{
-		OutputState: in.ToTemplateSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSimpleNumericalAggregationFunction string
@@ -60569,12 +55350,6 @@ func (o TemplateSimpleNumericalAggregationFunctionOutput) ToTemplateSimpleNumeri
 	}).(TemplateSimpleNumericalAggregationFunctionPtrOutput)
 }
 
-func (o TemplateSimpleNumericalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSimpleNumericalAggregationFunction] {
-	return pulumix.Output[TemplateSimpleNumericalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSimpleNumericalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -60610,12 +55385,6 @@ func (o TemplateSimpleNumericalAggregationFunctionPtrOutput) ToTemplateSimpleNum
 	return o
 }
 
-func (o TemplateSimpleNumericalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSimpleNumericalAggregationFunction] {
-	return pulumix.Output[*TemplateSimpleNumericalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSimpleNumericalAggregationFunctionPtrOutput) Elem() TemplateSimpleNumericalAggregationFunctionOutput {
 	return o.ApplyT(func(v *TemplateSimpleNumericalAggregationFunction) TemplateSimpleNumericalAggregationFunction {
 		if v != nil {
@@ -60640,10 +55409,20 @@ func (o TemplateSimpleNumericalAggregationFunctionPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSimpleNumericalAggregationFunctionInput is an input type that accepts TemplateSimpleNumericalAggregationFunctionArgs and TemplateSimpleNumericalAggregationFunctionOutput values.
-// You can construct a concrete instance of `TemplateSimpleNumericalAggregationFunctionInput` via:
+// TemplateSimpleNumericalAggregationFunctionInput is an input type that accepts values of the TemplateSimpleNumericalAggregationFunction enum
+// A concrete instance of `TemplateSimpleNumericalAggregationFunctionInput` can be one of the following:
 //
-//	TemplateSimpleNumericalAggregationFunctionArgs{...}
+//	TemplateSimpleNumericalAggregationFunctionSum
+//	TemplateSimpleNumericalAggregationFunctionAverage
+//	TemplateSimpleNumericalAggregationFunctionMin
+//	TemplateSimpleNumericalAggregationFunctionMax
+//	TemplateSimpleNumericalAggregationFunctionCount
+//	TemplateSimpleNumericalAggregationFunctionDistinctCount
+//	TemplateSimpleNumericalAggregationFunctionVar
+//	TemplateSimpleNumericalAggregationFunctionVarp
+//	TemplateSimpleNumericalAggregationFunctionStdev
+//	TemplateSimpleNumericalAggregationFunctionStdevp
+//	TemplateSimpleNumericalAggregationFunctionMedian
 type TemplateSimpleNumericalAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -60676,12 +55455,6 @@ func (in *templateSimpleNumericalAggregationFunctionPtr) ToTemplateSimpleNumeric
 
 func (in *templateSimpleNumericalAggregationFunctionPtr) ToTemplateSimpleNumericalAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateSimpleNumericalAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSimpleNumericalAggregationFunctionPtrOutput)
-}
-
-func (in *templateSimpleNumericalAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSimpleNumericalAggregationFunction] {
-	return pulumix.Output[*TemplateSimpleNumericalAggregationFunction]{
-		OutputState: in.ToTemplateSimpleNumericalAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSimpleTotalAggregationFunction string
@@ -60755,12 +55528,6 @@ func (o TemplateSimpleTotalAggregationFunctionOutput) ToTemplateSimpleTotalAggre
 	}).(TemplateSimpleTotalAggregationFunctionPtrOutput)
 }
 
-func (o TemplateSimpleTotalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSimpleTotalAggregationFunction] {
-	return pulumix.Output[TemplateSimpleTotalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSimpleTotalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -60796,12 +55563,6 @@ func (o TemplateSimpleTotalAggregationFunctionPtrOutput) ToTemplateSimpleTotalAg
 	return o
 }
 
-func (o TemplateSimpleTotalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSimpleTotalAggregationFunction] {
-	return pulumix.Output[*TemplateSimpleTotalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSimpleTotalAggregationFunctionPtrOutput) Elem() TemplateSimpleTotalAggregationFunctionOutput {
 	return o.ApplyT(func(v *TemplateSimpleTotalAggregationFunction) TemplateSimpleTotalAggregationFunction {
 		if v != nil {
@@ -60826,10 +55587,15 @@ func (o TemplateSimpleTotalAggregationFunctionPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSimpleTotalAggregationFunctionInput is an input type that accepts TemplateSimpleTotalAggregationFunctionArgs and TemplateSimpleTotalAggregationFunctionOutput values.
-// You can construct a concrete instance of `TemplateSimpleTotalAggregationFunctionInput` via:
+// TemplateSimpleTotalAggregationFunctionInput is an input type that accepts values of the TemplateSimpleTotalAggregationFunction enum
+// A concrete instance of `TemplateSimpleTotalAggregationFunctionInput` can be one of the following:
 //
-//	TemplateSimpleTotalAggregationFunctionArgs{...}
+//	TemplateSimpleTotalAggregationFunctionDefault
+//	TemplateSimpleTotalAggregationFunctionSum
+//	TemplateSimpleTotalAggregationFunctionAverage
+//	TemplateSimpleTotalAggregationFunctionMin
+//	TemplateSimpleTotalAggregationFunctionMax
+//	TemplateSimpleTotalAggregationFunctionNone
 type TemplateSimpleTotalAggregationFunctionInput interface {
 	pulumi.Input
 
@@ -60862,12 +55628,6 @@ func (in *templateSimpleTotalAggregationFunctionPtr) ToTemplateSimpleTotalAggreg
 
 func (in *templateSimpleTotalAggregationFunctionPtr) ToTemplateSimpleTotalAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateSimpleTotalAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSimpleTotalAggregationFunctionPtrOutput)
-}
-
-func (in *templateSimpleTotalAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSimpleTotalAggregationFunction] {
-	return pulumix.Output[*TemplateSimpleTotalAggregationFunction]{
-		OutputState: in.ToTemplateSimpleTotalAggregationFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSmallMultiplesAxisPlacement string
@@ -60937,12 +55697,6 @@ func (o TemplateSmallMultiplesAxisPlacementOutput) ToTemplateSmallMultiplesAxisP
 	}).(TemplateSmallMultiplesAxisPlacementPtrOutput)
 }
 
-func (o TemplateSmallMultiplesAxisPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSmallMultiplesAxisPlacement] {
-	return pulumix.Output[TemplateSmallMultiplesAxisPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSmallMultiplesAxisPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -60978,12 +55732,6 @@ func (o TemplateSmallMultiplesAxisPlacementPtrOutput) ToTemplateSmallMultiplesAx
 	return o
 }
 
-func (o TemplateSmallMultiplesAxisPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSmallMultiplesAxisPlacement] {
-	return pulumix.Output[*TemplateSmallMultiplesAxisPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSmallMultiplesAxisPlacementPtrOutput) Elem() TemplateSmallMultiplesAxisPlacementOutput {
 	return o.ApplyT(func(v *TemplateSmallMultiplesAxisPlacement) TemplateSmallMultiplesAxisPlacement {
 		if v != nil {
@@ -61008,10 +55756,11 @@ func (o TemplateSmallMultiplesAxisPlacementPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSmallMultiplesAxisPlacementInput is an input type that accepts TemplateSmallMultiplesAxisPlacementArgs and TemplateSmallMultiplesAxisPlacementOutput values.
-// You can construct a concrete instance of `TemplateSmallMultiplesAxisPlacementInput` via:
+// TemplateSmallMultiplesAxisPlacementInput is an input type that accepts values of the TemplateSmallMultiplesAxisPlacement enum
+// A concrete instance of `TemplateSmallMultiplesAxisPlacementInput` can be one of the following:
 //
-//	TemplateSmallMultiplesAxisPlacementArgs{...}
+//	TemplateSmallMultiplesAxisPlacementOutside
+//	TemplateSmallMultiplesAxisPlacementInside
 type TemplateSmallMultiplesAxisPlacementInput interface {
 	pulumi.Input
 
@@ -61044,12 +55793,6 @@ func (in *templateSmallMultiplesAxisPlacementPtr) ToTemplateSmallMultiplesAxisPl
 
 func (in *templateSmallMultiplesAxisPlacementPtr) ToTemplateSmallMultiplesAxisPlacementPtrOutputWithContext(ctx context.Context) TemplateSmallMultiplesAxisPlacementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSmallMultiplesAxisPlacementPtrOutput)
-}
-
-func (in *templateSmallMultiplesAxisPlacementPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSmallMultiplesAxisPlacement] {
-	return pulumix.Output[*TemplateSmallMultiplesAxisPlacement]{
-		OutputState: in.ToTemplateSmallMultiplesAxisPlacementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSmallMultiplesAxisScale string
@@ -61119,12 +55862,6 @@ func (o TemplateSmallMultiplesAxisScaleOutput) ToTemplateSmallMultiplesAxisScale
 	}).(TemplateSmallMultiplesAxisScalePtrOutput)
 }
 
-func (o TemplateSmallMultiplesAxisScaleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSmallMultiplesAxisScale] {
-	return pulumix.Output[TemplateSmallMultiplesAxisScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSmallMultiplesAxisScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -61160,12 +55897,6 @@ func (o TemplateSmallMultiplesAxisScalePtrOutput) ToTemplateSmallMultiplesAxisSc
 	return o
 }
 
-func (o TemplateSmallMultiplesAxisScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSmallMultiplesAxisScale] {
-	return pulumix.Output[*TemplateSmallMultiplesAxisScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSmallMultiplesAxisScalePtrOutput) Elem() TemplateSmallMultiplesAxisScaleOutput {
 	return o.ApplyT(func(v *TemplateSmallMultiplesAxisScale) TemplateSmallMultiplesAxisScale {
 		if v != nil {
@@ -61190,10 +55921,11 @@ func (o TemplateSmallMultiplesAxisScalePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSmallMultiplesAxisScaleInput is an input type that accepts TemplateSmallMultiplesAxisScaleArgs and TemplateSmallMultiplesAxisScaleOutput values.
-// You can construct a concrete instance of `TemplateSmallMultiplesAxisScaleInput` via:
+// TemplateSmallMultiplesAxisScaleInput is an input type that accepts values of the TemplateSmallMultiplesAxisScale enum
+// A concrete instance of `TemplateSmallMultiplesAxisScaleInput` can be one of the following:
 //
-//	TemplateSmallMultiplesAxisScaleArgs{...}
+//	TemplateSmallMultiplesAxisScaleShared
+//	TemplateSmallMultiplesAxisScaleIndependent
 type TemplateSmallMultiplesAxisScaleInput interface {
 	pulumi.Input
 
@@ -61226,12 +55958,6 @@ func (in *templateSmallMultiplesAxisScalePtr) ToTemplateSmallMultiplesAxisScaleP
 
 func (in *templateSmallMultiplesAxisScalePtr) ToTemplateSmallMultiplesAxisScalePtrOutputWithContext(ctx context.Context) TemplateSmallMultiplesAxisScalePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSmallMultiplesAxisScalePtrOutput)
-}
-
-func (in *templateSmallMultiplesAxisScalePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSmallMultiplesAxisScale] {
-	return pulumix.Output[*TemplateSmallMultiplesAxisScale]{
-		OutputState: in.ToTemplateSmallMultiplesAxisScalePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSortDirection string
@@ -61301,12 +56027,6 @@ func (o TemplateSortDirectionOutput) ToTemplateSortDirectionPtrOutputWithContext
 	}).(TemplateSortDirectionPtrOutput)
 }
 
-func (o TemplateSortDirectionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSortDirection] {
-	return pulumix.Output[TemplateSortDirection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSortDirectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -61342,12 +56062,6 @@ func (o TemplateSortDirectionPtrOutput) ToTemplateSortDirectionPtrOutputWithCont
 	return o
 }
 
-func (o TemplateSortDirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSortDirection] {
-	return pulumix.Output[*TemplateSortDirection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSortDirectionPtrOutput) Elem() TemplateSortDirectionOutput {
 	return o.ApplyT(func(v *TemplateSortDirection) TemplateSortDirection {
 		if v != nil {
@@ -61372,10 +56086,11 @@ func (o TemplateSortDirectionPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSortDirectionInput is an input type that accepts TemplateSortDirectionArgs and TemplateSortDirectionOutput values.
-// You can construct a concrete instance of `TemplateSortDirectionInput` via:
+// TemplateSortDirectionInput is an input type that accepts values of the TemplateSortDirection enum
+// A concrete instance of `TemplateSortDirectionInput` can be one of the following:
 //
-//	TemplateSortDirectionArgs{...}
+//	TemplateSortDirectionAsc
+//	TemplateSortDirectionDesc
 type TemplateSortDirectionInput interface {
 	pulumi.Input
 
@@ -61408,12 +56123,6 @@ func (in *templateSortDirectionPtr) ToTemplateSortDirectionPtrOutput() TemplateS
 
 func (in *templateSortDirectionPtr) ToTemplateSortDirectionPtrOutputWithContext(ctx context.Context) TemplateSortDirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSortDirectionPtrOutput)
-}
-
-func (in *templateSortDirectionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSortDirection] {
-	return pulumix.Output[*TemplateSortDirection]{
-		OutputState: in.ToTemplateSortDirectionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateSpecialValue string
@@ -61484,12 +56193,6 @@ func (o TemplateSpecialValueOutput) ToTemplateSpecialValuePtrOutputWithContext(c
 	}).(TemplateSpecialValuePtrOutput)
 }
 
-func (o TemplateSpecialValueOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSpecialValue] {
-	return pulumix.Output[TemplateSpecialValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSpecialValueOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -61525,12 +56228,6 @@ func (o TemplateSpecialValuePtrOutput) ToTemplateSpecialValuePtrOutputWithContex
 	return o
 }
 
-func (o TemplateSpecialValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSpecialValue] {
-	return pulumix.Output[*TemplateSpecialValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSpecialValuePtrOutput) Elem() TemplateSpecialValueOutput {
 	return o.ApplyT(func(v *TemplateSpecialValue) TemplateSpecialValue {
 		if v != nil {
@@ -61555,10 +56252,12 @@ func (o TemplateSpecialValuePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateSpecialValueInput is an input type that accepts TemplateSpecialValueArgs and TemplateSpecialValueOutput values.
-// You can construct a concrete instance of `TemplateSpecialValueInput` via:
+// TemplateSpecialValueInput is an input type that accepts values of the TemplateSpecialValue enum
+// A concrete instance of `TemplateSpecialValueInput` can be one of the following:
 //
-//	TemplateSpecialValueArgs{...}
+//	TemplateSpecialValueEmpty
+//	TemplateSpecialValueNull
+//	TemplateSpecialValueOther
 type TemplateSpecialValueInput interface {
 	pulumi.Input
 
@@ -61591,12 +56290,6 @@ func (in *templateSpecialValuePtr) ToTemplateSpecialValuePtrOutput() TemplateSpe
 
 func (in *templateSpecialValuePtr) ToTemplateSpecialValuePtrOutputWithContext(ctx context.Context) TemplateSpecialValuePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSpecialValuePtrOutput)
-}
-
-func (in *templateSpecialValuePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateSpecialValue] {
-	return pulumix.Output[*TemplateSpecialValue]{
-		OutputState: in.ToTemplateSpecialValuePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateStyledCellType string
@@ -61667,12 +56360,6 @@ func (o TemplateStyledCellTypeOutput) ToTemplateStyledCellTypePtrOutputWithConte
 	}).(TemplateStyledCellTypePtrOutput)
 }
 
-func (o TemplateStyledCellTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateStyledCellType] {
-	return pulumix.Output[TemplateStyledCellType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateStyledCellTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -61708,12 +56395,6 @@ func (o TemplateStyledCellTypePtrOutput) ToTemplateStyledCellTypePtrOutputWithCo
 	return o
 }
 
-func (o TemplateStyledCellTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateStyledCellType] {
-	return pulumix.Output[*TemplateStyledCellType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateStyledCellTypePtrOutput) Elem() TemplateStyledCellTypeOutput {
 	return o.ApplyT(func(v *TemplateStyledCellType) TemplateStyledCellType {
 		if v != nil {
@@ -61738,10 +56419,12 @@ func (o TemplateStyledCellTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateStyledCellTypeInput is an input type that accepts TemplateStyledCellTypeArgs and TemplateStyledCellTypeOutput values.
-// You can construct a concrete instance of `TemplateStyledCellTypeInput` via:
+// TemplateStyledCellTypeInput is an input type that accepts values of the TemplateStyledCellType enum
+// A concrete instance of `TemplateStyledCellTypeInput` can be one of the following:
 //
-//	TemplateStyledCellTypeArgs{...}
+//	TemplateStyledCellTypeTotal
+//	TemplateStyledCellTypeMetricHeader
+//	TemplateStyledCellTypeValue
 type TemplateStyledCellTypeInput interface {
 	pulumi.Input
 
@@ -61774,12 +56457,6 @@ func (in *templateStyledCellTypePtr) ToTemplateStyledCellTypePtrOutput() Templat
 
 func (in *templateStyledCellTypePtr) ToTemplateStyledCellTypePtrOutputWithContext(ctx context.Context) TemplateStyledCellTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateStyledCellTypePtrOutput)
-}
-
-func (in *templateStyledCellTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateStyledCellType] {
-	return pulumix.Output[*TemplateStyledCellType]{
-		OutputState: in.ToTemplateStyledCellTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateTableBorderStyle string
@@ -61849,12 +56526,6 @@ func (o TemplateTableBorderStyleOutput) ToTemplateTableBorderStylePtrOutputWithC
 	}).(TemplateTableBorderStylePtrOutput)
 }
 
-func (o TemplateTableBorderStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTableBorderStyle] {
-	return pulumix.Output[TemplateTableBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableBorderStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -61890,12 +56561,6 @@ func (o TemplateTableBorderStylePtrOutput) ToTemplateTableBorderStylePtrOutputWi
 	return o
 }
 
-func (o TemplateTableBorderStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableBorderStyle] {
-	return pulumix.Output[*TemplateTableBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableBorderStylePtrOutput) Elem() TemplateTableBorderStyleOutput {
 	return o.ApplyT(func(v *TemplateTableBorderStyle) TemplateTableBorderStyle {
 		if v != nil {
@@ -61920,10 +56585,11 @@ func (o TemplateTableBorderStylePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateTableBorderStyleInput is an input type that accepts TemplateTableBorderStyleArgs and TemplateTableBorderStyleOutput values.
-// You can construct a concrete instance of `TemplateTableBorderStyleInput` via:
+// TemplateTableBorderStyleInput is an input type that accepts values of the TemplateTableBorderStyle enum
+// A concrete instance of `TemplateTableBorderStyleInput` can be one of the following:
 //
-//	TemplateTableBorderStyleArgs{...}
+//	TemplateTableBorderStyleNone
+//	TemplateTableBorderStyleSolid
 type TemplateTableBorderStyleInput interface {
 	pulumi.Input
 
@@ -61956,12 +56622,6 @@ func (in *templateTableBorderStylePtr) ToTemplateTableBorderStylePtrOutput() Tem
 
 func (in *templateTableBorderStylePtr) ToTemplateTableBorderStylePtrOutputWithContext(ctx context.Context) TemplateTableBorderStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTableBorderStylePtrOutput)
-}
-
-func (in *templateTableBorderStylePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableBorderStyle] {
-	return pulumix.Output[*TemplateTableBorderStyle]{
-		OutputState: in.ToTemplateTableBorderStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateTableCellImageScalingConfiguration string
@@ -62032,12 +56692,6 @@ func (o TemplateTableCellImageScalingConfigurationOutput) ToTemplateTableCellIma
 	}).(TemplateTableCellImageScalingConfigurationPtrOutput)
 }
 
-func (o TemplateTableCellImageScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTableCellImageScalingConfiguration] {
-	return pulumix.Output[TemplateTableCellImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableCellImageScalingConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -62073,12 +56727,6 @@ func (o TemplateTableCellImageScalingConfigurationPtrOutput) ToTemplateTableCell
 	return o
 }
 
-func (o TemplateTableCellImageScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableCellImageScalingConfiguration] {
-	return pulumix.Output[*TemplateTableCellImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableCellImageScalingConfigurationPtrOutput) Elem() TemplateTableCellImageScalingConfigurationOutput {
 	return o.ApplyT(func(v *TemplateTableCellImageScalingConfiguration) TemplateTableCellImageScalingConfiguration {
 		if v != nil {
@@ -62103,10 +56751,12 @@ func (o TemplateTableCellImageScalingConfigurationPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateTableCellImageScalingConfigurationInput is an input type that accepts TemplateTableCellImageScalingConfigurationArgs and TemplateTableCellImageScalingConfigurationOutput values.
-// You can construct a concrete instance of `TemplateTableCellImageScalingConfigurationInput` via:
+// TemplateTableCellImageScalingConfigurationInput is an input type that accepts values of the TemplateTableCellImageScalingConfiguration enum
+// A concrete instance of `TemplateTableCellImageScalingConfigurationInput` can be one of the following:
 //
-//	TemplateTableCellImageScalingConfigurationArgs{...}
+//	TemplateTableCellImageScalingConfigurationFitToCellHeight
+//	TemplateTableCellImageScalingConfigurationFitToCellWidth
+//	TemplateTableCellImageScalingConfigurationDoNotScale
 type TemplateTableCellImageScalingConfigurationInput interface {
 	pulumi.Input
 
@@ -62139,12 +56789,6 @@ func (in *templateTableCellImageScalingConfigurationPtr) ToTemplateTableCellImag
 
 func (in *templateTableCellImageScalingConfigurationPtr) ToTemplateTableCellImageScalingConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableCellImageScalingConfigurationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTableCellImageScalingConfigurationPtrOutput)
-}
-
-func (in *templateTableCellImageScalingConfigurationPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableCellImageScalingConfiguration] {
-	return pulumix.Output[*TemplateTableCellImageScalingConfiguration]{
-		OutputState: in.ToTemplateTableCellImageScalingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateTableFieldIconSetType string
@@ -62213,12 +56857,6 @@ func (o TemplateTableFieldIconSetTypeOutput) ToTemplateTableFieldIconSetTypePtrO
 	}).(TemplateTableFieldIconSetTypePtrOutput)
 }
 
-func (o TemplateTableFieldIconSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTableFieldIconSetType] {
-	return pulumix.Output[TemplateTableFieldIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableFieldIconSetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -62254,12 +56892,6 @@ func (o TemplateTableFieldIconSetTypePtrOutput) ToTemplateTableFieldIconSetTypeP
 	return o
 }
 
-func (o TemplateTableFieldIconSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableFieldIconSetType] {
-	return pulumix.Output[*TemplateTableFieldIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableFieldIconSetTypePtrOutput) Elem() TemplateTableFieldIconSetTypeOutput {
 	return o.ApplyT(func(v *TemplateTableFieldIconSetType) TemplateTableFieldIconSetType {
 		if v != nil {
@@ -62284,10 +56916,10 @@ func (o TemplateTableFieldIconSetTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateTableFieldIconSetTypeInput is an input type that accepts TemplateTableFieldIconSetTypeArgs and TemplateTableFieldIconSetTypeOutput values.
-// You can construct a concrete instance of `TemplateTableFieldIconSetTypeInput` via:
+// TemplateTableFieldIconSetTypeInput is an input type that accepts values of the TemplateTableFieldIconSetType enum
+// A concrete instance of `TemplateTableFieldIconSetTypeInput` can be one of the following:
 //
-//	TemplateTableFieldIconSetTypeArgs{...}
+//	TemplateTableFieldIconSetTypeLink
 type TemplateTableFieldIconSetTypeInput interface {
 	pulumi.Input
 
@@ -62320,12 +56952,6 @@ func (in *templateTableFieldIconSetTypePtr) ToTemplateTableFieldIconSetTypePtrOu
 
 func (in *templateTableFieldIconSetTypePtr) ToTemplateTableFieldIconSetTypePtrOutputWithContext(ctx context.Context) TemplateTableFieldIconSetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTableFieldIconSetTypePtrOutput)
-}
-
-func (in *templateTableFieldIconSetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableFieldIconSetType] {
-	return pulumix.Output[*TemplateTableFieldIconSetType]{
-		OutputState: in.ToTemplateTableFieldIconSetTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateTableOrientation string
@@ -62395,12 +57021,6 @@ func (o TemplateTableOrientationOutput) ToTemplateTableOrientationPtrOutputWithC
 	}).(TemplateTableOrientationPtrOutput)
 }
 
-func (o TemplateTableOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTableOrientation] {
-	return pulumix.Output[TemplateTableOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -62436,12 +57056,6 @@ func (o TemplateTableOrientationPtrOutput) ToTemplateTableOrientationPtrOutputWi
 	return o
 }
 
-func (o TemplateTableOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableOrientation] {
-	return pulumix.Output[*TemplateTableOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableOrientationPtrOutput) Elem() TemplateTableOrientationOutput {
 	return o.ApplyT(func(v *TemplateTableOrientation) TemplateTableOrientation {
 		if v != nil {
@@ -62466,10 +57080,11 @@ func (o TemplateTableOrientationPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateTableOrientationInput is an input type that accepts TemplateTableOrientationArgs and TemplateTableOrientationOutput values.
-// You can construct a concrete instance of `TemplateTableOrientationInput` via:
+// TemplateTableOrientationInput is an input type that accepts values of the TemplateTableOrientation enum
+// A concrete instance of `TemplateTableOrientationInput` can be one of the following:
 //
-//	TemplateTableOrientationArgs{...}
+//	TemplateTableOrientationVertical
+//	TemplateTableOrientationHorizontal
 type TemplateTableOrientationInput interface {
 	pulumi.Input
 
@@ -62502,12 +57117,6 @@ func (in *templateTableOrientationPtr) ToTemplateTableOrientationPtrOutput() Tem
 
 func (in *templateTableOrientationPtr) ToTemplateTableOrientationPtrOutputWithContext(ctx context.Context) TemplateTableOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTableOrientationPtrOutput)
-}
-
-func (in *templateTableOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableOrientation] {
-	return pulumix.Output[*TemplateTableOrientation]{
-		OutputState: in.ToTemplateTableOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateTableTotalsPlacement string
@@ -62578,12 +57187,6 @@ func (o TemplateTableTotalsPlacementOutput) ToTemplateTableTotalsPlacementPtrOut
 	}).(TemplateTableTotalsPlacementPtrOutput)
 }
 
-func (o TemplateTableTotalsPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTableTotalsPlacement] {
-	return pulumix.Output[TemplateTableTotalsPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableTotalsPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -62619,12 +57222,6 @@ func (o TemplateTableTotalsPlacementPtrOutput) ToTemplateTableTotalsPlacementPtr
 	return o
 }
 
-func (o TemplateTableTotalsPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableTotalsPlacement] {
-	return pulumix.Output[*TemplateTableTotalsPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableTotalsPlacementPtrOutput) Elem() TemplateTableTotalsPlacementOutput {
 	return o.ApplyT(func(v *TemplateTableTotalsPlacement) TemplateTableTotalsPlacement {
 		if v != nil {
@@ -62649,10 +57246,12 @@ func (o TemplateTableTotalsPlacementPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateTableTotalsPlacementInput is an input type that accepts TemplateTableTotalsPlacementArgs and TemplateTableTotalsPlacementOutput values.
-// You can construct a concrete instance of `TemplateTableTotalsPlacementInput` via:
+// TemplateTableTotalsPlacementInput is an input type that accepts values of the TemplateTableTotalsPlacement enum
+// A concrete instance of `TemplateTableTotalsPlacementInput` can be one of the following:
 //
-//	TemplateTableTotalsPlacementArgs{...}
+//	TemplateTableTotalsPlacementStart
+//	TemplateTableTotalsPlacementEnd
+//	TemplateTableTotalsPlacementAuto
 type TemplateTableTotalsPlacementInput interface {
 	pulumi.Input
 
@@ -62685,12 +57284,6 @@ func (in *templateTableTotalsPlacementPtr) ToTemplateTableTotalsPlacementPtrOutp
 
 func (in *templateTableTotalsPlacementPtr) ToTemplateTableTotalsPlacementPtrOutputWithContext(ctx context.Context) TemplateTableTotalsPlacementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTableTotalsPlacementPtrOutput)
-}
-
-func (in *templateTableTotalsPlacementPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableTotalsPlacement] {
-	return pulumix.Output[*TemplateTableTotalsPlacement]{
-		OutputState: in.ToTemplateTableTotalsPlacementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateTableTotalsScrollStatus string
@@ -62760,12 +57353,6 @@ func (o TemplateTableTotalsScrollStatusOutput) ToTemplateTableTotalsScrollStatus
 	}).(TemplateTableTotalsScrollStatusPtrOutput)
 }
 
-func (o TemplateTableTotalsScrollStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTableTotalsScrollStatus] {
-	return pulumix.Output[TemplateTableTotalsScrollStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableTotalsScrollStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -62801,12 +57388,6 @@ func (o TemplateTableTotalsScrollStatusPtrOutput) ToTemplateTableTotalsScrollSta
 	return o
 }
 
-func (o TemplateTableTotalsScrollStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableTotalsScrollStatus] {
-	return pulumix.Output[*TemplateTableTotalsScrollStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableTotalsScrollStatusPtrOutput) Elem() TemplateTableTotalsScrollStatusOutput {
 	return o.ApplyT(func(v *TemplateTableTotalsScrollStatus) TemplateTableTotalsScrollStatus {
 		if v != nil {
@@ -62831,10 +57412,11 @@ func (o TemplateTableTotalsScrollStatusPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateTableTotalsScrollStatusInput is an input type that accepts TemplateTableTotalsScrollStatusArgs and TemplateTableTotalsScrollStatusOutput values.
-// You can construct a concrete instance of `TemplateTableTotalsScrollStatusInput` via:
+// TemplateTableTotalsScrollStatusInput is an input type that accepts values of the TemplateTableTotalsScrollStatus enum
+// A concrete instance of `TemplateTableTotalsScrollStatusInput` can be one of the following:
 //
-//	TemplateTableTotalsScrollStatusArgs{...}
+//	TemplateTableTotalsScrollStatusPinned
+//	TemplateTableTotalsScrollStatusScrolled
 type TemplateTableTotalsScrollStatusInput interface {
 	pulumi.Input
 
@@ -62867,12 +57449,6 @@ func (in *templateTableTotalsScrollStatusPtr) ToTemplateTableTotalsScrollStatusP
 
 func (in *templateTableTotalsScrollStatusPtr) ToTemplateTableTotalsScrollStatusPtrOutputWithContext(ctx context.Context) TemplateTableTotalsScrollStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTableTotalsScrollStatusPtrOutput)
-}
-
-func (in *templateTableTotalsScrollStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableTotalsScrollStatus] {
-	return pulumix.Output[*TemplateTableTotalsScrollStatus]{
-		OutputState: in.ToTemplateTableTotalsScrollStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateTargetVisualOptions string
@@ -62941,12 +57517,6 @@ func (o TemplateTargetVisualOptionsOutput) ToTemplateTargetVisualOptionsPtrOutpu
 	}).(TemplateTargetVisualOptionsPtrOutput)
 }
 
-func (o TemplateTargetVisualOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTargetVisualOptions] {
-	return pulumix.Output[TemplateTargetVisualOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTargetVisualOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -62982,12 +57552,6 @@ func (o TemplateTargetVisualOptionsPtrOutput) ToTemplateTargetVisualOptionsPtrOu
 	return o
 }
 
-func (o TemplateTargetVisualOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTargetVisualOptions] {
-	return pulumix.Output[*TemplateTargetVisualOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTargetVisualOptionsPtrOutput) Elem() TemplateTargetVisualOptionsOutput {
 	return o.ApplyT(func(v *TemplateTargetVisualOptions) TemplateTargetVisualOptions {
 		if v != nil {
@@ -63012,10 +57576,10 @@ func (o TemplateTargetVisualOptionsPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateTargetVisualOptionsInput is an input type that accepts TemplateTargetVisualOptionsArgs and TemplateTargetVisualOptionsOutput values.
-// You can construct a concrete instance of `TemplateTargetVisualOptionsInput` via:
+// TemplateTargetVisualOptionsInput is an input type that accepts values of the TemplateTargetVisualOptions enum
+// A concrete instance of `TemplateTargetVisualOptionsInput` can be one of the following:
 //
-//	TemplateTargetVisualOptionsArgs{...}
+//	TemplateTargetVisualOptionsAllVisuals
 type TemplateTargetVisualOptionsInput interface {
 	pulumi.Input
 
@@ -63048,12 +57612,6 @@ func (in *templateTargetVisualOptionsPtr) ToTemplateTargetVisualOptionsPtrOutput
 
 func (in *templateTargetVisualOptionsPtr) ToTemplateTargetVisualOptionsPtrOutputWithContext(ctx context.Context) TemplateTargetVisualOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTargetVisualOptionsPtrOutput)
-}
-
-func (in *templateTargetVisualOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateTargetVisualOptions] {
-	return pulumix.Output[*TemplateTargetVisualOptions]{
-		OutputState: in.ToTemplateTargetVisualOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateTextWrap string
@@ -63123,12 +57681,6 @@ func (o TemplateTextWrapOutput) ToTemplateTextWrapPtrOutputWithContext(ctx conte
 	}).(TemplateTextWrapPtrOutput)
 }
 
-func (o TemplateTextWrapOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTextWrap] {
-	return pulumix.Output[TemplateTextWrap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTextWrapOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -63164,12 +57716,6 @@ func (o TemplateTextWrapPtrOutput) ToTemplateTextWrapPtrOutputWithContext(ctx co
 	return o
 }
 
-func (o TemplateTextWrapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTextWrap] {
-	return pulumix.Output[*TemplateTextWrap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTextWrapPtrOutput) Elem() TemplateTextWrapOutput {
 	return o.ApplyT(func(v *TemplateTextWrap) TemplateTextWrap {
 		if v != nil {
@@ -63194,10 +57740,11 @@ func (o TemplateTextWrapPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateTextWrapInput is an input type that accepts TemplateTextWrapArgs and TemplateTextWrapOutput values.
-// You can construct a concrete instance of `TemplateTextWrapInput` via:
+// TemplateTextWrapInput is an input type that accepts values of the TemplateTextWrap enum
+// A concrete instance of `TemplateTextWrapInput` can be one of the following:
 //
-//	TemplateTextWrapArgs{...}
+//	TemplateTextWrapNone
+//	TemplateTextWrapWrap
 type TemplateTextWrapInput interface {
 	pulumi.Input
 
@@ -63230,12 +57777,6 @@ func (in *templateTextWrapPtr) ToTemplateTextWrapPtrOutput() TemplateTextWrapPtr
 
 func (in *templateTextWrapPtr) ToTemplateTextWrapPtrOutputWithContext(ctx context.Context) TemplateTextWrapPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTextWrapPtrOutput)
-}
-
-func (in *templateTextWrapPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateTextWrap] {
-	return pulumix.Output[*TemplateTextWrap]{
-		OutputState: in.ToTemplateTextWrapPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateTimeGranularity string
@@ -63312,12 +57853,6 @@ func (o TemplateTimeGranularityOutput) ToTemplateTimeGranularityPtrOutputWithCon
 	}).(TemplateTimeGranularityPtrOutput)
 }
 
-func (o TemplateTimeGranularityOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTimeGranularity] {
-	return pulumix.Output[TemplateTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTimeGranularityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -63353,12 +57888,6 @@ func (o TemplateTimeGranularityPtrOutput) ToTemplateTimeGranularityPtrOutputWith
 	return o
 }
 
-func (o TemplateTimeGranularityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTimeGranularity] {
-	return pulumix.Output[*TemplateTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTimeGranularityPtrOutput) Elem() TemplateTimeGranularityOutput {
 	return o.ApplyT(func(v *TemplateTimeGranularity) TemplateTimeGranularity {
 		if v != nil {
@@ -63383,10 +57912,18 @@ func (o TemplateTimeGranularityPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateTimeGranularityInput is an input type that accepts TemplateTimeGranularityArgs and TemplateTimeGranularityOutput values.
-// You can construct a concrete instance of `TemplateTimeGranularityInput` via:
+// TemplateTimeGranularityInput is an input type that accepts values of the TemplateTimeGranularity enum
+// A concrete instance of `TemplateTimeGranularityInput` can be one of the following:
 //
-//	TemplateTimeGranularityArgs{...}
+//	TemplateTimeGranularityYear
+//	TemplateTimeGranularityQuarter
+//	TemplateTimeGranularityMonth
+//	TemplateTimeGranularityWeek
+//	TemplateTimeGranularityDay
+//	TemplateTimeGranularityHour
+//	TemplateTimeGranularityMinute
+//	TemplateTimeGranularitySecond
+//	TemplateTimeGranularityMillisecond
 type TemplateTimeGranularityInput interface {
 	pulumi.Input
 
@@ -63419,12 +57956,6 @@ func (in *templateTimeGranularityPtr) ToTemplateTimeGranularityPtrOutput() Templ
 
 func (in *templateTimeGranularityPtr) ToTemplateTimeGranularityPtrOutputWithContext(ctx context.Context) TemplateTimeGranularityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTimeGranularityPtrOutput)
-}
-
-func (in *templateTimeGranularityPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateTimeGranularity] {
-	return pulumix.Output[*TemplateTimeGranularity]{
-		OutputState: in.ToTemplateTimeGranularityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateTooltipTitleType string
@@ -63494,12 +58025,6 @@ func (o TemplateTooltipTitleTypeOutput) ToTemplateTooltipTitleTypePtrOutputWithC
 	}).(TemplateTooltipTitleTypePtrOutput)
 }
 
-func (o TemplateTooltipTitleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTooltipTitleType] {
-	return pulumix.Output[TemplateTooltipTitleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTooltipTitleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -63535,12 +58060,6 @@ func (o TemplateTooltipTitleTypePtrOutput) ToTemplateTooltipTitleTypePtrOutputWi
 	return o
 }
 
-func (o TemplateTooltipTitleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTooltipTitleType] {
-	return pulumix.Output[*TemplateTooltipTitleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTooltipTitleTypePtrOutput) Elem() TemplateTooltipTitleTypeOutput {
 	return o.ApplyT(func(v *TemplateTooltipTitleType) TemplateTooltipTitleType {
 		if v != nil {
@@ -63565,10 +58084,11 @@ func (o TemplateTooltipTitleTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateTooltipTitleTypeInput is an input type that accepts TemplateTooltipTitleTypeArgs and TemplateTooltipTitleTypeOutput values.
-// You can construct a concrete instance of `TemplateTooltipTitleTypeInput` via:
+// TemplateTooltipTitleTypeInput is an input type that accepts values of the TemplateTooltipTitleType enum
+// A concrete instance of `TemplateTooltipTitleTypeInput` can be one of the following:
 //
-//	TemplateTooltipTitleTypeArgs{...}
+//	TemplateTooltipTitleTypeNone
+//	TemplateTooltipTitleTypePrimaryValue
 type TemplateTooltipTitleTypeInput interface {
 	pulumi.Input
 
@@ -63601,12 +58121,6 @@ func (in *templateTooltipTitleTypePtr) ToTemplateTooltipTitleTypePtrOutput() Tem
 
 func (in *templateTooltipTitleTypePtr) ToTemplateTooltipTitleTypePtrOutputWithContext(ctx context.Context) TemplateTooltipTitleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTooltipTitleTypePtrOutput)
-}
-
-func (in *templateTooltipTitleTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateTooltipTitleType] {
-	return pulumix.Output[*TemplateTooltipTitleType]{
-		OutputState: in.ToTemplateTooltipTitleTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateTopBottomComputationType string
@@ -63676,12 +58190,6 @@ func (o TemplateTopBottomComputationTypeOutput) ToTemplateTopBottomComputationTy
 	}).(TemplateTopBottomComputationTypePtrOutput)
 }
 
-func (o TemplateTopBottomComputationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTopBottomComputationType] {
-	return pulumix.Output[TemplateTopBottomComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTopBottomComputationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -63717,12 +58225,6 @@ func (o TemplateTopBottomComputationTypePtrOutput) ToTemplateTopBottomComputatio
 	return o
 }
 
-func (o TemplateTopBottomComputationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTopBottomComputationType] {
-	return pulumix.Output[*TemplateTopBottomComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTopBottomComputationTypePtrOutput) Elem() TemplateTopBottomComputationTypeOutput {
 	return o.ApplyT(func(v *TemplateTopBottomComputationType) TemplateTopBottomComputationType {
 		if v != nil {
@@ -63747,10 +58249,11 @@ func (o TemplateTopBottomComputationTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateTopBottomComputationTypeInput is an input type that accepts TemplateTopBottomComputationTypeArgs and TemplateTopBottomComputationTypeOutput values.
-// You can construct a concrete instance of `TemplateTopBottomComputationTypeInput` via:
+// TemplateTopBottomComputationTypeInput is an input type that accepts values of the TemplateTopBottomComputationType enum
+// A concrete instance of `TemplateTopBottomComputationTypeInput` can be one of the following:
 //
-//	TemplateTopBottomComputationTypeArgs{...}
+//	TemplateTopBottomComputationTypeTop
+//	TemplateTopBottomComputationTypeBottom
 type TemplateTopBottomComputationTypeInput interface {
 	pulumi.Input
 
@@ -63783,12 +58286,6 @@ func (in *templateTopBottomComputationTypePtr) ToTemplateTopBottomComputationTyp
 
 func (in *templateTopBottomComputationTypePtr) ToTemplateTopBottomComputationTypePtrOutputWithContext(ctx context.Context) TemplateTopBottomComputationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTopBottomComputationTypePtrOutput)
-}
-
-func (in *templateTopBottomComputationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateTopBottomComputationType] {
-	return pulumix.Output[*TemplateTopBottomComputationType]{
-		OutputState: in.ToTemplateTopBottomComputationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateTopBottomSortOrder string
@@ -63858,12 +58355,6 @@ func (o TemplateTopBottomSortOrderOutput) ToTemplateTopBottomSortOrderPtrOutputW
 	}).(TemplateTopBottomSortOrderPtrOutput)
 }
 
-func (o TemplateTopBottomSortOrderOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTopBottomSortOrder] {
-	return pulumix.Output[TemplateTopBottomSortOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTopBottomSortOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -63899,12 +58390,6 @@ func (o TemplateTopBottomSortOrderPtrOutput) ToTemplateTopBottomSortOrderPtrOutp
 	return o
 }
 
-func (o TemplateTopBottomSortOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTopBottomSortOrder] {
-	return pulumix.Output[*TemplateTopBottomSortOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTopBottomSortOrderPtrOutput) Elem() TemplateTopBottomSortOrderOutput {
 	return o.ApplyT(func(v *TemplateTopBottomSortOrder) TemplateTopBottomSortOrder {
 		if v != nil {
@@ -63929,10 +58414,11 @@ func (o TemplateTopBottomSortOrderPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateTopBottomSortOrderInput is an input type that accepts TemplateTopBottomSortOrderArgs and TemplateTopBottomSortOrderOutput values.
-// You can construct a concrete instance of `TemplateTopBottomSortOrderInput` via:
+// TemplateTopBottomSortOrderInput is an input type that accepts values of the TemplateTopBottomSortOrder enum
+// A concrete instance of `TemplateTopBottomSortOrderInput` can be one of the following:
 //
-//	TemplateTopBottomSortOrderArgs{...}
+//	TemplateTopBottomSortOrderPercentDifference
+//	TemplateTopBottomSortOrderAbsoluteDifference
 type TemplateTopBottomSortOrderInput interface {
 	pulumi.Input
 
@@ -63965,12 +58451,6 @@ func (in *templateTopBottomSortOrderPtr) ToTemplateTopBottomSortOrderPtrOutput()
 
 func (in *templateTopBottomSortOrderPtr) ToTemplateTopBottomSortOrderPtrOutputWithContext(ctx context.Context) TemplateTopBottomSortOrderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTopBottomSortOrderPtrOutput)
-}
-
-func (in *templateTopBottomSortOrderPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateTopBottomSortOrder] {
-	return pulumix.Output[*TemplateTopBottomSortOrder]{
-		OutputState: in.ToTemplateTopBottomSortOrderPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateUrlTargetConfiguration string
@@ -64041,12 +58521,6 @@ func (o TemplateUrlTargetConfigurationOutput) ToTemplateUrlTargetConfigurationPt
 	}).(TemplateUrlTargetConfigurationPtrOutput)
 }
 
-func (o TemplateUrlTargetConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateUrlTargetConfiguration] {
-	return pulumix.Output[TemplateUrlTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateUrlTargetConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -64082,12 +58556,6 @@ func (o TemplateUrlTargetConfigurationPtrOutput) ToTemplateUrlTargetConfiguratio
 	return o
 }
 
-func (o TemplateUrlTargetConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateUrlTargetConfiguration] {
-	return pulumix.Output[*TemplateUrlTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateUrlTargetConfigurationPtrOutput) Elem() TemplateUrlTargetConfigurationOutput {
 	return o.ApplyT(func(v *TemplateUrlTargetConfiguration) TemplateUrlTargetConfiguration {
 		if v != nil {
@@ -64112,10 +58580,12 @@ func (o TemplateUrlTargetConfigurationPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateUrlTargetConfigurationInput is an input type that accepts TemplateUrlTargetConfigurationArgs and TemplateUrlTargetConfigurationOutput values.
-// You can construct a concrete instance of `TemplateUrlTargetConfigurationInput` via:
+// TemplateUrlTargetConfigurationInput is an input type that accepts values of the TemplateUrlTargetConfiguration enum
+// A concrete instance of `TemplateUrlTargetConfigurationInput` can be one of the following:
 //
-//	TemplateUrlTargetConfigurationArgs{...}
+//	TemplateUrlTargetConfigurationNewTab
+//	TemplateUrlTargetConfigurationNewWindow
+//	TemplateUrlTargetConfigurationSameTab
 type TemplateUrlTargetConfigurationInput interface {
 	pulumi.Input
 
@@ -64148,12 +58618,6 @@ func (in *templateUrlTargetConfigurationPtr) ToTemplateUrlTargetConfigurationPtr
 
 func (in *templateUrlTargetConfigurationPtr) ToTemplateUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) TemplateUrlTargetConfigurationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateUrlTargetConfigurationPtrOutput)
-}
-
-func (in *templateUrlTargetConfigurationPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateUrlTargetConfiguration] {
-	return pulumix.Output[*TemplateUrlTargetConfiguration]{
-		OutputState: in.ToTemplateUrlTargetConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateValidationStrategyMode string
@@ -64223,12 +58687,6 @@ func (o TemplateValidationStrategyModeOutput) ToTemplateValidationStrategyModePt
 	}).(TemplateValidationStrategyModePtrOutput)
 }
 
-func (o TemplateValidationStrategyModeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateValidationStrategyMode] {
-	return pulumix.Output[TemplateValidationStrategyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateValidationStrategyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -64264,12 +58722,6 @@ func (o TemplateValidationStrategyModePtrOutput) ToTemplateValidationStrategyMod
 	return o
 }
 
-func (o TemplateValidationStrategyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateValidationStrategyMode] {
-	return pulumix.Output[*TemplateValidationStrategyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateValidationStrategyModePtrOutput) Elem() TemplateValidationStrategyModeOutput {
 	return o.ApplyT(func(v *TemplateValidationStrategyMode) TemplateValidationStrategyMode {
 		if v != nil {
@@ -64294,10 +58746,11 @@ func (o TemplateValidationStrategyModePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateValidationStrategyModeInput is an input type that accepts TemplateValidationStrategyModeArgs and TemplateValidationStrategyModeOutput values.
-// You can construct a concrete instance of `TemplateValidationStrategyModeInput` via:
+// TemplateValidationStrategyModeInput is an input type that accepts values of the TemplateValidationStrategyMode enum
+// A concrete instance of `TemplateValidationStrategyModeInput` can be one of the following:
 //
-//	TemplateValidationStrategyModeArgs{...}
+//	TemplateValidationStrategyModeStrict
+//	TemplateValidationStrategyModeLenient
 type TemplateValidationStrategyModeInput interface {
 	pulumi.Input
 
@@ -64330,12 +58783,6 @@ func (in *templateValidationStrategyModePtr) ToTemplateValidationStrategyModePtr
 
 func (in *templateValidationStrategyModePtr) ToTemplateValidationStrategyModePtrOutputWithContext(ctx context.Context) TemplateValidationStrategyModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateValidationStrategyModePtrOutput)
-}
-
-func (in *templateValidationStrategyModePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateValidationStrategyMode] {
-	return pulumix.Output[*TemplateValidationStrategyMode]{
-		OutputState: in.ToTemplateValidationStrategyModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateValueWhenUnsetOption string
@@ -64405,12 +58852,6 @@ func (o TemplateValueWhenUnsetOptionOutput) ToTemplateValueWhenUnsetOptionPtrOut
 	}).(TemplateValueWhenUnsetOptionPtrOutput)
 }
 
-func (o TemplateValueWhenUnsetOptionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateValueWhenUnsetOption] {
-	return pulumix.Output[TemplateValueWhenUnsetOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateValueWhenUnsetOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -64446,12 +58887,6 @@ func (o TemplateValueWhenUnsetOptionPtrOutput) ToTemplateValueWhenUnsetOptionPtr
 	return o
 }
 
-func (o TemplateValueWhenUnsetOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateValueWhenUnsetOption] {
-	return pulumix.Output[*TemplateValueWhenUnsetOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateValueWhenUnsetOptionPtrOutput) Elem() TemplateValueWhenUnsetOptionOutput {
 	return o.ApplyT(func(v *TemplateValueWhenUnsetOption) TemplateValueWhenUnsetOption {
 		if v != nil {
@@ -64476,10 +58911,11 @@ func (o TemplateValueWhenUnsetOptionPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateValueWhenUnsetOptionInput is an input type that accepts TemplateValueWhenUnsetOptionArgs and TemplateValueWhenUnsetOptionOutput values.
-// You can construct a concrete instance of `TemplateValueWhenUnsetOptionInput` via:
+// TemplateValueWhenUnsetOptionInput is an input type that accepts values of the TemplateValueWhenUnsetOption enum
+// A concrete instance of `TemplateValueWhenUnsetOptionInput` can be one of the following:
 //
-//	TemplateValueWhenUnsetOptionArgs{...}
+//	TemplateValueWhenUnsetOptionRecommendedValue
+//	TemplateValueWhenUnsetOptionNull
 type TemplateValueWhenUnsetOptionInput interface {
 	pulumi.Input
 
@@ -64512,12 +58948,6 @@ func (in *templateValueWhenUnsetOptionPtr) ToTemplateValueWhenUnsetOptionPtrOutp
 
 func (in *templateValueWhenUnsetOptionPtr) ToTemplateValueWhenUnsetOptionPtrOutputWithContext(ctx context.Context) TemplateValueWhenUnsetOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateValueWhenUnsetOptionPtrOutput)
-}
-
-func (in *templateValueWhenUnsetOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateValueWhenUnsetOption] {
-	return pulumix.Output[*TemplateValueWhenUnsetOption]{
-		OutputState: in.ToTemplateValueWhenUnsetOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateVerticalTextAlignment string
@@ -64589,12 +59019,6 @@ func (o TemplateVerticalTextAlignmentOutput) ToTemplateVerticalTextAlignmentPtrO
 	}).(TemplateVerticalTextAlignmentPtrOutput)
 }
 
-func (o TemplateVerticalTextAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateVerticalTextAlignment] {
-	return pulumix.Output[TemplateVerticalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateVerticalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -64630,12 +59054,6 @@ func (o TemplateVerticalTextAlignmentPtrOutput) ToTemplateVerticalTextAlignmentP
 	return o
 }
 
-func (o TemplateVerticalTextAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateVerticalTextAlignment] {
-	return pulumix.Output[*TemplateVerticalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateVerticalTextAlignmentPtrOutput) Elem() TemplateVerticalTextAlignmentOutput {
 	return o.ApplyT(func(v *TemplateVerticalTextAlignment) TemplateVerticalTextAlignment {
 		if v != nil {
@@ -64660,10 +59078,13 @@ func (o TemplateVerticalTextAlignmentPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateVerticalTextAlignmentInput is an input type that accepts TemplateVerticalTextAlignmentArgs and TemplateVerticalTextAlignmentOutput values.
-// You can construct a concrete instance of `TemplateVerticalTextAlignmentInput` via:
+// TemplateVerticalTextAlignmentInput is an input type that accepts values of the TemplateVerticalTextAlignment enum
+// A concrete instance of `TemplateVerticalTextAlignmentInput` can be one of the following:
 //
-//	TemplateVerticalTextAlignmentArgs{...}
+//	TemplateVerticalTextAlignmentTop
+//	TemplateVerticalTextAlignmentMiddle
+//	TemplateVerticalTextAlignmentBottom
+//	TemplateVerticalTextAlignmentAuto
 type TemplateVerticalTextAlignmentInput interface {
 	pulumi.Input
 
@@ -64696,12 +59117,6 @@ func (in *templateVerticalTextAlignmentPtr) ToTemplateVerticalTextAlignmentPtrOu
 
 func (in *templateVerticalTextAlignmentPtr) ToTemplateVerticalTextAlignmentPtrOutputWithContext(ctx context.Context) TemplateVerticalTextAlignmentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateVerticalTextAlignmentPtrOutput)
-}
-
-func (in *templateVerticalTextAlignmentPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateVerticalTextAlignment] {
-	return pulumix.Output[*TemplateVerticalTextAlignment]{
-		OutputState: in.ToTemplateVerticalTextAlignmentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateVisibility string
@@ -64771,12 +59186,6 @@ func (o TemplateVisibilityOutput) ToTemplateVisibilityPtrOutputWithContext(ctx c
 	}).(TemplateVisibilityPtrOutput)
 }
 
-func (o TemplateVisibilityOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateVisibility] {
-	return pulumix.Output[TemplateVisibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateVisibilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -64812,12 +59221,6 @@ func (o TemplateVisibilityPtrOutput) ToTemplateVisibilityPtrOutputWithContext(ct
 	return o
 }
 
-func (o TemplateVisibilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateVisibility] {
-	return pulumix.Output[*TemplateVisibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateVisibilityPtrOutput) Elem() TemplateVisibilityOutput {
 	return o.ApplyT(func(v *TemplateVisibility) TemplateVisibility {
 		if v != nil {
@@ -64842,10 +59245,11 @@ func (o TemplateVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateVisibilityInput is an input type that accepts TemplateVisibilityArgs and TemplateVisibilityOutput values.
-// You can construct a concrete instance of `TemplateVisibilityInput` via:
+// TemplateVisibilityInput is an input type that accepts values of the TemplateVisibility enum
+// A concrete instance of `TemplateVisibilityInput` can be one of the following:
 //
-//	TemplateVisibilityArgs{...}
+//	TemplateVisibilityHidden
+//	TemplateVisibilityVisible
 type TemplateVisibilityInput interface {
 	pulumi.Input
 
@@ -64878,12 +59282,6 @@ func (in *templateVisibilityPtr) ToTemplateVisibilityPtrOutput() TemplateVisibil
 
 func (in *templateVisibilityPtr) ToTemplateVisibilityPtrOutputWithContext(ctx context.Context) TemplateVisibilityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateVisibilityPtrOutput)
-}
-
-func (in *templateVisibilityPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateVisibility] {
-	return pulumix.Output[*TemplateVisibility]{
-		OutputState: in.ToTemplateVisibilityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateVisualCustomActionTrigger string
@@ -64953,12 +59351,6 @@ func (o TemplateVisualCustomActionTriggerOutput) ToTemplateVisualCustomActionTri
 	}).(TemplateVisualCustomActionTriggerPtrOutput)
 }
 
-func (o TemplateVisualCustomActionTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateVisualCustomActionTrigger] {
-	return pulumix.Output[TemplateVisualCustomActionTrigger]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateVisualCustomActionTriggerOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -64994,12 +59386,6 @@ func (o TemplateVisualCustomActionTriggerPtrOutput) ToTemplateVisualCustomAction
 	return o
 }
 
-func (o TemplateVisualCustomActionTriggerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateVisualCustomActionTrigger] {
-	return pulumix.Output[*TemplateVisualCustomActionTrigger]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateVisualCustomActionTriggerPtrOutput) Elem() TemplateVisualCustomActionTriggerOutput {
 	return o.ApplyT(func(v *TemplateVisualCustomActionTrigger) TemplateVisualCustomActionTrigger {
 		if v != nil {
@@ -65024,10 +59410,11 @@ func (o TemplateVisualCustomActionTriggerPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateVisualCustomActionTriggerInput is an input type that accepts TemplateVisualCustomActionTriggerArgs and TemplateVisualCustomActionTriggerOutput values.
-// You can construct a concrete instance of `TemplateVisualCustomActionTriggerInput` via:
+// TemplateVisualCustomActionTriggerInput is an input type that accepts values of the TemplateVisualCustomActionTrigger enum
+// A concrete instance of `TemplateVisualCustomActionTriggerInput` can be one of the following:
 //
-//	TemplateVisualCustomActionTriggerArgs{...}
+//	TemplateVisualCustomActionTriggerDataPointClick
+//	TemplateVisualCustomActionTriggerDataPointMenu
 type TemplateVisualCustomActionTriggerInput interface {
 	pulumi.Input
 
@@ -65060,12 +59447,6 @@ func (in *templateVisualCustomActionTriggerPtr) ToTemplateVisualCustomActionTrig
 
 func (in *templateVisualCustomActionTriggerPtr) ToTemplateVisualCustomActionTriggerPtrOutputWithContext(ctx context.Context) TemplateVisualCustomActionTriggerPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateVisualCustomActionTriggerPtrOutput)
-}
-
-func (in *templateVisualCustomActionTriggerPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateVisualCustomActionTrigger] {
-	return pulumix.Output[*TemplateVisualCustomActionTrigger]{
-		OutputState: in.ToTemplateVisualCustomActionTriggerPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateWidgetStatus string
@@ -65135,12 +59516,6 @@ func (o TemplateWidgetStatusOutput) ToTemplateWidgetStatusPtrOutputWithContext(c
 	}).(TemplateWidgetStatusPtrOutput)
 }
 
-func (o TemplateWidgetStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateWidgetStatus] {
-	return pulumix.Output[TemplateWidgetStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWidgetStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -65176,12 +59551,6 @@ func (o TemplateWidgetStatusPtrOutput) ToTemplateWidgetStatusPtrOutputWithContex
 	return o
 }
 
-func (o TemplateWidgetStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateWidgetStatus] {
-	return pulumix.Output[*TemplateWidgetStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWidgetStatusPtrOutput) Elem() TemplateWidgetStatusOutput {
 	return o.ApplyT(func(v *TemplateWidgetStatus) TemplateWidgetStatus {
 		if v != nil {
@@ -65206,10 +59575,11 @@ func (o TemplateWidgetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateWidgetStatusInput is an input type that accepts TemplateWidgetStatusArgs and TemplateWidgetStatusOutput values.
-// You can construct a concrete instance of `TemplateWidgetStatusInput` via:
+// TemplateWidgetStatusInput is an input type that accepts values of the TemplateWidgetStatus enum
+// A concrete instance of `TemplateWidgetStatusInput` can be one of the following:
 //
-//	TemplateWidgetStatusArgs{...}
+//	TemplateWidgetStatusEnabled
+//	TemplateWidgetStatusDisabled
 type TemplateWidgetStatusInput interface {
 	pulumi.Input
 
@@ -65242,12 +59612,6 @@ func (in *templateWidgetStatusPtr) ToTemplateWidgetStatusPtrOutput() TemplateWid
 
 func (in *templateWidgetStatusPtr) ToTemplateWidgetStatusPtrOutputWithContext(ctx context.Context) TemplateWidgetStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateWidgetStatusPtrOutput)
-}
-
-func (in *templateWidgetStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateWidgetStatus] {
-	return pulumix.Output[*TemplateWidgetStatus]{
-		OutputState: in.ToTemplateWidgetStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateWordCloudCloudLayout string
@@ -65317,12 +59681,6 @@ func (o TemplateWordCloudCloudLayoutOutput) ToTemplateWordCloudCloudLayoutPtrOut
 	}).(TemplateWordCloudCloudLayoutPtrOutput)
 }
 
-func (o TemplateWordCloudCloudLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateWordCloudCloudLayout] {
-	return pulumix.Output[TemplateWordCloudCloudLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudCloudLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -65358,12 +59716,6 @@ func (o TemplateWordCloudCloudLayoutPtrOutput) ToTemplateWordCloudCloudLayoutPtr
 	return o
 }
 
-func (o TemplateWordCloudCloudLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudCloudLayout] {
-	return pulumix.Output[*TemplateWordCloudCloudLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudCloudLayoutPtrOutput) Elem() TemplateWordCloudCloudLayoutOutput {
 	return o.ApplyT(func(v *TemplateWordCloudCloudLayout) TemplateWordCloudCloudLayout {
 		if v != nil {
@@ -65388,10 +59740,11 @@ func (o TemplateWordCloudCloudLayoutPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateWordCloudCloudLayoutInput is an input type that accepts TemplateWordCloudCloudLayoutArgs and TemplateWordCloudCloudLayoutOutput values.
-// You can construct a concrete instance of `TemplateWordCloudCloudLayoutInput` via:
+// TemplateWordCloudCloudLayoutInput is an input type that accepts values of the TemplateWordCloudCloudLayout enum
+// A concrete instance of `TemplateWordCloudCloudLayoutInput` can be one of the following:
 //
-//	TemplateWordCloudCloudLayoutArgs{...}
+//	TemplateWordCloudCloudLayoutFluid
+//	TemplateWordCloudCloudLayoutNormal
 type TemplateWordCloudCloudLayoutInput interface {
 	pulumi.Input
 
@@ -65424,12 +59777,6 @@ func (in *templateWordCloudCloudLayoutPtr) ToTemplateWordCloudCloudLayoutPtrOutp
 
 func (in *templateWordCloudCloudLayoutPtr) ToTemplateWordCloudCloudLayoutPtrOutputWithContext(ctx context.Context) TemplateWordCloudCloudLayoutPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateWordCloudCloudLayoutPtrOutput)
-}
-
-func (in *templateWordCloudCloudLayoutPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudCloudLayout] {
-	return pulumix.Output[*TemplateWordCloudCloudLayout]{
-		OutputState: in.ToTemplateWordCloudCloudLayoutPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateWordCloudWordCasing string
@@ -65499,12 +59846,6 @@ func (o TemplateWordCloudWordCasingOutput) ToTemplateWordCloudWordCasingPtrOutpu
 	}).(TemplateWordCloudWordCasingPtrOutput)
 }
 
-func (o TemplateWordCloudWordCasingOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateWordCloudWordCasing] {
-	return pulumix.Output[TemplateWordCloudWordCasing]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudWordCasingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -65540,12 +59881,6 @@ func (o TemplateWordCloudWordCasingPtrOutput) ToTemplateWordCloudWordCasingPtrOu
 	return o
 }
 
-func (o TemplateWordCloudWordCasingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudWordCasing] {
-	return pulumix.Output[*TemplateWordCloudWordCasing]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudWordCasingPtrOutput) Elem() TemplateWordCloudWordCasingOutput {
 	return o.ApplyT(func(v *TemplateWordCloudWordCasing) TemplateWordCloudWordCasing {
 		if v != nil {
@@ -65570,10 +59905,11 @@ func (o TemplateWordCloudWordCasingPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateWordCloudWordCasingInput is an input type that accepts TemplateWordCloudWordCasingArgs and TemplateWordCloudWordCasingOutput values.
-// You can construct a concrete instance of `TemplateWordCloudWordCasingInput` via:
+// TemplateWordCloudWordCasingInput is an input type that accepts values of the TemplateWordCloudWordCasing enum
+// A concrete instance of `TemplateWordCloudWordCasingInput` can be one of the following:
 //
-//	TemplateWordCloudWordCasingArgs{...}
+//	TemplateWordCloudWordCasingLowerCase
+//	TemplateWordCloudWordCasingExistingCase
 type TemplateWordCloudWordCasingInput interface {
 	pulumi.Input
 
@@ -65606,12 +59942,6 @@ func (in *templateWordCloudWordCasingPtr) ToTemplateWordCloudWordCasingPtrOutput
 
 func (in *templateWordCloudWordCasingPtr) ToTemplateWordCloudWordCasingPtrOutputWithContext(ctx context.Context) TemplateWordCloudWordCasingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateWordCloudWordCasingPtrOutput)
-}
-
-func (in *templateWordCloudWordCasingPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudWordCasing] {
-	return pulumix.Output[*TemplateWordCloudWordCasing]{
-		OutputState: in.ToTemplateWordCloudWordCasingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateWordCloudWordOrientation string
@@ -65681,12 +60011,6 @@ func (o TemplateWordCloudWordOrientationOutput) ToTemplateWordCloudWordOrientati
 	}).(TemplateWordCloudWordOrientationPtrOutput)
 }
 
-func (o TemplateWordCloudWordOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateWordCloudWordOrientation] {
-	return pulumix.Output[TemplateWordCloudWordOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudWordOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -65722,12 +60046,6 @@ func (o TemplateWordCloudWordOrientationPtrOutput) ToTemplateWordCloudWordOrient
 	return o
 }
 
-func (o TemplateWordCloudWordOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudWordOrientation] {
-	return pulumix.Output[*TemplateWordCloudWordOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudWordOrientationPtrOutput) Elem() TemplateWordCloudWordOrientationOutput {
 	return o.ApplyT(func(v *TemplateWordCloudWordOrientation) TemplateWordCloudWordOrientation {
 		if v != nil {
@@ -65752,10 +60070,11 @@ func (o TemplateWordCloudWordOrientationPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateWordCloudWordOrientationInput is an input type that accepts TemplateWordCloudWordOrientationArgs and TemplateWordCloudWordOrientationOutput values.
-// You can construct a concrete instance of `TemplateWordCloudWordOrientationInput` via:
+// TemplateWordCloudWordOrientationInput is an input type that accepts values of the TemplateWordCloudWordOrientation enum
+// A concrete instance of `TemplateWordCloudWordOrientationInput` can be one of the following:
 //
-//	TemplateWordCloudWordOrientationArgs{...}
+//	TemplateWordCloudWordOrientationHorizontal
+//	TemplateWordCloudWordOrientationHorizontalAndVertical
 type TemplateWordCloudWordOrientationInput interface {
 	pulumi.Input
 
@@ -65788,12 +60107,6 @@ func (in *templateWordCloudWordOrientationPtr) ToTemplateWordCloudWordOrientatio
 
 func (in *templateWordCloudWordOrientationPtr) ToTemplateWordCloudWordOrientationPtrOutputWithContext(ctx context.Context) TemplateWordCloudWordOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateWordCloudWordOrientationPtrOutput)
-}
-
-func (in *templateWordCloudWordOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudWordOrientation] {
-	return pulumix.Output[*TemplateWordCloudWordOrientation]{
-		OutputState: in.ToTemplateWordCloudWordOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateWordCloudWordPadding string
@@ -65865,12 +60178,6 @@ func (o TemplateWordCloudWordPaddingOutput) ToTemplateWordCloudWordPaddingPtrOut
 	}).(TemplateWordCloudWordPaddingPtrOutput)
 }
 
-func (o TemplateWordCloudWordPaddingOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateWordCloudWordPadding] {
-	return pulumix.Output[TemplateWordCloudWordPadding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudWordPaddingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -65906,12 +60213,6 @@ func (o TemplateWordCloudWordPaddingPtrOutput) ToTemplateWordCloudWordPaddingPtr
 	return o
 }
 
-func (o TemplateWordCloudWordPaddingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudWordPadding] {
-	return pulumix.Output[*TemplateWordCloudWordPadding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudWordPaddingPtrOutput) Elem() TemplateWordCloudWordPaddingOutput {
 	return o.ApplyT(func(v *TemplateWordCloudWordPadding) TemplateWordCloudWordPadding {
 		if v != nil {
@@ -65936,10 +60237,13 @@ func (o TemplateWordCloudWordPaddingPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateWordCloudWordPaddingInput is an input type that accepts TemplateWordCloudWordPaddingArgs and TemplateWordCloudWordPaddingOutput values.
-// You can construct a concrete instance of `TemplateWordCloudWordPaddingInput` via:
+// TemplateWordCloudWordPaddingInput is an input type that accepts values of the TemplateWordCloudWordPadding enum
+// A concrete instance of `TemplateWordCloudWordPaddingInput` can be one of the following:
 //
-//	TemplateWordCloudWordPaddingArgs{...}
+//	TemplateWordCloudWordPaddingNone
+//	TemplateWordCloudWordPaddingSmall
+//	TemplateWordCloudWordPaddingMedium
+//	TemplateWordCloudWordPaddingLarge
 type TemplateWordCloudWordPaddingInput interface {
 	pulumi.Input
 
@@ -65972,12 +60276,6 @@ func (in *templateWordCloudWordPaddingPtr) ToTemplateWordCloudWordPaddingPtrOutp
 
 func (in *templateWordCloudWordPaddingPtr) ToTemplateWordCloudWordPaddingPtrOutputWithContext(ctx context.Context) TemplateWordCloudWordPaddingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateWordCloudWordPaddingPtrOutput)
-}
-
-func (in *templateWordCloudWordPaddingPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudWordPadding] {
-	return pulumix.Output[*TemplateWordCloudWordPadding]{
-		OutputState: in.ToTemplateWordCloudWordPaddingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TemplateWordCloudWordScaling string
@@ -66047,12 +60345,6 @@ func (o TemplateWordCloudWordScalingOutput) ToTemplateWordCloudWordScalingPtrOut
 	}).(TemplateWordCloudWordScalingPtrOutput)
 }
 
-func (o TemplateWordCloudWordScalingOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateWordCloudWordScaling] {
-	return pulumix.Output[TemplateWordCloudWordScaling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudWordScalingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -66088,12 +60380,6 @@ func (o TemplateWordCloudWordScalingPtrOutput) ToTemplateWordCloudWordScalingPtr
 	return o
 }
 
-func (o TemplateWordCloudWordScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudWordScaling] {
-	return pulumix.Output[*TemplateWordCloudWordScaling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudWordScalingPtrOutput) Elem() TemplateWordCloudWordScalingOutput {
 	return o.ApplyT(func(v *TemplateWordCloudWordScaling) TemplateWordCloudWordScaling {
 		if v != nil {
@@ -66118,10 +60404,11 @@ func (o TemplateWordCloudWordScalingPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateWordCloudWordScalingInput is an input type that accepts TemplateWordCloudWordScalingArgs and TemplateWordCloudWordScalingOutput values.
-// You can construct a concrete instance of `TemplateWordCloudWordScalingInput` via:
+// TemplateWordCloudWordScalingInput is an input type that accepts values of the TemplateWordCloudWordScaling enum
+// A concrete instance of `TemplateWordCloudWordScalingInput` can be one of the following:
 //
-//	TemplateWordCloudWordScalingArgs{...}
+//	TemplateWordCloudWordScalingEmphasize
+//	TemplateWordCloudWordScalingNormal
 type TemplateWordCloudWordScalingInput interface {
 	pulumi.Input
 
@@ -66156,12 +60443,6 @@ func (in *templateWordCloudWordScalingPtr) ToTemplateWordCloudWordScalingPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateWordCloudWordScalingPtrOutput)
 }
 
-func (in *templateWordCloudWordScalingPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudWordScaling] {
-	return pulumix.Output[*TemplateWordCloudWordScaling]{
-		OutputState: in.ToTemplateWordCloudWordScalingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeErrorType string
 
 const (
@@ -66190,12 +60471,6 @@ func (o ThemeErrorTypeOutput) ToThemeErrorTypePtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeErrorType) *ThemeErrorType {
 		return &v
 	}).(ThemeErrorTypePtrOutput)
-}
-
-func (o ThemeErrorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeErrorType] {
-	return pulumix.Output[ThemeErrorType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeErrorTypeOutput) ToStringOutput() pulumi.StringOutput {
@@ -66231,12 +60506,6 @@ func (o ThemeErrorTypePtrOutput) ToThemeErrorTypePtrOutput() ThemeErrorTypePtrOu
 
 func (o ThemeErrorTypePtrOutput) ToThemeErrorTypePtrOutputWithContext(ctx context.Context) ThemeErrorTypePtrOutput {
 	return o
-}
-
-func (o ThemeErrorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeErrorType] {
-	return pulumix.Output[*ThemeErrorType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeErrorTypePtrOutput) Elem() ThemeErrorTypeOutput {
@@ -66299,12 +60568,6 @@ func (o ThemeResourceStatusOutput) ToThemeResourceStatusPtrOutputWithContext(ctx
 	}).(ThemeResourceStatusPtrOutput)
 }
 
-func (o ThemeResourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeResourceStatus] {
-	return pulumix.Output[ThemeResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -66338,12 +60601,6 @@ func (o ThemeResourceStatusPtrOutput) ToThemeResourceStatusPtrOutput() ThemeReso
 
 func (o ThemeResourceStatusPtrOutput) ToThemeResourceStatusPtrOutputWithContext(ctx context.Context) ThemeResourceStatusPtrOutput {
 	return o
-}
-
-func (o ThemeResourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeResourceStatus] {
-	return pulumix.Output[*ThemeResourceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeResourceStatusPtrOutput) Elem() ThemeResourceStatusOutput {
@@ -66402,12 +60659,6 @@ func (o ThemeTypeOutput) ToThemeTypePtrOutputWithContext(ctx context.Context) Th
 	}).(ThemeTypePtrOutput)
 }
 
-func (o ThemeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeType] {
-	return pulumix.Output[ThemeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -66441,12 +60692,6 @@ func (o ThemeTypePtrOutput) ToThemeTypePtrOutput() ThemeTypePtrOutput {
 
 func (o ThemeTypePtrOutput) ToThemeTypePtrOutputWithContext(ctx context.Context) ThemeTypePtrOutput {
 	return o
-}
-
-func (o ThemeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeType] {
-	return pulumix.Output[*ThemeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeTypePtrOutput) Elem() ThemeTypeOutput {
@@ -66550,12 +60795,6 @@ func (o TopicAuthorSpecifiedAggregationOutput) ToTopicAuthorSpecifiedAggregation
 	}).(TopicAuthorSpecifiedAggregationPtrOutput)
 }
 
-func (o TopicAuthorSpecifiedAggregationOutput) ToOutput(ctx context.Context) pulumix.Output[TopicAuthorSpecifiedAggregation] {
-	return pulumix.Output[TopicAuthorSpecifiedAggregation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicAuthorSpecifiedAggregationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -66591,12 +60830,6 @@ func (o TopicAuthorSpecifiedAggregationPtrOutput) ToTopicAuthorSpecifiedAggregat
 	return o
 }
 
-func (o TopicAuthorSpecifiedAggregationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicAuthorSpecifiedAggregation] {
-	return pulumix.Output[*TopicAuthorSpecifiedAggregation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicAuthorSpecifiedAggregationPtrOutput) Elem() TopicAuthorSpecifiedAggregationOutput {
 	return o.ApplyT(func(v *TopicAuthorSpecifiedAggregation) TopicAuthorSpecifiedAggregation {
 		if v != nil {
@@ -66621,10 +60854,21 @@ func (o TopicAuthorSpecifiedAggregationPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicAuthorSpecifiedAggregationInput is an input type that accepts TopicAuthorSpecifiedAggregationArgs and TopicAuthorSpecifiedAggregationOutput values.
-// You can construct a concrete instance of `TopicAuthorSpecifiedAggregationInput` via:
+// TopicAuthorSpecifiedAggregationInput is an input type that accepts values of the TopicAuthorSpecifiedAggregation enum
+// A concrete instance of `TopicAuthorSpecifiedAggregationInput` can be one of the following:
 //
-//	TopicAuthorSpecifiedAggregationArgs{...}
+//	TopicAuthorSpecifiedAggregationCount
+//	TopicAuthorSpecifiedAggregationDistinctCount
+//	TopicAuthorSpecifiedAggregationMin
+//	TopicAuthorSpecifiedAggregationMax
+//	TopicAuthorSpecifiedAggregationMedian
+//	TopicAuthorSpecifiedAggregationSum
+//	TopicAuthorSpecifiedAggregationAverage
+//	TopicAuthorSpecifiedAggregationStdev
+//	TopicAuthorSpecifiedAggregationStdevp
+//	TopicAuthorSpecifiedAggregationVar
+//	TopicAuthorSpecifiedAggregationVarp
+//	TopicAuthorSpecifiedAggregationPercentile
 type TopicAuthorSpecifiedAggregationInput interface {
 	pulumi.Input
 
@@ -66659,12 +60903,6 @@ func (in *topicAuthorSpecifiedAggregationPtr) ToTopicAuthorSpecifiedAggregationP
 	return pulumi.ToOutputWithContext(ctx, in).(TopicAuthorSpecifiedAggregationPtrOutput)
 }
 
-func (in *topicAuthorSpecifiedAggregationPtr) ToOutput(ctx context.Context) pulumix.Output[*TopicAuthorSpecifiedAggregation] {
-	return pulumix.Output[*TopicAuthorSpecifiedAggregation]{
-		OutputState: in.ToTopicAuthorSpecifiedAggregationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicAuthorSpecifiedAggregationArrayInput is an input type that accepts TopicAuthorSpecifiedAggregationArray and TopicAuthorSpecifiedAggregationArrayOutput values.
 // You can construct a concrete instance of `TopicAuthorSpecifiedAggregationArrayInput` via:
 //
@@ -66690,12 +60928,6 @@ func (i TopicAuthorSpecifiedAggregationArray) ToTopicAuthorSpecifiedAggregationA
 	return pulumi.ToOutputWithContext(ctx, i).(TopicAuthorSpecifiedAggregationArrayOutput)
 }
 
-func (i TopicAuthorSpecifiedAggregationArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicAuthorSpecifiedAggregation] {
-	return pulumix.Output[[]TopicAuthorSpecifiedAggregation]{
-		OutputState: i.ToTopicAuthorSpecifiedAggregationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicAuthorSpecifiedAggregationArrayOutput struct{ *pulumi.OutputState }
 
 func (TopicAuthorSpecifiedAggregationArrayOutput) ElementType() reflect.Type {
@@ -66708,12 +60940,6 @@ func (o TopicAuthorSpecifiedAggregationArrayOutput) ToTopicAuthorSpecifiedAggreg
 
 func (o TopicAuthorSpecifiedAggregationArrayOutput) ToTopicAuthorSpecifiedAggregationArrayOutputWithContext(ctx context.Context) TopicAuthorSpecifiedAggregationArrayOutput {
 	return o
-}
-
-func (o TopicAuthorSpecifiedAggregationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicAuthorSpecifiedAggregation] {
-	return pulumix.Output[[]TopicAuthorSpecifiedAggregation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicAuthorSpecifiedAggregationArrayOutput) Index(i pulumi.IntInput) TopicAuthorSpecifiedAggregationOutput {
@@ -66789,12 +61015,6 @@ func (o TopicCategoryFilterFunctionOutput) ToTopicCategoryFilterFunctionPtrOutpu
 	}).(TopicCategoryFilterFunctionPtrOutput)
 }
 
-func (o TopicCategoryFilterFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCategoryFilterFunction] {
-	return pulumix.Output[TopicCategoryFilterFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicCategoryFilterFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -66830,12 +61050,6 @@ func (o TopicCategoryFilterFunctionPtrOutput) ToTopicCategoryFilterFunctionPtrOu
 	return o
 }
 
-func (o TopicCategoryFilterFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilterFunction] {
-	return pulumix.Output[*TopicCategoryFilterFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicCategoryFilterFunctionPtrOutput) Elem() TopicCategoryFilterFunctionOutput {
 	return o.ApplyT(func(v *TopicCategoryFilterFunction) TopicCategoryFilterFunction {
 		if v != nil {
@@ -66860,10 +61074,11 @@ func (o TopicCategoryFilterFunctionPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicCategoryFilterFunctionInput is an input type that accepts TopicCategoryFilterFunctionArgs and TopicCategoryFilterFunctionOutput values.
-// You can construct a concrete instance of `TopicCategoryFilterFunctionInput` via:
+// TopicCategoryFilterFunctionInput is an input type that accepts values of the TopicCategoryFilterFunction enum
+// A concrete instance of `TopicCategoryFilterFunctionInput` can be one of the following:
 //
-//	TopicCategoryFilterFunctionArgs{...}
+//	TopicCategoryFilterFunctionExact
+//	TopicCategoryFilterFunctionContains
 type TopicCategoryFilterFunctionInput interface {
 	pulumi.Input
 
@@ -66896,12 +61111,6 @@ func (in *topicCategoryFilterFunctionPtr) ToTopicCategoryFilterFunctionPtrOutput
 
 func (in *topicCategoryFilterFunctionPtr) ToTopicCategoryFilterFunctionPtrOutputWithContext(ctx context.Context) TopicCategoryFilterFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicCategoryFilterFunctionPtrOutput)
-}
-
-func (in *topicCategoryFilterFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilterFunction] {
-	return pulumix.Output[*TopicCategoryFilterFunction]{
-		OutputState: in.ToTopicCategoryFilterFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicCategoryFilterType string
@@ -66972,12 +61181,6 @@ func (o TopicCategoryFilterTypeOutput) ToTopicCategoryFilterTypePtrOutputWithCon
 	}).(TopicCategoryFilterTypePtrOutput)
 }
 
-func (o TopicCategoryFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCategoryFilterType] {
-	return pulumix.Output[TopicCategoryFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicCategoryFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -67013,12 +61216,6 @@ func (o TopicCategoryFilterTypePtrOutput) ToTopicCategoryFilterTypePtrOutputWith
 	return o
 }
 
-func (o TopicCategoryFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilterType] {
-	return pulumix.Output[*TopicCategoryFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicCategoryFilterTypePtrOutput) Elem() TopicCategoryFilterTypeOutput {
 	return o.ApplyT(func(v *TopicCategoryFilterType) TopicCategoryFilterType {
 		if v != nil {
@@ -67043,10 +61240,12 @@ func (o TopicCategoryFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicCategoryFilterTypeInput is an input type that accepts TopicCategoryFilterTypeArgs and TopicCategoryFilterTypeOutput values.
-// You can construct a concrete instance of `TopicCategoryFilterTypeInput` via:
+// TopicCategoryFilterTypeInput is an input type that accepts values of the TopicCategoryFilterType enum
+// A concrete instance of `TopicCategoryFilterTypeInput` can be one of the following:
 //
-//	TopicCategoryFilterTypeArgs{...}
+//	TopicCategoryFilterTypeCustomFilter
+//	TopicCategoryFilterTypeCustomFilterList
+//	TopicCategoryFilterTypeFilterList
 type TopicCategoryFilterTypeInput interface {
 	pulumi.Input
 
@@ -67079,12 +61278,6 @@ func (in *topicCategoryFilterTypePtr) ToTopicCategoryFilterTypePtrOutput() Topic
 
 func (in *topicCategoryFilterTypePtr) ToTopicCategoryFilterTypePtrOutputWithContext(ctx context.Context) TopicCategoryFilterTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicCategoryFilterTypePtrOutput)
-}
-
-func (in *topicCategoryFilterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilterType] {
-	return pulumix.Output[*TopicCategoryFilterType]{
-		OutputState: in.ToTopicCategoryFilterTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicColumnDataRole string
@@ -67154,12 +61347,6 @@ func (o TopicColumnDataRoleOutput) ToTopicColumnDataRolePtrOutputWithContext(ctx
 	}).(TopicColumnDataRolePtrOutput)
 }
 
-func (o TopicColumnDataRoleOutput) ToOutput(ctx context.Context) pulumix.Output[TopicColumnDataRole] {
-	return pulumix.Output[TopicColumnDataRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicColumnDataRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -67195,12 +61382,6 @@ func (o TopicColumnDataRolePtrOutput) ToTopicColumnDataRolePtrOutputWithContext(
 	return o
 }
 
-func (o TopicColumnDataRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicColumnDataRole] {
-	return pulumix.Output[*TopicColumnDataRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicColumnDataRolePtrOutput) Elem() TopicColumnDataRoleOutput {
 	return o.ApplyT(func(v *TopicColumnDataRole) TopicColumnDataRole {
 		if v != nil {
@@ -67225,10 +61406,11 @@ func (o TopicColumnDataRolePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicColumnDataRoleInput is an input type that accepts TopicColumnDataRoleArgs and TopicColumnDataRoleOutput values.
-// You can construct a concrete instance of `TopicColumnDataRoleInput` via:
+// TopicColumnDataRoleInput is an input type that accepts values of the TopicColumnDataRole enum
+// A concrete instance of `TopicColumnDataRoleInput` can be one of the following:
 //
-//	TopicColumnDataRoleArgs{...}
+//	TopicColumnDataRoleDimension
+//	TopicColumnDataRoleMeasure
 type TopicColumnDataRoleInput interface {
 	pulumi.Input
 
@@ -67261,12 +61443,6 @@ func (in *topicColumnDataRolePtr) ToTopicColumnDataRolePtrOutput() TopicColumnDa
 
 func (in *topicColumnDataRolePtr) ToTopicColumnDataRolePtrOutputWithContext(ctx context.Context) TopicColumnDataRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicColumnDataRolePtrOutput)
-}
-
-func (in *topicColumnDataRolePtr) ToOutput(ctx context.Context) pulumix.Output[*TopicColumnDataRole] {
-	return pulumix.Output[*TopicColumnDataRole]{
-		OutputState: in.ToTopicColumnDataRolePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicColumnOrderingType string
@@ -67337,12 +61513,6 @@ func (o TopicColumnOrderingTypeOutput) ToTopicColumnOrderingTypePtrOutputWithCon
 	}).(TopicColumnOrderingTypePtrOutput)
 }
 
-func (o TopicColumnOrderingTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicColumnOrderingType] {
-	return pulumix.Output[TopicColumnOrderingType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicColumnOrderingTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -67378,12 +61548,6 @@ func (o TopicColumnOrderingTypePtrOutput) ToTopicColumnOrderingTypePtrOutputWith
 	return o
 }
 
-func (o TopicColumnOrderingTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicColumnOrderingType] {
-	return pulumix.Output[*TopicColumnOrderingType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicColumnOrderingTypePtrOutput) Elem() TopicColumnOrderingTypeOutput {
 	return o.ApplyT(func(v *TopicColumnOrderingType) TopicColumnOrderingType {
 		if v != nil {
@@ -67408,10 +61572,12 @@ func (o TopicColumnOrderingTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicColumnOrderingTypeInput is an input type that accepts TopicColumnOrderingTypeArgs and TopicColumnOrderingTypeOutput values.
-// You can construct a concrete instance of `TopicColumnOrderingTypeInput` via:
+// TopicColumnOrderingTypeInput is an input type that accepts values of the TopicColumnOrderingType enum
+// A concrete instance of `TopicColumnOrderingTypeInput` can be one of the following:
 //
-//	TopicColumnOrderingTypeArgs{...}
+//	TopicColumnOrderingTypeGreaterIsBetter
+//	TopicColumnOrderingTypeLesserIsBetter
+//	TopicColumnOrderingTypeSpecified
 type TopicColumnOrderingTypeInput interface {
 	pulumi.Input
 
@@ -67444,12 +61610,6 @@ func (in *topicColumnOrderingTypePtr) ToTopicColumnOrderingTypePtrOutput() Topic
 
 func (in *topicColumnOrderingTypePtr) ToTopicColumnOrderingTypePtrOutputWithContext(ctx context.Context) TopicColumnOrderingTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicColumnOrderingTypePtrOutput)
-}
-
-func (in *topicColumnOrderingTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TopicColumnOrderingType] {
-	return pulumix.Output[*TopicColumnOrderingType]{
-		OutputState: in.ToTopicColumnOrderingTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicConstantType string
@@ -67520,12 +61680,6 @@ func (o TopicConstantTypeOutput) ToTopicConstantTypePtrOutputWithContext(ctx con
 	}).(TopicConstantTypePtrOutput)
 }
 
-func (o TopicConstantTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicConstantType] {
-	return pulumix.Output[TopicConstantType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicConstantTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -67561,12 +61715,6 @@ func (o TopicConstantTypePtrOutput) ToTopicConstantTypePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o TopicConstantTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicConstantType] {
-	return pulumix.Output[*TopicConstantType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicConstantTypePtrOutput) Elem() TopicConstantTypeOutput {
 	return o.ApplyT(func(v *TopicConstantType) TopicConstantType {
 		if v != nil {
@@ -67591,10 +61739,12 @@ func (o TopicConstantTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicConstantTypeInput is an input type that accepts TopicConstantTypeArgs and TopicConstantTypeOutput values.
-// You can construct a concrete instance of `TopicConstantTypeInput` via:
+// TopicConstantTypeInput is an input type that accepts values of the TopicConstantType enum
+// A concrete instance of `TopicConstantTypeInput` can be one of the following:
 //
-//	TopicConstantTypeArgs{...}
+//	TopicConstantTypeSingular
+//	TopicConstantTypeRange
+//	TopicConstantTypeCollective
 type TopicConstantTypeInput interface {
 	pulumi.Input
 
@@ -67627,12 +61777,6 @@ func (in *topicConstantTypePtr) ToTopicConstantTypePtrOutput() TopicConstantType
 
 func (in *topicConstantTypePtr) ToTopicConstantTypePtrOutputWithContext(ctx context.Context) TopicConstantTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicConstantTypePtrOutput)
-}
-
-func (in *topicConstantTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TopicConstantType] {
-	return pulumix.Output[*TopicConstantType]{
-		OutputState: in.ToTopicConstantTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicDefaultAggregation string
@@ -67711,12 +61855,6 @@ func (o TopicDefaultAggregationOutput) ToTopicDefaultAggregationPtrOutputWithCon
 	}).(TopicDefaultAggregationPtrOutput)
 }
 
-func (o TopicDefaultAggregationOutput) ToOutput(ctx context.Context) pulumix.Output[TopicDefaultAggregation] {
-	return pulumix.Output[TopicDefaultAggregation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicDefaultAggregationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -67752,12 +61890,6 @@ func (o TopicDefaultAggregationPtrOutput) ToTopicDefaultAggregationPtrOutputWith
 	return o
 }
 
-func (o TopicDefaultAggregationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicDefaultAggregation] {
-	return pulumix.Output[*TopicDefaultAggregation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicDefaultAggregationPtrOutput) Elem() TopicDefaultAggregationOutput {
 	return o.ApplyT(func(v *TopicDefaultAggregation) TopicDefaultAggregation {
 		if v != nil {
@@ -67782,10 +61914,20 @@ func (o TopicDefaultAggregationPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicDefaultAggregationInput is an input type that accepts TopicDefaultAggregationArgs and TopicDefaultAggregationOutput values.
-// You can construct a concrete instance of `TopicDefaultAggregationInput` via:
+// TopicDefaultAggregationInput is an input type that accepts values of the TopicDefaultAggregation enum
+// A concrete instance of `TopicDefaultAggregationInput` can be one of the following:
 //
-//	TopicDefaultAggregationArgs{...}
+//	TopicDefaultAggregationSum
+//	TopicDefaultAggregationMax
+//	TopicDefaultAggregationMin
+//	TopicDefaultAggregationCount
+//	TopicDefaultAggregationDistinctCount
+//	TopicDefaultAggregationAverage
+//	TopicDefaultAggregationMedian
+//	TopicDefaultAggregationStdev
+//	TopicDefaultAggregationStdevp
+//	TopicDefaultAggregationVar
+//	TopicDefaultAggregationVarp
 type TopicDefaultAggregationInput interface {
 	pulumi.Input
 
@@ -67818,12 +61960,6 @@ func (in *topicDefaultAggregationPtr) ToTopicDefaultAggregationPtrOutput() Topic
 
 func (in *topicDefaultAggregationPtr) ToTopicDefaultAggregationPtrOutputWithContext(ctx context.Context) TopicDefaultAggregationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicDefaultAggregationPtrOutput)
-}
-
-func (in *topicDefaultAggregationPtr) ToOutput(ctx context.Context) pulumix.Output[*TopicDefaultAggregation] {
-	return pulumix.Output[*TopicDefaultAggregation]{
-		OutputState: in.ToTopicDefaultAggregationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicDisplayFormat string
@@ -67897,12 +62033,6 @@ func (o TopicDisplayFormatOutput) ToTopicDisplayFormatPtrOutputWithContext(ctx c
 	}).(TopicDisplayFormatPtrOutput)
 }
 
-func (o TopicDisplayFormatOutput) ToOutput(ctx context.Context) pulumix.Output[TopicDisplayFormat] {
-	return pulumix.Output[TopicDisplayFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicDisplayFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -67938,12 +62068,6 @@ func (o TopicDisplayFormatPtrOutput) ToTopicDisplayFormatPtrOutputWithContext(ct
 	return o
 }
 
-func (o TopicDisplayFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicDisplayFormat] {
-	return pulumix.Output[*TopicDisplayFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicDisplayFormatPtrOutput) Elem() TopicDisplayFormatOutput {
 	return o.ApplyT(func(v *TopicDisplayFormat) TopicDisplayFormat {
 		if v != nil {
@@ -67968,10 +62092,15 @@ func (o TopicDisplayFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicDisplayFormatInput is an input type that accepts TopicDisplayFormatArgs and TopicDisplayFormatOutput values.
-// You can construct a concrete instance of `TopicDisplayFormatInput` via:
+// TopicDisplayFormatInput is an input type that accepts values of the TopicDisplayFormat enum
+// A concrete instance of `TopicDisplayFormatInput` can be one of the following:
 //
-//	TopicDisplayFormatArgs{...}
+//	TopicDisplayFormatAuto
+//	TopicDisplayFormatPercent
+//	TopicDisplayFormatCurrency
+//	TopicDisplayFormatNumber
+//	TopicDisplayFormatDate
+//	TopicDisplayFormatString
 type TopicDisplayFormatInput interface {
 	pulumi.Input
 
@@ -68004,12 +62133,6 @@ func (in *topicDisplayFormatPtr) ToTopicDisplayFormatPtrOutput() TopicDisplayFor
 
 func (in *topicDisplayFormatPtr) ToTopicDisplayFormatPtrOutputWithContext(ctx context.Context) TopicDisplayFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicDisplayFormatPtrOutput)
-}
-
-func (in *topicDisplayFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*TopicDisplayFormat] {
-	return pulumix.Output[*TopicDisplayFormat]{
-		OutputState: in.ToTopicDisplayFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicFilterClass string
@@ -68080,12 +62203,6 @@ func (o TopicFilterClassOutput) ToTopicFilterClassPtrOutputWithContext(ctx conte
 	}).(TopicFilterClassPtrOutput)
 }
 
-func (o TopicFilterClassOutput) ToOutput(ctx context.Context) pulumix.Output[TopicFilterClass] {
-	return pulumix.Output[TopicFilterClass]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicFilterClassOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -68121,12 +62238,6 @@ func (o TopicFilterClassPtrOutput) ToTopicFilterClassPtrOutputWithContext(ctx co
 	return o
 }
 
-func (o TopicFilterClassPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicFilterClass] {
-	return pulumix.Output[*TopicFilterClass]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicFilterClassPtrOutput) Elem() TopicFilterClassOutput {
 	return o.ApplyT(func(v *TopicFilterClass) TopicFilterClass {
 		if v != nil {
@@ -68151,10 +62262,12 @@ func (o TopicFilterClassPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicFilterClassInput is an input type that accepts TopicFilterClassArgs and TopicFilterClassOutput values.
-// You can construct a concrete instance of `TopicFilterClassInput` via:
+// TopicFilterClassInput is an input type that accepts values of the TopicFilterClass enum
+// A concrete instance of `TopicFilterClassInput` can be one of the following:
 //
-//	TopicFilterClassArgs{...}
+//	TopicFilterClassEnforcedValueFilter
+//	TopicFilterClassConditionalValueFilter
+//	TopicFilterClassNamedValueFilter
 type TopicFilterClassInput interface {
 	pulumi.Input
 
@@ -68187,12 +62300,6 @@ func (in *topicFilterClassPtr) ToTopicFilterClassPtrOutput() TopicFilterClassPtr
 
 func (in *topicFilterClassPtr) ToTopicFilterClassPtrOutputWithContext(ctx context.Context) TopicFilterClassPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicFilterClassPtrOutput)
-}
-
-func (in *topicFilterClassPtr) ToOutput(ctx context.Context) pulumix.Output[*TopicFilterClass] {
-	return pulumix.Output[*TopicFilterClass]{
-		OutputState: in.ToTopicFilterClassPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicNamedEntityAggType string
@@ -68273,12 +62380,6 @@ func (o TopicNamedEntityAggTypeOutput) ToTopicNamedEntityAggTypePtrOutputWithCon
 	}).(TopicNamedEntityAggTypePtrOutput)
 }
 
-func (o TopicNamedEntityAggTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNamedEntityAggType] {
-	return pulumix.Output[TopicNamedEntityAggType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNamedEntityAggTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -68314,12 +62415,6 @@ func (o TopicNamedEntityAggTypePtrOutput) ToTopicNamedEntityAggTypePtrOutputWith
 	return o
 }
 
-func (o TopicNamedEntityAggTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNamedEntityAggType] {
-	return pulumix.Output[*TopicNamedEntityAggType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNamedEntityAggTypePtrOutput) Elem() TopicNamedEntityAggTypeOutput {
 	return o.ApplyT(func(v *TopicNamedEntityAggType) TopicNamedEntityAggType {
 		if v != nil {
@@ -68344,10 +62439,22 @@ func (o TopicNamedEntityAggTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicNamedEntityAggTypeInput is an input type that accepts TopicNamedEntityAggTypeArgs and TopicNamedEntityAggTypeOutput values.
-// You can construct a concrete instance of `TopicNamedEntityAggTypeInput` via:
+// TopicNamedEntityAggTypeInput is an input type that accepts values of the TopicNamedEntityAggType enum
+// A concrete instance of `TopicNamedEntityAggTypeInput` can be one of the following:
 //
-//	TopicNamedEntityAggTypeArgs{...}
+//	TopicNamedEntityAggTypeSum
+//	TopicNamedEntityAggTypeMin
+//	TopicNamedEntityAggTypeMax
+//	TopicNamedEntityAggTypeCount
+//	TopicNamedEntityAggTypeAverage
+//	TopicNamedEntityAggTypeDistinctCount
+//	TopicNamedEntityAggTypeStdev
+//	TopicNamedEntityAggTypeStdevp
+//	TopicNamedEntityAggTypeVar
+//	TopicNamedEntityAggTypeVarp
+//	TopicNamedEntityAggTypePercentile
+//	TopicNamedEntityAggTypeMedian
+//	TopicNamedEntityAggTypeCustom
 type TopicNamedEntityAggTypeInput interface {
 	pulumi.Input
 
@@ -68380,12 +62487,6 @@ func (in *topicNamedEntityAggTypePtr) ToTopicNamedEntityAggTypePtrOutput() Topic
 
 func (in *topicNamedEntityAggTypePtr) ToTopicNamedEntityAggTypePtrOutputWithContext(ctx context.Context) TopicNamedEntityAggTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicNamedEntityAggTypePtrOutput)
-}
-
-func (in *topicNamedEntityAggTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TopicNamedEntityAggType] {
-	return pulumix.Output[*TopicNamedEntityAggType]{
-		OutputState: in.ToTopicNamedEntityAggTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicNamedFilterAggType string
@@ -68465,12 +62566,6 @@ func (o TopicNamedFilterAggTypeOutput) ToTopicNamedFilterAggTypePtrOutputWithCon
 	}).(TopicNamedFilterAggTypePtrOutput)
 }
 
-func (o TopicNamedFilterAggTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNamedFilterAggType] {
-	return pulumix.Output[TopicNamedFilterAggType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNamedFilterAggTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -68506,12 +62601,6 @@ func (o TopicNamedFilterAggTypePtrOutput) ToTopicNamedFilterAggTypePtrOutputWith
 	return o
 }
 
-func (o TopicNamedFilterAggTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNamedFilterAggType] {
-	return pulumix.Output[*TopicNamedFilterAggType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNamedFilterAggTypePtrOutput) Elem() TopicNamedFilterAggTypeOutput {
 	return o.ApplyT(func(v *TopicNamedFilterAggType) TopicNamedFilterAggType {
 		if v != nil {
@@ -68536,10 +62625,21 @@ func (o TopicNamedFilterAggTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicNamedFilterAggTypeInput is an input type that accepts TopicNamedFilterAggTypeArgs and TopicNamedFilterAggTypeOutput values.
-// You can construct a concrete instance of `TopicNamedFilterAggTypeInput` via:
+// TopicNamedFilterAggTypeInput is an input type that accepts values of the TopicNamedFilterAggType enum
+// A concrete instance of `TopicNamedFilterAggTypeInput` can be one of the following:
 //
-//	TopicNamedFilterAggTypeArgs{...}
+//	TopicNamedFilterAggTypeNoAggregation
+//	TopicNamedFilterAggTypeSum
+//	TopicNamedFilterAggTypeAverage
+//	TopicNamedFilterAggTypeCount
+//	TopicNamedFilterAggTypeDistinctCount
+//	TopicNamedFilterAggTypeMax
+//	TopicNamedFilterAggTypeMedian
+//	TopicNamedFilterAggTypeMin
+//	TopicNamedFilterAggTypeStdev
+//	TopicNamedFilterAggTypeStdevp
+//	TopicNamedFilterAggTypeVar
+//	TopicNamedFilterAggTypeVarp
 type TopicNamedFilterAggTypeInput interface {
 	pulumi.Input
 
@@ -68572,12 +62672,6 @@ func (in *topicNamedFilterAggTypePtr) ToTopicNamedFilterAggTypePtrOutput() Topic
 
 func (in *topicNamedFilterAggTypePtr) ToTopicNamedFilterAggTypePtrOutputWithContext(ctx context.Context) TopicNamedFilterAggTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicNamedFilterAggTypePtrOutput)
-}
-
-func (in *topicNamedFilterAggTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TopicNamedFilterAggType] {
-	return pulumix.Output[*TopicNamedFilterAggType]{
-		OutputState: in.ToTopicNamedFilterAggTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicNamedFilterType string
@@ -68650,12 +62744,6 @@ func (o TopicNamedFilterTypeOutput) ToTopicNamedFilterTypePtrOutputWithContext(c
 	}).(TopicNamedFilterTypePtrOutput)
 }
 
-func (o TopicNamedFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNamedFilterType] {
-	return pulumix.Output[TopicNamedFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNamedFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -68691,12 +62779,6 @@ func (o TopicNamedFilterTypePtrOutput) ToTopicNamedFilterTypePtrOutputWithContex
 	return o
 }
 
-func (o TopicNamedFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNamedFilterType] {
-	return pulumix.Output[*TopicNamedFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNamedFilterTypePtrOutput) Elem() TopicNamedFilterTypeOutput {
 	return o.ApplyT(func(v *TopicNamedFilterType) TopicNamedFilterType {
 		if v != nil {
@@ -68721,10 +62803,14 @@ func (o TopicNamedFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicNamedFilterTypeInput is an input type that accepts TopicNamedFilterTypeArgs and TopicNamedFilterTypeOutput values.
-// You can construct a concrete instance of `TopicNamedFilterTypeInput` via:
+// TopicNamedFilterTypeInput is an input type that accepts values of the TopicNamedFilterType enum
+// A concrete instance of `TopicNamedFilterTypeInput` can be one of the following:
 //
-//	TopicNamedFilterTypeArgs{...}
+//	TopicNamedFilterTypeCategoryFilter
+//	TopicNamedFilterTypeNumericEqualityFilter
+//	TopicNamedFilterTypeNumericRangeFilter
+//	TopicNamedFilterTypeDateRangeFilter
+//	TopicNamedFilterTypeRelativeDateFilter
 type TopicNamedFilterTypeInput interface {
 	pulumi.Input
 
@@ -68757,12 +62843,6 @@ func (in *topicNamedFilterTypePtr) ToTopicNamedFilterTypePtrOutput() TopicNamedF
 
 func (in *topicNamedFilterTypePtr) ToTopicNamedFilterTypePtrOutputWithContext(ctx context.Context) TopicNamedFilterTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicNamedFilterTypePtrOutput)
-}
-
-func (in *topicNamedFilterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TopicNamedFilterType] {
-	return pulumix.Output[*TopicNamedFilterType]{
-		OutputState: in.ToTopicNamedFilterTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicNumberScale string
@@ -68836,12 +62916,6 @@ func (o TopicNumberScaleOutput) ToTopicNumberScalePtrOutputWithContext(ctx conte
 	}).(TopicNumberScalePtrOutput)
 }
 
-func (o TopicNumberScaleOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNumberScale] {
-	return pulumix.Output[TopicNumberScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNumberScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -68877,12 +62951,6 @@ func (o TopicNumberScalePtrOutput) ToTopicNumberScalePtrOutputWithContext(ctx co
 	return o
 }
 
-func (o TopicNumberScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNumberScale] {
-	return pulumix.Output[*TopicNumberScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNumberScalePtrOutput) Elem() TopicNumberScaleOutput {
 	return o.ApplyT(func(v *TopicNumberScale) TopicNumberScale {
 		if v != nil {
@@ -68907,10 +62975,15 @@ func (o TopicNumberScalePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicNumberScaleInput is an input type that accepts TopicNumberScaleArgs and TopicNumberScaleOutput values.
-// You can construct a concrete instance of `TopicNumberScaleInput` via:
+// TopicNumberScaleInput is an input type that accepts values of the TopicNumberScale enum
+// A concrete instance of `TopicNumberScaleInput` can be one of the following:
 //
-//	TopicNumberScaleArgs{...}
+//	TopicNumberScaleNone
+//	TopicNumberScaleAuto
+//	TopicNumberScaleThousands
+//	TopicNumberScaleMillions
+//	TopicNumberScaleBillions
+//	TopicNumberScaleTrillions
 type TopicNumberScaleInput interface {
 	pulumi.Input
 
@@ -68943,12 +63016,6 @@ func (in *topicNumberScalePtr) ToTopicNumberScalePtrOutput() TopicNumberScalePtr
 
 func (in *topicNumberScalePtr) ToTopicNumberScalePtrOutputWithContext(ctx context.Context) TopicNumberScalePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicNumberScalePtrOutput)
-}
-
-func (in *topicNumberScalePtr) ToOutput(ctx context.Context) pulumix.Output[*TopicNumberScale] {
-	return pulumix.Output[*TopicNumberScale]{
-		OutputState: in.ToTopicNumberScalePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicNumericSeparatorSymbol string
@@ -69018,12 +63085,6 @@ func (o TopicNumericSeparatorSymbolOutput) ToTopicNumericSeparatorSymbolPtrOutpu
 	}).(TopicNumericSeparatorSymbolPtrOutput)
 }
 
-func (o TopicNumericSeparatorSymbolOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNumericSeparatorSymbol] {
-	return pulumix.Output[TopicNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNumericSeparatorSymbolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -69059,12 +63120,6 @@ func (o TopicNumericSeparatorSymbolPtrOutput) ToTopicNumericSeparatorSymbolPtrOu
 	return o
 }
 
-func (o TopicNumericSeparatorSymbolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNumericSeparatorSymbol] {
-	return pulumix.Output[*TopicNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNumericSeparatorSymbolPtrOutput) Elem() TopicNumericSeparatorSymbolOutput {
 	return o.ApplyT(func(v *TopicNumericSeparatorSymbol) TopicNumericSeparatorSymbol {
 		if v != nil {
@@ -69089,10 +63144,11 @@ func (o TopicNumericSeparatorSymbolPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicNumericSeparatorSymbolInput is an input type that accepts TopicNumericSeparatorSymbolArgs and TopicNumericSeparatorSymbolOutput values.
-// You can construct a concrete instance of `TopicNumericSeparatorSymbolInput` via:
+// TopicNumericSeparatorSymbolInput is an input type that accepts values of the TopicNumericSeparatorSymbol enum
+// A concrete instance of `TopicNumericSeparatorSymbolInput` can be one of the following:
 //
-//	TopicNumericSeparatorSymbolArgs{...}
+//	TopicNumericSeparatorSymbolComma
+//	TopicNumericSeparatorSymbolDot
 type TopicNumericSeparatorSymbolInput interface {
 	pulumi.Input
 
@@ -69125,12 +63181,6 @@ func (in *topicNumericSeparatorSymbolPtr) ToTopicNumericSeparatorSymbolPtrOutput
 
 func (in *topicNumericSeparatorSymbolPtr) ToTopicNumericSeparatorSymbolPtrOutputWithContext(ctx context.Context) TopicNumericSeparatorSymbolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicNumericSeparatorSymbolPtrOutput)
-}
-
-func (in *topicNumericSeparatorSymbolPtr) ToOutput(ctx context.Context) pulumix.Output[*TopicNumericSeparatorSymbol] {
-	return pulumix.Output[*TopicNumericSeparatorSymbol]{
-		OutputState: in.ToTopicNumericSeparatorSymbolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicPropertyRole string
@@ -69200,12 +63250,6 @@ func (o TopicPropertyRoleOutput) ToTopicPropertyRolePtrOutputWithContext(ctx con
 	}).(TopicPropertyRolePtrOutput)
 }
 
-func (o TopicPropertyRoleOutput) ToOutput(ctx context.Context) pulumix.Output[TopicPropertyRole] {
-	return pulumix.Output[TopicPropertyRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicPropertyRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -69241,12 +63285,6 @@ func (o TopicPropertyRolePtrOutput) ToTopicPropertyRolePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o TopicPropertyRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicPropertyRole] {
-	return pulumix.Output[*TopicPropertyRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicPropertyRolePtrOutput) Elem() TopicPropertyRoleOutput {
 	return o.ApplyT(func(v *TopicPropertyRole) TopicPropertyRole {
 		if v != nil {
@@ -69271,10 +63309,11 @@ func (o TopicPropertyRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicPropertyRoleInput is an input type that accepts TopicPropertyRoleArgs and TopicPropertyRoleOutput values.
-// You can construct a concrete instance of `TopicPropertyRoleInput` via:
+// TopicPropertyRoleInput is an input type that accepts values of the TopicPropertyRole enum
+// A concrete instance of `TopicPropertyRoleInput` can be one of the following:
 //
-//	TopicPropertyRoleArgs{...}
+//	TopicPropertyRolePrimary
+//	TopicPropertyRoleId
 type TopicPropertyRoleInput interface {
 	pulumi.Input
 
@@ -69307,12 +63346,6 @@ func (in *topicPropertyRolePtr) ToTopicPropertyRolePtrOutput() TopicPropertyRole
 
 func (in *topicPropertyRolePtr) ToTopicPropertyRolePtrOutputWithContext(ctx context.Context) TopicPropertyRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicPropertyRolePtrOutput)
-}
-
-func (in *topicPropertyRolePtr) ToOutput(ctx context.Context) pulumix.Output[*TopicPropertyRole] {
-	return pulumix.Output[*TopicPropertyRole]{
-		OutputState: in.ToTopicPropertyRolePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicPropertyUsage string
@@ -69383,12 +63416,6 @@ func (o TopicPropertyUsageOutput) ToTopicPropertyUsagePtrOutputWithContext(ctx c
 	}).(TopicPropertyUsagePtrOutput)
 }
 
-func (o TopicPropertyUsageOutput) ToOutput(ctx context.Context) pulumix.Output[TopicPropertyUsage] {
-	return pulumix.Output[TopicPropertyUsage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicPropertyUsageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -69424,12 +63451,6 @@ func (o TopicPropertyUsagePtrOutput) ToTopicPropertyUsagePtrOutputWithContext(ct
 	return o
 }
 
-func (o TopicPropertyUsagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicPropertyUsage] {
-	return pulumix.Output[*TopicPropertyUsage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicPropertyUsagePtrOutput) Elem() TopicPropertyUsageOutput {
 	return o.ApplyT(func(v *TopicPropertyUsage) TopicPropertyUsage {
 		if v != nil {
@@ -69454,10 +63475,12 @@ func (o TopicPropertyUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicPropertyUsageInput is an input type that accepts TopicPropertyUsageArgs and TopicPropertyUsageOutput values.
-// You can construct a concrete instance of `TopicPropertyUsageInput` via:
+// TopicPropertyUsageInput is an input type that accepts values of the TopicPropertyUsage enum
+// A concrete instance of `TopicPropertyUsageInput` can be one of the following:
 //
-//	TopicPropertyUsageArgs{...}
+//	TopicPropertyUsageInherit
+//	TopicPropertyUsageDimension
+//	TopicPropertyUsageMeasure
 type TopicPropertyUsageInput interface {
 	pulumi.Input
 
@@ -69490,12 +63513,6 @@ func (in *topicPropertyUsagePtr) ToTopicPropertyUsagePtrOutput() TopicPropertyUs
 
 func (in *topicPropertyUsagePtr) ToTopicPropertyUsagePtrOutputWithContext(ctx context.Context) TopicPropertyUsagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicPropertyUsagePtrOutput)
-}
-
-func (in *topicPropertyUsagePtr) ToOutput(ctx context.Context) pulumix.Output[*TopicPropertyUsage] {
-	return pulumix.Output[*TopicPropertyUsage]{
-		OutputState: in.ToTopicPropertyUsagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicRelativeDateFilterFunction string
@@ -69568,12 +63585,6 @@ func (o TopicRelativeDateFilterFunctionOutput) ToTopicRelativeDateFilterFunction
 	}).(TopicRelativeDateFilterFunctionPtrOutput)
 }
 
-func (o TopicRelativeDateFilterFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TopicRelativeDateFilterFunction] {
-	return pulumix.Output[TopicRelativeDateFilterFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicRelativeDateFilterFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -69609,12 +63620,6 @@ func (o TopicRelativeDateFilterFunctionPtrOutput) ToTopicRelativeDateFilterFunct
 	return o
 }
 
-func (o TopicRelativeDateFilterFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicRelativeDateFilterFunction] {
-	return pulumix.Output[*TopicRelativeDateFilterFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicRelativeDateFilterFunctionPtrOutput) Elem() TopicRelativeDateFilterFunctionOutput {
 	return o.ApplyT(func(v *TopicRelativeDateFilterFunction) TopicRelativeDateFilterFunction {
 		if v != nil {
@@ -69639,10 +63644,14 @@ func (o TopicRelativeDateFilterFunctionPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicRelativeDateFilterFunctionInput is an input type that accepts TopicRelativeDateFilterFunctionArgs and TopicRelativeDateFilterFunctionOutput values.
-// You can construct a concrete instance of `TopicRelativeDateFilterFunctionInput` via:
+// TopicRelativeDateFilterFunctionInput is an input type that accepts values of the TopicRelativeDateFilterFunction enum
+// A concrete instance of `TopicRelativeDateFilterFunctionInput` can be one of the following:
 //
-//	TopicRelativeDateFilterFunctionArgs{...}
+//	TopicRelativeDateFilterFunctionPrevious
+//	TopicRelativeDateFilterFunctionThis
+//	TopicRelativeDateFilterFunctionLast
+//	TopicRelativeDateFilterFunctionNext
+//	TopicRelativeDateFilterFunctionNow
 type TopicRelativeDateFilterFunctionInput interface {
 	pulumi.Input
 
@@ -69675,12 +63684,6 @@ func (in *topicRelativeDateFilterFunctionPtr) ToTopicRelativeDateFilterFunctionP
 
 func (in *topicRelativeDateFilterFunctionPtr) ToTopicRelativeDateFilterFunctionPtrOutputWithContext(ctx context.Context) TopicRelativeDateFilterFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicRelativeDateFilterFunctionPtrOutput)
-}
-
-func (in *topicRelativeDateFilterFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*TopicRelativeDateFilterFunction] {
-	return pulumix.Output[*TopicRelativeDateFilterFunction]{
-		OutputState: in.ToTopicRelativeDateFilterFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicTimeGranularity string
@@ -69756,12 +63759,6 @@ func (o TopicTimeGranularityOutput) ToTopicTimeGranularityPtrOutputWithContext(c
 	}).(TopicTimeGranularityPtrOutput)
 }
 
-func (o TopicTimeGranularityOutput) ToOutput(ctx context.Context) pulumix.Output[TopicTimeGranularity] {
-	return pulumix.Output[TopicTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicTimeGranularityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -69797,12 +63794,6 @@ func (o TopicTimeGranularityPtrOutput) ToTopicTimeGranularityPtrOutputWithContex
 	return o
 }
 
-func (o TopicTimeGranularityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicTimeGranularity] {
-	return pulumix.Output[*TopicTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicTimeGranularityPtrOutput) Elem() TopicTimeGranularityOutput {
 	return o.ApplyT(func(v *TopicTimeGranularity) TopicTimeGranularity {
 		if v != nil {
@@ -69827,10 +63818,17 @@ func (o TopicTimeGranularityPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicTimeGranularityInput is an input type that accepts TopicTimeGranularityArgs and TopicTimeGranularityOutput values.
-// You can construct a concrete instance of `TopicTimeGranularityInput` via:
+// TopicTimeGranularityInput is an input type that accepts values of the TopicTimeGranularity enum
+// A concrete instance of `TopicTimeGranularityInput` can be one of the following:
 //
-//	TopicTimeGranularityArgs{...}
+//	TopicTimeGranularitySecond
+//	TopicTimeGranularityMinute
+//	TopicTimeGranularityHour
+//	TopicTimeGranularityDay
+//	TopicTimeGranularityWeek
+//	TopicTimeGranularityMonth
+//	TopicTimeGranularityQuarter
+//	TopicTimeGranularityYear
 type TopicTimeGranularityInput interface {
 	pulumi.Input
 
@@ -69863,12 +63861,6 @@ func (in *topicTimeGranularityPtr) ToTopicTimeGranularityPtrOutput() TopicTimeGr
 
 func (in *topicTimeGranularityPtr) ToTopicTimeGranularityPtrOutputWithContext(ctx context.Context) TopicTimeGranularityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicTimeGranularityPtrOutput)
-}
-
-func (in *topicTimeGranularityPtr) ToOutput(ctx context.Context) pulumix.Output[*TopicTimeGranularity] {
-	return pulumix.Output[*TopicTimeGranularity]{
-		OutputState: in.ToTopicTimeGranularityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicUndefinedSpecifiedValueType string
@@ -69938,12 +63930,6 @@ func (o TopicUndefinedSpecifiedValueTypeOutput) ToTopicUndefinedSpecifiedValueTy
 	}).(TopicUndefinedSpecifiedValueTypePtrOutput)
 }
 
-func (o TopicUndefinedSpecifiedValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicUndefinedSpecifiedValueType] {
-	return pulumix.Output[TopicUndefinedSpecifiedValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicUndefinedSpecifiedValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -69979,12 +63965,6 @@ func (o TopicUndefinedSpecifiedValueTypePtrOutput) ToTopicUndefinedSpecifiedValu
 	return o
 }
 
-func (o TopicUndefinedSpecifiedValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicUndefinedSpecifiedValueType] {
-	return pulumix.Output[*TopicUndefinedSpecifiedValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicUndefinedSpecifiedValueTypePtrOutput) Elem() TopicUndefinedSpecifiedValueTypeOutput {
 	return o.ApplyT(func(v *TopicUndefinedSpecifiedValueType) TopicUndefinedSpecifiedValueType {
 		if v != nil {
@@ -70009,10 +63989,11 @@ func (o TopicUndefinedSpecifiedValueTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicUndefinedSpecifiedValueTypeInput is an input type that accepts TopicUndefinedSpecifiedValueTypeArgs and TopicUndefinedSpecifiedValueTypeOutput values.
-// You can construct a concrete instance of `TopicUndefinedSpecifiedValueTypeInput` via:
+// TopicUndefinedSpecifiedValueTypeInput is an input type that accepts values of the TopicUndefinedSpecifiedValueType enum
+// A concrete instance of `TopicUndefinedSpecifiedValueTypeInput` can be one of the following:
 //
-//	TopicUndefinedSpecifiedValueTypeArgs{...}
+//	TopicUndefinedSpecifiedValueTypeLeast
+//	TopicUndefinedSpecifiedValueTypeMost
 type TopicUndefinedSpecifiedValueTypeInput interface {
 	pulumi.Input
 
@@ -70045,12 +64026,6 @@ func (in *topicUndefinedSpecifiedValueTypePtr) ToTopicUndefinedSpecifiedValueTyp
 
 func (in *topicUndefinedSpecifiedValueTypePtr) ToTopicUndefinedSpecifiedValueTypePtrOutputWithContext(ctx context.Context) TopicUndefinedSpecifiedValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicUndefinedSpecifiedValueTypePtrOutput)
-}
-
-func (in *topicUndefinedSpecifiedValueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TopicUndefinedSpecifiedValueType] {
-	return pulumix.Output[*TopicUndefinedSpecifiedValueType]{
-		OutputState: in.ToTopicUndefinedSpecifiedValueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TopicUserExperienceVersion string
@@ -70120,12 +64095,6 @@ func (o TopicUserExperienceVersionOutput) ToTopicUserExperienceVersionPtrOutputW
 	}).(TopicUserExperienceVersionPtrOutput)
 }
 
-func (o TopicUserExperienceVersionOutput) ToOutput(ctx context.Context) pulumix.Output[TopicUserExperienceVersion] {
-	return pulumix.Output[TopicUserExperienceVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicUserExperienceVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -70161,12 +64130,6 @@ func (o TopicUserExperienceVersionPtrOutput) ToTopicUserExperienceVersionPtrOutp
 	return o
 }
 
-func (o TopicUserExperienceVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicUserExperienceVersion] {
-	return pulumix.Output[*TopicUserExperienceVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicUserExperienceVersionPtrOutput) Elem() TopicUserExperienceVersionOutput {
 	return o.ApplyT(func(v *TopicUserExperienceVersion) TopicUserExperienceVersion {
 		if v != nil {
@@ -70191,10 +64154,11 @@ func (o TopicUserExperienceVersionPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicUserExperienceVersionInput is an input type that accepts TopicUserExperienceVersionArgs and TopicUserExperienceVersionOutput values.
-// You can construct a concrete instance of `TopicUserExperienceVersionInput` via:
+// TopicUserExperienceVersionInput is an input type that accepts values of the TopicUserExperienceVersion enum
+// A concrete instance of `TopicUserExperienceVersionInput` can be one of the following:
 //
-//	TopicUserExperienceVersionArgs{...}
+//	TopicUserExperienceVersionLegacy
+//	TopicUserExperienceVersionNewReaderExperience
 type TopicUserExperienceVersionInput interface {
 	pulumi.Input
 
@@ -70227,12 +64191,6 @@ func (in *topicUserExperienceVersionPtr) ToTopicUserExperienceVersionPtrOutput()
 
 func (in *topicUserExperienceVersionPtr) ToTopicUserExperienceVersionPtrOutputWithContext(ctx context.Context) TopicUserExperienceVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TopicUserExperienceVersionPtrOutput)
-}
-
-func (in *topicUserExperienceVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*TopicUserExperienceVersion] {
-	return pulumix.Output[*TopicUserExperienceVersion]{
-		OutputState: in.ToTopicUserExperienceVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type VpcConnectionNetworkInterfaceStatus string
@@ -70274,12 +64232,6 @@ func (o VpcConnectionNetworkInterfaceStatusOutput) ToVpcConnectionNetworkInterfa
 	}).(VpcConnectionNetworkInterfaceStatusPtrOutput)
 }
 
-func (o VpcConnectionNetworkInterfaceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[VpcConnectionNetworkInterfaceStatus] {
-	return pulumix.Output[VpcConnectionNetworkInterfaceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcConnectionNetworkInterfaceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -70313,12 +64265,6 @@ func (o VpcConnectionNetworkInterfaceStatusPtrOutput) ToVpcConnectionNetworkInte
 
 func (o VpcConnectionNetworkInterfaceStatusPtrOutput) ToVpcConnectionNetworkInterfaceStatusPtrOutputWithContext(ctx context.Context) VpcConnectionNetworkInterfaceStatusPtrOutput {
 	return o
-}
-
-func (o VpcConnectionNetworkInterfaceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnectionNetworkInterfaceStatus] {
-	return pulumix.Output[*VpcConnectionNetworkInterfaceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcConnectionNetworkInterfaceStatusPtrOutput) Elem() VpcConnectionNetworkInterfaceStatusOutput {
@@ -70413,12 +64359,6 @@ func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToVpcConnectionVpcCo
 	}).(VpcConnectionVpcConnectionAvailabilityStatusPtrOutput)
 }
 
-func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToOutput(ctx context.Context) pulumix.Output[VpcConnectionVpcConnectionAvailabilityStatus] {
-	return pulumix.Output[VpcConnectionVpcConnectionAvailabilityStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -70454,12 +64394,6 @@ func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) ToVpcConnectionVp
 	return o
 }
 
-func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnectionVpcConnectionAvailabilityStatus] {
-	return pulumix.Output[*VpcConnectionVpcConnectionAvailabilityStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) Elem() VpcConnectionVpcConnectionAvailabilityStatusOutput {
 	return o.ApplyT(func(v *VpcConnectionVpcConnectionAvailabilityStatus) VpcConnectionVpcConnectionAvailabilityStatus {
 		if v != nil {
@@ -70484,10 +64418,12 @@ func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// VpcConnectionVpcConnectionAvailabilityStatusInput is an input type that accepts VpcConnectionVpcConnectionAvailabilityStatusArgs and VpcConnectionVpcConnectionAvailabilityStatusOutput values.
-// You can construct a concrete instance of `VpcConnectionVpcConnectionAvailabilityStatusInput` via:
+// VpcConnectionVpcConnectionAvailabilityStatusInput is an input type that accepts values of the VpcConnectionVpcConnectionAvailabilityStatus enum
+// A concrete instance of `VpcConnectionVpcConnectionAvailabilityStatusInput` can be one of the following:
 //
-//	VpcConnectionVpcConnectionAvailabilityStatusArgs{...}
+//	VpcConnectionVpcConnectionAvailabilityStatusAvailable
+//	VpcConnectionVpcConnectionAvailabilityStatusUnavailable
+//	VpcConnectionVpcConnectionAvailabilityStatusPartiallyAvailable
 type VpcConnectionVpcConnectionAvailabilityStatusInput interface {
 	pulumi.Input
 
@@ -70520,12 +64456,6 @@ func (in *vpcConnectionVpcConnectionAvailabilityStatusPtr) ToVpcConnectionVpcCon
 
 func (in *vpcConnectionVpcConnectionAvailabilityStatusPtr) ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VpcConnectionVpcConnectionAvailabilityStatusPtrOutput)
-}
-
-func (in *vpcConnectionVpcConnectionAvailabilityStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*VpcConnectionVpcConnectionAvailabilityStatus] {
-	return pulumix.Output[*VpcConnectionVpcConnectionAvailabilityStatus]{
-		OutputState: in.ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type VpcConnectionVpcConnectionResourceStatus string
@@ -70566,12 +64496,6 @@ func (o VpcConnectionVpcConnectionResourceStatusOutput) ToVpcConnectionVpcConnec
 	}).(VpcConnectionVpcConnectionResourceStatusPtrOutput)
 }
 
-func (o VpcConnectionVpcConnectionResourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[VpcConnectionVpcConnectionResourceStatus] {
-	return pulumix.Output[VpcConnectionVpcConnectionResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcConnectionVpcConnectionResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -70605,12 +64529,6 @@ func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) ToVpcConnectionVpcCon
 
 func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) ToVpcConnectionVpcConnectionResourceStatusPtrOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionResourceStatusPtrOutput {
 	return o
-}
-
-func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnectionVpcConnectionResourceStatus] {
-	return pulumix.Output[*VpcConnectionVpcConnectionResourceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) Elem() VpcConnectionVpcConnectionResourceStatusOutput {

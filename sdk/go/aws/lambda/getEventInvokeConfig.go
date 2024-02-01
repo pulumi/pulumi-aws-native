@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
@@ -74,12 +73,6 @@ func (o LookupEventInvokeConfigResultOutput) ToLookupEventInvokeConfigResultOutp
 
 func (o LookupEventInvokeConfigResultOutput) ToLookupEventInvokeConfigResultOutputWithContext(ctx context.Context) LookupEventInvokeConfigResultOutput {
 	return o
-}
-
-func (o LookupEventInvokeConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEventInvokeConfigResult] {
-	return pulumix.Output[LookupEventInvokeConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupEventInvokeConfigResultOutput) DestinationConfig() EventInvokeConfigDestinationConfigPtrOutput {

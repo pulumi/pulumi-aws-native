@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The resource schema for AWSLogs QueryDefinition
@@ -73,12 +72,6 @@ func (o LookupQueryDefinitionResultOutput) ToLookupQueryDefinitionResultOutput()
 
 func (o LookupQueryDefinitionResultOutput) ToLookupQueryDefinitionResultOutputWithContext(ctx context.Context) LookupQueryDefinitionResultOutput {
 	return o
-}
-
-func (o LookupQueryDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupQueryDefinitionResult] {
-	return pulumix.Output[LookupQueryDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Optionally define specific log groups as part of your query definition

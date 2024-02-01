@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Register as a publisher in the CloudFormation Registry.
@@ -116,12 +115,6 @@ func (i *Publisher) ToPublisherOutputWithContext(ctx context.Context) PublisherO
 	return pulumi.ToOutputWithContext(ctx, i).(PublisherOutput)
 }
 
-func (i *Publisher) ToOutput(ctx context.Context) pulumix.Output[*Publisher] {
-	return pulumix.Output[*Publisher]{
-		OutputState: i.ToPublisherOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PublisherOutput struct{ *pulumi.OutputState }
 
 func (PublisherOutput) ElementType() reflect.Type {
@@ -134,12 +127,6 @@ func (o PublisherOutput) ToPublisherOutput() PublisherOutput {
 
 func (o PublisherOutput) ToPublisherOutputWithContext(ctx context.Context) PublisherOutput {
 	return o
-}
-
-func (o PublisherOutput) ToOutput(ctx context.Context) pulumix.Output[*Publisher] {
-	return pulumix.Output[*Publisher]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf

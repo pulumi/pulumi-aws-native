@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::EC2::NetworkInsightsAccessScope
@@ -105,12 +104,6 @@ func (i *NetworkInsightsAccessScope) ToNetworkInsightsAccessScopeOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeOutput)
 }
 
-func (i *NetworkInsightsAccessScope) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAccessScope] {
-	return pulumix.Output[*NetworkInsightsAccessScope]{
-		OutputState: i.ToNetworkInsightsAccessScopeOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkInsightsAccessScopeOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAccessScopeOutput) ElementType() reflect.Type {
@@ -123,12 +116,6 @@ func (o NetworkInsightsAccessScopeOutput) ToNetworkInsightsAccessScopeOutput() N
 
 func (o NetworkInsightsAccessScopeOutput) ToNetworkInsightsAccessScopeOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeOutput {
 	return o
-}
-
-func (o NetworkInsightsAccessScopeOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAccessScope] {
-	return pulumix.Output[*NetworkInsightsAccessScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkInsightsAccessScopeOutput) CreatedDate() pulumi.StringOutput {

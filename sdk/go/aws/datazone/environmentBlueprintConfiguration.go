@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
@@ -124,12 +123,6 @@ func (i *EnvironmentBlueprintConfiguration) ToEnvironmentBlueprintConfigurationO
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentBlueprintConfigurationOutput)
 }
 
-func (i *EnvironmentBlueprintConfiguration) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentBlueprintConfiguration] {
-	return pulumix.Output[*EnvironmentBlueprintConfiguration]{
-		OutputState: i.ToEnvironmentBlueprintConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentBlueprintConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentBlueprintConfigurationOutput) ElementType() reflect.Type {
@@ -142,12 +135,6 @@ func (o EnvironmentBlueprintConfigurationOutput) ToEnvironmentBlueprintConfigura
 
 func (o EnvironmentBlueprintConfigurationOutput) ToEnvironmentBlueprintConfigurationOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationOutput {
 	return o
-}
-
-func (o EnvironmentBlueprintConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentBlueprintConfiguration] {
-	return pulumix.Output[*EnvironmentBlueprintConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentBlueprintConfigurationOutput) CreatedAt() pulumi.StringOutput {

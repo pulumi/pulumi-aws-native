@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i AutoScalingGroupAcceleratorCountRequestArgs) ToAutoScalingGroupAccelerat
 
 func (i AutoScalingGroupAcceleratorCountRequestArgs) ToAutoScalingGroupAcceleratorCountRequestOutputWithContext(ctx context.Context) AutoScalingGroupAcceleratorCountRequestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupAcceleratorCountRequestOutput)
-}
-
-func (i AutoScalingGroupAcceleratorCountRequestArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupAcceleratorCountRequest] {
-	return pulumix.Output[AutoScalingGroupAcceleratorCountRequest]{
-		OutputState: i.ToAutoScalingGroupAcceleratorCountRequestOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AutoScalingGroupAcceleratorCountRequestArgs) ToAutoScalingGroupAcceleratorCountRequestPtrOutput() AutoScalingGroupAcceleratorCountRequestPtrOutput {
@@ -94,12 +87,6 @@ func (i *autoScalingGroupAcceleratorCountRequestPtrType) ToAutoScalingGroupAccel
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupAcceleratorCountRequestPtrOutput)
 }
 
-func (i *autoScalingGroupAcceleratorCountRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupAcceleratorCountRequest] {
-	return pulumix.Output[*AutoScalingGroupAcceleratorCountRequest]{
-		OutputState: i.ToAutoScalingGroupAcceleratorCountRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupAcceleratorCountRequestOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupAcceleratorCountRequestOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o AutoScalingGroupAcceleratorCountRequestOutput) ToAutoScalingGroupAcceler
 	}).(AutoScalingGroupAcceleratorCountRequestPtrOutput)
 }
 
-func (o AutoScalingGroupAcceleratorCountRequestOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupAcceleratorCountRequest] {
-	return pulumix.Output[AutoScalingGroupAcceleratorCountRequest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupAcceleratorCountRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupAcceleratorCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -150,12 +131,6 @@ func (o AutoScalingGroupAcceleratorCountRequestPtrOutput) ToAutoScalingGroupAcce
 
 func (o AutoScalingGroupAcceleratorCountRequestPtrOutput) ToAutoScalingGroupAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupAcceleratorCountRequestPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupAcceleratorCountRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupAcceleratorCountRequest] {
-	return pulumix.Output[*AutoScalingGroupAcceleratorCountRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupAcceleratorCountRequestPtrOutput) Elem() AutoScalingGroupAcceleratorCountRequestOutput {
@@ -219,12 +194,6 @@ func (i AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs) ToAutoScalingGroup
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupAcceleratorTotalMemoryMiBRequestOutput)
 }
 
-func (i AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupAcceleratorTotalMemoryMiBRequest] {
-	return pulumix.Output[AutoScalingGroupAcceleratorTotalMemoryMiBRequest]{
-		OutputState: i.ToAutoScalingGroupAcceleratorTotalMemoryMiBRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs) ToAutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput() AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput {
 	return i.ToAutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Background())
 }
@@ -266,12 +235,6 @@ func (i *autoScalingGroupAcceleratorTotalMemoryMiBRequestPtrType) ToAutoScalingG
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
-func (i *autoScalingGroupAcceleratorTotalMemoryMiBRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupAcceleratorTotalMemoryMiBRequest] {
-	return pulumix.Output[*AutoScalingGroupAcceleratorTotalMemoryMiBRequest]{
-		OutputState: i.ToAutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupAcceleratorTotalMemoryMiBRequestOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupAcceleratorTotalMemoryMiBRequestOutput) ElementType() reflect.Type {
@@ -296,12 +259,6 @@ func (o AutoScalingGroupAcceleratorTotalMemoryMiBRequestOutput) ToAutoScalingGro
 	}).(AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
-func (o AutoScalingGroupAcceleratorTotalMemoryMiBRequestOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupAcceleratorTotalMemoryMiBRequest] {
-	return pulumix.Output[AutoScalingGroupAcceleratorTotalMemoryMiBRequest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupAcceleratorTotalMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupAcceleratorTotalMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -322,12 +279,6 @@ func (o AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput) ToAutoScaling
 
 func (o AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput) ToAutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupAcceleratorTotalMemoryMiBRequest] {
-	return pulumix.Output[*AutoScalingGroupAcceleratorTotalMemoryMiBRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput) Elem() AutoScalingGroupAcceleratorTotalMemoryMiBRequestOutput {
@@ -391,12 +342,6 @@ func (i AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs) ToAutoScalingGroupB
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupBaselineEbsBandwidthMbpsRequestOutput)
 }
 
-func (i AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupBaselineEbsBandwidthMbpsRequest] {
-	return pulumix.Output[AutoScalingGroupBaselineEbsBandwidthMbpsRequest]{
-		OutputState: i.ToAutoScalingGroupBaselineEbsBandwidthMbpsRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs) ToAutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput() AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput {
 	return i.ToAutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Background())
 }
@@ -438,12 +383,6 @@ func (i *autoScalingGroupBaselineEbsBandwidthMbpsRequestPtrType) ToAutoScalingGr
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
-func (i *autoScalingGroupBaselineEbsBandwidthMbpsRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupBaselineEbsBandwidthMbpsRequest] {
-	return pulumix.Output[*AutoScalingGroupBaselineEbsBandwidthMbpsRequest]{
-		OutputState: i.ToAutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupBaselineEbsBandwidthMbpsRequestOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupBaselineEbsBandwidthMbpsRequestOutput) ElementType() reflect.Type {
@@ -468,12 +407,6 @@ func (o AutoScalingGroupBaselineEbsBandwidthMbpsRequestOutput) ToAutoScalingGrou
 	}).(AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
-func (o AutoScalingGroupBaselineEbsBandwidthMbpsRequestOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupBaselineEbsBandwidthMbpsRequest] {
-	return pulumix.Output[AutoScalingGroupBaselineEbsBandwidthMbpsRequest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupBaselineEbsBandwidthMbpsRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupBaselineEbsBandwidthMbpsRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -494,12 +427,6 @@ func (o AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput) ToAutoScalingG
 
 func (o AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput) ToAutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupBaselineEbsBandwidthMbpsRequest] {
-	return pulumix.Output[*AutoScalingGroupBaselineEbsBandwidthMbpsRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput) Elem() AutoScalingGroupBaselineEbsBandwidthMbpsRequestOutput {
@@ -563,12 +490,6 @@ func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToAutoScalingGroupInstanc
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceMaintenancePolicyOutput)
 }
 
-func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupInstanceMaintenancePolicy] {
-	return pulumix.Output[AutoScalingGroupInstanceMaintenancePolicy]{
-		OutputState: i.ToAutoScalingGroupInstanceMaintenancePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoScalingGroupInstanceMaintenancePolicyArgs) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutput() AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
 	return i.ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Background())
 }
@@ -610,12 +531,6 @@ func (i *autoScalingGroupInstanceMaintenancePolicyPtrType) ToAutoScalingGroupIns
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceMaintenancePolicyPtrOutput)
 }
 
-func (i *autoScalingGroupInstanceMaintenancePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupInstanceMaintenancePolicy] {
-	return pulumix.Output[*AutoScalingGroupInstanceMaintenancePolicy]{
-		OutputState: i.ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupInstanceMaintenancePolicyOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupInstanceMaintenancePolicyOutput) ElementType() reflect.Type {
@@ -640,12 +555,6 @@ func (o AutoScalingGroupInstanceMaintenancePolicyOutput) ToAutoScalingGroupInsta
 	}).(AutoScalingGroupInstanceMaintenancePolicyPtrOutput)
 }
 
-func (o AutoScalingGroupInstanceMaintenancePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupInstanceMaintenancePolicy] {
-	return pulumix.Output[AutoScalingGroupInstanceMaintenancePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupInstanceMaintenancePolicyOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupInstanceMaintenancePolicy) *int { return v.MaxHealthyPercentage }).(pulumi.IntPtrOutput)
 }
@@ -666,12 +575,6 @@ func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) ToAutoScalingGroupIn
 
 func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) ToAutoScalingGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceMaintenancePolicyPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupInstanceMaintenancePolicy] {
-	return pulumix.Output[*AutoScalingGroupInstanceMaintenancePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupInstanceMaintenancePolicyPtrOutput) Elem() AutoScalingGroupInstanceMaintenancePolicyOutput {
@@ -779,12 +682,6 @@ func (i AutoScalingGroupInstanceRequirementsArgs) ToAutoScalingGroupInstanceRequ
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceRequirementsOutput)
 }
 
-func (i AutoScalingGroupInstanceRequirementsArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupInstanceRequirements] {
-	return pulumix.Output[AutoScalingGroupInstanceRequirements]{
-		OutputState: i.ToAutoScalingGroupInstanceRequirementsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoScalingGroupInstanceRequirementsArgs) ToAutoScalingGroupInstanceRequirementsPtrOutput() AutoScalingGroupInstanceRequirementsPtrOutput {
 	return i.ToAutoScalingGroupInstanceRequirementsPtrOutputWithContext(context.Background())
 }
@@ -826,12 +723,6 @@ func (i *autoScalingGroupInstanceRequirementsPtrType) ToAutoScalingGroupInstance
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceRequirementsPtrOutput)
 }
 
-func (i *autoScalingGroupInstanceRequirementsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupInstanceRequirements] {
-	return pulumix.Output[*AutoScalingGroupInstanceRequirements]{
-		OutputState: i.ToAutoScalingGroupInstanceRequirementsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupInstanceRequirementsOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupInstanceRequirementsOutput) ElementType() reflect.Type {
@@ -854,12 +745,6 @@ func (o AutoScalingGroupInstanceRequirementsOutput) ToAutoScalingGroupInstanceRe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupInstanceRequirements) *AutoScalingGroupInstanceRequirements {
 		return &v
 	}).(AutoScalingGroupInstanceRequirementsPtrOutput)
-}
-
-func (o AutoScalingGroupInstanceRequirementsOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupInstanceRequirements] {
-	return pulumix.Output[AutoScalingGroupInstanceRequirements]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupInstanceRequirementsOutput) AcceleratorCount() AutoScalingGroupAcceleratorCountRequestPtrOutput {
@@ -986,12 +871,6 @@ func (o AutoScalingGroupInstanceRequirementsPtrOutput) ToAutoScalingGroupInstanc
 
 func (o AutoScalingGroupInstanceRequirementsPtrOutput) ToAutoScalingGroupInstanceRequirementsPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceRequirementsPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupInstanceRequirementsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupInstanceRequirements] {
-	return pulumix.Output[*AutoScalingGroupInstanceRequirements]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupInstanceRequirementsPtrOutput) Elem() AutoScalingGroupInstanceRequirementsOutput {
@@ -1261,12 +1140,6 @@ func (i AutoScalingGroupInstancesDistributionArgs) ToAutoScalingGroupInstancesDi
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstancesDistributionOutput)
 }
 
-func (i AutoScalingGroupInstancesDistributionArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupInstancesDistribution] {
-	return pulumix.Output[AutoScalingGroupInstancesDistribution]{
-		OutputState: i.ToAutoScalingGroupInstancesDistributionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoScalingGroupInstancesDistributionArgs) ToAutoScalingGroupInstancesDistributionPtrOutput() AutoScalingGroupInstancesDistributionPtrOutput {
 	return i.ToAutoScalingGroupInstancesDistributionPtrOutputWithContext(context.Background())
 }
@@ -1308,12 +1181,6 @@ func (i *autoScalingGroupInstancesDistributionPtrType) ToAutoScalingGroupInstanc
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstancesDistributionPtrOutput)
 }
 
-func (i *autoScalingGroupInstancesDistributionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupInstancesDistribution] {
-	return pulumix.Output[*AutoScalingGroupInstancesDistribution]{
-		OutputState: i.ToAutoScalingGroupInstancesDistributionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupInstancesDistributionOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupInstancesDistributionOutput) ElementType() reflect.Type {
@@ -1336,12 +1203,6 @@ func (o AutoScalingGroupInstancesDistributionOutput) ToAutoScalingGroupInstances
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupInstancesDistribution) *AutoScalingGroupInstancesDistribution {
 		return &v
 	}).(AutoScalingGroupInstancesDistributionPtrOutput)
-}
-
-func (o AutoScalingGroupInstancesDistributionOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupInstancesDistribution] {
-	return pulumix.Output[AutoScalingGroupInstancesDistribution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupInstancesDistributionOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
@@ -1380,12 +1241,6 @@ func (o AutoScalingGroupInstancesDistributionPtrOutput) ToAutoScalingGroupInstan
 
 func (o AutoScalingGroupInstancesDistributionPtrOutput) ToAutoScalingGroupInstancesDistributionPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstancesDistributionPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupInstancesDistributionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupInstancesDistribution] {
-	return pulumix.Output[*AutoScalingGroupInstancesDistribution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupInstancesDistributionPtrOutput) Elem() AutoScalingGroupInstancesDistributionOutput {
@@ -1485,12 +1340,6 @@ func (i AutoScalingGroupLaunchTemplateArgs) ToAutoScalingGroupLaunchTemplateOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupLaunchTemplateOutput)
 }
 
-func (i AutoScalingGroupLaunchTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupLaunchTemplate] {
-	return pulumix.Output[AutoScalingGroupLaunchTemplate]{
-		OutputState: i.ToAutoScalingGroupLaunchTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoScalingGroupLaunchTemplateArgs) ToAutoScalingGroupLaunchTemplatePtrOutput() AutoScalingGroupLaunchTemplatePtrOutput {
 	return i.ToAutoScalingGroupLaunchTemplatePtrOutputWithContext(context.Background())
 }
@@ -1532,12 +1381,6 @@ func (i *autoScalingGroupLaunchTemplatePtrType) ToAutoScalingGroupLaunchTemplate
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupLaunchTemplatePtrOutput)
 }
 
-func (i *autoScalingGroupLaunchTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupLaunchTemplate] {
-	return pulumix.Output[*AutoScalingGroupLaunchTemplate]{
-		OutputState: i.ToAutoScalingGroupLaunchTemplatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupLaunchTemplateOutput) ElementType() reflect.Type {
@@ -1562,12 +1405,6 @@ func (o AutoScalingGroupLaunchTemplateOutput) ToAutoScalingGroupLaunchTemplatePt
 	}).(AutoScalingGroupLaunchTemplatePtrOutput)
 }
 
-func (o AutoScalingGroupLaunchTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupLaunchTemplate] {
-	return pulumix.Output[AutoScalingGroupLaunchTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupLaunchTemplateOutput) LaunchTemplateSpecification() AutoScalingGroupLaunchTemplateSpecificationOutput {
 	return o.ApplyT(func(v AutoScalingGroupLaunchTemplate) AutoScalingGroupLaunchTemplateSpecification {
 		return v.LaunchTemplateSpecification
@@ -1590,12 +1427,6 @@ func (o AutoScalingGroupLaunchTemplatePtrOutput) ToAutoScalingGroupLaunchTemplat
 
 func (o AutoScalingGroupLaunchTemplatePtrOutput) ToAutoScalingGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) AutoScalingGroupLaunchTemplatePtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupLaunchTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupLaunchTemplate] {
-	return pulumix.Output[*AutoScalingGroupLaunchTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupLaunchTemplatePtrOutput) Elem() AutoScalingGroupLaunchTemplateOutput {
@@ -1663,12 +1494,6 @@ func (i AutoScalingGroupLaunchTemplateOverridesArgs) ToAutoScalingGroupLaunchTem
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupLaunchTemplateOverridesOutput)
 }
 
-func (i AutoScalingGroupLaunchTemplateOverridesArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupLaunchTemplateOverrides] {
-	return pulumix.Output[AutoScalingGroupLaunchTemplateOverrides]{
-		OutputState: i.ToAutoScalingGroupLaunchTemplateOverridesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutoScalingGroupLaunchTemplateOverridesArrayInput is an input type that accepts AutoScalingGroupLaunchTemplateOverridesArray and AutoScalingGroupLaunchTemplateOverridesArrayOutput values.
 // You can construct a concrete instance of `AutoScalingGroupLaunchTemplateOverridesArrayInput` via:
 //
@@ -1694,12 +1519,6 @@ func (i AutoScalingGroupLaunchTemplateOverridesArray) ToAutoScalingGroupLaunchTe
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupLaunchTemplateOverridesArrayOutput)
 }
 
-func (i AutoScalingGroupLaunchTemplateOverridesArray) ToOutput(ctx context.Context) pulumix.Output[[]AutoScalingGroupLaunchTemplateOverrides] {
-	return pulumix.Output[[]AutoScalingGroupLaunchTemplateOverrides]{
-		OutputState: i.ToAutoScalingGroupLaunchTemplateOverridesArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupLaunchTemplateOverridesOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupLaunchTemplateOverridesOutput) ElementType() reflect.Type {
@@ -1712,12 +1531,6 @@ func (o AutoScalingGroupLaunchTemplateOverridesOutput) ToAutoScalingGroupLaunchT
 
 func (o AutoScalingGroupLaunchTemplateOverridesOutput) ToAutoScalingGroupLaunchTemplateOverridesOutputWithContext(ctx context.Context) AutoScalingGroupLaunchTemplateOverridesOutput {
 	return o
-}
-
-func (o AutoScalingGroupLaunchTemplateOverridesOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupLaunchTemplateOverrides] {
-	return pulumix.Output[AutoScalingGroupLaunchTemplateOverrides]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupLaunchTemplateOverridesOutput) InstanceRequirements() AutoScalingGroupInstanceRequirementsPtrOutput {
@@ -1752,12 +1565,6 @@ func (o AutoScalingGroupLaunchTemplateOverridesArrayOutput) ToAutoScalingGroupLa
 
 func (o AutoScalingGroupLaunchTemplateOverridesArrayOutput) ToAutoScalingGroupLaunchTemplateOverridesArrayOutputWithContext(ctx context.Context) AutoScalingGroupLaunchTemplateOverridesArrayOutput {
 	return o
-}
-
-func (o AutoScalingGroupLaunchTemplateOverridesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutoScalingGroupLaunchTemplateOverrides] {
-	return pulumix.Output[[]AutoScalingGroupLaunchTemplateOverrides]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupLaunchTemplateOverridesArrayOutput) Index(i pulumi.IntInput) AutoScalingGroupLaunchTemplateOverridesOutput {
@@ -1801,12 +1608,6 @@ func (i AutoScalingGroupLaunchTemplateSpecificationArgs) ToAutoScalingGroupLaunc
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupLaunchTemplateSpecificationOutput)
 }
 
-func (i AutoScalingGroupLaunchTemplateSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupLaunchTemplateSpecification] {
-	return pulumix.Output[AutoScalingGroupLaunchTemplateSpecification]{
-		OutputState: i.ToAutoScalingGroupLaunchTemplateSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoScalingGroupLaunchTemplateSpecificationArgs) ToAutoScalingGroupLaunchTemplateSpecificationPtrOutput() AutoScalingGroupLaunchTemplateSpecificationPtrOutput {
 	return i.ToAutoScalingGroupLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
 }
@@ -1848,12 +1649,6 @@ func (i *autoScalingGroupLaunchTemplateSpecificationPtrType) ToAutoScalingGroupL
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupLaunchTemplateSpecificationPtrOutput)
 }
 
-func (i *autoScalingGroupLaunchTemplateSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupLaunchTemplateSpecification] {
-	return pulumix.Output[*AutoScalingGroupLaunchTemplateSpecification]{
-		OutputState: i.ToAutoScalingGroupLaunchTemplateSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
@@ -1876,12 +1671,6 @@ func (o AutoScalingGroupLaunchTemplateSpecificationOutput) ToAutoScalingGroupLau
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupLaunchTemplateSpecification) *AutoScalingGroupLaunchTemplateSpecification {
 		return &v
 	}).(AutoScalingGroupLaunchTemplateSpecificationPtrOutput)
-}
-
-func (o AutoScalingGroupLaunchTemplateSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupLaunchTemplateSpecification] {
-	return pulumix.Output[AutoScalingGroupLaunchTemplateSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
@@ -1908,12 +1697,6 @@ func (o AutoScalingGroupLaunchTemplateSpecificationPtrOutput) ToAutoScalingGroup
 
 func (o AutoScalingGroupLaunchTemplateSpecificationPtrOutput) ToAutoScalingGroupLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) AutoScalingGroupLaunchTemplateSpecificationPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupLaunchTemplateSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupLaunchTemplateSpecification] {
-	return pulumix.Output[*AutoScalingGroupLaunchTemplateSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupLaunchTemplateSpecificationPtrOutput) Elem() AutoScalingGroupLaunchTemplateSpecificationOutput {
@@ -1996,12 +1779,6 @@ func (i AutoScalingGroupLifecycleHookSpecificationArgs) ToAutoScalingGroupLifecy
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupLifecycleHookSpecificationOutput)
 }
 
-func (i AutoScalingGroupLifecycleHookSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupLifecycleHookSpecification] {
-	return pulumix.Output[AutoScalingGroupLifecycleHookSpecification]{
-		OutputState: i.ToAutoScalingGroupLifecycleHookSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutoScalingGroupLifecycleHookSpecificationArrayInput is an input type that accepts AutoScalingGroupLifecycleHookSpecificationArray and AutoScalingGroupLifecycleHookSpecificationArrayOutput values.
 // You can construct a concrete instance of `AutoScalingGroupLifecycleHookSpecificationArrayInput` via:
 //
@@ -2027,12 +1804,6 @@ func (i AutoScalingGroupLifecycleHookSpecificationArray) ToAutoScalingGroupLifec
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupLifecycleHookSpecificationArrayOutput)
 }
 
-func (i AutoScalingGroupLifecycleHookSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]AutoScalingGroupLifecycleHookSpecification] {
-	return pulumix.Output[[]AutoScalingGroupLifecycleHookSpecification]{
-		OutputState: i.ToAutoScalingGroupLifecycleHookSpecificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupLifecycleHookSpecificationOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupLifecycleHookSpecificationOutput) ElementType() reflect.Type {
@@ -2045,12 +1816,6 @@ func (o AutoScalingGroupLifecycleHookSpecificationOutput) ToAutoScalingGroupLife
 
 func (o AutoScalingGroupLifecycleHookSpecificationOutput) ToAutoScalingGroupLifecycleHookSpecificationOutputWithContext(ctx context.Context) AutoScalingGroupLifecycleHookSpecificationOutput {
 	return o
-}
-
-func (o AutoScalingGroupLifecycleHookSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupLifecycleHookSpecification] {
-	return pulumix.Output[AutoScalingGroupLifecycleHookSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupLifecycleHookSpecificationOutput) DefaultResult() pulumi.StringPtrOutput {
@@ -2095,12 +1860,6 @@ func (o AutoScalingGroupLifecycleHookSpecificationArrayOutput) ToAutoScalingGrou
 	return o
 }
 
-func (o AutoScalingGroupLifecycleHookSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutoScalingGroupLifecycleHookSpecification] {
-	return pulumix.Output[[]AutoScalingGroupLifecycleHookSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupLifecycleHookSpecificationArrayOutput) Index(i pulumi.IntInput) AutoScalingGroupLifecycleHookSpecificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoScalingGroupLifecycleHookSpecification {
 		return vs[0].([]AutoScalingGroupLifecycleHookSpecification)[vs[1].(int)]
@@ -2138,12 +1897,6 @@ func (i AutoScalingGroupMemoryGiBPerVCpuRequestArgs) ToAutoScalingGroupMemoryGiB
 
 func (i AutoScalingGroupMemoryGiBPerVCpuRequestArgs) ToAutoScalingGroupMemoryGiBPerVCpuRequestOutputWithContext(ctx context.Context) AutoScalingGroupMemoryGiBPerVCpuRequestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupMemoryGiBPerVCpuRequestOutput)
-}
-
-func (i AutoScalingGroupMemoryGiBPerVCpuRequestArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupMemoryGiBPerVCpuRequest] {
-	return pulumix.Output[AutoScalingGroupMemoryGiBPerVCpuRequest]{
-		OutputState: i.ToAutoScalingGroupMemoryGiBPerVCpuRequestOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AutoScalingGroupMemoryGiBPerVCpuRequestArgs) ToAutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput() AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput {
@@ -2187,12 +1940,6 @@ func (i *autoScalingGroupMemoryGiBPerVCpuRequestPtrType) ToAutoScalingGroupMemor
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput)
 }
 
-func (i *autoScalingGroupMemoryGiBPerVCpuRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupMemoryGiBPerVCpuRequest] {
-	return pulumix.Output[*AutoScalingGroupMemoryGiBPerVCpuRequest]{
-		OutputState: i.ToAutoScalingGroupMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupMemoryGiBPerVCpuRequestOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupMemoryGiBPerVCpuRequestOutput) ElementType() reflect.Type {
@@ -2217,12 +1964,6 @@ func (o AutoScalingGroupMemoryGiBPerVCpuRequestOutput) ToAutoScalingGroupMemoryG
 	}).(AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput)
 }
 
-func (o AutoScalingGroupMemoryGiBPerVCpuRequestOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupMemoryGiBPerVCpuRequest] {
-	return pulumix.Output[AutoScalingGroupMemoryGiBPerVCpuRequest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupMemoryGiBPerVCpuRequestOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupMemoryGiBPerVCpuRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
@@ -2243,12 +1984,6 @@ func (o AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput) ToAutoScalingGroupMemo
 
 func (o AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput) ToAutoScalingGroupMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupMemoryGiBPerVCpuRequest] {
-	return pulumix.Output[*AutoScalingGroupMemoryGiBPerVCpuRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput) Elem() AutoScalingGroupMemoryGiBPerVCpuRequestOutput {
@@ -2312,12 +2047,6 @@ func (i AutoScalingGroupMemoryMiBRequestArgs) ToAutoScalingGroupMemoryMiBRequest
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupMemoryMiBRequestOutput)
 }
 
-func (i AutoScalingGroupMemoryMiBRequestArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupMemoryMiBRequest] {
-	return pulumix.Output[AutoScalingGroupMemoryMiBRequest]{
-		OutputState: i.ToAutoScalingGroupMemoryMiBRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoScalingGroupMemoryMiBRequestArgs) ToAutoScalingGroupMemoryMiBRequestPtrOutput() AutoScalingGroupMemoryMiBRequestPtrOutput {
 	return i.ToAutoScalingGroupMemoryMiBRequestPtrOutputWithContext(context.Background())
 }
@@ -2359,12 +2088,6 @@ func (i *autoScalingGroupMemoryMiBRequestPtrType) ToAutoScalingGroupMemoryMiBReq
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupMemoryMiBRequestPtrOutput)
 }
 
-func (i *autoScalingGroupMemoryMiBRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupMemoryMiBRequest] {
-	return pulumix.Output[*AutoScalingGroupMemoryMiBRequest]{
-		OutputState: i.ToAutoScalingGroupMemoryMiBRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupMemoryMiBRequestOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupMemoryMiBRequestOutput) ElementType() reflect.Type {
@@ -2389,12 +2112,6 @@ func (o AutoScalingGroupMemoryMiBRequestOutput) ToAutoScalingGroupMemoryMiBReque
 	}).(AutoScalingGroupMemoryMiBRequestPtrOutput)
 }
 
-func (o AutoScalingGroupMemoryMiBRequestOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupMemoryMiBRequest] {
-	return pulumix.Output[AutoScalingGroupMemoryMiBRequest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -2415,12 +2132,6 @@ func (o AutoScalingGroupMemoryMiBRequestPtrOutput) ToAutoScalingGroupMemoryMiBRe
 
 func (o AutoScalingGroupMemoryMiBRequestPtrOutput) ToAutoScalingGroupMemoryMiBRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupMemoryMiBRequestPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupMemoryMiBRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupMemoryMiBRequest] {
-	return pulumix.Output[*AutoScalingGroupMemoryMiBRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupMemoryMiBRequestPtrOutput) Elem() AutoScalingGroupMemoryMiBRequestOutput {
@@ -2484,12 +2195,6 @@ func (i AutoScalingGroupMetricsCollectionArgs) ToAutoScalingGroupMetricsCollecti
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupMetricsCollectionOutput)
 }
 
-func (i AutoScalingGroupMetricsCollectionArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupMetricsCollection] {
-	return pulumix.Output[AutoScalingGroupMetricsCollection]{
-		OutputState: i.ToAutoScalingGroupMetricsCollectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutoScalingGroupMetricsCollectionArrayInput is an input type that accepts AutoScalingGroupMetricsCollectionArray and AutoScalingGroupMetricsCollectionArrayOutput values.
 // You can construct a concrete instance of `AutoScalingGroupMetricsCollectionArrayInput` via:
 //
@@ -2515,12 +2220,6 @@ func (i AutoScalingGroupMetricsCollectionArray) ToAutoScalingGroupMetricsCollect
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupMetricsCollectionArrayOutput)
 }
 
-func (i AutoScalingGroupMetricsCollectionArray) ToOutput(ctx context.Context) pulumix.Output[[]AutoScalingGroupMetricsCollection] {
-	return pulumix.Output[[]AutoScalingGroupMetricsCollection]{
-		OutputState: i.ToAutoScalingGroupMetricsCollectionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupMetricsCollectionOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupMetricsCollectionOutput) ElementType() reflect.Type {
@@ -2533,12 +2232,6 @@ func (o AutoScalingGroupMetricsCollectionOutput) ToAutoScalingGroupMetricsCollec
 
 func (o AutoScalingGroupMetricsCollectionOutput) ToAutoScalingGroupMetricsCollectionOutputWithContext(ctx context.Context) AutoScalingGroupMetricsCollectionOutput {
 	return o
-}
-
-func (o AutoScalingGroupMetricsCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupMetricsCollection] {
-	return pulumix.Output[AutoScalingGroupMetricsCollection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupMetricsCollectionOutput) Granularity() pulumi.StringOutput {
@@ -2561,12 +2254,6 @@ func (o AutoScalingGroupMetricsCollectionArrayOutput) ToAutoScalingGroupMetricsC
 
 func (o AutoScalingGroupMetricsCollectionArrayOutput) ToAutoScalingGroupMetricsCollectionArrayOutputWithContext(ctx context.Context) AutoScalingGroupMetricsCollectionArrayOutput {
 	return o
-}
-
-func (o AutoScalingGroupMetricsCollectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutoScalingGroupMetricsCollection] {
-	return pulumix.Output[[]AutoScalingGroupMetricsCollection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupMetricsCollectionArrayOutput) Index(i pulumi.IntInput) AutoScalingGroupMetricsCollectionOutput {
@@ -2606,12 +2293,6 @@ func (i AutoScalingGroupMixedInstancesPolicyArgs) ToAutoScalingGroupMixedInstanc
 
 func (i AutoScalingGroupMixedInstancesPolicyArgs) ToAutoScalingGroupMixedInstancesPolicyOutputWithContext(ctx context.Context) AutoScalingGroupMixedInstancesPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupMixedInstancesPolicyOutput)
-}
-
-func (i AutoScalingGroupMixedInstancesPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupMixedInstancesPolicy] {
-	return pulumix.Output[AutoScalingGroupMixedInstancesPolicy]{
-		OutputState: i.ToAutoScalingGroupMixedInstancesPolicyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AutoScalingGroupMixedInstancesPolicyArgs) ToAutoScalingGroupMixedInstancesPolicyPtrOutput() AutoScalingGroupMixedInstancesPolicyPtrOutput {
@@ -2655,12 +2336,6 @@ func (i *autoScalingGroupMixedInstancesPolicyPtrType) ToAutoScalingGroupMixedIns
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupMixedInstancesPolicyPtrOutput)
 }
 
-func (i *autoScalingGroupMixedInstancesPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupMixedInstancesPolicy] {
-	return pulumix.Output[*AutoScalingGroupMixedInstancesPolicy]{
-		OutputState: i.ToAutoScalingGroupMixedInstancesPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupMixedInstancesPolicyOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupMixedInstancesPolicyOutput) ElementType() reflect.Type {
@@ -2685,12 +2360,6 @@ func (o AutoScalingGroupMixedInstancesPolicyOutput) ToAutoScalingGroupMixedInsta
 	}).(AutoScalingGroupMixedInstancesPolicyPtrOutput)
 }
 
-func (o AutoScalingGroupMixedInstancesPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupMixedInstancesPolicy] {
-	return pulumix.Output[AutoScalingGroupMixedInstancesPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupMixedInstancesPolicyOutput) InstancesDistribution() AutoScalingGroupInstancesDistributionPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupMixedInstancesPolicy) *AutoScalingGroupInstancesDistribution {
 		return v.InstancesDistribution
@@ -2713,12 +2382,6 @@ func (o AutoScalingGroupMixedInstancesPolicyPtrOutput) ToAutoScalingGroupMixedIn
 
 func (o AutoScalingGroupMixedInstancesPolicyPtrOutput) ToAutoScalingGroupMixedInstancesPolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupMixedInstancesPolicyPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupMixedInstancesPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupMixedInstancesPolicy] {
-	return pulumix.Output[*AutoScalingGroupMixedInstancesPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupMixedInstancesPolicyPtrOutput) Elem() AutoScalingGroupMixedInstancesPolicyOutput {
@@ -2782,12 +2445,6 @@ func (i AutoScalingGroupNetworkBandwidthGbpsRequestArgs) ToAutoScalingGroupNetwo
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupNetworkBandwidthGbpsRequestOutput)
 }
 
-func (i AutoScalingGroupNetworkBandwidthGbpsRequestArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupNetworkBandwidthGbpsRequest] {
-	return pulumix.Output[AutoScalingGroupNetworkBandwidthGbpsRequest]{
-		OutputState: i.ToAutoScalingGroupNetworkBandwidthGbpsRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoScalingGroupNetworkBandwidthGbpsRequestArgs) ToAutoScalingGroupNetworkBandwidthGbpsRequestPtrOutput() AutoScalingGroupNetworkBandwidthGbpsRequestPtrOutput {
 	return i.ToAutoScalingGroupNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
 }
@@ -2829,12 +2486,6 @@ func (i *autoScalingGroupNetworkBandwidthGbpsRequestPtrType) ToAutoScalingGroupN
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupNetworkBandwidthGbpsRequestPtrOutput)
 }
 
-func (i *autoScalingGroupNetworkBandwidthGbpsRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupNetworkBandwidthGbpsRequest] {
-	return pulumix.Output[*AutoScalingGroupNetworkBandwidthGbpsRequest]{
-		OutputState: i.ToAutoScalingGroupNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupNetworkBandwidthGbpsRequestOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupNetworkBandwidthGbpsRequestOutput) ElementType() reflect.Type {
@@ -2859,12 +2510,6 @@ func (o AutoScalingGroupNetworkBandwidthGbpsRequestOutput) ToAutoScalingGroupNet
 	}).(AutoScalingGroupNetworkBandwidthGbpsRequestPtrOutput)
 }
 
-func (o AutoScalingGroupNetworkBandwidthGbpsRequestOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupNetworkBandwidthGbpsRequest] {
-	return pulumix.Output[AutoScalingGroupNetworkBandwidthGbpsRequest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupNetworkBandwidthGbpsRequestOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupNetworkBandwidthGbpsRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
@@ -2885,12 +2530,6 @@ func (o AutoScalingGroupNetworkBandwidthGbpsRequestPtrOutput) ToAutoScalingGroup
 
 func (o AutoScalingGroupNetworkBandwidthGbpsRequestPtrOutput) ToAutoScalingGroupNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupNetworkBandwidthGbpsRequestPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupNetworkBandwidthGbpsRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupNetworkBandwidthGbpsRequest] {
-	return pulumix.Output[*AutoScalingGroupNetworkBandwidthGbpsRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupNetworkBandwidthGbpsRequestPtrOutput) Elem() AutoScalingGroupNetworkBandwidthGbpsRequestOutput {
@@ -2954,12 +2593,6 @@ func (i AutoScalingGroupNetworkInterfaceCountRequestArgs) ToAutoScalingGroupNetw
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupNetworkInterfaceCountRequestOutput)
 }
 
-func (i AutoScalingGroupNetworkInterfaceCountRequestArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupNetworkInterfaceCountRequest] {
-	return pulumix.Output[AutoScalingGroupNetworkInterfaceCountRequest]{
-		OutputState: i.ToAutoScalingGroupNetworkInterfaceCountRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoScalingGroupNetworkInterfaceCountRequestArgs) ToAutoScalingGroupNetworkInterfaceCountRequestPtrOutput() AutoScalingGroupNetworkInterfaceCountRequestPtrOutput {
 	return i.ToAutoScalingGroupNetworkInterfaceCountRequestPtrOutputWithContext(context.Background())
 }
@@ -3001,12 +2634,6 @@ func (i *autoScalingGroupNetworkInterfaceCountRequestPtrType) ToAutoScalingGroup
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupNetworkInterfaceCountRequestPtrOutput)
 }
 
-func (i *autoScalingGroupNetworkInterfaceCountRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupNetworkInterfaceCountRequest] {
-	return pulumix.Output[*AutoScalingGroupNetworkInterfaceCountRequest]{
-		OutputState: i.ToAutoScalingGroupNetworkInterfaceCountRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupNetworkInterfaceCountRequestOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupNetworkInterfaceCountRequestOutput) ElementType() reflect.Type {
@@ -3031,12 +2658,6 @@ func (o AutoScalingGroupNetworkInterfaceCountRequestOutput) ToAutoScalingGroupNe
 	}).(AutoScalingGroupNetworkInterfaceCountRequestPtrOutput)
 }
 
-func (o AutoScalingGroupNetworkInterfaceCountRequestOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupNetworkInterfaceCountRequest] {
-	return pulumix.Output[AutoScalingGroupNetworkInterfaceCountRequest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupNetworkInterfaceCountRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupNetworkInterfaceCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -3057,12 +2678,6 @@ func (o AutoScalingGroupNetworkInterfaceCountRequestPtrOutput) ToAutoScalingGrou
 
 func (o AutoScalingGroupNetworkInterfaceCountRequestPtrOutput) ToAutoScalingGroupNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupNetworkInterfaceCountRequestPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupNetworkInterfaceCountRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupNetworkInterfaceCountRequest] {
-	return pulumix.Output[*AutoScalingGroupNetworkInterfaceCountRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupNetworkInterfaceCountRequestPtrOutput) Elem() AutoScalingGroupNetworkInterfaceCountRequestOutput {
@@ -3126,12 +2741,6 @@ func (i AutoScalingGroupNotificationConfigurationArgs) ToAutoScalingGroupNotific
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupNotificationConfigurationOutput)
 }
 
-func (i AutoScalingGroupNotificationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupNotificationConfiguration] {
-	return pulumix.Output[AutoScalingGroupNotificationConfiguration]{
-		OutputState: i.ToAutoScalingGroupNotificationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoScalingGroupNotificationConfigurationArgs) ToAutoScalingGroupNotificationConfigurationPtrOutput() AutoScalingGroupNotificationConfigurationPtrOutput {
 	return i.ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3173,12 +2782,6 @@ func (i *autoScalingGroupNotificationConfigurationPtrType) ToAutoScalingGroupNot
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupNotificationConfigurationPtrOutput)
 }
 
-func (i *autoScalingGroupNotificationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupNotificationConfiguration] {
-	return pulumix.Output[*AutoScalingGroupNotificationConfiguration]{
-		OutputState: i.ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutoScalingGroupNotificationConfigurationArrayInput is an input type that accepts AutoScalingGroupNotificationConfigurationArray and AutoScalingGroupNotificationConfigurationArrayOutput values.
 // You can construct a concrete instance of `AutoScalingGroupNotificationConfigurationArrayInput` via:
 //
@@ -3202,12 +2805,6 @@ func (i AutoScalingGroupNotificationConfigurationArray) ToAutoScalingGroupNotifi
 
 func (i AutoScalingGroupNotificationConfigurationArray) ToAutoScalingGroupNotificationConfigurationArrayOutputWithContext(ctx context.Context) AutoScalingGroupNotificationConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupNotificationConfigurationArrayOutput)
-}
-
-func (i AutoScalingGroupNotificationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]AutoScalingGroupNotificationConfiguration] {
-	return pulumix.Output[[]AutoScalingGroupNotificationConfiguration]{
-		OutputState: i.ToAutoScalingGroupNotificationConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AutoScalingGroupNotificationConfigurationOutput struct{ *pulumi.OutputState }
@@ -3234,12 +2831,6 @@ func (o AutoScalingGroupNotificationConfigurationOutput) ToAutoScalingGroupNotif
 	}).(AutoScalingGroupNotificationConfigurationPtrOutput)
 }
 
-func (o AutoScalingGroupNotificationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupNotificationConfiguration] {
-	return pulumix.Output[AutoScalingGroupNotificationConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupNotificationConfigurationOutput) NotificationTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) []string { return v.NotificationTypes }).(pulumi.StringArrayOutput)
 }
@@ -3260,12 +2851,6 @@ func (o AutoScalingGroupNotificationConfigurationPtrOutput) ToAutoScalingGroupNo
 
 func (o AutoScalingGroupNotificationConfigurationPtrOutput) ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(ctx context.Context) AutoScalingGroupNotificationConfigurationPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupNotificationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupNotificationConfiguration] {
-	return pulumix.Output[*AutoScalingGroupNotificationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupNotificationConfigurationPtrOutput) Elem() AutoScalingGroupNotificationConfigurationOutput {
@@ -3310,12 +2895,6 @@ func (o AutoScalingGroupNotificationConfigurationArrayOutput) ToAutoScalingGroup
 	return o
 }
 
-func (o AutoScalingGroupNotificationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutoScalingGroupNotificationConfiguration] {
-	return pulumix.Output[[]AutoScalingGroupNotificationConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupNotificationConfigurationArrayOutput) Index(i pulumi.IntInput) AutoScalingGroupNotificationConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoScalingGroupNotificationConfiguration {
 		return vs[0].([]AutoScalingGroupNotificationConfiguration)[vs[1].(int)]
@@ -3357,12 +2936,6 @@ func (i AutoScalingGroupTagPropertyArgs) ToAutoScalingGroupTagPropertyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupTagPropertyOutput)
 }
 
-func (i AutoScalingGroupTagPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupTagProperty] {
-	return pulumix.Output[AutoScalingGroupTagProperty]{
-		OutputState: i.ToAutoScalingGroupTagPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutoScalingGroupTagPropertyArrayInput is an input type that accepts AutoScalingGroupTagPropertyArray and AutoScalingGroupTagPropertyArrayOutput values.
 // You can construct a concrete instance of `AutoScalingGroupTagPropertyArrayInput` via:
 //
@@ -3388,12 +2961,6 @@ func (i AutoScalingGroupTagPropertyArray) ToAutoScalingGroupTagPropertyArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupTagPropertyArrayOutput)
 }
 
-func (i AutoScalingGroupTagPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]AutoScalingGroupTagProperty] {
-	return pulumix.Output[[]AutoScalingGroupTagProperty]{
-		OutputState: i.ToAutoScalingGroupTagPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupTagPropertyOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupTagPropertyOutput) ElementType() reflect.Type {
@@ -3406,12 +2973,6 @@ func (o AutoScalingGroupTagPropertyOutput) ToAutoScalingGroupTagPropertyOutput()
 
 func (o AutoScalingGroupTagPropertyOutput) ToAutoScalingGroupTagPropertyOutputWithContext(ctx context.Context) AutoScalingGroupTagPropertyOutput {
 	return o
-}
-
-func (o AutoScalingGroupTagPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupTagProperty] {
-	return pulumix.Output[AutoScalingGroupTagProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupTagPropertyOutput) Key() pulumi.StringOutput {
@@ -3438,12 +2999,6 @@ func (o AutoScalingGroupTagPropertyArrayOutput) ToAutoScalingGroupTagPropertyArr
 
 func (o AutoScalingGroupTagPropertyArrayOutput) ToAutoScalingGroupTagPropertyArrayOutputWithContext(ctx context.Context) AutoScalingGroupTagPropertyArrayOutput {
 	return o
-}
-
-func (o AutoScalingGroupTagPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutoScalingGroupTagProperty] {
-	return pulumix.Output[[]AutoScalingGroupTagProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupTagPropertyArrayOutput) Index(i pulumi.IntInput) AutoScalingGroupTagPropertyOutput {
@@ -3483,12 +3038,6 @@ func (i AutoScalingGroupTotalLocalStorageGbRequestArgs) ToAutoScalingGroupTotalL
 
 func (i AutoScalingGroupTotalLocalStorageGbRequestArgs) ToAutoScalingGroupTotalLocalStorageGbRequestOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGbRequestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupTotalLocalStorageGbRequestOutput)
-}
-
-func (i AutoScalingGroupTotalLocalStorageGbRequestArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupTotalLocalStorageGbRequest] {
-	return pulumix.Output[AutoScalingGroupTotalLocalStorageGbRequest]{
-		OutputState: i.ToAutoScalingGroupTotalLocalStorageGbRequestOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AutoScalingGroupTotalLocalStorageGbRequestArgs) ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutput() AutoScalingGroupTotalLocalStorageGbRequestPtrOutput {
@@ -3532,12 +3081,6 @@ func (i *autoScalingGroupTotalLocalStorageGbRequestPtrType) ToAutoScalingGroupTo
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupTotalLocalStorageGbRequestPtrOutput)
 }
 
-func (i *autoScalingGroupTotalLocalStorageGbRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupTotalLocalStorageGbRequest] {
-	return pulumix.Output[*AutoScalingGroupTotalLocalStorageGbRequest]{
-		OutputState: i.ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupTotalLocalStorageGbRequestOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupTotalLocalStorageGbRequestOutput) ElementType() reflect.Type {
@@ -3562,12 +3105,6 @@ func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) ToAutoScalingGroupTota
 	}).(AutoScalingGroupTotalLocalStorageGbRequestPtrOutput)
 }
 
-func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupTotalLocalStorageGbRequest] {
-	return pulumix.Output[AutoScalingGroupTotalLocalStorageGbRequest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupTotalLocalStorageGbRequestOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupTotalLocalStorageGbRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
@@ -3588,12 +3125,6 @@ func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) ToAutoScalingGroupT
 
 func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) ToAutoScalingGroupTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupTotalLocalStorageGbRequestPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupTotalLocalStorageGbRequest] {
-	return pulumix.Output[*AutoScalingGroupTotalLocalStorageGbRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) Elem() AutoScalingGroupTotalLocalStorageGbRequestOutput {
@@ -3657,12 +3188,6 @@ func (i AutoScalingGroupVCpuCountRequestArgs) ToAutoScalingGroupVCpuCountRequest
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupVCpuCountRequestOutput)
 }
 
-func (i AutoScalingGroupVCpuCountRequestArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupVCpuCountRequest] {
-	return pulumix.Output[AutoScalingGroupVCpuCountRequest]{
-		OutputState: i.ToAutoScalingGroupVCpuCountRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoScalingGroupVCpuCountRequestArgs) ToAutoScalingGroupVCpuCountRequestPtrOutput() AutoScalingGroupVCpuCountRequestPtrOutput {
 	return i.ToAutoScalingGroupVCpuCountRequestPtrOutputWithContext(context.Background())
 }
@@ -3704,12 +3229,6 @@ func (i *autoScalingGroupVCpuCountRequestPtrType) ToAutoScalingGroupVCpuCountReq
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupVCpuCountRequestPtrOutput)
 }
 
-func (i *autoScalingGroupVCpuCountRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupVCpuCountRequest] {
-	return pulumix.Output[*AutoScalingGroupVCpuCountRequest]{
-		OutputState: i.ToAutoScalingGroupVCpuCountRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoScalingGroupVCpuCountRequestOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupVCpuCountRequestOutput) ElementType() reflect.Type {
@@ -3734,12 +3253,6 @@ func (o AutoScalingGroupVCpuCountRequestOutput) ToAutoScalingGroupVCpuCountReque
 	}).(AutoScalingGroupVCpuCountRequestPtrOutput)
 }
 
-func (o AutoScalingGroupVCpuCountRequestOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupVCpuCountRequest] {
-	return pulumix.Output[AutoScalingGroupVCpuCountRequest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoScalingGroupVCpuCountRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupVCpuCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -3760,12 +3273,6 @@ func (o AutoScalingGroupVCpuCountRequestPtrOutput) ToAutoScalingGroupVCpuCountRe
 
 func (o AutoScalingGroupVCpuCountRequestPtrOutput) ToAutoScalingGroupVCpuCountRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupVCpuCountRequestPtrOutput {
 	return o
-}
-
-func (o AutoScalingGroupVCpuCountRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupVCpuCountRequest] {
-	return pulumix.Output[*AutoScalingGroupVCpuCountRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoScalingGroupVCpuCountRequestPtrOutput) Elem() AutoScalingGroupVCpuCountRequestOutput {
@@ -3855,12 +3362,6 @@ func (i LaunchConfigurationBlockDeviceArgs) ToLaunchConfigurationBlockDeviceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationBlockDeviceOutput)
 }
 
-func (i LaunchConfigurationBlockDeviceArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchConfigurationBlockDevice] {
-	return pulumix.Output[LaunchConfigurationBlockDevice]{
-		OutputState: i.ToLaunchConfigurationBlockDeviceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LaunchConfigurationBlockDeviceArgs) ToLaunchConfigurationBlockDevicePtrOutput() LaunchConfigurationBlockDevicePtrOutput {
 	return i.ToLaunchConfigurationBlockDevicePtrOutputWithContext(context.Background())
 }
@@ -3902,12 +3403,6 @@ func (i *launchConfigurationBlockDevicePtrType) ToLaunchConfigurationBlockDevice
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationBlockDevicePtrOutput)
 }
 
-func (i *launchConfigurationBlockDevicePtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchConfigurationBlockDevice] {
-	return pulumix.Output[*LaunchConfigurationBlockDevice]{
-		OutputState: i.ToLaunchConfigurationBlockDevicePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
 type LaunchConfigurationBlockDeviceOutput struct{ *pulumi.OutputState }
 
@@ -3931,12 +3426,6 @@ func (o LaunchConfigurationBlockDeviceOutput) ToLaunchConfigurationBlockDevicePt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationBlockDevice) *LaunchConfigurationBlockDevice {
 		return &v
 	}).(LaunchConfigurationBlockDevicePtrOutput)
-}
-
-func (o LaunchConfigurationBlockDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchConfigurationBlockDevice] {
-	return pulumix.Output[LaunchConfigurationBlockDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether the volume is deleted on instance termination.
@@ -3986,12 +3475,6 @@ func (o LaunchConfigurationBlockDevicePtrOutput) ToLaunchConfigurationBlockDevic
 
 func (o LaunchConfigurationBlockDevicePtrOutput) ToLaunchConfigurationBlockDevicePtrOutputWithContext(ctx context.Context) LaunchConfigurationBlockDevicePtrOutput {
 	return o
-}
-
-func (o LaunchConfigurationBlockDevicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchConfigurationBlockDevice] {
-	return pulumix.Output[*LaunchConfigurationBlockDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchConfigurationBlockDevicePtrOutput) Elem() LaunchConfigurationBlockDeviceOutput {
@@ -4121,12 +3604,6 @@ func (i LaunchConfigurationBlockDeviceMappingArgs) ToLaunchConfigurationBlockDev
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationBlockDeviceMappingOutput)
 }
 
-func (i LaunchConfigurationBlockDeviceMappingArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchConfigurationBlockDeviceMapping] {
-	return pulumix.Output[LaunchConfigurationBlockDeviceMapping]{
-		OutputState: i.ToLaunchConfigurationBlockDeviceMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LaunchConfigurationBlockDeviceMappingArrayInput is an input type that accepts LaunchConfigurationBlockDeviceMappingArray and LaunchConfigurationBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `LaunchConfigurationBlockDeviceMappingArrayInput` via:
 //
@@ -4152,12 +3629,6 @@ func (i LaunchConfigurationBlockDeviceMappingArray) ToLaunchConfigurationBlockDe
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationBlockDeviceMappingArrayOutput)
 }
 
-func (i LaunchConfigurationBlockDeviceMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]LaunchConfigurationBlockDeviceMapping] {
-	return pulumix.Output[[]LaunchConfigurationBlockDeviceMapping]{
-		OutputState: i.ToLaunchConfigurationBlockDeviceMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
 type LaunchConfigurationBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
@@ -4171,12 +3642,6 @@ func (o LaunchConfigurationBlockDeviceMappingOutput) ToLaunchConfigurationBlockD
 
 func (o LaunchConfigurationBlockDeviceMappingOutput) ToLaunchConfigurationBlockDeviceMappingOutputWithContext(ctx context.Context) LaunchConfigurationBlockDeviceMappingOutput {
 	return o
-}
-
-func (o LaunchConfigurationBlockDeviceMappingOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchConfigurationBlockDeviceMapping] {
-	return pulumix.Output[LaunchConfigurationBlockDeviceMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh).
@@ -4211,12 +3676,6 @@ func (o LaunchConfigurationBlockDeviceMappingArrayOutput) ToLaunchConfigurationB
 
 func (o LaunchConfigurationBlockDeviceMappingArrayOutput) ToLaunchConfigurationBlockDeviceMappingArrayOutputWithContext(ctx context.Context) LaunchConfigurationBlockDeviceMappingArrayOutput {
 	return o
-}
-
-func (o LaunchConfigurationBlockDeviceMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LaunchConfigurationBlockDeviceMapping] {
-	return pulumix.Output[[]LaunchConfigurationBlockDeviceMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchConfigurationBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) LaunchConfigurationBlockDeviceMappingOutput {
@@ -4268,12 +3727,6 @@ func (i LaunchConfigurationMetadataOptionsArgs) ToLaunchConfigurationMetadataOpt
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMetadataOptionsOutput)
 }
 
-func (i LaunchConfigurationMetadataOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchConfigurationMetadataOptions] {
-	return pulumix.Output[LaunchConfigurationMetadataOptions]{
-		OutputState: i.ToLaunchConfigurationMetadataOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LaunchConfigurationMetadataOptionsArgs) ToLaunchConfigurationMetadataOptionsPtrOutput() LaunchConfigurationMetadataOptionsPtrOutput {
 	return i.ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(context.Background())
 }
@@ -4315,12 +3768,6 @@ func (i *launchConfigurationMetadataOptionsPtrType) ToLaunchConfigurationMetadat
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMetadataOptionsPtrOutput)
 }
 
-func (i *launchConfigurationMetadataOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchConfigurationMetadataOptions] {
-	return pulumix.Output[*LaunchConfigurationMetadataOptions]{
-		OutputState: i.ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
 type LaunchConfigurationMetadataOptionsOutput struct{ *pulumi.OutputState }
 
@@ -4344,12 +3791,6 @@ func (o LaunchConfigurationMetadataOptionsOutput) ToLaunchConfigurationMetadataO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationMetadataOptions) *LaunchConfigurationMetadataOptions {
 		return &v
 	}).(LaunchConfigurationMetadataOptionsPtrOutput)
-}
-
-func (o LaunchConfigurationMetadataOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchConfigurationMetadataOptions] {
-	return pulumix.Output[LaunchConfigurationMetadataOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This parameter enables or disables the HTTP metadata endpoint on your instances.
@@ -4379,12 +3820,6 @@ func (o LaunchConfigurationMetadataOptionsPtrOutput) ToLaunchConfigurationMetada
 
 func (o LaunchConfigurationMetadataOptionsPtrOutput) ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsPtrOutput {
 	return o
-}
-
-func (o LaunchConfigurationMetadataOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchConfigurationMetadataOptions] {
-	return pulumix.Output[*LaunchConfigurationMetadataOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchConfigurationMetadataOptionsPtrOutput) Elem() LaunchConfigurationMetadataOptionsOutput {
@@ -4466,12 +3901,6 @@ func (i ScalingPolicyCustomizedMetricSpecificationArgs) ToScalingPolicyCustomize
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyCustomizedMetricSpecificationOutput)
 }
 
-func (i ScalingPolicyCustomizedMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyCustomizedMetricSpecification] {
-	return pulumix.Output[ScalingPolicyCustomizedMetricSpecification]{
-		OutputState: i.ToScalingPolicyCustomizedMetricSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScalingPolicyCustomizedMetricSpecificationArgs) ToScalingPolicyCustomizedMetricSpecificationPtrOutput() ScalingPolicyCustomizedMetricSpecificationPtrOutput {
 	return i.ToScalingPolicyCustomizedMetricSpecificationPtrOutputWithContext(context.Background())
 }
@@ -4513,12 +3942,6 @@ func (i *scalingPolicyCustomizedMetricSpecificationPtrType) ToScalingPolicyCusto
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyCustomizedMetricSpecificationPtrOutput)
 }
 
-func (i *scalingPolicyCustomizedMetricSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyCustomizedMetricSpecification] {
-	return pulumix.Output[*ScalingPolicyCustomizedMetricSpecification]{
-		OutputState: i.ToScalingPolicyCustomizedMetricSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyCustomizedMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyCustomizedMetricSpecificationOutput) ElementType() reflect.Type {
@@ -4541,12 +3964,6 @@ func (o ScalingPolicyCustomizedMetricSpecificationOutput) ToScalingPolicyCustomi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyCustomizedMetricSpecification) *ScalingPolicyCustomizedMetricSpecification {
 		return &v
 	}).(ScalingPolicyCustomizedMetricSpecificationPtrOutput)
-}
-
-func (o ScalingPolicyCustomizedMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyCustomizedMetricSpecification] {
-	return pulumix.Output[ScalingPolicyCustomizedMetricSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyCustomizedMetricSpecificationOutput) Dimensions() ScalingPolicyMetricDimensionArrayOutput {
@@ -4581,12 +3998,6 @@ func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) ToScalingPolicyCust
 
 func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) ToScalingPolicyCustomizedMetricSpecificationPtrOutputWithContext(ctx context.Context) ScalingPolicyCustomizedMetricSpecificationPtrOutput {
 	return o
-}
-
-func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyCustomizedMetricSpecification] {
-	return pulumix.Output[*ScalingPolicyCustomizedMetricSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Elem() ScalingPolicyCustomizedMetricSpecificationOutput {
@@ -4679,12 +4090,6 @@ func (i ScalingPolicyMetricArgs) ToScalingPolicyMetricOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyMetricOutput)
 }
 
-func (i ScalingPolicyMetricArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyMetric] {
-	return pulumix.Output[ScalingPolicyMetric]{
-		OutputState: i.ToScalingPolicyMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScalingPolicyMetricArgs) ToScalingPolicyMetricPtrOutput() ScalingPolicyMetricPtrOutput {
 	return i.ToScalingPolicyMetricPtrOutputWithContext(context.Background())
 }
@@ -4726,12 +4131,6 @@ func (i *scalingPolicyMetricPtrType) ToScalingPolicyMetricPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyMetricPtrOutput)
 }
 
-func (i *scalingPolicyMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyMetric] {
-	return pulumix.Output[*ScalingPolicyMetric]{
-		OutputState: i.ToScalingPolicyMetricPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyMetricOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyMetricOutput) ElementType() reflect.Type {
@@ -4754,12 +4153,6 @@ func (o ScalingPolicyMetricOutput) ToScalingPolicyMetricPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyMetric) *ScalingPolicyMetric {
 		return &v
 	}).(ScalingPolicyMetricPtrOutput)
-}
-
-func (o ScalingPolicyMetricOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyMetric] {
-	return pulumix.Output[ScalingPolicyMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyMetricOutput) Dimensions() ScalingPolicyMetricDimensionArrayOutput {
@@ -4786,12 +4179,6 @@ func (o ScalingPolicyMetricPtrOutput) ToScalingPolicyMetricPtrOutput() ScalingPo
 
 func (o ScalingPolicyMetricPtrOutput) ToScalingPolicyMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyMetricPtrOutput {
 	return o
-}
-
-func (o ScalingPolicyMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyMetric] {
-	return pulumix.Output[*ScalingPolicyMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyMetricPtrOutput) Elem() ScalingPolicyMetricOutput {
@@ -4870,12 +4257,6 @@ func (i ScalingPolicyMetricDataQueryArgs) ToScalingPolicyMetricDataQueryOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyMetricDataQueryOutput)
 }
 
-func (i ScalingPolicyMetricDataQueryArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyMetricDataQuery] {
-	return pulumix.Output[ScalingPolicyMetricDataQuery]{
-		OutputState: i.ToScalingPolicyMetricDataQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScalingPolicyMetricDataQueryArrayInput is an input type that accepts ScalingPolicyMetricDataQueryArray and ScalingPolicyMetricDataQueryArrayOutput values.
 // You can construct a concrete instance of `ScalingPolicyMetricDataQueryArrayInput` via:
 //
@@ -4901,12 +4282,6 @@ func (i ScalingPolicyMetricDataQueryArray) ToScalingPolicyMetricDataQueryArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyMetricDataQueryArrayOutput)
 }
 
-func (i ScalingPolicyMetricDataQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPolicyMetricDataQuery] {
-	return pulumix.Output[[]ScalingPolicyMetricDataQuery]{
-		OutputState: i.ToScalingPolicyMetricDataQueryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyMetricDataQueryOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyMetricDataQueryOutput) ElementType() reflect.Type {
@@ -4919,12 +4294,6 @@ func (o ScalingPolicyMetricDataQueryOutput) ToScalingPolicyMetricDataQueryOutput
 
 func (o ScalingPolicyMetricDataQueryOutput) ToScalingPolicyMetricDataQueryOutputWithContext(ctx context.Context) ScalingPolicyMetricDataQueryOutput {
 	return o
-}
-
-func (o ScalingPolicyMetricDataQueryOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyMetricDataQuery] {
-	return pulumix.Output[ScalingPolicyMetricDataQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyMetricDataQueryOutput) Expression() pulumi.StringPtrOutput {
@@ -4959,12 +4328,6 @@ func (o ScalingPolicyMetricDataQueryArrayOutput) ToScalingPolicyMetricDataQueryA
 
 func (o ScalingPolicyMetricDataQueryArrayOutput) ToScalingPolicyMetricDataQueryArrayOutputWithContext(ctx context.Context) ScalingPolicyMetricDataQueryArrayOutput {
 	return o
-}
-
-func (o ScalingPolicyMetricDataQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPolicyMetricDataQuery] {
-	return pulumix.Output[[]ScalingPolicyMetricDataQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyMetricDataQueryArrayOutput) Index(i pulumi.IntInput) ScalingPolicyMetricDataQueryOutput {
@@ -5006,12 +4369,6 @@ func (i ScalingPolicyMetricDimensionArgs) ToScalingPolicyMetricDimensionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyMetricDimensionOutput)
 }
 
-func (i ScalingPolicyMetricDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyMetricDimension] {
-	return pulumix.Output[ScalingPolicyMetricDimension]{
-		OutputState: i.ToScalingPolicyMetricDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScalingPolicyMetricDimensionArrayInput is an input type that accepts ScalingPolicyMetricDimensionArray and ScalingPolicyMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `ScalingPolicyMetricDimensionArrayInput` via:
 //
@@ -5037,12 +4394,6 @@ func (i ScalingPolicyMetricDimensionArray) ToScalingPolicyMetricDimensionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyMetricDimensionArrayOutput)
 }
 
-func (i ScalingPolicyMetricDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPolicyMetricDimension] {
-	return pulumix.Output[[]ScalingPolicyMetricDimension]{
-		OutputState: i.ToScalingPolicyMetricDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyMetricDimensionOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyMetricDimensionOutput) ElementType() reflect.Type {
@@ -5055,12 +4406,6 @@ func (o ScalingPolicyMetricDimensionOutput) ToScalingPolicyMetricDimensionOutput
 
 func (o ScalingPolicyMetricDimensionOutput) ToScalingPolicyMetricDimensionOutputWithContext(ctx context.Context) ScalingPolicyMetricDimensionOutput {
 	return o
-}
-
-func (o ScalingPolicyMetricDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyMetricDimension] {
-	return pulumix.Output[ScalingPolicyMetricDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyMetricDimensionOutput) Name() pulumi.StringOutput {
@@ -5083,12 +4428,6 @@ func (o ScalingPolicyMetricDimensionArrayOutput) ToScalingPolicyMetricDimensionA
 
 func (o ScalingPolicyMetricDimensionArrayOutput) ToScalingPolicyMetricDimensionArrayOutputWithContext(ctx context.Context) ScalingPolicyMetricDimensionArrayOutput {
 	return o
-}
-
-func (o ScalingPolicyMetricDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPolicyMetricDimension] {
-	return pulumix.Output[[]ScalingPolicyMetricDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyMetricDimensionArrayOutput) Index(i pulumi.IntInput) ScalingPolicyMetricDimensionOutput {
@@ -5132,12 +4471,6 @@ func (i ScalingPolicyMetricStatArgs) ToScalingPolicyMetricStatOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyMetricStatOutput)
 }
 
-func (i ScalingPolicyMetricStatArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyMetricStat] {
-	return pulumix.Output[ScalingPolicyMetricStat]{
-		OutputState: i.ToScalingPolicyMetricStatOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScalingPolicyMetricStatArgs) ToScalingPolicyMetricStatPtrOutput() ScalingPolicyMetricStatPtrOutput {
 	return i.ToScalingPolicyMetricStatPtrOutputWithContext(context.Background())
 }
@@ -5179,12 +4512,6 @@ func (i *scalingPolicyMetricStatPtrType) ToScalingPolicyMetricStatPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyMetricStatPtrOutput)
 }
 
-func (i *scalingPolicyMetricStatPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyMetricStat] {
-	return pulumix.Output[*ScalingPolicyMetricStat]{
-		OutputState: i.ToScalingPolicyMetricStatPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyMetricStatOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyMetricStatOutput) ElementType() reflect.Type {
@@ -5207,12 +4534,6 @@ func (o ScalingPolicyMetricStatOutput) ToScalingPolicyMetricStatPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyMetricStat) *ScalingPolicyMetricStat {
 		return &v
 	}).(ScalingPolicyMetricStatPtrOutput)
-}
-
-func (o ScalingPolicyMetricStatOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyMetricStat] {
-	return pulumix.Output[ScalingPolicyMetricStat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyMetricStatOutput) Metric() ScalingPolicyMetricOutput {
@@ -5239,12 +4560,6 @@ func (o ScalingPolicyMetricStatPtrOutput) ToScalingPolicyMetricStatPtrOutput() S
 
 func (o ScalingPolicyMetricStatPtrOutput) ToScalingPolicyMetricStatPtrOutputWithContext(ctx context.Context) ScalingPolicyMetricStatPtrOutput {
 	return o
-}
-
-func (o ScalingPolicyMetricStatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyMetricStat] {
-	return pulumix.Output[*ScalingPolicyMetricStat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyMetricStatPtrOutput) Elem() ScalingPolicyMetricStatOutput {
@@ -5317,12 +4632,6 @@ func (i ScalingPolicyPredefinedMetricSpecificationArgs) ToScalingPolicyPredefine
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredefinedMetricSpecificationOutput)
 }
 
-func (i ScalingPolicyPredefinedMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredefinedMetricSpecification] {
-	return pulumix.Output[ScalingPolicyPredefinedMetricSpecification]{
-		OutputState: i.ToScalingPolicyPredefinedMetricSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScalingPolicyPredefinedMetricSpecificationArgs) ToScalingPolicyPredefinedMetricSpecificationPtrOutput() ScalingPolicyPredefinedMetricSpecificationPtrOutput {
 	return i.ToScalingPolicyPredefinedMetricSpecificationPtrOutputWithContext(context.Background())
 }
@@ -5364,12 +4673,6 @@ func (i *scalingPolicyPredefinedMetricSpecificationPtrType) ToScalingPolicyPrede
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredefinedMetricSpecificationPtrOutput)
 }
 
-func (i *scalingPolicyPredefinedMetricSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredefinedMetricSpecification] {
-	return pulumix.Output[*ScalingPolicyPredefinedMetricSpecification]{
-		OutputState: i.ToScalingPolicyPredefinedMetricSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyPredefinedMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredefinedMetricSpecificationOutput) ElementType() reflect.Type {
@@ -5394,12 +4697,6 @@ func (o ScalingPolicyPredefinedMetricSpecificationOutput) ToScalingPolicyPredefi
 	}).(ScalingPolicyPredefinedMetricSpecificationPtrOutput)
 }
 
-func (o ScalingPolicyPredefinedMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredefinedMetricSpecification] {
-	return pulumix.Output[ScalingPolicyPredefinedMetricSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalingPolicyPredefinedMetricSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPolicyPredefinedMetricSpecification) string { return v.PredefinedMetricType }).(pulumi.StringOutput)
 }
@@ -5420,12 +4717,6 @@ func (o ScalingPolicyPredefinedMetricSpecificationPtrOutput) ToScalingPolicyPred
 
 func (o ScalingPolicyPredefinedMetricSpecificationPtrOutput) ToScalingPolicyPredefinedMetricSpecificationPtrOutputWithContext(ctx context.Context) ScalingPolicyPredefinedMetricSpecificationPtrOutput {
 	return o
-}
-
-func (o ScalingPolicyPredefinedMetricSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredefinedMetricSpecification] {
-	return pulumix.Output[*ScalingPolicyPredefinedMetricSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyPredefinedMetricSpecificationPtrOutput) Elem() ScalingPolicyPredefinedMetricSpecificationOutput {
@@ -5495,12 +4786,6 @@ func (i ScalingPolicyPredictiveScalingConfigurationArgs) ToScalingPolicyPredicti
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingConfigurationOutput)
 }
 
-func (i ScalingPolicyPredictiveScalingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingConfiguration] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingConfiguration]{
-		OutputState: i.ToScalingPolicyPredictiveScalingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScalingPolicyPredictiveScalingConfigurationArgs) ToScalingPolicyPredictiveScalingConfigurationPtrOutput() ScalingPolicyPredictiveScalingConfigurationPtrOutput {
 	return i.ToScalingPolicyPredictiveScalingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -5542,12 +4827,6 @@ func (i *scalingPolicyPredictiveScalingConfigurationPtrType) ToScalingPolicyPred
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingConfigurationPtrOutput)
 }
 
-func (i *scalingPolicyPredictiveScalingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingConfiguration] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingConfiguration]{
-		OutputState: i.ToScalingPolicyPredictiveScalingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyPredictiveScalingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredictiveScalingConfigurationOutput) ElementType() reflect.Type {
@@ -5570,12 +4849,6 @@ func (o ScalingPolicyPredictiveScalingConfigurationOutput) ToScalingPolicyPredic
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyPredictiveScalingConfiguration) *ScalingPolicyPredictiveScalingConfiguration {
 		return &v
 	}).(ScalingPolicyPredictiveScalingConfigurationPtrOutput)
-}
-
-func (o ScalingPolicyPredictiveScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingConfiguration] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyPredictiveScalingConfigurationOutput) MaxCapacityBreachBehavior() pulumi.StringPtrOutput {
@@ -5612,12 +4885,6 @@ func (o ScalingPolicyPredictiveScalingConfigurationPtrOutput) ToScalingPolicyPre
 
 func (o ScalingPolicyPredictiveScalingConfigurationPtrOutput) ToScalingPolicyPredictiveScalingConfigurationPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingConfigurationPtrOutput {
 	return o
-}
-
-func (o ScalingPolicyPredictiveScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingConfiguration] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyPredictiveScalingConfigurationPtrOutput) Elem() ScalingPolicyPredictiveScalingConfigurationOutput {
@@ -5706,12 +4973,6 @@ func (i ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs) ToScalingPol
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput)
 }
 
-func (i ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingCustomizedCapacityMetric] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingCustomizedCapacityMetric]{
-		OutputState: i.ToScalingPolicyPredictiveScalingCustomizedCapacityMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
 	return i.ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutputWithContext(context.Background())
 }
@@ -5753,12 +5014,6 @@ func (i *scalingPolicyPredictiveScalingCustomizedCapacityMetricPtrType) ToScalin
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput)
 }
 
-func (i *scalingPolicyPredictiveScalingCustomizedCapacityMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingCustomizedCapacityMetric] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingCustomizedCapacityMetric]{
-		OutputState: i.ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput) ElementType() reflect.Type {
@@ -5783,12 +5038,6 @@ func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput) ToScalingP
 	}).(ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput)
 }
 
-func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingCustomizedCapacityMetric] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingCustomizedCapacityMetric]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput) MetricDataQueries() ScalingPolicyMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingCustomizedCapacityMetric) []ScalingPolicyMetricDataQuery {
 		return v.MetricDataQueries
@@ -5807,12 +5056,6 @@ func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput) ToScali
 
 func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
 	return o
-}
-
-func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingCustomizedCapacityMetric] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingCustomizedCapacityMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput) Elem() ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput {
@@ -5865,12 +5108,6 @@ func (i ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs) ToScalingPolicyP
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput)
 }
 
-func (i ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingCustomizedLoadMetric] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingCustomizedLoadMetric]{
-		OutputState: i.ToScalingPolicyPredictiveScalingCustomizedLoadMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs) ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput {
 	return i.ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutputWithContext(context.Background())
 }
@@ -5912,12 +5149,6 @@ func (i *scalingPolicyPredictiveScalingCustomizedLoadMetricPtrType) ToScalingPol
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput)
 }
 
-func (i *scalingPolicyPredictiveScalingCustomizedLoadMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingCustomizedLoadMetric] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingCustomizedLoadMetric]{
-		OutputState: i.ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput) ElementType() reflect.Type {
@@ -5942,12 +5173,6 @@ func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput) ToScalingPolic
 	}).(ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput)
 }
 
-func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingCustomizedLoadMetric] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingCustomizedLoadMetric]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput) MetricDataQueries() ScalingPolicyMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingCustomizedLoadMetric) []ScalingPolicyMetricDataQuery {
 		return v.MetricDataQueries
@@ -5966,12 +5191,6 @@ func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput) ToScalingPo
 
 func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput) ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput {
 	return o
-}
-
-func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingCustomizedLoadMetric] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingCustomizedLoadMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput) Elem() ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput {
@@ -6024,12 +5243,6 @@ func (i ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs) ToScalingPoli
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput)
 }
 
-func (i ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingCustomizedScalingMetric] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingCustomizedScalingMetric]{
-		OutputState: i.ToScalingPolicyPredictiveScalingCustomizedScalingMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs) ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput {
 	return i.ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutputWithContext(context.Background())
 }
@@ -6071,12 +5284,6 @@ func (i *scalingPolicyPredictiveScalingCustomizedScalingMetricPtrType) ToScaling
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput)
 }
 
-func (i *scalingPolicyPredictiveScalingCustomizedScalingMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingCustomizedScalingMetric] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingCustomizedScalingMetric]{
-		OutputState: i.ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput) ElementType() reflect.Type {
@@ -6101,12 +5308,6 @@ func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput) ToScalingPo
 	}).(ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput)
 }
 
-func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingCustomizedScalingMetric] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingCustomizedScalingMetric]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput) MetricDataQueries() ScalingPolicyMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingCustomizedScalingMetric) []ScalingPolicyMetricDataQuery {
 		return v.MetricDataQueries
@@ -6125,12 +5326,6 @@ func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput) ToScalin
 
 func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput) ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput {
 	return o
-}
-
-func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingCustomizedScalingMetric] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingCustomizedScalingMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput) Elem() ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput {
@@ -6195,12 +5390,6 @@ func (i ScalingPolicyPredictiveScalingMetricSpecificationArgs) ToScalingPolicyPr
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricSpecificationOutput)
 }
 
-func (i ScalingPolicyPredictiveScalingMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingMetricSpecification] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingMetricSpecification]{
-		OutputState: i.ToScalingPolicyPredictiveScalingMetricSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScalingPolicyPredictiveScalingMetricSpecificationArrayInput is an input type that accepts ScalingPolicyPredictiveScalingMetricSpecificationArray and ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput values.
 // You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricSpecificationArrayInput` via:
 //
@@ -6226,12 +5415,6 @@ func (i ScalingPolicyPredictiveScalingMetricSpecificationArray) ToScalingPolicyP
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput)
 }
 
-func (i ScalingPolicyPredictiveScalingMetricSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPolicyPredictiveScalingMetricSpecification] {
-	return pulumix.Output[[]ScalingPolicyPredictiveScalingMetricSpecification]{
-		OutputState: i.ToScalingPolicyPredictiveScalingMetricSpecificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyPredictiveScalingMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredictiveScalingMetricSpecificationOutput) ElementType() reflect.Type {
@@ -6244,12 +5427,6 @@ func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) ToScalingPolicy
 
 func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) ToScalingPolicyPredictiveScalingMetricSpecificationOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricSpecificationOutput {
 	return o
-}
-
-func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingMetricSpecification] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingMetricSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) CustomizedCapacityMetricSpecification() ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
@@ -6306,12 +5483,6 @@ func (o ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput) ToScalingP
 	return o
 }
 
-func (o ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPolicyPredictiveScalingMetricSpecification] {
-	return pulumix.Output[[]ScalingPolicyPredictiveScalingMetricSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput) Index(i pulumi.IntInput) ScalingPolicyPredictiveScalingMetricSpecificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingPolicyPredictiveScalingMetricSpecification {
 		return vs[0].([]ScalingPolicyPredictiveScalingMetricSpecification)[vs[1].(int)]
@@ -6349,12 +5520,6 @@ func (i ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs) ToScalingPolicyP
 
 func (i ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs) ToScalingPolicyPredictiveScalingPredefinedLoadMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput)
-}
-
-func (i ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingPredefinedLoadMetric] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingPredefinedLoadMetric]{
-		OutputState: i.ToScalingPolicyPredictiveScalingPredefinedLoadMetricOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs) ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput() ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput {
@@ -6398,12 +5563,6 @@ func (i *scalingPolicyPredictiveScalingPredefinedLoadMetricPtrType) ToScalingPol
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput)
 }
 
-func (i *scalingPolicyPredictiveScalingPredefinedLoadMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingPredefinedLoadMetric] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingPredefinedLoadMetric]{
-		OutputState: i.ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput) ElementType() reflect.Type {
@@ -6428,12 +5587,6 @@ func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput) ToScalingPolic
 	}).(ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput)
 }
 
-func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingPredefinedLoadMetric] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingPredefinedLoadMetric]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPredefinedLoadMetric) string { return v.PredefinedMetricType }).(pulumi.StringOutput)
 }
@@ -6454,12 +5607,6 @@ func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput) ToScalingPo
 
 func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput) ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput {
 	return o
-}
-
-func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingPredefinedLoadMetric] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingPredefinedLoadMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput) Elem() ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput {
@@ -6523,12 +5670,6 @@ func (i ScalingPolicyPredictiveScalingPredefinedMetricPairArgs) ToScalingPolicyP
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedMetricPairOutput)
 }
 
-func (i ScalingPolicyPredictiveScalingPredefinedMetricPairArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingPredefinedMetricPair] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingPredefinedMetricPair]{
-		OutputState: i.ToScalingPolicyPredictiveScalingPredefinedMetricPairOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScalingPolicyPredictiveScalingPredefinedMetricPairArgs) ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput() ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput {
 	return i.ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutputWithContext(context.Background())
 }
@@ -6570,12 +5711,6 @@ func (i *scalingPolicyPredictiveScalingPredefinedMetricPairPtrType) ToScalingPol
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput)
 }
 
-func (i *scalingPolicyPredictiveScalingPredefinedMetricPairPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingPredefinedMetricPair] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingPredefinedMetricPair]{
-		OutputState: i.ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyPredictiveScalingPredefinedMetricPairOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredictiveScalingPredefinedMetricPairOutput) ElementType() reflect.Type {
@@ -6600,12 +5735,6 @@ func (o ScalingPolicyPredictiveScalingPredefinedMetricPairOutput) ToScalingPolic
 	}).(ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput)
 }
 
-func (o ScalingPolicyPredictiveScalingPredefinedMetricPairOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingPredefinedMetricPair] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingPredefinedMetricPair]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalingPolicyPredictiveScalingPredefinedMetricPairOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPredefinedMetricPair) string { return v.PredefinedMetricType }).(pulumi.StringOutput)
 }
@@ -6626,12 +5755,6 @@ func (o ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput) ToScalingPo
 
 func (o ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput) ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput {
 	return o
-}
-
-func (o ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingPredefinedMetricPair] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingPredefinedMetricPair]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput) Elem() ScalingPolicyPredictiveScalingPredefinedMetricPairOutput {
@@ -6695,12 +5818,6 @@ func (i ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs) ToScalingPoli
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput)
 }
 
-func (i ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingPredefinedScalingMetric] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingPredefinedScalingMetric]{
-		OutputState: i.ToScalingPolicyPredictiveScalingPredefinedScalingMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs) ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput() ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput {
 	return i.ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutputWithContext(context.Background())
 }
@@ -6742,12 +5859,6 @@ func (i *scalingPolicyPredictiveScalingPredefinedScalingMetricPtrType) ToScaling
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput)
 }
 
-func (i *scalingPolicyPredictiveScalingPredefinedScalingMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingPredefinedScalingMetric] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingPredefinedScalingMetric]{
-		OutputState: i.ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput) ElementType() reflect.Type {
@@ -6772,12 +5883,6 @@ func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput) ToScalingPo
 	}).(ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput)
 }
 
-func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyPredictiveScalingPredefinedScalingMetric] {
-	return pulumix.Output[ScalingPolicyPredictiveScalingPredefinedScalingMetric]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPredefinedScalingMetric) string { return v.PredefinedMetricType }).(pulumi.StringOutput)
 }
@@ -6798,12 +5903,6 @@ func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput) ToScalin
 
 func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput) ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput {
 	return o
-}
-
-func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyPredictiveScalingPredefinedScalingMetric] {
-	return pulumix.Output[*ScalingPolicyPredictiveScalingPredefinedScalingMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput) Elem() ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput {
@@ -6869,12 +5968,6 @@ func (i ScalingPolicyStepAdjustmentArgs) ToScalingPolicyStepAdjustmentOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyStepAdjustmentOutput)
 }
 
-func (i ScalingPolicyStepAdjustmentArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyStepAdjustment] {
-	return pulumix.Output[ScalingPolicyStepAdjustment]{
-		OutputState: i.ToScalingPolicyStepAdjustmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScalingPolicyStepAdjustmentArrayInput is an input type that accepts ScalingPolicyStepAdjustmentArray and ScalingPolicyStepAdjustmentArrayOutput values.
 // You can construct a concrete instance of `ScalingPolicyStepAdjustmentArrayInput` via:
 //
@@ -6900,12 +5993,6 @@ func (i ScalingPolicyStepAdjustmentArray) ToScalingPolicyStepAdjustmentArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyStepAdjustmentArrayOutput)
 }
 
-func (i ScalingPolicyStepAdjustmentArray) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPolicyStepAdjustment] {
-	return pulumix.Output[[]ScalingPolicyStepAdjustment]{
-		OutputState: i.ToScalingPolicyStepAdjustmentArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyStepAdjustmentOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyStepAdjustmentOutput) ElementType() reflect.Type {
@@ -6918,12 +6005,6 @@ func (o ScalingPolicyStepAdjustmentOutput) ToScalingPolicyStepAdjustmentOutput()
 
 func (o ScalingPolicyStepAdjustmentOutput) ToScalingPolicyStepAdjustmentOutputWithContext(ctx context.Context) ScalingPolicyStepAdjustmentOutput {
 	return o
-}
-
-func (o ScalingPolicyStepAdjustmentOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyStepAdjustment] {
-	return pulumix.Output[ScalingPolicyStepAdjustment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyStepAdjustmentOutput) MetricIntervalLowerBound() pulumi.Float64PtrOutput {
@@ -6950,12 +6031,6 @@ func (o ScalingPolicyStepAdjustmentArrayOutput) ToScalingPolicyStepAdjustmentArr
 
 func (o ScalingPolicyStepAdjustmentArrayOutput) ToScalingPolicyStepAdjustmentArrayOutputWithContext(ctx context.Context) ScalingPolicyStepAdjustmentArrayOutput {
 	return o
-}
-
-func (o ScalingPolicyStepAdjustmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPolicyStepAdjustment] {
-	return pulumix.Output[[]ScalingPolicyStepAdjustment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyStepAdjustmentArrayOutput) Index(i pulumi.IntInput) ScalingPolicyStepAdjustmentOutput {
@@ -7001,12 +6076,6 @@ func (i ScalingPolicyTargetTrackingConfigurationArgs) ToScalingPolicyTargetTrack
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyTargetTrackingConfigurationOutput)
 }
 
-func (i ScalingPolicyTargetTrackingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyTargetTrackingConfiguration] {
-	return pulumix.Output[ScalingPolicyTargetTrackingConfiguration]{
-		OutputState: i.ToScalingPolicyTargetTrackingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScalingPolicyTargetTrackingConfigurationArgs) ToScalingPolicyTargetTrackingConfigurationPtrOutput() ScalingPolicyTargetTrackingConfigurationPtrOutput {
 	return i.ToScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -7048,12 +6117,6 @@ func (i *scalingPolicyTargetTrackingConfigurationPtrType) ToScalingPolicyTargetT
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyTargetTrackingConfigurationPtrOutput)
 }
 
-func (i *scalingPolicyTargetTrackingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyTargetTrackingConfiguration] {
-	return pulumix.Output[*ScalingPolicyTargetTrackingConfiguration]{
-		OutputState: i.ToScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyTargetTrackingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyTargetTrackingConfigurationOutput) ElementType() reflect.Type {
@@ -7076,12 +6139,6 @@ func (o ScalingPolicyTargetTrackingConfigurationOutput) ToScalingPolicyTargetTra
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyTargetTrackingConfiguration) *ScalingPolicyTargetTrackingConfiguration {
 		return &v
 	}).(ScalingPolicyTargetTrackingConfigurationPtrOutput)
-}
-
-func (o ScalingPolicyTargetTrackingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyTargetTrackingConfiguration] {
-	return pulumix.Output[ScalingPolicyTargetTrackingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyTargetTrackingConfigurationOutput) CustomizedMetricSpecification() ScalingPolicyCustomizedMetricSpecificationPtrOutput {
@@ -7116,12 +6173,6 @@ func (o ScalingPolicyTargetTrackingConfigurationPtrOutput) ToScalingPolicyTarget
 
 func (o ScalingPolicyTargetTrackingConfigurationPtrOutput) ToScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingConfigurationPtrOutput {
 	return o
-}
-
-func (o ScalingPolicyTargetTrackingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyTargetTrackingConfiguration] {
-	return pulumix.Output[*ScalingPolicyTargetTrackingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPolicyTargetTrackingConfigurationPtrOutput) Elem() ScalingPolicyTargetTrackingConfigurationOutput {
@@ -7201,12 +6252,6 @@ func (i WarmPoolInstanceReusePolicyArgs) ToWarmPoolInstanceReusePolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WarmPoolInstanceReusePolicyOutput)
 }
 
-func (i WarmPoolInstanceReusePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[WarmPoolInstanceReusePolicy] {
-	return pulumix.Output[WarmPoolInstanceReusePolicy]{
-		OutputState: i.ToWarmPoolInstanceReusePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WarmPoolInstanceReusePolicyArgs) ToWarmPoolInstanceReusePolicyPtrOutput() WarmPoolInstanceReusePolicyPtrOutput {
 	return i.ToWarmPoolInstanceReusePolicyPtrOutputWithContext(context.Background())
 }
@@ -7248,12 +6293,6 @@ func (i *warmPoolInstanceReusePolicyPtrType) ToWarmPoolInstanceReusePolicyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(WarmPoolInstanceReusePolicyPtrOutput)
 }
 
-func (i *warmPoolInstanceReusePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*WarmPoolInstanceReusePolicy] {
-	return pulumix.Output[*WarmPoolInstanceReusePolicy]{
-		OutputState: i.ToWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WarmPoolInstanceReusePolicyOutput struct{ *pulumi.OutputState }
 
 func (WarmPoolInstanceReusePolicyOutput) ElementType() reflect.Type {
@@ -7278,12 +6317,6 @@ func (o WarmPoolInstanceReusePolicyOutput) ToWarmPoolInstanceReusePolicyPtrOutpu
 	}).(WarmPoolInstanceReusePolicyPtrOutput)
 }
 
-func (o WarmPoolInstanceReusePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[WarmPoolInstanceReusePolicy] {
-	return pulumix.Output[WarmPoolInstanceReusePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WarmPoolInstanceReusePolicyOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WarmPoolInstanceReusePolicy) *bool { return v.ReuseOnScaleIn }).(pulumi.BoolPtrOutput)
 }
@@ -7300,12 +6333,6 @@ func (o WarmPoolInstanceReusePolicyPtrOutput) ToWarmPoolInstanceReusePolicyPtrOu
 
 func (o WarmPoolInstanceReusePolicyPtrOutput) ToWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx context.Context) WarmPoolInstanceReusePolicyPtrOutput {
 	return o
-}
-
-func (o WarmPoolInstanceReusePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WarmPoolInstanceReusePolicy] {
-	return pulumix.Output[*WarmPoolInstanceReusePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WarmPoolInstanceReusePolicyPtrOutput) Elem() WarmPoolInstanceReusePolicyOutput {

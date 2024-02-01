@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
@@ -162,12 +161,6 @@ func (i *ScheduledQuery) ToScheduledQueryOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryOutput)
 }
 
-func (i *ScheduledQuery) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQuery] {
-	return pulumix.Output[*ScheduledQuery]{
-		OutputState: i.ToScheduledQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledQueryOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryOutput) ElementType() reflect.Type {
@@ -180,12 +173,6 @@ func (o ScheduledQueryOutput) ToScheduledQueryOutput() ScheduledQueryOutput {
 
 func (o ScheduledQueryOutput) ToScheduledQueryOutputWithContext(ctx context.Context) ScheduledQueryOutput {
 	return o
-}
-
-func (o ScheduledQueryOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQuery] {
-	return pulumix.Output[*ScheduledQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryOutput) Arn() pulumi.StringOutput {

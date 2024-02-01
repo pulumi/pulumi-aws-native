@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::PhoneNumber
@@ -75,12 +74,6 @@ func (o LookupPhoneNumberResultOutput) ToLookupPhoneNumberResultOutput() LookupP
 
 func (o LookupPhoneNumberResultOutput) ToLookupPhoneNumberResultOutputWithContext(ctx context.Context) LookupPhoneNumberResultOutput {
 	return o
-}
-
-func (o LookupPhoneNumberResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPhoneNumberResult] {
-	return pulumix.Output[LookupPhoneNumberResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The phone number e164 address.

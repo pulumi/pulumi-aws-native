@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ApplicationApiGatewayEndpointType string
@@ -78,12 +77,6 @@ func (o ApplicationApiGatewayEndpointTypeOutput) ToApplicationApiGatewayEndpoint
 	}).(ApplicationApiGatewayEndpointTypePtrOutput)
 }
 
-func (o ApplicationApiGatewayEndpointTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApiGatewayEndpointType] {
-	return pulumix.Output[ApplicationApiGatewayEndpointType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationApiGatewayEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o ApplicationApiGatewayEndpointTypePtrOutput) ToApplicationApiGatewayEndpo
 	return o
 }
 
-func (o ApplicationApiGatewayEndpointTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApiGatewayEndpointType] {
-	return pulumix.Output[*ApplicationApiGatewayEndpointType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationApiGatewayEndpointTypePtrOutput) Elem() ApplicationApiGatewayEndpointTypeOutput {
 	return o.ApplyT(func(v *ApplicationApiGatewayEndpointType) ApplicationApiGatewayEndpointType {
 		if v != nil {
@@ -149,10 +136,11 @@ func (o ApplicationApiGatewayEndpointTypePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationApiGatewayEndpointTypeInput is an input type that accepts ApplicationApiGatewayEndpointTypeArgs and ApplicationApiGatewayEndpointTypeOutput values.
-// You can construct a concrete instance of `ApplicationApiGatewayEndpointTypeInput` via:
+// ApplicationApiGatewayEndpointTypeInput is an input type that accepts values of the ApplicationApiGatewayEndpointType enum
+// A concrete instance of `ApplicationApiGatewayEndpointTypeInput` can be one of the following:
 //
-//	ApplicationApiGatewayEndpointTypeArgs{...}
+//	ApplicationApiGatewayEndpointTypeRegional
+//	ApplicationApiGatewayEndpointTypePrivate
 type ApplicationApiGatewayEndpointTypeInput interface {
 	pulumi.Input
 
@@ -185,12 +173,6 @@ func (in *applicationApiGatewayEndpointTypePtr) ToApplicationApiGatewayEndpointT
 
 func (in *applicationApiGatewayEndpointTypePtr) ToApplicationApiGatewayEndpointTypePtrOutputWithContext(ctx context.Context) ApplicationApiGatewayEndpointTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationApiGatewayEndpointTypePtrOutput)
-}
-
-func (in *applicationApiGatewayEndpointTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApiGatewayEndpointType] {
-	return pulumix.Output[*ApplicationApiGatewayEndpointType]{
-		OutputState: in.ToApplicationApiGatewayEndpointTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ApplicationProxyType string
@@ -259,12 +241,6 @@ func (o ApplicationProxyTypeOutput) ToApplicationProxyTypePtrOutputWithContext(c
 	}).(ApplicationProxyTypePtrOutput)
 }
 
-func (o ApplicationProxyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationProxyType] {
-	return pulumix.Output[ApplicationProxyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationProxyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +276,6 @@ func (o ApplicationProxyTypePtrOutput) ToApplicationProxyTypePtrOutputWithContex
 	return o
 }
 
-func (o ApplicationProxyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationProxyType] {
-	return pulumix.Output[*ApplicationProxyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationProxyTypePtrOutput) Elem() ApplicationProxyTypeOutput {
 	return o.ApplyT(func(v *ApplicationProxyType) ApplicationProxyType {
 		if v != nil {
@@ -330,10 +300,10 @@ func (o ApplicationProxyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationProxyTypeInput is an input type that accepts ApplicationProxyTypeArgs and ApplicationProxyTypeOutput values.
-// You can construct a concrete instance of `ApplicationProxyTypeInput` via:
+// ApplicationProxyTypeInput is an input type that accepts values of the ApplicationProxyType enum
+// A concrete instance of `ApplicationProxyTypeInput` can be one of the following:
 //
-//	ApplicationProxyTypeArgs{...}
+//	ApplicationProxyTypeApiGateway
 type ApplicationProxyTypeInput interface {
 	pulumi.Input
 
@@ -366,12 +336,6 @@ func (in *applicationProxyTypePtr) ToApplicationProxyTypePtrOutput() Application
 
 func (in *applicationProxyTypePtr) ToApplicationProxyTypePtrOutputWithContext(ctx context.Context) ApplicationProxyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationProxyTypePtrOutput)
-}
-
-func (in *applicationProxyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationProxyType] {
-	return pulumix.Output[*ApplicationProxyType]{
-		OutputState: in.ToApplicationProxyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type EnvironmentNetworkFabricType string
@@ -441,12 +405,6 @@ func (o EnvironmentNetworkFabricTypeOutput) ToEnvironmentNetworkFabricTypePtrOut
 	}).(EnvironmentNetworkFabricTypePtrOutput)
 }
 
-func (o EnvironmentNetworkFabricTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentNetworkFabricType] {
-	return pulumix.Output[EnvironmentNetworkFabricType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentNetworkFabricTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -482,12 +440,6 @@ func (o EnvironmentNetworkFabricTypePtrOutput) ToEnvironmentNetworkFabricTypePtr
 	return o
 }
 
-func (o EnvironmentNetworkFabricTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentNetworkFabricType] {
-	return pulumix.Output[*EnvironmentNetworkFabricType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentNetworkFabricTypePtrOutput) Elem() EnvironmentNetworkFabricTypeOutput {
 	return o.ApplyT(func(v *EnvironmentNetworkFabricType) EnvironmentNetworkFabricType {
 		if v != nil {
@@ -512,10 +464,11 @@ func (o EnvironmentNetworkFabricTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentNetworkFabricTypeInput is an input type that accepts EnvironmentNetworkFabricTypeArgs and EnvironmentNetworkFabricTypeOutput values.
-// You can construct a concrete instance of `EnvironmentNetworkFabricTypeInput` via:
+// EnvironmentNetworkFabricTypeInput is an input type that accepts values of the EnvironmentNetworkFabricType enum
+// A concrete instance of `EnvironmentNetworkFabricTypeInput` can be one of the following:
 //
-//	EnvironmentNetworkFabricTypeArgs{...}
+//	EnvironmentNetworkFabricTypeTransitGateway
+//	EnvironmentNetworkFabricTypeNone
 type EnvironmentNetworkFabricTypeInput interface {
 	pulumi.Input
 
@@ -548,12 +501,6 @@ func (in *environmentNetworkFabricTypePtr) ToEnvironmentNetworkFabricTypePtrOutp
 
 func (in *environmentNetworkFabricTypePtr) ToEnvironmentNetworkFabricTypePtrOutputWithContext(ctx context.Context) EnvironmentNetworkFabricTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentNetworkFabricTypePtrOutput)
-}
-
-func (in *environmentNetworkFabricTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentNetworkFabricType] {
-	return pulumix.Output[*EnvironmentNetworkFabricType]{
-		OutputState: in.ToEnvironmentNetworkFabricTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RouteActivationState string
@@ -623,12 +570,6 @@ func (o RouteActivationStateOutput) ToRouteActivationStatePtrOutputWithContext(c
 	}).(RouteActivationStatePtrOutput)
 }
 
-func (o RouteActivationStateOutput) ToOutput(ctx context.Context) pulumix.Output[RouteActivationState] {
-	return pulumix.Output[RouteActivationState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RouteActivationStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -664,12 +605,6 @@ func (o RouteActivationStatePtrOutput) ToRouteActivationStatePtrOutputWithContex
 	return o
 }
 
-func (o RouteActivationStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteActivationState] {
-	return pulumix.Output[*RouteActivationState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RouteActivationStatePtrOutput) Elem() RouteActivationStateOutput {
 	return o.ApplyT(func(v *RouteActivationState) RouteActivationState {
 		if v != nil {
@@ -694,10 +629,11 @@ func (o RouteActivationStatePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// RouteActivationStateInput is an input type that accepts RouteActivationStateArgs and RouteActivationStateOutput values.
-// You can construct a concrete instance of `RouteActivationStateInput` via:
+// RouteActivationStateInput is an input type that accepts values of the RouteActivationState enum
+// A concrete instance of `RouteActivationStateInput` can be one of the following:
 //
-//	RouteActivationStateArgs{...}
+//	RouteActivationStateInactive
+//	RouteActivationStateActive
 type RouteActivationStateInput interface {
 	pulumi.Input
 
@@ -730,12 +666,6 @@ func (in *routeActivationStatePtr) ToRouteActivationStatePtrOutput() RouteActiva
 
 func (in *routeActivationStatePtr) ToRouteActivationStatePtrOutputWithContext(ctx context.Context) RouteActivationStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RouteActivationStatePtrOutput)
-}
-
-func (in *routeActivationStatePtr) ToOutput(ctx context.Context) pulumix.Output[*RouteActivationState] {
-	return pulumix.Output[*RouteActivationState]{
-		OutputState: in.ToRouteActivationStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RouteMethod string
@@ -810,12 +740,6 @@ func (o RouteMethodOutput) ToRouteMethodPtrOutputWithContext(ctx context.Context
 	}).(RouteMethodPtrOutput)
 }
 
-func (o RouteMethodOutput) ToOutput(ctx context.Context) pulumix.Output[RouteMethod] {
-	return pulumix.Output[RouteMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RouteMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -851,12 +775,6 @@ func (o RouteMethodPtrOutput) ToRouteMethodPtrOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o RouteMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteMethod] {
-	return pulumix.Output[*RouteMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RouteMethodPtrOutput) Elem() RouteMethodOutput {
 	return o.ApplyT(func(v *RouteMethod) RouteMethod {
 		if v != nil {
@@ -881,10 +799,16 @@ func (o RouteMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// RouteMethodInput is an input type that accepts RouteMethodArgs and RouteMethodOutput values.
-// You can construct a concrete instance of `RouteMethodInput` via:
+// RouteMethodInput is an input type that accepts values of the RouteMethod enum
+// A concrete instance of `RouteMethodInput` can be one of the following:
 //
-//	RouteMethodArgs{...}
+//	RouteMethodDelete
+//	RouteMethodGet
+//	RouteMethodHead
+//	RouteMethodOptions
+//	RouteMethodPatch
+//	RouteMethodPost
+//	RouteMethodPut
 type RouteMethodInput interface {
 	pulumi.Input
 
@@ -919,12 +843,6 @@ func (in *routeMethodPtr) ToRouteMethodPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(RouteMethodPtrOutput)
 }
 
-func (in *routeMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*RouteMethod] {
-	return pulumix.Output[*RouteMethod]{
-		OutputState: in.ToRouteMethodPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RouteMethodArrayInput is an input type that accepts RouteMethodArray and RouteMethodArrayOutput values.
 // You can construct a concrete instance of `RouteMethodArrayInput` via:
 //
@@ -950,12 +868,6 @@ func (i RouteMethodArray) ToRouteMethodArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RouteMethodArrayOutput)
 }
 
-func (i RouteMethodArray) ToOutput(ctx context.Context) pulumix.Output[[]RouteMethod] {
-	return pulumix.Output[[]RouteMethod]{
-		OutputState: i.ToRouteMethodArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RouteMethodArrayOutput struct{ *pulumi.OutputState }
 
 func (RouteMethodArrayOutput) ElementType() reflect.Type {
@@ -968,12 +880,6 @@ func (o RouteMethodArrayOutput) ToRouteMethodArrayOutput() RouteMethodArrayOutpu
 
 func (o RouteMethodArrayOutput) ToRouteMethodArrayOutputWithContext(ctx context.Context) RouteMethodArrayOutput {
 	return o
-}
-
-func (o RouteMethodArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RouteMethod] {
-	return pulumix.Output[[]RouteMethod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RouteMethodArrayOutput) Index(i pulumi.IntInput) RouteMethodOutput {
@@ -1049,12 +955,6 @@ func (o RouteTypeOutput) ToRouteTypePtrOutputWithContext(ctx context.Context) Ro
 	}).(RouteTypePtrOutput)
 }
 
-func (o RouteTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RouteType] {
-	return pulumix.Output[RouteType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RouteTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1090,12 +990,6 @@ func (o RouteTypePtrOutput) ToRouteTypePtrOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o RouteTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteType] {
-	return pulumix.Output[*RouteType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RouteTypePtrOutput) Elem() RouteTypeOutput {
 	return o.ApplyT(func(v *RouteType) RouteType {
 		if v != nil {
@@ -1120,10 +1014,11 @@ func (o RouteTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// RouteTypeInput is an input type that accepts RouteTypeArgs and RouteTypeOutput values.
-// You can construct a concrete instance of `RouteTypeInput` via:
+// RouteTypeInput is an input type that accepts values of the RouteType enum
+// A concrete instance of `RouteTypeInput` can be one of the following:
 //
-//	RouteTypeArgs{...}
+//	RouteTypeDefault
+//	RouteTypeUriPath
 type RouteTypeInput interface {
 	pulumi.Input
 
@@ -1156,12 +1051,6 @@ func (in *routeTypePtr) ToRouteTypePtrOutput() RouteTypePtrOutput {
 
 func (in *routeTypePtr) ToRouteTypePtrOutputWithContext(ctx context.Context) RouteTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RouteTypePtrOutput)
-}
-
-func (in *routeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RouteType] {
-	return pulumix.Output[*RouteType]{
-		OutputState: in.ToRouteTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ServiceEndpointType string
@@ -1231,12 +1120,6 @@ func (o ServiceEndpointTypeOutput) ToServiceEndpointTypePtrOutputWithContext(ctx
 	}).(ServiceEndpointTypePtrOutput)
 }
 
-func (o ServiceEndpointTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEndpointType] {
-	return pulumix.Output[ServiceEndpointType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1272,12 +1155,6 @@ func (o ServiceEndpointTypePtrOutput) ToServiceEndpointTypePtrOutputWithContext(
 	return o
 }
 
-func (o ServiceEndpointTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointType] {
-	return pulumix.Output[*ServiceEndpointType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEndpointTypePtrOutput) Elem() ServiceEndpointTypeOutput {
 	return o.ApplyT(func(v *ServiceEndpointType) ServiceEndpointType {
 		if v != nil {
@@ -1302,10 +1179,11 @@ func (o ServiceEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceEndpointTypeInput is an input type that accepts ServiceEndpointTypeArgs and ServiceEndpointTypeOutput values.
-// You can construct a concrete instance of `ServiceEndpointTypeInput` via:
+// ServiceEndpointTypeInput is an input type that accepts values of the ServiceEndpointType enum
+// A concrete instance of `ServiceEndpointTypeInput` can be one of the following:
 //
-//	ServiceEndpointTypeArgs{...}
+//	ServiceEndpointTypeLambda
+//	ServiceEndpointTypeUrl
 type ServiceEndpointTypeInput interface {
 	pulumi.Input
 
@@ -1338,12 +1216,6 @@ func (in *serviceEndpointTypePtr) ToServiceEndpointTypePtrOutput() ServiceEndpoi
 
 func (in *serviceEndpointTypePtr) ToServiceEndpointTypePtrOutputWithContext(ctx context.Context) ServiceEndpointTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceEndpointTypePtrOutput)
-}
-
-func (in *serviceEndpointTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointType] {
-	return pulumix.Output[*ServiceEndpointType]{
-		OutputState: in.ToServiceEndpointTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

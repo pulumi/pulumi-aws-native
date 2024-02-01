@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies the status of the agreement.
@@ -79,12 +78,6 @@ func (o AgreementStatusOutput) ToAgreementStatusPtrOutputWithContext(ctx context
 	}).(AgreementStatusPtrOutput)
 }
 
-func (o AgreementStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AgreementStatus] {
-	return pulumix.Output[AgreementStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AgreementStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o AgreementStatusPtrOutput) ToAgreementStatusPtrOutputWithContext(ctx cont
 	return o
 }
 
-func (o AgreementStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AgreementStatus] {
-	return pulumix.Output[*AgreementStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AgreementStatusPtrOutput) Elem() AgreementStatusOutput {
 	return o.ApplyT(func(v *AgreementStatus) AgreementStatus {
 		if v != nil {
@@ -150,10 +137,11 @@ func (o AgreementStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AgreementStatusInput is an input type that accepts AgreementStatusArgs and AgreementStatusOutput values.
-// You can construct a concrete instance of `AgreementStatusInput` via:
+// AgreementStatusInput is an input type that accepts values of the AgreementStatus enum
+// A concrete instance of `AgreementStatusInput` can be one of the following:
 //
-//	AgreementStatusArgs{...}
+//	AgreementStatusActive
+//	AgreementStatusInactive
 type AgreementStatusInput interface {
 	pulumi.Input
 
@@ -186,12 +174,6 @@ func (in *agreementStatusPtr) ToAgreementStatusPtrOutput() AgreementStatusPtrOut
 
 func (in *agreementStatusPtr) ToAgreementStatusPtrOutputWithContext(ctx context.Context) AgreementStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AgreementStatusPtrOutput)
-}
-
-func (in *agreementStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*AgreementStatus] {
-	return pulumix.Output[*AgreementStatus]{
-		OutputState: in.ToAgreementStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A status description for the certificate.
@@ -227,12 +209,6 @@ func (o CertificateStatusOutput) ToCertificateStatusPtrOutputWithContext(ctx con
 	}).(CertificateStatusPtrOutput)
 }
 
-func (o CertificateStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateStatus] {
-	return pulumix.Output[CertificateStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -266,12 +242,6 @@ func (o CertificateStatusPtrOutput) ToCertificateStatusPtrOutput() CertificateSt
 
 func (o CertificateStatusPtrOutput) ToCertificateStatusPtrOutputWithContext(ctx context.Context) CertificateStatusPtrOutput {
 	return o
-}
-
-func (o CertificateStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateStatus] {
-	return pulumix.Output[*CertificateStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateStatusPtrOutput) Elem() CertificateStatusOutput {
@@ -330,12 +300,6 @@ func (o CertificateTypeOutput) ToCertificateTypePtrOutputWithContext(ctx context
 	}).(CertificateTypePtrOutput)
 }
 
-func (o CertificateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateType] {
-	return pulumix.Output[CertificateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -369,12 +333,6 @@ func (o CertificateTypePtrOutput) ToCertificateTypePtrOutput() CertificateTypePt
 
 func (o CertificateTypePtrOutput) ToCertificateTypePtrOutputWithContext(ctx context.Context) CertificateTypePtrOutput {
 	return o
-}
-
-func (o CertificateTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateType] {
-	return pulumix.Output[*CertificateType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateTypePtrOutput) Elem() CertificateTypeOutput {
@@ -469,12 +427,6 @@ func (o CertificateUsageOutput) ToCertificateUsagePtrOutputWithContext(ctx conte
 	}).(CertificateUsagePtrOutput)
 }
 
-func (o CertificateUsageOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateUsage] {
-	return pulumix.Output[CertificateUsage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateUsageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -510,12 +462,6 @@ func (o CertificateUsagePtrOutput) ToCertificateUsagePtrOutputWithContext(ctx co
 	return o
 }
 
-func (o CertificateUsagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateUsage] {
-	return pulumix.Output[*CertificateUsage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateUsagePtrOutput) Elem() CertificateUsageOutput {
 	return o.ApplyT(func(v *CertificateUsage) CertificateUsage {
 		if v != nil {
@@ -540,10 +486,11 @@ func (o CertificateUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// CertificateUsageInput is an input type that accepts CertificateUsageArgs and CertificateUsageOutput values.
-// You can construct a concrete instance of `CertificateUsageInput` via:
+// CertificateUsageInput is an input type that accepts values of the CertificateUsage enum
+// A concrete instance of `CertificateUsageInput` can be one of the following:
 //
-//	CertificateUsageArgs{...}
+//	CertificateUsageSigning
+//	CertificateUsageEncryption
 type CertificateUsageInput interface {
 	pulumi.Input
 
@@ -576,12 +523,6 @@ func (in *certificateUsagePtr) ToCertificateUsagePtrOutput() CertificateUsagePtr
 
 func (in *certificateUsagePtr) ToCertificateUsagePtrOutputWithContext(ctx context.Context) CertificateUsagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CertificateUsagePtrOutput)
-}
-
-func (in *certificateUsagePtr) ToOutput(ctx context.Context) pulumix.Output[*CertificateUsage] {
-	return pulumix.Output[*CertificateUsage]{
-		OutputState: in.ToCertificateUsagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Compression setting for this AS2 connector configuration.
@@ -652,12 +593,6 @@ func (o ConnectorAs2ConfigPropertiesCompressionOutput) ToConnectorAs2ConfigPrope
 	}).(ConnectorAs2ConfigPropertiesCompressionPtrOutput)
 }
 
-func (o ConnectorAs2ConfigPropertiesCompressionOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorAs2ConfigPropertiesCompression] {
-	return pulumix.Output[ConnectorAs2ConfigPropertiesCompression]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesCompressionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -693,12 +628,6 @@ func (o ConnectorAs2ConfigPropertiesCompressionPtrOutput) ToConnectorAs2ConfigPr
 	return o
 }
 
-func (o ConnectorAs2ConfigPropertiesCompressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesCompression] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesCompression]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesCompressionPtrOutput) Elem() ConnectorAs2ConfigPropertiesCompressionOutput {
 	return o.ApplyT(func(v *ConnectorAs2ConfigPropertiesCompression) ConnectorAs2ConfigPropertiesCompression {
 		if v != nil {
@@ -723,10 +652,11 @@ func (o ConnectorAs2ConfigPropertiesCompressionPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectorAs2ConfigPropertiesCompressionInput is an input type that accepts ConnectorAs2ConfigPropertiesCompressionArgs and ConnectorAs2ConfigPropertiesCompressionOutput values.
-// You can construct a concrete instance of `ConnectorAs2ConfigPropertiesCompressionInput` via:
+// ConnectorAs2ConfigPropertiesCompressionInput is an input type that accepts values of the ConnectorAs2ConfigPropertiesCompression enum
+// A concrete instance of `ConnectorAs2ConfigPropertiesCompressionInput` can be one of the following:
 //
-//	ConnectorAs2ConfigPropertiesCompressionArgs{...}
+//	ConnectorAs2ConfigPropertiesCompressionZlib
+//	ConnectorAs2ConfigPropertiesCompressionDisabled
 type ConnectorAs2ConfigPropertiesCompressionInput interface {
 	pulumi.Input
 
@@ -759,12 +689,6 @@ func (in *connectorAs2ConfigPropertiesCompressionPtr) ToConnectorAs2ConfigProper
 
 func (in *connectorAs2ConfigPropertiesCompressionPtr) ToConnectorAs2ConfigPropertiesCompressionPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesCompressionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorAs2ConfigPropertiesCompressionPtrOutput)
-}
-
-func (in *connectorAs2ConfigPropertiesCompressionPtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesCompression] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesCompression]{
-		OutputState: in.ToConnectorAs2ConfigPropertiesCompressionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Encryption algorithm for this AS2 connector configuration.
@@ -837,12 +761,6 @@ func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmOutput) ToConnectorAs2Con
 	}).(ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput)
 }
 
-func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorAs2ConfigPropertiesEncryptionAlgorithm] {
-	return pulumix.Output[ConnectorAs2ConfigPropertiesEncryptionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -878,12 +796,6 @@ func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput) ToConnectorAs2
 	return o
 }
 
-func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesEncryptionAlgorithm] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesEncryptionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput) Elem() ConnectorAs2ConfigPropertiesEncryptionAlgorithmOutput {
 	return o.ApplyT(func(v *ConnectorAs2ConfigPropertiesEncryptionAlgorithm) ConnectorAs2ConfigPropertiesEncryptionAlgorithm {
 		if v != nil {
@@ -908,10 +820,13 @@ func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectorAs2ConfigPropertiesEncryptionAlgorithmInput is an input type that accepts ConnectorAs2ConfigPropertiesEncryptionAlgorithmArgs and ConnectorAs2ConfigPropertiesEncryptionAlgorithmOutput values.
-// You can construct a concrete instance of `ConnectorAs2ConfigPropertiesEncryptionAlgorithmInput` via:
+// ConnectorAs2ConfigPropertiesEncryptionAlgorithmInput is an input type that accepts values of the ConnectorAs2ConfigPropertiesEncryptionAlgorithm enum
+// A concrete instance of `ConnectorAs2ConfigPropertiesEncryptionAlgorithmInput` can be one of the following:
 //
-//	ConnectorAs2ConfigPropertiesEncryptionAlgorithmArgs{...}
+//	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes128Cbc
+//	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes192Cbc
+//	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes256Cbc
+//	ConnectorAs2ConfigPropertiesEncryptionAlgorithmNone
 type ConnectorAs2ConfigPropertiesEncryptionAlgorithmInput interface {
 	pulumi.Input
 
@@ -944,12 +859,6 @@ func (in *connectorAs2ConfigPropertiesEncryptionAlgorithmPtr) ToConnectorAs2Conf
 
 func (in *connectorAs2ConfigPropertiesEncryptionAlgorithmPtr) ToConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput)
-}
-
-func (in *connectorAs2ConfigPropertiesEncryptionAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesEncryptionAlgorithm] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesEncryptionAlgorithm]{
-		OutputState: in.ToConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MDN Response setting for this AS2 connector configuration.
@@ -1020,12 +929,6 @@ func (o ConnectorAs2ConfigPropertiesMdnResponseOutput) ToConnectorAs2ConfigPrope
 	}).(ConnectorAs2ConfigPropertiesMdnResponsePtrOutput)
 }
 
-func (o ConnectorAs2ConfigPropertiesMdnResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorAs2ConfigPropertiesMdnResponse] {
-	return pulumix.Output[ConnectorAs2ConfigPropertiesMdnResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesMdnResponseOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1061,12 +964,6 @@ func (o ConnectorAs2ConfigPropertiesMdnResponsePtrOutput) ToConnectorAs2ConfigPr
 	return o
 }
 
-func (o ConnectorAs2ConfigPropertiesMdnResponsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesMdnResponse] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesMdnResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesMdnResponsePtrOutput) Elem() ConnectorAs2ConfigPropertiesMdnResponseOutput {
 	return o.ApplyT(func(v *ConnectorAs2ConfigPropertiesMdnResponse) ConnectorAs2ConfigPropertiesMdnResponse {
 		if v != nil {
@@ -1091,10 +988,11 @@ func (o ConnectorAs2ConfigPropertiesMdnResponsePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectorAs2ConfigPropertiesMdnResponseInput is an input type that accepts ConnectorAs2ConfigPropertiesMdnResponseArgs and ConnectorAs2ConfigPropertiesMdnResponseOutput values.
-// You can construct a concrete instance of `ConnectorAs2ConfigPropertiesMdnResponseInput` via:
+// ConnectorAs2ConfigPropertiesMdnResponseInput is an input type that accepts values of the ConnectorAs2ConfigPropertiesMdnResponse enum
+// A concrete instance of `ConnectorAs2ConfigPropertiesMdnResponseInput` can be one of the following:
 //
-//	ConnectorAs2ConfigPropertiesMdnResponseArgs{...}
+//	ConnectorAs2ConfigPropertiesMdnResponseSync
+//	ConnectorAs2ConfigPropertiesMdnResponseNone
 type ConnectorAs2ConfigPropertiesMdnResponseInput interface {
 	pulumi.Input
 
@@ -1127,12 +1025,6 @@ func (in *connectorAs2ConfigPropertiesMdnResponsePtr) ToConnectorAs2ConfigProper
 
 func (in *connectorAs2ConfigPropertiesMdnResponsePtr) ToConnectorAs2ConfigPropertiesMdnResponsePtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesMdnResponsePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorAs2ConfigPropertiesMdnResponsePtrOutput)
-}
-
-func (in *connectorAs2ConfigPropertiesMdnResponsePtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesMdnResponse] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesMdnResponse]{
-		OutputState: in.ToConnectorAs2ConfigPropertiesMdnResponsePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MDN Signing algorithm for this AS2 connector configuration.
@@ -1207,12 +1099,6 @@ func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmOutput) ToConnectorAs2Con
 	}).(ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput)
 }
 
-func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorAs2ConfigPropertiesMdnSigningAlgorithm] {
-	return pulumix.Output[ConnectorAs2ConfigPropertiesMdnSigningAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1248,12 +1134,6 @@ func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput) ToConnectorAs2
 	return o
 }
 
-func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesMdnSigningAlgorithm] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesMdnSigningAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput) Elem() ConnectorAs2ConfigPropertiesMdnSigningAlgorithmOutput {
 	return o.ApplyT(func(v *ConnectorAs2ConfigPropertiesMdnSigningAlgorithm) ConnectorAs2ConfigPropertiesMdnSigningAlgorithm {
 		if v != nil {
@@ -1278,10 +1158,15 @@ func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectorAs2ConfigPropertiesMdnSigningAlgorithmInput is an input type that accepts ConnectorAs2ConfigPropertiesMdnSigningAlgorithmArgs and ConnectorAs2ConfigPropertiesMdnSigningAlgorithmOutput values.
-// You can construct a concrete instance of `ConnectorAs2ConfigPropertiesMdnSigningAlgorithmInput` via:
+// ConnectorAs2ConfigPropertiesMdnSigningAlgorithmInput is an input type that accepts values of the ConnectorAs2ConfigPropertiesMdnSigningAlgorithm enum
+// A concrete instance of `ConnectorAs2ConfigPropertiesMdnSigningAlgorithmInput` can be one of the following:
 //
-//	ConnectorAs2ConfigPropertiesMdnSigningAlgorithmArgs{...}
+//	ConnectorAs2ConfigPropertiesMdnSigningAlgorithmSha256
+//	ConnectorAs2ConfigPropertiesMdnSigningAlgorithmSha384
+//	ConnectorAs2ConfigPropertiesMdnSigningAlgorithmSha512
+//	ConnectorAs2ConfigPropertiesMdnSigningAlgorithmSha1
+//	ConnectorAs2ConfigPropertiesMdnSigningAlgorithmNone
+//	ConnectorAs2ConfigPropertiesMdnSigningAlgorithmDefault
 type ConnectorAs2ConfigPropertiesMdnSigningAlgorithmInput interface {
 	pulumi.Input
 
@@ -1314,12 +1199,6 @@ func (in *connectorAs2ConfigPropertiesMdnSigningAlgorithmPtr) ToConnectorAs2Conf
 
 func (in *connectorAs2ConfigPropertiesMdnSigningAlgorithmPtr) ToConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput)
-}
-
-func (in *connectorAs2ConfigPropertiesMdnSigningAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesMdnSigningAlgorithm] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesMdnSigningAlgorithm]{
-		OutputState: in.ToConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Signing algorithm for this AS2 connector configuration.
@@ -1393,12 +1272,6 @@ func (o ConnectorAs2ConfigPropertiesSigningAlgorithmOutput) ToConnectorAs2Config
 	}).(ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput)
 }
 
-func (o ConnectorAs2ConfigPropertiesSigningAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorAs2ConfigPropertiesSigningAlgorithm] {
-	return pulumix.Output[ConnectorAs2ConfigPropertiesSigningAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesSigningAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1434,12 +1307,6 @@ func (o ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput) ToConnectorAs2Con
 	return o
 }
 
-func (o ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesSigningAlgorithm] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesSigningAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput) Elem() ConnectorAs2ConfigPropertiesSigningAlgorithmOutput {
 	return o.ApplyT(func(v *ConnectorAs2ConfigPropertiesSigningAlgorithm) ConnectorAs2ConfigPropertiesSigningAlgorithm {
 		if v != nil {
@@ -1464,10 +1331,14 @@ func (o ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectorAs2ConfigPropertiesSigningAlgorithmInput is an input type that accepts ConnectorAs2ConfigPropertiesSigningAlgorithmArgs and ConnectorAs2ConfigPropertiesSigningAlgorithmOutput values.
-// You can construct a concrete instance of `ConnectorAs2ConfigPropertiesSigningAlgorithmInput` via:
+// ConnectorAs2ConfigPropertiesSigningAlgorithmInput is an input type that accepts values of the ConnectorAs2ConfigPropertiesSigningAlgorithm enum
+// A concrete instance of `ConnectorAs2ConfigPropertiesSigningAlgorithmInput` can be one of the following:
 //
-//	ConnectorAs2ConfigPropertiesSigningAlgorithmArgs{...}
+//	ConnectorAs2ConfigPropertiesSigningAlgorithmSha256
+//	ConnectorAs2ConfigPropertiesSigningAlgorithmSha384
+//	ConnectorAs2ConfigPropertiesSigningAlgorithmSha512
+//	ConnectorAs2ConfigPropertiesSigningAlgorithmSha1
+//	ConnectorAs2ConfigPropertiesSigningAlgorithmNone
 type ConnectorAs2ConfigPropertiesSigningAlgorithmInput interface {
 	pulumi.Input
 
@@ -1500,12 +1371,6 @@ func (in *connectorAs2ConfigPropertiesSigningAlgorithmPtr) ToConnectorAs2ConfigP
 
 func (in *connectorAs2ConfigPropertiesSigningAlgorithmPtr) ToConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput)
-}
-
-func (in *connectorAs2ConfigPropertiesSigningAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesSigningAlgorithm] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesSigningAlgorithm]{
-		OutputState: in.ToConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Enum specifying whether the profile is local or associated with a trading partner.
@@ -1576,12 +1441,6 @@ func (o ProfileTypeOutput) ToProfileTypePtrOutputWithContext(ctx context.Context
 	}).(ProfileTypePtrOutput)
 }
 
-func (o ProfileTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ProfileType] {
-	return pulumix.Output[ProfileType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProfileTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1617,12 +1476,6 @@ func (o ProfileTypePtrOutput) ToProfileTypePtrOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ProfileTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfileType] {
-	return pulumix.Output[*ProfileType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProfileTypePtrOutput) Elem() ProfileTypeOutput {
 	return o.ApplyT(func(v *ProfileType) ProfileType {
 		if v != nil {
@@ -1647,10 +1500,11 @@ func (o ProfileTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProfileTypeInput is an input type that accepts ProfileTypeArgs and ProfileTypeOutput values.
-// You can construct a concrete instance of `ProfileTypeInput` via:
+// ProfileTypeInput is an input type that accepts values of the ProfileType enum
+// A concrete instance of `ProfileTypeInput` can be one of the following:
 //
-//	ProfileTypeArgs{...}
+//	ProfileTypeLocal
+//	ProfileTypePartner
 type ProfileTypeInput interface {
 	pulumi.Input
 
@@ -1683,12 +1537,6 @@ func (in *profileTypePtr) ToProfileTypePtrOutput() ProfileTypePtrOutput {
 
 func (in *profileTypePtr) ToProfileTypePtrOutputWithContext(ctx context.Context) ProfileTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ProfileTypePtrOutput)
-}
-
-func (in *profileTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ProfileType] {
-	return pulumix.Output[*ProfileType]{
-		OutputState: in.ToProfileTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
@@ -1759,12 +1607,6 @@ func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput) ToWorkflow
 	}).(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput)
 }
 
-func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCopyStepDetailsPropertiesOverwriteExisting] {
-	return pulumix.Output[WorkflowStepCopyStepDetailsPropertiesOverwriteExisting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1800,12 +1642,6 @@ func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput) ToWorkf
 	return o
 }
 
-func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetailsPropertiesOverwriteExisting] {
-	return pulumix.Output[*WorkflowStepCopyStepDetailsPropertiesOverwriteExisting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput) Elem() WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsPropertiesOverwriteExisting) WorkflowStepCopyStepDetailsPropertiesOverwriteExisting {
 		if v != nil {
@@ -1830,10 +1666,11 @@ func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkflowStepCopyStepDetailsPropertiesOverwriteExistingInput is an input type that accepts WorkflowStepCopyStepDetailsPropertiesOverwriteExistingArgs and WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput values.
-// You can construct a concrete instance of `WorkflowStepCopyStepDetailsPropertiesOverwriteExistingInput` via:
+// WorkflowStepCopyStepDetailsPropertiesOverwriteExistingInput is an input type that accepts values of the WorkflowStepCopyStepDetailsPropertiesOverwriteExisting enum
+// A concrete instance of `WorkflowStepCopyStepDetailsPropertiesOverwriteExistingInput` can be one of the following:
 //
-//	WorkflowStepCopyStepDetailsPropertiesOverwriteExistingArgs{...}
+//	WorkflowStepCopyStepDetailsPropertiesOverwriteExistingTrue
+//	WorkflowStepCopyStepDetailsPropertiesOverwriteExistingFalse
 type WorkflowStepCopyStepDetailsPropertiesOverwriteExistingInput interface {
 	pulumi.Input
 
@@ -1866,12 +1703,6 @@ func (in *workflowStepCopyStepDetailsPropertiesOverwriteExistingPtr) ToWorkflowS
 
 func (in *workflowStepCopyStepDetailsPropertiesOverwriteExistingPtr) ToWorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput)
-}
-
-func (in *workflowStepCopyStepDetailsPropertiesOverwriteExistingPtr) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetailsPropertiesOverwriteExisting] {
-	return pulumix.Output[*WorkflowStepCopyStepDetailsPropertiesOverwriteExisting]{
-		OutputState: in.ToWorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
@@ -1942,12 +1773,6 @@ func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToWorkf
 	}).(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput)
 }
 
-func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting] {
-	return pulumix.Output[WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1983,12 +1808,6 @@ func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) ToWo
 	return o
 }
 
-func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting] {
-	return pulumix.Output[*WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) Elem() WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput {
 	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting {
 		if v != nil {
@@ -2013,10 +1832,11 @@ func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingInput is an input type that accepts WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingArgs and WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput values.
-// You can construct a concrete instance of `WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingInput` via:
+// WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingInput is an input type that accepts values of the WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting enum
+// A concrete instance of `WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingInput` can be one of the following:
 //
-//	WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingArgs{...}
+//	WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingTrue
+//	WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingFalse
 type WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingInput interface {
 	pulumi.Input
 
@@ -2049,12 +1869,6 @@ func (in *workflowStepDecryptStepDetailsPropertiesOverwriteExistingPtr) ToWorkfl
 
 func (in *workflowStepDecryptStepDetailsPropertiesOverwriteExistingPtr) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput)
-}
-
-func (in *workflowStepDecryptStepDetailsPropertiesOverwriteExistingPtr) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting] {
-	return pulumix.Output[*WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting]{
-		OutputState: in.ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies which encryption method to use.
@@ -2124,12 +1938,6 @@ func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToWorkflowStepDecryp
 	}).(WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput)
 }
 
-func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetailsPropertiesType] {
-	return pulumix.Output[WorkflowStepDecryptStepDetailsPropertiesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2165,12 +1973,6 @@ func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) ToWorkflowStepDec
 	return o
 }
 
-func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsPropertiesType] {
-	return pulumix.Output[*WorkflowStepDecryptStepDetailsPropertiesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) Elem() WorkflowStepDecryptStepDetailsPropertiesTypeOutput {
 	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsPropertiesType) WorkflowStepDecryptStepDetailsPropertiesType {
 		if v != nil {
@@ -2195,10 +1997,10 @@ func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkflowStepDecryptStepDetailsPropertiesTypeInput is an input type that accepts WorkflowStepDecryptStepDetailsPropertiesTypeArgs and WorkflowStepDecryptStepDetailsPropertiesTypeOutput values.
-// You can construct a concrete instance of `WorkflowStepDecryptStepDetailsPropertiesTypeInput` via:
+// WorkflowStepDecryptStepDetailsPropertiesTypeInput is an input type that accepts values of the WorkflowStepDecryptStepDetailsPropertiesType enum
+// A concrete instance of `WorkflowStepDecryptStepDetailsPropertiesTypeInput` can be one of the following:
 //
-//	WorkflowStepDecryptStepDetailsPropertiesTypeArgs{...}
+//	WorkflowStepDecryptStepDetailsPropertiesTypePgp
 type WorkflowStepDecryptStepDetailsPropertiesTypeInput interface {
 	pulumi.Input
 
@@ -2231,12 +2033,6 @@ func (in *workflowStepDecryptStepDetailsPropertiesTypePtr) ToWorkflowStepDecrypt
 
 func (in *workflowStepDecryptStepDetailsPropertiesTypePtr) ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput)
-}
-
-func (in *workflowStepDecryptStepDetailsPropertiesTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsPropertiesType] {
-	return pulumix.Output[*WorkflowStepDecryptStepDetailsPropertiesType]{
-		OutputState: in.ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WorkflowStepType string
@@ -2309,12 +2105,6 @@ func (o WorkflowStepTypeOutput) ToWorkflowStepTypePtrOutputWithContext(ctx conte
 	}).(WorkflowStepTypePtrOutput)
 }
 
-func (o WorkflowStepTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepType] {
-	return pulumix.Output[WorkflowStepType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowStepTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2350,12 +2140,6 @@ func (o WorkflowStepTypePtrOutput) ToWorkflowStepTypePtrOutputWithContext(ctx co
 	return o
 }
 
-func (o WorkflowStepTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepType] {
-	return pulumix.Output[*WorkflowStepType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowStepTypePtrOutput) Elem() WorkflowStepTypeOutput {
 	return o.ApplyT(func(v *WorkflowStepType) WorkflowStepType {
 		if v != nil {
@@ -2380,10 +2164,14 @@ func (o WorkflowStepTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkflowStepTypeInput is an input type that accepts WorkflowStepTypeArgs and WorkflowStepTypeOutput values.
-// You can construct a concrete instance of `WorkflowStepTypeInput` via:
+// WorkflowStepTypeInput is an input type that accepts values of the WorkflowStepType enum
+// A concrete instance of `WorkflowStepTypeInput` can be one of the following:
 //
-//	WorkflowStepTypeArgs{...}
+//	WorkflowStepTypeCopy
+//	WorkflowStepTypeCustom
+//	WorkflowStepTypeDecrypt
+//	WorkflowStepTypeDelete
+//	WorkflowStepTypeTag
 type WorkflowStepTypeInput interface {
 	pulumi.Input
 
@@ -2416,12 +2204,6 @@ func (in *workflowStepTypePtr) ToWorkflowStepTypePtrOutput() WorkflowStepTypePtr
 
 func (in *workflowStepTypePtr) ToWorkflowStepTypePtrOutputWithContext(ctx context.Context) WorkflowStepTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkflowStepTypePtrOutput)
-}
-
-func (in *workflowStepTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepType] {
-	return pulumix.Output[*WorkflowStepType]{
-		OutputState: in.ToWorkflowStepTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

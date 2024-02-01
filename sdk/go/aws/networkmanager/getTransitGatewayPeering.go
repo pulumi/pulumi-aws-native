@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::NetworkManager::TransitGatewayPeering Resoruce Type.
@@ -85,12 +84,6 @@ func (o LookupTransitGatewayPeeringResultOutput) ToLookupTransitGatewayPeeringRe
 
 func (o LookupTransitGatewayPeeringResultOutput) ToLookupTransitGatewayPeeringResultOutputWithContext(ctx context.Context) LookupTransitGatewayPeeringResultOutput {
 	return o
-}
-
-func (o LookupTransitGatewayPeeringResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransitGatewayPeeringResult] {
-	return pulumix.Output[LookupTransitGatewayPeeringResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN (Amazon Resource Name) of the core network that you want to peer a transit gateway to.

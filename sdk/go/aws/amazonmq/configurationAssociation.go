@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AmazonMQ::ConfigurationAssociation
@@ -106,12 +105,6 @@ func (i *ConfigurationAssociation) ToConfigurationAssociationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAssociationOutput)
 }
 
-func (i *ConfigurationAssociation) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAssociation] {
-	return pulumix.Output[*ConfigurationAssociation]{
-		OutputState: i.ToConfigurationAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationAssociationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAssociationOutput) ElementType() reflect.Type {
@@ -124,12 +117,6 @@ func (o ConfigurationAssociationOutput) ToConfigurationAssociationOutput() Confi
 
 func (o ConfigurationAssociationOutput) ToConfigurationAssociationOutputWithContext(ctx context.Context) ConfigurationAssociationOutput {
 	return o
-}
-
-func (o ConfigurationAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAssociation] {
-	return pulumix.Output[*ConfigurationAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationAssociationOutput) Broker() pulumi.StringOutput {

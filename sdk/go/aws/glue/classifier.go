@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::Classifier
@@ -101,12 +100,6 @@ func (i *Classifier) ToClassifierOutputWithContext(ctx context.Context) Classifi
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierOutput)
 }
 
-func (i *Classifier) ToOutput(ctx context.Context) pulumix.Output[*Classifier] {
-	return pulumix.Output[*Classifier]{
-		OutputState: i.ToClassifierOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassifierOutput struct{ *pulumi.OutputState }
 
 func (ClassifierOutput) ElementType() reflect.Type {
@@ -119,12 +112,6 @@ func (o ClassifierOutput) ToClassifierOutput() ClassifierOutput {
 
 func (o ClassifierOutput) ToClassifierOutputWithContext(ctx context.Context) ClassifierOutput {
 	return o
-}
-
-func (o ClassifierOutput) ToOutput(ctx context.Context) pulumix.Output[*Classifier] {
-	return pulumix.Output[*Classifier]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassifierOutput) CsvClassifier() ClassifierCsvClassifierPtrOutput {

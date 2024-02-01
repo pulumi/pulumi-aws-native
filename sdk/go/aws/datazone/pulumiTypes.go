@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -19,15 +18,378 @@ type DataSourceConfigurationInput0Properties struct {
 	GlueRunConfiguration *DataSourceGlueRunConfigurationInput `pulumi:"glueRunConfiguration"`
 }
 
+// DataSourceConfigurationInput0PropertiesInput is an input type that accepts DataSourceConfigurationInput0PropertiesArgs and DataSourceConfigurationInput0PropertiesOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationInput0PropertiesInput` via:
+//
+//	DataSourceConfigurationInput0PropertiesArgs{...}
+type DataSourceConfigurationInput0PropertiesInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationInput0PropertiesOutput() DataSourceConfigurationInput0PropertiesOutput
+	ToDataSourceConfigurationInput0PropertiesOutputWithContext(context.Context) DataSourceConfigurationInput0PropertiesOutput
+}
+
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+type DataSourceConfigurationInput0PropertiesArgs struct {
+	GlueRunConfiguration DataSourceGlueRunConfigurationInputPtrInput `pulumi:"glueRunConfiguration"`
+}
+
+func (DataSourceConfigurationInput0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationInput0Properties)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationInput0PropertiesArgs) ToDataSourceConfigurationInput0PropertiesOutput() DataSourceConfigurationInput0PropertiesOutput {
+	return i.ToDataSourceConfigurationInput0PropertiesOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationInput0PropertiesArgs) ToDataSourceConfigurationInput0PropertiesOutputWithContext(ctx context.Context) DataSourceConfigurationInput0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationInput0PropertiesOutput)
+}
+
+func (i DataSourceConfigurationInput0PropertiesArgs) ToDataSourceConfigurationInput0PropertiesPtrOutput() DataSourceConfigurationInput0PropertiesPtrOutput {
+	return i.ToDataSourceConfigurationInput0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationInput0PropertiesArgs) ToDataSourceConfigurationInput0PropertiesPtrOutputWithContext(ctx context.Context) DataSourceConfigurationInput0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationInput0PropertiesOutput).ToDataSourceConfigurationInput0PropertiesPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationInput0PropertiesPtrInput is an input type that accepts DataSourceConfigurationInput0PropertiesArgs, DataSourceConfigurationInput0PropertiesPtr and DataSourceConfigurationInput0PropertiesPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationInput0PropertiesPtrInput` via:
+//
+//	        DataSourceConfigurationInput0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationInput0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationInput0PropertiesPtrOutput() DataSourceConfigurationInput0PropertiesPtrOutput
+	ToDataSourceConfigurationInput0PropertiesPtrOutputWithContext(context.Context) DataSourceConfigurationInput0PropertiesPtrOutput
+}
+
+type dataSourceConfigurationInput0PropertiesPtrType DataSourceConfigurationInput0PropertiesArgs
+
+func DataSourceConfigurationInput0PropertiesPtr(v *DataSourceConfigurationInput0PropertiesArgs) DataSourceConfigurationInput0PropertiesPtrInput {
+	return (*dataSourceConfigurationInput0PropertiesPtrType)(v)
+}
+
+func (*dataSourceConfigurationInput0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationInput0Properties)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationInput0PropertiesPtrType) ToDataSourceConfigurationInput0PropertiesPtrOutput() DataSourceConfigurationInput0PropertiesPtrOutput {
+	return i.ToDataSourceConfigurationInput0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationInput0PropertiesPtrType) ToDataSourceConfigurationInput0PropertiesPtrOutputWithContext(ctx context.Context) DataSourceConfigurationInput0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationInput0PropertiesPtrOutput)
+}
+
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+type DataSourceConfigurationInput0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationInput0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationInput0Properties)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationInput0PropertiesOutput) ToDataSourceConfigurationInput0PropertiesOutput() DataSourceConfigurationInput0PropertiesOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInput0PropertiesOutput) ToDataSourceConfigurationInput0PropertiesOutputWithContext(ctx context.Context) DataSourceConfigurationInput0PropertiesOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInput0PropertiesOutput) ToDataSourceConfigurationInput0PropertiesPtrOutput() DataSourceConfigurationInput0PropertiesPtrOutput {
+	return o.ToDataSourceConfigurationInput0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationInput0PropertiesOutput) ToDataSourceConfigurationInput0PropertiesPtrOutputWithContext(ctx context.Context) DataSourceConfigurationInput0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationInput0Properties) *DataSourceConfigurationInput0Properties {
+		return &v
+	}).(DataSourceConfigurationInput0PropertiesPtrOutput)
+}
+
+func (o DataSourceConfigurationInput0PropertiesOutput) GlueRunConfiguration() DataSourceGlueRunConfigurationInputPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationInput0Properties) *DataSourceGlueRunConfigurationInput {
+		return v.GlueRunConfiguration
+	}).(DataSourceGlueRunConfigurationInputPtrOutput)
+}
+
+type DataSourceConfigurationInput0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationInput0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationInput0Properties)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationInput0PropertiesPtrOutput) ToDataSourceConfigurationInput0PropertiesPtrOutput() DataSourceConfigurationInput0PropertiesPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInput0PropertiesPtrOutput) ToDataSourceConfigurationInput0PropertiesPtrOutputWithContext(ctx context.Context) DataSourceConfigurationInput0PropertiesPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInput0PropertiesPtrOutput) Elem() DataSourceConfigurationInput0PropertiesOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationInput0Properties) DataSourceConfigurationInput0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationInput0Properties
+		return ret
+	}).(DataSourceConfigurationInput0PropertiesOutput)
+}
+
+func (o DataSourceConfigurationInput0PropertiesPtrOutput) GlueRunConfiguration() DataSourceGlueRunConfigurationInputPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationInput0Properties) *DataSourceGlueRunConfigurationInput {
+		if v == nil {
+			return nil
+		}
+		return v.GlueRunConfiguration
+	}).(DataSourceGlueRunConfigurationInputPtrOutput)
+}
+
 // Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
 type DataSourceConfigurationInput1Properties struct {
 	RedshiftRunConfiguration *DataSourceRedshiftRunConfigurationInput `pulumi:"redshiftRunConfiguration"`
+}
+
+// DataSourceConfigurationInput1PropertiesInput is an input type that accepts DataSourceConfigurationInput1PropertiesArgs and DataSourceConfigurationInput1PropertiesOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationInput1PropertiesInput` via:
+//
+//	DataSourceConfigurationInput1PropertiesArgs{...}
+type DataSourceConfigurationInput1PropertiesInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationInput1PropertiesOutput() DataSourceConfigurationInput1PropertiesOutput
+	ToDataSourceConfigurationInput1PropertiesOutputWithContext(context.Context) DataSourceConfigurationInput1PropertiesOutput
+}
+
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+type DataSourceConfigurationInput1PropertiesArgs struct {
+	RedshiftRunConfiguration DataSourceRedshiftRunConfigurationInputPtrInput `pulumi:"redshiftRunConfiguration"`
+}
+
+func (DataSourceConfigurationInput1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationInput1Properties)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationInput1PropertiesArgs) ToDataSourceConfigurationInput1PropertiesOutput() DataSourceConfigurationInput1PropertiesOutput {
+	return i.ToDataSourceConfigurationInput1PropertiesOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationInput1PropertiesArgs) ToDataSourceConfigurationInput1PropertiesOutputWithContext(ctx context.Context) DataSourceConfigurationInput1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationInput1PropertiesOutput)
+}
+
+func (i DataSourceConfigurationInput1PropertiesArgs) ToDataSourceConfigurationInput1PropertiesPtrOutput() DataSourceConfigurationInput1PropertiesPtrOutput {
+	return i.ToDataSourceConfigurationInput1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationInput1PropertiesArgs) ToDataSourceConfigurationInput1PropertiesPtrOutputWithContext(ctx context.Context) DataSourceConfigurationInput1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationInput1PropertiesOutput).ToDataSourceConfigurationInput1PropertiesPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationInput1PropertiesPtrInput is an input type that accepts DataSourceConfigurationInput1PropertiesArgs, DataSourceConfigurationInput1PropertiesPtr and DataSourceConfigurationInput1PropertiesPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationInput1PropertiesPtrInput` via:
+//
+//	        DataSourceConfigurationInput1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationInput1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationInput1PropertiesPtrOutput() DataSourceConfigurationInput1PropertiesPtrOutput
+	ToDataSourceConfigurationInput1PropertiesPtrOutputWithContext(context.Context) DataSourceConfigurationInput1PropertiesPtrOutput
+}
+
+type dataSourceConfigurationInput1PropertiesPtrType DataSourceConfigurationInput1PropertiesArgs
+
+func DataSourceConfigurationInput1PropertiesPtr(v *DataSourceConfigurationInput1PropertiesArgs) DataSourceConfigurationInput1PropertiesPtrInput {
+	return (*dataSourceConfigurationInput1PropertiesPtrType)(v)
+}
+
+func (*dataSourceConfigurationInput1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationInput1Properties)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationInput1PropertiesPtrType) ToDataSourceConfigurationInput1PropertiesPtrOutput() DataSourceConfigurationInput1PropertiesPtrOutput {
+	return i.ToDataSourceConfigurationInput1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationInput1PropertiesPtrType) ToDataSourceConfigurationInput1PropertiesPtrOutputWithContext(ctx context.Context) DataSourceConfigurationInput1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationInput1PropertiesPtrOutput)
+}
+
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+type DataSourceConfigurationInput1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationInput1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationInput1Properties)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationInput1PropertiesOutput) ToDataSourceConfigurationInput1PropertiesOutput() DataSourceConfigurationInput1PropertiesOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInput1PropertiesOutput) ToDataSourceConfigurationInput1PropertiesOutputWithContext(ctx context.Context) DataSourceConfigurationInput1PropertiesOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInput1PropertiesOutput) ToDataSourceConfigurationInput1PropertiesPtrOutput() DataSourceConfigurationInput1PropertiesPtrOutput {
+	return o.ToDataSourceConfigurationInput1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationInput1PropertiesOutput) ToDataSourceConfigurationInput1PropertiesPtrOutputWithContext(ctx context.Context) DataSourceConfigurationInput1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationInput1Properties) *DataSourceConfigurationInput1Properties {
+		return &v
+	}).(DataSourceConfigurationInput1PropertiesPtrOutput)
+}
+
+func (o DataSourceConfigurationInput1PropertiesOutput) RedshiftRunConfiguration() DataSourceRedshiftRunConfigurationInputPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationInput1Properties) *DataSourceRedshiftRunConfigurationInput {
+		return v.RedshiftRunConfiguration
+	}).(DataSourceRedshiftRunConfigurationInputPtrOutput)
+}
+
+type DataSourceConfigurationInput1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationInput1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationInput1Properties)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationInput1PropertiesPtrOutput) ToDataSourceConfigurationInput1PropertiesPtrOutput() DataSourceConfigurationInput1PropertiesPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInput1PropertiesPtrOutput) ToDataSourceConfigurationInput1PropertiesPtrOutputWithContext(ctx context.Context) DataSourceConfigurationInput1PropertiesPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInput1PropertiesPtrOutput) Elem() DataSourceConfigurationInput1PropertiesOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationInput1Properties) DataSourceConfigurationInput1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationInput1Properties
+		return ret
+	}).(DataSourceConfigurationInput1PropertiesOutput)
+}
+
+func (o DataSourceConfigurationInput1PropertiesPtrOutput) RedshiftRunConfiguration() DataSourceRedshiftRunConfigurationInputPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationInput1Properties) *DataSourceRedshiftRunConfigurationInput {
+		if v == nil {
+			return nil
+		}
+		return v.RedshiftRunConfiguration
+	}).(DataSourceRedshiftRunConfigurationInputPtrOutput)
 }
 
 // The search filter expression.
 type DataSourceFilterExpression struct {
 	Expression string                         `pulumi:"expression"`
 	Type       DataSourceFilterExpressionType `pulumi:"type"`
+}
+
+// DataSourceFilterExpressionInput is an input type that accepts DataSourceFilterExpressionArgs and DataSourceFilterExpressionOutput values.
+// You can construct a concrete instance of `DataSourceFilterExpressionInput` via:
+//
+//	DataSourceFilterExpressionArgs{...}
+type DataSourceFilterExpressionInput interface {
+	pulumi.Input
+
+	ToDataSourceFilterExpressionOutput() DataSourceFilterExpressionOutput
+	ToDataSourceFilterExpressionOutputWithContext(context.Context) DataSourceFilterExpressionOutput
+}
+
+// The search filter expression.
+type DataSourceFilterExpressionArgs struct {
+	Expression pulumi.StringInput                  `pulumi:"expression"`
+	Type       DataSourceFilterExpressionTypeInput `pulumi:"type"`
+}
+
+func (DataSourceFilterExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceFilterExpression)(nil)).Elem()
+}
+
+func (i DataSourceFilterExpressionArgs) ToDataSourceFilterExpressionOutput() DataSourceFilterExpressionOutput {
+	return i.ToDataSourceFilterExpressionOutputWithContext(context.Background())
+}
+
+func (i DataSourceFilterExpressionArgs) ToDataSourceFilterExpressionOutputWithContext(ctx context.Context) DataSourceFilterExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceFilterExpressionOutput)
+}
+
+// DataSourceFilterExpressionArrayInput is an input type that accepts DataSourceFilterExpressionArray and DataSourceFilterExpressionArrayOutput values.
+// You can construct a concrete instance of `DataSourceFilterExpressionArrayInput` via:
+//
+//	DataSourceFilterExpressionArray{ DataSourceFilterExpressionArgs{...} }
+type DataSourceFilterExpressionArrayInput interface {
+	pulumi.Input
+
+	ToDataSourceFilterExpressionArrayOutput() DataSourceFilterExpressionArrayOutput
+	ToDataSourceFilterExpressionArrayOutputWithContext(context.Context) DataSourceFilterExpressionArrayOutput
+}
+
+type DataSourceFilterExpressionArray []DataSourceFilterExpressionInput
+
+func (DataSourceFilterExpressionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceFilterExpression)(nil)).Elem()
+}
+
+func (i DataSourceFilterExpressionArray) ToDataSourceFilterExpressionArrayOutput() DataSourceFilterExpressionArrayOutput {
+	return i.ToDataSourceFilterExpressionArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourceFilterExpressionArray) ToDataSourceFilterExpressionArrayOutputWithContext(ctx context.Context) DataSourceFilterExpressionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceFilterExpressionArrayOutput)
+}
+
+// The search filter expression.
+type DataSourceFilterExpressionOutput struct{ *pulumi.OutputState }
+
+func (DataSourceFilterExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceFilterExpression)(nil)).Elem()
+}
+
+func (o DataSourceFilterExpressionOutput) ToDataSourceFilterExpressionOutput() DataSourceFilterExpressionOutput {
+	return o
+}
+
+func (o DataSourceFilterExpressionOutput) ToDataSourceFilterExpressionOutputWithContext(ctx context.Context) DataSourceFilterExpressionOutput {
+	return o
+}
+
+func (o DataSourceFilterExpressionOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceFilterExpression) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o DataSourceFilterExpressionOutput) Type() DataSourceFilterExpressionTypeOutput {
+	return o.ApplyT(func(v DataSourceFilterExpression) DataSourceFilterExpressionType { return v.Type }).(DataSourceFilterExpressionTypeOutput)
+}
+
+type DataSourceFilterExpressionArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourceFilterExpressionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceFilterExpression)(nil)).Elem()
+}
+
+func (o DataSourceFilterExpressionArrayOutput) ToDataSourceFilterExpressionArrayOutput() DataSourceFilterExpressionArrayOutput {
+	return o
+}
+
+func (o DataSourceFilterExpressionArrayOutput) ToDataSourceFilterExpressionArrayOutputWithContext(ctx context.Context) DataSourceFilterExpressionArrayOutput {
+	return o
+}
+
+func (o DataSourceFilterExpressionArrayOutput) Index(i pulumi.IntInput) DataSourceFilterExpressionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceFilterExpression {
+		return vs[0].([]DataSourceFilterExpression)[vs[1].(int)]
+	}).(DataSourceFilterExpressionOutput)
 }
 
 // The details of a metadata form.
@@ -77,12 +439,6 @@ func (i DataSourceFormInputArgs) ToDataSourceFormInputOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceFormInputOutput)
 }
 
-func (i DataSourceFormInputArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceFormInput] {
-	return pulumix.Output[DataSourceFormInput]{
-		OutputState: i.ToDataSourceFormInputOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataSourceFormInputArrayInput is an input type that accepts DataSourceFormInputArray and DataSourceFormInputArrayOutput values.
 // You can construct a concrete instance of `DataSourceFormInputArrayInput` via:
 //
@@ -108,12 +464,6 @@ func (i DataSourceFormInputArray) ToDataSourceFormInputArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceFormInputArrayOutput)
 }
 
-func (i DataSourceFormInputArray) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceFormInput] {
-	return pulumix.Output[[]DataSourceFormInput]{
-		OutputState: i.ToDataSourceFormInputArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The details of a metadata form.
 type DataSourceFormInputOutput struct{ *pulumi.OutputState }
 
@@ -127,12 +477,6 @@ func (o DataSourceFormInputOutput) ToDataSourceFormInputOutput() DataSourceFormI
 
 func (o DataSourceFormInputOutput) ToDataSourceFormInputOutputWithContext(ctx context.Context) DataSourceFormInputOutput {
 	return o
-}
-
-func (o DataSourceFormInputOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceFormInput] {
-	return pulumix.Output[DataSourceFormInput]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The content of the metadata form.
@@ -169,12 +513,6 @@ func (o DataSourceFormInputArrayOutput) ToDataSourceFormInputArrayOutputWithCont
 	return o
 }
 
-func (o DataSourceFormInputArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataSourceFormInput] {
-	return pulumix.Output[[]DataSourceFormInput]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceFormInputArrayOutput) Index(i pulumi.IntInput) DataSourceFormInputOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceFormInput {
 		return vs[0].([]DataSourceFormInput)[vs[1].(int)]
@@ -186,6 +524,157 @@ type DataSourceGlueRunConfigurationInput struct {
 	DataAccessRole *string `pulumi:"dataAccessRole"`
 	// The relational filter configurations included in the configuration details of the AWS Glue data source.
 	RelationalFilterConfigurations []DataSourceRelationalFilterConfiguration `pulumi:"relationalFilterConfigurations"`
+}
+
+// DataSourceGlueRunConfigurationInputInput is an input type that accepts DataSourceGlueRunConfigurationInputArgs and DataSourceGlueRunConfigurationInputOutput values.
+// You can construct a concrete instance of `DataSourceGlueRunConfigurationInputInput` via:
+//
+//	DataSourceGlueRunConfigurationInputArgs{...}
+type DataSourceGlueRunConfigurationInputInput interface {
+	pulumi.Input
+
+	ToDataSourceGlueRunConfigurationInputOutput() DataSourceGlueRunConfigurationInputOutput
+	ToDataSourceGlueRunConfigurationInputOutputWithContext(context.Context) DataSourceGlueRunConfigurationInputOutput
+}
+
+type DataSourceGlueRunConfigurationInputArgs struct {
+	// The data access role included in the configuration details of the AWS Glue data source.
+	DataAccessRole pulumi.StringPtrInput `pulumi:"dataAccessRole"`
+	// The relational filter configurations included in the configuration details of the AWS Glue data source.
+	RelationalFilterConfigurations DataSourceRelationalFilterConfigurationArrayInput `pulumi:"relationalFilterConfigurations"`
+}
+
+func (DataSourceGlueRunConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceGlueRunConfigurationInput)(nil)).Elem()
+}
+
+func (i DataSourceGlueRunConfigurationInputArgs) ToDataSourceGlueRunConfigurationInputOutput() DataSourceGlueRunConfigurationInputOutput {
+	return i.ToDataSourceGlueRunConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i DataSourceGlueRunConfigurationInputArgs) ToDataSourceGlueRunConfigurationInputOutputWithContext(ctx context.Context) DataSourceGlueRunConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceGlueRunConfigurationInputOutput)
+}
+
+func (i DataSourceGlueRunConfigurationInputArgs) ToDataSourceGlueRunConfigurationInputPtrOutput() DataSourceGlueRunConfigurationInputPtrOutput {
+	return i.ToDataSourceGlueRunConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceGlueRunConfigurationInputArgs) ToDataSourceGlueRunConfigurationInputPtrOutputWithContext(ctx context.Context) DataSourceGlueRunConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceGlueRunConfigurationInputOutput).ToDataSourceGlueRunConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// DataSourceGlueRunConfigurationInputPtrInput is an input type that accepts DataSourceGlueRunConfigurationInputArgs, DataSourceGlueRunConfigurationInputPtr and DataSourceGlueRunConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `DataSourceGlueRunConfigurationInputPtrInput` via:
+//
+//	        DataSourceGlueRunConfigurationInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceGlueRunConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceGlueRunConfigurationInputPtrOutput() DataSourceGlueRunConfigurationInputPtrOutput
+	ToDataSourceGlueRunConfigurationInputPtrOutputWithContext(context.Context) DataSourceGlueRunConfigurationInputPtrOutput
+}
+
+type dataSourceGlueRunConfigurationInputPtrType DataSourceGlueRunConfigurationInputArgs
+
+func DataSourceGlueRunConfigurationInputPtr(v *DataSourceGlueRunConfigurationInputArgs) DataSourceGlueRunConfigurationInputPtrInput {
+	return (*dataSourceGlueRunConfigurationInputPtrType)(v)
+}
+
+func (*dataSourceGlueRunConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceGlueRunConfigurationInput)(nil)).Elem()
+}
+
+func (i *dataSourceGlueRunConfigurationInputPtrType) ToDataSourceGlueRunConfigurationInputPtrOutput() DataSourceGlueRunConfigurationInputPtrOutput {
+	return i.ToDataSourceGlueRunConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceGlueRunConfigurationInputPtrType) ToDataSourceGlueRunConfigurationInputPtrOutputWithContext(ctx context.Context) DataSourceGlueRunConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceGlueRunConfigurationInputPtrOutput)
+}
+
+type DataSourceGlueRunConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (DataSourceGlueRunConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceGlueRunConfigurationInput)(nil)).Elem()
+}
+
+func (o DataSourceGlueRunConfigurationInputOutput) ToDataSourceGlueRunConfigurationInputOutput() DataSourceGlueRunConfigurationInputOutput {
+	return o
+}
+
+func (o DataSourceGlueRunConfigurationInputOutput) ToDataSourceGlueRunConfigurationInputOutputWithContext(ctx context.Context) DataSourceGlueRunConfigurationInputOutput {
+	return o
+}
+
+func (o DataSourceGlueRunConfigurationInputOutput) ToDataSourceGlueRunConfigurationInputPtrOutput() DataSourceGlueRunConfigurationInputPtrOutput {
+	return o.ToDataSourceGlueRunConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceGlueRunConfigurationInputOutput) ToDataSourceGlueRunConfigurationInputPtrOutputWithContext(ctx context.Context) DataSourceGlueRunConfigurationInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceGlueRunConfigurationInput) *DataSourceGlueRunConfigurationInput {
+		return &v
+	}).(DataSourceGlueRunConfigurationInputPtrOutput)
+}
+
+// The data access role included in the configuration details of the AWS Glue data source.
+func (o DataSourceGlueRunConfigurationInputOutput) DataAccessRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceGlueRunConfigurationInput) *string { return v.DataAccessRole }).(pulumi.StringPtrOutput)
+}
+
+// The relational filter configurations included in the configuration details of the AWS Glue data source.
+func (o DataSourceGlueRunConfigurationInputOutput) RelationalFilterConfigurations() DataSourceRelationalFilterConfigurationArrayOutput {
+	return o.ApplyT(func(v DataSourceGlueRunConfigurationInput) []DataSourceRelationalFilterConfiguration {
+		return v.RelationalFilterConfigurations
+	}).(DataSourceRelationalFilterConfigurationArrayOutput)
+}
+
+type DataSourceGlueRunConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceGlueRunConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceGlueRunConfigurationInput)(nil)).Elem()
+}
+
+func (o DataSourceGlueRunConfigurationInputPtrOutput) ToDataSourceGlueRunConfigurationInputPtrOutput() DataSourceGlueRunConfigurationInputPtrOutput {
+	return o
+}
+
+func (o DataSourceGlueRunConfigurationInputPtrOutput) ToDataSourceGlueRunConfigurationInputPtrOutputWithContext(ctx context.Context) DataSourceGlueRunConfigurationInputPtrOutput {
+	return o
+}
+
+func (o DataSourceGlueRunConfigurationInputPtrOutput) Elem() DataSourceGlueRunConfigurationInputOutput {
+	return o.ApplyT(func(v *DataSourceGlueRunConfigurationInput) DataSourceGlueRunConfigurationInput {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceGlueRunConfigurationInput
+		return ret
+	}).(DataSourceGlueRunConfigurationInputOutput)
+}
+
+// The data access role included in the configuration details of the AWS Glue data source.
+func (o DataSourceGlueRunConfigurationInputPtrOutput) DataAccessRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceGlueRunConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataAccessRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// The relational filter configurations included in the configuration details of the AWS Glue data source.
+func (o DataSourceGlueRunConfigurationInputPtrOutput) RelationalFilterConfigurations() DataSourceRelationalFilterConfigurationArrayOutput {
+	return o.ApplyT(func(v *DataSourceGlueRunConfigurationInput) []DataSourceRelationalFilterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RelationalFilterConfigurations
+	}).(DataSourceRelationalFilterConfigurationArrayOutput)
 }
 
 // The recommendation to be updated as part of the UpdateDataSource action.
@@ -221,12 +710,6 @@ func (i DataSourceRecommendationConfigurationArgs) ToDataSourceRecommendationCon
 
 func (i DataSourceRecommendationConfigurationArgs) ToDataSourceRecommendationConfigurationOutputWithContext(ctx context.Context) DataSourceRecommendationConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRecommendationConfigurationOutput)
-}
-
-func (i DataSourceRecommendationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceRecommendationConfiguration] {
-	return pulumix.Output[DataSourceRecommendationConfiguration]{
-		OutputState: i.ToDataSourceRecommendationConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DataSourceRecommendationConfigurationArgs) ToDataSourceRecommendationConfigurationPtrOutput() DataSourceRecommendationConfigurationPtrOutput {
@@ -270,12 +753,6 @@ func (i *dataSourceRecommendationConfigurationPtrType) ToDataSourceRecommendatio
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRecommendationConfigurationPtrOutput)
 }
 
-func (i *dataSourceRecommendationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceRecommendationConfiguration] {
-	return pulumix.Output[*DataSourceRecommendationConfiguration]{
-		OutputState: i.ToDataSourceRecommendationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The recommendation to be updated as part of the UpdateDataSource action.
 type DataSourceRecommendationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -301,12 +778,6 @@ func (o DataSourceRecommendationConfigurationOutput) ToDataSourceRecommendationC
 	}).(DataSourceRecommendationConfigurationPtrOutput)
 }
 
-func (o DataSourceRecommendationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceRecommendationConfiguration] {
-	return pulumix.Output[DataSourceRecommendationConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.
 func (o DataSourceRecommendationConfigurationOutput) EnableBusinessNameGeneration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceRecommendationConfiguration) *bool { return v.EnableBusinessNameGeneration }).(pulumi.BoolPtrOutput)
@@ -324,12 +795,6 @@ func (o DataSourceRecommendationConfigurationPtrOutput) ToDataSourceRecommendati
 
 func (o DataSourceRecommendationConfigurationPtrOutput) ToDataSourceRecommendationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceRecommendationConfigurationPtrOutput {
 	return o
-}
-
-func (o DataSourceRecommendationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceRecommendationConfiguration] {
-	return pulumix.Output[*DataSourceRecommendationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSourceRecommendationConfigurationPtrOutput) Elem() DataSourceRecommendationConfigurationOutput {
@@ -358,10 +823,278 @@ type DataSourceRedshiftClusterStorage struct {
 	ClusterName string `pulumi:"clusterName"`
 }
 
+// DataSourceRedshiftClusterStorageInput is an input type that accepts DataSourceRedshiftClusterStorageArgs and DataSourceRedshiftClusterStorageOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftClusterStorageInput` via:
+//
+//	DataSourceRedshiftClusterStorageArgs{...}
+type DataSourceRedshiftClusterStorageInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftClusterStorageOutput() DataSourceRedshiftClusterStorageOutput
+	ToDataSourceRedshiftClusterStorageOutputWithContext(context.Context) DataSourceRedshiftClusterStorageOutput
+}
+
+// The name of an Amazon Redshift cluster.
+type DataSourceRedshiftClusterStorageArgs struct {
+	// The name of an Amazon Redshift cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+}
+
+func (DataSourceRedshiftClusterStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftClusterStorage)(nil)).Elem()
+}
+
+func (i DataSourceRedshiftClusterStorageArgs) ToDataSourceRedshiftClusterStorageOutput() DataSourceRedshiftClusterStorageOutput {
+	return i.ToDataSourceRedshiftClusterStorageOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftClusterStorageArgs) ToDataSourceRedshiftClusterStorageOutputWithContext(ctx context.Context) DataSourceRedshiftClusterStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftClusterStorageOutput)
+}
+
+func (i DataSourceRedshiftClusterStorageArgs) ToDataSourceRedshiftClusterStoragePtrOutput() DataSourceRedshiftClusterStoragePtrOutput {
+	return i.ToDataSourceRedshiftClusterStoragePtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftClusterStorageArgs) ToDataSourceRedshiftClusterStoragePtrOutputWithContext(ctx context.Context) DataSourceRedshiftClusterStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftClusterStorageOutput).ToDataSourceRedshiftClusterStoragePtrOutputWithContext(ctx)
+}
+
+// DataSourceRedshiftClusterStoragePtrInput is an input type that accepts DataSourceRedshiftClusterStorageArgs, DataSourceRedshiftClusterStoragePtr and DataSourceRedshiftClusterStoragePtrOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftClusterStoragePtrInput` via:
+//
+//	        DataSourceRedshiftClusterStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceRedshiftClusterStoragePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftClusterStoragePtrOutput() DataSourceRedshiftClusterStoragePtrOutput
+	ToDataSourceRedshiftClusterStoragePtrOutputWithContext(context.Context) DataSourceRedshiftClusterStoragePtrOutput
+}
+
+type dataSourceRedshiftClusterStoragePtrType DataSourceRedshiftClusterStorageArgs
+
+func DataSourceRedshiftClusterStoragePtr(v *DataSourceRedshiftClusterStorageArgs) DataSourceRedshiftClusterStoragePtrInput {
+	return (*dataSourceRedshiftClusterStoragePtrType)(v)
+}
+
+func (*dataSourceRedshiftClusterStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftClusterStorage)(nil)).Elem()
+}
+
+func (i *dataSourceRedshiftClusterStoragePtrType) ToDataSourceRedshiftClusterStoragePtrOutput() DataSourceRedshiftClusterStoragePtrOutput {
+	return i.ToDataSourceRedshiftClusterStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceRedshiftClusterStoragePtrType) ToDataSourceRedshiftClusterStoragePtrOutputWithContext(ctx context.Context) DataSourceRedshiftClusterStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftClusterStoragePtrOutput)
+}
+
+// The name of an Amazon Redshift cluster.
+type DataSourceRedshiftClusterStorageOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftClusterStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftClusterStorage)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftClusterStorageOutput) ToDataSourceRedshiftClusterStorageOutput() DataSourceRedshiftClusterStorageOutput {
+	return o
+}
+
+func (o DataSourceRedshiftClusterStorageOutput) ToDataSourceRedshiftClusterStorageOutputWithContext(ctx context.Context) DataSourceRedshiftClusterStorageOutput {
+	return o
+}
+
+func (o DataSourceRedshiftClusterStorageOutput) ToDataSourceRedshiftClusterStoragePtrOutput() DataSourceRedshiftClusterStoragePtrOutput {
+	return o.ToDataSourceRedshiftClusterStoragePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceRedshiftClusterStorageOutput) ToDataSourceRedshiftClusterStoragePtrOutputWithContext(ctx context.Context) DataSourceRedshiftClusterStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceRedshiftClusterStorage) *DataSourceRedshiftClusterStorage {
+		return &v
+	}).(DataSourceRedshiftClusterStoragePtrOutput)
+}
+
+// The name of an Amazon Redshift cluster.
+func (o DataSourceRedshiftClusterStorageOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceRedshiftClusterStorage) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+type DataSourceRedshiftClusterStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftClusterStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftClusterStorage)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftClusterStoragePtrOutput) ToDataSourceRedshiftClusterStoragePtrOutput() DataSourceRedshiftClusterStoragePtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftClusterStoragePtrOutput) ToDataSourceRedshiftClusterStoragePtrOutputWithContext(ctx context.Context) DataSourceRedshiftClusterStoragePtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftClusterStoragePtrOutput) Elem() DataSourceRedshiftClusterStorageOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftClusterStorage) DataSourceRedshiftClusterStorage {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceRedshiftClusterStorage
+		return ret
+	}).(DataSourceRedshiftClusterStorageOutput)
+}
+
+// The name of an Amazon Redshift cluster.
+func (o DataSourceRedshiftClusterStoragePtrOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftClusterStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of a secret manager for an Amazon Redshift cluster.
 type DataSourceRedshiftCredentialConfiguration struct {
 	// The ARN of a secret manager for an Amazon Redshift cluster.
 	SecretManagerArn string `pulumi:"secretManagerArn"`
+}
+
+// DataSourceRedshiftCredentialConfigurationInput is an input type that accepts DataSourceRedshiftCredentialConfigurationArgs and DataSourceRedshiftCredentialConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftCredentialConfigurationInput` via:
+//
+//	DataSourceRedshiftCredentialConfigurationArgs{...}
+type DataSourceRedshiftCredentialConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftCredentialConfigurationOutput() DataSourceRedshiftCredentialConfigurationOutput
+	ToDataSourceRedshiftCredentialConfigurationOutputWithContext(context.Context) DataSourceRedshiftCredentialConfigurationOutput
+}
+
+// The ARN of a secret manager for an Amazon Redshift cluster.
+type DataSourceRedshiftCredentialConfigurationArgs struct {
+	// The ARN of a secret manager for an Amazon Redshift cluster.
+	SecretManagerArn pulumi.StringInput `pulumi:"secretManagerArn"`
+}
+
+func (DataSourceRedshiftCredentialConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftCredentialConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceRedshiftCredentialConfigurationArgs) ToDataSourceRedshiftCredentialConfigurationOutput() DataSourceRedshiftCredentialConfigurationOutput {
+	return i.ToDataSourceRedshiftCredentialConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftCredentialConfigurationArgs) ToDataSourceRedshiftCredentialConfigurationOutputWithContext(ctx context.Context) DataSourceRedshiftCredentialConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftCredentialConfigurationOutput)
+}
+
+func (i DataSourceRedshiftCredentialConfigurationArgs) ToDataSourceRedshiftCredentialConfigurationPtrOutput() DataSourceRedshiftCredentialConfigurationPtrOutput {
+	return i.ToDataSourceRedshiftCredentialConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftCredentialConfigurationArgs) ToDataSourceRedshiftCredentialConfigurationPtrOutputWithContext(ctx context.Context) DataSourceRedshiftCredentialConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftCredentialConfigurationOutput).ToDataSourceRedshiftCredentialConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceRedshiftCredentialConfigurationPtrInput is an input type that accepts DataSourceRedshiftCredentialConfigurationArgs, DataSourceRedshiftCredentialConfigurationPtr and DataSourceRedshiftCredentialConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftCredentialConfigurationPtrInput` via:
+//
+//	        DataSourceRedshiftCredentialConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceRedshiftCredentialConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftCredentialConfigurationPtrOutput() DataSourceRedshiftCredentialConfigurationPtrOutput
+	ToDataSourceRedshiftCredentialConfigurationPtrOutputWithContext(context.Context) DataSourceRedshiftCredentialConfigurationPtrOutput
+}
+
+type dataSourceRedshiftCredentialConfigurationPtrType DataSourceRedshiftCredentialConfigurationArgs
+
+func DataSourceRedshiftCredentialConfigurationPtr(v *DataSourceRedshiftCredentialConfigurationArgs) DataSourceRedshiftCredentialConfigurationPtrInput {
+	return (*dataSourceRedshiftCredentialConfigurationPtrType)(v)
+}
+
+func (*dataSourceRedshiftCredentialConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftCredentialConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceRedshiftCredentialConfigurationPtrType) ToDataSourceRedshiftCredentialConfigurationPtrOutput() DataSourceRedshiftCredentialConfigurationPtrOutput {
+	return i.ToDataSourceRedshiftCredentialConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceRedshiftCredentialConfigurationPtrType) ToDataSourceRedshiftCredentialConfigurationPtrOutputWithContext(ctx context.Context) DataSourceRedshiftCredentialConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftCredentialConfigurationPtrOutput)
+}
+
+// The ARN of a secret manager for an Amazon Redshift cluster.
+type DataSourceRedshiftCredentialConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftCredentialConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftCredentialConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftCredentialConfigurationOutput) ToDataSourceRedshiftCredentialConfigurationOutput() DataSourceRedshiftCredentialConfigurationOutput {
+	return o
+}
+
+func (o DataSourceRedshiftCredentialConfigurationOutput) ToDataSourceRedshiftCredentialConfigurationOutputWithContext(ctx context.Context) DataSourceRedshiftCredentialConfigurationOutput {
+	return o
+}
+
+func (o DataSourceRedshiftCredentialConfigurationOutput) ToDataSourceRedshiftCredentialConfigurationPtrOutput() DataSourceRedshiftCredentialConfigurationPtrOutput {
+	return o.ToDataSourceRedshiftCredentialConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceRedshiftCredentialConfigurationOutput) ToDataSourceRedshiftCredentialConfigurationPtrOutputWithContext(ctx context.Context) DataSourceRedshiftCredentialConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceRedshiftCredentialConfiguration) *DataSourceRedshiftCredentialConfiguration {
+		return &v
+	}).(DataSourceRedshiftCredentialConfigurationPtrOutput)
+}
+
+// The ARN of a secret manager for an Amazon Redshift cluster.
+func (o DataSourceRedshiftCredentialConfigurationOutput) SecretManagerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceRedshiftCredentialConfiguration) string { return v.SecretManagerArn }).(pulumi.StringOutput)
+}
+
+type DataSourceRedshiftCredentialConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftCredentialConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftCredentialConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftCredentialConfigurationPtrOutput) ToDataSourceRedshiftCredentialConfigurationPtrOutput() DataSourceRedshiftCredentialConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftCredentialConfigurationPtrOutput) ToDataSourceRedshiftCredentialConfigurationPtrOutputWithContext(ctx context.Context) DataSourceRedshiftCredentialConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftCredentialConfigurationPtrOutput) Elem() DataSourceRedshiftCredentialConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftCredentialConfiguration) DataSourceRedshiftCredentialConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceRedshiftCredentialConfiguration
+		return ret
+	}).(DataSourceRedshiftCredentialConfigurationOutput)
+}
+
+// The ARN of a secret manager for an Amazon Redshift cluster.
+func (o DataSourceRedshiftCredentialConfigurationPtrOutput) SecretManagerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftCredentialConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretManagerArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration details of the Amazon Redshift data source.
@@ -375,10 +1108,330 @@ type DataSourceRedshiftRunConfigurationInput struct {
 	RelationalFilterConfigurations []DataSourceRelationalFilterConfiguration `pulumi:"relationalFilterConfigurations"`
 }
 
+// DataSourceRedshiftRunConfigurationInputInput is an input type that accepts DataSourceRedshiftRunConfigurationInputArgs and DataSourceRedshiftRunConfigurationInputOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftRunConfigurationInputInput` via:
+//
+//	DataSourceRedshiftRunConfigurationInputArgs{...}
+type DataSourceRedshiftRunConfigurationInputInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftRunConfigurationInputOutput() DataSourceRedshiftRunConfigurationInputOutput
+	ToDataSourceRedshiftRunConfigurationInputOutputWithContext(context.Context) DataSourceRedshiftRunConfigurationInputOutput
+}
+
+// The configuration details of the Amazon Redshift data source.
+type DataSourceRedshiftRunConfigurationInputArgs struct {
+	// The data access role included in the configuration details of the Amazon Redshift data source.
+	DataAccessRole pulumi.StringPtrInput `pulumi:"dataAccessRole"`
+	// The details of the credentials required to access an Amazon Redshift cluster.
+	RedshiftCredentialConfiguration DataSourceRedshiftCredentialConfigurationInput `pulumi:"redshiftCredentialConfiguration"`
+	// The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
+	RedshiftStorage                pulumi.Input                                      `pulumi:"redshiftStorage"`
+	RelationalFilterConfigurations DataSourceRelationalFilterConfigurationArrayInput `pulumi:"relationalFilterConfigurations"`
+}
+
+func (DataSourceRedshiftRunConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftRunConfigurationInput)(nil)).Elem()
+}
+
+func (i DataSourceRedshiftRunConfigurationInputArgs) ToDataSourceRedshiftRunConfigurationInputOutput() DataSourceRedshiftRunConfigurationInputOutput {
+	return i.ToDataSourceRedshiftRunConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftRunConfigurationInputArgs) ToDataSourceRedshiftRunConfigurationInputOutputWithContext(ctx context.Context) DataSourceRedshiftRunConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftRunConfigurationInputOutput)
+}
+
+func (i DataSourceRedshiftRunConfigurationInputArgs) ToDataSourceRedshiftRunConfigurationInputPtrOutput() DataSourceRedshiftRunConfigurationInputPtrOutput {
+	return i.ToDataSourceRedshiftRunConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftRunConfigurationInputArgs) ToDataSourceRedshiftRunConfigurationInputPtrOutputWithContext(ctx context.Context) DataSourceRedshiftRunConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftRunConfigurationInputOutput).ToDataSourceRedshiftRunConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// DataSourceRedshiftRunConfigurationInputPtrInput is an input type that accepts DataSourceRedshiftRunConfigurationInputArgs, DataSourceRedshiftRunConfigurationInputPtr and DataSourceRedshiftRunConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftRunConfigurationInputPtrInput` via:
+//
+//	        DataSourceRedshiftRunConfigurationInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceRedshiftRunConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftRunConfigurationInputPtrOutput() DataSourceRedshiftRunConfigurationInputPtrOutput
+	ToDataSourceRedshiftRunConfigurationInputPtrOutputWithContext(context.Context) DataSourceRedshiftRunConfigurationInputPtrOutput
+}
+
+type dataSourceRedshiftRunConfigurationInputPtrType DataSourceRedshiftRunConfigurationInputArgs
+
+func DataSourceRedshiftRunConfigurationInputPtr(v *DataSourceRedshiftRunConfigurationInputArgs) DataSourceRedshiftRunConfigurationInputPtrInput {
+	return (*dataSourceRedshiftRunConfigurationInputPtrType)(v)
+}
+
+func (*dataSourceRedshiftRunConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftRunConfigurationInput)(nil)).Elem()
+}
+
+func (i *dataSourceRedshiftRunConfigurationInputPtrType) ToDataSourceRedshiftRunConfigurationInputPtrOutput() DataSourceRedshiftRunConfigurationInputPtrOutput {
+	return i.ToDataSourceRedshiftRunConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceRedshiftRunConfigurationInputPtrType) ToDataSourceRedshiftRunConfigurationInputPtrOutputWithContext(ctx context.Context) DataSourceRedshiftRunConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftRunConfigurationInputPtrOutput)
+}
+
+// The configuration details of the Amazon Redshift data source.
+type DataSourceRedshiftRunConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftRunConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftRunConfigurationInput)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftRunConfigurationInputOutput) ToDataSourceRedshiftRunConfigurationInputOutput() DataSourceRedshiftRunConfigurationInputOutput {
+	return o
+}
+
+func (o DataSourceRedshiftRunConfigurationInputOutput) ToDataSourceRedshiftRunConfigurationInputOutputWithContext(ctx context.Context) DataSourceRedshiftRunConfigurationInputOutput {
+	return o
+}
+
+func (o DataSourceRedshiftRunConfigurationInputOutput) ToDataSourceRedshiftRunConfigurationInputPtrOutput() DataSourceRedshiftRunConfigurationInputPtrOutput {
+	return o.ToDataSourceRedshiftRunConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceRedshiftRunConfigurationInputOutput) ToDataSourceRedshiftRunConfigurationInputPtrOutputWithContext(ctx context.Context) DataSourceRedshiftRunConfigurationInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceRedshiftRunConfigurationInput) *DataSourceRedshiftRunConfigurationInput {
+		return &v
+	}).(DataSourceRedshiftRunConfigurationInputPtrOutput)
+}
+
+// The data access role included in the configuration details of the Amazon Redshift data source.
+func (o DataSourceRedshiftRunConfigurationInputOutput) DataAccessRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceRedshiftRunConfigurationInput) *string { return v.DataAccessRole }).(pulumi.StringPtrOutput)
+}
+
+// The details of the credentials required to access an Amazon Redshift cluster.
+func (o DataSourceRedshiftRunConfigurationInputOutput) RedshiftCredentialConfiguration() DataSourceRedshiftCredentialConfigurationOutput {
+	return o.ApplyT(func(v DataSourceRedshiftRunConfigurationInput) DataSourceRedshiftCredentialConfiguration {
+		return v.RedshiftCredentialConfiguration
+	}).(DataSourceRedshiftCredentialConfigurationOutput)
+}
+
+// The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
+func (o DataSourceRedshiftRunConfigurationInputOutput) RedshiftStorage() pulumi.AnyOutput {
+	return o.ApplyT(func(v DataSourceRedshiftRunConfigurationInput) interface{} { return v.RedshiftStorage }).(pulumi.AnyOutput)
+}
+
+func (o DataSourceRedshiftRunConfigurationInputOutput) RelationalFilterConfigurations() DataSourceRelationalFilterConfigurationArrayOutput {
+	return o.ApplyT(func(v DataSourceRedshiftRunConfigurationInput) []DataSourceRelationalFilterConfiguration {
+		return v.RelationalFilterConfigurations
+	}).(DataSourceRelationalFilterConfigurationArrayOutput)
+}
+
+type DataSourceRedshiftRunConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftRunConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftRunConfigurationInput)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftRunConfigurationInputPtrOutput) ToDataSourceRedshiftRunConfigurationInputPtrOutput() DataSourceRedshiftRunConfigurationInputPtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftRunConfigurationInputPtrOutput) ToDataSourceRedshiftRunConfigurationInputPtrOutputWithContext(ctx context.Context) DataSourceRedshiftRunConfigurationInputPtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftRunConfigurationInputPtrOutput) Elem() DataSourceRedshiftRunConfigurationInputOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftRunConfigurationInput) DataSourceRedshiftRunConfigurationInput {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceRedshiftRunConfigurationInput
+		return ret
+	}).(DataSourceRedshiftRunConfigurationInputOutput)
+}
+
+// The data access role included in the configuration details of the Amazon Redshift data source.
+func (o DataSourceRedshiftRunConfigurationInputPtrOutput) DataAccessRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftRunConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataAccessRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// The details of the credentials required to access an Amazon Redshift cluster.
+func (o DataSourceRedshiftRunConfigurationInputPtrOutput) RedshiftCredentialConfiguration() DataSourceRedshiftCredentialConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftRunConfigurationInput) *DataSourceRedshiftCredentialConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.RedshiftCredentialConfiguration
+	}).(DataSourceRedshiftCredentialConfigurationPtrOutput)
+}
+
+// The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
+func (o DataSourceRedshiftRunConfigurationInputPtrOutput) RedshiftStorage() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftRunConfigurationInput) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.RedshiftStorage
+	}).(pulumi.AnyOutput)
+}
+
+func (o DataSourceRedshiftRunConfigurationInputPtrOutput) RelationalFilterConfigurations() DataSourceRelationalFilterConfigurationArrayOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftRunConfigurationInput) []DataSourceRelationalFilterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RelationalFilterConfigurations
+	}).(DataSourceRelationalFilterConfigurationArrayOutput)
+}
+
 // The details of the Amazon Redshift Serverless workgroup storage.
 type DataSourceRedshiftServerlessStorage struct {
 	// The name of the Amazon Redshift Serverless workgroup.
 	WorkgroupName string `pulumi:"workgroupName"`
+}
+
+// DataSourceRedshiftServerlessStorageInput is an input type that accepts DataSourceRedshiftServerlessStorageArgs and DataSourceRedshiftServerlessStorageOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftServerlessStorageInput` via:
+//
+//	DataSourceRedshiftServerlessStorageArgs{...}
+type DataSourceRedshiftServerlessStorageInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftServerlessStorageOutput() DataSourceRedshiftServerlessStorageOutput
+	ToDataSourceRedshiftServerlessStorageOutputWithContext(context.Context) DataSourceRedshiftServerlessStorageOutput
+}
+
+// The details of the Amazon Redshift Serverless workgroup storage.
+type DataSourceRedshiftServerlessStorageArgs struct {
+	// The name of the Amazon Redshift Serverless workgroup.
+	WorkgroupName pulumi.StringInput `pulumi:"workgroupName"`
+}
+
+func (DataSourceRedshiftServerlessStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftServerlessStorage)(nil)).Elem()
+}
+
+func (i DataSourceRedshiftServerlessStorageArgs) ToDataSourceRedshiftServerlessStorageOutput() DataSourceRedshiftServerlessStorageOutput {
+	return i.ToDataSourceRedshiftServerlessStorageOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftServerlessStorageArgs) ToDataSourceRedshiftServerlessStorageOutputWithContext(ctx context.Context) DataSourceRedshiftServerlessStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftServerlessStorageOutput)
+}
+
+func (i DataSourceRedshiftServerlessStorageArgs) ToDataSourceRedshiftServerlessStoragePtrOutput() DataSourceRedshiftServerlessStoragePtrOutput {
+	return i.ToDataSourceRedshiftServerlessStoragePtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftServerlessStorageArgs) ToDataSourceRedshiftServerlessStoragePtrOutputWithContext(ctx context.Context) DataSourceRedshiftServerlessStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftServerlessStorageOutput).ToDataSourceRedshiftServerlessStoragePtrOutputWithContext(ctx)
+}
+
+// DataSourceRedshiftServerlessStoragePtrInput is an input type that accepts DataSourceRedshiftServerlessStorageArgs, DataSourceRedshiftServerlessStoragePtr and DataSourceRedshiftServerlessStoragePtrOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftServerlessStoragePtrInput` via:
+//
+//	        DataSourceRedshiftServerlessStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceRedshiftServerlessStoragePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftServerlessStoragePtrOutput() DataSourceRedshiftServerlessStoragePtrOutput
+	ToDataSourceRedshiftServerlessStoragePtrOutputWithContext(context.Context) DataSourceRedshiftServerlessStoragePtrOutput
+}
+
+type dataSourceRedshiftServerlessStoragePtrType DataSourceRedshiftServerlessStorageArgs
+
+func DataSourceRedshiftServerlessStoragePtr(v *DataSourceRedshiftServerlessStorageArgs) DataSourceRedshiftServerlessStoragePtrInput {
+	return (*dataSourceRedshiftServerlessStoragePtrType)(v)
+}
+
+func (*dataSourceRedshiftServerlessStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftServerlessStorage)(nil)).Elem()
+}
+
+func (i *dataSourceRedshiftServerlessStoragePtrType) ToDataSourceRedshiftServerlessStoragePtrOutput() DataSourceRedshiftServerlessStoragePtrOutput {
+	return i.ToDataSourceRedshiftServerlessStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceRedshiftServerlessStoragePtrType) ToDataSourceRedshiftServerlessStoragePtrOutputWithContext(ctx context.Context) DataSourceRedshiftServerlessStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftServerlessStoragePtrOutput)
+}
+
+// The details of the Amazon Redshift Serverless workgroup storage.
+type DataSourceRedshiftServerlessStorageOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftServerlessStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftServerlessStorage)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftServerlessStorageOutput) ToDataSourceRedshiftServerlessStorageOutput() DataSourceRedshiftServerlessStorageOutput {
+	return o
+}
+
+func (o DataSourceRedshiftServerlessStorageOutput) ToDataSourceRedshiftServerlessStorageOutputWithContext(ctx context.Context) DataSourceRedshiftServerlessStorageOutput {
+	return o
+}
+
+func (o DataSourceRedshiftServerlessStorageOutput) ToDataSourceRedshiftServerlessStoragePtrOutput() DataSourceRedshiftServerlessStoragePtrOutput {
+	return o.ToDataSourceRedshiftServerlessStoragePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceRedshiftServerlessStorageOutput) ToDataSourceRedshiftServerlessStoragePtrOutputWithContext(ctx context.Context) DataSourceRedshiftServerlessStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceRedshiftServerlessStorage) *DataSourceRedshiftServerlessStorage {
+		return &v
+	}).(DataSourceRedshiftServerlessStoragePtrOutput)
+}
+
+// The name of the Amazon Redshift Serverless workgroup.
+func (o DataSourceRedshiftServerlessStorageOutput) WorkgroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceRedshiftServerlessStorage) string { return v.WorkgroupName }).(pulumi.StringOutput)
+}
+
+type DataSourceRedshiftServerlessStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftServerlessStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftServerlessStorage)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftServerlessStoragePtrOutput) ToDataSourceRedshiftServerlessStoragePtrOutput() DataSourceRedshiftServerlessStoragePtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftServerlessStoragePtrOutput) ToDataSourceRedshiftServerlessStoragePtrOutputWithContext(ctx context.Context) DataSourceRedshiftServerlessStoragePtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftServerlessStoragePtrOutput) Elem() DataSourceRedshiftServerlessStorageOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftServerlessStorage) DataSourceRedshiftServerlessStorage {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceRedshiftServerlessStorage
+		return ret
+	}).(DataSourceRedshiftServerlessStorageOutput)
+}
+
+// The name of the Amazon Redshift Serverless workgroup.
+func (o DataSourceRedshiftServerlessStoragePtrOutput) WorkgroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftServerlessStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkgroupName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The details of the Amazon Redshift cluster source.
@@ -386,9 +1439,275 @@ type DataSourceRedshiftStorage0Properties struct {
 	RedshiftClusterSource DataSourceRedshiftClusterStorage `pulumi:"redshiftClusterSource"`
 }
 
+// DataSourceRedshiftStorage0PropertiesInput is an input type that accepts DataSourceRedshiftStorage0PropertiesArgs and DataSourceRedshiftStorage0PropertiesOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftStorage0PropertiesInput` via:
+//
+//	DataSourceRedshiftStorage0PropertiesArgs{...}
+type DataSourceRedshiftStorage0PropertiesInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftStorage0PropertiesOutput() DataSourceRedshiftStorage0PropertiesOutput
+	ToDataSourceRedshiftStorage0PropertiesOutputWithContext(context.Context) DataSourceRedshiftStorage0PropertiesOutput
+}
+
+// The details of the Amazon Redshift cluster source.
+type DataSourceRedshiftStorage0PropertiesArgs struct {
+	RedshiftClusterSource DataSourceRedshiftClusterStorageInput `pulumi:"redshiftClusterSource"`
+}
+
+func (DataSourceRedshiftStorage0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftStorage0Properties)(nil)).Elem()
+}
+
+func (i DataSourceRedshiftStorage0PropertiesArgs) ToDataSourceRedshiftStorage0PropertiesOutput() DataSourceRedshiftStorage0PropertiesOutput {
+	return i.ToDataSourceRedshiftStorage0PropertiesOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftStorage0PropertiesArgs) ToDataSourceRedshiftStorage0PropertiesOutputWithContext(ctx context.Context) DataSourceRedshiftStorage0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftStorage0PropertiesOutput)
+}
+
+func (i DataSourceRedshiftStorage0PropertiesArgs) ToDataSourceRedshiftStorage0PropertiesPtrOutput() DataSourceRedshiftStorage0PropertiesPtrOutput {
+	return i.ToDataSourceRedshiftStorage0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftStorage0PropertiesArgs) ToDataSourceRedshiftStorage0PropertiesPtrOutputWithContext(ctx context.Context) DataSourceRedshiftStorage0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftStorage0PropertiesOutput).ToDataSourceRedshiftStorage0PropertiesPtrOutputWithContext(ctx)
+}
+
+// DataSourceRedshiftStorage0PropertiesPtrInput is an input type that accepts DataSourceRedshiftStorage0PropertiesArgs, DataSourceRedshiftStorage0PropertiesPtr and DataSourceRedshiftStorage0PropertiesPtrOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftStorage0PropertiesPtrInput` via:
+//
+//	        DataSourceRedshiftStorage0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceRedshiftStorage0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftStorage0PropertiesPtrOutput() DataSourceRedshiftStorage0PropertiesPtrOutput
+	ToDataSourceRedshiftStorage0PropertiesPtrOutputWithContext(context.Context) DataSourceRedshiftStorage0PropertiesPtrOutput
+}
+
+type dataSourceRedshiftStorage0PropertiesPtrType DataSourceRedshiftStorage0PropertiesArgs
+
+func DataSourceRedshiftStorage0PropertiesPtr(v *DataSourceRedshiftStorage0PropertiesArgs) DataSourceRedshiftStorage0PropertiesPtrInput {
+	return (*dataSourceRedshiftStorage0PropertiesPtrType)(v)
+}
+
+func (*dataSourceRedshiftStorage0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftStorage0Properties)(nil)).Elem()
+}
+
+func (i *dataSourceRedshiftStorage0PropertiesPtrType) ToDataSourceRedshiftStorage0PropertiesPtrOutput() DataSourceRedshiftStorage0PropertiesPtrOutput {
+	return i.ToDataSourceRedshiftStorage0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceRedshiftStorage0PropertiesPtrType) ToDataSourceRedshiftStorage0PropertiesPtrOutputWithContext(ctx context.Context) DataSourceRedshiftStorage0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftStorage0PropertiesPtrOutput)
+}
+
+// The details of the Amazon Redshift cluster source.
+type DataSourceRedshiftStorage0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftStorage0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftStorage0Properties)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftStorage0PropertiesOutput) ToDataSourceRedshiftStorage0PropertiesOutput() DataSourceRedshiftStorage0PropertiesOutput {
+	return o
+}
+
+func (o DataSourceRedshiftStorage0PropertiesOutput) ToDataSourceRedshiftStorage0PropertiesOutputWithContext(ctx context.Context) DataSourceRedshiftStorage0PropertiesOutput {
+	return o
+}
+
+func (o DataSourceRedshiftStorage0PropertiesOutput) ToDataSourceRedshiftStorage0PropertiesPtrOutput() DataSourceRedshiftStorage0PropertiesPtrOutput {
+	return o.ToDataSourceRedshiftStorage0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceRedshiftStorage0PropertiesOutput) ToDataSourceRedshiftStorage0PropertiesPtrOutputWithContext(ctx context.Context) DataSourceRedshiftStorage0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceRedshiftStorage0Properties) *DataSourceRedshiftStorage0Properties {
+		return &v
+	}).(DataSourceRedshiftStorage0PropertiesPtrOutput)
+}
+
+func (o DataSourceRedshiftStorage0PropertiesOutput) RedshiftClusterSource() DataSourceRedshiftClusterStorageOutput {
+	return o.ApplyT(func(v DataSourceRedshiftStorage0Properties) DataSourceRedshiftClusterStorage {
+		return v.RedshiftClusterSource
+	}).(DataSourceRedshiftClusterStorageOutput)
+}
+
+type DataSourceRedshiftStorage0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftStorage0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftStorage0Properties)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftStorage0PropertiesPtrOutput) ToDataSourceRedshiftStorage0PropertiesPtrOutput() DataSourceRedshiftStorage0PropertiesPtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftStorage0PropertiesPtrOutput) ToDataSourceRedshiftStorage0PropertiesPtrOutputWithContext(ctx context.Context) DataSourceRedshiftStorage0PropertiesPtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftStorage0PropertiesPtrOutput) Elem() DataSourceRedshiftStorage0PropertiesOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftStorage0Properties) DataSourceRedshiftStorage0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceRedshiftStorage0Properties
+		return ret
+	}).(DataSourceRedshiftStorage0PropertiesOutput)
+}
+
+func (o DataSourceRedshiftStorage0PropertiesPtrOutput) RedshiftClusterSource() DataSourceRedshiftClusterStoragePtrOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftStorage0Properties) *DataSourceRedshiftClusterStorage {
+		if v == nil {
+			return nil
+		}
+		return &v.RedshiftClusterSource
+	}).(DataSourceRedshiftClusterStoragePtrOutput)
+}
+
 // The details of the Amazon Redshift Serverless workgroup source.
 type DataSourceRedshiftStorage1Properties struct {
 	RedshiftServerlessSource DataSourceRedshiftServerlessStorage `pulumi:"redshiftServerlessSource"`
+}
+
+// DataSourceRedshiftStorage1PropertiesInput is an input type that accepts DataSourceRedshiftStorage1PropertiesArgs and DataSourceRedshiftStorage1PropertiesOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftStorage1PropertiesInput` via:
+//
+//	DataSourceRedshiftStorage1PropertiesArgs{...}
+type DataSourceRedshiftStorage1PropertiesInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftStorage1PropertiesOutput() DataSourceRedshiftStorage1PropertiesOutput
+	ToDataSourceRedshiftStorage1PropertiesOutputWithContext(context.Context) DataSourceRedshiftStorage1PropertiesOutput
+}
+
+// The details of the Amazon Redshift Serverless workgroup source.
+type DataSourceRedshiftStorage1PropertiesArgs struct {
+	RedshiftServerlessSource DataSourceRedshiftServerlessStorageInput `pulumi:"redshiftServerlessSource"`
+}
+
+func (DataSourceRedshiftStorage1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftStorage1Properties)(nil)).Elem()
+}
+
+func (i DataSourceRedshiftStorage1PropertiesArgs) ToDataSourceRedshiftStorage1PropertiesOutput() DataSourceRedshiftStorage1PropertiesOutput {
+	return i.ToDataSourceRedshiftStorage1PropertiesOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftStorage1PropertiesArgs) ToDataSourceRedshiftStorage1PropertiesOutputWithContext(ctx context.Context) DataSourceRedshiftStorage1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftStorage1PropertiesOutput)
+}
+
+func (i DataSourceRedshiftStorage1PropertiesArgs) ToDataSourceRedshiftStorage1PropertiesPtrOutput() DataSourceRedshiftStorage1PropertiesPtrOutput {
+	return i.ToDataSourceRedshiftStorage1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceRedshiftStorage1PropertiesArgs) ToDataSourceRedshiftStorage1PropertiesPtrOutputWithContext(ctx context.Context) DataSourceRedshiftStorage1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftStorage1PropertiesOutput).ToDataSourceRedshiftStorage1PropertiesPtrOutputWithContext(ctx)
+}
+
+// DataSourceRedshiftStorage1PropertiesPtrInput is an input type that accepts DataSourceRedshiftStorage1PropertiesArgs, DataSourceRedshiftStorage1PropertiesPtr and DataSourceRedshiftStorage1PropertiesPtrOutput values.
+// You can construct a concrete instance of `DataSourceRedshiftStorage1PropertiesPtrInput` via:
+//
+//	        DataSourceRedshiftStorage1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceRedshiftStorage1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceRedshiftStorage1PropertiesPtrOutput() DataSourceRedshiftStorage1PropertiesPtrOutput
+	ToDataSourceRedshiftStorage1PropertiesPtrOutputWithContext(context.Context) DataSourceRedshiftStorage1PropertiesPtrOutput
+}
+
+type dataSourceRedshiftStorage1PropertiesPtrType DataSourceRedshiftStorage1PropertiesArgs
+
+func DataSourceRedshiftStorage1PropertiesPtr(v *DataSourceRedshiftStorage1PropertiesArgs) DataSourceRedshiftStorage1PropertiesPtrInput {
+	return (*dataSourceRedshiftStorage1PropertiesPtrType)(v)
+}
+
+func (*dataSourceRedshiftStorage1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftStorage1Properties)(nil)).Elem()
+}
+
+func (i *dataSourceRedshiftStorage1PropertiesPtrType) ToDataSourceRedshiftStorage1PropertiesPtrOutput() DataSourceRedshiftStorage1PropertiesPtrOutput {
+	return i.ToDataSourceRedshiftStorage1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceRedshiftStorage1PropertiesPtrType) ToDataSourceRedshiftStorage1PropertiesPtrOutputWithContext(ctx context.Context) DataSourceRedshiftStorage1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftStorage1PropertiesPtrOutput)
+}
+
+// The details of the Amazon Redshift Serverless workgroup source.
+type DataSourceRedshiftStorage1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftStorage1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRedshiftStorage1Properties)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftStorage1PropertiesOutput) ToDataSourceRedshiftStorage1PropertiesOutput() DataSourceRedshiftStorage1PropertiesOutput {
+	return o
+}
+
+func (o DataSourceRedshiftStorage1PropertiesOutput) ToDataSourceRedshiftStorage1PropertiesOutputWithContext(ctx context.Context) DataSourceRedshiftStorage1PropertiesOutput {
+	return o
+}
+
+func (o DataSourceRedshiftStorage1PropertiesOutput) ToDataSourceRedshiftStorage1PropertiesPtrOutput() DataSourceRedshiftStorage1PropertiesPtrOutput {
+	return o.ToDataSourceRedshiftStorage1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceRedshiftStorage1PropertiesOutput) ToDataSourceRedshiftStorage1PropertiesPtrOutputWithContext(ctx context.Context) DataSourceRedshiftStorage1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceRedshiftStorage1Properties) *DataSourceRedshiftStorage1Properties {
+		return &v
+	}).(DataSourceRedshiftStorage1PropertiesPtrOutput)
+}
+
+func (o DataSourceRedshiftStorage1PropertiesOutput) RedshiftServerlessSource() DataSourceRedshiftServerlessStorageOutput {
+	return o.ApplyT(func(v DataSourceRedshiftStorage1Properties) DataSourceRedshiftServerlessStorage {
+		return v.RedshiftServerlessSource
+	}).(DataSourceRedshiftServerlessStorageOutput)
+}
+
+type DataSourceRedshiftStorage1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRedshiftStorage1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRedshiftStorage1Properties)(nil)).Elem()
+}
+
+func (o DataSourceRedshiftStorage1PropertiesPtrOutput) ToDataSourceRedshiftStorage1PropertiesPtrOutput() DataSourceRedshiftStorage1PropertiesPtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftStorage1PropertiesPtrOutput) ToDataSourceRedshiftStorage1PropertiesPtrOutputWithContext(ctx context.Context) DataSourceRedshiftStorage1PropertiesPtrOutput {
+	return o
+}
+
+func (o DataSourceRedshiftStorage1PropertiesPtrOutput) Elem() DataSourceRedshiftStorage1PropertiesOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftStorage1Properties) DataSourceRedshiftStorage1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceRedshiftStorage1Properties
+		return ret
+	}).(DataSourceRedshiftStorage1PropertiesOutput)
+}
+
+func (o DataSourceRedshiftStorage1PropertiesPtrOutput) RedshiftServerlessSource() DataSourceRedshiftServerlessStoragePtrOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftStorage1Properties) *DataSourceRedshiftServerlessStorage {
+		if v == nil {
+			return nil
+		}
+		return &v.RedshiftServerlessSource
+	}).(DataSourceRedshiftServerlessStoragePtrOutput)
 }
 
 // The relational filter configuration for the data source.
@@ -399,6 +1718,116 @@ type DataSourceRelationalFilterConfiguration struct {
 	FilterExpressions []DataSourceFilterExpression `pulumi:"filterExpressions"`
 	// The schema name specified in the relational filter configuration for the data source.
 	SchemaName *string `pulumi:"schemaName"`
+}
+
+// DataSourceRelationalFilterConfigurationInput is an input type that accepts DataSourceRelationalFilterConfigurationArgs and DataSourceRelationalFilterConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceRelationalFilterConfigurationInput` via:
+//
+//	DataSourceRelationalFilterConfigurationArgs{...}
+type DataSourceRelationalFilterConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceRelationalFilterConfigurationOutput() DataSourceRelationalFilterConfigurationOutput
+	ToDataSourceRelationalFilterConfigurationOutputWithContext(context.Context) DataSourceRelationalFilterConfigurationOutput
+}
+
+// The relational filter configuration for the data source.
+type DataSourceRelationalFilterConfigurationArgs struct {
+	// The database name specified in the relational filter configuration for the data source.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The filter expressions specified in the relational filter configuration for the data source.
+	FilterExpressions DataSourceFilterExpressionArrayInput `pulumi:"filterExpressions"`
+	// The schema name specified in the relational filter configuration for the data source.
+	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (DataSourceRelationalFilterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRelationalFilterConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceRelationalFilterConfigurationArgs) ToDataSourceRelationalFilterConfigurationOutput() DataSourceRelationalFilterConfigurationOutput {
+	return i.ToDataSourceRelationalFilterConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceRelationalFilterConfigurationArgs) ToDataSourceRelationalFilterConfigurationOutputWithContext(ctx context.Context) DataSourceRelationalFilterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRelationalFilterConfigurationOutput)
+}
+
+// DataSourceRelationalFilterConfigurationArrayInput is an input type that accepts DataSourceRelationalFilterConfigurationArray and DataSourceRelationalFilterConfigurationArrayOutput values.
+// You can construct a concrete instance of `DataSourceRelationalFilterConfigurationArrayInput` via:
+//
+//	DataSourceRelationalFilterConfigurationArray{ DataSourceRelationalFilterConfigurationArgs{...} }
+type DataSourceRelationalFilterConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDataSourceRelationalFilterConfigurationArrayOutput() DataSourceRelationalFilterConfigurationArrayOutput
+	ToDataSourceRelationalFilterConfigurationArrayOutputWithContext(context.Context) DataSourceRelationalFilterConfigurationArrayOutput
+}
+
+type DataSourceRelationalFilterConfigurationArray []DataSourceRelationalFilterConfigurationInput
+
+func (DataSourceRelationalFilterConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceRelationalFilterConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceRelationalFilterConfigurationArray) ToDataSourceRelationalFilterConfigurationArrayOutput() DataSourceRelationalFilterConfigurationArrayOutput {
+	return i.ToDataSourceRelationalFilterConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourceRelationalFilterConfigurationArray) ToDataSourceRelationalFilterConfigurationArrayOutputWithContext(ctx context.Context) DataSourceRelationalFilterConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRelationalFilterConfigurationArrayOutput)
+}
+
+// The relational filter configuration for the data source.
+type DataSourceRelationalFilterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRelationalFilterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRelationalFilterConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceRelationalFilterConfigurationOutput) ToDataSourceRelationalFilterConfigurationOutput() DataSourceRelationalFilterConfigurationOutput {
+	return o
+}
+
+func (o DataSourceRelationalFilterConfigurationOutput) ToDataSourceRelationalFilterConfigurationOutputWithContext(ctx context.Context) DataSourceRelationalFilterConfigurationOutput {
+	return o
+}
+
+// The database name specified in the relational filter configuration for the data source.
+func (o DataSourceRelationalFilterConfigurationOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceRelationalFilterConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The filter expressions specified in the relational filter configuration for the data source.
+func (o DataSourceRelationalFilterConfigurationOutput) FilterExpressions() DataSourceFilterExpressionArrayOutput {
+	return o.ApplyT(func(v DataSourceRelationalFilterConfiguration) []DataSourceFilterExpression {
+		return v.FilterExpressions
+	}).(DataSourceFilterExpressionArrayOutput)
+}
+
+// The schema name specified in the relational filter configuration for the data source.
+func (o DataSourceRelationalFilterConfigurationOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceRelationalFilterConfiguration) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type DataSourceRelationalFilterConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRelationalFilterConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceRelationalFilterConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceRelationalFilterConfigurationArrayOutput) ToDataSourceRelationalFilterConfigurationArrayOutput() DataSourceRelationalFilterConfigurationArrayOutput {
+	return o
+}
+
+func (o DataSourceRelationalFilterConfigurationArrayOutput) ToDataSourceRelationalFilterConfigurationArrayOutputWithContext(ctx context.Context) DataSourceRelationalFilterConfigurationArrayOutput {
+	return o
+}
+
+func (o DataSourceRelationalFilterConfigurationArrayOutput) Index(i pulumi.IntInput) DataSourceRelationalFilterConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceRelationalFilterConfiguration {
+		return vs[0].([]DataSourceRelationalFilterConfiguration)[vs[1].(int)]
+	}).(DataSourceRelationalFilterConfigurationOutput)
 }
 
 // The schedule of the data source runs.
@@ -438,12 +1867,6 @@ func (i DataSourceScheduleConfigurationArgs) ToDataSourceScheduleConfigurationOu
 
 func (i DataSourceScheduleConfigurationArgs) ToDataSourceScheduleConfigurationOutputWithContext(ctx context.Context) DataSourceScheduleConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceScheduleConfigurationOutput)
-}
-
-func (i DataSourceScheduleConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataSourceScheduleConfiguration] {
-	return pulumix.Output[DataSourceScheduleConfiguration]{
-		OutputState: i.ToDataSourceScheduleConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DataSourceScheduleConfigurationArgs) ToDataSourceScheduleConfigurationPtrOutput() DataSourceScheduleConfigurationPtrOutput {
@@ -487,12 +1910,6 @@ func (i *dataSourceScheduleConfigurationPtrType) ToDataSourceScheduleConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceScheduleConfigurationPtrOutput)
 }
 
-func (i *dataSourceScheduleConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataSourceScheduleConfiguration] {
-	return pulumix.Output[*DataSourceScheduleConfiguration]{
-		OutputState: i.ToDataSourceScheduleConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The schedule of the data source runs.
 type DataSourceScheduleConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -518,12 +1935,6 @@ func (o DataSourceScheduleConfigurationOutput) ToDataSourceScheduleConfiguration
 	}).(DataSourceScheduleConfigurationPtrOutput)
 }
 
-func (o DataSourceScheduleConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceScheduleConfiguration] {
-	return pulumix.Output[DataSourceScheduleConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The schedule of the data source runs.
 func (o DataSourceScheduleConfigurationOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceScheduleConfiguration) *string { return v.Schedule }).(pulumi.StringPtrOutput)
@@ -546,12 +1957,6 @@ func (o DataSourceScheduleConfigurationPtrOutput) ToDataSourceScheduleConfigurat
 
 func (o DataSourceScheduleConfigurationPtrOutput) ToDataSourceScheduleConfigurationPtrOutputWithContext(ctx context.Context) DataSourceScheduleConfigurationPtrOutput {
 	return o
-}
-
-func (o DataSourceScheduleConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceScheduleConfiguration] {
-	return pulumix.Output[*DataSourceScheduleConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSourceScheduleConfigurationPtrOutput) Elem() DataSourceScheduleConfigurationOutput {
@@ -619,12 +2024,6 @@ func (i DomainSingleSignOnArgs) ToDomainSingleSignOnOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSingleSignOnOutput)
 }
 
-func (i DomainSingleSignOnArgs) ToOutput(ctx context.Context) pulumix.Output[DomainSingleSignOn] {
-	return pulumix.Output[DomainSingleSignOn]{
-		OutputState: i.ToDomainSingleSignOnOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainSingleSignOnArgs) ToDomainSingleSignOnPtrOutput() DomainSingleSignOnPtrOutput {
 	return i.ToDomainSingleSignOnPtrOutputWithContext(context.Background())
 }
@@ -666,12 +2065,6 @@ func (i *domainSingleSignOnPtrType) ToDomainSingleSignOnPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSingleSignOnPtrOutput)
 }
 
-func (i *domainSingleSignOnPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainSingleSignOn] {
-	return pulumix.Output[*DomainSingleSignOn]{
-		OutputState: i.ToDomainSingleSignOnPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The single-sign on configuration of the Amazon DataZone domain.
 type DomainSingleSignOnOutput struct{ *pulumi.OutputState }
 
@@ -697,12 +2090,6 @@ func (o DomainSingleSignOnOutput) ToDomainSingleSignOnPtrOutputWithContext(ctx c
 	}).(DomainSingleSignOnPtrOutput)
 }
 
-func (o DomainSingleSignOnOutput) ToOutput(ctx context.Context) pulumix.Output[DomainSingleSignOn] {
-	return pulumix.Output[DomainSingleSignOn]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainSingleSignOnOutput) Type() DomainAuthTypePtrOutput {
 	return o.ApplyT(func(v DomainSingleSignOn) *DomainAuthType { return v.Type }).(DomainAuthTypePtrOutput)
 }
@@ -723,12 +2110,6 @@ func (o DomainSingleSignOnPtrOutput) ToDomainSingleSignOnPtrOutput() DomainSingl
 
 func (o DomainSingleSignOnPtrOutput) ToDomainSingleSignOnPtrOutputWithContext(ctx context.Context) DomainSingleSignOnPtrOutput {
 	return o
-}
-
-func (o DomainSingleSignOnPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainSingleSignOn] {
-	return pulumix.Output[*DomainSingleSignOn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainSingleSignOnPtrOutput) Elem() DomainSingleSignOnOutput {
@@ -798,12 +2179,6 @@ func (i DomainTagArgs) ToDomainTagOutputWithContext(ctx context.Context) DomainT
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTagOutput)
 }
 
-func (i DomainTagArgs) ToOutput(ctx context.Context) pulumix.Output[DomainTag] {
-	return pulumix.Output[DomainTag]{
-		OutputState: i.ToDomainTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DomainTagArrayInput is an input type that accepts DomainTagArray and DomainTagArrayOutput values.
 // You can construct a concrete instance of `DomainTagArrayInput` via:
 //
@@ -829,12 +2204,6 @@ func (i DomainTagArray) ToDomainTagArrayOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTagArrayOutput)
 }
 
-func (i DomainTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainTag] {
-	return pulumix.Output[[]DomainTag]{
-		OutputState: i.ToDomainTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with the domain.
 type DomainTagOutput struct{ *pulumi.OutputState }
 
@@ -848,12 +2217,6 @@ func (o DomainTagOutput) ToDomainTagOutput() DomainTagOutput {
 
 func (o DomainTagOutput) ToDomainTagOutputWithContext(ctx context.Context) DomainTagOutput {
 	return o
-}
-
-func (o DomainTagOutput) ToOutput(ctx context.Context) pulumix.Output[DomainTag] {
-	return pulumix.Output[DomainTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag.
@@ -878,12 +2241,6 @@ func (o DomainTagArrayOutput) ToDomainTagArrayOutput() DomainTagArrayOutput {
 
 func (o DomainTagArrayOutput) ToDomainTagArrayOutputWithContext(ctx context.Context) DomainTagArrayOutput {
 	return o
-}
-
-func (o DomainTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainTag] {
-	return pulumix.Output[[]DomainTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {
@@ -919,12 +2276,6 @@ func (i EnvironmentBlueprintConfigurationParameterArgs) ToEnvironmentBlueprintCo
 
 func (i EnvironmentBlueprintConfigurationParameterArgs) ToEnvironmentBlueprintConfigurationParameterOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationParameterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentBlueprintConfigurationParameterOutput)
-}
-
-func (i EnvironmentBlueprintConfigurationParameterArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentBlueprintConfigurationParameter] {
-	return pulumix.Output[EnvironmentBlueprintConfigurationParameter]{
-		OutputState: i.ToEnvironmentBlueprintConfigurationParameterOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i EnvironmentBlueprintConfigurationParameterArgs) ToEnvironmentBlueprintConfigurationParameterPtrOutput() EnvironmentBlueprintConfigurationParameterPtrOutput {
@@ -968,12 +2319,6 @@ func (i *environmentBlueprintConfigurationParameterPtrType) ToEnvironmentBluepri
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentBlueprintConfigurationParameterPtrOutput)
 }
 
-func (i *environmentBlueprintConfigurationParameterPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentBlueprintConfigurationParameter] {
-	return pulumix.Output[*EnvironmentBlueprintConfigurationParameter]{
-		OutputState: i.ToEnvironmentBlueprintConfigurationParameterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentBlueprintConfigurationParameterOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentBlueprintConfigurationParameterOutput) ElementType() reflect.Type {
@@ -998,12 +2343,6 @@ func (o EnvironmentBlueprintConfigurationParameterOutput) ToEnvironmentBlueprint
 	}).(EnvironmentBlueprintConfigurationParameterPtrOutput)
 }
 
-func (o EnvironmentBlueprintConfigurationParameterOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentBlueprintConfigurationParameter] {
-	return pulumix.Output[EnvironmentBlueprintConfigurationParameter]{
-		OutputState: o.OutputState,
-	}
-}
-
 type EnvironmentBlueprintConfigurationParameterPtrOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentBlueprintConfigurationParameterPtrOutput) ElementType() reflect.Type {
@@ -1016,12 +2355,6 @@ func (o EnvironmentBlueprintConfigurationParameterPtrOutput) ToEnvironmentBluepr
 
 func (o EnvironmentBlueprintConfigurationParameterPtrOutput) ToEnvironmentBlueprintConfigurationParameterPtrOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationParameterPtrOutput {
 	return o
-}
-
-func (o EnvironmentBlueprintConfigurationParameterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentBlueprintConfigurationParameter] {
-	return pulumix.Output[*EnvironmentBlueprintConfigurationParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentBlueprintConfigurationParameterPtrOutput) Elem() EnvironmentBlueprintConfigurationParameterOutput {
@@ -1067,12 +2400,6 @@ func (i EnvironmentBlueprintConfigurationRegionalParameterArgs) ToEnvironmentBlu
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentBlueprintConfigurationRegionalParameterOutput)
 }
 
-func (i EnvironmentBlueprintConfigurationRegionalParameterArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentBlueprintConfigurationRegionalParameter] {
-	return pulumix.Output[EnvironmentBlueprintConfigurationRegionalParameter]{
-		OutputState: i.ToEnvironmentBlueprintConfigurationRegionalParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentBlueprintConfigurationRegionalParameterArrayInput is an input type that accepts EnvironmentBlueprintConfigurationRegionalParameterArray and EnvironmentBlueprintConfigurationRegionalParameterArrayOutput values.
 // You can construct a concrete instance of `EnvironmentBlueprintConfigurationRegionalParameterArrayInput` via:
 //
@@ -1098,12 +2425,6 @@ func (i EnvironmentBlueprintConfigurationRegionalParameterArray) ToEnvironmentBl
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentBlueprintConfigurationRegionalParameterArrayOutput)
 }
 
-func (i EnvironmentBlueprintConfigurationRegionalParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentBlueprintConfigurationRegionalParameter] {
-	return pulumix.Output[[]EnvironmentBlueprintConfigurationRegionalParameter]{
-		OutputState: i.ToEnvironmentBlueprintConfigurationRegionalParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentBlueprintConfigurationRegionalParameterOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentBlueprintConfigurationRegionalParameterOutput) ElementType() reflect.Type {
@@ -1116,12 +2437,6 @@ func (o EnvironmentBlueprintConfigurationRegionalParameterOutput) ToEnvironmentB
 
 func (o EnvironmentBlueprintConfigurationRegionalParameterOutput) ToEnvironmentBlueprintConfigurationRegionalParameterOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationRegionalParameterOutput {
 	return o
-}
-
-func (o EnvironmentBlueprintConfigurationRegionalParameterOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentBlueprintConfigurationRegionalParameter] {
-	return pulumix.Output[EnvironmentBlueprintConfigurationRegionalParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentBlueprintConfigurationRegionalParameterOutput) Parameters() EnvironmentBlueprintConfigurationParameterPtrOutput {
@@ -1146,12 +2461,6 @@ func (o EnvironmentBlueprintConfigurationRegionalParameterArrayOutput) ToEnviron
 
 func (o EnvironmentBlueprintConfigurationRegionalParameterArrayOutput) ToEnvironmentBlueprintConfigurationRegionalParameterArrayOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationRegionalParameterArrayOutput {
 	return o
-}
-
-func (o EnvironmentBlueprintConfigurationRegionalParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentBlueprintConfigurationRegionalParameter] {
-	return pulumix.Output[[]EnvironmentBlueprintConfigurationRegionalParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentBlueprintConfigurationRegionalParameterArrayOutput) Index(i pulumi.IntInput) EnvironmentBlueprintConfigurationRegionalParameterOutput {
@@ -1199,12 +2508,6 @@ func (i EnvironmentParameterArgs) ToEnvironmentParameterOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentParameterOutput)
 }
 
-func (i EnvironmentParameterArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentParameter] {
-	return pulumix.Output[EnvironmentParameter]{
-		OutputState: i.ToEnvironmentParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentParameterArrayInput is an input type that accepts EnvironmentParameterArray and EnvironmentParameterArrayOutput values.
 // You can construct a concrete instance of `EnvironmentParameterArrayInput` via:
 //
@@ -1230,12 +2533,6 @@ func (i EnvironmentParameterArray) ToEnvironmentParameterArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentParameterArrayOutput)
 }
 
-func (i EnvironmentParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentParameter] {
-	return pulumix.Output[[]EnvironmentParameter]{
-		OutputState: i.ToEnvironmentParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The parameter details of an environment.
 type EnvironmentParameterOutput struct{ *pulumi.OutputState }
 
@@ -1249,12 +2546,6 @@ func (o EnvironmentParameterOutput) ToEnvironmentParameterOutput() EnvironmentPa
 
 func (o EnvironmentParameterOutput) ToEnvironmentParameterOutputWithContext(ctx context.Context) EnvironmentParameterOutput {
 	return o
-}
-
-func (o EnvironmentParameterOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentParameter] {
-	return pulumix.Output[EnvironmentParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of an environment parameter.
@@ -1279,12 +2570,6 @@ func (o EnvironmentParameterArrayOutput) ToEnvironmentParameterArrayOutput() Env
 
 func (o EnvironmentParameterArrayOutput) ToEnvironmentParameterArrayOutputWithContext(ctx context.Context) EnvironmentParameterArrayOutput {
 	return o
-}
-
-func (o EnvironmentParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentParameter] {
-	return pulumix.Output[[]EnvironmentParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentParameterArrayOutput) Index(i pulumi.IntInput) EnvironmentParameterOutput {
@@ -1332,12 +2617,6 @@ func (i EnvironmentProfileEnvironmentParameterArgs) ToEnvironmentProfileEnvironm
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentProfileEnvironmentParameterOutput)
 }
 
-func (i EnvironmentProfileEnvironmentParameterArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentProfileEnvironmentParameter] {
-	return pulumix.Output[EnvironmentProfileEnvironmentParameter]{
-		OutputState: i.ToEnvironmentProfileEnvironmentParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentProfileEnvironmentParameterArrayInput is an input type that accepts EnvironmentProfileEnvironmentParameterArray and EnvironmentProfileEnvironmentParameterArrayOutput values.
 // You can construct a concrete instance of `EnvironmentProfileEnvironmentParameterArrayInput` via:
 //
@@ -1363,12 +2642,6 @@ func (i EnvironmentProfileEnvironmentParameterArray) ToEnvironmentProfileEnviron
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentProfileEnvironmentParameterArrayOutput)
 }
 
-func (i EnvironmentProfileEnvironmentParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentProfileEnvironmentParameter] {
-	return pulumix.Output[[]EnvironmentProfileEnvironmentParameter]{
-		OutputState: i.ToEnvironmentProfileEnvironmentParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The parameter details of an environment profile.
 type EnvironmentProfileEnvironmentParameterOutput struct{ *pulumi.OutputState }
 
@@ -1382,12 +2655,6 @@ func (o EnvironmentProfileEnvironmentParameterOutput) ToEnvironmentProfileEnviro
 
 func (o EnvironmentProfileEnvironmentParameterOutput) ToEnvironmentProfileEnvironmentParameterOutputWithContext(ctx context.Context) EnvironmentProfileEnvironmentParameterOutput {
 	return o
-}
-
-func (o EnvironmentProfileEnvironmentParameterOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentProfileEnvironmentParameter] {
-	return pulumix.Output[EnvironmentProfileEnvironmentParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of an environment profile parameter.
@@ -1412,12 +2679,6 @@ func (o EnvironmentProfileEnvironmentParameterArrayOutput) ToEnvironmentProfileE
 
 func (o EnvironmentProfileEnvironmentParameterArrayOutput) ToEnvironmentProfileEnvironmentParameterArrayOutputWithContext(ctx context.Context) EnvironmentProfileEnvironmentParameterArrayOutput {
 	return o
-}
-
-func (o EnvironmentProfileEnvironmentParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentProfileEnvironmentParameter] {
-	return pulumix.Output[[]EnvironmentProfileEnvironmentParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentProfileEnvironmentParameterArrayOutput) Index(i pulumi.IntInput) EnvironmentProfileEnvironmentParameterOutput {
@@ -1465,12 +2726,6 @@ func (i SubscriptionTargetFormArgs) ToSubscriptionTargetFormOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTargetFormOutput)
 }
 
-func (i SubscriptionTargetFormArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionTargetForm] {
-	return pulumix.Output[SubscriptionTargetForm]{
-		OutputState: i.ToSubscriptionTargetFormOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SubscriptionTargetFormArrayInput is an input type that accepts SubscriptionTargetFormArray and SubscriptionTargetFormArrayOutput values.
 // You can construct a concrete instance of `SubscriptionTargetFormArrayInput` via:
 //
@@ -1496,12 +2751,6 @@ func (i SubscriptionTargetFormArray) ToSubscriptionTargetFormArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTargetFormArrayOutput)
 }
 
-func (i SubscriptionTargetFormArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionTargetForm] {
-	return pulumix.Output[[]SubscriptionTargetForm]{
-		OutputState: i.ToSubscriptionTargetFormArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The details of the subscription target configuration.
 type SubscriptionTargetFormOutput struct{ *pulumi.OutputState }
 
@@ -1515,12 +2764,6 @@ func (o SubscriptionTargetFormOutput) ToSubscriptionTargetFormOutput() Subscript
 
 func (o SubscriptionTargetFormOutput) ToSubscriptionTargetFormOutputWithContext(ctx context.Context) SubscriptionTargetFormOutput {
 	return o
-}
-
-func (o SubscriptionTargetFormOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionTargetForm] {
-	return pulumix.Output[SubscriptionTargetForm]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The content of the subscription target configuration.
@@ -1547,12 +2790,6 @@ func (o SubscriptionTargetFormArrayOutput) ToSubscriptionTargetFormArrayOutputWi
 	return o
 }
 
-func (o SubscriptionTargetFormArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionTargetForm] {
-	return pulumix.Output[[]SubscriptionTargetForm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SubscriptionTargetFormArrayOutput) Index(i pulumi.IntInput) SubscriptionTargetFormOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionTargetForm {
 		return vs[0].([]SubscriptionTargetForm)[vs[1].(int)]
@@ -1560,10 +2797,32 @@ func (o SubscriptionTargetFormArrayOutput) Index(i pulumi.IntInput) Subscription
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput0PropertiesInput)(nil)).Elem(), DataSourceConfigurationInput0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput0PropertiesPtrInput)(nil)).Elem(), DataSourceConfigurationInput0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput1PropertiesInput)(nil)).Elem(), DataSourceConfigurationInput1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput1PropertiesPtrInput)(nil)).Elem(), DataSourceConfigurationInput1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFilterExpressionInput)(nil)).Elem(), DataSourceFilterExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFilterExpressionArrayInput)(nil)).Elem(), DataSourceFilterExpressionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFormInputInput)(nil)).Elem(), DataSourceFormInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFormInputArrayInput)(nil)).Elem(), DataSourceFormInputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceGlueRunConfigurationInputInput)(nil)).Elem(), DataSourceGlueRunConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceGlueRunConfigurationInputPtrInput)(nil)).Elem(), DataSourceGlueRunConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRecommendationConfigurationInput)(nil)).Elem(), DataSourceRecommendationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRecommendationConfigurationPtrInput)(nil)).Elem(), DataSourceRecommendationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftClusterStorageInput)(nil)).Elem(), DataSourceRedshiftClusterStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftClusterStoragePtrInput)(nil)).Elem(), DataSourceRedshiftClusterStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftCredentialConfigurationInput)(nil)).Elem(), DataSourceRedshiftCredentialConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftCredentialConfigurationPtrInput)(nil)).Elem(), DataSourceRedshiftCredentialConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftRunConfigurationInputInput)(nil)).Elem(), DataSourceRedshiftRunConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftRunConfigurationInputPtrInput)(nil)).Elem(), DataSourceRedshiftRunConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftServerlessStorageInput)(nil)).Elem(), DataSourceRedshiftServerlessStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftServerlessStoragePtrInput)(nil)).Elem(), DataSourceRedshiftServerlessStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftStorage0PropertiesInput)(nil)).Elem(), DataSourceRedshiftStorage0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftStorage0PropertiesPtrInput)(nil)).Elem(), DataSourceRedshiftStorage0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftStorage1PropertiesInput)(nil)).Elem(), DataSourceRedshiftStorage1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftStorage1PropertiesPtrInput)(nil)).Elem(), DataSourceRedshiftStorage1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalFilterConfigurationInput)(nil)).Elem(), DataSourceRelationalFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalFilterConfigurationArrayInput)(nil)).Elem(), DataSourceRelationalFilterConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceScheduleConfigurationInput)(nil)).Elem(), DataSourceScheduleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceScheduleConfigurationPtrInput)(nil)).Elem(), DataSourceScheduleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnInput)(nil)).Elem(), DomainSingleSignOnArgs{})
@@ -1580,10 +2839,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileEnvironmentParameterArrayInput)(nil)).Elem(), EnvironmentProfileEnvironmentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormInput)(nil)).Elem(), SubscriptionTargetFormArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormArrayInput)(nil)).Elem(), SubscriptionTargetFormArray{})
+	pulumi.RegisterOutputType(DataSourceConfigurationInput0PropertiesOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationInput0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationInput1PropertiesOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationInput1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceFilterExpressionOutput{})
+	pulumi.RegisterOutputType(DataSourceFilterExpressionArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceFormInputOutput{})
 	pulumi.RegisterOutputType(DataSourceFormInputArrayOutput{})
+	pulumi.RegisterOutputType(DataSourceGlueRunConfigurationInputOutput{})
+	pulumi.RegisterOutputType(DataSourceGlueRunConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceRecommendationConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceRecommendationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftClusterStorageOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftClusterStoragePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftCredentialConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftCredentialConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftRunConfigurationInputOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftRunConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftServerlessStorageOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftServerlessStoragePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftStorage0PropertiesOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftStorage0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftStorage1PropertiesOutput{})
+	pulumi.RegisterOutputType(DataSourceRedshiftStorage1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceRelationalFilterConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceRelationalFilterConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceScheduleConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceScheduleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnOutput{})

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::VerifiedAccessInstance resource creates an AWS EC2 Verified Access Instance.
@@ -129,12 +128,6 @@ func (i *VerifiedAccessInstance) ToVerifiedAccessInstanceOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceOutput)
 }
 
-func (i *VerifiedAccessInstance) ToOutput(ctx context.Context) pulumix.Output[*VerifiedAccessInstance] {
-	return pulumix.Output[*VerifiedAccessInstance]{
-		OutputState: i.ToVerifiedAccessInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VerifiedAccessInstanceOutput struct{ *pulumi.OutputState }
 
 func (VerifiedAccessInstanceOutput) ElementType() reflect.Type {
@@ -147,12 +140,6 @@ func (o VerifiedAccessInstanceOutput) ToVerifiedAccessInstanceOutput() VerifiedA
 
 func (o VerifiedAccessInstanceOutput) ToVerifiedAccessInstanceOutputWithContext(ctx context.Context) VerifiedAccessInstanceOutput {
 	return o
-}
-
-func (o VerifiedAccessInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*VerifiedAccessInstance] {
-	return pulumix.Output[*VerifiedAccessInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Time this Verified Access Instance was created.

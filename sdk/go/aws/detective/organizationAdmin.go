@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Detective::OrganizationAdmin
@@ -103,12 +102,6 @@ func (i *OrganizationAdmin) ToOrganizationAdminOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminOutput)
 }
 
-func (i *OrganizationAdmin) ToOutput(ctx context.Context) pulumix.Output[*OrganizationAdmin] {
-	return pulumix.Output[*OrganizationAdmin]{
-		OutputState: i.ToOrganizationAdminOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationAdminOutput struct{ *pulumi.OutputState }
 
 func (OrganizationAdminOutput) ElementType() reflect.Type {
@@ -121,12 +114,6 @@ func (o OrganizationAdminOutput) ToOrganizationAdminOutput() OrganizationAdminOu
 
 func (o OrganizationAdminOutput) ToOrganizationAdminOutputWithContext(ctx context.Context) OrganizationAdminOutput {
 	return o
-}
-
-func (o OrganizationAdminOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationAdmin] {
-	return pulumix.Output[*OrganizationAdmin]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account ID of the account that should be registered as your Organization's delegated administrator for Detective

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ClusterEncryptionInTransitClientBroker string
@@ -79,12 +78,6 @@ func (o ClusterEncryptionInTransitClientBrokerOutput) ToClusterEncryptionInTrans
 	}).(ClusterEncryptionInTransitClientBrokerPtrOutput)
 }
 
-func (o ClusterEncryptionInTransitClientBrokerOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEncryptionInTransitClientBroker] {
-	return pulumix.Output[ClusterEncryptionInTransitClientBroker]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterEncryptionInTransitClientBrokerOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o ClusterEncryptionInTransitClientBrokerPtrOutput) ToClusterEncryptionInTr
 	return o
 }
 
-func (o ClusterEncryptionInTransitClientBrokerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterEncryptionInTransitClientBroker] {
-	return pulumix.Output[*ClusterEncryptionInTransitClientBroker]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterEncryptionInTransitClientBrokerPtrOutput) Elem() ClusterEncryptionInTransitClientBrokerOutput {
 	return o.ApplyT(func(v *ClusterEncryptionInTransitClientBroker) ClusterEncryptionInTransitClientBroker {
 		if v != nil {
@@ -150,10 +137,12 @@ func (o ClusterEncryptionInTransitClientBrokerPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterEncryptionInTransitClientBrokerInput is an input type that accepts ClusterEncryptionInTransitClientBrokerArgs and ClusterEncryptionInTransitClientBrokerOutput values.
-// You can construct a concrete instance of `ClusterEncryptionInTransitClientBrokerInput` via:
+// ClusterEncryptionInTransitClientBrokerInput is an input type that accepts values of the ClusterEncryptionInTransitClientBroker enum
+// A concrete instance of `ClusterEncryptionInTransitClientBrokerInput` can be one of the following:
 //
-//	ClusterEncryptionInTransitClientBrokerArgs{...}
+//	ClusterEncryptionInTransitClientBrokerTls
+//	ClusterEncryptionInTransitClientBrokerTlsPlaintext
+//	ClusterEncryptionInTransitClientBrokerPlaintext
 type ClusterEncryptionInTransitClientBrokerInput interface {
 	pulumi.Input
 
@@ -186,12 +175,6 @@ func (in *clusterEncryptionInTransitClientBrokerPtr) ToClusterEncryptionInTransi
 
 func (in *clusterEncryptionInTransitClientBrokerPtr) ToClusterEncryptionInTransitClientBrokerPtrOutputWithContext(ctx context.Context) ClusterEncryptionInTransitClientBrokerPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterEncryptionInTransitClientBrokerPtrOutput)
-}
-
-func (in *clusterEncryptionInTransitClientBrokerPtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterEncryptionInTransitClientBroker] {
-	return pulumix.Output[*ClusterEncryptionInTransitClientBroker]{
-		OutputState: in.ToClusterEncryptionInTransitClientBrokerPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ClusterEnhancedMonitoring string
@@ -263,12 +246,6 @@ func (o ClusterEnhancedMonitoringOutput) ToClusterEnhancedMonitoringPtrOutputWit
 	}).(ClusterEnhancedMonitoringPtrOutput)
 }
 
-func (o ClusterEnhancedMonitoringOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEnhancedMonitoring] {
-	return pulumix.Output[ClusterEnhancedMonitoring]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterEnhancedMonitoringOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -304,12 +281,6 @@ func (o ClusterEnhancedMonitoringPtrOutput) ToClusterEnhancedMonitoringPtrOutput
 	return o
 }
 
-func (o ClusterEnhancedMonitoringPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterEnhancedMonitoring] {
-	return pulumix.Output[*ClusterEnhancedMonitoring]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterEnhancedMonitoringPtrOutput) Elem() ClusterEnhancedMonitoringOutput {
 	return o.ApplyT(func(v *ClusterEnhancedMonitoring) ClusterEnhancedMonitoring {
 		if v != nil {
@@ -334,10 +305,13 @@ func (o ClusterEnhancedMonitoringPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterEnhancedMonitoringInput is an input type that accepts ClusterEnhancedMonitoringArgs and ClusterEnhancedMonitoringOutput values.
-// You can construct a concrete instance of `ClusterEnhancedMonitoringInput` via:
+// ClusterEnhancedMonitoringInput is an input type that accepts values of the ClusterEnhancedMonitoring enum
+// A concrete instance of `ClusterEnhancedMonitoringInput` can be one of the following:
 //
-//	ClusterEnhancedMonitoringArgs{...}
+//	ClusterEnhancedMonitoringDefault
+//	ClusterEnhancedMonitoringPerBroker
+//	ClusterEnhancedMonitoringPerTopicPerBroker
+//	ClusterEnhancedMonitoringPerTopicPerPartition
 type ClusterEnhancedMonitoringInput interface {
 	pulumi.Input
 
@@ -370,12 +344,6 @@ func (in *clusterEnhancedMonitoringPtr) ToClusterEnhancedMonitoringPtrOutput() C
 
 func (in *clusterEnhancedMonitoringPtr) ToClusterEnhancedMonitoringPtrOutputWithContext(ctx context.Context) ClusterEnhancedMonitoringPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterEnhancedMonitoringPtrOutput)
-}
-
-func (in *clusterEnhancedMonitoringPtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterEnhancedMonitoring] {
-	return pulumix.Output[*ClusterEnhancedMonitoring]{
-		OutputState: in.ToClusterEnhancedMonitoringPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ClusterStorageMode string
@@ -445,12 +413,6 @@ func (o ClusterStorageModeOutput) ToClusterStorageModePtrOutputWithContext(ctx c
 	}).(ClusterStorageModePtrOutput)
 }
 
-func (o ClusterStorageModeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterStorageMode] {
-	return pulumix.Output[ClusterStorageMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterStorageModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -486,12 +448,6 @@ func (o ClusterStorageModePtrOutput) ToClusterStorageModePtrOutputWithContext(ct
 	return o
 }
 
-func (o ClusterStorageModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterStorageMode] {
-	return pulumix.Output[*ClusterStorageMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterStorageModePtrOutput) Elem() ClusterStorageModeOutput {
 	return o.ApplyT(func(v *ClusterStorageMode) ClusterStorageMode {
 		if v != nil {
@@ -516,10 +472,11 @@ func (o ClusterStorageModePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterStorageModeInput is an input type that accepts ClusterStorageModeArgs and ClusterStorageModeOutput values.
-// You can construct a concrete instance of `ClusterStorageModeInput` via:
+// ClusterStorageModeInput is an input type that accepts values of the ClusterStorageMode enum
+// A concrete instance of `ClusterStorageModeInput` can be one of the following:
 //
-//	ClusterStorageModeArgs{...}
+//	ClusterStorageModeLocal
+//	ClusterStorageModeTiered
 type ClusterStorageModeInput interface {
 	pulumi.Input
 
@@ -552,12 +509,6 @@ func (in *clusterStorageModePtr) ToClusterStorageModePtrOutput() ClusterStorageM
 
 func (in *clusterStorageModePtr) ToClusterStorageModePtrOutputWithContext(ctx context.Context) ClusterStorageModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterStorageModePtrOutput)
-}
-
-func (in *clusterStorageModePtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterStorageMode] {
-	return pulumix.Output[*ClusterStorageMode]{
-		OutputState: in.ToClusterStorageModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of compression to use writing records to target Kafka cluster.
@@ -631,12 +582,6 @@ func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToReplicatorReplic
 	}).(ReplicatorReplicationInfoTargetCompressionTypePtrOutput)
 }
 
-func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatorReplicationInfoTargetCompressionType] {
-	return pulumix.Output[ReplicatorReplicationInfoTargetCompressionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -672,12 +617,6 @@ func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) ToReplicatorRep
 	return o
 }
 
-func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicatorReplicationInfoTargetCompressionType] {
-	return pulumix.Output[*ReplicatorReplicationInfoTargetCompressionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) Elem() ReplicatorReplicationInfoTargetCompressionTypeOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoTargetCompressionType) ReplicatorReplicationInfoTargetCompressionType {
 		if v != nil {
@@ -702,10 +641,14 @@ func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReplicatorReplicationInfoTargetCompressionTypeInput is an input type that accepts ReplicatorReplicationInfoTargetCompressionTypeArgs and ReplicatorReplicationInfoTargetCompressionTypeOutput values.
-// You can construct a concrete instance of `ReplicatorReplicationInfoTargetCompressionTypeInput` via:
+// ReplicatorReplicationInfoTargetCompressionTypeInput is an input type that accepts values of the ReplicatorReplicationInfoTargetCompressionType enum
+// A concrete instance of `ReplicatorReplicationInfoTargetCompressionTypeInput` can be one of the following:
 //
-//	ReplicatorReplicationInfoTargetCompressionTypeArgs{...}
+//	ReplicatorReplicationInfoTargetCompressionTypeNone
+//	ReplicatorReplicationInfoTargetCompressionTypeGzip
+//	ReplicatorReplicationInfoTargetCompressionTypeSnappy
+//	ReplicatorReplicationInfoTargetCompressionTypeLz4
+//	ReplicatorReplicationInfoTargetCompressionTypeZstd
 type ReplicatorReplicationInfoTargetCompressionTypeInput interface {
 	pulumi.Input
 
@@ -738,12 +681,6 @@ func (in *replicatorReplicationInfoTargetCompressionTypePtr) ToReplicatorReplica
 
 func (in *replicatorReplicationInfoTargetCompressionTypePtr) ToReplicatorReplicationInfoTargetCompressionTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoTargetCompressionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorReplicationInfoTargetCompressionTypePtrOutput)
-}
-
-func (in *replicatorReplicationInfoTargetCompressionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ReplicatorReplicationInfoTargetCompressionType] {
-	return pulumix.Output[*ReplicatorReplicationInfoTargetCompressionType]{
-		OutputState: in.ToReplicatorReplicationInfoTargetCompressionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of private link authentication
@@ -815,12 +752,6 @@ func (o VpcConnectionAuthenticationOutput) ToVpcConnectionAuthenticationPtrOutpu
 	}).(VpcConnectionAuthenticationPtrOutput)
 }
 
-func (o VpcConnectionAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[VpcConnectionAuthentication] {
-	return pulumix.Output[VpcConnectionAuthentication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcConnectionAuthenticationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -856,12 +787,6 @@ func (o VpcConnectionAuthenticationPtrOutput) ToVpcConnectionAuthenticationPtrOu
 	return o
 }
 
-func (o VpcConnectionAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnectionAuthentication] {
-	return pulumix.Output[*VpcConnectionAuthentication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcConnectionAuthenticationPtrOutput) Elem() VpcConnectionAuthenticationOutput {
 	return o.ApplyT(func(v *VpcConnectionAuthentication) VpcConnectionAuthentication {
 		if v != nil {
@@ -886,10 +811,12 @@ func (o VpcConnectionAuthenticationPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// VpcConnectionAuthenticationInput is an input type that accepts VpcConnectionAuthenticationArgs and VpcConnectionAuthenticationOutput values.
-// You can construct a concrete instance of `VpcConnectionAuthenticationInput` via:
+// VpcConnectionAuthenticationInput is an input type that accepts values of the VpcConnectionAuthentication enum
+// A concrete instance of `VpcConnectionAuthenticationInput` can be one of the following:
 //
-//	VpcConnectionAuthenticationArgs{...}
+//	VpcConnectionAuthenticationSaslIam
+//	VpcConnectionAuthenticationSaslScram
+//	VpcConnectionAuthenticationTls
 type VpcConnectionAuthenticationInput interface {
 	pulumi.Input
 
@@ -922,12 +849,6 @@ func (in *vpcConnectionAuthenticationPtr) ToVpcConnectionAuthenticationPtrOutput
 
 func (in *vpcConnectionAuthenticationPtr) ToVpcConnectionAuthenticationPtrOutputWithContext(ctx context.Context) VpcConnectionAuthenticationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VpcConnectionAuthenticationPtrOutput)
-}
-
-func (in *vpcConnectionAuthenticationPtr) ToOutput(ctx context.Context) pulumix.Output[*VpcConnectionAuthentication] {
-	return pulumix.Output[*VpcConnectionAuthentication]{
-		OutputState: in.ToVpcConnectionAuthenticationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

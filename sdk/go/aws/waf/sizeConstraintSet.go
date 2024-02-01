@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAF::SizeConstraintSet
@@ -103,12 +102,6 @@ func (i *SizeConstraintSet) ToSizeConstraintSetOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetOutput)
 }
 
-func (i *SizeConstraintSet) ToOutput(ctx context.Context) pulumix.Output[*SizeConstraintSet] {
-	return pulumix.Output[*SizeConstraintSet]{
-		OutputState: i.ToSizeConstraintSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SizeConstraintSetOutput struct{ *pulumi.OutputState }
 
 func (SizeConstraintSetOutput) ElementType() reflect.Type {
@@ -121,12 +114,6 @@ func (o SizeConstraintSetOutput) ToSizeConstraintSetOutput() SizeConstraintSetOu
 
 func (o SizeConstraintSetOutput) ToSizeConstraintSetOutputWithContext(ctx context.Context) SizeConstraintSetOutput {
 	return o
-}
-
-func (o SizeConstraintSetOutput) ToOutput(ctx context.Context) pulumix.Output[*SizeConstraintSet] {
-	return pulumix.Output[*SizeConstraintSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SizeConstraintSetOutput) Name() pulumi.StringOutput {

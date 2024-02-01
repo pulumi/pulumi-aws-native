@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i DetectorCfnDataSourceConfigurationsArgs) ToDetectorCfnDataSourceConfigur
 
 func (i DetectorCfnDataSourceConfigurationsArgs) ToDetectorCfnDataSourceConfigurationsOutputWithContext(ctx context.Context) DetectorCfnDataSourceConfigurationsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnDataSourceConfigurationsOutput)
-}
-
-func (i DetectorCfnDataSourceConfigurationsArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnDataSourceConfigurations] {
-	return pulumix.Output[DetectorCfnDataSourceConfigurations]{
-		OutputState: i.ToDetectorCfnDataSourceConfigurationsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DetectorCfnDataSourceConfigurationsArgs) ToDetectorCfnDataSourceConfigurationsPtrOutput() DetectorCfnDataSourceConfigurationsPtrOutput {
@@ -96,12 +89,6 @@ func (i *detectorCfnDataSourceConfigurationsPtrType) ToDetectorCfnDataSourceConf
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnDataSourceConfigurationsPtrOutput)
 }
 
-func (i *detectorCfnDataSourceConfigurationsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnDataSourceConfigurations] {
-	return pulumix.Output[*DetectorCfnDataSourceConfigurations]{
-		OutputState: i.ToDetectorCfnDataSourceConfigurationsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DetectorCfnDataSourceConfigurationsOutput struct{ *pulumi.OutputState }
 
 func (DetectorCfnDataSourceConfigurationsOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o DetectorCfnDataSourceConfigurationsOutput) ToDetectorCfnDataSourceConfig
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorCfnDataSourceConfigurations) *DetectorCfnDataSourceConfigurations {
 		return &v
 	}).(DetectorCfnDataSourceConfigurationsPtrOutput)
-}
-
-func (o DetectorCfnDataSourceConfigurationsOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnDataSourceConfigurations] {
-	return pulumix.Output[DetectorCfnDataSourceConfigurations]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfnDataSourceConfigurationsOutput) Kubernetes() DetectorCfnKubernetesConfigurationPtrOutput {
@@ -158,12 +139,6 @@ func (o DetectorCfnDataSourceConfigurationsPtrOutput) ToDetectorCfnDataSourceCon
 
 func (o DetectorCfnDataSourceConfigurationsPtrOutput) ToDetectorCfnDataSourceConfigurationsPtrOutputWithContext(ctx context.Context) DetectorCfnDataSourceConfigurationsPtrOutput {
 	return o
-}
-
-func (o DetectorCfnDataSourceConfigurationsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnDataSourceConfigurations] {
-	return pulumix.Output[*DetectorCfnDataSourceConfigurations]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfnDataSourceConfigurationsPtrOutput) Elem() DetectorCfnDataSourceConfigurationsOutput {
@@ -236,12 +211,6 @@ func (i DetectorCfnFeatureAdditionalConfigurationArgs) ToDetectorCfnFeatureAddit
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnFeatureAdditionalConfigurationOutput)
 }
 
-func (i DetectorCfnFeatureAdditionalConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnFeatureAdditionalConfiguration] {
-	return pulumix.Output[DetectorCfnFeatureAdditionalConfiguration]{
-		OutputState: i.ToDetectorCfnFeatureAdditionalConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DetectorCfnFeatureAdditionalConfigurationArrayInput is an input type that accepts DetectorCfnFeatureAdditionalConfigurationArray and DetectorCfnFeatureAdditionalConfigurationArrayOutput values.
 // You can construct a concrete instance of `DetectorCfnFeatureAdditionalConfigurationArrayInput` via:
 //
@@ -267,12 +236,6 @@ func (i DetectorCfnFeatureAdditionalConfigurationArray) ToDetectorCfnFeatureAddi
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnFeatureAdditionalConfigurationArrayOutput)
 }
 
-func (i DetectorCfnFeatureAdditionalConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorCfnFeatureAdditionalConfiguration] {
-	return pulumix.Output[[]DetectorCfnFeatureAdditionalConfiguration]{
-		OutputState: i.ToDetectorCfnFeatureAdditionalConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DetectorCfnFeatureAdditionalConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DetectorCfnFeatureAdditionalConfigurationOutput) ElementType() reflect.Type {
@@ -285,12 +248,6 @@ func (o DetectorCfnFeatureAdditionalConfigurationOutput) ToDetectorCfnFeatureAdd
 
 func (o DetectorCfnFeatureAdditionalConfigurationOutput) ToDetectorCfnFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) DetectorCfnFeatureAdditionalConfigurationOutput {
 	return o
-}
-
-func (o DetectorCfnFeatureAdditionalConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnFeatureAdditionalConfiguration] {
-	return pulumix.Output[DetectorCfnFeatureAdditionalConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfnFeatureAdditionalConfigurationOutput) Name() pulumi.StringPtrOutput {
@@ -313,12 +270,6 @@ func (o DetectorCfnFeatureAdditionalConfigurationArrayOutput) ToDetectorCfnFeatu
 
 func (o DetectorCfnFeatureAdditionalConfigurationArrayOutput) ToDetectorCfnFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) DetectorCfnFeatureAdditionalConfigurationArrayOutput {
 	return o
-}
-
-func (o DetectorCfnFeatureAdditionalConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorCfnFeatureAdditionalConfiguration] {
-	return pulumix.Output[[]DetectorCfnFeatureAdditionalConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfnFeatureAdditionalConfigurationArrayOutput) Index(i pulumi.IntInput) DetectorCfnFeatureAdditionalConfigurationOutput {
@@ -362,12 +313,6 @@ func (i DetectorCfnFeatureConfigurationArgs) ToDetectorCfnFeatureConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnFeatureConfigurationOutput)
 }
 
-func (i DetectorCfnFeatureConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnFeatureConfiguration] {
-	return pulumix.Output[DetectorCfnFeatureConfiguration]{
-		OutputState: i.ToDetectorCfnFeatureConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DetectorCfnFeatureConfigurationArrayInput is an input type that accepts DetectorCfnFeatureConfigurationArray and DetectorCfnFeatureConfigurationArrayOutput values.
 // You can construct a concrete instance of `DetectorCfnFeatureConfigurationArrayInput` via:
 //
@@ -393,12 +338,6 @@ func (i DetectorCfnFeatureConfigurationArray) ToDetectorCfnFeatureConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnFeatureConfigurationArrayOutput)
 }
 
-func (i DetectorCfnFeatureConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorCfnFeatureConfiguration] {
-	return pulumix.Output[[]DetectorCfnFeatureConfiguration]{
-		OutputState: i.ToDetectorCfnFeatureConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DetectorCfnFeatureConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DetectorCfnFeatureConfigurationOutput) ElementType() reflect.Type {
@@ -411,12 +350,6 @@ func (o DetectorCfnFeatureConfigurationOutput) ToDetectorCfnFeatureConfiguration
 
 func (o DetectorCfnFeatureConfigurationOutput) ToDetectorCfnFeatureConfigurationOutputWithContext(ctx context.Context) DetectorCfnFeatureConfigurationOutput {
 	return o
-}
-
-func (o DetectorCfnFeatureConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnFeatureConfiguration] {
-	return pulumix.Output[DetectorCfnFeatureConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfnFeatureConfigurationOutput) AdditionalConfiguration() DetectorCfnFeatureAdditionalConfigurationArrayOutput {
@@ -445,12 +378,6 @@ func (o DetectorCfnFeatureConfigurationArrayOutput) ToDetectorCfnFeatureConfigur
 
 func (o DetectorCfnFeatureConfigurationArrayOutput) ToDetectorCfnFeatureConfigurationArrayOutputWithContext(ctx context.Context) DetectorCfnFeatureConfigurationArrayOutput {
 	return o
-}
-
-func (o DetectorCfnFeatureConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorCfnFeatureConfiguration] {
-	return pulumix.Output[[]DetectorCfnFeatureConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfnFeatureConfigurationArrayOutput) Index(i pulumi.IntInput) DetectorCfnFeatureConfigurationOutput {
@@ -488,12 +415,6 @@ func (i DetectorCfnKubernetesAuditLogsConfigurationArgs) ToDetectorCfnKubernetes
 
 func (i DetectorCfnKubernetesAuditLogsConfigurationArgs) ToDetectorCfnKubernetesAuditLogsConfigurationOutputWithContext(ctx context.Context) DetectorCfnKubernetesAuditLogsConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnKubernetesAuditLogsConfigurationOutput)
-}
-
-func (i DetectorCfnKubernetesAuditLogsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnKubernetesAuditLogsConfiguration] {
-	return pulumix.Output[DetectorCfnKubernetesAuditLogsConfiguration]{
-		OutputState: i.ToDetectorCfnKubernetesAuditLogsConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DetectorCfnKubernetesAuditLogsConfigurationArgs) ToDetectorCfnKubernetesAuditLogsConfigurationPtrOutput() DetectorCfnKubernetesAuditLogsConfigurationPtrOutput {
@@ -537,12 +458,6 @@ func (i *detectorCfnKubernetesAuditLogsConfigurationPtrType) ToDetectorCfnKubern
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnKubernetesAuditLogsConfigurationPtrOutput)
 }
 
-func (i *detectorCfnKubernetesAuditLogsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnKubernetesAuditLogsConfiguration] {
-	return pulumix.Output[*DetectorCfnKubernetesAuditLogsConfiguration]{
-		OutputState: i.ToDetectorCfnKubernetesAuditLogsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DetectorCfnKubernetesAuditLogsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DetectorCfnKubernetesAuditLogsConfigurationOutput) ElementType() reflect.Type {
@@ -567,12 +482,6 @@ func (o DetectorCfnKubernetesAuditLogsConfigurationOutput) ToDetectorCfnKubernet
 	}).(DetectorCfnKubernetesAuditLogsConfigurationPtrOutput)
 }
 
-func (o DetectorCfnKubernetesAuditLogsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnKubernetesAuditLogsConfiguration] {
-	return pulumix.Output[DetectorCfnKubernetesAuditLogsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorCfnKubernetesAuditLogsConfigurationOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v DetectorCfnKubernetesAuditLogsConfiguration) bool { return v.Enable }).(pulumi.BoolOutput)
 }
@@ -589,12 +498,6 @@ func (o DetectorCfnKubernetesAuditLogsConfigurationPtrOutput) ToDetectorCfnKuber
 
 func (o DetectorCfnKubernetesAuditLogsConfigurationPtrOutput) ToDetectorCfnKubernetesAuditLogsConfigurationPtrOutputWithContext(ctx context.Context) DetectorCfnKubernetesAuditLogsConfigurationPtrOutput {
 	return o
-}
-
-func (o DetectorCfnKubernetesAuditLogsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnKubernetesAuditLogsConfiguration] {
-	return pulumix.Output[*DetectorCfnKubernetesAuditLogsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfnKubernetesAuditLogsConfigurationPtrOutput) Elem() DetectorCfnKubernetesAuditLogsConfigurationOutput {
@@ -647,12 +550,6 @@ func (i DetectorCfnKubernetesConfigurationArgs) ToDetectorCfnKubernetesConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnKubernetesConfigurationOutput)
 }
 
-func (i DetectorCfnKubernetesConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnKubernetesConfiguration] {
-	return pulumix.Output[DetectorCfnKubernetesConfiguration]{
-		OutputState: i.ToDetectorCfnKubernetesConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DetectorCfnKubernetesConfigurationArgs) ToDetectorCfnKubernetesConfigurationPtrOutput() DetectorCfnKubernetesConfigurationPtrOutput {
 	return i.ToDetectorCfnKubernetesConfigurationPtrOutputWithContext(context.Background())
 }
@@ -694,12 +591,6 @@ func (i *detectorCfnKubernetesConfigurationPtrType) ToDetectorCfnKubernetesConfi
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnKubernetesConfigurationPtrOutput)
 }
 
-func (i *detectorCfnKubernetesConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnKubernetesConfiguration] {
-	return pulumix.Output[*DetectorCfnKubernetesConfiguration]{
-		OutputState: i.ToDetectorCfnKubernetesConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DetectorCfnKubernetesConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DetectorCfnKubernetesConfigurationOutput) ElementType() reflect.Type {
@@ -724,12 +615,6 @@ func (o DetectorCfnKubernetesConfigurationOutput) ToDetectorCfnKubernetesConfigu
 	}).(DetectorCfnKubernetesConfigurationPtrOutput)
 }
 
-func (o DetectorCfnKubernetesConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnKubernetesConfiguration] {
-	return pulumix.Output[DetectorCfnKubernetesConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorCfnKubernetesConfigurationOutput) AuditLogs() DetectorCfnKubernetesAuditLogsConfigurationOutput {
 	return o.ApplyT(func(v DetectorCfnKubernetesConfiguration) DetectorCfnKubernetesAuditLogsConfiguration {
 		return v.AuditLogs
@@ -748,12 +633,6 @@ func (o DetectorCfnKubernetesConfigurationPtrOutput) ToDetectorCfnKubernetesConf
 
 func (o DetectorCfnKubernetesConfigurationPtrOutput) ToDetectorCfnKubernetesConfigurationPtrOutputWithContext(ctx context.Context) DetectorCfnKubernetesConfigurationPtrOutput {
 	return o
-}
-
-func (o DetectorCfnKubernetesConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnKubernetesConfiguration] {
-	return pulumix.Output[*DetectorCfnKubernetesConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfnKubernetesConfigurationPtrOutput) Elem() DetectorCfnKubernetesConfigurationOutput {
@@ -806,12 +685,6 @@ func (i DetectorCfnMalwareProtectionConfigurationArgs) ToDetectorCfnMalwareProte
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnMalwareProtectionConfigurationOutput)
 }
 
-func (i DetectorCfnMalwareProtectionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnMalwareProtectionConfiguration] {
-	return pulumix.Output[DetectorCfnMalwareProtectionConfiguration]{
-		OutputState: i.ToDetectorCfnMalwareProtectionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DetectorCfnMalwareProtectionConfigurationArgs) ToDetectorCfnMalwareProtectionConfigurationPtrOutput() DetectorCfnMalwareProtectionConfigurationPtrOutput {
 	return i.ToDetectorCfnMalwareProtectionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -853,12 +726,6 @@ func (i *detectorCfnMalwareProtectionConfigurationPtrType) ToDetectorCfnMalwareP
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnMalwareProtectionConfigurationPtrOutput)
 }
 
-func (i *detectorCfnMalwareProtectionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnMalwareProtectionConfiguration] {
-	return pulumix.Output[*DetectorCfnMalwareProtectionConfiguration]{
-		OutputState: i.ToDetectorCfnMalwareProtectionConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DetectorCfnMalwareProtectionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DetectorCfnMalwareProtectionConfigurationOutput) ElementType() reflect.Type {
@@ -883,12 +750,6 @@ func (o DetectorCfnMalwareProtectionConfigurationOutput) ToDetectorCfnMalwarePro
 	}).(DetectorCfnMalwareProtectionConfigurationPtrOutput)
 }
 
-func (o DetectorCfnMalwareProtectionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnMalwareProtectionConfiguration] {
-	return pulumix.Output[DetectorCfnMalwareProtectionConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorCfnMalwareProtectionConfigurationOutput) ScanEc2InstanceWithFindings() DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput {
 	return o.ApplyT(func(v DetectorCfnMalwareProtectionConfiguration) *DetectorCfnScanEc2InstanceWithFindingsConfiguration {
 		return v.ScanEc2InstanceWithFindings
@@ -907,12 +768,6 @@ func (o DetectorCfnMalwareProtectionConfigurationPtrOutput) ToDetectorCfnMalware
 
 func (o DetectorCfnMalwareProtectionConfigurationPtrOutput) ToDetectorCfnMalwareProtectionConfigurationPtrOutputWithContext(ctx context.Context) DetectorCfnMalwareProtectionConfigurationPtrOutput {
 	return o
-}
-
-func (o DetectorCfnMalwareProtectionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnMalwareProtectionConfiguration] {
-	return pulumix.Output[*DetectorCfnMalwareProtectionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfnMalwareProtectionConfigurationPtrOutput) Elem() DetectorCfnMalwareProtectionConfigurationOutput {
@@ -965,12 +820,6 @@ func (i DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs) ToDetectorCfnSc
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnScanEc2InstanceWithFindingsConfigurationOutput)
 }
 
-func (i DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnScanEc2InstanceWithFindingsConfiguration] {
-	return pulumix.Output[DetectorCfnScanEc2InstanceWithFindingsConfiguration]{
-		OutputState: i.ToDetectorCfnScanEc2InstanceWithFindingsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs) ToDetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput() DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput {
 	return i.ToDetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1012,12 +861,6 @@ func (i *detectorCfnScanEc2InstanceWithFindingsConfigurationPtrType) ToDetectorC
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput)
 }
 
-func (i *detectorCfnScanEc2InstanceWithFindingsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnScanEc2InstanceWithFindingsConfiguration] {
-	return pulumix.Output[*DetectorCfnScanEc2InstanceWithFindingsConfiguration]{
-		OutputState: i.ToDetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DetectorCfnScanEc2InstanceWithFindingsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DetectorCfnScanEc2InstanceWithFindingsConfigurationOutput) ElementType() reflect.Type {
@@ -1042,12 +885,6 @@ func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationOutput) ToDetectorCfn
 	}).(DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput)
 }
 
-func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnScanEc2InstanceWithFindingsConfiguration] {
-	return pulumix.Output[DetectorCfnScanEc2InstanceWithFindingsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationOutput) EbsVolumes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorCfnScanEc2InstanceWithFindingsConfiguration) *bool { return v.EbsVolumes }).(pulumi.BoolPtrOutput)
 }
@@ -1064,12 +901,6 @@ func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput) ToDetector
 
 func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput) ToDetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutputWithContext(ctx context.Context) DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput {
 	return o
-}
-
-func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnScanEc2InstanceWithFindingsConfiguration] {
-	return pulumix.Output[*DetectorCfnScanEc2InstanceWithFindingsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput) Elem() DetectorCfnScanEc2InstanceWithFindingsConfigurationOutput {
@@ -1122,12 +953,6 @@ func (i DetectorCfns3LogsConfigurationArgs) ToDetectorCfns3LogsConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfns3LogsConfigurationOutput)
 }
 
-func (i DetectorCfns3LogsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorCfns3LogsConfiguration] {
-	return pulumix.Output[DetectorCfns3LogsConfiguration]{
-		OutputState: i.ToDetectorCfns3LogsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DetectorCfns3LogsConfigurationArgs) ToDetectorCfns3LogsConfigurationPtrOutput() DetectorCfns3LogsConfigurationPtrOutput {
 	return i.ToDetectorCfns3LogsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1169,12 +994,6 @@ func (i *detectorCfns3LogsConfigurationPtrType) ToDetectorCfns3LogsConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorCfns3LogsConfigurationPtrOutput)
 }
 
-func (i *detectorCfns3LogsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfns3LogsConfiguration] {
-	return pulumix.Output[*DetectorCfns3LogsConfiguration]{
-		OutputState: i.ToDetectorCfns3LogsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DetectorCfns3LogsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DetectorCfns3LogsConfigurationOutput) ElementType() reflect.Type {
@@ -1199,12 +1018,6 @@ func (o DetectorCfns3LogsConfigurationOutput) ToDetectorCfns3LogsConfigurationPt
 	}).(DetectorCfns3LogsConfigurationPtrOutput)
 }
 
-func (o DetectorCfns3LogsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfns3LogsConfiguration] {
-	return pulumix.Output[DetectorCfns3LogsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorCfns3LogsConfigurationOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v DetectorCfns3LogsConfiguration) bool { return v.Enable }).(pulumi.BoolOutput)
 }
@@ -1221,12 +1034,6 @@ func (o DetectorCfns3LogsConfigurationPtrOutput) ToDetectorCfns3LogsConfiguratio
 
 func (o DetectorCfns3LogsConfigurationPtrOutput) ToDetectorCfns3LogsConfigurationPtrOutputWithContext(ctx context.Context) DetectorCfns3LogsConfigurationPtrOutput {
 	return o
-}
-
-func (o DetectorCfns3LogsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfns3LogsConfiguration] {
-	return pulumix.Output[*DetectorCfns3LogsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfns3LogsConfigurationPtrOutput) Elem() DetectorCfns3LogsConfigurationOutput {
@@ -1281,12 +1088,6 @@ func (i DetectorTagItemArgs) ToDetectorTagItemOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorTagItemOutput)
 }
 
-func (i DetectorTagItemArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorTagItem] {
-	return pulumix.Output[DetectorTagItem]{
-		OutputState: i.ToDetectorTagItemOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DetectorTagItemArrayInput is an input type that accepts DetectorTagItemArray and DetectorTagItemArrayOutput values.
 // You can construct a concrete instance of `DetectorTagItemArrayInput` via:
 //
@@ -1312,12 +1113,6 @@ func (i DetectorTagItemArray) ToDetectorTagItemArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorTagItemArrayOutput)
 }
 
-func (i DetectorTagItemArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorTagItem] {
-	return pulumix.Output[[]DetectorTagItem]{
-		OutputState: i.ToDetectorTagItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DetectorTagItemOutput struct{ *pulumi.OutputState }
 
 func (DetectorTagItemOutput) ElementType() reflect.Type {
@@ -1330,12 +1125,6 @@ func (o DetectorTagItemOutput) ToDetectorTagItemOutput() DetectorTagItemOutput {
 
 func (o DetectorTagItemOutput) ToDetectorTagItemOutputWithContext(ctx context.Context) DetectorTagItemOutput {
 	return o
-}
-
-func (o DetectorTagItemOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorTagItem] {
-	return pulumix.Output[DetectorTagItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorTagItemOutput) Key() pulumi.StringOutput {
@@ -1358,12 +1147,6 @@ func (o DetectorTagItemArrayOutput) ToDetectorTagItemArrayOutput() DetectorTagIt
 
 func (o DetectorTagItemArrayOutput) ToDetectorTagItemArrayOutputWithContext(ctx context.Context) DetectorTagItemArrayOutput {
 	return o
-}
-
-func (o DetectorTagItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorTagItem] {
-	return pulumix.Output[[]DetectorTagItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorTagItemArrayOutput) Index(i pulumi.IntInput) DetectorTagItemOutput {
@@ -1403,12 +1186,6 @@ func (i FilterFindingCriteriaArgs) ToFilterFindingCriteriaOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FilterFindingCriteriaOutput)
 }
 
-func (i FilterFindingCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[FilterFindingCriteria] {
-	return pulumix.Output[FilterFindingCriteria]{
-		OutputState: i.ToFilterFindingCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FilterFindingCriteriaOutput struct{ *pulumi.OutputState }
 
 func (FilterFindingCriteriaOutput) ElementType() reflect.Type {
@@ -1421,12 +1198,6 @@ func (o FilterFindingCriteriaOutput) ToFilterFindingCriteriaOutput() FilterFindi
 
 func (o FilterFindingCriteriaOutput) ToFilterFindingCriteriaOutputWithContext(ctx context.Context) FilterFindingCriteriaOutput {
 	return o
-}
-
-func (o FilterFindingCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[FilterFindingCriteria] {
-	return pulumix.Output[FilterFindingCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterFindingCriteriaOutput) Criterion() pulumi.AnyOutput {
@@ -1445,12 +1216,6 @@ func (o FilterFindingCriteriaPtrOutput) ToFilterFindingCriteriaPtrOutput() Filte
 
 func (o FilterFindingCriteriaPtrOutput) ToFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FilterFindingCriteriaPtrOutput {
 	return o
-}
-
-func (o FilterFindingCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterFindingCriteria] {
-	return pulumix.Output[*FilterFindingCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterFindingCriteriaPtrOutput) Elem() FilterFindingCriteriaOutput {
@@ -1505,12 +1270,6 @@ func (i FilterTagItemArgs) ToFilterTagItemOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(FilterTagItemOutput)
 }
 
-func (i FilterTagItemArgs) ToOutput(ctx context.Context) pulumix.Output[FilterTagItem] {
-	return pulumix.Output[FilterTagItem]{
-		OutputState: i.ToFilterTagItemOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterTagItemArrayInput is an input type that accepts FilterTagItemArray and FilterTagItemArrayOutput values.
 // You can construct a concrete instance of `FilterTagItemArrayInput` via:
 //
@@ -1536,12 +1295,6 @@ func (i FilterTagItemArray) ToFilterTagItemArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FilterTagItemArrayOutput)
 }
 
-func (i FilterTagItemArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterTagItem] {
-	return pulumix.Output[[]FilterTagItem]{
-		OutputState: i.ToFilterTagItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FilterTagItemOutput struct{ *pulumi.OutputState }
 
 func (FilterTagItemOutput) ElementType() reflect.Type {
@@ -1554,12 +1307,6 @@ func (o FilterTagItemOutput) ToFilterTagItemOutput() FilterTagItemOutput {
 
 func (o FilterTagItemOutput) ToFilterTagItemOutputWithContext(ctx context.Context) FilterTagItemOutput {
 	return o
-}
-
-func (o FilterTagItemOutput) ToOutput(ctx context.Context) pulumix.Output[FilterTagItem] {
-	return pulumix.Output[FilterTagItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterTagItemOutput) Key() pulumi.StringOutput {
@@ -1582,12 +1329,6 @@ func (o FilterTagItemArrayOutput) ToFilterTagItemArrayOutput() FilterTagItemArra
 
 func (o FilterTagItemArrayOutput) ToFilterTagItemArrayOutputWithContext(ctx context.Context) FilterTagItemArrayOutput {
 	return o
-}
-
-func (o FilterTagItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterTagItem] {
-	return pulumix.Output[[]FilterTagItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterTagItemArrayOutput) Index(i pulumi.IntInput) FilterTagItemOutput {
@@ -1629,12 +1370,6 @@ func (i IpSetTagItemArgs) ToIpSetTagItemOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IpSetTagItemOutput)
 }
 
-func (i IpSetTagItemArgs) ToOutput(ctx context.Context) pulumix.Output[IpSetTagItem] {
-	return pulumix.Output[IpSetTagItem]{
-		OutputState: i.ToIpSetTagItemOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IpSetTagItemArrayInput is an input type that accepts IpSetTagItemArray and IpSetTagItemArrayOutput values.
 // You can construct a concrete instance of `IpSetTagItemArrayInput` via:
 //
@@ -1660,12 +1395,6 @@ func (i IpSetTagItemArray) ToIpSetTagItemArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IpSetTagItemArrayOutput)
 }
 
-func (i IpSetTagItemArray) ToOutput(ctx context.Context) pulumix.Output[[]IpSetTagItem] {
-	return pulumix.Output[[]IpSetTagItem]{
-		OutputState: i.ToIpSetTagItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IpSetTagItemOutput struct{ *pulumi.OutputState }
 
 func (IpSetTagItemOutput) ElementType() reflect.Type {
@@ -1678,12 +1407,6 @@ func (o IpSetTagItemOutput) ToIpSetTagItemOutput() IpSetTagItemOutput {
 
 func (o IpSetTagItemOutput) ToIpSetTagItemOutputWithContext(ctx context.Context) IpSetTagItemOutput {
 	return o
-}
-
-func (o IpSetTagItemOutput) ToOutput(ctx context.Context) pulumix.Output[IpSetTagItem] {
-	return pulumix.Output[IpSetTagItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpSetTagItemOutput) Key() pulumi.StringOutput {
@@ -1706,12 +1429,6 @@ func (o IpSetTagItemArrayOutput) ToIpSetTagItemArrayOutput() IpSetTagItemArrayOu
 
 func (o IpSetTagItemArrayOutput) ToIpSetTagItemArrayOutputWithContext(ctx context.Context) IpSetTagItemArrayOutput {
 	return o
-}
-
-func (o IpSetTagItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IpSetTagItem] {
-	return pulumix.Output[[]IpSetTagItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpSetTagItemArrayOutput) Index(i pulumi.IntInput) IpSetTagItemOutput {
@@ -1753,12 +1470,6 @@ func (i ThreatIntelSetTagItemArgs) ToThreatIntelSetTagItemOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetTagItemOutput)
 }
 
-func (i ThreatIntelSetTagItemArgs) ToOutput(ctx context.Context) pulumix.Output[ThreatIntelSetTagItem] {
-	return pulumix.Output[ThreatIntelSetTagItem]{
-		OutputState: i.ToThreatIntelSetTagItemOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ThreatIntelSetTagItemArrayInput is an input type that accepts ThreatIntelSetTagItemArray and ThreatIntelSetTagItemArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelSetTagItemArrayInput` via:
 //
@@ -1784,12 +1495,6 @@ func (i ThreatIntelSetTagItemArray) ToThreatIntelSetTagItemArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetTagItemArrayOutput)
 }
 
-func (i ThreatIntelSetTagItemArray) ToOutput(ctx context.Context) pulumix.Output[[]ThreatIntelSetTagItem] {
-	return pulumix.Output[[]ThreatIntelSetTagItem]{
-		OutputState: i.ToThreatIntelSetTagItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThreatIntelSetTagItemOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelSetTagItemOutput) ElementType() reflect.Type {
@@ -1802,12 +1507,6 @@ func (o ThreatIntelSetTagItemOutput) ToThreatIntelSetTagItemOutput() ThreatIntel
 
 func (o ThreatIntelSetTagItemOutput) ToThreatIntelSetTagItemOutputWithContext(ctx context.Context) ThreatIntelSetTagItemOutput {
 	return o
-}
-
-func (o ThreatIntelSetTagItemOutput) ToOutput(ctx context.Context) pulumix.Output[ThreatIntelSetTagItem] {
-	return pulumix.Output[ThreatIntelSetTagItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThreatIntelSetTagItemOutput) Key() pulumi.StringOutput {
@@ -1830,12 +1529,6 @@ func (o ThreatIntelSetTagItemArrayOutput) ToThreatIntelSetTagItemArrayOutput() T
 
 func (o ThreatIntelSetTagItemArrayOutput) ToThreatIntelSetTagItemArrayOutputWithContext(ctx context.Context) ThreatIntelSetTagItemArrayOutput {
 	return o
-}
-
-func (o ThreatIntelSetTagItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThreatIntelSetTagItem] {
-	return pulumix.Output[[]ThreatIntelSetTagItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThreatIntelSetTagItemArrayOutput) Index(i pulumi.IntInput) ThreatIntelSetTagItemOutput {

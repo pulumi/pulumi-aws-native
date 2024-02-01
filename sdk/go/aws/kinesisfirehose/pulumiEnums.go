@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode string
@@ -78,12 +77,6 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3Backup
 	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput)
 }
 
-func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3Backup
 	return o
 }
 
-func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode {
 		if v != nil {
@@ -149,10 +136,11 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3Backup
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeInput is an input type that accepts DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeArgs and DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput values.
-// You can construct a concrete instance of `DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeInput` via:
+// DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeInput is an input type that accepts values of the DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode enum
+// A concrete instance of `DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeInput` can be one of the following:
 //
-//	DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeArgs{...}
+//	DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeFailedDocumentsOnly
+//	DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeAllDocuments
 type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeInput interface {
 	pulumi.Input
 
@@ -185,12 +173,6 @@ func (in *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3Back
 
 func (in *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtr) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput)
-}
-
-func (in *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode]{
-		OutputState: in.ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod string
@@ -263,12 +245,6 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotati
 	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput)
 }
 
-func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod] {
-	return pulumix.Output[DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -304,12 +280,6 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotati
 	return o
 }
 
-func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod] {
-	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput) Elem() DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod) DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod {
 		if v != nil {
@@ -334,10 +304,14 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotati
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodInput is an input type that accepts DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodArgs and DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOutput values.
-// You can construct a concrete instance of `DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodInput` via:
+// DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodInput is an input type that accepts values of the DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod enum
+// A concrete instance of `DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodInput` can be one of the following:
 //
-//	DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodArgs{...}
+//	DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodNoRotation
+//	DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOneHour
+//	DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOneDay
+//	DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOneWeek
+//	DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOneMonth
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodInput interface {
 	pulumi.Input
 
@@ -370,12 +344,6 @@ func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRota
 
 func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtr) ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput)
-}
-
-func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod] {
-	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod]{
-		OutputState: in.ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode string
@@ -445,12 +413,6 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMod
 	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput)
 }
 
-func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -486,12 +448,6 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMod
 	return o
 }
 
-func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode) DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode {
 		if v != nil {
@@ -516,10 +472,11 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMod
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeInput is an input type that accepts DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeArgs and DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeOutput values.
-// You can construct a concrete instance of `DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeInput` via:
+// DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeInput is an input type that accepts values of the DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode enum
+// A concrete instance of `DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeInput` can be one of the following:
 //
-//	DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeArgs{...}
+//	DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeFailedDocumentsOnly
+//	DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeAllDocuments
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeInput interface {
 	pulumi.Input
 
@@ -552,12 +509,6 @@ func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupM
 
 func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtr) ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput)
-}
-
-func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[*DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode]{
-		OutputState: in.ToDeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamAuthenticationConfigurationConnectivity string
@@ -627,12 +578,6 @@ func (o DeliveryStreamAuthenticationConfigurationConnectivityOutput) ToDeliveryS
 	}).(DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput)
 }
 
-func (o DeliveryStreamAuthenticationConfigurationConnectivityOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamAuthenticationConfigurationConnectivity] {
-	return pulumix.Output[DeliveryStreamAuthenticationConfigurationConnectivity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamAuthenticationConfigurationConnectivityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -668,12 +613,6 @@ func (o DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput) ToDelive
 	return o
 }
 
-func (o DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAuthenticationConfigurationConnectivity] {
-	return pulumix.Output[*DeliveryStreamAuthenticationConfigurationConnectivity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput) Elem() DeliveryStreamAuthenticationConfigurationConnectivityOutput {
 	return o.ApplyT(func(v *DeliveryStreamAuthenticationConfigurationConnectivity) DeliveryStreamAuthenticationConfigurationConnectivity {
 		if v != nil {
@@ -698,10 +637,11 @@ func (o DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamAuthenticationConfigurationConnectivityInput is an input type that accepts DeliveryStreamAuthenticationConfigurationConnectivityArgs and DeliveryStreamAuthenticationConfigurationConnectivityOutput values.
-// You can construct a concrete instance of `DeliveryStreamAuthenticationConfigurationConnectivityInput` via:
+// DeliveryStreamAuthenticationConfigurationConnectivityInput is an input type that accepts values of the DeliveryStreamAuthenticationConfigurationConnectivity enum
+// A concrete instance of `DeliveryStreamAuthenticationConfigurationConnectivityInput` can be one of the following:
 //
-//	DeliveryStreamAuthenticationConfigurationConnectivityArgs{...}
+//	DeliveryStreamAuthenticationConfigurationConnectivityPublic
+//	DeliveryStreamAuthenticationConfigurationConnectivityPrivate
 type DeliveryStreamAuthenticationConfigurationConnectivityInput interface {
 	pulumi.Input
 
@@ -734,12 +674,6 @@ func (in *deliveryStreamAuthenticationConfigurationConnectivityPtr) ToDeliverySt
 
 func (in *deliveryStreamAuthenticationConfigurationConnectivityPtr) ToDeliveryStreamAuthenticationConfigurationConnectivityPtrOutputWithContext(ctx context.Context) DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput)
-}
-
-func (in *deliveryStreamAuthenticationConfigurationConnectivityPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamAuthenticationConfigurationConnectivity] {
-	return pulumix.Output[*DeliveryStreamAuthenticationConfigurationConnectivity]{
-		OutputState: in.ToDeliveryStreamAuthenticationConfigurationConnectivityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat string
@@ -809,12 +743,6 @@ func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToDelivery
 	}).(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput)
 }
 
-func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat] {
-	return pulumix.Output[DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -850,12 +778,6 @@ func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) ToDeliv
 	return o
 }
 
-func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat] {
-	return pulumix.Output[*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) Elem() DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput {
 	return o.ApplyT(func(v *DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat {
 		if v != nil {
@@ -880,10 +802,11 @@ func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatInput is an input type that accepts DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatArgs and DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput values.
-// You can construct a concrete instance of `DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatInput` via:
+// DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatInput is an input type that accepts values of the DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat enum
+// A concrete instance of `DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatInput` can be one of the following:
 //
-//	DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatArgs{...}
+//	DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatFirehoseDefault
+//	DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatNoDocumentId
 type DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatInput interface {
 	pulumi.Input
 
@@ -916,12 +839,6 @@ func (in *deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr) ToDeliveryS
 
 func (in *deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput)
-}
-
-func (in *deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat] {
-	return pulumix.Output[*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat]{
-		OutputState: in.ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod string
@@ -994,12 +911,6 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOu
 	}).(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput)
 }
 
-func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod] {
-	return pulumix.Output[DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1035,12 +946,6 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPt
 	return o
 }
 
-func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod] {
-	return pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput) Elem() DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOutput {
 	return o.ApplyT(func(v *DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod) DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod {
 		if v != nil {
@@ -1065,10 +970,14 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodInput is an input type that accepts DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodArgs and DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOutput values.
-// You can construct a concrete instance of `DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodInput` via:
+// DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodInput is an input type that accepts values of the DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod enum
+// A concrete instance of `DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodInput` can be one of the following:
 //
-//	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodArgs{...}
+//	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodNoRotation
+//	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOneHour
+//	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOneDay
+//	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOneWeek
+//	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOneMonth
 type DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodInput interface {
 	pulumi.Input
 
@@ -1101,12 +1010,6 @@ func (in *deliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod
 
 func (in *deliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtr) ToDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutputWithContext(ctx context.Context) DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput)
-}
-
-func (in *deliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod] {
-	return pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod]{
-		OutputState: in.ToDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode string
@@ -1176,12 +1079,6 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeOutput) T
 	}).(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput)
 }
 
-func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1217,12 +1114,6 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput
 	return o
 }
 
-func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeOutput {
 	return o.ApplyT(func(v *DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode) DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode {
 		if v != nil {
@@ -1247,10 +1138,11 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeInput is an input type that accepts DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeArgs and DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeOutput values.
-// You can construct a concrete instance of `DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeInput` via:
+// DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeInput is an input type that accepts values of the DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode enum
+// A concrete instance of `DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeInput` can be one of the following:
 //
-//	DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeArgs{...}
+//	DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeFailedDocumentsOnly
+//	DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeAllDocuments
 type DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeInput interface {
 	pulumi.Input
 
@@ -1283,12 +1175,6 @@ func (in *deliveryStreamElasticsearchDestinationConfigurationS3BackupModePtr) To
 
 func (in *deliveryStreamElasticsearchDestinationConfigurationS3BackupModePtr) ToDeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput)
-}
-
-func (in *deliveryStreamElasticsearchDestinationConfigurationS3BackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[*DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode]{
-		OutputState: in.ToDeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamEncryptionConfigurationInputKeyType string
@@ -1358,12 +1244,6 @@ func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToDeliveryStrea
 	}).(DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput)
 }
 
-func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamEncryptionConfigurationInputKeyType] {
-	return pulumix.Output[DeliveryStreamEncryptionConfigurationInputKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1399,12 +1279,6 @@ func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToDeliverySt
 	return o
 }
 
-func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamEncryptionConfigurationInputKeyType] {
-	return pulumix.Output[*DeliveryStreamEncryptionConfigurationInputKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) Elem() DeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
 	return o.ApplyT(func(v *DeliveryStreamEncryptionConfigurationInputKeyType) DeliveryStreamEncryptionConfigurationInputKeyType {
 		if v != nil {
@@ -1429,10 +1303,11 @@ func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamEncryptionConfigurationInputKeyTypeInput is an input type that accepts DeliveryStreamEncryptionConfigurationInputKeyTypeArgs and DeliveryStreamEncryptionConfigurationInputKeyTypeOutput values.
-// You can construct a concrete instance of `DeliveryStreamEncryptionConfigurationInputKeyTypeInput` via:
+// DeliveryStreamEncryptionConfigurationInputKeyTypeInput is an input type that accepts values of the DeliveryStreamEncryptionConfigurationInputKeyType enum
+// A concrete instance of `DeliveryStreamEncryptionConfigurationInputKeyTypeInput` can be one of the following:
 //
-//	DeliveryStreamEncryptionConfigurationInputKeyTypeArgs{...}
+//	DeliveryStreamEncryptionConfigurationInputKeyTypeAwsOwnedCmk
+//	DeliveryStreamEncryptionConfigurationInputKeyTypeCustomerManagedCmk
 type DeliveryStreamEncryptionConfigurationInputKeyTypeInput interface {
 	pulumi.Input
 
@@ -1465,12 +1340,6 @@ func (in *deliveryStreamEncryptionConfigurationInputKeyTypePtr) ToDeliveryStream
 
 func (in *deliveryStreamEncryptionConfigurationInputKeyTypePtr) ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput)
-}
-
-func (in *deliveryStreamEncryptionConfigurationInputKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamEncryptionConfigurationInputKeyType] {
-	return pulumix.Output[*DeliveryStreamEncryptionConfigurationInputKeyType]{
-		OutputState: in.ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamEncryptionConfigurationNoEncryptionConfig string
@@ -1539,12 +1408,6 @@ func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigOutput) ToDeliver
 	}).(DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput)
 }
 
-func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamEncryptionConfigurationNoEncryptionConfig] {
-	return pulumix.Output[DeliveryStreamEncryptionConfigurationNoEncryptionConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1580,12 +1443,6 @@ func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput) ToDeli
 	return o
 }
 
-func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamEncryptionConfigurationNoEncryptionConfig] {
-	return pulumix.Output[*DeliveryStreamEncryptionConfigurationNoEncryptionConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput) Elem() DeliveryStreamEncryptionConfigurationNoEncryptionConfigOutput {
 	return o.ApplyT(func(v *DeliveryStreamEncryptionConfigurationNoEncryptionConfig) DeliveryStreamEncryptionConfigurationNoEncryptionConfig {
 		if v != nil {
@@ -1610,10 +1467,10 @@ func (o DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamEncryptionConfigurationNoEncryptionConfigInput is an input type that accepts DeliveryStreamEncryptionConfigurationNoEncryptionConfigArgs and DeliveryStreamEncryptionConfigurationNoEncryptionConfigOutput values.
-// You can construct a concrete instance of `DeliveryStreamEncryptionConfigurationNoEncryptionConfigInput` via:
+// DeliveryStreamEncryptionConfigurationNoEncryptionConfigInput is an input type that accepts values of the DeliveryStreamEncryptionConfigurationNoEncryptionConfig enum
+// A concrete instance of `DeliveryStreamEncryptionConfigurationNoEncryptionConfigInput` can be one of the following:
 //
-//	DeliveryStreamEncryptionConfigurationNoEncryptionConfigArgs{...}
+//	DeliveryStreamEncryptionConfigurationNoEncryptionConfigNoEncryption
 type DeliveryStreamEncryptionConfigurationNoEncryptionConfigInput interface {
 	pulumi.Input
 
@@ -1646,12 +1503,6 @@ func (in *deliveryStreamEncryptionConfigurationNoEncryptionConfigPtr) ToDelivery
 
 func (in *deliveryStreamEncryptionConfigurationNoEncryptionConfigPtr) ToDeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput)
-}
-
-func (in *deliveryStreamEncryptionConfigurationNoEncryptionConfigPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamEncryptionConfigurationNoEncryptionConfig] {
-	return pulumix.Output[*DeliveryStreamEncryptionConfigurationNoEncryptionConfig]{
-		OutputState: in.ToDeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat string
@@ -1724,12 +1575,6 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatOutput)
 	}).(DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
-func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat] {
-	return pulumix.Output[DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1765,12 +1610,6 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutp
 	return o
 }
 
-func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat] {
-	return pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput) Elem() DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatOutput {
 	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat) DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat {
 		if v != nil {
@@ -1795,10 +1634,14 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatInput is an input type that accepts DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatArgs and DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatOutput values.
-// You can construct a concrete instance of `DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatInput` via:
+// DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatInput is an input type that accepts values of the DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat enum
+// A concrete instance of `DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatInput` can be one of the following:
 //
-//	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatArgs{...}
+//	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatUncompressed
+//	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatGzip
+//	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatZip
+//	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatSnappy
+//	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatHadoopSnappy
 type DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatInput interface {
 	pulumi.Input
 
@@ -1831,12 +1674,6 @@ func (in *deliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtr) 
 
 func (in *deliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtr) ToDeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput)
-}
-
-func (in *deliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat] {
-	return pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat]{
-		OutputState: in.ToDeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode string
@@ -1906,12 +1743,6 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeOutput) ToDe
 	}).(DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput)
 }
 
-func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode] {
-	return pulumix.Output[DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1947,12 +1778,6 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput) T
 	return o
 }
 
-func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode] {
-	return pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeOutput {
 	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode) DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode {
 		if v != nil {
@@ -1977,10 +1802,11 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput) T
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeInput is an input type that accepts DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeArgs and DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeOutput values.
-// You can construct a concrete instance of `DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeInput` via:
+// DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeInput is an input type that accepts values of the DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode enum
+// A concrete instance of `DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeInput` can be one of the following:
 //
-//	DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeArgs{...}
+//	DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeDisabled
+//	DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeEnabled
 type DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeInput interface {
 	pulumi.Input
 
@@ -2013,12 +1839,6 @@ func (in *deliveryStreamExtendedS3DestinationConfigurationS3BackupModePtr) ToDel
 
 func (in *deliveryStreamExtendedS3DestinationConfigurationS3BackupModePtr) ToDeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput)
-}
-
-func (in *deliveryStreamExtendedS3DestinationConfigurationS3BackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode] {
-	return pulumix.Output[*DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode]{
-		OutputState: in.ToDeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamHttpEndpointRequestConfigurationContentEncoding string
@@ -2088,12 +1908,6 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingOutput) ToD
 	}).(DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput)
 }
 
-func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamHttpEndpointRequestConfigurationContentEncoding] {
-	return pulumix.Output[DeliveryStreamHttpEndpointRequestConfigurationContentEncoding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2129,12 +1943,6 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput) 
 	return o
 }
 
-func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamHttpEndpointRequestConfigurationContentEncoding] {
-	return pulumix.Output[*DeliveryStreamHttpEndpointRequestConfigurationContentEncoding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput) Elem() DeliveryStreamHttpEndpointRequestConfigurationContentEncodingOutput {
 	return o.ApplyT(func(v *DeliveryStreamHttpEndpointRequestConfigurationContentEncoding) DeliveryStreamHttpEndpointRequestConfigurationContentEncoding {
 		if v != nil {
@@ -2159,10 +1967,11 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamHttpEndpointRequestConfigurationContentEncodingInput is an input type that accepts DeliveryStreamHttpEndpointRequestConfigurationContentEncodingArgs and DeliveryStreamHttpEndpointRequestConfigurationContentEncodingOutput values.
-// You can construct a concrete instance of `DeliveryStreamHttpEndpointRequestConfigurationContentEncodingInput` via:
+// DeliveryStreamHttpEndpointRequestConfigurationContentEncodingInput is an input type that accepts values of the DeliveryStreamHttpEndpointRequestConfigurationContentEncoding enum
+// A concrete instance of `DeliveryStreamHttpEndpointRequestConfigurationContentEncodingInput` can be one of the following:
 //
-//	DeliveryStreamHttpEndpointRequestConfigurationContentEncodingArgs{...}
+//	DeliveryStreamHttpEndpointRequestConfigurationContentEncodingNone
+//	DeliveryStreamHttpEndpointRequestConfigurationContentEncodingGzip
 type DeliveryStreamHttpEndpointRequestConfigurationContentEncodingInput interface {
 	pulumi.Input
 
@@ -2195,12 +2004,6 @@ func (in *deliveryStreamHttpEndpointRequestConfigurationContentEncodingPtr) ToDe
 
 func (in *deliveryStreamHttpEndpointRequestConfigurationContentEncodingPtr) ToDeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutputWithContext(ctx context.Context) DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput)
-}
-
-func (in *deliveryStreamHttpEndpointRequestConfigurationContentEncodingPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamHttpEndpointRequestConfigurationContentEncoding] {
-	return pulumix.Output[*DeliveryStreamHttpEndpointRequestConfigurationContentEncoding]{
-		OutputState: in.ToDeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamProcessorType string
@@ -2273,12 +2076,6 @@ func (o DeliveryStreamProcessorTypeOutput) ToDeliveryStreamProcessorTypePtrOutpu
 	}).(DeliveryStreamProcessorTypePtrOutput)
 }
 
-func (o DeliveryStreamProcessorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamProcessorType] {
-	return pulumix.Output[DeliveryStreamProcessorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamProcessorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2314,12 +2111,6 @@ func (o DeliveryStreamProcessorTypePtrOutput) ToDeliveryStreamProcessorTypePtrOu
 	return o
 }
 
-func (o DeliveryStreamProcessorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamProcessorType] {
-	return pulumix.Output[*DeliveryStreamProcessorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamProcessorTypePtrOutput) Elem() DeliveryStreamProcessorTypeOutput {
 	return o.ApplyT(func(v *DeliveryStreamProcessorType) DeliveryStreamProcessorType {
 		if v != nil {
@@ -2344,10 +2135,14 @@ func (o DeliveryStreamProcessorTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamProcessorTypeInput is an input type that accepts DeliveryStreamProcessorTypeArgs and DeliveryStreamProcessorTypeOutput values.
-// You can construct a concrete instance of `DeliveryStreamProcessorTypeInput` via:
+// DeliveryStreamProcessorTypeInput is an input type that accepts values of the DeliveryStreamProcessorType enum
+// A concrete instance of `DeliveryStreamProcessorTypeInput` can be one of the following:
 //
-//	DeliveryStreamProcessorTypeArgs{...}
+//	DeliveryStreamProcessorTypeRecordDeAggregation
+//	DeliveryStreamProcessorTypeDecompression
+//	DeliveryStreamProcessorTypeLambda
+//	DeliveryStreamProcessorTypeMetadataExtraction
+//	DeliveryStreamProcessorTypeAppendDelimiterToRecord
 type DeliveryStreamProcessorTypeInput interface {
 	pulumi.Input
 
@@ -2380,12 +2175,6 @@ func (in *deliveryStreamProcessorTypePtr) ToDeliveryStreamProcessorTypePtrOutput
 
 func (in *deliveryStreamProcessorTypePtr) ToDeliveryStreamProcessorTypePtrOutputWithContext(ctx context.Context) DeliveryStreamProcessorTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamProcessorTypePtrOutput)
-}
-
-func (in *deliveryStreamProcessorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamProcessorType] {
-	return pulumix.Output[*DeliveryStreamProcessorType]{
-		OutputState: in.ToDeliveryStreamProcessorTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamRedshiftDestinationConfigurationS3BackupMode string
@@ -2455,12 +2244,6 @@ func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModeOutput) ToDeli
 	}).(DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput)
 }
 
-func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamRedshiftDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[DeliveryStreamRedshiftDestinationConfigurationS3BackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2496,12 +2279,6 @@ func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput) ToD
 	return o
 }
 
-func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamRedshiftDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[*DeliveryStreamRedshiftDestinationConfigurationS3BackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamRedshiftDestinationConfigurationS3BackupModeOutput {
 	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfigurationS3BackupMode) DeliveryStreamRedshiftDestinationConfigurationS3BackupMode {
 		if v != nil {
@@ -2526,10 +2303,11 @@ func (o DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamRedshiftDestinationConfigurationS3BackupModeInput is an input type that accepts DeliveryStreamRedshiftDestinationConfigurationS3BackupModeArgs and DeliveryStreamRedshiftDestinationConfigurationS3BackupModeOutput values.
-// You can construct a concrete instance of `DeliveryStreamRedshiftDestinationConfigurationS3BackupModeInput` via:
+// DeliveryStreamRedshiftDestinationConfigurationS3BackupModeInput is an input type that accepts values of the DeliveryStreamRedshiftDestinationConfigurationS3BackupMode enum
+// A concrete instance of `DeliveryStreamRedshiftDestinationConfigurationS3BackupModeInput` can be one of the following:
 //
-//	DeliveryStreamRedshiftDestinationConfigurationS3BackupModeArgs{...}
+//	DeliveryStreamRedshiftDestinationConfigurationS3BackupModeDisabled
+//	DeliveryStreamRedshiftDestinationConfigurationS3BackupModeEnabled
 type DeliveryStreamRedshiftDestinationConfigurationS3BackupModeInput interface {
 	pulumi.Input
 
@@ -2562,12 +2340,6 @@ func (in *deliveryStreamRedshiftDestinationConfigurationS3BackupModePtr) ToDeliv
 
 func (in *deliveryStreamRedshiftDestinationConfigurationS3BackupModePtr) ToDeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput)
-}
-
-func (in *deliveryStreamRedshiftDestinationConfigurationS3BackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamRedshiftDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[*DeliveryStreamRedshiftDestinationConfigurationS3BackupMode]{
-		OutputState: in.ToDeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamS3DestinationConfigurationCompressionFormat string
@@ -2640,12 +2412,6 @@ func (o DeliveryStreamS3DestinationConfigurationCompressionFormatOutput) ToDeliv
 	}).(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
-func (o DeliveryStreamS3DestinationConfigurationCompressionFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamS3DestinationConfigurationCompressionFormat] {
-	return pulumix.Output[DeliveryStreamS3DestinationConfigurationCompressionFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamS3DestinationConfigurationCompressionFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2681,12 +2447,6 @@ func (o DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput) ToDe
 	return o
 }
 
-func (o DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamS3DestinationConfigurationCompressionFormat] {
-	return pulumix.Output[*DeliveryStreamS3DestinationConfigurationCompressionFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput) Elem() DeliveryStreamS3DestinationConfigurationCompressionFormatOutput {
 	return o.ApplyT(func(v *DeliveryStreamS3DestinationConfigurationCompressionFormat) DeliveryStreamS3DestinationConfigurationCompressionFormat {
 		if v != nil {
@@ -2711,10 +2471,14 @@ func (o DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamS3DestinationConfigurationCompressionFormatInput is an input type that accepts DeliveryStreamS3DestinationConfigurationCompressionFormatArgs and DeliveryStreamS3DestinationConfigurationCompressionFormatOutput values.
-// You can construct a concrete instance of `DeliveryStreamS3DestinationConfigurationCompressionFormatInput` via:
+// DeliveryStreamS3DestinationConfigurationCompressionFormatInput is an input type that accepts values of the DeliveryStreamS3DestinationConfigurationCompressionFormat enum
+// A concrete instance of `DeliveryStreamS3DestinationConfigurationCompressionFormatInput` can be one of the following:
 //
-//	DeliveryStreamS3DestinationConfigurationCompressionFormatArgs{...}
+//	DeliveryStreamS3DestinationConfigurationCompressionFormatUncompressed
+//	DeliveryStreamS3DestinationConfigurationCompressionFormatGzip
+//	DeliveryStreamS3DestinationConfigurationCompressionFormatZip
+//	DeliveryStreamS3DestinationConfigurationCompressionFormatSnappy
+//	DeliveryStreamS3DestinationConfigurationCompressionFormatHadoopSnappy
 type DeliveryStreamS3DestinationConfigurationCompressionFormatInput interface {
 	pulumi.Input
 
@@ -2747,12 +2511,6 @@ func (in *deliveryStreamS3DestinationConfigurationCompressionFormatPtr) ToDelive
 
 func (in *deliveryStreamS3DestinationConfigurationCompressionFormatPtr) ToDeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput)
-}
-
-func (in *deliveryStreamS3DestinationConfigurationCompressionFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamS3DestinationConfigurationCompressionFormat] {
-	return pulumix.Output[*DeliveryStreamS3DestinationConfigurationCompressionFormat]{
-		OutputState: in.ToDeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption string
@@ -2823,12 +2581,6 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) 
 	}).(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput)
 }
 
-func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption] {
-	return pulumix.Output[DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2864,12 +2616,6 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutpu
 	return o
 }
 
-func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption] {
-	return pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput) Elem() DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption) DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption {
 		if v != nil {
@@ -2894,10 +2640,12 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionInput is an input type that accepts DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionArgs and DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionOutput values.
-// You can construct a concrete instance of `DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionInput` via:
+// DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionInput is an input type that accepts values of the DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption enum
+// A concrete instance of `DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionInput` can be one of the following:
 //
-//	DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionArgs{...}
+//	DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionJsonMapping
+//	DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionVariantContentMapping
+//	DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionVariantContentAndMetadataMapping
 type DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionInput interface {
 	pulumi.Input
 
@@ -2930,12 +2678,6 @@ func (in *deliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtr) T
 
 func (in *deliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtr) ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutput)
-}
-
-func (in *deliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption] {
-	return pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption]{
-		OutputState: in.ToDeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode string
@@ -3005,12 +2747,6 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ToDel
 	}).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput)
 }
 
-func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3046,12 +2782,6 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput) To
 	return o
 }
 
-func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode) DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode {
 		if v != nil {
@@ -3076,10 +2806,11 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput) To
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeInput is an input type that accepts DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeArgs and DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeOutput values.
-// You can construct a concrete instance of `DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeInput` via:
+// DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeInput is an input type that accepts values of the DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode enum
+// A concrete instance of `DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeInput` can be one of the following:
 //
-//	DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeArgs{...}
+//	DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeFailedDataOnly
+//	DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeAllData
 type DeliveryStreamSnowflakeDestinationConfigurationS3BackupModeInput interface {
 	pulumi.Input
 
@@ -3112,12 +2843,6 @@ func (in *deliveryStreamSnowflakeDestinationConfigurationS3BackupModePtr) ToDeli
 
 func (in *deliveryStreamSnowflakeDestinationConfigurationS3BackupModePtr) ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput)
-}
-
-func (in *deliveryStreamSnowflakeDestinationConfigurationS3BackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode] {
-	return pulumix.Output[*DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode]{
-		OutputState: in.ToDeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamSplunkDestinationConfigurationHecEndpointType string
@@ -3187,12 +2912,6 @@ func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToDel
 	}).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput)
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSplunkDestinationConfigurationHecEndpointType] {
-	return pulumix.Output[DeliveryStreamSplunkDestinationConfigurationHecEndpointType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3228,12 +2947,6 @@ func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) To
 	return o
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSplunkDestinationConfigurationHecEndpointType] {
-	return pulumix.Output[*DeliveryStreamSplunkDestinationConfigurationHecEndpointType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) Elem() DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput {
 	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfigurationHecEndpointType) DeliveryStreamSplunkDestinationConfigurationHecEndpointType {
 		if v != nil {
@@ -3258,10 +2971,11 @@ func (o DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput) To
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput is an input type that accepts DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeArgs and DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeOutput values.
-// You can construct a concrete instance of `DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput` via:
+// DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput is an input type that accepts values of the DeliveryStreamSplunkDestinationConfigurationHecEndpointType enum
+// A concrete instance of `DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput` can be one of the following:
 //
-//	DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeArgs{...}
+//	DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeRaw
+//	DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeEvent
 type DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput interface {
 	pulumi.Input
 
@@ -3294,12 +3008,6 @@ func (in *deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr) ToDeli
 
 func (in *deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr) ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutput)
-}
-
-func (in *deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSplunkDestinationConfigurationHecEndpointType] {
-	return pulumix.Output[*DeliveryStreamSplunkDestinationConfigurationHecEndpointType]{
-		OutputState: in.ToDeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeliveryStreamType string
@@ -3370,12 +3078,6 @@ func (o DeliveryStreamTypeOutput) ToDeliveryStreamTypePtrOutputWithContext(ctx c
 	}).(DeliveryStreamTypePtrOutput)
 }
 
-func (o DeliveryStreamTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamType] {
-	return pulumix.Output[DeliveryStreamType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3411,12 +3113,6 @@ func (o DeliveryStreamTypePtrOutput) ToDeliveryStreamTypePtrOutputWithContext(ct
 	return o
 }
 
-func (o DeliveryStreamTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamType] {
-	return pulumix.Output[*DeliveryStreamType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryStreamTypePtrOutput) Elem() DeliveryStreamTypeOutput {
 	return o.ApplyT(func(v *DeliveryStreamType) DeliveryStreamType {
 		if v != nil {
@@ -3441,10 +3137,12 @@ func (o DeliveryStreamTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryStreamTypeInput is an input type that accepts DeliveryStreamTypeArgs and DeliveryStreamTypeOutput values.
-// You can construct a concrete instance of `DeliveryStreamTypeInput` via:
+// DeliveryStreamTypeInput is an input type that accepts values of the DeliveryStreamType enum
+// A concrete instance of `DeliveryStreamTypeInput` can be one of the following:
 //
-//	DeliveryStreamTypeArgs{...}
+//	DeliveryStreamTypeDirectPut
+//	DeliveryStreamTypeKinesisStreamAsSource
+//	DeliveryStreamTypeMskasSource
 type DeliveryStreamTypeInput interface {
 	pulumi.Input
 
@@ -3477,12 +3175,6 @@ func (in *deliveryStreamTypePtr) ToDeliveryStreamTypePtrOutput() DeliveryStreamT
 
 func (in *deliveryStreamTypePtr) ToDeliveryStreamTypePtrOutputWithContext(ctx context.Context) DeliveryStreamTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamTypePtrOutput)
-}
-
-func (in *deliveryStreamTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamType] {
-	return pulumix.Output[*DeliveryStreamType]{
-		OutputState: in.ToDeliveryStreamTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

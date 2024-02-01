@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -113,12 +112,6 @@ func (i LaunchProfileStreamConfigurationArgs) ToLaunchProfileStreamConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationOutput)
 }
 
-func (i LaunchProfileStreamConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamConfiguration] {
-	return pulumix.Output[LaunchProfileStreamConfiguration]{
-		OutputState: i.ToLaunchProfileStreamConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>A configuration for a streaming session.</p>
 type LaunchProfileStreamConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -132,12 +125,6 @@ func (o LaunchProfileStreamConfigurationOutput) ToLaunchProfileStreamConfigurati
 
 func (o LaunchProfileStreamConfigurationOutput) ToLaunchProfileStreamConfigurationOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationOutput {
 	return o
-}
-
-func (o LaunchProfileStreamConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamConfiguration] {
-	return pulumix.Output[LaunchProfileStreamConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileStreamConfigurationOutput) AutomaticTerminationMode() LaunchProfileAutomaticTerminationModePtrOutput {
@@ -232,12 +219,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) ToLaunchProfileStreamConfigur
 
 func (o LaunchProfileStreamConfigurationPtrOutput) ToLaunchProfileStreamConfigurationPtrOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationPtrOutput {
 	return o
-}
-
-func (o LaunchProfileStreamConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamConfiguration] {
-	return pulumix.Output[*LaunchProfileStreamConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileStreamConfigurationPtrOutput) Elem() LaunchProfileStreamConfigurationOutput {
@@ -411,12 +392,6 @@ func (i LaunchProfileStreamConfigurationSessionBackupArgs) ToLaunchProfileStream
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionBackupOutput)
 }
 
-func (i LaunchProfileStreamConfigurationSessionBackupArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamConfigurationSessionBackup] {
-	return pulumix.Output[LaunchProfileStreamConfigurationSessionBackup]{
-		OutputState: i.ToLaunchProfileStreamConfigurationSessionBackupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LaunchProfileStreamConfigurationSessionBackupArgs) ToLaunchProfileStreamConfigurationSessionBackupPtrOutput() LaunchProfileStreamConfigurationSessionBackupPtrOutput {
 	return i.ToLaunchProfileStreamConfigurationSessionBackupPtrOutputWithContext(context.Background())
 }
@@ -458,12 +433,6 @@ func (i *launchProfileStreamConfigurationSessionBackupPtrType) ToLaunchProfileSt
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionBackupPtrOutput)
 }
 
-func (i *launchProfileStreamConfigurationSessionBackupPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamConfigurationSessionBackup] {
-	return pulumix.Output[*LaunchProfileStreamConfigurationSessionBackup]{
-		OutputState: i.ToLaunchProfileStreamConfigurationSessionBackupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Configures how streaming sessions are backed up when launched from this launch
 //
 //	profile.</p>
@@ -491,12 +460,6 @@ func (o LaunchProfileStreamConfigurationSessionBackupOutput) ToLaunchProfileStre
 	}).(LaunchProfileStreamConfigurationSessionBackupPtrOutput)
 }
 
-func (o LaunchProfileStreamConfigurationSessionBackupOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamConfigurationSessionBackup] {
-	return pulumix.Output[LaunchProfileStreamConfigurationSessionBackup]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The maximum number of backups that each streaming session created from this launch
 //
 //	profile can have.</p>
@@ -520,12 +483,6 @@ func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) ToLaunchProfileS
 
 func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) ToLaunchProfileStreamConfigurationSessionBackupPtrOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationSessionBackupPtrOutput {
 	return o
-}
-
-func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamConfigurationSessionBackup] {
-	return pulumix.Output[*LaunchProfileStreamConfigurationSessionBackup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) Elem() LaunchProfileStreamConfigurationSessionBackupOutput {
@@ -598,12 +555,6 @@ func (i LaunchProfileStreamConfigurationSessionStorageArgs) ToLaunchProfileStrea
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionStorageOutput)
 }
 
-func (i LaunchProfileStreamConfigurationSessionStorageArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamConfigurationSessionStorage] {
-	return pulumix.Output[LaunchProfileStreamConfigurationSessionStorage]{
-		OutputState: i.ToLaunchProfileStreamConfigurationSessionStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LaunchProfileStreamConfigurationSessionStorageArgs) ToLaunchProfileStreamConfigurationSessionStoragePtrOutput() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
 	return i.ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(context.Background())
 }
@@ -645,12 +596,6 @@ func (i *launchProfileStreamConfigurationSessionStoragePtrType) ToLaunchProfileS
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
 }
 
-func (i *launchProfileStreamConfigurationSessionStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamConfigurationSessionStorage] {
-	return pulumix.Output[*LaunchProfileStreamConfigurationSessionStorage]{
-		OutputState: i.ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The configuration for a streaming session’s upload storage.</p>
 type LaunchProfileStreamConfigurationSessionStorageOutput struct{ *pulumi.OutputState }
 
@@ -674,12 +619,6 @@ func (o LaunchProfileStreamConfigurationSessionStorageOutput) ToLaunchProfileStr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchProfileStreamConfigurationSessionStorage) *LaunchProfileStreamConfigurationSessionStorage {
 		return &v
 	}).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
-}
-
-func (o LaunchProfileStreamConfigurationSessionStorageOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamConfigurationSessionStorage] {
-	return pulumix.Output[LaunchProfileStreamConfigurationSessionStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>Allows artists to upload files to their workstations. The only valid option is
@@ -709,12 +648,6 @@ func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) ToLaunchProfile
 
 func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationSessionStoragePtrOutput {
 	return o
-}
-
-func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamConfigurationSessionStorage] {
-	return pulumix.Output[*LaunchProfileStreamConfigurationSessionStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Elem() LaunchProfileStreamConfigurationSessionStorageOutput {
@@ -791,12 +724,6 @@ func (i LaunchProfileStreamingSessionStorageRootArgs) ToLaunchProfileStreamingSe
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamingSessionStorageRootOutput)
 }
 
-func (i LaunchProfileStreamingSessionStorageRootArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamingSessionStorageRoot] {
-	return pulumix.Output[LaunchProfileStreamingSessionStorageRoot]{
-		OutputState: i.ToLaunchProfileStreamingSessionStorageRootOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LaunchProfileStreamingSessionStorageRootArgs) ToLaunchProfileStreamingSessionStorageRootPtrOutput() LaunchProfileStreamingSessionStorageRootPtrOutput {
 	return i.ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(context.Background())
 }
@@ -838,12 +765,6 @@ func (i *launchProfileStreamingSessionStorageRootPtrType) ToLaunchProfileStreami
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamingSessionStorageRootPtrOutput)
 }
 
-func (i *launchProfileStreamingSessionStorageRootPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamingSessionStorageRoot] {
-	return pulumix.Output[*LaunchProfileStreamingSessionStorageRoot]{
-		OutputState: i.ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The upload storage root location (folder) on streaming workstations where files are
 //
 //	uploaded.</p>
@@ -871,12 +792,6 @@ func (o LaunchProfileStreamingSessionStorageRootOutput) ToLaunchProfileStreaming
 	}).(LaunchProfileStreamingSessionStorageRootPtrOutput)
 }
 
-func (o LaunchProfileStreamingSessionStorageRootOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamingSessionStorageRoot] {
-	return pulumix.Output[LaunchProfileStreamingSessionStorageRoot]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The folder path in Linux workstations where files are uploaded.</p>
 func (o LaunchProfileStreamingSessionStorageRootOutput) Linux() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamingSessionStorageRoot) *string { return v.Linux }).(pulumi.StringPtrOutput)
@@ -899,12 +814,6 @@ func (o LaunchProfileStreamingSessionStorageRootPtrOutput) ToLaunchProfileStream
 
 func (o LaunchProfileStreamingSessionStorageRootPtrOutput) ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageRootPtrOutput {
 	return o
-}
-
-func (o LaunchProfileStreamingSessionStorageRootPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamingSessionStorageRoot] {
-	return pulumix.Output[*LaunchProfileStreamingSessionStorageRoot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Elem() LaunchProfileStreamingSessionStorageRootOutput {
@@ -966,12 +875,6 @@ func (i LaunchProfileTagsArgs) ToLaunchProfileTagsOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileTagsOutput)
 }
 
-func (i LaunchProfileTagsArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileTags] {
-	return pulumix.Output[LaunchProfileTags]{
-		OutputState: i.ToLaunchProfileTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LaunchProfileTagsArgs) ToLaunchProfileTagsPtrOutput() LaunchProfileTagsPtrOutput {
 	return i.ToLaunchProfileTagsPtrOutputWithContext(context.Background())
 }
@@ -1013,12 +916,6 @@ func (i *launchProfileTagsPtrType) ToLaunchProfileTagsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileTagsPtrOutput)
 }
 
-func (i *launchProfileTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileTags] {
-	return pulumix.Output[*LaunchProfileTags]{
-		OutputState: i.ToLaunchProfileTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LaunchProfileTagsOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileTagsOutput) ElementType() reflect.Type {
@@ -1043,12 +940,6 @@ func (o LaunchProfileTagsOutput) ToLaunchProfileTagsPtrOutputWithContext(ctx con
 	}).(LaunchProfileTagsPtrOutput)
 }
 
-func (o LaunchProfileTagsOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileTags] {
-	return pulumix.Output[LaunchProfileTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type LaunchProfileTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileTagsPtrOutput) ElementType() reflect.Type {
@@ -1061,12 +952,6 @@ func (o LaunchProfileTagsPtrOutput) ToLaunchProfileTagsPtrOutput() LaunchProfile
 
 func (o LaunchProfileTagsPtrOutput) ToLaunchProfileTagsPtrOutputWithContext(ctx context.Context) LaunchProfileTagsPtrOutput {
 	return o
-}
-
-func (o LaunchProfileTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileTags] {
-	return pulumix.Output[*LaunchProfileTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileTagsPtrOutput) Elem() LaunchProfileTagsOutput {
@@ -1136,12 +1021,6 @@ func (i LaunchProfileVolumeConfigurationArgs) ToLaunchProfileVolumeConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileVolumeConfigurationOutput)
 }
 
-func (i LaunchProfileVolumeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileVolumeConfiguration] {
-	return pulumix.Output[LaunchProfileVolumeConfiguration]{
-		OutputState: i.ToLaunchProfileVolumeConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LaunchProfileVolumeConfigurationArgs) ToLaunchProfileVolumeConfigurationPtrOutput() LaunchProfileVolumeConfigurationPtrOutput {
 	return i.ToLaunchProfileVolumeConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1183,12 +1062,6 @@ func (i *launchProfileVolumeConfigurationPtrType) ToLaunchProfileVolumeConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileVolumeConfigurationPtrOutput)
 }
 
-func (i *launchProfileVolumeConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileVolumeConfiguration] {
-	return pulumix.Output[*LaunchProfileVolumeConfiguration]{
-		OutputState: i.ToLaunchProfileVolumeConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Custom volume configuration for the root volumes that are attached to streaming
 //
 //	   sessions.</p>
@@ -1216,12 +1089,6 @@ func (o LaunchProfileVolumeConfigurationOutput) ToLaunchProfileVolumeConfigurati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchProfileVolumeConfiguration) *LaunchProfileVolumeConfiguration {
 		return &v
 	}).(LaunchProfileVolumeConfigurationPtrOutput)
-}
-
-func (o LaunchProfileVolumeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileVolumeConfiguration] {
-	return pulumix.Output[LaunchProfileVolumeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The number of I/O operations per second for the root volume that is attached to
@@ -1257,12 +1124,6 @@ func (o LaunchProfileVolumeConfigurationPtrOutput) ToLaunchProfileVolumeConfigur
 
 func (o LaunchProfileVolumeConfigurationPtrOutput) ToLaunchProfileVolumeConfigurationPtrOutputWithContext(ctx context.Context) LaunchProfileVolumeConfigurationPtrOutput {
 	return o
-}
-
-func (o LaunchProfileVolumeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileVolumeConfiguration] {
-	return pulumix.Output[*LaunchProfileVolumeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileVolumeConfigurationPtrOutput) Elem() LaunchProfileVolumeConfigurationOutput {
@@ -1333,12 +1194,6 @@ func (o StreamingImageEncryptionConfigurationOutput) ToStreamingImageEncryptionC
 	return o
 }
 
-func (o StreamingImageEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingImageEncryptionConfiguration] {
-	return pulumix.Output[StreamingImageEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The ARN for a KMS key that is used to encrypt studio data.</p>
 func (o StreamingImageEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingImageEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
@@ -1362,12 +1217,6 @@ func (o StreamingImageEncryptionConfigurationPtrOutput) ToStreamingImageEncrypti
 
 func (o StreamingImageEncryptionConfigurationPtrOutput) ToStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationPtrOutput {
 	return o
-}
-
-func (o StreamingImageEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingImageEncryptionConfiguration] {
-	return pulumix.Output[*StreamingImageEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingImageEncryptionConfigurationPtrOutput) Elem() StreamingImageEncryptionConfigurationOutput {
@@ -1428,12 +1277,6 @@ func (i StreamingImageTagsArgs) ToStreamingImageTagsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageTagsOutput)
 }
 
-func (i StreamingImageTagsArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingImageTags] {
-	return pulumix.Output[StreamingImageTags]{
-		OutputState: i.ToStreamingImageTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingImageTagsArgs) ToStreamingImageTagsPtrOutput() StreamingImageTagsPtrOutput {
 	return i.ToStreamingImageTagsPtrOutputWithContext(context.Background())
 }
@@ -1475,12 +1318,6 @@ func (i *streamingImageTagsPtrType) ToStreamingImageTagsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageTagsPtrOutput)
 }
 
-func (i *streamingImageTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingImageTags] {
-	return pulumix.Output[*StreamingImageTags]{
-		OutputState: i.ToStreamingImageTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingImageTagsOutput struct{ *pulumi.OutputState }
 
 func (StreamingImageTagsOutput) ElementType() reflect.Type {
@@ -1505,12 +1342,6 @@ func (o StreamingImageTagsOutput) ToStreamingImageTagsPtrOutputWithContext(ctx c
 	}).(StreamingImageTagsPtrOutput)
 }
 
-func (o StreamingImageTagsOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingImageTags] {
-	return pulumix.Output[StreamingImageTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type StreamingImageTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (StreamingImageTagsPtrOutput) ElementType() reflect.Type {
@@ -1523,12 +1354,6 @@ func (o StreamingImageTagsPtrOutput) ToStreamingImageTagsPtrOutput() StreamingIm
 
 func (o StreamingImageTagsPtrOutput) ToStreamingImageTagsPtrOutputWithContext(ctx context.Context) StreamingImageTagsPtrOutput {
 	return o
-}
-
-func (o StreamingImageTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingImageTags] {
-	return pulumix.Output[*StreamingImageTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingImageTagsPtrOutput) Elem() StreamingImageTagsOutput {
@@ -1551,6 +1376,111 @@ type StudioComponentActiveDirectoryComputerAttribute struct {
 	Value *string `pulumi:"value"`
 }
 
+// StudioComponentActiveDirectoryComputerAttributeInput is an input type that accepts StudioComponentActiveDirectoryComputerAttributeArgs and StudioComponentActiveDirectoryComputerAttributeOutput values.
+// You can construct a concrete instance of `StudioComponentActiveDirectoryComputerAttributeInput` via:
+//
+//	StudioComponentActiveDirectoryComputerAttributeArgs{...}
+type StudioComponentActiveDirectoryComputerAttributeInput interface {
+	pulumi.Input
+
+	ToStudioComponentActiveDirectoryComputerAttributeOutput() StudioComponentActiveDirectoryComputerAttributeOutput
+	ToStudioComponentActiveDirectoryComputerAttributeOutputWithContext(context.Context) StudioComponentActiveDirectoryComputerAttributeOutput
+}
+
+// <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
+//
+//	pair.</p>
+type StudioComponentActiveDirectoryComputerAttributeArgs struct {
+	// <p>The name for the LDAP attribute.</p>
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// <p>The value for the LDAP attribute.</p>
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StudioComponentActiveDirectoryComputerAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentActiveDirectoryComputerAttribute)(nil)).Elem()
+}
+
+func (i StudioComponentActiveDirectoryComputerAttributeArgs) ToStudioComponentActiveDirectoryComputerAttributeOutput() StudioComponentActiveDirectoryComputerAttributeOutput {
+	return i.ToStudioComponentActiveDirectoryComputerAttributeOutputWithContext(context.Background())
+}
+
+func (i StudioComponentActiveDirectoryComputerAttributeArgs) ToStudioComponentActiveDirectoryComputerAttributeOutputWithContext(ctx context.Context) StudioComponentActiveDirectoryComputerAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentActiveDirectoryComputerAttributeOutput)
+}
+
+// StudioComponentActiveDirectoryComputerAttributeArrayInput is an input type that accepts StudioComponentActiveDirectoryComputerAttributeArray and StudioComponentActiveDirectoryComputerAttributeArrayOutput values.
+// You can construct a concrete instance of `StudioComponentActiveDirectoryComputerAttributeArrayInput` via:
+//
+//	StudioComponentActiveDirectoryComputerAttributeArray{ StudioComponentActiveDirectoryComputerAttributeArgs{...} }
+type StudioComponentActiveDirectoryComputerAttributeArrayInput interface {
+	pulumi.Input
+
+	ToStudioComponentActiveDirectoryComputerAttributeArrayOutput() StudioComponentActiveDirectoryComputerAttributeArrayOutput
+	ToStudioComponentActiveDirectoryComputerAttributeArrayOutputWithContext(context.Context) StudioComponentActiveDirectoryComputerAttributeArrayOutput
+}
+
+type StudioComponentActiveDirectoryComputerAttributeArray []StudioComponentActiveDirectoryComputerAttributeInput
+
+func (StudioComponentActiveDirectoryComputerAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StudioComponentActiveDirectoryComputerAttribute)(nil)).Elem()
+}
+
+func (i StudioComponentActiveDirectoryComputerAttributeArray) ToStudioComponentActiveDirectoryComputerAttributeArrayOutput() StudioComponentActiveDirectoryComputerAttributeArrayOutput {
+	return i.ToStudioComponentActiveDirectoryComputerAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i StudioComponentActiveDirectoryComputerAttributeArray) ToStudioComponentActiveDirectoryComputerAttributeArrayOutputWithContext(ctx context.Context) StudioComponentActiveDirectoryComputerAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentActiveDirectoryComputerAttributeArrayOutput)
+}
+
+// <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
+//
+//	pair.</p>
+type StudioComponentActiveDirectoryComputerAttributeOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentActiveDirectoryComputerAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentActiveDirectoryComputerAttribute)(nil)).Elem()
+}
+
+func (o StudioComponentActiveDirectoryComputerAttributeOutput) ToStudioComponentActiveDirectoryComputerAttributeOutput() StudioComponentActiveDirectoryComputerAttributeOutput {
+	return o
+}
+
+func (o StudioComponentActiveDirectoryComputerAttributeOutput) ToStudioComponentActiveDirectoryComputerAttributeOutputWithContext(ctx context.Context) StudioComponentActiveDirectoryComputerAttributeOutput {
+	return o
+}
+
+// <p>The name for the LDAP attribute.</p>
+func (o StudioComponentActiveDirectoryComputerAttributeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentActiveDirectoryComputerAttribute) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// <p>The value for the LDAP attribute.</p>
+func (o StudioComponentActiveDirectoryComputerAttributeOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentActiveDirectoryComputerAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StudioComponentActiveDirectoryComputerAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentActiveDirectoryComputerAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StudioComponentActiveDirectoryComputerAttribute)(nil)).Elem()
+}
+
+func (o StudioComponentActiveDirectoryComputerAttributeArrayOutput) ToStudioComponentActiveDirectoryComputerAttributeArrayOutput() StudioComponentActiveDirectoryComputerAttributeArrayOutput {
+	return o
+}
+
+func (o StudioComponentActiveDirectoryComputerAttributeArrayOutput) ToStudioComponentActiveDirectoryComputerAttributeArrayOutputWithContext(ctx context.Context) StudioComponentActiveDirectoryComputerAttributeArrayOutput {
+	return o
+}
+
+func (o StudioComponentActiveDirectoryComputerAttributeArrayOutput) Index(i pulumi.IntInput) StudioComponentActiveDirectoryComputerAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StudioComponentActiveDirectoryComputerAttribute {
+		return vs[0].([]StudioComponentActiveDirectoryComputerAttribute)[vs[1].(int)]
+	}).(StudioComponentActiveDirectoryComputerAttributeOutput)
+}
+
 // <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
 //
 //	resource.</p>
@@ -1565,6 +1495,192 @@ type StudioComponentActiveDirectoryConfiguration struct {
 	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
 }
 
+// StudioComponentActiveDirectoryConfigurationInput is an input type that accepts StudioComponentActiveDirectoryConfigurationArgs and StudioComponentActiveDirectoryConfigurationOutput values.
+// You can construct a concrete instance of `StudioComponentActiveDirectoryConfigurationInput` via:
+//
+//	StudioComponentActiveDirectoryConfigurationArgs{...}
+type StudioComponentActiveDirectoryConfigurationInput interface {
+	pulumi.Input
+
+	ToStudioComponentActiveDirectoryConfigurationOutput() StudioComponentActiveDirectoryConfigurationOutput
+	ToStudioComponentActiveDirectoryConfigurationOutputWithContext(context.Context) StudioComponentActiveDirectoryConfigurationOutput
+}
+
+// <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
+//
+//	resource.</p>
+type StudioComponentActiveDirectoryConfigurationArgs struct {
+	// <p>A collection of custom attributes for an Active Directory computer.</p>
+	ComputerAttributes StudioComponentActiveDirectoryComputerAttributeArrayInput `pulumi:"computerAttributes"`
+	// <p>The directory ID of the Directory Service for Microsoft Active Directory to access
+	//             using this studio component.</p>
+	DirectoryId pulumi.StringPtrInput `pulumi:"directoryId"`
+	// <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
+	//             computer.</p>
+	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
+}
+
+func (StudioComponentActiveDirectoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i StudioComponentActiveDirectoryConfigurationArgs) ToStudioComponentActiveDirectoryConfigurationOutput() StudioComponentActiveDirectoryConfigurationOutput {
+	return i.ToStudioComponentActiveDirectoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i StudioComponentActiveDirectoryConfigurationArgs) ToStudioComponentActiveDirectoryConfigurationOutputWithContext(ctx context.Context) StudioComponentActiveDirectoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentActiveDirectoryConfigurationOutput)
+}
+
+func (i StudioComponentActiveDirectoryConfigurationArgs) ToStudioComponentActiveDirectoryConfigurationPtrOutput() StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return i.ToStudioComponentActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StudioComponentActiveDirectoryConfigurationArgs) ToStudioComponentActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentActiveDirectoryConfigurationOutput).ToStudioComponentActiveDirectoryConfigurationPtrOutputWithContext(ctx)
+}
+
+// StudioComponentActiveDirectoryConfigurationPtrInput is an input type that accepts StudioComponentActiveDirectoryConfigurationArgs, StudioComponentActiveDirectoryConfigurationPtr and StudioComponentActiveDirectoryConfigurationPtrOutput values.
+// You can construct a concrete instance of `StudioComponentActiveDirectoryConfigurationPtrInput` via:
+//
+//	        StudioComponentActiveDirectoryConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StudioComponentActiveDirectoryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStudioComponentActiveDirectoryConfigurationPtrOutput() StudioComponentActiveDirectoryConfigurationPtrOutput
+	ToStudioComponentActiveDirectoryConfigurationPtrOutputWithContext(context.Context) StudioComponentActiveDirectoryConfigurationPtrOutput
+}
+
+type studioComponentActiveDirectoryConfigurationPtrType StudioComponentActiveDirectoryConfigurationArgs
+
+func StudioComponentActiveDirectoryConfigurationPtr(v *StudioComponentActiveDirectoryConfigurationArgs) StudioComponentActiveDirectoryConfigurationPtrInput {
+	return (*studioComponentActiveDirectoryConfigurationPtrType)(v)
+}
+
+func (*studioComponentActiveDirectoryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i *studioComponentActiveDirectoryConfigurationPtrType) ToStudioComponentActiveDirectoryConfigurationPtrOutput() StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return i.ToStudioComponentActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *studioComponentActiveDirectoryConfigurationPtrType) ToStudioComponentActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentActiveDirectoryConfigurationPtrOutput)
+}
+
+// <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
+//
+//	resource.</p>
+type StudioComponentActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o StudioComponentActiveDirectoryConfigurationOutput) ToStudioComponentActiveDirectoryConfigurationOutput() StudioComponentActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o StudioComponentActiveDirectoryConfigurationOutput) ToStudioComponentActiveDirectoryConfigurationOutputWithContext(ctx context.Context) StudioComponentActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o StudioComponentActiveDirectoryConfigurationOutput) ToStudioComponentActiveDirectoryConfigurationPtrOutput() StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return o.ToStudioComponentActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StudioComponentActiveDirectoryConfigurationOutput) ToStudioComponentActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentActiveDirectoryConfiguration) *StudioComponentActiveDirectoryConfiguration {
+		return &v
+	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
+}
+
+// <p>A collection of custom attributes for an Active Directory computer.</p>
+func (o StudioComponentActiveDirectoryConfigurationOutput) ComputerAttributes() StudioComponentActiveDirectoryComputerAttributeArrayOutput {
+	return o.ApplyT(func(v StudioComponentActiveDirectoryConfiguration) []StudioComponentActiveDirectoryComputerAttribute {
+		return v.ComputerAttributes
+	}).(StudioComponentActiveDirectoryComputerAttributeArrayOutput)
+}
+
+// <p>The directory ID of the Directory Service for Microsoft Active Directory to access
+//
+//	using this studio component.</p>
+func (o StudioComponentActiveDirectoryConfigurationOutput) DirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentActiveDirectoryConfiguration) *string { return v.DirectoryId }).(pulumi.StringPtrOutput)
+}
+
+// <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
+//
+//	computer.</p>
+func (o StudioComponentActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentActiveDirectoryConfiguration) *string {
+		return v.OrganizationalUnitDistinguishedName
+	}).(pulumi.StringPtrOutput)
+}
+
+type StudioComponentActiveDirectoryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentActiveDirectoryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o StudioComponentActiveDirectoryConfigurationPtrOutput) ToStudioComponentActiveDirectoryConfigurationPtrOutput() StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o StudioComponentActiveDirectoryConfigurationPtrOutput) ToStudioComponentActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o StudioComponentActiveDirectoryConfigurationPtrOutput) Elem() StudioComponentActiveDirectoryConfigurationOutput {
+	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) StudioComponentActiveDirectoryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StudioComponentActiveDirectoryConfiguration
+		return ret
+	}).(StudioComponentActiveDirectoryConfigurationOutput)
+}
+
+// <p>A collection of custom attributes for an Active Directory computer.</p>
+func (o StudioComponentActiveDirectoryConfigurationPtrOutput) ComputerAttributes() StudioComponentActiveDirectoryComputerAttributeArrayOutput {
+	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) []StudioComponentActiveDirectoryComputerAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.ComputerAttributes
+	}).(StudioComponentActiveDirectoryComputerAttributeArrayOutput)
+}
+
+// <p>The directory ID of the Directory Service for Microsoft Active Directory to access
+//
+//	using this studio component.</p>
+func (o StudioComponentActiveDirectoryConfigurationPtrOutput) DirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DirectoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
+//
+//	computer.</p>
+func (o StudioComponentActiveDirectoryConfigurationPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnitDistinguishedName
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>The configuration for a render farm that is associated with a studio resource.</p>
 type StudioComponentComputeFarmConfiguration struct {
 	// <p>The name of an Active Directory user that is used on ComputeFarm worker
@@ -1575,9 +1691,303 @@ type StudioComponentComputeFarmConfiguration struct {
 	Endpoint *string `pulumi:"endpoint"`
 }
 
+// StudioComponentComputeFarmConfigurationInput is an input type that accepts StudioComponentComputeFarmConfigurationArgs and StudioComponentComputeFarmConfigurationOutput values.
+// You can construct a concrete instance of `StudioComponentComputeFarmConfigurationInput` via:
+//
+//	StudioComponentComputeFarmConfigurationArgs{...}
+type StudioComponentComputeFarmConfigurationInput interface {
+	pulumi.Input
+
+	ToStudioComponentComputeFarmConfigurationOutput() StudioComponentComputeFarmConfigurationOutput
+	ToStudioComponentComputeFarmConfigurationOutputWithContext(context.Context) StudioComponentComputeFarmConfigurationOutput
+}
+
+// <p>The configuration for a render farm that is associated with a studio resource.</p>
+type StudioComponentComputeFarmConfigurationArgs struct {
+	// <p>The name of an Active Directory user that is used on ComputeFarm worker
+	//             instances.</p>
+	ActiveDirectoryUser pulumi.StringPtrInput `pulumi:"activeDirectoryUser"`
+	// <p>The endpoint of the ComputeFarm that is accessed by the studio component
+	//             resource.</p>
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+}
+
+func (StudioComponentComputeFarmConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentComputeFarmConfiguration)(nil)).Elem()
+}
+
+func (i StudioComponentComputeFarmConfigurationArgs) ToStudioComponentComputeFarmConfigurationOutput() StudioComponentComputeFarmConfigurationOutput {
+	return i.ToStudioComponentComputeFarmConfigurationOutputWithContext(context.Background())
+}
+
+func (i StudioComponentComputeFarmConfigurationArgs) ToStudioComponentComputeFarmConfigurationOutputWithContext(ctx context.Context) StudioComponentComputeFarmConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentComputeFarmConfigurationOutput)
+}
+
+func (i StudioComponentComputeFarmConfigurationArgs) ToStudioComponentComputeFarmConfigurationPtrOutput() StudioComponentComputeFarmConfigurationPtrOutput {
+	return i.ToStudioComponentComputeFarmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StudioComponentComputeFarmConfigurationArgs) ToStudioComponentComputeFarmConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentComputeFarmConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentComputeFarmConfigurationOutput).ToStudioComponentComputeFarmConfigurationPtrOutputWithContext(ctx)
+}
+
+// StudioComponentComputeFarmConfigurationPtrInput is an input type that accepts StudioComponentComputeFarmConfigurationArgs, StudioComponentComputeFarmConfigurationPtr and StudioComponentComputeFarmConfigurationPtrOutput values.
+// You can construct a concrete instance of `StudioComponentComputeFarmConfigurationPtrInput` via:
+//
+//	        StudioComponentComputeFarmConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StudioComponentComputeFarmConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStudioComponentComputeFarmConfigurationPtrOutput() StudioComponentComputeFarmConfigurationPtrOutput
+	ToStudioComponentComputeFarmConfigurationPtrOutputWithContext(context.Context) StudioComponentComputeFarmConfigurationPtrOutput
+}
+
+type studioComponentComputeFarmConfigurationPtrType StudioComponentComputeFarmConfigurationArgs
+
+func StudioComponentComputeFarmConfigurationPtr(v *StudioComponentComputeFarmConfigurationArgs) StudioComponentComputeFarmConfigurationPtrInput {
+	return (*studioComponentComputeFarmConfigurationPtrType)(v)
+}
+
+func (*studioComponentComputeFarmConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentComputeFarmConfiguration)(nil)).Elem()
+}
+
+func (i *studioComponentComputeFarmConfigurationPtrType) ToStudioComponentComputeFarmConfigurationPtrOutput() StudioComponentComputeFarmConfigurationPtrOutput {
+	return i.ToStudioComponentComputeFarmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *studioComponentComputeFarmConfigurationPtrType) ToStudioComponentComputeFarmConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentComputeFarmConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentComputeFarmConfigurationPtrOutput)
+}
+
+// <p>The configuration for a render farm that is associated with a studio resource.</p>
+type StudioComponentComputeFarmConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentComputeFarmConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentComputeFarmConfiguration)(nil)).Elem()
+}
+
+func (o StudioComponentComputeFarmConfigurationOutput) ToStudioComponentComputeFarmConfigurationOutput() StudioComponentComputeFarmConfigurationOutput {
+	return o
+}
+
+func (o StudioComponentComputeFarmConfigurationOutput) ToStudioComponentComputeFarmConfigurationOutputWithContext(ctx context.Context) StudioComponentComputeFarmConfigurationOutput {
+	return o
+}
+
+func (o StudioComponentComputeFarmConfigurationOutput) ToStudioComponentComputeFarmConfigurationPtrOutput() StudioComponentComputeFarmConfigurationPtrOutput {
+	return o.ToStudioComponentComputeFarmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StudioComponentComputeFarmConfigurationOutput) ToStudioComponentComputeFarmConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentComputeFarmConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentComputeFarmConfiguration) *StudioComponentComputeFarmConfiguration {
+		return &v
+	}).(StudioComponentComputeFarmConfigurationPtrOutput)
+}
+
+// <p>The name of an Active Directory user that is used on ComputeFarm worker
+//
+//	instances.</p>
+func (o StudioComponentComputeFarmConfigurationOutput) ActiveDirectoryUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentComputeFarmConfiguration) *string { return v.ActiveDirectoryUser }).(pulumi.StringPtrOutput)
+}
+
+// <p>The endpoint of the ComputeFarm that is accessed by the studio component
+//
+//	resource.</p>
+func (o StudioComponentComputeFarmConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentComputeFarmConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+type StudioComponentComputeFarmConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentComputeFarmConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentComputeFarmConfiguration)(nil)).Elem()
+}
+
+func (o StudioComponentComputeFarmConfigurationPtrOutput) ToStudioComponentComputeFarmConfigurationPtrOutput() StudioComponentComputeFarmConfigurationPtrOutput {
+	return o
+}
+
+func (o StudioComponentComputeFarmConfigurationPtrOutput) ToStudioComponentComputeFarmConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentComputeFarmConfigurationPtrOutput {
+	return o
+}
+
+func (o StudioComponentComputeFarmConfigurationPtrOutput) Elem() StudioComponentComputeFarmConfigurationOutput {
+	return o.ApplyT(func(v *StudioComponentComputeFarmConfiguration) StudioComponentComputeFarmConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StudioComponentComputeFarmConfiguration
+		return ret
+	}).(StudioComponentComputeFarmConfigurationOutput)
+}
+
+// <p>The name of an Active Directory user that is used on ComputeFarm worker
+//
+//	instances.</p>
+func (o StudioComponentComputeFarmConfigurationPtrOutput) ActiveDirectoryUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponentComputeFarmConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryUser
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The endpoint of the ComputeFarm that is accessed by the studio component
+//
+//	resource.</p>
+func (o StudioComponentComputeFarmConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponentComputeFarmConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>The configuration of the studio component, based on component type.</p>
 type StudioComponentConfiguration0Properties struct {
 	ActiveDirectoryConfiguration StudioComponentActiveDirectoryConfiguration `pulumi:"activeDirectoryConfiguration"`
+}
+
+// StudioComponentConfiguration0PropertiesInput is an input type that accepts StudioComponentConfiguration0PropertiesArgs and StudioComponentConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `StudioComponentConfiguration0PropertiesInput` via:
+//
+//	StudioComponentConfiguration0PropertiesArgs{...}
+type StudioComponentConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToStudioComponentConfiguration0PropertiesOutput() StudioComponentConfiguration0PropertiesOutput
+	ToStudioComponentConfiguration0PropertiesOutputWithContext(context.Context) StudioComponentConfiguration0PropertiesOutput
+}
+
+// <p>The configuration of the studio component, based on component type.</p>
+type StudioComponentConfiguration0PropertiesArgs struct {
+	ActiveDirectoryConfiguration StudioComponentActiveDirectoryConfigurationInput `pulumi:"activeDirectoryConfiguration"`
+}
+
+func (StudioComponentConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentConfiguration0Properties)(nil)).Elem()
+}
+
+func (i StudioComponentConfiguration0PropertiesArgs) ToStudioComponentConfiguration0PropertiesOutput() StudioComponentConfiguration0PropertiesOutput {
+	return i.ToStudioComponentConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i StudioComponentConfiguration0PropertiesArgs) ToStudioComponentConfiguration0PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration0PropertiesOutput)
+}
+
+func (i StudioComponentConfiguration0PropertiesArgs) ToStudioComponentConfiguration0PropertiesPtrOutput() StudioComponentConfiguration0PropertiesPtrOutput {
+	return i.ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StudioComponentConfiguration0PropertiesArgs) ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration0PropertiesOutput).ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(ctx)
+}
+
+// StudioComponentConfiguration0PropertiesPtrInput is an input type that accepts StudioComponentConfiguration0PropertiesArgs, StudioComponentConfiguration0PropertiesPtr and StudioComponentConfiguration0PropertiesPtrOutput values.
+// You can construct a concrete instance of `StudioComponentConfiguration0PropertiesPtrInput` via:
+//
+//	        StudioComponentConfiguration0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type StudioComponentConfiguration0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStudioComponentConfiguration0PropertiesPtrOutput() StudioComponentConfiguration0PropertiesPtrOutput
+	ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(context.Context) StudioComponentConfiguration0PropertiesPtrOutput
+}
+
+type studioComponentConfiguration0PropertiesPtrType StudioComponentConfiguration0PropertiesArgs
+
+func StudioComponentConfiguration0PropertiesPtr(v *StudioComponentConfiguration0PropertiesArgs) StudioComponentConfiguration0PropertiesPtrInput {
+	return (*studioComponentConfiguration0PropertiesPtrType)(v)
+}
+
+func (*studioComponentConfiguration0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentConfiguration0Properties)(nil)).Elem()
+}
+
+func (i *studioComponentConfiguration0PropertiesPtrType) ToStudioComponentConfiguration0PropertiesPtrOutput() StudioComponentConfiguration0PropertiesPtrOutput {
+	return i.ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *studioComponentConfiguration0PropertiesPtrType) ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration0PropertiesPtrOutput)
+}
+
+// <p>The configuration of the studio component, based on component type.</p>
+type StudioComponentConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentConfiguration0Properties)(nil)).Elem()
+}
+
+func (o StudioComponentConfiguration0PropertiesOutput) ToStudioComponentConfiguration0PropertiesOutput() StudioComponentConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration0PropertiesOutput) ToStudioComponentConfiguration0PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration0PropertiesOutput) ToStudioComponentConfiguration0PropertiesPtrOutput() StudioComponentConfiguration0PropertiesPtrOutput {
+	return o.ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StudioComponentConfiguration0PropertiesOutput) ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentConfiguration0Properties) *StudioComponentConfiguration0Properties {
+		return &v
+	}).(StudioComponentConfiguration0PropertiesPtrOutput)
+}
+
+func (o StudioComponentConfiguration0PropertiesOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationOutput {
+	return o.ApplyT(func(v StudioComponentConfiguration0Properties) StudioComponentActiveDirectoryConfiguration {
+		return v.ActiveDirectoryConfiguration
+	}).(StudioComponentActiveDirectoryConfigurationOutput)
+}
+
+type StudioComponentConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentConfiguration0Properties)(nil)).Elem()
+}
+
+func (o StudioComponentConfiguration0PropertiesPtrOutput) ToStudioComponentConfiguration0PropertiesPtrOutput() StudioComponentConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration0PropertiesPtrOutput) ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration0PropertiesPtrOutput) Elem() StudioComponentConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration0Properties) StudioComponentConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret StudioComponentConfiguration0Properties
+		return ret
+	}).(StudioComponentConfiguration0PropertiesOutput)
+}
+
+func (o StudioComponentConfiguration0PropertiesPtrOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration0Properties) *StudioComponentActiveDirectoryConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.ActiveDirectoryConfiguration
+	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
 }
 
 // <p>The configuration of the studio component, based on component type.</p>
@@ -1585,14 +1995,413 @@ type StudioComponentConfiguration1Properties struct {
 	ComputeFarmConfiguration StudioComponentComputeFarmConfiguration `pulumi:"computeFarmConfiguration"`
 }
 
+// StudioComponentConfiguration1PropertiesInput is an input type that accepts StudioComponentConfiguration1PropertiesArgs and StudioComponentConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `StudioComponentConfiguration1PropertiesInput` via:
+//
+//	StudioComponentConfiguration1PropertiesArgs{...}
+type StudioComponentConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToStudioComponentConfiguration1PropertiesOutput() StudioComponentConfiguration1PropertiesOutput
+	ToStudioComponentConfiguration1PropertiesOutputWithContext(context.Context) StudioComponentConfiguration1PropertiesOutput
+}
+
+// <p>The configuration of the studio component, based on component type.</p>
+type StudioComponentConfiguration1PropertiesArgs struct {
+	ComputeFarmConfiguration StudioComponentComputeFarmConfigurationInput `pulumi:"computeFarmConfiguration"`
+}
+
+func (StudioComponentConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentConfiguration1Properties)(nil)).Elem()
+}
+
+func (i StudioComponentConfiguration1PropertiesArgs) ToStudioComponentConfiguration1PropertiesOutput() StudioComponentConfiguration1PropertiesOutput {
+	return i.ToStudioComponentConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i StudioComponentConfiguration1PropertiesArgs) ToStudioComponentConfiguration1PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration1PropertiesOutput)
+}
+
+func (i StudioComponentConfiguration1PropertiesArgs) ToStudioComponentConfiguration1PropertiesPtrOutput() StudioComponentConfiguration1PropertiesPtrOutput {
+	return i.ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StudioComponentConfiguration1PropertiesArgs) ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration1PropertiesOutput).ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(ctx)
+}
+
+// StudioComponentConfiguration1PropertiesPtrInput is an input type that accepts StudioComponentConfiguration1PropertiesArgs, StudioComponentConfiguration1PropertiesPtr and StudioComponentConfiguration1PropertiesPtrOutput values.
+// You can construct a concrete instance of `StudioComponentConfiguration1PropertiesPtrInput` via:
+//
+//	        StudioComponentConfiguration1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type StudioComponentConfiguration1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStudioComponentConfiguration1PropertiesPtrOutput() StudioComponentConfiguration1PropertiesPtrOutput
+	ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(context.Context) StudioComponentConfiguration1PropertiesPtrOutput
+}
+
+type studioComponentConfiguration1PropertiesPtrType StudioComponentConfiguration1PropertiesArgs
+
+func StudioComponentConfiguration1PropertiesPtr(v *StudioComponentConfiguration1PropertiesArgs) StudioComponentConfiguration1PropertiesPtrInput {
+	return (*studioComponentConfiguration1PropertiesPtrType)(v)
+}
+
+func (*studioComponentConfiguration1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentConfiguration1Properties)(nil)).Elem()
+}
+
+func (i *studioComponentConfiguration1PropertiesPtrType) ToStudioComponentConfiguration1PropertiesPtrOutput() StudioComponentConfiguration1PropertiesPtrOutput {
+	return i.ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *studioComponentConfiguration1PropertiesPtrType) ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration1PropertiesPtrOutput)
+}
+
+// <p>The configuration of the studio component, based on component type.</p>
+type StudioComponentConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentConfiguration1Properties)(nil)).Elem()
+}
+
+func (o StudioComponentConfiguration1PropertiesOutput) ToStudioComponentConfiguration1PropertiesOutput() StudioComponentConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration1PropertiesOutput) ToStudioComponentConfiguration1PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration1PropertiesOutput) ToStudioComponentConfiguration1PropertiesPtrOutput() StudioComponentConfiguration1PropertiesPtrOutput {
+	return o.ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StudioComponentConfiguration1PropertiesOutput) ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentConfiguration1Properties) *StudioComponentConfiguration1Properties {
+		return &v
+	}).(StudioComponentConfiguration1PropertiesPtrOutput)
+}
+
+func (o StudioComponentConfiguration1PropertiesOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationOutput {
+	return o.ApplyT(func(v StudioComponentConfiguration1Properties) StudioComponentComputeFarmConfiguration {
+		return v.ComputeFarmConfiguration
+	}).(StudioComponentComputeFarmConfigurationOutput)
+}
+
+type StudioComponentConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentConfiguration1Properties)(nil)).Elem()
+}
+
+func (o StudioComponentConfiguration1PropertiesPtrOutput) ToStudioComponentConfiguration1PropertiesPtrOutput() StudioComponentConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration1PropertiesPtrOutput) ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration1PropertiesPtrOutput) Elem() StudioComponentConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration1Properties) StudioComponentConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret StudioComponentConfiguration1Properties
+		return ret
+	}).(StudioComponentConfiguration1PropertiesOutput)
+}
+
+func (o StudioComponentConfiguration1PropertiesPtrOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration1Properties) *StudioComponentComputeFarmConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.ComputeFarmConfiguration
+	}).(StudioComponentComputeFarmConfigurationPtrOutput)
+}
+
 // <p>The configuration of the studio component, based on component type.</p>
 type StudioComponentConfiguration2Properties struct {
 	LicenseServiceConfiguration StudioComponentLicenseServiceConfiguration `pulumi:"licenseServiceConfiguration"`
 }
 
+// StudioComponentConfiguration2PropertiesInput is an input type that accepts StudioComponentConfiguration2PropertiesArgs and StudioComponentConfiguration2PropertiesOutput values.
+// You can construct a concrete instance of `StudioComponentConfiguration2PropertiesInput` via:
+//
+//	StudioComponentConfiguration2PropertiesArgs{...}
+type StudioComponentConfiguration2PropertiesInput interface {
+	pulumi.Input
+
+	ToStudioComponentConfiguration2PropertiesOutput() StudioComponentConfiguration2PropertiesOutput
+	ToStudioComponentConfiguration2PropertiesOutputWithContext(context.Context) StudioComponentConfiguration2PropertiesOutput
+}
+
+// <p>The configuration of the studio component, based on component type.</p>
+type StudioComponentConfiguration2PropertiesArgs struct {
+	LicenseServiceConfiguration StudioComponentLicenseServiceConfigurationInput `pulumi:"licenseServiceConfiguration"`
+}
+
+func (StudioComponentConfiguration2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentConfiguration2Properties)(nil)).Elem()
+}
+
+func (i StudioComponentConfiguration2PropertiesArgs) ToStudioComponentConfiguration2PropertiesOutput() StudioComponentConfiguration2PropertiesOutput {
+	return i.ToStudioComponentConfiguration2PropertiesOutputWithContext(context.Background())
+}
+
+func (i StudioComponentConfiguration2PropertiesArgs) ToStudioComponentConfiguration2PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration2PropertiesOutput)
+}
+
+func (i StudioComponentConfiguration2PropertiesArgs) ToStudioComponentConfiguration2PropertiesPtrOutput() StudioComponentConfiguration2PropertiesPtrOutput {
+	return i.ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StudioComponentConfiguration2PropertiesArgs) ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration2PropertiesOutput).ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(ctx)
+}
+
+// StudioComponentConfiguration2PropertiesPtrInput is an input type that accepts StudioComponentConfiguration2PropertiesArgs, StudioComponentConfiguration2PropertiesPtr and StudioComponentConfiguration2PropertiesPtrOutput values.
+// You can construct a concrete instance of `StudioComponentConfiguration2PropertiesPtrInput` via:
+//
+//	        StudioComponentConfiguration2PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type StudioComponentConfiguration2PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStudioComponentConfiguration2PropertiesPtrOutput() StudioComponentConfiguration2PropertiesPtrOutput
+	ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(context.Context) StudioComponentConfiguration2PropertiesPtrOutput
+}
+
+type studioComponentConfiguration2PropertiesPtrType StudioComponentConfiguration2PropertiesArgs
+
+func StudioComponentConfiguration2PropertiesPtr(v *StudioComponentConfiguration2PropertiesArgs) StudioComponentConfiguration2PropertiesPtrInput {
+	return (*studioComponentConfiguration2PropertiesPtrType)(v)
+}
+
+func (*studioComponentConfiguration2PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentConfiguration2Properties)(nil)).Elem()
+}
+
+func (i *studioComponentConfiguration2PropertiesPtrType) ToStudioComponentConfiguration2PropertiesPtrOutput() StudioComponentConfiguration2PropertiesPtrOutput {
+	return i.ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *studioComponentConfiguration2PropertiesPtrType) ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration2PropertiesPtrOutput)
+}
+
+// <p>The configuration of the studio component, based on component type.</p>
+type StudioComponentConfiguration2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentConfiguration2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentConfiguration2Properties)(nil)).Elem()
+}
+
+func (o StudioComponentConfiguration2PropertiesOutput) ToStudioComponentConfiguration2PropertiesOutput() StudioComponentConfiguration2PropertiesOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration2PropertiesOutput) ToStudioComponentConfiguration2PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration2PropertiesOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration2PropertiesOutput) ToStudioComponentConfiguration2PropertiesPtrOutput() StudioComponentConfiguration2PropertiesPtrOutput {
+	return o.ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StudioComponentConfiguration2PropertiesOutput) ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration2PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentConfiguration2Properties) *StudioComponentConfiguration2Properties {
+		return &v
+	}).(StudioComponentConfiguration2PropertiesPtrOutput)
+}
+
+func (o StudioComponentConfiguration2PropertiesOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationOutput {
+	return o.ApplyT(func(v StudioComponentConfiguration2Properties) StudioComponentLicenseServiceConfiguration {
+		return v.LicenseServiceConfiguration
+	}).(StudioComponentLicenseServiceConfigurationOutput)
+}
+
+type StudioComponentConfiguration2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentConfiguration2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentConfiguration2Properties)(nil)).Elem()
+}
+
+func (o StudioComponentConfiguration2PropertiesPtrOutput) ToStudioComponentConfiguration2PropertiesPtrOutput() StudioComponentConfiguration2PropertiesPtrOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration2PropertiesPtrOutput) ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration2PropertiesPtrOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration2PropertiesPtrOutput) Elem() StudioComponentConfiguration2PropertiesOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration2Properties) StudioComponentConfiguration2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret StudioComponentConfiguration2Properties
+		return ret
+	}).(StudioComponentConfiguration2PropertiesOutput)
+}
+
+func (o StudioComponentConfiguration2PropertiesPtrOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration2Properties) *StudioComponentLicenseServiceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.LicenseServiceConfiguration
+	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
+}
+
 // <p>The configuration of the studio component, based on component type.</p>
 type StudioComponentConfiguration3Properties struct {
 	SharedFileSystemConfiguration StudioComponentSharedFileSystemConfiguration `pulumi:"sharedFileSystemConfiguration"`
+}
+
+// StudioComponentConfiguration3PropertiesInput is an input type that accepts StudioComponentConfiguration3PropertiesArgs and StudioComponentConfiguration3PropertiesOutput values.
+// You can construct a concrete instance of `StudioComponentConfiguration3PropertiesInput` via:
+//
+//	StudioComponentConfiguration3PropertiesArgs{...}
+type StudioComponentConfiguration3PropertiesInput interface {
+	pulumi.Input
+
+	ToStudioComponentConfiguration3PropertiesOutput() StudioComponentConfiguration3PropertiesOutput
+	ToStudioComponentConfiguration3PropertiesOutputWithContext(context.Context) StudioComponentConfiguration3PropertiesOutput
+}
+
+// <p>The configuration of the studio component, based on component type.</p>
+type StudioComponentConfiguration3PropertiesArgs struct {
+	SharedFileSystemConfiguration StudioComponentSharedFileSystemConfigurationInput `pulumi:"sharedFileSystemConfiguration"`
+}
+
+func (StudioComponentConfiguration3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentConfiguration3Properties)(nil)).Elem()
+}
+
+func (i StudioComponentConfiguration3PropertiesArgs) ToStudioComponentConfiguration3PropertiesOutput() StudioComponentConfiguration3PropertiesOutput {
+	return i.ToStudioComponentConfiguration3PropertiesOutputWithContext(context.Background())
+}
+
+func (i StudioComponentConfiguration3PropertiesArgs) ToStudioComponentConfiguration3PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration3PropertiesOutput)
+}
+
+func (i StudioComponentConfiguration3PropertiesArgs) ToStudioComponentConfiguration3PropertiesPtrOutput() StudioComponentConfiguration3PropertiesPtrOutput {
+	return i.ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StudioComponentConfiguration3PropertiesArgs) ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration3PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration3PropertiesOutput).ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(ctx)
+}
+
+// StudioComponentConfiguration3PropertiesPtrInput is an input type that accepts StudioComponentConfiguration3PropertiesArgs, StudioComponentConfiguration3PropertiesPtr and StudioComponentConfiguration3PropertiesPtrOutput values.
+// You can construct a concrete instance of `StudioComponentConfiguration3PropertiesPtrInput` via:
+//
+//	        StudioComponentConfiguration3PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type StudioComponentConfiguration3PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStudioComponentConfiguration3PropertiesPtrOutput() StudioComponentConfiguration3PropertiesPtrOutput
+	ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(context.Context) StudioComponentConfiguration3PropertiesPtrOutput
+}
+
+type studioComponentConfiguration3PropertiesPtrType StudioComponentConfiguration3PropertiesArgs
+
+func StudioComponentConfiguration3PropertiesPtr(v *StudioComponentConfiguration3PropertiesArgs) StudioComponentConfiguration3PropertiesPtrInput {
+	return (*studioComponentConfiguration3PropertiesPtrType)(v)
+}
+
+func (*studioComponentConfiguration3PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentConfiguration3Properties)(nil)).Elem()
+}
+
+func (i *studioComponentConfiguration3PropertiesPtrType) ToStudioComponentConfiguration3PropertiesPtrOutput() StudioComponentConfiguration3PropertiesPtrOutput {
+	return i.ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *studioComponentConfiguration3PropertiesPtrType) ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration3PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration3PropertiesPtrOutput)
+}
+
+// <p>The configuration of the studio component, based on component type.</p>
+type StudioComponentConfiguration3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentConfiguration3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentConfiguration3Properties)(nil)).Elem()
+}
+
+func (o StudioComponentConfiguration3PropertiesOutput) ToStudioComponentConfiguration3PropertiesOutput() StudioComponentConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration3PropertiesOutput) ToStudioComponentConfiguration3PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration3PropertiesOutput) ToStudioComponentConfiguration3PropertiesPtrOutput() StudioComponentConfiguration3PropertiesPtrOutput {
+	return o.ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StudioComponentConfiguration3PropertiesOutput) ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration3PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentConfiguration3Properties) *StudioComponentConfiguration3Properties {
+		return &v
+	}).(StudioComponentConfiguration3PropertiesPtrOutput)
+}
+
+func (o StudioComponentConfiguration3PropertiesOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationOutput {
+	return o.ApplyT(func(v StudioComponentConfiguration3Properties) StudioComponentSharedFileSystemConfiguration {
+		return v.SharedFileSystemConfiguration
+	}).(StudioComponentSharedFileSystemConfigurationOutput)
+}
+
+type StudioComponentConfiguration3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentConfiguration3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentConfiguration3Properties)(nil)).Elem()
+}
+
+func (o StudioComponentConfiguration3PropertiesPtrOutput) ToStudioComponentConfiguration3PropertiesPtrOutput() StudioComponentConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration3PropertiesPtrOutput) ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o StudioComponentConfiguration3PropertiesPtrOutput) Elem() StudioComponentConfiguration3PropertiesOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration3Properties) StudioComponentConfiguration3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret StudioComponentConfiguration3Properties
+		return ret
+	}).(StudioComponentConfiguration3PropertiesOutput)
+}
+
+func (o StudioComponentConfiguration3PropertiesPtrOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration3Properties) *StudioComponentSharedFileSystemConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SharedFileSystemConfiguration
+	}).(StudioComponentSharedFileSystemConfigurationPtrOutput)
 }
 
 // <p>Initialization scripts for studio components.</p>
@@ -1640,12 +2449,6 @@ func (i StudioComponentInitializationScriptArgs) ToStudioComponentInitialization
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentInitializationScriptOutput)
 }
 
-func (i StudioComponentInitializationScriptArgs) ToOutput(ctx context.Context) pulumix.Output[StudioComponentInitializationScript] {
-	return pulumix.Output[StudioComponentInitializationScript]{
-		OutputState: i.ToStudioComponentInitializationScriptOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StudioComponentInitializationScriptArrayInput is an input type that accepts StudioComponentInitializationScriptArray and StudioComponentInitializationScriptArrayOutput values.
 // You can construct a concrete instance of `StudioComponentInitializationScriptArrayInput` via:
 //
@@ -1671,12 +2474,6 @@ func (i StudioComponentInitializationScriptArray) ToStudioComponentInitializatio
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentInitializationScriptArrayOutput)
 }
 
-func (i StudioComponentInitializationScriptArray) ToOutput(ctx context.Context) pulumix.Output[[]StudioComponentInitializationScript] {
-	return pulumix.Output[[]StudioComponentInitializationScript]{
-		OutputState: i.ToStudioComponentInitializationScriptArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Initialization scripts for studio components.</p>
 type StudioComponentInitializationScriptOutput struct{ *pulumi.OutputState }
 
@@ -1690,12 +2487,6 @@ func (o StudioComponentInitializationScriptOutput) ToStudioComponentInitializati
 
 func (o StudioComponentInitializationScriptOutput) ToStudioComponentInitializationScriptOutputWithContext(ctx context.Context) StudioComponentInitializationScriptOutput {
 	return o
-}
-
-func (o StudioComponentInitializationScriptOutput) ToOutput(ctx context.Context) pulumix.Output[StudioComponentInitializationScript] {
-	return pulumix.Output[StudioComponentInitializationScript]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The version number of the protocol that is used by the launch profile. The only valid
@@ -1734,12 +2525,6 @@ func (o StudioComponentInitializationScriptArrayOutput) ToStudioComponentInitial
 	return o
 }
 
-func (o StudioComponentInitializationScriptArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StudioComponentInitializationScript] {
-	return pulumix.Output[[]StudioComponentInitializationScript]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioComponentInitializationScriptArrayOutput) Index(i pulumi.IntInput) StudioComponentInitializationScriptOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StudioComponentInitializationScript {
 		return vs[0].([]StudioComponentInitializationScript)[vs[1].(int)]
@@ -1753,6 +2538,149 @@ type StudioComponentLicenseServiceConfiguration struct {
 	// <p>The endpoint of the license service that is accessed by the studio component
 	//             resource.</p>
 	Endpoint *string `pulumi:"endpoint"`
+}
+
+// StudioComponentLicenseServiceConfigurationInput is an input type that accepts StudioComponentLicenseServiceConfigurationArgs and StudioComponentLicenseServiceConfigurationOutput values.
+// You can construct a concrete instance of `StudioComponentLicenseServiceConfigurationInput` via:
+//
+//	StudioComponentLicenseServiceConfigurationArgs{...}
+type StudioComponentLicenseServiceConfigurationInput interface {
+	pulumi.Input
+
+	ToStudioComponentLicenseServiceConfigurationOutput() StudioComponentLicenseServiceConfigurationOutput
+	ToStudioComponentLicenseServiceConfigurationOutputWithContext(context.Context) StudioComponentLicenseServiceConfigurationOutput
+}
+
+// <p>The configuration for a license service that is associated with a studio
+//
+//	resource.</p>
+type StudioComponentLicenseServiceConfigurationArgs struct {
+	// <p>The endpoint of the license service that is accessed by the studio component
+	//             resource.</p>
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+}
+
+func (StudioComponentLicenseServiceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentLicenseServiceConfiguration)(nil)).Elem()
+}
+
+func (i StudioComponentLicenseServiceConfigurationArgs) ToStudioComponentLicenseServiceConfigurationOutput() StudioComponentLicenseServiceConfigurationOutput {
+	return i.ToStudioComponentLicenseServiceConfigurationOutputWithContext(context.Background())
+}
+
+func (i StudioComponentLicenseServiceConfigurationArgs) ToStudioComponentLicenseServiceConfigurationOutputWithContext(ctx context.Context) StudioComponentLicenseServiceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentLicenseServiceConfigurationOutput)
+}
+
+func (i StudioComponentLicenseServiceConfigurationArgs) ToStudioComponentLicenseServiceConfigurationPtrOutput() StudioComponentLicenseServiceConfigurationPtrOutput {
+	return i.ToStudioComponentLicenseServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StudioComponentLicenseServiceConfigurationArgs) ToStudioComponentLicenseServiceConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentLicenseServiceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentLicenseServiceConfigurationOutput).ToStudioComponentLicenseServiceConfigurationPtrOutputWithContext(ctx)
+}
+
+// StudioComponentLicenseServiceConfigurationPtrInput is an input type that accepts StudioComponentLicenseServiceConfigurationArgs, StudioComponentLicenseServiceConfigurationPtr and StudioComponentLicenseServiceConfigurationPtrOutput values.
+// You can construct a concrete instance of `StudioComponentLicenseServiceConfigurationPtrInput` via:
+//
+//	        StudioComponentLicenseServiceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StudioComponentLicenseServiceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStudioComponentLicenseServiceConfigurationPtrOutput() StudioComponentLicenseServiceConfigurationPtrOutput
+	ToStudioComponentLicenseServiceConfigurationPtrOutputWithContext(context.Context) StudioComponentLicenseServiceConfigurationPtrOutput
+}
+
+type studioComponentLicenseServiceConfigurationPtrType StudioComponentLicenseServiceConfigurationArgs
+
+func StudioComponentLicenseServiceConfigurationPtr(v *StudioComponentLicenseServiceConfigurationArgs) StudioComponentLicenseServiceConfigurationPtrInput {
+	return (*studioComponentLicenseServiceConfigurationPtrType)(v)
+}
+
+func (*studioComponentLicenseServiceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentLicenseServiceConfiguration)(nil)).Elem()
+}
+
+func (i *studioComponentLicenseServiceConfigurationPtrType) ToStudioComponentLicenseServiceConfigurationPtrOutput() StudioComponentLicenseServiceConfigurationPtrOutput {
+	return i.ToStudioComponentLicenseServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *studioComponentLicenseServiceConfigurationPtrType) ToStudioComponentLicenseServiceConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentLicenseServiceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentLicenseServiceConfigurationPtrOutput)
+}
+
+// <p>The configuration for a license service that is associated with a studio
+//
+//	resource.</p>
+type StudioComponentLicenseServiceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentLicenseServiceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentLicenseServiceConfiguration)(nil)).Elem()
+}
+
+func (o StudioComponentLicenseServiceConfigurationOutput) ToStudioComponentLicenseServiceConfigurationOutput() StudioComponentLicenseServiceConfigurationOutput {
+	return o
+}
+
+func (o StudioComponentLicenseServiceConfigurationOutput) ToStudioComponentLicenseServiceConfigurationOutputWithContext(ctx context.Context) StudioComponentLicenseServiceConfigurationOutput {
+	return o
+}
+
+func (o StudioComponentLicenseServiceConfigurationOutput) ToStudioComponentLicenseServiceConfigurationPtrOutput() StudioComponentLicenseServiceConfigurationPtrOutput {
+	return o.ToStudioComponentLicenseServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StudioComponentLicenseServiceConfigurationOutput) ToStudioComponentLicenseServiceConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentLicenseServiceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentLicenseServiceConfiguration) *StudioComponentLicenseServiceConfiguration {
+		return &v
+	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
+}
+
+// <p>The endpoint of the license service that is accessed by the studio component
+//
+//	resource.</p>
+func (o StudioComponentLicenseServiceConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentLicenseServiceConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+type StudioComponentLicenseServiceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentLicenseServiceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentLicenseServiceConfiguration)(nil)).Elem()
+}
+
+func (o StudioComponentLicenseServiceConfigurationPtrOutput) ToStudioComponentLicenseServiceConfigurationPtrOutput() StudioComponentLicenseServiceConfigurationPtrOutput {
+	return o
+}
+
+func (o StudioComponentLicenseServiceConfigurationPtrOutput) ToStudioComponentLicenseServiceConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentLicenseServiceConfigurationPtrOutput {
+	return o
+}
+
+func (o StudioComponentLicenseServiceConfigurationPtrOutput) Elem() StudioComponentLicenseServiceConfigurationOutput {
+	return o.ApplyT(func(v *StudioComponentLicenseServiceConfiguration) StudioComponentLicenseServiceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StudioComponentLicenseServiceConfiguration
+		return ret
+	}).(StudioComponentLicenseServiceConfigurationOutput)
+}
+
+// <p>The endpoint of the license service that is accessed by the studio component
+//
+//	resource.</p>
+func (o StudioComponentLicenseServiceConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponentLicenseServiceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 // <p>A parameter for a studio component script, in the form of a key:value pair.</p>
@@ -1794,12 +2722,6 @@ func (i StudioComponentScriptParameterKeyValueArgs) ToStudioComponentScriptParam
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentScriptParameterKeyValueOutput)
 }
 
-func (i StudioComponentScriptParameterKeyValueArgs) ToOutput(ctx context.Context) pulumix.Output[StudioComponentScriptParameterKeyValue] {
-	return pulumix.Output[StudioComponentScriptParameterKeyValue]{
-		OutputState: i.ToStudioComponentScriptParameterKeyValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StudioComponentScriptParameterKeyValueArrayInput is an input type that accepts StudioComponentScriptParameterKeyValueArray and StudioComponentScriptParameterKeyValueArrayOutput values.
 // You can construct a concrete instance of `StudioComponentScriptParameterKeyValueArrayInput` via:
 //
@@ -1825,12 +2747,6 @@ func (i StudioComponentScriptParameterKeyValueArray) ToStudioComponentScriptPara
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentScriptParameterKeyValueArrayOutput)
 }
 
-func (i StudioComponentScriptParameterKeyValueArray) ToOutput(ctx context.Context) pulumix.Output[[]StudioComponentScriptParameterKeyValue] {
-	return pulumix.Output[[]StudioComponentScriptParameterKeyValue]{
-		OutputState: i.ToStudioComponentScriptParameterKeyValueArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>A parameter for a studio component script, in the form of a key:value pair.</p>
 type StudioComponentScriptParameterKeyValueOutput struct{ *pulumi.OutputState }
 
@@ -1844,12 +2760,6 @@ func (o StudioComponentScriptParameterKeyValueOutput) ToStudioComponentScriptPar
 
 func (o StudioComponentScriptParameterKeyValueOutput) ToStudioComponentScriptParameterKeyValueOutputWithContext(ctx context.Context) StudioComponentScriptParameterKeyValueOutput {
 	return o
-}
-
-func (o StudioComponentScriptParameterKeyValueOutput) ToOutput(ctx context.Context) pulumix.Output[StudioComponentScriptParameterKeyValue] {
-	return pulumix.Output[StudioComponentScriptParameterKeyValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>A script parameter key.</p>
@@ -1876,12 +2786,6 @@ func (o StudioComponentScriptParameterKeyValueArrayOutput) ToStudioComponentScri
 	return o
 }
 
-func (o StudioComponentScriptParameterKeyValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StudioComponentScriptParameterKeyValue] {
-	return pulumix.Output[[]StudioComponentScriptParameterKeyValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioComponentScriptParameterKeyValueArrayOutput) Index(i pulumi.IntInput) StudioComponentScriptParameterKeyValueOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StudioComponentScriptParameterKeyValue {
 		return vs[0].([]StudioComponentScriptParameterKeyValue)[vs[1].(int)]
@@ -1903,6 +2807,217 @@ type StudioComponentSharedFileSystemConfiguration struct {
 	ShareName *string `pulumi:"shareName"`
 	// <p>The mount location for a shared file system on a Windows virtual workstation.</p>
 	WindowsMountDrive *string `pulumi:"windowsMountDrive"`
+}
+
+// StudioComponentSharedFileSystemConfigurationInput is an input type that accepts StudioComponentSharedFileSystemConfigurationArgs and StudioComponentSharedFileSystemConfigurationOutput values.
+// You can construct a concrete instance of `StudioComponentSharedFileSystemConfigurationInput` via:
+//
+//	StudioComponentSharedFileSystemConfigurationArgs{...}
+type StudioComponentSharedFileSystemConfigurationInput interface {
+	pulumi.Input
+
+	ToStudioComponentSharedFileSystemConfigurationOutput() StudioComponentSharedFileSystemConfigurationOutput
+	ToStudioComponentSharedFileSystemConfigurationOutputWithContext(context.Context) StudioComponentSharedFileSystemConfigurationOutput
+}
+
+// <p>The configuration for a shared file storage system that is associated with a studio
+//
+//	resource.</p>
+type StudioComponentSharedFileSystemConfigurationArgs struct {
+	// <p>The endpoint of the shared file system that is accessed by the studio component
+	//             resource.</p>
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// <p>The unique identifier for a file system.</p>
+	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	// <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+	LinuxMountPoint pulumi.StringPtrInput `pulumi:"linuxMountPoint"`
+	// <p>The name of the file share.</p>
+	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
+	// <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+	WindowsMountDrive pulumi.StringPtrInput `pulumi:"windowsMountDrive"`
+}
+
+func (StudioComponentSharedFileSystemConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentSharedFileSystemConfiguration)(nil)).Elem()
+}
+
+func (i StudioComponentSharedFileSystemConfigurationArgs) ToStudioComponentSharedFileSystemConfigurationOutput() StudioComponentSharedFileSystemConfigurationOutput {
+	return i.ToStudioComponentSharedFileSystemConfigurationOutputWithContext(context.Background())
+}
+
+func (i StudioComponentSharedFileSystemConfigurationArgs) ToStudioComponentSharedFileSystemConfigurationOutputWithContext(ctx context.Context) StudioComponentSharedFileSystemConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentSharedFileSystemConfigurationOutput)
+}
+
+func (i StudioComponentSharedFileSystemConfigurationArgs) ToStudioComponentSharedFileSystemConfigurationPtrOutput() StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return i.ToStudioComponentSharedFileSystemConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StudioComponentSharedFileSystemConfigurationArgs) ToStudioComponentSharedFileSystemConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentSharedFileSystemConfigurationOutput).ToStudioComponentSharedFileSystemConfigurationPtrOutputWithContext(ctx)
+}
+
+// StudioComponentSharedFileSystemConfigurationPtrInput is an input type that accepts StudioComponentSharedFileSystemConfigurationArgs, StudioComponentSharedFileSystemConfigurationPtr and StudioComponentSharedFileSystemConfigurationPtrOutput values.
+// You can construct a concrete instance of `StudioComponentSharedFileSystemConfigurationPtrInput` via:
+//
+//	        StudioComponentSharedFileSystemConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StudioComponentSharedFileSystemConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStudioComponentSharedFileSystemConfigurationPtrOutput() StudioComponentSharedFileSystemConfigurationPtrOutput
+	ToStudioComponentSharedFileSystemConfigurationPtrOutputWithContext(context.Context) StudioComponentSharedFileSystemConfigurationPtrOutput
+}
+
+type studioComponentSharedFileSystemConfigurationPtrType StudioComponentSharedFileSystemConfigurationArgs
+
+func StudioComponentSharedFileSystemConfigurationPtr(v *StudioComponentSharedFileSystemConfigurationArgs) StudioComponentSharedFileSystemConfigurationPtrInput {
+	return (*studioComponentSharedFileSystemConfigurationPtrType)(v)
+}
+
+func (*studioComponentSharedFileSystemConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentSharedFileSystemConfiguration)(nil)).Elem()
+}
+
+func (i *studioComponentSharedFileSystemConfigurationPtrType) ToStudioComponentSharedFileSystemConfigurationPtrOutput() StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return i.ToStudioComponentSharedFileSystemConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *studioComponentSharedFileSystemConfigurationPtrType) ToStudioComponentSharedFileSystemConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentSharedFileSystemConfigurationPtrOutput)
+}
+
+// <p>The configuration for a shared file storage system that is associated with a studio
+//
+//	resource.</p>
+type StudioComponentSharedFileSystemConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentSharedFileSystemConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentSharedFileSystemConfiguration)(nil)).Elem()
+}
+
+func (o StudioComponentSharedFileSystemConfigurationOutput) ToStudioComponentSharedFileSystemConfigurationOutput() StudioComponentSharedFileSystemConfigurationOutput {
+	return o
+}
+
+func (o StudioComponentSharedFileSystemConfigurationOutput) ToStudioComponentSharedFileSystemConfigurationOutputWithContext(ctx context.Context) StudioComponentSharedFileSystemConfigurationOutput {
+	return o
+}
+
+func (o StudioComponentSharedFileSystemConfigurationOutput) ToStudioComponentSharedFileSystemConfigurationPtrOutput() StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return o.ToStudioComponentSharedFileSystemConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StudioComponentSharedFileSystemConfigurationOutput) ToStudioComponentSharedFileSystemConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentSharedFileSystemConfiguration) *StudioComponentSharedFileSystemConfiguration {
+		return &v
+	}).(StudioComponentSharedFileSystemConfigurationPtrOutput)
+}
+
+// <p>The endpoint of the shared file system that is accessed by the studio component
+//
+//	resource.</p>
+func (o StudioComponentSharedFileSystemConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// <p>The unique identifier for a file system.</p>
+func (o StudioComponentSharedFileSystemConfigurationOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
+}
+
+// <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+func (o StudioComponentSharedFileSystemConfigurationOutput) LinuxMountPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.LinuxMountPoint }).(pulumi.StringPtrOutput)
+}
+
+// <p>The name of the file share.</p>
+func (o StudioComponentSharedFileSystemConfigurationOutput) ShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.ShareName }).(pulumi.StringPtrOutput)
+}
+
+// <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+func (o StudioComponentSharedFileSystemConfigurationOutput) WindowsMountDrive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.WindowsMountDrive }).(pulumi.StringPtrOutput)
+}
+
+type StudioComponentSharedFileSystemConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentSharedFileSystemConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentSharedFileSystemConfiguration)(nil)).Elem()
+}
+
+func (o StudioComponentSharedFileSystemConfigurationPtrOutput) ToStudioComponentSharedFileSystemConfigurationPtrOutput() StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return o
+}
+
+func (o StudioComponentSharedFileSystemConfigurationPtrOutput) ToStudioComponentSharedFileSystemConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return o
+}
+
+func (o StudioComponentSharedFileSystemConfigurationPtrOutput) Elem() StudioComponentSharedFileSystemConfigurationOutput {
+	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) StudioComponentSharedFileSystemConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StudioComponentSharedFileSystemConfiguration
+		return ret
+	}).(StudioComponentSharedFileSystemConfigurationOutput)
+}
+
+// <p>The endpoint of the shared file system that is accessed by the studio component
+//
+//	resource.</p>
+func (o StudioComponentSharedFileSystemConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The unique identifier for a file system.</p>
+func (o StudioComponentSharedFileSystemConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+func (o StudioComponentSharedFileSystemConfigurationPtrOutput) LinuxMountPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinuxMountPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The name of the file share.</p>
+func (o StudioComponentSharedFileSystemConfigurationPtrOutput) ShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShareName
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+func (o StudioComponentSharedFileSystemConfigurationPtrOutput) WindowsMountDrive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WindowsMountDrive
+	}).(pulumi.StringPtrOutput)
 }
 
 type StudioComponentTags struct {
@@ -1932,12 +3047,6 @@ func (i StudioComponentTagsArgs) ToStudioComponentTagsOutput() StudioComponentTa
 
 func (i StudioComponentTagsArgs) ToStudioComponentTagsOutputWithContext(ctx context.Context) StudioComponentTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentTagsOutput)
-}
-
-func (i StudioComponentTagsArgs) ToOutput(ctx context.Context) pulumix.Output[StudioComponentTags] {
-	return pulumix.Output[StudioComponentTags]{
-		OutputState: i.ToStudioComponentTagsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i StudioComponentTagsArgs) ToStudioComponentTagsPtrOutput() StudioComponentTagsPtrOutput {
@@ -1981,12 +3090,6 @@ func (i *studioComponentTagsPtrType) ToStudioComponentTagsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentTagsPtrOutput)
 }
 
-func (i *studioComponentTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StudioComponentTags] {
-	return pulumix.Output[*StudioComponentTags]{
-		OutputState: i.ToStudioComponentTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StudioComponentTagsOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentTagsOutput) ElementType() reflect.Type {
@@ -2011,12 +3114,6 @@ func (o StudioComponentTagsOutput) ToStudioComponentTagsPtrOutputWithContext(ctx
 	}).(StudioComponentTagsPtrOutput)
 }
 
-func (o StudioComponentTagsOutput) ToOutput(ctx context.Context) pulumix.Output[StudioComponentTags] {
-	return pulumix.Output[StudioComponentTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type StudioComponentTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentTagsPtrOutput) ElementType() reflect.Type {
@@ -2029,12 +3126,6 @@ func (o StudioComponentTagsPtrOutput) ToStudioComponentTagsPtrOutput() StudioCom
 
 func (o StudioComponentTagsPtrOutput) ToStudioComponentTagsPtrOutputWithContext(ctx context.Context) StudioComponentTagsPtrOutput {
 	return o
-}
-
-func (o StudioComponentTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioComponentTags] {
-	return pulumix.Output[*StudioComponentTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StudioComponentTagsPtrOutput) Elem() StudioComponentTagsOutput {
@@ -2084,12 +3175,6 @@ func (i StudioEncryptionConfigurationArgs) ToStudioEncryptionConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StudioEncryptionConfigurationOutput)
 }
 
-func (i StudioEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StudioEncryptionConfiguration] {
-	return pulumix.Output[StudioEncryptionConfiguration]{
-		OutputState: i.ToStudioEncryptionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StudioEncryptionConfigurationArgs) ToStudioEncryptionConfigurationPtrOutput() StudioEncryptionConfigurationPtrOutput {
 	return i.ToStudioEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2131,12 +3216,6 @@ func (i *studioEncryptionConfigurationPtrType) ToStudioEncryptionConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(StudioEncryptionConfigurationPtrOutput)
 }
 
-func (i *studioEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StudioEncryptionConfiguration] {
-	return pulumix.Output[*StudioEncryptionConfiguration]{
-		OutputState: i.ToStudioEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Configuration of the encryption method that is used for the studio.</p>
 type StudioEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2162,12 +3241,6 @@ func (o StudioEncryptionConfigurationOutput) ToStudioEncryptionConfigurationPtrO
 	}).(StudioEncryptionConfigurationPtrOutput)
 }
 
-func (o StudioEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StudioEncryptionConfiguration] {
-	return pulumix.Output[StudioEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The ARN for a KMS key that is used to encrypt studio data.</p>
 func (o StudioEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
@@ -2189,12 +3262,6 @@ func (o StudioEncryptionConfigurationPtrOutput) ToStudioEncryptionConfigurationP
 
 func (o StudioEncryptionConfigurationPtrOutput) ToStudioEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StudioEncryptionConfigurationPtrOutput {
 	return o
-}
-
-func (o StudioEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioEncryptionConfiguration] {
-	return pulumix.Output[*StudioEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StudioEncryptionConfigurationPtrOutput) Elem() StudioEncryptionConfigurationOutput {
@@ -2255,12 +3322,6 @@ func (i StudioTagsArgs) ToStudioTagsOutputWithContext(ctx context.Context) Studi
 	return pulumi.ToOutputWithContext(ctx, i).(StudioTagsOutput)
 }
 
-func (i StudioTagsArgs) ToOutput(ctx context.Context) pulumix.Output[StudioTags] {
-	return pulumix.Output[StudioTags]{
-		OutputState: i.ToStudioTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StudioTagsArgs) ToStudioTagsPtrOutput() StudioTagsPtrOutput {
 	return i.ToStudioTagsPtrOutputWithContext(context.Background())
 }
@@ -2302,12 +3363,6 @@ func (i *studioTagsPtrType) ToStudioTagsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(StudioTagsPtrOutput)
 }
 
-func (i *studioTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StudioTags] {
-	return pulumix.Output[*StudioTags]{
-		OutputState: i.ToStudioTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StudioTagsOutput struct{ *pulumi.OutputState }
 
 func (StudioTagsOutput) ElementType() reflect.Type {
@@ -2332,12 +3387,6 @@ func (o StudioTagsOutput) ToStudioTagsPtrOutputWithContext(ctx context.Context) 
 	}).(StudioTagsPtrOutput)
 }
 
-func (o StudioTagsOutput) ToOutput(ctx context.Context) pulumix.Output[StudioTags] {
-	return pulumix.Output[StudioTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type StudioTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (StudioTagsPtrOutput) ElementType() reflect.Type {
@@ -2350,12 +3399,6 @@ func (o StudioTagsPtrOutput) ToStudioTagsPtrOutput() StudioTagsPtrOutput {
 
 func (o StudioTagsPtrOutput) ToStudioTagsPtrOutputWithContext(ctx context.Context) StudioTagsPtrOutput {
 	return o
-}
-
-func (o StudioTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioTags] {
-	return pulumix.Output[*StudioTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StudioTagsPtrOutput) Elem() StudioTagsOutput {
@@ -2382,10 +3425,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileVolumeConfigurationPtrInput)(nil)).Elem(), LaunchProfileVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageTagsInput)(nil)).Elem(), StreamingImageTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageTagsPtrInput)(nil)).Elem(), StreamingImageTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentActiveDirectoryComputerAttributeInput)(nil)).Elem(), StudioComponentActiveDirectoryComputerAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentActiveDirectoryComputerAttributeArrayInput)(nil)).Elem(), StudioComponentActiveDirectoryComputerAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentActiveDirectoryConfigurationInput)(nil)).Elem(), StudioComponentActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentActiveDirectoryConfigurationPtrInput)(nil)).Elem(), StudioComponentActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentComputeFarmConfigurationInput)(nil)).Elem(), StudioComponentComputeFarmConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentComputeFarmConfigurationPtrInput)(nil)).Elem(), StudioComponentComputeFarmConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration0PropertiesInput)(nil)).Elem(), StudioComponentConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration0PropertiesPtrInput)(nil)).Elem(), StudioComponentConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration1PropertiesInput)(nil)).Elem(), StudioComponentConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration1PropertiesPtrInput)(nil)).Elem(), StudioComponentConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration2PropertiesInput)(nil)).Elem(), StudioComponentConfiguration2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration2PropertiesPtrInput)(nil)).Elem(), StudioComponentConfiguration2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration3PropertiesInput)(nil)).Elem(), StudioComponentConfiguration3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration3PropertiesPtrInput)(nil)).Elem(), StudioComponentConfiguration3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentInitializationScriptInput)(nil)).Elem(), StudioComponentInitializationScriptArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentInitializationScriptArrayInput)(nil)).Elem(), StudioComponentInitializationScriptArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentLicenseServiceConfigurationInput)(nil)).Elem(), StudioComponentLicenseServiceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentLicenseServiceConfigurationPtrInput)(nil)).Elem(), StudioComponentLicenseServiceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentScriptParameterKeyValueInput)(nil)).Elem(), StudioComponentScriptParameterKeyValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentScriptParameterKeyValueArrayInput)(nil)).Elem(), StudioComponentScriptParameterKeyValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentSharedFileSystemConfigurationInput)(nil)).Elem(), StudioComponentSharedFileSystemConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentSharedFileSystemConfigurationPtrInput)(nil)).Elem(), StudioComponentSharedFileSystemConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentTagsInput)(nil)).Elem(), StudioComponentTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentTagsPtrInput)(nil)).Elem(), StudioComponentTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioEncryptionConfigurationInput)(nil)).Elem(), StudioEncryptionConfigurationArgs{})
@@ -2408,10 +3469,28 @@ func init() {
 	pulumi.RegisterOutputType(StreamingImageEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StreamingImageTagsOutput{})
 	pulumi.RegisterOutputType(StreamingImageTagsPtrOutput{})
+	pulumi.RegisterOutputType(StudioComponentActiveDirectoryComputerAttributeOutput{})
+	pulumi.RegisterOutputType(StudioComponentActiveDirectoryComputerAttributeArrayOutput{})
+	pulumi.RegisterOutputType(StudioComponentActiveDirectoryConfigurationOutput{})
+	pulumi.RegisterOutputType(StudioComponentActiveDirectoryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StudioComponentComputeFarmConfigurationOutput{})
+	pulumi.RegisterOutputType(StudioComponentComputeFarmConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StudioComponentConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(StudioComponentConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StudioComponentConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(StudioComponentConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StudioComponentConfiguration2PropertiesOutput{})
+	pulumi.RegisterOutputType(StudioComponentConfiguration2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StudioComponentConfiguration3PropertiesOutput{})
+	pulumi.RegisterOutputType(StudioComponentConfiguration3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StudioComponentInitializationScriptOutput{})
 	pulumi.RegisterOutputType(StudioComponentInitializationScriptArrayOutput{})
+	pulumi.RegisterOutputType(StudioComponentLicenseServiceConfigurationOutput{})
+	pulumi.RegisterOutputType(StudioComponentLicenseServiceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StudioComponentScriptParameterKeyValueOutput{})
 	pulumi.RegisterOutputType(StudioComponentScriptParameterKeyValueArrayOutput{})
+	pulumi.RegisterOutputType(StudioComponentSharedFileSystemConfigurationOutput{})
+	pulumi.RegisterOutputType(StudioComponentSharedFileSystemConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StudioComponentTagsOutput{})
 	pulumi.RegisterOutputType(StudioComponentTagsPtrOutput{})
 	pulumi.RegisterOutputType(StudioEncryptionConfigurationOutput{})

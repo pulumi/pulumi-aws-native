@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An label for fraud detector.
@@ -75,12 +74,6 @@ func (o LookupLabelResultOutput) ToLookupLabelResultOutput() LookupLabelResultOu
 
 func (o LookupLabelResultOutput) ToLookupLabelResultOutputWithContext(ctx context.Context) LookupLabelResultOutput {
 	return o
-}
-
-func (o LookupLabelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLabelResult] {
-	return pulumix.Output[LookupLabelResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The label ARN.

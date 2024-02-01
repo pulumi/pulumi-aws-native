@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for AWS Config ConfigRule
@@ -147,12 +146,6 @@ func (i *ConfigRule) ToConfigRuleOutputWithContext(ctx context.Context) ConfigRu
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleOutput)
 }
 
-func (i *ConfigRule) ToOutput(ctx context.Context) pulumix.Output[*ConfigRule] {
-	return pulumix.Output[*ConfigRule]{
-		OutputState: i.ToConfigRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigRuleOutput struct{ *pulumi.OutputState }
 
 func (ConfigRuleOutput) ElementType() reflect.Type {
@@ -165,12 +158,6 @@ func (o ConfigRuleOutput) ToConfigRuleOutput() ConfigRuleOutput {
 
 func (o ConfigRuleOutput) ToConfigRuleOutputWithContext(ctx context.Context) ConfigRuleOutput {
 	return o
-}
-
-func (o ConfigRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigRule] {
-	return pulumix.Output[*ConfigRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN generated for the AWS Config rule

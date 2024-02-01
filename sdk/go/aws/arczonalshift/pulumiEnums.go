@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ZonalAutoshiftConfigurationControlConditionType string
@@ -77,12 +76,6 @@ func (o ZonalAutoshiftConfigurationControlConditionTypeOutput) ToZonalAutoshiftC
 	}).(ZonalAutoshiftConfigurationControlConditionTypePtrOutput)
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ZonalAutoshiftConfigurationControlConditionType] {
-	return pulumix.Output[ZonalAutoshiftConfigurationControlConditionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ZonalAutoshiftConfigurationControlConditionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +111,6 @@ func (o ZonalAutoshiftConfigurationControlConditionTypePtrOutput) ToZonalAutoshi
 	return o
 }
 
-func (o ZonalAutoshiftConfigurationControlConditionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ZonalAutoshiftConfigurationControlConditionType] {
-	return pulumix.Output[*ZonalAutoshiftConfigurationControlConditionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ZonalAutoshiftConfigurationControlConditionTypePtrOutput) Elem() ZonalAutoshiftConfigurationControlConditionTypeOutput {
 	return o.ApplyT(func(v *ZonalAutoshiftConfigurationControlConditionType) ZonalAutoshiftConfigurationControlConditionType {
 		if v != nil {
@@ -148,10 +135,10 @@ func (o ZonalAutoshiftConfigurationControlConditionTypePtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// ZonalAutoshiftConfigurationControlConditionTypeInput is an input type that accepts ZonalAutoshiftConfigurationControlConditionTypeArgs and ZonalAutoshiftConfigurationControlConditionTypeOutput values.
-// You can construct a concrete instance of `ZonalAutoshiftConfigurationControlConditionTypeInput` via:
+// ZonalAutoshiftConfigurationControlConditionTypeInput is an input type that accepts values of the ZonalAutoshiftConfigurationControlConditionType enum
+// A concrete instance of `ZonalAutoshiftConfigurationControlConditionTypeInput` can be one of the following:
 //
-//	ZonalAutoshiftConfigurationControlConditionTypeArgs{...}
+//	ZonalAutoshiftConfigurationControlConditionTypeCloudwatch
 type ZonalAutoshiftConfigurationControlConditionTypeInput interface {
 	pulumi.Input
 
@@ -184,12 +171,6 @@ func (in *zonalAutoshiftConfigurationControlConditionTypePtr) ToZonalAutoshiftCo
 
 func (in *zonalAutoshiftConfigurationControlConditionTypePtr) ToZonalAutoshiftConfigurationControlConditionTypePtrOutputWithContext(ctx context.Context) ZonalAutoshiftConfigurationControlConditionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ZonalAutoshiftConfigurationControlConditionTypePtrOutput)
-}
-
-func (in *zonalAutoshiftConfigurationControlConditionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ZonalAutoshiftConfigurationControlConditionType] {
-	return pulumix.Output[*ZonalAutoshiftConfigurationControlConditionType]{
-		OutputState: in.ToZonalAutoshiftConfigurationControlConditionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ZonalAutoshiftConfigurationZonalAutoshiftStatus string
@@ -259,12 +240,6 @@ func (o ZonalAutoshiftConfigurationZonalAutoshiftStatusOutput) ToZonalAutoshiftC
 	}).(ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput)
 }
 
-func (o ZonalAutoshiftConfigurationZonalAutoshiftStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ZonalAutoshiftConfigurationZonalAutoshiftStatus] {
-	return pulumix.Output[ZonalAutoshiftConfigurationZonalAutoshiftStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ZonalAutoshiftConfigurationZonalAutoshiftStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +275,6 @@ func (o ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput) ToZonalAutoshi
 	return o
 }
 
-func (o ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ZonalAutoshiftConfigurationZonalAutoshiftStatus] {
-	return pulumix.Output[*ZonalAutoshiftConfigurationZonalAutoshiftStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput) Elem() ZonalAutoshiftConfigurationZonalAutoshiftStatusOutput {
 	return o.ApplyT(func(v *ZonalAutoshiftConfigurationZonalAutoshiftStatus) ZonalAutoshiftConfigurationZonalAutoshiftStatus {
 		if v != nil {
@@ -330,10 +299,11 @@ func (o ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// ZonalAutoshiftConfigurationZonalAutoshiftStatusInput is an input type that accepts ZonalAutoshiftConfigurationZonalAutoshiftStatusArgs and ZonalAutoshiftConfigurationZonalAutoshiftStatusOutput values.
-// You can construct a concrete instance of `ZonalAutoshiftConfigurationZonalAutoshiftStatusInput` via:
+// ZonalAutoshiftConfigurationZonalAutoshiftStatusInput is an input type that accepts values of the ZonalAutoshiftConfigurationZonalAutoshiftStatus enum
+// A concrete instance of `ZonalAutoshiftConfigurationZonalAutoshiftStatusInput` can be one of the following:
 //
-//	ZonalAutoshiftConfigurationZonalAutoshiftStatusArgs{...}
+//	ZonalAutoshiftConfigurationZonalAutoshiftStatusEnabled
+//	ZonalAutoshiftConfigurationZonalAutoshiftStatusDisabled
 type ZonalAutoshiftConfigurationZonalAutoshiftStatusInput interface {
 	pulumi.Input
 
@@ -366,12 +336,6 @@ func (in *zonalAutoshiftConfigurationZonalAutoshiftStatusPtr) ToZonalAutoshiftCo
 
 func (in *zonalAutoshiftConfigurationZonalAutoshiftStatusPtr) ToZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutputWithContext(ctx context.Context) ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput)
-}
-
-func (in *zonalAutoshiftConfigurationZonalAutoshiftStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*ZonalAutoshiftConfigurationZonalAutoshiftStatus] {
-	return pulumix.Output[*ZonalAutoshiftConfigurationZonalAutoshiftStatus]{
-		OutputState: in.ToZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

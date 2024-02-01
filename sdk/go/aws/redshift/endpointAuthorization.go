@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
@@ -139,12 +138,6 @@ func (i *EndpointAuthorization) ToEndpointAuthorizationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthorizationOutput)
 }
 
-func (i *EndpointAuthorization) ToOutput(ctx context.Context) pulumix.Output[*EndpointAuthorization] {
-	return pulumix.Output[*EndpointAuthorization]{
-		OutputState: i.ToEndpointAuthorizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (EndpointAuthorizationOutput) ElementType() reflect.Type {
@@ -157,12 +150,6 @@ func (o EndpointAuthorizationOutput) ToEndpointAuthorizationOutput() EndpointAut
 
 func (o EndpointAuthorizationOutput) ToEndpointAuthorizationOutputWithContext(ctx context.Context) EndpointAuthorizationOutput {
 	return o
-}
-
-func (o EndpointAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointAuthorization] {
-	return pulumix.Output[*EndpointAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The target AWS account ID to grant or revoke access for.

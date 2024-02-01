@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -43,12 +42,6 @@ func (i FleetTagsArgs) ToFleetTagsOutput() FleetTagsOutput {
 
 func (i FleetTagsArgs) ToFleetTagsOutputWithContext(ctx context.Context) FleetTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FleetTagsOutput)
-}
-
-func (i FleetTagsArgs) ToOutput(ctx context.Context) pulumix.Output[FleetTags] {
-	return pulumix.Output[FleetTags]{
-		OutputState: i.ToFleetTagsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FleetTagsArgs) ToFleetTagsPtrOutput() FleetTagsPtrOutput {
@@ -92,12 +85,6 @@ func (i *fleetTagsPtrType) ToFleetTagsPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FleetTagsPtrOutput)
 }
 
-func (i *fleetTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FleetTags] {
-	return pulumix.Output[*FleetTags]{
-		OutputState: i.ToFleetTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type FleetTagsOutput struct{ *pulumi.OutputState }
 
@@ -123,12 +110,6 @@ func (o FleetTagsOutput) ToFleetTagsPtrOutputWithContext(ctx context.Context) Fl
 	}).(FleetTagsPtrOutput)
 }
 
-func (o FleetTagsOutput) ToOutput(ctx context.Context) pulumix.Output[FleetTags] {
-	return pulumix.Output[FleetTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type FleetTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (FleetTagsPtrOutput) ElementType() reflect.Type {
@@ -141,12 +122,6 @@ func (o FleetTagsPtrOutput) ToFleetTagsPtrOutput() FleetTagsPtrOutput {
 
 func (o FleetTagsPtrOutput) ToFleetTagsPtrOutputWithContext(ctx context.Context) FleetTagsPtrOutput {
 	return o
-}
-
-func (o FleetTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetTags] {
-	return pulumix.Output[*FleetTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetTagsPtrOutput) Elem() FleetTagsOutput {
@@ -198,12 +173,6 @@ func (i RobotApplicationRobotSoftwareSuiteArgs) ToRobotApplicationRobotSoftwareS
 	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationRobotSoftwareSuiteOutput)
 }
 
-func (i RobotApplicationRobotSoftwareSuiteArgs) ToOutput(ctx context.Context) pulumix.Output[RobotApplicationRobotSoftwareSuite] {
-	return pulumix.Output[RobotApplicationRobotSoftwareSuite]{
-		OutputState: i.ToRobotApplicationRobotSoftwareSuiteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The robot software suite used by the robot application.
 type RobotApplicationRobotSoftwareSuiteOutput struct{ *pulumi.OutputState }
 
@@ -217,12 +186,6 @@ func (o RobotApplicationRobotSoftwareSuiteOutput) ToRobotApplicationRobotSoftwar
 
 func (o RobotApplicationRobotSoftwareSuiteOutput) ToRobotApplicationRobotSoftwareSuiteOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteOutput {
 	return o
-}
-
-func (o RobotApplicationRobotSoftwareSuiteOutput) ToOutput(ctx context.Context) pulumix.Output[RobotApplicationRobotSoftwareSuite] {
-	return pulumix.Output[RobotApplicationRobotSoftwareSuite]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of robot software suite.
@@ -249,12 +212,6 @@ func (o RobotApplicationRobotSoftwareSuitePtrOutput) ToRobotApplicationRobotSoft
 
 func (o RobotApplicationRobotSoftwareSuitePtrOutput) ToRobotApplicationRobotSoftwareSuitePtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuitePtrOutput {
 	return o
-}
-
-func (o RobotApplicationRobotSoftwareSuitePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotApplicationRobotSoftwareSuite] {
-	return pulumix.Output[*RobotApplicationRobotSoftwareSuite]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RobotApplicationRobotSoftwareSuitePtrOutput) Elem() RobotApplicationRobotSoftwareSuiteOutput {
@@ -328,12 +285,6 @@ func (i RobotApplicationSourceConfigArgs) ToRobotApplicationSourceConfigOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationSourceConfigOutput)
 }
 
-func (i RobotApplicationSourceConfigArgs) ToOutput(ctx context.Context) pulumix.Output[RobotApplicationSourceConfig] {
-	return pulumix.Output[RobotApplicationSourceConfig]{
-		OutputState: i.ToRobotApplicationSourceConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RobotApplicationSourceConfigArrayInput is an input type that accepts RobotApplicationSourceConfigArray and RobotApplicationSourceConfigArrayOutput values.
 // You can construct a concrete instance of `RobotApplicationSourceConfigArrayInput` via:
 //
@@ -359,12 +310,6 @@ func (i RobotApplicationSourceConfigArray) ToRobotApplicationSourceConfigArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationSourceConfigArrayOutput)
 }
 
-func (i RobotApplicationSourceConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]RobotApplicationSourceConfig] {
-	return pulumix.Output[[]RobotApplicationSourceConfig]{
-		OutputState: i.ToRobotApplicationSourceConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RobotApplicationSourceConfigOutput struct{ *pulumi.OutputState }
 
 func (RobotApplicationSourceConfigOutput) ElementType() reflect.Type {
@@ -377,12 +322,6 @@ func (o RobotApplicationSourceConfigOutput) ToRobotApplicationSourceConfigOutput
 
 func (o RobotApplicationSourceConfigOutput) ToRobotApplicationSourceConfigOutputWithContext(ctx context.Context) RobotApplicationSourceConfigOutput {
 	return o
-}
-
-func (o RobotApplicationSourceConfigOutput) ToOutput(ctx context.Context) pulumix.Output[RobotApplicationSourceConfig] {
-	return pulumix.Output[RobotApplicationSourceConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The architecture of robot application.
@@ -412,12 +351,6 @@ func (o RobotApplicationSourceConfigArrayOutput) ToRobotApplicationSourceConfigA
 
 func (o RobotApplicationSourceConfigArrayOutput) ToRobotApplicationSourceConfigArrayOutputWithContext(ctx context.Context) RobotApplicationSourceConfigArrayOutput {
 	return o
-}
-
-func (o RobotApplicationSourceConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RobotApplicationSourceConfig] {
-	return pulumix.Output[[]RobotApplicationSourceConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RobotApplicationSourceConfigArrayOutput) Index(i pulumi.IntInput) RobotApplicationSourceConfigOutput {
@@ -455,12 +388,6 @@ func (i RobotApplicationTagsArgs) ToRobotApplicationTagsOutput() RobotApplicatio
 
 func (i RobotApplicationTagsArgs) ToRobotApplicationTagsOutputWithContext(ctx context.Context) RobotApplicationTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationTagsOutput)
-}
-
-func (i RobotApplicationTagsArgs) ToOutput(ctx context.Context) pulumix.Output[RobotApplicationTags] {
-	return pulumix.Output[RobotApplicationTags]{
-		OutputState: i.ToRobotApplicationTagsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i RobotApplicationTagsArgs) ToRobotApplicationTagsPtrOutput() RobotApplicationTagsPtrOutput {
@@ -504,12 +431,6 @@ func (i *robotApplicationTagsPtrType) ToRobotApplicationTagsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationTagsPtrOutput)
 }
 
-func (i *robotApplicationTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RobotApplicationTags] {
-	return pulumix.Output[*RobotApplicationTags]{
-		OutputState: i.ToRobotApplicationTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type RobotApplicationTagsOutput struct{ *pulumi.OutputState }
 
@@ -535,12 +456,6 @@ func (o RobotApplicationTagsOutput) ToRobotApplicationTagsPtrOutputWithContext(c
 	}).(RobotApplicationTagsPtrOutput)
 }
 
-func (o RobotApplicationTagsOutput) ToOutput(ctx context.Context) pulumix.Output[RobotApplicationTags] {
-	return pulumix.Output[RobotApplicationTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type RobotApplicationTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (RobotApplicationTagsPtrOutput) ElementType() reflect.Type {
@@ -553,12 +468,6 @@ func (o RobotApplicationTagsPtrOutput) ToRobotApplicationTagsPtrOutput() RobotAp
 
 func (o RobotApplicationTagsPtrOutput) ToRobotApplicationTagsPtrOutputWithContext(ctx context.Context) RobotApplicationTagsPtrOutput {
 	return o
-}
-
-func (o RobotApplicationTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotApplicationTags] {
-	return pulumix.Output[*RobotApplicationTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RobotApplicationTagsPtrOutput) Elem() RobotApplicationTagsOutput {
@@ -602,12 +511,6 @@ func (i RobotTagsArgs) ToRobotTagsOutputWithContext(ctx context.Context) RobotTa
 	return pulumi.ToOutputWithContext(ctx, i).(RobotTagsOutput)
 }
 
-func (i RobotTagsArgs) ToOutput(ctx context.Context) pulumix.Output[RobotTags] {
-	return pulumix.Output[RobotTags]{
-		OutputState: i.ToRobotTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RobotTagsArgs) ToRobotTagsPtrOutput() RobotTagsPtrOutput {
 	return i.ToRobotTagsPtrOutputWithContext(context.Background())
 }
@@ -649,12 +552,6 @@ func (i *robotTagsPtrType) ToRobotTagsPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RobotTagsPtrOutput)
 }
 
-func (i *robotTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RobotTags] {
-	return pulumix.Output[*RobotTags]{
-		OutputState: i.ToRobotTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type RobotTagsOutput struct{ *pulumi.OutputState }
 
@@ -680,12 +577,6 @@ func (o RobotTagsOutput) ToRobotTagsPtrOutputWithContext(ctx context.Context) Ro
 	}).(RobotTagsPtrOutput)
 }
 
-func (o RobotTagsOutput) ToOutput(ctx context.Context) pulumix.Output[RobotTags] {
-	return pulumix.Output[RobotTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type RobotTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (RobotTagsPtrOutput) ElementType() reflect.Type {
@@ -698,12 +589,6 @@ func (o RobotTagsPtrOutput) ToRobotTagsPtrOutput() RobotTagsPtrOutput {
 
 func (o RobotTagsPtrOutput) ToRobotTagsPtrOutputWithContext(ctx context.Context) RobotTagsPtrOutput {
 	return o
-}
-
-func (o RobotTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotTags] {
-	return pulumix.Output[*RobotTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RobotTagsPtrOutput) Elem() RobotTagsOutput {
@@ -755,12 +640,6 @@ func (i SimulationApplicationRenderingEngineArgs) ToSimulationApplicationRenderi
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationRenderingEngineOutput)
 }
 
-func (i SimulationApplicationRenderingEngineArgs) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationRenderingEngine] {
-	return pulumix.Output[SimulationApplicationRenderingEngine]{
-		OutputState: i.ToSimulationApplicationRenderingEngineOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SimulationApplicationRenderingEngineArgs) ToSimulationApplicationRenderingEnginePtrOutput() SimulationApplicationRenderingEnginePtrOutput {
 	return i.ToSimulationApplicationRenderingEnginePtrOutputWithContext(context.Background())
 }
@@ -802,12 +681,6 @@ func (i *simulationApplicationRenderingEnginePtrType) ToSimulationApplicationRen
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationRenderingEnginePtrOutput)
 }
 
-func (i *simulationApplicationRenderingEnginePtrType) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationRenderingEngine] {
-	return pulumix.Output[*SimulationApplicationRenderingEngine]{
-		OutputState: i.ToSimulationApplicationRenderingEnginePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Information about a rendering engine.
 type SimulationApplicationRenderingEngineOutput struct{ *pulumi.OutputState }
 
@@ -833,12 +706,6 @@ func (o SimulationApplicationRenderingEngineOutput) ToSimulationApplicationRende
 	}).(SimulationApplicationRenderingEnginePtrOutput)
 }
 
-func (o SimulationApplicationRenderingEngineOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationRenderingEngine] {
-	return pulumix.Output[SimulationApplicationRenderingEngine]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of the rendering engine.
 func (o SimulationApplicationRenderingEngineOutput) Name() SimulationApplicationRenderingEngineNameOutput {
 	return o.ApplyT(func(v SimulationApplicationRenderingEngine) SimulationApplicationRenderingEngineName { return v.Name }).(SimulationApplicationRenderingEngineNameOutput)
@@ -861,12 +728,6 @@ func (o SimulationApplicationRenderingEnginePtrOutput) ToSimulationApplicationRe
 
 func (o SimulationApplicationRenderingEnginePtrOutput) ToSimulationApplicationRenderingEnginePtrOutputWithContext(ctx context.Context) SimulationApplicationRenderingEnginePtrOutput {
 	return o
-}
-
-func (o SimulationApplicationRenderingEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationRenderingEngine] {
-	return pulumix.Output[*SimulationApplicationRenderingEngine]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SimulationApplicationRenderingEnginePtrOutput) Elem() SimulationApplicationRenderingEngineOutput {
@@ -938,12 +799,6 @@ func (i SimulationApplicationRobotSoftwareSuiteArgs) ToSimulationApplicationRobo
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationRobotSoftwareSuiteOutput)
 }
 
-func (i SimulationApplicationRobotSoftwareSuiteArgs) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationRobotSoftwareSuite] {
-	return pulumix.Output[SimulationApplicationRobotSoftwareSuite]{
-		OutputState: i.ToSimulationApplicationRobotSoftwareSuiteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Information about a robot software suite.
 type SimulationApplicationRobotSoftwareSuiteOutput struct{ *pulumi.OutputState }
 
@@ -957,12 +812,6 @@ func (o SimulationApplicationRobotSoftwareSuiteOutput) ToSimulationApplicationRo
 
 func (o SimulationApplicationRobotSoftwareSuiteOutput) ToSimulationApplicationRobotSoftwareSuiteOutputWithContext(ctx context.Context) SimulationApplicationRobotSoftwareSuiteOutput {
 	return o
-}
-
-func (o SimulationApplicationRobotSoftwareSuiteOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationRobotSoftwareSuite] {
-	return pulumix.Output[SimulationApplicationRobotSoftwareSuite]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the robot software suite.
@@ -991,12 +840,6 @@ func (o SimulationApplicationRobotSoftwareSuitePtrOutput) ToSimulationApplicatio
 
 func (o SimulationApplicationRobotSoftwareSuitePtrOutput) ToSimulationApplicationRobotSoftwareSuitePtrOutputWithContext(ctx context.Context) SimulationApplicationRobotSoftwareSuitePtrOutput {
 	return o
-}
-
-func (o SimulationApplicationRobotSoftwareSuitePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationRobotSoftwareSuite] {
-	return pulumix.Output[*SimulationApplicationRobotSoftwareSuite]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Elem() SimulationApplicationRobotSoftwareSuiteOutput {
@@ -1068,12 +911,6 @@ func (i SimulationApplicationSimulationSoftwareSuiteArgs) ToSimulationApplicatio
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationSimulationSoftwareSuiteOutput)
 }
 
-func (i SimulationApplicationSimulationSoftwareSuiteArgs) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationSimulationSoftwareSuite] {
-	return pulumix.Output[SimulationApplicationSimulationSoftwareSuite]{
-		OutputState: i.ToSimulationApplicationSimulationSoftwareSuiteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Information about a simulation software suite.
 type SimulationApplicationSimulationSoftwareSuiteOutput struct{ *pulumi.OutputState }
 
@@ -1087,12 +924,6 @@ func (o SimulationApplicationSimulationSoftwareSuiteOutput) ToSimulationApplicat
 
 func (o SimulationApplicationSimulationSoftwareSuiteOutput) ToSimulationApplicationSimulationSoftwareSuiteOutputWithContext(ctx context.Context) SimulationApplicationSimulationSoftwareSuiteOutput {
 	return o
-}
-
-func (o SimulationApplicationSimulationSoftwareSuiteOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationSimulationSoftwareSuite] {
-	return pulumix.Output[SimulationApplicationSimulationSoftwareSuite]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the simulation software suite.
@@ -1121,12 +952,6 @@ func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) ToSimulationAppli
 
 func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) ToSimulationApplicationSimulationSoftwareSuitePtrOutputWithContext(ctx context.Context) SimulationApplicationSimulationSoftwareSuitePtrOutput {
 	return o
-}
-
-func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationSimulationSoftwareSuite] {
-	return pulumix.Output[*SimulationApplicationSimulationSoftwareSuite]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Elem() SimulationApplicationSimulationSoftwareSuiteOutput {
@@ -1202,12 +1027,6 @@ func (i SimulationApplicationSourceConfigArgs) ToSimulationApplicationSourceConf
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationSourceConfigOutput)
 }
 
-func (i SimulationApplicationSourceConfigArgs) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationSourceConfig] {
-	return pulumix.Output[SimulationApplicationSourceConfig]{
-		OutputState: i.ToSimulationApplicationSourceConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SimulationApplicationSourceConfigArrayInput is an input type that accepts SimulationApplicationSourceConfigArray and SimulationApplicationSourceConfigArrayOutput values.
 // You can construct a concrete instance of `SimulationApplicationSourceConfigArrayInput` via:
 //
@@ -1233,12 +1052,6 @@ func (i SimulationApplicationSourceConfigArray) ToSimulationApplicationSourceCon
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationSourceConfigArrayOutput)
 }
 
-func (i SimulationApplicationSourceConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]SimulationApplicationSourceConfig] {
-	return pulumix.Output[[]SimulationApplicationSourceConfig]{
-		OutputState: i.ToSimulationApplicationSourceConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Information about a source configuration.
 type SimulationApplicationSourceConfigOutput struct{ *pulumi.OutputState }
 
@@ -1252,12 +1065,6 @@ func (o SimulationApplicationSourceConfigOutput) ToSimulationApplicationSourceCo
 
 func (o SimulationApplicationSourceConfigOutput) ToSimulationApplicationSourceConfigOutputWithContext(ctx context.Context) SimulationApplicationSourceConfigOutput {
 	return o
-}
-
-func (o SimulationApplicationSourceConfigOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationSourceConfig] {
-	return pulumix.Output[SimulationApplicationSourceConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The target processor architecture for the application.
@@ -1289,12 +1096,6 @@ func (o SimulationApplicationSourceConfigArrayOutput) ToSimulationApplicationSou
 
 func (o SimulationApplicationSourceConfigArrayOutput) ToSimulationApplicationSourceConfigArrayOutputWithContext(ctx context.Context) SimulationApplicationSourceConfigArrayOutput {
 	return o
-}
-
-func (o SimulationApplicationSourceConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SimulationApplicationSourceConfig] {
-	return pulumix.Output[[]SimulationApplicationSourceConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SimulationApplicationSourceConfigArrayOutput) Index(i pulumi.IntInput) SimulationApplicationSourceConfigOutput {
@@ -1332,12 +1133,6 @@ func (i SimulationApplicationTagsArgs) ToSimulationApplicationTagsOutput() Simul
 
 func (i SimulationApplicationTagsArgs) ToSimulationApplicationTagsOutputWithContext(ctx context.Context) SimulationApplicationTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationTagsOutput)
-}
-
-func (i SimulationApplicationTagsArgs) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationTags] {
-	return pulumix.Output[SimulationApplicationTags]{
-		OutputState: i.ToSimulationApplicationTagsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i SimulationApplicationTagsArgs) ToSimulationApplicationTagsPtrOutput() SimulationApplicationTagsPtrOutput {
@@ -1381,12 +1176,6 @@ func (i *simulationApplicationTagsPtrType) ToSimulationApplicationTagsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationTagsPtrOutput)
 }
 
-func (i *simulationApplicationTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationTags] {
-	return pulumix.Output[*SimulationApplicationTags]{
-		OutputState: i.ToSimulationApplicationTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type SimulationApplicationTagsOutput struct{ *pulumi.OutputState }
 
@@ -1412,12 +1201,6 @@ func (o SimulationApplicationTagsOutput) ToSimulationApplicationTagsPtrOutputWit
 	}).(SimulationApplicationTagsPtrOutput)
 }
 
-func (o SimulationApplicationTagsOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationTags] {
-	return pulumix.Output[SimulationApplicationTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type SimulationApplicationTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (SimulationApplicationTagsPtrOutput) ElementType() reflect.Type {
@@ -1430,12 +1213,6 @@ func (o SimulationApplicationTagsPtrOutput) ToSimulationApplicationTagsPtrOutput
 
 func (o SimulationApplicationTagsPtrOutput) ToSimulationApplicationTagsPtrOutputWithContext(ctx context.Context) SimulationApplicationTagsPtrOutput {
 	return o
-}
-
-func (o SimulationApplicationTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationTags] {
-	return pulumix.Output[*SimulationApplicationTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SimulationApplicationTagsPtrOutput) Elem() SimulationApplicationTagsOutput {

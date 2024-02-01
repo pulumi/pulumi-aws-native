@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type HealthCheckConfigPropertiesInsufficientDataHealthStatus string
@@ -79,12 +78,6 @@ func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToHealthC
 	}).(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput)
 }
 
-func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToOutput(ctx context.Context) pulumix.Output[HealthCheckConfigPropertiesInsufficientDataHealthStatus] {
-	return pulumix.Output[HealthCheckConfigPropertiesInsufficientDataHealthStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) ToHeal
 	return o
 }
 
-func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HealthCheckConfigPropertiesInsufficientDataHealthStatus] {
-	return pulumix.Output[*HealthCheckConfigPropertiesInsufficientDataHealthStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) Elem() HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput {
 	return o.ApplyT(func(v *HealthCheckConfigPropertiesInsufficientDataHealthStatus) HealthCheckConfigPropertiesInsufficientDataHealthStatus {
 		if v != nil {
@@ -150,10 +137,12 @@ func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// HealthCheckConfigPropertiesInsufficientDataHealthStatusInput is an input type that accepts HealthCheckConfigPropertiesInsufficientDataHealthStatusArgs and HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput values.
-// You can construct a concrete instance of `HealthCheckConfigPropertiesInsufficientDataHealthStatusInput` via:
+// HealthCheckConfigPropertiesInsufficientDataHealthStatusInput is an input type that accepts values of the HealthCheckConfigPropertiesInsufficientDataHealthStatus enum
+// A concrete instance of `HealthCheckConfigPropertiesInsufficientDataHealthStatusInput` can be one of the following:
 //
-//	HealthCheckConfigPropertiesInsufficientDataHealthStatusArgs{...}
+//	HealthCheckConfigPropertiesInsufficientDataHealthStatusHealthy
+//	HealthCheckConfigPropertiesInsufficientDataHealthStatusLastKnownStatus
+//	HealthCheckConfigPropertiesInsufficientDataHealthStatusUnhealthy
 type HealthCheckConfigPropertiesInsufficientDataHealthStatusInput interface {
 	pulumi.Input
 
@@ -186,12 +175,6 @@ func (in *healthCheckConfigPropertiesInsufficientDataHealthStatusPtr) ToHealthCh
 
 func (in *healthCheckConfigPropertiesInsufficientDataHealthStatusPtr) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput)
-}
-
-func (in *healthCheckConfigPropertiesInsufficientDataHealthStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*HealthCheckConfigPropertiesInsufficientDataHealthStatus] {
-	return pulumix.Output[*HealthCheckConfigPropertiesInsufficientDataHealthStatus]{
-		OutputState: in.ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type HealthCheckConfigPropertiesType string
@@ -267,12 +250,6 @@ func (o HealthCheckConfigPropertiesTypeOutput) ToHealthCheckConfigPropertiesType
 	}).(HealthCheckConfigPropertiesTypePtrOutput)
 }
 
-func (o HealthCheckConfigPropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[HealthCheckConfigPropertiesType] {
-	return pulumix.Output[HealthCheckConfigPropertiesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HealthCheckConfigPropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -308,12 +285,6 @@ func (o HealthCheckConfigPropertiesTypePtrOutput) ToHealthCheckConfigPropertiesT
 	return o
 }
 
-func (o HealthCheckConfigPropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HealthCheckConfigPropertiesType] {
-	return pulumix.Output[*HealthCheckConfigPropertiesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HealthCheckConfigPropertiesTypePtrOutput) Elem() HealthCheckConfigPropertiesTypeOutput {
 	return o.ApplyT(func(v *HealthCheckConfigPropertiesType) HealthCheckConfigPropertiesType {
 		if v != nil {
@@ -338,10 +309,17 @@ func (o HealthCheckConfigPropertiesTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// HealthCheckConfigPropertiesTypeInput is an input type that accepts HealthCheckConfigPropertiesTypeArgs and HealthCheckConfigPropertiesTypeOutput values.
-// You can construct a concrete instance of `HealthCheckConfigPropertiesTypeInput` via:
+// HealthCheckConfigPropertiesTypeInput is an input type that accepts values of the HealthCheckConfigPropertiesType enum
+// A concrete instance of `HealthCheckConfigPropertiesTypeInput` can be one of the following:
 //
-//	HealthCheckConfigPropertiesTypeArgs{...}
+//	HealthCheckConfigPropertiesTypeCalculated
+//	HealthCheckConfigPropertiesTypeCloudwatchMetric
+//	HealthCheckConfigPropertiesTypeHttp
+//	HealthCheckConfigPropertiesTypeHttpStrMatch
+//	HealthCheckConfigPropertiesTypeHttps
+//	HealthCheckConfigPropertiesTypeHttpsStrMatch
+//	HealthCheckConfigPropertiesTypeTcp
+//	HealthCheckConfigPropertiesTypeRecoveryControl
 type HealthCheckConfigPropertiesTypeInput interface {
 	pulumi.Input
 
@@ -374,12 +352,6 @@ func (in *healthCheckConfigPropertiesTypePtr) ToHealthCheckConfigPropertiesTypeP
 
 func (in *healthCheckConfigPropertiesTypePtr) ToHealthCheckConfigPropertiesTypePtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HealthCheckConfigPropertiesTypePtrOutput)
-}
-
-func (in *healthCheckConfigPropertiesTypePtr) ToOutput(ctx context.Context) pulumix.Output[*HealthCheckConfigPropertiesType] {
-	return pulumix.Output[*HealthCheckConfigPropertiesType]{
-		OutputState: in.ToHealthCheckConfigPropertiesTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
@@ -450,12 +422,6 @@ func (o KeySigningKeyStatusOutput) ToKeySigningKeyStatusPtrOutputWithContext(ctx
 	}).(KeySigningKeyStatusPtrOutput)
 }
 
-func (o KeySigningKeyStatusOutput) ToOutput(ctx context.Context) pulumix.Output[KeySigningKeyStatus] {
-	return pulumix.Output[KeySigningKeyStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeySigningKeyStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -491,12 +457,6 @@ func (o KeySigningKeyStatusPtrOutput) ToKeySigningKeyStatusPtrOutputWithContext(
 	return o
 }
 
-func (o KeySigningKeyStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeySigningKeyStatus] {
-	return pulumix.Output[*KeySigningKeyStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeySigningKeyStatusPtrOutput) Elem() KeySigningKeyStatusOutput {
 	return o.ApplyT(func(v *KeySigningKeyStatus) KeySigningKeyStatus {
 		if v != nil {
@@ -521,10 +481,11 @@ func (o KeySigningKeyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeySigningKeyStatusInput is an input type that accepts KeySigningKeyStatusArgs and KeySigningKeyStatusOutput values.
-// You can construct a concrete instance of `KeySigningKeyStatusInput` via:
+// KeySigningKeyStatusInput is an input type that accepts values of the KeySigningKeyStatus enum
+// A concrete instance of `KeySigningKeyStatusInput` can be one of the following:
 //
-//	KeySigningKeyStatusArgs{...}
+//	KeySigningKeyStatusActive
+//	KeySigningKeyStatusInactive
 type KeySigningKeyStatusInput interface {
 	pulumi.Input
 
@@ -557,12 +518,6 @@ func (in *keySigningKeyStatusPtr) ToKeySigningKeyStatusPtrOutput() KeySigningKey
 
 func (in *keySigningKeyStatusPtr) ToKeySigningKeyStatusPtrOutputWithContext(ctx context.Context) KeySigningKeyStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeySigningKeyStatusPtrOutput)
-}
-
-func (in *keySigningKeyStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*KeySigningKeyStatus] {
-	return pulumix.Output[*KeySigningKeyStatus]{
-		OutputState: in.ToKeySigningKeyStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

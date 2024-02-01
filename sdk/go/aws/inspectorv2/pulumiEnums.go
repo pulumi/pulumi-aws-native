@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type CisScanConfigurationCisSecurityLevel string
@@ -78,12 +77,6 @@ func (o CisScanConfigurationCisSecurityLevelOutput) ToCisScanConfigurationCisSec
 	}).(CisScanConfigurationCisSecurityLevelPtrOutput)
 }
 
-func (o CisScanConfigurationCisSecurityLevelOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationCisSecurityLevel] {
-	return pulumix.Output[CisScanConfigurationCisSecurityLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CisScanConfigurationCisSecurityLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o CisScanConfigurationCisSecurityLevelPtrOutput) ToCisScanConfigurationCis
 	return o
 }
 
-func (o CisScanConfigurationCisSecurityLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationCisSecurityLevel] {
-	return pulumix.Output[*CisScanConfigurationCisSecurityLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CisScanConfigurationCisSecurityLevelPtrOutput) Elem() CisScanConfigurationCisSecurityLevelOutput {
 	return o.ApplyT(func(v *CisScanConfigurationCisSecurityLevel) CisScanConfigurationCisSecurityLevel {
 		if v != nil {
@@ -149,10 +136,11 @@ func (o CisScanConfigurationCisSecurityLevelPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// CisScanConfigurationCisSecurityLevelInput is an input type that accepts CisScanConfigurationCisSecurityLevelArgs and CisScanConfigurationCisSecurityLevelOutput values.
-// You can construct a concrete instance of `CisScanConfigurationCisSecurityLevelInput` via:
+// CisScanConfigurationCisSecurityLevelInput is an input type that accepts values of the CisScanConfigurationCisSecurityLevel enum
+// A concrete instance of `CisScanConfigurationCisSecurityLevelInput` can be one of the following:
 //
-//	CisScanConfigurationCisSecurityLevelArgs{...}
+//	CisScanConfigurationCisSecurityLevelLevel1
+//	CisScanConfigurationCisSecurityLevelLevel2
 type CisScanConfigurationCisSecurityLevelInput interface {
 	pulumi.Input
 
@@ -185,12 +173,6 @@ func (in *cisScanConfigurationCisSecurityLevelPtr) ToCisScanConfigurationCisSecu
 
 func (in *cisScanConfigurationCisSecurityLevelPtr) ToCisScanConfigurationCisSecurityLevelPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisSecurityLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CisScanConfigurationCisSecurityLevelPtrOutput)
-}
-
-func (in *cisScanConfigurationCisSecurityLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationCisSecurityLevel] {
-	return pulumix.Output[*CisScanConfigurationCisSecurityLevel]{
-		OutputState: in.ToCisScanConfigurationCisSecurityLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type CisScanConfigurationDay string
@@ -265,12 +247,6 @@ func (o CisScanConfigurationDayOutput) ToCisScanConfigurationDayPtrOutputWithCon
 	}).(CisScanConfigurationDayPtrOutput)
 }
 
-func (o CisScanConfigurationDayOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationDay] {
-	return pulumix.Output[CisScanConfigurationDay]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CisScanConfigurationDayOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -306,12 +282,6 @@ func (o CisScanConfigurationDayPtrOutput) ToCisScanConfigurationDayPtrOutputWith
 	return o
 }
 
-func (o CisScanConfigurationDayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationDay] {
-	return pulumix.Output[*CisScanConfigurationDay]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CisScanConfigurationDayPtrOutput) Elem() CisScanConfigurationDayOutput {
 	return o.ApplyT(func(v *CisScanConfigurationDay) CisScanConfigurationDay {
 		if v != nil {
@@ -336,10 +306,16 @@ func (o CisScanConfigurationDayPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// CisScanConfigurationDayInput is an input type that accepts CisScanConfigurationDayArgs and CisScanConfigurationDayOutput values.
-// You can construct a concrete instance of `CisScanConfigurationDayInput` via:
+// CisScanConfigurationDayInput is an input type that accepts values of the CisScanConfigurationDay enum
+// A concrete instance of `CisScanConfigurationDayInput` can be one of the following:
 //
-//	CisScanConfigurationDayArgs{...}
+//	CisScanConfigurationDayMon
+//	CisScanConfigurationDayTue
+//	CisScanConfigurationDayWed
+//	CisScanConfigurationDayThu
+//	CisScanConfigurationDayFri
+//	CisScanConfigurationDaySat
+//	CisScanConfigurationDaySun
 type CisScanConfigurationDayInput interface {
 	pulumi.Input
 
@@ -374,12 +350,6 @@ func (in *cisScanConfigurationDayPtr) ToCisScanConfigurationDayPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(CisScanConfigurationDayPtrOutput)
 }
 
-func (in *cisScanConfigurationDayPtr) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationDay] {
-	return pulumix.Output[*CisScanConfigurationDay]{
-		OutputState: in.ToCisScanConfigurationDayPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CisScanConfigurationDayArrayInput is an input type that accepts CisScanConfigurationDayArray and CisScanConfigurationDayArrayOutput values.
 // You can construct a concrete instance of `CisScanConfigurationDayArrayInput` via:
 //
@@ -405,12 +375,6 @@ func (i CisScanConfigurationDayArray) ToCisScanConfigurationDayArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationDayArrayOutput)
 }
 
-func (i CisScanConfigurationDayArray) ToOutput(ctx context.Context) pulumix.Output[[]CisScanConfigurationDay] {
-	return pulumix.Output[[]CisScanConfigurationDay]{
-		OutputState: i.ToCisScanConfigurationDayArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CisScanConfigurationDayArrayOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationDayArrayOutput) ElementType() reflect.Type {
@@ -423,12 +387,6 @@ func (o CisScanConfigurationDayArrayOutput) ToCisScanConfigurationDayArrayOutput
 
 func (o CisScanConfigurationDayArrayOutput) ToCisScanConfigurationDayArrayOutputWithContext(ctx context.Context) CisScanConfigurationDayArrayOutput {
 	return o
-}
-
-func (o CisScanConfigurationDayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CisScanConfigurationDay] {
-	return pulumix.Output[[]CisScanConfigurationDay]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CisScanConfigurationDayArrayOutput) Index(i pulumi.IntInput) CisScanConfigurationDayOutput {
@@ -504,12 +462,6 @@ func (o FilterActionOutput) ToFilterActionPtrOutputWithContext(ctx context.Conte
 	}).(FilterActionPtrOutput)
 }
 
-func (o FilterActionOutput) ToOutput(ctx context.Context) pulumix.Output[FilterAction] {
-	return pulumix.Output[FilterAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FilterActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -545,12 +497,6 @@ func (o FilterActionPtrOutput) ToFilterActionPtrOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o FilterActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterAction] {
-	return pulumix.Output[*FilterAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FilterActionPtrOutput) Elem() FilterActionOutput {
 	return o.ApplyT(func(v *FilterAction) FilterAction {
 		if v != nil {
@@ -575,10 +521,11 @@ func (o FilterActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// FilterActionInput is an input type that accepts FilterActionArgs and FilterActionOutput values.
-// You can construct a concrete instance of `FilterActionInput` via:
+// FilterActionInput is an input type that accepts values of the FilterAction enum
+// A concrete instance of `FilterActionInput` can be one of the following:
 //
-//	FilterActionArgs{...}
+//	FilterActionNone
+//	FilterActionSuppress
 type FilterActionInput interface {
 	pulumi.Input
 
@@ -611,12 +558,6 @@ func (in *filterActionPtr) ToFilterActionPtrOutput() FilterActionPtrOutput {
 
 func (in *filterActionPtr) ToFilterActionPtrOutputWithContext(ctx context.Context) FilterActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FilterActionPtrOutput)
-}
-
-func (in *filterActionPtr) ToOutput(ctx context.Context) pulumix.Output[*FilterAction] {
-	return pulumix.Output[*FilterAction]{
-		OutputState: in.ToFilterActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type FilterMapComparison string
@@ -685,12 +626,6 @@ func (o FilterMapComparisonOutput) ToFilterMapComparisonPtrOutputWithContext(ctx
 	}).(FilterMapComparisonPtrOutput)
 }
 
-func (o FilterMapComparisonOutput) ToOutput(ctx context.Context) pulumix.Output[FilterMapComparison] {
-	return pulumix.Output[FilterMapComparison]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FilterMapComparisonOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -726,12 +661,6 @@ func (o FilterMapComparisonPtrOutput) ToFilterMapComparisonPtrOutputWithContext(
 	return o
 }
 
-func (o FilterMapComparisonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterMapComparison] {
-	return pulumix.Output[*FilterMapComparison]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FilterMapComparisonPtrOutput) Elem() FilterMapComparisonOutput {
 	return o.ApplyT(func(v *FilterMapComparison) FilterMapComparison {
 		if v != nil {
@@ -756,10 +685,10 @@ func (o FilterMapComparisonPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// FilterMapComparisonInput is an input type that accepts FilterMapComparisonArgs and FilterMapComparisonOutput values.
-// You can construct a concrete instance of `FilterMapComparisonInput` via:
+// FilterMapComparisonInput is an input type that accepts values of the FilterMapComparison enum
+// A concrete instance of `FilterMapComparisonInput` can be one of the following:
 //
-//	FilterMapComparisonArgs{...}
+//	FilterMapComparisonEquals
 type FilterMapComparisonInput interface {
 	pulumi.Input
 
@@ -792,12 +721,6 @@ func (in *filterMapComparisonPtr) ToFilterMapComparisonPtrOutput() FilterMapComp
 
 func (in *filterMapComparisonPtr) ToFilterMapComparisonPtrOutputWithContext(ctx context.Context) FilterMapComparisonPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FilterMapComparisonPtrOutput)
-}
-
-func (in *filterMapComparisonPtr) ToOutput(ctx context.Context) pulumix.Output[*FilterMapComparison] {
-	return pulumix.Output[*FilterMapComparison]{
-		OutputState: in.ToFilterMapComparisonPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type FilterStringComparison string
@@ -868,12 +791,6 @@ func (o FilterStringComparisonOutput) ToFilterStringComparisonPtrOutputWithConte
 	}).(FilterStringComparisonPtrOutput)
 }
 
-func (o FilterStringComparisonOutput) ToOutput(ctx context.Context) pulumix.Output[FilterStringComparison] {
-	return pulumix.Output[FilterStringComparison]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FilterStringComparisonOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -909,12 +826,6 @@ func (o FilterStringComparisonPtrOutput) ToFilterStringComparisonPtrOutputWithCo
 	return o
 }
 
-func (o FilterStringComparisonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterStringComparison] {
-	return pulumix.Output[*FilterStringComparison]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FilterStringComparisonPtrOutput) Elem() FilterStringComparisonOutput {
 	return o.ApplyT(func(v *FilterStringComparison) FilterStringComparison {
 		if v != nil {
@@ -939,10 +850,12 @@ func (o FilterStringComparisonPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// FilterStringComparisonInput is an input type that accepts FilterStringComparisonArgs and FilterStringComparisonOutput values.
-// You can construct a concrete instance of `FilterStringComparisonInput` via:
+// FilterStringComparisonInput is an input type that accepts values of the FilterStringComparison enum
+// A concrete instance of `FilterStringComparisonInput` can be one of the following:
 //
-//	FilterStringComparisonArgs{...}
+//	FilterStringComparisonEquals
+//	FilterStringComparisonPrefix
+//	FilterStringComparisonNotEquals
 type FilterStringComparisonInput interface {
 	pulumi.Input
 
@@ -975,12 +888,6 @@ func (in *filterStringComparisonPtr) ToFilterStringComparisonPtrOutput() FilterS
 
 func (in *filterStringComparisonPtr) ToFilterStringComparisonPtrOutputWithContext(ctx context.Context) FilterStringComparisonPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FilterStringComparisonPtrOutput)
-}
-
-func (in *filterStringComparisonPtr) ToOutput(ctx context.Context) pulumix.Output[*FilterStringComparison] {
-	return pulumix.Output[*FilterStringComparison]{
-		OutputState: in.ToFilterStringComparisonPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

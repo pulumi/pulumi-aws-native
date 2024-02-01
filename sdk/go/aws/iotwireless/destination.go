@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Destination's resource schema demonstrating some basic constructs and validation rules.
@@ -136,12 +135,6 @@ func (i *Destination) ToDestinationOutputWithContext(ctx context.Context) Destin
 	return pulumi.ToOutputWithContext(ctx, i).(DestinationOutput)
 }
 
-func (i *Destination) ToOutput(ctx context.Context) pulumix.Output[*Destination] {
-	return pulumix.Output[*Destination]{
-		OutputState: i.ToDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DestinationOutput struct{ *pulumi.OutputState }
 
 func (DestinationOutput) ElementType() reflect.Type {
@@ -154,12 +147,6 @@ func (o DestinationOutput) ToDestinationOutput() DestinationOutput {
 
 func (o DestinationOutput) ToDestinationOutputWithContext(ctx context.Context) DestinationOutput {
 	return o
-}
-
-func (o DestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*Destination] {
-	return pulumix.Output[*Destination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Destination arn. Returned after successful create.

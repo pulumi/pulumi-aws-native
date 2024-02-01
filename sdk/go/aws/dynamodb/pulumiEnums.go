@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision string
@@ -78,12 +77,6 @@ func (o GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisio
 	}).(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
 }
 
-func (o GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision] {
-	return pulumix.Output[GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisio
 	return o
 }
 
-func (o GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision] {
-	return pulumix.Output[*GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput) Elem() GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput {
 	return o.ApplyT(func(v *GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision) GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision {
 		if v != nil {
@@ -149,10 +136,11 @@ func (o GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisio
 	}).(pulumi.StringPtrOutput)
 }
 
-// GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput is an input type that accepts GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionArgs and GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput values.
-// You can construct a concrete instance of `GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput` via:
+// GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput is an input type that accepts values of the GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision enum
+// A concrete instance of `GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput` can be one of the following:
 //
-//	GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionArgs{...}
+//	GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionMicrosecond
+//	GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionMillisecond
 type GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput interface {
 	pulumi.Input
 
@@ -185,12 +173,6 @@ func (in *globalTableKinesisStreamSpecificationApproximateCreationDateTimePrecis
 
 func (in *globalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtr) ToGlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutputWithContext(ctx context.Context) GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
-}
-
-func (in *globalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtr) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision] {
-	return pulumix.Output[*GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision]{
-		OutputState: in.ToGlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TableKinesisStreamSpecificationApproximateCreationDateTimePrecision string
@@ -260,12 +242,6 @@ func (o TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutpu
 	}).(TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
 }
 
-func (o TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput) ToOutput(ctx context.Context) pulumix.Output[TableKinesisStreamSpecificationApproximateCreationDateTimePrecision] {
-	return pulumix.Output[TableKinesisStreamSpecificationApproximateCreationDateTimePrecision]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +277,6 @@ func (o TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOu
 	return o
 }
 
-func (o TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableKinesisStreamSpecificationApproximateCreationDateTimePrecision] {
-	return pulumix.Output[*TableKinesisStreamSpecificationApproximateCreationDateTimePrecision]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput) Elem() TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput {
 	return o.ApplyT(func(v *TableKinesisStreamSpecificationApproximateCreationDateTimePrecision) TableKinesisStreamSpecificationApproximateCreationDateTimePrecision {
 		if v != nil {
@@ -331,10 +301,11 @@ func (o TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput is an input type that accepts TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionArgs and TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput values.
-// You can construct a concrete instance of `TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput` via:
+// TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput is an input type that accepts values of the TableKinesisStreamSpecificationApproximateCreationDateTimePrecision enum
+// A concrete instance of `TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput` can be one of the following:
 //
-//	TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionArgs{...}
+//	TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionMicrosecond
+//	TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionMillisecond
 type TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput interface {
 	pulumi.Input
 
@@ -367,12 +338,6 @@ func (in *tableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtr
 
 func (in *tableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtr) ToTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutputWithContext(ctx context.Context) TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
-}
-
-func (in *tableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtr) ToOutput(ctx context.Context) pulumix.Output[*TableKinesisStreamSpecificationApproximateCreationDateTimePrecision] {
-	return pulumix.Output[*TableKinesisStreamSpecificationApproximateCreationDateTimePrecision]{
-		OutputState: in.ToTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

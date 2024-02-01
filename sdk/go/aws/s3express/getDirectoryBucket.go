@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::S3Express::DirectoryBucket.
@@ -67,12 +66,6 @@ func (o LookupDirectoryBucketResultOutput) ToLookupDirectoryBucketResultOutput()
 
 func (o LookupDirectoryBucketResultOutput) ToLookupDirectoryBucketResultOutputWithContext(ctx context.Context) LookupDirectoryBucketResultOutput {
 	return o
-}
-
-func (o LookupDirectoryBucketResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDirectoryBucketResult] {
-	return pulumix.Output[LookupDirectoryBucketResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Returns the Amazon Resource Name (ARN) of the specified bucket.

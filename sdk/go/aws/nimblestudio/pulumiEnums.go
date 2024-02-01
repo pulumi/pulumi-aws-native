@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type LaunchProfileAutomaticTerminationMode string
@@ -78,12 +77,6 @@ func (o LaunchProfileAutomaticTerminationModeOutput) ToLaunchProfileAutomaticTer
 	}).(LaunchProfileAutomaticTerminationModePtrOutput)
 }
 
-func (o LaunchProfileAutomaticTerminationModeOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileAutomaticTerminationMode] {
-	return pulumix.Output[LaunchProfileAutomaticTerminationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchProfileAutomaticTerminationModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o LaunchProfileAutomaticTerminationModePtrOutput) ToLaunchProfileAutomatic
 	return o
 }
 
-func (o LaunchProfileAutomaticTerminationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileAutomaticTerminationMode] {
-	return pulumix.Output[*LaunchProfileAutomaticTerminationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchProfileAutomaticTerminationModePtrOutput) Elem() LaunchProfileAutomaticTerminationModeOutput {
 	return o.ApplyT(func(v *LaunchProfileAutomaticTerminationMode) LaunchProfileAutomaticTerminationMode {
 		if v != nil {
@@ -149,10 +136,11 @@ func (o LaunchProfileAutomaticTerminationModePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// LaunchProfileAutomaticTerminationModeInput is an input type that accepts LaunchProfileAutomaticTerminationModeArgs and LaunchProfileAutomaticTerminationModeOutput values.
-// You can construct a concrete instance of `LaunchProfileAutomaticTerminationModeInput` via:
+// LaunchProfileAutomaticTerminationModeInput is an input type that accepts values of the LaunchProfileAutomaticTerminationMode enum
+// A concrete instance of `LaunchProfileAutomaticTerminationModeInput` can be one of the following:
 //
-//	LaunchProfileAutomaticTerminationModeArgs{...}
+//	LaunchProfileAutomaticTerminationModeDeactivated
+//	LaunchProfileAutomaticTerminationModeActivated
 type LaunchProfileAutomaticTerminationModeInput interface {
 	pulumi.Input
 
@@ -185,12 +173,6 @@ func (in *launchProfileAutomaticTerminationModePtr) ToLaunchProfileAutomaticTerm
 
 func (in *launchProfileAutomaticTerminationModePtr) ToLaunchProfileAutomaticTerminationModePtrOutputWithContext(ctx context.Context) LaunchProfileAutomaticTerminationModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LaunchProfileAutomaticTerminationModePtrOutput)
-}
-
-func (in *launchProfileAutomaticTerminationModePtr) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileAutomaticTerminationMode] {
-	return pulumix.Output[*LaunchProfileAutomaticTerminationMode]{
-		OutputState: in.ToLaunchProfileAutomaticTerminationModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type LaunchProfileSessionBackupMode string
@@ -260,12 +242,6 @@ func (o LaunchProfileSessionBackupModeOutput) ToLaunchProfileSessionBackupModePt
 	}).(LaunchProfileSessionBackupModePtrOutput)
 }
 
-func (o LaunchProfileSessionBackupModeOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileSessionBackupMode] {
-	return pulumix.Output[LaunchProfileSessionBackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchProfileSessionBackupModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +277,6 @@ func (o LaunchProfileSessionBackupModePtrOutput) ToLaunchProfileSessionBackupMod
 	return o
 }
 
-func (o LaunchProfileSessionBackupModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileSessionBackupMode] {
-	return pulumix.Output[*LaunchProfileSessionBackupMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchProfileSessionBackupModePtrOutput) Elem() LaunchProfileSessionBackupModeOutput {
 	return o.ApplyT(func(v *LaunchProfileSessionBackupMode) LaunchProfileSessionBackupMode {
 		if v != nil {
@@ -331,10 +301,11 @@ func (o LaunchProfileSessionBackupModePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// LaunchProfileSessionBackupModeInput is an input type that accepts LaunchProfileSessionBackupModeArgs and LaunchProfileSessionBackupModeOutput values.
-// You can construct a concrete instance of `LaunchProfileSessionBackupModeInput` via:
+// LaunchProfileSessionBackupModeInput is an input type that accepts values of the LaunchProfileSessionBackupMode enum
+// A concrete instance of `LaunchProfileSessionBackupModeInput` can be one of the following:
 //
-//	LaunchProfileSessionBackupModeArgs{...}
+//	LaunchProfileSessionBackupModeAutomatic
+//	LaunchProfileSessionBackupModeDeactivated
 type LaunchProfileSessionBackupModeInput interface {
 	pulumi.Input
 
@@ -367,12 +338,6 @@ func (in *launchProfileSessionBackupModePtr) ToLaunchProfileSessionBackupModePtr
 
 func (in *launchProfileSessionBackupModePtr) ToLaunchProfileSessionBackupModePtrOutputWithContext(ctx context.Context) LaunchProfileSessionBackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LaunchProfileSessionBackupModePtrOutput)
-}
-
-func (in *launchProfileSessionBackupModePtr) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileSessionBackupMode] {
-	return pulumix.Output[*LaunchProfileSessionBackupMode]{
-		OutputState: in.ToLaunchProfileSessionBackupModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type LaunchProfileSessionPersistenceMode string
@@ -442,12 +407,6 @@ func (o LaunchProfileSessionPersistenceModeOutput) ToLaunchProfileSessionPersist
 	}).(LaunchProfileSessionPersistenceModePtrOutput)
 }
 
-func (o LaunchProfileSessionPersistenceModeOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileSessionPersistenceMode] {
-	return pulumix.Output[LaunchProfileSessionPersistenceMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchProfileSessionPersistenceModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -483,12 +442,6 @@ func (o LaunchProfileSessionPersistenceModePtrOutput) ToLaunchProfileSessionPers
 	return o
 }
 
-func (o LaunchProfileSessionPersistenceModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileSessionPersistenceMode] {
-	return pulumix.Output[*LaunchProfileSessionPersistenceMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchProfileSessionPersistenceModePtrOutput) Elem() LaunchProfileSessionPersistenceModeOutput {
 	return o.ApplyT(func(v *LaunchProfileSessionPersistenceMode) LaunchProfileSessionPersistenceMode {
 		if v != nil {
@@ -513,10 +466,11 @@ func (o LaunchProfileSessionPersistenceModePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// LaunchProfileSessionPersistenceModeInput is an input type that accepts LaunchProfileSessionPersistenceModeArgs and LaunchProfileSessionPersistenceModeOutput values.
-// You can construct a concrete instance of `LaunchProfileSessionPersistenceModeInput` via:
+// LaunchProfileSessionPersistenceModeInput is an input type that accepts values of the LaunchProfileSessionPersistenceMode enum
+// A concrete instance of `LaunchProfileSessionPersistenceModeInput` can be one of the following:
 //
-//	LaunchProfileSessionPersistenceModeArgs{...}
+//	LaunchProfileSessionPersistenceModeDeactivated
+//	LaunchProfileSessionPersistenceModeActivated
 type LaunchProfileSessionPersistenceModeInput interface {
 	pulumi.Input
 
@@ -549,12 +503,6 @@ func (in *launchProfileSessionPersistenceModePtr) ToLaunchProfileSessionPersiste
 
 func (in *launchProfileSessionPersistenceModePtr) ToLaunchProfileSessionPersistenceModePtrOutputWithContext(ctx context.Context) LaunchProfileSessionPersistenceModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LaunchProfileSessionPersistenceModePtrOutput)
-}
-
-func (in *launchProfileSessionPersistenceModePtr) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileSessionPersistenceMode] {
-	return pulumix.Output[*LaunchProfileSessionPersistenceMode]{
-		OutputState: in.ToLaunchProfileSessionPersistenceModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type LaunchProfileStreamingClipboardMode string
@@ -624,12 +572,6 @@ func (o LaunchProfileStreamingClipboardModeOutput) ToLaunchProfileStreamingClipb
 	}).(LaunchProfileStreamingClipboardModePtrOutput)
 }
 
-func (o LaunchProfileStreamingClipboardModeOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamingClipboardMode] {
-	return pulumix.Output[LaunchProfileStreamingClipboardMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchProfileStreamingClipboardModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -665,12 +607,6 @@ func (o LaunchProfileStreamingClipboardModePtrOutput) ToLaunchProfileStreamingCl
 	return o
 }
 
-func (o LaunchProfileStreamingClipboardModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamingClipboardMode] {
-	return pulumix.Output[*LaunchProfileStreamingClipboardMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchProfileStreamingClipboardModePtrOutput) Elem() LaunchProfileStreamingClipboardModeOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamingClipboardMode) LaunchProfileStreamingClipboardMode {
 		if v != nil {
@@ -695,10 +631,11 @@ func (o LaunchProfileStreamingClipboardModePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// LaunchProfileStreamingClipboardModeInput is an input type that accepts LaunchProfileStreamingClipboardModeArgs and LaunchProfileStreamingClipboardModeOutput values.
-// You can construct a concrete instance of `LaunchProfileStreamingClipboardModeInput` via:
+// LaunchProfileStreamingClipboardModeInput is an input type that accepts values of the LaunchProfileStreamingClipboardMode enum
+// A concrete instance of `LaunchProfileStreamingClipboardModeInput` can be one of the following:
 //
-//	LaunchProfileStreamingClipboardModeArgs{...}
+//	LaunchProfileStreamingClipboardModeEnabled
+//	LaunchProfileStreamingClipboardModeDisabled
 type LaunchProfileStreamingClipboardModeInput interface {
 	pulumi.Input
 
@@ -731,12 +668,6 @@ func (in *launchProfileStreamingClipboardModePtr) ToLaunchProfileStreamingClipbo
 
 func (in *launchProfileStreamingClipboardModePtr) ToLaunchProfileStreamingClipboardModePtrOutputWithContext(ctx context.Context) LaunchProfileStreamingClipboardModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LaunchProfileStreamingClipboardModePtrOutput)
-}
-
-func (in *launchProfileStreamingClipboardModePtr) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamingClipboardMode] {
-	return pulumix.Output[*LaunchProfileStreamingClipboardMode]{
-		OutputState: in.ToLaunchProfileStreamingClipboardModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type LaunchProfileStreamingInstanceType string
@@ -817,12 +748,6 @@ func (o LaunchProfileStreamingInstanceTypeOutput) ToLaunchProfileStreamingInstan
 	}).(LaunchProfileStreamingInstanceTypePtrOutput)
 }
 
-func (o LaunchProfileStreamingInstanceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamingInstanceType] {
-	return pulumix.Output[LaunchProfileStreamingInstanceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchProfileStreamingInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -858,12 +783,6 @@ func (o LaunchProfileStreamingInstanceTypePtrOutput) ToLaunchProfileStreamingIns
 	return o
 }
 
-func (o LaunchProfileStreamingInstanceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamingInstanceType] {
-	return pulumix.Output[*LaunchProfileStreamingInstanceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchProfileStreamingInstanceTypePtrOutput) Elem() LaunchProfileStreamingInstanceTypeOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamingInstanceType) LaunchProfileStreamingInstanceType {
 		if v != nil {
@@ -888,10 +807,22 @@ func (o LaunchProfileStreamingInstanceTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// LaunchProfileStreamingInstanceTypeInput is an input type that accepts LaunchProfileStreamingInstanceTypeArgs and LaunchProfileStreamingInstanceTypeOutput values.
-// You can construct a concrete instance of `LaunchProfileStreamingInstanceTypeInput` via:
+// LaunchProfileStreamingInstanceTypeInput is an input type that accepts values of the LaunchProfileStreamingInstanceType enum
+// A concrete instance of `LaunchProfileStreamingInstanceTypeInput` can be one of the following:
 //
-//	LaunchProfileStreamingInstanceTypeArgs{...}
+//	LaunchProfileStreamingInstanceTypeG4dnXlarge
+//	LaunchProfileStreamingInstanceTypeG4dn2xlarge
+//	LaunchProfileStreamingInstanceTypeG4dn4xlarge
+//	LaunchProfileStreamingInstanceTypeG4dn8xlarge
+//	LaunchProfileStreamingInstanceTypeG4dn12xlarge
+//	LaunchProfileStreamingInstanceTypeG4dn16xlarge
+//	LaunchProfileStreamingInstanceTypeG34xlarge
+//	LaunchProfileStreamingInstanceTypeG3sXlarge
+//	LaunchProfileStreamingInstanceTypeG5Xlarge
+//	LaunchProfileStreamingInstanceTypeG52xlarge
+//	LaunchProfileStreamingInstanceTypeG54xlarge
+//	LaunchProfileStreamingInstanceTypeG58xlarge
+//	LaunchProfileStreamingInstanceTypeG516xlarge
 type LaunchProfileStreamingInstanceTypeInput interface {
 	pulumi.Input
 
@@ -926,12 +857,6 @@ func (in *launchProfileStreamingInstanceTypePtr) ToLaunchProfileStreamingInstanc
 	return pulumi.ToOutputWithContext(ctx, in).(LaunchProfileStreamingInstanceTypePtrOutput)
 }
 
-func (in *launchProfileStreamingInstanceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamingInstanceType] {
-	return pulumix.Output[*LaunchProfileStreamingInstanceType]{
-		OutputState: in.ToLaunchProfileStreamingInstanceTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LaunchProfileStreamingInstanceTypeArrayInput is an input type that accepts LaunchProfileStreamingInstanceTypeArray and LaunchProfileStreamingInstanceTypeArrayOutput values.
 // You can construct a concrete instance of `LaunchProfileStreamingInstanceTypeArrayInput` via:
 //
@@ -957,12 +882,6 @@ func (i LaunchProfileStreamingInstanceTypeArray) ToLaunchProfileStreamingInstanc
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamingInstanceTypeArrayOutput)
 }
 
-func (i LaunchProfileStreamingInstanceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]LaunchProfileStreamingInstanceType] {
-	return pulumix.Output[[]LaunchProfileStreamingInstanceType]{
-		OutputState: i.ToLaunchProfileStreamingInstanceTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LaunchProfileStreamingInstanceTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileStreamingInstanceTypeArrayOutput) ElementType() reflect.Type {
@@ -975,12 +894,6 @@ func (o LaunchProfileStreamingInstanceTypeArrayOutput) ToLaunchProfileStreamingI
 
 func (o LaunchProfileStreamingInstanceTypeArrayOutput) ToLaunchProfileStreamingInstanceTypeArrayOutputWithContext(ctx context.Context) LaunchProfileStreamingInstanceTypeArrayOutput {
 	return o
-}
-
-func (o LaunchProfileStreamingInstanceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LaunchProfileStreamingInstanceType] {
-	return pulumix.Output[[]LaunchProfileStreamingInstanceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileStreamingInstanceTypeArrayOutput) Index(i pulumi.IntInput) LaunchProfileStreamingInstanceTypeOutput {
@@ -1055,12 +968,6 @@ func (o LaunchProfileStreamingSessionStorageModeOutput) ToLaunchProfileStreaming
 	}).(LaunchProfileStreamingSessionStorageModePtrOutput)
 }
 
-func (o LaunchProfileStreamingSessionStorageModeOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamingSessionStorageMode] {
-	return pulumix.Output[LaunchProfileStreamingSessionStorageMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchProfileStreamingSessionStorageModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1096,12 +1003,6 @@ func (o LaunchProfileStreamingSessionStorageModePtrOutput) ToLaunchProfileStream
 	return o
 }
 
-func (o LaunchProfileStreamingSessionStorageModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamingSessionStorageMode] {
-	return pulumix.Output[*LaunchProfileStreamingSessionStorageMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchProfileStreamingSessionStorageModePtrOutput) Elem() LaunchProfileStreamingSessionStorageModeOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamingSessionStorageMode) LaunchProfileStreamingSessionStorageMode {
 		if v != nil {
@@ -1126,10 +1027,10 @@ func (o LaunchProfileStreamingSessionStorageModePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// LaunchProfileStreamingSessionStorageModeInput is an input type that accepts LaunchProfileStreamingSessionStorageModeArgs and LaunchProfileStreamingSessionStorageModeOutput values.
-// You can construct a concrete instance of `LaunchProfileStreamingSessionStorageModeInput` via:
+// LaunchProfileStreamingSessionStorageModeInput is an input type that accepts values of the LaunchProfileStreamingSessionStorageMode enum
+// A concrete instance of `LaunchProfileStreamingSessionStorageModeInput` can be one of the following:
 //
-//	LaunchProfileStreamingSessionStorageModeArgs{...}
+//	LaunchProfileStreamingSessionStorageModeUpload
 type LaunchProfileStreamingSessionStorageModeInput interface {
 	pulumi.Input
 
@@ -1164,12 +1065,6 @@ func (in *launchProfileStreamingSessionStorageModePtr) ToLaunchProfileStreamingS
 	return pulumi.ToOutputWithContext(ctx, in).(LaunchProfileStreamingSessionStorageModePtrOutput)
 }
 
-func (in *launchProfileStreamingSessionStorageModePtr) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamingSessionStorageMode] {
-	return pulumix.Output[*LaunchProfileStreamingSessionStorageMode]{
-		OutputState: in.ToLaunchProfileStreamingSessionStorageModePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LaunchProfileStreamingSessionStorageModeArrayInput is an input type that accepts LaunchProfileStreamingSessionStorageModeArray and LaunchProfileStreamingSessionStorageModeArrayOutput values.
 // You can construct a concrete instance of `LaunchProfileStreamingSessionStorageModeArrayInput` via:
 //
@@ -1195,12 +1090,6 @@ func (i LaunchProfileStreamingSessionStorageModeArray) ToLaunchProfileStreamingS
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamingSessionStorageModeArrayOutput)
 }
 
-func (i LaunchProfileStreamingSessionStorageModeArray) ToOutput(ctx context.Context) pulumix.Output[[]LaunchProfileStreamingSessionStorageMode] {
-	return pulumix.Output[[]LaunchProfileStreamingSessionStorageMode]{
-		OutputState: i.ToLaunchProfileStreamingSessionStorageModeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LaunchProfileStreamingSessionStorageModeArrayOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileStreamingSessionStorageModeArrayOutput) ElementType() reflect.Type {
@@ -1213,12 +1102,6 @@ func (o LaunchProfileStreamingSessionStorageModeArrayOutput) ToLaunchProfileStre
 
 func (o LaunchProfileStreamingSessionStorageModeArrayOutput) ToLaunchProfileStreamingSessionStorageModeArrayOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageModeArrayOutput {
 	return o
-}
-
-func (o LaunchProfileStreamingSessionStorageModeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LaunchProfileStreamingSessionStorageMode] {
-	return pulumix.Output[[]LaunchProfileStreamingSessionStorageMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileStreamingSessionStorageModeArrayOutput) Index(i pulumi.IntInput) LaunchProfileStreamingSessionStorageModeOutput {
@@ -1258,12 +1141,6 @@ func (o StreamingImageEncryptionConfigurationKeyTypeOutput) ToStreamingImageEncr
 	}).(StreamingImageEncryptionConfigurationKeyTypePtrOutput)
 }
 
-func (o StreamingImageEncryptionConfigurationKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingImageEncryptionConfigurationKeyType] {
-	return pulumix.Output[StreamingImageEncryptionConfigurationKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamingImageEncryptionConfigurationKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1297,12 +1174,6 @@ func (o StreamingImageEncryptionConfigurationKeyTypePtrOutput) ToStreamingImageE
 
 func (o StreamingImageEncryptionConfigurationKeyTypePtrOutput) ToStreamingImageEncryptionConfigurationKeyTypePtrOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationKeyTypePtrOutput {
 	return o
-}
-
-func (o StreamingImageEncryptionConfigurationKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingImageEncryptionConfigurationKeyType] {
-	return pulumix.Output[*StreamingImageEncryptionConfigurationKeyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingImageEncryptionConfigurationKeyTypePtrOutput) Elem() StreamingImageEncryptionConfigurationKeyTypeOutput {
@@ -1396,12 +1267,6 @@ func (o StudioComponentInitializationScriptRunContextOutput) ToStudioComponentIn
 	}).(StudioComponentInitializationScriptRunContextPtrOutput)
 }
 
-func (o StudioComponentInitializationScriptRunContextOutput) ToOutput(ctx context.Context) pulumix.Output[StudioComponentInitializationScriptRunContext] {
-	return pulumix.Output[StudioComponentInitializationScriptRunContext]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioComponentInitializationScriptRunContextOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1437,12 +1302,6 @@ func (o StudioComponentInitializationScriptRunContextPtrOutput) ToStudioComponen
 	return o
 }
 
-func (o StudioComponentInitializationScriptRunContextPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioComponentInitializationScriptRunContext] {
-	return pulumix.Output[*StudioComponentInitializationScriptRunContext]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioComponentInitializationScriptRunContextPtrOutput) Elem() StudioComponentInitializationScriptRunContextOutput {
 	return o.ApplyT(func(v *StudioComponentInitializationScriptRunContext) StudioComponentInitializationScriptRunContext {
 		if v != nil {
@@ -1467,10 +1326,11 @@ func (o StudioComponentInitializationScriptRunContextPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// StudioComponentInitializationScriptRunContextInput is an input type that accepts StudioComponentInitializationScriptRunContextArgs and StudioComponentInitializationScriptRunContextOutput values.
-// You can construct a concrete instance of `StudioComponentInitializationScriptRunContextInput` via:
+// StudioComponentInitializationScriptRunContextInput is an input type that accepts values of the StudioComponentInitializationScriptRunContext enum
+// A concrete instance of `StudioComponentInitializationScriptRunContextInput` can be one of the following:
 //
-//	StudioComponentInitializationScriptRunContextArgs{...}
+//	StudioComponentInitializationScriptRunContextSystemInitialization
+//	StudioComponentInitializationScriptRunContextUserInitialization
 type StudioComponentInitializationScriptRunContextInput interface {
 	pulumi.Input
 
@@ -1503,12 +1363,6 @@ func (in *studioComponentInitializationScriptRunContextPtr) ToStudioComponentIni
 
 func (in *studioComponentInitializationScriptRunContextPtr) ToStudioComponentInitializationScriptRunContextPtrOutputWithContext(ctx context.Context) StudioComponentInitializationScriptRunContextPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StudioComponentInitializationScriptRunContextPtrOutput)
-}
-
-func (in *studioComponentInitializationScriptRunContextPtr) ToOutput(ctx context.Context) pulumix.Output[*StudioComponentInitializationScriptRunContext] {
-	return pulumix.Output[*StudioComponentInitializationScriptRunContext]{
-		OutputState: in.ToStudioComponentInitializationScriptRunContextPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type StudioComponentLaunchProfilePlatform string
@@ -1578,12 +1432,6 @@ func (o StudioComponentLaunchProfilePlatformOutput) ToStudioComponentLaunchProfi
 	}).(StudioComponentLaunchProfilePlatformPtrOutput)
 }
 
-func (o StudioComponentLaunchProfilePlatformOutput) ToOutput(ctx context.Context) pulumix.Output[StudioComponentLaunchProfilePlatform] {
-	return pulumix.Output[StudioComponentLaunchProfilePlatform]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioComponentLaunchProfilePlatformOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1619,12 +1467,6 @@ func (o StudioComponentLaunchProfilePlatformPtrOutput) ToStudioComponentLaunchPr
 	return o
 }
 
-func (o StudioComponentLaunchProfilePlatformPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioComponentLaunchProfilePlatform] {
-	return pulumix.Output[*StudioComponentLaunchProfilePlatform]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioComponentLaunchProfilePlatformPtrOutput) Elem() StudioComponentLaunchProfilePlatformOutput {
 	return o.ApplyT(func(v *StudioComponentLaunchProfilePlatform) StudioComponentLaunchProfilePlatform {
 		if v != nil {
@@ -1649,10 +1491,11 @@ func (o StudioComponentLaunchProfilePlatformPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// StudioComponentLaunchProfilePlatformInput is an input type that accepts StudioComponentLaunchProfilePlatformArgs and StudioComponentLaunchProfilePlatformOutput values.
-// You can construct a concrete instance of `StudioComponentLaunchProfilePlatformInput` via:
+// StudioComponentLaunchProfilePlatformInput is an input type that accepts values of the StudioComponentLaunchProfilePlatform enum
+// A concrete instance of `StudioComponentLaunchProfilePlatformInput` can be one of the following:
 //
-//	StudioComponentLaunchProfilePlatformArgs{...}
+//	StudioComponentLaunchProfilePlatformLinux
+//	StudioComponentLaunchProfilePlatformWindows
 type StudioComponentLaunchProfilePlatformInput interface {
 	pulumi.Input
 
@@ -1685,12 +1528,6 @@ func (in *studioComponentLaunchProfilePlatformPtr) ToStudioComponentLaunchProfil
 
 func (in *studioComponentLaunchProfilePlatformPtr) ToStudioComponentLaunchProfilePlatformPtrOutputWithContext(ctx context.Context) StudioComponentLaunchProfilePlatformPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StudioComponentLaunchProfilePlatformPtrOutput)
-}
-
-func (in *studioComponentLaunchProfilePlatformPtr) ToOutput(ctx context.Context) pulumix.Output[*StudioComponentLaunchProfilePlatform] {
-	return pulumix.Output[*StudioComponentLaunchProfilePlatform]{
-		OutputState: in.ToStudioComponentLaunchProfilePlatformPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type StudioComponentSubtype string
@@ -1762,12 +1599,6 @@ func (o StudioComponentSubtypeOutput) ToStudioComponentSubtypePtrOutputWithConte
 	}).(StudioComponentSubtypePtrOutput)
 }
 
-func (o StudioComponentSubtypeOutput) ToOutput(ctx context.Context) pulumix.Output[StudioComponentSubtype] {
-	return pulumix.Output[StudioComponentSubtype]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioComponentSubtypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1803,12 +1634,6 @@ func (o StudioComponentSubtypePtrOutput) ToStudioComponentSubtypePtrOutputWithCo
 	return o
 }
 
-func (o StudioComponentSubtypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioComponentSubtype] {
-	return pulumix.Output[*StudioComponentSubtype]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioComponentSubtypePtrOutput) Elem() StudioComponentSubtypeOutput {
 	return o.ApplyT(func(v *StudioComponentSubtype) StudioComponentSubtype {
 		if v != nil {
@@ -1833,10 +1658,13 @@ func (o StudioComponentSubtypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// StudioComponentSubtypeInput is an input type that accepts StudioComponentSubtypeArgs and StudioComponentSubtypeOutput values.
-// You can construct a concrete instance of `StudioComponentSubtypeInput` via:
+// StudioComponentSubtypeInput is an input type that accepts values of the StudioComponentSubtype enum
+// A concrete instance of `StudioComponentSubtypeInput` can be one of the following:
 //
-//	StudioComponentSubtypeArgs{...}
+//	StudioComponentSubtypeAwsManagedMicrosoftAd
+//	StudioComponentSubtypeAmazonFsxForWindows
+//	StudioComponentSubtypeAmazonFsxForLustre
+//	StudioComponentSubtypeCustom
 type StudioComponentSubtypeInput interface {
 	pulumi.Input
 
@@ -1869,12 +1697,6 @@ func (in *studioComponentSubtypePtr) ToStudioComponentSubtypePtrOutput() StudioC
 
 func (in *studioComponentSubtypePtr) ToStudioComponentSubtypePtrOutputWithContext(ctx context.Context) StudioComponentSubtypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StudioComponentSubtypePtrOutput)
-}
-
-func (in *studioComponentSubtypePtr) ToOutput(ctx context.Context) pulumix.Output[*StudioComponentSubtype] {
-	return pulumix.Output[*StudioComponentSubtype]{
-		OutputState: in.ToStudioComponentSubtypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type StudioComponentType string
@@ -1947,12 +1769,6 @@ func (o StudioComponentTypeOutput) ToStudioComponentTypePtrOutputWithContext(ctx
 	}).(StudioComponentTypePtrOutput)
 }
 
-func (o StudioComponentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StudioComponentType] {
-	return pulumix.Output[StudioComponentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioComponentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1988,12 +1804,6 @@ func (o StudioComponentTypePtrOutput) ToStudioComponentTypePtrOutputWithContext(
 	return o
 }
 
-func (o StudioComponentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioComponentType] {
-	return pulumix.Output[*StudioComponentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioComponentTypePtrOutput) Elem() StudioComponentTypeOutput {
 	return o.ApplyT(func(v *StudioComponentType) StudioComponentType {
 		if v != nil {
@@ -2018,10 +1828,14 @@ func (o StudioComponentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// StudioComponentTypeInput is an input type that accepts StudioComponentTypeArgs and StudioComponentTypeOutput values.
-// You can construct a concrete instance of `StudioComponentTypeInput` via:
+// StudioComponentTypeInput is an input type that accepts values of the StudioComponentType enum
+// A concrete instance of `StudioComponentTypeInput` can be one of the following:
 //
-//	StudioComponentTypeArgs{...}
+//	StudioComponentTypeActiveDirectory
+//	StudioComponentTypeSharedFileSystem
+//	StudioComponentTypeComputeFarm
+//	StudioComponentTypeLicenseService
+//	StudioComponentTypeCustom
 type StudioComponentTypeInput interface {
 	pulumi.Input
 
@@ -2054,12 +1868,6 @@ func (in *studioComponentTypePtr) ToStudioComponentTypePtrOutput() StudioCompone
 
 func (in *studioComponentTypePtr) ToStudioComponentTypePtrOutputWithContext(ctx context.Context) StudioComponentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StudioComponentTypePtrOutput)
-}
-
-func (in *studioComponentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*StudioComponentType] {
-	return pulumix.Output[*StudioComponentType]{
-		OutputState: in.ToStudioComponentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // <p>The type of KMS key that is used to encrypt studio data.</p>
@@ -2130,12 +1938,6 @@ func (o StudioEncryptionConfigurationKeyTypeOutput) ToStudioEncryptionConfigurat
 	}).(StudioEncryptionConfigurationKeyTypePtrOutput)
 }
 
-func (o StudioEncryptionConfigurationKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StudioEncryptionConfigurationKeyType] {
-	return pulumix.Output[StudioEncryptionConfigurationKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioEncryptionConfigurationKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2171,12 +1973,6 @@ func (o StudioEncryptionConfigurationKeyTypePtrOutput) ToStudioEncryptionConfigu
 	return o
 }
 
-func (o StudioEncryptionConfigurationKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioEncryptionConfigurationKeyType] {
-	return pulumix.Output[*StudioEncryptionConfigurationKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioEncryptionConfigurationKeyTypePtrOutput) Elem() StudioEncryptionConfigurationKeyTypeOutput {
 	return o.ApplyT(func(v *StudioEncryptionConfigurationKeyType) StudioEncryptionConfigurationKeyType {
 		if v != nil {
@@ -2201,10 +1997,11 @@ func (o StudioEncryptionConfigurationKeyTypePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// StudioEncryptionConfigurationKeyTypeInput is an input type that accepts StudioEncryptionConfigurationKeyTypeArgs and StudioEncryptionConfigurationKeyTypeOutput values.
-// You can construct a concrete instance of `StudioEncryptionConfigurationKeyTypeInput` via:
+// StudioEncryptionConfigurationKeyTypeInput is an input type that accepts values of the StudioEncryptionConfigurationKeyType enum
+// A concrete instance of `StudioEncryptionConfigurationKeyTypeInput` can be one of the following:
 //
-//	StudioEncryptionConfigurationKeyTypeArgs{...}
+//	StudioEncryptionConfigurationKeyTypeAwsOwnedKey
+//	StudioEncryptionConfigurationKeyTypeCustomerManagedKey
 type StudioEncryptionConfigurationKeyTypeInput interface {
 	pulumi.Input
 
@@ -2237,12 +2034,6 @@ func (in *studioEncryptionConfigurationKeyTypePtr) ToStudioEncryptionConfigurati
 
 func (in *studioEncryptionConfigurationKeyTypePtr) ToStudioEncryptionConfigurationKeyTypePtrOutputWithContext(ctx context.Context) StudioEncryptionConfigurationKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StudioEncryptionConfigurationKeyTypePtrOutput)
-}
-
-func (in *studioEncryptionConfigurationKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*StudioEncryptionConfigurationKeyType] {
-	return pulumix.Output[*StudioEncryptionConfigurationKeyType]{
-		OutputState: in.ToStudioEncryptionConfigurationKeyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

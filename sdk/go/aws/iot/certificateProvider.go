@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
@@ -114,12 +113,6 @@ func (i *CertificateProvider) ToCertificateProviderOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateProviderOutput)
 }
 
-func (i *CertificateProvider) ToOutput(ctx context.Context) pulumix.Output[*CertificateProvider] {
-	return pulumix.Output[*CertificateProvider]{
-		OutputState: i.ToCertificateProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateProviderOutput struct{ *pulumi.OutputState }
 
 func (CertificateProviderOutput) ElementType() reflect.Type {
@@ -132,12 +125,6 @@ func (o CertificateProviderOutput) ToCertificateProviderOutput() CertificateProv
 
 func (o CertificateProviderOutput) ToCertificateProviderOutputWithContext(ctx context.Context) CertificateProviderOutput {
 	return o
-}
-
-func (o CertificateProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateProvider] {
-	return pulumix.Output[*CertificateProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateProviderOutput) AccountDefaultForOperations() CertificateProviderOperationArrayOutput {

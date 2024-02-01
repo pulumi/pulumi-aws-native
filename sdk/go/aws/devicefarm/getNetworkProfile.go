@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
@@ -75,12 +74,6 @@ func (o LookupNetworkProfileResultOutput) ToLookupNetworkProfileResultOutput() L
 
 func (o LookupNetworkProfileResultOutput) ToLookupNetworkProfileResultOutputWithContext(ctx context.Context) LookupNetworkProfileResultOutput {
 	return o
-}
-
-func (o LookupNetworkProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkProfileResult] {
-	return pulumix.Output[LookupNetworkProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupNetworkProfileResultOutput) Arn() pulumi.StringPtrOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
@@ -109,12 +108,6 @@ func (i *StorageLensGroup) ToStorageLensGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupOutput)
 }
 
-func (i *StorageLensGroup) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroup] {
-	return pulumix.Output[*StorageLensGroup]{
-		OutputState: i.ToStorageLensGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensGroupOutput struct{ *pulumi.OutputState }
 
 func (StorageLensGroupOutput) ElementType() reflect.Type {
@@ -127,12 +120,6 @@ func (o StorageLensGroupOutput) ToStorageLensGroupOutput() StorageLensGroupOutpu
 
 func (o StorageLensGroupOutput) ToStorageLensGroupOutputWithContext(ctx context.Context) StorageLensGroupOutput {
 	return o
-}
-
-func (o StorageLensGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroup] {
-	return pulumix.Output[*StorageLensGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupOutput) Filter() StorageLensGroupFilterOutput {

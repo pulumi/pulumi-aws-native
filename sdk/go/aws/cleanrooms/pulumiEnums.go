@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AnalysisTemplateAnalysisParameterType string
@@ -91,12 +90,6 @@ func (o AnalysisTemplateAnalysisParameterTypeOutput) ToAnalysisTemplateAnalysisP
 	}).(AnalysisTemplateAnalysisParameterTypePtrOutput)
 }
 
-func (o AnalysisTemplateAnalysisParameterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisParameterType] {
-	return pulumix.Output[AnalysisTemplateAnalysisParameterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTemplateAnalysisParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -132,12 +125,6 @@ func (o AnalysisTemplateAnalysisParameterTypePtrOutput) ToAnalysisTemplateAnalys
 	return o
 }
 
-func (o AnalysisTemplateAnalysisParameterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplateAnalysisParameterType] {
-	return pulumix.Output[*AnalysisTemplateAnalysisParameterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTemplateAnalysisParameterTypePtrOutput) Elem() AnalysisTemplateAnalysisParameterTypeOutput {
 	return o.ApplyT(func(v *AnalysisTemplateAnalysisParameterType) AnalysisTemplateAnalysisParameterType {
 		if v != nil {
@@ -162,10 +149,24 @@ func (o AnalysisTemplateAnalysisParameterTypePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTemplateAnalysisParameterTypeInput is an input type that accepts AnalysisTemplateAnalysisParameterTypeArgs and AnalysisTemplateAnalysisParameterTypeOutput values.
-// You can construct a concrete instance of `AnalysisTemplateAnalysisParameterTypeInput` via:
+// AnalysisTemplateAnalysisParameterTypeInput is an input type that accepts values of the AnalysisTemplateAnalysisParameterType enum
+// A concrete instance of `AnalysisTemplateAnalysisParameterTypeInput` can be one of the following:
 //
-//	AnalysisTemplateAnalysisParameterTypeArgs{...}
+//	AnalysisTemplateAnalysisParameterTypeSmallint
+//	AnalysisTemplateAnalysisParameterTypeInteger
+//	AnalysisTemplateAnalysisParameterTypeBigint
+//	AnalysisTemplateAnalysisParameterTypeDecimal
+//	AnalysisTemplateAnalysisParameterTypeReal
+//	AnalysisTemplateAnalysisParameterTypeDoublePrecision
+//	AnalysisTemplateAnalysisParameterTypeBoolean
+//	AnalysisTemplateAnalysisParameterTypeChar
+//	AnalysisTemplateAnalysisParameterTypeVarchar
+//	AnalysisTemplateAnalysisParameterTypeDate
+//	AnalysisTemplateAnalysisParameterTypeTimestamp
+//	AnalysisTemplateAnalysisParameterTypeTimestamptz
+//	AnalysisTemplateAnalysisParameterTypeTime
+//	AnalysisTemplateAnalysisParameterTypeTimetz
+//	AnalysisTemplateAnalysisParameterTypeVarbyte
 type AnalysisTemplateAnalysisParameterTypeInput interface {
 	pulumi.Input
 
@@ -198,12 +199,6 @@ func (in *analysisTemplateAnalysisParameterTypePtr) ToAnalysisTemplateAnalysisPa
 
 func (in *analysisTemplateAnalysisParameterTypePtr) ToAnalysisTemplateAnalysisParameterTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTemplateAnalysisParameterTypePtrOutput)
-}
-
-func (in *analysisTemplateAnalysisParameterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplateAnalysisParameterType] {
-	return pulumix.Output[*AnalysisTemplateAnalysisParameterType]{
-		OutputState: in.ToAnalysisTemplateAnalysisParameterTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AnalysisTemplateFormat string
@@ -272,12 +267,6 @@ func (o AnalysisTemplateFormatOutput) ToAnalysisTemplateFormatPtrOutputWithConte
 	}).(AnalysisTemplateFormatPtrOutput)
 }
 
-func (o AnalysisTemplateFormatOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateFormat] {
-	return pulumix.Output[AnalysisTemplateFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTemplateFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -313,12 +302,6 @@ func (o AnalysisTemplateFormatPtrOutput) ToAnalysisTemplateFormatPtrOutputWithCo
 	return o
 }
 
-func (o AnalysisTemplateFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplateFormat] {
-	return pulumix.Output[*AnalysisTemplateFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTemplateFormatPtrOutput) Elem() AnalysisTemplateFormatOutput {
 	return o.ApplyT(func(v *AnalysisTemplateFormat) AnalysisTemplateFormat {
 		if v != nil {
@@ -343,10 +326,10 @@ func (o AnalysisTemplateFormatPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnalysisTemplateFormatInput is an input type that accepts AnalysisTemplateFormatArgs and AnalysisTemplateFormatOutput values.
-// You can construct a concrete instance of `AnalysisTemplateFormatInput` via:
+// AnalysisTemplateFormatInput is an input type that accepts values of the AnalysisTemplateFormat enum
+// A concrete instance of `AnalysisTemplateFormatInput` can be one of the following:
 //
-//	AnalysisTemplateFormatArgs{...}
+//	AnalysisTemplateFormatSql
 type AnalysisTemplateFormatInput interface {
 	pulumi.Input
 
@@ -379,12 +362,6 @@ func (in *analysisTemplateFormatPtr) ToAnalysisTemplateFormatPtrOutput() Analysi
 
 func (in *analysisTemplateFormatPtr) ToAnalysisTemplateFormatPtrOutputWithContext(ctx context.Context) AnalysisTemplateFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTemplateFormatPtrOutput)
-}
-
-func (in *analysisTemplateFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplateFormat] {
-	return pulumix.Output[*AnalysisTemplateFormat]{
-		OutputState: in.ToAnalysisTemplateFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type CollaborationMemberAbility string
@@ -454,12 +431,6 @@ func (o CollaborationMemberAbilityOutput) ToCollaborationMemberAbilityPtrOutputW
 	}).(CollaborationMemberAbilityPtrOutput)
 }
 
-func (o CollaborationMemberAbilityOutput) ToOutput(ctx context.Context) pulumix.Output[CollaborationMemberAbility] {
-	return pulumix.Output[CollaborationMemberAbility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollaborationMemberAbilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -495,12 +466,6 @@ func (o CollaborationMemberAbilityPtrOutput) ToCollaborationMemberAbilityPtrOutp
 	return o
 }
 
-func (o CollaborationMemberAbilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollaborationMemberAbility] {
-	return pulumix.Output[*CollaborationMemberAbility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollaborationMemberAbilityPtrOutput) Elem() CollaborationMemberAbilityOutput {
 	return o.ApplyT(func(v *CollaborationMemberAbility) CollaborationMemberAbility {
 		if v != nil {
@@ -525,10 +490,11 @@ func (o CollaborationMemberAbilityPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// CollaborationMemberAbilityInput is an input type that accepts CollaborationMemberAbilityArgs and CollaborationMemberAbilityOutput values.
-// You can construct a concrete instance of `CollaborationMemberAbilityInput` via:
+// CollaborationMemberAbilityInput is an input type that accepts values of the CollaborationMemberAbility enum
+// A concrete instance of `CollaborationMemberAbilityInput` can be one of the following:
 //
-//	CollaborationMemberAbilityArgs{...}
+//	CollaborationMemberAbilityCanQuery
+//	CollaborationMemberAbilityCanReceiveResults
 type CollaborationMemberAbilityInput interface {
 	pulumi.Input
 
@@ -563,12 +529,6 @@ func (in *collaborationMemberAbilityPtr) ToCollaborationMemberAbilityPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(CollaborationMemberAbilityPtrOutput)
 }
 
-func (in *collaborationMemberAbilityPtr) ToOutput(ctx context.Context) pulumix.Output[*CollaborationMemberAbility] {
-	return pulumix.Output[*CollaborationMemberAbility]{
-		OutputState: in.ToCollaborationMemberAbilityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CollaborationMemberAbilityArrayInput is an input type that accepts CollaborationMemberAbilityArray and CollaborationMemberAbilityArrayOutput values.
 // You can construct a concrete instance of `CollaborationMemberAbilityArrayInput` via:
 //
@@ -594,12 +554,6 @@ func (i CollaborationMemberAbilityArray) ToCollaborationMemberAbilityArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMemberAbilityArrayOutput)
 }
 
-func (i CollaborationMemberAbilityArray) ToOutput(ctx context.Context) pulumix.Output[[]CollaborationMemberAbility] {
-	return pulumix.Output[[]CollaborationMemberAbility]{
-		OutputState: i.ToCollaborationMemberAbilityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CollaborationMemberAbilityArrayOutput struct{ *pulumi.OutputState }
 
 func (CollaborationMemberAbilityArrayOutput) ElementType() reflect.Type {
@@ -612,12 +566,6 @@ func (o CollaborationMemberAbilityArrayOutput) ToCollaborationMemberAbilityArray
 
 func (o CollaborationMemberAbilityArrayOutput) ToCollaborationMemberAbilityArrayOutputWithContext(ctx context.Context) CollaborationMemberAbilityArrayOutput {
 	return o
-}
-
-func (o CollaborationMemberAbilityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CollaborationMemberAbility] {
-	return pulumix.Output[[]CollaborationMemberAbility]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollaborationMemberAbilityArrayOutput) Index(i pulumi.IntInput) CollaborationMemberAbilityOutput {
@@ -693,12 +641,6 @@ func (o CollaborationQueryLogStatusOutput) ToCollaborationQueryLogStatusPtrOutpu
 	}).(CollaborationQueryLogStatusPtrOutput)
 }
 
-func (o CollaborationQueryLogStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CollaborationQueryLogStatus] {
-	return pulumix.Output[CollaborationQueryLogStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollaborationQueryLogStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -734,12 +676,6 @@ func (o CollaborationQueryLogStatusPtrOutput) ToCollaborationQueryLogStatusPtrOu
 	return o
 }
 
-func (o CollaborationQueryLogStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollaborationQueryLogStatus] {
-	return pulumix.Output[*CollaborationQueryLogStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollaborationQueryLogStatusPtrOutput) Elem() CollaborationQueryLogStatusOutput {
 	return o.ApplyT(func(v *CollaborationQueryLogStatus) CollaborationQueryLogStatus {
 		if v != nil {
@@ -764,10 +700,11 @@ func (o CollaborationQueryLogStatusPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// CollaborationQueryLogStatusInput is an input type that accepts CollaborationQueryLogStatusArgs and CollaborationQueryLogStatusOutput values.
-// You can construct a concrete instance of `CollaborationQueryLogStatusInput` via:
+// CollaborationQueryLogStatusInput is an input type that accepts values of the CollaborationQueryLogStatus enum
+// A concrete instance of `CollaborationQueryLogStatusInput` can be one of the following:
 //
-//	CollaborationQueryLogStatusArgs{...}
+//	CollaborationQueryLogStatusEnabled
+//	CollaborationQueryLogStatusDisabled
 type CollaborationQueryLogStatusInput interface {
 	pulumi.Input
 
@@ -802,12 +739,6 @@ func (in *collaborationQueryLogStatusPtr) ToCollaborationQueryLogStatusPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(CollaborationQueryLogStatusPtrOutput)
 }
 
-func (in *collaborationQueryLogStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*CollaborationQueryLogStatus] {
-	return pulumix.Output[*CollaborationQueryLogStatus]{
-		OutputState: in.ToCollaborationQueryLogStatusPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfiguredTableAggregateFunctionName string
 
 const (
@@ -818,11 +749,329 @@ const (
 	ConfiguredTableAggregateFunctionNameAvg           = ConfiguredTableAggregateFunctionName("AVG")
 )
 
+func (ConfiguredTableAggregateFunctionName) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAggregateFunctionName)(nil)).Elem()
+}
+
+func (e ConfiguredTableAggregateFunctionName) ToConfiguredTableAggregateFunctionNameOutput() ConfiguredTableAggregateFunctionNameOutput {
+	return pulumi.ToOutput(e).(ConfiguredTableAggregateFunctionNameOutput)
+}
+
+func (e ConfiguredTableAggregateFunctionName) ToConfiguredTableAggregateFunctionNameOutputWithContext(ctx context.Context) ConfiguredTableAggregateFunctionNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfiguredTableAggregateFunctionNameOutput)
+}
+
+func (e ConfiguredTableAggregateFunctionName) ToConfiguredTableAggregateFunctionNamePtrOutput() ConfiguredTableAggregateFunctionNamePtrOutput {
+	return e.ToConfiguredTableAggregateFunctionNamePtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableAggregateFunctionName) ToConfiguredTableAggregateFunctionNamePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregateFunctionNamePtrOutput {
+	return ConfiguredTableAggregateFunctionName(e).ToConfiguredTableAggregateFunctionNameOutputWithContext(ctx).ToConfiguredTableAggregateFunctionNamePtrOutputWithContext(ctx)
+}
+
+func (e ConfiguredTableAggregateFunctionName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableAggregateFunctionName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableAggregateFunctionName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableAggregateFunctionName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfiguredTableAggregateFunctionNameOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAggregateFunctionNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAggregateFunctionName)(nil)).Elem()
+}
+
+func (o ConfiguredTableAggregateFunctionNameOutput) ToConfiguredTableAggregateFunctionNameOutput() ConfiguredTableAggregateFunctionNameOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregateFunctionNameOutput) ToConfiguredTableAggregateFunctionNameOutputWithContext(ctx context.Context) ConfiguredTableAggregateFunctionNameOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregateFunctionNameOutput) ToConfiguredTableAggregateFunctionNamePtrOutput() ConfiguredTableAggregateFunctionNamePtrOutput {
+	return o.ToConfiguredTableAggregateFunctionNamePtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAggregateFunctionNameOutput) ToConfiguredTableAggregateFunctionNamePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregateFunctionNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableAggregateFunctionName) *ConfiguredTableAggregateFunctionName {
+		return &v
+	}).(ConfiguredTableAggregateFunctionNamePtrOutput)
+}
+
+func (o ConfiguredTableAggregateFunctionNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAggregateFunctionNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableAggregateFunctionName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableAggregateFunctionNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAggregateFunctionNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableAggregateFunctionName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableAggregateFunctionNamePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAggregateFunctionNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableAggregateFunctionName)(nil)).Elem()
+}
+
+func (o ConfiguredTableAggregateFunctionNamePtrOutput) ToConfiguredTableAggregateFunctionNamePtrOutput() ConfiguredTableAggregateFunctionNamePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregateFunctionNamePtrOutput) ToConfiguredTableAggregateFunctionNamePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregateFunctionNamePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregateFunctionNamePtrOutput) Elem() ConfiguredTableAggregateFunctionNameOutput {
+	return o.ApplyT(func(v *ConfiguredTableAggregateFunctionName) ConfiguredTableAggregateFunctionName {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableAggregateFunctionName
+		return ret
+	}).(ConfiguredTableAggregateFunctionNameOutput)
+}
+
+func (o ConfiguredTableAggregateFunctionNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAggregateFunctionNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfiguredTableAggregateFunctionName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfiguredTableAggregateFunctionNameInput is an input type that accepts values of the ConfiguredTableAggregateFunctionName enum
+// A concrete instance of `ConfiguredTableAggregateFunctionNameInput` can be one of the following:
+//
+//	ConfiguredTableAggregateFunctionNameSum
+//	ConfiguredTableAggregateFunctionNameSumDistinct
+//	ConfiguredTableAggregateFunctionNameCount
+//	ConfiguredTableAggregateFunctionNameCountDistinct
+//	ConfiguredTableAggregateFunctionNameAvg
+type ConfiguredTableAggregateFunctionNameInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAggregateFunctionNameOutput() ConfiguredTableAggregateFunctionNameOutput
+	ToConfiguredTableAggregateFunctionNameOutputWithContext(context.Context) ConfiguredTableAggregateFunctionNameOutput
+}
+
+var configuredTableAggregateFunctionNamePtrType = reflect.TypeOf((**ConfiguredTableAggregateFunctionName)(nil)).Elem()
+
+type ConfiguredTableAggregateFunctionNamePtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAggregateFunctionNamePtrOutput() ConfiguredTableAggregateFunctionNamePtrOutput
+	ToConfiguredTableAggregateFunctionNamePtrOutputWithContext(context.Context) ConfiguredTableAggregateFunctionNamePtrOutput
+}
+
+type configuredTableAggregateFunctionNamePtr string
+
+func ConfiguredTableAggregateFunctionNamePtr(v string) ConfiguredTableAggregateFunctionNamePtrInput {
+	return (*configuredTableAggregateFunctionNamePtr)(&v)
+}
+
+func (*configuredTableAggregateFunctionNamePtr) ElementType() reflect.Type {
+	return configuredTableAggregateFunctionNamePtrType
+}
+
+func (in *configuredTableAggregateFunctionNamePtr) ToConfiguredTableAggregateFunctionNamePtrOutput() ConfiguredTableAggregateFunctionNamePtrOutput {
+	return pulumi.ToOutput(in).(ConfiguredTableAggregateFunctionNamePtrOutput)
+}
+
+func (in *configuredTableAggregateFunctionNamePtr) ToConfiguredTableAggregateFunctionNamePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregateFunctionNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAggregateFunctionNamePtrOutput)
+}
+
 type ConfiguredTableAggregationType string
 
 const (
 	ConfiguredTableAggregationTypeCountDistinct = ConfiguredTableAggregationType("COUNT_DISTINCT")
 )
+
+func (ConfiguredTableAggregationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAggregationType)(nil)).Elem()
+}
+
+func (e ConfiguredTableAggregationType) ToConfiguredTableAggregationTypeOutput() ConfiguredTableAggregationTypeOutput {
+	return pulumi.ToOutput(e).(ConfiguredTableAggregationTypeOutput)
+}
+
+func (e ConfiguredTableAggregationType) ToConfiguredTableAggregationTypeOutputWithContext(ctx context.Context) ConfiguredTableAggregationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfiguredTableAggregationTypeOutput)
+}
+
+func (e ConfiguredTableAggregationType) ToConfiguredTableAggregationTypePtrOutput() ConfiguredTableAggregationTypePtrOutput {
+	return e.ToConfiguredTableAggregationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableAggregationType) ToConfiguredTableAggregationTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregationTypePtrOutput {
+	return ConfiguredTableAggregationType(e).ToConfiguredTableAggregationTypeOutputWithContext(ctx).ToConfiguredTableAggregationTypePtrOutputWithContext(ctx)
+}
+
+func (e ConfiguredTableAggregationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableAggregationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableAggregationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableAggregationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfiguredTableAggregationTypeOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAggregationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAggregationType)(nil)).Elem()
+}
+
+func (o ConfiguredTableAggregationTypeOutput) ToConfiguredTableAggregationTypeOutput() ConfiguredTableAggregationTypeOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationTypeOutput) ToConfiguredTableAggregationTypeOutputWithContext(ctx context.Context) ConfiguredTableAggregationTypeOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationTypeOutput) ToConfiguredTableAggregationTypePtrOutput() ConfiguredTableAggregationTypePtrOutput {
+	return o.ToConfiguredTableAggregationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAggregationTypeOutput) ToConfiguredTableAggregationTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableAggregationType) *ConfiguredTableAggregationType {
+		return &v
+	}).(ConfiguredTableAggregationTypePtrOutput)
+}
+
+func (o ConfiguredTableAggregationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAggregationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableAggregationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableAggregationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAggregationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableAggregationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableAggregationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAggregationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableAggregationType)(nil)).Elem()
+}
+
+func (o ConfiguredTableAggregationTypePtrOutput) ToConfiguredTableAggregationTypePtrOutput() ConfiguredTableAggregationTypePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationTypePtrOutput) ToConfiguredTableAggregationTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregationTypePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationTypePtrOutput) Elem() ConfiguredTableAggregationTypeOutput {
+	return o.ApplyT(func(v *ConfiguredTableAggregationType) ConfiguredTableAggregationType {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableAggregationType
+		return ret
+	}).(ConfiguredTableAggregationTypeOutput)
+}
+
+func (o ConfiguredTableAggregationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAggregationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfiguredTableAggregationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfiguredTableAggregationTypeInput is an input type that accepts values of the ConfiguredTableAggregationType enum
+// A concrete instance of `ConfiguredTableAggregationTypeInput` can be one of the following:
+//
+//	ConfiguredTableAggregationTypeCountDistinct
+type ConfiguredTableAggregationTypeInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAggregationTypeOutput() ConfiguredTableAggregationTypeOutput
+	ToConfiguredTableAggregationTypeOutputWithContext(context.Context) ConfiguredTableAggregationTypeOutput
+}
+
+var configuredTableAggregationTypePtrType = reflect.TypeOf((**ConfiguredTableAggregationType)(nil)).Elem()
+
+type ConfiguredTableAggregationTypePtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAggregationTypePtrOutput() ConfiguredTableAggregationTypePtrOutput
+	ToConfiguredTableAggregationTypePtrOutputWithContext(context.Context) ConfiguredTableAggregationTypePtrOutput
+}
+
+type configuredTableAggregationTypePtr string
+
+func ConfiguredTableAggregationTypePtr(v string) ConfiguredTableAggregationTypePtrInput {
+	return (*configuredTableAggregationTypePtr)(&v)
+}
+
+func (*configuredTableAggregationTypePtr) ElementType() reflect.Type {
+	return configuredTableAggregationTypePtrType
+}
+
+func (in *configuredTableAggregationTypePtr) ToConfiguredTableAggregationTypePtrOutput() ConfiguredTableAggregationTypePtrOutput {
+	return pulumi.ToOutput(in).(ConfiguredTableAggregationTypePtrOutput)
+}
+
+func (in *configuredTableAggregationTypePtr) ToConfiguredTableAggregationTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAggregationTypePtrOutput)
+}
 
 type ConfiguredTableAnalysisMethod string
 
@@ -890,12 +1139,6 @@ func (o ConfiguredTableAnalysisMethodOutput) ToConfiguredTableAnalysisMethodPtrO
 	}).(ConfiguredTableAnalysisMethodPtrOutput)
 }
 
-func (o ConfiguredTableAnalysisMethodOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAnalysisMethod] {
-	return pulumix.Output[ConfiguredTableAnalysisMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfiguredTableAnalysisMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -931,12 +1174,6 @@ func (o ConfiguredTableAnalysisMethodPtrOutput) ToConfiguredTableAnalysisMethodP
 	return o
 }
 
-func (o ConfiguredTableAnalysisMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTableAnalysisMethod] {
-	return pulumix.Output[*ConfiguredTableAnalysisMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfiguredTableAnalysisMethodPtrOutput) Elem() ConfiguredTableAnalysisMethodOutput {
 	return o.ApplyT(func(v *ConfiguredTableAnalysisMethod) ConfiguredTableAnalysisMethod {
 		if v != nil {
@@ -961,10 +1198,10 @@ func (o ConfiguredTableAnalysisMethodPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConfiguredTableAnalysisMethodInput is an input type that accepts ConfiguredTableAnalysisMethodArgs and ConfiguredTableAnalysisMethodOutput values.
-// You can construct a concrete instance of `ConfiguredTableAnalysisMethodInput` via:
+// ConfiguredTableAnalysisMethodInput is an input type that accepts values of the ConfiguredTableAnalysisMethod enum
+// A concrete instance of `ConfiguredTableAnalysisMethodInput` can be one of the following:
 //
-//	ConfiguredTableAnalysisMethodArgs{...}
+//	ConfiguredTableAnalysisMethodDirectQuery
 type ConfiguredTableAnalysisMethodInput interface {
 	pulumi.Input
 
@@ -997,12 +1234,6 @@ func (in *configuredTableAnalysisMethodPtr) ToConfiguredTableAnalysisMethodPtrOu
 
 func (in *configuredTableAnalysisMethodPtr) ToConfiguredTableAnalysisMethodPtrOutputWithContext(ctx context.Context) ConfiguredTableAnalysisMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAnalysisMethodPtrOutput)
-}
-
-func (in *configuredTableAnalysisMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTableAnalysisMethod] {
-	return pulumix.Output[*ConfiguredTableAnalysisMethod]{
-		OutputState: in.ToConfiguredTableAnalysisMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ConfiguredTableAnalysisRuleType string
@@ -1073,12 +1304,6 @@ func (o ConfiguredTableAnalysisRuleTypeOutput) ToConfiguredTableAnalysisRuleType
 	}).(ConfiguredTableAnalysisRuleTypePtrOutput)
 }
 
-func (o ConfiguredTableAnalysisRuleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAnalysisRuleType] {
-	return pulumix.Output[ConfiguredTableAnalysisRuleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfiguredTableAnalysisRuleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1114,12 +1339,6 @@ func (o ConfiguredTableAnalysisRuleTypePtrOutput) ToConfiguredTableAnalysisRuleT
 	return o
 }
 
-func (o ConfiguredTableAnalysisRuleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTableAnalysisRuleType] {
-	return pulumix.Output[*ConfiguredTableAnalysisRuleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfiguredTableAnalysisRuleTypePtrOutput) Elem() ConfiguredTableAnalysisRuleTypeOutput {
 	return o.ApplyT(func(v *ConfiguredTableAnalysisRuleType) ConfiguredTableAnalysisRuleType {
 		if v != nil {
@@ -1144,10 +1363,12 @@ func (o ConfiguredTableAnalysisRuleTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConfiguredTableAnalysisRuleTypeInput is an input type that accepts ConfiguredTableAnalysisRuleTypeArgs and ConfiguredTableAnalysisRuleTypeOutput values.
-// You can construct a concrete instance of `ConfiguredTableAnalysisRuleTypeInput` via:
+// ConfiguredTableAnalysisRuleTypeInput is an input type that accepts values of the ConfiguredTableAnalysisRuleType enum
+// A concrete instance of `ConfiguredTableAnalysisRuleTypeInput` can be one of the following:
 //
-//	ConfiguredTableAnalysisRuleTypeArgs{...}
+//	ConfiguredTableAnalysisRuleTypeAggregation
+//	ConfiguredTableAnalysisRuleTypeList
+//	ConfiguredTableAnalysisRuleTypeCustom
 type ConfiguredTableAnalysisRuleTypeInput interface {
 	pulumi.Input
 
@@ -1182,12 +1403,6 @@ func (in *configuredTableAnalysisRuleTypePtr) ToConfiguredTableAnalysisRuleTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAnalysisRuleTypePtrOutput)
 }
 
-func (in *configuredTableAnalysisRuleTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTableAnalysisRuleType] {
-	return pulumix.Output[*ConfiguredTableAnalysisRuleType]{
-		OutputState: in.ToConfiguredTableAnalysisRuleTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfiguredTableJoinOperator string
 
 const (
@@ -1195,11 +1410,371 @@ const (
 	ConfiguredTableJoinOperatorAnd = ConfiguredTableJoinOperator("AND")
 )
 
+func (ConfiguredTableJoinOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableJoinOperator)(nil)).Elem()
+}
+
+func (e ConfiguredTableJoinOperator) ToConfiguredTableJoinOperatorOutput() ConfiguredTableJoinOperatorOutput {
+	return pulumi.ToOutput(e).(ConfiguredTableJoinOperatorOutput)
+}
+
+func (e ConfiguredTableJoinOperator) ToConfiguredTableJoinOperatorOutputWithContext(ctx context.Context) ConfiguredTableJoinOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfiguredTableJoinOperatorOutput)
+}
+
+func (e ConfiguredTableJoinOperator) ToConfiguredTableJoinOperatorPtrOutput() ConfiguredTableJoinOperatorPtrOutput {
+	return e.ToConfiguredTableJoinOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableJoinOperator) ToConfiguredTableJoinOperatorPtrOutputWithContext(ctx context.Context) ConfiguredTableJoinOperatorPtrOutput {
+	return ConfiguredTableJoinOperator(e).ToConfiguredTableJoinOperatorOutputWithContext(ctx).ToConfiguredTableJoinOperatorPtrOutputWithContext(ctx)
+}
+
+func (e ConfiguredTableJoinOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableJoinOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableJoinOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableJoinOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfiguredTableJoinOperatorOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableJoinOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableJoinOperator)(nil)).Elem()
+}
+
+func (o ConfiguredTableJoinOperatorOutput) ToConfiguredTableJoinOperatorOutput() ConfiguredTableJoinOperatorOutput {
+	return o
+}
+
+func (o ConfiguredTableJoinOperatorOutput) ToConfiguredTableJoinOperatorOutputWithContext(ctx context.Context) ConfiguredTableJoinOperatorOutput {
+	return o
+}
+
+func (o ConfiguredTableJoinOperatorOutput) ToConfiguredTableJoinOperatorPtrOutput() ConfiguredTableJoinOperatorPtrOutput {
+	return o.ToConfiguredTableJoinOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableJoinOperatorOutput) ToConfiguredTableJoinOperatorPtrOutputWithContext(ctx context.Context) ConfiguredTableJoinOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableJoinOperator) *ConfiguredTableJoinOperator {
+		return &v
+	}).(ConfiguredTableJoinOperatorPtrOutput)
+}
+
+func (o ConfiguredTableJoinOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableJoinOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableJoinOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableJoinOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableJoinOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableJoinOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableJoinOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableJoinOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableJoinOperator)(nil)).Elem()
+}
+
+func (o ConfiguredTableJoinOperatorPtrOutput) ToConfiguredTableJoinOperatorPtrOutput() ConfiguredTableJoinOperatorPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableJoinOperatorPtrOutput) ToConfiguredTableJoinOperatorPtrOutputWithContext(ctx context.Context) ConfiguredTableJoinOperatorPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableJoinOperatorPtrOutput) Elem() ConfiguredTableJoinOperatorOutput {
+	return o.ApplyT(func(v *ConfiguredTableJoinOperator) ConfiguredTableJoinOperator {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableJoinOperator
+		return ret
+	}).(ConfiguredTableJoinOperatorOutput)
+}
+
+func (o ConfiguredTableJoinOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableJoinOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfiguredTableJoinOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfiguredTableJoinOperatorInput is an input type that accepts values of the ConfiguredTableJoinOperator enum
+// A concrete instance of `ConfiguredTableJoinOperatorInput` can be one of the following:
+//
+//	ConfiguredTableJoinOperatorOr
+//	ConfiguredTableJoinOperatorAnd
+type ConfiguredTableJoinOperatorInput interface {
+	pulumi.Input
+
+	ToConfiguredTableJoinOperatorOutput() ConfiguredTableJoinOperatorOutput
+	ToConfiguredTableJoinOperatorOutputWithContext(context.Context) ConfiguredTableJoinOperatorOutput
+}
+
+var configuredTableJoinOperatorPtrType = reflect.TypeOf((**ConfiguredTableJoinOperator)(nil)).Elem()
+
+type ConfiguredTableJoinOperatorPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableJoinOperatorPtrOutput() ConfiguredTableJoinOperatorPtrOutput
+	ToConfiguredTableJoinOperatorPtrOutputWithContext(context.Context) ConfiguredTableJoinOperatorPtrOutput
+}
+
+type configuredTableJoinOperatorPtr string
+
+func ConfiguredTableJoinOperatorPtr(v string) ConfiguredTableJoinOperatorPtrInput {
+	return (*configuredTableJoinOperatorPtr)(&v)
+}
+
+func (*configuredTableJoinOperatorPtr) ElementType() reflect.Type {
+	return configuredTableJoinOperatorPtrType
+}
+
+func (in *configuredTableJoinOperatorPtr) ToConfiguredTableJoinOperatorPtrOutput() ConfiguredTableJoinOperatorPtrOutput {
+	return pulumi.ToOutput(in).(ConfiguredTableJoinOperatorPtrOutput)
+}
+
+func (in *configuredTableJoinOperatorPtr) ToConfiguredTableJoinOperatorPtrOutputWithContext(ctx context.Context) ConfiguredTableJoinOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableJoinOperatorPtrOutput)
+}
+
+// ConfiguredTableJoinOperatorArrayInput is an input type that accepts ConfiguredTableJoinOperatorArray and ConfiguredTableJoinOperatorArrayOutput values.
+// You can construct a concrete instance of `ConfiguredTableJoinOperatorArrayInput` via:
+//
+//	ConfiguredTableJoinOperatorArray{ ConfiguredTableJoinOperatorArgs{...} }
+type ConfiguredTableJoinOperatorArrayInput interface {
+	pulumi.Input
+
+	ToConfiguredTableJoinOperatorArrayOutput() ConfiguredTableJoinOperatorArrayOutput
+	ToConfiguredTableJoinOperatorArrayOutputWithContext(context.Context) ConfiguredTableJoinOperatorArrayOutput
+}
+
+type ConfiguredTableJoinOperatorArray []ConfiguredTableJoinOperator
+
+func (ConfiguredTableJoinOperatorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableJoinOperator)(nil)).Elem()
+}
+
+func (i ConfiguredTableJoinOperatorArray) ToConfiguredTableJoinOperatorArrayOutput() ConfiguredTableJoinOperatorArrayOutput {
+	return i.ToConfiguredTableJoinOperatorArrayOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableJoinOperatorArray) ToConfiguredTableJoinOperatorArrayOutputWithContext(ctx context.Context) ConfiguredTableJoinOperatorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableJoinOperatorArrayOutput)
+}
+
+type ConfiguredTableJoinOperatorArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableJoinOperatorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableJoinOperator)(nil)).Elem()
+}
+
+func (o ConfiguredTableJoinOperatorArrayOutput) ToConfiguredTableJoinOperatorArrayOutput() ConfiguredTableJoinOperatorArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableJoinOperatorArrayOutput) ToConfiguredTableJoinOperatorArrayOutputWithContext(ctx context.Context) ConfiguredTableJoinOperatorArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableJoinOperatorArrayOutput) Index(i pulumi.IntInput) ConfiguredTableJoinOperatorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableJoinOperator {
+		return vs[0].([]ConfiguredTableJoinOperator)[vs[1].(int)]
+	}).(ConfiguredTableJoinOperatorOutput)
+}
+
 type ConfiguredTableJoinRequiredOption string
 
 const (
 	ConfiguredTableJoinRequiredOptionQueryRunner = ConfiguredTableJoinRequiredOption("QUERY_RUNNER")
 )
+
+func (ConfiguredTableJoinRequiredOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableJoinRequiredOption)(nil)).Elem()
+}
+
+func (e ConfiguredTableJoinRequiredOption) ToConfiguredTableJoinRequiredOptionOutput() ConfiguredTableJoinRequiredOptionOutput {
+	return pulumi.ToOutput(e).(ConfiguredTableJoinRequiredOptionOutput)
+}
+
+func (e ConfiguredTableJoinRequiredOption) ToConfiguredTableJoinRequiredOptionOutputWithContext(ctx context.Context) ConfiguredTableJoinRequiredOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfiguredTableJoinRequiredOptionOutput)
+}
+
+func (e ConfiguredTableJoinRequiredOption) ToConfiguredTableJoinRequiredOptionPtrOutput() ConfiguredTableJoinRequiredOptionPtrOutput {
+	return e.ToConfiguredTableJoinRequiredOptionPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableJoinRequiredOption) ToConfiguredTableJoinRequiredOptionPtrOutputWithContext(ctx context.Context) ConfiguredTableJoinRequiredOptionPtrOutput {
+	return ConfiguredTableJoinRequiredOption(e).ToConfiguredTableJoinRequiredOptionOutputWithContext(ctx).ToConfiguredTableJoinRequiredOptionPtrOutputWithContext(ctx)
+}
+
+func (e ConfiguredTableJoinRequiredOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableJoinRequiredOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableJoinRequiredOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableJoinRequiredOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfiguredTableJoinRequiredOptionOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableJoinRequiredOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableJoinRequiredOption)(nil)).Elem()
+}
+
+func (o ConfiguredTableJoinRequiredOptionOutput) ToConfiguredTableJoinRequiredOptionOutput() ConfiguredTableJoinRequiredOptionOutput {
+	return o
+}
+
+func (o ConfiguredTableJoinRequiredOptionOutput) ToConfiguredTableJoinRequiredOptionOutputWithContext(ctx context.Context) ConfiguredTableJoinRequiredOptionOutput {
+	return o
+}
+
+func (o ConfiguredTableJoinRequiredOptionOutput) ToConfiguredTableJoinRequiredOptionPtrOutput() ConfiguredTableJoinRequiredOptionPtrOutput {
+	return o.ToConfiguredTableJoinRequiredOptionPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableJoinRequiredOptionOutput) ToConfiguredTableJoinRequiredOptionPtrOutputWithContext(ctx context.Context) ConfiguredTableJoinRequiredOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableJoinRequiredOption) *ConfiguredTableJoinRequiredOption {
+		return &v
+	}).(ConfiguredTableJoinRequiredOptionPtrOutput)
+}
+
+func (o ConfiguredTableJoinRequiredOptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableJoinRequiredOptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableJoinRequiredOption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableJoinRequiredOptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableJoinRequiredOptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableJoinRequiredOption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableJoinRequiredOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableJoinRequiredOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableJoinRequiredOption)(nil)).Elem()
+}
+
+func (o ConfiguredTableJoinRequiredOptionPtrOutput) ToConfiguredTableJoinRequiredOptionPtrOutput() ConfiguredTableJoinRequiredOptionPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableJoinRequiredOptionPtrOutput) ToConfiguredTableJoinRequiredOptionPtrOutputWithContext(ctx context.Context) ConfiguredTableJoinRequiredOptionPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableJoinRequiredOptionPtrOutput) Elem() ConfiguredTableJoinRequiredOptionOutput {
+	return o.ApplyT(func(v *ConfiguredTableJoinRequiredOption) ConfiguredTableJoinRequiredOption {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableJoinRequiredOption
+		return ret
+	}).(ConfiguredTableJoinRequiredOptionOutput)
+}
+
+func (o ConfiguredTableJoinRequiredOptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableJoinRequiredOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfiguredTableJoinRequiredOption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfiguredTableJoinRequiredOptionInput is an input type that accepts values of the ConfiguredTableJoinRequiredOption enum
+// A concrete instance of `ConfiguredTableJoinRequiredOptionInput` can be one of the following:
+//
+//	ConfiguredTableJoinRequiredOptionQueryRunner
+type ConfiguredTableJoinRequiredOptionInput interface {
+	pulumi.Input
+
+	ToConfiguredTableJoinRequiredOptionOutput() ConfiguredTableJoinRequiredOptionOutput
+	ToConfiguredTableJoinRequiredOptionOutputWithContext(context.Context) ConfiguredTableJoinRequiredOptionOutput
+}
+
+var configuredTableJoinRequiredOptionPtrType = reflect.TypeOf((**ConfiguredTableJoinRequiredOption)(nil)).Elem()
+
+type ConfiguredTableJoinRequiredOptionPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableJoinRequiredOptionPtrOutput() ConfiguredTableJoinRequiredOptionPtrOutput
+	ToConfiguredTableJoinRequiredOptionPtrOutputWithContext(context.Context) ConfiguredTableJoinRequiredOptionPtrOutput
+}
+
+type configuredTableJoinRequiredOptionPtr string
+
+func ConfiguredTableJoinRequiredOptionPtr(v string) ConfiguredTableJoinRequiredOptionPtrInput {
+	return (*configuredTableJoinRequiredOptionPtr)(&v)
+}
+
+func (*configuredTableJoinRequiredOptionPtr) ElementType() reflect.Type {
+	return configuredTableJoinRequiredOptionPtrType
+}
+
+func (in *configuredTableJoinRequiredOptionPtr) ToConfiguredTableJoinRequiredOptionPtrOutput() ConfiguredTableJoinRequiredOptionPtrOutput {
+	return pulumi.ToOutput(in).(ConfiguredTableJoinRequiredOptionPtrOutput)
+}
+
+func (in *configuredTableJoinRequiredOptionPtr) ToConfiguredTableJoinRequiredOptionPtrOutputWithContext(ctx context.Context) ConfiguredTableJoinRequiredOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableJoinRequiredOptionPtrOutput)
+}
 
 type ConfiguredTableScalarFunctions string
 
@@ -1218,6 +1793,220 @@ const (
 	ConfiguredTableScalarFunctionsUpper    = ConfiguredTableScalarFunctions("UPPER")
 	ConfiguredTableScalarFunctionsCoalesce = ConfiguredTableScalarFunctions("COALESCE")
 )
+
+func (ConfiguredTableScalarFunctions) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableScalarFunctions)(nil)).Elem()
+}
+
+func (e ConfiguredTableScalarFunctions) ToConfiguredTableScalarFunctionsOutput() ConfiguredTableScalarFunctionsOutput {
+	return pulumi.ToOutput(e).(ConfiguredTableScalarFunctionsOutput)
+}
+
+func (e ConfiguredTableScalarFunctions) ToConfiguredTableScalarFunctionsOutputWithContext(ctx context.Context) ConfiguredTableScalarFunctionsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfiguredTableScalarFunctionsOutput)
+}
+
+func (e ConfiguredTableScalarFunctions) ToConfiguredTableScalarFunctionsPtrOutput() ConfiguredTableScalarFunctionsPtrOutput {
+	return e.ToConfiguredTableScalarFunctionsPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableScalarFunctions) ToConfiguredTableScalarFunctionsPtrOutputWithContext(ctx context.Context) ConfiguredTableScalarFunctionsPtrOutput {
+	return ConfiguredTableScalarFunctions(e).ToConfiguredTableScalarFunctionsOutputWithContext(ctx).ToConfiguredTableScalarFunctionsPtrOutputWithContext(ctx)
+}
+
+func (e ConfiguredTableScalarFunctions) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableScalarFunctions) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableScalarFunctions) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableScalarFunctions) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfiguredTableScalarFunctionsOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableScalarFunctionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableScalarFunctions)(nil)).Elem()
+}
+
+func (o ConfiguredTableScalarFunctionsOutput) ToConfiguredTableScalarFunctionsOutput() ConfiguredTableScalarFunctionsOutput {
+	return o
+}
+
+func (o ConfiguredTableScalarFunctionsOutput) ToConfiguredTableScalarFunctionsOutputWithContext(ctx context.Context) ConfiguredTableScalarFunctionsOutput {
+	return o
+}
+
+func (o ConfiguredTableScalarFunctionsOutput) ToConfiguredTableScalarFunctionsPtrOutput() ConfiguredTableScalarFunctionsPtrOutput {
+	return o.ToConfiguredTableScalarFunctionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableScalarFunctionsOutput) ToConfiguredTableScalarFunctionsPtrOutputWithContext(ctx context.Context) ConfiguredTableScalarFunctionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableScalarFunctions) *ConfiguredTableScalarFunctions {
+		return &v
+	}).(ConfiguredTableScalarFunctionsPtrOutput)
+}
+
+func (o ConfiguredTableScalarFunctionsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableScalarFunctionsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableScalarFunctions) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableScalarFunctionsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableScalarFunctionsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableScalarFunctions) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableScalarFunctionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableScalarFunctionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableScalarFunctions)(nil)).Elem()
+}
+
+func (o ConfiguredTableScalarFunctionsPtrOutput) ToConfiguredTableScalarFunctionsPtrOutput() ConfiguredTableScalarFunctionsPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableScalarFunctionsPtrOutput) ToConfiguredTableScalarFunctionsPtrOutputWithContext(ctx context.Context) ConfiguredTableScalarFunctionsPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableScalarFunctionsPtrOutput) Elem() ConfiguredTableScalarFunctionsOutput {
+	return o.ApplyT(func(v *ConfiguredTableScalarFunctions) ConfiguredTableScalarFunctions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableScalarFunctions
+		return ret
+	}).(ConfiguredTableScalarFunctionsOutput)
+}
+
+func (o ConfiguredTableScalarFunctionsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableScalarFunctionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfiguredTableScalarFunctions) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfiguredTableScalarFunctionsInput is an input type that accepts values of the ConfiguredTableScalarFunctions enum
+// A concrete instance of `ConfiguredTableScalarFunctionsInput` can be one of the following:
+//
+//	ConfiguredTableScalarFunctionsTrunc
+//	ConfiguredTableScalarFunctionsAbs
+//	ConfiguredTableScalarFunctionsCeiling
+//	ConfiguredTableScalarFunctionsFloor
+//	ConfiguredTableScalarFunctionsLn
+//	ConfiguredTableScalarFunctionsLog
+//	ConfiguredTableScalarFunctionsRound
+//	ConfiguredTableScalarFunctionsSqrt
+//	ConfiguredTableScalarFunctionsCast
+//	ConfiguredTableScalarFunctionsLower
+//	ConfiguredTableScalarFunctionsRtrim
+//	ConfiguredTableScalarFunctionsUpper
+//	ConfiguredTableScalarFunctionsCoalesce
+type ConfiguredTableScalarFunctionsInput interface {
+	pulumi.Input
+
+	ToConfiguredTableScalarFunctionsOutput() ConfiguredTableScalarFunctionsOutput
+	ToConfiguredTableScalarFunctionsOutputWithContext(context.Context) ConfiguredTableScalarFunctionsOutput
+}
+
+var configuredTableScalarFunctionsPtrType = reflect.TypeOf((**ConfiguredTableScalarFunctions)(nil)).Elem()
+
+type ConfiguredTableScalarFunctionsPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableScalarFunctionsPtrOutput() ConfiguredTableScalarFunctionsPtrOutput
+	ToConfiguredTableScalarFunctionsPtrOutputWithContext(context.Context) ConfiguredTableScalarFunctionsPtrOutput
+}
+
+type configuredTableScalarFunctionsPtr string
+
+func ConfiguredTableScalarFunctionsPtr(v string) ConfiguredTableScalarFunctionsPtrInput {
+	return (*configuredTableScalarFunctionsPtr)(&v)
+}
+
+func (*configuredTableScalarFunctionsPtr) ElementType() reflect.Type {
+	return configuredTableScalarFunctionsPtrType
+}
+
+func (in *configuredTableScalarFunctionsPtr) ToConfiguredTableScalarFunctionsPtrOutput() ConfiguredTableScalarFunctionsPtrOutput {
+	return pulumi.ToOutput(in).(ConfiguredTableScalarFunctionsPtrOutput)
+}
+
+func (in *configuredTableScalarFunctionsPtr) ToConfiguredTableScalarFunctionsPtrOutputWithContext(ctx context.Context) ConfiguredTableScalarFunctionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableScalarFunctionsPtrOutput)
+}
+
+// ConfiguredTableScalarFunctionsArrayInput is an input type that accepts ConfiguredTableScalarFunctionsArray and ConfiguredTableScalarFunctionsArrayOutput values.
+// You can construct a concrete instance of `ConfiguredTableScalarFunctionsArrayInput` via:
+//
+//	ConfiguredTableScalarFunctionsArray{ ConfiguredTableScalarFunctionsArgs{...} }
+type ConfiguredTableScalarFunctionsArrayInput interface {
+	pulumi.Input
+
+	ToConfiguredTableScalarFunctionsArrayOutput() ConfiguredTableScalarFunctionsArrayOutput
+	ToConfiguredTableScalarFunctionsArrayOutputWithContext(context.Context) ConfiguredTableScalarFunctionsArrayOutput
+}
+
+type ConfiguredTableScalarFunctionsArray []ConfiguredTableScalarFunctions
+
+func (ConfiguredTableScalarFunctionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableScalarFunctions)(nil)).Elem()
+}
+
+func (i ConfiguredTableScalarFunctionsArray) ToConfiguredTableScalarFunctionsArrayOutput() ConfiguredTableScalarFunctionsArrayOutput {
+	return i.ToConfiguredTableScalarFunctionsArrayOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableScalarFunctionsArray) ToConfiguredTableScalarFunctionsArrayOutputWithContext(ctx context.Context) ConfiguredTableScalarFunctionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableScalarFunctionsArrayOutput)
+}
+
+type ConfiguredTableScalarFunctionsArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableScalarFunctionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableScalarFunctions)(nil)).Elem()
+}
+
+func (o ConfiguredTableScalarFunctionsArrayOutput) ToConfiguredTableScalarFunctionsArrayOutput() ConfiguredTableScalarFunctionsArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableScalarFunctionsArrayOutput) ToConfiguredTableScalarFunctionsArrayOutputWithContext(ctx context.Context) ConfiguredTableScalarFunctionsArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableScalarFunctionsArrayOutput) Index(i pulumi.IntInput) ConfiguredTableScalarFunctionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableScalarFunctions {
+		return vs[0].([]ConfiguredTableScalarFunctions)[vs[1].(int)]
+	}).(ConfiguredTableScalarFunctionsOutput)
+}
 
 type MembershipQueryLogStatus string
 
@@ -1286,12 +2075,6 @@ func (o MembershipQueryLogStatusOutput) ToMembershipQueryLogStatusPtrOutputWithC
 	}).(MembershipQueryLogStatusPtrOutput)
 }
 
-func (o MembershipQueryLogStatusOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipQueryLogStatus] {
-	return pulumix.Output[MembershipQueryLogStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MembershipQueryLogStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1327,12 +2110,6 @@ func (o MembershipQueryLogStatusPtrOutput) ToMembershipQueryLogStatusPtrOutputWi
 	return o
 }
 
-func (o MembershipQueryLogStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipQueryLogStatus] {
-	return pulumix.Output[*MembershipQueryLogStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MembershipQueryLogStatusPtrOutput) Elem() MembershipQueryLogStatusOutput {
 	return o.ApplyT(func(v *MembershipQueryLogStatus) MembershipQueryLogStatus {
 		if v != nil {
@@ -1357,10 +2134,11 @@ func (o MembershipQueryLogStatusPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// MembershipQueryLogStatusInput is an input type that accepts MembershipQueryLogStatusArgs and MembershipQueryLogStatusOutput values.
-// You can construct a concrete instance of `MembershipQueryLogStatusInput` via:
+// MembershipQueryLogStatusInput is an input type that accepts values of the MembershipQueryLogStatus enum
+// A concrete instance of `MembershipQueryLogStatusInput` can be one of the following:
 //
-//	MembershipQueryLogStatusArgs{...}
+//	MembershipQueryLogStatusEnabled
+//	MembershipQueryLogStatusDisabled
 type MembershipQueryLogStatusInput interface {
 	pulumi.Input
 
@@ -1393,12 +2171,6 @@ func (in *membershipQueryLogStatusPtr) ToMembershipQueryLogStatusPtrOutput() Mem
 
 func (in *membershipQueryLogStatusPtr) ToMembershipQueryLogStatusPtrOutputWithContext(ctx context.Context) MembershipQueryLogStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MembershipQueryLogStatusPtrOutput)
-}
-
-func (in *membershipQueryLogStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*MembershipQueryLogStatus] {
-	return pulumix.Output[*MembershipQueryLogStatus]{
-		OutputState: in.ToMembershipQueryLogStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type MembershipResultFormat string
@@ -1468,12 +2240,6 @@ func (o MembershipResultFormatOutput) ToMembershipResultFormatPtrOutputWithConte
 	}).(MembershipResultFormatPtrOutput)
 }
 
-func (o MembershipResultFormatOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipResultFormat] {
-	return pulumix.Output[MembershipResultFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MembershipResultFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1509,12 +2275,6 @@ func (o MembershipResultFormatPtrOutput) ToMembershipResultFormatPtrOutputWithCo
 	return o
 }
 
-func (o MembershipResultFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipResultFormat] {
-	return pulumix.Output[*MembershipResultFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MembershipResultFormatPtrOutput) Elem() MembershipResultFormatOutput {
 	return o.ApplyT(func(v *MembershipResultFormat) MembershipResultFormat {
 		if v != nil {
@@ -1539,10 +2299,11 @@ func (o MembershipResultFormatPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// MembershipResultFormatInput is an input type that accepts MembershipResultFormatArgs and MembershipResultFormatOutput values.
-// You can construct a concrete instance of `MembershipResultFormatInput` via:
+// MembershipResultFormatInput is an input type that accepts values of the MembershipResultFormat enum
+// A concrete instance of `MembershipResultFormatInput` can be one of the following:
 //
-//	MembershipResultFormatArgs{...}
+//	MembershipResultFormatCsv
+//	MembershipResultFormatParquet
 type MembershipResultFormatInput interface {
 	pulumi.Input
 
@@ -1577,12 +2338,6 @@ func (in *membershipResultFormatPtr) ToMembershipResultFormatPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(MembershipResultFormatPtrOutput)
 }
 
-func (in *membershipResultFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*MembershipResultFormat] {
-	return pulumix.Output[*MembershipResultFormat]{
-		OutputState: in.ToMembershipResultFormatPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterTypeInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterType("SMALLINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterTypePtrInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterType("SMALLINT"))
@@ -1593,10 +2348,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityArrayInput)(nil)).Elem(), CollaborationMemberAbilityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryLogStatusInput)(nil)).Elem(), CollaborationQueryLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryLogStatusPtrInput)(nil)).Elem(), CollaborationQueryLogStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateFunctionNameInput)(nil)).Elem(), ConfiguredTableAggregateFunctionName("SUM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateFunctionNamePtrInput)(nil)).Elem(), ConfiguredTableAggregateFunctionName("SUM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationTypeInput)(nil)).Elem(), ConfiguredTableAggregationType("COUNT_DISTINCT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationTypePtrInput)(nil)).Elem(), ConfiguredTableAggregationType("COUNT_DISTINCT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisMethodInput)(nil)).Elem(), ConfiguredTableAnalysisMethod("DIRECT_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisMethodPtrInput)(nil)).Elem(), ConfiguredTableAnalysisMethod("DIRECT_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleTypeInput)(nil)).Elem(), ConfiguredTableAnalysisRuleType("AGGREGATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleTypePtrInput)(nil)).Elem(), ConfiguredTableAnalysisRuleType("AGGREGATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableJoinOperatorInput)(nil)).Elem(), ConfiguredTableJoinOperator("OR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableJoinOperatorPtrInput)(nil)).Elem(), ConfiguredTableJoinOperator("OR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableJoinOperatorArrayInput)(nil)).Elem(), ConfiguredTableJoinOperatorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableJoinRequiredOptionInput)(nil)).Elem(), ConfiguredTableJoinRequiredOption("QUERY_RUNNER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableJoinRequiredOptionPtrInput)(nil)).Elem(), ConfiguredTableJoinRequiredOption("QUERY_RUNNER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableScalarFunctionsInput)(nil)).Elem(), ConfiguredTableScalarFunctions("TRUNC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableScalarFunctionsPtrInput)(nil)).Elem(), ConfiguredTableScalarFunctions("TRUNC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableScalarFunctionsArrayInput)(nil)).Elem(), ConfiguredTableScalarFunctionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryLogStatusInput)(nil)).Elem(), MembershipQueryLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryLogStatusPtrInput)(nil)).Elem(), MembershipQueryLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipResultFormatInput)(nil)).Elem(), MembershipResultFormat("CSV"))
@@ -1610,10 +2377,22 @@ func init() {
 	pulumi.RegisterOutputType(CollaborationMemberAbilityArrayOutput{})
 	pulumi.RegisterOutputType(CollaborationQueryLogStatusOutput{})
 	pulumi.RegisterOutputType(CollaborationQueryLogStatusPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAggregateFunctionNameOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAggregateFunctionNamePtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAggregationTypeOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAggregationTypePtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisMethodOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisMethodPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleTypeOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleTypePtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableJoinOperatorOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableJoinOperatorPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableJoinOperatorArrayOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableJoinRequiredOptionOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableJoinRequiredOptionPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableScalarFunctionsOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableScalarFunctionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableScalarFunctionsArrayOutput{})
 	pulumi.RegisterOutputType(MembershipQueryLogStatusOutput{})
 	pulumi.RegisterOutputType(MembershipQueryLogStatusPtrOutput{})
 	pulumi.RegisterOutputType(MembershipResultFormatOutput{})

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::FlowEntitlement
@@ -77,12 +76,6 @@ func (o LookupFlowEntitlementResultOutput) ToLookupFlowEntitlementResultOutput()
 
 func (o LookupFlowEntitlementResultOutput) ToLookupFlowEntitlementResultOutputWithContext(ctx context.Context) LookupFlowEntitlementResultOutput {
 	return o
-}
-
-func (o LookupFlowEntitlementResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFlowEntitlementResult] {
-	return pulumix.Output[LookupFlowEntitlementResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of the entitlement.

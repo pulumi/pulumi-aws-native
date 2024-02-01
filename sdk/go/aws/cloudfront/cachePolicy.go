@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::CachePolicy
@@ -95,12 +94,6 @@ func (i *CachePolicy) ToCachePolicyOutputWithContext(ctx context.Context) CacheP
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyOutput)
 }
 
-func (i *CachePolicy) ToOutput(ctx context.Context) pulumix.Output[*CachePolicy] {
-	return pulumix.Output[*CachePolicy]{
-		OutputState: i.ToCachePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CachePolicyOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyOutput) ElementType() reflect.Type {
@@ -113,12 +106,6 @@ func (o CachePolicyOutput) ToCachePolicyOutput() CachePolicyOutput {
 
 func (o CachePolicyOutput) ToCachePolicyOutputWithContext(ctx context.Context) CachePolicyOutput {
 	return o
-}
-
-func (o CachePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*CachePolicy] {
-	return pulumix.Output[*CachePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CachePolicyOutput) CachePolicyConfig() CachePolicyConfigOutput {

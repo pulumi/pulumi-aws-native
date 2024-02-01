@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -72,12 +71,6 @@ func (o LookupBudgetsActionResultOutput) ToLookupBudgetsActionResultOutput() Loo
 
 func (o LookupBudgetsActionResultOutput) ToLookupBudgetsActionResultOutputWithContext(ctx context.Context) LookupBudgetsActionResultOutput {
 	return o
-}
-
-func (o LookupBudgetsActionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBudgetsActionResult] {
-	return pulumix.Output[LookupBudgetsActionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupBudgetsActionResultOutput) ActionId() pulumi.StringPtrOutput {

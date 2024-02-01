@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The state of the logging configuration. When the state is ACTIVE, the configuration is ready to log chat content.
@@ -48,12 +47,6 @@ func (o LoggingConfigurationStateEnumOutput) ToLoggingConfigurationStateEnumPtrO
 	}).(LoggingConfigurationStateEnumPtrOutput)
 }
 
-func (o LoggingConfigurationStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationStateEnum] {
-	return pulumix.Output[LoggingConfigurationStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -87,12 +80,6 @@ func (o LoggingConfigurationStateEnumPtrOutput) ToLoggingConfigurationStateEnumP
 
 func (o LoggingConfigurationStateEnumPtrOutput) ToLoggingConfigurationStateEnumPtrOutputWithContext(ctx context.Context) LoggingConfigurationStateEnumPtrOutput {
 	return o
-}
-
-func (o LoggingConfigurationStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationStateEnum] {
-	return pulumix.Output[*LoggingConfigurationStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoggingConfigurationStateEnumPtrOutput) Elem() LoggingConfigurationStateEnumOutput {
@@ -187,12 +174,6 @@ func (o RoomMessageReviewHandlerFallbackResultOutput) ToRoomMessageReviewHandler
 	}).(RoomMessageReviewHandlerFallbackResultPtrOutput)
 }
 
-func (o RoomMessageReviewHandlerFallbackResultOutput) ToOutput(ctx context.Context) pulumix.Output[RoomMessageReviewHandlerFallbackResult] {
-	return pulumix.Output[RoomMessageReviewHandlerFallbackResult]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoomMessageReviewHandlerFallbackResultOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -228,12 +209,6 @@ func (o RoomMessageReviewHandlerFallbackResultPtrOutput) ToRoomMessageReviewHand
 	return o
 }
 
-func (o RoomMessageReviewHandlerFallbackResultPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RoomMessageReviewHandlerFallbackResult] {
-	return pulumix.Output[*RoomMessageReviewHandlerFallbackResult]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoomMessageReviewHandlerFallbackResultPtrOutput) Elem() RoomMessageReviewHandlerFallbackResultOutput {
 	return o.ApplyT(func(v *RoomMessageReviewHandlerFallbackResult) RoomMessageReviewHandlerFallbackResult {
 		if v != nil {
@@ -258,10 +233,11 @@ func (o RoomMessageReviewHandlerFallbackResultPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// RoomMessageReviewHandlerFallbackResultInput is an input type that accepts RoomMessageReviewHandlerFallbackResultArgs and RoomMessageReviewHandlerFallbackResultOutput values.
-// You can construct a concrete instance of `RoomMessageReviewHandlerFallbackResultInput` via:
+// RoomMessageReviewHandlerFallbackResultInput is an input type that accepts values of the RoomMessageReviewHandlerFallbackResult enum
+// A concrete instance of `RoomMessageReviewHandlerFallbackResultInput` can be one of the following:
 //
-//	RoomMessageReviewHandlerFallbackResultArgs{...}
+//	RoomMessageReviewHandlerFallbackResultAllow
+//	RoomMessageReviewHandlerFallbackResultDeny
 type RoomMessageReviewHandlerFallbackResultInput interface {
 	pulumi.Input
 
@@ -294,12 +270,6 @@ func (in *roomMessageReviewHandlerFallbackResultPtr) ToRoomMessageReviewHandlerF
 
 func (in *roomMessageReviewHandlerFallbackResultPtr) ToRoomMessageReviewHandlerFallbackResultPtrOutputWithContext(ctx context.Context) RoomMessageReviewHandlerFallbackResultPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RoomMessageReviewHandlerFallbackResultPtrOutput)
-}
-
-func (in *roomMessageReviewHandlerFallbackResultPtr) ToOutput(ctx context.Context) pulumix.Output[*RoomMessageReviewHandlerFallbackResult] {
-	return pulumix.Output[*RoomMessageReviewHandlerFallbackResult]{
-		OutputState: in.ToRoomMessageReviewHandlerFallbackResultPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

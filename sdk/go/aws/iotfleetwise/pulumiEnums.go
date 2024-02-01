@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type CampaignCompression string
@@ -78,12 +77,6 @@ func (o CampaignCompressionOutput) ToCampaignCompressionPtrOutputWithContext(ctx
 	}).(CampaignCompressionPtrOutput)
 }
 
-func (o CampaignCompressionOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignCompression] {
-	return pulumix.Output[CampaignCompression]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignCompressionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o CampaignCompressionPtrOutput) ToCampaignCompressionPtrOutputWithContext(
 	return o
 }
 
-func (o CampaignCompressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignCompression] {
-	return pulumix.Output[*CampaignCompression]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignCompressionPtrOutput) Elem() CampaignCompressionOutput {
 	return o.ApplyT(func(v *CampaignCompression) CampaignCompression {
 		if v != nil {
@@ -149,10 +136,11 @@ func (o CampaignCompressionPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// CampaignCompressionInput is an input type that accepts CampaignCompressionArgs and CampaignCompressionOutput values.
-// You can construct a concrete instance of `CampaignCompressionInput` via:
+// CampaignCompressionInput is an input type that accepts values of the CampaignCompression enum
+// A concrete instance of `CampaignCompressionInput` can be one of the following:
 //
-//	CampaignCompressionArgs{...}
+//	CampaignCompressionOff
+//	CampaignCompressionSnappy
 type CampaignCompressionInput interface {
 	pulumi.Input
 
@@ -187,18 +175,170 @@ func (in *campaignCompressionPtr) ToCampaignCompressionPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(CampaignCompressionPtrOutput)
 }
 
-func (in *campaignCompressionPtr) ToOutput(ctx context.Context) pulumix.Output[*CampaignCompression] {
-	return pulumix.Output[*CampaignCompression]{
-		OutputState: in.ToCampaignCompressionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignDataFormat string
 
 const (
 	CampaignDataFormatJson    = CampaignDataFormat("JSON")
 	CampaignDataFormatParquet = CampaignDataFormat("PARQUET")
 )
+
+func (CampaignDataFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignDataFormat)(nil)).Elem()
+}
+
+func (e CampaignDataFormat) ToCampaignDataFormatOutput() CampaignDataFormatOutput {
+	return pulumi.ToOutput(e).(CampaignDataFormatOutput)
+}
+
+func (e CampaignDataFormat) ToCampaignDataFormatOutputWithContext(ctx context.Context) CampaignDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CampaignDataFormatOutput)
+}
+
+func (e CampaignDataFormat) ToCampaignDataFormatPtrOutput() CampaignDataFormatPtrOutput {
+	return e.ToCampaignDataFormatPtrOutputWithContext(context.Background())
+}
+
+func (e CampaignDataFormat) ToCampaignDataFormatPtrOutputWithContext(ctx context.Context) CampaignDataFormatPtrOutput {
+	return CampaignDataFormat(e).ToCampaignDataFormatOutputWithContext(ctx).ToCampaignDataFormatPtrOutputWithContext(ctx)
+}
+
+func (e CampaignDataFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CampaignDataFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CampaignDataFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CampaignDataFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CampaignDataFormatOutput struct{ *pulumi.OutputState }
+
+func (CampaignDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignDataFormat)(nil)).Elem()
+}
+
+func (o CampaignDataFormatOutput) ToCampaignDataFormatOutput() CampaignDataFormatOutput {
+	return o
+}
+
+func (o CampaignDataFormatOutput) ToCampaignDataFormatOutputWithContext(ctx context.Context) CampaignDataFormatOutput {
+	return o
+}
+
+func (o CampaignDataFormatOutput) ToCampaignDataFormatPtrOutput() CampaignDataFormatPtrOutput {
+	return o.ToCampaignDataFormatPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignDataFormatOutput) ToCampaignDataFormatPtrOutputWithContext(ctx context.Context) CampaignDataFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignDataFormat) *CampaignDataFormat {
+		return &v
+	}).(CampaignDataFormatPtrOutput)
+}
+
+func (o CampaignDataFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CampaignDataFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CampaignDataFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CampaignDataFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignDataFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CampaignDataFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignDataFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignDataFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignDataFormat)(nil)).Elem()
+}
+
+func (o CampaignDataFormatPtrOutput) ToCampaignDataFormatPtrOutput() CampaignDataFormatPtrOutput {
+	return o
+}
+
+func (o CampaignDataFormatPtrOutput) ToCampaignDataFormatPtrOutputWithContext(ctx context.Context) CampaignDataFormatPtrOutput {
+	return o
+}
+
+func (o CampaignDataFormatPtrOutput) Elem() CampaignDataFormatOutput {
+	return o.ApplyT(func(v *CampaignDataFormat) CampaignDataFormat {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignDataFormat
+		return ret
+	}).(CampaignDataFormatOutput)
+}
+
+func (o CampaignDataFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignDataFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CampaignDataFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CampaignDataFormatInput is an input type that accepts values of the CampaignDataFormat enum
+// A concrete instance of `CampaignDataFormatInput` can be one of the following:
+//
+//	CampaignDataFormatJson
+//	CampaignDataFormatParquet
+type CampaignDataFormatInput interface {
+	pulumi.Input
+
+	ToCampaignDataFormatOutput() CampaignDataFormatOutput
+	ToCampaignDataFormatOutputWithContext(context.Context) CampaignDataFormatOutput
+}
+
+var campaignDataFormatPtrType = reflect.TypeOf((**CampaignDataFormat)(nil)).Elem()
+
+type CampaignDataFormatPtrInput interface {
+	pulumi.Input
+
+	ToCampaignDataFormatPtrOutput() CampaignDataFormatPtrOutput
+	ToCampaignDataFormatPtrOutputWithContext(context.Context) CampaignDataFormatPtrOutput
+}
+
+type campaignDataFormatPtr string
+
+func CampaignDataFormatPtr(v string) CampaignDataFormatPtrInput {
+	return (*campaignDataFormatPtr)(&v)
+}
+
+func (*campaignDataFormatPtr) ElementType() reflect.Type {
+	return campaignDataFormatPtrType
+}
+
+func (in *campaignDataFormatPtr) ToCampaignDataFormatPtrOutput() CampaignDataFormatPtrOutput {
+	return pulumi.ToOutput(in).(CampaignDataFormatPtrOutput)
+}
+
+func (in *campaignDataFormatPtr) ToCampaignDataFormatPtrOutputWithContext(ctx context.Context) CampaignDataFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CampaignDataFormatPtrOutput)
+}
 
 type CampaignDiagnosticsMode string
 
@@ -267,12 +407,6 @@ func (o CampaignDiagnosticsModeOutput) ToCampaignDiagnosticsModePtrOutputWithCon
 	}).(CampaignDiagnosticsModePtrOutput)
 }
 
-func (o CampaignDiagnosticsModeOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignDiagnosticsMode] {
-	return pulumix.Output[CampaignDiagnosticsMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignDiagnosticsModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -308,12 +442,6 @@ func (o CampaignDiagnosticsModePtrOutput) ToCampaignDiagnosticsModePtrOutputWith
 	return o
 }
 
-func (o CampaignDiagnosticsModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignDiagnosticsMode] {
-	return pulumix.Output[*CampaignDiagnosticsMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignDiagnosticsModePtrOutput) Elem() CampaignDiagnosticsModeOutput {
 	return o.ApplyT(func(v *CampaignDiagnosticsMode) CampaignDiagnosticsMode {
 		if v != nil {
@@ -338,10 +466,11 @@ func (o CampaignDiagnosticsModePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// CampaignDiagnosticsModeInput is an input type that accepts CampaignDiagnosticsModeArgs and CampaignDiagnosticsModeOutput values.
-// You can construct a concrete instance of `CampaignDiagnosticsModeInput` via:
+// CampaignDiagnosticsModeInput is an input type that accepts values of the CampaignDiagnosticsMode enum
+// A concrete instance of `CampaignDiagnosticsModeInput` can be one of the following:
 //
-//	CampaignDiagnosticsModeArgs{...}
+//	CampaignDiagnosticsModeOff
+//	CampaignDiagnosticsModeSendActiveDtcs
 type CampaignDiagnosticsModeInput interface {
 	pulumi.Input
 
@@ -374,12 +503,6 @@ func (in *campaignDiagnosticsModePtr) ToCampaignDiagnosticsModePtrOutput() Campa
 
 func (in *campaignDiagnosticsModePtr) ToCampaignDiagnosticsModePtrOutputWithContext(ctx context.Context) CampaignDiagnosticsModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CampaignDiagnosticsModePtrOutput)
-}
-
-func (in *campaignDiagnosticsModePtr) ToOutput(ctx context.Context) pulumix.Output[*CampaignDiagnosticsMode] {
-	return pulumix.Output[*CampaignDiagnosticsMode]{
-		OutputState: in.ToCampaignDiagnosticsModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type CampaignSpoolingMode string
@@ -449,12 +572,6 @@ func (o CampaignSpoolingModeOutput) ToCampaignSpoolingModePtrOutputWithContext(c
 	}).(CampaignSpoolingModePtrOutput)
 }
 
-func (o CampaignSpoolingModeOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignSpoolingMode] {
-	return pulumix.Output[CampaignSpoolingMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignSpoolingModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -490,12 +607,6 @@ func (o CampaignSpoolingModePtrOutput) ToCampaignSpoolingModePtrOutputWithContex
 	return o
 }
 
-func (o CampaignSpoolingModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignSpoolingMode] {
-	return pulumix.Output[*CampaignSpoolingMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignSpoolingModePtrOutput) Elem() CampaignSpoolingModeOutput {
 	return o.ApplyT(func(v *CampaignSpoolingMode) CampaignSpoolingMode {
 		if v != nil {
@@ -520,10 +631,11 @@ func (o CampaignSpoolingModePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// CampaignSpoolingModeInput is an input type that accepts CampaignSpoolingModeArgs and CampaignSpoolingModeOutput values.
-// You can construct a concrete instance of `CampaignSpoolingModeInput` via:
+// CampaignSpoolingModeInput is an input type that accepts values of the CampaignSpoolingMode enum
+// A concrete instance of `CampaignSpoolingModeInput` can be one of the following:
 //
-//	CampaignSpoolingModeArgs{...}
+//	CampaignSpoolingModeOff
+//	CampaignSpoolingModeToDisk
 type CampaignSpoolingModeInput interface {
 	pulumi.Input
 
@@ -558,12 +670,6 @@ func (in *campaignSpoolingModePtr) ToCampaignSpoolingModePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(CampaignSpoolingModePtrOutput)
 }
 
-func (in *campaignSpoolingModePtr) ToOutput(ctx context.Context) pulumix.Output[*CampaignSpoolingMode] {
-	return pulumix.Output[*CampaignSpoolingMode]{
-		OutputState: in.ToCampaignSpoolingModePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignStatus string
 
 const (
@@ -595,12 +701,6 @@ func (o CampaignStatusOutput) ToCampaignStatusPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignStatus) *CampaignStatus {
 		return &v
 	}).(CampaignStatusPtrOutput)
-}
-
-func (o CampaignStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignStatus] {
-	return pulumix.Output[CampaignStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -638,12 +738,6 @@ func (o CampaignStatusPtrOutput) ToCampaignStatusPtrOutputWithContext(ctx contex
 	return o
 }
 
-func (o CampaignStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignStatus] {
-	return pulumix.Output[*CampaignStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignStatusPtrOutput) Elem() CampaignStatusOutput {
 	return o.ApplyT(func(v *CampaignStatus) CampaignStatus {
 		if v != nil {
@@ -675,12 +769,328 @@ const (
 	CampaignStorageCompressionFormatGzip = CampaignStorageCompressionFormat("GZIP")
 )
 
+func (CampaignStorageCompressionFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignStorageCompressionFormat)(nil)).Elem()
+}
+
+func (e CampaignStorageCompressionFormat) ToCampaignStorageCompressionFormatOutput() CampaignStorageCompressionFormatOutput {
+	return pulumi.ToOutput(e).(CampaignStorageCompressionFormatOutput)
+}
+
+func (e CampaignStorageCompressionFormat) ToCampaignStorageCompressionFormatOutputWithContext(ctx context.Context) CampaignStorageCompressionFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CampaignStorageCompressionFormatOutput)
+}
+
+func (e CampaignStorageCompressionFormat) ToCampaignStorageCompressionFormatPtrOutput() CampaignStorageCompressionFormatPtrOutput {
+	return e.ToCampaignStorageCompressionFormatPtrOutputWithContext(context.Background())
+}
+
+func (e CampaignStorageCompressionFormat) ToCampaignStorageCompressionFormatPtrOutputWithContext(ctx context.Context) CampaignStorageCompressionFormatPtrOutput {
+	return CampaignStorageCompressionFormat(e).ToCampaignStorageCompressionFormatOutputWithContext(ctx).ToCampaignStorageCompressionFormatPtrOutputWithContext(ctx)
+}
+
+func (e CampaignStorageCompressionFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CampaignStorageCompressionFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CampaignStorageCompressionFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CampaignStorageCompressionFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CampaignStorageCompressionFormatOutput struct{ *pulumi.OutputState }
+
+func (CampaignStorageCompressionFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignStorageCompressionFormat)(nil)).Elem()
+}
+
+func (o CampaignStorageCompressionFormatOutput) ToCampaignStorageCompressionFormatOutput() CampaignStorageCompressionFormatOutput {
+	return o
+}
+
+func (o CampaignStorageCompressionFormatOutput) ToCampaignStorageCompressionFormatOutputWithContext(ctx context.Context) CampaignStorageCompressionFormatOutput {
+	return o
+}
+
+func (o CampaignStorageCompressionFormatOutput) ToCampaignStorageCompressionFormatPtrOutput() CampaignStorageCompressionFormatPtrOutput {
+	return o.ToCampaignStorageCompressionFormatPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignStorageCompressionFormatOutput) ToCampaignStorageCompressionFormatPtrOutputWithContext(ctx context.Context) CampaignStorageCompressionFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignStorageCompressionFormat) *CampaignStorageCompressionFormat {
+		return &v
+	}).(CampaignStorageCompressionFormatPtrOutput)
+}
+
+func (o CampaignStorageCompressionFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CampaignStorageCompressionFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CampaignStorageCompressionFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CampaignStorageCompressionFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignStorageCompressionFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CampaignStorageCompressionFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignStorageCompressionFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignStorageCompressionFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignStorageCompressionFormat)(nil)).Elem()
+}
+
+func (o CampaignStorageCompressionFormatPtrOutput) ToCampaignStorageCompressionFormatPtrOutput() CampaignStorageCompressionFormatPtrOutput {
+	return o
+}
+
+func (o CampaignStorageCompressionFormatPtrOutput) ToCampaignStorageCompressionFormatPtrOutputWithContext(ctx context.Context) CampaignStorageCompressionFormatPtrOutput {
+	return o
+}
+
+func (o CampaignStorageCompressionFormatPtrOutput) Elem() CampaignStorageCompressionFormatOutput {
+	return o.ApplyT(func(v *CampaignStorageCompressionFormat) CampaignStorageCompressionFormat {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignStorageCompressionFormat
+		return ret
+	}).(CampaignStorageCompressionFormatOutput)
+}
+
+func (o CampaignStorageCompressionFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignStorageCompressionFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CampaignStorageCompressionFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CampaignStorageCompressionFormatInput is an input type that accepts values of the CampaignStorageCompressionFormat enum
+// A concrete instance of `CampaignStorageCompressionFormatInput` can be one of the following:
+//
+//	CampaignStorageCompressionFormatNone
+//	CampaignStorageCompressionFormatGzip
+type CampaignStorageCompressionFormatInput interface {
+	pulumi.Input
+
+	ToCampaignStorageCompressionFormatOutput() CampaignStorageCompressionFormatOutput
+	ToCampaignStorageCompressionFormatOutputWithContext(context.Context) CampaignStorageCompressionFormatOutput
+}
+
+var campaignStorageCompressionFormatPtrType = reflect.TypeOf((**CampaignStorageCompressionFormat)(nil)).Elem()
+
+type CampaignStorageCompressionFormatPtrInput interface {
+	pulumi.Input
+
+	ToCampaignStorageCompressionFormatPtrOutput() CampaignStorageCompressionFormatPtrOutput
+	ToCampaignStorageCompressionFormatPtrOutputWithContext(context.Context) CampaignStorageCompressionFormatPtrOutput
+}
+
+type campaignStorageCompressionFormatPtr string
+
+func CampaignStorageCompressionFormatPtr(v string) CampaignStorageCompressionFormatPtrInput {
+	return (*campaignStorageCompressionFormatPtr)(&v)
+}
+
+func (*campaignStorageCompressionFormatPtr) ElementType() reflect.Type {
+	return campaignStorageCompressionFormatPtrType
+}
+
+func (in *campaignStorageCompressionFormatPtr) ToCampaignStorageCompressionFormatPtrOutput() CampaignStorageCompressionFormatPtrOutput {
+	return pulumi.ToOutput(in).(CampaignStorageCompressionFormatPtrOutput)
+}
+
+func (in *campaignStorageCompressionFormatPtr) ToCampaignStorageCompressionFormatPtrOutputWithContext(ctx context.Context) CampaignStorageCompressionFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CampaignStorageCompressionFormatPtrOutput)
+}
+
 type CampaignTriggerMode string
 
 const (
 	CampaignTriggerModeAlways     = CampaignTriggerMode("ALWAYS")
 	CampaignTriggerModeRisingEdge = CampaignTriggerMode("RISING_EDGE")
 )
+
+func (CampaignTriggerMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignTriggerMode)(nil)).Elem()
+}
+
+func (e CampaignTriggerMode) ToCampaignTriggerModeOutput() CampaignTriggerModeOutput {
+	return pulumi.ToOutput(e).(CampaignTriggerModeOutput)
+}
+
+func (e CampaignTriggerMode) ToCampaignTriggerModeOutputWithContext(ctx context.Context) CampaignTriggerModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CampaignTriggerModeOutput)
+}
+
+func (e CampaignTriggerMode) ToCampaignTriggerModePtrOutput() CampaignTriggerModePtrOutput {
+	return e.ToCampaignTriggerModePtrOutputWithContext(context.Background())
+}
+
+func (e CampaignTriggerMode) ToCampaignTriggerModePtrOutputWithContext(ctx context.Context) CampaignTriggerModePtrOutput {
+	return CampaignTriggerMode(e).ToCampaignTriggerModeOutputWithContext(ctx).ToCampaignTriggerModePtrOutputWithContext(ctx)
+}
+
+func (e CampaignTriggerMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CampaignTriggerMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CampaignTriggerMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CampaignTriggerMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CampaignTriggerModeOutput struct{ *pulumi.OutputState }
+
+func (CampaignTriggerModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignTriggerMode)(nil)).Elem()
+}
+
+func (o CampaignTriggerModeOutput) ToCampaignTriggerModeOutput() CampaignTriggerModeOutput {
+	return o
+}
+
+func (o CampaignTriggerModeOutput) ToCampaignTriggerModeOutputWithContext(ctx context.Context) CampaignTriggerModeOutput {
+	return o
+}
+
+func (o CampaignTriggerModeOutput) ToCampaignTriggerModePtrOutput() CampaignTriggerModePtrOutput {
+	return o.ToCampaignTriggerModePtrOutputWithContext(context.Background())
+}
+
+func (o CampaignTriggerModeOutput) ToCampaignTriggerModePtrOutputWithContext(ctx context.Context) CampaignTriggerModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignTriggerMode) *CampaignTriggerMode {
+		return &v
+	}).(CampaignTriggerModePtrOutput)
+}
+
+func (o CampaignTriggerModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CampaignTriggerModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CampaignTriggerMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CampaignTriggerModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignTriggerModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CampaignTriggerMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignTriggerModePtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignTriggerModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignTriggerMode)(nil)).Elem()
+}
+
+func (o CampaignTriggerModePtrOutput) ToCampaignTriggerModePtrOutput() CampaignTriggerModePtrOutput {
+	return o
+}
+
+func (o CampaignTriggerModePtrOutput) ToCampaignTriggerModePtrOutputWithContext(ctx context.Context) CampaignTriggerModePtrOutput {
+	return o
+}
+
+func (o CampaignTriggerModePtrOutput) Elem() CampaignTriggerModeOutput {
+	return o.ApplyT(func(v *CampaignTriggerMode) CampaignTriggerMode {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignTriggerMode
+		return ret
+	}).(CampaignTriggerModeOutput)
+}
+
+func (o CampaignTriggerModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignTriggerModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CampaignTriggerMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CampaignTriggerModeInput is an input type that accepts values of the CampaignTriggerMode enum
+// A concrete instance of `CampaignTriggerModeInput` can be one of the following:
+//
+//	CampaignTriggerModeAlways
+//	CampaignTriggerModeRisingEdge
+type CampaignTriggerModeInput interface {
+	pulumi.Input
+
+	ToCampaignTriggerModeOutput() CampaignTriggerModeOutput
+	ToCampaignTriggerModeOutputWithContext(context.Context) CampaignTriggerModeOutput
+}
+
+var campaignTriggerModePtrType = reflect.TypeOf((**CampaignTriggerMode)(nil)).Elem()
+
+type CampaignTriggerModePtrInput interface {
+	pulumi.Input
+
+	ToCampaignTriggerModePtrOutput() CampaignTriggerModePtrOutput
+	ToCampaignTriggerModePtrOutputWithContext(context.Context) CampaignTriggerModePtrOutput
+}
+
+type campaignTriggerModePtr string
+
+func CampaignTriggerModePtr(v string) CampaignTriggerModePtrInput {
+	return (*campaignTriggerModePtr)(&v)
+}
+
+func (*campaignTriggerModePtr) ElementType() reflect.Type {
+	return campaignTriggerModePtrType
+}
+
+func (in *campaignTriggerModePtr) ToCampaignTriggerModePtrOutput() CampaignTriggerModePtrOutput {
+	return pulumi.ToOutput(in).(CampaignTriggerModePtrOutput)
+}
+
+func (in *campaignTriggerModePtr) ToCampaignTriggerModePtrOutputWithContext(ctx context.Context) CampaignTriggerModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CampaignTriggerModePtrOutput)
+}
 
 type CampaignUpdateCampaignAction string
 
@@ -751,12 +1161,6 @@ func (o CampaignUpdateCampaignActionOutput) ToCampaignUpdateCampaignActionPtrOut
 	}).(CampaignUpdateCampaignActionPtrOutput)
 }
 
-func (o CampaignUpdateCampaignActionOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignUpdateCampaignAction] {
-	return pulumix.Output[CampaignUpdateCampaignAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignUpdateCampaignActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -792,12 +1196,6 @@ func (o CampaignUpdateCampaignActionPtrOutput) ToCampaignUpdateCampaignActionPtr
 	return o
 }
 
-func (o CampaignUpdateCampaignActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignUpdateCampaignAction] {
-	return pulumix.Output[*CampaignUpdateCampaignAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignUpdateCampaignActionPtrOutput) Elem() CampaignUpdateCampaignActionOutput {
 	return o.ApplyT(func(v *CampaignUpdateCampaignAction) CampaignUpdateCampaignAction {
 		if v != nil {
@@ -822,10 +1220,13 @@ func (o CampaignUpdateCampaignActionPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// CampaignUpdateCampaignActionInput is an input type that accepts CampaignUpdateCampaignActionArgs and CampaignUpdateCampaignActionOutput values.
-// You can construct a concrete instance of `CampaignUpdateCampaignActionInput` via:
+// CampaignUpdateCampaignActionInput is an input type that accepts values of the CampaignUpdateCampaignAction enum
+// A concrete instance of `CampaignUpdateCampaignActionInput` can be one of the following:
 //
-//	CampaignUpdateCampaignActionArgs{...}
+//	CampaignUpdateCampaignActionApprove
+//	CampaignUpdateCampaignActionSuspend
+//	CampaignUpdateCampaignActionResume
+//	CampaignUpdateCampaignActionUpdate
 type CampaignUpdateCampaignActionInput interface {
 	pulumi.Input
 
@@ -860,23 +1261,331 @@ func (in *campaignUpdateCampaignActionPtr) ToCampaignUpdateCampaignActionPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(CampaignUpdateCampaignActionPtrOutput)
 }
 
-func (in *campaignUpdateCampaignActionPtr) ToOutput(ctx context.Context) pulumix.Output[*CampaignUpdateCampaignAction] {
-	return pulumix.Output[*CampaignUpdateCampaignAction]{
-		OutputState: in.ToCampaignUpdateCampaignActionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DecoderManifestCanNetworkInterfaceType string
 
 const (
 	DecoderManifestCanNetworkInterfaceTypeCanInterface = DecoderManifestCanNetworkInterfaceType("CAN_INTERFACE")
 )
 
+func (DecoderManifestCanNetworkInterfaceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DecoderManifestCanNetworkInterfaceType)(nil)).Elem()
+}
+
+func (e DecoderManifestCanNetworkInterfaceType) ToDecoderManifestCanNetworkInterfaceTypeOutput() DecoderManifestCanNetworkInterfaceTypeOutput {
+	return pulumi.ToOutput(e).(DecoderManifestCanNetworkInterfaceTypeOutput)
+}
+
+func (e DecoderManifestCanNetworkInterfaceType) ToDecoderManifestCanNetworkInterfaceTypeOutputWithContext(ctx context.Context) DecoderManifestCanNetworkInterfaceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DecoderManifestCanNetworkInterfaceTypeOutput)
+}
+
+func (e DecoderManifestCanNetworkInterfaceType) ToDecoderManifestCanNetworkInterfaceTypePtrOutput() DecoderManifestCanNetworkInterfaceTypePtrOutput {
+	return e.ToDecoderManifestCanNetworkInterfaceTypePtrOutputWithContext(context.Background())
+}
+
+func (e DecoderManifestCanNetworkInterfaceType) ToDecoderManifestCanNetworkInterfaceTypePtrOutputWithContext(ctx context.Context) DecoderManifestCanNetworkInterfaceTypePtrOutput {
+	return DecoderManifestCanNetworkInterfaceType(e).ToDecoderManifestCanNetworkInterfaceTypeOutputWithContext(ctx).ToDecoderManifestCanNetworkInterfaceTypePtrOutputWithContext(ctx)
+}
+
+func (e DecoderManifestCanNetworkInterfaceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DecoderManifestCanNetworkInterfaceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DecoderManifestCanNetworkInterfaceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DecoderManifestCanNetworkInterfaceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DecoderManifestCanNetworkInterfaceTypeOutput struct{ *pulumi.OutputState }
+
+func (DecoderManifestCanNetworkInterfaceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DecoderManifestCanNetworkInterfaceType)(nil)).Elem()
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypeOutput) ToDecoderManifestCanNetworkInterfaceTypeOutput() DecoderManifestCanNetworkInterfaceTypeOutput {
+	return o
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypeOutput) ToDecoderManifestCanNetworkInterfaceTypeOutputWithContext(ctx context.Context) DecoderManifestCanNetworkInterfaceTypeOutput {
+	return o
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypeOutput) ToDecoderManifestCanNetworkInterfaceTypePtrOutput() DecoderManifestCanNetworkInterfaceTypePtrOutput {
+	return o.ToDecoderManifestCanNetworkInterfaceTypePtrOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypeOutput) ToDecoderManifestCanNetworkInterfaceTypePtrOutputWithContext(ctx context.Context) DecoderManifestCanNetworkInterfaceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DecoderManifestCanNetworkInterfaceType) *DecoderManifestCanNetworkInterfaceType {
+		return &v
+	}).(DecoderManifestCanNetworkInterfaceTypePtrOutput)
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DecoderManifestCanNetworkInterfaceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DecoderManifestCanNetworkInterfaceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DecoderManifestCanNetworkInterfaceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DecoderManifestCanNetworkInterfaceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DecoderManifestCanNetworkInterfaceType)(nil)).Elem()
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypePtrOutput) ToDecoderManifestCanNetworkInterfaceTypePtrOutput() DecoderManifestCanNetworkInterfaceTypePtrOutput {
+	return o
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypePtrOutput) ToDecoderManifestCanNetworkInterfaceTypePtrOutputWithContext(ctx context.Context) DecoderManifestCanNetworkInterfaceTypePtrOutput {
+	return o
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypePtrOutput) Elem() DecoderManifestCanNetworkInterfaceTypeOutput {
+	return o.ApplyT(func(v *DecoderManifestCanNetworkInterfaceType) DecoderManifestCanNetworkInterfaceType {
+		if v != nil {
+			return *v
+		}
+		var ret DecoderManifestCanNetworkInterfaceType
+		return ret
+	}).(DecoderManifestCanNetworkInterfaceTypeOutput)
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestCanNetworkInterfaceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DecoderManifestCanNetworkInterfaceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DecoderManifestCanNetworkInterfaceTypeInput is an input type that accepts values of the DecoderManifestCanNetworkInterfaceType enum
+// A concrete instance of `DecoderManifestCanNetworkInterfaceTypeInput` can be one of the following:
+//
+//	DecoderManifestCanNetworkInterfaceTypeCanInterface
+type DecoderManifestCanNetworkInterfaceTypeInput interface {
+	pulumi.Input
+
+	ToDecoderManifestCanNetworkInterfaceTypeOutput() DecoderManifestCanNetworkInterfaceTypeOutput
+	ToDecoderManifestCanNetworkInterfaceTypeOutputWithContext(context.Context) DecoderManifestCanNetworkInterfaceTypeOutput
+}
+
+var decoderManifestCanNetworkInterfaceTypePtrType = reflect.TypeOf((**DecoderManifestCanNetworkInterfaceType)(nil)).Elem()
+
+type DecoderManifestCanNetworkInterfaceTypePtrInput interface {
+	pulumi.Input
+
+	ToDecoderManifestCanNetworkInterfaceTypePtrOutput() DecoderManifestCanNetworkInterfaceTypePtrOutput
+	ToDecoderManifestCanNetworkInterfaceTypePtrOutputWithContext(context.Context) DecoderManifestCanNetworkInterfaceTypePtrOutput
+}
+
+type decoderManifestCanNetworkInterfaceTypePtr string
+
+func DecoderManifestCanNetworkInterfaceTypePtr(v string) DecoderManifestCanNetworkInterfaceTypePtrInput {
+	return (*decoderManifestCanNetworkInterfaceTypePtr)(&v)
+}
+
+func (*decoderManifestCanNetworkInterfaceTypePtr) ElementType() reflect.Type {
+	return decoderManifestCanNetworkInterfaceTypePtrType
+}
+
+func (in *decoderManifestCanNetworkInterfaceTypePtr) ToDecoderManifestCanNetworkInterfaceTypePtrOutput() DecoderManifestCanNetworkInterfaceTypePtrOutput {
+	return pulumi.ToOutput(in).(DecoderManifestCanNetworkInterfaceTypePtrOutput)
+}
+
+func (in *decoderManifestCanNetworkInterfaceTypePtr) ToDecoderManifestCanNetworkInterfaceTypePtrOutputWithContext(ctx context.Context) DecoderManifestCanNetworkInterfaceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DecoderManifestCanNetworkInterfaceTypePtrOutput)
+}
+
 type DecoderManifestCanSignalDecoderType string
 
 const (
 	DecoderManifestCanSignalDecoderTypeCanSignal = DecoderManifestCanSignalDecoderType("CAN_SIGNAL")
 )
+
+func (DecoderManifestCanSignalDecoderType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DecoderManifestCanSignalDecoderType)(nil)).Elem()
+}
+
+func (e DecoderManifestCanSignalDecoderType) ToDecoderManifestCanSignalDecoderTypeOutput() DecoderManifestCanSignalDecoderTypeOutput {
+	return pulumi.ToOutput(e).(DecoderManifestCanSignalDecoderTypeOutput)
+}
+
+func (e DecoderManifestCanSignalDecoderType) ToDecoderManifestCanSignalDecoderTypeOutputWithContext(ctx context.Context) DecoderManifestCanSignalDecoderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DecoderManifestCanSignalDecoderTypeOutput)
+}
+
+func (e DecoderManifestCanSignalDecoderType) ToDecoderManifestCanSignalDecoderTypePtrOutput() DecoderManifestCanSignalDecoderTypePtrOutput {
+	return e.ToDecoderManifestCanSignalDecoderTypePtrOutputWithContext(context.Background())
+}
+
+func (e DecoderManifestCanSignalDecoderType) ToDecoderManifestCanSignalDecoderTypePtrOutputWithContext(ctx context.Context) DecoderManifestCanSignalDecoderTypePtrOutput {
+	return DecoderManifestCanSignalDecoderType(e).ToDecoderManifestCanSignalDecoderTypeOutputWithContext(ctx).ToDecoderManifestCanSignalDecoderTypePtrOutputWithContext(ctx)
+}
+
+func (e DecoderManifestCanSignalDecoderType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DecoderManifestCanSignalDecoderType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DecoderManifestCanSignalDecoderType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DecoderManifestCanSignalDecoderType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DecoderManifestCanSignalDecoderTypeOutput struct{ *pulumi.OutputState }
+
+func (DecoderManifestCanSignalDecoderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DecoderManifestCanSignalDecoderType)(nil)).Elem()
+}
+
+func (o DecoderManifestCanSignalDecoderTypeOutput) ToDecoderManifestCanSignalDecoderTypeOutput() DecoderManifestCanSignalDecoderTypeOutput {
+	return o
+}
+
+func (o DecoderManifestCanSignalDecoderTypeOutput) ToDecoderManifestCanSignalDecoderTypeOutputWithContext(ctx context.Context) DecoderManifestCanSignalDecoderTypeOutput {
+	return o
+}
+
+func (o DecoderManifestCanSignalDecoderTypeOutput) ToDecoderManifestCanSignalDecoderTypePtrOutput() DecoderManifestCanSignalDecoderTypePtrOutput {
+	return o.ToDecoderManifestCanSignalDecoderTypePtrOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestCanSignalDecoderTypeOutput) ToDecoderManifestCanSignalDecoderTypePtrOutputWithContext(ctx context.Context) DecoderManifestCanSignalDecoderTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DecoderManifestCanSignalDecoderType) *DecoderManifestCanSignalDecoderType {
+		return &v
+	}).(DecoderManifestCanSignalDecoderTypePtrOutput)
+}
+
+func (o DecoderManifestCanSignalDecoderTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestCanSignalDecoderTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DecoderManifestCanSignalDecoderType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DecoderManifestCanSignalDecoderTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestCanSignalDecoderTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DecoderManifestCanSignalDecoderType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DecoderManifestCanSignalDecoderTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DecoderManifestCanSignalDecoderTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DecoderManifestCanSignalDecoderType)(nil)).Elem()
+}
+
+func (o DecoderManifestCanSignalDecoderTypePtrOutput) ToDecoderManifestCanSignalDecoderTypePtrOutput() DecoderManifestCanSignalDecoderTypePtrOutput {
+	return o
+}
+
+func (o DecoderManifestCanSignalDecoderTypePtrOutput) ToDecoderManifestCanSignalDecoderTypePtrOutputWithContext(ctx context.Context) DecoderManifestCanSignalDecoderTypePtrOutput {
+	return o
+}
+
+func (o DecoderManifestCanSignalDecoderTypePtrOutput) Elem() DecoderManifestCanSignalDecoderTypeOutput {
+	return o.ApplyT(func(v *DecoderManifestCanSignalDecoderType) DecoderManifestCanSignalDecoderType {
+		if v != nil {
+			return *v
+		}
+		var ret DecoderManifestCanSignalDecoderType
+		return ret
+	}).(DecoderManifestCanSignalDecoderTypeOutput)
+}
+
+func (o DecoderManifestCanSignalDecoderTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestCanSignalDecoderTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DecoderManifestCanSignalDecoderType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DecoderManifestCanSignalDecoderTypeInput is an input type that accepts values of the DecoderManifestCanSignalDecoderType enum
+// A concrete instance of `DecoderManifestCanSignalDecoderTypeInput` can be one of the following:
+//
+//	DecoderManifestCanSignalDecoderTypeCanSignal
+type DecoderManifestCanSignalDecoderTypeInput interface {
+	pulumi.Input
+
+	ToDecoderManifestCanSignalDecoderTypeOutput() DecoderManifestCanSignalDecoderTypeOutput
+	ToDecoderManifestCanSignalDecoderTypeOutputWithContext(context.Context) DecoderManifestCanSignalDecoderTypeOutput
+}
+
+var decoderManifestCanSignalDecoderTypePtrType = reflect.TypeOf((**DecoderManifestCanSignalDecoderType)(nil)).Elem()
+
+type DecoderManifestCanSignalDecoderTypePtrInput interface {
+	pulumi.Input
+
+	ToDecoderManifestCanSignalDecoderTypePtrOutput() DecoderManifestCanSignalDecoderTypePtrOutput
+	ToDecoderManifestCanSignalDecoderTypePtrOutputWithContext(context.Context) DecoderManifestCanSignalDecoderTypePtrOutput
+}
+
+type decoderManifestCanSignalDecoderTypePtr string
+
+func DecoderManifestCanSignalDecoderTypePtr(v string) DecoderManifestCanSignalDecoderTypePtrInput {
+	return (*decoderManifestCanSignalDecoderTypePtr)(&v)
+}
+
+func (*decoderManifestCanSignalDecoderTypePtr) ElementType() reflect.Type {
+	return decoderManifestCanSignalDecoderTypePtrType
+}
+
+func (in *decoderManifestCanSignalDecoderTypePtr) ToDecoderManifestCanSignalDecoderTypePtrOutput() DecoderManifestCanSignalDecoderTypePtrOutput {
+	return pulumi.ToOutput(in).(DecoderManifestCanSignalDecoderTypePtrOutput)
+}
+
+func (in *decoderManifestCanSignalDecoderTypePtr) ToDecoderManifestCanSignalDecoderTypePtrOutputWithContext(ctx context.Context) DecoderManifestCanSignalDecoderTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DecoderManifestCanSignalDecoderTypePtrOutput)
+}
 
 type DecoderManifestManifestStatus string
 
@@ -945,12 +1654,6 @@ func (o DecoderManifestManifestStatusOutput) ToDecoderManifestManifestStatusPtrO
 	}).(DecoderManifestManifestStatusPtrOutput)
 }
 
-func (o DecoderManifestManifestStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DecoderManifestManifestStatus] {
-	return pulumix.Output[DecoderManifestManifestStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DecoderManifestManifestStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -986,12 +1689,6 @@ func (o DecoderManifestManifestStatusPtrOutput) ToDecoderManifestManifestStatusP
 	return o
 }
 
-func (o DecoderManifestManifestStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DecoderManifestManifestStatus] {
-	return pulumix.Output[*DecoderManifestManifestStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DecoderManifestManifestStatusPtrOutput) Elem() DecoderManifestManifestStatusOutput {
 	return o.ApplyT(func(v *DecoderManifestManifestStatus) DecoderManifestManifestStatus {
 		if v != nil {
@@ -1016,10 +1713,11 @@ func (o DecoderManifestManifestStatusPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DecoderManifestManifestStatusInput is an input type that accepts DecoderManifestManifestStatusArgs and DecoderManifestManifestStatusOutput values.
-// You can construct a concrete instance of `DecoderManifestManifestStatusInput` via:
+// DecoderManifestManifestStatusInput is an input type that accepts values of the DecoderManifestManifestStatus enum
+// A concrete instance of `DecoderManifestManifestStatusInput` can be one of the following:
 //
-//	DecoderManifestManifestStatusArgs{...}
+//	DecoderManifestManifestStatusActive
+//	DecoderManifestManifestStatusDraft
 type DecoderManifestManifestStatusInput interface {
 	pulumi.Input
 
@@ -1054,23 +1752,331 @@ func (in *decoderManifestManifestStatusPtr) ToDecoderManifestManifestStatusPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DecoderManifestManifestStatusPtrOutput)
 }
 
-func (in *decoderManifestManifestStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*DecoderManifestManifestStatus] {
-	return pulumix.Output[*DecoderManifestManifestStatus]{
-		OutputState: in.ToDecoderManifestManifestStatusPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DecoderManifestObdNetworkInterfaceType string
 
 const (
 	DecoderManifestObdNetworkInterfaceTypeObdInterface = DecoderManifestObdNetworkInterfaceType("OBD_INTERFACE")
 )
 
+func (DecoderManifestObdNetworkInterfaceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DecoderManifestObdNetworkInterfaceType)(nil)).Elem()
+}
+
+func (e DecoderManifestObdNetworkInterfaceType) ToDecoderManifestObdNetworkInterfaceTypeOutput() DecoderManifestObdNetworkInterfaceTypeOutput {
+	return pulumi.ToOutput(e).(DecoderManifestObdNetworkInterfaceTypeOutput)
+}
+
+func (e DecoderManifestObdNetworkInterfaceType) ToDecoderManifestObdNetworkInterfaceTypeOutputWithContext(ctx context.Context) DecoderManifestObdNetworkInterfaceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DecoderManifestObdNetworkInterfaceTypeOutput)
+}
+
+func (e DecoderManifestObdNetworkInterfaceType) ToDecoderManifestObdNetworkInterfaceTypePtrOutput() DecoderManifestObdNetworkInterfaceTypePtrOutput {
+	return e.ToDecoderManifestObdNetworkInterfaceTypePtrOutputWithContext(context.Background())
+}
+
+func (e DecoderManifestObdNetworkInterfaceType) ToDecoderManifestObdNetworkInterfaceTypePtrOutputWithContext(ctx context.Context) DecoderManifestObdNetworkInterfaceTypePtrOutput {
+	return DecoderManifestObdNetworkInterfaceType(e).ToDecoderManifestObdNetworkInterfaceTypeOutputWithContext(ctx).ToDecoderManifestObdNetworkInterfaceTypePtrOutputWithContext(ctx)
+}
+
+func (e DecoderManifestObdNetworkInterfaceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DecoderManifestObdNetworkInterfaceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DecoderManifestObdNetworkInterfaceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DecoderManifestObdNetworkInterfaceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DecoderManifestObdNetworkInterfaceTypeOutput struct{ *pulumi.OutputState }
+
+func (DecoderManifestObdNetworkInterfaceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DecoderManifestObdNetworkInterfaceType)(nil)).Elem()
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypeOutput) ToDecoderManifestObdNetworkInterfaceTypeOutput() DecoderManifestObdNetworkInterfaceTypeOutput {
+	return o
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypeOutput) ToDecoderManifestObdNetworkInterfaceTypeOutputWithContext(ctx context.Context) DecoderManifestObdNetworkInterfaceTypeOutput {
+	return o
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypeOutput) ToDecoderManifestObdNetworkInterfaceTypePtrOutput() DecoderManifestObdNetworkInterfaceTypePtrOutput {
+	return o.ToDecoderManifestObdNetworkInterfaceTypePtrOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypeOutput) ToDecoderManifestObdNetworkInterfaceTypePtrOutputWithContext(ctx context.Context) DecoderManifestObdNetworkInterfaceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DecoderManifestObdNetworkInterfaceType) *DecoderManifestObdNetworkInterfaceType {
+		return &v
+	}).(DecoderManifestObdNetworkInterfaceTypePtrOutput)
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DecoderManifestObdNetworkInterfaceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DecoderManifestObdNetworkInterfaceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DecoderManifestObdNetworkInterfaceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DecoderManifestObdNetworkInterfaceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DecoderManifestObdNetworkInterfaceType)(nil)).Elem()
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypePtrOutput) ToDecoderManifestObdNetworkInterfaceTypePtrOutput() DecoderManifestObdNetworkInterfaceTypePtrOutput {
+	return o
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypePtrOutput) ToDecoderManifestObdNetworkInterfaceTypePtrOutputWithContext(ctx context.Context) DecoderManifestObdNetworkInterfaceTypePtrOutput {
+	return o
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypePtrOutput) Elem() DecoderManifestObdNetworkInterfaceTypeOutput {
+	return o.ApplyT(func(v *DecoderManifestObdNetworkInterfaceType) DecoderManifestObdNetworkInterfaceType {
+		if v != nil {
+			return *v
+		}
+		var ret DecoderManifestObdNetworkInterfaceType
+		return ret
+	}).(DecoderManifestObdNetworkInterfaceTypeOutput)
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestObdNetworkInterfaceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DecoderManifestObdNetworkInterfaceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DecoderManifestObdNetworkInterfaceTypeInput is an input type that accepts values of the DecoderManifestObdNetworkInterfaceType enum
+// A concrete instance of `DecoderManifestObdNetworkInterfaceTypeInput` can be one of the following:
+//
+//	DecoderManifestObdNetworkInterfaceTypeObdInterface
+type DecoderManifestObdNetworkInterfaceTypeInput interface {
+	pulumi.Input
+
+	ToDecoderManifestObdNetworkInterfaceTypeOutput() DecoderManifestObdNetworkInterfaceTypeOutput
+	ToDecoderManifestObdNetworkInterfaceTypeOutputWithContext(context.Context) DecoderManifestObdNetworkInterfaceTypeOutput
+}
+
+var decoderManifestObdNetworkInterfaceTypePtrType = reflect.TypeOf((**DecoderManifestObdNetworkInterfaceType)(nil)).Elem()
+
+type DecoderManifestObdNetworkInterfaceTypePtrInput interface {
+	pulumi.Input
+
+	ToDecoderManifestObdNetworkInterfaceTypePtrOutput() DecoderManifestObdNetworkInterfaceTypePtrOutput
+	ToDecoderManifestObdNetworkInterfaceTypePtrOutputWithContext(context.Context) DecoderManifestObdNetworkInterfaceTypePtrOutput
+}
+
+type decoderManifestObdNetworkInterfaceTypePtr string
+
+func DecoderManifestObdNetworkInterfaceTypePtr(v string) DecoderManifestObdNetworkInterfaceTypePtrInput {
+	return (*decoderManifestObdNetworkInterfaceTypePtr)(&v)
+}
+
+func (*decoderManifestObdNetworkInterfaceTypePtr) ElementType() reflect.Type {
+	return decoderManifestObdNetworkInterfaceTypePtrType
+}
+
+func (in *decoderManifestObdNetworkInterfaceTypePtr) ToDecoderManifestObdNetworkInterfaceTypePtrOutput() DecoderManifestObdNetworkInterfaceTypePtrOutput {
+	return pulumi.ToOutput(in).(DecoderManifestObdNetworkInterfaceTypePtrOutput)
+}
+
+func (in *decoderManifestObdNetworkInterfaceTypePtr) ToDecoderManifestObdNetworkInterfaceTypePtrOutputWithContext(ctx context.Context) DecoderManifestObdNetworkInterfaceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DecoderManifestObdNetworkInterfaceTypePtrOutput)
+}
+
 type DecoderManifestObdSignalDecoderType string
 
 const (
 	DecoderManifestObdSignalDecoderTypeObdSignal = DecoderManifestObdSignalDecoderType("OBD_SIGNAL")
 )
+
+func (DecoderManifestObdSignalDecoderType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DecoderManifestObdSignalDecoderType)(nil)).Elem()
+}
+
+func (e DecoderManifestObdSignalDecoderType) ToDecoderManifestObdSignalDecoderTypeOutput() DecoderManifestObdSignalDecoderTypeOutput {
+	return pulumi.ToOutput(e).(DecoderManifestObdSignalDecoderTypeOutput)
+}
+
+func (e DecoderManifestObdSignalDecoderType) ToDecoderManifestObdSignalDecoderTypeOutputWithContext(ctx context.Context) DecoderManifestObdSignalDecoderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DecoderManifestObdSignalDecoderTypeOutput)
+}
+
+func (e DecoderManifestObdSignalDecoderType) ToDecoderManifestObdSignalDecoderTypePtrOutput() DecoderManifestObdSignalDecoderTypePtrOutput {
+	return e.ToDecoderManifestObdSignalDecoderTypePtrOutputWithContext(context.Background())
+}
+
+func (e DecoderManifestObdSignalDecoderType) ToDecoderManifestObdSignalDecoderTypePtrOutputWithContext(ctx context.Context) DecoderManifestObdSignalDecoderTypePtrOutput {
+	return DecoderManifestObdSignalDecoderType(e).ToDecoderManifestObdSignalDecoderTypeOutputWithContext(ctx).ToDecoderManifestObdSignalDecoderTypePtrOutputWithContext(ctx)
+}
+
+func (e DecoderManifestObdSignalDecoderType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DecoderManifestObdSignalDecoderType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DecoderManifestObdSignalDecoderType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DecoderManifestObdSignalDecoderType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DecoderManifestObdSignalDecoderTypeOutput struct{ *pulumi.OutputState }
+
+func (DecoderManifestObdSignalDecoderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DecoderManifestObdSignalDecoderType)(nil)).Elem()
+}
+
+func (o DecoderManifestObdSignalDecoderTypeOutput) ToDecoderManifestObdSignalDecoderTypeOutput() DecoderManifestObdSignalDecoderTypeOutput {
+	return o
+}
+
+func (o DecoderManifestObdSignalDecoderTypeOutput) ToDecoderManifestObdSignalDecoderTypeOutputWithContext(ctx context.Context) DecoderManifestObdSignalDecoderTypeOutput {
+	return o
+}
+
+func (o DecoderManifestObdSignalDecoderTypeOutput) ToDecoderManifestObdSignalDecoderTypePtrOutput() DecoderManifestObdSignalDecoderTypePtrOutput {
+	return o.ToDecoderManifestObdSignalDecoderTypePtrOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestObdSignalDecoderTypeOutput) ToDecoderManifestObdSignalDecoderTypePtrOutputWithContext(ctx context.Context) DecoderManifestObdSignalDecoderTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DecoderManifestObdSignalDecoderType) *DecoderManifestObdSignalDecoderType {
+		return &v
+	}).(DecoderManifestObdSignalDecoderTypePtrOutput)
+}
+
+func (o DecoderManifestObdSignalDecoderTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestObdSignalDecoderTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DecoderManifestObdSignalDecoderType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DecoderManifestObdSignalDecoderTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestObdSignalDecoderTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DecoderManifestObdSignalDecoderType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DecoderManifestObdSignalDecoderTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DecoderManifestObdSignalDecoderTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DecoderManifestObdSignalDecoderType)(nil)).Elem()
+}
+
+func (o DecoderManifestObdSignalDecoderTypePtrOutput) ToDecoderManifestObdSignalDecoderTypePtrOutput() DecoderManifestObdSignalDecoderTypePtrOutput {
+	return o
+}
+
+func (o DecoderManifestObdSignalDecoderTypePtrOutput) ToDecoderManifestObdSignalDecoderTypePtrOutputWithContext(ctx context.Context) DecoderManifestObdSignalDecoderTypePtrOutput {
+	return o
+}
+
+func (o DecoderManifestObdSignalDecoderTypePtrOutput) Elem() DecoderManifestObdSignalDecoderTypeOutput {
+	return o.ApplyT(func(v *DecoderManifestObdSignalDecoderType) DecoderManifestObdSignalDecoderType {
+		if v != nil {
+			return *v
+		}
+		var ret DecoderManifestObdSignalDecoderType
+		return ret
+	}).(DecoderManifestObdSignalDecoderTypeOutput)
+}
+
+func (o DecoderManifestObdSignalDecoderTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DecoderManifestObdSignalDecoderTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DecoderManifestObdSignalDecoderType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DecoderManifestObdSignalDecoderTypeInput is an input type that accepts values of the DecoderManifestObdSignalDecoderType enum
+// A concrete instance of `DecoderManifestObdSignalDecoderTypeInput` can be one of the following:
+//
+//	DecoderManifestObdSignalDecoderTypeObdSignal
+type DecoderManifestObdSignalDecoderTypeInput interface {
+	pulumi.Input
+
+	ToDecoderManifestObdSignalDecoderTypeOutput() DecoderManifestObdSignalDecoderTypeOutput
+	ToDecoderManifestObdSignalDecoderTypeOutputWithContext(context.Context) DecoderManifestObdSignalDecoderTypeOutput
+}
+
+var decoderManifestObdSignalDecoderTypePtrType = reflect.TypeOf((**DecoderManifestObdSignalDecoderType)(nil)).Elem()
+
+type DecoderManifestObdSignalDecoderTypePtrInput interface {
+	pulumi.Input
+
+	ToDecoderManifestObdSignalDecoderTypePtrOutput() DecoderManifestObdSignalDecoderTypePtrOutput
+	ToDecoderManifestObdSignalDecoderTypePtrOutputWithContext(context.Context) DecoderManifestObdSignalDecoderTypePtrOutput
+}
+
+type decoderManifestObdSignalDecoderTypePtr string
+
+func DecoderManifestObdSignalDecoderTypePtr(v string) DecoderManifestObdSignalDecoderTypePtrInput {
+	return (*decoderManifestObdSignalDecoderTypePtr)(&v)
+}
+
+func (*decoderManifestObdSignalDecoderTypePtr) ElementType() reflect.Type {
+	return decoderManifestObdSignalDecoderTypePtrType
+}
+
+func (in *decoderManifestObdSignalDecoderTypePtr) ToDecoderManifestObdSignalDecoderTypePtrOutput() DecoderManifestObdSignalDecoderTypePtrOutput {
+	return pulumi.ToOutput(in).(DecoderManifestObdSignalDecoderTypePtrOutput)
+}
+
+func (in *decoderManifestObdSignalDecoderTypePtr) ToDecoderManifestObdSignalDecoderTypePtrOutputWithContext(ctx context.Context) DecoderManifestObdSignalDecoderTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DecoderManifestObdSignalDecoderTypePtrOutput)
+}
 
 type ModelManifestManifestStatus string
 
@@ -1139,12 +2145,6 @@ func (o ModelManifestManifestStatusOutput) ToModelManifestManifestStatusPtrOutpu
 	}).(ModelManifestManifestStatusPtrOutput)
 }
 
-func (o ModelManifestManifestStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ModelManifestManifestStatus] {
-	return pulumix.Output[ModelManifestManifestStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelManifestManifestStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1180,12 +2180,6 @@ func (o ModelManifestManifestStatusPtrOutput) ToModelManifestManifestStatusPtrOu
 	return o
 }
 
-func (o ModelManifestManifestStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelManifestManifestStatus] {
-	return pulumix.Output[*ModelManifestManifestStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelManifestManifestStatusPtrOutput) Elem() ModelManifestManifestStatusOutput {
 	return o.ApplyT(func(v *ModelManifestManifestStatus) ModelManifestManifestStatus {
 		if v != nil {
@@ -1210,10 +2204,11 @@ func (o ModelManifestManifestStatusPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ModelManifestManifestStatusInput is an input type that accepts ModelManifestManifestStatusArgs and ModelManifestManifestStatusOutput values.
-// You can construct a concrete instance of `ModelManifestManifestStatusInput` via:
+// ModelManifestManifestStatusInput is an input type that accepts values of the ModelManifestManifestStatus enum
+// A concrete instance of `ModelManifestManifestStatusInput` can be one of the following:
 //
-//	ModelManifestManifestStatusArgs{...}
+//	ModelManifestManifestStatusActive
+//	ModelManifestManifestStatusDraft
 type ModelManifestManifestStatusInput interface {
 	pulumi.Input
 
@@ -1248,12 +2243,6 @@ func (in *modelManifestManifestStatusPtr) ToModelManifestManifestStatusPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(ModelManifestManifestStatusPtrOutput)
 }
 
-func (in *modelManifestManifestStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*ModelManifestManifestStatus] {
-	return pulumix.Output[*ModelManifestManifestStatus]{
-		OutputState: in.ToModelManifestManifestStatusPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SignalCatalogNodeDataType string
 
 const (
@@ -1285,6 +2274,189 @@ const (
 	SignalCatalogNodeDataTypeUnixTimestampArray = SignalCatalogNodeDataType("UNIX_TIMESTAMP_ARRAY")
 	SignalCatalogNodeDataTypeUnknown            = SignalCatalogNodeDataType("UNKNOWN")
 )
+
+func (SignalCatalogNodeDataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalCatalogNodeDataType)(nil)).Elem()
+}
+
+func (e SignalCatalogNodeDataType) ToSignalCatalogNodeDataTypeOutput() SignalCatalogNodeDataTypeOutput {
+	return pulumi.ToOutput(e).(SignalCatalogNodeDataTypeOutput)
+}
+
+func (e SignalCatalogNodeDataType) ToSignalCatalogNodeDataTypeOutputWithContext(ctx context.Context) SignalCatalogNodeDataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SignalCatalogNodeDataTypeOutput)
+}
+
+func (e SignalCatalogNodeDataType) ToSignalCatalogNodeDataTypePtrOutput() SignalCatalogNodeDataTypePtrOutput {
+	return e.ToSignalCatalogNodeDataTypePtrOutputWithContext(context.Background())
+}
+
+func (e SignalCatalogNodeDataType) ToSignalCatalogNodeDataTypePtrOutputWithContext(ctx context.Context) SignalCatalogNodeDataTypePtrOutput {
+	return SignalCatalogNodeDataType(e).ToSignalCatalogNodeDataTypeOutputWithContext(ctx).ToSignalCatalogNodeDataTypePtrOutputWithContext(ctx)
+}
+
+func (e SignalCatalogNodeDataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SignalCatalogNodeDataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SignalCatalogNodeDataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SignalCatalogNodeDataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SignalCatalogNodeDataTypeOutput struct{ *pulumi.OutputState }
+
+func (SignalCatalogNodeDataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalCatalogNodeDataType)(nil)).Elem()
+}
+
+func (o SignalCatalogNodeDataTypeOutput) ToSignalCatalogNodeDataTypeOutput() SignalCatalogNodeDataTypeOutput {
+	return o
+}
+
+func (o SignalCatalogNodeDataTypeOutput) ToSignalCatalogNodeDataTypeOutputWithContext(ctx context.Context) SignalCatalogNodeDataTypeOutput {
+	return o
+}
+
+func (o SignalCatalogNodeDataTypeOutput) ToSignalCatalogNodeDataTypePtrOutput() SignalCatalogNodeDataTypePtrOutput {
+	return o.ToSignalCatalogNodeDataTypePtrOutputWithContext(context.Background())
+}
+
+func (o SignalCatalogNodeDataTypeOutput) ToSignalCatalogNodeDataTypePtrOutputWithContext(ctx context.Context) SignalCatalogNodeDataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignalCatalogNodeDataType) *SignalCatalogNodeDataType {
+		return &v
+	}).(SignalCatalogNodeDataTypePtrOutput)
+}
+
+func (o SignalCatalogNodeDataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SignalCatalogNodeDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SignalCatalogNodeDataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SignalCatalogNodeDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SignalCatalogNodeDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SignalCatalogNodeDataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SignalCatalogNodeDataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SignalCatalogNodeDataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SignalCatalogNodeDataType)(nil)).Elem()
+}
+
+func (o SignalCatalogNodeDataTypePtrOutput) ToSignalCatalogNodeDataTypePtrOutput() SignalCatalogNodeDataTypePtrOutput {
+	return o
+}
+
+func (o SignalCatalogNodeDataTypePtrOutput) ToSignalCatalogNodeDataTypePtrOutputWithContext(ctx context.Context) SignalCatalogNodeDataTypePtrOutput {
+	return o
+}
+
+func (o SignalCatalogNodeDataTypePtrOutput) Elem() SignalCatalogNodeDataTypeOutput {
+	return o.ApplyT(func(v *SignalCatalogNodeDataType) SignalCatalogNodeDataType {
+		if v != nil {
+			return *v
+		}
+		var ret SignalCatalogNodeDataType
+		return ret
+	}).(SignalCatalogNodeDataTypeOutput)
+}
+
+func (o SignalCatalogNodeDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SignalCatalogNodeDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SignalCatalogNodeDataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SignalCatalogNodeDataTypeInput is an input type that accepts values of the SignalCatalogNodeDataType enum
+// A concrete instance of `SignalCatalogNodeDataTypeInput` can be one of the following:
+//
+//	SignalCatalogNodeDataTypeInt8
+//	SignalCatalogNodeDataTypeUint8
+//	SignalCatalogNodeDataTypeInt16
+//	SignalCatalogNodeDataTypeUint16
+//	SignalCatalogNodeDataTypeInt32
+//	SignalCatalogNodeDataTypeUint32
+//	SignalCatalogNodeDataTypeInt64
+//	SignalCatalogNodeDataTypeUint64
+//	SignalCatalogNodeDataTypeBoolean
+//	SignalCatalogNodeDataTypeFloat
+//	SignalCatalogNodeDataTypeDouble
+//	SignalCatalogNodeDataTypeString
+//	SignalCatalogNodeDataTypeUnixTimestamp
+//	SignalCatalogNodeDataTypeInt8Array
+//	SignalCatalogNodeDataTypeUint8Array
+//	SignalCatalogNodeDataTypeInt16Array
+//	SignalCatalogNodeDataTypeUint16Array
+//	SignalCatalogNodeDataTypeInt32Array
+//	SignalCatalogNodeDataTypeUint32Array
+//	SignalCatalogNodeDataTypeInt64Array
+//	SignalCatalogNodeDataTypeUint64Array
+//	SignalCatalogNodeDataTypeBooleanArray
+//	SignalCatalogNodeDataTypeFloatArray
+//	SignalCatalogNodeDataTypeDoubleArray
+//	SignalCatalogNodeDataTypeStringArray
+//	SignalCatalogNodeDataTypeUnixTimestampArray
+//	SignalCatalogNodeDataTypeUnknown
+type SignalCatalogNodeDataTypeInput interface {
+	pulumi.Input
+
+	ToSignalCatalogNodeDataTypeOutput() SignalCatalogNodeDataTypeOutput
+	ToSignalCatalogNodeDataTypeOutputWithContext(context.Context) SignalCatalogNodeDataTypeOutput
+}
+
+var signalCatalogNodeDataTypePtrType = reflect.TypeOf((**SignalCatalogNodeDataType)(nil)).Elem()
+
+type SignalCatalogNodeDataTypePtrInput interface {
+	pulumi.Input
+
+	ToSignalCatalogNodeDataTypePtrOutput() SignalCatalogNodeDataTypePtrOutput
+	ToSignalCatalogNodeDataTypePtrOutputWithContext(context.Context) SignalCatalogNodeDataTypePtrOutput
+}
+
+type signalCatalogNodeDataTypePtr string
+
+func SignalCatalogNodeDataTypePtr(v string) SignalCatalogNodeDataTypePtrInput {
+	return (*signalCatalogNodeDataTypePtr)(&v)
+}
+
+func (*signalCatalogNodeDataTypePtr) ElementType() reflect.Type {
+	return signalCatalogNodeDataTypePtrType
+}
+
+func (in *signalCatalogNodeDataTypePtr) ToSignalCatalogNodeDataTypePtrOutput() SignalCatalogNodeDataTypePtrOutput {
+	return pulumi.ToOutput(in).(SignalCatalogNodeDataTypePtrOutput)
+}
+
+func (in *signalCatalogNodeDataTypePtr) ToSignalCatalogNodeDataTypePtrOutputWithContext(ctx context.Context) SignalCatalogNodeDataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SignalCatalogNodeDataTypePtrOutput)
+}
 
 type VehicleAssociationBehavior string
 
@@ -1353,12 +2525,6 @@ func (o VehicleAssociationBehaviorOutput) ToVehicleAssociationBehaviorPtrOutputW
 	}).(VehicleAssociationBehaviorPtrOutput)
 }
 
-func (o VehicleAssociationBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[VehicleAssociationBehavior] {
-	return pulumix.Output[VehicleAssociationBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VehicleAssociationBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1394,12 +2560,6 @@ func (o VehicleAssociationBehaviorPtrOutput) ToVehicleAssociationBehaviorPtrOutp
 	return o
 }
 
-func (o VehicleAssociationBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VehicleAssociationBehavior] {
-	return pulumix.Output[*VehicleAssociationBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VehicleAssociationBehaviorPtrOutput) Elem() VehicleAssociationBehaviorOutput {
 	return o.ApplyT(func(v *VehicleAssociationBehavior) VehicleAssociationBehavior {
 		if v != nil {
@@ -1424,10 +2584,11 @@ func (o VehicleAssociationBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// VehicleAssociationBehaviorInput is an input type that accepts VehicleAssociationBehaviorArgs and VehicleAssociationBehaviorOutput values.
-// You can construct a concrete instance of `VehicleAssociationBehaviorInput` via:
+// VehicleAssociationBehaviorInput is an input type that accepts values of the VehicleAssociationBehavior enum
+// A concrete instance of `VehicleAssociationBehaviorInput` can be one of the following:
 //
-//	VehicleAssociationBehaviorArgs{...}
+//	VehicleAssociationBehaviorCreateIotThing
+//	VehicleAssociationBehaviorValidateIotThingExists
 type VehicleAssociationBehaviorInput interface {
 	pulumi.Input
 
@@ -1462,41 +2623,67 @@ func (in *vehicleAssociationBehaviorPtr) ToVehicleAssociationBehaviorPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(VehicleAssociationBehaviorPtrOutput)
 }
 
-func (in *vehicleAssociationBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*VehicleAssociationBehavior] {
-	return pulumix.Output[*VehicleAssociationBehavior]{
-		OutputState: in.ToVehicleAssociationBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCompressionInput)(nil)).Elem(), CampaignCompression("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCompressionPtrInput)(nil)).Elem(), CampaignCompression("OFF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDataFormatInput)(nil)).Elem(), CampaignDataFormat("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDataFormatPtrInput)(nil)).Elem(), CampaignDataFormat("JSON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDiagnosticsModeInput)(nil)).Elem(), CampaignDiagnosticsMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDiagnosticsModePtrInput)(nil)).Elem(), CampaignDiagnosticsMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignSpoolingModeInput)(nil)).Elem(), CampaignSpoolingMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignSpoolingModePtrInput)(nil)).Elem(), CampaignSpoolingMode("OFF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignStorageCompressionFormatInput)(nil)).Elem(), CampaignStorageCompressionFormat("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignStorageCompressionFormatPtrInput)(nil)).Elem(), CampaignStorageCompressionFormat("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTriggerModeInput)(nil)).Elem(), CampaignTriggerMode("ALWAYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTriggerModePtrInput)(nil)).Elem(), CampaignTriggerMode("ALWAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignUpdateCampaignActionInput)(nil)).Elem(), CampaignUpdateCampaignAction("APPROVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignUpdateCampaignActionPtrInput)(nil)).Elem(), CampaignUpdateCampaignAction("APPROVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestCanNetworkInterfaceTypeInput)(nil)).Elem(), DecoderManifestCanNetworkInterfaceType("CAN_INTERFACE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestCanNetworkInterfaceTypePtrInput)(nil)).Elem(), DecoderManifestCanNetworkInterfaceType("CAN_INTERFACE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestCanSignalDecoderTypeInput)(nil)).Elem(), DecoderManifestCanSignalDecoderType("CAN_SIGNAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestCanSignalDecoderTypePtrInput)(nil)).Elem(), DecoderManifestCanSignalDecoderType("CAN_SIGNAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestManifestStatusInput)(nil)).Elem(), DecoderManifestManifestStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestManifestStatusPtrInput)(nil)).Elem(), DecoderManifestManifestStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestObdNetworkInterfaceTypeInput)(nil)).Elem(), DecoderManifestObdNetworkInterfaceType("OBD_INTERFACE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestObdNetworkInterfaceTypePtrInput)(nil)).Elem(), DecoderManifestObdNetworkInterfaceType("OBD_INTERFACE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestObdSignalDecoderTypeInput)(nil)).Elem(), DecoderManifestObdSignalDecoderType("OBD_SIGNAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestObdSignalDecoderTypePtrInput)(nil)).Elem(), DecoderManifestObdSignalDecoderType("OBD_SIGNAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelManifestManifestStatusInput)(nil)).Elem(), ModelManifestManifestStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelManifestManifestStatusPtrInput)(nil)).Elem(), ModelManifestManifestStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogNodeDataTypeInput)(nil)).Elem(), SignalCatalogNodeDataType("INT8"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogNodeDataTypePtrInput)(nil)).Elem(), SignalCatalogNodeDataType("INT8"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VehicleAssociationBehaviorInput)(nil)).Elem(), VehicleAssociationBehavior("CreateIotThing"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VehicleAssociationBehaviorPtrInput)(nil)).Elem(), VehicleAssociationBehavior("CreateIotThing"))
 	pulumi.RegisterOutputType(CampaignCompressionOutput{})
 	pulumi.RegisterOutputType(CampaignCompressionPtrOutput{})
+	pulumi.RegisterOutputType(CampaignDataFormatOutput{})
+	pulumi.RegisterOutputType(CampaignDataFormatPtrOutput{})
 	pulumi.RegisterOutputType(CampaignDiagnosticsModeOutput{})
 	pulumi.RegisterOutputType(CampaignDiagnosticsModePtrOutput{})
 	pulumi.RegisterOutputType(CampaignSpoolingModeOutput{})
 	pulumi.RegisterOutputType(CampaignSpoolingModePtrOutput{})
 	pulumi.RegisterOutputType(CampaignStatusOutput{})
 	pulumi.RegisterOutputType(CampaignStatusPtrOutput{})
+	pulumi.RegisterOutputType(CampaignStorageCompressionFormatOutput{})
+	pulumi.RegisterOutputType(CampaignStorageCompressionFormatPtrOutput{})
+	pulumi.RegisterOutputType(CampaignTriggerModeOutput{})
+	pulumi.RegisterOutputType(CampaignTriggerModePtrOutput{})
 	pulumi.RegisterOutputType(CampaignUpdateCampaignActionOutput{})
 	pulumi.RegisterOutputType(CampaignUpdateCampaignActionPtrOutput{})
+	pulumi.RegisterOutputType(DecoderManifestCanNetworkInterfaceTypeOutput{})
+	pulumi.RegisterOutputType(DecoderManifestCanNetworkInterfaceTypePtrOutput{})
+	pulumi.RegisterOutputType(DecoderManifestCanSignalDecoderTypeOutput{})
+	pulumi.RegisterOutputType(DecoderManifestCanSignalDecoderTypePtrOutput{})
 	pulumi.RegisterOutputType(DecoderManifestManifestStatusOutput{})
 	pulumi.RegisterOutputType(DecoderManifestManifestStatusPtrOutput{})
+	pulumi.RegisterOutputType(DecoderManifestObdNetworkInterfaceTypeOutput{})
+	pulumi.RegisterOutputType(DecoderManifestObdNetworkInterfaceTypePtrOutput{})
+	pulumi.RegisterOutputType(DecoderManifestObdSignalDecoderTypeOutput{})
+	pulumi.RegisterOutputType(DecoderManifestObdSignalDecoderTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelManifestManifestStatusOutput{})
 	pulumi.RegisterOutputType(ModelManifestManifestStatusPtrOutput{})
+	pulumi.RegisterOutputType(SignalCatalogNodeDataTypeOutput{})
+	pulumi.RegisterOutputType(SignalCatalogNodeDataTypePtrOutput{})
 	pulumi.RegisterOutputType(VehicleAssociationBehaviorOutput{})
 	pulumi.RegisterOutputType(VehicleAssociationBehaviorPtrOutput{})
 }

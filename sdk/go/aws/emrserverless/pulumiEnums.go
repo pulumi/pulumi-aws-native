@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The cpu architecture of an application.
@@ -79,12 +78,6 @@ func (o ApplicationArchitectureOutput) ToApplicationArchitecturePtrOutputWithCon
 	}).(ApplicationArchitecturePtrOutput)
 }
 
-func (o ApplicationArchitectureOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationArchitecture] {
-	return pulumix.Output[ApplicationArchitecture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationArchitectureOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o ApplicationArchitecturePtrOutput) ToApplicationArchitecturePtrOutputWith
 	return o
 }
 
-func (o ApplicationArchitecturePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationArchitecture] {
-	return pulumix.Output[*ApplicationArchitecture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationArchitecturePtrOutput) Elem() ApplicationArchitectureOutput {
 	return o.ApplyT(func(v *ApplicationArchitecture) ApplicationArchitecture {
 		if v != nil {
@@ -150,10 +137,11 @@ func (o ApplicationArchitecturePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationArchitectureInput is an input type that accepts ApplicationArchitectureArgs and ApplicationArchitectureOutput values.
-// You can construct a concrete instance of `ApplicationArchitectureInput` via:
+// ApplicationArchitectureInput is an input type that accepts values of the ApplicationArchitecture enum
+// A concrete instance of `ApplicationArchitectureInput` can be one of the following:
 //
-//	ApplicationArchitectureArgs{...}
+//	ApplicationArchitectureArm64
+//	ApplicationArchitectureX8664
 type ApplicationArchitectureInput interface {
 	pulumi.Input
 
@@ -186,12 +174,6 @@ func (in *applicationArchitecturePtr) ToApplicationArchitecturePtrOutput() Appli
 
 func (in *applicationArchitecturePtr) ToApplicationArchitecturePtrOutputWithContext(ctx context.Context) ApplicationArchitecturePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationArchitecturePtrOutput)
-}
-
-func (in *applicationArchitecturePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationArchitecture] {
-	return pulumix.Output[*ApplicationArchitecture]{
-		OutputState: in.ToApplicationArchitecturePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

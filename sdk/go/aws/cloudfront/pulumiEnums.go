@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ContinuousDeploymentPolicyConfigType string
@@ -78,12 +77,6 @@ func (o ContinuousDeploymentPolicyConfigTypeOutput) ToContinuousDeploymentPolicy
 	}).(ContinuousDeploymentPolicyConfigTypePtrOutput)
 }
 
-func (o ContinuousDeploymentPolicyConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContinuousDeploymentPolicyConfigType] {
-	return pulumix.Output[ContinuousDeploymentPolicyConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContinuousDeploymentPolicyConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o ContinuousDeploymentPolicyConfigTypePtrOutput) ToContinuousDeploymentPol
 	return o
 }
 
-func (o ContinuousDeploymentPolicyConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContinuousDeploymentPolicyConfigType] {
-	return pulumix.Output[*ContinuousDeploymentPolicyConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContinuousDeploymentPolicyConfigTypePtrOutput) Elem() ContinuousDeploymentPolicyConfigTypeOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyConfigType) ContinuousDeploymentPolicyConfigType {
 		if v != nil {
@@ -149,10 +136,11 @@ func (o ContinuousDeploymentPolicyConfigTypePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ContinuousDeploymentPolicyConfigTypeInput is an input type that accepts ContinuousDeploymentPolicyConfigTypeArgs and ContinuousDeploymentPolicyConfigTypeOutput values.
-// You can construct a concrete instance of `ContinuousDeploymentPolicyConfigTypeInput` via:
+// ContinuousDeploymentPolicyConfigTypeInput is an input type that accepts values of the ContinuousDeploymentPolicyConfigType enum
+// A concrete instance of `ContinuousDeploymentPolicyConfigTypeInput` can be one of the following:
 //
-//	ContinuousDeploymentPolicyConfigTypeArgs{...}
+//	ContinuousDeploymentPolicyConfigTypeSingleWeight
+//	ContinuousDeploymentPolicyConfigTypeSingleHeader
 type ContinuousDeploymentPolicyConfigTypeInput interface {
 	pulumi.Input
 
@@ -185,12 +173,6 @@ func (in *continuousDeploymentPolicyConfigTypePtr) ToContinuousDeploymentPolicyC
 
 func (in *continuousDeploymentPolicyConfigTypePtr) ToContinuousDeploymentPolicyConfigTypePtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyConfigTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContinuousDeploymentPolicyConfigTypePtrOutput)
-}
-
-func (in *continuousDeploymentPolicyConfigTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ContinuousDeploymentPolicyConfigType] {
-	return pulumix.Output[*ContinuousDeploymentPolicyConfigType]{
-		OutputState: in.ToContinuousDeploymentPolicyConfigTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ContinuousDeploymentPolicyTrafficConfigType string
@@ -260,12 +242,6 @@ func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToContinuousDeploymen
 	}).(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput)
 }
 
-func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContinuousDeploymentPolicyTrafficConfigType] {
-	return pulumix.Output[ContinuousDeploymentPolicyTrafficConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +277,6 @@ func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToContinuousDeploy
 	return o
 }
 
-func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContinuousDeploymentPolicyTrafficConfigType] {
-	return pulumix.Output[*ContinuousDeploymentPolicyTrafficConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) Elem() ContinuousDeploymentPolicyTrafficConfigTypeOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigType) ContinuousDeploymentPolicyTrafficConfigType {
 		if v != nil {
@@ -331,10 +301,11 @@ func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// ContinuousDeploymentPolicyTrafficConfigTypeInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigTypeArgs and ContinuousDeploymentPolicyTrafficConfigTypeOutput values.
-// You can construct a concrete instance of `ContinuousDeploymentPolicyTrafficConfigTypeInput` via:
+// ContinuousDeploymentPolicyTrafficConfigTypeInput is an input type that accepts values of the ContinuousDeploymentPolicyTrafficConfigType enum
+// A concrete instance of `ContinuousDeploymentPolicyTrafficConfigTypeInput` can be one of the following:
 //
-//	ContinuousDeploymentPolicyTrafficConfigTypeArgs{...}
+//	ContinuousDeploymentPolicyTrafficConfigTypeSingleWeight
+//	ContinuousDeploymentPolicyTrafficConfigTypeSingleHeader
 type ContinuousDeploymentPolicyTrafficConfigTypeInput interface {
 	pulumi.Input
 
@@ -367,12 +338,6 @@ func (in *continuousDeploymentPolicyTrafficConfigTypePtr) ToContinuousDeployment
 
 func (in *continuousDeploymentPolicyTrafficConfigTypePtr) ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput)
-}
-
-func (in *continuousDeploymentPolicyTrafficConfigTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ContinuousDeploymentPolicyTrafficConfigType] {
-	return pulumix.Output[*ContinuousDeploymentPolicyTrafficConfigType]{
-		OutputState: in.ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus string
@@ -442,12 +407,6 @@ func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSu
 	}).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput)
 }
 
-func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus] {
-	return pulumix.Output[MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -483,12 +442,6 @@ func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSu
 	return o
 }
 
-func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus] {
-	return pulumix.Output[*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput) Elem() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput {
 	return o.ApplyT(func(v *MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus {
 		if v != nil {
@@ -513,10 +466,11 @@ func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSu
 	}).(pulumi.StringPtrOutput)
 }
 
-// MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput is an input type that accepts MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusArgs and MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput values.
-// You can construct a concrete instance of `MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput` via:
+// MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput is an input type that accepts values of the MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus enum
+// A concrete instance of `MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput` can be one of the following:
 //
-//	MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusArgs{...}
+//	MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusEnabled
+//	MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusDisabled
 type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput interface {
 	pulumi.Input
 
@@ -549,12 +503,6 @@ func (in *monitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetrics
 
 func (in *monitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtr) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput)
-}
-
-func (in *monitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus] {
-	return pulumix.Output[*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus]{
-		OutputState: in.ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

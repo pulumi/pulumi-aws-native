@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::DataQualityRuleset
@@ -70,12 +69,6 @@ func (o LookupDataQualityRulesetResultOutput) ToLookupDataQualityRulesetResultOu
 
 func (o LookupDataQualityRulesetResultOutput) ToLookupDataQualityRulesetResultOutputWithContext(ctx context.Context) LookupDataQualityRulesetResultOutput {
 	return o
-}
-
-func (o LookupDataQualityRulesetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataQualityRulesetResult] {
-	return pulumix.Output[LookupDataQualityRulesetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDataQualityRulesetResultOutput) ClientToken() pulumi.StringPtrOutput {

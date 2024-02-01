@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::PinpointEmail::ConfigurationSetEventDestination
@@ -65,12 +64,6 @@ func (o LookupConfigurationSetEventDestinationResultOutput) ToLookupConfiguratio
 
 func (o LookupConfigurationSetEventDestinationResultOutput) ToLookupConfigurationSetEventDestinationResultOutputWithContext(ctx context.Context) LookupConfigurationSetEventDestinationResultOutput {
 	return o
-}
-
-func (o LookupConfigurationSetEventDestinationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigurationSetEventDestinationResult] {
-	return pulumix.Output[LookupConfigurationSetEventDestinationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupConfigurationSetEventDestinationResultOutput) EventDestination() ConfigurationSetEventDestinationEventDestinationPtrOutput {

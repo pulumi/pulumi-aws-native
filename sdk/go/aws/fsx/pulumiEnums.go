@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DataRepositoryAssociationEventType string
@@ -79,12 +78,6 @@ func (o DataRepositoryAssociationEventTypeOutput) ToDataRepositoryAssociationEve
 	}).(DataRepositoryAssociationEventTypePtrOutput)
 }
 
-func (o DataRepositoryAssociationEventTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationEventType] {
-	return pulumix.Output[DataRepositoryAssociationEventType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataRepositoryAssociationEventTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o DataRepositoryAssociationEventTypePtrOutput) ToDataRepositoryAssociation
 	return o
 }
 
-func (o DataRepositoryAssociationEventTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationEventType] {
-	return pulumix.Output[*DataRepositoryAssociationEventType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataRepositoryAssociationEventTypePtrOutput) Elem() DataRepositoryAssociationEventTypeOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationEventType) DataRepositoryAssociationEventType {
 		if v != nil {
@@ -150,10 +137,12 @@ func (o DataRepositoryAssociationEventTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataRepositoryAssociationEventTypeInput is an input type that accepts DataRepositoryAssociationEventTypeArgs and DataRepositoryAssociationEventTypeOutput values.
-// You can construct a concrete instance of `DataRepositoryAssociationEventTypeInput` via:
+// DataRepositoryAssociationEventTypeInput is an input type that accepts values of the DataRepositoryAssociationEventType enum
+// A concrete instance of `DataRepositoryAssociationEventTypeInput` can be one of the following:
 //
-//	DataRepositoryAssociationEventTypeArgs{...}
+//	DataRepositoryAssociationEventTypeNew
+//	DataRepositoryAssociationEventTypeChanged
+//	DataRepositoryAssociationEventTypeDeleted
 type DataRepositoryAssociationEventTypeInput interface {
 	pulumi.Input
 
@@ -188,12 +177,6 @@ func (in *dataRepositoryAssociationEventTypePtr) ToDataRepositoryAssociationEven
 	return pulumi.ToOutputWithContext(ctx, in).(DataRepositoryAssociationEventTypePtrOutput)
 }
 
-func (in *dataRepositoryAssociationEventTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationEventType] {
-	return pulumix.Output[*DataRepositoryAssociationEventType]{
-		OutputState: in.ToDataRepositoryAssociationEventTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataRepositoryAssociationEventTypeArrayInput is an input type that accepts DataRepositoryAssociationEventTypeArray and DataRepositoryAssociationEventTypeArrayOutput values.
 // You can construct a concrete instance of `DataRepositoryAssociationEventTypeArrayInput` via:
 //
@@ -219,12 +202,6 @@ func (i DataRepositoryAssociationEventTypeArray) ToDataRepositoryAssociationEven
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationEventTypeArrayOutput)
 }
 
-func (i DataRepositoryAssociationEventTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]DataRepositoryAssociationEventType] {
-	return pulumix.Output[[]DataRepositoryAssociationEventType]{
-		OutputState: i.ToDataRepositoryAssociationEventTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataRepositoryAssociationEventTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationEventTypeArrayOutput) ElementType() reflect.Type {
@@ -237,12 +214,6 @@ func (o DataRepositoryAssociationEventTypeArrayOutput) ToDataRepositoryAssociati
 
 func (o DataRepositoryAssociationEventTypeArrayOutput) ToDataRepositoryAssociationEventTypeArrayOutputWithContext(ctx context.Context) DataRepositoryAssociationEventTypeArrayOutput {
 	return o
-}
-
-func (o DataRepositoryAssociationEventTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataRepositoryAssociationEventType] {
-	return pulumix.Output[[]DataRepositoryAssociationEventType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataRepositoryAssociationEventTypeArrayOutput) Index(i pulumi.IntInput) DataRepositoryAssociationEventTypeOutput {

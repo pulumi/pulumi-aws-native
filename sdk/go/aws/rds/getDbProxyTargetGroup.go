@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::RDS::DBProxyTargetGroup
@@ -70,12 +69,6 @@ func (o LookupDbProxyTargetGroupResultOutput) ToLookupDbProxyTargetGroupResultOu
 
 func (o LookupDbProxyTargetGroupResultOutput) ToLookupDbProxyTargetGroupResultOutputWithContext(ctx context.Context) LookupDbProxyTargetGroupResultOutput {
 	return o
-}
-
-func (o LookupDbProxyTargetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDbProxyTargetGroupResult] {
-	return pulumix.Output[LookupDbProxyTargetGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDbProxyTargetGroupResultOutput) ConnectionPoolConfigurationInfo() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {

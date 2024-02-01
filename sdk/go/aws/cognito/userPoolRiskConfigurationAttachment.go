@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
@@ -116,12 +115,6 @@ func (i *UserPoolRiskConfigurationAttachment) ToUserPoolRiskConfigurationAttachm
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentOutput)
 }
 
-func (i *UserPoolRiskConfigurationAttachment) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachment] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachment]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolRiskConfigurationAttachmentOutput struct{ *pulumi.OutputState }
 
 func (UserPoolRiskConfigurationAttachmentOutput) ElementType() reflect.Type {
@@ -134,12 +127,6 @@ func (o UserPoolRiskConfigurationAttachmentOutput) ToUserPoolRiskConfigurationAt
 
 func (o UserPoolRiskConfigurationAttachmentOutput) ToUserPoolRiskConfigurationAttachmentOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentOutput {
 	return o
-}
-
-func (o UserPoolRiskConfigurationAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachment] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentOutput) AccountTakeoverRiskConfiguration() UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput {

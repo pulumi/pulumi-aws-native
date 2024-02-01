@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type BotAliasStatus string
@@ -44,12 +43,6 @@ func (o BotAliasStatusOutput) ToBotAliasStatusPtrOutputWithContext(ctx context.C
 	}).(BotAliasStatusPtrOutput)
 }
 
-func (o BotAliasStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasStatus] {
-	return pulumix.Output[BotAliasStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotAliasStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -83,12 +76,6 @@ func (o BotAliasStatusPtrOutput) ToBotAliasStatusPtrOutput() BotAliasStatusPtrOu
 
 func (o BotAliasStatusPtrOutput) ToBotAliasStatusPtrOutputWithContext(ctx context.Context) BotAliasStatusPtrOutput {
 	return o
-}
-
-func (o BotAliasStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAliasStatus] {
-	return pulumix.Output[*BotAliasStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BotAliasStatusPtrOutput) Elem() BotAliasStatusOutput {
@@ -182,12 +169,6 @@ func (o BotAudioRecognitionStrategyOutput) ToBotAudioRecognitionStrategyPtrOutpu
 	}).(BotAudioRecognitionStrategyPtrOutput)
 }
 
-func (o BotAudioRecognitionStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[BotAudioRecognitionStrategy] {
-	return pulumix.Output[BotAudioRecognitionStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotAudioRecognitionStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -223,12 +204,6 @@ func (o BotAudioRecognitionStrategyPtrOutput) ToBotAudioRecognitionStrategyPtrOu
 	return o
 }
 
-func (o BotAudioRecognitionStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAudioRecognitionStrategy] {
-	return pulumix.Output[*BotAudioRecognitionStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotAudioRecognitionStrategyPtrOutput) Elem() BotAudioRecognitionStrategyOutput {
 	return o.ApplyT(func(v *BotAudioRecognitionStrategy) BotAudioRecognitionStrategy {
 		if v != nil {
@@ -253,10 +228,10 @@ func (o BotAudioRecognitionStrategyPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// BotAudioRecognitionStrategyInput is an input type that accepts BotAudioRecognitionStrategyArgs and BotAudioRecognitionStrategyOutput values.
-// You can construct a concrete instance of `BotAudioRecognitionStrategyInput` via:
+// BotAudioRecognitionStrategyInput is an input type that accepts values of the BotAudioRecognitionStrategy enum
+// A concrete instance of `BotAudioRecognitionStrategyInput` can be one of the following:
 //
-//	BotAudioRecognitionStrategyArgs{...}
+//	BotAudioRecognitionStrategyUseSlotValuesAsCustomVocabulary
 type BotAudioRecognitionStrategyInput interface {
 	pulumi.Input
 
@@ -289,12 +264,6 @@ func (in *botAudioRecognitionStrategyPtr) ToBotAudioRecognitionStrategyPtrOutput
 
 func (in *botAudioRecognitionStrategyPtr) ToBotAudioRecognitionStrategyPtrOutputWithContext(ctx context.Context) BotAudioRecognitionStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BotAudioRecognitionStrategyPtrOutput)
-}
-
-func (in *botAudioRecognitionStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*BotAudioRecognitionStrategy] {
-	return pulumix.Output[*BotAudioRecognitionStrategy]{
-		OutputState: in.ToBotAudioRecognitionStrategyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The possible values of actions that the conversation can take.
@@ -372,12 +341,6 @@ func (o BotDialogActionTypeOutput) ToBotDialogActionTypePtrOutputWithContext(ctx
 	}).(BotDialogActionTypePtrOutput)
 }
 
-func (o BotDialogActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BotDialogActionType] {
-	return pulumix.Output[BotDialogActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotDialogActionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -413,12 +376,6 @@ func (o BotDialogActionTypePtrOutput) ToBotDialogActionTypePtrOutputWithContext(
 	return o
 }
 
-func (o BotDialogActionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotDialogActionType] {
-	return pulumix.Output[*BotDialogActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotDialogActionTypePtrOutput) Elem() BotDialogActionTypeOutput {
 	return o.ApplyT(func(v *BotDialogActionType) BotDialogActionType {
 		if v != nil {
@@ -443,10 +400,18 @@ func (o BotDialogActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// BotDialogActionTypeInput is an input type that accepts BotDialogActionTypeArgs and BotDialogActionTypeOutput values.
-// You can construct a concrete instance of `BotDialogActionTypeInput` via:
+// BotDialogActionTypeInput is an input type that accepts values of the BotDialogActionType enum
+// A concrete instance of `BotDialogActionTypeInput` can be one of the following:
 //
-//	BotDialogActionTypeArgs{...}
+//	BotDialogActionTypeCloseIntent
+//	BotDialogActionTypeConfirmIntent
+//	BotDialogActionTypeElicitIntent
+//	BotDialogActionTypeElicitSlot
+//	BotDialogActionTypeStartIntent
+//	BotDialogActionTypeFulfillIntent
+//	BotDialogActionTypeEndConversation
+//	BotDialogActionTypeEvaluateConditional
+//	BotDialogActionTypeInvokeDialogCodeHook
 type BotDialogActionTypeInput interface {
 	pulumi.Input
 
@@ -479,12 +444,6 @@ func (in *botDialogActionTypePtr) ToBotDialogActionTypePtrOutput() BotDialogActi
 
 func (in *botDialogActionTypePtr) ToBotDialogActionTypePtrOutputWithContext(ctx context.Context) BotDialogActionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BotDialogActionTypePtrOutput)
-}
-
-func (in *botDialogActionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BotDialogActionType] {
-	return pulumix.Output[*BotDialogActionType]{
-		OutputState: in.ToBotDialogActionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Indicates how a message is selected from a message group among retries.
@@ -555,12 +514,6 @@ func (o BotMessageSelectionStrategyOutput) ToBotMessageSelectionStrategyPtrOutpu
 	}).(BotMessageSelectionStrategyPtrOutput)
 }
 
-func (o BotMessageSelectionStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[BotMessageSelectionStrategy] {
-	return pulumix.Output[BotMessageSelectionStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotMessageSelectionStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -596,12 +549,6 @@ func (o BotMessageSelectionStrategyPtrOutput) ToBotMessageSelectionStrategyPtrOu
 	return o
 }
 
-func (o BotMessageSelectionStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotMessageSelectionStrategy] {
-	return pulumix.Output[*BotMessageSelectionStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotMessageSelectionStrategyPtrOutput) Elem() BotMessageSelectionStrategyOutput {
 	return o.ApplyT(func(v *BotMessageSelectionStrategy) BotMessageSelectionStrategy {
 		if v != nil {
@@ -626,10 +573,11 @@ func (o BotMessageSelectionStrategyPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// BotMessageSelectionStrategyInput is an input type that accepts BotMessageSelectionStrategyArgs and BotMessageSelectionStrategyOutput values.
-// You can construct a concrete instance of `BotMessageSelectionStrategyInput` via:
+// BotMessageSelectionStrategyInput is an input type that accepts values of the BotMessageSelectionStrategy enum
+// A concrete instance of `BotMessageSelectionStrategyInput` can be one of the following:
 //
-//	BotMessageSelectionStrategyArgs{...}
+//	BotMessageSelectionStrategyRandom
+//	BotMessageSelectionStrategyOrdered
 type BotMessageSelectionStrategyInput interface {
 	pulumi.Input
 
@@ -662,12 +610,6 @@ func (in *botMessageSelectionStrategyPtr) ToBotMessageSelectionStrategyPtrOutput
 
 func (in *botMessageSelectionStrategyPtr) ToBotMessageSelectionStrategyPtrOutputWithContext(ctx context.Context) BotMessageSelectionStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BotMessageSelectionStrategyPtrOutput)
-}
-
-func (in *botMessageSelectionStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*BotMessageSelectionStrategy] {
-	return pulumix.Output[*BotMessageSelectionStrategy]{
-		OutputState: in.ToBotMessageSelectionStrategyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
@@ -738,12 +680,6 @@ func (o BotObfuscationSettingObfuscationSettingTypeOutput) ToBotObfuscationSetti
 	}).(BotObfuscationSettingObfuscationSettingTypePtrOutput)
 }
 
-func (o BotObfuscationSettingObfuscationSettingTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BotObfuscationSettingObfuscationSettingType] {
-	return pulumix.Output[BotObfuscationSettingObfuscationSettingType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotObfuscationSettingObfuscationSettingTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -779,12 +715,6 @@ func (o BotObfuscationSettingObfuscationSettingTypePtrOutput) ToBotObfuscationSe
 	return o
 }
 
-func (o BotObfuscationSettingObfuscationSettingTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotObfuscationSettingObfuscationSettingType] {
-	return pulumix.Output[*BotObfuscationSettingObfuscationSettingType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotObfuscationSettingObfuscationSettingTypePtrOutput) Elem() BotObfuscationSettingObfuscationSettingTypeOutput {
 	return o.ApplyT(func(v *BotObfuscationSettingObfuscationSettingType) BotObfuscationSettingObfuscationSettingType {
 		if v != nil {
@@ -809,10 +739,11 @@ func (o BotObfuscationSettingObfuscationSettingTypePtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// BotObfuscationSettingObfuscationSettingTypeInput is an input type that accepts BotObfuscationSettingObfuscationSettingTypeArgs and BotObfuscationSettingObfuscationSettingTypeOutput values.
-// You can construct a concrete instance of `BotObfuscationSettingObfuscationSettingTypeInput` via:
+// BotObfuscationSettingObfuscationSettingTypeInput is an input type that accepts values of the BotObfuscationSettingObfuscationSettingType enum
+// A concrete instance of `BotObfuscationSettingObfuscationSettingTypeInput` can be one of the following:
 //
-//	BotObfuscationSettingObfuscationSettingTypeArgs{...}
+//	BotObfuscationSettingObfuscationSettingTypeNone
+//	BotObfuscationSettingObfuscationSettingTypeDefaultObfuscation
 type BotObfuscationSettingObfuscationSettingTypeInput interface {
 	pulumi.Input
 
@@ -845,12 +776,6 @@ func (in *botObfuscationSettingObfuscationSettingTypePtr) ToBotObfuscationSettin
 
 func (in *botObfuscationSettingObfuscationSettingTypePtr) ToBotObfuscationSettingObfuscationSettingTypePtrOutputWithContext(ctx context.Context) BotObfuscationSettingObfuscationSettingTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BotObfuscationSettingObfuscationSettingTypePtrOutput)
-}
-
-func (in *botObfuscationSettingObfuscationSettingTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BotObfuscationSettingObfuscationSettingType] {
-	return pulumix.Output[*BotObfuscationSettingObfuscationSettingType]{
-		OutputState: in.ToBotObfuscationSettingObfuscationSettingTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type BotSlotConstraint string
@@ -920,12 +845,6 @@ func (o BotSlotConstraintOutput) ToBotSlotConstraintPtrOutputWithContext(ctx con
 	}).(BotSlotConstraintPtrOutput)
 }
 
-func (o BotSlotConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotConstraint] {
-	return pulumix.Output[BotSlotConstraint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotSlotConstraintOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -961,12 +880,6 @@ func (o BotSlotConstraintPtrOutput) ToBotSlotConstraintPtrOutputWithContext(ctx 
 	return o
 }
 
-func (o BotSlotConstraintPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSlotConstraint] {
-	return pulumix.Output[*BotSlotConstraint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotSlotConstraintPtrOutput) Elem() BotSlotConstraintOutput {
 	return o.ApplyT(func(v *BotSlotConstraint) BotSlotConstraint {
 		if v != nil {
@@ -991,10 +904,11 @@ func (o BotSlotConstraintPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// BotSlotConstraintInput is an input type that accepts BotSlotConstraintArgs and BotSlotConstraintOutput values.
-// You can construct a concrete instance of `BotSlotConstraintInput` via:
+// BotSlotConstraintInput is an input type that accepts values of the BotSlotConstraint enum
+// A concrete instance of `BotSlotConstraintInput` can be one of the following:
 //
-//	BotSlotConstraintArgs{...}
+//	BotSlotConstraintRequired
+//	BotSlotConstraintOptional
 type BotSlotConstraintInput interface {
 	pulumi.Input
 
@@ -1027,12 +941,6 @@ func (in *botSlotConstraintPtr) ToBotSlotConstraintPtrOutput() BotSlotConstraint
 
 func (in *botSlotConstraintPtr) ToBotSlotConstraintPtrOutputWithContext(ctx context.Context) BotSlotConstraintPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BotSlotConstraintPtrOutput)
-}
-
-func (in *botSlotConstraintPtr) ToOutput(ctx context.Context) pulumix.Output[*BotSlotConstraint] {
-	return pulumix.Output[*BotSlotConstraint]{
-		OutputState: in.ToBotSlotConstraintPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The different shapes that a slot can be in during a conversation.
@@ -1103,12 +1011,6 @@ func (o BotSlotShapeOutput) ToBotSlotShapePtrOutputWithContext(ctx context.Conte
 	}).(BotSlotShapePtrOutput)
 }
 
-func (o BotSlotShapeOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotShape] {
-	return pulumix.Output[BotSlotShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotSlotShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1144,12 +1046,6 @@ func (o BotSlotShapePtrOutput) ToBotSlotShapePtrOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o BotSlotShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSlotShape] {
-	return pulumix.Output[*BotSlotShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotSlotShapePtrOutput) Elem() BotSlotShapeOutput {
 	return o.ApplyT(func(v *BotSlotShape) BotSlotShape {
 		if v != nil {
@@ -1174,10 +1070,11 @@ func (o BotSlotShapePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// BotSlotShapeInput is an input type that accepts BotSlotShapeArgs and BotSlotShapeOutput values.
-// You can construct a concrete instance of `BotSlotShapeInput` via:
+// BotSlotShapeInput is an input type that accepts values of the BotSlotShape enum
+// A concrete instance of `BotSlotShapeInput` can be one of the following:
 //
-//	BotSlotShapeArgs{...}
+//	BotSlotShapeScalar
+//	BotSlotShapeList
 type BotSlotShapeInput interface {
 	pulumi.Input
 
@@ -1210,12 +1107,6 @@ func (in *botSlotShapePtr) ToBotSlotShapePtrOutput() BotSlotShapePtrOutput {
 
 func (in *botSlotShapePtr) ToBotSlotShapePtrOutputWithContext(ctx context.Context) BotSlotShapePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BotSlotShapePtrOutput)
-}
-
-func (in *botSlotShapePtr) ToOutput(ctx context.Context) pulumix.Output[*BotSlotShape] {
-	return pulumix.Output[*BotSlotShape]{
-		OutputState: in.ToBotSlotShapePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type BotSlotValueResolutionStrategy string
@@ -1285,12 +1176,6 @@ func (o BotSlotValueResolutionStrategyOutput) ToBotSlotValueResolutionStrategyPt
 	}).(BotSlotValueResolutionStrategyPtrOutput)
 }
 
-func (o BotSlotValueResolutionStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotValueResolutionStrategy] {
-	return pulumix.Output[BotSlotValueResolutionStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotSlotValueResolutionStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1326,12 +1211,6 @@ func (o BotSlotValueResolutionStrategyPtrOutput) ToBotSlotValueResolutionStrateg
 	return o
 }
 
-func (o BotSlotValueResolutionStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSlotValueResolutionStrategy] {
-	return pulumix.Output[*BotSlotValueResolutionStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotSlotValueResolutionStrategyPtrOutput) Elem() BotSlotValueResolutionStrategyOutput {
 	return o.ApplyT(func(v *BotSlotValueResolutionStrategy) BotSlotValueResolutionStrategy {
 		if v != nil {
@@ -1356,10 +1235,11 @@ func (o BotSlotValueResolutionStrategyPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// BotSlotValueResolutionStrategyInput is an input type that accepts BotSlotValueResolutionStrategyArgs and BotSlotValueResolutionStrategyOutput values.
-// You can construct a concrete instance of `BotSlotValueResolutionStrategyInput` via:
+// BotSlotValueResolutionStrategyInput is an input type that accepts values of the BotSlotValueResolutionStrategy enum
+// A concrete instance of `BotSlotValueResolutionStrategyInput` can be one of the following:
 //
-//	BotSlotValueResolutionStrategyArgs{...}
+//	BotSlotValueResolutionStrategyOriginalValue
+//	BotSlotValueResolutionStrategyTopResolution
 type BotSlotValueResolutionStrategyInput interface {
 	pulumi.Input
 
@@ -1392,12 +1272,6 @@ func (in *botSlotValueResolutionStrategyPtr) ToBotSlotValueResolutionStrategyPtr
 
 func (in *botSlotValueResolutionStrategyPtr) ToBotSlotValueResolutionStrategyPtrOutputWithContext(ctx context.Context) BotSlotValueResolutionStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BotSlotValueResolutionStrategyPtrOutput)
-}
-
-func (in *botSlotValueResolutionStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*BotSlotValueResolutionStrategy] {
-	return pulumix.Output[*BotSlotValueResolutionStrategy]{
-		OutputState: in.ToBotSlotValueResolutionStrategyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
@@ -1468,12 +1342,6 @@ func (o BotVoiceSettingsEngineOutput) ToBotVoiceSettingsEnginePtrOutputWithConte
 	}).(BotVoiceSettingsEnginePtrOutput)
 }
 
-func (o BotVoiceSettingsEngineOutput) ToOutput(ctx context.Context) pulumix.Output[BotVoiceSettingsEngine] {
-	return pulumix.Output[BotVoiceSettingsEngine]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotVoiceSettingsEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1509,12 +1377,6 @@ func (o BotVoiceSettingsEnginePtrOutput) ToBotVoiceSettingsEnginePtrOutputWithCo
 	return o
 }
 
-func (o BotVoiceSettingsEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotVoiceSettingsEngine] {
-	return pulumix.Output[*BotVoiceSettingsEngine]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotVoiceSettingsEnginePtrOutput) Elem() BotVoiceSettingsEngineOutput {
 	return o.ApplyT(func(v *BotVoiceSettingsEngine) BotVoiceSettingsEngine {
 		if v != nil {
@@ -1539,10 +1401,11 @@ func (o BotVoiceSettingsEnginePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// BotVoiceSettingsEngineInput is an input type that accepts BotVoiceSettingsEngineArgs and BotVoiceSettingsEngineOutput values.
-// You can construct a concrete instance of `BotVoiceSettingsEngineInput` via:
+// BotVoiceSettingsEngineInput is an input type that accepts values of the BotVoiceSettingsEngine enum
+// A concrete instance of `BotVoiceSettingsEngineInput` can be one of the following:
 //
-//	BotVoiceSettingsEngineArgs{...}
+//	BotVoiceSettingsEngineStandard
+//	BotVoiceSettingsEngineNeural
 type BotVoiceSettingsEngineInput interface {
 	pulumi.Input
 
@@ -1575,12 +1438,6 @@ func (in *botVoiceSettingsEnginePtr) ToBotVoiceSettingsEnginePtrOutput() BotVoic
 
 func (in *botVoiceSettingsEnginePtr) ToBotVoiceSettingsEnginePtrOutputWithContext(ctx context.Context) BotVoiceSettingsEnginePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BotVoiceSettingsEnginePtrOutput)
-}
-
-func (in *botVoiceSettingsEnginePtr) ToOutput(ctx context.Context) pulumix.Output[*BotVoiceSettingsEngine] {
-	return pulumix.Output[*BotVoiceSettingsEngine]{
-		OutputState: in.ToBotVoiceSettingsEnginePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CodeStar::GitHubRepository
@@ -120,12 +119,6 @@ func (i *GitHubRepository) ToGitHubRepositoryOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubRepositoryOutput)
 }
 
-func (i *GitHubRepository) ToOutput(ctx context.Context) pulumix.Output[*GitHubRepository] {
-	return pulumix.Output[*GitHubRepository]{
-		OutputState: i.ToGitHubRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GitHubRepositoryOutput struct{ *pulumi.OutputState }
 
 func (GitHubRepositoryOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o GitHubRepositoryOutput) ToGitHubRepositoryOutput() GitHubRepositoryOutpu
 
 func (o GitHubRepositoryOutput) ToGitHubRepositoryOutputWithContext(ctx context.Context) GitHubRepositoryOutput {
 	return o
-}
-
-func (o GitHubRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*GitHubRepository] {
-	return pulumix.Output[*GitHubRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GitHubRepositoryOutput) Code() GitHubRepositoryCodePtrOutput {

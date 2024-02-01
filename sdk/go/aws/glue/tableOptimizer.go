@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::TableOptimizer
@@ -127,12 +126,6 @@ func (i *TableOptimizer) ToTableOptimizerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerOutput)
 }
 
-func (i *TableOptimizer) ToOutput(ctx context.Context) pulumix.Output[*TableOptimizer] {
-	return pulumix.Output[*TableOptimizer]{
-		OutputState: i.ToTableOptimizerOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableOptimizerOutput struct{ *pulumi.OutputState }
 
 func (TableOptimizerOutput) ElementType() reflect.Type {
@@ -145,12 +138,6 @@ func (o TableOptimizerOutput) ToTableOptimizerOutput() TableOptimizerOutput {
 
 func (o TableOptimizerOutput) ToTableOptimizerOutputWithContext(ctx context.Context) TableOptimizerOutput {
 	return o
-}
-
-func (o TableOptimizerOutput) ToOutput(ctx context.Context) pulumix.Output[*TableOptimizer] {
-	return pulumix.Output[*TableOptimizer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableOptimizerOutput) CatalogId() pulumi.StringOutput {

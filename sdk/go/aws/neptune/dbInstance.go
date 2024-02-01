@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Neptune::DBInstance
@@ -136,12 +135,6 @@ func (i *DbInstance) ToDbInstanceOutputWithContext(ctx context.Context) DbInstan
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceOutput)
 }
 
-func (i *DbInstance) ToOutput(ctx context.Context) pulumix.Output[*DbInstance] {
-	return pulumix.Output[*DbInstance]{
-		OutputState: i.ToDbInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DbInstanceOutput struct{ *pulumi.OutputState }
 
 func (DbInstanceOutput) ElementType() reflect.Type {
@@ -154,12 +147,6 @@ func (o DbInstanceOutput) ToDbInstanceOutput() DbInstanceOutput {
 
 func (o DbInstanceOutput) ToDbInstanceOutputWithContext(ctx context.Context) DbInstanceOutput {
 	return o
-}
-
-func (o DbInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*DbInstance] {
-	return pulumix.Output[*DbInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DbInstanceOutput) AllowMajorVersionUpgrade() pulumi.BoolPtrOutput {

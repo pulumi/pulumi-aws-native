@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
@@ -108,12 +107,6 @@ func (i *UserPoolUiCustomizationAttachment) ToUserPoolUiCustomizationAttachmentO
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUiCustomizationAttachmentOutput)
 }
 
-func (i *UserPoolUiCustomizationAttachment) ToOutput(ctx context.Context) pulumix.Output[*UserPoolUiCustomizationAttachment] {
-	return pulumix.Output[*UserPoolUiCustomizationAttachment]{
-		OutputState: i.ToUserPoolUiCustomizationAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolUiCustomizationAttachmentOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUiCustomizationAttachmentOutput) ElementType() reflect.Type {
@@ -126,12 +119,6 @@ func (o UserPoolUiCustomizationAttachmentOutput) ToUserPoolUiCustomizationAttach
 
 func (o UserPoolUiCustomizationAttachmentOutput) ToUserPoolUiCustomizationAttachmentOutputWithContext(ctx context.Context) UserPoolUiCustomizationAttachmentOutput {
 	return o
-}
-
-func (o UserPoolUiCustomizationAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolUiCustomizationAttachment] {
-	return pulumix.Output[*UserPoolUiCustomizationAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolUiCustomizationAttachmentOutput) ClientId() pulumi.StringOutput {

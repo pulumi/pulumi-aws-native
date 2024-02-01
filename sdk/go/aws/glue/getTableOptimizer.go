@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::TableOptimizer
@@ -65,12 +64,6 @@ func (o LookupTableOptimizerResultOutput) ToLookupTableOptimizerResultOutput() L
 
 func (o LookupTableOptimizerResultOutput) ToLookupTableOptimizerResultOutputWithContext(ctx context.Context) LookupTableOptimizerResultOutput {
 	return o
-}
-
-func (o LookupTableOptimizerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTableOptimizerResult] {
-	return pulumix.Output[LookupTableOptimizerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTableOptimizerResultOutput) Id() pulumi.StringPtrOutput {

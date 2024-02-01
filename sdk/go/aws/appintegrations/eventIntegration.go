@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppIntegrations::EventIntegration
@@ -132,12 +131,6 @@ func (i *EventIntegration) ToEventIntegrationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationOutput)
 }
 
-func (i *EventIntegration) ToOutput(ctx context.Context) pulumix.Output[*EventIntegration] {
-	return pulumix.Output[*EventIntegration]{
-		OutputState: i.ToEventIntegrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventIntegrationOutput struct{ *pulumi.OutputState }
 
 func (EventIntegrationOutput) ElementType() reflect.Type {
@@ -150,12 +143,6 @@ func (o EventIntegrationOutput) ToEventIntegrationOutput() EventIntegrationOutpu
 
 func (o EventIntegrationOutput) ToEventIntegrationOutputWithContext(ctx context.Context) EventIntegrationOutput {
 	return o
-}
-
-func (o EventIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*EventIntegration] {
-	return pulumix.Output[*EventIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The event integration description.

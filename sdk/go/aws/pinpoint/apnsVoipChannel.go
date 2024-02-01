@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::APNSVoipChannel
@@ -124,12 +123,6 @@ func (i *ApnsVoipChannel) ToApnsVoipChannelOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsVoipChannelOutput)
 }
 
-func (i *ApnsVoipChannel) ToOutput(ctx context.Context) pulumix.Output[*ApnsVoipChannel] {
-	return pulumix.Output[*ApnsVoipChannel]{
-		OutputState: i.ToApnsVoipChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApnsVoipChannelOutput struct{ *pulumi.OutputState }
 
 func (ApnsVoipChannelOutput) ElementType() reflect.Type {
@@ -142,12 +135,6 @@ func (o ApnsVoipChannelOutput) ToApnsVoipChannelOutput() ApnsVoipChannelOutput {
 
 func (o ApnsVoipChannelOutput) ToApnsVoipChannelOutputWithContext(ctx context.Context) ApnsVoipChannelOutput {
 	return o
-}
-
-func (o ApnsVoipChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*ApnsVoipChannel] {
-	return pulumix.Output[*ApnsVoipChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApnsVoipChannelOutput) ApplicationId() pulumi.StringOutput {
