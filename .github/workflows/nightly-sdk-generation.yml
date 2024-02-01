@@ -25,7 +25,7 @@ env:
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   GOVERSION: 1.21.x
   NODEVERSION: 16.x
-  PYTHONVERSION: "3.7"
+  PYTHONVERSION: "3.11"
   DOTNETVERSION: |
     6.0.x
     3.1.301
@@ -83,7 +83,7 @@ jobs:
       run: make local_generate
     - name: Git submodule commit hash
       id: vars
-      run: echo ::set-output name=commit-hash::$(git rev-parse HEAD)
+      run: echo commit-hash=$(git rev-parse HEAD) >> "$GITHUB_OUTPUT"
       working-directory: aws-cloudformation-user-guide
     - name: Commit changes
       run: >-

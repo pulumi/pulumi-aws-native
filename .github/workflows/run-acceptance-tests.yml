@@ -32,7 +32,7 @@ env:
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   GOVERSION: 1.21.x
   NODEVERSION: 16.x
-  PYTHONVERSION: "3.7"
+  PYTHONVERSION: "3.11"
   DOTNETVERSION: |
     6.0.x
     3.1.301
@@ -47,8 +47,9 @@ jobs:
     steps:
     - name: Create URL to the run output
       id: vars
-      run: echo ::set-output
-        name=run-url::https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+      run: echo
+        run-url=https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+        >> "$GITHUB_OUTPUT"
     - name: Update with Result
       uses: peter-evans/create-or-update-comment@v1
       with:
