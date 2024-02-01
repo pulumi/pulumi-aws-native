@@ -1,7 +1,6 @@
 {
   "typeName" : "AWS::AmplifyUIBuilder::Component",
   "description" : "Definition of AWS::AmplifyUIBuilder::Component Resource Type",
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-amplifyuibuilder",
   "definitions" : {
     "ActionParameters" : {
       "type" : "object",
@@ -86,6 +85,9 @@
         },
         "DefaultValue" : {
           "type" : "string"
+        },
+        "SlotName" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
@@ -110,6 +112,9 @@
         },
         "Events" : {
           "$ref" : "#/definitions/ComponentEvents"
+        },
+        "SourceId" : {
+          "type" : "string"
         }
       },
       "required" : [ "ComponentType", "Name", "Properties" ],
@@ -184,6 +189,9 @@
         },
         "Parameters" : {
           "$ref" : "#/definitions/ActionParameters"
+        },
+        "BindingEvent" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
@@ -373,6 +381,10 @@
         },
         "Operand" : {
           "type" : "string"
+        },
+        "OperandType" : {
+          "type" : "string",
+          "pattern" : "^boolean|string|number$"
         }
       },
       "additionalProperties" : false
@@ -427,6 +439,10 @@
       "maxLength" : 255,
       "minLength" : 1
     },
+    "CreatedAt" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
     "EnvironmentName" : {
       "type" : "string"
     },
@@ -435,6 +451,10 @@
     },
     "Id" : {
       "type" : "string"
+    },
+    "ModifiedAt" : {
+      "type" : "string",
+      "format" : "date-time"
     },
     "Name" : {
       "type" : "string",
@@ -463,25 +483,24 @@
       }
     }
   },
-  "required" : [ "BindingProperties", "ComponentType", "Name", "Overrides", "Properties", "Variants" ],
-  "readOnlyProperties" : [ "/properties/Id" ],
-  "createOnlyProperties" : [ "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/AppId", "/properties/EnvironmentName" ],
+  "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/Id", "/properties/ModifiedAt" ],
   "primaryIdentifier" : [ "/properties/AppId", "/properties/EnvironmentName", "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetComponent", "amplifyuibuilder:CreateComponent", "amplifyuibuilder:TagResource" ]
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:CreateComponent", "amplifyuibuilder:GetComponent", "amplifyuibuilder:TagResource" ]
     },
     "read" : {
       "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetComponent" ]
     },
     "update" : {
-      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetComponent", "amplifyuibuilder:UpdateComponent", "amplifyuibuilder:TagResource" ]
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetComponent", "amplifyuibuilder:TagResource", "amplifyuibuilder:UntagResource", "amplifyuibuilder:UpdateComponent" ]
     },
     "delete" : {
-      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetComponent", "amplifyuibuilder:DeleteComponent", "amplifyuibuilder:UntagResource" ]
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:DeleteComponent", "amplifyuibuilder:GetComponent", "amplifyuibuilder:UntagResource" ]
     },
     "list" : {
-      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:GetComponent", "amplifyuibuilder:ListComponents" ],
+      "permissions" : [ "amplify:GetApp", "amplifyuibuilder:ListComponents" ],
       "handlerSchema" : {
         "properties" : {
           "AppId" : {
@@ -498,9 +517,10 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false,
-    "tagProperty" : "#/properties/Tags"
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
   },
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-amplifyuibuilder",
   "additionalProperties" : false
 }

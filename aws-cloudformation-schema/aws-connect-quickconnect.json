@@ -179,5 +179,12 @@
   },
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/QuickConnectArn" ],
-  "readOnlyProperties" : [ "/properties/QuickConnectArn", "/properties/QuickConnectType" ]
+  "readOnlyProperties" : [ "/properties/QuickConnectArn", "/properties/QuickConnectType" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  }
 }

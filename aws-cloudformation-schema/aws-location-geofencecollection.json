@@ -104,19 +104,19 @@
   "primaryIdentifier" : [ "/properties/CollectionName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "geo:CreateGeofenceCollection", "geo:DescribeGeofenceCollection", "geo:TagResource", "geo:UntagResource", "kms:*" ]
+      "permissions" : [ "geo:CreateGeofenceCollection", "geo:DescribeGeofenceCollection", "geo:TagResource", "geo:UntagResource", "kms:DescribeKey", "kms:CreateGrant" ]
     },
     "read" : {
-      "permissions" : [ "geo:DescribeGeofenceCollection", "kms:*" ]
+      "permissions" : [ "geo:DescribeGeofenceCollection", "kms:DescribeKey" ]
     },
     "update" : {
-      "permissions" : [ "geo:CreateGeofenceCollection", "geo:DescribeGeofenceCollection", "geo:TagResource", "geo:UntagResource", "geo:UpdateGeofenceCollection", "kms:*" ]
+      "permissions" : [ "geo:CreateGeofenceCollection", "geo:DescribeGeofenceCollection", "geo:TagResource", "geo:UntagResource", "kms:DescribeKey", "kms:CreateGrant", "geo:UpdateGeofenceCollection" ]
     },
     "delete" : {
-      "permissions" : [ "geo:DeleteGeofenceCollection", "geo:DescribeGeofenceCollection", "kms:*" ]
+      "permissions" : [ "geo:DeleteGeofenceCollection", "geo:DescribeGeofenceCollection" ]
     },
     "list" : {
-      "permissions" : [ "geo:ListGeofenceCollections", "kms:*" ]
+      "permissions" : [ "geo:ListGeofenceCollections" ]
     }
   },
   "tagging" : {
