@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associate a set of ECS Capacity Providers with a specified ECS Cluster
@@ -110,12 +109,6 @@ func (i *ClusterCapacityProviderAssociations) ToClusterCapacityProviderAssociati
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProviderAssociationsOutput)
 }
 
-func (i *ClusterCapacityProviderAssociations) ToOutput(ctx context.Context) pulumix.Output[*ClusterCapacityProviderAssociations] {
-	return pulumix.Output[*ClusterCapacityProviderAssociations]{
-		OutputState: i.ToClusterCapacityProviderAssociationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCapacityProviderAssociationsOutput struct{ *pulumi.OutputState }
 
 func (ClusterCapacityProviderAssociationsOutput) ElementType() reflect.Type {
@@ -128,12 +121,6 @@ func (o ClusterCapacityProviderAssociationsOutput) ToClusterCapacityProviderAsso
 
 func (o ClusterCapacityProviderAssociationsOutput) ToClusterCapacityProviderAssociationsOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsOutput {
 	return o
-}
-
-func (o ClusterCapacityProviderAssociationsOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCapacityProviderAssociations] {
-	return pulumix.Output[*ClusterCapacityProviderAssociations]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCapacityProviderAssociationsOutput) CapacityProviders() pulumi.StringArrayOutput {

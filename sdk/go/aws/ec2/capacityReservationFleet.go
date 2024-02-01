@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::CapacityReservationFleet
@@ -124,12 +123,6 @@ func (i *CapacityReservationFleet) ToCapacityReservationFleetOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationFleetOutput)
 }
 
-func (i *CapacityReservationFleet) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationFleet] {
-	return pulumix.Output[*CapacityReservationFleet]{
-		OutputState: i.ToCapacityReservationFleetOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CapacityReservationFleetOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationFleetOutput) ElementType() reflect.Type {
@@ -142,12 +135,6 @@ func (o CapacityReservationFleetOutput) ToCapacityReservationFleetOutput() Capac
 
 func (o CapacityReservationFleetOutput) ToCapacityReservationFleetOutputWithContext(ctx context.Context) CapacityReservationFleetOutput {
 	return o
-}
-
-func (o CapacityReservationFleetOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationFleet] {
-	return pulumix.Output[*CapacityReservationFleet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapacityReservationFleetOutput) AllocationStrategy() pulumi.StringPtrOutput {

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AuthPolicyStateEnum string
@@ -40,12 +39,6 @@ func (o AuthPolicyStateEnumOutput) ToAuthPolicyStateEnumPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthPolicyStateEnum) *AuthPolicyStateEnum {
 		return &v
 	}).(AuthPolicyStateEnumPtrOutput)
-}
-
-func (o AuthPolicyStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[AuthPolicyStateEnum] {
-	return pulumix.Output[AuthPolicyStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AuthPolicyStateEnumOutput) ToStringOutput() pulumi.StringOutput {
@@ -81,12 +74,6 @@ func (o AuthPolicyStateEnumPtrOutput) ToAuthPolicyStateEnumPtrOutput() AuthPolic
 
 func (o AuthPolicyStateEnumPtrOutput) ToAuthPolicyStateEnumPtrOutputWithContext(ctx context.Context) AuthPolicyStateEnumPtrOutput {
 	return o
-}
-
-func (o AuthPolicyStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthPolicyStateEnum] {
-	return pulumix.Output[*AuthPolicyStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AuthPolicyStateEnumPtrOutput) Elem() AuthPolicyStateEnumOutput {
@@ -180,12 +167,6 @@ func (o ListenerProtocolOutput) ToListenerProtocolPtrOutputWithContext(ctx conte
 	}).(ListenerProtocolPtrOutput)
 }
 
-func (o ListenerProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerProtocol] {
-	return pulumix.Output[ListenerProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -221,12 +202,6 @@ func (o ListenerProtocolPtrOutput) ToListenerProtocolPtrOutputWithContext(ctx co
 	return o
 }
 
-func (o ListenerProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerProtocol] {
-	return pulumix.Output[*ListenerProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerProtocolPtrOutput) Elem() ListenerProtocolOutput {
 	return o.ApplyT(func(v *ListenerProtocol) ListenerProtocol {
 		if v != nil {
@@ -251,10 +226,11 @@ func (o ListenerProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ListenerProtocolInput is an input type that accepts ListenerProtocolArgs and ListenerProtocolOutput values.
-// You can construct a concrete instance of `ListenerProtocolInput` via:
+// ListenerProtocolInput is an input type that accepts values of the ListenerProtocol enum
+// A concrete instance of `ListenerProtocolInput` can be one of the following:
 //
-//	ListenerProtocolArgs{...}
+//	ListenerProtocolHttp
+//	ListenerProtocolHttps
 type ListenerProtocolInput interface {
 	pulumi.Input
 
@@ -287,12 +263,6 @@ func (in *listenerProtocolPtr) ToListenerProtocolPtrOutput() ListenerProtocolPtr
 
 func (in *listenerProtocolPtr) ToListenerProtocolPtrOutputWithContext(ctx context.Context) ListenerProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ListenerProtocolPtrOutput)
-}
-
-func (in *listenerProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*ListenerProtocol] {
-	return pulumix.Output[*ListenerProtocol]{
-		OutputState: in.ToListenerProtocolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RuleHttpMatchMethod string
@@ -368,12 +338,6 @@ func (o RuleHttpMatchMethodOutput) ToRuleHttpMatchMethodPtrOutputWithContext(ctx
 	}).(RuleHttpMatchMethodPtrOutput)
 }
 
-func (o RuleHttpMatchMethodOutput) ToOutput(ctx context.Context) pulumix.Output[RuleHttpMatchMethod] {
-	return pulumix.Output[RuleHttpMatchMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleHttpMatchMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -409,12 +373,6 @@ func (o RuleHttpMatchMethodPtrOutput) ToRuleHttpMatchMethodPtrOutputWithContext(
 	return o
 }
 
-func (o RuleHttpMatchMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleHttpMatchMethod] {
-	return pulumix.Output[*RuleHttpMatchMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleHttpMatchMethodPtrOutput) Elem() RuleHttpMatchMethodOutput {
 	return o.ApplyT(func(v *RuleHttpMatchMethod) RuleHttpMatchMethod {
 		if v != nil {
@@ -439,10 +397,17 @@ func (o RuleHttpMatchMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleHttpMatchMethodInput is an input type that accepts RuleHttpMatchMethodArgs and RuleHttpMatchMethodOutput values.
-// You can construct a concrete instance of `RuleHttpMatchMethodInput` via:
+// RuleHttpMatchMethodInput is an input type that accepts values of the RuleHttpMatchMethod enum
+// A concrete instance of `RuleHttpMatchMethodInput` can be one of the following:
 //
-//	RuleHttpMatchMethodArgs{...}
+//	RuleHttpMatchMethodConnect
+//	RuleHttpMatchMethodDelete
+//	RuleHttpMatchMethodGet
+//	RuleHttpMatchMethodHead
+//	RuleHttpMatchMethodOptions
+//	RuleHttpMatchMethodPost
+//	RuleHttpMatchMethodPut
+//	RuleHttpMatchMethodTrace
 type RuleHttpMatchMethodInput interface {
 	pulumi.Input
 
@@ -475,12 +440,6 @@ func (in *ruleHttpMatchMethodPtr) ToRuleHttpMatchMethodPtrOutput() RuleHttpMatch
 
 func (in *ruleHttpMatchMethodPtr) ToRuleHttpMatchMethodPtrOutputWithContext(ctx context.Context) RuleHttpMatchMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleHttpMatchMethodPtrOutput)
-}
-
-func (in *ruleHttpMatchMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleHttpMatchMethod] {
-	return pulumix.Output[*RuleHttpMatchMethod]{
-		OutputState: in.ToRuleHttpMatchMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ServiceAuthType string
@@ -550,12 +509,6 @@ func (o ServiceAuthTypeOutput) ToServiceAuthTypePtrOutputWithContext(ctx context
 	}).(ServiceAuthTypePtrOutput)
 }
 
-func (o ServiceAuthTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAuthType] {
-	return pulumix.Output[ServiceAuthType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -591,12 +544,6 @@ func (o ServiceAuthTypePtrOutput) ToServiceAuthTypePtrOutputWithContext(ctx cont
 	return o
 }
 
-func (o ServiceAuthTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAuthType] {
-	return pulumix.Output[*ServiceAuthType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceAuthTypePtrOutput) Elem() ServiceAuthTypeOutput {
 	return o.ApplyT(func(v *ServiceAuthType) ServiceAuthType {
 		if v != nil {
@@ -621,10 +568,11 @@ func (o ServiceAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceAuthTypeInput is an input type that accepts ServiceAuthTypeArgs and ServiceAuthTypeOutput values.
-// You can construct a concrete instance of `ServiceAuthTypeInput` via:
+// ServiceAuthTypeInput is an input type that accepts values of the ServiceAuthType enum
+// A concrete instance of `ServiceAuthTypeInput` can be one of the following:
 //
-//	ServiceAuthTypeArgs{...}
+//	ServiceAuthTypeNone
+//	ServiceAuthTypeAwsIam
 type ServiceAuthTypeInput interface {
 	pulumi.Input
 
@@ -657,12 +605,6 @@ func (in *serviceAuthTypePtr) ToServiceAuthTypePtrOutput() ServiceAuthTypePtrOut
 
 func (in *serviceAuthTypePtr) ToServiceAuthTypePtrOutputWithContext(ctx context.Context) ServiceAuthTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceAuthTypePtrOutput)
-}
-
-func (in *serviceAuthTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceAuthType] {
-	return pulumix.Output[*ServiceAuthType]{
-		OutputState: in.ToServiceAuthTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ServiceNetworkAuthType string
@@ -732,12 +674,6 @@ func (o ServiceNetworkAuthTypeOutput) ToServiceNetworkAuthTypePtrOutputWithConte
 	}).(ServiceNetworkAuthTypePtrOutput)
 }
 
-func (o ServiceNetworkAuthTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkAuthType] {
-	return pulumix.Output[ServiceNetworkAuthType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceNetworkAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -773,12 +709,6 @@ func (o ServiceNetworkAuthTypePtrOutput) ToServiceNetworkAuthTypePtrOutputWithCo
 	return o
 }
 
-func (o ServiceNetworkAuthTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkAuthType] {
-	return pulumix.Output[*ServiceNetworkAuthType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceNetworkAuthTypePtrOutput) Elem() ServiceNetworkAuthTypeOutput {
 	return o.ApplyT(func(v *ServiceNetworkAuthType) ServiceNetworkAuthType {
 		if v != nil {
@@ -803,10 +733,11 @@ func (o ServiceNetworkAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceNetworkAuthTypeInput is an input type that accepts ServiceNetworkAuthTypeArgs and ServiceNetworkAuthTypeOutput values.
-// You can construct a concrete instance of `ServiceNetworkAuthTypeInput` via:
+// ServiceNetworkAuthTypeInput is an input type that accepts values of the ServiceNetworkAuthType enum
+// A concrete instance of `ServiceNetworkAuthTypeInput` can be one of the following:
 //
-//	ServiceNetworkAuthTypeArgs{...}
+//	ServiceNetworkAuthTypeNone
+//	ServiceNetworkAuthTypeAwsIam
 type ServiceNetworkAuthTypeInput interface {
 	pulumi.Input
 
@@ -839,12 +770,6 @@ func (in *serviceNetworkAuthTypePtr) ToServiceNetworkAuthTypePtrOutput() Service
 
 func (in *serviceNetworkAuthTypePtr) ToServiceNetworkAuthTypePtrOutputWithContext(ctx context.Context) ServiceNetworkAuthTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceNetworkAuthTypePtrOutput)
-}
-
-func (in *serviceNetworkAuthTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkAuthType] {
-	return pulumix.Output[*ServiceNetworkAuthType]{
-		OutputState: in.ToServiceNetworkAuthTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ServiceNetworkServiceAssociationStatus string
@@ -881,12 +806,6 @@ func (o ServiceNetworkServiceAssociationStatusOutput) ToServiceNetworkServiceAss
 	}).(ServiceNetworkServiceAssociationStatusPtrOutput)
 }
 
-func (o ServiceNetworkServiceAssociationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkServiceAssociationStatus] {
-	return pulumix.Output[ServiceNetworkServiceAssociationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceNetworkServiceAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -920,12 +839,6 @@ func (o ServiceNetworkServiceAssociationStatusPtrOutput) ToServiceNetworkService
 
 func (o ServiceNetworkServiceAssociationStatusPtrOutput) ToServiceNetworkServiceAssociationStatusPtrOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationStatusPtrOutput {
 	return o
-}
-
-func (o ServiceNetworkServiceAssociationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkServiceAssociationStatus] {
-	return pulumix.Output[*ServiceNetworkServiceAssociationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceNetworkServiceAssociationStatusPtrOutput) Elem() ServiceNetworkServiceAssociationStatusOutput {
@@ -987,12 +900,6 @@ func (o ServiceNetworkVpcAssociationStatusOutput) ToServiceNetworkVpcAssociation
 	}).(ServiceNetworkVpcAssociationStatusPtrOutput)
 }
 
-func (o ServiceNetworkVpcAssociationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkVpcAssociationStatus] {
-	return pulumix.Output[ServiceNetworkVpcAssociationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceNetworkVpcAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1026,12 +933,6 @@ func (o ServiceNetworkVpcAssociationStatusPtrOutput) ToServiceNetworkVpcAssociat
 
 func (o ServiceNetworkVpcAssociationStatusPtrOutput) ToServiceNetworkVpcAssociationStatusPtrOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationStatusPtrOutput {
 	return o
-}
-
-func (o ServiceNetworkVpcAssociationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkVpcAssociationStatus] {
-	return pulumix.Output[*ServiceNetworkVpcAssociationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceNetworkVpcAssociationStatusPtrOutput) Elem() ServiceNetworkVpcAssociationStatusOutput {
@@ -1092,12 +993,6 @@ func (o ServiceStatusOutput) ToServiceStatusPtrOutputWithContext(ctx context.Con
 	}).(ServiceStatusPtrOutput)
 }
 
-func (o ServiceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceStatus] {
-	return pulumix.Output[ServiceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1131,12 +1026,6 @@ func (o ServiceStatusPtrOutput) ToServiceStatusPtrOutput() ServiceStatusPtrOutpu
 
 func (o ServiceStatusPtrOutput) ToServiceStatusPtrOutputWithContext(ctx context.Context) ServiceStatusPtrOutput {
 	return o
-}
-
-func (o ServiceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceStatus] {
-	return pulumix.Output[*ServiceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceStatusPtrOutput) Elem() ServiceStatusOutput {
@@ -1230,12 +1119,6 @@ func (o TargetGroupConfigIpAddressTypeOutput) ToTargetGroupConfigIpAddressTypePt
 	}).(TargetGroupConfigIpAddressTypePtrOutput)
 }
 
-func (o TargetGroupConfigIpAddressTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfigIpAddressType] {
-	return pulumix.Output[TargetGroupConfigIpAddressType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupConfigIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1271,12 +1154,6 @@ func (o TargetGroupConfigIpAddressTypePtrOutput) ToTargetGroupConfigIpAddressTyp
 	return o
 }
 
-func (o TargetGroupConfigIpAddressTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigIpAddressType] {
-	return pulumix.Output[*TargetGroupConfigIpAddressType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupConfigIpAddressTypePtrOutput) Elem() TargetGroupConfigIpAddressTypeOutput {
 	return o.ApplyT(func(v *TargetGroupConfigIpAddressType) TargetGroupConfigIpAddressType {
 		if v != nil {
@@ -1301,10 +1178,11 @@ func (o TargetGroupConfigIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// TargetGroupConfigIpAddressTypeInput is an input type that accepts TargetGroupConfigIpAddressTypeArgs and TargetGroupConfigIpAddressTypeOutput values.
-// You can construct a concrete instance of `TargetGroupConfigIpAddressTypeInput` via:
+// TargetGroupConfigIpAddressTypeInput is an input type that accepts values of the TargetGroupConfigIpAddressType enum
+// A concrete instance of `TargetGroupConfigIpAddressTypeInput` can be one of the following:
 //
-//	TargetGroupConfigIpAddressTypeArgs{...}
+//	TargetGroupConfigIpAddressTypeIpv4
+//	TargetGroupConfigIpAddressTypeIpv6
 type TargetGroupConfigIpAddressTypeInput interface {
 	pulumi.Input
 
@@ -1337,12 +1215,6 @@ func (in *targetGroupConfigIpAddressTypePtr) ToTargetGroupConfigIpAddressTypePtr
 
 func (in *targetGroupConfigIpAddressTypePtr) ToTargetGroupConfigIpAddressTypePtrOutputWithContext(ctx context.Context) TargetGroupConfigIpAddressTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigIpAddressTypePtrOutput)
-}
-
-func (in *targetGroupConfigIpAddressTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigIpAddressType] {
-	return pulumix.Output[*TargetGroupConfigIpAddressType]{
-		OutputState: in.ToTargetGroupConfigIpAddressTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TargetGroupConfigLambdaEventStructureVersion string
@@ -1412,12 +1284,6 @@ func (o TargetGroupConfigLambdaEventStructureVersionOutput) ToTargetGroupConfigL
 	}).(TargetGroupConfigLambdaEventStructureVersionPtrOutput)
 }
 
-func (o TargetGroupConfigLambdaEventStructureVersionOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfigLambdaEventStructureVersion] {
-	return pulumix.Output[TargetGroupConfigLambdaEventStructureVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupConfigLambdaEventStructureVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1453,12 +1319,6 @@ func (o TargetGroupConfigLambdaEventStructureVersionPtrOutput) ToTargetGroupConf
 	return o
 }
 
-func (o TargetGroupConfigLambdaEventStructureVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigLambdaEventStructureVersion] {
-	return pulumix.Output[*TargetGroupConfigLambdaEventStructureVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupConfigLambdaEventStructureVersionPtrOutput) Elem() TargetGroupConfigLambdaEventStructureVersionOutput {
 	return o.ApplyT(func(v *TargetGroupConfigLambdaEventStructureVersion) TargetGroupConfigLambdaEventStructureVersion {
 		if v != nil {
@@ -1483,10 +1343,11 @@ func (o TargetGroupConfigLambdaEventStructureVersionPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// TargetGroupConfigLambdaEventStructureVersionInput is an input type that accepts TargetGroupConfigLambdaEventStructureVersionArgs and TargetGroupConfigLambdaEventStructureVersionOutput values.
-// You can construct a concrete instance of `TargetGroupConfigLambdaEventStructureVersionInput` via:
+// TargetGroupConfigLambdaEventStructureVersionInput is an input type that accepts values of the TargetGroupConfigLambdaEventStructureVersion enum
+// A concrete instance of `TargetGroupConfigLambdaEventStructureVersionInput` can be one of the following:
 //
-//	TargetGroupConfigLambdaEventStructureVersionArgs{...}
+//	TargetGroupConfigLambdaEventStructureVersionV1
+//	TargetGroupConfigLambdaEventStructureVersionV2
 type TargetGroupConfigLambdaEventStructureVersionInput interface {
 	pulumi.Input
 
@@ -1519,12 +1380,6 @@ func (in *targetGroupConfigLambdaEventStructureVersionPtr) ToTargetGroupConfigLa
 
 func (in *targetGroupConfigLambdaEventStructureVersionPtr) ToTargetGroupConfigLambdaEventStructureVersionPtrOutputWithContext(ctx context.Context) TargetGroupConfigLambdaEventStructureVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigLambdaEventStructureVersionPtrOutput)
-}
-
-func (in *targetGroupConfigLambdaEventStructureVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigLambdaEventStructureVersion] {
-	return pulumix.Output[*TargetGroupConfigLambdaEventStructureVersion]{
-		OutputState: in.ToTargetGroupConfigLambdaEventStructureVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TargetGroupConfigProtocol string
@@ -1594,12 +1449,6 @@ func (o TargetGroupConfigProtocolOutput) ToTargetGroupConfigProtocolPtrOutputWit
 	}).(TargetGroupConfigProtocolPtrOutput)
 }
 
-func (o TargetGroupConfigProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfigProtocol] {
-	return pulumix.Output[TargetGroupConfigProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupConfigProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1635,12 +1484,6 @@ func (o TargetGroupConfigProtocolPtrOutput) ToTargetGroupConfigProtocolPtrOutput
 	return o
 }
 
-func (o TargetGroupConfigProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigProtocol] {
-	return pulumix.Output[*TargetGroupConfigProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupConfigProtocolPtrOutput) Elem() TargetGroupConfigProtocolOutput {
 	return o.ApplyT(func(v *TargetGroupConfigProtocol) TargetGroupConfigProtocol {
 		if v != nil {
@@ -1665,10 +1508,11 @@ func (o TargetGroupConfigProtocolPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TargetGroupConfigProtocolInput is an input type that accepts TargetGroupConfigProtocolArgs and TargetGroupConfigProtocolOutput values.
-// You can construct a concrete instance of `TargetGroupConfigProtocolInput` via:
+// TargetGroupConfigProtocolInput is an input type that accepts values of the TargetGroupConfigProtocol enum
+// A concrete instance of `TargetGroupConfigProtocolInput` can be one of the following:
 //
-//	TargetGroupConfigProtocolArgs{...}
+//	TargetGroupConfigProtocolHttp
+//	TargetGroupConfigProtocolHttps
 type TargetGroupConfigProtocolInput interface {
 	pulumi.Input
 
@@ -1701,12 +1545,6 @@ func (in *targetGroupConfigProtocolPtr) ToTargetGroupConfigProtocolPtrOutput() T
 
 func (in *targetGroupConfigProtocolPtr) ToTargetGroupConfigProtocolPtrOutputWithContext(ctx context.Context) TargetGroupConfigProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigProtocolPtrOutput)
-}
-
-func (in *targetGroupConfigProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigProtocol] {
-	return pulumix.Output[*TargetGroupConfigProtocol]{
-		OutputState: in.ToTargetGroupConfigProtocolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TargetGroupConfigProtocolVersion string
@@ -1777,12 +1615,6 @@ func (o TargetGroupConfigProtocolVersionOutput) ToTargetGroupConfigProtocolVersi
 	}).(TargetGroupConfigProtocolVersionPtrOutput)
 }
 
-func (o TargetGroupConfigProtocolVersionOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfigProtocolVersion] {
-	return pulumix.Output[TargetGroupConfigProtocolVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupConfigProtocolVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1818,12 +1650,6 @@ func (o TargetGroupConfigProtocolVersionPtrOutput) ToTargetGroupConfigProtocolVe
 	return o
 }
 
-func (o TargetGroupConfigProtocolVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigProtocolVersion] {
-	return pulumix.Output[*TargetGroupConfigProtocolVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupConfigProtocolVersionPtrOutput) Elem() TargetGroupConfigProtocolVersionOutput {
 	return o.ApplyT(func(v *TargetGroupConfigProtocolVersion) TargetGroupConfigProtocolVersion {
 		if v != nil {
@@ -1848,10 +1674,12 @@ func (o TargetGroupConfigProtocolVersionPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// TargetGroupConfigProtocolVersionInput is an input type that accepts TargetGroupConfigProtocolVersionArgs and TargetGroupConfigProtocolVersionOutput values.
-// You can construct a concrete instance of `TargetGroupConfigProtocolVersionInput` via:
+// TargetGroupConfigProtocolVersionInput is an input type that accepts values of the TargetGroupConfigProtocolVersion enum
+// A concrete instance of `TargetGroupConfigProtocolVersionInput` can be one of the following:
 //
-//	TargetGroupConfigProtocolVersionArgs{...}
+//	TargetGroupConfigProtocolVersionHttp1
+//	TargetGroupConfigProtocolVersionHttp2
+//	TargetGroupConfigProtocolVersionGrpc
 type TargetGroupConfigProtocolVersionInput interface {
 	pulumi.Input
 
@@ -1884,12 +1712,6 @@ func (in *targetGroupConfigProtocolVersionPtr) ToTargetGroupConfigProtocolVersio
 
 func (in *targetGroupConfigProtocolVersionPtr) ToTargetGroupConfigProtocolVersionPtrOutputWithContext(ctx context.Context) TargetGroupConfigProtocolVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigProtocolVersionPtrOutput)
-}
-
-func (in *targetGroupConfigProtocolVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigProtocolVersion] {
-	return pulumix.Output[*TargetGroupConfigProtocolVersion]{
-		OutputState: in.ToTargetGroupConfigProtocolVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TargetGroupHealthCheckConfigProtocol string
@@ -1959,12 +1781,6 @@ func (o TargetGroupHealthCheckConfigProtocolOutput) ToTargetGroupHealthCheckConf
 	}).(TargetGroupHealthCheckConfigProtocolPtrOutput)
 }
 
-func (o TargetGroupHealthCheckConfigProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupHealthCheckConfigProtocol] {
-	return pulumix.Output[TargetGroupHealthCheckConfigProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupHealthCheckConfigProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2000,12 +1816,6 @@ func (o TargetGroupHealthCheckConfigProtocolPtrOutput) ToTargetGroupHealthCheckC
 	return o
 }
 
-func (o TargetGroupHealthCheckConfigProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupHealthCheckConfigProtocol] {
-	return pulumix.Output[*TargetGroupHealthCheckConfigProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupHealthCheckConfigProtocolPtrOutput) Elem() TargetGroupHealthCheckConfigProtocolOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheckConfigProtocol) TargetGroupHealthCheckConfigProtocol {
 		if v != nil {
@@ -2030,10 +1840,11 @@ func (o TargetGroupHealthCheckConfigProtocolPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TargetGroupHealthCheckConfigProtocolInput is an input type that accepts TargetGroupHealthCheckConfigProtocolArgs and TargetGroupHealthCheckConfigProtocolOutput values.
-// You can construct a concrete instance of `TargetGroupHealthCheckConfigProtocolInput` via:
+// TargetGroupHealthCheckConfigProtocolInput is an input type that accepts values of the TargetGroupHealthCheckConfigProtocol enum
+// A concrete instance of `TargetGroupHealthCheckConfigProtocolInput` can be one of the following:
 //
-//	TargetGroupHealthCheckConfigProtocolArgs{...}
+//	TargetGroupHealthCheckConfigProtocolHttp
+//	TargetGroupHealthCheckConfigProtocolHttps
 type TargetGroupHealthCheckConfigProtocolInput interface {
 	pulumi.Input
 
@@ -2066,12 +1877,6 @@ func (in *targetGroupHealthCheckConfigProtocolPtr) ToTargetGroupHealthCheckConfi
 
 func (in *targetGroupHealthCheckConfigProtocolPtr) ToTargetGroupHealthCheckConfigProtocolPtrOutputWithContext(ctx context.Context) TargetGroupHealthCheckConfigProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupHealthCheckConfigProtocolPtrOutput)
-}
-
-func (in *targetGroupHealthCheckConfigProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupHealthCheckConfigProtocol] {
-	return pulumix.Output[*TargetGroupHealthCheckConfigProtocol]{
-		OutputState: in.ToTargetGroupHealthCheckConfigProtocolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TargetGroupHealthCheckConfigProtocolVersion string
@@ -2142,12 +1947,6 @@ func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToTargetGroupHealthCh
 	}).(TargetGroupHealthCheckConfigProtocolVersionPtrOutput)
 }
 
-func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupHealthCheckConfigProtocolVersion] {
-	return pulumix.Output[TargetGroupHealthCheckConfigProtocolVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2183,12 +1982,6 @@ func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) ToTargetGroupHealt
 	return o
 }
 
-func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupHealthCheckConfigProtocolVersion] {
-	return pulumix.Output[*TargetGroupHealthCheckConfigProtocolVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) Elem() TargetGroupHealthCheckConfigProtocolVersionOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheckConfigProtocolVersion) TargetGroupHealthCheckConfigProtocolVersion {
 		if v != nil {
@@ -2213,10 +2006,12 @@ func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// TargetGroupHealthCheckConfigProtocolVersionInput is an input type that accepts TargetGroupHealthCheckConfigProtocolVersionArgs and TargetGroupHealthCheckConfigProtocolVersionOutput values.
-// You can construct a concrete instance of `TargetGroupHealthCheckConfigProtocolVersionInput` via:
+// TargetGroupHealthCheckConfigProtocolVersionInput is an input type that accepts values of the TargetGroupHealthCheckConfigProtocolVersion enum
+// A concrete instance of `TargetGroupHealthCheckConfigProtocolVersionInput` can be one of the following:
 //
-//	TargetGroupHealthCheckConfigProtocolVersionArgs{...}
+//	TargetGroupHealthCheckConfigProtocolVersionHttp1
+//	TargetGroupHealthCheckConfigProtocolVersionHttp2
+//	TargetGroupHealthCheckConfigProtocolVersionGrpc
 type TargetGroupHealthCheckConfigProtocolVersionInput interface {
 	pulumi.Input
 
@@ -2249,12 +2044,6 @@ func (in *targetGroupHealthCheckConfigProtocolVersionPtr) ToTargetGroupHealthChe
 
 func (in *targetGroupHealthCheckConfigProtocolVersionPtr) ToTargetGroupHealthCheckConfigProtocolVersionPtrOutputWithContext(ctx context.Context) TargetGroupHealthCheckConfigProtocolVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupHealthCheckConfigProtocolVersionPtrOutput)
-}
-
-func (in *targetGroupHealthCheckConfigProtocolVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupHealthCheckConfigProtocolVersion] {
-	return pulumix.Output[*TargetGroupHealthCheckConfigProtocolVersion]{
-		OutputState: in.ToTargetGroupHealthCheckConfigProtocolVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TargetGroupStatus string
@@ -2291,12 +2080,6 @@ func (o TargetGroupStatusOutput) ToTargetGroupStatusPtrOutputWithContext(ctx con
 	}).(TargetGroupStatusPtrOutput)
 }
 
-func (o TargetGroupStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupStatus] {
-	return pulumix.Output[TargetGroupStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2330,12 +2113,6 @@ func (o TargetGroupStatusPtrOutput) ToTargetGroupStatusPtrOutput() TargetGroupSt
 
 func (o TargetGroupStatusPtrOutput) ToTargetGroupStatusPtrOutputWithContext(ctx context.Context) TargetGroupStatusPtrOutput {
 	return o
-}
-
-func (o TargetGroupStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupStatus] {
-	return pulumix.Output[*TargetGroupStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TargetGroupStatusPtrOutput) Elem() TargetGroupStatusOutput {
@@ -2431,12 +2208,6 @@ func (o TargetGroupTypeOutput) ToTargetGroupTypePtrOutputWithContext(ctx context
 	}).(TargetGroupTypePtrOutput)
 }
 
-func (o TargetGroupTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupType] {
-	return pulumix.Output[TargetGroupType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2472,12 +2243,6 @@ func (o TargetGroupTypePtrOutput) ToTargetGroupTypePtrOutputWithContext(ctx cont
 	return o
 }
 
-func (o TargetGroupTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupType] {
-	return pulumix.Output[*TargetGroupType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TargetGroupTypePtrOutput) Elem() TargetGroupTypeOutput {
 	return o.ApplyT(func(v *TargetGroupType) TargetGroupType {
 		if v != nil {
@@ -2502,10 +2267,13 @@ func (o TargetGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// TargetGroupTypeInput is an input type that accepts TargetGroupTypeArgs and TargetGroupTypeOutput values.
-// You can construct a concrete instance of `TargetGroupTypeInput` via:
+// TargetGroupTypeInput is an input type that accepts values of the TargetGroupType enum
+// A concrete instance of `TargetGroupTypeInput` can be one of the following:
 //
-//	TargetGroupTypeArgs{...}
+//	TargetGroupTypeIp
+//	TargetGroupTypeLambda
+//	TargetGroupTypeInstance
+//	TargetGroupTypeAlb
 type TargetGroupTypeInput interface {
 	pulumi.Input
 
@@ -2538,12 +2306,6 @@ func (in *targetGroupTypePtr) ToTargetGroupTypePtrOutput() TargetGroupTypePtrOut
 
 func (in *targetGroupTypePtr) ToTargetGroupTypePtrOutputWithContext(ctx context.Context) TargetGroupTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupTypePtrOutput)
-}
-
-func (in *targetGroupTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupType] {
-	return pulumix.Output[*TargetGroupType]{
-		OutputState: in.ToTargetGroupTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::LookoutMetrics::Alert
@@ -137,12 +136,6 @@ func (i *Alert) ToAlertOutputWithContext(ctx context.Context) AlertOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertOutput)
 }
 
-func (i *Alert) ToOutput(ctx context.Context) pulumix.Output[*Alert] {
-	return pulumix.Output[*Alert]{
-		OutputState: i.ToAlertOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertOutput struct{ *pulumi.OutputState }
 
 func (AlertOutput) ElementType() reflect.Type {
@@ -155,12 +148,6 @@ func (o AlertOutput) ToAlertOutput() AlertOutput {
 
 func (o AlertOutput) ToAlertOutputWithContext(ctx context.Context) AlertOutput {
 	return o
-}
-
-func (o AlertOutput) ToOutput(ctx context.Context) pulumix.Output[*Alert] {
-	return pulumix.Output[*Alert]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action to be taken by the alert when an anomaly is detected.

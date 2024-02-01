@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::AccessKey
@@ -66,12 +65,6 @@ func (o LookupAccessKeyResultOutput) ToLookupAccessKeyResultOutput() LookupAcces
 
 func (o LookupAccessKeyResultOutput) ToLookupAccessKeyResultOutputWithContext(ctx context.Context) LookupAccessKeyResultOutput {
 	return o
-}
-
-func (o LookupAccessKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccessKeyResult] {
-	return pulumix.Output[LookupAccessKeyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAccessKeyResultOutput) Id() pulumi.StringPtrOutput {

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The type of API entity to which the documentation content applies. Valid values are “API“, “AUTHORIZER“, “MODEL“, “RESOURCE“, “METHOD“, “PATH_PARAMETER“, “QUERY_PARAMETER“, “REQUEST_HEADER“, “REQUEST_BODY“, “RESPONSE“, “RESPONSE_HEADER“, and “RESPONSE_BODY“. Content inheritance does not apply to any entity of the “API“, “AUTHORIZER“, “METHOD“, “MODEL“, “REQUEST_BODY“, or “RESOURCE“ type.
@@ -89,12 +88,6 @@ func (o DocumentationPartLocationTypeOutput) ToDocumentationPartLocationTypePtrO
 	}).(DocumentationPartLocationTypePtrOutput)
 }
 
-func (o DocumentationPartLocationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentationPartLocationType] {
-	return pulumix.Output[DocumentationPartLocationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentationPartLocationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -130,12 +123,6 @@ func (o DocumentationPartLocationTypePtrOutput) ToDocumentationPartLocationTypeP
 	return o
 }
 
-func (o DocumentationPartLocationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentationPartLocationType] {
-	return pulumix.Output[*DocumentationPartLocationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentationPartLocationTypePtrOutput) Elem() DocumentationPartLocationTypeOutput {
 	return o.ApplyT(func(v *DocumentationPartLocationType) DocumentationPartLocationType {
 		if v != nil {
@@ -160,10 +147,21 @@ func (o DocumentationPartLocationTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentationPartLocationTypeInput is an input type that accepts DocumentationPartLocationTypeArgs and DocumentationPartLocationTypeOutput values.
-// You can construct a concrete instance of `DocumentationPartLocationTypeInput` via:
+// DocumentationPartLocationTypeInput is an input type that accepts values of the DocumentationPartLocationType enum
+// A concrete instance of `DocumentationPartLocationTypeInput` can be one of the following:
 //
-//	DocumentationPartLocationTypeArgs{...}
+//	DocumentationPartLocationTypeApi
+//	DocumentationPartLocationTypeAuthorizer
+//	DocumentationPartLocationTypeModel
+//	DocumentationPartLocationTypeResource
+//	DocumentationPartLocationTypeMethod
+//	DocumentationPartLocationTypePathParameter
+//	DocumentationPartLocationTypeQueryParameter
+//	DocumentationPartLocationTypeRequestHeader
+//	DocumentationPartLocationTypeRequestBody
+//	DocumentationPartLocationTypeResponse
+//	DocumentationPartLocationTypeResponseHeader
+//	DocumentationPartLocationTypeResponseBody
 type DocumentationPartLocationTypeInput interface {
 	pulumi.Input
 
@@ -196,12 +194,6 @@ func (in *documentationPartLocationTypePtr) ToDocumentationPartLocationTypePtrOu
 
 func (in *documentationPartLocationTypePtr) ToDocumentationPartLocationTypePtrOutputWithContext(ctx context.Context) DocumentationPartLocationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DocumentationPartLocationTypePtrOutput)
-}
-
-func (in *documentationPartLocationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DocumentationPartLocationType] {
-	return pulumix.Output[*DocumentationPartLocationType]{
-		OutputState: in.ToDocumentationPartLocationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
@@ -276,12 +268,6 @@ func (o MethodAuthorizationTypeOutput) ToMethodAuthorizationTypePtrOutputWithCon
 	}).(MethodAuthorizationTypePtrOutput)
 }
 
-func (o MethodAuthorizationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[MethodAuthorizationType] {
-	return pulumix.Output[MethodAuthorizationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MethodAuthorizationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -317,12 +303,6 @@ func (o MethodAuthorizationTypePtrOutput) ToMethodAuthorizationTypePtrOutputWith
 	return o
 }
 
-func (o MethodAuthorizationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodAuthorizationType] {
-	return pulumix.Output[*MethodAuthorizationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MethodAuthorizationTypePtrOutput) Elem() MethodAuthorizationTypeOutput {
 	return o.ApplyT(func(v *MethodAuthorizationType) MethodAuthorizationType {
 		if v != nil {
@@ -347,10 +327,13 @@ func (o MethodAuthorizationTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// MethodAuthorizationTypeInput is an input type that accepts MethodAuthorizationTypeArgs and MethodAuthorizationTypeOutput values.
-// You can construct a concrete instance of `MethodAuthorizationTypeInput` via:
+// MethodAuthorizationTypeInput is an input type that accepts values of the MethodAuthorizationType enum
+// A concrete instance of `MethodAuthorizationTypeInput` can be one of the following:
 //
-//	MethodAuthorizationTypeArgs{...}
+//	MethodAuthorizationTypeNone
+//	MethodAuthorizationTypeAwsIam
+//	MethodAuthorizationTypeCustom
+//	MethodAuthorizationTypeCognitoUserPools
 type MethodAuthorizationTypeInput interface {
 	pulumi.Input
 
@@ -383,12 +366,6 @@ func (in *methodAuthorizationTypePtr) ToMethodAuthorizationTypePtrOutput() Metho
 
 func (in *methodAuthorizationTypePtr) ToMethodAuthorizationTypePtrOutputWithContext(ctx context.Context) MethodAuthorizationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodAuthorizationTypePtrOutput)
-}
-
-func (in *methodAuthorizationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*MethodAuthorizationType] {
-	return pulumix.Output[*MethodAuthorizationType]{
-		OutputState: in.ToMethodAuthorizationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of the network connection to the integration endpoint. The valid value is “INTERNET“ for connections through the public routable internet or “VPC_LINK“ for private connections between API Gateway and a network load balancer in a VPC. The default value is “INTERNET“.
@@ -459,12 +436,6 @@ func (o MethodIntegrationConnectionTypeOutput) ToMethodIntegrationConnectionType
 	}).(MethodIntegrationConnectionTypePtrOutput)
 }
 
-func (o MethodIntegrationConnectionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[MethodIntegrationConnectionType] {
-	return pulumix.Output[MethodIntegrationConnectionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MethodIntegrationConnectionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -500,12 +471,6 @@ func (o MethodIntegrationConnectionTypePtrOutput) ToMethodIntegrationConnectionT
 	return o
 }
 
-func (o MethodIntegrationConnectionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationConnectionType] {
-	return pulumix.Output[*MethodIntegrationConnectionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MethodIntegrationConnectionTypePtrOutput) Elem() MethodIntegrationConnectionTypeOutput {
 	return o.ApplyT(func(v *MethodIntegrationConnectionType) MethodIntegrationConnectionType {
 		if v != nil {
@@ -530,10 +495,11 @@ func (o MethodIntegrationConnectionTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// MethodIntegrationConnectionTypeInput is an input type that accepts MethodIntegrationConnectionTypeArgs and MethodIntegrationConnectionTypeOutput values.
-// You can construct a concrete instance of `MethodIntegrationConnectionTypeInput` via:
+// MethodIntegrationConnectionTypeInput is an input type that accepts values of the MethodIntegrationConnectionType enum
+// A concrete instance of `MethodIntegrationConnectionTypeInput` can be one of the following:
 //
-//	MethodIntegrationConnectionTypeArgs{...}
+//	MethodIntegrationConnectionTypeInternet
+//	MethodIntegrationConnectionTypeVpcLink
 type MethodIntegrationConnectionTypeInput interface {
 	pulumi.Input
 
@@ -566,12 +532,6 @@ func (in *methodIntegrationConnectionTypePtr) ToMethodIntegrationConnectionTypeP
 
 func (in *methodIntegrationConnectionTypePtr) ToMethodIntegrationConnectionTypePtrOutputWithContext(ctx context.Context) MethodIntegrationConnectionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationConnectionTypePtrOutput)
-}
-
-func (in *methodIntegrationConnectionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationConnectionType] {
-	return pulumix.Output[*MethodIntegrationConnectionType]{
-		OutputState: in.ToMethodIntegrationConnectionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how to handle request payload content type conversions. Supported values are “CONVERT_TO_BINARY“ and “CONVERT_TO_TEXT“, with the following behaviors:
@@ -644,12 +604,6 @@ func (o MethodIntegrationContentHandlingOutput) ToMethodIntegrationContentHandli
 	}).(MethodIntegrationContentHandlingPtrOutput)
 }
 
-func (o MethodIntegrationContentHandlingOutput) ToOutput(ctx context.Context) pulumix.Output[MethodIntegrationContentHandling] {
-	return pulumix.Output[MethodIntegrationContentHandling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MethodIntegrationContentHandlingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -685,12 +639,6 @@ func (o MethodIntegrationContentHandlingPtrOutput) ToMethodIntegrationContentHan
 	return o
 }
 
-func (o MethodIntegrationContentHandlingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationContentHandling] {
-	return pulumix.Output[*MethodIntegrationContentHandling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MethodIntegrationContentHandlingPtrOutput) Elem() MethodIntegrationContentHandlingOutput {
 	return o.ApplyT(func(v *MethodIntegrationContentHandling) MethodIntegrationContentHandling {
 		if v != nil {
@@ -715,10 +663,11 @@ func (o MethodIntegrationContentHandlingPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// MethodIntegrationContentHandlingInput is an input type that accepts MethodIntegrationContentHandlingArgs and MethodIntegrationContentHandlingOutput values.
-// You can construct a concrete instance of `MethodIntegrationContentHandlingInput` via:
+// MethodIntegrationContentHandlingInput is an input type that accepts values of the MethodIntegrationContentHandling enum
+// A concrete instance of `MethodIntegrationContentHandlingInput` can be one of the following:
 //
-//	MethodIntegrationContentHandlingArgs{...}
+//	MethodIntegrationContentHandlingConvertToBinary
+//	MethodIntegrationContentHandlingConvertToText
 type MethodIntegrationContentHandlingInput interface {
 	pulumi.Input
 
@@ -751,12 +700,6 @@ func (in *methodIntegrationContentHandlingPtr) ToMethodIntegrationContentHandlin
 
 func (in *methodIntegrationContentHandlingPtr) ToMethodIntegrationContentHandlingPtrOutputWithContext(ctx context.Context) MethodIntegrationContentHandlingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationContentHandlingPtrOutput)
-}
-
-func (in *methodIntegrationContentHandlingPtr) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationContentHandling] {
-	return pulumix.Output[*MethodIntegrationContentHandling]{
-		OutputState: in.ToMethodIntegrationContentHandlingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in “requestTemplates“. The valid value is one of the following: “WHEN_NO_MATCH“: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. “WHEN_NO_TEMPLATES“: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. “NEVER“: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
@@ -828,12 +771,6 @@ func (o MethodIntegrationPassthroughBehaviorOutput) ToMethodIntegrationPassthrou
 	}).(MethodIntegrationPassthroughBehaviorPtrOutput)
 }
 
-func (o MethodIntegrationPassthroughBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[MethodIntegrationPassthroughBehavior] {
-	return pulumix.Output[MethodIntegrationPassthroughBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MethodIntegrationPassthroughBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -869,12 +806,6 @@ func (o MethodIntegrationPassthroughBehaviorPtrOutput) ToMethodIntegrationPassth
 	return o
 }
 
-func (o MethodIntegrationPassthroughBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationPassthroughBehavior] {
-	return pulumix.Output[*MethodIntegrationPassthroughBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MethodIntegrationPassthroughBehaviorPtrOutput) Elem() MethodIntegrationPassthroughBehaviorOutput {
 	return o.ApplyT(func(v *MethodIntegrationPassthroughBehavior) MethodIntegrationPassthroughBehavior {
 		if v != nil {
@@ -899,10 +830,12 @@ func (o MethodIntegrationPassthroughBehaviorPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// MethodIntegrationPassthroughBehaviorInput is an input type that accepts MethodIntegrationPassthroughBehaviorArgs and MethodIntegrationPassthroughBehaviorOutput values.
-// You can construct a concrete instance of `MethodIntegrationPassthroughBehaviorInput` via:
+// MethodIntegrationPassthroughBehaviorInput is an input type that accepts values of the MethodIntegrationPassthroughBehavior enum
+// A concrete instance of `MethodIntegrationPassthroughBehaviorInput` can be one of the following:
 //
-//	MethodIntegrationPassthroughBehaviorArgs{...}
+//	MethodIntegrationPassthroughBehaviorWhenNoMatch
+//	MethodIntegrationPassthroughBehaviorWhenNoTemplates
+//	MethodIntegrationPassthroughBehaviorNever
 type MethodIntegrationPassthroughBehaviorInput interface {
 	pulumi.Input
 
@@ -935,12 +868,6 @@ func (in *methodIntegrationPassthroughBehaviorPtr) ToMethodIntegrationPassthroug
 
 func (in *methodIntegrationPassthroughBehaviorPtr) ToMethodIntegrationPassthroughBehaviorPtrOutputWithContext(ctx context.Context) MethodIntegrationPassthroughBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationPassthroughBehaviorPtrOutput)
-}
-
-func (in *methodIntegrationPassthroughBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationPassthroughBehavior] {
-	return pulumix.Output[*MethodIntegrationPassthroughBehavior]{
-		OutputState: in.ToMethodIntegrationPassthroughBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how to handle response payload content type conversions. Supported values are “CONVERT_TO_BINARY“ and “CONVERT_TO_TEXT“, with the following behaviors:
@@ -1013,12 +940,6 @@ func (o MethodIntegrationResponseContentHandlingOutput) ToMethodIntegrationRespo
 	}).(MethodIntegrationResponseContentHandlingPtrOutput)
 }
 
-func (o MethodIntegrationResponseContentHandlingOutput) ToOutput(ctx context.Context) pulumix.Output[MethodIntegrationResponseContentHandling] {
-	return pulumix.Output[MethodIntegrationResponseContentHandling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MethodIntegrationResponseContentHandlingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1054,12 +975,6 @@ func (o MethodIntegrationResponseContentHandlingPtrOutput) ToMethodIntegrationRe
 	return o
 }
 
-func (o MethodIntegrationResponseContentHandlingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationResponseContentHandling] {
-	return pulumix.Output[*MethodIntegrationResponseContentHandling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MethodIntegrationResponseContentHandlingPtrOutput) Elem() MethodIntegrationResponseContentHandlingOutput {
 	return o.ApplyT(func(v *MethodIntegrationResponseContentHandling) MethodIntegrationResponseContentHandling {
 		if v != nil {
@@ -1084,10 +999,11 @@ func (o MethodIntegrationResponseContentHandlingPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// MethodIntegrationResponseContentHandlingInput is an input type that accepts MethodIntegrationResponseContentHandlingArgs and MethodIntegrationResponseContentHandlingOutput values.
-// You can construct a concrete instance of `MethodIntegrationResponseContentHandlingInput` via:
+// MethodIntegrationResponseContentHandlingInput is an input type that accepts values of the MethodIntegrationResponseContentHandling enum
+// A concrete instance of `MethodIntegrationResponseContentHandlingInput` can be one of the following:
 //
-//	MethodIntegrationResponseContentHandlingArgs{...}
+//	MethodIntegrationResponseContentHandlingConvertToBinary
+//	MethodIntegrationResponseContentHandlingConvertToText
 type MethodIntegrationResponseContentHandlingInput interface {
 	pulumi.Input
 
@@ -1120,12 +1036,6 @@ func (in *methodIntegrationResponseContentHandlingPtr) ToMethodIntegrationRespon
 
 func (in *methodIntegrationResponseContentHandlingPtr) ToMethodIntegrationResponseContentHandlingPtrOutputWithContext(ctx context.Context) MethodIntegrationResponseContentHandlingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationResponseContentHandlingPtrOutput)
-}
-
-func (in *methodIntegrationResponseContentHandlingPtr) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationResponseContentHandling] {
-	return pulumix.Output[*MethodIntegrationResponseContentHandling]{
-		OutputState: in.ToMethodIntegrationResponseContentHandlingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies an API method integration type. The valid value is one of the following:
@@ -1201,12 +1111,6 @@ func (o MethodIntegrationTypeOutput) ToMethodIntegrationTypePtrOutputWithContext
 	}).(MethodIntegrationTypePtrOutput)
 }
 
-func (o MethodIntegrationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[MethodIntegrationType] {
-	return pulumix.Output[MethodIntegrationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MethodIntegrationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1242,12 +1146,6 @@ func (o MethodIntegrationTypePtrOutput) ToMethodIntegrationTypePtrOutputWithCont
 	return o
 }
 
-func (o MethodIntegrationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationType] {
-	return pulumix.Output[*MethodIntegrationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MethodIntegrationTypePtrOutput) Elem() MethodIntegrationTypeOutput {
 	return o.ApplyT(func(v *MethodIntegrationType) MethodIntegrationType {
 		if v != nil {
@@ -1272,10 +1170,14 @@ func (o MethodIntegrationTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// MethodIntegrationTypeInput is an input type that accepts MethodIntegrationTypeArgs and MethodIntegrationTypeOutput values.
-// You can construct a concrete instance of `MethodIntegrationTypeInput` via:
+// MethodIntegrationTypeInput is an input type that accepts values of the MethodIntegrationType enum
+// A concrete instance of `MethodIntegrationTypeInput` can be one of the following:
 //
-//	MethodIntegrationTypeArgs{...}
+//	MethodIntegrationTypeAws
+//	MethodIntegrationTypeAwsProxy
+//	MethodIntegrationTypeHttp
+//	MethodIntegrationTypeHttpProxy
+//	MethodIntegrationTypeMock
 type MethodIntegrationTypeInput interface {
 	pulumi.Input
 
@@ -1308,12 +1210,6 @@ func (in *methodIntegrationTypePtr) ToMethodIntegrationTypePtrOutput() MethodInt
 
 func (in *methodIntegrationTypePtr) ToMethodIntegrationTypePtrOutputWithContext(ctx context.Context) MethodIntegrationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationTypePtrOutput)
-}
-
-func (in *methodIntegrationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationType] {
-	return pulumix.Output[*MethodIntegrationType]{
-		OutputState: in.ToMethodIntegrationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of a UsagePlanKey resource for a plan customer.
@@ -1383,12 +1279,6 @@ func (o UsagePlanKeyKeyTypeOutput) ToUsagePlanKeyKeyTypePtrOutputWithContext(ctx
 	}).(UsagePlanKeyKeyTypePtrOutput)
 }
 
-func (o UsagePlanKeyKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UsagePlanKeyKeyType] {
-	return pulumix.Output[UsagePlanKeyKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UsagePlanKeyKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1424,12 +1314,6 @@ func (o UsagePlanKeyKeyTypePtrOutput) ToUsagePlanKeyKeyTypePtrOutputWithContext(
 	return o
 }
 
-func (o UsagePlanKeyKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UsagePlanKeyKeyType] {
-	return pulumix.Output[*UsagePlanKeyKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UsagePlanKeyKeyTypePtrOutput) Elem() UsagePlanKeyKeyTypeOutput {
 	return o.ApplyT(func(v *UsagePlanKeyKeyType) UsagePlanKeyKeyType {
 		if v != nil {
@@ -1454,10 +1338,10 @@ func (o UsagePlanKeyKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// UsagePlanKeyKeyTypeInput is an input type that accepts UsagePlanKeyKeyTypeArgs and UsagePlanKeyKeyTypeOutput values.
-// You can construct a concrete instance of `UsagePlanKeyKeyTypeInput` via:
+// UsagePlanKeyKeyTypeInput is an input type that accepts values of the UsagePlanKeyKeyType enum
+// A concrete instance of `UsagePlanKeyKeyTypeInput` can be one of the following:
 //
-//	UsagePlanKeyKeyTypeArgs{...}
+//	UsagePlanKeyKeyTypeApiKey
 type UsagePlanKeyKeyTypeInput interface {
 	pulumi.Input
 
@@ -1490,12 +1374,6 @@ func (in *usagePlanKeyKeyTypePtr) ToUsagePlanKeyKeyTypePtrOutput() UsagePlanKeyK
 
 func (in *usagePlanKeyKeyTypePtr) ToUsagePlanKeyKeyTypePtrOutputWithContext(ctx context.Context) UsagePlanKeyKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UsagePlanKeyKeyTypePtrOutput)
-}
-
-func (in *usagePlanKeyKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*UsagePlanKeyKeyType] {
-	return pulumix.Output[*UsagePlanKeyKeyType]{
-		OutputState: in.ToUsagePlanKeyKeyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

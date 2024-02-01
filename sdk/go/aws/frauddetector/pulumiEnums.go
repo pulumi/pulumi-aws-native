@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DetectorEventVariableDataSource string
@@ -77,12 +76,6 @@ func (o DetectorEventVariableDataSourceOutput) ToDetectorEventVariableDataSource
 	}).(DetectorEventVariableDataSourcePtrOutput)
 }
 
-func (o DetectorEventVariableDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorEventVariableDataSource] {
-	return pulumix.Output[DetectorEventVariableDataSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorEventVariableDataSourceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +111,6 @@ func (o DetectorEventVariableDataSourcePtrOutput) ToDetectorEventVariableDataSou
 	return o
 }
 
-func (o DetectorEventVariableDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorEventVariableDataSource] {
-	return pulumix.Output[*DetectorEventVariableDataSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorEventVariableDataSourcePtrOutput) Elem() DetectorEventVariableDataSourceOutput {
 	return o.ApplyT(func(v *DetectorEventVariableDataSource) DetectorEventVariableDataSource {
 		if v != nil {
@@ -148,10 +135,10 @@ func (o DetectorEventVariableDataSourcePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DetectorEventVariableDataSourceInput is an input type that accepts DetectorEventVariableDataSourceArgs and DetectorEventVariableDataSourceOutput values.
-// You can construct a concrete instance of `DetectorEventVariableDataSourceInput` via:
+// DetectorEventVariableDataSourceInput is an input type that accepts values of the DetectorEventVariableDataSource enum
+// A concrete instance of `DetectorEventVariableDataSourceInput` can be one of the following:
 //
-//	DetectorEventVariableDataSourceArgs{...}
+//	DetectorEventVariableDataSourceEvent
 type DetectorEventVariableDataSourceInput interface {
 	pulumi.Input
 
@@ -184,12 +171,6 @@ func (in *detectorEventVariableDataSourcePtr) ToDetectorEventVariableDataSourceP
 
 func (in *detectorEventVariableDataSourcePtr) ToDetectorEventVariableDataSourcePtrOutputWithContext(ctx context.Context) DetectorEventVariableDataSourcePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorEventVariableDataSourcePtrOutput)
-}
-
-func (in *detectorEventVariableDataSourcePtr) ToOutput(ctx context.Context) pulumix.Output[*DetectorEventVariableDataSource] {
-	return pulumix.Output[*DetectorEventVariableDataSource]{
-		OutputState: in.ToDetectorEventVariableDataSourcePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DetectorEventVariableDataType string
@@ -261,12 +242,6 @@ func (o DetectorEventVariableDataTypeOutput) ToDetectorEventVariableDataTypePtrO
 	}).(DetectorEventVariableDataTypePtrOutput)
 }
 
-func (o DetectorEventVariableDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorEventVariableDataType] {
-	return pulumix.Output[DetectorEventVariableDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorEventVariableDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +277,6 @@ func (o DetectorEventVariableDataTypePtrOutput) ToDetectorEventVariableDataTypeP
 	return o
 }
 
-func (o DetectorEventVariableDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorEventVariableDataType] {
-	return pulumix.Output[*DetectorEventVariableDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorEventVariableDataTypePtrOutput) Elem() DetectorEventVariableDataTypeOutput {
 	return o.ApplyT(func(v *DetectorEventVariableDataType) DetectorEventVariableDataType {
 		if v != nil {
@@ -332,10 +301,13 @@ func (o DetectorEventVariableDataTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DetectorEventVariableDataTypeInput is an input type that accepts DetectorEventVariableDataTypeArgs and DetectorEventVariableDataTypeOutput values.
-// You can construct a concrete instance of `DetectorEventVariableDataTypeInput` via:
+// DetectorEventVariableDataTypeInput is an input type that accepts values of the DetectorEventVariableDataType enum
+// A concrete instance of `DetectorEventVariableDataTypeInput` can be one of the following:
 //
-//	DetectorEventVariableDataTypeArgs{...}
+//	DetectorEventVariableDataTypeString
+//	DetectorEventVariableDataTypeInteger
+//	DetectorEventVariableDataTypeFloat
+//	DetectorEventVariableDataTypeBoolean
 type DetectorEventVariableDataTypeInput interface {
 	pulumi.Input
 
@@ -368,12 +340,6 @@ func (in *detectorEventVariableDataTypePtr) ToDetectorEventVariableDataTypePtrOu
 
 func (in *detectorEventVariableDataTypePtr) ToDetectorEventVariableDataTypePtrOutputWithContext(ctx context.Context) DetectorEventVariableDataTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorEventVariableDataTypePtrOutput)
-}
-
-func (in *detectorEventVariableDataTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DetectorEventVariableDataType] {
-	return pulumix.Output[*DetectorEventVariableDataType]{
-		OutputState: in.ToDetectorEventVariableDataTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DetectorEventVariableVariableType string
@@ -474,12 +440,6 @@ func (o DetectorEventVariableVariableTypeOutput) ToDetectorEventVariableVariable
 	}).(DetectorEventVariableVariableTypePtrOutput)
 }
 
-func (o DetectorEventVariableVariableTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorEventVariableVariableType] {
-	return pulumix.Output[DetectorEventVariableVariableType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorEventVariableVariableTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -515,12 +475,6 @@ func (o DetectorEventVariableVariableTypePtrOutput) ToDetectorEventVariableVaria
 	return o
 }
 
-func (o DetectorEventVariableVariableTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorEventVariableVariableType] {
-	return pulumix.Output[*DetectorEventVariableVariableType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorEventVariableVariableTypePtrOutput) Elem() DetectorEventVariableVariableTypeOutput {
 	return o.ApplyT(func(v *DetectorEventVariableVariableType) DetectorEventVariableVariableType {
 		if v != nil {
@@ -545,10 +499,42 @@ func (o DetectorEventVariableVariableTypePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// DetectorEventVariableVariableTypeInput is an input type that accepts DetectorEventVariableVariableTypeArgs and DetectorEventVariableVariableTypeOutput values.
-// You can construct a concrete instance of `DetectorEventVariableVariableTypeInput` via:
+// DetectorEventVariableVariableTypeInput is an input type that accepts values of the DetectorEventVariableVariableType enum
+// A concrete instance of `DetectorEventVariableVariableTypeInput` can be one of the following:
 //
-//	DetectorEventVariableVariableTypeArgs{...}
+//	DetectorEventVariableVariableTypeAuthCode
+//	DetectorEventVariableVariableTypeAvs
+//	DetectorEventVariableVariableTypeBillingAddressL1
+//	DetectorEventVariableVariableTypeBillingAddressL2
+//	DetectorEventVariableVariableTypeBillingCity
+//	DetectorEventVariableVariableTypeBillingCountry
+//	DetectorEventVariableVariableTypeBillingName
+//	DetectorEventVariableVariableTypeBillingPhone
+//	DetectorEventVariableVariableTypeBillingState
+//	DetectorEventVariableVariableTypeBillingZip
+//	DetectorEventVariableVariableTypeCardBin
+//	DetectorEventVariableVariableTypeCategorical
+//	DetectorEventVariableVariableTypeCurrencyCode
+//	DetectorEventVariableVariableTypeEmailAddress
+//	DetectorEventVariableVariableTypeFingerprint
+//	DetectorEventVariableVariableTypeFraudLabel
+//	DetectorEventVariableVariableTypeFreeFormText
+//	DetectorEventVariableVariableTypeIpAddress
+//	DetectorEventVariableVariableTypeNumeric
+//	DetectorEventVariableVariableTypeOrderId
+//	DetectorEventVariableVariableTypePaymentType
+//	DetectorEventVariableVariableTypePhoneNumber
+//	DetectorEventVariableVariableTypePrice
+//	DetectorEventVariableVariableTypeProductCategory
+//	DetectorEventVariableVariableTypeShippingAddressL1
+//	DetectorEventVariableVariableTypeShippingAddressL2
+//	DetectorEventVariableVariableTypeShippingCity
+//	DetectorEventVariableVariableTypeShippingCountry
+//	DetectorEventVariableVariableTypeShippingName
+//	DetectorEventVariableVariableTypeShippingPhone
+//	DetectorEventVariableVariableTypeShippingState
+//	DetectorEventVariableVariableTypeShippingZip
+//	DetectorEventVariableVariableTypeUseragent
 type DetectorEventVariableVariableTypeInput interface {
 	pulumi.Input
 
@@ -581,12 +567,6 @@ func (in *detectorEventVariableVariableTypePtr) ToDetectorEventVariableVariableT
 
 func (in *detectorEventVariableVariableTypePtr) ToDetectorEventVariableVariableTypePtrOutputWithContext(ctx context.Context) DetectorEventVariableVariableTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorEventVariableVariableTypePtrOutput)
-}
-
-func (in *detectorEventVariableVariableTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DetectorEventVariableVariableType] {
-	return pulumix.Output[*DetectorEventVariableVariableType]{
-		OutputState: in.ToDetectorEventVariableVariableTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DetectorRuleExecutionMode string
@@ -656,12 +636,6 @@ func (o DetectorRuleExecutionModeOutput) ToDetectorRuleExecutionModePtrOutputWit
 	}).(DetectorRuleExecutionModePtrOutput)
 }
 
-func (o DetectorRuleExecutionModeOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorRuleExecutionMode] {
-	return pulumix.Output[DetectorRuleExecutionMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorRuleExecutionModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -697,12 +671,6 @@ func (o DetectorRuleExecutionModePtrOutput) ToDetectorRuleExecutionModePtrOutput
 	return o
 }
 
-func (o DetectorRuleExecutionModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorRuleExecutionMode] {
-	return pulumix.Output[*DetectorRuleExecutionMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorRuleExecutionModePtrOutput) Elem() DetectorRuleExecutionModeOutput {
 	return o.ApplyT(func(v *DetectorRuleExecutionMode) DetectorRuleExecutionMode {
 		if v != nil {
@@ -727,10 +695,11 @@ func (o DetectorRuleExecutionModePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DetectorRuleExecutionModeInput is an input type that accepts DetectorRuleExecutionModeArgs and DetectorRuleExecutionModeOutput values.
-// You can construct a concrete instance of `DetectorRuleExecutionModeInput` via:
+// DetectorRuleExecutionModeInput is an input type that accepts values of the DetectorRuleExecutionMode enum
+// A concrete instance of `DetectorRuleExecutionModeInput` can be one of the following:
 //
-//	DetectorRuleExecutionModeArgs{...}
+//	DetectorRuleExecutionModeFirstMatched
+//	DetectorRuleExecutionModeAllMatched
 type DetectorRuleExecutionModeInput interface {
 	pulumi.Input
 
@@ -763,12 +732,6 @@ func (in *detectorRuleExecutionModePtr) ToDetectorRuleExecutionModePtrOutput() D
 
 func (in *detectorRuleExecutionModePtr) ToDetectorRuleExecutionModePtrOutputWithContext(ctx context.Context) DetectorRuleExecutionModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorRuleExecutionModePtrOutput)
-}
-
-func (in *detectorRuleExecutionModePtr) ToOutput(ctx context.Context) pulumix.Output[*DetectorRuleExecutionMode] {
-	return pulumix.Output[*DetectorRuleExecutionMode]{
-		OutputState: in.ToDetectorRuleExecutionModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DetectorRuleLanguage string
@@ -837,12 +800,6 @@ func (o DetectorRuleLanguageOutput) ToDetectorRuleLanguagePtrOutputWithContext(c
 	}).(DetectorRuleLanguagePtrOutput)
 }
 
-func (o DetectorRuleLanguageOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorRuleLanguage] {
-	return pulumix.Output[DetectorRuleLanguage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorRuleLanguageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -878,12 +835,6 @@ func (o DetectorRuleLanguagePtrOutput) ToDetectorRuleLanguagePtrOutputWithContex
 	return o
 }
 
-func (o DetectorRuleLanguagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorRuleLanguage] {
-	return pulumix.Output[*DetectorRuleLanguage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorRuleLanguagePtrOutput) Elem() DetectorRuleLanguageOutput {
 	return o.ApplyT(func(v *DetectorRuleLanguage) DetectorRuleLanguage {
 		if v != nil {
@@ -908,10 +859,10 @@ func (o DetectorRuleLanguagePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// DetectorRuleLanguageInput is an input type that accepts DetectorRuleLanguageArgs and DetectorRuleLanguageOutput values.
-// You can construct a concrete instance of `DetectorRuleLanguageInput` via:
+// DetectorRuleLanguageInput is an input type that accepts values of the DetectorRuleLanguage enum
+// A concrete instance of `DetectorRuleLanguageInput` can be one of the following:
 //
-//	DetectorRuleLanguageArgs{...}
+//	DetectorRuleLanguageDetectorpl
 type DetectorRuleLanguageInput interface {
 	pulumi.Input
 
@@ -944,12 +895,6 @@ func (in *detectorRuleLanguagePtr) ToDetectorRuleLanguagePtrOutput() DetectorRul
 
 func (in *detectorRuleLanguagePtr) ToDetectorRuleLanguagePtrOutputWithContext(ctx context.Context) DetectorRuleLanguagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorRuleLanguagePtrOutput)
-}
-
-func (in *detectorRuleLanguagePtr) ToOutput(ctx context.Context) pulumix.Output[*DetectorRuleLanguage] {
-	return pulumix.Output[*DetectorRuleLanguage]{
-		OutputState: in.ToDetectorRuleLanguagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The desired detector version status for the detector
@@ -1020,12 +965,6 @@ func (o DetectorVersionStatusOutput) ToDetectorVersionStatusPtrOutputWithContext
 	}).(DetectorVersionStatusPtrOutput)
 }
 
-func (o DetectorVersionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorVersionStatus] {
-	return pulumix.Output[DetectorVersionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorVersionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1061,12 +1000,6 @@ func (o DetectorVersionStatusPtrOutput) ToDetectorVersionStatusPtrOutputWithCont
 	return o
 }
 
-func (o DetectorVersionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorVersionStatus] {
-	return pulumix.Output[*DetectorVersionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorVersionStatusPtrOutput) Elem() DetectorVersionStatusOutput {
 	return o.ApplyT(func(v *DetectorVersionStatus) DetectorVersionStatus {
 		if v != nil {
@@ -1091,10 +1024,11 @@ func (o DetectorVersionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DetectorVersionStatusInput is an input type that accepts DetectorVersionStatusArgs and DetectorVersionStatusOutput values.
-// You can construct a concrete instance of `DetectorVersionStatusInput` via:
+// DetectorVersionStatusInput is an input type that accepts values of the DetectorVersionStatus enum
+// A concrete instance of `DetectorVersionStatusInput` can be one of the following:
 //
-//	DetectorVersionStatusArgs{...}
+//	DetectorVersionStatusDraft
+//	DetectorVersionStatusActive
 type DetectorVersionStatusInput interface {
 	pulumi.Input
 
@@ -1127,12 +1061,6 @@ func (in *detectorVersionStatusPtr) ToDetectorVersionStatusPtrOutput() DetectorV
 
 func (in *detectorVersionStatusPtr) ToDetectorVersionStatusPtrOutputWithContext(ctx context.Context) DetectorVersionStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorVersionStatusPtrOutput)
-}
-
-func (in *detectorVersionStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*DetectorVersionStatus] {
-	return pulumix.Output[*DetectorVersionStatus]{
-		OutputState: in.ToDetectorVersionStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type EventTypeEventVariableDataSource string
@@ -1201,12 +1129,6 @@ func (o EventTypeEventVariableDataSourceOutput) ToEventTypeEventVariableDataSour
 	}).(EventTypeEventVariableDataSourcePtrOutput)
 }
 
-func (o EventTypeEventVariableDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[EventTypeEventVariableDataSource] {
-	return pulumix.Output[EventTypeEventVariableDataSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventTypeEventVariableDataSourceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1242,12 +1164,6 @@ func (o EventTypeEventVariableDataSourcePtrOutput) ToEventTypeEventVariableDataS
 	return o
 }
 
-func (o EventTypeEventVariableDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTypeEventVariableDataSource] {
-	return pulumix.Output[*EventTypeEventVariableDataSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventTypeEventVariableDataSourcePtrOutput) Elem() EventTypeEventVariableDataSourceOutput {
 	return o.ApplyT(func(v *EventTypeEventVariableDataSource) EventTypeEventVariableDataSource {
 		if v != nil {
@@ -1272,10 +1188,10 @@ func (o EventTypeEventVariableDataSourcePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventTypeEventVariableDataSourceInput is an input type that accepts EventTypeEventVariableDataSourceArgs and EventTypeEventVariableDataSourceOutput values.
-// You can construct a concrete instance of `EventTypeEventVariableDataSourceInput` via:
+// EventTypeEventVariableDataSourceInput is an input type that accepts values of the EventTypeEventVariableDataSource enum
+// A concrete instance of `EventTypeEventVariableDataSourceInput` can be one of the following:
 //
-//	EventTypeEventVariableDataSourceArgs{...}
+//	EventTypeEventVariableDataSourceEvent
 type EventTypeEventVariableDataSourceInput interface {
 	pulumi.Input
 
@@ -1308,12 +1224,6 @@ func (in *eventTypeEventVariableDataSourcePtr) ToEventTypeEventVariableDataSourc
 
 func (in *eventTypeEventVariableDataSourcePtr) ToEventTypeEventVariableDataSourcePtrOutputWithContext(ctx context.Context) EventTypeEventVariableDataSourcePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EventTypeEventVariableDataSourcePtrOutput)
-}
-
-func (in *eventTypeEventVariableDataSourcePtr) ToOutput(ctx context.Context) pulumix.Output[*EventTypeEventVariableDataSource] {
-	return pulumix.Output[*EventTypeEventVariableDataSource]{
-		OutputState: in.ToEventTypeEventVariableDataSourcePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type EventTypeEventVariableDataType string
@@ -1385,12 +1295,6 @@ func (o EventTypeEventVariableDataTypeOutput) ToEventTypeEventVariableDataTypePt
 	}).(EventTypeEventVariableDataTypePtrOutput)
 }
 
-func (o EventTypeEventVariableDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EventTypeEventVariableDataType] {
-	return pulumix.Output[EventTypeEventVariableDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventTypeEventVariableDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1426,12 +1330,6 @@ func (o EventTypeEventVariableDataTypePtrOutput) ToEventTypeEventVariableDataTyp
 	return o
 }
 
-func (o EventTypeEventVariableDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTypeEventVariableDataType] {
-	return pulumix.Output[*EventTypeEventVariableDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventTypeEventVariableDataTypePtrOutput) Elem() EventTypeEventVariableDataTypeOutput {
 	return o.ApplyT(func(v *EventTypeEventVariableDataType) EventTypeEventVariableDataType {
 		if v != nil {
@@ -1456,10 +1354,13 @@ func (o EventTypeEventVariableDataTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventTypeEventVariableDataTypeInput is an input type that accepts EventTypeEventVariableDataTypeArgs and EventTypeEventVariableDataTypeOutput values.
-// You can construct a concrete instance of `EventTypeEventVariableDataTypeInput` via:
+// EventTypeEventVariableDataTypeInput is an input type that accepts values of the EventTypeEventVariableDataType enum
+// A concrete instance of `EventTypeEventVariableDataTypeInput` can be one of the following:
 //
-//	EventTypeEventVariableDataTypeArgs{...}
+//	EventTypeEventVariableDataTypeString
+//	EventTypeEventVariableDataTypeInteger
+//	EventTypeEventVariableDataTypeFloat
+//	EventTypeEventVariableDataTypeBoolean
 type EventTypeEventVariableDataTypeInput interface {
 	pulumi.Input
 
@@ -1492,12 +1393,6 @@ func (in *eventTypeEventVariableDataTypePtr) ToEventTypeEventVariableDataTypePtr
 
 func (in *eventTypeEventVariableDataTypePtr) ToEventTypeEventVariableDataTypePtrOutputWithContext(ctx context.Context) EventTypeEventVariableDataTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EventTypeEventVariableDataTypePtrOutput)
-}
-
-func (in *eventTypeEventVariableDataTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EventTypeEventVariableDataType] {
-	return pulumix.Output[*EventTypeEventVariableDataType]{
-		OutputState: in.ToEventTypeEventVariableDataTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type EventTypeEventVariableVariableType string
@@ -1598,12 +1493,6 @@ func (o EventTypeEventVariableVariableTypeOutput) ToEventTypeEventVariableVariab
 	}).(EventTypeEventVariableVariableTypePtrOutput)
 }
 
-func (o EventTypeEventVariableVariableTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EventTypeEventVariableVariableType] {
-	return pulumix.Output[EventTypeEventVariableVariableType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventTypeEventVariableVariableTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1639,12 +1528,6 @@ func (o EventTypeEventVariableVariableTypePtrOutput) ToEventTypeEventVariableVar
 	return o
 }
 
-func (o EventTypeEventVariableVariableTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTypeEventVariableVariableType] {
-	return pulumix.Output[*EventTypeEventVariableVariableType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventTypeEventVariableVariableTypePtrOutput) Elem() EventTypeEventVariableVariableTypeOutput {
 	return o.ApplyT(func(v *EventTypeEventVariableVariableType) EventTypeEventVariableVariableType {
 		if v != nil {
@@ -1669,10 +1552,42 @@ func (o EventTypeEventVariableVariableTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventTypeEventVariableVariableTypeInput is an input type that accepts EventTypeEventVariableVariableTypeArgs and EventTypeEventVariableVariableTypeOutput values.
-// You can construct a concrete instance of `EventTypeEventVariableVariableTypeInput` via:
+// EventTypeEventVariableVariableTypeInput is an input type that accepts values of the EventTypeEventVariableVariableType enum
+// A concrete instance of `EventTypeEventVariableVariableTypeInput` can be one of the following:
 //
-//	EventTypeEventVariableVariableTypeArgs{...}
+//	EventTypeEventVariableVariableTypeAuthCode
+//	EventTypeEventVariableVariableTypeAvs
+//	EventTypeEventVariableVariableTypeBillingAddressL1
+//	EventTypeEventVariableVariableTypeBillingAddressL2
+//	EventTypeEventVariableVariableTypeBillingCity
+//	EventTypeEventVariableVariableTypeBillingCountry
+//	EventTypeEventVariableVariableTypeBillingName
+//	EventTypeEventVariableVariableTypeBillingPhone
+//	EventTypeEventVariableVariableTypeBillingState
+//	EventTypeEventVariableVariableTypeBillingZip
+//	EventTypeEventVariableVariableTypeCardBin
+//	EventTypeEventVariableVariableTypeCategorical
+//	EventTypeEventVariableVariableTypeCurrencyCode
+//	EventTypeEventVariableVariableTypeEmailAddress
+//	EventTypeEventVariableVariableTypeFingerprint
+//	EventTypeEventVariableVariableTypeFraudLabel
+//	EventTypeEventVariableVariableTypeFreeFormText
+//	EventTypeEventVariableVariableTypeIpAddress
+//	EventTypeEventVariableVariableTypeNumeric
+//	EventTypeEventVariableVariableTypeOrderId
+//	EventTypeEventVariableVariableTypePaymentType
+//	EventTypeEventVariableVariableTypePhoneNumber
+//	EventTypeEventVariableVariableTypePrice
+//	EventTypeEventVariableVariableTypeProductCategory
+//	EventTypeEventVariableVariableTypeShippingAddressL1
+//	EventTypeEventVariableVariableTypeShippingAddressL2
+//	EventTypeEventVariableVariableTypeShippingCity
+//	EventTypeEventVariableVariableTypeShippingCountry
+//	EventTypeEventVariableVariableTypeShippingName
+//	EventTypeEventVariableVariableTypeShippingPhone
+//	EventTypeEventVariableVariableTypeShippingState
+//	EventTypeEventVariableVariableTypeShippingZip
+//	EventTypeEventVariableVariableTypeUseragent
 type EventTypeEventVariableVariableTypeInput interface {
 	pulumi.Input
 
@@ -1705,12 +1620,6 @@ func (in *eventTypeEventVariableVariableTypePtr) ToEventTypeEventVariableVariabl
 
 func (in *eventTypeEventVariableVariableTypePtr) ToEventTypeEventVariableVariableTypePtrOutputWithContext(ctx context.Context) EventTypeEventVariableVariableTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EventTypeEventVariableVariableTypePtrOutput)
-}
-
-func (in *eventTypeEventVariableVariableTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EventTypeEventVariableVariableType] {
-	return pulumix.Output[*EventTypeEventVariableVariableType]{
-		OutputState: in.ToEventTypeEventVariableVariableTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The source of the data.
@@ -1781,12 +1690,6 @@ func (o VariableDataSourceOutput) ToVariableDataSourcePtrOutputWithContext(ctx c
 	}).(VariableDataSourcePtrOutput)
 }
 
-func (o VariableDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[VariableDataSource] {
-	return pulumix.Output[VariableDataSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VariableDataSourceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1822,12 +1725,6 @@ func (o VariableDataSourcePtrOutput) ToVariableDataSourcePtrOutputWithContext(ct
 	return o
 }
 
-func (o VariableDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariableDataSource] {
-	return pulumix.Output[*VariableDataSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VariableDataSourcePtrOutput) Elem() VariableDataSourceOutput {
 	return o.ApplyT(func(v *VariableDataSource) VariableDataSource {
 		if v != nil {
@@ -1852,10 +1749,11 @@ func (o VariableDataSourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// VariableDataSourceInput is an input type that accepts VariableDataSourceArgs and VariableDataSourceOutput values.
-// You can construct a concrete instance of `VariableDataSourceInput` via:
+// VariableDataSourceInput is an input type that accepts values of the VariableDataSource enum
+// A concrete instance of `VariableDataSourceInput` can be one of the following:
 //
-//	VariableDataSourceArgs{...}
+//	VariableDataSourceEvent
+//	VariableDataSourceExternalModelScore
 type VariableDataSourceInput interface {
 	pulumi.Input
 
@@ -1888,12 +1786,6 @@ func (in *variableDataSourcePtr) ToVariableDataSourcePtrOutput() VariableDataSou
 
 func (in *variableDataSourcePtr) ToVariableDataSourcePtrOutputWithContext(ctx context.Context) VariableDataSourcePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VariableDataSourcePtrOutput)
-}
-
-func (in *variableDataSourcePtr) ToOutput(ctx context.Context) pulumix.Output[*VariableDataSource] {
-	return pulumix.Output[*VariableDataSource]{
-		OutputState: in.ToVariableDataSourcePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The data type.
@@ -1966,12 +1858,6 @@ func (o VariableDataTypeOutput) ToVariableDataTypePtrOutputWithContext(ctx conte
 	}).(VariableDataTypePtrOutput)
 }
 
-func (o VariableDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[VariableDataType] {
-	return pulumix.Output[VariableDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VariableDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2007,12 +1893,6 @@ func (o VariableDataTypePtrOutput) ToVariableDataTypePtrOutputWithContext(ctx co
 	return o
 }
 
-func (o VariableDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariableDataType] {
-	return pulumix.Output[*VariableDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VariableDataTypePtrOutput) Elem() VariableDataTypeOutput {
 	return o.ApplyT(func(v *VariableDataType) VariableDataType {
 		if v != nil {
@@ -2037,10 +1917,13 @@ func (o VariableDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// VariableDataTypeInput is an input type that accepts VariableDataTypeArgs and VariableDataTypeOutput values.
-// You can construct a concrete instance of `VariableDataTypeInput` via:
+// VariableDataTypeInput is an input type that accepts values of the VariableDataType enum
+// A concrete instance of `VariableDataTypeInput` can be one of the following:
 //
-//	VariableDataTypeArgs{...}
+//	VariableDataTypeString
+//	VariableDataTypeInteger
+//	VariableDataTypeFloat
+//	VariableDataTypeBoolean
 type VariableDataTypeInput interface {
 	pulumi.Input
 
@@ -2073,12 +1956,6 @@ func (in *variableDataTypePtr) ToVariableDataTypePtrOutput() VariableDataTypePtr
 
 func (in *variableDataTypePtr) ToVariableDataTypePtrOutputWithContext(ctx context.Context) VariableDataTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VariableDataTypePtrOutput)
-}
-
-func (in *variableDataTypePtr) ToOutput(ctx context.Context) pulumix.Output[*VariableDataType] {
-	return pulumix.Output[*VariableDataType]{
-		OutputState: in.ToVariableDataTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
@@ -2180,12 +2057,6 @@ func (o VariableTypeOutput) ToVariableTypePtrOutputWithContext(ctx context.Conte
 	}).(VariableTypePtrOutput)
 }
 
-func (o VariableTypeOutput) ToOutput(ctx context.Context) pulumix.Output[VariableType] {
-	return pulumix.Output[VariableType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VariableTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2221,12 +2092,6 @@ func (o VariableTypePtrOutput) ToVariableTypePtrOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o VariableTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariableType] {
-	return pulumix.Output[*VariableType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VariableTypePtrOutput) Elem() VariableTypeOutput {
 	return o.ApplyT(func(v *VariableType) VariableType {
 		if v != nil {
@@ -2251,10 +2116,42 @@ func (o VariableTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// VariableTypeInput is an input type that accepts VariableTypeArgs and VariableTypeOutput values.
-// You can construct a concrete instance of `VariableTypeInput` via:
+// VariableTypeInput is an input type that accepts values of the VariableType enum
+// A concrete instance of `VariableTypeInput` can be one of the following:
 //
-//	VariableTypeArgs{...}
+//	VariableTypeAuthCode
+//	VariableTypeAvs
+//	VariableTypeBillingAddressL1
+//	VariableTypeBillingAddressL2
+//	VariableTypeBillingCity
+//	VariableTypeBillingCountry
+//	VariableTypeBillingName
+//	VariableTypeBillingPhone
+//	VariableTypeBillingState
+//	VariableTypeBillingZip
+//	VariableTypeCardBin
+//	VariableTypeCategorical
+//	VariableTypeCurrencyCode
+//	VariableTypeEmailAddress
+//	VariableTypeFingerprint
+//	VariableTypeFraudLabel
+//	VariableTypeFreeFormText
+//	VariableTypeIpAddress
+//	VariableTypeNumeric
+//	VariableTypeOrderId
+//	VariableTypePaymentType
+//	VariableTypePhoneNumber
+//	VariableTypePrice
+//	VariableTypeProductCategory
+//	VariableTypeShippingAddressL1
+//	VariableTypeShippingAddressL2
+//	VariableTypeShippingCity
+//	VariableTypeShippingCountry
+//	VariableTypeShippingName
+//	VariableTypeShippingPhone
+//	VariableTypeShippingState
+//	VariableTypeShippingZip
+//	VariableTypeUseragent
 type VariableTypeInput interface {
 	pulumi.Input
 
@@ -2287,12 +2184,6 @@ func (in *variableTypePtr) ToVariableTypePtrOutput() VariableTypePtrOutput {
 
 func (in *variableTypePtr) ToVariableTypePtrOutputWithContext(ctx context.Context) VariableTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VariableTypePtrOutput)
-}
-
-func (in *variableTypePtr) ToOutput(ctx context.Context) pulumix.Output[*VariableType] {
-	return pulumix.Output[*VariableType]{
-		OutputState: in.ToVariableTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Events::ApiDestination.
@@ -74,12 +73,6 @@ func (o LookupApiDestinationResultOutput) ToLookupApiDestinationResultOutput() L
 
 func (o LookupApiDestinationResultOutput) ToLookupApiDestinationResultOutputWithContext(ctx context.Context) LookupApiDestinationResultOutput {
 	return o
-}
-
-func (o LookupApiDestinationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApiDestinationResult] {
-	return pulumix.Output[LookupApiDestinationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The arn of the api destination.

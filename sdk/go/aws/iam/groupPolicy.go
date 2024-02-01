@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for IAM Group Policy
@@ -117,12 +116,6 @@ func (i *GroupPolicy) ToGroupPolicyOutputWithContext(ctx context.Context) GroupP
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyOutput)
 }
 
-func (i *GroupPolicy) ToOutput(ctx context.Context) pulumix.Output[*GroupPolicy] {
-	return pulumix.Output[*GroupPolicy]{
-		OutputState: i.ToGroupPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupPolicyOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyOutput) ElementType() reflect.Type {
@@ -135,12 +128,6 @@ func (o GroupPolicyOutput) ToGroupPolicyOutput() GroupPolicyOutput {
 
 func (o GroupPolicyOutput) ToGroupPolicyOutputWithContext(ctx context.Context) GroupPolicyOutput {
 	return o
-}
-
-func (o GroupPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupPolicy] {
-	return pulumix.Output[*GroupPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the group to associate the policy with.

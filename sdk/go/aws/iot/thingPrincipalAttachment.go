@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoT::ThingPrincipalAttachment
@@ -107,12 +106,6 @@ func (i *ThingPrincipalAttachment) ToThingPrincipalAttachmentOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ThingPrincipalAttachmentOutput)
 }
 
-func (i *ThingPrincipalAttachment) ToOutput(ctx context.Context) pulumix.Output[*ThingPrincipalAttachment] {
-	return pulumix.Output[*ThingPrincipalAttachment]{
-		OutputState: i.ToThingPrincipalAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThingPrincipalAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ThingPrincipalAttachmentOutput) ElementType() reflect.Type {
@@ -125,12 +118,6 @@ func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutput() Thing
 
 func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutputWithContext(ctx context.Context) ThingPrincipalAttachmentOutput {
 	return o
-}
-
-func (o ThingPrincipalAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*ThingPrincipalAttachment] {
-	return pulumix.Output[*ThingPrincipalAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThingPrincipalAttachmentOutput) Principal() pulumi.StringOutput {

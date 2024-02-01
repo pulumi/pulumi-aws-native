@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::MonitoringSchedule
@@ -81,12 +80,6 @@ func (o LookupMonitoringScheduleResultOutput) ToLookupMonitoringScheduleResultOu
 
 func (o LookupMonitoringScheduleResultOutput) ToLookupMonitoringScheduleResultOutputWithContext(ctx context.Context) LookupMonitoringScheduleResultOutput {
 	return o
-}
-
-func (o LookupMonitoringScheduleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMonitoringScheduleResult] {
-	return pulumix.Output[LookupMonitoringScheduleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time at which the schedule was created.

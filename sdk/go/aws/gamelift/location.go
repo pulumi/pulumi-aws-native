@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
@@ -101,12 +100,6 @@ func (i *Location) ToLocationOutputWithContext(ctx context.Context) LocationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LocationOutput)
 }
 
-func (i *Location) ToOutput(ctx context.Context) pulumix.Output[*Location] {
-	return pulumix.Output[*Location]{
-		OutputState: i.ToLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationOutput struct{ *pulumi.OutputState }
 
 func (LocationOutput) ElementType() reflect.Type {
@@ -119,12 +112,6 @@ func (o LocationOutput) ToLocationOutput() LocationOutput {
 
 func (o LocationOutput) ToLocationOutputWithContext(ctx context.Context) LocationOutput {
 	return o
-}
-
-func (o LocationOutput) ToOutput(ctx context.Context) pulumix.Output[*Location] {
-	return pulumix.Output[*Location]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationOutput) LocationArn() pulumi.StringOutput {

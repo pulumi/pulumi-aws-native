@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i DataInputConfigurationPropertiesArgs) ToDataInputConfigurationProperties
 	return pulumi.ToOutputWithContext(ctx, i).(DataInputConfigurationPropertiesOutput)
 }
 
-func (i DataInputConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[DataInputConfigurationProperties] {
-	return pulumix.Output[DataInputConfigurationProperties]{
-		OutputState: i.ToDataInputConfigurationPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies configuration information for the input data for the inference scheduler, including delimiter, format, and dataset location.
 type DataInputConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -72,12 +65,6 @@ func (o DataInputConfigurationPropertiesOutput) ToDataInputConfigurationProperti
 
 func (o DataInputConfigurationPropertiesOutput) ToDataInputConfigurationPropertiesOutputWithContext(ctx context.Context) DataInputConfigurationPropertiesOutput {
 	return o
-}
-
-func (o DataInputConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[DataInputConfigurationProperties] {
-	return pulumix.Output[DataInputConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataInputConfigurationPropertiesOutput) InferenceInputNameConfiguration() InferenceSchedulerInputNameConfigurationPtrOutput {
@@ -109,12 +96,6 @@ func (o DataInputConfigurationPropertiesPtrOutput) ToDataInputConfigurationPrope
 
 func (o DataInputConfigurationPropertiesPtrOutput) ToDataInputConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DataInputConfigurationPropertiesPtrOutput {
 	return o
-}
-
-func (o DataInputConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataInputConfigurationProperties] {
-	return pulumix.Output[*DataInputConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataInputConfigurationPropertiesPtrOutput) Elem() DataInputConfigurationPropertiesOutput {
@@ -192,12 +173,6 @@ func (i DataOutputConfigurationPropertiesArgs) ToDataOutputConfigurationProperti
 	return pulumi.ToOutputWithContext(ctx, i).(DataOutputConfigurationPropertiesOutput)
 }
 
-func (i DataOutputConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[DataOutputConfigurationProperties] {
-	return pulumix.Output[DataOutputConfigurationProperties]{
-		OutputState: i.ToDataOutputConfigurationPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies configuration information for the output results for the inference scheduler, including the S3 location for the output.
 type DataOutputConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -211,12 +186,6 @@ func (o DataOutputConfigurationPropertiesOutput) ToDataOutputConfigurationProper
 
 func (o DataOutputConfigurationPropertiesOutput) ToDataOutputConfigurationPropertiesOutputWithContext(ctx context.Context) DataOutputConfigurationPropertiesOutput {
 	return o
-}
-
-func (o DataOutputConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[DataOutputConfigurationProperties] {
-	return pulumix.Output[DataOutputConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID number for the AWS KMS key used to encrypt the inference output.
@@ -242,12 +211,6 @@ func (o DataOutputConfigurationPropertiesPtrOutput) ToDataOutputConfigurationPro
 
 func (o DataOutputConfigurationPropertiesPtrOutput) ToDataOutputConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DataOutputConfigurationPropertiesPtrOutput {
 	return o
-}
-
-func (o DataOutputConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataOutputConfigurationProperties] {
-	return pulumix.Output[*DataOutputConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataOutputConfigurationPropertiesPtrOutput) Elem() DataOutputConfigurationPropertiesOutput {
@@ -318,12 +281,6 @@ func (i InferenceSchedulerInputNameConfigurationArgs) ToInferenceSchedulerInputN
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceSchedulerInputNameConfigurationOutput)
 }
 
-func (i InferenceSchedulerInputNameConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[InferenceSchedulerInputNameConfiguration] {
-	return pulumix.Output[InferenceSchedulerInputNameConfiguration]{
-		OutputState: i.ToInferenceSchedulerInputNameConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InferenceSchedulerInputNameConfigurationArgs) ToInferenceSchedulerInputNameConfigurationPtrOutput() InferenceSchedulerInputNameConfigurationPtrOutput {
 	return i.ToInferenceSchedulerInputNameConfigurationPtrOutputWithContext(context.Background())
 }
@@ -365,12 +322,6 @@ func (i *inferenceSchedulerInputNameConfigurationPtrType) ToInferenceSchedulerIn
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceSchedulerInputNameConfigurationPtrOutput)
 }
 
-func (i *inferenceSchedulerInputNameConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*InferenceSchedulerInputNameConfiguration] {
-	return pulumix.Output[*InferenceSchedulerInputNameConfiguration]{
-		OutputState: i.ToInferenceSchedulerInputNameConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies configuration information for the input data for the inference, including timestamp format and delimiter.
 type InferenceSchedulerInputNameConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -396,12 +347,6 @@ func (o InferenceSchedulerInputNameConfigurationOutput) ToInferenceSchedulerInpu
 	}).(InferenceSchedulerInputNameConfigurationPtrOutput)
 }
 
-func (o InferenceSchedulerInputNameConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceSchedulerInputNameConfiguration] {
-	return pulumix.Output[InferenceSchedulerInputNameConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Indicates the delimiter character used between items in the data.
 func (o InferenceSchedulerInputNameConfigurationOutput) ComponentTimestampDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InferenceSchedulerInputNameConfiguration) *string { return v.ComponentTimestampDelimiter }).(pulumi.StringPtrOutput)
@@ -424,12 +369,6 @@ func (o InferenceSchedulerInputNameConfigurationPtrOutput) ToInferenceSchedulerI
 
 func (o InferenceSchedulerInputNameConfigurationPtrOutput) ToInferenceSchedulerInputNameConfigurationPtrOutputWithContext(ctx context.Context) InferenceSchedulerInputNameConfigurationPtrOutput {
 	return o
-}
-
-func (o InferenceSchedulerInputNameConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceSchedulerInputNameConfiguration] {
-	return pulumix.Output[*InferenceSchedulerInputNameConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceSchedulerInputNameConfigurationPtrOutput) Elem() InferenceSchedulerInputNameConfigurationOutput {
@@ -497,12 +436,6 @@ func (i InferenceSchedulerS3InputConfigurationArgs) ToInferenceSchedulerS3InputC
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceSchedulerS3InputConfigurationOutput)
 }
 
-func (i InferenceSchedulerS3InputConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[InferenceSchedulerS3InputConfiguration] {
-	return pulumix.Output[InferenceSchedulerS3InputConfiguration]{
-		OutputState: i.ToInferenceSchedulerS3InputConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies configuration information for the input data for the inference, including input data S3 location.
 type InferenceSchedulerS3InputConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -516,12 +449,6 @@ func (o InferenceSchedulerS3InputConfigurationOutput) ToInferenceSchedulerS3Inpu
 
 func (o InferenceSchedulerS3InputConfigurationOutput) ToInferenceSchedulerS3InputConfigurationOutputWithContext(ctx context.Context) InferenceSchedulerS3InputConfigurationOutput {
 	return o
-}
-
-func (o InferenceSchedulerS3InputConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceSchedulerS3InputConfiguration] {
-	return pulumix.Output[InferenceSchedulerS3InputConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceSchedulerS3InputConfigurationOutput) Bucket() pulumi.StringOutput {
@@ -544,12 +471,6 @@ func (o InferenceSchedulerS3InputConfigurationPtrOutput) ToInferenceSchedulerS3I
 
 func (o InferenceSchedulerS3InputConfigurationPtrOutput) ToInferenceSchedulerS3InputConfigurationPtrOutputWithContext(ctx context.Context) InferenceSchedulerS3InputConfigurationPtrOutput {
 	return o
-}
-
-func (o InferenceSchedulerS3InputConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceSchedulerS3InputConfiguration] {
-	return pulumix.Output[*InferenceSchedulerS3InputConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceSchedulerS3InputConfigurationPtrOutput) Elem() InferenceSchedulerS3InputConfigurationOutput {
@@ -615,12 +536,6 @@ func (i InferenceSchedulerS3OutputConfigurationArgs) ToInferenceSchedulerS3Outpu
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceSchedulerS3OutputConfigurationOutput)
 }
 
-func (i InferenceSchedulerS3OutputConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[InferenceSchedulerS3OutputConfiguration] {
-	return pulumix.Output[InferenceSchedulerS3OutputConfiguration]{
-		OutputState: i.ToInferenceSchedulerS3OutputConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies configuration information for the output results from the inference, including output S3 location.
 type InferenceSchedulerS3OutputConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -634,12 +549,6 @@ func (o InferenceSchedulerS3OutputConfigurationOutput) ToInferenceSchedulerS3Out
 
 func (o InferenceSchedulerS3OutputConfigurationOutput) ToInferenceSchedulerS3OutputConfigurationOutputWithContext(ctx context.Context) InferenceSchedulerS3OutputConfigurationOutput {
 	return o
-}
-
-func (o InferenceSchedulerS3OutputConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceSchedulerS3OutputConfiguration] {
-	return pulumix.Output[InferenceSchedulerS3OutputConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceSchedulerS3OutputConfigurationOutput) Bucket() pulumi.StringOutput {
@@ -662,12 +571,6 @@ func (o InferenceSchedulerS3OutputConfigurationPtrOutput) ToInferenceSchedulerS3
 
 func (o InferenceSchedulerS3OutputConfigurationPtrOutput) ToInferenceSchedulerS3OutputConfigurationPtrOutputWithContext(ctx context.Context) InferenceSchedulerS3OutputConfigurationPtrOutput {
 	return o
-}
-
-func (o InferenceSchedulerS3OutputConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceSchedulerS3OutputConfiguration] {
-	return pulumix.Output[*InferenceSchedulerS3OutputConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceSchedulerS3OutputConfigurationPtrOutput) Elem() InferenceSchedulerS3OutputConfigurationOutput {
@@ -737,12 +640,6 @@ func (i InferenceSchedulerTagArgs) ToInferenceSchedulerTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceSchedulerTagOutput)
 }
 
-func (i InferenceSchedulerTagArgs) ToOutput(ctx context.Context) pulumix.Output[InferenceSchedulerTag] {
-	return pulumix.Output[InferenceSchedulerTag]{
-		OutputState: i.ToInferenceSchedulerTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InferenceSchedulerTagArrayInput is an input type that accepts InferenceSchedulerTagArray and InferenceSchedulerTagArrayOutput values.
 // You can construct a concrete instance of `InferenceSchedulerTagArrayInput` via:
 //
@@ -768,12 +665,6 @@ func (i InferenceSchedulerTagArray) ToInferenceSchedulerTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceSchedulerTagArrayOutput)
 }
 
-func (i InferenceSchedulerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]InferenceSchedulerTag] {
-	return pulumix.Output[[]InferenceSchedulerTag]{
-		OutputState: i.ToInferenceSchedulerTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A tag is a key-value pair that can be added to a resource as metadata.
 type InferenceSchedulerTagOutput struct{ *pulumi.OutputState }
 
@@ -787,12 +678,6 @@ func (o InferenceSchedulerTagOutput) ToInferenceSchedulerTagOutput() InferenceSc
 
 func (o InferenceSchedulerTagOutput) ToInferenceSchedulerTagOutputWithContext(ctx context.Context) InferenceSchedulerTagOutput {
 	return o
-}
-
-func (o InferenceSchedulerTagOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceSchedulerTag] {
-	return pulumix.Output[InferenceSchedulerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key for the specified tag.
@@ -817,12 +702,6 @@ func (o InferenceSchedulerTagArrayOutput) ToInferenceSchedulerTagArrayOutput() I
 
 func (o InferenceSchedulerTagArrayOutput) ToInferenceSchedulerTagArrayOutputWithContext(ctx context.Context) InferenceSchedulerTagArrayOutput {
 	return o
-}
-
-func (o InferenceSchedulerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InferenceSchedulerTag] {
-	return pulumix.Output[[]InferenceSchedulerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceSchedulerTagArrayOutput) Index(i pulumi.IntInput) InferenceSchedulerTagOutput {

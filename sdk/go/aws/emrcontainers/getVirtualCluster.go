@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema of AWS::EMRContainers::VirtualCluster Type
@@ -70,12 +69,6 @@ func (o LookupVirtualClusterResultOutput) ToLookupVirtualClusterResultOutput() L
 
 func (o LookupVirtualClusterResultOutput) ToLookupVirtualClusterResultOutputWithContext(ctx context.Context) LookupVirtualClusterResultOutput {
 	return o
-}
-
-func (o LookupVirtualClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualClusterResult] {
-	return pulumix.Output[LookupVirtualClusterResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVirtualClusterResultOutput) Arn() pulumi.StringPtrOutput {

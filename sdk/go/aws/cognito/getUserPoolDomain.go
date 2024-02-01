@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolDomain
@@ -67,12 +66,6 @@ func (o LookupUserPoolDomainResultOutput) ToLookupUserPoolDomainResultOutput() L
 
 func (o LookupUserPoolDomainResultOutput) ToLookupUserPoolDomainResultOutputWithContext(ctx context.Context) LookupUserPoolDomainResultOutput {
 	return o
-}
-
-func (o LookupUserPoolDomainResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserPoolDomainResult] {
-	return pulumix.Output[LookupUserPoolDomainResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupUserPoolDomainResultOutput) CloudFrontDistribution() pulumi.StringPtrOutput {

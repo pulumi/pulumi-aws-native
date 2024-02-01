@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::Domain
@@ -186,12 +185,6 @@ func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainOutput)
 }
 
-func (i *Domain) ToOutput(ctx context.Context) pulumix.Output[*Domain] {
-	return pulumix.Output[*Domain]{
-		OutputState: i.ToDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainOutput struct{ *pulumi.OutputState }
 
 func (DomainOutput) ElementType() reflect.Type {
@@ -204,12 +197,6 @@ func (o DomainOutput) ToDomainOutput() DomainOutput {
 
 func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return o
-}
-
-func (o DomainOutput) ToOutput(ctx context.Context) pulumix.Output[*Domain] {
-	return pulumix.Output[*Domain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.

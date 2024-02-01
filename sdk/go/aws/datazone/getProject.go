@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
@@ -85,12 +84,6 @@ func (o LookupProjectResultOutput) ToLookupProjectResultOutput() LookupProjectRe
 
 func (o LookupProjectResultOutput) ToLookupProjectResultOutputWithContext(ctx context.Context) LookupProjectResultOutput {
 	return o
-}
-
-func (o LookupProjectResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupProjectResult] {
-	return pulumix.Output[LookupProjectResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The timestamp of when the project was created.

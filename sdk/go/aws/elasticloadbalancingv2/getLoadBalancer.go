@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
@@ -89,12 +88,6 @@ func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutput() Looku
 
 func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutputWithContext(ctx context.Context) LookupLoadBalancerResultOutput {
 	return o
-}
-
-func (o LookupLoadBalancerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLoadBalancerResult] {
-	return pulumix.Output[LookupLoadBalancerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Amazon Route 53 hosted zone associated with the load balancer.

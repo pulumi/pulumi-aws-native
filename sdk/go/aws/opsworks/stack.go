@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::OpsWorks::Stack
@@ -179,12 +178,6 @@ func (i *Stack) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackOutput)
 }
 
-func (i *Stack) ToOutput(ctx context.Context) pulumix.Output[*Stack] {
-	return pulumix.Output[*Stack]{
-		OutputState: i.ToStackOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackOutput struct{ *pulumi.OutputState }
 
 func (StackOutput) ElementType() reflect.Type {
@@ -197,12 +190,6 @@ func (o StackOutput) ToStackOutput() StackOutput {
 
 func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return o
-}
-
-func (o StackOutput) ToOutput(ctx context.Context) pulumix.Output[*Stack] {
-	return pulumix.Output[*Stack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackOutput) AgentVersion() pulumi.StringPtrOutput {

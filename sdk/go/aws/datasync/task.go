@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::Task.
@@ -150,12 +149,6 @@ func (i *Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskOutput)
 }
 
-func (i *Task) ToOutput(ctx context.Context) pulumix.Output[*Task] {
-	return pulumix.Output[*Task]{
-		OutputState: i.ToTaskOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TaskOutput struct{ *pulumi.OutputState }
 
 func (TaskOutput) ElementType() reflect.Type {
@@ -168,12 +161,6 @@ func (o TaskOutput) ToTaskOutput() TaskOutput {
 
 func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return o
-}
-
-func (o TaskOutput) ToOutput(ctx context.Context) pulumix.Output[*Task] {
-	return pulumix.Output[*Task]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ApplicationCredentialCredentialType string
@@ -77,12 +76,6 @@ func (o ApplicationCredentialCredentialTypeOutput) ToApplicationCredentialCreden
 	}).(ApplicationCredentialCredentialTypePtrOutput)
 }
 
-func (o ApplicationCredentialCredentialTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCredentialCredentialType] {
-	return pulumix.Output[ApplicationCredentialCredentialType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationCredentialCredentialTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +111,6 @@ func (o ApplicationCredentialCredentialTypePtrOutput) ToApplicationCredentialCre
 	return o
 }
 
-func (o ApplicationCredentialCredentialTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCredentialCredentialType] {
-	return pulumix.Output[*ApplicationCredentialCredentialType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationCredentialCredentialTypePtrOutput) Elem() ApplicationCredentialCredentialTypeOutput {
 	return o.ApplyT(func(v *ApplicationCredentialCredentialType) ApplicationCredentialCredentialType {
 		if v != nil {
@@ -148,10 +135,10 @@ func (o ApplicationCredentialCredentialTypePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationCredentialCredentialTypeInput is an input type that accepts ApplicationCredentialCredentialTypeArgs and ApplicationCredentialCredentialTypeOutput values.
-// You can construct a concrete instance of `ApplicationCredentialCredentialTypeInput` via:
+// ApplicationCredentialCredentialTypeInput is an input type that accepts values of the ApplicationCredentialCredentialType enum
+// A concrete instance of `ApplicationCredentialCredentialTypeInput` can be one of the following:
 //
-//	ApplicationCredentialCredentialTypeArgs{...}
+//	ApplicationCredentialCredentialTypeAdmin
 type ApplicationCredentialCredentialTypeInput interface {
 	pulumi.Input
 
@@ -184,12 +171,6 @@ func (in *applicationCredentialCredentialTypePtr) ToApplicationCredentialCredent
 
 func (in *applicationCredentialCredentialTypePtr) ToApplicationCredentialCredentialTypePtrOutputWithContext(ctx context.Context) ApplicationCredentialCredentialTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationCredentialCredentialTypePtrOutput)
-}
-
-func (in *applicationCredentialCredentialTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCredentialCredentialType] {
-	return pulumix.Output[*ApplicationCredentialCredentialType]{
-		OutputState: in.ToApplicationCredentialCredentialTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ApplicationType string
@@ -258,12 +239,6 @@ func (o ApplicationTypeOutput) ToApplicationTypePtrOutputWithContext(ctx context
 	}).(ApplicationTypePtrOutput)
 }
 
-func (o ApplicationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationType] {
-	return pulumix.Output[ApplicationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -299,12 +274,6 @@ func (o ApplicationTypePtrOutput) ToApplicationTypePtrOutputWithContext(ctx cont
 	return o
 }
 
-func (o ApplicationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationType] {
-	return pulumix.Output[*ApplicationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationTypePtrOutput) Elem() ApplicationTypeOutput {
 	return o.ApplyT(func(v *ApplicationType) ApplicationType {
 		if v != nil {
@@ -329,10 +298,10 @@ func (o ApplicationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationTypeInput is an input type that accepts ApplicationTypeArgs and ApplicationTypeOutput values.
-// You can construct a concrete instance of `ApplicationTypeInput` via:
+// ApplicationTypeInput is an input type that accepts values of the ApplicationType enum
+// A concrete instance of `ApplicationTypeInput` can be one of the following:
 //
-//	ApplicationTypeArgs{...}
+//	ApplicationTypeHana
 type ApplicationTypeInput interface {
 	pulumi.Input
 
@@ -365,12 +334,6 @@ func (in *applicationTypePtr) ToApplicationTypePtrOutput() ApplicationTypePtrOut
 
 func (in *applicationTypePtr) ToApplicationTypePtrOutputWithContext(ctx context.Context) ApplicationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationTypePtrOutput)
-}
-
-func (in *applicationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationType] {
-	return pulumix.Output[*ApplicationType]{
-		OutputState: in.ToApplicationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

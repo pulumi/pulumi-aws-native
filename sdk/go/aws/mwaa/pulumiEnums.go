@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA.
@@ -79,12 +78,6 @@ func (o EnvironmentEndpointManagementOutput) ToEnvironmentEndpointManagementPtrO
 	}).(EnvironmentEndpointManagementPtrOutput)
 }
 
-func (o EnvironmentEndpointManagementOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentEndpointManagement] {
-	return pulumix.Output[EnvironmentEndpointManagement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentEndpointManagementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o EnvironmentEndpointManagementPtrOutput) ToEnvironmentEndpointManagementP
 	return o
 }
 
-func (o EnvironmentEndpointManagementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentEndpointManagement] {
-	return pulumix.Output[*EnvironmentEndpointManagement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentEndpointManagementPtrOutput) Elem() EnvironmentEndpointManagementOutput {
 	return o.ApplyT(func(v *EnvironmentEndpointManagement) EnvironmentEndpointManagement {
 		if v != nil {
@@ -150,10 +137,11 @@ func (o EnvironmentEndpointManagementPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentEndpointManagementInput is an input type that accepts EnvironmentEndpointManagementArgs and EnvironmentEndpointManagementOutput values.
-// You can construct a concrete instance of `EnvironmentEndpointManagementInput` via:
+// EnvironmentEndpointManagementInput is an input type that accepts values of the EnvironmentEndpointManagement enum
+// A concrete instance of `EnvironmentEndpointManagementInput` can be one of the following:
 //
-//	EnvironmentEndpointManagementArgs{...}
+//	EnvironmentEndpointManagementCustomer
+//	EnvironmentEndpointManagementService
 type EnvironmentEndpointManagementInput interface {
 	pulumi.Input
 
@@ -186,12 +174,6 @@ func (in *environmentEndpointManagementPtr) ToEnvironmentEndpointManagementPtrOu
 
 func (in *environmentEndpointManagementPtr) ToEnvironmentEndpointManagementPtrOutputWithContext(ctx context.Context) EnvironmentEndpointManagementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentEndpointManagementPtrOutput)
-}
-
-func (in *environmentEndpointManagementPtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentEndpointManagement] {
-	return pulumix.Output[*EnvironmentEndpointManagement]{
-		OutputState: in.ToEnvironmentEndpointManagementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type EnvironmentLoggingLevel string
@@ -264,12 +246,6 @@ func (o EnvironmentLoggingLevelOutput) ToEnvironmentLoggingLevelPtrOutputWithCon
 	}).(EnvironmentLoggingLevelPtrOutput)
 }
 
-func (o EnvironmentLoggingLevelOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingLevel] {
-	return pulumix.Output[EnvironmentLoggingLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentLoggingLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -305,12 +281,6 @@ func (o EnvironmentLoggingLevelPtrOutput) ToEnvironmentLoggingLevelPtrOutputWith
 	return o
 }
 
-func (o EnvironmentLoggingLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingLevel] {
-	return pulumix.Output[*EnvironmentLoggingLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentLoggingLevelPtrOutput) Elem() EnvironmentLoggingLevelOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingLevel) EnvironmentLoggingLevel {
 		if v != nil {
@@ -335,10 +305,14 @@ func (o EnvironmentLoggingLevelPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentLoggingLevelInput is an input type that accepts EnvironmentLoggingLevelArgs and EnvironmentLoggingLevelOutput values.
-// You can construct a concrete instance of `EnvironmentLoggingLevelInput` via:
+// EnvironmentLoggingLevelInput is an input type that accepts values of the EnvironmentLoggingLevel enum
+// A concrete instance of `EnvironmentLoggingLevelInput` can be one of the following:
 //
-//	EnvironmentLoggingLevelArgs{...}
+//	EnvironmentLoggingLevelCritical
+//	EnvironmentLoggingLevelError
+//	EnvironmentLoggingLevelWarning
+//	EnvironmentLoggingLevelInfo
+//	EnvironmentLoggingLevelDebug
 type EnvironmentLoggingLevelInput interface {
 	pulumi.Input
 
@@ -371,12 +345,6 @@ func (in *environmentLoggingLevelPtr) ToEnvironmentLoggingLevelPtrOutput() Envir
 
 func (in *environmentLoggingLevelPtr) ToEnvironmentLoggingLevelPtrOutputWithContext(ctx context.Context) EnvironmentLoggingLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentLoggingLevelPtrOutput)
-}
-
-func (in *environmentLoggingLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingLevel] {
-	return pulumix.Output[*EnvironmentLoggingLevel]{
-		OutputState: in.ToEnvironmentLoggingLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Choice for mode of webserver access including over public internet or via private VPC endpoint.
@@ -447,12 +415,6 @@ func (o EnvironmentWebserverAccessModeOutput) ToEnvironmentWebserverAccessModePt
 	}).(EnvironmentWebserverAccessModePtrOutput)
 }
 
-func (o EnvironmentWebserverAccessModeOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentWebserverAccessMode] {
-	return pulumix.Output[EnvironmentWebserverAccessMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentWebserverAccessModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -488,12 +450,6 @@ func (o EnvironmentWebserverAccessModePtrOutput) ToEnvironmentWebserverAccessMod
 	return o
 }
 
-func (o EnvironmentWebserverAccessModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentWebserverAccessMode] {
-	return pulumix.Output[*EnvironmentWebserverAccessMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentWebserverAccessModePtrOutput) Elem() EnvironmentWebserverAccessModeOutput {
 	return o.ApplyT(func(v *EnvironmentWebserverAccessMode) EnvironmentWebserverAccessMode {
 		if v != nil {
@@ -518,10 +474,11 @@ func (o EnvironmentWebserverAccessModePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentWebserverAccessModeInput is an input type that accepts EnvironmentWebserverAccessModeArgs and EnvironmentWebserverAccessModeOutput values.
-// You can construct a concrete instance of `EnvironmentWebserverAccessModeInput` via:
+// EnvironmentWebserverAccessModeInput is an input type that accepts values of the EnvironmentWebserverAccessMode enum
+// A concrete instance of `EnvironmentWebserverAccessModeInput` can be one of the following:
 //
-//	EnvironmentWebserverAccessModeArgs{...}
+//	EnvironmentWebserverAccessModePrivateOnly
+//	EnvironmentWebserverAccessModePublicOnly
 type EnvironmentWebserverAccessModeInput interface {
 	pulumi.Input
 
@@ -554,12 +511,6 @@ func (in *environmentWebserverAccessModePtr) ToEnvironmentWebserverAccessModePtr
 
 func (in *environmentWebserverAccessModePtr) ToEnvironmentWebserverAccessModePtrOutputWithContext(ctx context.Context) EnvironmentWebserverAccessModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentWebserverAccessModePtrOutput)
-}
-
-func (in *environmentWebserverAccessModePtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentWebserverAccessMode] {
-	return pulumix.Output[*EnvironmentWebserverAccessMode]{
-		OutputState: in.ToEnvironmentWebserverAccessModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

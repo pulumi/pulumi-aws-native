@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Evidently::Experiment.
@@ -148,12 +147,6 @@ func (i *Experiment) ToExperimentOutputWithContext(ctx context.Context) Experime
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentOutput)
 }
 
-func (i *Experiment) ToOutput(ctx context.Context) pulumix.Output[*Experiment] {
-	return pulumix.Output[*Experiment]{
-		OutputState: i.ToExperimentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExperimentOutput struct{ *pulumi.OutputState }
 
 func (ExperimentOutput) ElementType() reflect.Type {
@@ -166,12 +159,6 @@ func (o ExperimentOutput) ToExperimentOutput() ExperimentOutput {
 
 func (o ExperimentOutput) ToExperimentOutputWithContext(ctx context.Context) ExperimentOutput {
 	return o
-}
-
-func (o ExperimentOutput) ToOutput(ctx context.Context) pulumix.Output[*Experiment] {
-	return pulumix.Output[*Experiment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExperimentOutput) Arn() pulumi.StringOutput {

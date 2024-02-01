@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
@@ -64,12 +63,6 @@ func (o LookupLogAnomalyDetectionIntegrationResultOutput) ToLookupLogAnomalyDete
 
 func (o LookupLogAnomalyDetectionIntegrationResultOutput) ToLookupLogAnomalyDetectionIntegrationResultOutputWithContext(ctx context.Context) LookupLogAnomalyDetectionIntegrationResultOutput {
 	return o
-}
-
-func (o LookupLogAnomalyDetectionIntegrationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLogAnomalyDetectionIntegrationResult] {
-	return pulumix.Output[LookupLogAnomalyDetectionIntegrationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupLogAnomalyDetectionIntegrationResultOutput) AccountId() pulumi.StringPtrOutput {

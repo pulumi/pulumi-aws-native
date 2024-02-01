@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MSK::Configuration
@@ -66,12 +65,6 @@ func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutput() Loo
 
 func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutputWithContext(ctx context.Context) LookupConfigurationResultOutput {
 	return o
-}
-
-func (o LookupConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigurationResult] {
-	return pulumix.Output[LookupConfigurationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupConfigurationResultOutput) Arn() pulumi.StringPtrOutput {

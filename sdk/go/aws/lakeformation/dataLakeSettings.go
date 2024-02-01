@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::LakeFormation::DataLakeSettings
@@ -119,12 +118,6 @@ func (i *DataLakeSettings) ToDataLakeSettingsOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsOutput)
 }
 
-func (i *DataLakeSettings) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettings] {
-	return pulumix.Output[*DataLakeSettings]{
-		OutputState: i.ToDataLakeSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataLakeSettingsOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsOutput) ElementType() reflect.Type {
@@ -137,12 +130,6 @@ func (o DataLakeSettingsOutput) ToDataLakeSettingsOutput() DataLakeSettingsOutpu
 
 func (o DataLakeSettingsOutput) ToDataLakeSettingsOutputWithContext(ctx context.Context) DataLakeSettingsOutput {
 	return o
-}
-
-func (o DataLakeSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettings] {
-	return pulumix.Output[*DataLakeSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataLakeSettingsOutput) Admins() DataLakeSettingsAdminsPtrOutput {

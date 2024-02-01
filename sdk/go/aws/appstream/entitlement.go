@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::Entitlement
@@ -119,12 +118,6 @@ func (i *Entitlement) ToEntitlementOutputWithContext(ctx context.Context) Entitl
 	return pulumi.ToOutputWithContext(ctx, i).(EntitlementOutput)
 }
 
-func (i *Entitlement) ToOutput(ctx context.Context) pulumix.Output[*Entitlement] {
-	return pulumix.Output[*Entitlement]{
-		OutputState: i.ToEntitlementOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EntitlementOutput struct{ *pulumi.OutputState }
 
 func (EntitlementOutput) ElementType() reflect.Type {
@@ -137,12 +130,6 @@ func (o EntitlementOutput) ToEntitlementOutput() EntitlementOutput {
 
 func (o EntitlementOutput) ToEntitlementOutputWithContext(ctx context.Context) EntitlementOutput {
 	return o
-}
-
-func (o EntitlementOutput) ToOutput(ctx context.Context) pulumix.Output[*Entitlement] {
-	return pulumix.Output[*Entitlement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EntitlementOutput) AppVisibility() pulumi.StringOutput {

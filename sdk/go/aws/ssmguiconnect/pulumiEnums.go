@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type PreferencesIdleConnectionAlertType string
@@ -77,12 +76,6 @@ func (o PreferencesIdleConnectionAlertTypeOutput) ToPreferencesIdleConnectionAle
 	}).(PreferencesIdleConnectionAlertTypePtrOutput)
 }
 
-func (o PreferencesIdleConnectionAlertTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PreferencesIdleConnectionAlertType] {
-	return pulumix.Output[PreferencesIdleConnectionAlertType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PreferencesIdleConnectionAlertTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +111,6 @@ func (o PreferencesIdleConnectionAlertTypePtrOutput) ToPreferencesIdleConnection
 	return o
 }
 
-func (o PreferencesIdleConnectionAlertTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PreferencesIdleConnectionAlertType] {
-	return pulumix.Output[*PreferencesIdleConnectionAlertType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PreferencesIdleConnectionAlertTypePtrOutput) Elem() PreferencesIdleConnectionAlertTypeOutput {
 	return o.ApplyT(func(v *PreferencesIdleConnectionAlertType) PreferencesIdleConnectionAlertType {
 		if v != nil {
@@ -148,10 +135,10 @@ func (o PreferencesIdleConnectionAlertTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// PreferencesIdleConnectionAlertTypeInput is an input type that accepts PreferencesIdleConnectionAlertTypeArgs and PreferencesIdleConnectionAlertTypeOutput values.
-// You can construct a concrete instance of `PreferencesIdleConnectionAlertTypeInput` via:
+// PreferencesIdleConnectionAlertTypeInput is an input type that accepts values of the PreferencesIdleConnectionAlertType enum
+// A concrete instance of `PreferencesIdleConnectionAlertTypeInput` can be one of the following:
 //
-//	PreferencesIdleConnectionAlertTypeArgs{...}
+//	PreferencesIdleConnectionAlertTypeMinutes
 type PreferencesIdleConnectionAlertTypeInput interface {
 	pulumi.Input
 
@@ -184,12 +171,6 @@ func (in *preferencesIdleConnectionAlertTypePtr) ToPreferencesIdleConnectionAler
 
 func (in *preferencesIdleConnectionAlertTypePtr) ToPreferencesIdleConnectionAlertTypePtrOutputWithContext(ctx context.Context) PreferencesIdleConnectionAlertTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PreferencesIdleConnectionAlertTypePtrOutput)
-}
-
-func (in *preferencesIdleConnectionAlertTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PreferencesIdleConnectionAlertType] {
-	return pulumix.Output[*PreferencesIdleConnectionAlertType]{
-		OutputState: in.ToPreferencesIdleConnectionAlertTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type PreferencesIdleConnectionTimeoutType string
@@ -258,12 +239,6 @@ func (o PreferencesIdleConnectionTimeoutTypeOutput) ToPreferencesIdleConnectionT
 	}).(PreferencesIdleConnectionTimeoutTypePtrOutput)
 }
 
-func (o PreferencesIdleConnectionTimeoutTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PreferencesIdleConnectionTimeoutType] {
-	return pulumix.Output[PreferencesIdleConnectionTimeoutType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PreferencesIdleConnectionTimeoutTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -299,12 +274,6 @@ func (o PreferencesIdleConnectionTimeoutTypePtrOutput) ToPreferencesIdleConnecti
 	return o
 }
 
-func (o PreferencesIdleConnectionTimeoutTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PreferencesIdleConnectionTimeoutType] {
-	return pulumix.Output[*PreferencesIdleConnectionTimeoutType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PreferencesIdleConnectionTimeoutTypePtrOutput) Elem() PreferencesIdleConnectionTimeoutTypeOutput {
 	return o.ApplyT(func(v *PreferencesIdleConnectionTimeoutType) PreferencesIdleConnectionTimeoutType {
 		if v != nil {
@@ -329,10 +298,10 @@ func (o PreferencesIdleConnectionTimeoutTypePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// PreferencesIdleConnectionTimeoutTypeInput is an input type that accepts PreferencesIdleConnectionTimeoutTypeArgs and PreferencesIdleConnectionTimeoutTypeOutput values.
-// You can construct a concrete instance of `PreferencesIdleConnectionTimeoutTypeInput` via:
+// PreferencesIdleConnectionTimeoutTypeInput is an input type that accepts values of the PreferencesIdleConnectionTimeoutType enum
+// A concrete instance of `PreferencesIdleConnectionTimeoutTypeInput` can be one of the following:
 //
-//	PreferencesIdleConnectionTimeoutTypeArgs{...}
+//	PreferencesIdleConnectionTimeoutTypeMinutes
 type PreferencesIdleConnectionTimeoutTypeInput interface {
 	pulumi.Input
 
@@ -365,12 +334,6 @@ func (in *preferencesIdleConnectionTimeoutTypePtr) ToPreferencesIdleConnectionTi
 
 func (in *preferencesIdleConnectionTimeoutTypePtr) ToPreferencesIdleConnectionTimeoutTypePtrOutputWithContext(ctx context.Context) PreferencesIdleConnectionTimeoutTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PreferencesIdleConnectionTimeoutTypePtrOutput)
-}
-
-func (in *preferencesIdleConnectionTimeoutTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PreferencesIdleConnectionTimeoutType] {
-	return pulumix.Output[*PreferencesIdleConnectionTimeoutType]{
-		OutputState: in.ToPreferencesIdleConnectionTimeoutTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

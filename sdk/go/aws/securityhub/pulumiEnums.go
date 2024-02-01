@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AutomationRuleDateRangeUnit string
@@ -77,12 +76,6 @@ func (o AutomationRuleDateRangeUnitOutput) ToAutomationRuleDateRangeUnitPtrOutpu
 	}).(AutomationRuleDateRangeUnitPtrOutput)
 }
 
-func (o AutomationRuleDateRangeUnitOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleDateRangeUnit] {
-	return pulumix.Output[AutomationRuleDateRangeUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleDateRangeUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +111,6 @@ func (o AutomationRuleDateRangeUnitPtrOutput) ToAutomationRuleDateRangeUnitPtrOu
 	return o
 }
 
-func (o AutomationRuleDateRangeUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleDateRangeUnit] {
-	return pulumix.Output[*AutomationRuleDateRangeUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleDateRangeUnitPtrOutput) Elem() AutomationRuleDateRangeUnitOutput {
 	return o.ApplyT(func(v *AutomationRuleDateRangeUnit) AutomationRuleDateRangeUnit {
 		if v != nil {
@@ -148,10 +135,10 @@ func (o AutomationRuleDateRangeUnitPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AutomationRuleDateRangeUnitInput is an input type that accepts AutomationRuleDateRangeUnitArgs and AutomationRuleDateRangeUnitOutput values.
-// You can construct a concrete instance of `AutomationRuleDateRangeUnitInput` via:
+// AutomationRuleDateRangeUnitInput is an input type that accepts values of the AutomationRuleDateRangeUnit enum
+// A concrete instance of `AutomationRuleDateRangeUnitInput` can be one of the following:
 //
-//	AutomationRuleDateRangeUnitArgs{...}
+//	AutomationRuleDateRangeUnitDays
 type AutomationRuleDateRangeUnitInput interface {
 	pulumi.Input
 
@@ -184,12 +171,6 @@ func (in *automationRuleDateRangeUnitPtr) ToAutomationRuleDateRangeUnitPtrOutput
 
 func (in *automationRuleDateRangeUnitPtr) ToAutomationRuleDateRangeUnitPtrOutputWithContext(ctx context.Context) AutomationRuleDateRangeUnitPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleDateRangeUnitPtrOutput)
-}
-
-func (in *automationRuleDateRangeUnitPtr) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleDateRangeUnit] {
-	return pulumix.Output[*AutomationRuleDateRangeUnit]{
-		OutputState: in.ToAutomationRuleDateRangeUnitPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AutomationRuleMapFilterComparison string
@@ -261,12 +242,6 @@ func (o AutomationRuleMapFilterComparisonOutput) ToAutomationRuleMapFilterCompar
 	}).(AutomationRuleMapFilterComparisonPtrOutput)
 }
 
-func (o AutomationRuleMapFilterComparisonOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleMapFilterComparison] {
-	return pulumix.Output[AutomationRuleMapFilterComparison]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleMapFilterComparisonOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +277,6 @@ func (o AutomationRuleMapFilterComparisonPtrOutput) ToAutomationRuleMapFilterCom
 	return o
 }
 
-func (o AutomationRuleMapFilterComparisonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleMapFilterComparison] {
-	return pulumix.Output[*AutomationRuleMapFilterComparison]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleMapFilterComparisonPtrOutput) Elem() AutomationRuleMapFilterComparisonOutput {
 	return o.ApplyT(func(v *AutomationRuleMapFilterComparison) AutomationRuleMapFilterComparison {
 		if v != nil {
@@ -332,10 +301,13 @@ func (o AutomationRuleMapFilterComparisonPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// AutomationRuleMapFilterComparisonInput is an input type that accepts AutomationRuleMapFilterComparisonArgs and AutomationRuleMapFilterComparisonOutput values.
-// You can construct a concrete instance of `AutomationRuleMapFilterComparisonInput` via:
+// AutomationRuleMapFilterComparisonInput is an input type that accepts values of the AutomationRuleMapFilterComparison enum
+// A concrete instance of `AutomationRuleMapFilterComparisonInput` can be one of the following:
 //
-//	AutomationRuleMapFilterComparisonArgs{...}
+//	AutomationRuleMapFilterComparisonEquals
+//	AutomationRuleMapFilterComparisonNotEquals
+//	AutomationRuleMapFilterComparisonContains
+//	AutomationRuleMapFilterComparisonNotContains
 type AutomationRuleMapFilterComparisonInput interface {
 	pulumi.Input
 
@@ -368,12 +340,6 @@ func (in *automationRuleMapFilterComparisonPtr) ToAutomationRuleMapFilterCompari
 
 func (in *automationRuleMapFilterComparisonPtr) ToAutomationRuleMapFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleMapFilterComparisonPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleMapFilterComparisonPtrOutput)
-}
-
-func (in *automationRuleMapFilterComparisonPtr) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleMapFilterComparison] {
-	return pulumix.Output[*AutomationRuleMapFilterComparison]{
-		OutputState: in.ToAutomationRuleMapFilterComparisonPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Status of the Rule upon creation
@@ -444,12 +410,6 @@ func (o AutomationRuleRuleStatusOutput) ToAutomationRuleRuleStatusPtrOutputWithC
 	}).(AutomationRuleRuleStatusPtrOutput)
 }
 
-func (o AutomationRuleRuleStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleRuleStatus] {
-	return pulumix.Output[AutomationRuleRuleStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -485,12 +445,6 @@ func (o AutomationRuleRuleStatusPtrOutput) ToAutomationRuleRuleStatusPtrOutputWi
 	return o
 }
 
-func (o AutomationRuleRuleStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleRuleStatus] {
-	return pulumix.Output[*AutomationRuleRuleStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleRuleStatusPtrOutput) Elem() AutomationRuleRuleStatusOutput {
 	return o.ApplyT(func(v *AutomationRuleRuleStatus) AutomationRuleRuleStatus {
 		if v != nil {
@@ -515,10 +469,11 @@ func (o AutomationRuleRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AutomationRuleRuleStatusInput is an input type that accepts AutomationRuleRuleStatusArgs and AutomationRuleRuleStatusOutput values.
-// You can construct a concrete instance of `AutomationRuleRuleStatusInput` via:
+// AutomationRuleRuleStatusInput is an input type that accepts values of the AutomationRuleRuleStatus enum
+// A concrete instance of `AutomationRuleRuleStatusInput` can be one of the following:
 //
-//	AutomationRuleRuleStatusArgs{...}
+//	AutomationRuleRuleStatusEnabled
+//	AutomationRuleRuleStatusDisabled
 type AutomationRuleRuleStatusInput interface {
 	pulumi.Input
 
@@ -551,12 +506,6 @@ func (in *automationRuleRuleStatusPtr) ToAutomationRuleRuleStatusPtrOutput() Aut
 
 func (in *automationRuleRuleStatusPtr) ToAutomationRuleRuleStatusPtrOutputWithContext(ctx context.Context) AutomationRuleRuleStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleRuleStatusPtrOutput)
-}
-
-func (in *automationRuleRuleStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleRuleStatus] {
-	return pulumix.Output[*AutomationRuleRuleStatus]{
-		OutputState: in.ToAutomationRuleRuleStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AutomationRuleSeverityUpdateLabel string
@@ -629,12 +578,6 @@ func (o AutomationRuleSeverityUpdateLabelOutput) ToAutomationRuleSeverityUpdateL
 	}).(AutomationRuleSeverityUpdateLabelPtrOutput)
 }
 
-func (o AutomationRuleSeverityUpdateLabelOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleSeverityUpdateLabel] {
-	return pulumix.Output[AutomationRuleSeverityUpdateLabel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleSeverityUpdateLabelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -670,12 +613,6 @@ func (o AutomationRuleSeverityUpdateLabelPtrOutput) ToAutomationRuleSeverityUpda
 	return o
 }
 
-func (o AutomationRuleSeverityUpdateLabelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleSeverityUpdateLabel] {
-	return pulumix.Output[*AutomationRuleSeverityUpdateLabel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleSeverityUpdateLabelPtrOutput) Elem() AutomationRuleSeverityUpdateLabelOutput {
 	return o.ApplyT(func(v *AutomationRuleSeverityUpdateLabel) AutomationRuleSeverityUpdateLabel {
 		if v != nil {
@@ -700,10 +637,14 @@ func (o AutomationRuleSeverityUpdateLabelPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// AutomationRuleSeverityUpdateLabelInput is an input type that accepts AutomationRuleSeverityUpdateLabelArgs and AutomationRuleSeverityUpdateLabelOutput values.
-// You can construct a concrete instance of `AutomationRuleSeverityUpdateLabelInput` via:
+// AutomationRuleSeverityUpdateLabelInput is an input type that accepts values of the AutomationRuleSeverityUpdateLabel enum
+// A concrete instance of `AutomationRuleSeverityUpdateLabelInput` can be one of the following:
 //
-//	AutomationRuleSeverityUpdateLabelArgs{...}
+//	AutomationRuleSeverityUpdateLabelInformational
+//	AutomationRuleSeverityUpdateLabelLow
+//	AutomationRuleSeverityUpdateLabelMedium
+//	AutomationRuleSeverityUpdateLabelHigh
+//	AutomationRuleSeverityUpdateLabelCritical
 type AutomationRuleSeverityUpdateLabelInput interface {
 	pulumi.Input
 
@@ -736,12 +677,6 @@ func (in *automationRuleSeverityUpdateLabelPtr) ToAutomationRuleSeverityUpdateLa
 
 func (in *automationRuleSeverityUpdateLabelPtr) ToAutomationRuleSeverityUpdateLabelPtrOutputWithContext(ctx context.Context) AutomationRuleSeverityUpdateLabelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleSeverityUpdateLabelPtrOutput)
-}
-
-func (in *automationRuleSeverityUpdateLabelPtr) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleSeverityUpdateLabel] {
-	return pulumix.Output[*AutomationRuleSeverityUpdateLabel]{
-		OutputState: in.ToAutomationRuleSeverityUpdateLabelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AutomationRuleStringFilterComparison string
@@ -815,12 +750,6 @@ func (o AutomationRuleStringFilterComparisonOutput) ToAutomationRuleStringFilter
 	}).(AutomationRuleStringFilterComparisonPtrOutput)
 }
 
-func (o AutomationRuleStringFilterComparisonOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleStringFilterComparison] {
-	return pulumix.Output[AutomationRuleStringFilterComparison]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleStringFilterComparisonOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -856,12 +785,6 @@ func (o AutomationRuleStringFilterComparisonPtrOutput) ToAutomationRuleStringFil
 	return o
 }
 
-func (o AutomationRuleStringFilterComparisonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleStringFilterComparison] {
-	return pulumix.Output[*AutomationRuleStringFilterComparison]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleStringFilterComparisonPtrOutput) Elem() AutomationRuleStringFilterComparisonOutput {
 	return o.ApplyT(func(v *AutomationRuleStringFilterComparison) AutomationRuleStringFilterComparison {
 		if v != nil {
@@ -886,10 +809,15 @@ func (o AutomationRuleStringFilterComparisonPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AutomationRuleStringFilterComparisonInput is an input type that accepts AutomationRuleStringFilterComparisonArgs and AutomationRuleStringFilterComparisonOutput values.
-// You can construct a concrete instance of `AutomationRuleStringFilterComparisonInput` via:
+// AutomationRuleStringFilterComparisonInput is an input type that accepts values of the AutomationRuleStringFilterComparison enum
+// A concrete instance of `AutomationRuleStringFilterComparisonInput` can be one of the following:
 //
-//	AutomationRuleStringFilterComparisonArgs{...}
+//	AutomationRuleStringFilterComparisonEquals
+//	AutomationRuleStringFilterComparisonPrefix
+//	AutomationRuleStringFilterComparisonNotEquals
+//	AutomationRuleStringFilterComparisonPrefixNotEquals
+//	AutomationRuleStringFilterComparisonContains
+//	AutomationRuleStringFilterComparisonNotContains
 type AutomationRuleStringFilterComparisonInput interface {
 	pulumi.Input
 
@@ -922,12 +850,6 @@ func (in *automationRuleStringFilterComparisonPtr) ToAutomationRuleStringFilterC
 
 func (in *automationRuleStringFilterComparisonPtr) ToAutomationRuleStringFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleStringFilterComparisonPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleStringFilterComparisonPtrOutput)
-}
-
-func (in *automationRuleStringFilterComparisonPtr) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleStringFilterComparison] {
-	return pulumix.Output[*AutomationRuleStringFilterComparison]{
-		OutputState: in.ToAutomationRuleStringFilterComparisonPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AutomationRuleWorkflowUpdateStatus string
@@ -999,12 +921,6 @@ func (o AutomationRuleWorkflowUpdateStatusOutput) ToAutomationRuleWorkflowUpdate
 	}).(AutomationRuleWorkflowUpdateStatusPtrOutput)
 }
 
-func (o AutomationRuleWorkflowUpdateStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleWorkflowUpdateStatus] {
-	return pulumix.Output[AutomationRuleWorkflowUpdateStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleWorkflowUpdateStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1040,12 +956,6 @@ func (o AutomationRuleWorkflowUpdateStatusPtrOutput) ToAutomationRuleWorkflowUpd
 	return o
 }
 
-func (o AutomationRuleWorkflowUpdateStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleWorkflowUpdateStatus] {
-	return pulumix.Output[*AutomationRuleWorkflowUpdateStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleWorkflowUpdateStatusPtrOutput) Elem() AutomationRuleWorkflowUpdateStatusOutput {
 	return o.ApplyT(func(v *AutomationRuleWorkflowUpdateStatus) AutomationRuleWorkflowUpdateStatus {
 		if v != nil {
@@ -1070,10 +980,13 @@ func (o AutomationRuleWorkflowUpdateStatusPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// AutomationRuleWorkflowUpdateStatusInput is an input type that accepts AutomationRuleWorkflowUpdateStatusArgs and AutomationRuleWorkflowUpdateStatusOutput values.
-// You can construct a concrete instance of `AutomationRuleWorkflowUpdateStatusInput` via:
+// AutomationRuleWorkflowUpdateStatusInput is an input type that accepts values of the AutomationRuleWorkflowUpdateStatus enum
+// A concrete instance of `AutomationRuleWorkflowUpdateStatusInput` can be one of the following:
 //
-//	AutomationRuleWorkflowUpdateStatusArgs{...}
+//	AutomationRuleWorkflowUpdateStatusNew
+//	AutomationRuleWorkflowUpdateStatusNotified
+//	AutomationRuleWorkflowUpdateStatusResolved
+//	AutomationRuleWorkflowUpdateStatusSuppressed
 type AutomationRuleWorkflowUpdateStatusInput interface {
 	pulumi.Input
 
@@ -1106,12 +1019,6 @@ func (in *automationRuleWorkflowUpdateStatusPtr) ToAutomationRuleWorkflowUpdateS
 
 func (in *automationRuleWorkflowUpdateStatusPtr) ToAutomationRuleWorkflowUpdateStatusPtrOutputWithContext(ctx context.Context) AutomationRuleWorkflowUpdateStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleWorkflowUpdateStatusPtrOutput)
-}
-
-func (in *automationRuleWorkflowUpdateStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleWorkflowUpdateStatus] {
-	return pulumix.Output[*AutomationRuleWorkflowUpdateStatus]{
-		OutputState: in.ToAutomationRuleWorkflowUpdateStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AutomationRulesActionType string
@@ -1180,12 +1087,6 @@ func (o AutomationRulesActionTypeOutput) ToAutomationRulesActionTypePtrOutputWit
 	}).(AutomationRulesActionTypePtrOutput)
 }
 
-func (o AutomationRulesActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRulesActionType] {
-	return pulumix.Output[AutomationRulesActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRulesActionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1221,12 +1122,6 @@ func (o AutomationRulesActionTypePtrOutput) ToAutomationRulesActionTypePtrOutput
 	return o
 }
 
-func (o AutomationRulesActionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRulesActionType] {
-	return pulumix.Output[*AutomationRulesActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRulesActionTypePtrOutput) Elem() AutomationRulesActionTypeOutput {
 	return o.ApplyT(func(v *AutomationRulesActionType) AutomationRulesActionType {
 		if v != nil {
@@ -1251,10 +1146,10 @@ func (o AutomationRulesActionTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AutomationRulesActionTypeInput is an input type that accepts AutomationRulesActionTypeArgs and AutomationRulesActionTypeOutput values.
-// You can construct a concrete instance of `AutomationRulesActionTypeInput` via:
+// AutomationRulesActionTypeInput is an input type that accepts values of the AutomationRulesActionType enum
+// A concrete instance of `AutomationRulesActionTypeInput` can be one of the following:
 //
-//	AutomationRulesActionTypeArgs{...}
+//	AutomationRulesActionTypeFindingFieldsUpdate
 type AutomationRulesActionTypeInput interface {
 	pulumi.Input
 
@@ -1287,12 +1182,6 @@ func (in *automationRulesActionTypePtr) ToAutomationRulesActionTypePtrOutput() A
 
 func (in *automationRulesActionTypePtr) ToAutomationRulesActionTypePtrOutputWithContext(ctx context.Context) AutomationRulesActionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRulesActionTypePtrOutput)
-}
-
-func (in *automationRulesActionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AutomationRulesActionType] {
-	return pulumix.Output[*AutomationRulesActionType]{
-		OutputState: in.ToAutomationRulesActionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type AutomationRulesFindingFieldsUpdateVerificationState string
@@ -1364,12 +1253,6 @@ func (o AutomationRulesFindingFieldsUpdateVerificationStateOutput) ToAutomationR
 	}).(AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput)
 }
 
-func (o AutomationRulesFindingFieldsUpdateVerificationStateOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRulesFindingFieldsUpdateVerificationState] {
-	return pulumix.Output[AutomationRulesFindingFieldsUpdateVerificationState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRulesFindingFieldsUpdateVerificationStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1405,12 +1288,6 @@ func (o AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput) ToAutomati
 	return o
 }
 
-func (o AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRulesFindingFieldsUpdateVerificationState] {
-	return pulumix.Output[*AutomationRulesFindingFieldsUpdateVerificationState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput) Elem() AutomationRulesFindingFieldsUpdateVerificationStateOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFieldsUpdateVerificationState) AutomationRulesFindingFieldsUpdateVerificationState {
 		if v != nil {
@@ -1435,10 +1312,13 @@ func (o AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// AutomationRulesFindingFieldsUpdateVerificationStateInput is an input type that accepts AutomationRulesFindingFieldsUpdateVerificationStateArgs and AutomationRulesFindingFieldsUpdateVerificationStateOutput values.
-// You can construct a concrete instance of `AutomationRulesFindingFieldsUpdateVerificationStateInput` via:
+// AutomationRulesFindingFieldsUpdateVerificationStateInput is an input type that accepts values of the AutomationRulesFindingFieldsUpdateVerificationState enum
+// A concrete instance of `AutomationRulesFindingFieldsUpdateVerificationStateInput` can be one of the following:
 //
-//	AutomationRulesFindingFieldsUpdateVerificationStateArgs{...}
+//	AutomationRulesFindingFieldsUpdateVerificationStateUnknown
+//	AutomationRulesFindingFieldsUpdateVerificationStateTruePositive
+//	AutomationRulesFindingFieldsUpdateVerificationStateFalsePositive
+//	AutomationRulesFindingFieldsUpdateVerificationStateBenignPositive
 type AutomationRulesFindingFieldsUpdateVerificationStateInput interface {
 	pulumi.Input
 
@@ -1471,12 +1351,6 @@ func (in *automationRulesFindingFieldsUpdateVerificationStatePtr) ToAutomationRu
 
 func (in *automationRulesFindingFieldsUpdateVerificationStatePtr) ToAutomationRulesFindingFieldsUpdateVerificationStatePtrOutputWithContext(ctx context.Context) AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput)
-}
-
-func (in *automationRulesFindingFieldsUpdateVerificationStatePtr) ToOutput(ctx context.Context) pulumix.Output[*AutomationRulesFindingFieldsUpdateVerificationState] {
-	return pulumix.Output[*AutomationRulesFindingFieldsUpdateVerificationState]{
-		OutputState: in.ToAutomationRulesFindingFieldsUpdateVerificationStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

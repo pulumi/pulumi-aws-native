@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
@@ -108,12 +107,6 @@ func (i *SamplingRule) ToSamplingRuleOutputWithContext(ctx context.Context) Samp
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleOutput)
 }
 
-func (i *SamplingRule) ToOutput(ctx context.Context) pulumix.Output[*SamplingRule] {
-	return pulumix.Output[*SamplingRule]{
-		OutputState: i.ToSamplingRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SamplingRuleOutput struct{ *pulumi.OutputState }
 
 func (SamplingRuleOutput) ElementType() reflect.Type {
@@ -126,12 +119,6 @@ func (o SamplingRuleOutput) ToSamplingRuleOutput() SamplingRuleOutput {
 
 func (o SamplingRuleOutput) ToSamplingRuleOutputWithContext(ctx context.Context) SamplingRuleOutput {
 	return o
-}
-
-func (o SamplingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SamplingRule] {
-	return pulumix.Output[*SamplingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SamplingRuleOutput) RuleArn() pulumi.StringOutput {

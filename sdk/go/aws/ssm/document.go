@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
@@ -156,12 +155,6 @@ func (i *Document) ToDocumentOutputWithContext(ctx context.Context) DocumentOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentOutput)
 }
 
-func (i *Document) ToOutput(ctx context.Context) pulumix.Output[*Document] {
-	return pulumix.Output[*Document]{
-		OutputState: i.ToDocumentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentOutput struct{ *pulumi.OutputState }
 
 func (DocumentOutput) ElementType() reflect.Type {
@@ -174,12 +167,6 @@ func (o DocumentOutput) ToDocumentOutput() DocumentOutput {
 
 func (o DocumentOutput) ToDocumentOutputWithContext(ctx context.Context) DocumentOutput {
 	return o
-}
-
-func (o DocumentOutput) ToOutput(ctx context.Context) pulumix.Output[*Document] {
-	return pulumix.Output[*Document]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of key and value pairs that describe attachments to a version of a document.

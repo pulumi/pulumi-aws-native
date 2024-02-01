@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::TransitGatewayMulticastDomain type
@@ -121,12 +120,6 @@ func (i *TransitGatewayMulticastDomain) ToTransitGatewayMulticastDomainOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayMulticastDomainOutput)
 }
 
-func (i *TransitGatewayMulticastDomain) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayMulticastDomain] {
-	return pulumix.Output[*TransitGatewayMulticastDomain]{
-		OutputState: i.ToTransitGatewayMulticastDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransitGatewayMulticastDomainOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayMulticastDomainOutput) ElementType() reflect.Type {
@@ -139,12 +132,6 @@ func (o TransitGatewayMulticastDomainOutput) ToTransitGatewayMulticastDomainOutp
 
 func (o TransitGatewayMulticastDomainOutput) ToTransitGatewayMulticastDomainOutputWithContext(ctx context.Context) TransitGatewayMulticastDomainOutput {
 	return o
-}
-
-func (o TransitGatewayMulticastDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayMulticastDomain] {
-	return pulumix.Output[*TransitGatewayMulticastDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time the transit gateway multicast domain was created.

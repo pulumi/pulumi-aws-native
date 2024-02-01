@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a table that can be queried within a collaboration
@@ -126,12 +125,6 @@ func (i *ConfiguredTableAssociation) ToConfiguredTableAssociationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationOutput)
 }
 
-func (i *ConfiguredTableAssociation) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTableAssociation] {
-	return pulumix.Output[*ConfiguredTableAssociation]{
-		OutputState: i.ToConfiguredTableAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfiguredTableAssociationOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableAssociationOutput) ElementType() reflect.Type {
@@ -144,12 +137,6 @@ func (o ConfiguredTableAssociationOutput) ToConfiguredTableAssociationOutput() C
 
 func (o ConfiguredTableAssociationOutput) ToConfiguredTableAssociationOutputWithContext(ctx context.Context) ConfiguredTableAssociationOutput {
 	return o
-}
-
-func (o ConfiguredTableAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTableAssociation] {
-	return pulumix.Output[*ConfiguredTableAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfiguredTableAssociationOutput) Arn() pulumi.StringOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::TrafficMirrorTarget
@@ -111,12 +110,6 @@ func (i *TrafficMirrorTarget) ToTrafficMirrorTargetOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorTargetOutput)
 }
 
-func (i *TrafficMirrorTarget) ToOutput(ctx context.Context) pulumix.Output[*TrafficMirrorTarget] {
-	return pulumix.Output[*TrafficMirrorTarget]{
-		OutputState: i.ToTrafficMirrorTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrafficMirrorTargetOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorTargetOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o TrafficMirrorTargetOutput) ToTrafficMirrorTargetOutput() TrafficMirrorTa
 
 func (o TrafficMirrorTargetOutput) ToTrafficMirrorTargetOutputWithContext(ctx context.Context) TrafficMirrorTargetOutput {
 	return o
-}
-
-func (o TrafficMirrorTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficMirrorTarget] {
-	return pulumix.Output[*TrafficMirrorTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrafficMirrorTargetOutput) Description() pulumi.StringPtrOutput {

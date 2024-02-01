@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // If `ENABLED`, the Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
@@ -80,12 +79,6 @@ func (o ProactiveEngagementStatusOutput) ToProactiveEngagementStatusPtrOutputWit
 	}).(ProactiveEngagementStatusPtrOutput)
 }
 
-func (o ProactiveEngagementStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ProactiveEngagementStatus] {
-	return pulumix.Output[ProactiveEngagementStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProactiveEngagementStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +114,6 @@ func (o ProactiveEngagementStatusPtrOutput) ToProactiveEngagementStatusPtrOutput
 	return o
 }
 
-func (o ProactiveEngagementStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProactiveEngagementStatus] {
-	return pulumix.Output[*ProactiveEngagementStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProactiveEngagementStatusPtrOutput) Elem() ProactiveEngagementStatusOutput {
 	return o.ApplyT(func(v *ProactiveEngagementStatus) ProactiveEngagementStatus {
 		if v != nil {
@@ -151,10 +138,11 @@ func (o ProactiveEngagementStatusPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProactiveEngagementStatusInput is an input type that accepts ProactiveEngagementStatusArgs and ProactiveEngagementStatusOutput values.
-// You can construct a concrete instance of `ProactiveEngagementStatusInput` via:
+// ProactiveEngagementStatusInput is an input type that accepts values of the ProactiveEngagementStatus enum
+// A concrete instance of `ProactiveEngagementStatusInput` can be one of the following:
 //
-//	ProactiveEngagementStatusArgs{...}
+//	ProactiveEngagementStatusEnabled
+//	ProactiveEngagementStatusDisabled
 type ProactiveEngagementStatusInput interface {
 	pulumi.Input
 
@@ -187,12 +175,6 @@ func (in *proactiveEngagementStatusPtr) ToProactiveEngagementStatusPtrOutput() P
 
 func (in *proactiveEngagementStatusPtr) ToProactiveEngagementStatusPtrOutputWithContext(ctx context.Context) ProactiveEngagementStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ProactiveEngagementStatusPtrOutput)
-}
-
-func (in *proactiveEngagementStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*ProactiveEngagementStatus] {
-	return pulumix.Output[*ProactiveEngagementStatus]{
-		OutputState: in.ToProactiveEngagementStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
@@ -263,12 +245,6 @@ func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput) To
 	}).(ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput)
 }
 
-func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionApplicationLayerAutomaticResponseConfigurationStatus] {
-	return pulumix.Output[ProtectionApplicationLayerAutomaticResponseConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -304,12 +280,6 @@ func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput)
 	return o
 }
 
-func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfigurationStatus] {
-	return pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput) Elem() ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput {
 	return o.ApplyT(func(v *ProtectionApplicationLayerAutomaticResponseConfigurationStatus) ProtectionApplicationLayerAutomaticResponseConfigurationStatus {
 		if v != nil {
@@ -334,10 +304,11 @@ func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProtectionApplicationLayerAutomaticResponseConfigurationStatusInput is an input type that accepts ProtectionApplicationLayerAutomaticResponseConfigurationStatusArgs and ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput values.
-// You can construct a concrete instance of `ProtectionApplicationLayerAutomaticResponseConfigurationStatusInput` via:
+// ProtectionApplicationLayerAutomaticResponseConfigurationStatusInput is an input type that accepts values of the ProtectionApplicationLayerAutomaticResponseConfigurationStatus enum
+// A concrete instance of `ProtectionApplicationLayerAutomaticResponseConfigurationStatusInput` can be one of the following:
 //
-//	ProtectionApplicationLayerAutomaticResponseConfigurationStatusArgs{...}
+//	ProtectionApplicationLayerAutomaticResponseConfigurationStatusEnabled
+//	ProtectionApplicationLayerAutomaticResponseConfigurationStatusDisabled
 type ProtectionApplicationLayerAutomaticResponseConfigurationStatusInput interface {
 	pulumi.Input
 
@@ -370,12 +341,6 @@ func (in *protectionApplicationLayerAutomaticResponseConfigurationStatusPtr) ToP
 
 func (in *protectionApplicationLayerAutomaticResponseConfigurationStatusPtr) ToProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutputWithContext(ctx context.Context) ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput)
-}
-
-func (in *protectionApplicationLayerAutomaticResponseConfigurationStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfigurationStatus] {
-	return pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfigurationStatus]{
-		OutputState: in.ToProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
@@ -450,12 +415,6 @@ func (o ProtectionGroupAggregationOutput) ToProtectionGroupAggregationPtrOutputW
 	}).(ProtectionGroupAggregationPtrOutput)
 }
 
-func (o ProtectionGroupAggregationOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupAggregation] {
-	return pulumix.Output[ProtectionGroupAggregation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupAggregationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -491,12 +450,6 @@ func (o ProtectionGroupAggregationPtrOutput) ToProtectionGroupAggregationPtrOutp
 	return o
 }
 
-func (o ProtectionGroupAggregationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupAggregation] {
-	return pulumix.Output[*ProtectionGroupAggregation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupAggregationPtrOutput) Elem() ProtectionGroupAggregationOutput {
 	return o.ApplyT(func(v *ProtectionGroupAggregation) ProtectionGroupAggregation {
 		if v != nil {
@@ -521,10 +474,12 @@ func (o ProtectionGroupAggregationPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProtectionGroupAggregationInput is an input type that accepts ProtectionGroupAggregationArgs and ProtectionGroupAggregationOutput values.
-// You can construct a concrete instance of `ProtectionGroupAggregationInput` via:
+// ProtectionGroupAggregationInput is an input type that accepts values of the ProtectionGroupAggregation enum
+// A concrete instance of `ProtectionGroupAggregationInput` can be one of the following:
 //
-//	ProtectionGroupAggregationArgs{...}
+//	ProtectionGroupAggregationSum
+//	ProtectionGroupAggregationMean
+//	ProtectionGroupAggregationMax
 type ProtectionGroupAggregationInput interface {
 	pulumi.Input
 
@@ -557,12 +512,6 @@ func (in *protectionGroupAggregationPtr) ToProtectionGroupAggregationPtrOutput()
 
 func (in *protectionGroupAggregationPtr) ToProtectionGroupAggregationPtrOutputWithContext(ctx context.Context) ProtectionGroupAggregationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectionGroupAggregationPtrOutput)
-}
-
-func (in *protectionGroupAggregationPtr) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupAggregation] {
-	return pulumix.Output[*ProtectionGroupAggregation]{
-		OutputState: in.ToProtectionGroupAggregationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.
@@ -634,12 +583,6 @@ func (o ProtectionGroupPatternOutput) ToProtectionGroupPatternPtrOutputWithConte
 	}).(ProtectionGroupPatternPtrOutput)
 }
 
-func (o ProtectionGroupPatternOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupPattern] {
-	return pulumix.Output[ProtectionGroupPattern]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupPatternOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -675,12 +618,6 @@ func (o ProtectionGroupPatternPtrOutput) ToProtectionGroupPatternPtrOutputWithCo
 	return o
 }
 
-func (o ProtectionGroupPatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupPattern] {
-	return pulumix.Output[*ProtectionGroupPattern]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupPatternPtrOutput) Elem() ProtectionGroupPatternOutput {
 	return o.ApplyT(func(v *ProtectionGroupPattern) ProtectionGroupPattern {
 		if v != nil {
@@ -705,10 +642,12 @@ func (o ProtectionGroupPatternPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProtectionGroupPatternInput is an input type that accepts ProtectionGroupPatternArgs and ProtectionGroupPatternOutput values.
-// You can construct a concrete instance of `ProtectionGroupPatternInput` via:
+// ProtectionGroupPatternInput is an input type that accepts values of the ProtectionGroupPattern enum
+// A concrete instance of `ProtectionGroupPatternInput` can be one of the following:
 //
-//	ProtectionGroupPatternArgs{...}
+//	ProtectionGroupPatternAll
+//	ProtectionGroupPatternArbitrary
+//	ProtectionGroupPatternByResourceType
 type ProtectionGroupPatternInput interface {
 	pulumi.Input
 
@@ -741,12 +680,6 @@ func (in *protectionGroupPatternPtr) ToProtectionGroupPatternPtrOutput() Protect
 
 func (in *protectionGroupPatternPtr) ToProtectionGroupPatternPtrOutputWithContext(ctx context.Context) ProtectionGroupPatternPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectionGroupPatternPtrOutput)
-}
-
-func (in *protectionGroupPatternPtr) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupPattern] {
-	return pulumix.Output[*ProtectionGroupPattern]{
-		OutputState: in.ToProtectionGroupPatternPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set `Pattern` to `BY_RESOURCE_TYPE` and you must not set it for any other `Pattern` setting.
@@ -821,12 +754,6 @@ func (o ProtectionGroupResourceTypeOutput) ToProtectionGroupResourceTypePtrOutpu
 	}).(ProtectionGroupResourceTypePtrOutput)
 }
 
-func (o ProtectionGroupResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupResourceType] {
-	return pulumix.Output[ProtectionGroupResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -862,12 +789,6 @@ func (o ProtectionGroupResourceTypePtrOutput) ToProtectionGroupResourceTypePtrOu
 	return o
 }
 
-func (o ProtectionGroupResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupResourceType] {
-	return pulumix.Output[*ProtectionGroupResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupResourceTypePtrOutput) Elem() ProtectionGroupResourceTypeOutput {
 	return o.ApplyT(func(v *ProtectionGroupResourceType) ProtectionGroupResourceType {
 		if v != nil {
@@ -892,10 +813,15 @@ func (o ProtectionGroupResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProtectionGroupResourceTypeInput is an input type that accepts ProtectionGroupResourceTypeArgs and ProtectionGroupResourceTypeOutput values.
-// You can construct a concrete instance of `ProtectionGroupResourceTypeInput` via:
+// ProtectionGroupResourceTypeInput is an input type that accepts values of the ProtectionGroupResourceType enum
+// A concrete instance of `ProtectionGroupResourceTypeInput` can be one of the following:
 //
-//	ProtectionGroupResourceTypeArgs{...}
+//	ProtectionGroupResourceTypeCloudfrontDistribution
+//	ProtectionGroupResourceTypeRoute53HostedZone
+//	ProtectionGroupResourceTypeElasticIpAllocation
+//	ProtectionGroupResourceTypeClassicLoadBalancer
+//	ProtectionGroupResourceTypeApplicationLoadBalancer
+//	ProtectionGroupResourceTypeGlobalAccelerator
 type ProtectionGroupResourceTypeInput interface {
 	pulumi.Input
 
@@ -928,12 +854,6 @@ func (in *protectionGroupResourceTypePtr) ToProtectionGroupResourceTypePtrOutput
 
 func (in *protectionGroupResourceTypePtr) ToProtectionGroupResourceTypePtrOutputWithContext(ctx context.Context) ProtectionGroupResourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectionGroupResourceTypePtrOutput)
-}
-
-func (in *protectionGroupResourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupResourceType] {
-	return pulumix.Output[*ProtectionGroupResourceType]{
-		OutputState: in.ToProtectionGroupResourceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WorkSpaces::ConnectionAlias
@@ -105,12 +104,6 @@ func (i *ConnectionAlias) ToConnectionAliasOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasOutput)
 }
 
-func (i *ConnectionAlias) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAlias] {
-	return pulumix.Output[*ConnectionAlias]{
-		OutputState: i.ToConnectionAliasOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectionAliasOutput struct{ *pulumi.OutputState }
 
 func (ConnectionAliasOutput) ElementType() reflect.Type {
@@ -123,12 +116,6 @@ func (o ConnectionAliasOutput) ToConnectionAliasOutput() ConnectionAliasOutput {
 
 func (o ConnectionAliasOutput) ToConnectionAliasOutputWithContext(ctx context.Context) ConnectionAliasOutput {
 	return o
-}
-
-func (o ConnectionAliasOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAlias] {
-	return pulumix.Output[*ConnectionAlias]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectionAliasOutput) AliasId() pulumi.StringOutput {

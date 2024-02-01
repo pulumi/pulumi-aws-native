@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::IoTFleetWise::SignalCatalog Resource Type
@@ -70,12 +69,6 @@ func (o LookupSignalCatalogResultOutput) ToLookupSignalCatalogResultOutput() Loo
 
 func (o LookupSignalCatalogResultOutput) ToLookupSignalCatalogResultOutputWithContext(ctx context.Context) LookupSignalCatalogResultOutput {
 	return o
-}
-
-func (o LookupSignalCatalogResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSignalCatalogResult] {
-	return pulumix.Output[LookupSignalCatalogResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSignalCatalogResultOutput) Arn() pulumi.StringPtrOutput {

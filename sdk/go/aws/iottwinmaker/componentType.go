@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::IoTTwinMaker::ComponentType
@@ -171,12 +170,6 @@ func (i *ComponentType) ToComponentTypeOutputWithContext(ctx context.Context) Co
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentTypeOutput)
 }
 
-func (i *ComponentType) ToOutput(ctx context.Context) pulumix.Output[*ComponentType] {
-	return pulumix.Output[*ComponentType]{
-		OutputState: i.ToComponentTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentTypeOutput struct{ *pulumi.OutputState }
 
 func (ComponentTypeOutput) ElementType() reflect.Type {
@@ -189,12 +182,6 @@ func (o ComponentTypeOutput) ToComponentTypeOutput() ComponentTypeOutput {
 
 func (o ComponentTypeOutput) ToComponentTypeOutputWithContext(ctx context.Context) ComponentTypeOutput {
 	return o
-}
-
-func (o ComponentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentType] {
-	return pulumix.Output[*ComponentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the component type.

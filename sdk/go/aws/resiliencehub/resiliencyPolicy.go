@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type Definition for Resiliency Policy.
@@ -129,12 +128,6 @@ func (i *ResiliencyPolicy) ToResiliencyPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyOutput)
 }
 
-func (i *ResiliencyPolicy) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicy] {
-	return pulumix.Output[*ResiliencyPolicy]{
-		OutputState: i.ToResiliencyPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResiliencyPolicyOutput struct{ *pulumi.OutputState }
 
 func (ResiliencyPolicyOutput) ElementType() reflect.Type {
@@ -147,12 +140,6 @@ func (o ResiliencyPolicyOutput) ToResiliencyPolicyOutput() ResiliencyPolicyOutpu
 
 func (o ResiliencyPolicyOutput) ToResiliencyPolicyOutputWithContext(ctx context.Context) ResiliencyPolicyOutput {
 	return o
-}
-
-func (o ResiliencyPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicy] {
-	return pulumix.Output[*ResiliencyPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Data Location Constraint of the Policy.

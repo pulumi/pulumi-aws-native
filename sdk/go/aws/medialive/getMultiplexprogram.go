@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaLive::Multiplexprogram
@@ -77,12 +76,6 @@ func (o LookupMultiplexprogramResultOutput) ToLookupMultiplexprogramResultOutput
 
 func (o LookupMultiplexprogramResultOutput) ToLookupMultiplexprogramResultOutputWithContext(ctx context.Context) LookupMultiplexprogramResultOutput {
 	return o
-}
-
-func (o LookupMultiplexprogramResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMultiplexprogramResult] {
-	return pulumix.Output[LookupMultiplexprogramResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The MediaLive channel associated with the program.

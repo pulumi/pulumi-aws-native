@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::SSMGuiConnect::Preferences Resource Type
@@ -95,12 +94,6 @@ func (i *Preferences) ToPreferencesOutputWithContext(ctx context.Context) Prefer
 	return pulumi.ToOutputWithContext(ctx, i).(PreferencesOutput)
 }
 
-func (i *Preferences) ToOutput(ctx context.Context) pulumix.Output[*Preferences] {
-	return pulumix.Output[*Preferences]{
-		OutputState: i.ToPreferencesOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PreferencesOutput struct{ *pulumi.OutputState }
 
 func (PreferencesOutput) ElementType() reflect.Type {
@@ -113,12 +106,6 @@ func (o PreferencesOutput) ToPreferencesOutput() PreferencesOutput {
 
 func (o PreferencesOutput) ToPreferencesOutputWithContext(ctx context.Context) PreferencesOutput {
 	return o
-}
-
-func (o PreferencesOutput) ToOutput(ctx context.Context) pulumix.Output[*Preferences] {
-	return pulumix.Output[*Preferences]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AWS Account Id that the preference is associated with, used as the unique identifier for this resource.

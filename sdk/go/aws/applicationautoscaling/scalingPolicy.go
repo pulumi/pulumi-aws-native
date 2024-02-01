@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApplicationAutoScaling::ScalingPolicy
@@ -176,12 +175,6 @@ func (i *ScalingPolicy) ToScalingPolicyOutputWithContext(ctx context.Context) Sc
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyOutput)
 }
 
-func (i *ScalingPolicy) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicy] {
-	return pulumix.Output[*ScalingPolicy]{
-		OutputState: i.ToScalingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPolicyOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyOutput) ElementType() reflect.Type {
@@ -194,12 +187,6 @@ func (o ScalingPolicyOutput) ToScalingPolicyOutput() ScalingPolicyOutput {
 
 func (o ScalingPolicyOutput) ToScalingPolicyOutputWithContext(ctx context.Context) ScalingPolicyOutput {
 	return o
-}
-
-func (o ScalingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicy] {
-	return pulumix.Output[*ScalingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN is a read only property for the resource.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DMS::DataProvider
@@ -137,12 +136,6 @@ func (i *DataProvider) ToDataProviderOutputWithContext(ctx context.Context) Data
 	return pulumi.ToOutputWithContext(ctx, i).(DataProviderOutput)
 }
 
-func (i *DataProvider) ToOutput(ctx context.Context) pulumix.Output[*DataProvider] {
-	return pulumix.Output[*DataProvider]{
-		OutputState: i.ToDataProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataProviderOutput struct{ *pulumi.OutputState }
 
 func (DataProviderOutput) ElementType() reflect.Type {
@@ -155,12 +148,6 @@ func (o DataProviderOutput) ToDataProviderOutput() DataProviderOutput {
 
 func (o DataProviderOutput) ToDataProviderOutputWithContext(ctx context.Context) DataProviderOutput {
 	return o
-}
-
-func (o DataProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*DataProvider] {
-	return pulumix.Output[*DataProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The data provider ARN.

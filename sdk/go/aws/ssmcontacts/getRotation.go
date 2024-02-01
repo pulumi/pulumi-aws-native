@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSMContacts::Rotation.
@@ -77,12 +76,6 @@ func (o LookupRotationResultOutput) ToLookupRotationResultOutput() LookupRotatio
 
 func (o LookupRotationResultOutput) ToLookupRotationResultOutputWithContext(ctx context.Context) LookupRotationResultOutput {
 	return o
-}
-
-func (o LookupRotationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRotationResult] {
-	return pulumix.Output[LookupRotationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the rotation.

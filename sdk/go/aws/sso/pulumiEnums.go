@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The assignee's type, user/group
@@ -79,12 +78,6 @@ func (o AssignmentPrincipalTypeOutput) ToAssignmentPrincipalTypePtrOutputWithCon
 	}).(AssignmentPrincipalTypePtrOutput)
 }
 
-func (o AssignmentPrincipalTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssignmentPrincipalType] {
-	return pulumix.Output[AssignmentPrincipalType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssignmentPrincipalTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o AssignmentPrincipalTypePtrOutput) ToAssignmentPrincipalTypePtrOutputWith
 	return o
 }
 
-func (o AssignmentPrincipalTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssignmentPrincipalType] {
-	return pulumix.Output[*AssignmentPrincipalType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssignmentPrincipalTypePtrOutput) Elem() AssignmentPrincipalTypeOutput {
 	return o.ApplyT(func(v *AssignmentPrincipalType) AssignmentPrincipalType {
 		if v != nil {
@@ -150,10 +137,11 @@ func (o AssignmentPrincipalTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssignmentPrincipalTypeInput is an input type that accepts AssignmentPrincipalTypeArgs and AssignmentPrincipalTypeOutput values.
-// You can construct a concrete instance of `AssignmentPrincipalTypeInput` via:
+// AssignmentPrincipalTypeInput is an input type that accepts values of the AssignmentPrincipalType enum
+// A concrete instance of `AssignmentPrincipalTypeInput` can be one of the following:
 //
-//	AssignmentPrincipalTypeArgs{...}
+//	AssignmentPrincipalTypeUser
+//	AssignmentPrincipalTypeGroup
 type AssignmentPrincipalTypeInput interface {
 	pulumi.Input
 
@@ -186,12 +174,6 @@ func (in *assignmentPrincipalTypePtr) ToAssignmentPrincipalTypePtrOutput() Assig
 
 func (in *assignmentPrincipalTypePtr) ToAssignmentPrincipalTypePtrOutputWithContext(ctx context.Context) AssignmentPrincipalTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssignmentPrincipalTypePtrOutput)
-}
-
-func (in *assignmentPrincipalTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AssignmentPrincipalType] {
-	return pulumix.Output[*AssignmentPrincipalType]{
-		OutputState: in.ToAssignmentPrincipalTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of resource to be provsioned to, only aws account now
@@ -261,12 +243,6 @@ func (o AssignmentTargetTypeOutput) ToAssignmentTargetTypePtrOutputWithContext(c
 	}).(AssignmentTargetTypePtrOutput)
 }
 
-func (o AssignmentTargetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssignmentTargetType] {
-	return pulumix.Output[AssignmentTargetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssignmentTargetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +278,6 @@ func (o AssignmentTargetTypePtrOutput) ToAssignmentTargetTypePtrOutputWithContex
 	return o
 }
 
-func (o AssignmentTargetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssignmentTargetType] {
-	return pulumix.Output[*AssignmentTargetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssignmentTargetTypePtrOutput) Elem() AssignmentTargetTypeOutput {
 	return o.ApplyT(func(v *AssignmentTargetType) AssignmentTargetType {
 		if v != nil {
@@ -332,10 +302,10 @@ func (o AssignmentTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssignmentTargetTypeInput is an input type that accepts AssignmentTargetTypeArgs and AssignmentTargetTypeOutput values.
-// You can construct a concrete instance of `AssignmentTargetTypeInput` via:
+// AssignmentTargetTypeInput is an input type that accepts values of the AssignmentTargetType enum
+// A concrete instance of `AssignmentTargetTypeInput` can be one of the following:
 //
-//	AssignmentTargetTypeArgs{...}
+//	AssignmentTargetTypeAwsAccount
 type AssignmentTargetTypeInput interface {
 	pulumi.Input
 
@@ -368,12 +338,6 @@ func (in *assignmentTargetTypePtr) ToAssignmentTargetTypePtrOutput() AssignmentT
 
 func (in *assignmentTargetTypePtr) ToAssignmentTargetTypePtrOutputWithContext(ctx context.Context) AssignmentTargetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssignmentTargetTypePtrOutput)
-}
-
-func (in *assignmentTargetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AssignmentTargetType] {
-	return pulumix.Output[*AssignmentTargetType]{
-		OutputState: in.ToAssignmentTargetTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

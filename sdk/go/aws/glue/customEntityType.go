@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::CustomEntityType
@@ -101,12 +100,6 @@ func (i *CustomEntityType) ToCustomEntityTypeOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CustomEntityTypeOutput)
 }
 
-func (i *CustomEntityType) ToOutput(ctx context.Context) pulumix.Output[*CustomEntityType] {
-	return pulumix.Output[*CustomEntityType]{
-		OutputState: i.ToCustomEntityTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomEntityTypeOutput struct{ *pulumi.OutputState }
 
 func (CustomEntityTypeOutput) ElementType() reflect.Type {
@@ -119,12 +112,6 @@ func (o CustomEntityTypeOutput) ToCustomEntityTypeOutput() CustomEntityTypeOutpu
 
 func (o CustomEntityTypeOutput) ToCustomEntityTypeOutputWithContext(ctx context.Context) CustomEntityTypeOutput {
 	return o
-}
-
-func (o CustomEntityTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomEntityType] {
-	return pulumix.Output[*CustomEntityType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomEntityTypeOutput) ContextWords() pulumi.StringArrayOutput {

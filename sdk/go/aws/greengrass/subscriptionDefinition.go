@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::SubscriptionDefinition
@@ -104,12 +103,6 @@ func (i *SubscriptionDefinition) ToSubscriptionDefinitionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionOutput)
 }
 
-func (i *SubscriptionDefinition) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionDefinition] {
-	return pulumix.Output[*SubscriptionDefinition]{
-		OutputState: i.ToSubscriptionDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubscriptionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionDefinitionOutput) ElementType() reflect.Type {
@@ -122,12 +115,6 @@ func (o SubscriptionDefinitionOutput) ToSubscriptionDefinitionOutput() Subscript
 
 func (o SubscriptionDefinitionOutput) ToSubscriptionDefinitionOutputWithContext(ctx context.Context) SubscriptionDefinitionOutput {
 	return o
-}
-
-func (o SubscriptionDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionDefinition] {
-	return pulumix.Output[*SubscriptionDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubscriptionDefinitionOutput) Arn() pulumi.StringOutput {

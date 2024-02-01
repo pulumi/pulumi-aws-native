@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
@@ -113,12 +112,6 @@ func (i *AttributeGroupAssociation) ToAttributeGroupAssociationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AttributeGroupAssociationOutput)
 }
 
-func (i *AttributeGroupAssociation) ToOutput(ctx context.Context) pulumix.Output[*AttributeGroupAssociation] {
-	return pulumix.Output[*AttributeGroupAssociation]{
-		OutputState: i.ToAttributeGroupAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AttributeGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (AttributeGroupAssociationOutput) ElementType() reflect.Type {
@@ -131,12 +124,6 @@ func (o AttributeGroupAssociationOutput) ToAttributeGroupAssociationOutput() Att
 
 func (o AttributeGroupAssociationOutput) ToAttributeGroupAssociationOutputWithContext(ctx context.Context) AttributeGroupAssociationOutput {
 	return o
-}
-
-func (o AttributeGroupAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*AttributeGroupAssociation] {
-	return pulumix.Output[*AttributeGroupAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name or the Id of the Application.

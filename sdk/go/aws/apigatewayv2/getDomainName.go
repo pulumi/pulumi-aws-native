@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGatewayV2::DomainName“ resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
@@ -75,12 +74,6 @@ func (o LookupDomainNameResultOutput) ToLookupDomainNameResultOutput() LookupDom
 
 func (o LookupDomainNameResultOutput) ToLookupDomainNameResultOutputWithContext(ctx context.Context) LookupDomainNameResultOutput {
 	return o
-}
-
-func (o LookupDomainNameResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDomainNameResult] {
-	return pulumix.Output[LookupDomainNameResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The domain name configurations.

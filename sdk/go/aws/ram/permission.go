@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::RAM::Permission
@@ -127,12 +126,6 @@ func (i *Permission) ToPermissionOutputWithContext(ctx context.Context) Permissi
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionOutput)
 }
 
-func (i *Permission) ToOutput(ctx context.Context) pulumix.Output[*Permission] {
-	return pulumix.Output[*Permission]{
-		OutputState: i.ToPermissionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionOutput struct{ *pulumi.OutputState }
 
 func (PermissionOutput) ElementType() reflect.Type {
@@ -145,12 +138,6 @@ func (o PermissionOutput) ToPermissionOutput() PermissionOutput {
 
 func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) PermissionOutput {
 	return o
-}
-
-func (o PermissionOutput) ToOutput(ctx context.Context) pulumix.Output[*Permission] {
-	return pulumix.Output[*Permission]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionOutput) Arn() pulumi.StringOutput {

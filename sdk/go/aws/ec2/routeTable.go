@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::RouteTable
@@ -109,12 +108,6 @@ func (i *RouteTable) ToRouteTableOutputWithContext(ctx context.Context) RouteTab
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableOutput)
 }
 
-func (i *RouteTable) ToOutput(ctx context.Context) pulumix.Output[*RouteTable] {
-	return pulumix.Output[*RouteTable]{
-		OutputState: i.ToRouteTableOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RouteTableOutput struct{ *pulumi.OutputState }
 
 func (RouteTableOutput) ElementType() reflect.Type {
@@ -127,12 +120,6 @@ func (o RouteTableOutput) ToRouteTableOutput() RouteTableOutput {
 
 func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) RouteTableOutput {
 	return o
-}
-
-func (o RouteTableOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteTable] {
-	return pulumix.Output[*RouteTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The route table ID.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::Role
@@ -83,12 +82,6 @@ func (o LookupRoleResultOutput) ToLookupRoleResultOutput() LookupRoleResultOutpu
 
 func (o LookupRoleResultOutput) ToLookupRoleResultOutputWithContext(ctx context.Context) LookupRoleResultOutput {
 	return o
-}
-
-func (o LookupRoleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRoleResult] {
-	return pulumix.Output[LookupRoleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) for the role.

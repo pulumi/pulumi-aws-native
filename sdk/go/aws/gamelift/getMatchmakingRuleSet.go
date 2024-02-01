@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
@@ -71,12 +70,6 @@ func (o LookupMatchmakingRuleSetResultOutput) ToLookupMatchmakingRuleSetResultOu
 
 func (o LookupMatchmakingRuleSetResultOutput) ToLookupMatchmakingRuleSetResultOutputWithContext(ctx context.Context) LookupMatchmakingRuleSetResultOutput {
 	return o
-}
-
-func (o LookupMatchmakingRuleSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMatchmakingRuleSetResult] {
-	return pulumix.Output[LookupMatchmakingRuleSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.

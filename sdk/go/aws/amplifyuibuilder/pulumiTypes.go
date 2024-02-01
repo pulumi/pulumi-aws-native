@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -43,12 +42,6 @@ func (i ComponentBindingPropertiesArgs) ToComponentBindingPropertiesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentBindingPropertiesOutput)
 }
 
-func (i ComponentBindingPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentBindingProperties] {
-	return pulumix.Output[ComponentBindingProperties]{
-		OutputState: i.ToComponentBindingPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentBindingPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ComponentBindingPropertiesOutput) ElementType() reflect.Type {
@@ -63,12 +56,6 @@ func (o ComponentBindingPropertiesOutput) ToComponentBindingPropertiesOutputWith
 	return o
 }
 
-func (o ComponentBindingPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentBindingProperties] {
-	return pulumix.Output[ComponentBindingProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ComponentBindingPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (ComponentBindingPropertiesPtrOutput) ElementType() reflect.Type {
@@ -81,12 +68,6 @@ func (o ComponentBindingPropertiesPtrOutput) ToComponentBindingPropertiesPtrOutp
 
 func (o ComponentBindingPropertiesPtrOutput) ToComponentBindingPropertiesPtrOutputWithContext(ctx context.Context) ComponentBindingPropertiesPtrOutput {
 	return o
-}
-
-func (o ComponentBindingPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentBindingProperties] {
-	return pulumix.Output[*ComponentBindingProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentBindingPropertiesPtrOutput) Elem() ComponentBindingPropertiesOutput {
@@ -138,12 +119,6 @@ func (i ComponentChildArgs) ToComponentChildOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentChildOutput)
 }
 
-func (i ComponentChildArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentChild] {
-	return pulumix.Output[ComponentChild]{
-		OutputState: i.ToComponentChildOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ComponentChildArrayInput is an input type that accepts ComponentChildArray and ComponentChildArrayOutput values.
 // You can construct a concrete instance of `ComponentChildArrayInput` via:
 //
@@ -169,12 +144,6 @@ func (i ComponentChildArray) ToComponentChildArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentChildArrayOutput)
 }
 
-func (i ComponentChildArray) ToOutput(ctx context.Context) pulumix.Output[[]ComponentChild] {
-	return pulumix.Output[[]ComponentChild]{
-		OutputState: i.ToComponentChildArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentChildOutput struct{ *pulumi.OutputState }
 
 func (ComponentChildOutput) ElementType() reflect.Type {
@@ -187,12 +156,6 @@ func (o ComponentChildOutput) ToComponentChildOutput() ComponentChildOutput {
 
 func (o ComponentChildOutput) ToComponentChildOutputWithContext(ctx context.Context) ComponentChildOutput {
 	return o
-}
-
-func (o ComponentChildOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentChild] {
-	return pulumix.Output[ComponentChild]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentChildOutput) Children() ComponentChildArrayOutput {
@@ -229,12 +192,6 @@ func (o ComponentChildArrayOutput) ToComponentChildArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ComponentChildArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ComponentChild] {
-	return pulumix.Output[[]ComponentChild]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentChildArrayOutput) Index(i pulumi.IntInput) ComponentChildOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComponentChild {
 		return vs[0].([]ComponentChild)[vs[1].(int)]
@@ -268,12 +225,6 @@ func (i ComponentCollectionPropertiesArgs) ToComponentCollectionPropertiesOutput
 
 func (i ComponentCollectionPropertiesArgs) ToComponentCollectionPropertiesOutputWithContext(ctx context.Context) ComponentCollectionPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentCollectionPropertiesOutput)
-}
-
-func (i ComponentCollectionPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentCollectionProperties] {
-	return pulumix.Output[ComponentCollectionProperties]{
-		OutputState: i.ToComponentCollectionPropertiesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ComponentCollectionPropertiesArgs) ToComponentCollectionPropertiesPtrOutput() ComponentCollectionPropertiesPtrOutput {
@@ -317,12 +268,6 @@ func (i *componentCollectionPropertiesPtrType) ToComponentCollectionPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentCollectionPropertiesPtrOutput)
 }
 
-func (i *componentCollectionPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComponentCollectionProperties] {
-	return pulumix.Output[*ComponentCollectionProperties]{
-		OutputState: i.ToComponentCollectionPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentCollectionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ComponentCollectionPropertiesOutput) ElementType() reflect.Type {
@@ -347,12 +292,6 @@ func (o ComponentCollectionPropertiesOutput) ToComponentCollectionPropertiesPtrO
 	}).(ComponentCollectionPropertiesPtrOutput)
 }
 
-func (o ComponentCollectionPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentCollectionProperties] {
-	return pulumix.Output[ComponentCollectionProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ComponentCollectionPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (ComponentCollectionPropertiesPtrOutput) ElementType() reflect.Type {
@@ -365,12 +304,6 @@ func (o ComponentCollectionPropertiesPtrOutput) ToComponentCollectionPropertiesP
 
 func (o ComponentCollectionPropertiesPtrOutput) ToComponentCollectionPropertiesPtrOutputWithContext(ctx context.Context) ComponentCollectionPropertiesPtrOutput {
 	return o
-}
-
-func (o ComponentCollectionPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentCollectionProperties] {
-	return pulumix.Output[*ComponentCollectionProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentCollectionPropertiesPtrOutput) Elem() ComponentCollectionPropertiesOutput {
@@ -410,12 +343,6 @@ func (i ComponentEventsArgs) ToComponentEventsOutput() ComponentEventsOutput {
 
 func (i ComponentEventsArgs) ToComponentEventsOutputWithContext(ctx context.Context) ComponentEventsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentEventsOutput)
-}
-
-func (i ComponentEventsArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentEvents] {
-	return pulumix.Output[ComponentEvents]{
-		OutputState: i.ToComponentEventsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ComponentEventsArgs) ToComponentEventsPtrOutput() ComponentEventsPtrOutput {
@@ -459,12 +386,6 @@ func (i *componentEventsPtrType) ToComponentEventsPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentEventsPtrOutput)
 }
 
-func (i *componentEventsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComponentEvents] {
-	return pulumix.Output[*ComponentEvents]{
-		OutputState: i.ToComponentEventsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentEventsOutput struct{ *pulumi.OutputState }
 
 func (ComponentEventsOutput) ElementType() reflect.Type {
@@ -489,12 +410,6 @@ func (o ComponentEventsOutput) ToComponentEventsPtrOutputWithContext(ctx context
 	}).(ComponentEventsPtrOutput)
 }
 
-func (o ComponentEventsOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentEvents] {
-	return pulumix.Output[ComponentEvents]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ComponentEventsPtrOutput struct{ *pulumi.OutputState }
 
 func (ComponentEventsPtrOutput) ElementType() reflect.Type {
@@ -507,12 +422,6 @@ func (o ComponentEventsPtrOutput) ToComponentEventsPtrOutput() ComponentEventsPt
 
 func (o ComponentEventsPtrOutput) ToComponentEventsPtrOutputWithContext(ctx context.Context) ComponentEventsPtrOutput {
 	return o
-}
-
-func (o ComponentEventsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentEvents] {
-	return pulumix.Output[*ComponentEvents]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentEventsPtrOutput) Elem() ComponentEventsOutput {
@@ -552,12 +461,6 @@ func (i ComponentOverridesArgs) ToComponentOverridesOutput() ComponentOverridesO
 
 func (i ComponentOverridesArgs) ToComponentOverridesOutputWithContext(ctx context.Context) ComponentOverridesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentOverridesOutput)
-}
-
-func (i ComponentOverridesArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentOverrides] {
-	return pulumix.Output[ComponentOverrides]{
-		OutputState: i.ToComponentOverridesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ComponentOverridesArgs) ToComponentOverridesPtrOutput() ComponentOverridesPtrOutput {
@@ -601,12 +504,6 @@ func (i *componentOverridesPtrType) ToComponentOverridesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentOverridesPtrOutput)
 }
 
-func (i *componentOverridesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComponentOverrides] {
-	return pulumix.Output[*ComponentOverrides]{
-		OutputState: i.ToComponentOverridesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentOverridesOutput struct{ *pulumi.OutputState }
 
 func (ComponentOverridesOutput) ElementType() reflect.Type {
@@ -631,12 +528,6 @@ func (o ComponentOverridesOutput) ToComponentOverridesPtrOutputWithContext(ctx c
 	}).(ComponentOverridesPtrOutput)
 }
 
-func (o ComponentOverridesOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentOverrides] {
-	return pulumix.Output[ComponentOverrides]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ComponentOverridesPtrOutput struct{ *pulumi.OutputState }
 
 func (ComponentOverridesPtrOutput) ElementType() reflect.Type {
@@ -649,12 +540,6 @@ func (o ComponentOverridesPtrOutput) ToComponentOverridesPtrOutput() ComponentOv
 
 func (o ComponentOverridesPtrOutput) ToComponentOverridesPtrOutputWithContext(ctx context.Context) ComponentOverridesPtrOutput {
 	return o
-}
-
-func (o ComponentOverridesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentOverrides] {
-	return pulumix.Output[*ComponentOverrides]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentOverridesPtrOutput) Elem() ComponentOverridesOutput {
@@ -696,12 +581,6 @@ func (i ComponentPropertiesArgs) ToComponentPropertiesOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertiesOutput)
 }
 
-func (i ComponentPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentProperties] {
-	return pulumix.Output[ComponentProperties]{
-		OutputState: i.ToComponentPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ComponentPropertiesOutput) ElementType() reflect.Type {
@@ -716,12 +595,6 @@ func (o ComponentPropertiesOutput) ToComponentPropertiesOutputWithContext(ctx co
 	return o
 }
 
-func (o ComponentPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentProperties] {
-	return pulumix.Output[ComponentProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ComponentPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (ComponentPropertiesPtrOutput) ElementType() reflect.Type {
@@ -734,12 +607,6 @@ func (o ComponentPropertiesPtrOutput) ToComponentPropertiesPtrOutput() Component
 
 func (o ComponentPropertiesPtrOutput) ToComponentPropertiesPtrOutputWithContext(ctx context.Context) ComponentPropertiesPtrOutput {
 	return o
-}
-
-func (o ComponentPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentProperties] {
-	return pulumix.Output[*ComponentProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentPropertiesPtrOutput) Elem() ComponentPropertiesOutput {
@@ -779,12 +646,6 @@ func (i ComponentTagsArgs) ToComponentTagsOutput() ComponentTagsOutput {
 
 func (i ComponentTagsArgs) ToComponentTagsOutputWithContext(ctx context.Context) ComponentTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentTagsOutput)
-}
-
-func (i ComponentTagsArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentTags] {
-	return pulumix.Output[ComponentTags]{
-		OutputState: i.ToComponentTagsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ComponentTagsArgs) ToComponentTagsPtrOutput() ComponentTagsPtrOutput {
@@ -828,12 +689,6 @@ func (i *componentTagsPtrType) ToComponentTagsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentTagsPtrOutput)
 }
 
-func (i *componentTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComponentTags] {
-	return pulumix.Output[*ComponentTags]{
-		OutputState: i.ToComponentTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentTagsOutput struct{ *pulumi.OutputState }
 
 func (ComponentTagsOutput) ElementType() reflect.Type {
@@ -858,12 +713,6 @@ func (o ComponentTagsOutput) ToComponentTagsPtrOutputWithContext(ctx context.Con
 	}).(ComponentTagsPtrOutput)
 }
 
-func (o ComponentTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentTags] {
-	return pulumix.Output[ComponentTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ComponentTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (ComponentTagsPtrOutput) ElementType() reflect.Type {
@@ -876,12 +725,6 @@ func (o ComponentTagsPtrOutput) ToComponentTagsPtrOutput() ComponentTagsPtrOutpu
 
 func (o ComponentTagsPtrOutput) ToComponentTagsPtrOutputWithContext(ctx context.Context) ComponentTagsPtrOutput {
 	return o
-}
-
-func (o ComponentTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentTags] {
-	return pulumix.Output[*ComponentTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentTagsPtrOutput) Elem() ComponentTagsOutput {
@@ -927,12 +770,6 @@ func (i ComponentVariantArgs) ToComponentVariantOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVariantOutput)
 }
 
-func (i ComponentVariantArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentVariant] {
-	return pulumix.Output[ComponentVariant]{
-		OutputState: i.ToComponentVariantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ComponentVariantArrayInput is an input type that accepts ComponentVariantArray and ComponentVariantArrayOutput values.
 // You can construct a concrete instance of `ComponentVariantArrayInput` via:
 //
@@ -958,12 +795,6 @@ func (i ComponentVariantArray) ToComponentVariantArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVariantArrayOutput)
 }
 
-func (i ComponentVariantArray) ToOutput(ctx context.Context) pulumix.Output[[]ComponentVariant] {
-	return pulumix.Output[[]ComponentVariant]{
-		OutputState: i.ToComponentVariantArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentVariantOutput struct{ *pulumi.OutputState }
 
 func (ComponentVariantOutput) ElementType() reflect.Type {
@@ -976,12 +807,6 @@ func (o ComponentVariantOutput) ToComponentVariantOutput() ComponentVariantOutpu
 
 func (o ComponentVariantOutput) ToComponentVariantOutputWithContext(ctx context.Context) ComponentVariantOutput {
 	return o
-}
-
-func (o ComponentVariantOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVariant] {
-	return pulumix.Output[ComponentVariant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVariantOutput) Overrides() ComponentOverridesPtrOutput {
@@ -1004,12 +829,6 @@ func (o ComponentVariantArrayOutput) ToComponentVariantArrayOutput() ComponentVa
 
 func (o ComponentVariantArrayOutput) ToComponentVariantArrayOutputWithContext(ctx context.Context) ComponentVariantArrayOutput {
 	return o
-}
-
-func (o ComponentVariantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ComponentVariant] {
-	return pulumix.Output[[]ComponentVariant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVariantArrayOutput) Index(i pulumi.IntInput) ComponentVariantOutput {
@@ -1045,12 +864,6 @@ func (i ComponentVariantValuesArgs) ToComponentVariantValuesOutput() ComponentVa
 
 func (i ComponentVariantValuesArgs) ToComponentVariantValuesOutputWithContext(ctx context.Context) ComponentVariantValuesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVariantValuesOutput)
-}
-
-func (i ComponentVariantValuesArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentVariantValues] {
-	return pulumix.Output[ComponentVariantValues]{
-		OutputState: i.ToComponentVariantValuesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ComponentVariantValuesArgs) ToComponentVariantValuesPtrOutput() ComponentVariantValuesPtrOutput {
@@ -1094,12 +907,6 @@ func (i *componentVariantValuesPtrType) ToComponentVariantValuesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVariantValuesPtrOutput)
 }
 
-func (i *componentVariantValuesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComponentVariantValues] {
-	return pulumix.Output[*ComponentVariantValues]{
-		OutputState: i.ToComponentVariantValuesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentVariantValuesOutput struct{ *pulumi.OutputState }
 
 func (ComponentVariantValuesOutput) ElementType() reflect.Type {
@@ -1124,12 +931,6 @@ func (o ComponentVariantValuesOutput) ToComponentVariantValuesPtrOutputWithConte
 	}).(ComponentVariantValuesPtrOutput)
 }
 
-func (o ComponentVariantValuesOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVariantValues] {
-	return pulumix.Output[ComponentVariantValues]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ComponentVariantValuesPtrOutput struct{ *pulumi.OutputState }
 
 func (ComponentVariantValuesPtrOutput) ElementType() reflect.Type {
@@ -1142,12 +943,6 @@ func (o ComponentVariantValuesPtrOutput) ToComponentVariantValuesPtrOutput() Com
 
 func (o ComponentVariantValuesPtrOutput) ToComponentVariantValuesPtrOutputWithContext(ctx context.Context) ComponentVariantValuesPtrOutput {
 	return o
-}
-
-func (o ComponentVariantValuesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentVariantValues] {
-	return pulumix.Output[*ComponentVariantValues]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVariantValuesPtrOutput) Elem() ComponentVariantValuesOutput {
@@ -1195,12 +990,6 @@ func (i FormButtonArgs) ToFormButtonOutputWithContext(ctx context.Context) FormB
 	return pulumi.ToOutputWithContext(ctx, i).(FormButtonOutput)
 }
 
-func (i FormButtonArgs) ToOutput(ctx context.Context) pulumix.Output[FormButton] {
-	return pulumix.Output[FormButton]{
-		OutputState: i.ToFormButtonOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FormButtonArgs) ToFormButtonPtrOutput() FormButtonPtrOutput {
 	return i.ToFormButtonPtrOutputWithContext(context.Background())
 }
@@ -1242,12 +1031,6 @@ func (i *formButtonPtrType) ToFormButtonPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FormButtonPtrOutput)
 }
 
-func (i *formButtonPtrType) ToOutput(ctx context.Context) pulumix.Output[*FormButton] {
-	return pulumix.Output[*FormButton]{
-		OutputState: i.ToFormButtonPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FormButtonOutput struct{ *pulumi.OutputState }
 
 func (FormButtonOutput) ElementType() reflect.Type {
@@ -1270,12 +1053,6 @@ func (o FormButtonOutput) ToFormButtonPtrOutputWithContext(ctx context.Context) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormButton) *FormButton {
 		return &v
 	}).(FormButtonPtrOutput)
-}
-
-func (o FormButtonOutput) ToOutput(ctx context.Context) pulumix.Output[FormButton] {
-	return pulumix.Output[FormButton]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormButtonOutput) Children() pulumi.StringPtrOutput {
@@ -1302,12 +1079,6 @@ func (o FormButtonPtrOutput) ToFormButtonPtrOutput() FormButtonPtrOutput {
 
 func (o FormButtonPtrOutput) ToFormButtonPtrOutputWithContext(ctx context.Context) FormButtonPtrOutput {
 	return o
-}
-
-func (o FormButtonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormButton] {
-	return pulumix.Output[*FormButton]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormButtonPtrOutput) Elem() FormButtonOutput {
@@ -1384,12 +1155,6 @@ func (i FormCtaArgs) ToFormCtaOutputWithContext(ctx context.Context) FormCtaOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FormCtaOutput)
 }
 
-func (i FormCtaArgs) ToOutput(ctx context.Context) pulumix.Output[FormCta] {
-	return pulumix.Output[FormCta]{
-		OutputState: i.ToFormCtaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FormCtaArgs) ToFormCtaPtrOutput() FormCtaPtrOutput {
 	return i.ToFormCtaPtrOutputWithContext(context.Background())
 }
@@ -1431,12 +1196,6 @@ func (i *formCtaPtrType) ToFormCtaPtrOutputWithContext(ctx context.Context) Form
 	return pulumi.ToOutputWithContext(ctx, i).(FormCtaPtrOutput)
 }
 
-func (i *formCtaPtrType) ToOutput(ctx context.Context) pulumix.Output[*FormCta] {
-	return pulumix.Output[*FormCta]{
-		OutputState: i.ToFormCtaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FormCtaOutput struct{ *pulumi.OutputState }
 
 func (FormCtaOutput) ElementType() reflect.Type {
@@ -1459,12 +1218,6 @@ func (o FormCtaOutput) ToFormCtaPtrOutputWithContext(ctx context.Context) FormCt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormCta) *FormCta {
 		return &v
 	}).(FormCtaPtrOutput)
-}
-
-func (o FormCtaOutput) ToOutput(ctx context.Context) pulumix.Output[FormCta] {
-	return pulumix.Output[FormCta]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormCtaOutput) Cancel() FormButtonPtrOutput {
@@ -1495,12 +1248,6 @@ func (o FormCtaPtrOutput) ToFormCtaPtrOutput() FormCtaPtrOutput {
 
 func (o FormCtaPtrOutput) ToFormCtaPtrOutputWithContext(ctx context.Context) FormCtaPtrOutput {
 	return o
-}
-
-func (o FormCtaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormCta] {
-	return pulumix.Output[*FormCta]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormCtaPtrOutput) Elem() FormCtaOutput {
@@ -1582,12 +1329,6 @@ func (i FormDataTypeConfigArgs) ToFormDataTypeConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FormDataTypeConfigOutput)
 }
 
-func (i FormDataTypeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FormDataTypeConfig] {
-	return pulumix.Output[FormDataTypeConfig]{
-		OutputState: i.ToFormDataTypeConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FormDataTypeConfigOutput struct{ *pulumi.OutputState }
 
 func (FormDataTypeConfigOutput) ElementType() reflect.Type {
@@ -1600,12 +1341,6 @@ func (o FormDataTypeConfigOutput) ToFormDataTypeConfigOutput() FormDataTypeConfi
 
 func (o FormDataTypeConfigOutput) ToFormDataTypeConfigOutputWithContext(ctx context.Context) FormDataTypeConfigOutput {
 	return o
-}
-
-func (o FormDataTypeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FormDataTypeConfig] {
-	return pulumix.Output[FormDataTypeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormDataTypeConfigOutput) DataSourceType() FormDataSourceTypeOutput {
@@ -1628,12 +1363,6 @@ func (o FormDataTypeConfigPtrOutput) ToFormDataTypeConfigPtrOutput() FormDataTyp
 
 func (o FormDataTypeConfigPtrOutput) ToFormDataTypeConfigPtrOutputWithContext(ctx context.Context) FormDataTypeConfigPtrOutput {
 	return o
-}
-
-func (o FormDataTypeConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormDataTypeConfig] {
-	return pulumix.Output[*FormDataTypeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormDataTypeConfigPtrOutput) Elem() FormDataTypeConfigOutput {
@@ -1668,12 +1397,399 @@ type FormFieldPosition0Properties struct {
 	Fixed FormFixedPosition `pulumi:"fixed"`
 }
 
+// FormFieldPosition0PropertiesInput is an input type that accepts FormFieldPosition0PropertiesArgs and FormFieldPosition0PropertiesOutput values.
+// You can construct a concrete instance of `FormFieldPosition0PropertiesInput` via:
+//
+//	FormFieldPosition0PropertiesArgs{...}
+type FormFieldPosition0PropertiesInput interface {
+	pulumi.Input
+
+	ToFormFieldPosition0PropertiesOutput() FormFieldPosition0PropertiesOutput
+	ToFormFieldPosition0PropertiesOutputWithContext(context.Context) FormFieldPosition0PropertiesOutput
+}
+
+type FormFieldPosition0PropertiesArgs struct {
+	Fixed FormFixedPositionInput `pulumi:"fixed"`
+}
+
+func (FormFieldPosition0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFieldPosition0Properties)(nil)).Elem()
+}
+
+func (i FormFieldPosition0PropertiesArgs) ToFormFieldPosition0PropertiesOutput() FormFieldPosition0PropertiesOutput {
+	return i.ToFormFieldPosition0PropertiesOutputWithContext(context.Background())
+}
+
+func (i FormFieldPosition0PropertiesArgs) ToFormFieldPosition0PropertiesOutputWithContext(ctx context.Context) FormFieldPosition0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldPosition0PropertiesOutput)
+}
+
+func (i FormFieldPosition0PropertiesArgs) ToFormFieldPosition0PropertiesPtrOutput() FormFieldPosition0PropertiesPtrOutput {
+	return i.ToFormFieldPosition0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FormFieldPosition0PropertiesArgs) ToFormFieldPosition0PropertiesPtrOutputWithContext(ctx context.Context) FormFieldPosition0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldPosition0PropertiesOutput).ToFormFieldPosition0PropertiesPtrOutputWithContext(ctx)
+}
+
+// FormFieldPosition0PropertiesPtrInput is an input type that accepts FormFieldPosition0PropertiesArgs, FormFieldPosition0PropertiesPtr and FormFieldPosition0PropertiesPtrOutput values.
+// You can construct a concrete instance of `FormFieldPosition0PropertiesPtrInput` via:
+//
+//	        FormFieldPosition0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FormFieldPosition0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFormFieldPosition0PropertiesPtrOutput() FormFieldPosition0PropertiesPtrOutput
+	ToFormFieldPosition0PropertiesPtrOutputWithContext(context.Context) FormFieldPosition0PropertiesPtrOutput
+}
+
+type formFieldPosition0PropertiesPtrType FormFieldPosition0PropertiesArgs
+
+func FormFieldPosition0PropertiesPtr(v *FormFieldPosition0PropertiesArgs) FormFieldPosition0PropertiesPtrInput {
+	return (*formFieldPosition0PropertiesPtrType)(v)
+}
+
+func (*formFieldPosition0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormFieldPosition0Properties)(nil)).Elem()
+}
+
+func (i *formFieldPosition0PropertiesPtrType) ToFormFieldPosition0PropertiesPtrOutput() FormFieldPosition0PropertiesPtrOutput {
+	return i.ToFormFieldPosition0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *formFieldPosition0PropertiesPtrType) ToFormFieldPosition0PropertiesPtrOutputWithContext(ctx context.Context) FormFieldPosition0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldPosition0PropertiesPtrOutput)
+}
+
+type FormFieldPosition0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FormFieldPosition0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFieldPosition0Properties)(nil)).Elem()
+}
+
+func (o FormFieldPosition0PropertiesOutput) ToFormFieldPosition0PropertiesOutput() FormFieldPosition0PropertiesOutput {
+	return o
+}
+
+func (o FormFieldPosition0PropertiesOutput) ToFormFieldPosition0PropertiesOutputWithContext(ctx context.Context) FormFieldPosition0PropertiesOutput {
+	return o
+}
+
+func (o FormFieldPosition0PropertiesOutput) ToFormFieldPosition0PropertiesPtrOutput() FormFieldPosition0PropertiesPtrOutput {
+	return o.ToFormFieldPosition0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FormFieldPosition0PropertiesOutput) ToFormFieldPosition0PropertiesPtrOutputWithContext(ctx context.Context) FormFieldPosition0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormFieldPosition0Properties) *FormFieldPosition0Properties {
+		return &v
+	}).(FormFieldPosition0PropertiesPtrOutput)
+}
+
+func (o FormFieldPosition0PropertiesOutput) Fixed() FormFixedPositionOutput {
+	return o.ApplyT(func(v FormFieldPosition0Properties) FormFixedPosition { return v.Fixed }).(FormFixedPositionOutput)
+}
+
+type FormFieldPosition0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FormFieldPosition0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormFieldPosition0Properties)(nil)).Elem()
+}
+
+func (o FormFieldPosition0PropertiesPtrOutput) ToFormFieldPosition0PropertiesPtrOutput() FormFieldPosition0PropertiesPtrOutput {
+	return o
+}
+
+func (o FormFieldPosition0PropertiesPtrOutput) ToFormFieldPosition0PropertiesPtrOutputWithContext(ctx context.Context) FormFieldPosition0PropertiesPtrOutput {
+	return o
+}
+
+func (o FormFieldPosition0PropertiesPtrOutput) Elem() FormFieldPosition0PropertiesOutput {
+	return o.ApplyT(func(v *FormFieldPosition0Properties) FormFieldPosition0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FormFieldPosition0Properties
+		return ret
+	}).(FormFieldPosition0PropertiesOutput)
+}
+
+func (o FormFieldPosition0PropertiesPtrOutput) Fixed() FormFixedPositionPtrOutput {
+	return o.ApplyT(func(v *FormFieldPosition0Properties) *FormFixedPosition {
+		if v == nil {
+			return nil
+		}
+		return &v.Fixed
+	}).(FormFixedPositionPtrOutput)
+}
+
 type FormFieldPosition1Properties struct {
 	RightOf string `pulumi:"rightOf"`
 }
 
+// FormFieldPosition1PropertiesInput is an input type that accepts FormFieldPosition1PropertiesArgs and FormFieldPosition1PropertiesOutput values.
+// You can construct a concrete instance of `FormFieldPosition1PropertiesInput` via:
+//
+//	FormFieldPosition1PropertiesArgs{...}
+type FormFieldPosition1PropertiesInput interface {
+	pulumi.Input
+
+	ToFormFieldPosition1PropertiesOutput() FormFieldPosition1PropertiesOutput
+	ToFormFieldPosition1PropertiesOutputWithContext(context.Context) FormFieldPosition1PropertiesOutput
+}
+
+type FormFieldPosition1PropertiesArgs struct {
+	RightOf pulumi.StringInput `pulumi:"rightOf"`
+}
+
+func (FormFieldPosition1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFieldPosition1Properties)(nil)).Elem()
+}
+
+func (i FormFieldPosition1PropertiesArgs) ToFormFieldPosition1PropertiesOutput() FormFieldPosition1PropertiesOutput {
+	return i.ToFormFieldPosition1PropertiesOutputWithContext(context.Background())
+}
+
+func (i FormFieldPosition1PropertiesArgs) ToFormFieldPosition1PropertiesOutputWithContext(ctx context.Context) FormFieldPosition1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldPosition1PropertiesOutput)
+}
+
+func (i FormFieldPosition1PropertiesArgs) ToFormFieldPosition1PropertiesPtrOutput() FormFieldPosition1PropertiesPtrOutput {
+	return i.ToFormFieldPosition1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FormFieldPosition1PropertiesArgs) ToFormFieldPosition1PropertiesPtrOutputWithContext(ctx context.Context) FormFieldPosition1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldPosition1PropertiesOutput).ToFormFieldPosition1PropertiesPtrOutputWithContext(ctx)
+}
+
+// FormFieldPosition1PropertiesPtrInput is an input type that accepts FormFieldPosition1PropertiesArgs, FormFieldPosition1PropertiesPtr and FormFieldPosition1PropertiesPtrOutput values.
+// You can construct a concrete instance of `FormFieldPosition1PropertiesPtrInput` via:
+//
+//	        FormFieldPosition1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FormFieldPosition1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFormFieldPosition1PropertiesPtrOutput() FormFieldPosition1PropertiesPtrOutput
+	ToFormFieldPosition1PropertiesPtrOutputWithContext(context.Context) FormFieldPosition1PropertiesPtrOutput
+}
+
+type formFieldPosition1PropertiesPtrType FormFieldPosition1PropertiesArgs
+
+func FormFieldPosition1PropertiesPtr(v *FormFieldPosition1PropertiesArgs) FormFieldPosition1PropertiesPtrInput {
+	return (*formFieldPosition1PropertiesPtrType)(v)
+}
+
+func (*formFieldPosition1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormFieldPosition1Properties)(nil)).Elem()
+}
+
+func (i *formFieldPosition1PropertiesPtrType) ToFormFieldPosition1PropertiesPtrOutput() FormFieldPosition1PropertiesPtrOutput {
+	return i.ToFormFieldPosition1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *formFieldPosition1PropertiesPtrType) ToFormFieldPosition1PropertiesPtrOutputWithContext(ctx context.Context) FormFieldPosition1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldPosition1PropertiesPtrOutput)
+}
+
+type FormFieldPosition1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FormFieldPosition1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFieldPosition1Properties)(nil)).Elem()
+}
+
+func (o FormFieldPosition1PropertiesOutput) ToFormFieldPosition1PropertiesOutput() FormFieldPosition1PropertiesOutput {
+	return o
+}
+
+func (o FormFieldPosition1PropertiesOutput) ToFormFieldPosition1PropertiesOutputWithContext(ctx context.Context) FormFieldPosition1PropertiesOutput {
+	return o
+}
+
+func (o FormFieldPosition1PropertiesOutput) ToFormFieldPosition1PropertiesPtrOutput() FormFieldPosition1PropertiesPtrOutput {
+	return o.ToFormFieldPosition1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FormFieldPosition1PropertiesOutput) ToFormFieldPosition1PropertiesPtrOutputWithContext(ctx context.Context) FormFieldPosition1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormFieldPosition1Properties) *FormFieldPosition1Properties {
+		return &v
+	}).(FormFieldPosition1PropertiesPtrOutput)
+}
+
+func (o FormFieldPosition1PropertiesOutput) RightOf() pulumi.StringOutput {
+	return o.ApplyT(func(v FormFieldPosition1Properties) string { return v.RightOf }).(pulumi.StringOutput)
+}
+
+type FormFieldPosition1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FormFieldPosition1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormFieldPosition1Properties)(nil)).Elem()
+}
+
+func (o FormFieldPosition1PropertiesPtrOutput) ToFormFieldPosition1PropertiesPtrOutput() FormFieldPosition1PropertiesPtrOutput {
+	return o
+}
+
+func (o FormFieldPosition1PropertiesPtrOutput) ToFormFieldPosition1PropertiesPtrOutputWithContext(ctx context.Context) FormFieldPosition1PropertiesPtrOutput {
+	return o
+}
+
+func (o FormFieldPosition1PropertiesPtrOutput) Elem() FormFieldPosition1PropertiesOutput {
+	return o.ApplyT(func(v *FormFieldPosition1Properties) FormFieldPosition1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FormFieldPosition1Properties
+		return ret
+	}).(FormFieldPosition1PropertiesOutput)
+}
+
+func (o FormFieldPosition1PropertiesPtrOutput) RightOf() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormFieldPosition1Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RightOf
+	}).(pulumi.StringPtrOutput)
+}
+
 type FormFieldPosition2Properties struct {
 	Below string `pulumi:"below"`
+}
+
+// FormFieldPosition2PropertiesInput is an input type that accepts FormFieldPosition2PropertiesArgs and FormFieldPosition2PropertiesOutput values.
+// You can construct a concrete instance of `FormFieldPosition2PropertiesInput` via:
+//
+//	FormFieldPosition2PropertiesArgs{...}
+type FormFieldPosition2PropertiesInput interface {
+	pulumi.Input
+
+	ToFormFieldPosition2PropertiesOutput() FormFieldPosition2PropertiesOutput
+	ToFormFieldPosition2PropertiesOutputWithContext(context.Context) FormFieldPosition2PropertiesOutput
+}
+
+type FormFieldPosition2PropertiesArgs struct {
+	Below pulumi.StringInput `pulumi:"below"`
+}
+
+func (FormFieldPosition2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFieldPosition2Properties)(nil)).Elem()
+}
+
+func (i FormFieldPosition2PropertiesArgs) ToFormFieldPosition2PropertiesOutput() FormFieldPosition2PropertiesOutput {
+	return i.ToFormFieldPosition2PropertiesOutputWithContext(context.Background())
+}
+
+func (i FormFieldPosition2PropertiesArgs) ToFormFieldPosition2PropertiesOutputWithContext(ctx context.Context) FormFieldPosition2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldPosition2PropertiesOutput)
+}
+
+func (i FormFieldPosition2PropertiesArgs) ToFormFieldPosition2PropertiesPtrOutput() FormFieldPosition2PropertiesPtrOutput {
+	return i.ToFormFieldPosition2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FormFieldPosition2PropertiesArgs) ToFormFieldPosition2PropertiesPtrOutputWithContext(ctx context.Context) FormFieldPosition2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldPosition2PropertiesOutput).ToFormFieldPosition2PropertiesPtrOutputWithContext(ctx)
+}
+
+// FormFieldPosition2PropertiesPtrInput is an input type that accepts FormFieldPosition2PropertiesArgs, FormFieldPosition2PropertiesPtr and FormFieldPosition2PropertiesPtrOutput values.
+// You can construct a concrete instance of `FormFieldPosition2PropertiesPtrInput` via:
+//
+//	        FormFieldPosition2PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FormFieldPosition2PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFormFieldPosition2PropertiesPtrOutput() FormFieldPosition2PropertiesPtrOutput
+	ToFormFieldPosition2PropertiesPtrOutputWithContext(context.Context) FormFieldPosition2PropertiesPtrOutput
+}
+
+type formFieldPosition2PropertiesPtrType FormFieldPosition2PropertiesArgs
+
+func FormFieldPosition2PropertiesPtr(v *FormFieldPosition2PropertiesArgs) FormFieldPosition2PropertiesPtrInput {
+	return (*formFieldPosition2PropertiesPtrType)(v)
+}
+
+func (*formFieldPosition2PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormFieldPosition2Properties)(nil)).Elem()
+}
+
+func (i *formFieldPosition2PropertiesPtrType) ToFormFieldPosition2PropertiesPtrOutput() FormFieldPosition2PropertiesPtrOutput {
+	return i.ToFormFieldPosition2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *formFieldPosition2PropertiesPtrType) ToFormFieldPosition2PropertiesPtrOutputWithContext(ctx context.Context) FormFieldPosition2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldPosition2PropertiesPtrOutput)
+}
+
+type FormFieldPosition2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FormFieldPosition2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFieldPosition2Properties)(nil)).Elem()
+}
+
+func (o FormFieldPosition2PropertiesOutput) ToFormFieldPosition2PropertiesOutput() FormFieldPosition2PropertiesOutput {
+	return o
+}
+
+func (o FormFieldPosition2PropertiesOutput) ToFormFieldPosition2PropertiesOutputWithContext(ctx context.Context) FormFieldPosition2PropertiesOutput {
+	return o
+}
+
+func (o FormFieldPosition2PropertiesOutput) ToFormFieldPosition2PropertiesPtrOutput() FormFieldPosition2PropertiesPtrOutput {
+	return o.ToFormFieldPosition2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FormFieldPosition2PropertiesOutput) ToFormFieldPosition2PropertiesPtrOutputWithContext(ctx context.Context) FormFieldPosition2PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormFieldPosition2Properties) *FormFieldPosition2Properties {
+		return &v
+	}).(FormFieldPosition2PropertiesPtrOutput)
+}
+
+func (o FormFieldPosition2PropertiesOutput) Below() pulumi.StringOutput {
+	return o.ApplyT(func(v FormFieldPosition2Properties) string { return v.Below }).(pulumi.StringOutput)
+}
+
+type FormFieldPosition2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FormFieldPosition2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormFieldPosition2Properties)(nil)).Elem()
+}
+
+func (o FormFieldPosition2PropertiesPtrOutput) ToFormFieldPosition2PropertiesPtrOutput() FormFieldPosition2PropertiesPtrOutput {
+	return o
+}
+
+func (o FormFieldPosition2PropertiesPtrOutput) ToFormFieldPosition2PropertiesPtrOutputWithContext(ctx context.Context) FormFieldPosition2PropertiesPtrOutput {
+	return o
+}
+
+func (o FormFieldPosition2PropertiesPtrOutput) Elem() FormFieldPosition2PropertiesOutput {
+	return o.ApplyT(func(v *FormFieldPosition2Properties) FormFieldPosition2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FormFieldPosition2Properties
+		return ret
+	}).(FormFieldPosition2PropertiesOutput)
+}
+
+func (o FormFieldPosition2PropertiesPtrOutput) Below() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormFieldPosition2Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Below
+	}).(pulumi.StringPtrOutput)
 }
 
 type FormFieldsMap struct {
@@ -1705,12 +1821,6 @@ func (i FormFieldsMapArgs) ToFormFieldsMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(FormFieldsMapOutput)
 }
 
-func (i FormFieldsMapArgs) ToOutput(ctx context.Context) pulumix.Output[FormFieldsMap] {
-	return pulumix.Output[FormFieldsMap]{
-		OutputState: i.ToFormFieldsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FormFieldsMapOutput struct{ *pulumi.OutputState }
 
 func (FormFieldsMapOutput) ElementType() reflect.Type {
@@ -1725,12 +1835,6 @@ func (o FormFieldsMapOutput) ToFormFieldsMapOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o FormFieldsMapOutput) ToOutput(ctx context.Context) pulumix.Output[FormFieldsMap] {
-	return pulumix.Output[FormFieldsMap]{
-		OutputState: o.OutputState,
-	}
-}
-
 type FormFieldsMapPtrOutput struct{ *pulumi.OutputState }
 
 func (FormFieldsMapPtrOutput) ElementType() reflect.Type {
@@ -1743,12 +1847,6 @@ func (o FormFieldsMapPtrOutput) ToFormFieldsMapPtrOutput() FormFieldsMapPtrOutpu
 
 func (o FormFieldsMapPtrOutput) ToFormFieldsMapPtrOutputWithContext(ctx context.Context) FormFieldsMapPtrOutput {
 	return o
-}
-
-func (o FormFieldsMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormFieldsMap] {
-	return pulumix.Output[*FormFieldsMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormFieldsMapPtrOutput) Elem() FormFieldsMapOutput {
@@ -1790,12 +1888,6 @@ func (i FormSectionalElementMapArgs) ToFormSectionalElementMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FormSectionalElementMapOutput)
 }
 
-func (i FormSectionalElementMapArgs) ToOutput(ctx context.Context) pulumix.Output[FormSectionalElementMap] {
-	return pulumix.Output[FormSectionalElementMap]{
-		OutputState: i.ToFormSectionalElementMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FormSectionalElementMapOutput struct{ *pulumi.OutputState }
 
 func (FormSectionalElementMapOutput) ElementType() reflect.Type {
@@ -1810,12 +1902,6 @@ func (o FormSectionalElementMapOutput) ToFormSectionalElementMapOutputWithContex
 	return o
 }
 
-func (o FormSectionalElementMapOutput) ToOutput(ctx context.Context) pulumix.Output[FormSectionalElementMap] {
-	return pulumix.Output[FormSectionalElementMap]{
-		OutputState: o.OutputState,
-	}
-}
-
 type FormSectionalElementMapPtrOutput struct{ *pulumi.OutputState }
 
 func (FormSectionalElementMapPtrOutput) ElementType() reflect.Type {
@@ -1828,12 +1914,6 @@ func (o FormSectionalElementMapPtrOutput) ToFormSectionalElementMapPtrOutput() F
 
 func (o FormSectionalElementMapPtrOutput) ToFormSectionalElementMapPtrOutputWithContext(ctx context.Context) FormSectionalElementMapPtrOutput {
 	return o
-}
-
-func (o FormSectionalElementMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormSectionalElementMap] {
-	return pulumix.Output[*FormSectionalElementMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormSectionalElementMapPtrOutput) Elem() FormSectionalElementMapOutput {
@@ -1881,12 +1961,6 @@ func (i FormStyleArgs) ToFormStyleOutputWithContext(ctx context.Context) FormSty
 	return pulumi.ToOutputWithContext(ctx, i).(FormStyleOutput)
 }
 
-func (i FormStyleArgs) ToOutput(ctx context.Context) pulumix.Output[FormStyle] {
-	return pulumix.Output[FormStyle]{
-		OutputState: i.ToFormStyleOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FormStyleOutput struct{ *pulumi.OutputState }
 
 func (FormStyleOutput) ElementType() reflect.Type {
@@ -1899,12 +1973,6 @@ func (o FormStyleOutput) ToFormStyleOutput() FormStyleOutput {
 
 func (o FormStyleOutput) ToFormStyleOutputWithContext(ctx context.Context) FormStyleOutput {
 	return o
-}
-
-func (o FormStyleOutput) ToOutput(ctx context.Context) pulumix.Output[FormStyle] {
-	return pulumix.Output[FormStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormStyleOutput) HorizontalGap() pulumi.AnyOutput {
@@ -1931,12 +1999,6 @@ func (o FormStylePtrOutput) ToFormStylePtrOutput() FormStylePtrOutput {
 
 func (o FormStylePtrOutput) ToFormStylePtrOutputWithContext(ctx context.Context) FormStylePtrOutput {
 	return o
-}
-
-func (o FormStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormStyle] {
-	return pulumix.Output[*FormStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormStylePtrOutput) Elem() FormStyleOutput {
@@ -1980,8 +2042,266 @@ type FormStyleConfig0Properties struct {
 	TokenReference string `pulumi:"tokenReference"`
 }
 
+// FormStyleConfig0PropertiesInput is an input type that accepts FormStyleConfig0PropertiesArgs and FormStyleConfig0PropertiesOutput values.
+// You can construct a concrete instance of `FormStyleConfig0PropertiesInput` via:
+//
+//	FormStyleConfig0PropertiesArgs{...}
+type FormStyleConfig0PropertiesInput interface {
+	pulumi.Input
+
+	ToFormStyleConfig0PropertiesOutput() FormStyleConfig0PropertiesOutput
+	ToFormStyleConfig0PropertiesOutputWithContext(context.Context) FormStyleConfig0PropertiesOutput
+}
+
+type FormStyleConfig0PropertiesArgs struct {
+	TokenReference pulumi.StringInput `pulumi:"tokenReference"`
+}
+
+func (FormStyleConfig0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormStyleConfig0Properties)(nil)).Elem()
+}
+
+func (i FormStyleConfig0PropertiesArgs) ToFormStyleConfig0PropertiesOutput() FormStyleConfig0PropertiesOutput {
+	return i.ToFormStyleConfig0PropertiesOutputWithContext(context.Background())
+}
+
+func (i FormStyleConfig0PropertiesArgs) ToFormStyleConfig0PropertiesOutputWithContext(ctx context.Context) FormStyleConfig0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormStyleConfig0PropertiesOutput)
+}
+
+func (i FormStyleConfig0PropertiesArgs) ToFormStyleConfig0PropertiesPtrOutput() FormStyleConfig0PropertiesPtrOutput {
+	return i.ToFormStyleConfig0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FormStyleConfig0PropertiesArgs) ToFormStyleConfig0PropertiesPtrOutputWithContext(ctx context.Context) FormStyleConfig0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormStyleConfig0PropertiesOutput).ToFormStyleConfig0PropertiesPtrOutputWithContext(ctx)
+}
+
+// FormStyleConfig0PropertiesPtrInput is an input type that accepts FormStyleConfig0PropertiesArgs, FormStyleConfig0PropertiesPtr and FormStyleConfig0PropertiesPtrOutput values.
+// You can construct a concrete instance of `FormStyleConfig0PropertiesPtrInput` via:
+//
+//	        FormStyleConfig0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FormStyleConfig0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFormStyleConfig0PropertiesPtrOutput() FormStyleConfig0PropertiesPtrOutput
+	ToFormStyleConfig0PropertiesPtrOutputWithContext(context.Context) FormStyleConfig0PropertiesPtrOutput
+}
+
+type formStyleConfig0PropertiesPtrType FormStyleConfig0PropertiesArgs
+
+func FormStyleConfig0PropertiesPtr(v *FormStyleConfig0PropertiesArgs) FormStyleConfig0PropertiesPtrInput {
+	return (*formStyleConfig0PropertiesPtrType)(v)
+}
+
+func (*formStyleConfig0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormStyleConfig0Properties)(nil)).Elem()
+}
+
+func (i *formStyleConfig0PropertiesPtrType) ToFormStyleConfig0PropertiesPtrOutput() FormStyleConfig0PropertiesPtrOutput {
+	return i.ToFormStyleConfig0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *formStyleConfig0PropertiesPtrType) ToFormStyleConfig0PropertiesPtrOutputWithContext(ctx context.Context) FormStyleConfig0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormStyleConfig0PropertiesPtrOutput)
+}
+
+type FormStyleConfig0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FormStyleConfig0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormStyleConfig0Properties)(nil)).Elem()
+}
+
+func (o FormStyleConfig0PropertiesOutput) ToFormStyleConfig0PropertiesOutput() FormStyleConfig0PropertiesOutput {
+	return o
+}
+
+func (o FormStyleConfig0PropertiesOutput) ToFormStyleConfig0PropertiesOutputWithContext(ctx context.Context) FormStyleConfig0PropertiesOutput {
+	return o
+}
+
+func (o FormStyleConfig0PropertiesOutput) ToFormStyleConfig0PropertiesPtrOutput() FormStyleConfig0PropertiesPtrOutput {
+	return o.ToFormStyleConfig0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FormStyleConfig0PropertiesOutput) ToFormStyleConfig0PropertiesPtrOutputWithContext(ctx context.Context) FormStyleConfig0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormStyleConfig0Properties) *FormStyleConfig0Properties {
+		return &v
+	}).(FormStyleConfig0PropertiesPtrOutput)
+}
+
+func (o FormStyleConfig0PropertiesOutput) TokenReference() pulumi.StringOutput {
+	return o.ApplyT(func(v FormStyleConfig0Properties) string { return v.TokenReference }).(pulumi.StringOutput)
+}
+
+type FormStyleConfig0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FormStyleConfig0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormStyleConfig0Properties)(nil)).Elem()
+}
+
+func (o FormStyleConfig0PropertiesPtrOutput) ToFormStyleConfig0PropertiesPtrOutput() FormStyleConfig0PropertiesPtrOutput {
+	return o
+}
+
+func (o FormStyleConfig0PropertiesPtrOutput) ToFormStyleConfig0PropertiesPtrOutputWithContext(ctx context.Context) FormStyleConfig0PropertiesPtrOutput {
+	return o
+}
+
+func (o FormStyleConfig0PropertiesPtrOutput) Elem() FormStyleConfig0PropertiesOutput {
+	return o.ApplyT(func(v *FormStyleConfig0Properties) FormStyleConfig0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FormStyleConfig0Properties
+		return ret
+	}).(FormStyleConfig0PropertiesOutput)
+}
+
+func (o FormStyleConfig0PropertiesPtrOutput) TokenReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormStyleConfig0Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenReference
+	}).(pulumi.StringPtrOutput)
+}
+
 type FormStyleConfig1Properties struct {
 	Value string `pulumi:"value"`
+}
+
+// FormStyleConfig1PropertiesInput is an input type that accepts FormStyleConfig1PropertiesArgs and FormStyleConfig1PropertiesOutput values.
+// You can construct a concrete instance of `FormStyleConfig1PropertiesInput` via:
+//
+//	FormStyleConfig1PropertiesArgs{...}
+type FormStyleConfig1PropertiesInput interface {
+	pulumi.Input
+
+	ToFormStyleConfig1PropertiesOutput() FormStyleConfig1PropertiesOutput
+	ToFormStyleConfig1PropertiesOutputWithContext(context.Context) FormStyleConfig1PropertiesOutput
+}
+
+type FormStyleConfig1PropertiesArgs struct {
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FormStyleConfig1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormStyleConfig1Properties)(nil)).Elem()
+}
+
+func (i FormStyleConfig1PropertiesArgs) ToFormStyleConfig1PropertiesOutput() FormStyleConfig1PropertiesOutput {
+	return i.ToFormStyleConfig1PropertiesOutputWithContext(context.Background())
+}
+
+func (i FormStyleConfig1PropertiesArgs) ToFormStyleConfig1PropertiesOutputWithContext(ctx context.Context) FormStyleConfig1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormStyleConfig1PropertiesOutput)
+}
+
+func (i FormStyleConfig1PropertiesArgs) ToFormStyleConfig1PropertiesPtrOutput() FormStyleConfig1PropertiesPtrOutput {
+	return i.ToFormStyleConfig1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FormStyleConfig1PropertiesArgs) ToFormStyleConfig1PropertiesPtrOutputWithContext(ctx context.Context) FormStyleConfig1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormStyleConfig1PropertiesOutput).ToFormStyleConfig1PropertiesPtrOutputWithContext(ctx)
+}
+
+// FormStyleConfig1PropertiesPtrInput is an input type that accepts FormStyleConfig1PropertiesArgs, FormStyleConfig1PropertiesPtr and FormStyleConfig1PropertiesPtrOutput values.
+// You can construct a concrete instance of `FormStyleConfig1PropertiesPtrInput` via:
+//
+//	        FormStyleConfig1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FormStyleConfig1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFormStyleConfig1PropertiesPtrOutput() FormStyleConfig1PropertiesPtrOutput
+	ToFormStyleConfig1PropertiesPtrOutputWithContext(context.Context) FormStyleConfig1PropertiesPtrOutput
+}
+
+type formStyleConfig1PropertiesPtrType FormStyleConfig1PropertiesArgs
+
+func FormStyleConfig1PropertiesPtr(v *FormStyleConfig1PropertiesArgs) FormStyleConfig1PropertiesPtrInput {
+	return (*formStyleConfig1PropertiesPtrType)(v)
+}
+
+func (*formStyleConfig1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormStyleConfig1Properties)(nil)).Elem()
+}
+
+func (i *formStyleConfig1PropertiesPtrType) ToFormStyleConfig1PropertiesPtrOutput() FormStyleConfig1PropertiesPtrOutput {
+	return i.ToFormStyleConfig1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *formStyleConfig1PropertiesPtrType) ToFormStyleConfig1PropertiesPtrOutputWithContext(ctx context.Context) FormStyleConfig1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormStyleConfig1PropertiesPtrOutput)
+}
+
+type FormStyleConfig1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FormStyleConfig1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormStyleConfig1Properties)(nil)).Elem()
+}
+
+func (o FormStyleConfig1PropertiesOutput) ToFormStyleConfig1PropertiesOutput() FormStyleConfig1PropertiesOutput {
+	return o
+}
+
+func (o FormStyleConfig1PropertiesOutput) ToFormStyleConfig1PropertiesOutputWithContext(ctx context.Context) FormStyleConfig1PropertiesOutput {
+	return o
+}
+
+func (o FormStyleConfig1PropertiesOutput) ToFormStyleConfig1PropertiesPtrOutput() FormStyleConfig1PropertiesPtrOutput {
+	return o.ToFormStyleConfig1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FormStyleConfig1PropertiesOutput) ToFormStyleConfig1PropertiesPtrOutputWithContext(ctx context.Context) FormStyleConfig1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormStyleConfig1Properties) *FormStyleConfig1Properties {
+		return &v
+	}).(FormStyleConfig1PropertiesPtrOutput)
+}
+
+func (o FormStyleConfig1PropertiesOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FormStyleConfig1Properties) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FormStyleConfig1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FormStyleConfig1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormStyleConfig1Properties)(nil)).Elem()
+}
+
+func (o FormStyleConfig1PropertiesPtrOutput) ToFormStyleConfig1PropertiesPtrOutput() FormStyleConfig1PropertiesPtrOutput {
+	return o
+}
+
+func (o FormStyleConfig1PropertiesPtrOutput) ToFormStyleConfig1PropertiesPtrOutputWithContext(ctx context.Context) FormStyleConfig1PropertiesPtrOutput {
+	return o
+}
+
+func (o FormStyleConfig1PropertiesPtrOutput) Elem() FormStyleConfig1PropertiesOutput {
+	return o.ApplyT(func(v *FormStyleConfig1Properties) FormStyleConfig1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FormStyleConfig1Properties
+		return ret
+	}).(FormStyleConfig1PropertiesOutput)
+}
+
+func (o FormStyleConfig1PropertiesPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormStyleConfig1Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
 }
 
 type FormTags struct {
@@ -2011,12 +2331,6 @@ func (i FormTagsArgs) ToFormTagsOutput() FormTagsOutput {
 
 func (i FormTagsArgs) ToFormTagsOutputWithContext(ctx context.Context) FormTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FormTagsOutput)
-}
-
-func (i FormTagsArgs) ToOutput(ctx context.Context) pulumix.Output[FormTags] {
-	return pulumix.Output[FormTags]{
-		OutputState: i.ToFormTagsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FormTagsArgs) ToFormTagsPtrOutput() FormTagsPtrOutput {
@@ -2060,12 +2374,6 @@ func (i *formTagsPtrType) ToFormTagsPtrOutputWithContext(ctx context.Context) Fo
 	return pulumi.ToOutputWithContext(ctx, i).(FormTagsPtrOutput)
 }
 
-func (i *formTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FormTags] {
-	return pulumix.Output[*FormTags]{
-		OutputState: i.ToFormTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FormTagsOutput struct{ *pulumi.OutputState }
 
 func (FormTagsOutput) ElementType() reflect.Type {
@@ -2090,12 +2398,6 @@ func (o FormTagsOutput) ToFormTagsPtrOutputWithContext(ctx context.Context) Form
 	}).(FormTagsPtrOutput)
 }
 
-func (o FormTagsOutput) ToOutput(ctx context.Context) pulumix.Output[FormTags] {
-	return pulumix.Output[FormTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type FormTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (FormTagsPtrOutput) ElementType() reflect.Type {
@@ -2108,12 +2410,6 @@ func (o FormTagsPtrOutput) ToFormTagsPtrOutput() FormTagsPtrOutput {
 
 func (o FormTagsPtrOutput) ToFormTagsPtrOutputWithContext(ctx context.Context) FormTagsPtrOutput {
 	return o
-}
-
-func (o FormTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormTags] {
-	return pulumix.Output[*FormTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormTagsPtrOutput) Elem() FormTagsOutput {
@@ -2153,12 +2449,6 @@ func (i ThemeTagsArgs) ToThemeTagsOutput() ThemeTagsOutput {
 
 func (i ThemeTagsArgs) ToThemeTagsOutputWithContext(ctx context.Context) ThemeTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagsOutput)
-}
-
-func (i ThemeTagsArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeTags] {
-	return pulumix.Output[ThemeTags]{
-		OutputState: i.ToThemeTagsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ThemeTagsArgs) ToThemeTagsPtrOutput() ThemeTagsPtrOutput {
@@ -2202,12 +2492,6 @@ func (i *themeTagsPtrType) ToThemeTagsPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagsPtrOutput)
 }
 
-func (i *themeTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeTags] {
-	return pulumix.Output[*ThemeTags]{
-		OutputState: i.ToThemeTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeTagsOutput struct{ *pulumi.OutputState }
 
 func (ThemeTagsOutput) ElementType() reflect.Type {
@@ -2232,12 +2516,6 @@ func (o ThemeTagsOutput) ToThemeTagsPtrOutputWithContext(ctx context.Context) Th
 	}).(ThemeTagsPtrOutput)
 }
 
-func (o ThemeTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeTags] {
-	return pulumix.Output[ThemeTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ThemeTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (ThemeTagsPtrOutput) ElementType() reflect.Type {
@@ -2250,12 +2528,6 @@ func (o ThemeTagsPtrOutput) ToThemeTagsPtrOutput() ThemeTagsPtrOutput {
 
 func (o ThemeTagsPtrOutput) ToThemeTagsPtrOutputWithContext(ctx context.Context) ThemeTagsPtrOutput {
 	return o
-}
-
-func (o ThemeTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeTags] {
-	return pulumix.Output[*ThemeTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeTagsPtrOutput) Elem() ThemeTagsOutput {
@@ -2301,12 +2573,6 @@ func (i ThemeValueArgs) ToThemeValueOutputWithContext(ctx context.Context) Theme
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeValueOutput)
 }
 
-func (i ThemeValueArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeValue] {
-	return pulumix.Output[ThemeValue]{
-		OutputState: i.ToThemeValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ThemeValueArgs) ToThemeValuePtrOutput() ThemeValuePtrOutput {
 	return i.ToThemeValuePtrOutputWithContext(context.Background())
 }
@@ -2348,12 +2614,6 @@ func (i *themeValuePtrType) ToThemeValuePtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeValuePtrOutput)
 }
 
-func (i *themeValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeValue] {
-	return pulumix.Output[*ThemeValue]{
-		OutputState: i.ToThemeValuePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeValueOutput struct{ *pulumi.OutputState }
 
 func (ThemeValueOutput) ElementType() reflect.Type {
@@ -2378,12 +2638,6 @@ func (o ThemeValueOutput) ToThemeValuePtrOutputWithContext(ctx context.Context) 
 	}).(ThemeValuePtrOutput)
 }
 
-func (o ThemeValueOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeValue] {
-	return pulumix.Output[ThemeValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeValueOutput) Children() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v ThemeValue) []ThemeValues { return v.Children }).(ThemeValuesArrayOutput)
 }
@@ -2404,12 +2658,6 @@ func (o ThemeValuePtrOutput) ToThemeValuePtrOutput() ThemeValuePtrOutput {
 
 func (o ThemeValuePtrOutput) ToThemeValuePtrOutputWithContext(ctx context.Context) ThemeValuePtrOutput {
 	return o
-}
-
-func (o ThemeValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeValue] {
-	return pulumix.Output[*ThemeValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeValuePtrOutput) Elem() ThemeValueOutput {
@@ -2473,12 +2721,6 @@ func (i ThemeValuesArgs) ToThemeValuesOutputWithContext(ctx context.Context) The
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeValuesOutput)
 }
 
-func (i ThemeValuesArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeValues] {
-	return pulumix.Output[ThemeValues]{
-		OutputState: i.ToThemeValuesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ThemeValuesArrayInput is an input type that accepts ThemeValuesArray and ThemeValuesArrayOutput values.
 // You can construct a concrete instance of `ThemeValuesArrayInput` via:
 //
@@ -2504,12 +2746,6 @@ func (i ThemeValuesArray) ToThemeValuesArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeValuesArrayOutput)
 }
 
-func (i ThemeValuesArray) ToOutput(ctx context.Context) pulumix.Output[[]ThemeValues] {
-	return pulumix.Output[[]ThemeValues]{
-		OutputState: i.ToThemeValuesArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeValuesOutput struct{ *pulumi.OutputState }
 
 func (ThemeValuesOutput) ElementType() reflect.Type {
@@ -2522,12 +2758,6 @@ func (o ThemeValuesOutput) ToThemeValuesOutput() ThemeValuesOutput {
 
 func (o ThemeValuesOutput) ToThemeValuesOutputWithContext(ctx context.Context) ThemeValuesOutput {
 	return o
-}
-
-func (o ThemeValuesOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeValues] {
-	return pulumix.Output[ThemeValues]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeValuesOutput) Key() pulumi.StringPtrOutput {
@@ -2550,12 +2780,6 @@ func (o ThemeValuesArrayOutput) ToThemeValuesArrayOutput() ThemeValuesArrayOutpu
 
 func (o ThemeValuesArrayOutput) ToThemeValuesArrayOutputWithContext(ctx context.Context) ThemeValuesArrayOutput {
 	return o
-}
-
-func (o ThemeValuesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThemeValues] {
-	return pulumix.Output[[]ThemeValues]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeValuesArrayOutput) Index(i pulumi.IntInput) ThemeValuesOutput {
@@ -2586,9 +2810,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FormCtaInput)(nil)).Elem(), FormCtaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormCtaPtrInput)(nil)).Elem(), FormCtaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormDataTypeConfigInput)(nil)).Elem(), FormDataTypeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPosition0PropertiesInput)(nil)).Elem(), FormFieldPosition0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPosition0PropertiesPtrInput)(nil)).Elem(), FormFieldPosition0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPosition1PropertiesInput)(nil)).Elem(), FormFieldPosition1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPosition1PropertiesPtrInput)(nil)).Elem(), FormFieldPosition1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPosition2PropertiesInput)(nil)).Elem(), FormFieldPosition2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPosition2PropertiesPtrInput)(nil)).Elem(), FormFieldPosition2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldsMapInput)(nil)).Elem(), FormFieldsMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormSectionalElementMapInput)(nil)).Elem(), FormSectionalElementMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleInput)(nil)).Elem(), FormStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleConfig0PropertiesInput)(nil)).Elem(), FormStyleConfig0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleConfig0PropertiesPtrInput)(nil)).Elem(), FormStyleConfig0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleConfig1PropertiesInput)(nil)).Elem(), FormStyleConfig1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleConfig1PropertiesPtrInput)(nil)).Elem(), FormStyleConfig1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormTagsInput)(nil)).Elem(), FormTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormTagsPtrInput)(nil)).Elem(), FormTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTagsInput)(nil)).Elem(), ThemeTagsArgs{})
@@ -2621,12 +2855,22 @@ func init() {
 	pulumi.RegisterOutputType(FormCtaPtrOutput{})
 	pulumi.RegisterOutputType(FormDataTypeConfigOutput{})
 	pulumi.RegisterOutputType(FormDataTypeConfigPtrOutput{})
+	pulumi.RegisterOutputType(FormFieldPosition0PropertiesOutput{})
+	pulumi.RegisterOutputType(FormFieldPosition0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FormFieldPosition1PropertiesOutput{})
+	pulumi.RegisterOutputType(FormFieldPosition1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FormFieldPosition2PropertiesOutput{})
+	pulumi.RegisterOutputType(FormFieldPosition2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FormFieldsMapOutput{})
 	pulumi.RegisterOutputType(FormFieldsMapPtrOutput{})
 	pulumi.RegisterOutputType(FormSectionalElementMapOutput{})
 	pulumi.RegisterOutputType(FormSectionalElementMapPtrOutput{})
 	pulumi.RegisterOutputType(FormStyleOutput{})
 	pulumi.RegisterOutputType(FormStylePtrOutput{})
+	pulumi.RegisterOutputType(FormStyleConfig0PropertiesOutput{})
+	pulumi.RegisterOutputType(FormStyleConfig0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FormStyleConfig1PropertiesOutput{})
+	pulumi.RegisterOutputType(FormStyleConfig1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FormTagsOutput{})
 	pulumi.RegisterOutputType(FormTagsPtrOutput{})
 	pulumi.RegisterOutputType(ThemeTagsOutput{})

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaPackage::Asset
@@ -83,12 +82,6 @@ func (o LookupAssetResultOutput) ToLookupAssetResultOutput() LookupAssetResultOu
 
 func (o LookupAssetResultOutput) ToLookupAssetResultOutputWithContext(ctx context.Context) LookupAssetResultOutput {
 	return o
-}
-
-func (o LookupAssetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAssetResult] {
-	return pulumix.Output[LookupAssetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Asset.

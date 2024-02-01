@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The rule's stringified attribute.
@@ -90,12 +89,6 @@ func (o DevicePoolRuleAttributeOutput) ToDevicePoolRuleAttributePtrOutputWithCon
 	}).(DevicePoolRuleAttributePtrOutput)
 }
 
-func (o DevicePoolRuleAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[DevicePoolRuleAttribute] {
-	return pulumix.Output[DevicePoolRuleAttribute]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DevicePoolRuleAttributeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -131,12 +124,6 @@ func (o DevicePoolRuleAttributePtrOutput) ToDevicePoolRuleAttributePtrOutputWith
 	return o
 }
 
-func (o DevicePoolRuleAttributePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DevicePoolRuleAttribute] {
-	return pulumix.Output[*DevicePoolRuleAttribute]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DevicePoolRuleAttributePtrOutput) Elem() DevicePoolRuleAttributeOutput {
 	return o.ApplyT(func(v *DevicePoolRuleAttribute) DevicePoolRuleAttribute {
 		if v != nil {
@@ -161,10 +148,22 @@ func (o DevicePoolRuleAttributePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DevicePoolRuleAttributeInput is an input type that accepts DevicePoolRuleAttributeArgs and DevicePoolRuleAttributeOutput values.
-// You can construct a concrete instance of `DevicePoolRuleAttributeInput` via:
+// DevicePoolRuleAttributeInput is an input type that accepts values of the DevicePoolRuleAttribute enum
+// A concrete instance of `DevicePoolRuleAttributeInput` can be one of the following:
 //
-//	DevicePoolRuleAttributeArgs{...}
+//	DevicePoolRuleAttributeArn
+//	DevicePoolRuleAttributePlatform
+//	DevicePoolRuleAttributeFormFactor
+//	DevicePoolRuleAttributeManufacturer
+//	DevicePoolRuleAttributeRemoteAccessEnabled
+//	DevicePoolRuleAttributeRemoteDebugEnabled
+//	DevicePoolRuleAttributeAppiumVersion
+//	DevicePoolRuleAttributeInstanceArn
+//	DevicePoolRuleAttributeInstanceLabels
+//	DevicePoolRuleAttributeFleetType
+//	DevicePoolRuleAttributeOsVersion
+//	DevicePoolRuleAttributeModel
+//	DevicePoolRuleAttributeAvailability
 type DevicePoolRuleAttributeInput interface {
 	pulumi.Input
 
@@ -197,12 +196,6 @@ func (in *devicePoolRuleAttributePtr) ToDevicePoolRuleAttributePtrOutput() Devic
 
 func (in *devicePoolRuleAttributePtr) ToDevicePoolRuleAttributePtrOutputWithContext(ctx context.Context) DevicePoolRuleAttributePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DevicePoolRuleAttributePtrOutput)
-}
-
-func (in *devicePoolRuleAttributePtr) ToOutput(ctx context.Context) pulumix.Output[*DevicePoolRuleAttribute] {
-	return pulumix.Output[*DevicePoolRuleAttribute]{
-		OutputState: in.ToDevicePoolRuleAttributePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how Device Farm compares the rule's attribute to the value.
@@ -279,12 +272,6 @@ func (o DevicePoolRuleOperatorOutput) ToDevicePoolRuleOperatorPtrOutputWithConte
 	}).(DevicePoolRuleOperatorPtrOutput)
 }
 
-func (o DevicePoolRuleOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[DevicePoolRuleOperator] {
-	return pulumix.Output[DevicePoolRuleOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DevicePoolRuleOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -320,12 +307,6 @@ func (o DevicePoolRuleOperatorPtrOutput) ToDevicePoolRuleOperatorPtrOutputWithCo
 	return o
 }
 
-func (o DevicePoolRuleOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DevicePoolRuleOperator] {
-	return pulumix.Output[*DevicePoolRuleOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DevicePoolRuleOperatorPtrOutput) Elem() DevicePoolRuleOperatorOutput {
 	return o.ApplyT(func(v *DevicePoolRuleOperator) DevicePoolRuleOperator {
 		if v != nil {
@@ -350,10 +331,17 @@ func (o DevicePoolRuleOperatorPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DevicePoolRuleOperatorInput is an input type that accepts DevicePoolRuleOperatorArgs and DevicePoolRuleOperatorOutput values.
-// You can construct a concrete instance of `DevicePoolRuleOperatorInput` via:
+// DevicePoolRuleOperatorInput is an input type that accepts values of the DevicePoolRuleOperator enum
+// A concrete instance of `DevicePoolRuleOperatorInput` can be one of the following:
 //
-//	DevicePoolRuleOperatorArgs{...}
+//	DevicePoolRuleOperatorEquals
+//	DevicePoolRuleOperatorLessThan
+//	DevicePoolRuleOperatorLessThanOrEquals
+//	DevicePoolRuleOperatorGreaterThan
+//	DevicePoolRuleOperatorGreaterThanOrEquals
+//	DevicePoolRuleOperatorIn
+//	DevicePoolRuleOperatorNotIn
+//	DevicePoolRuleOperatorContains
 type DevicePoolRuleOperatorInput interface {
 	pulumi.Input
 
@@ -386,12 +374,6 @@ func (in *devicePoolRuleOperatorPtr) ToDevicePoolRuleOperatorPtrOutput() DeviceP
 
 func (in *devicePoolRuleOperatorPtr) ToDevicePoolRuleOperatorPtrOutputWithContext(ctx context.Context) DevicePoolRuleOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DevicePoolRuleOperatorPtrOutput)
-}
-
-func (in *devicePoolRuleOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*DevicePoolRuleOperator] {
-	return pulumix.Output[*DevicePoolRuleOperator]{
-		OutputState: in.ToDevicePoolRuleOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

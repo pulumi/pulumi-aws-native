@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. You must set this property to `CUSTOM` in order to set the `CheckpointingEnabled`, `CheckpointInterval`, or `MinPauseBetweenCheckpoints` parameters.
@@ -79,12 +78,6 @@ func (o ApplicationCheckpointConfigurationConfigurationTypeOutput) ToApplication
 	}).(ApplicationCheckpointConfigurationConfigurationTypePtrOutput)
 }
 
-func (o ApplicationCheckpointConfigurationConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCheckpointConfigurationConfigurationType] {
-	return pulumix.Output[ApplicationCheckpointConfigurationConfigurationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationCheckpointConfigurationConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) ToApplicat
 	return o
 }
 
-func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCheckpointConfigurationConfigurationType] {
-	return pulumix.Output[*ApplicationCheckpointConfigurationConfigurationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) Elem() ApplicationCheckpointConfigurationConfigurationTypeOutput {
 	return o.ApplyT(func(v *ApplicationCheckpointConfigurationConfigurationType) ApplicationCheckpointConfigurationConfigurationType {
 		if v != nil {
@@ -150,10 +137,11 @@ func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationCheckpointConfigurationConfigurationTypeInput is an input type that accepts ApplicationCheckpointConfigurationConfigurationTypeArgs and ApplicationCheckpointConfigurationConfigurationTypeOutput values.
-// You can construct a concrete instance of `ApplicationCheckpointConfigurationConfigurationTypeInput` via:
+// ApplicationCheckpointConfigurationConfigurationTypeInput is an input type that accepts values of the ApplicationCheckpointConfigurationConfigurationType enum
+// A concrete instance of `ApplicationCheckpointConfigurationConfigurationTypeInput` can be one of the following:
 //
-//	ApplicationCheckpointConfigurationConfigurationTypeArgs{...}
+//	ApplicationCheckpointConfigurationConfigurationTypeDefault
+//	ApplicationCheckpointConfigurationConfigurationTypeCustom
 type ApplicationCheckpointConfigurationConfigurationTypeInput interface {
 	pulumi.Input
 
@@ -186,12 +174,6 @@ func (in *applicationCheckpointConfigurationConfigurationTypePtr) ToApplicationC
 
 func (in *applicationCheckpointConfigurationConfigurationTypePtr) ToApplicationCheckpointConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) ApplicationCheckpointConfigurationConfigurationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationCheckpointConfigurationConfigurationTypePtrOutput)
-}
-
-func (in *applicationCheckpointConfigurationConfigurationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCheckpointConfigurationConfigurationType] {
-	return pulumix.Output[*ApplicationCheckpointConfigurationConfigurationType]{
-		OutputState: in.ToApplicationCheckpointConfigurationConfigurationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies whether the code content is in text or zip format.
@@ -262,12 +244,6 @@ func (o ApplicationCodeConfigurationCodeContentTypeOutput) ToApplicationCodeConf
 	}).(ApplicationCodeConfigurationCodeContentTypePtrOutput)
 }
 
-func (o ApplicationCodeConfigurationCodeContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCodeConfigurationCodeContentType] {
-	return pulumix.Output[ApplicationCodeConfigurationCodeContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationCodeConfigurationCodeContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +279,6 @@ func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) ToApplicationCodeC
 	return o
 }
 
-func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCodeConfigurationCodeContentType] {
-	return pulumix.Output[*ApplicationCodeConfigurationCodeContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) Elem() ApplicationCodeConfigurationCodeContentTypeOutput {
 	return o.ApplyT(func(v *ApplicationCodeConfigurationCodeContentType) ApplicationCodeConfigurationCodeContentType {
 		if v != nil {
@@ -333,10 +303,11 @@ func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationCodeConfigurationCodeContentTypeInput is an input type that accepts ApplicationCodeConfigurationCodeContentTypeArgs and ApplicationCodeConfigurationCodeContentTypeOutput values.
-// You can construct a concrete instance of `ApplicationCodeConfigurationCodeContentTypeInput` via:
+// ApplicationCodeConfigurationCodeContentTypeInput is an input type that accepts values of the ApplicationCodeConfigurationCodeContentType enum
+// A concrete instance of `ApplicationCodeConfigurationCodeContentTypeInput` can be one of the following:
 //
-//	ApplicationCodeConfigurationCodeContentTypeArgs{...}
+//	ApplicationCodeConfigurationCodeContentTypePlaintext
+//	ApplicationCodeConfigurationCodeContentTypeZipfile
 type ApplicationCodeConfigurationCodeContentTypeInput interface {
 	pulumi.Input
 
@@ -369,12 +340,6 @@ func (in *applicationCodeConfigurationCodeContentTypePtr) ToApplicationCodeConfi
 
 func (in *applicationCodeConfigurationCodeContentTypePtr) ToApplicationCodeConfigurationCodeContentTypePtrOutputWithContext(ctx context.Context) ApplicationCodeConfigurationCodeContentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationCodeConfigurationCodeContentTypePtrOutput)
-}
-
-func (in *applicationCodeConfigurationCodeContentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCodeConfigurationCodeContentType] {
-	return pulumix.Output[*ApplicationCodeConfigurationCodeContentType]{
-		OutputState: in.ToApplicationCodeConfigurationCodeContentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Set this to either `UDF` or `DEPENDENCY_JAR`. `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
@@ -445,12 +410,6 @@ func (o ApplicationCustomArtifactConfigurationArtifactTypeOutput) ToApplicationC
 	}).(ApplicationCustomArtifactConfigurationArtifactTypePtrOutput)
 }
 
-func (o ApplicationCustomArtifactConfigurationArtifactTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCustomArtifactConfigurationArtifactType] {
-	return pulumix.Output[ApplicationCustomArtifactConfigurationArtifactType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationCustomArtifactConfigurationArtifactTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -486,12 +445,6 @@ func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) ToApplicati
 	return o
 }
 
-func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCustomArtifactConfigurationArtifactType] {
-	return pulumix.Output[*ApplicationCustomArtifactConfigurationArtifactType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) Elem() ApplicationCustomArtifactConfigurationArtifactTypeOutput {
 	return o.ApplyT(func(v *ApplicationCustomArtifactConfigurationArtifactType) ApplicationCustomArtifactConfigurationArtifactType {
 		if v != nil {
@@ -516,10 +469,11 @@ func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationCustomArtifactConfigurationArtifactTypeInput is an input type that accepts ApplicationCustomArtifactConfigurationArtifactTypeArgs and ApplicationCustomArtifactConfigurationArtifactTypeOutput values.
-// You can construct a concrete instance of `ApplicationCustomArtifactConfigurationArtifactTypeInput` via:
+// ApplicationCustomArtifactConfigurationArtifactTypeInput is an input type that accepts values of the ApplicationCustomArtifactConfigurationArtifactType enum
+// A concrete instance of `ApplicationCustomArtifactConfigurationArtifactTypeInput` can be one of the following:
 //
-//	ApplicationCustomArtifactConfigurationArtifactTypeArgs{...}
+//	ApplicationCustomArtifactConfigurationArtifactTypeDependencyJar
+//	ApplicationCustomArtifactConfigurationArtifactTypeUdf
 type ApplicationCustomArtifactConfigurationArtifactTypeInput interface {
 	pulumi.Input
 
@@ -552,12 +506,6 @@ func (in *applicationCustomArtifactConfigurationArtifactTypePtr) ToApplicationCu
 
 func (in *applicationCustomArtifactConfigurationArtifactTypePtr) ToApplicationCustomArtifactConfigurationArtifactTypePtrOutputWithContext(ctx context.Context) ApplicationCustomArtifactConfigurationArtifactTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationCustomArtifactConfigurationArtifactTypePtrOutput)
-}
-
-func (in *applicationCustomArtifactConfigurationArtifactTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCustomArtifactConfigurationArtifactType] {
-	return pulumix.Output[*ApplicationCustomArtifactConfigurationArtifactType]{
-		OutputState: in.ToApplicationCustomArtifactConfigurationArtifactTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the encoding of the records in the streaming source. For example, UTF-8.
@@ -627,12 +575,6 @@ func (o ApplicationInputSchemaRecordEncodingOutput) ToApplicationInputSchemaReco
 	}).(ApplicationInputSchemaRecordEncodingPtrOutput)
 }
 
-func (o ApplicationInputSchemaRecordEncodingOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputSchemaRecordEncoding] {
-	return pulumix.Output[ApplicationInputSchemaRecordEncoding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationInputSchemaRecordEncodingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -668,12 +610,6 @@ func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToApplicationInputSchemaR
 	return o
 }
 
-func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputSchemaRecordEncoding] {
-	return pulumix.Output[*ApplicationInputSchemaRecordEncoding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationInputSchemaRecordEncodingPtrOutput) Elem() ApplicationInputSchemaRecordEncodingOutput {
 	return o.ApplyT(func(v *ApplicationInputSchemaRecordEncoding) ApplicationInputSchemaRecordEncoding {
 		if v != nil {
@@ -698,10 +634,10 @@ func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationInputSchemaRecordEncodingInput is an input type that accepts ApplicationInputSchemaRecordEncodingArgs and ApplicationInputSchemaRecordEncodingOutput values.
-// You can construct a concrete instance of `ApplicationInputSchemaRecordEncodingInput` via:
+// ApplicationInputSchemaRecordEncodingInput is an input type that accepts values of the ApplicationInputSchemaRecordEncoding enum
+// A concrete instance of `ApplicationInputSchemaRecordEncodingInput` can be one of the following:
 //
-//	ApplicationInputSchemaRecordEncodingArgs{...}
+//	ApplicationInputSchemaRecordEncodingUtf8
 type ApplicationInputSchemaRecordEncodingInput interface {
 	pulumi.Input
 
@@ -734,12 +670,6 @@ func (in *applicationInputSchemaRecordEncodingPtr) ToApplicationInputSchemaRecor
 
 func (in *applicationInputSchemaRecordEncodingPtr) ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(ctx context.Context) ApplicationInputSchemaRecordEncodingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationInputSchemaRecordEncodingPtrOutput)
-}
-
-func (in *applicationInputSchemaRecordEncodingPtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputSchemaRecordEncoding] {
-	return pulumix.Output[*ApplicationInputSchemaRecordEncoding]{
-		OutputState: in.ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
@@ -810,12 +740,6 @@ func (o ApplicationModeOutput) ToApplicationModePtrOutputWithContext(ctx context
 	}).(ApplicationModePtrOutput)
 }
 
-func (o ApplicationModeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMode] {
-	return pulumix.Output[ApplicationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -851,12 +775,6 @@ func (o ApplicationModePtrOutput) ToApplicationModePtrOutputWithContext(ctx cont
 	return o
 }
 
-func (o ApplicationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMode] {
-	return pulumix.Output[*ApplicationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationModePtrOutput) Elem() ApplicationModeOutput {
 	return o.ApplyT(func(v *ApplicationMode) ApplicationMode {
 		if v != nil {
@@ -881,10 +799,11 @@ func (o ApplicationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationModeInput is an input type that accepts ApplicationModeArgs and ApplicationModeOutput values.
-// You can construct a concrete instance of `ApplicationModeInput` via:
+// ApplicationModeInput is an input type that accepts values of the ApplicationMode enum
+// A concrete instance of `ApplicationModeInput` can be one of the following:
 //
-//	ApplicationModeArgs{...}
+//	ApplicationModeInteractive
+//	ApplicationModeStreaming
 type ApplicationModeInput interface {
 	pulumi.Input
 
@@ -917,12 +836,6 @@ func (in *applicationModePtr) ToApplicationModePtrOutput() ApplicationModePtrOut
 
 func (in *applicationModePtr) ToApplicationModePtrOutputWithContext(ctx context.Context) ApplicationModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationModePtrOutput)
-}
-
-func (in *applicationModePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMode] {
-	return pulumix.Output[*ApplicationMode]{
-		OutputState: in.ToApplicationModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
@@ -993,12 +906,6 @@ func (o ApplicationMonitoringConfigurationConfigurationTypeOutput) ToApplication
 	}).(ApplicationMonitoringConfigurationConfigurationTypePtrOutput)
 }
 
-func (o ApplicationMonitoringConfigurationConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfigurationConfigurationType] {
-	return pulumix.Output[ApplicationMonitoringConfigurationConfigurationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationMonitoringConfigurationConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1034,12 +941,6 @@ func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) ToApplicat
 	return o
 }
 
-func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationConfigurationType] {
-	return pulumix.Output[*ApplicationMonitoringConfigurationConfigurationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) Elem() ApplicationMonitoringConfigurationConfigurationTypeOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationConfigurationType) ApplicationMonitoringConfigurationConfigurationType {
 		if v != nil {
@@ -1064,10 +965,11 @@ func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationMonitoringConfigurationConfigurationTypeInput is an input type that accepts ApplicationMonitoringConfigurationConfigurationTypeArgs and ApplicationMonitoringConfigurationConfigurationTypeOutput values.
-// You can construct a concrete instance of `ApplicationMonitoringConfigurationConfigurationTypeInput` via:
+// ApplicationMonitoringConfigurationConfigurationTypeInput is an input type that accepts values of the ApplicationMonitoringConfigurationConfigurationType enum
+// A concrete instance of `ApplicationMonitoringConfigurationConfigurationTypeInput` can be one of the following:
 //
-//	ApplicationMonitoringConfigurationConfigurationTypeArgs{...}
+//	ApplicationMonitoringConfigurationConfigurationTypeDefault
+//	ApplicationMonitoringConfigurationConfigurationTypeCustom
 type ApplicationMonitoringConfigurationConfigurationTypeInput interface {
 	pulumi.Input
 
@@ -1100,12 +1002,6 @@ func (in *applicationMonitoringConfigurationConfigurationTypePtr) ToApplicationM
 
 func (in *applicationMonitoringConfigurationConfigurationTypePtr) ToApplicationMonitoringConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationConfigurationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationMonitoringConfigurationConfigurationTypePtrOutput)
-}
-
-func (in *applicationMonitoringConfigurationConfigurationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationConfigurationType] {
-	return pulumix.Output[*ApplicationMonitoringConfigurationConfigurationType]{
-		OutputState: in.ToApplicationMonitoringConfigurationConfigurationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Describes the verbosity of the CloudWatch Logs for an application.
@@ -1178,12 +1074,6 @@ func (o ApplicationMonitoringConfigurationLogLevelOutput) ToApplicationMonitorin
 	}).(ApplicationMonitoringConfigurationLogLevelPtrOutput)
 }
 
-func (o ApplicationMonitoringConfigurationLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfigurationLogLevel] {
-	return pulumix.Output[ApplicationMonitoringConfigurationLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationMonitoringConfigurationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1219,12 +1109,6 @@ func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) ToApplicationMonito
 	return o
 }
 
-func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationLogLevel] {
-	return pulumix.Output[*ApplicationMonitoringConfigurationLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) Elem() ApplicationMonitoringConfigurationLogLevelOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationLogLevel) ApplicationMonitoringConfigurationLogLevel {
 		if v != nil {
@@ -1249,10 +1133,13 @@ func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationMonitoringConfigurationLogLevelInput is an input type that accepts ApplicationMonitoringConfigurationLogLevelArgs and ApplicationMonitoringConfigurationLogLevelOutput values.
-// You can construct a concrete instance of `ApplicationMonitoringConfigurationLogLevelInput` via:
+// ApplicationMonitoringConfigurationLogLevelInput is an input type that accepts values of the ApplicationMonitoringConfigurationLogLevel enum
+// A concrete instance of `ApplicationMonitoringConfigurationLogLevelInput` can be one of the following:
 //
-//	ApplicationMonitoringConfigurationLogLevelArgs{...}
+//	ApplicationMonitoringConfigurationLogLevelDebug
+//	ApplicationMonitoringConfigurationLogLevelInfo
+//	ApplicationMonitoringConfigurationLogLevelWarn
+//	ApplicationMonitoringConfigurationLogLevelError
 type ApplicationMonitoringConfigurationLogLevelInput interface {
 	pulumi.Input
 
@@ -1285,12 +1172,6 @@ func (in *applicationMonitoringConfigurationLogLevelPtr) ToApplicationMonitoring
 
 func (in *applicationMonitoringConfigurationLogLevelPtr) ToApplicationMonitoringConfigurationLogLevelPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationMonitoringConfigurationLogLevelPtrOutput)
-}
-
-func (in *applicationMonitoringConfigurationLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationLogLevel] {
-	return pulumix.Output[*ApplicationMonitoringConfigurationLogLevel]{
-		OutputState: in.ToApplicationMonitoringConfigurationLogLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
@@ -1363,12 +1244,6 @@ func (o ApplicationMonitoringConfigurationMetricsLevelOutput) ToApplicationMonit
 	}).(ApplicationMonitoringConfigurationMetricsLevelPtrOutput)
 }
 
-func (o ApplicationMonitoringConfigurationMetricsLevelOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfigurationMetricsLevel] {
-	return pulumix.Output[ApplicationMonitoringConfigurationMetricsLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationMonitoringConfigurationMetricsLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1404,12 +1279,6 @@ func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) ToApplicationMo
 	return o
 }
 
-func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationMetricsLevel] {
-	return pulumix.Output[*ApplicationMonitoringConfigurationMetricsLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) Elem() ApplicationMonitoringConfigurationMetricsLevelOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationMetricsLevel) ApplicationMonitoringConfigurationMetricsLevel {
 		if v != nil {
@@ -1434,10 +1303,13 @@ func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationMonitoringConfigurationMetricsLevelInput is an input type that accepts ApplicationMonitoringConfigurationMetricsLevelArgs and ApplicationMonitoringConfigurationMetricsLevelOutput values.
-// You can construct a concrete instance of `ApplicationMonitoringConfigurationMetricsLevelInput` via:
+// ApplicationMonitoringConfigurationMetricsLevelInput is an input type that accepts values of the ApplicationMonitoringConfigurationMetricsLevel enum
+// A concrete instance of `ApplicationMonitoringConfigurationMetricsLevelInput` can be one of the following:
 //
-//	ApplicationMonitoringConfigurationMetricsLevelArgs{...}
+//	ApplicationMonitoringConfigurationMetricsLevelApplication
+//	ApplicationMonitoringConfigurationMetricsLevelOperator
+//	ApplicationMonitoringConfigurationMetricsLevelParallelism
+//	ApplicationMonitoringConfigurationMetricsLevelTask
 type ApplicationMonitoringConfigurationMetricsLevelInput interface {
 	pulumi.Input
 
@@ -1470,12 +1342,6 @@ func (in *applicationMonitoringConfigurationMetricsLevelPtr) ToApplicationMonito
 
 func (in *applicationMonitoringConfigurationMetricsLevelPtr) ToApplicationMonitoringConfigurationMetricsLevelPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationMetricsLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationMonitoringConfigurationMetricsLevelPtrOutput)
-}
-
-func (in *applicationMonitoringConfigurationMetricsLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationMetricsLevel] {
-	return pulumix.Output[*ApplicationMonitoringConfigurationMetricsLevel]{
-		OutputState: in.ToApplicationMonitoringConfigurationMetricsLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties.
@@ -1546,12 +1412,6 @@ func (o ApplicationParallelismConfigurationConfigurationTypeOutput) ToApplicatio
 	}).(ApplicationParallelismConfigurationConfigurationTypePtrOutput)
 }
 
-func (o ApplicationParallelismConfigurationConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationParallelismConfigurationConfigurationType] {
-	return pulumix.Output[ApplicationParallelismConfigurationConfigurationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationParallelismConfigurationConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1587,12 +1447,6 @@ func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) ToApplica
 	return o
 }
 
-func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationParallelismConfigurationConfigurationType] {
-	return pulumix.Output[*ApplicationParallelismConfigurationConfigurationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) Elem() ApplicationParallelismConfigurationConfigurationTypeOutput {
 	return o.ApplyT(func(v *ApplicationParallelismConfigurationConfigurationType) ApplicationParallelismConfigurationConfigurationType {
 		if v != nil {
@@ -1617,10 +1471,11 @@ func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) ToStringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationParallelismConfigurationConfigurationTypeInput is an input type that accepts ApplicationParallelismConfigurationConfigurationTypeArgs and ApplicationParallelismConfigurationConfigurationTypeOutput values.
-// You can construct a concrete instance of `ApplicationParallelismConfigurationConfigurationTypeInput` via:
+// ApplicationParallelismConfigurationConfigurationTypeInput is an input type that accepts values of the ApplicationParallelismConfigurationConfigurationType enum
+// A concrete instance of `ApplicationParallelismConfigurationConfigurationTypeInput` can be one of the following:
 //
-//	ApplicationParallelismConfigurationConfigurationTypeArgs{...}
+//	ApplicationParallelismConfigurationConfigurationTypeCustom
+//	ApplicationParallelismConfigurationConfigurationTypeDefault
 type ApplicationParallelismConfigurationConfigurationTypeInput interface {
 	pulumi.Input
 
@@ -1653,12 +1508,6 @@ func (in *applicationParallelismConfigurationConfigurationTypePtr) ToApplication
 
 func (in *applicationParallelismConfigurationConfigurationTypePtr) ToApplicationParallelismConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) ApplicationParallelismConfigurationConfigurationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationParallelismConfigurationConfigurationTypePtrOutput)
-}
-
-func (in *applicationParallelismConfigurationConfigurationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationParallelismConfigurationConfigurationType] {
-	return pulumix.Output[*ApplicationParallelismConfigurationConfigurationType]{
-		OutputState: in.ToApplicationParallelismConfigurationConfigurationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of record format.
@@ -1729,12 +1578,6 @@ func (o ApplicationRecordFormatRecordFormatTypeOutput) ToApplicationRecordFormat
 	}).(ApplicationRecordFormatRecordFormatTypePtrOutput)
 }
 
-func (o ApplicationRecordFormatRecordFormatTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationRecordFormatRecordFormatType] {
-	return pulumix.Output[ApplicationRecordFormatRecordFormatType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationRecordFormatRecordFormatTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1770,12 +1613,6 @@ func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToApplicationRecordFor
 	return o
 }
 
-func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRecordFormatRecordFormatType] {
-	return pulumix.Output[*ApplicationRecordFormatRecordFormatType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationRecordFormatRecordFormatTypePtrOutput) Elem() ApplicationRecordFormatRecordFormatTypeOutput {
 	return o.ApplyT(func(v *ApplicationRecordFormatRecordFormatType) ApplicationRecordFormatRecordFormatType {
 		if v != nil {
@@ -1800,10 +1637,11 @@ func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationRecordFormatRecordFormatTypeInput is an input type that accepts ApplicationRecordFormatRecordFormatTypeArgs and ApplicationRecordFormatRecordFormatTypeOutput values.
-// You can construct a concrete instance of `ApplicationRecordFormatRecordFormatTypeInput` via:
+// ApplicationRecordFormatRecordFormatTypeInput is an input type that accepts values of the ApplicationRecordFormatRecordFormatType enum
+// A concrete instance of `ApplicationRecordFormatRecordFormatTypeInput` can be one of the following:
 //
-//	ApplicationRecordFormatRecordFormatTypeArgs{...}
+//	ApplicationRecordFormatRecordFormatTypeCsv
+//	ApplicationRecordFormatRecordFormatTypeJson
 type ApplicationRecordFormatRecordFormatTypeInput interface {
 	pulumi.Input
 
@@ -1836,12 +1674,6 @@ func (in *applicationRecordFormatRecordFormatTypePtr) ToApplicationRecordFormatR
 
 func (in *applicationRecordFormatRecordFormatTypePtr) ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(ctx context.Context) ApplicationRecordFormatRecordFormatTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationRecordFormatRecordFormatTypePtrOutput)
-}
-
-func (in *applicationRecordFormatRecordFormatTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRecordFormatRecordFormatType] {
-	return pulumix.Output[*ApplicationRecordFormatRecordFormatType]{
-		OutputState: in.ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how the application should be restored.
@@ -1913,12 +1745,6 @@ func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToApplicati
 	}).(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput)
 }
 
-func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationRestoreConfigurationApplicationRestoreType] {
-	return pulumix.Output[ApplicationRestoreConfigurationApplicationRestoreType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1954,12 +1780,6 @@ func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToApplic
 	return o
 }
 
-func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRestoreConfigurationApplicationRestoreType] {
-	return pulumix.Output[*ApplicationRestoreConfigurationApplicationRestoreType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) Elem() ApplicationRestoreConfigurationApplicationRestoreTypeOutput {
 	return o.ApplyT(func(v *ApplicationRestoreConfigurationApplicationRestoreType) ApplicationRestoreConfigurationApplicationRestoreType {
 		if v != nil {
@@ -1984,10 +1804,12 @@ func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationRestoreConfigurationApplicationRestoreTypeInput is an input type that accepts ApplicationRestoreConfigurationApplicationRestoreTypeArgs and ApplicationRestoreConfigurationApplicationRestoreTypeOutput values.
-// You can construct a concrete instance of `ApplicationRestoreConfigurationApplicationRestoreTypeInput` via:
+// ApplicationRestoreConfigurationApplicationRestoreTypeInput is an input type that accepts values of the ApplicationRestoreConfigurationApplicationRestoreType enum
+// A concrete instance of `ApplicationRestoreConfigurationApplicationRestoreTypeInput` can be one of the following:
 //
-//	ApplicationRestoreConfigurationApplicationRestoreTypeArgs{...}
+//	ApplicationRestoreConfigurationApplicationRestoreTypeSkipRestoreFromSnapshot
+//	ApplicationRestoreConfigurationApplicationRestoreTypeRestoreFromLatestSnapshot
+//	ApplicationRestoreConfigurationApplicationRestoreTypeRestoreFromCustomSnapshot
 type ApplicationRestoreConfigurationApplicationRestoreTypeInput interface {
 	pulumi.Input
 
@@ -2020,12 +1842,6 @@ func (in *applicationRestoreConfigurationApplicationRestoreTypePtr) ToApplicatio
 
 func (in *applicationRestoreConfigurationApplicationRestoreTypePtr) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput)
-}
-
-func (in *applicationRestoreConfigurationApplicationRestoreTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRestoreConfigurationApplicationRestoreType] {
-	return pulumix.Output[*ApplicationRestoreConfigurationApplicationRestoreType]{
-		OutputState: in.ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
@@ -2098,12 +1914,6 @@ func (o ApplicationZeppelinMonitoringConfigurationLogLevelOutput) ToApplicationZ
 	}).(ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput)
 }
 
-func (o ApplicationZeppelinMonitoringConfigurationLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationZeppelinMonitoringConfigurationLogLevel] {
-	return pulumix.Output[ApplicationZeppelinMonitoringConfigurationLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationZeppelinMonitoringConfigurationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2139,12 +1949,6 @@ func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) ToApplicati
 	return o
 }
 
-func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationZeppelinMonitoringConfigurationLogLevel] {
-	return pulumix.Output[*ApplicationZeppelinMonitoringConfigurationLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) Elem() ApplicationZeppelinMonitoringConfigurationLogLevelOutput {
 	return o.ApplyT(func(v *ApplicationZeppelinMonitoringConfigurationLogLevel) ApplicationZeppelinMonitoringConfigurationLogLevel {
 		if v != nil {
@@ -2169,10 +1973,13 @@ func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationZeppelinMonitoringConfigurationLogLevelInput is an input type that accepts ApplicationZeppelinMonitoringConfigurationLogLevelArgs and ApplicationZeppelinMonitoringConfigurationLogLevelOutput values.
-// You can construct a concrete instance of `ApplicationZeppelinMonitoringConfigurationLogLevelInput` via:
+// ApplicationZeppelinMonitoringConfigurationLogLevelInput is an input type that accepts values of the ApplicationZeppelinMonitoringConfigurationLogLevel enum
+// A concrete instance of `ApplicationZeppelinMonitoringConfigurationLogLevelInput` can be one of the following:
 //
-//	ApplicationZeppelinMonitoringConfigurationLogLevelArgs{...}
+//	ApplicationZeppelinMonitoringConfigurationLogLevelDebug
+//	ApplicationZeppelinMonitoringConfigurationLogLevelInfo
+//	ApplicationZeppelinMonitoringConfigurationLogLevelWarn
+//	ApplicationZeppelinMonitoringConfigurationLogLevelError
 type ApplicationZeppelinMonitoringConfigurationLogLevelInput interface {
 	pulumi.Input
 
@@ -2205,12 +2012,6 @@ func (in *applicationZeppelinMonitoringConfigurationLogLevelPtr) ToApplicationZe
 
 func (in *applicationZeppelinMonitoringConfigurationLogLevelPtr) ToApplicationZeppelinMonitoringConfigurationLogLevelPtrOutputWithContext(ctx context.Context) ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput)
-}
-
-func (in *applicationZeppelinMonitoringConfigurationLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationZeppelinMonitoringConfigurationLogLevel] {
-	return pulumix.Output[*ApplicationZeppelinMonitoringConfigurationLogLevel]{
-		OutputState: in.ToApplicationZeppelinMonitoringConfigurationLogLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

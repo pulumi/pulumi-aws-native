@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::CodeRepository
@@ -66,12 +65,6 @@ func (o LookupCodeRepositoryResultOutput) ToLookupCodeRepositoryResultOutput() L
 
 func (o LookupCodeRepositoryResultOutput) ToLookupCodeRepositoryResultOutputWithContext(ctx context.Context) LookupCodeRepositoryResultOutput {
 	return o
-}
-
-func (o LookupCodeRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCodeRepositoryResult] {
-	return pulumix.Output[LookupCodeRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCodeRepositoryResultOutput) GitConfig() CodeRepositoryGitConfigPtrOutput {

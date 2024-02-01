@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables a control on a specified target.
@@ -71,12 +70,6 @@ func (o LookupEnabledControlResultOutput) ToLookupEnabledControlResultOutput() L
 
 func (o LookupEnabledControlResultOutput) ToLookupEnabledControlResultOutputWithContext(ctx context.Context) LookupEnabledControlResultOutput {
 	return o
-}
-
-func (o LookupEnabledControlResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEnabledControlResult] {
-	return pulumix.Output[LookupEnabledControlResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Parameters to configure the enabled control behavior.

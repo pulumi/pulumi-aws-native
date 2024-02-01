@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::RequestValidator“ resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
@@ -72,12 +71,6 @@ func (o LookupRequestValidatorResultOutput) ToLookupRequestValidatorResultOutput
 
 func (o LookupRequestValidatorResultOutput) ToLookupRequestValidatorResultOutputWithContext(ctx context.Context) LookupRequestValidatorResultOutput {
 	return o
-}
-
-func (o LookupRequestValidatorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRequestValidatorResult] {
-	return pulumix.Output[LookupRequestValidatorResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRequestValidatorResultOutput) RequestValidatorId() pulumi.StringPtrOutput {
