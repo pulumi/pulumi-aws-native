@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a stored analysis within a collaboration
@@ -138,12 +137,6 @@ func (i *AnalysisTemplate) ToAnalysisTemplateOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateOutput)
 }
 
-func (i *AnalysisTemplate) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplate] {
-	return pulumix.Output[*AnalysisTemplate]{
-		OutputState: i.ToAnalysisTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnalysisTemplateOutput struct{ *pulumi.OutputState }
 
 func (AnalysisTemplateOutput) ElementType() reflect.Type {
@@ -156,12 +149,6 @@ func (o AnalysisTemplateOutput) ToAnalysisTemplateOutput() AnalysisTemplateOutpu
 
 func (o AnalysisTemplateOutput) ToAnalysisTemplateOutputWithContext(ctx context.Context) AnalysisTemplateOutput {
 	return o
-}
-
-func (o AnalysisTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplate] {
-	return pulumix.Output[*AnalysisTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The member who can query can provide this placeholder for a literal data value in an analysis template

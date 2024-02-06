@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::MediaTailor::SourceLocation Resource Type
@@ -72,12 +71,6 @@ func (o LookupSourceLocationResultOutput) ToLookupSourceLocationResultOutput() L
 
 func (o LookupSourceLocationResultOutput) ToLookupSourceLocationResultOutputWithContext(ctx context.Context) LookupSourceLocationResultOutput {
 	return o
-}
-
-func (o LookupSourceLocationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSourceLocationResult] {
-	return pulumix.Output[LookupSourceLocationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSourceLocationResultOutput) AccessConfiguration() SourceLocationAccessConfigurationPtrOutput {

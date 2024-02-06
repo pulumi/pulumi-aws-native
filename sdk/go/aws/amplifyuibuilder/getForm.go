@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::AmplifyUIBuilder::Form Resource Type
@@ -78,12 +77,6 @@ func (o LookupFormResultOutput) ToLookupFormResultOutput() LookupFormResultOutpu
 
 func (o LookupFormResultOutput) ToLookupFormResultOutputWithContext(ctx context.Context) LookupFormResultOutput {
 	return o
-}
-
-func (o LookupFormResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFormResult] {
-	return pulumix.Output[LookupFormResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFormResultOutput) Cta() FormCtaPtrOutput {

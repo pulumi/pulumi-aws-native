@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The type of the CFN Resource for now it's enum CFN_STACK.
@@ -78,12 +77,6 @@ func (o ResourceAssociationResourceTypeOutput) ToResourceAssociationResourceType
 	}).(ResourceAssociationResourceTypePtrOutput)
 }
 
-func (o ResourceAssociationResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceAssociationResourceType] {
-	return pulumix.Output[ResourceAssociationResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceAssociationResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o ResourceAssociationResourceTypePtrOutput) ToResourceAssociationResourceT
 	return o
 }
 
-func (o ResourceAssociationResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceAssociationResourceType] {
-	return pulumix.Output[*ResourceAssociationResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceAssociationResourceTypePtrOutput) Elem() ResourceAssociationResourceTypeOutput {
 	return o.ApplyT(func(v *ResourceAssociationResourceType) ResourceAssociationResourceType {
 		if v != nil {
@@ -149,10 +136,10 @@ func (o ResourceAssociationResourceTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResourceAssociationResourceTypeInput is an input type that accepts ResourceAssociationResourceTypeArgs and ResourceAssociationResourceTypeOutput values.
-// You can construct a concrete instance of `ResourceAssociationResourceTypeInput` via:
+// ResourceAssociationResourceTypeInput is an input type that accepts values of the ResourceAssociationResourceType enum
+// A concrete instance of `ResourceAssociationResourceTypeInput` can be one of the following:
 //
-//	ResourceAssociationResourceTypeArgs{...}
+//	ResourceAssociationResourceTypeCfnStack
 type ResourceAssociationResourceTypeInput interface {
 	pulumi.Input
 
@@ -185,12 +172,6 @@ func (in *resourceAssociationResourceTypePtr) ToResourceAssociationResourceTypeP
 
 func (in *resourceAssociationResourceTypePtr) ToResourceAssociationResourceTypePtrOutputWithContext(ctx context.Context) ResourceAssociationResourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceAssociationResourceTypePtrOutput)
-}
-
-func (in *resourceAssociationResourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ResourceAssociationResourceType] {
-	return pulumix.Output[*ResourceAssociationResourceType]{
-		OutputState: in.ToResourceAssociationResourceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

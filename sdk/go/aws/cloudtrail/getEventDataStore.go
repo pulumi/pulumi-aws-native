@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
@@ -100,12 +99,6 @@ func (o LookupEventDataStoreResultOutput) ToLookupEventDataStoreResultOutput() L
 
 func (o LookupEventDataStoreResultOutput) ToLookupEventDataStoreResultOutputWithContext(ctx context.Context) LookupEventDataStoreResultOutput {
 	return o
-}
-
-func (o LookupEventDataStoreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEventDataStoreResult] {
-	return pulumix.Output[LookupEventDataStoreResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The advanced event selectors that were used to select events for the data store.

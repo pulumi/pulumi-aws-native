@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i KeyTagArgs) ToKeyTagOutputWithContext(ctx context.Context) KeyTagOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(KeyTagOutput)
 }
 
-func (i KeyTagArgs) ToOutput(ctx context.Context) pulumix.Output[KeyTag] {
-	return pulumix.Output[KeyTag]{
-		OutputState: i.ToKeyTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KeyTagArrayInput is an input type that accepts KeyTagArray and KeyTagArrayOutput values.
 // You can construct a concrete instance of `KeyTagArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i KeyTagArray) ToKeyTagArrayOutputWithContext(ctx context.Context) KeyTagA
 	return pulumi.ToOutputWithContext(ctx, i).(KeyTagArrayOutput)
 }
 
-func (i KeyTagArray) ToOutput(ctx context.Context) pulumix.Output[[]KeyTag] {
-	return pulumix.Output[[]KeyTag]{
-		OutputState: i.ToKeyTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type KeyTagOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o KeyTagOutput) ToKeyTagOutput() KeyTagOutput {
 
 func (o KeyTagOutput) ToKeyTagOutputWithContext(ctx context.Context) KeyTagOutput {
 	return o
-}
-
-func (o KeyTagOutput) ToOutput(ctx context.Context) pulumix.Output[KeyTag] {
-	return pulumix.Output[KeyTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -133,12 +114,6 @@ func (o KeyTagArrayOutput) ToKeyTagArrayOutput() KeyTagArrayOutput {
 
 func (o KeyTagArrayOutput) ToKeyTagArrayOutputWithContext(ctx context.Context) KeyTagArrayOutput {
 	return o
-}
-
-func (o KeyTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KeyTag] {
-	return pulumix.Output[[]KeyTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyTagArrayOutput) Index(i pulumi.IntInput) KeyTagOutput {
@@ -186,12 +161,6 @@ func (i ReplicaKeyTagArgs) ToReplicaKeyTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaKeyTagOutput)
 }
 
-func (i ReplicaKeyTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicaKeyTag] {
-	return pulumix.Output[ReplicaKeyTag]{
-		OutputState: i.ToReplicaKeyTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicaKeyTagArrayInput is an input type that accepts ReplicaKeyTagArray and ReplicaKeyTagArrayOutput values.
 // You can construct a concrete instance of `ReplicaKeyTagArrayInput` via:
 //
@@ -217,12 +186,6 @@ func (i ReplicaKeyTagArray) ToReplicaKeyTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaKeyTagArrayOutput)
 }
 
-func (i ReplicaKeyTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicaKeyTag] {
-	return pulumix.Output[[]ReplicaKeyTag]{
-		OutputState: i.ToReplicaKeyTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type ReplicaKeyTagOutput struct{ *pulumi.OutputState }
 
@@ -236,12 +199,6 @@ func (o ReplicaKeyTagOutput) ToReplicaKeyTagOutput() ReplicaKeyTagOutput {
 
 func (o ReplicaKeyTagOutput) ToReplicaKeyTagOutputWithContext(ctx context.Context) ReplicaKeyTagOutput {
 	return o
-}
-
-func (o ReplicaKeyTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicaKeyTag] {
-	return pulumix.Output[ReplicaKeyTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -266,12 +223,6 @@ func (o ReplicaKeyTagArrayOutput) ToReplicaKeyTagArrayOutput() ReplicaKeyTagArra
 
 func (o ReplicaKeyTagArrayOutput) ToReplicaKeyTagArrayOutputWithContext(ctx context.Context) ReplicaKeyTagArrayOutput {
 	return o
-}
-
-func (o ReplicaKeyTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicaKeyTag] {
-	return pulumix.Output[[]ReplicaKeyTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicaKeyTagArrayOutput) Index(i pulumi.IntInput) ReplicaKeyTagOutput {

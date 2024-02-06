@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::LaunchRoleConstraint
@@ -68,12 +67,6 @@ func (o LookupLaunchRoleConstraintResultOutput) ToLookupLaunchRoleConstraintResu
 
 func (o LookupLaunchRoleConstraintResultOutput) ToLookupLaunchRoleConstraintResultOutputWithContext(ctx context.Context) LookupLaunchRoleConstraintResultOutput {
 	return o
-}
-
-func (o LookupLaunchRoleConstraintResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLaunchRoleConstraintResult] {
-	return pulumix.Output[LookupLaunchRoleConstraintResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupLaunchRoleConstraintResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

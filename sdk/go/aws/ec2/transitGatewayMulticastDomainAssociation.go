@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::TransitGatewayMulticastDomainAssociation type
@@ -127,12 +126,6 @@ func (i *TransitGatewayMulticastDomainAssociation) ToTransitGatewayMulticastDoma
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayMulticastDomainAssociationOutput)
 }
 
-func (i *TransitGatewayMulticastDomainAssociation) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayMulticastDomainAssociation] {
-	return pulumix.Output[*TransitGatewayMulticastDomainAssociation]{
-		OutputState: i.ToTransitGatewayMulticastDomainAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransitGatewayMulticastDomainAssociationOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayMulticastDomainAssociationOutput) ElementType() reflect.Type {
@@ -145,12 +138,6 @@ func (o TransitGatewayMulticastDomainAssociationOutput) ToTransitGatewayMulticas
 
 func (o TransitGatewayMulticastDomainAssociationOutput) ToTransitGatewayMulticastDomainAssociationOutputWithContext(ctx context.Context) TransitGatewayMulticastDomainAssociationOutput {
 	return o
-}
-
-func (o TransitGatewayMulticastDomainAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayMulticastDomainAssociation] {
-	return pulumix.Output[*TransitGatewayMulticastDomainAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the resource.

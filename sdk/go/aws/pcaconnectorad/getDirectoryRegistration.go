@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::PCAConnectorAD::DirectoryRegistration Resource Type
@@ -64,12 +63,6 @@ func (o LookupDirectoryRegistrationResultOutput) ToLookupDirectoryRegistrationRe
 
 func (o LookupDirectoryRegistrationResultOutput) ToLookupDirectoryRegistrationResultOutputWithContext(ctx context.Context) LookupDirectoryRegistrationResultOutput {
 	return o
-}
-
-func (o LookupDirectoryRegistrationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDirectoryRegistrationResult] {
-	return pulumix.Output[LookupDirectoryRegistrationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDirectoryRegistrationResultOutput) DirectoryRegistrationArn() pulumi.StringPtrOutput {

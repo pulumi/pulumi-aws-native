@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies whether the data source is enabled.
@@ -79,12 +78,6 @@ func (o DataSourceEnableSettingOutput) ToDataSourceEnableSettingPtrOutputWithCon
 	}).(DataSourceEnableSettingPtrOutput)
 }
 
-func (o DataSourceEnableSettingOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceEnableSetting] {
-	return pulumix.Output[DataSourceEnableSetting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceEnableSettingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o DataSourceEnableSettingPtrOutput) ToDataSourceEnableSettingPtrOutputWith
 	return o
 }
 
-func (o DataSourceEnableSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceEnableSetting] {
-	return pulumix.Output[*DataSourceEnableSetting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceEnableSettingPtrOutput) Elem() DataSourceEnableSettingOutput {
 	return o.ApplyT(func(v *DataSourceEnableSetting) DataSourceEnableSetting {
 		if v != nil {
@@ -150,10 +137,11 @@ func (o DataSourceEnableSettingPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSourceEnableSettingInput is an input type that accepts DataSourceEnableSettingArgs and DataSourceEnableSettingOutput values.
-// You can construct a concrete instance of `DataSourceEnableSettingInput` via:
+// DataSourceEnableSettingInput is an input type that accepts values of the DataSourceEnableSetting enum
+// A concrete instance of `DataSourceEnableSettingInput` can be one of the following:
 //
-//	DataSourceEnableSettingArgs{...}
+//	DataSourceEnableSettingEnabled
+//	DataSourceEnableSettingDisabled
 type DataSourceEnableSettingInput interface {
 	pulumi.Input
 
@@ -188,12 +176,6 @@ func (in *dataSourceEnableSettingPtr) ToDataSourceEnableSettingPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceEnableSettingPtrOutput)
 }
 
-func (in *dataSourceEnableSettingPtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceEnableSetting] {
-	return pulumix.Output[*DataSourceEnableSetting]{
-		OutputState: in.ToDataSourceEnableSettingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The search filter expression type.
 type DataSourceFilterExpressionType string
 
@@ -201,6 +183,164 @@ const (
 	DataSourceFilterExpressionTypeInclude = DataSourceFilterExpressionType("INCLUDE")
 	DataSourceFilterExpressionTypeExclude = DataSourceFilterExpressionType("EXCLUDE")
 )
+
+func (DataSourceFilterExpressionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceFilterExpressionType)(nil)).Elem()
+}
+
+func (e DataSourceFilterExpressionType) ToDataSourceFilterExpressionTypeOutput() DataSourceFilterExpressionTypeOutput {
+	return pulumi.ToOutput(e).(DataSourceFilterExpressionTypeOutput)
+}
+
+func (e DataSourceFilterExpressionType) ToDataSourceFilterExpressionTypeOutputWithContext(ctx context.Context) DataSourceFilterExpressionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceFilterExpressionTypeOutput)
+}
+
+func (e DataSourceFilterExpressionType) ToDataSourceFilterExpressionTypePtrOutput() DataSourceFilterExpressionTypePtrOutput {
+	return e.ToDataSourceFilterExpressionTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceFilterExpressionType) ToDataSourceFilterExpressionTypePtrOutputWithContext(ctx context.Context) DataSourceFilterExpressionTypePtrOutput {
+	return DataSourceFilterExpressionType(e).ToDataSourceFilterExpressionTypeOutputWithContext(ctx).ToDataSourceFilterExpressionTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceFilterExpressionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceFilterExpressionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceFilterExpressionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceFilterExpressionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceFilterExpressionTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceFilterExpressionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceFilterExpressionType)(nil)).Elem()
+}
+
+func (o DataSourceFilterExpressionTypeOutput) ToDataSourceFilterExpressionTypeOutput() DataSourceFilterExpressionTypeOutput {
+	return o
+}
+
+func (o DataSourceFilterExpressionTypeOutput) ToDataSourceFilterExpressionTypeOutputWithContext(ctx context.Context) DataSourceFilterExpressionTypeOutput {
+	return o
+}
+
+func (o DataSourceFilterExpressionTypeOutput) ToDataSourceFilterExpressionTypePtrOutput() DataSourceFilterExpressionTypePtrOutput {
+	return o.ToDataSourceFilterExpressionTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceFilterExpressionTypeOutput) ToDataSourceFilterExpressionTypePtrOutputWithContext(ctx context.Context) DataSourceFilterExpressionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceFilterExpressionType) *DataSourceFilterExpressionType {
+		return &v
+	}).(DataSourceFilterExpressionTypePtrOutput)
+}
+
+func (o DataSourceFilterExpressionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceFilterExpressionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceFilterExpressionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceFilterExpressionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceFilterExpressionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceFilterExpressionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceFilterExpressionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceFilterExpressionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceFilterExpressionType)(nil)).Elem()
+}
+
+func (o DataSourceFilterExpressionTypePtrOutput) ToDataSourceFilterExpressionTypePtrOutput() DataSourceFilterExpressionTypePtrOutput {
+	return o
+}
+
+func (o DataSourceFilterExpressionTypePtrOutput) ToDataSourceFilterExpressionTypePtrOutputWithContext(ctx context.Context) DataSourceFilterExpressionTypePtrOutput {
+	return o
+}
+
+func (o DataSourceFilterExpressionTypePtrOutput) Elem() DataSourceFilterExpressionTypeOutput {
+	return o.ApplyT(func(v *DataSourceFilterExpressionType) DataSourceFilterExpressionType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceFilterExpressionType
+		return ret
+	}).(DataSourceFilterExpressionTypeOutput)
+}
+
+func (o DataSourceFilterExpressionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceFilterExpressionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceFilterExpressionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceFilterExpressionTypeInput is an input type that accepts values of the DataSourceFilterExpressionType enum
+// A concrete instance of `DataSourceFilterExpressionTypeInput` can be one of the following:
+//
+//	DataSourceFilterExpressionTypeInclude
+//	DataSourceFilterExpressionTypeExclude
+type DataSourceFilterExpressionTypeInput interface {
+	pulumi.Input
+
+	ToDataSourceFilterExpressionTypeOutput() DataSourceFilterExpressionTypeOutput
+	ToDataSourceFilterExpressionTypeOutputWithContext(context.Context) DataSourceFilterExpressionTypeOutput
+}
+
+var dataSourceFilterExpressionTypePtrType = reflect.TypeOf((**DataSourceFilterExpressionType)(nil)).Elem()
+
+type DataSourceFilterExpressionTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceFilterExpressionTypePtrOutput() DataSourceFilterExpressionTypePtrOutput
+	ToDataSourceFilterExpressionTypePtrOutputWithContext(context.Context) DataSourceFilterExpressionTypePtrOutput
+}
+
+type dataSourceFilterExpressionTypePtr string
+
+func DataSourceFilterExpressionTypePtr(v string) DataSourceFilterExpressionTypePtrInput {
+	return (*dataSourceFilterExpressionTypePtr)(&v)
+}
+
+func (*dataSourceFilterExpressionTypePtr) ElementType() reflect.Type {
+	return dataSourceFilterExpressionTypePtrType
+}
+
+func (in *dataSourceFilterExpressionTypePtr) ToDataSourceFilterExpressionTypePtrOutput() DataSourceFilterExpressionTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceFilterExpressionTypePtrOutput)
+}
+
+func (in *dataSourceFilterExpressionTypePtr) ToDataSourceFilterExpressionTypePtrOutputWithContext(ctx context.Context) DataSourceFilterExpressionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceFilterExpressionTypePtrOutput)
+}
 
 // The status of the data source.
 type DataSourceStatus string
@@ -240,12 +380,6 @@ func (o DataSourceStatusOutput) ToDataSourceStatusPtrOutputWithContext(ctx conte
 	}).(DataSourceStatusPtrOutput)
 }
 
-func (o DataSourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceStatus] {
-	return pulumix.Output[DataSourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -279,12 +413,6 @@ func (o DataSourceStatusPtrOutput) ToDataSourceStatusPtrOutput() DataSourceStatu
 
 func (o DataSourceStatusPtrOutput) ToDataSourceStatusPtrOutputWithContext(ctx context.Context) DataSourceStatusPtrOutput {
 	return o
-}
-
-func (o DataSourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceStatus] {
-	return pulumix.Output[*DataSourceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSourceStatusPtrOutput) Elem() DataSourceStatusOutput {
@@ -379,12 +507,6 @@ func (o DomainAuthTypeOutput) ToDomainAuthTypePtrOutputWithContext(ctx context.C
 	}).(DomainAuthTypePtrOutput)
 }
 
-func (o DomainAuthTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAuthType] {
-	return pulumix.Output[DomainAuthType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -420,12 +542,6 @@ func (o DomainAuthTypePtrOutput) ToDomainAuthTypePtrOutputWithContext(ctx contex
 	return o
 }
 
-func (o DomainAuthTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAuthType] {
-	return pulumix.Output[*DomainAuthType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainAuthTypePtrOutput) Elem() DomainAuthTypeOutput {
 	return o.ApplyT(func(v *DomainAuthType) DomainAuthType {
 		if v != nil {
@@ -450,10 +566,11 @@ func (o DomainAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DomainAuthTypeInput is an input type that accepts DomainAuthTypeArgs and DomainAuthTypeOutput values.
-// You can construct a concrete instance of `DomainAuthTypeInput` via:
+// DomainAuthTypeInput is an input type that accepts values of the DomainAuthType enum
+// A concrete instance of `DomainAuthTypeInput` can be one of the following:
 //
-//	DomainAuthTypeArgs{...}
+//	DomainAuthTypeIamIdc
+//	DomainAuthTypeDisabled
 type DomainAuthTypeInput interface {
 	pulumi.Input
 
@@ -486,12 +603,6 @@ func (in *domainAuthTypePtr) ToDomainAuthTypePtrOutput() DomainAuthTypePtrOutput
 
 func (in *domainAuthTypePtr) ToDomainAuthTypePtrOutputWithContext(ctx context.Context) DomainAuthTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainAuthTypePtrOutput)
-}
-
-func (in *domainAuthTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DomainAuthType] {
-	return pulumix.Output[*DomainAuthType]{
-		OutputState: in.ToDomainAuthTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The status of the Amazon DataZone domain.
@@ -530,12 +641,6 @@ func (o DomainStatusOutput) ToDomainStatusPtrOutputWithContext(ctx context.Conte
 	}).(DomainStatusPtrOutput)
 }
 
-func (o DomainStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DomainStatus] {
-	return pulumix.Output[DomainStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -569,12 +674,6 @@ func (o DomainStatusPtrOutput) ToDomainStatusPtrOutput() DomainStatusPtrOutput {
 
 func (o DomainStatusPtrOutput) ToDomainStatusPtrOutputWithContext(ctx context.Context) DomainStatusPtrOutput {
 	return o
-}
-
-func (o DomainStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainStatus] {
-	return pulumix.Output[*DomainStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainStatusPtrOutput) Elem() DomainStatusOutput {
@@ -669,12 +768,6 @@ func (o DomainUserAssignmentOutput) ToDomainUserAssignmentPtrOutputWithContext(c
 	}).(DomainUserAssignmentPtrOutput)
 }
 
-func (o DomainUserAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[DomainUserAssignment] {
-	return pulumix.Output[DomainUserAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainUserAssignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -710,12 +803,6 @@ func (o DomainUserAssignmentPtrOutput) ToDomainUserAssignmentPtrOutputWithContex
 	return o
 }
 
-func (o DomainUserAssignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainUserAssignment] {
-	return pulumix.Output[*DomainUserAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainUserAssignmentPtrOutput) Elem() DomainUserAssignmentOutput {
 	return o.ApplyT(func(v *DomainUserAssignment) DomainUserAssignment {
 		if v != nil {
@@ -740,10 +827,11 @@ func (o DomainUserAssignmentPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// DomainUserAssignmentInput is an input type that accepts DomainUserAssignmentArgs and DomainUserAssignmentOutput values.
-// You can construct a concrete instance of `DomainUserAssignmentInput` via:
+// DomainUserAssignmentInput is an input type that accepts values of the DomainUserAssignment enum
+// A concrete instance of `DomainUserAssignmentInput` can be one of the following:
 //
-//	DomainUserAssignmentArgs{...}
+//	DomainUserAssignmentAutomatic
+//	DomainUserAssignmentManual
 type DomainUserAssignmentInput interface {
 	pulumi.Input
 
@@ -776,12 +864,6 @@ func (in *domainUserAssignmentPtr) ToDomainUserAssignmentPtrOutput() DomainUserA
 
 func (in *domainUserAssignmentPtr) ToDomainUserAssignmentPtrOutputWithContext(ctx context.Context) DomainUserAssignmentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainUserAssignmentPtrOutput)
-}
-
-func (in *domainUserAssignmentPtr) ToOutput(ctx context.Context) pulumix.Output[*DomainUserAssignment] {
-	return pulumix.Output[*DomainUserAssignment]{
-		OutputState: in.ToDomainUserAssignmentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The status of the Amazon DataZone environment.
@@ -827,12 +909,6 @@ func (o EnvironmentStatusOutput) ToEnvironmentStatusPtrOutputWithContext(ctx con
 	}).(EnvironmentStatusPtrOutput)
 }
 
-func (o EnvironmentStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentStatus] {
-	return pulumix.Output[EnvironmentStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -868,12 +944,6 @@ func (o EnvironmentStatusPtrOutput) ToEnvironmentStatusPtrOutputWithContext(ctx 
 	return o
 }
 
-func (o EnvironmentStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentStatus] {
-	return pulumix.Output[*EnvironmentStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentStatusPtrOutput) Elem() EnvironmentStatusOutput {
 	return o.ApplyT(func(v *EnvironmentStatus) EnvironmentStatus {
 		if v != nil {
@@ -901,12 +971,16 @@ func (o EnvironmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnableSettingInput)(nil)).Elem(), DataSourceEnableSetting("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnableSettingPtrInput)(nil)).Elem(), DataSourceEnableSetting("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFilterExpressionTypeInput)(nil)).Elem(), DataSourceFilterExpressionType("INCLUDE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFilterExpressionTypePtrInput)(nil)).Elem(), DataSourceFilterExpressionType("INCLUDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAuthTypeInput)(nil)).Elem(), DomainAuthType("IAM_IDC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAuthTypePtrInput)(nil)).Elem(), DomainAuthType("IAM_IDC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserAssignmentInput)(nil)).Elem(), DomainUserAssignment("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserAssignmentPtrInput)(nil)).Elem(), DomainUserAssignment("AUTOMATIC"))
 	pulumi.RegisterOutputType(DataSourceEnableSettingOutput{})
 	pulumi.RegisterOutputType(DataSourceEnableSettingPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceFilterExpressionTypeOutput{})
+	pulumi.RegisterOutputType(DataSourceFilterExpressionTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceStatusOutput{})
 	pulumi.RegisterOutputType(DataSourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(DomainAuthTypeOutput{})

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::PredefinedAttribute
@@ -71,12 +70,6 @@ func (o LookupPredefinedAttributeResultOutput) ToLookupPredefinedAttributeResult
 
 func (o LookupPredefinedAttributeResultOutput) ToLookupPredefinedAttributeResultOutputWithContext(ctx context.Context) LookupPredefinedAttributeResultOutput {
 	return o
-}
-
-func (o LookupPredefinedAttributeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPredefinedAttributeResult] {
-	return pulumix.Output[LookupPredefinedAttributeResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The values of a predefined attribute.

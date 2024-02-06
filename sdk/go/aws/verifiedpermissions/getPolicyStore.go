@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
@@ -68,12 +67,6 @@ func (o LookupPolicyStoreResultOutput) ToLookupPolicyStoreResultOutput() LookupP
 
 func (o LookupPolicyStoreResultOutput) ToLookupPolicyStoreResultOutputWithContext(ctx context.Context) LookupPolicyStoreResultOutput {
 	return o
-}
-
-func (o LookupPolicyStoreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPolicyStoreResult] {
-	return pulumix.Output[LookupPolicyStoreResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPolicyStoreResultOutput) Arn() pulumi.StringPtrOutput {

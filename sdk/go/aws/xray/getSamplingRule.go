@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
@@ -69,12 +68,6 @@ func (o LookupSamplingRuleResultOutput) ToLookupSamplingRuleResultOutput() Looku
 
 func (o LookupSamplingRuleResultOutput) ToLookupSamplingRuleResultOutputWithContext(ctx context.Context) LookupSamplingRuleResultOutput {
 	return o
-}
-
-func (o LookupSamplingRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSamplingRuleResult] {
-	return pulumix.Output[LookupSamplingRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSamplingRuleResultOutput) RuleArn() pulumi.StringPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for AWS::SNS::TopicPolicy
@@ -71,12 +70,6 @@ func (o LookupTopicPolicyResultOutput) ToLookupTopicPolicyResultOutput() LookupT
 
 func (o LookupTopicPolicyResultOutput) ToLookupTopicPolicyResultOutputWithContext(ctx context.Context) LookupTopicPolicyResultOutput {
 	return o
-}
-
-func (o LookupTopicPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTopicPolicyResult] {
-	return pulumix.Output[LookupTopicPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

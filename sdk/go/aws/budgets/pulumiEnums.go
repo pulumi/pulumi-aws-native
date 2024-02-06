@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type BudgetsActionActionThresholdType string
@@ -78,12 +77,6 @@ func (o BudgetsActionActionThresholdTypeOutput) ToBudgetsActionActionThresholdTy
 	}).(BudgetsActionActionThresholdTypePtrOutput)
 }
 
-func (o BudgetsActionActionThresholdTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetsActionActionThresholdType] {
-	return pulumix.Output[BudgetsActionActionThresholdType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetsActionActionThresholdTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o BudgetsActionActionThresholdTypePtrOutput) ToBudgetsActionActionThreshol
 	return o
 }
 
-func (o BudgetsActionActionThresholdTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionActionThresholdType] {
-	return pulumix.Output[*BudgetsActionActionThresholdType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetsActionActionThresholdTypePtrOutput) Elem() BudgetsActionActionThresholdTypeOutput {
 	return o.ApplyT(func(v *BudgetsActionActionThresholdType) BudgetsActionActionThresholdType {
 		if v != nil {
@@ -149,10 +136,11 @@ func (o BudgetsActionActionThresholdTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// BudgetsActionActionThresholdTypeInput is an input type that accepts BudgetsActionActionThresholdTypeArgs and BudgetsActionActionThresholdTypeOutput values.
-// You can construct a concrete instance of `BudgetsActionActionThresholdTypeInput` via:
+// BudgetsActionActionThresholdTypeInput is an input type that accepts values of the BudgetsActionActionThresholdType enum
+// A concrete instance of `BudgetsActionActionThresholdTypeInput` can be one of the following:
 //
-//	BudgetsActionActionThresholdTypeArgs{...}
+//	BudgetsActionActionThresholdTypePercentage
+//	BudgetsActionActionThresholdTypeAbsoluteValue
 type BudgetsActionActionThresholdTypeInput interface {
 	pulumi.Input
 
@@ -185,12 +173,6 @@ func (in *budgetsActionActionThresholdTypePtr) ToBudgetsActionActionThresholdTyp
 
 func (in *budgetsActionActionThresholdTypePtr) ToBudgetsActionActionThresholdTypePtrOutputWithContext(ctx context.Context) BudgetsActionActionThresholdTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionActionThresholdTypePtrOutput)
-}
-
-func (in *budgetsActionActionThresholdTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionActionThresholdType] {
-	return pulumix.Output[*BudgetsActionActionThresholdType]{
-		OutputState: in.ToBudgetsActionActionThresholdTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type BudgetsActionActionType string
@@ -261,12 +243,6 @@ func (o BudgetsActionActionTypeOutput) ToBudgetsActionActionTypePtrOutputWithCon
 	}).(BudgetsActionActionTypePtrOutput)
 }
 
-func (o BudgetsActionActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetsActionActionType] {
-	return pulumix.Output[BudgetsActionActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetsActionActionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +278,6 @@ func (o BudgetsActionActionTypePtrOutput) ToBudgetsActionActionTypePtrOutputWith
 	return o
 }
 
-func (o BudgetsActionActionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionActionType] {
-	return pulumix.Output[*BudgetsActionActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetsActionActionTypePtrOutput) Elem() BudgetsActionActionTypeOutput {
 	return o.ApplyT(func(v *BudgetsActionActionType) BudgetsActionActionType {
 		if v != nil {
@@ -332,10 +302,12 @@ func (o BudgetsActionActionTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// BudgetsActionActionTypeInput is an input type that accepts BudgetsActionActionTypeArgs and BudgetsActionActionTypeOutput values.
-// You can construct a concrete instance of `BudgetsActionActionTypeInput` via:
+// BudgetsActionActionTypeInput is an input type that accepts values of the BudgetsActionActionType enum
+// A concrete instance of `BudgetsActionActionTypeInput` can be one of the following:
 //
-//	BudgetsActionActionTypeArgs{...}
+//	BudgetsActionActionTypeApplyIamPolicy
+//	BudgetsActionActionTypeApplyScpPolicy
+//	BudgetsActionActionTypeRunSsmDocuments
 type BudgetsActionActionTypeInput interface {
 	pulumi.Input
 
@@ -368,12 +340,6 @@ func (in *budgetsActionActionTypePtr) ToBudgetsActionActionTypePtrOutput() Budge
 
 func (in *budgetsActionActionTypePtr) ToBudgetsActionActionTypePtrOutputWithContext(ctx context.Context) BudgetsActionActionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionActionTypePtrOutput)
-}
-
-func (in *budgetsActionActionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionActionType] {
-	return pulumix.Output[*BudgetsActionActionType]{
-		OutputState: in.ToBudgetsActionActionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type BudgetsActionApprovalModel string
@@ -443,12 +409,6 @@ func (o BudgetsActionApprovalModelOutput) ToBudgetsActionApprovalModelPtrOutputW
 	}).(BudgetsActionApprovalModelPtrOutput)
 }
 
-func (o BudgetsActionApprovalModelOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetsActionApprovalModel] {
-	return pulumix.Output[BudgetsActionApprovalModel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetsActionApprovalModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -484,12 +444,6 @@ func (o BudgetsActionApprovalModelPtrOutput) ToBudgetsActionApprovalModelPtrOutp
 	return o
 }
 
-func (o BudgetsActionApprovalModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionApprovalModel] {
-	return pulumix.Output[*BudgetsActionApprovalModel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetsActionApprovalModelPtrOutput) Elem() BudgetsActionApprovalModelOutput {
 	return o.ApplyT(func(v *BudgetsActionApprovalModel) BudgetsActionApprovalModel {
 		if v != nil {
@@ -514,10 +468,11 @@ func (o BudgetsActionApprovalModelPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// BudgetsActionApprovalModelInput is an input type that accepts BudgetsActionApprovalModelArgs and BudgetsActionApprovalModelOutput values.
-// You can construct a concrete instance of `BudgetsActionApprovalModelInput` via:
+// BudgetsActionApprovalModelInput is an input type that accepts values of the BudgetsActionApprovalModel enum
+// A concrete instance of `BudgetsActionApprovalModelInput` can be one of the following:
 //
-//	BudgetsActionApprovalModelArgs{...}
+//	BudgetsActionApprovalModelAutomatic
+//	BudgetsActionApprovalModelManual
 type BudgetsActionApprovalModelInput interface {
 	pulumi.Input
 
@@ -550,12 +505,6 @@ func (in *budgetsActionApprovalModelPtr) ToBudgetsActionApprovalModelPtrOutput()
 
 func (in *budgetsActionApprovalModelPtr) ToBudgetsActionApprovalModelPtrOutputWithContext(ctx context.Context) BudgetsActionApprovalModelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionApprovalModelPtrOutput)
-}
-
-func (in *budgetsActionApprovalModelPtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionApprovalModel] {
-	return pulumix.Output[*BudgetsActionApprovalModel]{
-		OutputState: in.ToBudgetsActionApprovalModelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type BudgetsActionNotificationType string
@@ -625,12 +574,6 @@ func (o BudgetsActionNotificationTypeOutput) ToBudgetsActionNotificationTypePtrO
 	}).(BudgetsActionNotificationTypePtrOutput)
 }
 
-func (o BudgetsActionNotificationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetsActionNotificationType] {
-	return pulumix.Output[BudgetsActionNotificationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetsActionNotificationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -666,12 +609,6 @@ func (o BudgetsActionNotificationTypePtrOutput) ToBudgetsActionNotificationTypeP
 	return o
 }
 
-func (o BudgetsActionNotificationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionNotificationType] {
-	return pulumix.Output[*BudgetsActionNotificationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetsActionNotificationTypePtrOutput) Elem() BudgetsActionNotificationTypeOutput {
 	return o.ApplyT(func(v *BudgetsActionNotificationType) BudgetsActionNotificationType {
 		if v != nil {
@@ -696,10 +633,11 @@ func (o BudgetsActionNotificationTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// BudgetsActionNotificationTypeInput is an input type that accepts BudgetsActionNotificationTypeArgs and BudgetsActionNotificationTypeOutput values.
-// You can construct a concrete instance of `BudgetsActionNotificationTypeInput` via:
+// BudgetsActionNotificationTypeInput is an input type that accepts values of the BudgetsActionNotificationType enum
+// A concrete instance of `BudgetsActionNotificationTypeInput` can be one of the following:
 //
-//	BudgetsActionNotificationTypeArgs{...}
+//	BudgetsActionNotificationTypeActual
+//	BudgetsActionNotificationTypeForecasted
 type BudgetsActionNotificationTypeInput interface {
 	pulumi.Input
 
@@ -732,12 +670,6 @@ func (in *budgetsActionNotificationTypePtr) ToBudgetsActionNotificationTypePtrOu
 
 func (in *budgetsActionNotificationTypePtr) ToBudgetsActionNotificationTypePtrOutputWithContext(ctx context.Context) BudgetsActionNotificationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionNotificationTypePtrOutput)
-}
-
-func (in *budgetsActionNotificationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionNotificationType] {
-	return pulumix.Output[*BudgetsActionNotificationType]{
-		OutputState: in.ToBudgetsActionNotificationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type BudgetsActionSsmActionDefinitionSubtype string
@@ -807,12 +739,6 @@ func (o BudgetsActionSsmActionDefinitionSubtypeOutput) ToBudgetsActionSsmActionD
 	}).(BudgetsActionSsmActionDefinitionSubtypePtrOutput)
 }
 
-func (o BudgetsActionSsmActionDefinitionSubtypeOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetsActionSsmActionDefinitionSubtype] {
-	return pulumix.Output[BudgetsActionSsmActionDefinitionSubtype]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetsActionSsmActionDefinitionSubtypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -848,12 +774,6 @@ func (o BudgetsActionSsmActionDefinitionSubtypePtrOutput) ToBudgetsActionSsmActi
 	return o
 }
 
-func (o BudgetsActionSsmActionDefinitionSubtypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionSsmActionDefinitionSubtype] {
-	return pulumix.Output[*BudgetsActionSsmActionDefinitionSubtype]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetsActionSsmActionDefinitionSubtypePtrOutput) Elem() BudgetsActionSsmActionDefinitionSubtypeOutput {
 	return o.ApplyT(func(v *BudgetsActionSsmActionDefinitionSubtype) BudgetsActionSsmActionDefinitionSubtype {
 		if v != nil {
@@ -878,10 +798,11 @@ func (o BudgetsActionSsmActionDefinitionSubtypePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// BudgetsActionSsmActionDefinitionSubtypeInput is an input type that accepts BudgetsActionSsmActionDefinitionSubtypeArgs and BudgetsActionSsmActionDefinitionSubtypeOutput values.
-// You can construct a concrete instance of `BudgetsActionSsmActionDefinitionSubtypeInput` via:
+// BudgetsActionSsmActionDefinitionSubtypeInput is an input type that accepts values of the BudgetsActionSsmActionDefinitionSubtype enum
+// A concrete instance of `BudgetsActionSsmActionDefinitionSubtypeInput` can be one of the following:
 //
-//	BudgetsActionSsmActionDefinitionSubtypeArgs{...}
+//	BudgetsActionSsmActionDefinitionSubtypeStopEc2Instances
+//	BudgetsActionSsmActionDefinitionSubtypeStopRdsInstances
 type BudgetsActionSsmActionDefinitionSubtypeInput interface {
 	pulumi.Input
 
@@ -914,12 +835,6 @@ func (in *budgetsActionSsmActionDefinitionSubtypePtr) ToBudgetsActionSsmActionDe
 
 func (in *budgetsActionSsmActionDefinitionSubtypePtr) ToBudgetsActionSsmActionDefinitionSubtypePtrOutputWithContext(ctx context.Context) BudgetsActionSsmActionDefinitionSubtypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionSsmActionDefinitionSubtypePtrOutput)
-}
-
-func (in *budgetsActionSsmActionDefinitionSubtypePtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionSsmActionDefinitionSubtype] {
-	return pulumix.Output[*BudgetsActionSsmActionDefinitionSubtype]{
-		OutputState: in.ToBudgetsActionSsmActionDefinitionSubtypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type BudgetsActionSubscriberType string
@@ -989,12 +904,6 @@ func (o BudgetsActionSubscriberTypeOutput) ToBudgetsActionSubscriberTypePtrOutpu
 	}).(BudgetsActionSubscriberTypePtrOutput)
 }
 
-func (o BudgetsActionSubscriberTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetsActionSubscriberType] {
-	return pulumix.Output[BudgetsActionSubscriberType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetsActionSubscriberTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1030,12 +939,6 @@ func (o BudgetsActionSubscriberTypePtrOutput) ToBudgetsActionSubscriberTypePtrOu
 	return o
 }
 
-func (o BudgetsActionSubscriberTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionSubscriberType] {
-	return pulumix.Output[*BudgetsActionSubscriberType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetsActionSubscriberTypePtrOutput) Elem() BudgetsActionSubscriberTypeOutput {
 	return o.ApplyT(func(v *BudgetsActionSubscriberType) BudgetsActionSubscriberType {
 		if v != nil {
@@ -1060,10 +963,11 @@ func (o BudgetsActionSubscriberTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// BudgetsActionSubscriberTypeInput is an input type that accepts BudgetsActionSubscriberTypeArgs and BudgetsActionSubscriberTypeOutput values.
-// You can construct a concrete instance of `BudgetsActionSubscriberTypeInput` via:
+// BudgetsActionSubscriberTypeInput is an input type that accepts values of the BudgetsActionSubscriberType enum
+// A concrete instance of `BudgetsActionSubscriberTypeInput` can be one of the following:
 //
-//	BudgetsActionSubscriberTypeArgs{...}
+//	BudgetsActionSubscriberTypeSns
+//	BudgetsActionSubscriberTypeEmail
 type BudgetsActionSubscriberTypeInput interface {
 	pulumi.Input
 
@@ -1096,12 +1000,6 @@ func (in *budgetsActionSubscriberTypePtr) ToBudgetsActionSubscriberTypePtrOutput
 
 func (in *budgetsActionSubscriberTypePtr) ToBudgetsActionSubscriberTypePtrOutputWithContext(ctx context.Context) BudgetsActionSubscriberTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionSubscriberTypePtrOutput)
-}
-
-func (in *budgetsActionSubscriberTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionSubscriberType] {
-	return pulumix.Output[*BudgetsActionSubscriberType]{
-		OutputState: in.ToBudgetsActionSubscriberTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

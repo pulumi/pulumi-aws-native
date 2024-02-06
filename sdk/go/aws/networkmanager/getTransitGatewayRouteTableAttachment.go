@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::NetworkManager::TransitGatewayRouteTableAttachment Resource Type definition.
@@ -93,12 +92,6 @@ func (o LookupTransitGatewayRouteTableAttachmentResultOutput) ToLookupTransitGat
 
 func (o LookupTransitGatewayRouteTableAttachmentResultOutput) ToLookupTransitGatewayRouteTableAttachmentResultOutputWithContext(ctx context.Context) LookupTransitGatewayRouteTableAttachmentResultOutput {
 	return o
-}
-
-func (o LookupTransitGatewayRouteTableAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransitGatewayRouteTableAttachmentResult] {
-	return pulumix.Output[LookupTransitGatewayRouteTableAttachmentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the attachment.

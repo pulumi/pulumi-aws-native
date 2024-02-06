@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Describes a route table for a local gateway.
@@ -77,12 +76,6 @@ func (o LookupLocalGatewayRouteTableResultOutput) ToLookupLocalGatewayRouteTable
 
 func (o LookupLocalGatewayRouteTableResultOutput) ToLookupLocalGatewayRouteTableResultOutputWithContext(ctx context.Context) LookupLocalGatewayRouteTableResultOutput {
 	return o
-}
-
-func (o LookupLocalGatewayRouteTableResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocalGatewayRouteTableResult] {
-	return pulumix.Output[LookupLocalGatewayRouteTableResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the local gateway route table.

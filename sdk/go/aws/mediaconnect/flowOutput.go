@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::FlowOutput
@@ -184,12 +183,6 @@ func (i *FlowOutputResource) ToFlowOutputResourceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputResourceOutput)
 }
 
-func (i *FlowOutputResource) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputResource] {
-	return pulumix.Output[*FlowOutputResource]{
-		OutputState: i.ToFlowOutputResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowOutputResourceOutput struct{ *pulumi.OutputState }
 
 func (FlowOutputResourceOutput) ElementType() reflect.Type {
@@ -202,12 +195,6 @@ func (o FlowOutputResourceOutput) ToFlowOutputResourceOutput() FlowOutputResourc
 
 func (o FlowOutputResourceOutput) ToFlowOutputResourceOutputWithContext(ctx context.Context) FlowOutputResourceOutput {
 	return o
-}
-
-func (o FlowOutputResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputResource] {
-	return pulumix.Output[*FlowOutputResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.

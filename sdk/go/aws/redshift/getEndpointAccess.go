@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for a Redshift-managed VPC endpoint.
@@ -79,12 +78,6 @@ func (o LookupEndpointAccessResultOutput) ToLookupEndpointAccessResultOutput() L
 
 func (o LookupEndpointAccessResultOutput) ToLookupEndpointAccessResultOutputWithContext(ctx context.Context) LookupEndpointAccessResultOutput {
 	return o
-}
-
-func (o LookupEndpointAccessResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEndpointAccessResult] {
-	return pulumix.Output[LookupEndpointAccessResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The DNS address of the endpoint.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::StorageSystem.
@@ -139,12 +138,6 @@ func (i *StorageSystem) ToStorageSystemOutputWithContext(ctx context.Context) St
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemOutput)
 }
 
-func (i *StorageSystem) ToOutput(ctx context.Context) pulumix.Output[*StorageSystem] {
-	return pulumix.Output[*StorageSystem]{
-		OutputState: i.ToStorageSystemOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageSystemOutput struct{ *pulumi.OutputState }
 
 func (StorageSystemOutput) ElementType() reflect.Type {
@@ -157,12 +150,6 @@ func (o StorageSystemOutput) ToStorageSystemOutput() StorageSystemOutput {
 
 func (o StorageSystemOutput) ToStorageSystemOutputWithContext(ctx context.Context) StorageSystemOutput {
 	return o
-}
-
-func (o StorageSystemOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageSystem] {
-	return pulumix.Output[*StorageSystem]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.

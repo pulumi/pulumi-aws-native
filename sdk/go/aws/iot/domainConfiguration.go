@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Create and manage a Domain Configuration
@@ -125,12 +124,6 @@ func (i *DomainConfiguration) ToDomainConfigurationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationOutput)
 }
 
-func (i *DomainConfiguration) ToOutput(ctx context.Context) pulumix.Output[*DomainConfiguration] {
-	return pulumix.Output[*DomainConfiguration]{
-		OutputState: i.ToDomainConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DomainConfigurationOutput) ElementType() reflect.Type {
@@ -143,12 +136,6 @@ func (o DomainConfigurationOutput) ToDomainConfigurationOutput() DomainConfigura
 
 func (o DomainConfigurationOutput) ToDomainConfigurationOutputWithContext(ctx context.Context) DomainConfigurationOutput {
 	return o
-}
-
-func (o DomainConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainConfiguration] {
-	return pulumix.Output[*DomainConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainConfigurationOutput) Arn() pulumi.StringOutput {

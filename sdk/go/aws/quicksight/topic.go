@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of the AWS::QuickSight::Topic Resource Type.
@@ -111,12 +110,6 @@ func (i *Topic) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicOutput)
 }
 
-func (i *Topic) ToOutput(ctx context.Context) pulumix.Output[*Topic] {
-	return pulumix.Output[*Topic]{
-		OutputState: i.ToTopicOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicOutput struct{ *pulumi.OutputState }
 
 func (TopicOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o TopicOutput) ToTopicOutput() TopicOutput {
 
 func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
-}
-
-func (o TopicOutput) ToOutput(ctx context.Context) pulumix.Output[*Topic] {
-	return pulumix.Output[*Topic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicOutput) Arn() pulumi.StringOutput {

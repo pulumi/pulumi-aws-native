@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The compute platform of the profiling group.
@@ -79,12 +78,6 @@ func (o ProfilingGroupComputePlatformOutput) ToProfilingGroupComputePlatformPtrO
 	}).(ProfilingGroupComputePlatformPtrOutput)
 }
 
-func (o ProfilingGroupComputePlatformOutput) ToOutput(ctx context.Context) pulumix.Output[ProfilingGroupComputePlatform] {
-	return pulumix.Output[ProfilingGroupComputePlatform]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProfilingGroupComputePlatformOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o ProfilingGroupComputePlatformPtrOutput) ToProfilingGroupComputePlatformP
 	return o
 }
 
-func (o ProfilingGroupComputePlatformPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfilingGroupComputePlatform] {
-	return pulumix.Output[*ProfilingGroupComputePlatform]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProfilingGroupComputePlatformPtrOutput) Elem() ProfilingGroupComputePlatformOutput {
 	return o.ApplyT(func(v *ProfilingGroupComputePlatform) ProfilingGroupComputePlatform {
 		if v != nil {
@@ -150,10 +137,11 @@ func (o ProfilingGroupComputePlatformPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProfilingGroupComputePlatformInput is an input type that accepts ProfilingGroupComputePlatformArgs and ProfilingGroupComputePlatformOutput values.
-// You can construct a concrete instance of `ProfilingGroupComputePlatformInput` via:
+// ProfilingGroupComputePlatformInput is an input type that accepts values of the ProfilingGroupComputePlatform enum
+// A concrete instance of `ProfilingGroupComputePlatformInput` can be one of the following:
 //
-//	ProfilingGroupComputePlatformArgs{...}
+//	ProfilingGroupComputePlatformDefault
+//	ProfilingGroupComputePlatformAwsLambda
 type ProfilingGroupComputePlatformInput interface {
 	pulumi.Input
 
@@ -186,12 +174,6 @@ func (in *profilingGroupComputePlatformPtr) ToProfilingGroupComputePlatformPtrOu
 
 func (in *profilingGroupComputePlatformPtr) ToProfilingGroupComputePlatformPtrOutputWithContext(ctx context.Context) ProfilingGroupComputePlatformPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ProfilingGroupComputePlatformPtrOutput)
-}
-
-func (in *profilingGroupComputePlatformPtr) ToOutput(ctx context.Context) pulumix.Output[*ProfilingGroupComputePlatform] {
-	return pulumix.Output[*ProfilingGroupComputePlatform]{
-		OutputState: in.ToProfilingGroupComputePlatformPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

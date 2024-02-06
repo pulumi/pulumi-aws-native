@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a stored analysis within a collaboration
@@ -74,12 +73,6 @@ func (o LookupAnalysisTemplateResultOutput) ToLookupAnalysisTemplateResultOutput
 
 func (o LookupAnalysisTemplateResultOutput) ToLookupAnalysisTemplateResultOutputWithContext(ctx context.Context) LookupAnalysisTemplateResultOutput {
 	return o
-}
-
-func (o LookupAnalysisTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAnalysisTemplateResult] {
-	return pulumix.Output[LookupAnalysisTemplateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAnalysisTemplateResultOutput) AnalysisTemplateIdentifier() pulumi.StringPtrOutput {

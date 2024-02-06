@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GlobalAccelerator::Accelerator
@@ -124,12 +123,6 @@ func (i *Accelerator) ToAcceleratorOutputWithContext(ctx context.Context) Accele
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorOutput)
 }
 
-func (i *Accelerator) ToOutput(ctx context.Context) pulumix.Output[*Accelerator] {
-	return pulumix.Output[*Accelerator]{
-		OutputState: i.ToAcceleratorOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AcceleratorOutput struct{ *pulumi.OutputState }
 
 func (AcceleratorOutput) ElementType() reflect.Type {
@@ -142,12 +135,6 @@ func (o AcceleratorOutput) ToAcceleratorOutput() AcceleratorOutput {
 
 func (o AcceleratorOutput) ToAcceleratorOutputWithContext(ctx context.Context) AcceleratorOutput {
 	return o
-}
-
-func (o AcceleratorOutput) ToOutput(ctx context.Context) pulumix.Output[*Accelerator] {
-	return pulumix.Output[*Accelerator]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the accelerator.

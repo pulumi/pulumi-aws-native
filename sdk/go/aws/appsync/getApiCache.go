@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::ApiCache
@@ -69,12 +68,6 @@ func (o LookupApiCacheResultOutput) ToLookupApiCacheResultOutput() LookupApiCach
 
 func (o LookupApiCacheResultOutput) ToLookupApiCacheResultOutputWithContext(ctx context.Context) LookupApiCacheResultOutput {
 	return o
-}
-
-func (o LookupApiCacheResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApiCacheResult] {
-	return pulumix.Output[LookupApiCacheResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupApiCacheResultOutput) ApiCachingBehavior() pulumi.StringPtrOutput {

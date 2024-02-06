@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The types of manifest that you want AWS to create for this report.
@@ -80,12 +79,6 @@ func (o ReportDefinitionAdditionalArtifactsItemOutput) ToReportDefinitionAdditio
 	}).(ReportDefinitionAdditionalArtifactsItemPtrOutput)
 }
 
-func (o ReportDefinitionAdditionalArtifactsItemOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDefinitionAdditionalArtifactsItem] {
-	return pulumix.Output[ReportDefinitionAdditionalArtifactsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionAdditionalArtifactsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +114,6 @@ func (o ReportDefinitionAdditionalArtifactsItemPtrOutput) ToReportDefinitionAddi
 	return o
 }
 
-func (o ReportDefinitionAdditionalArtifactsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionAdditionalArtifactsItem] {
-	return pulumix.Output[*ReportDefinitionAdditionalArtifactsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionAdditionalArtifactsItemPtrOutput) Elem() ReportDefinitionAdditionalArtifactsItemOutput {
 	return o.ApplyT(func(v *ReportDefinitionAdditionalArtifactsItem) ReportDefinitionAdditionalArtifactsItem {
 		if v != nil {
@@ -151,10 +138,12 @@ func (o ReportDefinitionAdditionalArtifactsItemPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReportDefinitionAdditionalArtifactsItemInput is an input type that accepts ReportDefinitionAdditionalArtifactsItemArgs and ReportDefinitionAdditionalArtifactsItemOutput values.
-// You can construct a concrete instance of `ReportDefinitionAdditionalArtifactsItemInput` via:
+// ReportDefinitionAdditionalArtifactsItemInput is an input type that accepts values of the ReportDefinitionAdditionalArtifactsItem enum
+// A concrete instance of `ReportDefinitionAdditionalArtifactsItemInput` can be one of the following:
 //
-//	ReportDefinitionAdditionalArtifactsItemArgs{...}
+//	ReportDefinitionAdditionalArtifactsItemRedshift
+//	ReportDefinitionAdditionalArtifactsItemQuicksight
+//	ReportDefinitionAdditionalArtifactsItemAthena
 type ReportDefinitionAdditionalArtifactsItemInput interface {
 	pulumi.Input
 
@@ -189,12 +178,6 @@ func (in *reportDefinitionAdditionalArtifactsItemPtr) ToReportDefinitionAddition
 	return pulumi.ToOutputWithContext(ctx, in).(ReportDefinitionAdditionalArtifactsItemPtrOutput)
 }
 
-func (in *reportDefinitionAdditionalArtifactsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionAdditionalArtifactsItem] {
-	return pulumix.Output[*ReportDefinitionAdditionalArtifactsItem]{
-		OutputState: in.ToReportDefinitionAdditionalArtifactsItemPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReportDefinitionAdditionalArtifactsItemArrayInput is an input type that accepts ReportDefinitionAdditionalArtifactsItemArray and ReportDefinitionAdditionalArtifactsItemArrayOutput values.
 // You can construct a concrete instance of `ReportDefinitionAdditionalArtifactsItemArrayInput` via:
 //
@@ -220,12 +203,6 @@ func (i ReportDefinitionAdditionalArtifactsItemArray) ToReportDefinitionAddition
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionAdditionalArtifactsItemArrayOutput)
 }
 
-func (i ReportDefinitionAdditionalArtifactsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]ReportDefinitionAdditionalArtifactsItem] {
-	return pulumix.Output[[]ReportDefinitionAdditionalArtifactsItem]{
-		OutputState: i.ToReportDefinitionAdditionalArtifactsItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReportDefinitionAdditionalArtifactsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionAdditionalArtifactsItemArrayOutput) ElementType() reflect.Type {
@@ -238,12 +215,6 @@ func (o ReportDefinitionAdditionalArtifactsItemArrayOutput) ToReportDefinitionAd
 
 func (o ReportDefinitionAdditionalArtifactsItemArrayOutput) ToReportDefinitionAdditionalArtifactsItemArrayOutputWithContext(ctx context.Context) ReportDefinitionAdditionalArtifactsItemArrayOutput {
 	return o
-}
-
-func (o ReportDefinitionAdditionalArtifactsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReportDefinitionAdditionalArtifactsItem] {
-	return pulumix.Output[[]ReportDefinitionAdditionalArtifactsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReportDefinitionAdditionalArtifactsItemArrayOutput) Index(i pulumi.IntInput) ReportDefinitionAdditionalArtifactsItemOutput {
@@ -319,12 +290,6 @@ func (o ReportDefinitionAdditionalSchemaElementsItemOutput) ToReportDefinitionAd
 	}).(ReportDefinitionAdditionalSchemaElementsItemPtrOutput)
 }
 
-func (o ReportDefinitionAdditionalSchemaElementsItemOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDefinitionAdditionalSchemaElementsItem] {
-	return pulumix.Output[ReportDefinitionAdditionalSchemaElementsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionAdditionalSchemaElementsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -360,12 +325,6 @@ func (o ReportDefinitionAdditionalSchemaElementsItemPtrOutput) ToReportDefinitio
 	return o
 }
 
-func (o ReportDefinitionAdditionalSchemaElementsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionAdditionalSchemaElementsItem] {
-	return pulumix.Output[*ReportDefinitionAdditionalSchemaElementsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionAdditionalSchemaElementsItemPtrOutput) Elem() ReportDefinitionAdditionalSchemaElementsItemOutput {
 	return o.ApplyT(func(v *ReportDefinitionAdditionalSchemaElementsItem) ReportDefinitionAdditionalSchemaElementsItem {
 		if v != nil {
@@ -390,10 +349,10 @@ func (o ReportDefinitionAdditionalSchemaElementsItemPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReportDefinitionAdditionalSchemaElementsItemInput is an input type that accepts ReportDefinitionAdditionalSchemaElementsItemArgs and ReportDefinitionAdditionalSchemaElementsItemOutput values.
-// You can construct a concrete instance of `ReportDefinitionAdditionalSchemaElementsItemInput` via:
+// ReportDefinitionAdditionalSchemaElementsItemInput is an input type that accepts values of the ReportDefinitionAdditionalSchemaElementsItem enum
+// A concrete instance of `ReportDefinitionAdditionalSchemaElementsItemInput` can be one of the following:
 //
-//	ReportDefinitionAdditionalSchemaElementsItemArgs{...}
+//	ReportDefinitionAdditionalSchemaElementsItemResources
 type ReportDefinitionAdditionalSchemaElementsItemInput interface {
 	pulumi.Input
 
@@ -428,12 +387,6 @@ func (in *reportDefinitionAdditionalSchemaElementsItemPtr) ToReportDefinitionAdd
 	return pulumi.ToOutputWithContext(ctx, in).(ReportDefinitionAdditionalSchemaElementsItemPtrOutput)
 }
 
-func (in *reportDefinitionAdditionalSchemaElementsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionAdditionalSchemaElementsItem] {
-	return pulumix.Output[*ReportDefinitionAdditionalSchemaElementsItem]{
-		OutputState: in.ToReportDefinitionAdditionalSchemaElementsItemPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReportDefinitionAdditionalSchemaElementsItemArrayInput is an input type that accepts ReportDefinitionAdditionalSchemaElementsItemArray and ReportDefinitionAdditionalSchemaElementsItemArrayOutput values.
 // You can construct a concrete instance of `ReportDefinitionAdditionalSchemaElementsItemArrayInput` via:
 //
@@ -459,12 +412,6 @@ func (i ReportDefinitionAdditionalSchemaElementsItemArray) ToReportDefinitionAdd
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionAdditionalSchemaElementsItemArrayOutput)
 }
 
-func (i ReportDefinitionAdditionalSchemaElementsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]ReportDefinitionAdditionalSchemaElementsItem] {
-	return pulumix.Output[[]ReportDefinitionAdditionalSchemaElementsItem]{
-		OutputState: i.ToReportDefinitionAdditionalSchemaElementsItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReportDefinitionAdditionalSchemaElementsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionAdditionalSchemaElementsItemArrayOutput) ElementType() reflect.Type {
@@ -477,12 +424,6 @@ func (o ReportDefinitionAdditionalSchemaElementsItemArrayOutput) ToReportDefinit
 
 func (o ReportDefinitionAdditionalSchemaElementsItemArrayOutput) ToReportDefinitionAdditionalSchemaElementsItemArrayOutputWithContext(ctx context.Context) ReportDefinitionAdditionalSchemaElementsItemArrayOutput {
 	return o
-}
-
-func (o ReportDefinitionAdditionalSchemaElementsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReportDefinitionAdditionalSchemaElementsItem] {
-	return pulumix.Output[[]ReportDefinitionAdditionalSchemaElementsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReportDefinitionAdditionalSchemaElementsItemArrayOutput) Index(i pulumi.IntInput) ReportDefinitionAdditionalSchemaElementsItemOutput {
@@ -560,12 +501,6 @@ func (o ReportDefinitionCompressionOutput) ToReportDefinitionCompressionPtrOutpu
 	}).(ReportDefinitionCompressionPtrOutput)
 }
 
-func (o ReportDefinitionCompressionOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDefinitionCompression] {
-	return pulumix.Output[ReportDefinitionCompression]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionCompressionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -601,12 +536,6 @@ func (o ReportDefinitionCompressionPtrOutput) ToReportDefinitionCompressionPtrOu
 	return o
 }
 
-func (o ReportDefinitionCompressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionCompression] {
-	return pulumix.Output[*ReportDefinitionCompression]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionCompressionPtrOutput) Elem() ReportDefinitionCompressionOutput {
 	return o.ApplyT(func(v *ReportDefinitionCompression) ReportDefinitionCompression {
 		if v != nil {
@@ -631,10 +560,12 @@ func (o ReportDefinitionCompressionPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReportDefinitionCompressionInput is an input type that accepts ReportDefinitionCompressionArgs and ReportDefinitionCompressionOutput values.
-// You can construct a concrete instance of `ReportDefinitionCompressionInput` via:
+// ReportDefinitionCompressionInput is an input type that accepts values of the ReportDefinitionCompression enum
+// A concrete instance of `ReportDefinitionCompressionInput` can be one of the following:
 //
-//	ReportDefinitionCompressionArgs{...}
+//	ReportDefinitionCompressionZip
+//	ReportDefinitionCompressionGzip
+//	ReportDefinitionCompressionParquet
 type ReportDefinitionCompressionInput interface {
 	pulumi.Input
 
@@ -667,12 +598,6 @@ func (in *reportDefinitionCompressionPtr) ToReportDefinitionCompressionPtrOutput
 
 func (in *reportDefinitionCompressionPtr) ToReportDefinitionCompressionPtrOutputWithContext(ctx context.Context) ReportDefinitionCompressionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReportDefinitionCompressionPtrOutput)
-}
-
-func (in *reportDefinitionCompressionPtr) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionCompression] {
-	return pulumix.Output[*ReportDefinitionCompression]{
-		OutputState: in.ToReportDefinitionCompressionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The format that AWS saves the report in.
@@ -743,12 +668,6 @@ func (o ReportDefinitionFormatOutput) ToReportDefinitionFormatPtrOutputWithConte
 	}).(ReportDefinitionFormatPtrOutput)
 }
 
-func (o ReportDefinitionFormatOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDefinitionFormat] {
-	return pulumix.Output[ReportDefinitionFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -784,12 +703,6 @@ func (o ReportDefinitionFormatPtrOutput) ToReportDefinitionFormatPtrOutputWithCo
 	return o
 }
 
-func (o ReportDefinitionFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionFormat] {
-	return pulumix.Output[*ReportDefinitionFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionFormatPtrOutput) Elem() ReportDefinitionFormatOutput {
 	return o.ApplyT(func(v *ReportDefinitionFormat) ReportDefinitionFormat {
 		if v != nil {
@@ -814,10 +727,11 @@ func (o ReportDefinitionFormatPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReportDefinitionFormatInput is an input type that accepts ReportDefinitionFormatArgs and ReportDefinitionFormatOutput values.
-// You can construct a concrete instance of `ReportDefinitionFormatInput` via:
+// ReportDefinitionFormatInput is an input type that accepts values of the ReportDefinitionFormat enum
+// A concrete instance of `ReportDefinitionFormatInput` can be one of the following:
 //
-//	ReportDefinitionFormatArgs{...}
+//	ReportDefinitionFormatTextORcsv
+//	ReportDefinitionFormatParquet
 type ReportDefinitionFormatInput interface {
 	pulumi.Input
 
@@ -850,12 +764,6 @@ func (in *reportDefinitionFormatPtr) ToReportDefinitionFormatPtrOutput() ReportD
 
 func (in *reportDefinitionFormatPtr) ToReportDefinitionFormatPtrOutputWithContext(ctx context.Context) ReportDefinitionFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReportDefinitionFormatPtrOutput)
-}
-
-func (in *reportDefinitionFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionFormat] {
-	return pulumix.Output[*ReportDefinitionFormat]{
-		OutputState: in.ToReportDefinitionFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
@@ -926,12 +834,6 @@ func (o ReportDefinitionReportVersioningOutput) ToReportDefinitionReportVersioni
 	}).(ReportDefinitionReportVersioningPtrOutput)
 }
 
-func (o ReportDefinitionReportVersioningOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDefinitionReportVersioning] {
-	return pulumix.Output[ReportDefinitionReportVersioning]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionReportVersioningOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -967,12 +869,6 @@ func (o ReportDefinitionReportVersioningPtrOutput) ToReportDefinitionReportVersi
 	return o
 }
 
-func (o ReportDefinitionReportVersioningPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionReportVersioning] {
-	return pulumix.Output[*ReportDefinitionReportVersioning]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionReportVersioningPtrOutput) Elem() ReportDefinitionReportVersioningOutput {
 	return o.ApplyT(func(v *ReportDefinitionReportVersioning) ReportDefinitionReportVersioning {
 		if v != nil {
@@ -997,10 +893,11 @@ func (o ReportDefinitionReportVersioningPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReportDefinitionReportVersioningInput is an input type that accepts ReportDefinitionReportVersioningArgs and ReportDefinitionReportVersioningOutput values.
-// You can construct a concrete instance of `ReportDefinitionReportVersioningInput` via:
+// ReportDefinitionReportVersioningInput is an input type that accepts values of the ReportDefinitionReportVersioning enum
+// A concrete instance of `ReportDefinitionReportVersioningInput` can be one of the following:
 //
-//	ReportDefinitionReportVersioningArgs{...}
+//	ReportDefinitionReportVersioningCreateNewReport
+//	ReportDefinitionReportVersioningOverwriteReport
 type ReportDefinitionReportVersioningInput interface {
 	pulumi.Input
 
@@ -1033,12 +930,6 @@ func (in *reportDefinitionReportVersioningPtr) ToReportDefinitionReportVersionin
 
 func (in *reportDefinitionReportVersioningPtr) ToReportDefinitionReportVersioningPtrOutputWithContext(ctx context.Context) ReportDefinitionReportVersioningPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReportDefinitionReportVersioningPtrOutput)
-}
-
-func (in *reportDefinitionReportVersioningPtr) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionReportVersioning] {
-	return pulumix.Output[*ReportDefinitionReportVersioning]{
-		OutputState: in.ToReportDefinitionReportVersioningPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The granularity of the line items in the report.
@@ -1110,12 +1001,6 @@ func (o ReportDefinitionTimeUnitOutput) ToReportDefinitionTimeUnitPtrOutputWithC
 	}).(ReportDefinitionTimeUnitPtrOutput)
 }
 
-func (o ReportDefinitionTimeUnitOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDefinitionTimeUnit] {
-	return pulumix.Output[ReportDefinitionTimeUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionTimeUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1151,12 +1036,6 @@ func (o ReportDefinitionTimeUnitPtrOutput) ToReportDefinitionTimeUnitPtrOutputWi
 	return o
 }
 
-func (o ReportDefinitionTimeUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionTimeUnit] {
-	return pulumix.Output[*ReportDefinitionTimeUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionTimeUnitPtrOutput) Elem() ReportDefinitionTimeUnitOutput {
 	return o.ApplyT(func(v *ReportDefinitionTimeUnit) ReportDefinitionTimeUnit {
 		if v != nil {
@@ -1181,10 +1060,12 @@ func (o ReportDefinitionTimeUnitPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReportDefinitionTimeUnitInput is an input type that accepts ReportDefinitionTimeUnitArgs and ReportDefinitionTimeUnitOutput values.
-// You can construct a concrete instance of `ReportDefinitionTimeUnitInput` via:
+// ReportDefinitionTimeUnitInput is an input type that accepts values of the ReportDefinitionTimeUnit enum
+// A concrete instance of `ReportDefinitionTimeUnitInput` can be one of the following:
 //
-//	ReportDefinitionTimeUnitArgs{...}
+//	ReportDefinitionTimeUnitHourly
+//	ReportDefinitionTimeUnitDaily
+//	ReportDefinitionTimeUnitMonthly
 type ReportDefinitionTimeUnitInput interface {
 	pulumi.Input
 
@@ -1217,12 +1098,6 @@ func (in *reportDefinitionTimeUnitPtr) ToReportDefinitionTimeUnitPtrOutput() Rep
 
 func (in *reportDefinitionTimeUnitPtr) ToReportDefinitionTimeUnitPtrOutputWithContext(ctx context.Context) ReportDefinitionTimeUnitPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReportDefinitionTimeUnitPtrOutput)
-}
-
-func (in *reportDefinitionTimeUnitPtr) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionTimeUnit] {
-	return pulumix.Output[*ReportDefinitionTimeUnit]{
-		OutputState: in.ToReportDefinitionTimeUnitPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

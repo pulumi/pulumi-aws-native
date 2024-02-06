@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::VoiceChannel
@@ -65,12 +64,6 @@ func (o LookupVoiceChannelResultOutput) ToLookupVoiceChannelResultOutput() Looku
 
 func (o LookupVoiceChannelResultOutput) ToLookupVoiceChannelResultOutputWithContext(ctx context.Context) LookupVoiceChannelResultOutput {
 	return o
-}
-
-func (o LookupVoiceChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVoiceChannelResult] {
-	return pulumix.Output[LookupVoiceChannelResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVoiceChannelResultOutput) Enabled() pulumi.BoolPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i AcceleratorTagArgs) ToAcceleratorTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorTagOutput)
 }
 
-func (i AcceleratorTagArgs) ToOutput(ctx context.Context) pulumix.Output[AcceleratorTag] {
-	return pulumix.Output[AcceleratorTag]{
-		OutputState: i.ToAcceleratorTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AcceleratorTagArrayInput is an input type that accepts AcceleratorTagArray and AcceleratorTagArrayOutput values.
 // You can construct a concrete instance of `AcceleratorTagArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i AcceleratorTagArray) ToAcceleratorTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorTagArrayOutput)
 }
 
-func (i AcceleratorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AcceleratorTag] {
-	return pulumix.Output[[]AcceleratorTag]{
-		OutputState: i.ToAcceleratorTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Tag is a key-value pair associated with accelerator.
 type AcceleratorTagOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o AcceleratorTagOutput) ToAcceleratorTagOutput() AcceleratorTagOutput {
 
 func (o AcceleratorTagOutput) ToAcceleratorTagOutputWithContext(ctx context.Context) AcceleratorTagOutput {
 	return o
-}
-
-func (o AcceleratorTagOutput) ToOutput(ctx context.Context) pulumix.Output[AcceleratorTag] {
-	return pulumix.Output[AcceleratorTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key of the tag. Value can be 1 to 127 characters.
@@ -133,12 +114,6 @@ func (o AcceleratorTagArrayOutput) ToAcceleratorTagArrayOutput() AcceleratorTagA
 
 func (o AcceleratorTagArrayOutput) ToAcceleratorTagArrayOutputWithContext(ctx context.Context) AcceleratorTagArrayOutput {
 	return o
-}
-
-func (o AcceleratorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AcceleratorTag] {
-	return pulumix.Output[[]AcceleratorTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AcceleratorTagArrayOutput) Index(i pulumi.IntInput) AcceleratorTagOutput {
@@ -194,12 +169,6 @@ func (i EndpointGroupEndpointConfigurationArgs) ToEndpointGroupEndpointConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupEndpointConfigurationOutput)
 }
 
-func (i EndpointGroupEndpointConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointGroupEndpointConfiguration] {
-	return pulumix.Output[EndpointGroupEndpointConfiguration]{
-		OutputState: i.ToEndpointGroupEndpointConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointGroupEndpointConfigurationArrayInput is an input type that accepts EndpointGroupEndpointConfigurationArray and EndpointGroupEndpointConfigurationArrayOutput values.
 // You can construct a concrete instance of `EndpointGroupEndpointConfigurationArrayInput` via:
 //
@@ -225,12 +194,6 @@ func (i EndpointGroupEndpointConfigurationArray) ToEndpointGroupEndpointConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupEndpointConfigurationArrayOutput)
 }
 
-func (i EndpointGroupEndpointConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointGroupEndpointConfiguration] {
-	return pulumix.Output[[]EndpointGroupEndpointConfiguration]{
-		OutputState: i.ToEndpointGroupEndpointConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration for a given endpoint
 type EndpointGroupEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -244,12 +207,6 @@ func (o EndpointGroupEndpointConfigurationOutput) ToEndpointGroupEndpointConfigu
 
 func (o EndpointGroupEndpointConfigurationOutput) ToEndpointGroupEndpointConfigurationOutputWithContext(ctx context.Context) EndpointGroupEndpointConfigurationOutput {
 	return o
-}
-
-func (o EndpointGroupEndpointConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointGroupEndpointConfiguration] {
-	return pulumix.Output[EndpointGroupEndpointConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
@@ -284,12 +241,6 @@ func (o EndpointGroupEndpointConfigurationArrayOutput) ToEndpointGroupEndpointCo
 
 func (o EndpointGroupEndpointConfigurationArrayOutput) ToEndpointGroupEndpointConfigurationArrayOutputWithContext(ctx context.Context) EndpointGroupEndpointConfigurationArrayOutput {
 	return o
-}
-
-func (o EndpointGroupEndpointConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointGroupEndpointConfiguration] {
-	return pulumix.Output[[]EndpointGroupEndpointConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointGroupEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) EndpointGroupEndpointConfigurationOutput {
@@ -333,12 +284,6 @@ func (i EndpointGroupPortOverrideArgs) ToEndpointGroupPortOverrideOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupPortOverrideOutput)
 }
 
-func (i EndpointGroupPortOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointGroupPortOverride] {
-	return pulumix.Output[EndpointGroupPortOverride]{
-		OutputState: i.ToEndpointGroupPortOverrideOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointGroupPortOverrideArrayInput is an input type that accepts EndpointGroupPortOverrideArray and EndpointGroupPortOverrideArrayOutput values.
 // You can construct a concrete instance of `EndpointGroupPortOverrideArrayInput` via:
 //
@@ -364,12 +309,6 @@ func (i EndpointGroupPortOverrideArray) ToEndpointGroupPortOverrideArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupPortOverrideArrayOutput)
 }
 
-func (i EndpointGroupPortOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointGroupPortOverride] {
-	return pulumix.Output[[]EndpointGroupPortOverride]{
-		OutputState: i.ToEndpointGroupPortOverrideArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // listener to endpoint port mapping.
 type EndpointGroupPortOverrideOutput struct{ *pulumi.OutputState }
 
@@ -383,12 +322,6 @@ func (o EndpointGroupPortOverrideOutput) ToEndpointGroupPortOverrideOutput() End
 
 func (o EndpointGroupPortOverrideOutput) ToEndpointGroupPortOverrideOutputWithContext(ctx context.Context) EndpointGroupPortOverrideOutput {
 	return o
-}
-
-func (o EndpointGroupPortOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointGroupPortOverride] {
-	return pulumix.Output[EndpointGroupPortOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointGroupPortOverrideOutput) EndpointPort() pulumi.IntOutput {
@@ -411,12 +344,6 @@ func (o EndpointGroupPortOverrideArrayOutput) ToEndpointGroupPortOverrideArrayOu
 
 func (o EndpointGroupPortOverrideArrayOutput) ToEndpointGroupPortOverrideArrayOutputWithContext(ctx context.Context) EndpointGroupPortOverrideArrayOutput {
 	return o
-}
-
-func (o EndpointGroupPortOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointGroupPortOverride] {
-	return pulumix.Output[[]EndpointGroupPortOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointGroupPortOverrideArrayOutput) Index(i pulumi.IntInput) EndpointGroupPortOverrideOutput {
@@ -460,12 +387,6 @@ func (i ListenerPortRangeArgs) ToListenerPortRangeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPortRangeOutput)
 }
 
-func (i ListenerPortRangeArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerPortRange] {
-	return pulumix.Output[ListenerPortRange]{
-		OutputState: i.ToListenerPortRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerPortRangeArrayInput is an input type that accepts ListenerPortRangeArray and ListenerPortRangeArrayOutput values.
 // You can construct a concrete instance of `ListenerPortRangeArrayInput` via:
 //
@@ -491,12 +412,6 @@ func (i ListenerPortRangeArray) ToListenerPortRangeArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPortRangeArrayOutput)
 }
 
-func (i ListenerPortRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerPortRange] {
-	return pulumix.Output[[]ListenerPortRange]{
-		OutputState: i.ToListenerPortRangeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A port range to support for connections from  clients to your accelerator.
 type ListenerPortRangeOutput struct{ *pulumi.OutputState }
 
@@ -510,12 +425,6 @@ func (o ListenerPortRangeOutput) ToListenerPortRangeOutput() ListenerPortRangeOu
 
 func (o ListenerPortRangeOutput) ToListenerPortRangeOutputWithContext(ctx context.Context) ListenerPortRangeOutput {
 	return o
-}
-
-func (o ListenerPortRangeOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerPortRange] {
-	return pulumix.Output[ListenerPortRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerPortRangeOutput) FromPort() pulumi.IntOutput {
@@ -538,12 +447,6 @@ func (o ListenerPortRangeArrayOutput) ToListenerPortRangeArrayOutput() ListenerP
 
 func (o ListenerPortRangeArrayOutput) ToListenerPortRangeArrayOutputWithContext(ctx context.Context) ListenerPortRangeArrayOutput {
 	return o
-}
-
-func (o ListenerPortRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerPortRange] {
-	return pulumix.Output[[]ListenerPortRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerPortRangeArrayOutput) Index(i pulumi.IntInput) ListenerPortRangeOutput {

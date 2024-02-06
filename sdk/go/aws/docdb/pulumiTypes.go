@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i DbClusterParameterGroupTagArgs) ToDbClusterParameterGroupTagOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DbClusterParameterGroupTagOutput)
 }
 
-func (i DbClusterParameterGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[DbClusterParameterGroupTag] {
-	return pulumix.Output[DbClusterParameterGroupTag]{
-		OutputState: i.ToDbClusterParameterGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DbClusterParameterGroupTagArrayInput is an input type that accepts DbClusterParameterGroupTagArray and DbClusterParameterGroupTagArrayOutput values.
 // You can construct a concrete instance of `DbClusterParameterGroupTagArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i DbClusterParameterGroupTagArray) ToDbClusterParameterGroupTagArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DbClusterParameterGroupTagArrayOutput)
 }
 
-func (i DbClusterParameterGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DbClusterParameterGroupTag] {
-	return pulumix.Output[[]DbClusterParameterGroupTag]{
-		OutputState: i.ToDbClusterParameterGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DbClusterParameterGroupTagOutput struct{ *pulumi.OutputState }
 
 func (DbClusterParameterGroupTagOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o DbClusterParameterGroupTagOutput) ToDbClusterParameterGroupTagOutput() D
 
 func (o DbClusterParameterGroupTagOutput) ToDbClusterParameterGroupTagOutputWithContext(ctx context.Context) DbClusterParameterGroupTagOutput {
 	return o
-}
-
-func (o DbClusterParameterGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[DbClusterParameterGroupTag] {
-	return pulumix.Output[DbClusterParameterGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DbClusterParameterGroupTagOutput) Key() pulumi.StringOutput {
@@ -124,12 +105,6 @@ func (o DbClusterParameterGroupTagArrayOutput) ToDbClusterParameterGroupTagArray
 
 func (o DbClusterParameterGroupTagArrayOutput) ToDbClusterParameterGroupTagArrayOutputWithContext(ctx context.Context) DbClusterParameterGroupTagArrayOutput {
 	return o
-}
-
-func (o DbClusterParameterGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DbClusterParameterGroupTag] {
-	return pulumix.Output[[]DbClusterParameterGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DbClusterParameterGroupTagArrayOutput) Index(i pulumi.IntInput) DbClusterParameterGroupTagOutput {
@@ -171,12 +146,6 @@ func (i DbClusterTagArgs) ToDbClusterTagOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DbClusterTagOutput)
 }
 
-func (i DbClusterTagArgs) ToOutput(ctx context.Context) pulumix.Output[DbClusterTag] {
-	return pulumix.Output[DbClusterTag]{
-		OutputState: i.ToDbClusterTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DbClusterTagArrayInput is an input type that accepts DbClusterTagArray and DbClusterTagArrayOutput values.
 // You can construct a concrete instance of `DbClusterTagArrayInput` via:
 //
@@ -202,12 +171,6 @@ func (i DbClusterTagArray) ToDbClusterTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DbClusterTagArrayOutput)
 }
 
-func (i DbClusterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DbClusterTag] {
-	return pulumix.Output[[]DbClusterTag]{
-		OutputState: i.ToDbClusterTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DbClusterTagOutput struct{ *pulumi.OutputState }
 
 func (DbClusterTagOutput) ElementType() reflect.Type {
@@ -220,12 +183,6 @@ func (o DbClusterTagOutput) ToDbClusterTagOutput() DbClusterTagOutput {
 
 func (o DbClusterTagOutput) ToDbClusterTagOutputWithContext(ctx context.Context) DbClusterTagOutput {
 	return o
-}
-
-func (o DbClusterTagOutput) ToOutput(ctx context.Context) pulumix.Output[DbClusterTag] {
-	return pulumix.Output[DbClusterTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DbClusterTagOutput) Key() pulumi.StringOutput {
@@ -248,12 +205,6 @@ func (o DbClusterTagArrayOutput) ToDbClusterTagArrayOutput() DbClusterTagArrayOu
 
 func (o DbClusterTagArrayOutput) ToDbClusterTagArrayOutputWithContext(ctx context.Context) DbClusterTagArrayOutput {
 	return o
-}
-
-func (o DbClusterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DbClusterTag] {
-	return pulumix.Output[[]DbClusterTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DbClusterTagArrayOutput) Index(i pulumi.IntInput) DbClusterTagOutput {
@@ -295,12 +246,6 @@ func (i DbInstanceTagArgs) ToDbInstanceTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceTagOutput)
 }
 
-func (i DbInstanceTagArgs) ToOutput(ctx context.Context) pulumix.Output[DbInstanceTag] {
-	return pulumix.Output[DbInstanceTag]{
-		OutputState: i.ToDbInstanceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DbInstanceTagArrayInput is an input type that accepts DbInstanceTagArray and DbInstanceTagArrayOutput values.
 // You can construct a concrete instance of `DbInstanceTagArrayInput` via:
 //
@@ -326,12 +271,6 @@ func (i DbInstanceTagArray) ToDbInstanceTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceTagArrayOutput)
 }
 
-func (i DbInstanceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DbInstanceTag] {
-	return pulumix.Output[[]DbInstanceTag]{
-		OutputState: i.ToDbInstanceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DbInstanceTagOutput struct{ *pulumi.OutputState }
 
 func (DbInstanceTagOutput) ElementType() reflect.Type {
@@ -344,12 +283,6 @@ func (o DbInstanceTagOutput) ToDbInstanceTagOutput() DbInstanceTagOutput {
 
 func (o DbInstanceTagOutput) ToDbInstanceTagOutputWithContext(ctx context.Context) DbInstanceTagOutput {
 	return o
-}
-
-func (o DbInstanceTagOutput) ToOutput(ctx context.Context) pulumix.Output[DbInstanceTag] {
-	return pulumix.Output[DbInstanceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DbInstanceTagOutput) Key() pulumi.StringOutput {
@@ -372,12 +305,6 @@ func (o DbInstanceTagArrayOutput) ToDbInstanceTagArrayOutput() DbInstanceTagArra
 
 func (o DbInstanceTagArrayOutput) ToDbInstanceTagArrayOutputWithContext(ctx context.Context) DbInstanceTagArrayOutput {
 	return o
-}
-
-func (o DbInstanceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DbInstanceTag] {
-	return pulumix.Output[[]DbInstanceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DbInstanceTagArrayOutput) Index(i pulumi.IntInput) DbInstanceTagOutput {
@@ -419,12 +346,6 @@ func (i DbSubnetGroupTagArgs) ToDbSubnetGroupTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DbSubnetGroupTagOutput)
 }
 
-func (i DbSubnetGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[DbSubnetGroupTag] {
-	return pulumix.Output[DbSubnetGroupTag]{
-		OutputState: i.ToDbSubnetGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DbSubnetGroupTagArrayInput is an input type that accepts DbSubnetGroupTagArray and DbSubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `DbSubnetGroupTagArrayInput` via:
 //
@@ -450,12 +371,6 @@ func (i DbSubnetGroupTagArray) ToDbSubnetGroupTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DbSubnetGroupTagArrayOutput)
 }
 
-func (i DbSubnetGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DbSubnetGroupTag] {
-	return pulumix.Output[[]DbSubnetGroupTag]{
-		OutputState: i.ToDbSubnetGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DbSubnetGroupTagOutput struct{ *pulumi.OutputState }
 
 func (DbSubnetGroupTagOutput) ElementType() reflect.Type {
@@ -468,12 +383,6 @@ func (o DbSubnetGroupTagOutput) ToDbSubnetGroupTagOutput() DbSubnetGroupTagOutpu
 
 func (o DbSubnetGroupTagOutput) ToDbSubnetGroupTagOutputWithContext(ctx context.Context) DbSubnetGroupTagOutput {
 	return o
-}
-
-func (o DbSubnetGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[DbSubnetGroupTag] {
-	return pulumix.Output[DbSubnetGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DbSubnetGroupTagOutput) Key() pulumi.StringOutput {
@@ -496,12 +405,6 @@ func (o DbSubnetGroupTagArrayOutput) ToDbSubnetGroupTagArrayOutput() DbSubnetGro
 
 func (o DbSubnetGroupTagArrayOutput) ToDbSubnetGroupTagArrayOutputWithContext(ctx context.Context) DbSubnetGroupTagArrayOutput {
 	return o
-}
-
-func (o DbSubnetGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DbSubnetGroupTag] {
-	return pulumix.Output[[]DbSubnetGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DbSubnetGroupTagArrayOutput) Index(i pulumi.IntInput) DbSubnetGroupTagOutput {

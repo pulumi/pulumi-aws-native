@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
@@ -133,12 +132,6 @@ func (i *CloudFormationProvisionedProduct) ToCloudFormationProvisionedProductOut
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductOutput)
 }
 
-func (i *CloudFormationProvisionedProduct) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProvisionedProduct] {
-	return pulumix.Output[*CloudFormationProvisionedProduct]{
-		OutputState: i.ToCloudFormationProvisionedProductOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudFormationProvisionedProductOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProvisionedProductOutput) ElementType() reflect.Type {
@@ -151,12 +144,6 @@ func (o CloudFormationProvisionedProductOutput) ToCloudFormationProvisionedProdu
 
 func (o CloudFormationProvisionedProductOutput) ToCloudFormationProvisionedProductOutputWithContext(ctx context.Context) CloudFormationProvisionedProductOutput {
 	return o
-}
-
-func (o CloudFormationProvisionedProductOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProvisionedProduct] {
-	return pulumix.Output[*CloudFormationProvisionedProduct]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProvisionedProductOutput) AcceptLanguage() CloudFormationProvisionedProductAcceptLanguagePtrOutput {

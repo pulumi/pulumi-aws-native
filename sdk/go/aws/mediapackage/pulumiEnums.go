@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to determine whether a message signals an ad.  Choosing "NONE" means no SCTE-35 messages become ads.  Choosing "RESTRICTED" means SCTE-35 messages of the types specified in AdTriggers that contain delivery restrictions will be treated as ads.  Choosing "UNRESTRICTED" means SCTE-35 messages of the types specified in AdTriggers that do not contain delivery restrictions will be treated as ads.  Choosing "BOTH" means all SCTE-35 messages of the types specified in AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags and are always treated as ads if specified in AdTriggers.
@@ -81,12 +80,6 @@ func (o OriginEndpointAdsOnDeliveryRestrictionsOutput) ToOriginEndpointAdsOnDeli
 	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
-func (o OriginEndpointAdsOnDeliveryRestrictionsOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointAdsOnDeliveryRestrictions] {
-	return pulumix.Output[OriginEndpointAdsOnDeliveryRestrictions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointAdsOnDeliveryRestrictionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -122,12 +115,6 @@ func (o OriginEndpointAdsOnDeliveryRestrictionsPtrOutput) ToOriginEndpointAdsOnD
 	return o
 }
 
-func (o OriginEndpointAdsOnDeliveryRestrictionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointAdsOnDeliveryRestrictions] {
-	return pulumix.Output[*OriginEndpointAdsOnDeliveryRestrictions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointAdsOnDeliveryRestrictionsPtrOutput) Elem() OriginEndpointAdsOnDeliveryRestrictionsOutput {
 	return o.ApplyT(func(v *OriginEndpointAdsOnDeliveryRestrictions) OriginEndpointAdsOnDeliveryRestrictions {
 		if v != nil {
@@ -152,10 +139,13 @@ func (o OriginEndpointAdsOnDeliveryRestrictionsPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointAdsOnDeliveryRestrictionsInput is an input type that accepts OriginEndpointAdsOnDeliveryRestrictionsArgs and OriginEndpointAdsOnDeliveryRestrictionsOutput values.
-// You can construct a concrete instance of `OriginEndpointAdsOnDeliveryRestrictionsInput` via:
+// OriginEndpointAdsOnDeliveryRestrictionsInput is an input type that accepts values of the OriginEndpointAdsOnDeliveryRestrictions enum
+// A concrete instance of `OriginEndpointAdsOnDeliveryRestrictionsInput` can be one of the following:
 //
-//	OriginEndpointAdsOnDeliveryRestrictionsArgs{...}
+//	OriginEndpointAdsOnDeliveryRestrictionsNone
+//	OriginEndpointAdsOnDeliveryRestrictionsRestricted
+//	OriginEndpointAdsOnDeliveryRestrictionsUnrestricted
+//	OriginEndpointAdsOnDeliveryRestrictionsBoth
 type OriginEndpointAdsOnDeliveryRestrictionsInput interface {
 	pulumi.Input
 
@@ -188,12 +178,6 @@ func (in *originEndpointAdsOnDeliveryRestrictionsPtr) ToOriginEndpointAdsOnDeliv
 
 func (in *originEndpointAdsOnDeliveryRestrictionsPtr) ToOriginEndpointAdsOnDeliveryRestrictionsPtrOutputWithContext(ctx context.Context) OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
-}
-
-func (in *originEndpointAdsOnDeliveryRestrictionsPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointAdsOnDeliveryRestrictions] {
-	return pulumix.Output[*OriginEndpointAdsOnDeliveryRestrictions]{
-		OutputState: in.ToOriginEndpointAdsOnDeliveryRestrictionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The encryption method used
@@ -264,12 +248,6 @@ func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToOriginEndpointCmaf
 	}).(OriginEndpointCmafEncryptionEncryptionMethodPtrOutput)
 }
 
-func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointCmafEncryptionEncryptionMethod] {
-	return pulumix.Output[OriginEndpointCmafEncryptionEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -305,12 +283,6 @@ func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) ToOriginEndpointC
 	return o
 }
 
-func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointCmafEncryptionEncryptionMethod] {
-	return pulumix.Output[*OriginEndpointCmafEncryptionEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) Elem() OriginEndpointCmafEncryptionEncryptionMethodOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafEncryptionEncryptionMethod) OriginEndpointCmafEncryptionEncryptionMethod {
 		if v != nil {
@@ -335,10 +307,11 @@ func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointCmafEncryptionEncryptionMethodInput is an input type that accepts OriginEndpointCmafEncryptionEncryptionMethodArgs and OriginEndpointCmafEncryptionEncryptionMethodOutput values.
-// You can construct a concrete instance of `OriginEndpointCmafEncryptionEncryptionMethodInput` via:
+// OriginEndpointCmafEncryptionEncryptionMethodInput is an input type that accepts values of the OriginEndpointCmafEncryptionEncryptionMethod enum
+// A concrete instance of `OriginEndpointCmafEncryptionEncryptionMethodInput` can be one of the following:
 //
-//	OriginEndpointCmafEncryptionEncryptionMethodArgs{...}
+//	OriginEndpointCmafEncryptionEncryptionMethodSampleAes
+//	OriginEndpointCmafEncryptionEncryptionMethodAesCtr
 type OriginEndpointCmafEncryptionEncryptionMethodInput interface {
 	pulumi.Input
 
@@ -371,12 +344,6 @@ func (in *originEndpointCmafEncryptionEncryptionMethodPtr) ToOriginEndpointCmafE
 
 func (in *originEndpointCmafEncryptionEncryptionMethodPtr) ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointCmafEncryptionEncryptionMethodPtrOutput)
-}
-
-func (in *originEndpointCmafEncryptionEncryptionMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointCmafEncryptionEncryptionMethod] {
-	return pulumix.Output[*OriginEndpointCmafEncryptionEncryptionMethod]{
-		OutputState: in.ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type OriginEndpointDashPackageAdTriggersItem string
@@ -452,12 +419,6 @@ func (o OriginEndpointDashPackageAdTriggersItemOutput) ToOriginEndpointDashPacka
 	}).(OriginEndpointDashPackageAdTriggersItemPtrOutput)
 }
 
-func (o OriginEndpointDashPackageAdTriggersItemOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackageAdTriggersItem] {
-	return pulumix.Output[OriginEndpointDashPackageAdTriggersItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDashPackageAdTriggersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -493,12 +454,6 @@ func (o OriginEndpointDashPackageAdTriggersItemPtrOutput) ToOriginEndpointDashPa
 	return o
 }
 
-func (o OriginEndpointDashPackageAdTriggersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageAdTriggersItem] {
-	return pulumix.Output[*OriginEndpointDashPackageAdTriggersItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDashPackageAdTriggersItemPtrOutput) Elem() OriginEndpointDashPackageAdTriggersItemOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackageAdTriggersItem) OriginEndpointDashPackageAdTriggersItem {
 		if v != nil {
@@ -523,10 +478,17 @@ func (o OriginEndpointDashPackageAdTriggersItemPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointDashPackageAdTriggersItemInput is an input type that accepts OriginEndpointDashPackageAdTriggersItemArgs and OriginEndpointDashPackageAdTriggersItemOutput values.
-// You can construct a concrete instance of `OriginEndpointDashPackageAdTriggersItemInput` via:
+// OriginEndpointDashPackageAdTriggersItemInput is an input type that accepts values of the OriginEndpointDashPackageAdTriggersItem enum
+// A concrete instance of `OriginEndpointDashPackageAdTriggersItemInput` can be one of the following:
 //
-//	OriginEndpointDashPackageAdTriggersItemArgs{...}
+//	OriginEndpointDashPackageAdTriggersItemSpliceInsert
+//	OriginEndpointDashPackageAdTriggersItemBreak
+//	OriginEndpointDashPackageAdTriggersItemProviderAdvertisement
+//	OriginEndpointDashPackageAdTriggersItemDistributorAdvertisement
+//	OriginEndpointDashPackageAdTriggersItemProviderPlacementOpportunity
+//	OriginEndpointDashPackageAdTriggersItemDistributorPlacementOpportunity
+//	OriginEndpointDashPackageAdTriggersItemProviderOverlayPlacementOpportunity
+//	OriginEndpointDashPackageAdTriggersItemDistributorOverlayPlacementOpportunity
 type OriginEndpointDashPackageAdTriggersItemInput interface {
 	pulumi.Input
 
@@ -561,12 +523,6 @@ func (in *originEndpointDashPackageAdTriggersItemPtr) ToOriginEndpointDashPackag
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashPackageAdTriggersItemPtrOutput)
 }
 
-func (in *originEndpointDashPackageAdTriggersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageAdTriggersItem] {
-	return pulumix.Output[*OriginEndpointDashPackageAdTriggersItem]{
-		OutputState: in.ToOriginEndpointDashPackageAdTriggersItemPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OriginEndpointDashPackageAdTriggersItemArrayInput is an input type that accepts OriginEndpointDashPackageAdTriggersItemArray and OriginEndpointDashPackageAdTriggersItemArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackageAdTriggersItemArrayInput` via:
 //
@@ -592,12 +548,6 @@ func (i OriginEndpointDashPackageAdTriggersItemArray) ToOriginEndpointDashPackag
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashPackageAdTriggersItemArrayOutput)
 }
 
-func (i OriginEndpointDashPackageAdTriggersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointDashPackageAdTriggersItem] {
-	return pulumix.Output[[]OriginEndpointDashPackageAdTriggersItem]{
-		OutputState: i.ToOriginEndpointDashPackageAdTriggersItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OriginEndpointDashPackageAdTriggersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointDashPackageAdTriggersItemArrayOutput) ElementType() reflect.Type {
@@ -610,12 +560,6 @@ func (o OriginEndpointDashPackageAdTriggersItemArrayOutput) ToOriginEndpointDash
 
 func (o OriginEndpointDashPackageAdTriggersItemArrayOutput) ToOriginEndpointDashPackageAdTriggersItemArrayOutputWithContext(ctx context.Context) OriginEndpointDashPackageAdTriggersItemArrayOutput {
 	return o
-}
-
-func (o OriginEndpointDashPackageAdTriggersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointDashPackageAdTriggersItem] {
-	return pulumix.Output[[]OriginEndpointDashPackageAdTriggersItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointDashPackageAdTriggersItemArrayOutput) Index(i pulumi.IntInput) OriginEndpointDashPackageAdTriggersItemOutput {
@@ -693,12 +637,6 @@ func (o OriginEndpointDashPackageManifestLayoutOutput) ToOriginEndpointDashPacka
 	}).(OriginEndpointDashPackageManifestLayoutPtrOutput)
 }
 
-func (o OriginEndpointDashPackageManifestLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackageManifestLayout] {
-	return pulumix.Output[OriginEndpointDashPackageManifestLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDashPackageManifestLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -734,12 +672,6 @@ func (o OriginEndpointDashPackageManifestLayoutPtrOutput) ToOriginEndpointDashPa
 	return o
 }
 
-func (o OriginEndpointDashPackageManifestLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageManifestLayout] {
-	return pulumix.Output[*OriginEndpointDashPackageManifestLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDashPackageManifestLayoutPtrOutput) Elem() OriginEndpointDashPackageManifestLayoutOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackageManifestLayout) OriginEndpointDashPackageManifestLayout {
 		if v != nil {
@@ -764,10 +696,12 @@ func (o OriginEndpointDashPackageManifestLayoutPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointDashPackageManifestLayoutInput is an input type that accepts OriginEndpointDashPackageManifestLayoutArgs and OriginEndpointDashPackageManifestLayoutOutput values.
-// You can construct a concrete instance of `OriginEndpointDashPackageManifestLayoutInput` via:
+// OriginEndpointDashPackageManifestLayoutInput is an input type that accepts values of the OriginEndpointDashPackageManifestLayout enum
+// A concrete instance of `OriginEndpointDashPackageManifestLayoutInput` can be one of the following:
 //
-//	OriginEndpointDashPackageManifestLayoutArgs{...}
+//	OriginEndpointDashPackageManifestLayoutFull
+//	OriginEndpointDashPackageManifestLayoutCompact
+//	OriginEndpointDashPackageManifestLayoutDrmTopLevelCompact
 type OriginEndpointDashPackageManifestLayoutInput interface {
 	pulumi.Input
 
@@ -800,12 +734,6 @@ func (in *originEndpointDashPackageManifestLayoutPtr) ToOriginEndpointDashPackag
 
 func (in *originEndpointDashPackageManifestLayoutPtr) ToOriginEndpointDashPackageManifestLayoutPtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageManifestLayoutPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashPackageManifestLayoutPtrOutput)
-}
-
-func (in *originEndpointDashPackageManifestLayoutPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageManifestLayout] {
-	return pulumix.Output[*OriginEndpointDashPackageManifestLayout]{
-		OutputState: in.ToOriginEndpointDashPackageManifestLayoutPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type OriginEndpointDashPackagePeriodTriggersItem string
@@ -874,12 +802,6 @@ func (o OriginEndpointDashPackagePeriodTriggersItemOutput) ToOriginEndpointDashP
 	}).(OriginEndpointDashPackagePeriodTriggersItemPtrOutput)
 }
 
-func (o OriginEndpointDashPackagePeriodTriggersItemOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackagePeriodTriggersItem] {
-	return pulumix.Output[OriginEndpointDashPackagePeriodTriggersItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDashPackagePeriodTriggersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -915,12 +837,6 @@ func (o OriginEndpointDashPackagePeriodTriggersItemPtrOutput) ToOriginEndpointDa
 	return o
 }
 
-func (o OriginEndpointDashPackagePeriodTriggersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackagePeriodTriggersItem] {
-	return pulumix.Output[*OriginEndpointDashPackagePeriodTriggersItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDashPackagePeriodTriggersItemPtrOutput) Elem() OriginEndpointDashPackagePeriodTriggersItemOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackagePeriodTriggersItem) OriginEndpointDashPackagePeriodTriggersItem {
 		if v != nil {
@@ -945,10 +861,10 @@ func (o OriginEndpointDashPackagePeriodTriggersItemPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointDashPackagePeriodTriggersItemInput is an input type that accepts OriginEndpointDashPackagePeriodTriggersItemArgs and OriginEndpointDashPackagePeriodTriggersItemOutput values.
-// You can construct a concrete instance of `OriginEndpointDashPackagePeriodTriggersItemInput` via:
+// OriginEndpointDashPackagePeriodTriggersItemInput is an input type that accepts values of the OriginEndpointDashPackagePeriodTriggersItem enum
+// A concrete instance of `OriginEndpointDashPackagePeriodTriggersItemInput` can be one of the following:
 //
-//	OriginEndpointDashPackagePeriodTriggersItemArgs{...}
+//	OriginEndpointDashPackagePeriodTriggersItemAds
 type OriginEndpointDashPackagePeriodTriggersItemInput interface {
 	pulumi.Input
 
@@ -983,12 +899,6 @@ func (in *originEndpointDashPackagePeriodTriggersItemPtr) ToOriginEndpointDashPa
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashPackagePeriodTriggersItemPtrOutput)
 }
 
-func (in *originEndpointDashPackagePeriodTriggersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackagePeriodTriggersItem] {
-	return pulumix.Output[*OriginEndpointDashPackagePeriodTriggersItem]{
-		OutputState: in.ToOriginEndpointDashPackagePeriodTriggersItemPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OriginEndpointDashPackagePeriodTriggersItemArrayInput is an input type that accepts OriginEndpointDashPackagePeriodTriggersItemArray and OriginEndpointDashPackagePeriodTriggersItemArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointDashPackagePeriodTriggersItemArrayInput` via:
 //
@@ -1014,12 +924,6 @@ func (i OriginEndpointDashPackagePeriodTriggersItemArray) ToOriginEndpointDashPa
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashPackagePeriodTriggersItemArrayOutput)
 }
 
-func (i OriginEndpointDashPackagePeriodTriggersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointDashPackagePeriodTriggersItem] {
-	return pulumix.Output[[]OriginEndpointDashPackagePeriodTriggersItem]{
-		OutputState: i.ToOriginEndpointDashPackagePeriodTriggersItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OriginEndpointDashPackagePeriodTriggersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointDashPackagePeriodTriggersItemArrayOutput) ElementType() reflect.Type {
@@ -1032,12 +936,6 @@ func (o OriginEndpointDashPackagePeriodTriggersItemArrayOutput) ToOriginEndpoint
 
 func (o OriginEndpointDashPackagePeriodTriggersItemArrayOutput) ToOriginEndpointDashPackagePeriodTriggersItemArrayOutputWithContext(ctx context.Context) OriginEndpointDashPackagePeriodTriggersItemArrayOutput {
 	return o
-}
-
-func (o OriginEndpointDashPackagePeriodTriggersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointDashPackagePeriodTriggersItem] {
-	return pulumix.Output[[]OriginEndpointDashPackagePeriodTriggersItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointDashPackagePeriodTriggersItemArrayOutput) Index(i pulumi.IntInput) OriginEndpointDashPackagePeriodTriggersItemOutput {
@@ -1116,12 +1014,6 @@ func (o OriginEndpointDashPackageProfileOutput) ToOriginEndpointDashPackageProfi
 	}).(OriginEndpointDashPackageProfilePtrOutput)
 }
 
-func (o OriginEndpointDashPackageProfileOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackageProfile] {
-	return pulumix.Output[OriginEndpointDashPackageProfile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDashPackageProfileOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1157,12 +1049,6 @@ func (o OriginEndpointDashPackageProfilePtrOutput) ToOriginEndpointDashPackagePr
 	return o
 }
 
-func (o OriginEndpointDashPackageProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageProfile] {
-	return pulumix.Output[*OriginEndpointDashPackageProfile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDashPackageProfilePtrOutput) Elem() OriginEndpointDashPackageProfileOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackageProfile) OriginEndpointDashPackageProfile {
 		if v != nil {
@@ -1187,10 +1073,13 @@ func (o OriginEndpointDashPackageProfilePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointDashPackageProfileInput is an input type that accepts OriginEndpointDashPackageProfileArgs and OriginEndpointDashPackageProfileOutput values.
-// You can construct a concrete instance of `OriginEndpointDashPackageProfileInput` via:
+// OriginEndpointDashPackageProfileInput is an input type that accepts values of the OriginEndpointDashPackageProfile enum
+// A concrete instance of `OriginEndpointDashPackageProfileInput` can be one of the following:
 //
-//	OriginEndpointDashPackageProfileArgs{...}
+//	OriginEndpointDashPackageProfileNone
+//	OriginEndpointDashPackageProfileHbbtv15
+//	OriginEndpointDashPackageProfileHybridcast
+//	OriginEndpointDashPackageProfileDvbDash2014
 type OriginEndpointDashPackageProfileInput interface {
 	pulumi.Input
 
@@ -1223,12 +1112,6 @@ func (in *originEndpointDashPackageProfilePtr) ToOriginEndpointDashPackageProfil
 
 func (in *originEndpointDashPackageProfilePtr) ToOriginEndpointDashPackageProfilePtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageProfilePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashPackageProfilePtrOutput)
-}
-
-func (in *originEndpointDashPackageProfilePtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageProfile] {
-	return pulumix.Output[*OriginEndpointDashPackageProfile]{
-		OutputState: in.ToOriginEndpointDashPackageProfilePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
@@ -1300,12 +1183,6 @@ func (o OriginEndpointDashPackageSegmentTemplateFormatOutput) ToOriginEndpointDa
 	}).(OriginEndpointDashPackageSegmentTemplateFormatPtrOutput)
 }
 
-func (o OriginEndpointDashPackageSegmentTemplateFormatOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackageSegmentTemplateFormat] {
-	return pulumix.Output[OriginEndpointDashPackageSegmentTemplateFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDashPackageSegmentTemplateFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1341,12 +1218,6 @@ func (o OriginEndpointDashPackageSegmentTemplateFormatPtrOutput) ToOriginEndpoin
 	return o
 }
 
-func (o OriginEndpointDashPackageSegmentTemplateFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageSegmentTemplateFormat] {
-	return pulumix.Output[*OriginEndpointDashPackageSegmentTemplateFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDashPackageSegmentTemplateFormatPtrOutput) Elem() OriginEndpointDashPackageSegmentTemplateFormatOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackageSegmentTemplateFormat) OriginEndpointDashPackageSegmentTemplateFormat {
 		if v != nil {
@@ -1371,10 +1242,12 @@ func (o OriginEndpointDashPackageSegmentTemplateFormatPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointDashPackageSegmentTemplateFormatInput is an input type that accepts OriginEndpointDashPackageSegmentTemplateFormatArgs and OriginEndpointDashPackageSegmentTemplateFormatOutput values.
-// You can construct a concrete instance of `OriginEndpointDashPackageSegmentTemplateFormatInput` via:
+// OriginEndpointDashPackageSegmentTemplateFormatInput is an input type that accepts values of the OriginEndpointDashPackageSegmentTemplateFormat enum
+// A concrete instance of `OriginEndpointDashPackageSegmentTemplateFormatInput` can be one of the following:
 //
-//	OriginEndpointDashPackageSegmentTemplateFormatArgs{...}
+//	OriginEndpointDashPackageSegmentTemplateFormatNumberWithTimeline
+//	OriginEndpointDashPackageSegmentTemplateFormatTimeWithTimeline
+//	OriginEndpointDashPackageSegmentTemplateFormatNumberWithDuration
 type OriginEndpointDashPackageSegmentTemplateFormatInput interface {
 	pulumi.Input
 
@@ -1407,12 +1280,6 @@ func (in *originEndpointDashPackageSegmentTemplateFormatPtr) ToOriginEndpointDas
 
 func (in *originEndpointDashPackageSegmentTemplateFormatPtr) ToOriginEndpointDashPackageSegmentTemplateFormatPtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageSegmentTemplateFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashPackageSegmentTemplateFormatPtrOutput)
-}
-
-func (in *originEndpointDashPackageSegmentTemplateFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageSegmentTemplateFormat] {
-	return pulumix.Output[*OriginEndpointDashPackageSegmentTemplateFormat]{
-		OutputState: in.ToOriginEndpointDashPackageSegmentTemplateFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Determines the type of UTCTiming included in the Media Presentation Description (MPD)
@@ -1485,12 +1352,6 @@ func (o OriginEndpointDashPackageUtcTimingOutput) ToOriginEndpointDashPackageUtc
 	}).(OriginEndpointDashPackageUtcTimingPtrOutput)
 }
 
-func (o OriginEndpointDashPackageUtcTimingOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackageUtcTiming] {
-	return pulumix.Output[OriginEndpointDashPackageUtcTiming]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDashPackageUtcTimingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1526,12 +1387,6 @@ func (o OriginEndpointDashPackageUtcTimingPtrOutput) ToOriginEndpointDashPackage
 	return o
 }
 
-func (o OriginEndpointDashPackageUtcTimingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageUtcTiming] {
-	return pulumix.Output[*OriginEndpointDashPackageUtcTiming]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDashPackageUtcTimingPtrOutput) Elem() OriginEndpointDashPackageUtcTimingOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackageUtcTiming) OriginEndpointDashPackageUtcTiming {
 		if v != nil {
@@ -1556,10 +1411,13 @@ func (o OriginEndpointDashPackageUtcTimingPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointDashPackageUtcTimingInput is an input type that accepts OriginEndpointDashPackageUtcTimingArgs and OriginEndpointDashPackageUtcTimingOutput values.
-// You can construct a concrete instance of `OriginEndpointDashPackageUtcTimingInput` via:
+// OriginEndpointDashPackageUtcTimingInput is an input type that accepts values of the OriginEndpointDashPackageUtcTiming enum
+// A concrete instance of `OriginEndpointDashPackageUtcTimingInput` can be one of the following:
 //
-//	OriginEndpointDashPackageUtcTimingArgs{...}
+//	OriginEndpointDashPackageUtcTimingHttpXsdate
+//	OriginEndpointDashPackageUtcTimingHttpIso
+//	OriginEndpointDashPackageUtcTimingHttpHead
+//	OriginEndpointDashPackageUtcTimingNone
 type OriginEndpointDashPackageUtcTimingInput interface {
 	pulumi.Input
 
@@ -1592,12 +1450,6 @@ func (in *originEndpointDashPackageUtcTimingPtr) ToOriginEndpointDashPackageUtcT
 
 func (in *originEndpointDashPackageUtcTimingPtr) ToOriginEndpointDashPackageUtcTimingPtrOutputWithContext(ctx context.Context) OriginEndpointDashPackageUtcTimingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashPackageUtcTimingPtrOutput)
-}
-
-func (in *originEndpointDashPackageUtcTimingPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackageUtcTiming] {
-	return pulumix.Output[*OriginEndpointDashPackageUtcTiming]{
-		OutputState: in.ToOriginEndpointDashPackageUtcTimingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A collection of audio encryption presets.
@@ -1671,12 +1523,6 @@ func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioOutput) T
 	}).(OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
 }
 
-func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio] {
-	return pulumix.Output[OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1712,12 +1558,6 @@ func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput
 	return o
 }
 
-func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio] {
-	return pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) Elem() OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioOutput {
 	return o.ApplyT(func(v *OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio) OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio {
 		if v != nil {
@@ -1742,10 +1582,14 @@ func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioInput is an input type that accepts OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioArgs and OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioOutput values.
-// You can construct a concrete instance of `OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioInput` via:
+// OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioInput is an input type that accepts values of the OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio enum
+// A concrete instance of `OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioInput` can be one of the following:
 //
-//	OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioArgs{...}
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPresetAudio1
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPresetAudio2
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPresetAudio3
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioShared
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioUnencrypted
 type OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioInput interface {
 	pulumi.Input
 
@@ -1778,12 +1622,6 @@ func (in *originEndpointEncryptionContractConfigurationPresetSpeke20AudioPtr) To
 
 func (in *originEndpointEncryptionContractConfigurationPresetSpeke20AudioPtr) ToOriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
-}
-
-func (in *originEndpointEncryptionContractConfigurationPresetSpeke20AudioPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio] {
-	return pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio]{
-		OutputState: in.ToOriginEndpointEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A collection of video encryption presets.
@@ -1862,12 +1700,6 @@ func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoOutput) T
 	}).(OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
 }
 
-func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointEncryptionContractConfigurationPresetSpeke20Video] {
-	return pulumix.Output[OriginEndpointEncryptionContractConfigurationPresetSpeke20Video]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1903,12 +1735,6 @@ func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput
 	return o
 }
 
-func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Video] {
-	return pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Video]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) Elem() OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoOutput {
 	return o.ApplyT(func(v *OriginEndpointEncryptionContractConfigurationPresetSpeke20Video) OriginEndpointEncryptionContractConfigurationPresetSpeke20Video {
 		if v != nil {
@@ -1933,10 +1759,19 @@ func (o OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoInput is an input type that accepts OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoArgs and OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoOutput values.
-// You can construct a concrete instance of `OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoInput` via:
+// OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoInput is an input type that accepts values of the OriginEndpointEncryptionContractConfigurationPresetSpeke20Video enum
+// A concrete instance of `OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoInput` can be one of the following:
 //
-//	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoArgs{...}
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo1
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo2
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo3
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo4
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo5
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo6
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo7
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPresetVideo8
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoShared
+//	OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoUnencrypted
 type OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoInput interface {
 	pulumi.Input
 
@@ -1969,12 +1804,6 @@ func (in *originEndpointEncryptionContractConfigurationPresetSpeke20VideoPtr) To
 
 func (in *originEndpointEncryptionContractConfigurationPresetSpeke20VideoPtr) ToOriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
-}
-
-func (in *originEndpointEncryptionContractConfigurationPresetSpeke20VideoPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Video] {
-	return pulumix.Output[*OriginEndpointEncryptionContractConfigurationPresetSpeke20Video]{
-		OutputState: in.ToOriginEndpointEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The encryption method to use.
@@ -2045,12 +1874,6 @@ func (o OriginEndpointHlsEncryptionEncryptionMethodOutput) ToOriginEndpointHlsEn
 	}).(OriginEndpointHlsEncryptionEncryptionMethodPtrOutput)
 }
 
-func (o OriginEndpointHlsEncryptionEncryptionMethodOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsEncryptionEncryptionMethod] {
-	return pulumix.Output[OriginEndpointHlsEncryptionEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsEncryptionEncryptionMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2086,12 +1909,6 @@ func (o OriginEndpointHlsEncryptionEncryptionMethodPtrOutput) ToOriginEndpointHl
 	return o
 }
 
-func (o OriginEndpointHlsEncryptionEncryptionMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsEncryptionEncryptionMethod] {
-	return pulumix.Output[*OriginEndpointHlsEncryptionEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsEncryptionEncryptionMethodPtrOutput) Elem() OriginEndpointHlsEncryptionEncryptionMethodOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsEncryptionEncryptionMethod) OriginEndpointHlsEncryptionEncryptionMethod {
 		if v != nil {
@@ -2116,10 +1933,11 @@ func (o OriginEndpointHlsEncryptionEncryptionMethodPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointHlsEncryptionEncryptionMethodInput is an input type that accepts OriginEndpointHlsEncryptionEncryptionMethodArgs and OriginEndpointHlsEncryptionEncryptionMethodOutput values.
-// You can construct a concrete instance of `OriginEndpointHlsEncryptionEncryptionMethodInput` via:
+// OriginEndpointHlsEncryptionEncryptionMethodInput is an input type that accepts values of the OriginEndpointHlsEncryptionEncryptionMethod enum
+// A concrete instance of `OriginEndpointHlsEncryptionEncryptionMethodInput` can be one of the following:
 //
-//	OriginEndpointHlsEncryptionEncryptionMethodArgs{...}
+//	OriginEndpointHlsEncryptionEncryptionMethodAes128
+//	OriginEndpointHlsEncryptionEncryptionMethodSampleAes
 type OriginEndpointHlsEncryptionEncryptionMethodInput interface {
 	pulumi.Input
 
@@ -2152,12 +1970,6 @@ func (in *originEndpointHlsEncryptionEncryptionMethodPtr) ToOriginEndpointHlsEnc
 
 func (in *originEndpointHlsEncryptionEncryptionMethodPtr) ToOriginEndpointHlsEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointHlsEncryptionEncryptionMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsEncryptionEncryptionMethodPtrOutput)
-}
-
-func (in *originEndpointHlsEncryptionEncryptionMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsEncryptionEncryptionMethod] {
-	return pulumix.Output[*OriginEndpointHlsEncryptionEncryptionMethod]{
-		OutputState: in.ToOriginEndpointHlsEncryptionEncryptionMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
@@ -2230,12 +2042,6 @@ func (o OriginEndpointHlsManifestAdMarkersOutput) ToOriginEndpointHlsManifestAdM
 	}).(OriginEndpointHlsManifestAdMarkersPtrOutput)
 }
 
-func (o OriginEndpointHlsManifestAdMarkersOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsManifestAdMarkers] {
-	return pulumix.Output[OriginEndpointHlsManifestAdMarkers]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsManifestAdMarkersOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2271,12 +2077,6 @@ func (o OriginEndpointHlsManifestAdMarkersPtrOutput) ToOriginEndpointHlsManifest
 	return o
 }
 
-func (o OriginEndpointHlsManifestAdMarkersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsManifestAdMarkers] {
-	return pulumix.Output[*OriginEndpointHlsManifestAdMarkers]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsManifestAdMarkersPtrOutput) Elem() OriginEndpointHlsManifestAdMarkersOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsManifestAdMarkers) OriginEndpointHlsManifestAdMarkers {
 		if v != nil {
@@ -2301,10 +2101,13 @@ func (o OriginEndpointHlsManifestAdMarkersPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointHlsManifestAdMarkersInput is an input type that accepts OriginEndpointHlsManifestAdMarkersArgs and OriginEndpointHlsManifestAdMarkersOutput values.
-// You can construct a concrete instance of `OriginEndpointHlsManifestAdMarkersInput` via:
+// OriginEndpointHlsManifestAdMarkersInput is an input type that accepts values of the OriginEndpointHlsManifestAdMarkers enum
+// A concrete instance of `OriginEndpointHlsManifestAdMarkersInput` can be one of the following:
 //
-//	OriginEndpointHlsManifestAdMarkersArgs{...}
+//	OriginEndpointHlsManifestAdMarkersNone
+//	OriginEndpointHlsManifestAdMarkersScte35Enhanced
+//	OriginEndpointHlsManifestAdMarkersPassthrough
+//	OriginEndpointHlsManifestAdMarkersDaterange
 type OriginEndpointHlsManifestAdMarkersInput interface {
 	pulumi.Input
 
@@ -2337,12 +2140,6 @@ func (in *originEndpointHlsManifestAdMarkersPtr) ToOriginEndpointHlsManifestAdMa
 
 func (in *originEndpointHlsManifestAdMarkersPtr) ToOriginEndpointHlsManifestAdMarkersPtrOutputWithContext(ctx context.Context) OriginEndpointHlsManifestAdMarkersPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsManifestAdMarkersPtrOutput)
-}
-
-func (in *originEndpointHlsManifestAdMarkersPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsManifestAdMarkers] {
-	return pulumix.Output[*OriginEndpointHlsManifestAdMarkers]{
-		OutputState: in.ToOriginEndpointHlsManifestAdMarkersPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type OriginEndpointHlsManifestAdTriggersItem string
@@ -2418,12 +2215,6 @@ func (o OriginEndpointHlsManifestAdTriggersItemOutput) ToOriginEndpointHlsManife
 	}).(OriginEndpointHlsManifestAdTriggersItemPtrOutput)
 }
 
-func (o OriginEndpointHlsManifestAdTriggersItemOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsManifestAdTriggersItem] {
-	return pulumix.Output[OriginEndpointHlsManifestAdTriggersItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsManifestAdTriggersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2459,12 +2250,6 @@ func (o OriginEndpointHlsManifestAdTriggersItemPtrOutput) ToOriginEndpointHlsMan
 	return o
 }
 
-func (o OriginEndpointHlsManifestAdTriggersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsManifestAdTriggersItem] {
-	return pulumix.Output[*OriginEndpointHlsManifestAdTriggersItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsManifestAdTriggersItemPtrOutput) Elem() OriginEndpointHlsManifestAdTriggersItemOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsManifestAdTriggersItem) OriginEndpointHlsManifestAdTriggersItem {
 		if v != nil {
@@ -2489,10 +2274,17 @@ func (o OriginEndpointHlsManifestAdTriggersItemPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointHlsManifestAdTriggersItemInput is an input type that accepts OriginEndpointHlsManifestAdTriggersItemArgs and OriginEndpointHlsManifestAdTriggersItemOutput values.
-// You can construct a concrete instance of `OriginEndpointHlsManifestAdTriggersItemInput` via:
+// OriginEndpointHlsManifestAdTriggersItemInput is an input type that accepts values of the OriginEndpointHlsManifestAdTriggersItem enum
+// A concrete instance of `OriginEndpointHlsManifestAdTriggersItemInput` can be one of the following:
 //
-//	OriginEndpointHlsManifestAdTriggersItemArgs{...}
+//	OriginEndpointHlsManifestAdTriggersItemSpliceInsert
+//	OriginEndpointHlsManifestAdTriggersItemBreak
+//	OriginEndpointHlsManifestAdTriggersItemProviderAdvertisement
+//	OriginEndpointHlsManifestAdTriggersItemDistributorAdvertisement
+//	OriginEndpointHlsManifestAdTriggersItemProviderPlacementOpportunity
+//	OriginEndpointHlsManifestAdTriggersItemDistributorPlacementOpportunity
+//	OriginEndpointHlsManifestAdTriggersItemProviderOverlayPlacementOpportunity
+//	OriginEndpointHlsManifestAdTriggersItemDistributorOverlayPlacementOpportunity
 type OriginEndpointHlsManifestAdTriggersItemInput interface {
 	pulumi.Input
 
@@ -2527,12 +2319,6 @@ func (in *originEndpointHlsManifestAdTriggersItemPtr) ToOriginEndpointHlsManifes
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsManifestAdTriggersItemPtrOutput)
 }
 
-func (in *originEndpointHlsManifestAdTriggersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsManifestAdTriggersItem] {
-	return pulumix.Output[*OriginEndpointHlsManifestAdTriggersItem]{
-		OutputState: in.ToOriginEndpointHlsManifestAdTriggersItemPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OriginEndpointHlsManifestAdTriggersItemArrayInput is an input type that accepts OriginEndpointHlsManifestAdTriggersItemArray and OriginEndpointHlsManifestAdTriggersItemArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsManifestAdTriggersItemArrayInput` via:
 //
@@ -2558,12 +2344,6 @@ func (i OriginEndpointHlsManifestAdTriggersItemArray) ToOriginEndpointHlsManifes
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsManifestAdTriggersItemArrayOutput)
 }
 
-func (i OriginEndpointHlsManifestAdTriggersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointHlsManifestAdTriggersItem] {
-	return pulumix.Output[[]OriginEndpointHlsManifestAdTriggersItem]{
-		OutputState: i.ToOriginEndpointHlsManifestAdTriggersItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OriginEndpointHlsManifestAdTriggersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointHlsManifestAdTriggersItemArrayOutput) ElementType() reflect.Type {
@@ -2576,12 +2356,6 @@ func (o OriginEndpointHlsManifestAdTriggersItemArrayOutput) ToOriginEndpointHlsM
 
 func (o OriginEndpointHlsManifestAdTriggersItemArrayOutput) ToOriginEndpointHlsManifestAdTriggersItemArrayOutputWithContext(ctx context.Context) OriginEndpointHlsManifestAdTriggersItemArrayOutput {
 	return o
-}
-
-func (o OriginEndpointHlsManifestAdTriggersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointHlsManifestAdTriggersItem] {
-	return pulumix.Output[[]OriginEndpointHlsManifestAdTriggersItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointHlsManifestAdTriggersItemArrayOutput) Index(i pulumi.IntInput) OriginEndpointHlsManifestAdTriggersItemOutput {
@@ -2659,12 +2433,6 @@ func (o OriginEndpointHlsManifestPlaylistTypeOutput) ToOriginEndpointHlsManifest
 	}).(OriginEndpointHlsManifestPlaylistTypePtrOutput)
 }
 
-func (o OriginEndpointHlsManifestPlaylistTypeOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsManifestPlaylistType] {
-	return pulumix.Output[OriginEndpointHlsManifestPlaylistType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsManifestPlaylistTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2700,12 +2468,6 @@ func (o OriginEndpointHlsManifestPlaylistTypePtrOutput) ToOriginEndpointHlsManif
 	return o
 }
 
-func (o OriginEndpointHlsManifestPlaylistTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsManifestPlaylistType] {
-	return pulumix.Output[*OriginEndpointHlsManifestPlaylistType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsManifestPlaylistTypePtrOutput) Elem() OriginEndpointHlsManifestPlaylistTypeOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsManifestPlaylistType) OriginEndpointHlsManifestPlaylistType {
 		if v != nil {
@@ -2730,10 +2492,12 @@ func (o OriginEndpointHlsManifestPlaylistTypePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointHlsManifestPlaylistTypeInput is an input type that accepts OriginEndpointHlsManifestPlaylistTypeArgs and OriginEndpointHlsManifestPlaylistTypeOutput values.
-// You can construct a concrete instance of `OriginEndpointHlsManifestPlaylistTypeInput` via:
+// OriginEndpointHlsManifestPlaylistTypeInput is an input type that accepts values of the OriginEndpointHlsManifestPlaylistType enum
+// A concrete instance of `OriginEndpointHlsManifestPlaylistTypeInput` can be one of the following:
 //
-//	OriginEndpointHlsManifestPlaylistTypeArgs{...}
+//	OriginEndpointHlsManifestPlaylistTypeNone
+//	OriginEndpointHlsManifestPlaylistTypeEvent
+//	OriginEndpointHlsManifestPlaylistTypeVod
 type OriginEndpointHlsManifestPlaylistTypeInput interface {
 	pulumi.Input
 
@@ -2766,12 +2530,6 @@ func (in *originEndpointHlsManifestPlaylistTypePtr) ToOriginEndpointHlsManifestP
 
 func (in *originEndpointHlsManifestPlaylistTypePtr) ToOriginEndpointHlsManifestPlaylistTypePtrOutputWithContext(ctx context.Context) OriginEndpointHlsManifestPlaylistTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsManifestPlaylistTypePtrOutput)
-}
-
-func (in *originEndpointHlsManifestPlaylistTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsManifestPlaylistType] {
-	return pulumix.Output[*OriginEndpointHlsManifestPlaylistType]{
-		OutputState: in.ToOriginEndpointHlsManifestPlaylistTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
@@ -2844,12 +2602,6 @@ func (o OriginEndpointHlsPackageAdMarkersOutput) ToOriginEndpointHlsPackageAdMar
 	}).(OriginEndpointHlsPackageAdMarkersPtrOutput)
 }
 
-func (o OriginEndpointHlsPackageAdMarkersOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsPackageAdMarkers] {
-	return pulumix.Output[OriginEndpointHlsPackageAdMarkers]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsPackageAdMarkersOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2885,12 +2637,6 @@ func (o OriginEndpointHlsPackageAdMarkersPtrOutput) ToOriginEndpointHlsPackageAd
 	return o
 }
 
-func (o OriginEndpointHlsPackageAdMarkersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackageAdMarkers] {
-	return pulumix.Output[*OriginEndpointHlsPackageAdMarkers]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsPackageAdMarkersPtrOutput) Elem() OriginEndpointHlsPackageAdMarkersOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackageAdMarkers) OriginEndpointHlsPackageAdMarkers {
 		if v != nil {
@@ -2915,10 +2661,13 @@ func (o OriginEndpointHlsPackageAdMarkersPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointHlsPackageAdMarkersInput is an input type that accepts OriginEndpointHlsPackageAdMarkersArgs and OriginEndpointHlsPackageAdMarkersOutput values.
-// You can construct a concrete instance of `OriginEndpointHlsPackageAdMarkersInput` via:
+// OriginEndpointHlsPackageAdMarkersInput is an input type that accepts values of the OriginEndpointHlsPackageAdMarkers enum
+// A concrete instance of `OriginEndpointHlsPackageAdMarkersInput` can be one of the following:
 //
-//	OriginEndpointHlsPackageAdMarkersArgs{...}
+//	OriginEndpointHlsPackageAdMarkersNone
+//	OriginEndpointHlsPackageAdMarkersScte35Enhanced
+//	OriginEndpointHlsPackageAdMarkersPassthrough
+//	OriginEndpointHlsPackageAdMarkersDaterange
 type OriginEndpointHlsPackageAdMarkersInput interface {
 	pulumi.Input
 
@@ -2951,12 +2700,6 @@ func (in *originEndpointHlsPackageAdMarkersPtr) ToOriginEndpointHlsPackageAdMark
 
 func (in *originEndpointHlsPackageAdMarkersPtr) ToOriginEndpointHlsPackageAdMarkersPtrOutputWithContext(ctx context.Context) OriginEndpointHlsPackageAdMarkersPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsPackageAdMarkersPtrOutput)
-}
-
-func (in *originEndpointHlsPackageAdMarkersPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackageAdMarkers] {
-	return pulumix.Output[*OriginEndpointHlsPackageAdMarkers]{
-		OutputState: in.ToOriginEndpointHlsPackageAdMarkersPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type OriginEndpointHlsPackageAdTriggersItem string
@@ -3032,12 +2775,6 @@ func (o OriginEndpointHlsPackageAdTriggersItemOutput) ToOriginEndpointHlsPackage
 	}).(OriginEndpointHlsPackageAdTriggersItemPtrOutput)
 }
 
-func (o OriginEndpointHlsPackageAdTriggersItemOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsPackageAdTriggersItem] {
-	return pulumix.Output[OriginEndpointHlsPackageAdTriggersItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsPackageAdTriggersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3073,12 +2810,6 @@ func (o OriginEndpointHlsPackageAdTriggersItemPtrOutput) ToOriginEndpointHlsPack
 	return o
 }
 
-func (o OriginEndpointHlsPackageAdTriggersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackageAdTriggersItem] {
-	return pulumix.Output[*OriginEndpointHlsPackageAdTriggersItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsPackageAdTriggersItemPtrOutput) Elem() OriginEndpointHlsPackageAdTriggersItemOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackageAdTriggersItem) OriginEndpointHlsPackageAdTriggersItem {
 		if v != nil {
@@ -3103,10 +2834,17 @@ func (o OriginEndpointHlsPackageAdTriggersItemPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointHlsPackageAdTriggersItemInput is an input type that accepts OriginEndpointHlsPackageAdTriggersItemArgs and OriginEndpointHlsPackageAdTriggersItemOutput values.
-// You can construct a concrete instance of `OriginEndpointHlsPackageAdTriggersItemInput` via:
+// OriginEndpointHlsPackageAdTriggersItemInput is an input type that accepts values of the OriginEndpointHlsPackageAdTriggersItem enum
+// A concrete instance of `OriginEndpointHlsPackageAdTriggersItemInput` can be one of the following:
 //
-//	OriginEndpointHlsPackageAdTriggersItemArgs{...}
+//	OriginEndpointHlsPackageAdTriggersItemSpliceInsert
+//	OriginEndpointHlsPackageAdTriggersItemBreak
+//	OriginEndpointHlsPackageAdTriggersItemProviderAdvertisement
+//	OriginEndpointHlsPackageAdTriggersItemDistributorAdvertisement
+//	OriginEndpointHlsPackageAdTriggersItemProviderPlacementOpportunity
+//	OriginEndpointHlsPackageAdTriggersItemDistributorPlacementOpportunity
+//	OriginEndpointHlsPackageAdTriggersItemProviderOverlayPlacementOpportunity
+//	OriginEndpointHlsPackageAdTriggersItemDistributorOverlayPlacementOpportunity
 type OriginEndpointHlsPackageAdTriggersItemInput interface {
 	pulumi.Input
 
@@ -3141,12 +2879,6 @@ func (in *originEndpointHlsPackageAdTriggersItemPtr) ToOriginEndpointHlsPackageA
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsPackageAdTriggersItemPtrOutput)
 }
 
-func (in *originEndpointHlsPackageAdTriggersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackageAdTriggersItem] {
-	return pulumix.Output[*OriginEndpointHlsPackageAdTriggersItem]{
-		OutputState: in.ToOriginEndpointHlsPackageAdTriggersItemPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OriginEndpointHlsPackageAdTriggersItemArrayInput is an input type that accepts OriginEndpointHlsPackageAdTriggersItemArray and OriginEndpointHlsPackageAdTriggersItemArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsPackageAdTriggersItemArrayInput` via:
 //
@@ -3172,12 +2904,6 @@ func (i OriginEndpointHlsPackageAdTriggersItemArray) ToOriginEndpointHlsPackageA
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsPackageAdTriggersItemArrayOutput)
 }
 
-func (i OriginEndpointHlsPackageAdTriggersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointHlsPackageAdTriggersItem] {
-	return pulumix.Output[[]OriginEndpointHlsPackageAdTriggersItem]{
-		OutputState: i.ToOriginEndpointHlsPackageAdTriggersItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OriginEndpointHlsPackageAdTriggersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointHlsPackageAdTriggersItemArrayOutput) ElementType() reflect.Type {
@@ -3190,12 +2916,6 @@ func (o OriginEndpointHlsPackageAdTriggersItemArrayOutput) ToOriginEndpointHlsPa
 
 func (o OriginEndpointHlsPackageAdTriggersItemArrayOutput) ToOriginEndpointHlsPackageAdTriggersItemArrayOutputWithContext(ctx context.Context) OriginEndpointHlsPackageAdTriggersItemArrayOutput {
 	return o
-}
-
-func (o OriginEndpointHlsPackageAdTriggersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointHlsPackageAdTriggersItem] {
-	return pulumix.Output[[]OriginEndpointHlsPackageAdTriggersItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointHlsPackageAdTriggersItemArrayOutput) Index(i pulumi.IntInput) OriginEndpointHlsPackageAdTriggersItemOutput {
@@ -3273,12 +2993,6 @@ func (o OriginEndpointHlsPackagePlaylistTypeOutput) ToOriginEndpointHlsPackagePl
 	}).(OriginEndpointHlsPackagePlaylistTypePtrOutput)
 }
 
-func (o OriginEndpointHlsPackagePlaylistTypeOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsPackagePlaylistType] {
-	return pulumix.Output[OriginEndpointHlsPackagePlaylistType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsPackagePlaylistTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3314,12 +3028,6 @@ func (o OriginEndpointHlsPackagePlaylistTypePtrOutput) ToOriginEndpointHlsPackag
 	return o
 }
 
-func (o OriginEndpointHlsPackagePlaylistTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackagePlaylistType] {
-	return pulumix.Output[*OriginEndpointHlsPackagePlaylistType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointHlsPackagePlaylistTypePtrOutput) Elem() OriginEndpointHlsPackagePlaylistTypeOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackagePlaylistType) OriginEndpointHlsPackagePlaylistType {
 		if v != nil {
@@ -3344,10 +3052,12 @@ func (o OriginEndpointHlsPackagePlaylistTypePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointHlsPackagePlaylistTypeInput is an input type that accepts OriginEndpointHlsPackagePlaylistTypeArgs and OriginEndpointHlsPackagePlaylistTypeOutput values.
-// You can construct a concrete instance of `OriginEndpointHlsPackagePlaylistTypeInput` via:
+// OriginEndpointHlsPackagePlaylistTypeInput is an input type that accepts values of the OriginEndpointHlsPackagePlaylistType enum
+// A concrete instance of `OriginEndpointHlsPackagePlaylistTypeInput` can be one of the following:
 //
-//	OriginEndpointHlsPackagePlaylistTypeArgs{...}
+//	OriginEndpointHlsPackagePlaylistTypeNone
+//	OriginEndpointHlsPackagePlaylistTypeEvent
+//	OriginEndpointHlsPackagePlaylistTypeVod
 type OriginEndpointHlsPackagePlaylistTypeInput interface {
 	pulumi.Input
 
@@ -3380,12 +3090,6 @@ func (in *originEndpointHlsPackagePlaylistTypePtr) ToOriginEndpointHlsPackagePla
 
 func (in *originEndpointHlsPackagePlaylistTypePtr) ToOriginEndpointHlsPackagePlaylistTypePtrOutputWithContext(ctx context.Context) OriginEndpointHlsPackagePlaylistTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointHlsPackagePlaylistTypePtrOutput)
-}
-
-func (in *originEndpointHlsPackagePlaylistTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackagePlaylistType] {
-	return pulumix.Output[*OriginEndpointHlsPackagePlaylistType]{
-		OutputState: in.ToOriginEndpointHlsPackagePlaylistTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
@@ -3456,12 +3160,6 @@ func (o OriginEndpointOriginationOutput) ToOriginEndpointOriginationPtrOutputWit
 	}).(OriginEndpointOriginationPtrOutput)
 }
 
-func (o OriginEndpointOriginationOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointOrigination] {
-	return pulumix.Output[OriginEndpointOrigination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointOriginationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3497,12 +3195,6 @@ func (o OriginEndpointOriginationPtrOutput) ToOriginEndpointOriginationPtrOutput
 	return o
 }
 
-func (o OriginEndpointOriginationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointOrigination] {
-	return pulumix.Output[*OriginEndpointOrigination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointOriginationPtrOutput) Elem() OriginEndpointOriginationOutput {
 	return o.ApplyT(func(v *OriginEndpointOrigination) OriginEndpointOrigination {
 		if v != nil {
@@ -3527,10 +3219,11 @@ func (o OriginEndpointOriginationPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointOriginationInput is an input type that accepts OriginEndpointOriginationArgs and OriginEndpointOriginationOutput values.
-// You can construct a concrete instance of `OriginEndpointOriginationInput` via:
+// OriginEndpointOriginationInput is an input type that accepts values of the OriginEndpointOrigination enum
+// A concrete instance of `OriginEndpointOriginationInput` can be one of the following:
 //
-//	OriginEndpointOriginationArgs{...}
+//	OriginEndpointOriginationAllow
+//	OriginEndpointOriginationDeny
 type OriginEndpointOriginationInput interface {
 	pulumi.Input
 
@@ -3563,12 +3256,6 @@ func (in *originEndpointOriginationPtr) ToOriginEndpointOriginationPtrOutput() O
 
 func (in *originEndpointOriginationPtr) ToOriginEndpointOriginationPtrOutputWithContext(ctx context.Context) OriginEndpointOriginationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointOriginationPtrOutput)
-}
-
-func (in *originEndpointOriginationPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointOrigination] {
-	return pulumix.Output[*OriginEndpointOrigination]{
-		OutputState: in.ToOriginEndpointOriginationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A directive that determines the order of streams in the output.
@@ -3640,12 +3327,6 @@ func (o OriginEndpointStreamSelectionStreamOrderOutput) ToOriginEndpointStreamSe
 	}).(OriginEndpointStreamSelectionStreamOrderPtrOutput)
 }
 
-func (o OriginEndpointStreamSelectionStreamOrderOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointStreamSelectionStreamOrder] {
-	return pulumix.Output[OriginEndpointStreamSelectionStreamOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointStreamSelectionStreamOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3681,12 +3362,6 @@ func (o OriginEndpointStreamSelectionStreamOrderPtrOutput) ToOriginEndpointStrea
 	return o
 }
 
-func (o OriginEndpointStreamSelectionStreamOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointStreamSelectionStreamOrder] {
-	return pulumix.Output[*OriginEndpointStreamSelectionStreamOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointStreamSelectionStreamOrderPtrOutput) Elem() OriginEndpointStreamSelectionStreamOrderOutput {
 	return o.ApplyT(func(v *OriginEndpointStreamSelectionStreamOrder) OriginEndpointStreamSelectionStreamOrder {
 		if v != nil {
@@ -3711,10 +3386,12 @@ func (o OriginEndpointStreamSelectionStreamOrderPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointStreamSelectionStreamOrderInput is an input type that accepts OriginEndpointStreamSelectionStreamOrderArgs and OriginEndpointStreamSelectionStreamOrderOutput values.
-// You can construct a concrete instance of `OriginEndpointStreamSelectionStreamOrderInput` via:
+// OriginEndpointStreamSelectionStreamOrderInput is an input type that accepts values of the OriginEndpointStreamSelectionStreamOrder enum
+// A concrete instance of `OriginEndpointStreamSelectionStreamOrderInput` can be one of the following:
 //
-//	OriginEndpointStreamSelectionStreamOrderArgs{...}
+//	OriginEndpointStreamSelectionStreamOrderOriginal
+//	OriginEndpointStreamSelectionStreamOrderVideoBitrateAscending
+//	OriginEndpointStreamSelectionStreamOrderVideoBitrateDescending
 type OriginEndpointStreamSelectionStreamOrderInput interface {
 	pulumi.Input
 
@@ -3747,12 +3424,6 @@ func (in *originEndpointStreamSelectionStreamOrderPtr) ToOriginEndpointStreamSel
 
 func (in *originEndpointStreamSelectionStreamOrderPtr) ToOriginEndpointStreamSelectionStreamOrderPtrOutputWithContext(ctx context.Context) OriginEndpointStreamSelectionStreamOrderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointStreamSelectionStreamOrderPtrOutput)
-}
-
-func (in *originEndpointStreamSelectionStreamOrderPtr) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointStreamSelectionStreamOrder] {
-	return pulumix.Output[*OriginEndpointStreamSelectionStreamOrder]{
-		OutputState: in.ToOriginEndpointStreamSelectionStreamOrderPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
@@ -3823,12 +3494,6 @@ func (o PackagingConfigurationDashManifestManifestLayoutOutput) ToPackagingConfi
 	}).(PackagingConfigurationDashManifestManifestLayoutPtrOutput)
 }
 
-func (o PackagingConfigurationDashManifestManifestLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashManifestManifestLayout] {
-	return pulumix.Output[PackagingConfigurationDashManifestManifestLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationDashManifestManifestLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3864,12 +3529,6 @@ func (o PackagingConfigurationDashManifestManifestLayoutPtrOutput) ToPackagingCo
 	return o
 }
 
-func (o PackagingConfigurationDashManifestManifestLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashManifestManifestLayout] {
-	return pulumix.Output[*PackagingConfigurationDashManifestManifestLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationDashManifestManifestLayoutPtrOutput) Elem() PackagingConfigurationDashManifestManifestLayoutOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashManifestManifestLayout) PackagingConfigurationDashManifestManifestLayout {
 		if v != nil {
@@ -3894,10 +3553,11 @@ func (o PackagingConfigurationDashManifestManifestLayoutPtrOutput) ToStringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// PackagingConfigurationDashManifestManifestLayoutInput is an input type that accepts PackagingConfigurationDashManifestManifestLayoutArgs and PackagingConfigurationDashManifestManifestLayoutOutput values.
-// You can construct a concrete instance of `PackagingConfigurationDashManifestManifestLayoutInput` via:
+// PackagingConfigurationDashManifestManifestLayoutInput is an input type that accepts values of the PackagingConfigurationDashManifestManifestLayout enum
+// A concrete instance of `PackagingConfigurationDashManifestManifestLayoutInput` can be one of the following:
 //
-//	PackagingConfigurationDashManifestManifestLayoutArgs{...}
+//	PackagingConfigurationDashManifestManifestLayoutFull
+//	PackagingConfigurationDashManifestManifestLayoutCompact
 type PackagingConfigurationDashManifestManifestLayoutInput interface {
 	pulumi.Input
 
@@ -3930,12 +3590,6 @@ func (in *packagingConfigurationDashManifestManifestLayoutPtr) ToPackagingConfig
 
 func (in *packagingConfigurationDashManifestManifestLayoutPtr) ToPackagingConfigurationDashManifestManifestLayoutPtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestManifestLayoutPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashManifestManifestLayoutPtrOutput)
-}
-
-func (in *packagingConfigurationDashManifestManifestLayoutPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashManifestManifestLayout] {
-	return pulumix.Output[*PackagingConfigurationDashManifestManifestLayout]{
-		OutputState: in.ToPackagingConfigurationDashManifestManifestLayoutPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
@@ -4006,12 +3660,6 @@ func (o PackagingConfigurationDashManifestProfileOutput) ToPackagingConfiguratio
 	}).(PackagingConfigurationDashManifestProfilePtrOutput)
 }
 
-func (o PackagingConfigurationDashManifestProfileOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashManifestProfile] {
-	return pulumix.Output[PackagingConfigurationDashManifestProfile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationDashManifestProfileOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4047,12 +3695,6 @@ func (o PackagingConfigurationDashManifestProfilePtrOutput) ToPackagingConfigura
 	return o
 }
 
-func (o PackagingConfigurationDashManifestProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashManifestProfile] {
-	return pulumix.Output[*PackagingConfigurationDashManifestProfile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationDashManifestProfilePtrOutput) Elem() PackagingConfigurationDashManifestProfileOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashManifestProfile) PackagingConfigurationDashManifestProfile {
 		if v != nil {
@@ -4077,10 +3719,11 @@ func (o PackagingConfigurationDashManifestProfilePtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// PackagingConfigurationDashManifestProfileInput is an input type that accepts PackagingConfigurationDashManifestProfileArgs and PackagingConfigurationDashManifestProfileOutput values.
-// You can construct a concrete instance of `PackagingConfigurationDashManifestProfileInput` via:
+// PackagingConfigurationDashManifestProfileInput is an input type that accepts values of the PackagingConfigurationDashManifestProfile enum
+// A concrete instance of `PackagingConfigurationDashManifestProfileInput` can be one of the following:
 //
-//	PackagingConfigurationDashManifestProfileArgs{...}
+//	PackagingConfigurationDashManifestProfileNone
+//	PackagingConfigurationDashManifestProfileHbbtv15
 type PackagingConfigurationDashManifestProfileInput interface {
 	pulumi.Input
 
@@ -4113,12 +3756,6 @@ func (in *packagingConfigurationDashManifestProfilePtr) ToPackagingConfiguration
 
 func (in *packagingConfigurationDashManifestProfilePtr) ToPackagingConfigurationDashManifestProfilePtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestProfilePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashManifestProfilePtrOutput)
-}
-
-func (in *packagingConfigurationDashManifestProfilePtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashManifestProfile] {
-	return pulumix.Output[*PackagingConfigurationDashManifestProfile]{
-		OutputState: in.ToPackagingConfigurationDashManifestProfilePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
@@ -4189,12 +3826,6 @@ func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToPackagingCo
 	}).(PackagingConfigurationDashManifestScteMarkersSourcePtrOutput)
 }
 
-func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashManifestScteMarkersSource] {
-	return pulumix.Output[PackagingConfigurationDashManifestScteMarkersSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationDashManifestScteMarkersSourceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4230,12 +3861,6 @@ func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) ToPackagin
 	return o
 }
 
-func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashManifestScteMarkersSource] {
-	return pulumix.Output[*PackagingConfigurationDashManifestScteMarkersSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) Elem() PackagingConfigurationDashManifestScteMarkersSourceOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashManifestScteMarkersSource) PackagingConfigurationDashManifestScteMarkersSource {
 		if v != nil {
@@ -4260,10 +3885,11 @@ func (o PackagingConfigurationDashManifestScteMarkersSourcePtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// PackagingConfigurationDashManifestScteMarkersSourceInput is an input type that accepts PackagingConfigurationDashManifestScteMarkersSourceArgs and PackagingConfigurationDashManifestScteMarkersSourceOutput values.
-// You can construct a concrete instance of `PackagingConfigurationDashManifestScteMarkersSourceInput` via:
+// PackagingConfigurationDashManifestScteMarkersSourceInput is an input type that accepts values of the PackagingConfigurationDashManifestScteMarkersSource enum
+// A concrete instance of `PackagingConfigurationDashManifestScteMarkersSourceInput` can be one of the following:
 //
-//	PackagingConfigurationDashManifestScteMarkersSourceArgs{...}
+//	PackagingConfigurationDashManifestScteMarkersSourceSegments
+//	PackagingConfigurationDashManifestScteMarkersSourceManifest
 type PackagingConfigurationDashManifestScteMarkersSourceInput interface {
 	pulumi.Input
 
@@ -4296,12 +3922,6 @@ func (in *packagingConfigurationDashManifestScteMarkersSourcePtr) ToPackagingCon
 
 func (in *packagingConfigurationDashManifestScteMarkersSourcePtr) ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestScteMarkersSourcePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashManifestScteMarkersSourcePtrOutput)
-}
-
-func (in *packagingConfigurationDashManifestScteMarkersSourcePtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashManifestScteMarkersSource] {
-	return pulumix.Output[*PackagingConfigurationDashManifestScteMarkersSource]{
-		OutputState: in.ToPackagingConfigurationDashManifestScteMarkersSourcePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type PackagingConfigurationDashPackagePeriodTriggersItem string
@@ -4370,12 +3990,6 @@ func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToPackagingCo
 	}).(PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput)
 }
 
-func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashPackagePeriodTriggersItem] {
-	return pulumix.Output[PackagingConfigurationDashPackagePeriodTriggersItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4411,12 +4025,6 @@ func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) ToPackagin
 	return o
 }
 
-func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashPackagePeriodTriggersItem] {
-	return pulumix.Output[*PackagingConfigurationDashPackagePeriodTriggersItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) Elem() PackagingConfigurationDashPackagePeriodTriggersItemOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashPackagePeriodTriggersItem) PackagingConfigurationDashPackagePeriodTriggersItem {
 		if v != nil {
@@ -4441,10 +4049,10 @@ func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// PackagingConfigurationDashPackagePeriodTriggersItemInput is an input type that accepts PackagingConfigurationDashPackagePeriodTriggersItemArgs and PackagingConfigurationDashPackagePeriodTriggersItemOutput values.
-// You can construct a concrete instance of `PackagingConfigurationDashPackagePeriodTriggersItemInput` via:
+// PackagingConfigurationDashPackagePeriodTriggersItemInput is an input type that accepts values of the PackagingConfigurationDashPackagePeriodTriggersItem enum
+// A concrete instance of `PackagingConfigurationDashPackagePeriodTriggersItemInput` can be one of the following:
 //
-//	PackagingConfigurationDashPackagePeriodTriggersItemArgs{...}
+//	PackagingConfigurationDashPackagePeriodTriggersItemAds
 type PackagingConfigurationDashPackagePeriodTriggersItemInput interface {
 	pulumi.Input
 
@@ -4479,12 +4087,6 @@ func (in *packagingConfigurationDashPackagePeriodTriggersItemPtr) ToPackagingCon
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput)
 }
 
-func (in *packagingConfigurationDashPackagePeriodTriggersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashPackagePeriodTriggersItem] {
-	return pulumix.Output[*PackagingConfigurationDashPackagePeriodTriggersItem]{
-		OutputState: in.ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PackagingConfigurationDashPackagePeriodTriggersItemArrayInput is an input type that accepts PackagingConfigurationDashPackagePeriodTriggersItemArray and PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashPackagePeriodTriggersItemArrayInput` via:
 //
@@ -4510,12 +4112,6 @@ func (i PackagingConfigurationDashPackagePeriodTriggersItemArray) ToPackagingCon
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput)
 }
 
-func (i PackagingConfigurationDashPackagePeriodTriggersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]PackagingConfigurationDashPackagePeriodTriggersItem] {
-	return pulumix.Output[[]PackagingConfigurationDashPackagePeriodTriggersItem]{
-		OutputState: i.ToPackagingConfigurationDashPackagePeriodTriggersItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) ElementType() reflect.Type {
@@ -4528,12 +4124,6 @@ func (o PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) ToPackag
 
 func (o PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) ToPackagingConfigurationDashPackagePeriodTriggersItemArrayOutputWithContext(ctx context.Context) PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput {
 	return o
-}
-
-func (o PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PackagingConfigurationDashPackagePeriodTriggersItem] {
-	return pulumix.Output[[]PackagingConfigurationDashPackagePeriodTriggersItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) Index(i pulumi.IntInput) PackagingConfigurationDashPackagePeriodTriggersItemOutput {
@@ -4611,12 +4201,6 @@ func (o PackagingConfigurationDashPackageSegmentTemplateFormatOutput) ToPackagin
 	}).(PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput)
 }
 
-func (o PackagingConfigurationDashPackageSegmentTemplateFormatOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashPackageSegmentTemplateFormat] {
-	return pulumix.Output[PackagingConfigurationDashPackageSegmentTemplateFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationDashPackageSegmentTemplateFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4652,12 +4236,6 @@ func (o PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput) ToPacka
 	return o
 }
 
-func (o PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashPackageSegmentTemplateFormat] {
-	return pulumix.Output[*PackagingConfigurationDashPackageSegmentTemplateFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput) Elem() PackagingConfigurationDashPackageSegmentTemplateFormatOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashPackageSegmentTemplateFormat) PackagingConfigurationDashPackageSegmentTemplateFormat {
 		if v != nil {
@@ -4682,10 +4260,12 @@ func (o PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// PackagingConfigurationDashPackageSegmentTemplateFormatInput is an input type that accepts PackagingConfigurationDashPackageSegmentTemplateFormatArgs and PackagingConfigurationDashPackageSegmentTemplateFormatOutput values.
-// You can construct a concrete instance of `PackagingConfigurationDashPackageSegmentTemplateFormatInput` via:
+// PackagingConfigurationDashPackageSegmentTemplateFormatInput is an input type that accepts values of the PackagingConfigurationDashPackageSegmentTemplateFormat enum
+// A concrete instance of `PackagingConfigurationDashPackageSegmentTemplateFormatInput` can be one of the following:
 //
-//	PackagingConfigurationDashPackageSegmentTemplateFormatArgs{...}
+//	PackagingConfigurationDashPackageSegmentTemplateFormatNumberWithTimeline
+//	PackagingConfigurationDashPackageSegmentTemplateFormatTimeWithTimeline
+//	PackagingConfigurationDashPackageSegmentTemplateFormatNumberWithDuration
 type PackagingConfigurationDashPackageSegmentTemplateFormatInput interface {
 	pulumi.Input
 
@@ -4718,12 +4298,6 @@ func (in *packagingConfigurationDashPackageSegmentTemplateFormatPtr) ToPackaging
 
 func (in *packagingConfigurationDashPackageSegmentTemplateFormatPtr) ToPackagingConfigurationDashPackageSegmentTemplateFormatPtrOutputWithContext(ctx context.Context) PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput)
-}
-
-func (in *packagingConfigurationDashPackageSegmentTemplateFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashPackageSegmentTemplateFormat] {
-	return pulumix.Output[*PackagingConfigurationDashPackageSegmentTemplateFormat]{
-		OutputState: in.ToPackagingConfigurationDashPackageSegmentTemplateFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A collection of audio encryption presets.
@@ -4797,12 +4371,6 @@ func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioO
 	}).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
 }
 
-func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio] {
-	return pulumix.Output[PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4838,12 +4406,6 @@ func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioP
 	return o
 }
 
-func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio] {
-	return pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) Elem() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput {
 	return o.ApplyT(func(v *PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio {
 		if v != nil {
@@ -4868,10 +4430,14 @@ func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioP
 	}).(pulumi.StringPtrOutput)
 }
 
-// PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioInput is an input type that accepts PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioArgs and PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput values.
-// You can construct a concrete instance of `PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioInput` via:
+// PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioInput is an input type that accepts values of the PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio enum
+// A concrete instance of `PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioInput` can be one of the following:
 //
-//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioArgs{...}
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPresetAudio1
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPresetAudio2
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPresetAudio3
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioShared
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioUnencrypted
 type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioInput interface {
 	pulumi.Input
 
@@ -4904,12 +4470,6 @@ func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20Audi
 
 func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtr) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
-}
-
-func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio] {
-	return pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio]{
-		OutputState: in.ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A collection of video encryption presets.
@@ -4988,12 +4548,6 @@ func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoO
 	}).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
 }
 
-func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video] {
-	return pulumix.Output[PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5029,12 +4583,6 @@ func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoP
 	return o
 }
 
-func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video] {
-	return pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) Elem() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput {
 	return o.ApplyT(func(v *PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video {
 		if v != nil {
@@ -5059,10 +4607,19 @@ func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoP
 	}).(pulumi.StringPtrOutput)
 }
 
-// PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoInput is an input type that accepts PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoArgs and PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput values.
-// You can construct a concrete instance of `PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoInput` via:
+// PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoInput is an input type that accepts values of the PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video enum
+// A concrete instance of `PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoInput` can be one of the following:
 //
-//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoArgs{...}
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo1
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo2
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo3
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo4
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo5
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo6
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo7
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo8
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoShared
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoUnencrypted
 type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoInput interface {
 	pulumi.Input
 
@@ -5095,12 +4652,6 @@ func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20Vide
 
 func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtr) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
-}
-
-func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video] {
-	return pulumix.Output[*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video]{
-		OutputState: in.ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The encryption method to use.
@@ -5171,12 +4722,6 @@ func (o PackagingConfigurationHlsEncryptionEncryptionMethodOutput) ToPackagingCo
 	}).(PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput)
 }
 
-func (o PackagingConfigurationHlsEncryptionEncryptionMethodOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationHlsEncryptionEncryptionMethod] {
-	return pulumix.Output[PackagingConfigurationHlsEncryptionEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationHlsEncryptionEncryptionMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5212,12 +4757,6 @@ func (o PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput) ToPackagin
 	return o
 }
 
-func (o PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationHlsEncryptionEncryptionMethod] {
-	return pulumix.Output[*PackagingConfigurationHlsEncryptionEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput) Elem() PackagingConfigurationHlsEncryptionEncryptionMethodOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsEncryptionEncryptionMethod) PackagingConfigurationHlsEncryptionEncryptionMethod {
 		if v != nil {
@@ -5242,10 +4781,11 @@ func (o PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// PackagingConfigurationHlsEncryptionEncryptionMethodInput is an input type that accepts PackagingConfigurationHlsEncryptionEncryptionMethodArgs and PackagingConfigurationHlsEncryptionEncryptionMethodOutput values.
-// You can construct a concrete instance of `PackagingConfigurationHlsEncryptionEncryptionMethodInput` via:
+// PackagingConfigurationHlsEncryptionEncryptionMethodInput is an input type that accepts values of the PackagingConfigurationHlsEncryptionEncryptionMethod enum
+// A concrete instance of `PackagingConfigurationHlsEncryptionEncryptionMethodInput` can be one of the following:
 //
-//	PackagingConfigurationHlsEncryptionEncryptionMethodArgs{...}
+//	PackagingConfigurationHlsEncryptionEncryptionMethodAes128
+//	PackagingConfigurationHlsEncryptionEncryptionMethodSampleAes
 type PackagingConfigurationHlsEncryptionEncryptionMethodInput interface {
 	pulumi.Input
 
@@ -5278,12 +4818,6 @@ func (in *packagingConfigurationHlsEncryptionEncryptionMethodPtr) ToPackagingCon
 
 func (in *packagingConfigurationHlsEncryptionEncryptionMethodPtr) ToPackagingConfigurationHlsEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput)
-}
-
-func (in *packagingConfigurationHlsEncryptionEncryptionMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationHlsEncryptionEncryptionMethod] {
-	return pulumix.Output[*PackagingConfigurationHlsEncryptionEncryptionMethod]{
-		OutputState: in.ToPackagingConfigurationHlsEncryptionEncryptionMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
@@ -5355,12 +4889,6 @@ func (o PackagingConfigurationHlsManifestAdMarkersOutput) ToPackagingConfigurati
 	}).(PackagingConfigurationHlsManifestAdMarkersPtrOutput)
 }
 
-func (o PackagingConfigurationHlsManifestAdMarkersOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationHlsManifestAdMarkers] {
-	return pulumix.Output[PackagingConfigurationHlsManifestAdMarkers]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationHlsManifestAdMarkersOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5396,12 +4924,6 @@ func (o PackagingConfigurationHlsManifestAdMarkersPtrOutput) ToPackagingConfigur
 	return o
 }
 
-func (o PackagingConfigurationHlsManifestAdMarkersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationHlsManifestAdMarkers] {
-	return pulumix.Output[*PackagingConfigurationHlsManifestAdMarkers]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationHlsManifestAdMarkersPtrOutput) Elem() PackagingConfigurationHlsManifestAdMarkersOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsManifestAdMarkers) PackagingConfigurationHlsManifestAdMarkers {
 		if v != nil {
@@ -5426,10 +4948,12 @@ func (o PackagingConfigurationHlsManifestAdMarkersPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// PackagingConfigurationHlsManifestAdMarkersInput is an input type that accepts PackagingConfigurationHlsManifestAdMarkersArgs and PackagingConfigurationHlsManifestAdMarkersOutput values.
-// You can construct a concrete instance of `PackagingConfigurationHlsManifestAdMarkersInput` via:
+// PackagingConfigurationHlsManifestAdMarkersInput is an input type that accepts values of the PackagingConfigurationHlsManifestAdMarkers enum
+// A concrete instance of `PackagingConfigurationHlsManifestAdMarkersInput` can be one of the following:
 //
-//	PackagingConfigurationHlsManifestAdMarkersArgs{...}
+//	PackagingConfigurationHlsManifestAdMarkersNone
+//	PackagingConfigurationHlsManifestAdMarkersScte35Enhanced
+//	PackagingConfigurationHlsManifestAdMarkersPassthrough
 type PackagingConfigurationHlsManifestAdMarkersInput interface {
 	pulumi.Input
 
@@ -5462,12 +4986,6 @@ func (in *packagingConfigurationHlsManifestAdMarkersPtr) ToPackagingConfiguratio
 
 func (in *packagingConfigurationHlsManifestAdMarkersPtr) ToPackagingConfigurationHlsManifestAdMarkersPtrOutputWithContext(ctx context.Context) PackagingConfigurationHlsManifestAdMarkersPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationHlsManifestAdMarkersPtrOutput)
-}
-
-func (in *packagingConfigurationHlsManifestAdMarkersPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationHlsManifestAdMarkers] {
-	return pulumix.Output[*PackagingConfigurationHlsManifestAdMarkers]{
-		OutputState: in.ToPackagingConfigurationHlsManifestAdMarkersPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A directive that determines the order of streams in the output.
@@ -5539,12 +5057,6 @@ func (o PackagingConfigurationStreamSelectionStreamOrderOutput) ToPackagingConfi
 	}).(PackagingConfigurationStreamSelectionStreamOrderPtrOutput)
 }
 
-func (o PackagingConfigurationStreamSelectionStreamOrderOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationStreamSelectionStreamOrder] {
-	return pulumix.Output[PackagingConfigurationStreamSelectionStreamOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationStreamSelectionStreamOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5580,12 +5092,6 @@ func (o PackagingConfigurationStreamSelectionStreamOrderPtrOutput) ToPackagingCo
 	return o
 }
 
-func (o PackagingConfigurationStreamSelectionStreamOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationStreamSelectionStreamOrder] {
-	return pulumix.Output[*PackagingConfigurationStreamSelectionStreamOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationStreamSelectionStreamOrderPtrOutput) Elem() PackagingConfigurationStreamSelectionStreamOrderOutput {
 	return o.ApplyT(func(v *PackagingConfigurationStreamSelectionStreamOrder) PackagingConfigurationStreamSelectionStreamOrder {
 		if v != nil {
@@ -5610,10 +5116,12 @@ func (o PackagingConfigurationStreamSelectionStreamOrderPtrOutput) ToStringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// PackagingConfigurationStreamSelectionStreamOrderInput is an input type that accepts PackagingConfigurationStreamSelectionStreamOrderArgs and PackagingConfigurationStreamSelectionStreamOrderOutput values.
-// You can construct a concrete instance of `PackagingConfigurationStreamSelectionStreamOrderInput` via:
+// PackagingConfigurationStreamSelectionStreamOrderInput is an input type that accepts values of the PackagingConfigurationStreamSelectionStreamOrder enum
+// A concrete instance of `PackagingConfigurationStreamSelectionStreamOrderInput` can be one of the following:
 //
-//	PackagingConfigurationStreamSelectionStreamOrderArgs{...}
+//	PackagingConfigurationStreamSelectionStreamOrderOriginal
+//	PackagingConfigurationStreamSelectionStreamOrderVideoBitrateAscending
+//	PackagingConfigurationStreamSelectionStreamOrderVideoBitrateDescending
 type PackagingConfigurationStreamSelectionStreamOrderInput interface {
 	pulumi.Input
 
@@ -5646,12 +5154,6 @@ func (in *packagingConfigurationStreamSelectionStreamOrderPtr) ToPackagingConfig
 
 func (in *packagingConfigurationStreamSelectionStreamOrderPtr) ToPackagingConfigurationStreamSelectionStreamOrderPtrOutputWithContext(ctx context.Context) PackagingConfigurationStreamSelectionStreamOrderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationStreamSelectionStreamOrderPtrOutput)
-}
-
-func (in *packagingConfigurationStreamSelectionStreamOrderPtr) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationStreamSelectionStreamOrder] {
-	return pulumix.Output[*PackagingConfigurationStreamSelectionStreamOrder]{
-		OutputState: in.ToPackagingConfigurationStreamSelectionStreamOrderPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

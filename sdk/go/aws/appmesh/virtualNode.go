@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppMesh::VirtualNode
@@ -120,12 +119,6 @@ func (i *VirtualNode) ToVirtualNodeOutputWithContext(ctx context.Context) Virtua
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeOutput)
 }
 
-func (i *VirtualNode) ToOutput(ctx context.Context) pulumix.Output[*VirtualNode] {
-	return pulumix.Output[*VirtualNode]{
-		OutputState: i.ToVirtualNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualNodeOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o VirtualNodeOutput) ToVirtualNodeOutput() VirtualNodeOutput {
 
 func (o VirtualNodeOutput) ToVirtualNodeOutputWithContext(ctx context.Context) VirtualNodeOutput {
 	return o
-}
-
-func (o VirtualNodeOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNode] {
-	return pulumix.Output[*VirtualNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualNodeOutput) Arn() pulumi.StringOutput {

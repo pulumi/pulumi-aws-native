@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::VirtualMFADevice
@@ -109,12 +108,6 @@ func (i *VirtualMfaDevice) ToVirtualMfaDeviceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMfaDeviceOutput)
 }
 
-func (i *VirtualMfaDevice) ToOutput(ctx context.Context) pulumix.Output[*VirtualMfaDevice] {
-	return pulumix.Output[*VirtualMfaDevice]{
-		OutputState: i.ToVirtualMfaDeviceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMfaDeviceOutput struct{ *pulumi.OutputState }
 
 func (VirtualMfaDeviceOutput) ElementType() reflect.Type {
@@ -127,12 +120,6 @@ func (o VirtualMfaDeviceOutput) ToVirtualMfaDeviceOutput() VirtualMfaDeviceOutpu
 
 func (o VirtualMfaDeviceOutput) ToVirtualMfaDeviceOutputWithContext(ctx context.Context) VirtualMfaDeviceOutput {
 	return o
-}
-
-func (o VirtualMfaDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMfaDevice] {
-	return pulumix.Output[*VirtualMfaDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMfaDeviceOutput) Path() pulumi.StringPtrOutput {

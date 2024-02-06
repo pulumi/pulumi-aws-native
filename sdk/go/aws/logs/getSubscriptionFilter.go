@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination.
@@ -77,12 +76,6 @@ func (o LookupSubscriptionFilterResultOutput) ToLookupSubscriptionFilterResultOu
 
 func (o LookupSubscriptionFilterResultOutput) ToLookupSubscriptionFilterResultOutputWithContext(ctx context.Context) LookupSubscriptionFilterResultOutput {
 	return o
-}
-
-func (o LookupSubscriptionFilterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubscriptionFilterResult] {
-	return pulumix.Output[LookupSubscriptionFilterResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the destination.

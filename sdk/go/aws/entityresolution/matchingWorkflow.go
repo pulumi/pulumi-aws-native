@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // MatchingWorkflow defined in AWS Entity Resolution service
@@ -137,12 +136,6 @@ func (i *MatchingWorkflow) ToMatchingWorkflowOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowOutput)
 }
 
-func (i *MatchingWorkflow) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflow] {
-	return pulumix.Output[*MatchingWorkflow]{
-		OutputState: i.ToMatchingWorkflowOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MatchingWorkflowOutput struct{ *pulumi.OutputState }
 
 func (MatchingWorkflowOutput) ElementType() reflect.Type {
@@ -155,12 +148,6 @@ func (o MatchingWorkflowOutput) ToMatchingWorkflowOutput() MatchingWorkflowOutpu
 
 func (o MatchingWorkflowOutput) ToMatchingWorkflowOutputWithContext(ctx context.Context) MatchingWorkflowOutput {
 	return o
-}
-
-func (o MatchingWorkflowOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflow] {
-	return pulumix.Output[*MatchingWorkflow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MatchingWorkflowOutput) CreatedAt() pulumi.StringOutput {

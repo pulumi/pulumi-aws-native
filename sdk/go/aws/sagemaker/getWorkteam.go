@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::Workteam
@@ -68,12 +67,6 @@ func (o LookupWorkteamResultOutput) ToLookupWorkteamResultOutput() LookupWorktea
 
 func (o LookupWorkteamResultOutput) ToLookupWorkteamResultOutputWithContext(ctx context.Context) LookupWorkteamResultOutput {
 	return o
-}
-
-func (o LookupWorkteamResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWorkteamResult] {
-	return pulumix.Output[LookupWorkteamResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupWorkteamResultOutput) Description() pulumi.StringPtrOutput {

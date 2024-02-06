@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::DirectoryConfig
@@ -66,12 +65,6 @@ func (o LookupDirectoryConfigResultOutput) ToLookupDirectoryConfigResultOutput()
 
 func (o LookupDirectoryConfigResultOutput) ToLookupDirectoryConfigResultOutputWithContext(ctx context.Context) LookupDirectoryConfigResultOutput {
 	return o
-}
-
-func (o LookupDirectoryConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDirectoryConfigResult] {
-	return pulumix.Output[LookupDirectoryConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDirectoryConfigResultOutput) CertificateBasedAuthProperties() DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {

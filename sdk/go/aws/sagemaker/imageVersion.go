@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::ImageVersion
@@ -136,12 +135,6 @@ func (i *ImageVersion) ToImageVersionOutputWithContext(ctx context.Context) Imag
 	return pulumi.ToOutputWithContext(ctx, i).(ImageVersionOutput)
 }
 
-func (i *ImageVersion) ToOutput(ctx context.Context) pulumix.Output[*ImageVersion] {
-	return pulumix.Output[*ImageVersion]{
-		OutputState: i.ToImageVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ImageVersionOutput struct{ *pulumi.OutputState }
 
 func (ImageVersionOutput) ElementType() reflect.Type {
@@ -154,12 +147,6 @@ func (o ImageVersionOutput) ToImageVersionOutput() ImageVersionOutput {
 
 func (o ImageVersionOutput) ToImageVersionOutputWithContext(ctx context.Context) ImageVersionOutput {
 	return o
-}
-
-func (o ImageVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageVersion] {
-	return pulumix.Output[*ImageVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageVersionOutput) Alias() pulumi.StringPtrOutput {

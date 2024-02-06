@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::ServiceLinkedRole
@@ -69,12 +68,6 @@ func (o LookupServiceLinkedRoleResultOutput) ToLookupServiceLinkedRoleResultOutp
 
 func (o LookupServiceLinkedRoleResultOutput) ToLookupServiceLinkedRoleResultOutputWithContext(ctx context.Context) LookupServiceLinkedRoleResultOutput {
 	return o
-}
-
-func (o LookupServiceLinkedRoleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceLinkedRoleResult] {
-	return pulumix.Output[LookupServiceLinkedRoleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the role.

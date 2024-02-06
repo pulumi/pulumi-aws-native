@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Redshift::ClusterSecurityGroup
@@ -103,12 +102,6 @@ func (i *ClusterSecurityGroup) ToClusterSecurityGroupOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSecurityGroupOutput)
 }
 
-func (i *ClusterSecurityGroup) ToOutput(ctx context.Context) pulumix.Output[*ClusterSecurityGroup] {
-	return pulumix.Output[*ClusterSecurityGroup]{
-		OutputState: i.ToClusterSecurityGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (ClusterSecurityGroupOutput) ElementType() reflect.Type {
@@ -121,12 +114,6 @@ func (o ClusterSecurityGroupOutput) ToClusterSecurityGroupOutput() ClusterSecuri
 
 func (o ClusterSecurityGroupOutput) ToClusterSecurityGroupOutputWithContext(ctx context.Context) ClusterSecurityGroupOutput {
 	return o
-}
-
-func (o ClusterSecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterSecurityGroup] {
-	return pulumix.Output[*ClusterSecurityGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterSecurityGroupOutput) Description() pulumi.StringOutput {

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type CapacityProviderAutoScalingGroupProviderManagedDraining string
@@ -78,12 +77,6 @@ func (o CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ToCapacit
 	}).(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput)
 }
 
-func (o CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityProviderAutoScalingGroupProviderManagedDraining] {
-	return pulumix.Output[CapacityProviderAutoScalingGroupProviderManagedDraining]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput) ToCapa
 	return o
 }
 
-func (o CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedDraining] {
-	return pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedDraining]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput) Elem() CapacityProviderAutoScalingGroupProviderManagedDrainingOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedDraining) CapacityProviderAutoScalingGroupProviderManagedDraining {
 		if v != nil {
@@ -149,10 +136,11 @@ func (o CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// CapacityProviderAutoScalingGroupProviderManagedDrainingInput is an input type that accepts CapacityProviderAutoScalingGroupProviderManagedDrainingArgs and CapacityProviderAutoScalingGroupProviderManagedDrainingOutput values.
-// You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderManagedDrainingInput` via:
+// CapacityProviderAutoScalingGroupProviderManagedDrainingInput is an input type that accepts values of the CapacityProviderAutoScalingGroupProviderManagedDraining enum
+// A concrete instance of `CapacityProviderAutoScalingGroupProviderManagedDrainingInput` can be one of the following:
 //
-//	CapacityProviderAutoScalingGroupProviderManagedDrainingArgs{...}
+//	CapacityProviderAutoScalingGroupProviderManagedDrainingDisabled
+//	CapacityProviderAutoScalingGroupProviderManagedDrainingEnabled
 type CapacityProviderAutoScalingGroupProviderManagedDrainingInput interface {
 	pulumi.Input
 
@@ -185,12 +173,6 @@ func (in *capacityProviderAutoScalingGroupProviderManagedDrainingPtr) ToCapacity
 
 func (in *capacityProviderAutoScalingGroupProviderManagedDrainingPtr) ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput)
-}
-
-func (in *capacityProviderAutoScalingGroupProviderManagedDrainingPtr) ToOutput(ctx context.Context) pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedDraining] {
-	return pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedDraining]{
-		OutputState: in.ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type CapacityProviderAutoScalingGroupProviderManagedTerminationProtection string
@@ -260,12 +242,6 @@ func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutp
 	}).(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput)
 }
 
-func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityProviderAutoScalingGroupProviderManagedTerminationProtection] {
-	return pulumix.Output[CapacityProviderAutoScalingGroupProviderManagedTerminationProtection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +277,6 @@ func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrO
 	return o
 }
 
-func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedTerminationProtection] {
-	return pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedTerminationProtection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput) Elem() CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedTerminationProtection) CapacityProviderAutoScalingGroupProviderManagedTerminationProtection {
 		if v != nil {
@@ -331,10 +301,11 @@ func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput is an input type that accepts CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionArgs and CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput values.
-// You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput` via:
+// CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput is an input type that accepts values of the CapacityProviderAutoScalingGroupProviderManagedTerminationProtection enum
+// A concrete instance of `CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput` can be one of the following:
 //
-//	CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionArgs{...}
+//	CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionDisabled
+//	CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionEnabled
 type CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput interface {
 	pulumi.Input
 
@@ -367,12 +338,6 @@ func (in *capacityProviderAutoScalingGroupProviderManagedTerminationProtectionPt
 
 func (in *capacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtr) ToCapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput)
-}
-
-func (in *capacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtr) ToOutput(ctx context.Context) pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedTerminationProtection] {
-	return pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedTerminationProtection]{
-		OutputState: in.ToCapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type CapacityProviderManagedScalingStatus string
@@ -442,12 +407,6 @@ func (o CapacityProviderManagedScalingStatusOutput) ToCapacityProviderManagedSca
 	}).(CapacityProviderManagedScalingStatusPtrOutput)
 }
 
-func (o CapacityProviderManagedScalingStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityProviderManagedScalingStatus] {
-	return pulumix.Output[CapacityProviderManagedScalingStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CapacityProviderManagedScalingStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -483,12 +442,6 @@ func (o CapacityProviderManagedScalingStatusPtrOutput) ToCapacityProviderManaged
 	return o
 }
 
-func (o CapacityProviderManagedScalingStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityProviderManagedScalingStatus] {
-	return pulumix.Output[*CapacityProviderManagedScalingStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CapacityProviderManagedScalingStatusPtrOutput) Elem() CapacityProviderManagedScalingStatusOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScalingStatus) CapacityProviderManagedScalingStatus {
 		if v != nil {
@@ -513,10 +466,11 @@ func (o CapacityProviderManagedScalingStatusPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// CapacityProviderManagedScalingStatusInput is an input type that accepts CapacityProviderManagedScalingStatusArgs and CapacityProviderManagedScalingStatusOutput values.
-// You can construct a concrete instance of `CapacityProviderManagedScalingStatusInput` via:
+// CapacityProviderManagedScalingStatusInput is an input type that accepts values of the CapacityProviderManagedScalingStatus enum
+// A concrete instance of `CapacityProviderManagedScalingStatusInput` can be one of the following:
 //
-//	CapacityProviderManagedScalingStatusArgs{...}
+//	CapacityProviderManagedScalingStatusDisabled
+//	CapacityProviderManagedScalingStatusEnabled
 type CapacityProviderManagedScalingStatusInput interface {
 	pulumi.Input
 
@@ -551,12 +505,6 @@ func (in *capacityProviderManagedScalingStatusPtr) ToCapacityProviderManagedScal
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderManagedScalingStatusPtrOutput)
 }
 
-func (in *capacityProviderManagedScalingStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*CapacityProviderManagedScalingStatus] {
-	return pulumix.Output[*CapacityProviderManagedScalingStatus]{
-		OutputState: in.ToCapacityProviderManagedScalingStatusPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
 type ClusterCapacityProviderAssociationsCapacityProvider string
 
@@ -564,6 +512,164 @@ const (
 	ClusterCapacityProviderAssociationsCapacityProviderFargate     = ClusterCapacityProviderAssociationsCapacityProvider("FARGATE")
 	ClusterCapacityProviderAssociationsCapacityProviderFargateSpot = ClusterCapacityProviderAssociationsCapacityProvider("FARGATE_SPOT")
 )
+
+func (ClusterCapacityProviderAssociationsCapacityProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProvider)(nil)).Elem()
+}
+
+func (e ClusterCapacityProviderAssociationsCapacityProvider) ToClusterCapacityProviderAssociationsCapacityProviderOutput() ClusterCapacityProviderAssociationsCapacityProviderOutput {
+	return pulumi.ToOutput(e).(ClusterCapacityProviderAssociationsCapacityProviderOutput)
+}
+
+func (e ClusterCapacityProviderAssociationsCapacityProvider) ToClusterCapacityProviderAssociationsCapacityProviderOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterCapacityProviderAssociationsCapacityProviderOutput)
+}
+
+func (e ClusterCapacityProviderAssociationsCapacityProvider) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutput() ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
+	return e.ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterCapacityProviderAssociationsCapacityProvider) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
+	return ClusterCapacityProviderAssociationsCapacityProvider(e).ToClusterCapacityProviderAssociationsCapacityProviderOutputWithContext(ctx).ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(ctx)
+}
+
+func (e ClusterCapacityProviderAssociationsCapacityProvider) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterCapacityProviderAssociationsCapacityProvider) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterCapacityProviderAssociationsCapacityProvider) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterCapacityProviderAssociationsCapacityProvider) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterCapacityProviderAssociationsCapacityProviderOutput struct{ *pulumi.OutputState }
+
+func (ClusterCapacityProviderAssociationsCapacityProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProvider)(nil)).Elem()
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToClusterCapacityProviderAssociationsCapacityProviderOutput() ClusterCapacityProviderAssociationsCapacityProviderOutput {
+	return o
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToClusterCapacityProviderAssociationsCapacityProviderOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderOutput {
+	return o
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutput() ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
+	return o.ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCapacityProviderAssociationsCapacityProvider) *ClusterCapacityProviderAssociationsCapacityProvider {
+		return &v
+	}).(ClusterCapacityProviderAssociationsCapacityProviderPtrOutput)
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterCapacityProviderAssociationsCapacityProvider) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterCapacityProviderAssociationsCapacityProvider) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterCapacityProviderAssociationsCapacityProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterCapacityProviderAssociationsCapacityProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCapacityProviderAssociationsCapacityProvider)(nil)).Elem()
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderPtrOutput) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutput() ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
+	return o
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderPtrOutput) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
+	return o
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderPtrOutput) Elem() ClusterCapacityProviderAssociationsCapacityProviderOutput {
+	return o.ApplyT(func(v *ClusterCapacityProviderAssociationsCapacityProvider) ClusterCapacityProviderAssociationsCapacityProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCapacityProviderAssociationsCapacityProvider
+		return ret
+	}).(ClusterCapacityProviderAssociationsCapacityProviderOutput)
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterCapacityProviderAssociationsCapacityProvider) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterCapacityProviderAssociationsCapacityProviderInput is an input type that accepts values of the ClusterCapacityProviderAssociationsCapacityProvider enum
+// A concrete instance of `ClusterCapacityProviderAssociationsCapacityProviderInput` can be one of the following:
+//
+//	ClusterCapacityProviderAssociationsCapacityProviderFargate
+//	ClusterCapacityProviderAssociationsCapacityProviderFargateSpot
+type ClusterCapacityProviderAssociationsCapacityProviderInput interface {
+	pulumi.Input
+
+	ToClusterCapacityProviderAssociationsCapacityProviderOutput() ClusterCapacityProviderAssociationsCapacityProviderOutput
+	ToClusterCapacityProviderAssociationsCapacityProviderOutputWithContext(context.Context) ClusterCapacityProviderAssociationsCapacityProviderOutput
+}
+
+var clusterCapacityProviderAssociationsCapacityProviderPtrType = reflect.TypeOf((**ClusterCapacityProviderAssociationsCapacityProvider)(nil)).Elem()
+
+type ClusterCapacityProviderAssociationsCapacityProviderPtrInput interface {
+	pulumi.Input
+
+	ToClusterCapacityProviderAssociationsCapacityProviderPtrOutput() ClusterCapacityProviderAssociationsCapacityProviderPtrOutput
+	ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(context.Context) ClusterCapacityProviderAssociationsCapacityProviderPtrOutput
+}
+
+type clusterCapacityProviderAssociationsCapacityProviderPtr string
+
+func ClusterCapacityProviderAssociationsCapacityProviderPtr(v string) ClusterCapacityProviderAssociationsCapacityProviderPtrInput {
+	return (*clusterCapacityProviderAssociationsCapacityProviderPtr)(&v)
+}
+
+func (*clusterCapacityProviderAssociationsCapacityProviderPtr) ElementType() reflect.Type {
+	return clusterCapacityProviderAssociationsCapacityProviderPtrType
+}
+
+func (in *clusterCapacityProviderAssociationsCapacityProviderPtr) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutput() ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
+	return pulumi.ToOutput(in).(ClusterCapacityProviderAssociationsCapacityProviderPtrOutput)
+}
+
+func (in *clusterCapacityProviderAssociationsCapacityProviderPtr) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterCapacityProviderAssociationsCapacityProviderPtrOutput)
+}
 
 // If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
 type ClusterCapacityProviderAssociationsCapacityProvider0 string
@@ -640,12 +746,6 @@ func (o ServiceAwsVpcConfigurationAssignPublicIpOutput) ToServiceAwsVpcConfigura
 	}).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
-func (o ServiceAwsVpcConfigurationAssignPublicIpOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAwsVpcConfigurationAssignPublicIp] {
-	return pulumix.Output[ServiceAwsVpcConfigurationAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceAwsVpcConfigurationAssignPublicIpOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -681,12 +781,6 @@ func (o ServiceAwsVpcConfigurationAssignPublicIpPtrOutput) ToServiceAwsVpcConfig
 	return o
 }
 
-func (o ServiceAwsVpcConfigurationAssignPublicIpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAwsVpcConfigurationAssignPublicIp] {
-	return pulumix.Output[*ServiceAwsVpcConfigurationAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceAwsVpcConfigurationAssignPublicIpPtrOutput) Elem() ServiceAwsVpcConfigurationAssignPublicIpOutput {
 	return o.ApplyT(func(v *ServiceAwsVpcConfigurationAssignPublicIp) ServiceAwsVpcConfigurationAssignPublicIp {
 		if v != nil {
@@ -711,10 +805,11 @@ func (o ServiceAwsVpcConfigurationAssignPublicIpPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceAwsVpcConfigurationAssignPublicIpInput is an input type that accepts ServiceAwsVpcConfigurationAssignPublicIpArgs and ServiceAwsVpcConfigurationAssignPublicIpOutput values.
-// You can construct a concrete instance of `ServiceAwsVpcConfigurationAssignPublicIpInput` via:
+// ServiceAwsVpcConfigurationAssignPublicIpInput is an input type that accepts values of the ServiceAwsVpcConfigurationAssignPublicIp enum
+// A concrete instance of `ServiceAwsVpcConfigurationAssignPublicIpInput` can be one of the following:
 //
-//	ServiceAwsVpcConfigurationAssignPublicIpArgs{...}
+//	ServiceAwsVpcConfigurationAssignPublicIpDisabled
+//	ServiceAwsVpcConfigurationAssignPublicIpEnabled
 type ServiceAwsVpcConfigurationAssignPublicIpInput interface {
 	pulumi.Input
 
@@ -747,12 +842,6 @@ func (in *serviceAwsVpcConfigurationAssignPublicIpPtr) ToServiceAwsVpcConfigurat
 
 func (in *serviceAwsVpcConfigurationAssignPublicIpPtr) ToServiceAwsVpcConfigurationAssignPublicIpPtrOutputWithContext(ctx context.Context) ServiceAwsVpcConfigurationAssignPublicIpPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
-}
-
-func (in *serviceAwsVpcConfigurationAssignPublicIpPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceAwsVpcConfigurationAssignPublicIp] {
-	return pulumix.Output[*ServiceAwsVpcConfigurationAssignPublicIp]{
-		OutputState: in.ToServiceAwsVpcConfigurationAssignPublicIpPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ServiceDeploymentControllerType string
@@ -823,12 +912,6 @@ func (o ServiceDeploymentControllerTypeOutput) ToServiceDeploymentControllerType
 	}).(ServiceDeploymentControllerTypePtrOutput)
 }
 
-func (o ServiceDeploymentControllerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceDeploymentControllerType] {
-	return pulumix.Output[ServiceDeploymentControllerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceDeploymentControllerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -864,12 +947,6 @@ func (o ServiceDeploymentControllerTypePtrOutput) ToServiceDeploymentControllerT
 	return o
 }
 
-func (o ServiceDeploymentControllerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceDeploymentControllerType] {
-	return pulumix.Output[*ServiceDeploymentControllerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceDeploymentControllerTypePtrOutput) Elem() ServiceDeploymentControllerTypeOutput {
 	return o.ApplyT(func(v *ServiceDeploymentControllerType) ServiceDeploymentControllerType {
 		if v != nil {
@@ -894,10 +971,12 @@ func (o ServiceDeploymentControllerTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceDeploymentControllerTypeInput is an input type that accepts ServiceDeploymentControllerTypeArgs and ServiceDeploymentControllerTypeOutput values.
-// You can construct a concrete instance of `ServiceDeploymentControllerTypeInput` via:
+// ServiceDeploymentControllerTypeInput is an input type that accepts values of the ServiceDeploymentControllerType enum
+// A concrete instance of `ServiceDeploymentControllerTypeInput` can be one of the following:
 //
-//	ServiceDeploymentControllerTypeArgs{...}
+//	ServiceDeploymentControllerTypeCodeDeploy
+//	ServiceDeploymentControllerTypeEcs
+//	ServiceDeploymentControllerTypeExternal
 type ServiceDeploymentControllerTypeInput interface {
 	pulumi.Input
 
@@ -930,12 +1009,6 @@ func (in *serviceDeploymentControllerTypePtr) ToServiceDeploymentControllerTypeP
 
 func (in *serviceDeploymentControllerTypePtr) ToServiceDeploymentControllerTypePtrOutputWithContext(ctx context.Context) ServiceDeploymentControllerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceDeploymentControllerTypePtrOutput)
-}
-
-func (in *serviceDeploymentControllerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceDeploymentControllerType] {
-	return pulumix.Output[*ServiceDeploymentControllerType]{
-		OutputState: in.ToServiceDeploymentControllerTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ServiceEbsTagSpecificationPropagateTags string
@@ -1005,12 +1078,6 @@ func (o ServiceEbsTagSpecificationPropagateTagsOutput) ToServiceEbsTagSpecificat
 	}).(ServiceEbsTagSpecificationPropagateTagsPtrOutput)
 }
 
-func (o ServiceEbsTagSpecificationPropagateTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEbsTagSpecificationPropagateTags] {
-	return pulumix.Output[ServiceEbsTagSpecificationPropagateTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEbsTagSpecificationPropagateTagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1046,12 +1113,6 @@ func (o ServiceEbsTagSpecificationPropagateTagsPtrOutput) ToServiceEbsTagSpecifi
 	return o
 }
 
-func (o ServiceEbsTagSpecificationPropagateTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEbsTagSpecificationPropagateTags] {
-	return pulumix.Output[*ServiceEbsTagSpecificationPropagateTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEbsTagSpecificationPropagateTagsPtrOutput) Elem() ServiceEbsTagSpecificationPropagateTagsOutput {
 	return o.ApplyT(func(v *ServiceEbsTagSpecificationPropagateTags) ServiceEbsTagSpecificationPropagateTags {
 		if v != nil {
@@ -1076,10 +1137,11 @@ func (o ServiceEbsTagSpecificationPropagateTagsPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceEbsTagSpecificationPropagateTagsInput is an input type that accepts ServiceEbsTagSpecificationPropagateTagsArgs and ServiceEbsTagSpecificationPropagateTagsOutput values.
-// You can construct a concrete instance of `ServiceEbsTagSpecificationPropagateTagsInput` via:
+// ServiceEbsTagSpecificationPropagateTagsInput is an input type that accepts values of the ServiceEbsTagSpecificationPropagateTags enum
+// A concrete instance of `ServiceEbsTagSpecificationPropagateTagsInput` can be one of the following:
 //
-//	ServiceEbsTagSpecificationPropagateTagsArgs{...}
+//	ServiceEbsTagSpecificationPropagateTagsService
+//	ServiceEbsTagSpecificationPropagateTagsTaskDefinition
 type ServiceEbsTagSpecificationPropagateTagsInput interface {
 	pulumi.Input
 
@@ -1112,12 +1174,6 @@ func (in *serviceEbsTagSpecificationPropagateTagsPtr) ToServiceEbsTagSpecificati
 
 func (in *serviceEbsTagSpecificationPropagateTagsPtr) ToServiceEbsTagSpecificationPropagateTagsPtrOutputWithContext(ctx context.Context) ServiceEbsTagSpecificationPropagateTagsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceEbsTagSpecificationPropagateTagsPtrOutput)
-}
-
-func (in *serviceEbsTagSpecificationPropagateTagsPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceEbsTagSpecificationPropagateTags] {
-	return pulumix.Output[*ServiceEbsTagSpecificationPropagateTags]{
-		OutputState: in.ToServiceEbsTagSpecificationPropagateTagsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ServiceLaunchType string
@@ -1188,12 +1244,6 @@ func (o ServiceLaunchTypeOutput) ToServiceLaunchTypePtrOutputWithContext(ctx con
 	}).(ServiceLaunchTypePtrOutput)
 }
 
-func (o ServiceLaunchTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLaunchType] {
-	return pulumix.Output[ServiceLaunchType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceLaunchTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1229,12 +1279,6 @@ func (o ServiceLaunchTypePtrOutput) ToServiceLaunchTypePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o ServiceLaunchTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLaunchType] {
-	return pulumix.Output[*ServiceLaunchType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceLaunchTypePtrOutput) Elem() ServiceLaunchTypeOutput {
 	return o.ApplyT(func(v *ServiceLaunchType) ServiceLaunchType {
 		if v != nil {
@@ -1259,10 +1303,12 @@ func (o ServiceLaunchTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceLaunchTypeInput is an input type that accepts ServiceLaunchTypeArgs and ServiceLaunchTypeOutput values.
-// You can construct a concrete instance of `ServiceLaunchTypeInput` via:
+// ServiceLaunchTypeInput is an input type that accepts values of the ServiceLaunchType enum
+// A concrete instance of `ServiceLaunchTypeInput` can be one of the following:
 //
-//	ServiceLaunchTypeArgs{...}
+//	ServiceLaunchTypeEc2
+//	ServiceLaunchTypeFargate
+//	ServiceLaunchTypeExternal
 type ServiceLaunchTypeInput interface {
 	pulumi.Input
 
@@ -1295,12 +1341,6 @@ func (in *serviceLaunchTypePtr) ToServiceLaunchTypePtrOutput() ServiceLaunchType
 
 func (in *serviceLaunchTypePtr) ToServiceLaunchTypePtrOutputWithContext(ctx context.Context) ServiceLaunchTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceLaunchTypePtrOutput)
-}
-
-func (in *serviceLaunchTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceLaunchType] {
-	return pulumix.Output[*ServiceLaunchType]{
-		OutputState: in.ToServiceLaunchTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ServicePlacementConstraintType string
@@ -1370,12 +1410,6 @@ func (o ServicePlacementConstraintTypeOutput) ToServicePlacementConstraintTypePt
 	}).(ServicePlacementConstraintTypePtrOutput)
 }
 
-func (o ServicePlacementConstraintTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServicePlacementConstraintType] {
-	return pulumix.Output[ServicePlacementConstraintType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicePlacementConstraintTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1411,12 +1445,6 @@ func (o ServicePlacementConstraintTypePtrOutput) ToServicePlacementConstraintTyp
 	return o
 }
 
-func (o ServicePlacementConstraintTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicePlacementConstraintType] {
-	return pulumix.Output[*ServicePlacementConstraintType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicePlacementConstraintTypePtrOutput) Elem() ServicePlacementConstraintTypeOutput {
 	return o.ApplyT(func(v *ServicePlacementConstraintType) ServicePlacementConstraintType {
 		if v != nil {
@@ -1441,10 +1469,11 @@ func (o ServicePlacementConstraintTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServicePlacementConstraintTypeInput is an input type that accepts ServicePlacementConstraintTypeArgs and ServicePlacementConstraintTypeOutput values.
-// You can construct a concrete instance of `ServicePlacementConstraintTypeInput` via:
+// ServicePlacementConstraintTypeInput is an input type that accepts values of the ServicePlacementConstraintType enum
+// A concrete instance of `ServicePlacementConstraintTypeInput` can be one of the following:
 //
-//	ServicePlacementConstraintTypeArgs{...}
+//	ServicePlacementConstraintTypeDistinctInstance
+//	ServicePlacementConstraintTypeMemberOf
 type ServicePlacementConstraintTypeInput interface {
 	pulumi.Input
 
@@ -1477,12 +1506,6 @@ func (in *servicePlacementConstraintTypePtr) ToServicePlacementConstraintTypePtr
 
 func (in *servicePlacementConstraintTypePtr) ToServicePlacementConstraintTypePtrOutputWithContext(ctx context.Context) ServicePlacementConstraintTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServicePlacementConstraintTypePtrOutput)
-}
-
-func (in *servicePlacementConstraintTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServicePlacementConstraintType] {
-	return pulumix.Output[*ServicePlacementConstraintType]{
-		OutputState: in.ToServicePlacementConstraintTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ServicePlacementStrategyType string
@@ -1553,12 +1576,6 @@ func (o ServicePlacementStrategyTypeOutput) ToServicePlacementStrategyTypePtrOut
 	}).(ServicePlacementStrategyTypePtrOutput)
 }
 
-func (o ServicePlacementStrategyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServicePlacementStrategyType] {
-	return pulumix.Output[ServicePlacementStrategyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicePlacementStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1594,12 +1611,6 @@ func (o ServicePlacementStrategyTypePtrOutput) ToServicePlacementStrategyTypePtr
 	return o
 }
 
-func (o ServicePlacementStrategyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicePlacementStrategyType] {
-	return pulumix.Output[*ServicePlacementStrategyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicePlacementStrategyTypePtrOutput) Elem() ServicePlacementStrategyTypeOutput {
 	return o.ApplyT(func(v *ServicePlacementStrategyType) ServicePlacementStrategyType {
 		if v != nil {
@@ -1624,10 +1635,12 @@ func (o ServicePlacementStrategyTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServicePlacementStrategyTypeInput is an input type that accepts ServicePlacementStrategyTypeArgs and ServicePlacementStrategyTypeOutput values.
-// You can construct a concrete instance of `ServicePlacementStrategyTypeInput` via:
+// ServicePlacementStrategyTypeInput is an input type that accepts values of the ServicePlacementStrategyType enum
+// A concrete instance of `ServicePlacementStrategyTypeInput` can be one of the following:
 //
-//	ServicePlacementStrategyTypeArgs{...}
+//	ServicePlacementStrategyTypeBinpack
+//	ServicePlacementStrategyTypeRandom
+//	ServicePlacementStrategyTypeSpread
 type ServicePlacementStrategyTypeInput interface {
 	pulumi.Input
 
@@ -1660,12 +1673,6 @@ func (in *servicePlacementStrategyTypePtr) ToServicePlacementStrategyTypePtrOutp
 
 func (in *servicePlacementStrategyTypePtr) ToServicePlacementStrategyTypePtrOutputWithContext(ctx context.Context) ServicePlacementStrategyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServicePlacementStrategyTypePtrOutput)
-}
-
-func (in *servicePlacementStrategyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServicePlacementStrategyType] {
-	return pulumix.Output[*ServicePlacementStrategyType]{
-		OutputState: in.ToServicePlacementStrategyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ServicePropagateTags string
@@ -1735,12 +1742,6 @@ func (o ServicePropagateTagsOutput) ToServicePropagateTagsPtrOutputWithContext(c
 	}).(ServicePropagateTagsPtrOutput)
 }
 
-func (o ServicePropagateTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ServicePropagateTags] {
-	return pulumix.Output[ServicePropagateTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicePropagateTagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1776,12 +1777,6 @@ func (o ServicePropagateTagsPtrOutput) ToServicePropagateTagsPtrOutputWithContex
 	return o
 }
 
-func (o ServicePropagateTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicePropagateTags] {
-	return pulumix.Output[*ServicePropagateTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicePropagateTagsPtrOutput) Elem() ServicePropagateTagsOutput {
 	return o.ApplyT(func(v *ServicePropagateTags) ServicePropagateTags {
 		if v != nil {
@@ -1806,10 +1801,11 @@ func (o ServicePropagateTagsPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServicePropagateTagsInput is an input type that accepts ServicePropagateTagsArgs and ServicePropagateTagsOutput values.
-// You can construct a concrete instance of `ServicePropagateTagsInput` via:
+// ServicePropagateTagsInput is an input type that accepts values of the ServicePropagateTags enum
+// A concrete instance of `ServicePropagateTagsInput` can be one of the following:
 //
-//	ServicePropagateTagsArgs{...}
+//	ServicePropagateTagsService
+//	ServicePropagateTagsTaskDefinition
 type ServicePropagateTagsInput interface {
 	pulumi.Input
 
@@ -1842,12 +1838,6 @@ func (in *servicePropagateTagsPtr) ToServicePropagateTagsPtrOutput() ServiceProp
 
 func (in *servicePropagateTagsPtr) ToServicePropagateTagsPtrOutputWithContext(ctx context.Context) ServicePropagateTagsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServicePropagateTagsPtrOutput)
-}
-
-func (in *servicePropagateTagsPtr) ToOutput(ctx context.Context) pulumix.Output[*ServicePropagateTags] {
-	return pulumix.Output[*ServicePropagateTags]{
-		OutputState: in.ToServicePropagateTagsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ServiceSchedulingStrategy string
@@ -1917,12 +1907,6 @@ func (o ServiceSchedulingStrategyOutput) ToServiceSchedulingStrategyPtrOutputWit
 	}).(ServiceSchedulingStrategyPtrOutput)
 }
 
-func (o ServiceSchedulingStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceSchedulingStrategy] {
-	return pulumix.Output[ServiceSchedulingStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceSchedulingStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1958,12 +1942,6 @@ func (o ServiceSchedulingStrategyPtrOutput) ToServiceSchedulingStrategyPtrOutput
 	return o
 }
 
-func (o ServiceSchedulingStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSchedulingStrategy] {
-	return pulumix.Output[*ServiceSchedulingStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceSchedulingStrategyPtrOutput) Elem() ServiceSchedulingStrategyOutput {
 	return o.ApplyT(func(v *ServiceSchedulingStrategy) ServiceSchedulingStrategy {
 		if v != nil {
@@ -1988,10 +1966,11 @@ func (o ServiceSchedulingStrategyPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceSchedulingStrategyInput is an input type that accepts ServiceSchedulingStrategyArgs and ServiceSchedulingStrategyOutput values.
-// You can construct a concrete instance of `ServiceSchedulingStrategyInput` via:
+// ServiceSchedulingStrategyInput is an input type that accepts values of the ServiceSchedulingStrategy enum
+// A concrete instance of `ServiceSchedulingStrategyInput` can be one of the following:
 //
-//	ServiceSchedulingStrategyArgs{...}
+//	ServiceSchedulingStrategyDaemon
+//	ServiceSchedulingStrategyReplica
 type ServiceSchedulingStrategyInput interface {
 	pulumi.Input
 
@@ -2024,12 +2003,6 @@ func (in *serviceSchedulingStrategyPtr) ToServiceSchedulingStrategyPtrOutput() S
 
 func (in *serviceSchedulingStrategyPtr) ToServiceSchedulingStrategyPtrOutputWithContext(ctx context.Context) ServiceSchedulingStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceSchedulingStrategyPtrOutput)
-}
-
-func (in *serviceSchedulingStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceSchedulingStrategy] {
-	return pulumix.Output[*ServiceSchedulingStrategy]{
-		OutputState: in.ToServiceSchedulingStrategyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TaskDefinitionAuthorizationConfigIam string
@@ -2099,12 +2072,6 @@ func (o TaskDefinitionAuthorizationConfigIamOutput) ToTaskDefinitionAuthorizatio
 	}).(TaskDefinitionAuthorizationConfigIamPtrOutput)
 }
 
-func (o TaskDefinitionAuthorizationConfigIamOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionAuthorizationConfigIam] {
-	return pulumix.Output[TaskDefinitionAuthorizationConfigIam]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionAuthorizationConfigIamOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2140,12 +2107,6 @@ func (o TaskDefinitionAuthorizationConfigIamPtrOutput) ToTaskDefinitionAuthoriza
 	return o
 }
 
-func (o TaskDefinitionAuthorizationConfigIamPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionAuthorizationConfigIam] {
-	return pulumix.Output[*TaskDefinitionAuthorizationConfigIam]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionAuthorizationConfigIamPtrOutput) Elem() TaskDefinitionAuthorizationConfigIamOutput {
 	return o.ApplyT(func(v *TaskDefinitionAuthorizationConfigIam) TaskDefinitionAuthorizationConfigIam {
 		if v != nil {
@@ -2170,10 +2131,11 @@ func (o TaskDefinitionAuthorizationConfigIamPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskDefinitionAuthorizationConfigIamInput is an input type that accepts TaskDefinitionAuthorizationConfigIamArgs and TaskDefinitionAuthorizationConfigIamOutput values.
-// You can construct a concrete instance of `TaskDefinitionAuthorizationConfigIamInput` via:
+// TaskDefinitionAuthorizationConfigIamInput is an input type that accepts values of the TaskDefinitionAuthorizationConfigIam enum
+// A concrete instance of `TaskDefinitionAuthorizationConfigIamInput` can be one of the following:
 //
-//	TaskDefinitionAuthorizationConfigIamArgs{...}
+//	TaskDefinitionAuthorizationConfigIamEnabled
+//	TaskDefinitionAuthorizationConfigIamDisabled
 type TaskDefinitionAuthorizationConfigIamInput interface {
 	pulumi.Input
 
@@ -2206,12 +2168,6 @@ func (in *taskDefinitionAuthorizationConfigIamPtr) ToTaskDefinitionAuthorization
 
 func (in *taskDefinitionAuthorizationConfigIamPtr) ToTaskDefinitionAuthorizationConfigIamPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIamPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionAuthorizationConfigIamPtrOutput)
-}
-
-func (in *taskDefinitionAuthorizationConfigIamPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionAuthorizationConfigIam] {
-	return pulumix.Output[*TaskDefinitionAuthorizationConfigIam]{
-		OutputState: in.ToTaskDefinitionAuthorizationConfigIamPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TaskDefinitionEfsVolumeConfigurationTransitEncryption string
@@ -2281,12 +2237,6 @@ func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToTaskDefin
 	}).(TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput)
 }
 
-func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionEfsVolumeConfigurationTransitEncryption] {
-	return pulumix.Output[TaskDefinitionEfsVolumeConfigurationTransitEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2322,12 +2272,6 @@ func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) ToTaskDe
 	return o
 }
 
-func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionEfsVolumeConfigurationTransitEncryption] {
-	return pulumix.Output[*TaskDefinitionEfsVolumeConfigurationTransitEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) Elem() TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput {
 	return o.ApplyT(func(v *TaskDefinitionEfsVolumeConfigurationTransitEncryption) TaskDefinitionEfsVolumeConfigurationTransitEncryption {
 		if v != nil {
@@ -2352,10 +2296,11 @@ func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskDefinitionEfsVolumeConfigurationTransitEncryptionInput is an input type that accepts TaskDefinitionEfsVolumeConfigurationTransitEncryptionArgs and TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput values.
-// You can construct a concrete instance of `TaskDefinitionEfsVolumeConfigurationTransitEncryptionInput` via:
+// TaskDefinitionEfsVolumeConfigurationTransitEncryptionInput is an input type that accepts values of the TaskDefinitionEfsVolumeConfigurationTransitEncryption enum
+// A concrete instance of `TaskDefinitionEfsVolumeConfigurationTransitEncryptionInput` can be one of the following:
 //
-//	TaskDefinitionEfsVolumeConfigurationTransitEncryptionArgs{...}
+//	TaskDefinitionEfsVolumeConfigurationTransitEncryptionEnabled
+//	TaskDefinitionEfsVolumeConfigurationTransitEncryptionDisabled
 type TaskDefinitionEfsVolumeConfigurationTransitEncryptionInput interface {
 	pulumi.Input
 
@@ -2388,12 +2333,6 @@ func (in *taskDefinitionEfsVolumeConfigurationTransitEncryptionPtr) ToTaskDefini
 
 func (in *taskDefinitionEfsVolumeConfigurationTransitEncryptionPtr) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput)
-}
-
-func (in *taskDefinitionEfsVolumeConfigurationTransitEncryptionPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionEfsVolumeConfigurationTransitEncryption] {
-	return pulumix.Output[*TaskDefinitionEfsVolumeConfigurationTransitEncryption]{
-		OutputState: in.ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TaskDefinitionPortMappingAppProtocol string
@@ -2464,12 +2403,6 @@ func (o TaskDefinitionPortMappingAppProtocolOutput) ToTaskDefinitionPortMappingA
 	}).(TaskDefinitionPortMappingAppProtocolPtrOutput)
 }
 
-func (o TaskDefinitionPortMappingAppProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionPortMappingAppProtocol] {
-	return pulumix.Output[TaskDefinitionPortMappingAppProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionPortMappingAppProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2505,12 +2438,6 @@ func (o TaskDefinitionPortMappingAppProtocolPtrOutput) ToTaskDefinitionPortMappi
 	return o
 }
 
-func (o TaskDefinitionPortMappingAppProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionPortMappingAppProtocol] {
-	return pulumix.Output[*TaskDefinitionPortMappingAppProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionPortMappingAppProtocolPtrOutput) Elem() TaskDefinitionPortMappingAppProtocolOutput {
 	return o.ApplyT(func(v *TaskDefinitionPortMappingAppProtocol) TaskDefinitionPortMappingAppProtocol {
 		if v != nil {
@@ -2535,10 +2462,12 @@ func (o TaskDefinitionPortMappingAppProtocolPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskDefinitionPortMappingAppProtocolInput is an input type that accepts TaskDefinitionPortMappingAppProtocolArgs and TaskDefinitionPortMappingAppProtocolOutput values.
-// You can construct a concrete instance of `TaskDefinitionPortMappingAppProtocolInput` via:
+// TaskDefinitionPortMappingAppProtocolInput is an input type that accepts values of the TaskDefinitionPortMappingAppProtocol enum
+// A concrete instance of `TaskDefinitionPortMappingAppProtocolInput` can be one of the following:
 //
-//	TaskDefinitionPortMappingAppProtocolArgs{...}
+//	TaskDefinitionPortMappingAppProtocolHttp
+//	TaskDefinitionPortMappingAppProtocolHttp2
+//	TaskDefinitionPortMappingAppProtocolGrpc
 type TaskDefinitionPortMappingAppProtocolInput interface {
 	pulumi.Input
 
@@ -2571,12 +2500,6 @@ func (in *taskDefinitionPortMappingAppProtocolPtr) ToTaskDefinitionPortMappingAp
 
 func (in *taskDefinitionPortMappingAppProtocolPtr) ToTaskDefinitionPortMappingAppProtocolPtrOutputWithContext(ctx context.Context) TaskDefinitionPortMappingAppProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionPortMappingAppProtocolPtrOutput)
-}
-
-func (in *taskDefinitionPortMappingAppProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionPortMappingAppProtocol] {
-	return pulumix.Output[*TaskDefinitionPortMappingAppProtocol]{
-		OutputState: in.ToTaskDefinitionPortMappingAppProtocolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
@@ -2647,12 +2570,6 @@ func (o TaskSetAwsVpcConfigurationAssignPublicIpOutput) ToTaskSetAwsVpcConfigura
 	}).(TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
-func (o TaskSetAwsVpcConfigurationAssignPublicIpOutput) ToOutput(ctx context.Context) pulumix.Output[TaskSetAwsVpcConfigurationAssignPublicIp] {
-	return pulumix.Output[TaskSetAwsVpcConfigurationAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskSetAwsVpcConfigurationAssignPublicIpOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2688,12 +2605,6 @@ func (o TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput) ToTaskSetAwsVpcConfig
 	return o
 }
 
-func (o TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskSetAwsVpcConfigurationAssignPublicIp] {
-	return pulumix.Output[*TaskSetAwsVpcConfigurationAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput) Elem() TaskSetAwsVpcConfigurationAssignPublicIpOutput {
 	return o.ApplyT(func(v *TaskSetAwsVpcConfigurationAssignPublicIp) TaskSetAwsVpcConfigurationAssignPublicIp {
 		if v != nil {
@@ -2718,10 +2629,11 @@ func (o TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskSetAwsVpcConfigurationAssignPublicIpInput is an input type that accepts TaskSetAwsVpcConfigurationAssignPublicIpArgs and TaskSetAwsVpcConfigurationAssignPublicIpOutput values.
-// You can construct a concrete instance of `TaskSetAwsVpcConfigurationAssignPublicIpInput` via:
+// TaskSetAwsVpcConfigurationAssignPublicIpInput is an input type that accepts values of the TaskSetAwsVpcConfigurationAssignPublicIp enum
+// A concrete instance of `TaskSetAwsVpcConfigurationAssignPublicIpInput` can be one of the following:
 //
-//	TaskSetAwsVpcConfigurationAssignPublicIpArgs{...}
+//	TaskSetAwsVpcConfigurationAssignPublicIpDisabled
+//	TaskSetAwsVpcConfigurationAssignPublicIpEnabled
 type TaskSetAwsVpcConfigurationAssignPublicIpInput interface {
 	pulumi.Input
 
@@ -2754,12 +2666,6 @@ func (in *taskSetAwsVpcConfigurationAssignPublicIpPtr) ToTaskSetAwsVpcConfigurat
 
 func (in *taskSetAwsVpcConfigurationAssignPublicIpPtr) ToTaskSetAwsVpcConfigurationAssignPublicIpPtrOutputWithContext(ctx context.Context) TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput)
-}
-
-func (in *taskSetAwsVpcConfigurationAssignPublicIpPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskSetAwsVpcConfigurationAssignPublicIp] {
-	return pulumix.Output[*TaskSetAwsVpcConfigurationAssignPublicIp]{
-		OutputState: in.ToTaskSetAwsVpcConfigurationAssignPublicIpPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.
@@ -2830,12 +2736,6 @@ func (o TaskSetLaunchTypeOutput) ToTaskSetLaunchTypePtrOutputWithContext(ctx con
 	}).(TaskSetLaunchTypePtrOutput)
 }
 
-func (o TaskSetLaunchTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskSetLaunchType] {
-	return pulumix.Output[TaskSetLaunchType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskSetLaunchTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2871,12 +2771,6 @@ func (o TaskSetLaunchTypePtrOutput) ToTaskSetLaunchTypePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o TaskSetLaunchTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskSetLaunchType] {
-	return pulumix.Output[*TaskSetLaunchType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskSetLaunchTypePtrOutput) Elem() TaskSetLaunchTypeOutput {
 	return o.ApplyT(func(v *TaskSetLaunchType) TaskSetLaunchType {
 		if v != nil {
@@ -2901,10 +2795,11 @@ func (o TaskSetLaunchTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskSetLaunchTypeInput is an input type that accepts TaskSetLaunchTypeArgs and TaskSetLaunchTypeOutput values.
-// You can construct a concrete instance of `TaskSetLaunchTypeInput` via:
+// TaskSetLaunchTypeInput is an input type that accepts values of the TaskSetLaunchType enum
+// A concrete instance of `TaskSetLaunchTypeInput` can be one of the following:
 //
-//	TaskSetLaunchTypeArgs{...}
+//	TaskSetLaunchTypeEc2
+//	TaskSetLaunchTypeFargate
 type TaskSetLaunchTypeInput interface {
 	pulumi.Input
 
@@ -2937,12 +2832,6 @@ func (in *taskSetLaunchTypePtr) ToTaskSetLaunchTypePtrOutput() TaskSetLaunchType
 
 func (in *taskSetLaunchTypePtr) ToTaskSetLaunchTypePtrOutputWithContext(ctx context.Context) TaskSetLaunchTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskSetLaunchTypePtrOutput)
-}
-
-func (in *taskSetLaunchTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TaskSetLaunchType] {
-	return pulumix.Output[*TaskSetLaunchType]{
-		OutputState: in.ToTaskSetLaunchTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The unit of measure for the scale value.
@@ -3012,12 +2901,6 @@ func (o TaskSetScaleUnitOutput) ToTaskSetScaleUnitPtrOutputWithContext(ctx conte
 	}).(TaskSetScaleUnitPtrOutput)
 }
 
-func (o TaskSetScaleUnitOutput) ToOutput(ctx context.Context) pulumix.Output[TaskSetScaleUnit] {
-	return pulumix.Output[TaskSetScaleUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskSetScaleUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3053,12 +2936,6 @@ func (o TaskSetScaleUnitPtrOutput) ToTaskSetScaleUnitPtrOutputWithContext(ctx co
 	return o
 }
 
-func (o TaskSetScaleUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskSetScaleUnit] {
-	return pulumix.Output[*TaskSetScaleUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskSetScaleUnitPtrOutput) Elem() TaskSetScaleUnitOutput {
 	return o.ApplyT(func(v *TaskSetScaleUnit) TaskSetScaleUnit {
 		if v != nil {
@@ -3083,10 +2960,10 @@ func (o TaskSetScaleUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskSetScaleUnitInput is an input type that accepts TaskSetScaleUnitArgs and TaskSetScaleUnitOutput values.
-// You can construct a concrete instance of `TaskSetScaleUnitInput` via:
+// TaskSetScaleUnitInput is an input type that accepts values of the TaskSetScaleUnit enum
+// A concrete instance of `TaskSetScaleUnitInput` can be one of the following:
 //
-//	TaskSetScaleUnitArgs{...}
+//	TaskSetScaleUnitPercent
 type TaskSetScaleUnitInput interface {
 	pulumi.Input
 
@@ -3121,12 +2998,6 @@ func (in *taskSetScaleUnitPtr) ToTaskSetScaleUnitPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(TaskSetScaleUnitPtrOutput)
 }
 
-func (in *taskSetScaleUnitPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskSetScaleUnit] {
-	return pulumix.Output[*TaskSetScaleUnit]{
-		OutputState: in.ToTaskSetScaleUnitPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedDrainingInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedDraining("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedDrainingPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedDraining("DISABLED"))
@@ -3134,6 +3005,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingStatusInput)(nil)).Elem(), CapacityProviderManagedScalingStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingStatusPtrInput)(nil)).Elem(), CapacityProviderManagedScalingStatus("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProvider("FARGATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderPtrInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProvider("FARGATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationAssignPublicIpInput)(nil)).Elem(), ServiceAwsVpcConfigurationAssignPublicIp("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationAssignPublicIpPtrInput)(nil)).Elem(), ServiceAwsVpcConfigurationAssignPublicIp("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerTypeInput)(nil)).Elem(), ServiceDeploymentControllerType("CODE_DEPLOY"))
@@ -3168,6 +3041,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingStatusOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingStatusPtrOutput{})
+	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderOutput{})
+	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationAssignPublicIpOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerTypeOutput{})

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This schema is for testing purpose only.
@@ -70,12 +69,6 @@ func (o LookupRobotApplicationResultOutput) ToLookupRobotApplicationResultOutput
 
 func (o LookupRobotApplicationResultOutput) ToLookupRobotApplicationResultOutputWithContext(ctx context.Context) LookupRobotApplicationResultOutput {
 	return o
-}
-
-func (o LookupRobotApplicationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRobotApplicationResult] {
-	return pulumix.Output[LookupRobotApplicationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRobotApplicationResultOutput) Arn() pulumi.StringPtrOutput {

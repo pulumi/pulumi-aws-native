@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Must be RuleName
@@ -80,12 +79,6 @@ func (o DestinationExpressionTypeOutput) ToDestinationExpressionTypePtrOutputWit
 	}).(DestinationExpressionTypePtrOutput)
 }
 
-func (o DestinationExpressionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DestinationExpressionType] {
-	return pulumix.Output[DestinationExpressionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DestinationExpressionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +114,6 @@ func (o DestinationExpressionTypePtrOutput) ToDestinationExpressionTypePtrOutput
 	return o
 }
 
-func (o DestinationExpressionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DestinationExpressionType] {
-	return pulumix.Output[*DestinationExpressionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DestinationExpressionTypePtrOutput) Elem() DestinationExpressionTypeOutput {
 	return o.ApplyT(func(v *DestinationExpressionType) DestinationExpressionType {
 		if v != nil {
@@ -151,10 +138,12 @@ func (o DestinationExpressionTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DestinationExpressionTypeInput is an input type that accepts DestinationExpressionTypeArgs and DestinationExpressionTypeOutput values.
-// You can construct a concrete instance of `DestinationExpressionTypeInput` via:
+// DestinationExpressionTypeInput is an input type that accepts values of the DestinationExpressionType enum
+// A concrete instance of `DestinationExpressionTypeInput` can be one of the following:
 //
-//	DestinationExpressionTypeArgs{...}
+//	DestinationExpressionTypeRuleName
+//	DestinationExpressionTypeMqttTopic
+//	DestinationExpressionTypeSnsTopic
 type DestinationExpressionTypeInput interface {
 	pulumi.Input
 
@@ -187,12 +176,6 @@ func (in *destinationExpressionTypePtr) ToDestinationExpressionTypePtrOutput() D
 
 func (in *destinationExpressionTypePtr) ToDestinationExpressionTypePtrOutputWithContext(ctx context.Context) DestinationExpressionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DestinationExpressionTypePtrOutput)
-}
-
-func (in *destinationExpressionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DestinationExpressionType] {
-	return pulumix.Output[*DestinationExpressionType]{
-		OutputState: in.ToDestinationExpressionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type NetworkAnalyzerConfigurationLogLevel string
@@ -263,12 +246,6 @@ func (o NetworkAnalyzerConfigurationLogLevelOutput) ToNetworkAnalyzerConfigurati
 	}).(NetworkAnalyzerConfigurationLogLevelPtrOutput)
 }
 
-func (o NetworkAnalyzerConfigurationLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkAnalyzerConfigurationLogLevel] {
-	return pulumix.Output[NetworkAnalyzerConfigurationLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkAnalyzerConfigurationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -304,12 +281,6 @@ func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) ToNetworkAnalyzerConfigur
 	return o
 }
 
-func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAnalyzerConfigurationLogLevel] {
-	return pulumix.Output[*NetworkAnalyzerConfigurationLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) Elem() NetworkAnalyzerConfigurationLogLevelOutput {
 	return o.ApplyT(func(v *NetworkAnalyzerConfigurationLogLevel) NetworkAnalyzerConfigurationLogLevel {
 		if v != nil {
@@ -334,10 +305,12 @@ func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkAnalyzerConfigurationLogLevelInput is an input type that accepts NetworkAnalyzerConfigurationLogLevelArgs and NetworkAnalyzerConfigurationLogLevelOutput values.
-// You can construct a concrete instance of `NetworkAnalyzerConfigurationLogLevelInput` via:
+// NetworkAnalyzerConfigurationLogLevelInput is an input type that accepts values of the NetworkAnalyzerConfigurationLogLevel enum
+// A concrete instance of `NetworkAnalyzerConfigurationLogLevelInput` can be one of the following:
 //
-//	NetworkAnalyzerConfigurationLogLevelArgs{...}
+//	NetworkAnalyzerConfigurationLogLevelInfo
+//	NetworkAnalyzerConfigurationLogLevelError
+//	NetworkAnalyzerConfigurationLogLevelDisabled
 type NetworkAnalyzerConfigurationLogLevelInput interface {
 	pulumi.Input
 
@@ -370,12 +343,6 @@ func (in *networkAnalyzerConfigurationLogLevelPtr) ToNetworkAnalyzerConfiguratio
 
 func (in *networkAnalyzerConfigurationLogLevelPtr) ToNetworkAnalyzerConfigurationLogLevelPtrOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkAnalyzerConfigurationLogLevelPtrOutput)
-}
-
-func (in *networkAnalyzerConfigurationLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*NetworkAnalyzerConfigurationLogLevel] {
-	return pulumix.Output[*NetworkAnalyzerConfigurationLogLevel]{
-		OutputState: in.ToNetworkAnalyzerConfigurationLogLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type NetworkAnalyzerConfigurationWirelessDeviceFrameInfo string
@@ -445,12 +412,6 @@ func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToNetworkAnal
 	}).(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput)
 }
 
-func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkAnalyzerConfigurationWirelessDeviceFrameInfo] {
-	return pulumix.Output[NetworkAnalyzerConfigurationWirelessDeviceFrameInfo]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -486,12 +447,6 @@ func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) ToNetworkA
 	return o
 }
 
-func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAnalyzerConfigurationWirelessDeviceFrameInfo] {
-	return pulumix.Output[*NetworkAnalyzerConfigurationWirelessDeviceFrameInfo]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) Elem() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput {
 	return o.ApplyT(func(v *NetworkAnalyzerConfigurationWirelessDeviceFrameInfo) NetworkAnalyzerConfigurationWirelessDeviceFrameInfo {
 		if v != nil {
@@ -516,10 +471,11 @@ func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkAnalyzerConfigurationWirelessDeviceFrameInfoInput is an input type that accepts NetworkAnalyzerConfigurationWirelessDeviceFrameInfoArgs and NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput values.
-// You can construct a concrete instance of `NetworkAnalyzerConfigurationWirelessDeviceFrameInfoInput` via:
+// NetworkAnalyzerConfigurationWirelessDeviceFrameInfoInput is an input type that accepts values of the NetworkAnalyzerConfigurationWirelessDeviceFrameInfo enum
+// A concrete instance of `NetworkAnalyzerConfigurationWirelessDeviceFrameInfoInput` can be one of the following:
 //
-//	NetworkAnalyzerConfigurationWirelessDeviceFrameInfoArgs{...}
+//	NetworkAnalyzerConfigurationWirelessDeviceFrameInfoEnabled
+//	NetworkAnalyzerConfigurationWirelessDeviceFrameInfoDisabled
 type NetworkAnalyzerConfigurationWirelessDeviceFrameInfoInput interface {
 	pulumi.Input
 
@@ -552,12 +508,6 @@ func (in *networkAnalyzerConfigurationWirelessDeviceFrameInfoPtr) ToNetworkAnaly
 
 func (in *networkAnalyzerConfigurationWirelessDeviceFrameInfoPtr) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput)
-}
-
-func (in *networkAnalyzerConfigurationWirelessDeviceFrameInfoPtr) ToOutput(ctx context.Context) pulumix.Output[*NetworkAnalyzerConfigurationWirelessDeviceFrameInfo] {
-	return pulumix.Output[*NetworkAnalyzerConfigurationWirelessDeviceFrameInfo]{
-		OutputState: in.ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The partner type
@@ -627,12 +577,6 @@ func (o PartnerAccountPartnerTypeOutput) ToPartnerAccountPartnerTypePtrOutputWit
 	}).(PartnerAccountPartnerTypePtrOutput)
 }
 
-func (o PartnerAccountPartnerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PartnerAccountPartnerType] {
-	return pulumix.Output[PartnerAccountPartnerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PartnerAccountPartnerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -668,12 +612,6 @@ func (o PartnerAccountPartnerTypePtrOutput) ToPartnerAccountPartnerTypePtrOutput
 	return o
 }
 
-func (o PartnerAccountPartnerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PartnerAccountPartnerType] {
-	return pulumix.Output[*PartnerAccountPartnerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PartnerAccountPartnerTypePtrOutput) Elem() PartnerAccountPartnerTypeOutput {
 	return o.ApplyT(func(v *PartnerAccountPartnerType) PartnerAccountPartnerType {
 		if v != nil {
@@ -698,10 +636,10 @@ func (o PartnerAccountPartnerTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// PartnerAccountPartnerTypeInput is an input type that accepts PartnerAccountPartnerTypeArgs and PartnerAccountPartnerTypeOutput values.
-// You can construct a concrete instance of `PartnerAccountPartnerTypeInput` via:
+// PartnerAccountPartnerTypeInput is an input type that accepts values of the PartnerAccountPartnerType enum
+// A concrete instance of `PartnerAccountPartnerTypeInput` can be one of the following:
 //
-//	PartnerAccountPartnerTypeArgs{...}
+//	PartnerAccountPartnerTypeSidewalk
 type PartnerAccountPartnerTypeInput interface {
 	pulumi.Input
 
@@ -734,12 +672,6 @@ func (in *partnerAccountPartnerTypePtr) ToPartnerAccountPartnerTypePtrOutput() P
 
 func (in *partnerAccountPartnerTypePtr) ToPartnerAccountPartnerTypePtrOutputWithContext(ctx context.Context) PartnerAccountPartnerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PartnerAccountPartnerTypePtrOutput)
-}
-
-func (in *partnerAccountPartnerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PartnerAccountPartnerType] {
-	return pulumix.Output[*PartnerAccountPartnerType]{
-		OutputState: in.ToPartnerAccountPartnerTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A filter to list only the wireless gateway task definitions that use this task definition type
@@ -809,12 +741,6 @@ func (o TaskDefinitionTypeOutput) ToTaskDefinitionTypePtrOutputWithContext(ctx c
 	}).(TaskDefinitionTypePtrOutput)
 }
 
-func (o TaskDefinitionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionType] {
-	return pulumix.Output[TaskDefinitionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -850,12 +776,6 @@ func (o TaskDefinitionTypePtrOutput) ToTaskDefinitionTypePtrOutputWithContext(ct
 	return o
 }
 
-func (o TaskDefinitionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionType] {
-	return pulumix.Output[*TaskDefinitionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionTypePtrOutput) Elem() TaskDefinitionTypeOutput {
 	return o.ApplyT(func(v *TaskDefinitionType) TaskDefinitionType {
 		if v != nil {
@@ -880,10 +800,10 @@ func (o TaskDefinitionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskDefinitionTypeInput is an input type that accepts TaskDefinitionTypeArgs and TaskDefinitionTypeOutput values.
-// You can construct a concrete instance of `TaskDefinitionTypeInput` via:
+// TaskDefinitionTypeInput is an input type that accepts values of the TaskDefinitionType enum
+// A concrete instance of `TaskDefinitionTypeInput` can be one of the following:
 //
-//	TaskDefinitionTypeArgs{...}
+//	TaskDefinitionTypeUpdate
 type TaskDefinitionTypeInput interface {
 	pulumi.Input
 
@@ -916,12 +836,6 @@ func (in *taskDefinitionTypePtr) ToTaskDefinitionTypePtrOutput() TaskDefinitionT
 
 func (in *taskDefinitionTypePtr) ToTaskDefinitionTypePtrOutputWithContext(ctx context.Context) TaskDefinitionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionTypePtrOutput)
-}
-
-func (in *taskDefinitionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionType] {
-	return pulumix.Output[*TaskDefinitionType]{
-		OutputState: in.ToTaskDefinitionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Status for import task
@@ -960,12 +874,6 @@ func (o WirelessDeviceImportTaskStatusOutput) ToWirelessDeviceImportTaskStatusPt
 	}).(WirelessDeviceImportTaskStatusPtrOutput)
 }
 
-func (o WirelessDeviceImportTaskStatusOutput) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceImportTaskStatus] {
-	return pulumix.Output[WirelessDeviceImportTaskStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WirelessDeviceImportTaskStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -999,12 +907,6 @@ func (o WirelessDeviceImportTaskStatusPtrOutput) ToWirelessDeviceImportTaskStatu
 
 func (o WirelessDeviceImportTaskStatusPtrOutput) ToWirelessDeviceImportTaskStatusPtrOutputWithContext(ctx context.Context) WirelessDeviceImportTaskStatusPtrOutput {
 	return o
-}
-
-func (o WirelessDeviceImportTaskStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceImportTaskStatus] {
-	return pulumix.Output[*WirelessDeviceImportTaskStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WirelessDeviceImportTaskStatusPtrOutput) Elem() WirelessDeviceImportTaskStatusOutput {
@@ -1099,12 +1001,6 @@ func (o WirelessDeviceTypeOutput) ToWirelessDeviceTypePtrOutputWithContext(ctx c
 	}).(WirelessDeviceTypePtrOutput)
 }
 
-func (o WirelessDeviceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceType] {
-	return pulumix.Output[WirelessDeviceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WirelessDeviceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1140,12 +1036,6 @@ func (o WirelessDeviceTypePtrOutput) ToWirelessDeviceTypePtrOutputWithContext(ct
 	return o
 }
 
-func (o WirelessDeviceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceType] {
-	return pulumix.Output[*WirelessDeviceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WirelessDeviceTypePtrOutput) Elem() WirelessDeviceTypeOutput {
 	return o.ApplyT(func(v *WirelessDeviceType) WirelessDeviceType {
 		if v != nil {
@@ -1170,10 +1060,11 @@ func (o WirelessDeviceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// WirelessDeviceTypeInput is an input type that accepts WirelessDeviceTypeArgs and WirelessDeviceTypeOutput values.
-// You can construct a concrete instance of `WirelessDeviceTypeInput` via:
+// WirelessDeviceTypeInput is an input type that accepts values of the WirelessDeviceType enum
+// A concrete instance of `WirelessDeviceTypeInput` can be one of the following:
 //
-//	WirelessDeviceTypeArgs{...}
+//	WirelessDeviceTypeSidewalk
+//	WirelessDeviceTypeLoRaWan
 type WirelessDeviceTypeInput interface {
 	pulumi.Input
 
@@ -1206,12 +1097,6 @@ func (in *wirelessDeviceTypePtr) ToWirelessDeviceTypePtrOutput() WirelessDeviceT
 
 func (in *wirelessDeviceTypePtr) ToWirelessDeviceTypePtrOutputWithContext(ctx context.Context) WirelessDeviceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WirelessDeviceTypePtrOutput)
-}
-
-func (in *wirelessDeviceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceType] {
-	return pulumix.Output[*WirelessDeviceType]{
-		OutputState: in.ToWirelessDeviceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

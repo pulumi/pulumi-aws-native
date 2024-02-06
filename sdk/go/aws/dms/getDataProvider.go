@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DMS::DataProvider
@@ -79,12 +78,6 @@ func (o LookupDataProviderResultOutput) ToLookupDataProviderResultOutput() Looku
 
 func (o LookupDataProviderResultOutput) ToLookupDataProviderResultOutputWithContext(ctx context.Context) LookupDataProviderResultOutput {
 	return o
-}
-
-func (o LookupDataProviderResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataProviderResult] {
-	return pulumix.Output[LookupDataProviderResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The data provider ARN.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Neptune::DBParameterGroup
@@ -120,12 +119,6 @@ func (i *DbParameterGroup) ToDbParameterGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DbParameterGroupOutput)
 }
 
-func (i *DbParameterGroup) ToOutput(ctx context.Context) pulumix.Output[*DbParameterGroup] {
-	return pulumix.Output[*DbParameterGroup]{
-		OutputState: i.ToDbParameterGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DbParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (DbParameterGroupOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o DbParameterGroupOutput) ToDbParameterGroupOutput() DbParameterGroupOutpu
 
 func (o DbParameterGroupOutput) ToDbParameterGroupOutputWithContext(ctx context.Context) DbParameterGroupOutput {
 	return o
-}
-
-func (o DbParameterGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DbParameterGroup] {
-	return pulumix.Output[*DbParameterGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DbParameterGroupOutput) Description() pulumi.StringOutput {

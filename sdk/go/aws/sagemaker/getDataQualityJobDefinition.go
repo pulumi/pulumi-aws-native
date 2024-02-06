@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::DataQualityJobDefinition
@@ -69,12 +68,6 @@ func (o LookupDataQualityJobDefinitionResultOutput) ToLookupDataQualityJobDefini
 
 func (o LookupDataQualityJobDefinitionResultOutput) ToLookupDataQualityJobDefinitionResultOutputWithContext(ctx context.Context) LookupDataQualityJobDefinitionResultOutput {
 	return o
-}
-
-func (o LookupDataQualityJobDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataQualityJobDefinitionResult] {
-	return pulumix.Output[LookupDataQualityJobDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time at which the job definition was created.

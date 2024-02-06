@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A channel receives events from a specific source (such as an on-premises storage solution or application, or a partner event data source), and delivers the events to one or more event data stores. You use channels to ingest events into CloudTrail from sources outside AWS.
@@ -67,12 +66,6 @@ func (o LookupChannelResultOutput) ToLookupChannelResultOutput() LookupChannelRe
 
 func (o LookupChannelResultOutput) ToLookupChannelResultOutputWithContext(ctx context.Context) LookupChannelResultOutput {
 	return o
-}
-
-func (o LookupChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupChannelResult] {
-	return pulumix.Output[LookupChannelResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupChannelResultOutput) ChannelArn() pulumi.StringPtrOutput {

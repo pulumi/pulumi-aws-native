@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::DataZone::Environment Resource Type
@@ -168,12 +167,6 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOutput)
 }
 
-func (i *Environment) ToOutput(ctx context.Context) pulumix.Output[*Environment] {
-	return pulumix.Output[*Environment]{
-		OutputState: i.ToEnvironmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentOutput) ElementType() reflect.Type {
@@ -186,12 +179,6 @@ func (o EnvironmentOutput) ToEnvironmentOutput() EnvironmentOutput {
 
 func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) EnvironmentOutput {
 	return o
-}
-
-func (o EnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*Environment] {
-	return pulumix.Output[*Environment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AWS account in which the Amazon DataZone environment is created.

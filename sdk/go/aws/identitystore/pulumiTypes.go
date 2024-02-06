@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i GroupMembershipMemberIdArgs) ToGroupMembershipMemberIdOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMembershipMemberIdOutput)
 }
 
-func (i GroupMembershipMemberIdArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMembershipMemberId] {
-	return pulumix.Output[GroupMembershipMemberId]{
-		OutputState: i.ToGroupMembershipMemberIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An object containing the identifier of a group member.
 type GroupMembershipMemberIdOutput struct{ *pulumi.OutputState }
 
@@ -68,12 +61,6 @@ func (o GroupMembershipMemberIdOutput) ToGroupMembershipMemberIdOutput() GroupMe
 
 func (o GroupMembershipMemberIdOutput) ToGroupMembershipMemberIdOutputWithContext(ctx context.Context) GroupMembershipMemberIdOutput {
 	return o
-}
-
-func (o GroupMembershipMemberIdOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMembershipMemberId] {
-	return pulumix.Output[GroupMembershipMemberId]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The identifier for a user in the identity store.

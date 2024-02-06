@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Describes a route for a local gateway route table.
@@ -77,12 +76,6 @@ func (o LookupLocalGatewayRouteResultOutput) ToLookupLocalGatewayRouteResultOutp
 
 func (o LookupLocalGatewayRouteResultOutput) ToLookupLocalGatewayRouteResultOutputWithContext(ctx context.Context) LookupLocalGatewayRouteResultOutput {
 	return o
-}
-
-func (o LookupLocalGatewayRouteResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocalGatewayRouteResult] {
-	return pulumix.Output[LookupLocalGatewayRouteResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the virtual interface group.

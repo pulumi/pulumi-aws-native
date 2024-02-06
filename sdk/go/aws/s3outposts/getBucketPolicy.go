@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type Definition for AWS::S3Outposts::BucketPolicy
@@ -67,12 +66,6 @@ func (o LookupBucketPolicyResultOutput) ToLookupBucketPolicyResultOutput() Looku
 
 func (o LookupBucketPolicyResultOutput) ToLookupBucketPolicyResultOutputWithContext(ctx context.Context) LookupBucketPolicyResultOutput {
 	return o
-}
-
-func (o LookupBucketPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBucketPolicyResult] {
-	return pulumix.Output[LookupBucketPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A policy document containing permissions to add to the specified bucket.

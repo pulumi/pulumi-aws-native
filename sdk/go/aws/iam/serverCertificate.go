@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::ServerCertificate
@@ -114,12 +113,6 @@ func (i *ServerCertificate) ToServerCertificateOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateOutput)
 }
 
-func (i *ServerCertificate) ToOutput(ctx context.Context) pulumix.Output[*ServerCertificate] {
-	return pulumix.Output[*ServerCertificate]{
-		OutputState: i.ToServerCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerCertificateOutput struct{ *pulumi.OutputState }
 
 func (ServerCertificateOutput) ElementType() reflect.Type {
@@ -132,12 +125,6 @@ func (o ServerCertificateOutput) ToServerCertificateOutput() ServerCertificateOu
 
 func (o ServerCertificateOutput) ToServerCertificateOutputWithContext(ctx context.Context) ServerCertificateOutput {
 	return o
-}
-
-func (o ServerCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerCertificate] {
-	return pulumix.Output[*ServerCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the server certificate

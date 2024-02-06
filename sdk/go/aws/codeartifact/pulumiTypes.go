@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i DomainTagArgs) ToDomainTagOutputWithContext(ctx context.Context) DomainT
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTagOutput)
 }
 
-func (i DomainTagArgs) ToOutput(ctx context.Context) pulumix.Output[DomainTag] {
-	return pulumix.Output[DomainTag]{
-		OutputState: i.ToDomainTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DomainTagArrayInput is an input type that accepts DomainTagArray and DomainTagArrayOutput values.
 // You can construct a concrete instance of `DomainTagArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i DomainTagArray) ToDomainTagArrayOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTagArrayOutput)
 }
 
-func (i DomainTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainTag] {
-	return pulumix.Output[[]DomainTag]{
-		OutputState: i.ToDomainTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type DomainTagOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o DomainTagOutput) ToDomainTagOutput() DomainTagOutput {
 
 func (o DomainTagOutput) ToDomainTagOutputWithContext(ctx context.Context) DomainTagOutput {
 	return o
-}
-
-func (o DomainTagOutput) ToOutput(ctx context.Context) pulumix.Output[DomainTag] {
-	return pulumix.Output[DomainTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -133,12 +114,6 @@ func (o DomainTagArrayOutput) ToDomainTagArrayOutput() DomainTagArrayOutput {
 
 func (o DomainTagArrayOutput) ToDomainTagArrayOutputWithContext(ctx context.Context) DomainTagArrayOutput {
 	return o
-}
-
-func (o DomainTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainTag] {
-	return pulumix.Output[[]DomainTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {
@@ -186,12 +161,6 @@ func (i RepositoryTagArgs) ToRepositoryTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagOutput)
 }
 
-func (i RepositoryTagArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryTag] {
-	return pulumix.Output[RepositoryTag]{
-		OutputState: i.ToRepositoryTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryTagArrayInput is an input type that accepts RepositoryTagArray and RepositoryTagArrayOutput values.
 // You can construct a concrete instance of `RepositoryTagArrayInput` via:
 //
@@ -217,12 +186,6 @@ func (i RepositoryTagArray) ToRepositoryTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagArrayOutput)
 }
 
-func (i RepositoryTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryTag] {
-	return pulumix.Output[[]RepositoryTag]{
-		OutputState: i.ToRepositoryTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type RepositoryTagOutput struct{ *pulumi.OutputState }
 
@@ -236,12 +199,6 @@ func (o RepositoryTagOutput) ToRepositoryTagOutput() RepositoryTagOutput {
 
 func (o RepositoryTagOutput) ToRepositoryTagOutputWithContext(ctx context.Context) RepositoryTagOutput {
 	return o
-}
-
-func (o RepositoryTagOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryTag] {
-	return pulumix.Output[RepositoryTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -266,12 +223,6 @@ func (o RepositoryTagArrayOutput) ToRepositoryTagArrayOutput() RepositoryTagArra
 
 func (o RepositoryTagArrayOutput) ToRepositoryTagArrayOutputWithContext(ctx context.Context) RepositoryTagArrayOutput {
 	return o
-}
-
-func (o RepositoryTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryTag] {
-	return pulumix.Output[[]RepositoryTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryTagArrayOutput) Index(i pulumi.IntInput) RepositoryTagOutput {

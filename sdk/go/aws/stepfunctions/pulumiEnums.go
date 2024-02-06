@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The type of deployment to perform.
@@ -80,12 +79,6 @@ func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToStateMachineAliasDepl
 	}).(StateMachineAliasDeploymentPreferenceTypePtrOutput)
 }
 
-func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineAliasDeploymentPreferenceType] {
-	return pulumix.Output[StateMachineAliasDeploymentPreferenceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +114,6 @@ func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) ToStateMachineAliasD
 	return o
 }
 
-func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineAliasDeploymentPreferenceType] {
-	return pulumix.Output[*StateMachineAliasDeploymentPreferenceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) Elem() StateMachineAliasDeploymentPreferenceTypeOutput {
 	return o.ApplyT(func(v *StateMachineAliasDeploymentPreferenceType) StateMachineAliasDeploymentPreferenceType {
 		if v != nil {
@@ -151,10 +138,12 @@ func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// StateMachineAliasDeploymentPreferenceTypeInput is an input type that accepts StateMachineAliasDeploymentPreferenceTypeArgs and StateMachineAliasDeploymentPreferenceTypeOutput values.
-// You can construct a concrete instance of `StateMachineAliasDeploymentPreferenceTypeInput` via:
+// StateMachineAliasDeploymentPreferenceTypeInput is an input type that accepts values of the StateMachineAliasDeploymentPreferenceType enum
+// A concrete instance of `StateMachineAliasDeploymentPreferenceTypeInput` can be one of the following:
 //
-//	StateMachineAliasDeploymentPreferenceTypeArgs{...}
+//	StateMachineAliasDeploymentPreferenceTypeLinear
+//	StateMachineAliasDeploymentPreferenceTypeAllAtOnce
+//	StateMachineAliasDeploymentPreferenceTypeCanary
 type StateMachineAliasDeploymentPreferenceTypeInput interface {
 	pulumi.Input
 
@@ -187,12 +176,6 @@ func (in *stateMachineAliasDeploymentPreferenceTypePtr) ToStateMachineAliasDeplo
 
 func (in *stateMachineAliasDeploymentPreferenceTypePtr) ToStateMachineAliasDeploymentPreferenceTypePtrOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferenceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StateMachineAliasDeploymentPreferenceTypePtrOutput)
-}
-
-func (in *stateMachineAliasDeploymentPreferenceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*StateMachineAliasDeploymentPreferenceType] {
-	return pulumix.Output[*StateMachineAliasDeploymentPreferenceType]{
-		OutputState: in.ToStateMachineAliasDeploymentPreferenceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type StateMachineLoggingConfigurationLevel string
@@ -264,12 +247,6 @@ func (o StateMachineLoggingConfigurationLevelOutput) ToStateMachineLoggingConfig
 	}).(StateMachineLoggingConfigurationLevelPtrOutput)
 }
 
-func (o StateMachineLoggingConfigurationLevelOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineLoggingConfigurationLevel] {
-	return pulumix.Output[StateMachineLoggingConfigurationLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StateMachineLoggingConfigurationLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -305,12 +282,6 @@ func (o StateMachineLoggingConfigurationLevelPtrOutput) ToStateMachineLoggingCon
 	return o
 }
 
-func (o StateMachineLoggingConfigurationLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineLoggingConfigurationLevel] {
-	return pulumix.Output[*StateMachineLoggingConfigurationLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StateMachineLoggingConfigurationLevelPtrOutput) Elem() StateMachineLoggingConfigurationLevelOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfigurationLevel) StateMachineLoggingConfigurationLevel {
 		if v != nil {
@@ -335,10 +306,13 @@ func (o StateMachineLoggingConfigurationLevelPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// StateMachineLoggingConfigurationLevelInput is an input type that accepts StateMachineLoggingConfigurationLevelArgs and StateMachineLoggingConfigurationLevelOutput values.
-// You can construct a concrete instance of `StateMachineLoggingConfigurationLevelInput` via:
+// StateMachineLoggingConfigurationLevelInput is an input type that accepts values of the StateMachineLoggingConfigurationLevel enum
+// A concrete instance of `StateMachineLoggingConfigurationLevelInput` can be one of the following:
 //
-//	StateMachineLoggingConfigurationLevelArgs{...}
+//	StateMachineLoggingConfigurationLevelAll
+//	StateMachineLoggingConfigurationLevelError
+//	StateMachineLoggingConfigurationLevelFatal
+//	StateMachineLoggingConfigurationLevelOff
 type StateMachineLoggingConfigurationLevelInput interface {
 	pulumi.Input
 
@@ -371,12 +345,6 @@ func (in *stateMachineLoggingConfigurationLevelPtr) ToStateMachineLoggingConfigu
 
 func (in *stateMachineLoggingConfigurationLevelPtr) ToStateMachineLoggingConfigurationLevelPtrOutputWithContext(ctx context.Context) StateMachineLoggingConfigurationLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StateMachineLoggingConfigurationLevelPtrOutput)
-}
-
-func (in *stateMachineLoggingConfigurationLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*StateMachineLoggingConfigurationLevel] {
-	return pulumix.Output[*StateMachineLoggingConfigurationLevel]{
-		OutputState: in.ToStateMachineLoggingConfigurationLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type StateMachineType string
@@ -446,12 +414,6 @@ func (o StateMachineTypeOutput) ToStateMachineTypePtrOutputWithContext(ctx conte
 	}).(StateMachineTypePtrOutput)
 }
 
-func (o StateMachineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineType] {
-	return pulumix.Output[StateMachineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StateMachineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -487,12 +449,6 @@ func (o StateMachineTypePtrOutput) ToStateMachineTypePtrOutputWithContext(ctx co
 	return o
 }
 
-func (o StateMachineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineType] {
-	return pulumix.Output[*StateMachineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StateMachineTypePtrOutput) Elem() StateMachineTypeOutput {
 	return o.ApplyT(func(v *StateMachineType) StateMachineType {
 		if v != nil {
@@ -517,10 +473,11 @@ func (o StateMachineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// StateMachineTypeInput is an input type that accepts StateMachineTypeArgs and StateMachineTypeOutput values.
-// You can construct a concrete instance of `StateMachineTypeInput` via:
+// StateMachineTypeInput is an input type that accepts values of the StateMachineType enum
+// A concrete instance of `StateMachineTypeInput` can be one of the following:
 //
-//	StateMachineTypeArgs{...}
+//	StateMachineTypeStandard
+//	StateMachineTypeExpress
 type StateMachineTypeInput interface {
 	pulumi.Input
 
@@ -553,12 +510,6 @@ func (in *stateMachineTypePtr) ToStateMachineTypePtrOutput() StateMachineTypePtr
 
 func (in *stateMachineTypePtr) ToStateMachineTypePtrOutputWithContext(ctx context.Context) StateMachineTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StateMachineTypePtrOutput)
-}
-
-func (in *stateMachineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*StateMachineType] {
-	return pulumix.Output[*StateMachineType]{
-		OutputState: in.ToStateMachineTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

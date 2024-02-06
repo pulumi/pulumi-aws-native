@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppMesh::VirtualService
@@ -69,12 +68,6 @@ func (o LookupVirtualServiceResultOutput) ToLookupVirtualServiceResultOutput() L
 
 func (o LookupVirtualServiceResultOutput) ToLookupVirtualServiceResultOutputWithContext(ctx context.Context) LookupVirtualServiceResultOutput {
 	return o
-}
-
-func (o LookupVirtualServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualServiceResult] {
-	return pulumix.Output[LookupVirtualServiceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVirtualServiceResultOutput) Arn() pulumi.StringPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i AccessPolicyIamRoleArgs) ToAccessPolicyIamRoleOutput() AccessPolicyIamRo
 
 func (i AccessPolicyIamRoleArgs) ToAccessPolicyIamRoleOutputWithContext(ctx context.Context) AccessPolicyIamRoleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIamRoleOutput)
-}
-
-func (i AccessPolicyIamRoleArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyIamRole] {
-	return pulumix.Output[AccessPolicyIamRole]{
-		OutputState: i.ToAccessPolicyIamRoleOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AccessPolicyIamRoleArgs) ToAccessPolicyIamRolePtrOutput() AccessPolicyIamRolePtrOutput {
@@ -96,12 +89,6 @@ func (i *accessPolicyIamRolePtrType) ToAccessPolicyIamRolePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIamRolePtrOutput)
 }
 
-func (i *accessPolicyIamRolePtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyIamRole] {
-	return pulumix.Output[*AccessPolicyIamRole]{
-		OutputState: i.ToAccessPolicyIamRolePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains information for an IAM role identity in an access policy.
 type AccessPolicyIamRoleOutput struct{ *pulumi.OutputState }
 
@@ -127,12 +114,6 @@ func (o AccessPolicyIamRoleOutput) ToAccessPolicyIamRolePtrOutputWithContext(ctx
 	}).(AccessPolicyIamRolePtrOutput)
 }
 
-func (o AccessPolicyIamRoleOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyIamRole] {
-	return pulumix.Output[AccessPolicyIamRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The ARN of the IAM role.
 func (o AccessPolicyIamRoleOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyIamRole) *string { return v.Arn }).(pulumi.StringPtrOutput)
@@ -150,12 +131,6 @@ func (o AccessPolicyIamRolePtrOutput) ToAccessPolicyIamRolePtrOutput() AccessPol
 
 func (o AccessPolicyIamRolePtrOutput) ToAccessPolicyIamRolePtrOutputWithContext(ctx context.Context) AccessPolicyIamRolePtrOutput {
 	return o
-}
-
-func (o AccessPolicyIamRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyIamRole] {
-	return pulumix.Output[*AccessPolicyIamRole]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPolicyIamRolePtrOutput) Elem() AccessPolicyIamRoleOutput {
@@ -213,12 +188,6 @@ func (i AccessPolicyIamUserArgs) ToAccessPolicyIamUserOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIamUserOutput)
 }
 
-func (i AccessPolicyIamUserArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyIamUser] {
-	return pulumix.Output[AccessPolicyIamUser]{
-		OutputState: i.ToAccessPolicyIamUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccessPolicyIamUserArgs) ToAccessPolicyIamUserPtrOutput() AccessPolicyIamUserPtrOutput {
 	return i.ToAccessPolicyIamUserPtrOutputWithContext(context.Background())
 }
@@ -260,12 +229,6 @@ func (i *accessPolicyIamUserPtrType) ToAccessPolicyIamUserPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIamUserPtrOutput)
 }
 
-func (i *accessPolicyIamUserPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyIamUser] {
-	return pulumix.Output[*AccessPolicyIamUser]{
-		OutputState: i.ToAccessPolicyIamUserPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains information for an IAM user identity in an access policy.
 type AccessPolicyIamUserOutput struct{ *pulumi.OutputState }
 
@@ -291,12 +254,6 @@ func (o AccessPolicyIamUserOutput) ToAccessPolicyIamUserPtrOutputWithContext(ctx
 	}).(AccessPolicyIamUserPtrOutput)
 }
 
-func (o AccessPolicyIamUserOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyIamUser] {
-	return pulumix.Output[AccessPolicyIamUser]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The ARN of the IAM user.
 func (o AccessPolicyIamUserOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyIamUser) *string { return v.Arn }).(pulumi.StringPtrOutput)
@@ -314,12 +271,6 @@ func (o AccessPolicyIamUserPtrOutput) ToAccessPolicyIamUserPtrOutput() AccessPol
 
 func (o AccessPolicyIamUserPtrOutput) ToAccessPolicyIamUserPtrOutputWithContext(ctx context.Context) AccessPolicyIamUserPtrOutput {
 	return o
-}
-
-func (o AccessPolicyIamUserPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyIamUser] {
-	return pulumix.Output[*AccessPolicyIamUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPolicyIamUserPtrOutput) Elem() AccessPolicyIamUserOutput {
@@ -379,12 +330,6 @@ func (i AccessPolicyIdentityArgs) ToAccessPolicyIdentityOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIdentityOutput)
 }
 
-func (i AccessPolicyIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyIdentity] {
-	return pulumix.Output[AccessPolicyIdentity]{
-		OutputState: i.ToAccessPolicyIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
 type AccessPolicyIdentityOutput struct{ *pulumi.OutputState }
 
@@ -398,12 +343,6 @@ func (o AccessPolicyIdentityOutput) ToAccessPolicyIdentityOutput() AccessPolicyI
 
 func (o AccessPolicyIdentityOutput) ToAccessPolicyIdentityOutputWithContext(ctx context.Context) AccessPolicyIdentityOutput {
 	return o
-}
-
-func (o AccessPolicyIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyIdentity] {
-	return pulumix.Output[AccessPolicyIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPolicyIdentityOutput) IamRole() AccessPolicyIamRolePtrOutput {
@@ -430,12 +369,6 @@ func (o AccessPolicyIdentityPtrOutput) ToAccessPolicyIdentityPtrOutput() AccessP
 
 func (o AccessPolicyIdentityPtrOutput) ToAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyIdentityPtrOutput {
 	return o
-}
-
-func (o AccessPolicyIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyIdentity] {
-	return pulumix.Output[*AccessPolicyIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPolicyIdentityPtrOutput) Elem() AccessPolicyIdentityOutput {
@@ -510,12 +443,6 @@ func (i AccessPolicyPortalArgs) ToAccessPolicyPortalOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyPortalOutput)
 }
 
-func (i AccessPolicyPortalArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyPortal] {
-	return pulumix.Output[AccessPolicyPortal]{
-		OutputState: i.ToAccessPolicyPortalOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccessPolicyPortalArgs) ToAccessPolicyPortalPtrOutput() AccessPolicyPortalPtrOutput {
 	return i.ToAccessPolicyPortalPtrOutputWithContext(context.Background())
 }
@@ -557,12 +484,6 @@ func (i *accessPolicyPortalPtrType) ToAccessPolicyPortalPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyPortalPtrOutput)
 }
 
-func (i *accessPolicyPortalPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyPortal] {
-	return pulumix.Output[*AccessPolicyPortal]{
-		OutputState: i.ToAccessPolicyPortalPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A portal resource.
 type AccessPolicyPortalOutput struct{ *pulumi.OutputState }
 
@@ -588,12 +509,6 @@ func (o AccessPolicyPortalOutput) ToAccessPolicyPortalPtrOutputWithContext(ctx c
 	}).(AccessPolicyPortalPtrOutput)
 }
 
-func (o AccessPolicyPortalOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyPortal] {
-	return pulumix.Output[AccessPolicyPortal]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The ID of the portal.
 func (o AccessPolicyPortalOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyPortal) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -611,12 +526,6 @@ func (o AccessPolicyPortalPtrOutput) ToAccessPolicyPortalPtrOutput() AccessPolic
 
 func (o AccessPolicyPortalPtrOutput) ToAccessPolicyPortalPtrOutputWithContext(ctx context.Context) AccessPolicyPortalPtrOutput {
 	return o
-}
-
-func (o AccessPolicyPortalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyPortal] {
-	return pulumix.Output[*AccessPolicyPortal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPolicyPortalPtrOutput) Elem() AccessPolicyPortalOutput {
@@ -674,12 +583,6 @@ func (i AccessPolicyProjectArgs) ToAccessPolicyProjectOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyProjectOutput)
 }
 
-func (i AccessPolicyProjectArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyProject] {
-	return pulumix.Output[AccessPolicyProject]{
-		OutputState: i.ToAccessPolicyProjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccessPolicyProjectArgs) ToAccessPolicyProjectPtrOutput() AccessPolicyProjectPtrOutput {
 	return i.ToAccessPolicyProjectPtrOutputWithContext(context.Background())
 }
@@ -721,12 +624,6 @@ func (i *accessPolicyProjectPtrType) ToAccessPolicyProjectPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyProjectPtrOutput)
 }
 
-func (i *accessPolicyProjectPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyProject] {
-	return pulumix.Output[*AccessPolicyProject]{
-		OutputState: i.ToAccessPolicyProjectPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A project resource.
 type AccessPolicyProjectOutput struct{ *pulumi.OutputState }
 
@@ -752,12 +649,6 @@ func (o AccessPolicyProjectOutput) ToAccessPolicyProjectPtrOutputWithContext(ctx
 	}).(AccessPolicyProjectPtrOutput)
 }
 
-func (o AccessPolicyProjectOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyProject] {
-	return pulumix.Output[AccessPolicyProject]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The ID of the project.
 func (o AccessPolicyProjectOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyProject) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -775,12 +666,6 @@ func (o AccessPolicyProjectPtrOutput) ToAccessPolicyProjectPtrOutput() AccessPol
 
 func (o AccessPolicyProjectPtrOutput) ToAccessPolicyProjectPtrOutputWithContext(ctx context.Context) AccessPolicyProjectPtrOutput {
 	return o
-}
-
-func (o AccessPolicyProjectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyProject] {
-	return pulumix.Output[*AccessPolicyProject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPolicyProjectPtrOutput) Elem() AccessPolicyProjectOutput {
@@ -838,12 +723,6 @@ func (i AccessPolicyResourceArgs) ToAccessPolicyResourceOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyResourceOutput)
 }
 
-func (i AccessPolicyResourceArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyResource] {
-	return pulumix.Output[AccessPolicyResource]{
-		OutputState: i.ToAccessPolicyResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
 type AccessPolicyResourceOutput struct{ *pulumi.OutputState }
 
@@ -857,12 +736,6 @@ func (o AccessPolicyResourceOutput) ToAccessPolicyResourceOutput() AccessPolicyR
 
 func (o AccessPolicyResourceOutput) ToAccessPolicyResourceOutputWithContext(ctx context.Context) AccessPolicyResourceOutput {
 	return o
-}
-
-func (o AccessPolicyResourceOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyResource] {
-	return pulumix.Output[AccessPolicyResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPolicyResourceOutput) Portal() AccessPolicyPortalPtrOutput {
@@ -885,12 +758,6 @@ func (o AccessPolicyResourcePtrOutput) ToAccessPolicyResourcePtrOutput() AccessP
 
 func (o AccessPolicyResourcePtrOutput) ToAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyResourcePtrOutput {
 	return o
-}
-
-func (o AccessPolicyResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyResource] {
-	return pulumix.Output[*AccessPolicyResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPolicyResourcePtrOutput) Elem() AccessPolicyResourceOutput {
@@ -956,12 +823,6 @@ func (i AccessPolicyUserArgs) ToAccessPolicyUserOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyUserOutput)
 }
 
-func (i AccessPolicyUserArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyUser] {
-	return pulumix.Output[AccessPolicyUser]{
-		OutputState: i.ToAccessPolicyUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccessPolicyUserArgs) ToAccessPolicyUserPtrOutput() AccessPolicyUserPtrOutput {
 	return i.ToAccessPolicyUserPtrOutputWithContext(context.Background())
 }
@@ -1003,12 +864,6 @@ func (i *accessPolicyUserPtrType) ToAccessPolicyUserPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyUserPtrOutput)
 }
 
-func (i *accessPolicyUserPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyUser] {
-	return pulumix.Output[*AccessPolicyUser]{
-		OutputState: i.ToAccessPolicyUserPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains information for a user identity in an access policy.
 type AccessPolicyUserOutput struct{ *pulumi.OutputState }
 
@@ -1034,12 +889,6 @@ func (o AccessPolicyUserOutput) ToAccessPolicyUserPtrOutputWithContext(ctx conte
 	}).(AccessPolicyUserPtrOutput)
 }
 
-func (o AccessPolicyUserOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyUser] {
-	return pulumix.Output[AccessPolicyUser]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The AWS SSO ID of the user.
 func (o AccessPolicyUserOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyUser) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -1057,12 +906,6 @@ func (o AccessPolicyUserPtrOutput) ToAccessPolicyUserPtrOutput() AccessPolicyUse
 
 func (o AccessPolicyUserPtrOutput) ToAccessPolicyUserPtrOutputWithContext(ctx context.Context) AccessPolicyUserPtrOutput {
 	return o
-}
-
-func (o AccessPolicyUserPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyUser] {
-	return pulumix.Output[*AccessPolicyUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPolicyUserPtrOutput) Elem() AccessPolicyUserOutput {
@@ -1124,12 +967,6 @@ func (i AlarmsPropertiesArgs) ToAlarmsPropertiesOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmsPropertiesOutput)
 }
 
-func (i AlarmsPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmsProperties] {
-	return pulumix.Output[AlarmsProperties]{
-		OutputState: i.ToAlarmsPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlarmsPropertiesArgs) ToAlarmsPropertiesPtrOutput() AlarmsPropertiesPtrOutput {
 	return i.ToAlarmsPropertiesPtrOutputWithContext(context.Background())
 }
@@ -1171,12 +1008,6 @@ func (i *alarmsPropertiesPtrType) ToAlarmsPropertiesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmsPropertiesPtrOutput)
 }
 
-func (i *alarmsPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmsProperties] {
-	return pulumix.Output[*AlarmsProperties]{
-		OutputState: i.ToAlarmsPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
 type AlarmsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -1202,12 +1033,6 @@ func (o AlarmsPropertiesOutput) ToAlarmsPropertiesPtrOutputWithContext(ctx conte
 	}).(AlarmsPropertiesPtrOutput)
 }
 
-func (o AlarmsPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmsProperties] {
-	return pulumix.Output[AlarmsProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
 func (o AlarmsPropertiesOutput) AlarmRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmsProperties) *string { return v.AlarmRoleArn }).(pulumi.StringPtrOutput)
@@ -1230,12 +1055,6 @@ func (o AlarmsPropertiesPtrOutput) ToAlarmsPropertiesPtrOutput() AlarmsPropertie
 
 func (o AlarmsPropertiesPtrOutput) ToAlarmsPropertiesPtrOutputWithContext(ctx context.Context) AlarmsPropertiesPtrOutput {
 	return o
-}
-
-func (o AlarmsPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmsProperties] {
-	return pulumix.Output[*AlarmsProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlarmsPropertiesPtrOutput) Elem() AlarmsPropertiesOutput {
@@ -1307,12 +1126,6 @@ func (i AssetHierarchyArgs) ToAssetHierarchyOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AssetHierarchyOutput)
 }
 
-func (i AssetHierarchyArgs) ToOutput(ctx context.Context) pulumix.Output[AssetHierarchy] {
-	return pulumix.Output[AssetHierarchy]{
-		OutputState: i.ToAssetHierarchyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetHierarchyArrayInput is an input type that accepts AssetHierarchyArray and AssetHierarchyArrayOutput values.
 // You can construct a concrete instance of `AssetHierarchyArrayInput` via:
 //
@@ -1338,12 +1151,6 @@ func (i AssetHierarchyArray) ToAssetHierarchyArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AssetHierarchyArrayOutput)
 }
 
-func (i AssetHierarchyArray) ToOutput(ctx context.Context) pulumix.Output[[]AssetHierarchy] {
-	return pulumix.Output[[]AssetHierarchy]{
-		OutputState: i.ToAssetHierarchyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A hierarchy specifies allowed parent/child asset relationships.
 type AssetHierarchyOutput struct{ *pulumi.OutputState }
 
@@ -1357,12 +1164,6 @@ func (o AssetHierarchyOutput) ToAssetHierarchyOutput() AssetHierarchyOutput {
 
 func (o AssetHierarchyOutput) ToAssetHierarchyOutputWithContext(ctx context.Context) AssetHierarchyOutput {
 	return o
-}
-
-func (o AssetHierarchyOutput) ToOutput(ctx context.Context) pulumix.Output[AssetHierarchy] {
-	return pulumix.Output[AssetHierarchy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the child asset to be associated.
@@ -1387,12 +1188,6 @@ func (o AssetHierarchyArrayOutput) ToAssetHierarchyArrayOutput() AssetHierarchyA
 
 func (o AssetHierarchyArrayOutput) ToAssetHierarchyArrayOutputWithContext(ctx context.Context) AssetHierarchyArrayOutput {
 	return o
-}
-
-func (o AssetHierarchyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssetHierarchy] {
-	return pulumix.Output[[]AssetHierarchy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetHierarchyArrayOutput) Index(i pulumi.IntInput) AssetHierarchyOutput {
@@ -1430,12 +1225,6 @@ func (i AssetModelAttributeArgs) ToAssetModelAttributeOutput() AssetModelAttribu
 
 func (i AssetModelAttributeArgs) ToAssetModelAttributeOutputWithContext(ctx context.Context) AssetModelAttributeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAttributeOutput)
-}
-
-func (i AssetModelAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[AssetModelAttribute] {
-	return pulumix.Output[AssetModelAttribute]{
-		OutputState: i.ToAssetModelAttributeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AssetModelAttributeArgs) ToAssetModelAttributePtrOutput() AssetModelAttributePtrOutput {
@@ -1479,12 +1268,6 @@ func (i *assetModelAttributePtrType) ToAssetModelAttributePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAttributePtrOutput)
 }
 
-func (i *assetModelAttributePtrType) ToOutput(ctx context.Context) pulumix.Output[*AssetModelAttribute] {
-	return pulumix.Output[*AssetModelAttribute]{
-		OutputState: i.ToAssetModelAttributePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssetModelAttributeOutput struct{ *pulumi.OutputState }
 
 func (AssetModelAttributeOutput) ElementType() reflect.Type {
@@ -1509,12 +1292,6 @@ func (o AssetModelAttributeOutput) ToAssetModelAttributePtrOutputWithContext(ctx
 	}).(AssetModelAttributePtrOutput)
 }
 
-func (o AssetModelAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelAttribute] {
-	return pulumix.Output[AssetModelAttribute]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetModelAttributeOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelAttribute) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -1531,12 +1308,6 @@ func (o AssetModelAttributePtrOutput) ToAssetModelAttributePtrOutput() AssetMode
 
 func (o AssetModelAttributePtrOutput) ToAssetModelAttributePtrOutputWithContext(ctx context.Context) AssetModelAttributePtrOutput {
 	return o
-}
-
-func (o AssetModelAttributePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelAttribute] {
-	return pulumix.Output[*AssetModelAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelAttributePtrOutput) Elem() AssetModelAttributeOutput {
@@ -1605,12 +1376,6 @@ func (i AssetModelCompositeModelArgs) ToAssetModelCompositeModelOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelCompositeModelOutput)
 }
 
-func (i AssetModelCompositeModelArgs) ToOutput(ctx context.Context) pulumix.Output[AssetModelCompositeModel] {
-	return pulumix.Output[AssetModelCompositeModel]{
-		OutputState: i.ToAssetModelCompositeModelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetModelCompositeModelArrayInput is an input type that accepts AssetModelCompositeModelArray and AssetModelCompositeModelArrayOutput values.
 // You can construct a concrete instance of `AssetModelCompositeModelArrayInput` via:
 //
@@ -1636,12 +1401,6 @@ func (i AssetModelCompositeModelArray) ToAssetModelCompositeModelArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelCompositeModelArrayOutput)
 }
 
-func (i AssetModelCompositeModelArray) ToOutput(ctx context.Context) pulumix.Output[[]AssetModelCompositeModel] {
-	return pulumix.Output[[]AssetModelCompositeModel]{
-		OutputState: i.ToAssetModelCompositeModelArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
 type AssetModelCompositeModelOutput struct{ *pulumi.OutputState }
 
@@ -1655,12 +1414,6 @@ func (o AssetModelCompositeModelOutput) ToAssetModelCompositeModelOutput() Asset
 
 func (o AssetModelCompositeModelOutput) ToAssetModelCompositeModelOutputWithContext(ctx context.Context) AssetModelCompositeModelOutput {
 	return o
-}
-
-func (o AssetModelCompositeModelOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelCompositeModel] {
-	return pulumix.Output[AssetModelCompositeModel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The property definitions of the asset model. You can specify up to 200 properties per asset model.
@@ -1695,12 +1448,6 @@ func (o AssetModelCompositeModelArrayOutput) ToAssetModelCompositeModelArrayOutp
 
 func (o AssetModelCompositeModelArrayOutput) ToAssetModelCompositeModelArrayOutputWithContext(ctx context.Context) AssetModelCompositeModelArrayOutput {
 	return o
-}
-
-func (o AssetModelCompositeModelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssetModelCompositeModel] {
-	return pulumix.Output[[]AssetModelCompositeModel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelCompositeModelArrayOutput) Index(i pulumi.IntInput) AssetModelCompositeModelOutput {
@@ -1746,12 +1493,6 @@ func (i AssetModelExpressionVariableArgs) ToAssetModelExpressionVariableOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelExpressionVariableOutput)
 }
 
-func (i AssetModelExpressionVariableArgs) ToOutput(ctx context.Context) pulumix.Output[AssetModelExpressionVariable] {
-	return pulumix.Output[AssetModelExpressionVariable]{
-		OutputState: i.ToAssetModelExpressionVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetModelExpressionVariableArrayInput is an input type that accepts AssetModelExpressionVariableArray and AssetModelExpressionVariableArrayOutput values.
 // You can construct a concrete instance of `AssetModelExpressionVariableArrayInput` via:
 //
@@ -1777,12 +1518,6 @@ func (i AssetModelExpressionVariableArray) ToAssetModelExpressionVariableArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelExpressionVariableArrayOutput)
 }
 
-func (i AssetModelExpressionVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]AssetModelExpressionVariable] {
-	return pulumix.Output[[]AssetModelExpressionVariable]{
-		OutputState: i.ToAssetModelExpressionVariableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssetModelExpressionVariableOutput struct{ *pulumi.OutputState }
 
 func (AssetModelExpressionVariableOutput) ElementType() reflect.Type {
@@ -1795,12 +1530,6 @@ func (o AssetModelExpressionVariableOutput) ToAssetModelExpressionVariableOutput
 
 func (o AssetModelExpressionVariableOutput) ToAssetModelExpressionVariableOutputWithContext(ctx context.Context) AssetModelExpressionVariableOutput {
 	return o
-}
-
-func (o AssetModelExpressionVariableOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelExpressionVariable] {
-	return pulumix.Output[AssetModelExpressionVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The friendly name of the variable to be used in the expression.
@@ -1825,12 +1554,6 @@ func (o AssetModelExpressionVariableArrayOutput) ToAssetModelExpressionVariableA
 
 func (o AssetModelExpressionVariableArrayOutput) ToAssetModelExpressionVariableArrayOutputWithContext(ctx context.Context) AssetModelExpressionVariableArrayOutput {
 	return o
-}
-
-func (o AssetModelExpressionVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssetModelExpressionVariable] {
-	return pulumix.Output[[]AssetModelExpressionVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelExpressionVariableArrayOutput) Index(i pulumi.IntInput) AssetModelExpressionVariableOutput {
@@ -1882,12 +1605,6 @@ func (i AssetModelHierarchyArgs) ToAssetModelHierarchyOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelHierarchyOutput)
 }
 
-func (i AssetModelHierarchyArgs) ToOutput(ctx context.Context) pulumix.Output[AssetModelHierarchy] {
-	return pulumix.Output[AssetModelHierarchy]{
-		OutputState: i.ToAssetModelHierarchyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetModelHierarchyArrayInput is an input type that accepts AssetModelHierarchyArray and AssetModelHierarchyArrayOutput values.
 // You can construct a concrete instance of `AssetModelHierarchyArrayInput` via:
 //
@@ -1913,12 +1630,6 @@ func (i AssetModelHierarchyArray) ToAssetModelHierarchyArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelHierarchyArrayOutput)
 }
 
-func (i AssetModelHierarchyArray) ToOutput(ctx context.Context) pulumix.Output[[]AssetModelHierarchy] {
-	return pulumix.Output[[]AssetModelHierarchy]{
-		OutputState: i.ToAssetModelHierarchyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains information about an asset model hierarchy.
 type AssetModelHierarchyOutput struct{ *pulumi.OutputState }
 
@@ -1932,12 +1643,6 @@ func (o AssetModelHierarchyOutput) ToAssetModelHierarchyOutput() AssetModelHiera
 
 func (o AssetModelHierarchyOutput) ToAssetModelHierarchyOutputWithContext(ctx context.Context) AssetModelHierarchyOutput {
 	return o
-}
-
-func (o AssetModelHierarchyOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelHierarchy] {
-	return pulumix.Output[AssetModelHierarchy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
@@ -1967,12 +1672,6 @@ func (o AssetModelHierarchyArrayOutput) ToAssetModelHierarchyArrayOutput() Asset
 
 func (o AssetModelHierarchyArrayOutput) ToAssetModelHierarchyArrayOutputWithContext(ctx context.Context) AssetModelHierarchyArrayOutput {
 	return o
-}
-
-func (o AssetModelHierarchyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssetModelHierarchy] {
-	return pulumix.Output[[]AssetModelHierarchy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelHierarchyArrayOutput) Index(i pulumi.IntInput) AssetModelHierarchyOutput {
@@ -2022,12 +1721,6 @@ func (i AssetModelMetricArgs) ToAssetModelMetricOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelMetricOutput)
 }
 
-func (i AssetModelMetricArgs) ToOutput(ctx context.Context) pulumix.Output[AssetModelMetric] {
-	return pulumix.Output[AssetModelMetric]{
-		OutputState: i.ToAssetModelMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AssetModelMetricArgs) ToAssetModelMetricPtrOutput() AssetModelMetricPtrOutput {
 	return i.ToAssetModelMetricPtrOutputWithContext(context.Background())
 }
@@ -2069,12 +1762,6 @@ func (i *assetModelMetricPtrType) ToAssetModelMetricPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelMetricPtrOutput)
 }
 
-func (i *assetModelMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*AssetModelMetric] {
-	return pulumix.Output[*AssetModelMetric]{
-		OutputState: i.ToAssetModelMetricPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssetModelMetricOutput struct{ *pulumi.OutputState }
 
 func (AssetModelMetricOutput) ElementType() reflect.Type {
@@ -2097,12 +1784,6 @@ func (o AssetModelMetricOutput) ToAssetModelMetricPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssetModelMetric) *AssetModelMetric {
 		return &v
 	}).(AssetModelMetricPtrOutput)
-}
-
-func (o AssetModelMetricOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelMetric] {
-	return pulumix.Output[AssetModelMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
@@ -2132,12 +1813,6 @@ func (o AssetModelMetricPtrOutput) ToAssetModelMetricPtrOutput() AssetModelMetri
 
 func (o AssetModelMetricPtrOutput) ToAssetModelMetricPtrOutputWithContext(ctx context.Context) AssetModelMetricPtrOutput {
 	return o
-}
-
-func (o AssetModelMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelMetric] {
-	return pulumix.Output[*AssetModelMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelMetricPtrOutput) Elem() AssetModelMetricOutput {
@@ -2213,12 +1888,6 @@ func (i AssetModelMetricWindowArgs) ToAssetModelMetricWindowOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelMetricWindowOutput)
 }
 
-func (i AssetModelMetricWindowArgs) ToOutput(ctx context.Context) pulumix.Output[AssetModelMetricWindow] {
-	return pulumix.Output[AssetModelMetricWindow]{
-		OutputState: i.ToAssetModelMetricWindowOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AssetModelMetricWindowArgs) ToAssetModelMetricWindowPtrOutput() AssetModelMetricWindowPtrOutput {
 	return i.ToAssetModelMetricWindowPtrOutputWithContext(context.Background())
 }
@@ -2260,12 +1929,6 @@ func (i *assetModelMetricWindowPtrType) ToAssetModelMetricWindowPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelMetricWindowPtrOutput)
 }
 
-func (i *assetModelMetricWindowPtrType) ToOutput(ctx context.Context) pulumix.Output[*AssetModelMetricWindow] {
-	return pulumix.Output[*AssetModelMetricWindow]{
-		OutputState: i.ToAssetModelMetricWindowPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
 type AssetModelMetricWindowOutput struct{ *pulumi.OutputState }
 
@@ -2291,12 +1954,6 @@ func (o AssetModelMetricWindowOutput) ToAssetModelMetricWindowPtrOutputWithConte
 	}).(AssetModelMetricWindowPtrOutput)
 }
 
-func (o AssetModelMetricWindowOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelMetricWindow] {
-	return pulumix.Output[AssetModelMetricWindow]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetModelMetricWindowOutput) Tumbling() AssetModelTumblingWindowPtrOutput {
 	return o.ApplyT(func(v AssetModelMetricWindow) *AssetModelTumblingWindow { return v.Tumbling }).(AssetModelTumblingWindowPtrOutput)
 }
@@ -2313,12 +1970,6 @@ func (o AssetModelMetricWindowPtrOutput) ToAssetModelMetricWindowPtrOutput() Ass
 
 func (o AssetModelMetricWindowPtrOutput) ToAssetModelMetricWindowPtrOutputWithContext(ctx context.Context) AssetModelMetricWindowPtrOutput {
 	return o
-}
-
-func (o AssetModelMetricWindowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelMetricWindow] {
-	return pulumix.Output[*AssetModelMetricWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelMetricWindowPtrOutput) Elem() AssetModelMetricWindowOutput {
@@ -2395,12 +2046,6 @@ func (i AssetModelPropertyArgs) ToAssetModelPropertyOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelPropertyOutput)
 }
 
-func (i AssetModelPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[AssetModelProperty] {
-	return pulumix.Output[AssetModelProperty]{
-		OutputState: i.ToAssetModelPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetModelPropertyArrayInput is an input type that accepts AssetModelPropertyArray and AssetModelPropertyArrayOutput values.
 // You can construct a concrete instance of `AssetModelPropertyArrayInput` via:
 //
@@ -2426,12 +2071,6 @@ func (i AssetModelPropertyArray) ToAssetModelPropertyArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelPropertyArrayOutput)
 }
 
-func (i AssetModelPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]AssetModelProperty] {
-	return pulumix.Output[[]AssetModelProperty]{
-		OutputState: i.ToAssetModelPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains information about an asset model property.
 type AssetModelPropertyOutput struct{ *pulumi.OutputState }
 
@@ -2445,12 +2084,6 @@ func (o AssetModelPropertyOutput) ToAssetModelPropertyOutput() AssetModelPropert
 
 func (o AssetModelPropertyOutput) ToAssetModelPropertyOutputWithContext(ctx context.Context) AssetModelPropertyOutput {
 	return o
-}
-
-func (o AssetModelPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelProperty] {
-	return pulumix.Output[AssetModelProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The data type of the asset model property.
@@ -2495,12 +2128,6 @@ func (o AssetModelPropertyArrayOutput) ToAssetModelPropertyArrayOutput() AssetMo
 
 func (o AssetModelPropertyArrayOutput) ToAssetModelPropertyArrayOutputWithContext(ctx context.Context) AssetModelPropertyArrayOutput {
 	return o
-}
-
-func (o AssetModelPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssetModelProperty] {
-	return pulumix.Output[[]AssetModelProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelPropertyArrayOutput) Index(i pulumi.IntInput) AssetModelPropertyOutput {
@@ -2548,12 +2175,6 @@ func (i AssetModelPropertyTypeArgs) ToAssetModelPropertyTypeOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelPropertyTypeOutput)
 }
 
-func (i AssetModelPropertyTypeArgs) ToOutput(ctx context.Context) pulumix.Output[AssetModelPropertyType] {
-	return pulumix.Output[AssetModelPropertyType]{
-		OutputState: i.ToAssetModelPropertyTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains a property type, which can be one of attribute, measurement, metric, or transform.
 type AssetModelPropertyTypeOutput struct{ *pulumi.OutputState }
 
@@ -2567,12 +2188,6 @@ func (o AssetModelPropertyTypeOutput) ToAssetModelPropertyTypeOutput() AssetMode
 
 func (o AssetModelPropertyTypeOutput) ToAssetModelPropertyTypeOutputWithContext(ctx context.Context) AssetModelPropertyTypeOutput {
 	return o
-}
-
-func (o AssetModelPropertyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelPropertyType] {
-	return pulumix.Output[AssetModelPropertyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelPropertyTypeOutput) Attribute() AssetModelAttributePtrOutput {
@@ -2624,12 +2239,6 @@ func (i AssetModelTagArgs) ToAssetModelTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelTagOutput)
 }
 
-func (i AssetModelTagArgs) ToOutput(ctx context.Context) pulumix.Output[AssetModelTag] {
-	return pulumix.Output[AssetModelTag]{
-		OutputState: i.ToAssetModelTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetModelTagArrayInput is an input type that accepts AssetModelTagArray and AssetModelTagArrayOutput values.
 // You can construct a concrete instance of `AssetModelTagArrayInput` via:
 //
@@ -2655,12 +2264,6 @@ func (i AssetModelTagArray) ToAssetModelTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelTagArrayOutput)
 }
 
-func (i AssetModelTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AssetModelTag] {
-	return pulumix.Output[[]AssetModelTag]{
-		OutputState: i.ToAssetModelTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssetModelTagOutput struct{ *pulumi.OutputState }
 
 func (AssetModelTagOutput) ElementType() reflect.Type {
@@ -2673,12 +2276,6 @@ func (o AssetModelTagOutput) ToAssetModelTagOutput() AssetModelTagOutput {
 
 func (o AssetModelTagOutput) ToAssetModelTagOutputWithContext(ctx context.Context) AssetModelTagOutput {
 	return o
-}
-
-func (o AssetModelTagOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelTag] {
-	return pulumix.Output[AssetModelTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelTagOutput) Key() pulumi.StringOutput {
@@ -2701,12 +2298,6 @@ func (o AssetModelTagArrayOutput) ToAssetModelTagArrayOutput() AssetModelTagArra
 
 func (o AssetModelTagArrayOutput) ToAssetModelTagArrayOutputWithContext(ctx context.Context) AssetModelTagArrayOutput {
 	return o
-}
-
-func (o AssetModelTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssetModelTag] {
-	return pulumix.Output[[]AssetModelTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelTagArrayOutput) Index(i pulumi.IntInput) AssetModelTagOutput {
@@ -2752,12 +2343,6 @@ func (i AssetModelTransformArgs) ToAssetModelTransformOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelTransformOutput)
 }
 
-func (i AssetModelTransformArgs) ToOutput(ctx context.Context) pulumix.Output[AssetModelTransform] {
-	return pulumix.Output[AssetModelTransform]{
-		OutputState: i.ToAssetModelTransformOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AssetModelTransformArgs) ToAssetModelTransformPtrOutput() AssetModelTransformPtrOutput {
 	return i.ToAssetModelTransformPtrOutputWithContext(context.Background())
 }
@@ -2799,12 +2384,6 @@ func (i *assetModelTransformPtrType) ToAssetModelTransformPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelTransformPtrOutput)
 }
 
-func (i *assetModelTransformPtrType) ToOutput(ctx context.Context) pulumix.Output[*AssetModelTransform] {
-	return pulumix.Output[*AssetModelTransform]{
-		OutputState: i.ToAssetModelTransformPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssetModelTransformOutput struct{ *pulumi.OutputState }
 
 func (AssetModelTransformOutput) ElementType() reflect.Type {
@@ -2829,12 +2408,6 @@ func (o AssetModelTransformOutput) ToAssetModelTransformPtrOutputWithContext(ctx
 	}).(AssetModelTransformPtrOutput)
 }
 
-func (o AssetModelTransformOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelTransform] {
-	return pulumix.Output[AssetModelTransform]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The mathematical expression that defines the transformation function. You can specify up to 10 functions per expression.
 func (o AssetModelTransformOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelTransform) string { return v.Expression }).(pulumi.StringOutput)
@@ -2857,12 +2430,6 @@ func (o AssetModelTransformPtrOutput) ToAssetModelTransformPtrOutput() AssetMode
 
 func (o AssetModelTransformPtrOutput) ToAssetModelTransformPtrOutputWithContext(ctx context.Context) AssetModelTransformPtrOutput {
 	return o
-}
-
-func (o AssetModelTransformPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelTransform] {
-	return pulumix.Output[*AssetModelTransform]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelTransformPtrOutput) Elem() AssetModelTransformOutput {
@@ -2930,12 +2497,6 @@ func (i AssetModelTumblingWindowArgs) ToAssetModelTumblingWindowOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelTumblingWindowOutput)
 }
 
-func (i AssetModelTumblingWindowArgs) ToOutput(ctx context.Context) pulumix.Output[AssetModelTumblingWindow] {
-	return pulumix.Output[AssetModelTumblingWindow]{
-		OutputState: i.ToAssetModelTumblingWindowOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AssetModelTumblingWindowArgs) ToAssetModelTumblingWindowPtrOutput() AssetModelTumblingWindowPtrOutput {
 	return i.ToAssetModelTumblingWindowPtrOutputWithContext(context.Background())
 }
@@ -2977,12 +2538,6 @@ func (i *assetModelTumblingWindowPtrType) ToAssetModelTumblingWindowPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelTumblingWindowPtrOutput)
 }
 
-func (i *assetModelTumblingWindowPtrType) ToOutput(ctx context.Context) pulumix.Output[*AssetModelTumblingWindow] {
-	return pulumix.Output[*AssetModelTumblingWindow]{
-		OutputState: i.ToAssetModelTumblingWindowPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
 type AssetModelTumblingWindowOutput struct{ *pulumi.OutputState }
 
@@ -3008,12 +2563,6 @@ func (o AssetModelTumblingWindowOutput) ToAssetModelTumblingWindowPtrOutputWithC
 	}).(AssetModelTumblingWindowPtrOutput)
 }
 
-func (o AssetModelTumblingWindowOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelTumblingWindow] {
-	return pulumix.Output[AssetModelTumblingWindow]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetModelTumblingWindowOutput) Interval() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelTumblingWindow) string { return v.Interval }).(pulumi.StringOutput)
 }
@@ -3034,12 +2583,6 @@ func (o AssetModelTumblingWindowPtrOutput) ToAssetModelTumblingWindowPtrOutput()
 
 func (o AssetModelTumblingWindowPtrOutput) ToAssetModelTumblingWindowPtrOutputWithContext(ctx context.Context) AssetModelTumblingWindowPtrOutput {
 	return o
-}
-
-func (o AssetModelTumblingWindowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelTumblingWindow] {
-	return pulumix.Output[*AssetModelTumblingWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelTumblingWindowPtrOutput) Elem() AssetModelTumblingWindowOutput {
@@ -3103,12 +2646,6 @@ func (i AssetModelVariableValueArgs) ToAssetModelVariableValueOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelVariableValueOutput)
 }
 
-func (i AssetModelVariableValueArgs) ToOutput(ctx context.Context) pulumix.Output[AssetModelVariableValue] {
-	return pulumix.Output[AssetModelVariableValue]{
-		OutputState: i.ToAssetModelVariableValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssetModelVariableValueOutput struct{ *pulumi.OutputState }
 
 func (AssetModelVariableValueOutput) ElementType() reflect.Type {
@@ -3121,12 +2658,6 @@ func (o AssetModelVariableValueOutput) ToAssetModelVariableValueOutput() AssetMo
 
 func (o AssetModelVariableValueOutput) ToAssetModelVariableValueOutputWithContext(ctx context.Context) AssetModelVariableValueOutput {
 	return o
-}
-
-func (o AssetModelVariableValueOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelVariableValue] {
-	return pulumix.Output[AssetModelVariableValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelVariableValueOutput) HierarchyLogicalId() pulumi.StringPtrOutput {
@@ -3184,12 +2715,6 @@ func (i AssetPropertyArgs) ToAssetPropertyOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AssetPropertyOutput)
 }
 
-func (i AssetPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[AssetProperty] {
-	return pulumix.Output[AssetProperty]{
-		OutputState: i.ToAssetPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetPropertyArrayInput is an input type that accepts AssetPropertyArray and AssetPropertyArrayOutput values.
 // You can construct a concrete instance of `AssetPropertyArrayInput` via:
 //
@@ -3215,12 +2740,6 @@ func (i AssetPropertyArray) ToAssetPropertyArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AssetPropertyArrayOutput)
 }
 
-func (i AssetPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]AssetProperty] {
-	return pulumix.Output[[]AssetProperty]{
-		OutputState: i.ToAssetPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The asset property's definition, alias, unit, and notification state.
 type AssetPropertyOutput struct{ *pulumi.OutputState }
 
@@ -3234,12 +2753,6 @@ func (o AssetPropertyOutput) ToAssetPropertyOutput() AssetPropertyOutput {
 
 func (o AssetPropertyOutput) ToAssetPropertyOutputWithContext(ctx context.Context) AssetPropertyOutput {
 	return o
-}
-
-func (o AssetPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[AssetProperty] {
-	return pulumix.Output[AssetProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The property alias that identifies the property.
@@ -3274,12 +2787,6 @@ func (o AssetPropertyArrayOutput) ToAssetPropertyArrayOutput() AssetPropertyArra
 
 func (o AssetPropertyArrayOutput) ToAssetPropertyArrayOutputWithContext(ctx context.Context) AssetPropertyArrayOutput {
 	return o
-}
-
-func (o AssetPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssetProperty] {
-	return pulumix.Output[[]AssetProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetPropertyArrayOutput) Index(i pulumi.IntInput) AssetPropertyOutput {
@@ -3321,12 +2828,6 @@ func (i AssetTagArgs) ToAssetTagOutputWithContext(ctx context.Context) AssetTagO
 	return pulumi.ToOutputWithContext(ctx, i).(AssetTagOutput)
 }
 
-func (i AssetTagArgs) ToOutput(ctx context.Context) pulumix.Output[AssetTag] {
-	return pulumix.Output[AssetTag]{
-		OutputState: i.ToAssetTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetTagArrayInput is an input type that accepts AssetTagArray and AssetTagArrayOutput values.
 // You can construct a concrete instance of `AssetTagArrayInput` via:
 //
@@ -3352,12 +2853,6 @@ func (i AssetTagArray) ToAssetTagArrayOutputWithContext(ctx context.Context) Ass
 	return pulumi.ToOutputWithContext(ctx, i).(AssetTagArrayOutput)
 }
 
-func (i AssetTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AssetTag] {
-	return pulumix.Output[[]AssetTag]{
-		OutputState: i.ToAssetTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssetTagOutput struct{ *pulumi.OutputState }
 
 func (AssetTagOutput) ElementType() reflect.Type {
@@ -3370,12 +2865,6 @@ func (o AssetTagOutput) ToAssetTagOutput() AssetTagOutput {
 
 func (o AssetTagOutput) ToAssetTagOutputWithContext(ctx context.Context) AssetTagOutput {
 	return o
-}
-
-func (o AssetTagOutput) ToOutput(ctx context.Context) pulumix.Output[AssetTag] {
-	return pulumix.Output[AssetTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetTagOutput) Key() pulumi.StringOutput {
@@ -3398,12 +2887,6 @@ func (o AssetTagArrayOutput) ToAssetTagArrayOutput() AssetTagArrayOutput {
 
 func (o AssetTagArrayOutput) ToAssetTagArrayOutputWithContext(ctx context.Context) AssetTagArrayOutput {
 	return o
-}
-
-func (o AssetTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssetTag] {
-	return pulumix.Output[[]AssetTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetTagArrayOutput) Index(i pulumi.IntInput) AssetTagOutput {
@@ -3447,12 +2930,6 @@ func (i DashboardTagArgs) ToDashboardTagOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardTagOutput)
 }
 
-func (i DashboardTagArgs) ToOutput(ctx context.Context) pulumix.Output[DashboardTag] {
-	return pulumix.Output[DashboardTag]{
-		OutputState: i.ToDashboardTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DashboardTagArrayInput is an input type that accepts DashboardTagArray and DashboardTagArrayOutput values.
 // You can construct a concrete instance of `DashboardTagArrayInput` via:
 //
@@ -3478,12 +2955,6 @@ func (i DashboardTagArray) ToDashboardTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardTagArrayOutput)
 }
 
-func (i DashboardTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DashboardTag] {
-	return pulumix.Output[[]DashboardTag]{
-		OutputState: i.ToDashboardTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
 type DashboardTagOutput struct{ *pulumi.OutputState }
 
@@ -3497,12 +2968,6 @@ func (o DashboardTagOutput) ToDashboardTagOutput() DashboardTagOutput {
 
 func (o DashboardTagOutput) ToDashboardTagOutputWithContext(ctx context.Context) DashboardTagOutput {
 	return o
-}
-
-func (o DashboardTagOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTag] {
-	return pulumix.Output[DashboardTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTagOutput) Key() pulumi.StringOutput {
@@ -3525,12 +2990,6 @@ func (o DashboardTagArrayOutput) ToDashboardTagArrayOutput() DashboardTagArrayOu
 
 func (o DashboardTagArrayOutput) ToDashboardTagArrayOutputWithContext(ctx context.Context) DashboardTagArrayOutput {
 	return o
-}
-
-func (o DashboardTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DashboardTag] {
-	return pulumix.Output[[]DashboardTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTagArrayOutput) Index(i pulumi.IntInput) DashboardTagOutput {
@@ -3574,12 +3033,6 @@ func (i GatewayCapabilitySummaryArgs) ToGatewayCapabilitySummaryOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayCapabilitySummaryOutput)
 }
 
-func (i GatewayCapabilitySummaryArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayCapabilitySummary] {
-	return pulumix.Output[GatewayCapabilitySummary]{
-		OutputState: i.ToGatewayCapabilitySummaryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GatewayCapabilitySummaryArrayInput is an input type that accepts GatewayCapabilitySummaryArray and GatewayCapabilitySummaryArrayOutput values.
 // You can construct a concrete instance of `GatewayCapabilitySummaryArrayInput` via:
 //
@@ -3605,12 +3058,6 @@ func (i GatewayCapabilitySummaryArray) ToGatewayCapabilitySummaryArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayCapabilitySummaryArrayOutput)
 }
 
-func (i GatewayCapabilitySummaryArray) ToOutput(ctx context.Context) pulumix.Output[[]GatewayCapabilitySummary] {
-	return pulumix.Output[[]GatewayCapabilitySummary]{
-		OutputState: i.ToGatewayCapabilitySummaryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains a summary of a gateway capability configuration.
 type GatewayCapabilitySummaryOutput struct{ *pulumi.OutputState }
 
@@ -3624,12 +3071,6 @@ func (o GatewayCapabilitySummaryOutput) ToGatewayCapabilitySummaryOutput() Gatew
 
 func (o GatewayCapabilitySummaryOutput) ToGatewayCapabilitySummaryOutputWithContext(ctx context.Context) GatewayCapabilitySummaryOutput {
 	return o
-}
-
-func (o GatewayCapabilitySummaryOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayCapabilitySummary] {
-	return pulumix.Output[GatewayCapabilitySummary]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GatewayCapabilitySummaryOutput) CapabilityConfiguration() pulumi.StringPtrOutput {
@@ -3652,12 +3093,6 @@ func (o GatewayCapabilitySummaryArrayOutput) ToGatewayCapabilitySummaryArrayOutp
 
 func (o GatewayCapabilitySummaryArrayOutput) ToGatewayCapabilitySummaryArrayOutputWithContext(ctx context.Context) GatewayCapabilitySummaryArrayOutput {
 	return o
-}
-
-func (o GatewayCapabilitySummaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GatewayCapabilitySummary] {
-	return pulumix.Output[[]GatewayCapabilitySummary]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GatewayCapabilitySummaryArrayOutput) Index(i pulumi.IntInput) GatewayCapabilitySummaryOutput {
@@ -3701,12 +3136,6 @@ func (i GatewayGreengrassArgs) ToGatewayGreengrassOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayGreengrassOutput)
 }
 
-func (i GatewayGreengrassArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayGreengrass] {
-	return pulumix.Output[GatewayGreengrass]{
-		OutputState: i.ToGatewayGreengrassOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GatewayGreengrassArgs) ToGatewayGreengrassPtrOutput() GatewayGreengrassPtrOutput {
 	return i.ToGatewayGreengrassPtrOutputWithContext(context.Background())
 }
@@ -3748,12 +3177,6 @@ func (i *gatewayGreengrassPtrType) ToGatewayGreengrassPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayGreengrassPtrOutput)
 }
 
-func (i *gatewayGreengrassPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayGreengrass] {
-	return pulumix.Output[*GatewayGreengrass]{
-		OutputState: i.ToGatewayGreengrassPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
 type GatewayGreengrassOutput struct{ *pulumi.OutputState }
 
@@ -3779,12 +3202,6 @@ func (o GatewayGreengrassOutput) ToGatewayGreengrassPtrOutputWithContext(ctx con
 	}).(GatewayGreengrassPtrOutput)
 }
 
-func (o GatewayGreengrassOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayGreengrass] {
-	return pulumix.Output[GatewayGreengrass]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The ARN of the Greengrass group.
 func (o GatewayGreengrassOutput) GroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayGreengrass) string { return v.GroupArn }).(pulumi.StringOutput)
@@ -3802,12 +3219,6 @@ func (o GatewayGreengrassPtrOutput) ToGatewayGreengrassPtrOutput() GatewayGreeng
 
 func (o GatewayGreengrassPtrOutput) ToGatewayGreengrassPtrOutputWithContext(ctx context.Context) GatewayGreengrassPtrOutput {
 	return o
-}
-
-func (o GatewayGreengrassPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayGreengrass] {
-	return pulumix.Output[*GatewayGreengrass]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GatewayGreengrassPtrOutput) Elem() GatewayGreengrassOutput {
@@ -3865,12 +3276,6 @@ func (i GatewayGreengrassV2Args) ToGatewayGreengrassV2OutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayGreengrassV2Output)
 }
 
-func (i GatewayGreengrassV2Args) ToOutput(ctx context.Context) pulumix.Output[GatewayGreengrassV2] {
-	return pulumix.Output[GatewayGreengrassV2]{
-		OutputState: i.ToGatewayGreengrassV2OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GatewayGreengrassV2Args) ToGatewayGreengrassV2PtrOutput() GatewayGreengrassV2PtrOutput {
 	return i.ToGatewayGreengrassV2PtrOutputWithContext(context.Background())
 }
@@ -3912,12 +3317,6 @@ func (i *gatewayGreengrassV2PtrType) ToGatewayGreengrassV2PtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayGreengrassV2PtrOutput)
 }
 
-func (i *gatewayGreengrassV2PtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayGreengrassV2] {
-	return pulumix.Output[*GatewayGreengrassV2]{
-		OutputState: i.ToGatewayGreengrassV2PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
 type GatewayGreengrassV2Output struct{ *pulumi.OutputState }
 
@@ -3943,12 +3342,6 @@ func (o GatewayGreengrassV2Output) ToGatewayGreengrassV2PtrOutputWithContext(ctx
 	}).(GatewayGreengrassV2PtrOutput)
 }
 
-func (o GatewayGreengrassV2Output) ToOutput(ctx context.Context) pulumix.Output[GatewayGreengrassV2] {
-	return pulumix.Output[GatewayGreengrassV2]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of the CoreDevice in GreenGrass V2.
 func (o GatewayGreengrassV2Output) CoreDeviceThingName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayGreengrassV2) string { return v.CoreDeviceThingName }).(pulumi.StringOutput)
@@ -3966,12 +3359,6 @@ func (o GatewayGreengrassV2PtrOutput) ToGatewayGreengrassV2PtrOutput() GatewayGr
 
 func (o GatewayGreengrassV2PtrOutput) ToGatewayGreengrassV2PtrOutputWithContext(ctx context.Context) GatewayGreengrassV2PtrOutput {
 	return o
-}
-
-func (o GatewayGreengrassV2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayGreengrassV2] {
-	return pulumix.Output[*GatewayGreengrassV2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GatewayGreengrassV2PtrOutput) Elem() GatewayGreengrassV2Output {
@@ -4033,12 +3420,6 @@ func (i GatewayPlatformArgs) ToGatewayPlatformOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayPlatformOutput)
 }
 
-func (i GatewayPlatformArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayPlatform] {
-	return pulumix.Output[GatewayPlatform]{
-		OutputState: i.ToGatewayPlatformOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains a gateway's platform information.
 type GatewayPlatformOutput struct{ *pulumi.OutputState }
 
@@ -4052,12 +3433,6 @@ func (o GatewayPlatformOutput) ToGatewayPlatformOutput() GatewayPlatformOutput {
 
 func (o GatewayPlatformOutput) ToGatewayPlatformOutputWithContext(ctx context.Context) GatewayPlatformOutput {
 	return o
-}
-
-func (o GatewayPlatformOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayPlatform] {
-	return pulumix.Output[GatewayPlatform]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A gateway that runs on AWS IoT Greengrass V1.
@@ -4105,12 +3480,6 @@ func (i GatewayTagArgs) ToGatewayTagOutputWithContext(ctx context.Context) Gatew
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayTagOutput)
 }
 
-func (i GatewayTagArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayTag] {
-	return pulumix.Output[GatewayTag]{
-		OutputState: i.ToGatewayTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GatewayTagArrayInput is an input type that accepts GatewayTagArray and GatewayTagArrayOutput values.
 // You can construct a concrete instance of `GatewayTagArrayInput` via:
 //
@@ -4136,12 +3505,6 @@ func (i GatewayTagArray) ToGatewayTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayTagArrayOutput)
 }
 
-func (i GatewayTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GatewayTag] {
-	return pulumix.Output[[]GatewayTag]{
-		OutputState: i.ToGatewayTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
 type GatewayTagOutput struct{ *pulumi.OutputState }
 
@@ -4155,12 +3518,6 @@ func (o GatewayTagOutput) ToGatewayTagOutput() GatewayTagOutput {
 
 func (o GatewayTagOutput) ToGatewayTagOutputWithContext(ctx context.Context) GatewayTagOutput {
 	return o
-}
-
-func (o GatewayTagOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayTag] {
-	return pulumix.Output[GatewayTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GatewayTagOutput) Key() pulumi.StringOutput {
@@ -4183,12 +3540,6 @@ func (o GatewayTagArrayOutput) ToGatewayTagArrayOutput() GatewayTagArrayOutput {
 
 func (o GatewayTagArrayOutput) ToGatewayTagArrayOutputWithContext(ctx context.Context) GatewayTagArrayOutput {
 	return o
-}
-
-func (o GatewayTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GatewayTag] {
-	return pulumix.Output[[]GatewayTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GatewayTagArrayOutput) Index(i pulumi.IntInput) GatewayTagOutput {
@@ -4232,12 +3583,6 @@ func (i PortalTagArgs) ToPortalTagOutputWithContext(ctx context.Context) PortalT
 	return pulumi.ToOutputWithContext(ctx, i).(PortalTagOutput)
 }
 
-func (i PortalTagArgs) ToOutput(ctx context.Context) pulumix.Output[PortalTag] {
-	return pulumix.Output[PortalTag]{
-		OutputState: i.ToPortalTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PortalTagArrayInput is an input type that accepts PortalTagArray and PortalTagArrayOutput values.
 // You can construct a concrete instance of `PortalTagArrayInput` via:
 //
@@ -4263,12 +3608,6 @@ func (i PortalTagArray) ToPortalTagArrayOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PortalTagArrayOutput)
 }
 
-func (i PortalTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PortalTag] {
-	return pulumix.Output[[]PortalTag]{
-		OutputState: i.ToPortalTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
 type PortalTagOutput struct{ *pulumi.OutputState }
 
@@ -4282,12 +3621,6 @@ func (o PortalTagOutput) ToPortalTagOutput() PortalTagOutput {
 
 func (o PortalTagOutput) ToPortalTagOutputWithContext(ctx context.Context) PortalTagOutput {
 	return o
-}
-
-func (o PortalTagOutput) ToOutput(ctx context.Context) pulumix.Output[PortalTag] {
-	return pulumix.Output[PortalTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PortalTagOutput) Key() pulumi.StringOutput {
@@ -4310,12 +3643,6 @@ func (o PortalTagArrayOutput) ToPortalTagArrayOutput() PortalTagArrayOutput {
 
 func (o PortalTagArrayOutput) ToPortalTagArrayOutputWithContext(ctx context.Context) PortalTagArrayOutput {
 	return o
-}
-
-func (o PortalTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PortalTag] {
-	return pulumix.Output[[]PortalTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PortalTagArrayOutput) Index(i pulumi.IntInput) PortalTagOutput {
@@ -4359,12 +3686,6 @@ func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) Proje
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagOutput)
 }
 
-func (i ProjectTagArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectTag] {
-	return pulumix.Output[ProjectTag]{
-		OutputState: i.ToProjectTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
 // You can construct a concrete instance of `ProjectTagArrayInput` via:
 //
@@ -4390,12 +3711,6 @@ func (i ProjectTagArray) ToProjectTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagArrayOutput)
 }
 
-func (i ProjectTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ProjectTag] {
-	return pulumix.Output[[]ProjectTag]{
-		OutputState: i.ToProjectTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
 type ProjectTagOutput struct{ *pulumi.OutputState }
 
@@ -4409,12 +3724,6 @@ func (o ProjectTagOutput) ToProjectTagOutput() ProjectTagOutput {
 
 func (o ProjectTagOutput) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
 	return o
-}
-
-func (o ProjectTagOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectTag] {
-	return pulumix.Output[ProjectTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProjectTagOutput) Key() pulumi.StringOutput {
@@ -4437,12 +3746,6 @@ func (o ProjectTagArrayOutput) ToProjectTagArrayOutput() ProjectTagArrayOutput {
 
 func (o ProjectTagArrayOutput) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
 	return o
-}
-
-func (o ProjectTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProjectTag] {
-	return pulumix.Output[[]ProjectTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {

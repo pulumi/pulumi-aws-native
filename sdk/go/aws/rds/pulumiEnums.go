@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The availability status to be assigned to the CEV.
@@ -80,12 +79,6 @@ func (o CustomDbEngineVersionStatusOutput) ToCustomDbEngineVersionStatusPtrOutpu
 	}).(CustomDbEngineVersionStatusPtrOutput)
 }
 
-func (o CustomDbEngineVersionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CustomDbEngineVersionStatus] {
-	return pulumix.Output[CustomDbEngineVersionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomDbEngineVersionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +114,6 @@ func (o CustomDbEngineVersionStatusPtrOutput) ToCustomDbEngineVersionStatusPtrOu
 	return o
 }
 
-func (o CustomDbEngineVersionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomDbEngineVersionStatus] {
-	return pulumix.Output[*CustomDbEngineVersionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomDbEngineVersionStatusPtrOutput) Elem() CustomDbEngineVersionStatusOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersionStatus) CustomDbEngineVersionStatus {
 		if v != nil {
@@ -151,10 +138,12 @@ func (o CustomDbEngineVersionStatusPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// CustomDbEngineVersionStatusInput is an input type that accepts CustomDbEngineVersionStatusArgs and CustomDbEngineVersionStatusOutput values.
-// You can construct a concrete instance of `CustomDbEngineVersionStatusInput` via:
+// CustomDbEngineVersionStatusInput is an input type that accepts values of the CustomDbEngineVersionStatus enum
+// A concrete instance of `CustomDbEngineVersionStatusInput` can be one of the following:
 //
-//	CustomDbEngineVersionStatusArgs{...}
+//	CustomDbEngineVersionStatusAvailable
+//	CustomDbEngineVersionStatusInactive
+//	CustomDbEngineVersionStatusInactiveExceptRestore
 type CustomDbEngineVersionStatusInput interface {
 	pulumi.Input
 
@@ -187,12 +176,6 @@ func (in *customDbEngineVersionStatusPtr) ToCustomDbEngineVersionStatusPtrOutput
 
 func (in *customDbEngineVersionStatusPtr) ToCustomDbEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDbEngineVersionStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CustomDbEngineVersionStatusPtrOutput)
-}
-
-func (in *customDbEngineVersionStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*CustomDbEngineVersionStatus] {
-	return pulumix.Output[*CustomDbEngineVersionStatus]{
-		OutputState: in.ToCustomDbEngineVersionStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The name of the processor feature. Valid names are coreCount and threadsPerCore.
@@ -263,12 +246,6 @@ func (o DbInstanceProcessorFeatureNameOutput) ToDbInstanceProcessorFeatureNamePt
 	}).(DbInstanceProcessorFeatureNamePtrOutput)
 }
 
-func (o DbInstanceProcessorFeatureNameOutput) ToOutput(ctx context.Context) pulumix.Output[DbInstanceProcessorFeatureName] {
-	return pulumix.Output[DbInstanceProcessorFeatureName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbInstanceProcessorFeatureNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -304,12 +281,6 @@ func (o DbInstanceProcessorFeatureNamePtrOutput) ToDbInstanceProcessorFeatureNam
 	return o
 }
 
-func (o DbInstanceProcessorFeatureNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbInstanceProcessorFeatureName] {
-	return pulumix.Output[*DbInstanceProcessorFeatureName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbInstanceProcessorFeatureNamePtrOutput) Elem() DbInstanceProcessorFeatureNameOutput {
 	return o.ApplyT(func(v *DbInstanceProcessorFeatureName) DbInstanceProcessorFeatureName {
 		if v != nil {
@@ -334,10 +305,11 @@ func (o DbInstanceProcessorFeatureNamePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// DbInstanceProcessorFeatureNameInput is an input type that accepts DbInstanceProcessorFeatureNameArgs and DbInstanceProcessorFeatureNameOutput values.
-// You can construct a concrete instance of `DbInstanceProcessorFeatureNameInput` via:
+// DbInstanceProcessorFeatureNameInput is an input type that accepts values of the DbInstanceProcessorFeatureName enum
+// A concrete instance of `DbInstanceProcessorFeatureNameInput` can be one of the following:
 //
-//	DbInstanceProcessorFeatureNameArgs{...}
+//	DbInstanceProcessorFeatureNameCoreCount
+//	DbInstanceProcessorFeatureNameThreadsPerCore
 type DbInstanceProcessorFeatureNameInput interface {
 	pulumi.Input
 
@@ -370,12 +342,6 @@ func (in *dbInstanceProcessorFeatureNamePtr) ToDbInstanceProcessorFeatureNamePtr
 
 func (in *dbInstanceProcessorFeatureNamePtr) ToDbInstanceProcessorFeatureNamePtrOutputWithContext(ctx context.Context) DbInstanceProcessorFeatureNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbInstanceProcessorFeatureNamePtrOutput)
-}
-
-func (in *dbInstanceProcessorFeatureNamePtr) ToOutput(ctx context.Context) pulumix.Output[*DbInstanceProcessorFeatureName] {
-	return pulumix.Output[*DbInstanceProcessorFeatureName]{
-		OutputState: in.ToDbInstanceProcessorFeatureNamePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of authentication that the proxy uses for connections from the proxy to the underlying database.
@@ -445,12 +411,6 @@ func (o DbProxyAuthFormatAuthSchemeOutput) ToDbProxyAuthFormatAuthSchemePtrOutpu
 	}).(DbProxyAuthFormatAuthSchemePtrOutput)
 }
 
-func (o DbProxyAuthFormatAuthSchemeOutput) ToOutput(ctx context.Context) pulumix.Output[DbProxyAuthFormatAuthScheme] {
-	return pulumix.Output[DbProxyAuthFormatAuthScheme]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbProxyAuthFormatAuthSchemeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -486,12 +446,6 @@ func (o DbProxyAuthFormatAuthSchemePtrOutput) ToDbProxyAuthFormatAuthSchemePtrOu
 	return o
 }
 
-func (o DbProxyAuthFormatAuthSchemePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxyAuthFormatAuthScheme] {
-	return pulumix.Output[*DbProxyAuthFormatAuthScheme]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbProxyAuthFormatAuthSchemePtrOutput) Elem() DbProxyAuthFormatAuthSchemeOutput {
 	return o.ApplyT(func(v *DbProxyAuthFormatAuthScheme) DbProxyAuthFormatAuthScheme {
 		if v != nil {
@@ -516,10 +470,10 @@ func (o DbProxyAuthFormatAuthSchemePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DbProxyAuthFormatAuthSchemeInput is an input type that accepts DbProxyAuthFormatAuthSchemeArgs and DbProxyAuthFormatAuthSchemeOutput values.
-// You can construct a concrete instance of `DbProxyAuthFormatAuthSchemeInput` via:
+// DbProxyAuthFormatAuthSchemeInput is an input type that accepts values of the DbProxyAuthFormatAuthScheme enum
+// A concrete instance of `DbProxyAuthFormatAuthSchemeInput` can be one of the following:
 //
-//	DbProxyAuthFormatAuthSchemeArgs{...}
+//	DbProxyAuthFormatAuthSchemeSecrets
 type DbProxyAuthFormatAuthSchemeInput interface {
 	pulumi.Input
 
@@ -552,12 +506,6 @@ func (in *dbProxyAuthFormatAuthSchemePtr) ToDbProxyAuthFormatAuthSchemePtrOutput
 
 func (in *dbProxyAuthFormatAuthSchemePtr) ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatAuthSchemePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyAuthFormatAuthSchemePtrOutput)
-}
-
-func (in *dbProxyAuthFormatAuthSchemePtr) ToOutput(ctx context.Context) pulumix.Output[*DbProxyAuthFormatAuthScheme] {
-	return pulumix.Output[*DbProxyAuthFormatAuthScheme]{
-		OutputState: in.ToDbProxyAuthFormatAuthSchemePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of authentication the proxy uses for connections from clients.
@@ -630,12 +578,6 @@ func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToDbProxyAuthFormatClient
 	}).(DbProxyAuthFormatClientPasswordAuthTypePtrOutput)
 }
 
-func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DbProxyAuthFormatClientPasswordAuthType] {
-	return pulumix.Output[DbProxyAuthFormatClientPasswordAuthType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbProxyAuthFormatClientPasswordAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -671,12 +613,6 @@ func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) ToDbProxyAuthFormatCli
 	return o
 }
 
-func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxyAuthFormatClientPasswordAuthType] {
-	return pulumix.Output[*DbProxyAuthFormatClientPasswordAuthType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) Elem() DbProxyAuthFormatClientPasswordAuthTypeOutput {
 	return o.ApplyT(func(v *DbProxyAuthFormatClientPasswordAuthType) DbProxyAuthFormatClientPasswordAuthType {
 		if v != nil {
@@ -701,10 +637,13 @@ func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// DbProxyAuthFormatClientPasswordAuthTypeInput is an input type that accepts DbProxyAuthFormatClientPasswordAuthTypeArgs and DbProxyAuthFormatClientPasswordAuthTypeOutput values.
-// You can construct a concrete instance of `DbProxyAuthFormatClientPasswordAuthTypeInput` via:
+// DbProxyAuthFormatClientPasswordAuthTypeInput is an input type that accepts values of the DbProxyAuthFormatClientPasswordAuthType enum
+// A concrete instance of `DbProxyAuthFormatClientPasswordAuthTypeInput` can be one of the following:
 //
-//	DbProxyAuthFormatClientPasswordAuthTypeArgs{...}
+//	DbProxyAuthFormatClientPasswordAuthTypeMysqlNativePassword
+//	DbProxyAuthFormatClientPasswordAuthTypePostgresScramSha256
+//	DbProxyAuthFormatClientPasswordAuthTypePostgresMd5
+//	DbProxyAuthFormatClientPasswordAuthTypeSqlServerAuthentication
 type DbProxyAuthFormatClientPasswordAuthTypeInput interface {
 	pulumi.Input
 
@@ -737,12 +676,6 @@ func (in *dbProxyAuthFormatClientPasswordAuthTypePtr) ToDbProxyAuthFormatClientP
 
 func (in *dbProxyAuthFormatClientPasswordAuthTypePtr) ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DbProxyAuthFormatClientPasswordAuthTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyAuthFormatClientPasswordAuthTypePtrOutput)
-}
-
-func (in *dbProxyAuthFormatClientPasswordAuthTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DbProxyAuthFormatClientPasswordAuthType] {
-	return pulumix.Output[*DbProxyAuthFormatClientPasswordAuthType]{
-		OutputState: in.ToDbProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
@@ -814,12 +747,6 @@ func (o DbProxyAuthFormatIamAuthOutput) ToDbProxyAuthFormatIamAuthPtrOutputWithC
 	}).(DbProxyAuthFormatIamAuthPtrOutput)
 }
 
-func (o DbProxyAuthFormatIamAuthOutput) ToOutput(ctx context.Context) pulumix.Output[DbProxyAuthFormatIamAuth] {
-	return pulumix.Output[DbProxyAuthFormatIamAuth]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbProxyAuthFormatIamAuthOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -855,12 +782,6 @@ func (o DbProxyAuthFormatIamAuthPtrOutput) ToDbProxyAuthFormatIamAuthPtrOutputWi
 	return o
 }
 
-func (o DbProxyAuthFormatIamAuthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxyAuthFormatIamAuth] {
-	return pulumix.Output[*DbProxyAuthFormatIamAuth]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbProxyAuthFormatIamAuthPtrOutput) Elem() DbProxyAuthFormatIamAuthOutput {
 	return o.ApplyT(func(v *DbProxyAuthFormatIamAuth) DbProxyAuthFormatIamAuth {
 		if v != nil {
@@ -885,10 +806,12 @@ func (o DbProxyAuthFormatIamAuthPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DbProxyAuthFormatIamAuthInput is an input type that accepts DbProxyAuthFormatIamAuthArgs and DbProxyAuthFormatIamAuthOutput values.
-// You can construct a concrete instance of `DbProxyAuthFormatIamAuthInput` via:
+// DbProxyAuthFormatIamAuthInput is an input type that accepts values of the DbProxyAuthFormatIamAuth enum
+// A concrete instance of `DbProxyAuthFormatIamAuthInput` can be one of the following:
 //
-//	DbProxyAuthFormatIamAuthArgs{...}
+//	DbProxyAuthFormatIamAuthDisabled
+//	DbProxyAuthFormatIamAuthRequired
+//	DbProxyAuthFormatIamAuthEnabled
 type DbProxyAuthFormatIamAuthInput interface {
 	pulumi.Input
 
@@ -921,12 +844,6 @@ func (in *dbProxyAuthFormatIamAuthPtr) ToDbProxyAuthFormatIamAuthPtrOutput() DbP
 
 func (in *dbProxyAuthFormatIamAuthPtr) ToDbProxyAuthFormatIamAuthPtrOutputWithContext(ctx context.Context) DbProxyAuthFormatIamAuthPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyAuthFormatIamAuthPtrOutput)
-}
-
-func (in *dbProxyAuthFormatIamAuthPtr) ToOutput(ctx context.Context) pulumix.Output[*DbProxyAuthFormatIamAuth] {
-	return pulumix.Output[*DbProxyAuthFormatIamAuth]{
-		OutputState: in.ToDbProxyAuthFormatIamAuthPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
@@ -997,12 +914,6 @@ func (o DbProxyEndpointTargetRoleOutput) ToDbProxyEndpointTargetRolePtrOutputWit
 	}).(DbProxyEndpointTargetRolePtrOutput)
 }
 
-func (o DbProxyEndpointTargetRoleOutput) ToOutput(ctx context.Context) pulumix.Output[DbProxyEndpointTargetRole] {
-	return pulumix.Output[DbProxyEndpointTargetRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbProxyEndpointTargetRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1038,12 +949,6 @@ func (o DbProxyEndpointTargetRolePtrOutput) ToDbProxyEndpointTargetRolePtrOutput
 	return o
 }
 
-func (o DbProxyEndpointTargetRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxyEndpointTargetRole] {
-	return pulumix.Output[*DbProxyEndpointTargetRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbProxyEndpointTargetRolePtrOutput) Elem() DbProxyEndpointTargetRoleOutput {
 	return o.ApplyT(func(v *DbProxyEndpointTargetRole) DbProxyEndpointTargetRole {
 		if v != nil {
@@ -1068,10 +973,11 @@ func (o DbProxyEndpointTargetRolePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DbProxyEndpointTargetRoleInput is an input type that accepts DbProxyEndpointTargetRoleArgs and DbProxyEndpointTargetRoleOutput values.
-// You can construct a concrete instance of `DbProxyEndpointTargetRoleInput` via:
+// DbProxyEndpointTargetRoleInput is an input type that accepts values of the DbProxyEndpointTargetRole enum
+// A concrete instance of `DbProxyEndpointTargetRoleInput` can be one of the following:
 //
-//	DbProxyEndpointTargetRoleArgs{...}
+//	DbProxyEndpointTargetRoleReadWrite
+//	DbProxyEndpointTargetRoleReadOnly
 type DbProxyEndpointTargetRoleInput interface {
 	pulumi.Input
 
@@ -1104,12 +1010,6 @@ func (in *dbProxyEndpointTargetRolePtr) ToDbProxyEndpointTargetRolePtrOutput() D
 
 func (in *dbProxyEndpointTargetRolePtr) ToDbProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DbProxyEndpointTargetRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyEndpointTargetRolePtrOutput)
-}
-
-func (in *dbProxyEndpointTargetRolePtr) ToOutput(ctx context.Context) pulumix.Output[*DbProxyEndpointTargetRole] {
-	return pulumix.Output[*DbProxyEndpointTargetRole]{
-		OutputState: in.ToDbProxyEndpointTargetRolePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The kinds of databases that the proxy can connect to.
@@ -1181,12 +1081,6 @@ func (o DbProxyEngineFamilyOutput) ToDbProxyEngineFamilyPtrOutputWithContext(ctx
 	}).(DbProxyEngineFamilyPtrOutput)
 }
 
-func (o DbProxyEngineFamilyOutput) ToOutput(ctx context.Context) pulumix.Output[DbProxyEngineFamily] {
-	return pulumix.Output[DbProxyEngineFamily]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbProxyEngineFamilyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1222,12 +1116,6 @@ func (o DbProxyEngineFamilyPtrOutput) ToDbProxyEngineFamilyPtrOutputWithContext(
 	return o
 }
 
-func (o DbProxyEngineFamilyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxyEngineFamily] {
-	return pulumix.Output[*DbProxyEngineFamily]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbProxyEngineFamilyPtrOutput) Elem() DbProxyEngineFamilyOutput {
 	return o.ApplyT(func(v *DbProxyEngineFamily) DbProxyEngineFamily {
 		if v != nil {
@@ -1252,10 +1140,12 @@ func (o DbProxyEngineFamilyPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// DbProxyEngineFamilyInput is an input type that accepts DbProxyEngineFamilyArgs and DbProxyEngineFamilyOutput values.
-// You can construct a concrete instance of `DbProxyEngineFamilyInput` via:
+// DbProxyEngineFamilyInput is an input type that accepts values of the DbProxyEngineFamily enum
+// A concrete instance of `DbProxyEngineFamilyInput` can be one of the following:
 //
-//	DbProxyEngineFamilyArgs{...}
+//	DbProxyEngineFamilyMysql
+//	DbProxyEngineFamilyPostgresql
+//	DbProxyEngineFamilySqlserver
 type DbProxyEngineFamilyInput interface {
 	pulumi.Input
 
@@ -1288,12 +1178,6 @@ func (in *dbProxyEngineFamilyPtr) ToDbProxyEngineFamilyPtrOutput() DbProxyEngine
 
 func (in *dbProxyEngineFamilyPtr) ToDbProxyEngineFamilyPtrOutputWithContext(ctx context.Context) DbProxyEngineFamilyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyEngineFamilyPtrOutput)
-}
-
-func (in *dbProxyEngineFamilyPtr) ToOutput(ctx context.Context) pulumix.Output[*DbProxyEngineFamily] {
-	return pulumix.Output[*DbProxyEngineFamily]{
-		OutputState: in.ToDbProxyEngineFamilyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The identifier for the DBProxyTargetGroup
@@ -1363,12 +1247,6 @@ func (o DbProxyTargetGroupTargetGroupNameOutput) ToDbProxyTargetGroupTargetGroup
 	}).(DbProxyTargetGroupTargetGroupNamePtrOutput)
 }
 
-func (o DbProxyTargetGroupTargetGroupNameOutput) ToOutput(ctx context.Context) pulumix.Output[DbProxyTargetGroupTargetGroupName] {
-	return pulumix.Output[DbProxyTargetGroupTargetGroupName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbProxyTargetGroupTargetGroupNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1404,12 +1282,6 @@ func (o DbProxyTargetGroupTargetGroupNamePtrOutput) ToDbProxyTargetGroupTargetGr
 	return o
 }
 
-func (o DbProxyTargetGroupTargetGroupNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxyTargetGroupTargetGroupName] {
-	return pulumix.Output[*DbProxyTargetGroupTargetGroupName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DbProxyTargetGroupTargetGroupNamePtrOutput) Elem() DbProxyTargetGroupTargetGroupNameOutput {
 	return o.ApplyT(func(v *DbProxyTargetGroupTargetGroupName) DbProxyTargetGroupTargetGroupName {
 		if v != nil {
@@ -1434,10 +1306,10 @@ func (o DbProxyTargetGroupTargetGroupNamePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// DbProxyTargetGroupTargetGroupNameInput is an input type that accepts DbProxyTargetGroupTargetGroupNameArgs and DbProxyTargetGroupTargetGroupNameOutput values.
-// You can construct a concrete instance of `DbProxyTargetGroupTargetGroupNameInput` via:
+// DbProxyTargetGroupTargetGroupNameInput is an input type that accepts values of the DbProxyTargetGroupTargetGroupName enum
+// A concrete instance of `DbProxyTargetGroupTargetGroupNameInput` can be one of the following:
 //
-//	DbProxyTargetGroupTargetGroupNameArgs{...}
+//	DbProxyTargetGroupTargetGroupNameDefault
 type DbProxyTargetGroupTargetGroupNameInput interface {
 	pulumi.Input
 
@@ -1470,12 +1342,6 @@ func (in *dbProxyTargetGroupTargetGroupNamePtr) ToDbProxyTargetGroupTargetGroupN
 
 func (in *dbProxyTargetGroupTargetGroupNamePtr) ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx context.Context) DbProxyTargetGroupTargetGroupNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyTargetGroupTargetGroupNamePtrOutput)
-}
-
-func (in *dbProxyTargetGroupTargetGroupNamePtr) ToOutput(ctx context.Context) pulumix.Output[*DbProxyTargetGroupTargetGroupName] {
-	return pulumix.Output[*DbProxyTargetGroupTargetGroupName]{
-		OutputState: in.ToDbProxyTargetGroupTargetGroupNamePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
@@ -1548,12 +1414,6 @@ func (o GlobalClusterEngineOutput) ToGlobalClusterEnginePtrOutputWithContext(ctx
 	}).(GlobalClusterEnginePtrOutput)
 }
 
-func (o GlobalClusterEngineOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalClusterEngine] {
-	return pulumix.Output[GlobalClusterEngine]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalClusterEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1589,12 +1449,6 @@ func (o GlobalClusterEnginePtrOutput) ToGlobalClusterEnginePtrOutputWithContext(
 	return o
 }
 
-func (o GlobalClusterEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalClusterEngine] {
-	return pulumix.Output[*GlobalClusterEngine]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalClusterEnginePtrOutput) Elem() GlobalClusterEngineOutput {
 	return o.ApplyT(func(v *GlobalClusterEngine) GlobalClusterEngine {
 		if v != nil {
@@ -1619,10 +1473,12 @@ func (o GlobalClusterEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// GlobalClusterEngineInput is an input type that accepts GlobalClusterEngineArgs and GlobalClusterEngineOutput values.
-// You can construct a concrete instance of `GlobalClusterEngineInput` via:
+// GlobalClusterEngineInput is an input type that accepts values of the GlobalClusterEngine enum
+// A concrete instance of `GlobalClusterEngineInput` can be one of the following:
 //
-//	GlobalClusterEngineArgs{...}
+//	GlobalClusterEngineAurora
+//	GlobalClusterEngineAuroraMysql
+//	GlobalClusterEngineAuroraPostgresql
 type GlobalClusterEngineInput interface {
 	pulumi.Input
 
@@ -1655,12 +1511,6 @@ func (in *globalClusterEnginePtr) ToGlobalClusterEnginePtrOutput() GlobalCluster
 
 func (in *globalClusterEnginePtr) ToGlobalClusterEnginePtrOutputWithContext(ctx context.Context) GlobalClusterEnginePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalClusterEnginePtrOutput)
-}
-
-func (in *globalClusterEnginePtr) ToOutput(ctx context.Context) pulumix.Output[*GlobalClusterEngine] {
-	return pulumix.Output[*GlobalClusterEngine]{
-		OutputState: in.ToGlobalClusterEnginePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

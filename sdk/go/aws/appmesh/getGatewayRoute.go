@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppMesh::GatewayRoute
@@ -69,12 +68,6 @@ func (o LookupGatewayRouteResultOutput) ToLookupGatewayRouteResultOutput() Looku
 
 func (o LookupGatewayRouteResultOutput) ToLookupGatewayRouteResultOutputWithContext(ctx context.Context) LookupGatewayRouteResultOutput {
 	return o
-}
-
-func (o LookupGatewayRouteResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGatewayRouteResult] {
-	return pulumix.Output[LookupGatewayRouteResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupGatewayRouteResultOutput) Arn() pulumi.StringPtrOutput {
