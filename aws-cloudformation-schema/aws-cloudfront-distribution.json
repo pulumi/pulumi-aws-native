@@ -340,6 +340,7 @@
             "$ref" : "#/definitions/Origin"
           },
           "type" : "array",
+          "insertionOrder" : false,
           "uniqueItems" : false
         },
         "PriceClass" : {
