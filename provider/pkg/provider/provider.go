@@ -115,7 +115,7 @@ type cfnProvider struct {
 
 var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
 
-func newAwsNativeProvider(host *provider.HostClient, name, version string,
+func NewAwsNativeProvider(host *provider.HostClient, name, version string,
 	pulumiSchema, cloudAPIResourcesBytes []byte) (pulumirpc.ResourceProviderServer, error) {
 	resourceMap, err := LoadMetadata(cloudAPIResourcesBytes)
 	if err != nil {
