@@ -211,11 +211,6 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 		case "s3ForcePathStyle":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/113")})
-		case "skipCredentialsValidation":
-			if !truthyValue(k, news) {
-				failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-					Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/114")})
-			}
 		case "skipGetEc2Platforms":
 			if !truthyValue(k, news) {
 				failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
@@ -443,20 +438,29 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		p.forbiddenAccountIds = forbiddenAccountIds
 	}
 
+	skipCredentialsValidation := false
+	if skipCredentialsValidationVar, ok := varsOrEnv(vars, "aws-native:config:skipCredentialsValidation", "AWS_SKIP_CREDENTIALS_VALIDATION"); ok {
+		if skipCredentialsValidationVar == "true" {
+			skipCredentialsValidation = true
+		}
+	}
+
 	p.cfn, p.cctl, p.ec2, p.ssm = cloudformation.NewFromConfig(cfg), cloudcontrol.NewFromConfig(cfg), ec2.NewFromConfig(cfg), ssm.NewFromConfig(cfg)
 
-	callerIdentityResp, err := sts.NewFromConfig(cfg).GetCallerIdentity(ctx, &sts.GetCallerIdentityInput{})
-	if err != nil {
-		return nil, errors.Wrapf(err, "could not get AWS account ID")
-	}
-	if callerIdentityResp.Account == nil {
-		return nil, errors.New("could not get AWS account ID: nil account")
-	}
-	p.accountID = *callerIdentityResp.Account
+	if !skipCredentialsValidation {
+		callerIdentityResp, err := sts.NewFromConfig(cfg).GetCallerIdentity(ctx, &sts.GetCallerIdentityInput{})
+		if err != nil {
+			return nil, errors.Wrapf(err, "could not get AWS account ID")
+		}
+		if callerIdentityResp.Account == nil {
+			return nil, errors.New("could not get AWS account ID: nil account")
+		}
+		p.accountID = *callerIdentityResp.Account
 
-	err = p.validateAccountId()
-	if err != nil {
-		return nil, err
+		err = p.validateAccountId()
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	p.configured = true
