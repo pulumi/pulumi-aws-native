@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // CIS Scan Configuration resource schema
@@ -107,12 +106,6 @@ func (i *CisScanConfiguration) ToCisScanConfigurationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationOutput)
 }
 
-func (i *CisScanConfiguration) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfiguration] {
-	return pulumix.Output[*CisScanConfiguration]{
-		OutputState: i.ToCisScanConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CisScanConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationOutput) ElementType() reflect.Type {
@@ -125,12 +118,6 @@ func (o CisScanConfigurationOutput) ToCisScanConfigurationOutput() CisScanConfig
 
 func (o CisScanConfigurationOutput) ToCisScanConfigurationOutputWithContext(ctx context.Context) CisScanConfigurationOutput {
 	return o
-}
-
-func (o CisScanConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfiguration] {
-	return pulumix.Output[*CisScanConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // CIS Scan configuration unique identifier

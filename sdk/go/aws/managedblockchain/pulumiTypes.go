@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i AccessorTagArgs) ToAccessorTagOutputWithContext(ctx context.Context) Acc
 	return pulumi.ToOutputWithContext(ctx, i).(AccessorTagOutput)
 }
 
-func (i AccessorTagArgs) ToOutput(ctx context.Context) pulumix.Output[AccessorTag] {
-	return pulumix.Output[AccessorTag]{
-		OutputState: i.ToAccessorTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccessorTagArrayInput is an input type that accepts AccessorTagArray and AccessorTagArrayOutput values.
 // You can construct a concrete instance of `AccessorTagArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i AccessorTagArray) ToAccessorTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccessorTagArrayOutput)
 }
 
-func (i AccessorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AccessorTag] {
-	return pulumix.Output[[]AccessorTag]{
-		OutputState: i.ToAccessorTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type AccessorTagOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o AccessorTagOutput) ToAccessorTagOutput() AccessorTagOutput {
 
 func (o AccessorTagOutput) ToAccessorTagOutputWithContext(ctx context.Context) AccessorTagOutput {
 	return o
-}
-
-func (o AccessorTagOutput) ToOutput(ctx context.Context) pulumix.Output[AccessorTag] {
-	return pulumix.Output[AccessorTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -133,12 +114,6 @@ func (o AccessorTagArrayOutput) ToAccessorTagArrayOutput() AccessorTagArrayOutpu
 
 func (o AccessorTagArrayOutput) ToAccessorTagArrayOutputWithContext(ctx context.Context) AccessorTagArrayOutput {
 	return o
-}
-
-func (o AccessorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccessorTag] {
-	return pulumix.Output[[]AccessorTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessorTagArrayOutput) Index(i pulumi.IntInput) AccessorTagOutput {
@@ -182,12 +157,6 @@ func (i MemberApprovalThresholdPolicyArgs) ToMemberApprovalThresholdPolicyOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MemberApprovalThresholdPolicyOutput)
 }
 
-func (i MemberApprovalThresholdPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[MemberApprovalThresholdPolicy] {
-	return pulumix.Output[MemberApprovalThresholdPolicy]{
-		OutputState: i.ToMemberApprovalThresholdPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MemberApprovalThresholdPolicyArgs) ToMemberApprovalThresholdPolicyPtrOutput() MemberApprovalThresholdPolicyPtrOutput {
 	return i.ToMemberApprovalThresholdPolicyPtrOutputWithContext(context.Background())
 }
@@ -229,12 +198,6 @@ func (i *memberApprovalThresholdPolicyPtrType) ToMemberApprovalThresholdPolicyPt
 	return pulumi.ToOutputWithContext(ctx, i).(MemberApprovalThresholdPolicyPtrOutput)
 }
 
-func (i *memberApprovalThresholdPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*MemberApprovalThresholdPolicy] {
-	return pulumix.Output[*MemberApprovalThresholdPolicy]{
-		OutputState: i.ToMemberApprovalThresholdPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MemberApprovalThresholdPolicyOutput struct{ *pulumi.OutputState }
 
 func (MemberApprovalThresholdPolicyOutput) ElementType() reflect.Type {
@@ -257,12 +220,6 @@ func (o MemberApprovalThresholdPolicyOutput) ToMemberApprovalThresholdPolicyPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemberApprovalThresholdPolicy) *MemberApprovalThresholdPolicy {
 		return &v
 	}).(MemberApprovalThresholdPolicyPtrOutput)
-}
-
-func (o MemberApprovalThresholdPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[MemberApprovalThresholdPolicy] {
-	return pulumix.Output[MemberApprovalThresholdPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberApprovalThresholdPolicyOutput) ProposalDurationInHours() pulumi.IntPtrOutput {
@@ -289,12 +246,6 @@ func (o MemberApprovalThresholdPolicyPtrOutput) ToMemberApprovalThresholdPolicyP
 
 func (o MemberApprovalThresholdPolicyPtrOutput) ToMemberApprovalThresholdPolicyPtrOutputWithContext(ctx context.Context) MemberApprovalThresholdPolicyPtrOutput {
 	return o
-}
-
-func (o MemberApprovalThresholdPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MemberApprovalThresholdPolicy] {
-	return pulumix.Output[*MemberApprovalThresholdPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberApprovalThresholdPolicyPtrOutput) Elem() MemberApprovalThresholdPolicyOutput {
@@ -369,12 +320,6 @@ func (i MemberConfigurationArgs) ToMemberConfigurationOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MemberConfigurationOutput)
 }
 
-func (i MemberConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MemberConfiguration] {
-	return pulumix.Output[MemberConfiguration]{
-		OutputState: i.ToMemberConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MemberConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MemberConfigurationOutput) ElementType() reflect.Type {
@@ -387,12 +332,6 @@ func (o MemberConfigurationOutput) ToMemberConfigurationOutput() MemberConfigura
 
 func (o MemberConfigurationOutput) ToMemberConfigurationOutputWithContext(ctx context.Context) MemberConfigurationOutput {
 	return o
-}
-
-func (o MemberConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MemberConfiguration] {
-	return pulumix.Output[MemberConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberConfigurationOutput) Description() pulumi.StringPtrOutput {
@@ -419,12 +358,6 @@ func (o MemberConfigurationPtrOutput) ToMemberConfigurationPtrOutput() MemberCon
 
 func (o MemberConfigurationPtrOutput) ToMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberConfigurationPtrOutput {
 	return o
-}
-
-func (o MemberConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MemberConfiguration] {
-	return pulumix.Output[*MemberConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberConfigurationPtrOutput) Elem() MemberConfigurationOutput {
@@ -497,12 +430,6 @@ func (i MemberFabricConfigurationArgs) ToMemberFabricConfigurationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(MemberFabricConfigurationOutput)
 }
 
-func (i MemberFabricConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MemberFabricConfiguration] {
-	return pulumix.Output[MemberFabricConfiguration]{
-		OutputState: i.ToMemberFabricConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MemberFabricConfigurationArgs) ToMemberFabricConfigurationPtrOutput() MemberFabricConfigurationPtrOutput {
 	return i.ToMemberFabricConfigurationPtrOutputWithContext(context.Background())
 }
@@ -544,12 +471,6 @@ func (i *memberFabricConfigurationPtrType) ToMemberFabricConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MemberFabricConfigurationPtrOutput)
 }
 
-func (i *memberFabricConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MemberFabricConfiguration] {
-	return pulumix.Output[*MemberFabricConfiguration]{
-		OutputState: i.ToMemberFabricConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MemberFabricConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MemberFabricConfigurationOutput) ElementType() reflect.Type {
@@ -574,12 +495,6 @@ func (o MemberFabricConfigurationOutput) ToMemberFabricConfigurationPtrOutputWit
 	}).(MemberFabricConfigurationPtrOutput)
 }
 
-func (o MemberFabricConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MemberFabricConfiguration] {
-	return pulumix.Output[MemberFabricConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MemberFabricConfigurationOutput) AdminPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v MemberFabricConfiguration) string { return v.AdminPassword }).(pulumi.StringOutput)
 }
@@ -600,12 +515,6 @@ func (o MemberFabricConfigurationPtrOutput) ToMemberFabricConfigurationPtrOutput
 
 func (o MemberFabricConfigurationPtrOutput) ToMemberFabricConfigurationPtrOutputWithContext(ctx context.Context) MemberFabricConfigurationPtrOutput {
 	return o
-}
-
-func (o MemberFabricConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MemberFabricConfiguration] {
-	return pulumix.Output[*MemberFabricConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberFabricConfigurationPtrOutput) Elem() MemberFabricConfigurationOutput {
@@ -667,12 +576,6 @@ func (i MemberFrameworkConfigurationArgs) ToMemberFrameworkConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MemberFrameworkConfigurationOutput)
 }
 
-func (i MemberFrameworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MemberFrameworkConfiguration] {
-	return pulumix.Output[MemberFrameworkConfiguration]{
-		OutputState: i.ToMemberFrameworkConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MemberFrameworkConfigurationArgs) ToMemberFrameworkConfigurationPtrOutput() MemberFrameworkConfigurationPtrOutput {
 	return i.ToMemberFrameworkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -714,12 +617,6 @@ func (i *memberFrameworkConfigurationPtrType) ToMemberFrameworkConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(MemberFrameworkConfigurationPtrOutput)
 }
 
-func (i *memberFrameworkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MemberFrameworkConfiguration] {
-	return pulumix.Output[*MemberFrameworkConfiguration]{
-		OutputState: i.ToMemberFrameworkConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MemberFrameworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MemberFrameworkConfigurationOutput) ElementType() reflect.Type {
@@ -744,12 +641,6 @@ func (o MemberFrameworkConfigurationOutput) ToMemberFrameworkConfigurationPtrOut
 	}).(MemberFrameworkConfigurationPtrOutput)
 }
 
-func (o MemberFrameworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MemberFrameworkConfiguration] {
-	return pulumix.Output[MemberFrameworkConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MemberFrameworkConfigurationOutput) MemberFabricConfiguration() MemberFabricConfigurationPtrOutput {
 	return o.ApplyT(func(v MemberFrameworkConfiguration) *MemberFabricConfiguration { return v.MemberFabricConfiguration }).(MemberFabricConfigurationPtrOutput)
 }
@@ -766,12 +657,6 @@ func (o MemberFrameworkConfigurationPtrOutput) ToMemberFrameworkConfigurationPtr
 
 func (o MemberFrameworkConfigurationPtrOutput) ToMemberFrameworkConfigurationPtrOutputWithContext(ctx context.Context) MemberFrameworkConfigurationPtrOutput {
 	return o
-}
-
-func (o MemberFrameworkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MemberFrameworkConfiguration] {
-	return pulumix.Output[*MemberFrameworkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberFrameworkConfigurationPtrOutput) Elem() MemberFrameworkConfigurationOutput {
@@ -834,12 +719,6 @@ func (i MemberNetworkConfigurationArgs) ToMemberNetworkConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MemberNetworkConfigurationOutput)
 }
 
-func (i MemberNetworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MemberNetworkConfiguration] {
-	return pulumix.Output[MemberNetworkConfiguration]{
-		OutputState: i.ToMemberNetworkConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MemberNetworkConfigurationArgs) ToMemberNetworkConfigurationPtrOutput() MemberNetworkConfigurationPtrOutput {
 	return i.ToMemberNetworkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -881,12 +760,6 @@ func (i *memberNetworkConfigurationPtrType) ToMemberNetworkConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(MemberNetworkConfigurationPtrOutput)
 }
 
-func (i *memberNetworkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MemberNetworkConfiguration] {
-	return pulumix.Output[*MemberNetworkConfiguration]{
-		OutputState: i.ToMemberNetworkConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MemberNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MemberNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -909,12 +782,6 @@ func (o MemberNetworkConfigurationOutput) ToMemberNetworkConfigurationPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemberNetworkConfiguration) *MemberNetworkConfiguration {
 		return &v
 	}).(MemberNetworkConfigurationPtrOutput)
-}
-
-func (o MemberNetworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MemberNetworkConfiguration] {
-	return pulumix.Output[MemberNetworkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberNetworkConfigurationOutput) Description() pulumi.StringPtrOutput {
@@ -955,12 +822,6 @@ func (o MemberNetworkConfigurationPtrOutput) ToMemberNetworkConfigurationPtrOutp
 
 func (o MemberNetworkConfigurationPtrOutput) ToMemberNetworkConfigurationPtrOutputWithContext(ctx context.Context) MemberNetworkConfigurationPtrOutput {
 	return o
-}
-
-func (o MemberNetworkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MemberNetworkConfiguration] {
-	return pulumix.Output[*MemberNetworkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberNetworkConfigurationPtrOutput) Elem() MemberNetworkConfigurationOutput {
@@ -1058,12 +919,6 @@ func (i MemberNetworkFabricConfigurationArgs) ToMemberNetworkFabricConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(MemberNetworkFabricConfigurationOutput)
 }
 
-func (i MemberNetworkFabricConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MemberNetworkFabricConfiguration] {
-	return pulumix.Output[MemberNetworkFabricConfiguration]{
-		OutputState: i.ToMemberNetworkFabricConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MemberNetworkFabricConfigurationArgs) ToMemberNetworkFabricConfigurationPtrOutput() MemberNetworkFabricConfigurationPtrOutput {
 	return i.ToMemberNetworkFabricConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1105,12 +960,6 @@ func (i *memberNetworkFabricConfigurationPtrType) ToMemberNetworkFabricConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(MemberNetworkFabricConfigurationPtrOutput)
 }
 
-func (i *memberNetworkFabricConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MemberNetworkFabricConfiguration] {
-	return pulumix.Output[*MemberNetworkFabricConfiguration]{
-		OutputState: i.ToMemberNetworkFabricConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MemberNetworkFabricConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MemberNetworkFabricConfigurationOutput) ElementType() reflect.Type {
@@ -1135,12 +984,6 @@ func (o MemberNetworkFabricConfigurationOutput) ToMemberNetworkFabricConfigurati
 	}).(MemberNetworkFabricConfigurationPtrOutput)
 }
 
-func (o MemberNetworkFabricConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MemberNetworkFabricConfiguration] {
-	return pulumix.Output[MemberNetworkFabricConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MemberNetworkFabricConfigurationOutput) Edition() pulumi.StringOutput {
 	return o.ApplyT(func(v MemberNetworkFabricConfiguration) string { return v.Edition }).(pulumi.StringOutput)
 }
@@ -1157,12 +1000,6 @@ func (o MemberNetworkFabricConfigurationPtrOutput) ToMemberNetworkFabricConfigur
 
 func (o MemberNetworkFabricConfigurationPtrOutput) ToMemberNetworkFabricConfigurationPtrOutputWithContext(ctx context.Context) MemberNetworkFabricConfigurationPtrOutput {
 	return o
-}
-
-func (o MemberNetworkFabricConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MemberNetworkFabricConfiguration] {
-	return pulumix.Output[*MemberNetworkFabricConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberNetworkFabricConfigurationPtrOutput) Elem() MemberNetworkFabricConfigurationOutput {
@@ -1215,12 +1052,6 @@ func (i MemberNetworkFrameworkConfigurationArgs) ToMemberNetworkFrameworkConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(MemberNetworkFrameworkConfigurationOutput)
 }
 
-func (i MemberNetworkFrameworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MemberNetworkFrameworkConfiguration] {
-	return pulumix.Output[MemberNetworkFrameworkConfiguration]{
-		OutputState: i.ToMemberNetworkFrameworkConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MemberNetworkFrameworkConfigurationArgs) ToMemberNetworkFrameworkConfigurationPtrOutput() MemberNetworkFrameworkConfigurationPtrOutput {
 	return i.ToMemberNetworkFrameworkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1262,12 +1093,6 @@ func (i *memberNetworkFrameworkConfigurationPtrType) ToMemberNetworkFrameworkCon
 	return pulumi.ToOutputWithContext(ctx, i).(MemberNetworkFrameworkConfigurationPtrOutput)
 }
 
-func (i *memberNetworkFrameworkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MemberNetworkFrameworkConfiguration] {
-	return pulumix.Output[*MemberNetworkFrameworkConfiguration]{
-		OutputState: i.ToMemberNetworkFrameworkConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MemberNetworkFrameworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MemberNetworkFrameworkConfigurationOutput) ElementType() reflect.Type {
@@ -1292,12 +1117,6 @@ func (o MemberNetworkFrameworkConfigurationOutput) ToMemberNetworkFrameworkConfi
 	}).(MemberNetworkFrameworkConfigurationPtrOutput)
 }
 
-func (o MemberNetworkFrameworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MemberNetworkFrameworkConfiguration] {
-	return pulumix.Output[MemberNetworkFrameworkConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MemberNetworkFrameworkConfigurationOutput) NetworkFabricConfiguration() MemberNetworkFabricConfigurationPtrOutput {
 	return o.ApplyT(func(v MemberNetworkFrameworkConfiguration) *MemberNetworkFabricConfiguration {
 		return v.NetworkFabricConfiguration
@@ -1316,12 +1135,6 @@ func (o MemberNetworkFrameworkConfigurationPtrOutput) ToMemberNetworkFrameworkCo
 
 func (o MemberNetworkFrameworkConfigurationPtrOutput) ToMemberNetworkFrameworkConfigurationPtrOutputWithContext(ctx context.Context) MemberNetworkFrameworkConfigurationPtrOutput {
 	return o
-}
-
-func (o MemberNetworkFrameworkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MemberNetworkFrameworkConfiguration] {
-	return pulumix.Output[*MemberNetworkFrameworkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberNetworkFrameworkConfigurationPtrOutput) Elem() MemberNetworkFrameworkConfigurationOutput {
@@ -1374,12 +1187,6 @@ func (i MemberVotingPolicyArgs) ToMemberVotingPolicyOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(MemberVotingPolicyOutput)
 }
 
-func (i MemberVotingPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[MemberVotingPolicy] {
-	return pulumix.Output[MemberVotingPolicy]{
-		OutputState: i.ToMemberVotingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MemberVotingPolicyArgs) ToMemberVotingPolicyPtrOutput() MemberVotingPolicyPtrOutput {
 	return i.ToMemberVotingPolicyPtrOutputWithContext(context.Background())
 }
@@ -1421,12 +1228,6 @@ func (i *memberVotingPolicyPtrType) ToMemberVotingPolicyPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(MemberVotingPolicyPtrOutput)
 }
 
-func (i *memberVotingPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*MemberVotingPolicy] {
-	return pulumix.Output[*MemberVotingPolicy]{
-		OutputState: i.ToMemberVotingPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MemberVotingPolicyOutput struct{ *pulumi.OutputState }
 
 func (MemberVotingPolicyOutput) ElementType() reflect.Type {
@@ -1451,12 +1252,6 @@ func (o MemberVotingPolicyOutput) ToMemberVotingPolicyPtrOutputWithContext(ctx c
 	}).(MemberVotingPolicyPtrOutput)
 }
 
-func (o MemberVotingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[MemberVotingPolicy] {
-	return pulumix.Output[MemberVotingPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MemberVotingPolicyOutput) ApprovalThresholdPolicy() MemberApprovalThresholdPolicyPtrOutput {
 	return o.ApplyT(func(v MemberVotingPolicy) *MemberApprovalThresholdPolicy { return v.ApprovalThresholdPolicy }).(MemberApprovalThresholdPolicyPtrOutput)
 }
@@ -1473,12 +1268,6 @@ func (o MemberVotingPolicyPtrOutput) ToMemberVotingPolicyPtrOutput() MemberVotin
 
 func (o MemberVotingPolicyPtrOutput) ToMemberVotingPolicyPtrOutputWithContext(ctx context.Context) MemberVotingPolicyPtrOutput {
 	return o
-}
-
-func (o MemberVotingPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MemberVotingPolicy] {
-	return pulumix.Output[*MemberVotingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberVotingPolicyPtrOutput) Elem() MemberVotingPolicyOutput {
@@ -1533,12 +1322,6 @@ func (i NodeConfigurationArgs) ToNodeConfigurationOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NodeConfigurationOutput)
 }
 
-func (i NodeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[NodeConfiguration] {
-	return pulumix.Output[NodeConfiguration]{
-		OutputState: i.ToNodeConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NodeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NodeConfigurationOutput) ElementType() reflect.Type {
@@ -1551,12 +1334,6 @@ func (o NodeConfigurationOutput) ToNodeConfigurationOutput() NodeConfigurationOu
 
 func (o NodeConfigurationOutput) ToNodeConfigurationOutputWithContext(ctx context.Context) NodeConfigurationOutput {
 	return o
-}
-
-func (o NodeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[NodeConfiguration] {
-	return pulumix.Output[NodeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NodeConfigurationOutput) AvailabilityZone() pulumi.StringOutput {
@@ -1579,12 +1356,6 @@ func (o NodeConfigurationPtrOutput) ToNodeConfigurationPtrOutput() NodeConfigura
 
 func (o NodeConfigurationPtrOutput) ToNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeConfigurationPtrOutput {
 	return o
-}
-
-func (o NodeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NodeConfiguration] {
-	return pulumix.Output[*NodeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NodeConfigurationPtrOutput) Elem() NodeConfigurationOutput {

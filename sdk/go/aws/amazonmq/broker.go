@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AmazonMQ::Broker
@@ -191,12 +190,6 @@ func (i *Broker) ToBrokerOutputWithContext(ctx context.Context) BrokerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerOutput)
 }
 
-func (i *Broker) ToOutput(ctx context.Context) pulumix.Output[*Broker] {
-	return pulumix.Output[*Broker]{
-		OutputState: i.ToBrokerOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BrokerOutput struct{ *pulumi.OutputState }
 
 func (BrokerOutput) ElementType() reflect.Type {
@@ -209,12 +202,6 @@ func (o BrokerOutput) ToBrokerOutput() BrokerOutput {
 
 func (o BrokerOutput) ToBrokerOutputWithContext(ctx context.Context) BrokerOutput {
 	return o
-}
-
-func (o BrokerOutput) ToOutput(ctx context.Context) pulumix.Output[*Broker] {
-	return pulumix.Output[*Broker]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrokerOutput) AmqpEndpoints() pulumi.StringArrayOutput {

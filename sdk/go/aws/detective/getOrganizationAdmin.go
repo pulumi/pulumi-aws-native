@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Detective::OrganizationAdmin
@@ -67,12 +66,6 @@ func (o LookupOrganizationAdminResultOutput) ToLookupOrganizationAdminResultOutp
 
 func (o LookupOrganizationAdminResultOutput) ToLookupOrganizationAdminResultOutputWithContext(ctx context.Context) LookupOrganizationAdminResultOutput {
 	return o
-}
-
-func (o LookupOrganizationAdminResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOrganizationAdminResult] {
-	return pulumix.Output[LookupOrganizationAdminResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Detective graph ARN

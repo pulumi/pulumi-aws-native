@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DMS::InstanceProfile.
@@ -87,12 +86,6 @@ func (o LookupInstanceProfileResultOutput) ToLookupInstanceProfileResultOutput()
 
 func (o LookupInstanceProfileResultOutput) ToLookupInstanceProfileResultOutputWithContext(ctx context.Context) LookupInstanceProfileResultOutput {
 	return o
-}
-
-func (o LookupInstanceProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInstanceProfileResult] {
-	return pulumix.Output[LookupInstanceProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The property describes an availability zone of the instance profile.

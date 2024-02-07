@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i HttpNamespaceTagArgs) ToHttpNamespaceTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(HttpNamespaceTagOutput)
 }
 
-func (i HttpNamespaceTagArgs) ToOutput(ctx context.Context) pulumix.Output[HttpNamespaceTag] {
-	return pulumix.Output[HttpNamespaceTag]{
-		OutputState: i.ToHttpNamespaceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HttpNamespaceTagArrayInput is an input type that accepts HttpNamespaceTagArray and HttpNamespaceTagArrayOutput values.
 // You can construct a concrete instance of `HttpNamespaceTagArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i HttpNamespaceTagArray) ToHttpNamespaceTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(HttpNamespaceTagArrayOutput)
 }
 
-func (i HttpNamespaceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]HttpNamespaceTag] {
-	return pulumix.Output[[]HttpNamespaceTag]{
-		OutputState: i.ToHttpNamespaceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HttpNamespaceTagOutput struct{ *pulumi.OutputState }
 
 func (HttpNamespaceTagOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o HttpNamespaceTagOutput) ToHttpNamespaceTagOutput() HttpNamespaceTagOutpu
 
 func (o HttpNamespaceTagOutput) ToHttpNamespaceTagOutputWithContext(ctx context.Context) HttpNamespaceTagOutput {
 	return o
-}
-
-func (o HttpNamespaceTagOutput) ToOutput(ctx context.Context) pulumix.Output[HttpNamespaceTag] {
-	return pulumix.Output[HttpNamespaceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HttpNamespaceTagOutput) Key() pulumi.StringOutput {
@@ -124,12 +105,6 @@ func (o HttpNamespaceTagArrayOutput) ToHttpNamespaceTagArrayOutput() HttpNamespa
 
 func (o HttpNamespaceTagArrayOutput) ToHttpNamespaceTagArrayOutputWithContext(ctx context.Context) HttpNamespaceTagArrayOutput {
 	return o
-}
-
-func (o HttpNamespaceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HttpNamespaceTag] {
-	return pulumix.Output[[]HttpNamespaceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HttpNamespaceTagArrayOutput) Index(i pulumi.IntInput) HttpNamespaceTagOutput {
@@ -167,12 +142,6 @@ func (i PrivateDnsNamespacePrivateDnsPropertiesMutableArgs) ToPrivateDnsNamespac
 
 func (i PrivateDnsNamespacePrivateDnsPropertiesMutableArgs) ToPrivateDnsNamespacePrivateDnsPropertiesMutableOutputWithContext(ctx context.Context) PrivateDnsNamespacePrivateDnsPropertiesMutableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespacePrivateDnsPropertiesMutableOutput)
-}
-
-func (i PrivateDnsNamespacePrivateDnsPropertiesMutableArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateDnsNamespacePrivateDnsPropertiesMutable] {
-	return pulumix.Output[PrivateDnsNamespacePrivateDnsPropertiesMutable]{
-		OutputState: i.ToPrivateDnsNamespacePrivateDnsPropertiesMutableOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i PrivateDnsNamespacePrivateDnsPropertiesMutableArgs) ToPrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput() PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput {
@@ -216,12 +185,6 @@ func (i *privateDnsNamespacePrivateDnsPropertiesMutablePtrType) ToPrivateDnsName
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput)
 }
 
-func (i *privateDnsNamespacePrivateDnsPropertiesMutablePtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateDnsNamespacePrivateDnsPropertiesMutable] {
-	return pulumix.Output[*PrivateDnsNamespacePrivateDnsPropertiesMutable]{
-		OutputState: i.ToPrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateDnsNamespacePrivateDnsPropertiesMutableOutput struct{ *pulumi.OutputState }
 
 func (PrivateDnsNamespacePrivateDnsPropertiesMutableOutput) ElementType() reflect.Type {
@@ -246,12 +209,6 @@ func (o PrivateDnsNamespacePrivateDnsPropertiesMutableOutput) ToPrivateDnsNamesp
 	}).(PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput)
 }
 
-func (o PrivateDnsNamespacePrivateDnsPropertiesMutableOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateDnsNamespacePrivateDnsPropertiesMutable] {
-	return pulumix.Output[PrivateDnsNamespacePrivateDnsPropertiesMutable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrivateDnsNamespacePrivateDnsPropertiesMutableOutput) Soa() PrivateDnsNamespaceSoaPtrOutput {
 	return o.ApplyT(func(v PrivateDnsNamespacePrivateDnsPropertiesMutable) *PrivateDnsNamespaceSoa { return v.Soa }).(PrivateDnsNamespaceSoaPtrOutput)
 }
@@ -268,12 +225,6 @@ func (o PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput) ToPrivateDnsNam
 
 func (o PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput) ToPrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutputWithContext(ctx context.Context) PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput {
 	return o
-}
-
-func (o PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateDnsNamespacePrivateDnsPropertiesMutable] {
-	return pulumix.Output[*PrivateDnsNamespacePrivateDnsPropertiesMutable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput) Elem() PrivateDnsNamespacePrivateDnsPropertiesMutableOutput {
@@ -326,12 +277,6 @@ func (i PrivateDnsNamespacePropertiesArgs) ToPrivateDnsNamespacePropertiesOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespacePropertiesOutput)
 }
 
-func (i PrivateDnsNamespacePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateDnsNamespaceProperties] {
-	return pulumix.Output[PrivateDnsNamespaceProperties]{
-		OutputState: i.ToPrivateDnsNamespacePropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PrivateDnsNamespacePropertiesArgs) ToPrivateDnsNamespacePropertiesPtrOutput() PrivateDnsNamespacePropertiesPtrOutput {
 	return i.ToPrivateDnsNamespacePropertiesPtrOutputWithContext(context.Background())
 }
@@ -373,12 +318,6 @@ func (i *privateDnsNamespacePropertiesPtrType) ToPrivateDnsNamespacePropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespacePropertiesPtrOutput)
 }
 
-func (i *privateDnsNamespacePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateDnsNamespaceProperties] {
-	return pulumix.Output[*PrivateDnsNamespaceProperties]{
-		OutputState: i.ToPrivateDnsNamespacePropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateDnsNamespacePropertiesOutput struct{ *pulumi.OutputState }
 
 func (PrivateDnsNamespacePropertiesOutput) ElementType() reflect.Type {
@@ -403,12 +342,6 @@ func (o PrivateDnsNamespacePropertiesOutput) ToPrivateDnsNamespacePropertiesPtrO
 	}).(PrivateDnsNamespacePropertiesPtrOutput)
 }
 
-func (o PrivateDnsNamespacePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateDnsNamespaceProperties] {
-	return pulumix.Output[PrivateDnsNamespaceProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrivateDnsNamespacePropertiesOutput) DnsProperties() PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput {
 	return o.ApplyT(func(v PrivateDnsNamespaceProperties) *PrivateDnsNamespacePrivateDnsPropertiesMutable {
 		return v.DnsProperties
@@ -427,12 +360,6 @@ func (o PrivateDnsNamespacePropertiesPtrOutput) ToPrivateDnsNamespacePropertiesP
 
 func (o PrivateDnsNamespacePropertiesPtrOutput) ToPrivateDnsNamespacePropertiesPtrOutputWithContext(ctx context.Context) PrivateDnsNamespacePropertiesPtrOutput {
 	return o
-}
-
-func (o PrivateDnsNamespacePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateDnsNamespaceProperties] {
-	return pulumix.Output[*PrivateDnsNamespaceProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateDnsNamespacePropertiesPtrOutput) Elem() PrivateDnsNamespacePropertiesOutput {
@@ -485,12 +412,6 @@ func (i PrivateDnsNamespaceSoaArgs) ToPrivateDnsNamespaceSoaOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceSoaOutput)
 }
 
-func (i PrivateDnsNamespaceSoaArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateDnsNamespaceSoa] {
-	return pulumix.Output[PrivateDnsNamespaceSoa]{
-		OutputState: i.ToPrivateDnsNamespaceSoaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PrivateDnsNamespaceSoaArgs) ToPrivateDnsNamespaceSoaPtrOutput() PrivateDnsNamespaceSoaPtrOutput {
 	return i.ToPrivateDnsNamespaceSoaPtrOutputWithContext(context.Background())
 }
@@ -532,12 +453,6 @@ func (i *privateDnsNamespaceSoaPtrType) ToPrivateDnsNamespaceSoaPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceSoaPtrOutput)
 }
 
-func (i *privateDnsNamespaceSoaPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateDnsNamespaceSoa] {
-	return pulumix.Output[*PrivateDnsNamespaceSoa]{
-		OutputState: i.ToPrivateDnsNamespaceSoaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateDnsNamespaceSoaOutput struct{ *pulumi.OutputState }
 
 func (PrivateDnsNamespaceSoaOutput) ElementType() reflect.Type {
@@ -562,12 +477,6 @@ func (o PrivateDnsNamespaceSoaOutput) ToPrivateDnsNamespaceSoaPtrOutputWithConte
 	}).(PrivateDnsNamespaceSoaPtrOutput)
 }
 
-func (o PrivateDnsNamespaceSoaOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateDnsNamespaceSoa] {
-	return pulumix.Output[PrivateDnsNamespaceSoa]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrivateDnsNamespaceSoaOutput) Ttl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v PrivateDnsNamespaceSoa) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
 }
@@ -584,12 +493,6 @@ func (o PrivateDnsNamespaceSoaPtrOutput) ToPrivateDnsNamespaceSoaPtrOutput() Pri
 
 func (o PrivateDnsNamespaceSoaPtrOutput) ToPrivateDnsNamespaceSoaPtrOutputWithContext(ctx context.Context) PrivateDnsNamespaceSoaPtrOutput {
 	return o
-}
-
-func (o PrivateDnsNamespaceSoaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateDnsNamespaceSoa] {
-	return pulumix.Output[*PrivateDnsNamespaceSoa]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateDnsNamespaceSoaPtrOutput) Elem() PrivateDnsNamespaceSoaOutput {
@@ -644,12 +547,6 @@ func (i PrivateDnsNamespaceTagArgs) ToPrivateDnsNamespaceTagOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceTagOutput)
 }
 
-func (i PrivateDnsNamespaceTagArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateDnsNamespaceTag] {
-	return pulumix.Output[PrivateDnsNamespaceTag]{
-		OutputState: i.ToPrivateDnsNamespaceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrivateDnsNamespaceTagArrayInput is an input type that accepts PrivateDnsNamespaceTagArray and PrivateDnsNamespaceTagArrayOutput values.
 // You can construct a concrete instance of `PrivateDnsNamespaceTagArrayInput` via:
 //
@@ -675,12 +572,6 @@ func (i PrivateDnsNamespaceTagArray) ToPrivateDnsNamespaceTagArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceTagArrayOutput)
 }
 
-func (i PrivateDnsNamespaceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PrivateDnsNamespaceTag] {
-	return pulumix.Output[[]PrivateDnsNamespaceTag]{
-		OutputState: i.ToPrivateDnsNamespaceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateDnsNamespaceTagOutput struct{ *pulumi.OutputState }
 
 func (PrivateDnsNamespaceTagOutput) ElementType() reflect.Type {
@@ -693,12 +584,6 @@ func (o PrivateDnsNamespaceTagOutput) ToPrivateDnsNamespaceTagOutput() PrivateDn
 
 func (o PrivateDnsNamespaceTagOutput) ToPrivateDnsNamespaceTagOutputWithContext(ctx context.Context) PrivateDnsNamespaceTagOutput {
 	return o
-}
-
-func (o PrivateDnsNamespaceTagOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateDnsNamespaceTag] {
-	return pulumix.Output[PrivateDnsNamespaceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateDnsNamespaceTagOutput) Key() pulumi.StringOutput {
@@ -721,12 +606,6 @@ func (o PrivateDnsNamespaceTagArrayOutput) ToPrivateDnsNamespaceTagArrayOutput()
 
 func (o PrivateDnsNamespaceTagArrayOutput) ToPrivateDnsNamespaceTagArrayOutputWithContext(ctx context.Context) PrivateDnsNamespaceTagArrayOutput {
 	return o
-}
-
-func (o PrivateDnsNamespaceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PrivateDnsNamespaceTag] {
-	return pulumix.Output[[]PrivateDnsNamespaceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateDnsNamespaceTagArrayOutput) Index(i pulumi.IntInput) PrivateDnsNamespaceTagOutput {
@@ -764,12 +643,6 @@ func (i PublicDnsNamespacePropertiesArgs) ToPublicDnsNamespacePropertiesOutput()
 
 func (i PublicDnsNamespacePropertiesArgs) ToPublicDnsNamespacePropertiesOutputWithContext(ctx context.Context) PublicDnsNamespacePropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespacePropertiesOutput)
-}
-
-func (i PublicDnsNamespacePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[PublicDnsNamespaceProperties] {
-	return pulumix.Output[PublicDnsNamespaceProperties]{
-		OutputState: i.ToPublicDnsNamespacePropertiesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i PublicDnsNamespacePropertiesArgs) ToPublicDnsNamespacePropertiesPtrOutput() PublicDnsNamespacePropertiesPtrOutput {
@@ -813,12 +686,6 @@ func (i *publicDnsNamespacePropertiesPtrType) ToPublicDnsNamespacePropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespacePropertiesPtrOutput)
 }
 
-func (i *publicDnsNamespacePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*PublicDnsNamespaceProperties] {
-	return pulumix.Output[*PublicDnsNamespaceProperties]{
-		OutputState: i.ToPublicDnsNamespacePropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PublicDnsNamespacePropertiesOutput struct{ *pulumi.OutputState }
 
 func (PublicDnsNamespacePropertiesOutput) ElementType() reflect.Type {
@@ -843,12 +710,6 @@ func (o PublicDnsNamespacePropertiesOutput) ToPublicDnsNamespacePropertiesPtrOut
 	}).(PublicDnsNamespacePropertiesPtrOutput)
 }
 
-func (o PublicDnsNamespacePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[PublicDnsNamespaceProperties] {
-	return pulumix.Output[PublicDnsNamespaceProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PublicDnsNamespacePropertiesOutput) DnsProperties() PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput {
 	return o.ApplyT(func(v PublicDnsNamespaceProperties) *PublicDnsNamespacePublicDnsPropertiesMutable {
 		return v.DnsProperties
@@ -867,12 +728,6 @@ func (o PublicDnsNamespacePropertiesPtrOutput) ToPublicDnsNamespacePropertiesPtr
 
 func (o PublicDnsNamespacePropertiesPtrOutput) ToPublicDnsNamespacePropertiesPtrOutputWithContext(ctx context.Context) PublicDnsNamespacePropertiesPtrOutput {
 	return o
-}
-
-func (o PublicDnsNamespacePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicDnsNamespaceProperties] {
-	return pulumix.Output[*PublicDnsNamespaceProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PublicDnsNamespacePropertiesPtrOutput) Elem() PublicDnsNamespacePropertiesOutput {
@@ -925,12 +780,6 @@ func (i PublicDnsNamespacePublicDnsPropertiesMutableArgs) ToPublicDnsNamespacePu
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespacePublicDnsPropertiesMutableOutput)
 }
 
-func (i PublicDnsNamespacePublicDnsPropertiesMutableArgs) ToOutput(ctx context.Context) pulumix.Output[PublicDnsNamespacePublicDnsPropertiesMutable] {
-	return pulumix.Output[PublicDnsNamespacePublicDnsPropertiesMutable]{
-		OutputState: i.ToPublicDnsNamespacePublicDnsPropertiesMutableOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PublicDnsNamespacePublicDnsPropertiesMutableArgs) ToPublicDnsNamespacePublicDnsPropertiesMutablePtrOutput() PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput {
 	return i.ToPublicDnsNamespacePublicDnsPropertiesMutablePtrOutputWithContext(context.Background())
 }
@@ -972,12 +821,6 @@ func (i *publicDnsNamespacePublicDnsPropertiesMutablePtrType) ToPublicDnsNamespa
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput)
 }
 
-func (i *publicDnsNamespacePublicDnsPropertiesMutablePtrType) ToOutput(ctx context.Context) pulumix.Output[*PublicDnsNamespacePublicDnsPropertiesMutable] {
-	return pulumix.Output[*PublicDnsNamespacePublicDnsPropertiesMutable]{
-		OutputState: i.ToPublicDnsNamespacePublicDnsPropertiesMutablePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PublicDnsNamespacePublicDnsPropertiesMutableOutput struct{ *pulumi.OutputState }
 
 func (PublicDnsNamespacePublicDnsPropertiesMutableOutput) ElementType() reflect.Type {
@@ -1002,12 +845,6 @@ func (o PublicDnsNamespacePublicDnsPropertiesMutableOutput) ToPublicDnsNamespace
 	}).(PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput)
 }
 
-func (o PublicDnsNamespacePublicDnsPropertiesMutableOutput) ToOutput(ctx context.Context) pulumix.Output[PublicDnsNamespacePublicDnsPropertiesMutable] {
-	return pulumix.Output[PublicDnsNamespacePublicDnsPropertiesMutable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PublicDnsNamespacePublicDnsPropertiesMutableOutput) Soa() PublicDnsNamespaceSoaPtrOutput {
 	return o.ApplyT(func(v PublicDnsNamespacePublicDnsPropertiesMutable) *PublicDnsNamespaceSoa { return v.Soa }).(PublicDnsNamespaceSoaPtrOutput)
 }
@@ -1024,12 +861,6 @@ func (o PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput) ToPublicDnsNamesp
 
 func (o PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput) ToPublicDnsNamespacePublicDnsPropertiesMutablePtrOutputWithContext(ctx context.Context) PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput {
 	return o
-}
-
-func (o PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicDnsNamespacePublicDnsPropertiesMutable] {
-	return pulumix.Output[*PublicDnsNamespacePublicDnsPropertiesMutable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput) Elem() PublicDnsNamespacePublicDnsPropertiesMutableOutput {
@@ -1082,12 +913,6 @@ func (i PublicDnsNamespaceSoaArgs) ToPublicDnsNamespaceSoaOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceSoaOutput)
 }
 
-func (i PublicDnsNamespaceSoaArgs) ToOutput(ctx context.Context) pulumix.Output[PublicDnsNamespaceSoa] {
-	return pulumix.Output[PublicDnsNamespaceSoa]{
-		OutputState: i.ToPublicDnsNamespaceSoaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PublicDnsNamespaceSoaArgs) ToPublicDnsNamespaceSoaPtrOutput() PublicDnsNamespaceSoaPtrOutput {
 	return i.ToPublicDnsNamespaceSoaPtrOutputWithContext(context.Background())
 }
@@ -1129,12 +954,6 @@ func (i *publicDnsNamespaceSoaPtrType) ToPublicDnsNamespaceSoaPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceSoaPtrOutput)
 }
 
-func (i *publicDnsNamespaceSoaPtrType) ToOutput(ctx context.Context) pulumix.Output[*PublicDnsNamespaceSoa] {
-	return pulumix.Output[*PublicDnsNamespaceSoa]{
-		OutputState: i.ToPublicDnsNamespaceSoaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PublicDnsNamespaceSoaOutput struct{ *pulumi.OutputState }
 
 func (PublicDnsNamespaceSoaOutput) ElementType() reflect.Type {
@@ -1159,12 +978,6 @@ func (o PublicDnsNamespaceSoaOutput) ToPublicDnsNamespaceSoaPtrOutputWithContext
 	}).(PublicDnsNamespaceSoaPtrOutput)
 }
 
-func (o PublicDnsNamespaceSoaOutput) ToOutput(ctx context.Context) pulumix.Output[PublicDnsNamespaceSoa] {
-	return pulumix.Output[PublicDnsNamespaceSoa]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PublicDnsNamespaceSoaOutput) Ttl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v PublicDnsNamespaceSoa) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
 }
@@ -1181,12 +994,6 @@ func (o PublicDnsNamespaceSoaPtrOutput) ToPublicDnsNamespaceSoaPtrOutput() Publi
 
 func (o PublicDnsNamespaceSoaPtrOutput) ToPublicDnsNamespaceSoaPtrOutputWithContext(ctx context.Context) PublicDnsNamespaceSoaPtrOutput {
 	return o
-}
-
-func (o PublicDnsNamespaceSoaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicDnsNamespaceSoa] {
-	return pulumix.Output[*PublicDnsNamespaceSoa]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PublicDnsNamespaceSoaPtrOutput) Elem() PublicDnsNamespaceSoaOutput {
@@ -1241,12 +1048,6 @@ func (i PublicDnsNamespaceTagArgs) ToPublicDnsNamespaceTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceTagOutput)
 }
 
-func (i PublicDnsNamespaceTagArgs) ToOutput(ctx context.Context) pulumix.Output[PublicDnsNamespaceTag] {
-	return pulumix.Output[PublicDnsNamespaceTag]{
-		OutputState: i.ToPublicDnsNamespaceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PublicDnsNamespaceTagArrayInput is an input type that accepts PublicDnsNamespaceTagArray and PublicDnsNamespaceTagArrayOutput values.
 // You can construct a concrete instance of `PublicDnsNamespaceTagArrayInput` via:
 //
@@ -1272,12 +1073,6 @@ func (i PublicDnsNamespaceTagArray) ToPublicDnsNamespaceTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceTagArrayOutput)
 }
 
-func (i PublicDnsNamespaceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PublicDnsNamespaceTag] {
-	return pulumix.Output[[]PublicDnsNamespaceTag]{
-		OutputState: i.ToPublicDnsNamespaceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PublicDnsNamespaceTagOutput struct{ *pulumi.OutputState }
 
 func (PublicDnsNamespaceTagOutput) ElementType() reflect.Type {
@@ -1290,12 +1085,6 @@ func (o PublicDnsNamespaceTagOutput) ToPublicDnsNamespaceTagOutput() PublicDnsNa
 
 func (o PublicDnsNamespaceTagOutput) ToPublicDnsNamespaceTagOutputWithContext(ctx context.Context) PublicDnsNamespaceTagOutput {
 	return o
-}
-
-func (o PublicDnsNamespaceTagOutput) ToOutput(ctx context.Context) pulumix.Output[PublicDnsNamespaceTag] {
-	return pulumix.Output[PublicDnsNamespaceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PublicDnsNamespaceTagOutput) Key() pulumi.StringOutput {
@@ -1318,12 +1107,6 @@ func (o PublicDnsNamespaceTagArrayOutput) ToPublicDnsNamespaceTagArrayOutput() P
 
 func (o PublicDnsNamespaceTagArrayOutput) ToPublicDnsNamespaceTagArrayOutputWithContext(ctx context.Context) PublicDnsNamespaceTagArrayOutput {
 	return o
-}
-
-func (o PublicDnsNamespaceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PublicDnsNamespaceTag] {
-	return pulumix.Output[[]PublicDnsNamespaceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PublicDnsNamespaceTagArrayOutput) Index(i pulumi.IntInput) PublicDnsNamespaceTagOutput {
@@ -1367,12 +1150,6 @@ func (i ServiceDnsConfigArgs) ToServiceDnsConfigOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsConfigOutput)
 }
 
-func (i ServiceDnsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceDnsConfig] {
-	return pulumix.Output[ServiceDnsConfig]{
-		OutputState: i.ToServiceDnsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceDnsConfigArgs) ToServiceDnsConfigPtrOutput() ServiceDnsConfigPtrOutput {
 	return i.ToServiceDnsConfigPtrOutputWithContext(context.Background())
 }
@@ -1414,12 +1191,6 @@ func (i *serviceDnsConfigPtrType) ToServiceDnsConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsConfigPtrOutput)
 }
 
-func (i *serviceDnsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceDnsConfig] {
-	return pulumix.Output[*ServiceDnsConfig]{
-		OutputState: i.ToServiceDnsConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceDnsConfigOutput struct{ *pulumi.OutputState }
 
 func (ServiceDnsConfigOutput) ElementType() reflect.Type {
@@ -1442,12 +1213,6 @@ func (o ServiceDnsConfigOutput) ToServiceDnsConfigPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDnsConfig) *ServiceDnsConfig {
 		return &v
 	}).(ServiceDnsConfigPtrOutput)
-}
-
-func (o ServiceDnsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceDnsConfig] {
-	return pulumix.Output[ServiceDnsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceDnsConfigOutput) DnsRecords() ServiceDnsRecordArrayOutput {
@@ -1474,12 +1239,6 @@ func (o ServiceDnsConfigPtrOutput) ToServiceDnsConfigPtrOutput() ServiceDnsConfi
 
 func (o ServiceDnsConfigPtrOutput) ToServiceDnsConfigPtrOutputWithContext(ctx context.Context) ServiceDnsConfigPtrOutput {
 	return o
-}
-
-func (o ServiceDnsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceDnsConfig] {
-	return pulumix.Output[*ServiceDnsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceDnsConfigPtrOutput) Elem() ServiceDnsConfigOutput {
@@ -1552,12 +1311,6 @@ func (i ServiceDnsRecordArgs) ToServiceDnsRecordOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsRecordOutput)
 }
 
-func (i ServiceDnsRecordArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceDnsRecord] {
-	return pulumix.Output[ServiceDnsRecord]{
-		OutputState: i.ToServiceDnsRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceDnsRecordArrayInput is an input type that accepts ServiceDnsRecordArray and ServiceDnsRecordArrayOutput values.
 // You can construct a concrete instance of `ServiceDnsRecordArrayInput` via:
 //
@@ -1583,12 +1336,6 @@ func (i ServiceDnsRecordArray) ToServiceDnsRecordArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsRecordArrayOutput)
 }
 
-func (i ServiceDnsRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceDnsRecord] {
-	return pulumix.Output[[]ServiceDnsRecord]{
-		OutputState: i.ToServiceDnsRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceDnsRecordOutput struct{ *pulumi.OutputState }
 
 func (ServiceDnsRecordOutput) ElementType() reflect.Type {
@@ -1601,12 +1348,6 @@ func (o ServiceDnsRecordOutput) ToServiceDnsRecordOutput() ServiceDnsRecordOutpu
 
 func (o ServiceDnsRecordOutput) ToServiceDnsRecordOutputWithContext(ctx context.Context) ServiceDnsRecordOutput {
 	return o
-}
-
-func (o ServiceDnsRecordOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceDnsRecord] {
-	return pulumix.Output[ServiceDnsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceDnsRecordOutput) Ttl() pulumi.Float64Output {
@@ -1629,12 +1370,6 @@ func (o ServiceDnsRecordArrayOutput) ToServiceDnsRecordArrayOutput() ServiceDnsR
 
 func (o ServiceDnsRecordArrayOutput) ToServiceDnsRecordArrayOutputWithContext(ctx context.Context) ServiceDnsRecordArrayOutput {
 	return o
-}
-
-func (o ServiceDnsRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceDnsRecord] {
-	return pulumix.Output[[]ServiceDnsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceDnsRecordArrayOutput) Index(i pulumi.IntInput) ServiceDnsRecordOutput {
@@ -1678,12 +1413,6 @@ func (i ServiceHealthCheckConfigArgs) ToServiceHealthCheckConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHealthCheckConfigOutput)
 }
 
-func (i ServiceHealthCheckConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceHealthCheckConfig] {
-	return pulumix.Output[ServiceHealthCheckConfig]{
-		OutputState: i.ToServiceHealthCheckConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceHealthCheckConfigArgs) ToServiceHealthCheckConfigPtrOutput() ServiceHealthCheckConfigPtrOutput {
 	return i.ToServiceHealthCheckConfigPtrOutputWithContext(context.Background())
 }
@@ -1725,12 +1454,6 @@ func (i *serviceHealthCheckConfigPtrType) ToServiceHealthCheckConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHealthCheckConfigPtrOutput)
 }
 
-func (i *serviceHealthCheckConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceHealthCheckConfig] {
-	return pulumix.Output[*ServiceHealthCheckConfig]{
-		OutputState: i.ToServiceHealthCheckConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceHealthCheckConfigOutput struct{ *pulumi.OutputState }
 
 func (ServiceHealthCheckConfigOutput) ElementType() reflect.Type {
@@ -1753,12 +1476,6 @@ func (o ServiceHealthCheckConfigOutput) ToServiceHealthCheckConfigPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceHealthCheckConfig) *ServiceHealthCheckConfig {
 		return &v
 	}).(ServiceHealthCheckConfigPtrOutput)
-}
-
-func (o ServiceHealthCheckConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceHealthCheckConfig] {
-	return pulumix.Output[ServiceHealthCheckConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceHealthCheckConfigOutput) FailureThreshold() pulumi.Float64PtrOutput {
@@ -1785,12 +1502,6 @@ func (o ServiceHealthCheckConfigPtrOutput) ToServiceHealthCheckConfigPtrOutput()
 
 func (o ServiceHealthCheckConfigPtrOutput) ToServiceHealthCheckConfigPtrOutputWithContext(ctx context.Context) ServiceHealthCheckConfigPtrOutput {
 	return o
-}
-
-func (o ServiceHealthCheckConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceHealthCheckConfig] {
-	return pulumix.Output[*ServiceHealthCheckConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceHealthCheckConfigPtrOutput) Elem() ServiceHealthCheckConfigOutput {
@@ -1861,12 +1572,6 @@ func (i ServiceHealthCheckCustomConfigArgs) ToServiceHealthCheckCustomConfigOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHealthCheckCustomConfigOutput)
 }
 
-func (i ServiceHealthCheckCustomConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceHealthCheckCustomConfig] {
-	return pulumix.Output[ServiceHealthCheckCustomConfig]{
-		OutputState: i.ToServiceHealthCheckCustomConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceHealthCheckCustomConfigArgs) ToServiceHealthCheckCustomConfigPtrOutput() ServiceHealthCheckCustomConfigPtrOutput {
 	return i.ToServiceHealthCheckCustomConfigPtrOutputWithContext(context.Background())
 }
@@ -1908,12 +1613,6 @@ func (i *serviceHealthCheckCustomConfigPtrType) ToServiceHealthCheckCustomConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHealthCheckCustomConfigPtrOutput)
 }
 
-func (i *serviceHealthCheckCustomConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceHealthCheckCustomConfig] {
-	return pulumix.Output[*ServiceHealthCheckCustomConfig]{
-		OutputState: i.ToServiceHealthCheckCustomConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceHealthCheckCustomConfigOutput struct{ *pulumi.OutputState }
 
 func (ServiceHealthCheckCustomConfigOutput) ElementType() reflect.Type {
@@ -1938,12 +1637,6 @@ func (o ServiceHealthCheckCustomConfigOutput) ToServiceHealthCheckCustomConfigPt
 	}).(ServiceHealthCheckCustomConfigPtrOutput)
 }
 
-func (o ServiceHealthCheckCustomConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceHealthCheckCustomConfig] {
-	return pulumix.Output[ServiceHealthCheckCustomConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceHealthCheckCustomConfigOutput) FailureThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckCustomConfig) *float64 { return v.FailureThreshold }).(pulumi.Float64PtrOutput)
 }
@@ -1960,12 +1653,6 @@ func (o ServiceHealthCheckCustomConfigPtrOutput) ToServiceHealthCheckCustomConfi
 
 func (o ServiceHealthCheckCustomConfigPtrOutput) ToServiceHealthCheckCustomConfigPtrOutputWithContext(ctx context.Context) ServiceHealthCheckCustomConfigPtrOutput {
 	return o
-}
-
-func (o ServiceHealthCheckCustomConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceHealthCheckCustomConfig] {
-	return pulumix.Output[*ServiceHealthCheckCustomConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceHealthCheckCustomConfigPtrOutput) Elem() ServiceHealthCheckCustomConfigOutput {
@@ -2020,12 +1707,6 @@ func (i ServiceTagArgs) ToServiceTagOutputWithContext(ctx context.Context) Servi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagOutput)
 }
 
-func (i ServiceTagArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceTag] {
-	return pulumix.Output[ServiceTag]{
-		OutputState: i.ToServiceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceTagArrayInput is an input type that accepts ServiceTagArray and ServiceTagArrayOutput values.
 // You can construct a concrete instance of `ServiceTagArrayInput` via:
 //
@@ -2051,12 +1732,6 @@ func (i ServiceTagArray) ToServiceTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagArrayOutput)
 }
 
-func (i ServiceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceTag] {
-	return pulumix.Output[[]ServiceTag]{
-		OutputState: i.ToServiceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceTagOutput struct{ *pulumi.OutputState }
 
 func (ServiceTagOutput) ElementType() reflect.Type {
@@ -2069,12 +1744,6 @@ func (o ServiceTagOutput) ToServiceTagOutput() ServiceTagOutput {
 
 func (o ServiceTagOutput) ToServiceTagOutputWithContext(ctx context.Context) ServiceTagOutput {
 	return o
-}
-
-func (o ServiceTagOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceTag] {
-	return pulumix.Output[ServiceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceTagOutput) Key() pulumi.StringOutput {
@@ -2097,12 +1766,6 @@ func (o ServiceTagArrayOutput) ToServiceTagArrayOutput() ServiceTagArrayOutput {
 
 func (o ServiceTagArrayOutput) ToServiceTagArrayOutputWithContext(ctx context.Context) ServiceTagArrayOutput {
 	return o
-}
-
-func (o ServiceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceTag] {
-	return pulumix.Output[[]ServiceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {

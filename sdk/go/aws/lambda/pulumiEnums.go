@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
@@ -79,12 +78,6 @@ func (o CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput)
 	}).(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput)
 }
 
-func (o CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment] {
-	return pulumix.Output[CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutp
 	return o
 }
 
-func (o CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment] {
-	return pulumix.Output[*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput) Elem() CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput {
 	return o.ApplyT(func(v *CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment) CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment {
 		if v != nil {
@@ -150,10 +137,11 @@ func (o CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput is an input type that accepts CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentArgs and CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput values.
-// You can construct a concrete instance of `CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput` via:
+// CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput is an input type that accepts values of the CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment enum
+// A concrete instance of `CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput` can be one of the following:
 //
-//	CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentArgs{...}
+//	CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentWarn
+//	CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentEnforce
 type CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput interface {
 	pulumi.Input
 
@@ -186,12 +174,6 @@ func (in *codeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtr) 
 
 func (in *codeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtr) ToCodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutputWithContext(ctx context.Context) CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput)
-}
-
-func (in *codeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtr) ToOutput(ctx context.Context) pulumix.Output[*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment] {
-	return pulumix.Output[*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment]{
-		OutputState: in.ToCodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
@@ -262,12 +244,6 @@ func (o EventSourceMappingDocumentDbEventSourceConfigFullDocumentOutput) ToEvent
 	}).(EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutput)
 }
 
-func (o EventSourceMappingDocumentDbEventSourceConfigFullDocumentOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingDocumentDbEventSourceConfigFullDocument] {
-	return pulumix.Output[EventSourceMappingDocumentDbEventSourceConfigFullDocument]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventSourceMappingDocumentDbEventSourceConfigFullDocumentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +279,6 @@ func (o EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutput) ToEv
 	return o
 }
 
-func (o EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingDocumentDbEventSourceConfigFullDocument] {
-	return pulumix.Output[*EventSourceMappingDocumentDbEventSourceConfigFullDocument]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutput) Elem() EventSourceMappingDocumentDbEventSourceConfigFullDocumentOutput {
 	return o.ApplyT(func(v *EventSourceMappingDocumentDbEventSourceConfigFullDocument) EventSourceMappingDocumentDbEventSourceConfigFullDocument {
 		if v != nil {
@@ -333,10 +303,11 @@ func (o EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventSourceMappingDocumentDbEventSourceConfigFullDocumentInput is an input type that accepts EventSourceMappingDocumentDbEventSourceConfigFullDocumentArgs and EventSourceMappingDocumentDbEventSourceConfigFullDocumentOutput values.
-// You can construct a concrete instance of `EventSourceMappingDocumentDbEventSourceConfigFullDocumentInput` via:
+// EventSourceMappingDocumentDbEventSourceConfigFullDocumentInput is an input type that accepts values of the EventSourceMappingDocumentDbEventSourceConfigFullDocument enum
+// A concrete instance of `EventSourceMappingDocumentDbEventSourceConfigFullDocumentInput` can be one of the following:
 //
-//	EventSourceMappingDocumentDbEventSourceConfigFullDocumentArgs{...}
+//	EventSourceMappingDocumentDbEventSourceConfigFullDocumentUpdateLookup
+//	EventSourceMappingDocumentDbEventSourceConfigFullDocumentDefault
 type EventSourceMappingDocumentDbEventSourceConfigFullDocumentInput interface {
 	pulumi.Input
 
@@ -369,12 +340,6 @@ func (in *eventSourceMappingDocumentDbEventSourceConfigFullDocumentPtr) ToEventS
 
 func (in *eventSourceMappingDocumentDbEventSourceConfigFullDocumentPtr) ToEventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutputWithContext(ctx context.Context) EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutput)
-}
-
-func (in *eventSourceMappingDocumentDbEventSourceConfigFullDocumentPtr) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingDocumentDbEventSourceConfigFullDocument] {
-	return pulumix.Output[*EventSourceMappingDocumentDbEventSourceConfigFullDocument]{
-		OutputState: in.ToEventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type EventSourceMappingFunctionResponseTypesItem string
@@ -443,12 +408,6 @@ func (o EventSourceMappingFunctionResponseTypesItemOutput) ToEventSourceMappingF
 	}).(EventSourceMappingFunctionResponseTypesItemPtrOutput)
 }
 
-func (o EventSourceMappingFunctionResponseTypesItemOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingFunctionResponseTypesItem] {
-	return pulumix.Output[EventSourceMappingFunctionResponseTypesItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventSourceMappingFunctionResponseTypesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -484,12 +443,6 @@ func (o EventSourceMappingFunctionResponseTypesItemPtrOutput) ToEventSourceMappi
 	return o
 }
 
-func (o EventSourceMappingFunctionResponseTypesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingFunctionResponseTypesItem] {
-	return pulumix.Output[*EventSourceMappingFunctionResponseTypesItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventSourceMappingFunctionResponseTypesItemPtrOutput) Elem() EventSourceMappingFunctionResponseTypesItemOutput {
 	return o.ApplyT(func(v *EventSourceMappingFunctionResponseTypesItem) EventSourceMappingFunctionResponseTypesItem {
 		if v != nil {
@@ -514,10 +467,10 @@ func (o EventSourceMappingFunctionResponseTypesItemPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventSourceMappingFunctionResponseTypesItemInput is an input type that accepts EventSourceMappingFunctionResponseTypesItemArgs and EventSourceMappingFunctionResponseTypesItemOutput values.
-// You can construct a concrete instance of `EventSourceMappingFunctionResponseTypesItemInput` via:
+// EventSourceMappingFunctionResponseTypesItemInput is an input type that accepts values of the EventSourceMappingFunctionResponseTypesItem enum
+// A concrete instance of `EventSourceMappingFunctionResponseTypesItemInput` can be one of the following:
 //
-//	EventSourceMappingFunctionResponseTypesItemArgs{...}
+//	EventSourceMappingFunctionResponseTypesItemReportBatchItemFailures
 type EventSourceMappingFunctionResponseTypesItemInput interface {
 	pulumi.Input
 
@@ -552,12 +505,6 @@ func (in *eventSourceMappingFunctionResponseTypesItemPtr) ToEventSourceMappingFu
 	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingFunctionResponseTypesItemPtrOutput)
 }
 
-func (in *eventSourceMappingFunctionResponseTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingFunctionResponseTypesItem] {
-	return pulumix.Output[*EventSourceMappingFunctionResponseTypesItem]{
-		OutputState: in.ToEventSourceMappingFunctionResponseTypesItemPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSourceMappingFunctionResponseTypesItemArrayInput is an input type that accepts EventSourceMappingFunctionResponseTypesItemArray and EventSourceMappingFunctionResponseTypesItemArrayOutput values.
 // You can construct a concrete instance of `EventSourceMappingFunctionResponseTypesItemArrayInput` via:
 //
@@ -583,12 +530,6 @@ func (i EventSourceMappingFunctionResponseTypesItemArray) ToEventSourceMappingFu
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingFunctionResponseTypesItemArrayOutput)
 }
 
-func (i EventSourceMappingFunctionResponseTypesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSourceMappingFunctionResponseTypesItem] {
-	return pulumix.Output[[]EventSourceMappingFunctionResponseTypesItem]{
-		OutputState: i.ToEventSourceMappingFunctionResponseTypesItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSourceMappingFunctionResponseTypesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingFunctionResponseTypesItemArrayOutput) ElementType() reflect.Type {
@@ -601,12 +542,6 @@ func (o EventSourceMappingFunctionResponseTypesItemArrayOutput) ToEventSourceMap
 
 func (o EventSourceMappingFunctionResponseTypesItemArrayOutput) ToEventSourceMappingFunctionResponseTypesItemArrayOutputWithContext(ctx context.Context) EventSourceMappingFunctionResponseTypesItemArrayOutput {
 	return o
-}
-
-func (o EventSourceMappingFunctionResponseTypesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSourceMappingFunctionResponseTypesItem] {
-	return pulumix.Output[[]EventSourceMappingFunctionResponseTypesItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSourceMappingFunctionResponseTypesItemArrayOutput) Index(i pulumi.IntInput) EventSourceMappingFunctionResponseTypesItemOutput {
@@ -689,12 +624,6 @@ func (o EventSourceMappingSourceAccessConfigurationTypeOutput) ToEventSourceMapp
 	}).(EventSourceMappingSourceAccessConfigurationTypePtrOutput)
 }
 
-func (o EventSourceMappingSourceAccessConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingSourceAccessConfigurationType] {
-	return pulumix.Output[EventSourceMappingSourceAccessConfigurationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventSourceMappingSourceAccessConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -730,12 +659,6 @@ func (o EventSourceMappingSourceAccessConfigurationTypePtrOutput) ToEventSourceM
 	return o
 }
 
-func (o EventSourceMappingSourceAccessConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingSourceAccessConfigurationType] {
-	return pulumix.Output[*EventSourceMappingSourceAccessConfigurationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventSourceMappingSourceAccessConfigurationTypePtrOutput) Elem() EventSourceMappingSourceAccessConfigurationTypeOutput {
 	return o.ApplyT(func(v *EventSourceMappingSourceAccessConfigurationType) EventSourceMappingSourceAccessConfigurationType {
 		if v != nil {
@@ -760,10 +683,17 @@ func (o EventSourceMappingSourceAccessConfigurationTypePtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventSourceMappingSourceAccessConfigurationTypeInput is an input type that accepts EventSourceMappingSourceAccessConfigurationTypeArgs and EventSourceMappingSourceAccessConfigurationTypeOutput values.
-// You can construct a concrete instance of `EventSourceMappingSourceAccessConfigurationTypeInput` via:
+// EventSourceMappingSourceAccessConfigurationTypeInput is an input type that accepts values of the EventSourceMappingSourceAccessConfigurationType enum
+// A concrete instance of `EventSourceMappingSourceAccessConfigurationTypeInput` can be one of the following:
 //
-//	EventSourceMappingSourceAccessConfigurationTypeArgs{...}
+//	EventSourceMappingSourceAccessConfigurationTypeBasicAuth
+//	EventSourceMappingSourceAccessConfigurationTypeVpcSubnet
+//	EventSourceMappingSourceAccessConfigurationTypeVpcSecurityGroup
+//	EventSourceMappingSourceAccessConfigurationTypeSaslScram512Auth
+//	EventSourceMappingSourceAccessConfigurationTypeSaslScram256Auth
+//	EventSourceMappingSourceAccessConfigurationTypeVirtualHost
+//	EventSourceMappingSourceAccessConfigurationTypeClientCertificateTlsAuth
+//	EventSourceMappingSourceAccessConfigurationTypeServerRootCaCertificate
 type EventSourceMappingSourceAccessConfigurationTypeInput interface {
 	pulumi.Input
 
@@ -796,12 +726,6 @@ func (in *eventSourceMappingSourceAccessConfigurationTypePtr) ToEventSourceMappi
 
 func (in *eventSourceMappingSourceAccessConfigurationTypePtr) ToEventSourceMappingSourceAccessConfigurationTypePtrOutputWithContext(ctx context.Context) EventSourceMappingSourceAccessConfigurationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingSourceAccessConfigurationTypePtrOutput)
-}
-
-func (in *eventSourceMappingSourceAccessConfigurationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingSourceAccessConfigurationType] {
-	return pulumix.Output[*EventSourceMappingSourceAccessConfigurationType]{
-		OutputState: in.ToEventSourceMappingSourceAccessConfigurationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type FunctionArchitecturesItem string
@@ -871,12 +795,6 @@ func (o FunctionArchitecturesItemOutput) ToFunctionArchitecturesItemPtrOutputWit
 	}).(FunctionArchitecturesItemPtrOutput)
 }
 
-func (o FunctionArchitecturesItemOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionArchitecturesItem] {
-	return pulumix.Output[FunctionArchitecturesItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionArchitecturesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -912,12 +830,6 @@ func (o FunctionArchitecturesItemPtrOutput) ToFunctionArchitecturesItemPtrOutput
 	return o
 }
 
-func (o FunctionArchitecturesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionArchitecturesItem] {
-	return pulumix.Output[*FunctionArchitecturesItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionArchitecturesItemPtrOutput) Elem() FunctionArchitecturesItemOutput {
 	return o.ApplyT(func(v *FunctionArchitecturesItem) FunctionArchitecturesItem {
 		if v != nil {
@@ -942,10 +854,11 @@ func (o FunctionArchitecturesItemPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// FunctionArchitecturesItemInput is an input type that accepts FunctionArchitecturesItemArgs and FunctionArchitecturesItemOutput values.
-// You can construct a concrete instance of `FunctionArchitecturesItemInput` via:
+// FunctionArchitecturesItemInput is an input type that accepts values of the FunctionArchitecturesItem enum
+// A concrete instance of `FunctionArchitecturesItemInput` can be one of the following:
 //
-//	FunctionArchitecturesItemArgs{...}
+//	FunctionArchitecturesItemX8664
+//	FunctionArchitecturesItemArm64
 type FunctionArchitecturesItemInput interface {
 	pulumi.Input
 
@@ -980,12 +893,6 @@ func (in *functionArchitecturesItemPtr) ToFunctionArchitecturesItemPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionArchitecturesItemPtrOutput)
 }
 
-func (in *functionArchitecturesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*FunctionArchitecturesItem] {
-	return pulumix.Output[*FunctionArchitecturesItem]{
-		OutputState: in.ToFunctionArchitecturesItemPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FunctionArchitecturesItemArrayInput is an input type that accepts FunctionArchitecturesItemArray and FunctionArchitecturesItemArrayOutput values.
 // You can construct a concrete instance of `FunctionArchitecturesItemArrayInput` via:
 //
@@ -1011,12 +918,6 @@ func (i FunctionArchitecturesItemArray) ToFunctionArchitecturesItemArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionArchitecturesItemArrayOutput)
 }
 
-func (i FunctionArchitecturesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]FunctionArchitecturesItem] {
-	return pulumix.Output[[]FunctionArchitecturesItem]{
-		OutputState: i.ToFunctionArchitecturesItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionArchitecturesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (FunctionArchitecturesItemArrayOutput) ElementType() reflect.Type {
@@ -1029,12 +930,6 @@ func (o FunctionArchitecturesItemArrayOutput) ToFunctionArchitecturesItemArrayOu
 
 func (o FunctionArchitecturesItemArrayOutput) ToFunctionArchitecturesItemArrayOutputWithContext(ctx context.Context) FunctionArchitecturesItemArrayOutput {
 	return o
-}
-
-func (o FunctionArchitecturesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FunctionArchitecturesItem] {
-	return pulumix.Output[[]FunctionArchitecturesItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionArchitecturesItemArrayOutput) Index(i pulumi.IntInput) FunctionArchitecturesItemOutput {
@@ -1115,12 +1010,6 @@ func (o FunctionLoggingConfigApplicationLogLevelOutput) ToFunctionLoggingConfigA
 	}).(FunctionLoggingConfigApplicationLogLevelPtrOutput)
 }
 
-func (o FunctionLoggingConfigApplicationLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionLoggingConfigApplicationLogLevel] {
-	return pulumix.Output[FunctionLoggingConfigApplicationLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionLoggingConfigApplicationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1156,12 +1045,6 @@ func (o FunctionLoggingConfigApplicationLogLevelPtrOutput) ToFunctionLoggingConf
 	return o
 }
 
-func (o FunctionLoggingConfigApplicationLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfigApplicationLogLevel] {
-	return pulumix.Output[*FunctionLoggingConfigApplicationLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionLoggingConfigApplicationLogLevelPtrOutput) Elem() FunctionLoggingConfigApplicationLogLevelOutput {
 	return o.ApplyT(func(v *FunctionLoggingConfigApplicationLogLevel) FunctionLoggingConfigApplicationLogLevel {
 		if v != nil {
@@ -1186,10 +1069,15 @@ func (o FunctionLoggingConfigApplicationLogLevelPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// FunctionLoggingConfigApplicationLogLevelInput is an input type that accepts FunctionLoggingConfigApplicationLogLevelArgs and FunctionLoggingConfigApplicationLogLevelOutput values.
-// You can construct a concrete instance of `FunctionLoggingConfigApplicationLogLevelInput` via:
+// FunctionLoggingConfigApplicationLogLevelInput is an input type that accepts values of the FunctionLoggingConfigApplicationLogLevel enum
+// A concrete instance of `FunctionLoggingConfigApplicationLogLevelInput` can be one of the following:
 //
-//	FunctionLoggingConfigApplicationLogLevelArgs{...}
+//	FunctionLoggingConfigApplicationLogLevelTrace
+//	FunctionLoggingConfigApplicationLogLevelDebug
+//	FunctionLoggingConfigApplicationLogLevelInfo
+//	FunctionLoggingConfigApplicationLogLevelWarn
+//	FunctionLoggingConfigApplicationLogLevelError
+//	FunctionLoggingConfigApplicationLogLevelFatal
 type FunctionLoggingConfigApplicationLogLevelInput interface {
 	pulumi.Input
 
@@ -1222,12 +1110,6 @@ func (in *functionLoggingConfigApplicationLogLevelPtr) ToFunctionLoggingConfigAp
 
 func (in *functionLoggingConfigApplicationLogLevelPtr) ToFunctionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigApplicationLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionLoggingConfigApplicationLogLevelPtrOutput)
-}
-
-func (in *functionLoggingConfigApplicationLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfigApplicationLogLevel] {
-	return pulumix.Output[*FunctionLoggingConfigApplicationLogLevel]{
-		OutputState: in.ToFunctionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Log delivery format for the lambda function
@@ -1298,12 +1180,6 @@ func (o FunctionLoggingConfigLogFormatOutput) ToFunctionLoggingConfigLogFormatPt
 	}).(FunctionLoggingConfigLogFormatPtrOutput)
 }
 
-func (o FunctionLoggingConfigLogFormatOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionLoggingConfigLogFormat] {
-	return pulumix.Output[FunctionLoggingConfigLogFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionLoggingConfigLogFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1339,12 +1215,6 @@ func (o FunctionLoggingConfigLogFormatPtrOutput) ToFunctionLoggingConfigLogForma
 	return o
 }
 
-func (o FunctionLoggingConfigLogFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfigLogFormat] {
-	return pulumix.Output[*FunctionLoggingConfigLogFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionLoggingConfigLogFormatPtrOutput) Elem() FunctionLoggingConfigLogFormatOutput {
 	return o.ApplyT(func(v *FunctionLoggingConfigLogFormat) FunctionLoggingConfigLogFormat {
 		if v != nil {
@@ -1369,10 +1239,11 @@ func (o FunctionLoggingConfigLogFormatPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// FunctionLoggingConfigLogFormatInput is an input type that accepts FunctionLoggingConfigLogFormatArgs and FunctionLoggingConfigLogFormatOutput values.
-// You can construct a concrete instance of `FunctionLoggingConfigLogFormatInput` via:
+// FunctionLoggingConfigLogFormatInput is an input type that accepts values of the FunctionLoggingConfigLogFormat enum
+// A concrete instance of `FunctionLoggingConfigLogFormatInput` can be one of the following:
 //
-//	FunctionLoggingConfigLogFormatArgs{...}
+//	FunctionLoggingConfigLogFormatText
+//	FunctionLoggingConfigLogFormatJson
 type FunctionLoggingConfigLogFormatInput interface {
 	pulumi.Input
 
@@ -1405,12 +1276,6 @@ func (in *functionLoggingConfigLogFormatPtr) ToFunctionLoggingConfigLogFormatPtr
 
 func (in *functionLoggingConfigLogFormatPtr) ToFunctionLoggingConfigLogFormatPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigLogFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionLoggingConfigLogFormatPtrOutput)
-}
-
-func (in *functionLoggingConfigLogFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfigLogFormat] {
-	return pulumix.Output[*FunctionLoggingConfigLogFormat]{
-		OutputState: in.ToFunctionLoggingConfigLogFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // System log granularity level, can only be used when LogFormat is set to JSON
@@ -1482,12 +1347,6 @@ func (o FunctionLoggingConfigSystemLogLevelOutput) ToFunctionLoggingConfigSystem
 	}).(FunctionLoggingConfigSystemLogLevelPtrOutput)
 }
 
-func (o FunctionLoggingConfigSystemLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionLoggingConfigSystemLogLevel] {
-	return pulumix.Output[FunctionLoggingConfigSystemLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionLoggingConfigSystemLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1523,12 +1382,6 @@ func (o FunctionLoggingConfigSystemLogLevelPtrOutput) ToFunctionLoggingConfigSys
 	return o
 }
 
-func (o FunctionLoggingConfigSystemLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfigSystemLogLevel] {
-	return pulumix.Output[*FunctionLoggingConfigSystemLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionLoggingConfigSystemLogLevelPtrOutput) Elem() FunctionLoggingConfigSystemLogLevelOutput {
 	return o.ApplyT(func(v *FunctionLoggingConfigSystemLogLevel) FunctionLoggingConfigSystemLogLevel {
 		if v != nil {
@@ -1553,10 +1406,12 @@ func (o FunctionLoggingConfigSystemLogLevelPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// FunctionLoggingConfigSystemLogLevelInput is an input type that accepts FunctionLoggingConfigSystemLogLevelArgs and FunctionLoggingConfigSystemLogLevelOutput values.
-// You can construct a concrete instance of `FunctionLoggingConfigSystemLogLevelInput` via:
+// FunctionLoggingConfigSystemLogLevelInput is an input type that accepts values of the FunctionLoggingConfigSystemLogLevel enum
+// A concrete instance of `FunctionLoggingConfigSystemLogLevelInput` can be one of the following:
 //
-//	FunctionLoggingConfigSystemLogLevelArgs{...}
+//	FunctionLoggingConfigSystemLogLevelDebug
+//	FunctionLoggingConfigSystemLogLevelInfo
+//	FunctionLoggingConfigSystemLogLevelWarn
 type FunctionLoggingConfigSystemLogLevelInput interface {
 	pulumi.Input
 
@@ -1589,12 +1444,6 @@ func (in *functionLoggingConfigSystemLogLevelPtr) ToFunctionLoggingConfigSystemL
 
 func (in *functionLoggingConfigSystemLogLevelPtr) ToFunctionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigSystemLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionLoggingConfigSystemLogLevelPtrOutput)
-}
-
-func (in *functionLoggingConfigSystemLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfigSystemLogLevel] {
-	return pulumix.Output[*FunctionLoggingConfigSystemLogLevel]{
-		OutputState: in.ToFunctionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PackageType.
@@ -1665,12 +1514,6 @@ func (o FunctionPackageTypeOutput) ToFunctionPackageTypePtrOutputWithContext(ctx
 	}).(FunctionPackageTypePtrOutput)
 }
 
-func (o FunctionPackageTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionPackageType] {
-	return pulumix.Output[FunctionPackageType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionPackageTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1706,12 +1549,6 @@ func (o FunctionPackageTypePtrOutput) ToFunctionPackageTypePtrOutputWithContext(
 	return o
 }
 
-func (o FunctionPackageTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionPackageType] {
-	return pulumix.Output[*FunctionPackageType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionPackageTypePtrOutput) Elem() FunctionPackageTypeOutput {
 	return o.ApplyT(func(v *FunctionPackageType) FunctionPackageType {
 		if v != nil {
@@ -1736,10 +1573,11 @@ func (o FunctionPackageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// FunctionPackageTypeInput is an input type that accepts FunctionPackageTypeArgs and FunctionPackageTypeOutput values.
-// You can construct a concrete instance of `FunctionPackageTypeInput` via:
+// FunctionPackageTypeInput is an input type that accepts values of the FunctionPackageType enum
+// A concrete instance of `FunctionPackageTypeInput` can be one of the following:
 //
-//	FunctionPackageTypeArgs{...}
+//	FunctionPackageTypeImage
+//	FunctionPackageTypeZip
 type FunctionPackageTypeInput interface {
 	pulumi.Input
 
@@ -1772,12 +1610,6 @@ func (in *functionPackageTypePtr) ToFunctionPackageTypePtrOutput() FunctionPacka
 
 func (in *functionPackageTypePtr) ToFunctionPackageTypePtrOutputWithContext(ctx context.Context) FunctionPackageTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionPackageTypePtrOutput)
-}
-
-func (in *functionPackageTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FunctionPackageType] {
-	return pulumix.Output[*FunctionPackageType]{
-		OutputState: in.ToFunctionPackageTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Trigger for runtime update
@@ -1849,12 +1681,6 @@ func (o FunctionRuntimeManagementConfigUpdateRuntimeOnOutput) ToFunctionRuntimeM
 	}).(FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput)
 }
 
-func (o FunctionRuntimeManagementConfigUpdateRuntimeOnOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionRuntimeManagementConfigUpdateRuntimeOn] {
-	return pulumix.Output[FunctionRuntimeManagementConfigUpdateRuntimeOn]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionRuntimeManagementConfigUpdateRuntimeOnOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1890,12 +1716,6 @@ func (o FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput) ToFunctionRunti
 	return o
 }
 
-func (o FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionRuntimeManagementConfigUpdateRuntimeOn] {
-	return pulumix.Output[*FunctionRuntimeManagementConfigUpdateRuntimeOn]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput) Elem() FunctionRuntimeManagementConfigUpdateRuntimeOnOutput {
 	return o.ApplyT(func(v *FunctionRuntimeManagementConfigUpdateRuntimeOn) FunctionRuntimeManagementConfigUpdateRuntimeOn {
 		if v != nil {
@@ -1920,10 +1740,12 @@ func (o FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// FunctionRuntimeManagementConfigUpdateRuntimeOnInput is an input type that accepts FunctionRuntimeManagementConfigUpdateRuntimeOnArgs and FunctionRuntimeManagementConfigUpdateRuntimeOnOutput values.
-// You can construct a concrete instance of `FunctionRuntimeManagementConfigUpdateRuntimeOnInput` via:
+// FunctionRuntimeManagementConfigUpdateRuntimeOnInput is an input type that accepts values of the FunctionRuntimeManagementConfigUpdateRuntimeOn enum
+// A concrete instance of `FunctionRuntimeManagementConfigUpdateRuntimeOnInput` can be one of the following:
 //
-//	FunctionRuntimeManagementConfigUpdateRuntimeOnArgs{...}
+//	FunctionRuntimeManagementConfigUpdateRuntimeOnAuto
+//	FunctionRuntimeManagementConfigUpdateRuntimeOnFunctionUpdate
+//	FunctionRuntimeManagementConfigUpdateRuntimeOnManual
 type FunctionRuntimeManagementConfigUpdateRuntimeOnInput interface {
 	pulumi.Input
 
@@ -1956,12 +1778,6 @@ func (in *functionRuntimeManagementConfigUpdateRuntimeOnPtr) ToFunctionRuntimeMa
 
 func (in *functionRuntimeManagementConfigUpdateRuntimeOnPtr) ToFunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutputWithContext(ctx context.Context) FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput)
-}
-
-func (in *functionRuntimeManagementConfigUpdateRuntimeOnPtr) ToOutput(ctx context.Context) pulumix.Output[*FunctionRuntimeManagementConfigUpdateRuntimeOn] {
-	return pulumix.Output[*FunctionRuntimeManagementConfigUpdateRuntimeOn]{
-		OutputState: in.ToFunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Applying SnapStart setting on function resource type.
@@ -2032,12 +1848,6 @@ func (o FunctionSnapStartApplyOnOutput) ToFunctionSnapStartApplyOnPtrOutputWithC
 	}).(FunctionSnapStartApplyOnPtrOutput)
 }
 
-func (o FunctionSnapStartApplyOnOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionSnapStartApplyOn] {
-	return pulumix.Output[FunctionSnapStartApplyOn]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionSnapStartApplyOnOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2073,12 +1883,6 @@ func (o FunctionSnapStartApplyOnPtrOutput) ToFunctionSnapStartApplyOnPtrOutputWi
 	return o
 }
 
-func (o FunctionSnapStartApplyOnPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionSnapStartApplyOn] {
-	return pulumix.Output[*FunctionSnapStartApplyOn]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionSnapStartApplyOnPtrOutput) Elem() FunctionSnapStartApplyOnOutput {
 	return o.ApplyT(func(v *FunctionSnapStartApplyOn) FunctionSnapStartApplyOn {
 		if v != nil {
@@ -2103,10 +1907,11 @@ func (o FunctionSnapStartApplyOnPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// FunctionSnapStartApplyOnInput is an input type that accepts FunctionSnapStartApplyOnArgs and FunctionSnapStartApplyOnOutput values.
-// You can construct a concrete instance of `FunctionSnapStartApplyOnInput` via:
+// FunctionSnapStartApplyOnInput is an input type that accepts values of the FunctionSnapStartApplyOn enum
+// A concrete instance of `FunctionSnapStartApplyOnInput` can be one of the following:
 //
-//	FunctionSnapStartApplyOnArgs{...}
+//	FunctionSnapStartApplyOnPublishedVersions
+//	FunctionSnapStartApplyOnNone
 type FunctionSnapStartApplyOnInput interface {
 	pulumi.Input
 
@@ -2141,12 +1946,6 @@ func (in *functionSnapStartApplyOnPtr) ToFunctionSnapStartApplyOnPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionSnapStartApplyOnPtrOutput)
 }
 
-func (in *functionSnapStartApplyOnPtr) ToOutput(ctx context.Context) pulumix.Output[*FunctionSnapStartApplyOn] {
-	return pulumix.Output[*FunctionSnapStartApplyOn]{
-		OutputState: in.ToFunctionSnapStartApplyOnPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Applying SnapStart setting on function resource type.
 type FunctionSnapStartResponseApplyOn string
 
@@ -2177,12 +1976,6 @@ func (o FunctionSnapStartResponseApplyOnOutput) ToFunctionSnapStartResponseApply
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionSnapStartResponseApplyOn) *FunctionSnapStartResponseApplyOn {
 		return &v
 	}).(FunctionSnapStartResponseApplyOnPtrOutput)
-}
-
-func (o FunctionSnapStartResponseApplyOnOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionSnapStartResponseApplyOn] {
-	return pulumix.Output[FunctionSnapStartResponseApplyOn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionSnapStartResponseApplyOnOutput) ToStringOutput() pulumi.StringOutput {
@@ -2218,12 +2011,6 @@ func (o FunctionSnapStartResponseApplyOnPtrOutput) ToFunctionSnapStartResponseAp
 
 func (o FunctionSnapStartResponseApplyOnPtrOutput) ToFunctionSnapStartResponseApplyOnPtrOutputWithContext(ctx context.Context) FunctionSnapStartResponseApplyOnPtrOutput {
 	return o
-}
-
-func (o FunctionSnapStartResponseApplyOnPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionSnapStartResponseApplyOn] {
-	return pulumix.Output[*FunctionSnapStartResponseApplyOn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionSnapStartResponseApplyOnPtrOutput) Elem() FunctionSnapStartResponseApplyOnOutput {
@@ -2282,12 +2069,6 @@ func (o FunctionSnapStartResponseOptimizationStatusOutput) ToFunctionSnapStartRe
 	}).(FunctionSnapStartResponseOptimizationStatusPtrOutput)
 }
 
-func (o FunctionSnapStartResponseOptimizationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionSnapStartResponseOptimizationStatus] {
-	return pulumix.Output[FunctionSnapStartResponseOptimizationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionSnapStartResponseOptimizationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2321,12 +2102,6 @@ func (o FunctionSnapStartResponseOptimizationStatusPtrOutput) ToFunctionSnapStar
 
 func (o FunctionSnapStartResponseOptimizationStatusPtrOutput) ToFunctionSnapStartResponseOptimizationStatusPtrOutputWithContext(ctx context.Context) FunctionSnapStartResponseOptimizationStatusPtrOutput {
 	return o
-}
-
-func (o FunctionSnapStartResponseOptimizationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionSnapStartResponseOptimizationStatus] {
-	return pulumix.Output[*FunctionSnapStartResponseOptimizationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionSnapStartResponseOptimizationStatusPtrOutput) Elem() FunctionSnapStartResponseOptimizationStatusOutput {
@@ -2421,12 +2196,6 @@ func (o FunctionTracingConfigModeOutput) ToFunctionTracingConfigModePtrOutputWit
 	}).(FunctionTracingConfigModePtrOutput)
 }
 
-func (o FunctionTracingConfigModeOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionTracingConfigMode] {
-	return pulumix.Output[FunctionTracingConfigMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionTracingConfigModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2462,12 +2231,6 @@ func (o FunctionTracingConfigModePtrOutput) ToFunctionTracingConfigModePtrOutput
 	return o
 }
 
-func (o FunctionTracingConfigModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionTracingConfigMode] {
-	return pulumix.Output[*FunctionTracingConfigMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionTracingConfigModePtrOutput) Elem() FunctionTracingConfigModeOutput {
 	return o.ApplyT(func(v *FunctionTracingConfigMode) FunctionTracingConfigMode {
 		if v != nil {
@@ -2492,10 +2255,11 @@ func (o FunctionTracingConfigModePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// FunctionTracingConfigModeInput is an input type that accepts FunctionTracingConfigModeArgs and FunctionTracingConfigModeOutput values.
-// You can construct a concrete instance of `FunctionTracingConfigModeInput` via:
+// FunctionTracingConfigModeInput is an input type that accepts values of the FunctionTracingConfigMode enum
+// A concrete instance of `FunctionTracingConfigModeInput` can be one of the following:
 //
-//	FunctionTracingConfigModeArgs{...}
+//	FunctionTracingConfigModeActive
+//	FunctionTracingConfigModePassThrough
 type FunctionTracingConfigModeInput interface {
 	pulumi.Input
 
@@ -2528,12 +2292,6 @@ func (in *functionTracingConfigModePtr) ToFunctionTracingConfigModePtrOutput() F
 
 func (in *functionTracingConfigModePtr) ToFunctionTracingConfigModePtrOutputWithContext(ctx context.Context) FunctionTracingConfigModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionTracingConfigModePtrOutput)
-}
-
-func (in *functionTracingConfigModePtr) ToOutput(ctx context.Context) pulumix.Output[*FunctionTracingConfigMode] {
-	return pulumix.Output[*FunctionTracingConfigMode]{
-		OutputState: in.ToFunctionTracingConfigModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
@@ -2604,12 +2362,6 @@ func (o PermissionFunctionUrlAuthTypeOutput) ToPermissionFunctionUrlAuthTypePtrO
 	}).(PermissionFunctionUrlAuthTypePtrOutput)
 }
 
-func (o PermissionFunctionUrlAuthTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionFunctionUrlAuthType] {
-	return pulumix.Output[PermissionFunctionUrlAuthType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PermissionFunctionUrlAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2645,12 +2397,6 @@ func (o PermissionFunctionUrlAuthTypePtrOutput) ToPermissionFunctionUrlAuthTypeP
 	return o
 }
 
-func (o PermissionFunctionUrlAuthTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionFunctionUrlAuthType] {
-	return pulumix.Output[*PermissionFunctionUrlAuthType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PermissionFunctionUrlAuthTypePtrOutput) Elem() PermissionFunctionUrlAuthTypeOutput {
 	return o.ApplyT(func(v *PermissionFunctionUrlAuthType) PermissionFunctionUrlAuthType {
 		if v != nil {
@@ -2675,10 +2421,11 @@ func (o PermissionFunctionUrlAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// PermissionFunctionUrlAuthTypeInput is an input type that accepts PermissionFunctionUrlAuthTypeArgs and PermissionFunctionUrlAuthTypeOutput values.
-// You can construct a concrete instance of `PermissionFunctionUrlAuthTypeInput` via:
+// PermissionFunctionUrlAuthTypeInput is an input type that accepts values of the PermissionFunctionUrlAuthType enum
+// A concrete instance of `PermissionFunctionUrlAuthTypeInput` can be one of the following:
 //
-//	PermissionFunctionUrlAuthTypeArgs{...}
+//	PermissionFunctionUrlAuthTypeAwsIam
+//	PermissionFunctionUrlAuthTypeNone
 type PermissionFunctionUrlAuthTypeInput interface {
 	pulumi.Input
 
@@ -2711,12 +2458,6 @@ func (in *permissionFunctionUrlAuthTypePtr) ToPermissionFunctionUrlAuthTypePtrOu
 
 func (in *permissionFunctionUrlAuthTypePtr) ToPermissionFunctionUrlAuthTypePtrOutputWithContext(ctx context.Context) PermissionFunctionUrlAuthTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PermissionFunctionUrlAuthTypePtrOutput)
-}
-
-func (in *permissionFunctionUrlAuthTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PermissionFunctionUrlAuthType] {
-	return pulumix.Output[*PermissionFunctionUrlAuthType]{
-		OutputState: in.ToPermissionFunctionUrlAuthTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type UrlAllowMethodsItem string
@@ -2791,12 +2532,6 @@ func (o UrlAllowMethodsItemOutput) ToUrlAllowMethodsItemPtrOutputWithContext(ctx
 	}).(UrlAllowMethodsItemPtrOutput)
 }
 
-func (o UrlAllowMethodsItemOutput) ToOutput(ctx context.Context) pulumix.Output[UrlAllowMethodsItem] {
-	return pulumix.Output[UrlAllowMethodsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UrlAllowMethodsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2832,12 +2567,6 @@ func (o UrlAllowMethodsItemPtrOutput) ToUrlAllowMethodsItemPtrOutputWithContext(
 	return o
 }
 
-func (o UrlAllowMethodsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UrlAllowMethodsItem] {
-	return pulumix.Output[*UrlAllowMethodsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UrlAllowMethodsItemPtrOutput) Elem() UrlAllowMethodsItemOutput {
 	return o.ApplyT(func(v *UrlAllowMethodsItem) UrlAllowMethodsItem {
 		if v != nil {
@@ -2862,10 +2591,16 @@ func (o UrlAllowMethodsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// UrlAllowMethodsItemInput is an input type that accepts UrlAllowMethodsItemArgs and UrlAllowMethodsItemOutput values.
-// You can construct a concrete instance of `UrlAllowMethodsItemInput` via:
+// UrlAllowMethodsItemInput is an input type that accepts values of the UrlAllowMethodsItem enum
+// A concrete instance of `UrlAllowMethodsItemInput` can be one of the following:
 //
-//	UrlAllowMethodsItemArgs{...}
+//	UrlAllowMethodsItemGet
+//	UrlAllowMethodsItemPut
+//	UrlAllowMethodsItemHead
+//	UrlAllowMethodsItemPost
+//	UrlAllowMethodsItemPatch
+//	UrlAllowMethodsItemDelete
+//	UrlAllowMethodsItemAsterisk
 type UrlAllowMethodsItemInput interface {
 	pulumi.Input
 
@@ -2900,12 +2635,6 @@ func (in *urlAllowMethodsItemPtr) ToUrlAllowMethodsItemPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(UrlAllowMethodsItemPtrOutput)
 }
 
-func (in *urlAllowMethodsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*UrlAllowMethodsItem] {
-	return pulumix.Output[*UrlAllowMethodsItem]{
-		OutputState: in.ToUrlAllowMethodsItemPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UrlAllowMethodsItemArrayInput is an input type that accepts UrlAllowMethodsItemArray and UrlAllowMethodsItemArrayOutput values.
 // You can construct a concrete instance of `UrlAllowMethodsItemArrayInput` via:
 //
@@ -2931,12 +2660,6 @@ func (i UrlAllowMethodsItemArray) ToUrlAllowMethodsItemArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(UrlAllowMethodsItemArrayOutput)
 }
 
-func (i UrlAllowMethodsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]UrlAllowMethodsItem] {
-	return pulumix.Output[[]UrlAllowMethodsItem]{
-		OutputState: i.ToUrlAllowMethodsItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UrlAllowMethodsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (UrlAllowMethodsItemArrayOutput) ElementType() reflect.Type {
@@ -2949,12 +2672,6 @@ func (o UrlAllowMethodsItemArrayOutput) ToUrlAllowMethodsItemArrayOutput() UrlAl
 
 func (o UrlAllowMethodsItemArrayOutput) ToUrlAllowMethodsItemArrayOutputWithContext(ctx context.Context) UrlAllowMethodsItemArrayOutput {
 	return o
-}
-
-func (o UrlAllowMethodsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UrlAllowMethodsItem] {
-	return pulumix.Output[[]UrlAllowMethodsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UrlAllowMethodsItemArrayOutput) Index(i pulumi.IntInput) UrlAllowMethodsItemOutput {
@@ -3031,12 +2748,6 @@ func (o UrlAuthTypeOutput) ToUrlAuthTypePtrOutputWithContext(ctx context.Context
 	}).(UrlAuthTypePtrOutput)
 }
 
-func (o UrlAuthTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UrlAuthType] {
-	return pulumix.Output[UrlAuthType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UrlAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3072,12 +2783,6 @@ func (o UrlAuthTypePtrOutput) ToUrlAuthTypePtrOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o UrlAuthTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UrlAuthType] {
-	return pulumix.Output[*UrlAuthType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UrlAuthTypePtrOutput) Elem() UrlAuthTypeOutput {
 	return o.ApplyT(func(v *UrlAuthType) UrlAuthType {
 		if v != nil {
@@ -3102,10 +2807,11 @@ func (o UrlAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// UrlAuthTypeInput is an input type that accepts UrlAuthTypeArgs and UrlAuthTypeOutput values.
-// You can construct a concrete instance of `UrlAuthTypeInput` via:
+// UrlAuthTypeInput is an input type that accepts values of the UrlAuthType enum
+// A concrete instance of `UrlAuthTypeInput` can be one of the following:
 //
-//	UrlAuthTypeArgs{...}
+//	UrlAuthTypeAwsIam
+//	UrlAuthTypeNone
 type UrlAuthTypeInput interface {
 	pulumi.Input
 
@@ -3138,12 +2844,6 @@ func (in *urlAuthTypePtr) ToUrlAuthTypePtrOutput() UrlAuthTypePtrOutput {
 
 func (in *urlAuthTypePtr) ToUrlAuthTypePtrOutputWithContext(ctx context.Context) UrlAuthTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UrlAuthTypePtrOutput)
-}
-
-func (in *urlAuthTypePtr) ToOutput(ctx context.Context) pulumix.Output[*UrlAuthType] {
-	return pulumix.Output[*UrlAuthType]{
-		OutputState: in.ToUrlAuthTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
@@ -3214,12 +2914,6 @@ func (o UrlInvokeModeOutput) ToUrlInvokeModePtrOutputWithContext(ctx context.Con
 	}).(UrlInvokeModePtrOutput)
 }
 
-func (o UrlInvokeModeOutput) ToOutput(ctx context.Context) pulumix.Output[UrlInvokeMode] {
-	return pulumix.Output[UrlInvokeMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UrlInvokeModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3255,12 +2949,6 @@ func (o UrlInvokeModePtrOutput) ToUrlInvokeModePtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o UrlInvokeModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UrlInvokeMode] {
-	return pulumix.Output[*UrlInvokeMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UrlInvokeModePtrOutput) Elem() UrlInvokeModeOutput {
 	return o.ApplyT(func(v *UrlInvokeMode) UrlInvokeMode {
 		if v != nil {
@@ -3285,10 +2973,11 @@ func (o UrlInvokeModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// UrlInvokeModeInput is an input type that accepts UrlInvokeModeArgs and UrlInvokeModeOutput values.
-// You can construct a concrete instance of `UrlInvokeModeInput` via:
+// UrlInvokeModeInput is an input type that accepts values of the UrlInvokeMode enum
+// A concrete instance of `UrlInvokeModeInput` can be one of the following:
 //
-//	UrlInvokeModeArgs{...}
+//	UrlInvokeModeBuffered
+//	UrlInvokeModeResponseStream
 type UrlInvokeModeInput interface {
 	pulumi.Input
 
@@ -3321,12 +3010,6 @@ func (in *urlInvokeModePtr) ToUrlInvokeModePtrOutput() UrlInvokeModePtrOutput {
 
 func (in *urlInvokeModePtr) ToUrlInvokeModePtrOutputWithContext(ctx context.Context) UrlInvokeModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UrlInvokeModePtrOutput)
-}
-
-func (in *urlInvokeModePtr) ToOutput(ctx context.Context) pulumix.Output[*UrlInvokeMode] {
-	return pulumix.Output[*UrlInvokeMode]{
-		OutputState: in.ToUrlInvokeModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

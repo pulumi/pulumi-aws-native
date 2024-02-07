@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ComponentVersionLambdaEventSourceType string
@@ -78,12 +77,6 @@ func (o ComponentVersionLambdaEventSourceTypeOutput) ToComponentVersionLambdaEve
 	}).(ComponentVersionLambdaEventSourceTypePtrOutput)
 }
 
-func (o ComponentVersionLambdaEventSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaEventSourceType] {
-	return pulumix.Output[ComponentVersionLambdaEventSourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentVersionLambdaEventSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o ComponentVersionLambdaEventSourceTypePtrOutput) ToComponentVersionLambda
 	return o
 }
 
-func (o ComponentVersionLambdaEventSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaEventSourceType] {
-	return pulumix.Output[*ComponentVersionLambdaEventSourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentVersionLambdaEventSourceTypePtrOutput) Elem() ComponentVersionLambdaEventSourceTypeOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaEventSourceType) ComponentVersionLambdaEventSourceType {
 		if v != nil {
@@ -149,10 +136,11 @@ func (o ComponentVersionLambdaEventSourceTypePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// ComponentVersionLambdaEventSourceTypeInput is an input type that accepts ComponentVersionLambdaEventSourceTypeArgs and ComponentVersionLambdaEventSourceTypeOutput values.
-// You can construct a concrete instance of `ComponentVersionLambdaEventSourceTypeInput` via:
+// ComponentVersionLambdaEventSourceTypeInput is an input type that accepts values of the ComponentVersionLambdaEventSourceType enum
+// A concrete instance of `ComponentVersionLambdaEventSourceTypeInput` can be one of the following:
 //
-//	ComponentVersionLambdaEventSourceTypeArgs{...}
+//	ComponentVersionLambdaEventSourceTypePubSub
+//	ComponentVersionLambdaEventSourceTypeIotCore
 type ComponentVersionLambdaEventSourceTypeInput interface {
 	pulumi.Input
 
@@ -185,12 +173,6 @@ func (in *componentVersionLambdaEventSourceTypePtr) ToComponentVersionLambdaEven
 
 func (in *componentVersionLambdaEventSourceTypePtr) ToComponentVersionLambdaEventSourceTypePtrOutputWithContext(ctx context.Context) ComponentVersionLambdaEventSourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ComponentVersionLambdaEventSourceTypePtrOutput)
-}
-
-func (in *componentVersionLambdaEventSourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaEventSourceType] {
-	return pulumix.Output[*ComponentVersionLambdaEventSourceType]{
-		OutputState: in.ToComponentVersionLambdaEventSourceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ComponentVersionLambdaExecutionParametersInputPayloadEncodingType string
@@ -260,12 +242,6 @@ func (o ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeOutput)
 	}).(ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutput)
 }
 
-func (o ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaExecutionParametersInputPayloadEncodingType] {
-	return pulumix.Output[ComponentVersionLambdaExecutionParametersInputPayloadEncodingType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +277,6 @@ func (o ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutp
 	return o
 }
 
-func (o ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaExecutionParametersInputPayloadEncodingType] {
-	return pulumix.Output[*ComponentVersionLambdaExecutionParametersInputPayloadEncodingType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutput) Elem() ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParametersInputPayloadEncodingType) ComponentVersionLambdaExecutionParametersInputPayloadEncodingType {
 		if v != nil {
@@ -331,10 +301,11 @@ func (o ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeInput is an input type that accepts ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeArgs and ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeOutput values.
-// You can construct a concrete instance of `ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeInput` via:
+// ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeInput is an input type that accepts values of the ComponentVersionLambdaExecutionParametersInputPayloadEncodingType enum
+// A concrete instance of `ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeInput` can be one of the following:
 //
-//	ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeArgs{...}
+//	ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeJson
+//	ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeBinary
 type ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeInput interface {
 	pulumi.Input
 
@@ -367,12 +338,6 @@ func (in *componentVersionLambdaExecutionParametersInputPayloadEncodingTypePtr) 
 
 func (in *componentVersionLambdaExecutionParametersInputPayloadEncodingTypePtr) ToComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutputWithContext(ctx context.Context) ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutput)
-}
-
-func (in *componentVersionLambdaExecutionParametersInputPayloadEncodingTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaExecutionParametersInputPayloadEncodingType] {
-	return pulumix.Output[*ComponentVersionLambdaExecutionParametersInputPayloadEncodingType]{
-		OutputState: in.ToComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ComponentVersionLambdaFilesystemPermission string
@@ -442,12 +407,6 @@ func (o ComponentVersionLambdaFilesystemPermissionOutput) ToComponentVersionLamb
 	}).(ComponentVersionLambdaFilesystemPermissionPtrOutput)
 }
 
-func (o ComponentVersionLambdaFilesystemPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaFilesystemPermission] {
-	return pulumix.Output[ComponentVersionLambdaFilesystemPermission]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentVersionLambdaFilesystemPermissionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -483,12 +442,6 @@ func (o ComponentVersionLambdaFilesystemPermissionPtrOutput) ToComponentVersionL
 	return o
 }
 
-func (o ComponentVersionLambdaFilesystemPermissionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaFilesystemPermission] {
-	return pulumix.Output[*ComponentVersionLambdaFilesystemPermission]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentVersionLambdaFilesystemPermissionPtrOutput) Elem() ComponentVersionLambdaFilesystemPermissionOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaFilesystemPermission) ComponentVersionLambdaFilesystemPermission {
 		if v != nil {
@@ -513,10 +466,11 @@ func (o ComponentVersionLambdaFilesystemPermissionPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// ComponentVersionLambdaFilesystemPermissionInput is an input type that accepts ComponentVersionLambdaFilesystemPermissionArgs and ComponentVersionLambdaFilesystemPermissionOutput values.
-// You can construct a concrete instance of `ComponentVersionLambdaFilesystemPermissionInput` via:
+// ComponentVersionLambdaFilesystemPermissionInput is an input type that accepts values of the ComponentVersionLambdaFilesystemPermission enum
+// A concrete instance of `ComponentVersionLambdaFilesystemPermissionInput` can be one of the following:
 //
-//	ComponentVersionLambdaFilesystemPermissionArgs{...}
+//	ComponentVersionLambdaFilesystemPermissionRo
+//	ComponentVersionLambdaFilesystemPermissionRw
 type ComponentVersionLambdaFilesystemPermissionInput interface {
 	pulumi.Input
 
@@ -549,12 +503,6 @@ func (in *componentVersionLambdaFilesystemPermissionPtr) ToComponentVersionLambd
 
 func (in *componentVersionLambdaFilesystemPermissionPtr) ToComponentVersionLambdaFilesystemPermissionPtrOutputWithContext(ctx context.Context) ComponentVersionLambdaFilesystemPermissionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ComponentVersionLambdaFilesystemPermissionPtrOutput)
-}
-
-func (in *componentVersionLambdaFilesystemPermissionPtr) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaFilesystemPermission] {
-	return pulumix.Output[*ComponentVersionLambdaFilesystemPermission]{
-		OutputState: in.ToComponentVersionLambdaFilesystemPermissionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ComponentVersionLambdaLinuxProcessParamsIsolationMode string
@@ -624,12 +572,6 @@ func (o ComponentVersionLambdaLinuxProcessParamsIsolationModeOutput) ToComponent
 	}).(ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput)
 }
 
-func (o ComponentVersionLambdaLinuxProcessParamsIsolationModeOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaLinuxProcessParamsIsolationMode] {
-	return pulumix.Output[ComponentVersionLambdaLinuxProcessParamsIsolationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentVersionLambdaLinuxProcessParamsIsolationModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -665,12 +607,6 @@ func (o ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput) ToCompon
 	return o
 }
 
-func (o ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaLinuxProcessParamsIsolationMode] {
-	return pulumix.Output[*ComponentVersionLambdaLinuxProcessParamsIsolationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput) Elem() ComponentVersionLambdaLinuxProcessParamsIsolationModeOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaLinuxProcessParamsIsolationMode) ComponentVersionLambdaLinuxProcessParamsIsolationMode {
 		if v != nil {
@@ -695,10 +631,11 @@ func (o ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// ComponentVersionLambdaLinuxProcessParamsIsolationModeInput is an input type that accepts ComponentVersionLambdaLinuxProcessParamsIsolationModeArgs and ComponentVersionLambdaLinuxProcessParamsIsolationModeOutput values.
-// You can construct a concrete instance of `ComponentVersionLambdaLinuxProcessParamsIsolationModeInput` via:
+// ComponentVersionLambdaLinuxProcessParamsIsolationModeInput is an input type that accepts values of the ComponentVersionLambdaLinuxProcessParamsIsolationMode enum
+// A concrete instance of `ComponentVersionLambdaLinuxProcessParamsIsolationModeInput` can be one of the following:
 //
-//	ComponentVersionLambdaLinuxProcessParamsIsolationModeArgs{...}
+//	ComponentVersionLambdaLinuxProcessParamsIsolationModeGreengrassContainer
+//	ComponentVersionLambdaLinuxProcessParamsIsolationModeNoContainer
 type ComponentVersionLambdaLinuxProcessParamsIsolationModeInput interface {
 	pulumi.Input
 
@@ -731,12 +668,6 @@ func (in *componentVersionLambdaLinuxProcessParamsIsolationModePtr) ToComponentV
 
 func (in *componentVersionLambdaLinuxProcessParamsIsolationModePtr) ToComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutputWithContext(ctx context.Context) ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput)
-}
-
-func (in *componentVersionLambdaLinuxProcessParamsIsolationModePtr) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaLinuxProcessParamsIsolationMode] {
-	return pulumix.Output[*ComponentVersionLambdaLinuxProcessParamsIsolationMode]{
-		OutputState: in.ToComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeploymentComponentUpdatePolicyAction string
@@ -806,12 +737,6 @@ func (o DeploymentComponentUpdatePolicyActionOutput) ToDeploymentComponentUpdate
 	}).(DeploymentComponentUpdatePolicyActionPtrOutput)
 }
 
-func (o DeploymentComponentUpdatePolicyActionOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentComponentUpdatePolicyAction] {
-	return pulumix.Output[DeploymentComponentUpdatePolicyAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentComponentUpdatePolicyActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -847,12 +772,6 @@ func (o DeploymentComponentUpdatePolicyActionPtrOutput) ToDeploymentComponentUpd
 	return o
 }
 
-func (o DeploymentComponentUpdatePolicyActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentComponentUpdatePolicyAction] {
-	return pulumix.Output[*DeploymentComponentUpdatePolicyAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentComponentUpdatePolicyActionPtrOutput) Elem() DeploymentComponentUpdatePolicyActionOutput {
 	return o.ApplyT(func(v *DeploymentComponentUpdatePolicyAction) DeploymentComponentUpdatePolicyAction {
 		if v != nil {
@@ -877,10 +796,11 @@ func (o DeploymentComponentUpdatePolicyActionPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeploymentComponentUpdatePolicyActionInput is an input type that accepts DeploymentComponentUpdatePolicyActionArgs and DeploymentComponentUpdatePolicyActionOutput values.
-// You can construct a concrete instance of `DeploymentComponentUpdatePolicyActionInput` via:
+// DeploymentComponentUpdatePolicyActionInput is an input type that accepts values of the DeploymentComponentUpdatePolicyAction enum
+// A concrete instance of `DeploymentComponentUpdatePolicyActionInput` can be one of the following:
 //
-//	DeploymentComponentUpdatePolicyActionArgs{...}
+//	DeploymentComponentUpdatePolicyActionNotifyComponents
+//	DeploymentComponentUpdatePolicyActionSkipNotifyComponents
 type DeploymentComponentUpdatePolicyActionInput interface {
 	pulumi.Input
 
@@ -913,12 +833,6 @@ func (in *deploymentComponentUpdatePolicyActionPtr) ToDeploymentComponentUpdateP
 
 func (in *deploymentComponentUpdatePolicyActionPtr) ToDeploymentComponentUpdatePolicyActionPtrOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeploymentComponentUpdatePolicyActionPtrOutput)
-}
-
-func (in *deploymentComponentUpdatePolicyActionPtr) ToOutput(ctx context.Context) pulumix.Output[*DeploymentComponentUpdatePolicyAction] {
-	return pulumix.Output[*DeploymentComponentUpdatePolicyAction]{
-		OutputState: in.ToDeploymentComponentUpdatePolicyActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeploymentIoTJobAbortCriteriaAction string
@@ -987,12 +901,6 @@ func (o DeploymentIoTJobAbortCriteriaActionOutput) ToDeploymentIoTJobAbortCriter
 	}).(DeploymentIoTJobAbortCriteriaActionPtrOutput)
 }
 
-func (o DeploymentIoTJobAbortCriteriaActionOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobAbortCriteriaAction] {
-	return pulumix.Output[DeploymentIoTJobAbortCriteriaAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentIoTJobAbortCriteriaActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1028,12 +936,6 @@ func (o DeploymentIoTJobAbortCriteriaActionPtrOutput) ToDeploymentIoTJobAbortCri
 	return o
 }
 
-func (o DeploymentIoTJobAbortCriteriaActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobAbortCriteriaAction] {
-	return pulumix.Output[*DeploymentIoTJobAbortCriteriaAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentIoTJobAbortCriteriaActionPtrOutput) Elem() DeploymentIoTJobAbortCriteriaActionOutput {
 	return o.ApplyT(func(v *DeploymentIoTJobAbortCriteriaAction) DeploymentIoTJobAbortCriteriaAction {
 		if v != nil {
@@ -1058,10 +960,10 @@ func (o DeploymentIoTJobAbortCriteriaActionPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeploymentIoTJobAbortCriteriaActionInput is an input type that accepts DeploymentIoTJobAbortCriteriaActionArgs and DeploymentIoTJobAbortCriteriaActionOutput values.
-// You can construct a concrete instance of `DeploymentIoTJobAbortCriteriaActionInput` via:
+// DeploymentIoTJobAbortCriteriaActionInput is an input type that accepts values of the DeploymentIoTJobAbortCriteriaAction enum
+// A concrete instance of `DeploymentIoTJobAbortCriteriaActionInput` can be one of the following:
 //
-//	DeploymentIoTJobAbortCriteriaActionArgs{...}
+//	DeploymentIoTJobAbortCriteriaActionCancel
 type DeploymentIoTJobAbortCriteriaActionInput interface {
 	pulumi.Input
 
@@ -1094,12 +996,6 @@ func (in *deploymentIoTJobAbortCriteriaActionPtr) ToDeploymentIoTJobAbortCriteri
 
 func (in *deploymentIoTJobAbortCriteriaActionPtr) ToDeploymentIoTJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeploymentIoTJobAbortCriteriaActionPtrOutput)
-}
-
-func (in *deploymentIoTJobAbortCriteriaActionPtr) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobAbortCriteriaAction] {
-	return pulumix.Output[*DeploymentIoTJobAbortCriteriaAction]{
-		OutputState: in.ToDeploymentIoTJobAbortCriteriaActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeploymentIoTJobAbortCriteriaFailureType string
@@ -1171,12 +1067,6 @@ func (o DeploymentIoTJobAbortCriteriaFailureTypeOutput) ToDeploymentIoTJobAbortC
 	}).(DeploymentIoTJobAbortCriteriaFailureTypePtrOutput)
 }
 
-func (o DeploymentIoTJobAbortCriteriaFailureTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobAbortCriteriaFailureType] {
-	return pulumix.Output[DeploymentIoTJobAbortCriteriaFailureType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentIoTJobAbortCriteriaFailureTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1212,12 +1102,6 @@ func (o DeploymentIoTJobAbortCriteriaFailureTypePtrOutput) ToDeploymentIoTJobAbo
 	return o
 }
 
-func (o DeploymentIoTJobAbortCriteriaFailureTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobAbortCriteriaFailureType] {
-	return pulumix.Output[*DeploymentIoTJobAbortCriteriaFailureType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentIoTJobAbortCriteriaFailureTypePtrOutput) Elem() DeploymentIoTJobAbortCriteriaFailureTypeOutput {
 	return o.ApplyT(func(v *DeploymentIoTJobAbortCriteriaFailureType) DeploymentIoTJobAbortCriteriaFailureType {
 		if v != nil {
@@ -1242,10 +1126,13 @@ func (o DeploymentIoTJobAbortCriteriaFailureTypePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeploymentIoTJobAbortCriteriaFailureTypeInput is an input type that accepts DeploymentIoTJobAbortCriteriaFailureTypeArgs and DeploymentIoTJobAbortCriteriaFailureTypeOutput values.
-// You can construct a concrete instance of `DeploymentIoTJobAbortCriteriaFailureTypeInput` via:
+// DeploymentIoTJobAbortCriteriaFailureTypeInput is an input type that accepts values of the DeploymentIoTJobAbortCriteriaFailureType enum
+// A concrete instance of `DeploymentIoTJobAbortCriteriaFailureTypeInput` can be one of the following:
 //
-//	DeploymentIoTJobAbortCriteriaFailureTypeArgs{...}
+//	DeploymentIoTJobAbortCriteriaFailureTypeFailed
+//	DeploymentIoTJobAbortCriteriaFailureTypeRejected
+//	DeploymentIoTJobAbortCriteriaFailureTypeTimedOut
+//	DeploymentIoTJobAbortCriteriaFailureTypeAll
 type DeploymentIoTJobAbortCriteriaFailureTypeInput interface {
 	pulumi.Input
 
@@ -1278,12 +1165,6 @@ func (in *deploymentIoTJobAbortCriteriaFailureTypePtr) ToDeploymentIoTJobAbortCr
 
 func (in *deploymentIoTJobAbortCriteriaFailureTypePtr) ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaFailureTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeploymentIoTJobAbortCriteriaFailureTypePtrOutput)
-}
-
-func (in *deploymentIoTJobAbortCriteriaFailureTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobAbortCriteriaFailureType] {
-	return pulumix.Output[*DeploymentIoTJobAbortCriteriaFailureType]{
-		OutputState: in.ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DeploymentPoliciesFailureHandlingPolicy string
@@ -1353,12 +1234,6 @@ func (o DeploymentPoliciesFailureHandlingPolicyOutput) ToDeploymentPoliciesFailu
 	}).(DeploymentPoliciesFailureHandlingPolicyPtrOutput)
 }
 
-func (o DeploymentPoliciesFailureHandlingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentPoliciesFailureHandlingPolicy] {
-	return pulumix.Output[DeploymentPoliciesFailureHandlingPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentPoliciesFailureHandlingPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1394,12 +1269,6 @@ func (o DeploymentPoliciesFailureHandlingPolicyPtrOutput) ToDeploymentPoliciesFa
 	return o
 }
 
-func (o DeploymentPoliciesFailureHandlingPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentPoliciesFailureHandlingPolicy] {
-	return pulumix.Output[*DeploymentPoliciesFailureHandlingPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentPoliciesFailureHandlingPolicyPtrOutput) Elem() DeploymentPoliciesFailureHandlingPolicyOutput {
 	return o.ApplyT(func(v *DeploymentPoliciesFailureHandlingPolicy) DeploymentPoliciesFailureHandlingPolicy {
 		if v != nil {
@@ -1424,10 +1293,11 @@ func (o DeploymentPoliciesFailureHandlingPolicyPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeploymentPoliciesFailureHandlingPolicyInput is an input type that accepts DeploymentPoliciesFailureHandlingPolicyArgs and DeploymentPoliciesFailureHandlingPolicyOutput values.
-// You can construct a concrete instance of `DeploymentPoliciesFailureHandlingPolicyInput` via:
+// DeploymentPoliciesFailureHandlingPolicyInput is an input type that accepts values of the DeploymentPoliciesFailureHandlingPolicy enum
+// A concrete instance of `DeploymentPoliciesFailureHandlingPolicyInput` can be one of the following:
 //
-//	DeploymentPoliciesFailureHandlingPolicyArgs{...}
+//	DeploymentPoliciesFailureHandlingPolicyRollback
+//	DeploymentPoliciesFailureHandlingPolicyDoNothing
 type DeploymentPoliciesFailureHandlingPolicyInput interface {
 	pulumi.Input
 
@@ -1460,12 +1330,6 @@ func (in *deploymentPoliciesFailureHandlingPolicyPtr) ToDeploymentPoliciesFailur
 
 func (in *deploymentPoliciesFailureHandlingPolicyPtr) ToDeploymentPoliciesFailureHandlingPolicyPtrOutputWithContext(ctx context.Context) DeploymentPoliciesFailureHandlingPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeploymentPoliciesFailureHandlingPolicyPtrOutput)
-}
-
-func (in *deploymentPoliciesFailureHandlingPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*DeploymentPoliciesFailureHandlingPolicy] {
-	return pulumix.Output[*DeploymentPoliciesFailureHandlingPolicy]{
-		OutputState: in.ToDeploymentPoliciesFailureHandlingPolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

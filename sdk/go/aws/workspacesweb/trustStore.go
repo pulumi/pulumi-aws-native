@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
@@ -99,12 +98,6 @@ func (i *TrustStore) ToTrustStoreOutputWithContext(ctx context.Context) TrustSto
 	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreOutput)
 }
 
-func (i *TrustStore) ToOutput(ctx context.Context) pulumix.Output[*TrustStore] {
-	return pulumix.Output[*TrustStore]{
-		OutputState: i.ToTrustStoreOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrustStoreOutput struct{ *pulumi.OutputState }
 
 func (TrustStoreOutput) ElementType() reflect.Type {
@@ -117,12 +110,6 @@ func (o TrustStoreOutput) ToTrustStoreOutput() TrustStoreOutput {
 
 func (o TrustStoreOutput) ToTrustStoreOutputWithContext(ctx context.Context) TrustStoreOutput {
 	return o
-}
-
-func (o TrustStoreOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustStore] {
-	return pulumix.Output[*TrustStore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustStoreOutput) AssociatedPortalArns() pulumi.StringArrayOutput {

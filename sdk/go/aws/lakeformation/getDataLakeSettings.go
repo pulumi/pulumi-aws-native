@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::LakeFormation::DataLakeSettings
@@ -74,12 +73,6 @@ func (o LookupDataLakeSettingsResultOutput) ToLookupDataLakeSettingsResultOutput
 
 func (o LookupDataLakeSettingsResultOutput) ToLookupDataLakeSettingsResultOutputWithContext(ctx context.Context) LookupDataLakeSettingsResultOutput {
 	return o
-}
-
-func (o LookupDataLakeSettingsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataLakeSettingsResult] {
-	return pulumix.Output[LookupDataLakeSettingsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDataLakeSettingsResultOutput) Admins() DataLakeSettingsAdminsPtrOutput {

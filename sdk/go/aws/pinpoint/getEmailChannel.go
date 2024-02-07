@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::EmailChannel
@@ -69,12 +68,6 @@ func (o LookupEmailChannelResultOutput) ToLookupEmailChannelResultOutput() Looku
 
 func (o LookupEmailChannelResultOutput) ToLookupEmailChannelResultOutputWithContext(ctx context.Context) LookupEmailChannelResultOutput {
 	return o
-}
-
-func (o LookupEmailChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEmailChannelResult] {
-	return pulumix.Output[LookupEmailChannelResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupEmailChannelResultOutput) ConfigurationSet() pulumi.StringPtrOutput {

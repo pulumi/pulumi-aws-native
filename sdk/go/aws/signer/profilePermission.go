@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -123,12 +122,6 @@ func (i *ProfilePermission) ToProfilePermissionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ProfilePermissionOutput)
 }
 
-func (i *ProfilePermission) ToOutput(ctx context.Context) pulumix.Output[*ProfilePermission] {
-	return pulumix.Output[*ProfilePermission]{
-		OutputState: i.ToProfilePermissionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProfilePermissionOutput struct{ *pulumi.OutputState }
 
 func (ProfilePermissionOutput) ElementType() reflect.Type {
@@ -141,12 +134,6 @@ func (o ProfilePermissionOutput) ToProfilePermissionOutput() ProfilePermissionOu
 
 func (o ProfilePermissionOutput) ToProfilePermissionOutputWithContext(ctx context.Context) ProfilePermissionOutput {
 	return o
-}
-
-func (o ProfilePermissionOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfilePermission] {
-	return pulumix.Output[*ProfilePermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProfilePermissionOutput) Action() pulumi.StringOutput {

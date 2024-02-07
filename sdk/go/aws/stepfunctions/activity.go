@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for Activity
@@ -98,12 +97,6 @@ func (i *Activity) ToActivityOutputWithContext(ctx context.Context) ActivityOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityOutput)
 }
 
-func (i *Activity) ToOutput(ctx context.Context) pulumix.Output[*Activity] {
-	return pulumix.Output[*Activity]{
-		OutputState: i.ToActivityOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActivityOutput struct{ *pulumi.OutputState }
 
 func (ActivityOutput) ElementType() reflect.Type {
@@ -116,12 +109,6 @@ func (o ActivityOutput) ToActivityOutput() ActivityOutput {
 
 func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) ActivityOutput {
 	return o
-}
-
-func (o ActivityOutput) ToOutput(ctx context.Context) pulumix.Output[*Activity] {
-	return pulumix.Output[*Activity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActivityOutput) Arn() pulumi.StringOutput {

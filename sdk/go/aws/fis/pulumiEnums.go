@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The account targeting setting for the experiment template.
@@ -79,12 +78,6 @@ func (o ExperimentTemplateExperimentOptionsAccountTargetingOutput) ToExperimentT
 	}).(ExperimentTemplateExperimentOptionsAccountTargetingPtrOutput)
 }
 
-func (o ExperimentTemplateExperimentOptionsAccountTargetingOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateExperimentOptionsAccountTargeting] {
-	return pulumix.Output[ExperimentTemplateExperimentOptionsAccountTargeting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExperimentTemplateExperimentOptionsAccountTargetingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o ExperimentTemplateExperimentOptionsAccountTargetingPtrOutput) ToExperime
 	return o
 }
 
-func (o ExperimentTemplateExperimentOptionsAccountTargetingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateExperimentOptionsAccountTargeting] {
-	return pulumix.Output[*ExperimentTemplateExperimentOptionsAccountTargeting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExperimentTemplateExperimentOptionsAccountTargetingPtrOutput) Elem() ExperimentTemplateExperimentOptionsAccountTargetingOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentOptionsAccountTargeting) ExperimentTemplateExperimentOptionsAccountTargeting {
 		if v != nil {
@@ -150,10 +137,11 @@ func (o ExperimentTemplateExperimentOptionsAccountTargetingPtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExperimentTemplateExperimentOptionsAccountTargetingInput is an input type that accepts ExperimentTemplateExperimentOptionsAccountTargetingArgs and ExperimentTemplateExperimentOptionsAccountTargetingOutput values.
-// You can construct a concrete instance of `ExperimentTemplateExperimentOptionsAccountTargetingInput` via:
+// ExperimentTemplateExperimentOptionsAccountTargetingInput is an input type that accepts values of the ExperimentTemplateExperimentOptionsAccountTargeting enum
+// A concrete instance of `ExperimentTemplateExperimentOptionsAccountTargetingInput` can be one of the following:
 //
-//	ExperimentTemplateExperimentOptionsAccountTargetingArgs{...}
+//	ExperimentTemplateExperimentOptionsAccountTargetingMultiAccount
+//	ExperimentTemplateExperimentOptionsAccountTargetingSingleAccount
 type ExperimentTemplateExperimentOptionsAccountTargetingInput interface {
 	pulumi.Input
 
@@ -186,12 +174,6 @@ func (in *experimentTemplateExperimentOptionsAccountTargetingPtr) ToExperimentTe
 
 func (in *experimentTemplateExperimentOptionsAccountTargetingPtr) ToExperimentTemplateExperimentOptionsAccountTargetingPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsAccountTargetingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExperimentTemplateExperimentOptionsAccountTargetingPtrOutput)
-}
-
-func (in *experimentTemplateExperimentOptionsAccountTargetingPtr) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateExperimentOptionsAccountTargeting] {
-	return pulumix.Output[*ExperimentTemplateExperimentOptionsAccountTargeting]{
-		OutputState: in.ToExperimentTemplateExperimentOptionsAccountTargetingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The target resolution failure mode for the experiment template.
@@ -262,12 +244,6 @@ func (o ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeOutput) ToEx
 	}).(ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutput)
 }
 
-func (o ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode] {
-	return pulumix.Output[ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +279,6 @@ func (o ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutput) T
 	return o
 }
 
-func (o ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode] {
-	return pulumix.Output[*ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutput) Elem() ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode) ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode {
 		if v != nil {
@@ -333,10 +303,11 @@ func (o ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutput) T
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeInput is an input type that accepts ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeArgs and ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeOutput values.
-// You can construct a concrete instance of `ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeInput` via:
+// ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeInput is an input type that accepts values of the ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode enum
+// A concrete instance of `ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeInput` can be one of the following:
 //
-//	ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeArgs{...}
+//	ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeFail
+//	ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeSkip
 type ExperimentTemplateExperimentOptionsEmptyTargetResolutionModeInput interface {
 	pulumi.Input
 
@@ -369,12 +340,6 @@ func (in *experimentTemplateExperimentOptionsEmptyTargetResolutionModePtr) ToExp
 
 func (in *experimentTemplateExperimentOptionsEmptyTargetResolutionModePtr) ToExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutput)
-}
-
-func (in *experimentTemplateExperimentOptionsEmptyTargetResolutionModePtr) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode] {
-	return pulumix.Output[*ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode]{
-		OutputState: in.ToExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

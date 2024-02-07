@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SES::ReceiptFilter
@@ -100,12 +99,6 @@ func (i *ReceiptFilter) ToReceiptFilterOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterOutput)
 }
 
-func (i *ReceiptFilter) ToOutput(ctx context.Context) pulumix.Output[*ReceiptFilter] {
-	return pulumix.Output[*ReceiptFilter]{
-		OutputState: i.ToReceiptFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReceiptFilterOutput struct{ *pulumi.OutputState }
 
 func (ReceiptFilterOutput) ElementType() reflect.Type {
@@ -118,12 +111,6 @@ func (o ReceiptFilterOutput) ToReceiptFilterOutput() ReceiptFilterOutput {
 
 func (o ReceiptFilterOutput) ToReceiptFilterOutputWithContext(ctx context.Context) ReceiptFilterOutput {
 	return o
-}
-
-func (o ReceiptFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*ReceiptFilter] {
-	return pulumix.Output[*ReceiptFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReceiptFilterOutput) Filter() ReceiptFilterFilterOutput {

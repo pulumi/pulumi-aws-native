@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Subscription targets enables one to access the data to which you have subscribed in your projects.
@@ -101,12 +100,6 @@ func (o LookupSubscriptionTargetResultOutput) ToLookupSubscriptionTargetResultOu
 
 func (o LookupSubscriptionTargetResultOutput) ToLookupSubscriptionTargetResultOutputWithContext(ctx context.Context) LookupSubscriptionTargetResultOutput {
 	return o
-}
-
-func (o LookupSubscriptionTargetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubscriptionTargetResult] {
-	return pulumix.Output[LookupSubscriptionTargetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The asset types that can be included in the subscription target.

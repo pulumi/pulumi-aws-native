@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::B2BI::Capability Resource Type
@@ -71,12 +70,6 @@ func (o LookupCapabilityResultOutput) ToLookupCapabilityResultOutput() LookupCap
 
 func (o LookupCapabilityResultOutput) ToLookupCapabilityResultOutputWithContext(ctx context.Context) LookupCapabilityResultOutput {
 	return o
-}
-
-func (o LookupCapabilityResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCapabilityResult] {
-	return pulumix.Output[LookupCapabilityResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCapabilityResultOutput) CapabilityArn() pulumi.StringPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Evidently::Segment
@@ -69,12 +68,6 @@ func (o LookupSegmentResultOutput) ToLookupSegmentResultOutput() LookupSegmentRe
 
 func (o LookupSegmentResultOutput) ToLookupSegmentResultOutputWithContext(ctx context.Context) LookupSegmentResultOutput {
 	return o
-}
-
-func (o LookupSegmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSegmentResult] {
-	return pulumix.Output[LookupSegmentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSegmentResultOutput) Arn() pulumi.StringPtrOutput {

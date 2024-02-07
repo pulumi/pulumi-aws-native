@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
@@ -106,12 +105,6 @@ func (i *IdentitySource) ToIdentitySourceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceOutput)
 }
 
-func (i *IdentitySource) ToOutput(ctx context.Context) pulumix.Output[*IdentitySource] {
-	return pulumix.Output[*IdentitySource]{
-		OutputState: i.ToIdentitySourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentitySourceOutput struct{ *pulumi.OutputState }
 
 func (IdentitySourceOutput) ElementType() reflect.Type {
@@ -124,12 +117,6 @@ func (o IdentitySourceOutput) ToIdentitySourceOutput() IdentitySourceOutput {
 
 func (o IdentitySourceOutput) ToIdentitySourceOutputWithContext(ctx context.Context) IdentitySourceOutput {
 	return o
-}
-
-func (o IdentitySourceOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentitySource] {
-	return pulumix.Output[*IdentitySource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentitySourceOutput) Configuration() IdentitySourceConfigurationOutput {

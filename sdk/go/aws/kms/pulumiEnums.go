@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
@@ -79,12 +78,6 @@ func (o KeyOriginOutput) ToKeyOriginPtrOutputWithContext(ctx context.Context) Ke
 	}).(KeyOriginPtrOutput)
 }
 
-func (o KeyOriginOutput) ToOutput(ctx context.Context) pulumix.Output[KeyOrigin] {
-	return pulumix.Output[KeyOrigin]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeyOriginOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o KeyOriginPtrOutput) ToKeyOriginPtrOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o KeyOriginPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyOrigin] {
-	return pulumix.Output[*KeyOrigin]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeyOriginPtrOutput) Elem() KeyOriginOutput {
 	return o.ApplyT(func(v *KeyOrigin) KeyOrigin {
 		if v != nil {
@@ -150,10 +137,11 @@ func (o KeyOriginPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyOriginInput is an input type that accepts KeyOriginArgs and KeyOriginOutput values.
-// You can construct a concrete instance of `KeyOriginInput` via:
+// KeyOriginInput is an input type that accepts values of the KeyOrigin enum
+// A concrete instance of `KeyOriginInput` can be one of the following:
 //
-//	KeyOriginArgs{...}
+//	KeyOriginAwsKms
+//	KeyOriginExternal
 type KeyOriginInput interface {
 	pulumi.Input
 
@@ -186,12 +174,6 @@ func (in *keyOriginPtr) ToKeyOriginPtrOutput() KeyOriginPtrOutput {
 
 func (in *keyOriginPtr) ToKeyOriginPtrOutputWithContext(ctx context.Context) KeyOriginPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeyOriginPtrOutput)
-}
-
-func (in *keyOriginPtr) ToOutput(ctx context.Context) pulumix.Output[*KeyOrigin] {
-	return pulumix.Output[*KeyOrigin]{
-		OutputState: in.ToKeyOriginPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
@@ -273,12 +255,6 @@ func (o KeySpecOutput) ToKeySpecPtrOutputWithContext(ctx context.Context) KeySpe
 	}).(KeySpecPtrOutput)
 }
 
-func (o KeySpecOutput) ToOutput(ctx context.Context) pulumix.Output[KeySpec] {
-	return pulumix.Output[KeySpec]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeySpecOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -314,12 +290,6 @@ func (o KeySpecPtrOutput) ToKeySpecPtrOutputWithContext(ctx context.Context) Key
 	return o
 }
 
-func (o KeySpecPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeySpec] {
-	return pulumix.Output[*KeySpec]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeySpecPtrOutput) Elem() KeySpecOutput {
 	return o.ApplyT(func(v *KeySpec) KeySpec {
 		if v != nil {
@@ -344,10 +314,22 @@ func (o KeySpecPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeySpecInput is an input type that accepts KeySpecArgs and KeySpecOutput values.
-// You can construct a concrete instance of `KeySpecInput` via:
+// KeySpecInput is an input type that accepts values of the KeySpec enum
+// A concrete instance of `KeySpecInput` can be one of the following:
 //
-//	KeySpecArgs{...}
+//	KeySpecSymmetricDefault
+//	KeySpecRsa2048
+//	KeySpecRsa3072
+//	KeySpecRsa4096
+//	KeySpecEccNistP256
+//	KeySpecEccNistP384
+//	KeySpecEccNistP521
+//	KeySpecEccSecgP256k1
+//	KeySpecHmac224
+//	KeySpecHmac256
+//	KeySpecHmac384
+//	KeySpecHmac512
+//	KeySpecSm2
 type KeySpecInput interface {
 	pulumi.Input
 
@@ -380,12 +362,6 @@ func (in *keySpecPtr) ToKeySpecPtrOutput() KeySpecPtrOutput {
 
 func (in *keySpecPtr) ToKeySpecPtrOutputWithContext(ctx context.Context) KeySpecPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeySpecPtrOutput)
-}
-
-func (in *keySpecPtr) ToOutput(ctx context.Context) pulumix.Output[*KeySpec] {
-	return pulumix.Output[*KeySpec]{
-		OutputState: in.ToKeySpecPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
@@ -457,12 +433,6 @@ func (o KeyUsageOutput) ToKeyUsagePtrOutputWithContext(ctx context.Context) KeyU
 	}).(KeyUsagePtrOutput)
 }
 
-func (o KeyUsageOutput) ToOutput(ctx context.Context) pulumix.Output[KeyUsage] {
-	return pulumix.Output[KeyUsage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeyUsageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -498,12 +468,6 @@ func (o KeyUsagePtrOutput) ToKeyUsagePtrOutputWithContext(ctx context.Context) K
 	return o
 }
 
-func (o KeyUsagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyUsage] {
-	return pulumix.Output[*KeyUsage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeyUsagePtrOutput) Elem() KeyUsageOutput {
 	return o.ApplyT(func(v *KeyUsage) KeyUsage {
 		if v != nil {
@@ -528,10 +492,12 @@ func (o KeyUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyUsageInput is an input type that accepts KeyUsageArgs and KeyUsageOutput values.
-// You can construct a concrete instance of `KeyUsageInput` via:
+// KeyUsageInput is an input type that accepts values of the KeyUsage enum
+// A concrete instance of `KeyUsageInput` can be one of the following:
 //
-//	KeyUsageArgs{...}
+//	KeyUsageEncryptDecrypt
+//	KeyUsageSignVerify
+//	KeyUsageGenerateVerifyMac
 type KeyUsageInput interface {
 	pulumi.Input
 
@@ -564,12 +530,6 @@ func (in *keyUsagePtr) ToKeyUsagePtrOutput() KeyUsagePtrOutput {
 
 func (in *keyUsagePtr) ToKeyUsagePtrOutputWithContext(ctx context.Context) KeyUsagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeyUsagePtrOutput)
-}
-
-func (in *keyUsagePtr) ToOutput(ctx context.Context) pulumix.Output[*KeyUsage] {
-	return pulumix.Output[*KeyUsage]{
-		OutputState: in.ToKeyUsagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

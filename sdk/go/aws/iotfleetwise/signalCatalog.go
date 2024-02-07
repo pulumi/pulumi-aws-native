@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::IoTFleetWise::SignalCatalog Resource Type
@@ -111,12 +110,6 @@ func (i *SignalCatalog) ToSignalCatalogOutputWithContext(ctx context.Context) Si
 	return pulumi.ToOutputWithContext(ctx, i).(SignalCatalogOutput)
 }
 
-func (i *SignalCatalog) ToOutput(ctx context.Context) pulumix.Output[*SignalCatalog] {
-	return pulumix.Output[*SignalCatalog]{
-		OutputState: i.ToSignalCatalogOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SignalCatalogOutput struct{ *pulumi.OutputState }
 
 func (SignalCatalogOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o SignalCatalogOutput) ToSignalCatalogOutput() SignalCatalogOutput {
 
 func (o SignalCatalogOutput) ToSignalCatalogOutputWithContext(ctx context.Context) SignalCatalogOutput {
 	return o
-}
-
-func (o SignalCatalogOutput) ToOutput(ctx context.Context) pulumix.Output[*SignalCatalog] {
-	return pulumix.Output[*SignalCatalog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SignalCatalogOutput) Arn() pulumi.StringOutput {

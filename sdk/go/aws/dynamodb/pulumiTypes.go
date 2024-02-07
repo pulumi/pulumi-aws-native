@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i GlobalTableAttributeDefinitionArgs) ToGlobalTableAttributeDefinitionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableAttributeDefinitionOutput)
 }
 
-func (i GlobalTableAttributeDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableAttributeDefinition] {
-	return pulumix.Output[GlobalTableAttributeDefinition]{
-		OutputState: i.ToGlobalTableAttributeDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalTableAttributeDefinitionArrayInput is an input type that accepts GlobalTableAttributeDefinitionArray and GlobalTableAttributeDefinitionArrayOutput values.
 // You can construct a concrete instance of `GlobalTableAttributeDefinitionArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i GlobalTableAttributeDefinitionArray) ToGlobalTableAttributeDefinitionArr
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableAttributeDefinitionArrayOutput)
 }
 
-func (i GlobalTableAttributeDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableAttributeDefinition] {
-	return pulumix.Output[[]GlobalTableAttributeDefinition]{
-		OutputState: i.ToGlobalTableAttributeDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableAttributeDefinitionOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableAttributeDefinitionOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o GlobalTableAttributeDefinitionOutput) ToGlobalTableAttributeDefinitionOu
 
 func (o GlobalTableAttributeDefinitionOutput) ToGlobalTableAttributeDefinitionOutputWithContext(ctx context.Context) GlobalTableAttributeDefinitionOutput {
 	return o
-}
-
-func (o GlobalTableAttributeDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableAttributeDefinition] {
-	return pulumix.Output[GlobalTableAttributeDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableAttributeDefinitionOutput) AttributeName() pulumi.StringOutput {
@@ -124,12 +105,6 @@ func (o GlobalTableAttributeDefinitionArrayOutput) ToGlobalTableAttributeDefinit
 
 func (o GlobalTableAttributeDefinitionArrayOutput) ToGlobalTableAttributeDefinitionArrayOutputWithContext(ctx context.Context) GlobalTableAttributeDefinitionArrayOutput {
 	return o
-}
-
-func (o GlobalTableAttributeDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableAttributeDefinition] {
-	return pulumix.Output[[]GlobalTableAttributeDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) GlobalTableAttributeDefinitionOutput {
@@ -175,12 +150,6 @@ func (i GlobalTableCapacityAutoScalingSettingsArgs) ToGlobalTableCapacityAutoSca
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableCapacityAutoScalingSettingsOutput)
 }
 
-func (i GlobalTableCapacityAutoScalingSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableCapacityAutoScalingSettings] {
-	return pulumix.Output[GlobalTableCapacityAutoScalingSettings]{
-		OutputState: i.ToGlobalTableCapacityAutoScalingSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GlobalTableCapacityAutoScalingSettingsArgs) ToGlobalTableCapacityAutoScalingSettingsPtrOutput() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return i.ToGlobalTableCapacityAutoScalingSettingsPtrOutputWithContext(context.Background())
 }
@@ -222,12 +191,6 @@ func (i *globalTableCapacityAutoScalingSettingsPtrType) ToGlobalTableCapacityAut
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableCapacityAutoScalingSettingsPtrOutput)
 }
 
-func (i *globalTableCapacityAutoScalingSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableCapacityAutoScalingSettings] {
-	return pulumix.Output[*GlobalTableCapacityAutoScalingSettings]{
-		OutputState: i.ToGlobalTableCapacityAutoScalingSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableCapacityAutoScalingSettingsOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableCapacityAutoScalingSettingsOutput) ElementType() reflect.Type {
@@ -250,12 +213,6 @@ func (o GlobalTableCapacityAutoScalingSettingsOutput) ToGlobalTableCapacityAutoS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableCapacityAutoScalingSettings) *GlobalTableCapacityAutoScalingSettings {
 		return &v
 	}).(GlobalTableCapacityAutoScalingSettingsPtrOutput)
-}
-
-func (o GlobalTableCapacityAutoScalingSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableCapacityAutoScalingSettings] {
-	return pulumix.Output[GlobalTableCapacityAutoScalingSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableCapacityAutoScalingSettingsOutput) MaxCapacity() pulumi.IntOutput {
@@ -288,12 +245,6 @@ func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) ToGlobalTableCapacityAu
 
 func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) ToGlobalTableCapacityAutoScalingSettingsPtrOutputWithContext(ctx context.Context) GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o
-}
-
-func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableCapacityAutoScalingSettings] {
-	return pulumix.Output[*GlobalTableCapacityAutoScalingSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) Elem() GlobalTableCapacityAutoScalingSettingsOutput {
@@ -373,12 +324,6 @@ func (i GlobalTableContributorInsightsSpecificationArgs) ToGlobalTableContributo
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableContributorInsightsSpecificationOutput)
 }
 
-func (i GlobalTableContributorInsightsSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableContributorInsightsSpecification] {
-	return pulumix.Output[GlobalTableContributorInsightsSpecification]{
-		OutputState: i.ToGlobalTableContributorInsightsSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GlobalTableContributorInsightsSpecificationArgs) ToGlobalTableContributorInsightsSpecificationPtrOutput() GlobalTableContributorInsightsSpecificationPtrOutput {
 	return i.ToGlobalTableContributorInsightsSpecificationPtrOutputWithContext(context.Background())
 }
@@ -420,12 +365,6 @@ func (i *globalTableContributorInsightsSpecificationPtrType) ToGlobalTableContri
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableContributorInsightsSpecificationPtrOutput)
 }
 
-func (i *globalTableContributorInsightsSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableContributorInsightsSpecification] {
-	return pulumix.Output[*GlobalTableContributorInsightsSpecification]{
-		OutputState: i.ToGlobalTableContributorInsightsSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableContributorInsightsSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableContributorInsightsSpecificationOutput) ElementType() reflect.Type {
@@ -450,12 +389,6 @@ func (o GlobalTableContributorInsightsSpecificationOutput) ToGlobalTableContribu
 	}).(GlobalTableContributorInsightsSpecificationPtrOutput)
 }
 
-func (o GlobalTableContributorInsightsSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableContributorInsightsSpecification] {
-	return pulumix.Output[GlobalTableContributorInsightsSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTableContributorInsightsSpecificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GlobalTableContributorInsightsSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -472,12 +405,6 @@ func (o GlobalTableContributorInsightsSpecificationPtrOutput) ToGlobalTableContr
 
 func (o GlobalTableContributorInsightsSpecificationPtrOutput) ToGlobalTableContributorInsightsSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableContributorInsightsSpecificationPtrOutput {
 	return o
-}
-
-func (o GlobalTableContributorInsightsSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableContributorInsightsSpecification] {
-	return pulumix.Output[*GlobalTableContributorInsightsSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableContributorInsightsSpecificationPtrOutput) Elem() GlobalTableContributorInsightsSpecificationOutput {
@@ -536,12 +463,6 @@ func (i GlobalTableGlobalSecondaryIndexArgs) ToGlobalTableGlobalSecondaryIndexOu
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableGlobalSecondaryIndexOutput)
 }
 
-func (i GlobalTableGlobalSecondaryIndexArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableGlobalSecondaryIndex] {
-	return pulumix.Output[GlobalTableGlobalSecondaryIndex]{
-		OutputState: i.ToGlobalTableGlobalSecondaryIndexOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalTableGlobalSecondaryIndexArrayInput is an input type that accepts GlobalTableGlobalSecondaryIndexArray and GlobalTableGlobalSecondaryIndexArrayOutput values.
 // You can construct a concrete instance of `GlobalTableGlobalSecondaryIndexArrayInput` via:
 //
@@ -567,12 +488,6 @@ func (i GlobalTableGlobalSecondaryIndexArray) ToGlobalTableGlobalSecondaryIndexA
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableGlobalSecondaryIndexArrayOutput)
 }
 
-func (i GlobalTableGlobalSecondaryIndexArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableGlobalSecondaryIndex] {
-	return pulumix.Output[[]GlobalTableGlobalSecondaryIndex]{
-		OutputState: i.ToGlobalTableGlobalSecondaryIndexArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableGlobalSecondaryIndexOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableGlobalSecondaryIndexOutput) ElementType() reflect.Type {
@@ -585,12 +500,6 @@ func (o GlobalTableGlobalSecondaryIndexOutput) ToGlobalTableGlobalSecondaryIndex
 
 func (o GlobalTableGlobalSecondaryIndexOutput) ToGlobalTableGlobalSecondaryIndexOutputWithContext(ctx context.Context) GlobalTableGlobalSecondaryIndexOutput {
 	return o
-}
-
-func (o GlobalTableGlobalSecondaryIndexOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableGlobalSecondaryIndex] {
-	return pulumix.Output[GlobalTableGlobalSecondaryIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableGlobalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
@@ -623,12 +532,6 @@ func (o GlobalTableGlobalSecondaryIndexArrayOutput) ToGlobalTableGlobalSecondary
 
 func (o GlobalTableGlobalSecondaryIndexArrayOutput) ToGlobalTableGlobalSecondaryIndexArrayOutputWithContext(ctx context.Context) GlobalTableGlobalSecondaryIndexArrayOutput {
 	return o
-}
-
-func (o GlobalTableGlobalSecondaryIndexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableGlobalSecondaryIndex] {
-	return pulumix.Output[[]GlobalTableGlobalSecondaryIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) GlobalTableGlobalSecondaryIndexOutput {
@@ -670,12 +573,6 @@ func (i GlobalTableKeySchemaArgs) ToGlobalTableKeySchemaOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableKeySchemaOutput)
 }
 
-func (i GlobalTableKeySchemaArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableKeySchema] {
-	return pulumix.Output[GlobalTableKeySchema]{
-		OutputState: i.ToGlobalTableKeySchemaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalTableKeySchemaArrayInput is an input type that accepts GlobalTableKeySchemaArray and GlobalTableKeySchemaArrayOutput values.
 // You can construct a concrete instance of `GlobalTableKeySchemaArrayInput` via:
 //
@@ -701,12 +598,6 @@ func (i GlobalTableKeySchemaArray) ToGlobalTableKeySchemaArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableKeySchemaArrayOutput)
 }
 
-func (i GlobalTableKeySchemaArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableKeySchema] {
-	return pulumix.Output[[]GlobalTableKeySchema]{
-		OutputState: i.ToGlobalTableKeySchemaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableKeySchemaOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableKeySchemaOutput) ElementType() reflect.Type {
@@ -719,12 +610,6 @@ func (o GlobalTableKeySchemaOutput) ToGlobalTableKeySchemaOutput() GlobalTableKe
 
 func (o GlobalTableKeySchemaOutput) ToGlobalTableKeySchemaOutputWithContext(ctx context.Context) GlobalTableKeySchemaOutput {
 	return o
-}
-
-func (o GlobalTableKeySchemaOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableKeySchema] {
-	return pulumix.Output[GlobalTableKeySchema]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableKeySchemaOutput) AttributeName() pulumi.StringOutput {
@@ -747,12 +632,6 @@ func (o GlobalTableKeySchemaArrayOutput) ToGlobalTableKeySchemaArrayOutput() Glo
 
 func (o GlobalTableKeySchemaArrayOutput) ToGlobalTableKeySchemaArrayOutputWithContext(ctx context.Context) GlobalTableKeySchemaArrayOutput {
 	return o
-}
-
-func (o GlobalTableKeySchemaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableKeySchema] {
-	return pulumix.Output[[]GlobalTableKeySchema]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableKeySchemaArrayOutput) Index(i pulumi.IntInput) GlobalTableKeySchemaOutput {
@@ -792,12 +671,6 @@ func (i GlobalTableKinesisStreamSpecificationArgs) ToGlobalTableKinesisStreamSpe
 
 func (i GlobalTableKinesisStreamSpecificationArgs) ToGlobalTableKinesisStreamSpecificationOutputWithContext(ctx context.Context) GlobalTableKinesisStreamSpecificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableKinesisStreamSpecificationOutput)
-}
-
-func (i GlobalTableKinesisStreamSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableKinesisStreamSpecification] {
-	return pulumix.Output[GlobalTableKinesisStreamSpecification]{
-		OutputState: i.ToGlobalTableKinesisStreamSpecificationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i GlobalTableKinesisStreamSpecificationArgs) ToGlobalTableKinesisStreamSpecificationPtrOutput() GlobalTableKinesisStreamSpecificationPtrOutput {
@@ -841,12 +714,6 @@ func (i *globalTableKinesisStreamSpecificationPtrType) ToGlobalTableKinesisStrea
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableKinesisStreamSpecificationPtrOutput)
 }
 
-func (i *globalTableKinesisStreamSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableKinesisStreamSpecification] {
-	return pulumix.Output[*GlobalTableKinesisStreamSpecification]{
-		OutputState: i.ToGlobalTableKinesisStreamSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableKinesisStreamSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableKinesisStreamSpecificationOutput) ElementType() reflect.Type {
@@ -871,12 +738,6 @@ func (o GlobalTableKinesisStreamSpecificationOutput) ToGlobalTableKinesisStreamS
 	}).(GlobalTableKinesisStreamSpecificationPtrOutput)
 }
 
-func (o GlobalTableKinesisStreamSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableKinesisStreamSpecification] {
-	return pulumix.Output[GlobalTableKinesisStreamSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTableKinesisStreamSpecificationOutput) ApproximateCreationDateTimePrecision() GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput {
 	return o.ApplyT(func(v GlobalTableKinesisStreamSpecification) *GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision {
 		return v.ApproximateCreationDateTimePrecision
@@ -899,12 +760,6 @@ func (o GlobalTableKinesisStreamSpecificationPtrOutput) ToGlobalTableKinesisStre
 
 func (o GlobalTableKinesisStreamSpecificationPtrOutput) ToGlobalTableKinesisStreamSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableKinesisStreamSpecificationPtrOutput {
 	return o
-}
-
-func (o GlobalTableKinesisStreamSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableKinesisStreamSpecification] {
-	return pulumix.Output[*GlobalTableKinesisStreamSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableKinesisStreamSpecificationPtrOutput) Elem() GlobalTableKinesisStreamSpecificationOutput {
@@ -970,12 +825,6 @@ func (i GlobalTableLocalSecondaryIndexArgs) ToGlobalTableLocalSecondaryIndexOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableLocalSecondaryIndexOutput)
 }
 
-func (i GlobalTableLocalSecondaryIndexArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableLocalSecondaryIndex] {
-	return pulumix.Output[GlobalTableLocalSecondaryIndex]{
-		OutputState: i.ToGlobalTableLocalSecondaryIndexOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalTableLocalSecondaryIndexArrayInput is an input type that accepts GlobalTableLocalSecondaryIndexArray and GlobalTableLocalSecondaryIndexArrayOutput values.
 // You can construct a concrete instance of `GlobalTableLocalSecondaryIndexArrayInput` via:
 //
@@ -1001,12 +850,6 @@ func (i GlobalTableLocalSecondaryIndexArray) ToGlobalTableLocalSecondaryIndexArr
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableLocalSecondaryIndexArrayOutput)
 }
 
-func (i GlobalTableLocalSecondaryIndexArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableLocalSecondaryIndex] {
-	return pulumix.Output[[]GlobalTableLocalSecondaryIndex]{
-		OutputState: i.ToGlobalTableLocalSecondaryIndexArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableLocalSecondaryIndexOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableLocalSecondaryIndexOutput) ElementType() reflect.Type {
@@ -1019,12 +862,6 @@ func (o GlobalTableLocalSecondaryIndexOutput) ToGlobalTableLocalSecondaryIndexOu
 
 func (o GlobalTableLocalSecondaryIndexOutput) ToGlobalTableLocalSecondaryIndexOutputWithContext(ctx context.Context) GlobalTableLocalSecondaryIndexOutput {
 	return o
-}
-
-func (o GlobalTableLocalSecondaryIndexOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableLocalSecondaryIndex] {
-	return pulumix.Output[GlobalTableLocalSecondaryIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableLocalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
@@ -1051,12 +888,6 @@ func (o GlobalTableLocalSecondaryIndexArrayOutput) ToGlobalTableLocalSecondaryIn
 
 func (o GlobalTableLocalSecondaryIndexArrayOutput) ToGlobalTableLocalSecondaryIndexArrayOutputWithContext(ctx context.Context) GlobalTableLocalSecondaryIndexArrayOutput {
 	return o
-}
-
-func (o GlobalTableLocalSecondaryIndexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableLocalSecondaryIndex] {
-	return pulumix.Output[[]GlobalTableLocalSecondaryIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) GlobalTableLocalSecondaryIndexOutput {
@@ -1094,12 +925,6 @@ func (i GlobalTablePointInTimeRecoverySpecificationArgs) ToGlobalTablePointInTim
 
 func (i GlobalTablePointInTimeRecoverySpecificationArgs) ToGlobalTablePointInTimeRecoverySpecificationOutputWithContext(ctx context.Context) GlobalTablePointInTimeRecoverySpecificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTablePointInTimeRecoverySpecificationOutput)
-}
-
-func (i GlobalTablePointInTimeRecoverySpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTablePointInTimeRecoverySpecification] {
-	return pulumix.Output[GlobalTablePointInTimeRecoverySpecification]{
-		OutputState: i.ToGlobalTablePointInTimeRecoverySpecificationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i GlobalTablePointInTimeRecoverySpecificationArgs) ToGlobalTablePointInTimeRecoverySpecificationPtrOutput() GlobalTablePointInTimeRecoverySpecificationPtrOutput {
@@ -1143,12 +968,6 @@ func (i *globalTablePointInTimeRecoverySpecificationPtrType) ToGlobalTablePointI
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTablePointInTimeRecoverySpecificationPtrOutput)
 }
 
-func (i *globalTablePointInTimeRecoverySpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GlobalTablePointInTimeRecoverySpecification] {
-	return pulumix.Output[*GlobalTablePointInTimeRecoverySpecification]{
-		OutputState: i.ToGlobalTablePointInTimeRecoverySpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTablePointInTimeRecoverySpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTablePointInTimeRecoverySpecificationOutput) ElementType() reflect.Type {
@@ -1173,12 +992,6 @@ func (o GlobalTablePointInTimeRecoverySpecificationOutput) ToGlobalTablePointInT
 	}).(GlobalTablePointInTimeRecoverySpecificationPtrOutput)
 }
 
-func (o GlobalTablePointInTimeRecoverySpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTablePointInTimeRecoverySpecification] {
-	return pulumix.Output[GlobalTablePointInTimeRecoverySpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTablePointInTimeRecoverySpecificationOutput) PointInTimeRecoveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GlobalTablePointInTimeRecoverySpecification) *bool { return v.PointInTimeRecoveryEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1195,12 +1008,6 @@ func (o GlobalTablePointInTimeRecoverySpecificationPtrOutput) ToGlobalTablePoint
 
 func (o GlobalTablePointInTimeRecoverySpecificationPtrOutput) ToGlobalTablePointInTimeRecoverySpecificationPtrOutputWithContext(ctx context.Context) GlobalTablePointInTimeRecoverySpecificationPtrOutput {
 	return o
-}
-
-func (o GlobalTablePointInTimeRecoverySpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTablePointInTimeRecoverySpecification] {
-	return pulumix.Output[*GlobalTablePointInTimeRecoverySpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTablePointInTimeRecoverySpecificationPtrOutput) Elem() GlobalTablePointInTimeRecoverySpecificationOutput {
@@ -1255,12 +1062,6 @@ func (i GlobalTableProjectionArgs) ToGlobalTableProjectionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableProjectionOutput)
 }
 
-func (i GlobalTableProjectionArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableProjection] {
-	return pulumix.Output[GlobalTableProjection]{
-		OutputState: i.ToGlobalTableProjectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableProjectionOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableProjectionOutput) ElementType() reflect.Type {
@@ -1273,12 +1074,6 @@ func (o GlobalTableProjectionOutput) ToGlobalTableProjectionOutput() GlobalTable
 
 func (o GlobalTableProjectionOutput) ToGlobalTableProjectionOutputWithContext(ctx context.Context) GlobalTableProjectionOutput {
 	return o
-}
-
-func (o GlobalTableProjectionOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableProjection] {
-	return pulumix.Output[GlobalTableProjection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableProjectionOutput) NonKeyAttributes() pulumi.StringArrayOutput {
@@ -1322,12 +1117,6 @@ func (i GlobalTableReadProvisionedThroughputSettingsArgs) ToGlobalTableReadProvi
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReadProvisionedThroughputSettingsOutput)
 }
 
-func (i GlobalTableReadProvisionedThroughputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableReadProvisionedThroughputSettings] {
-	return pulumix.Output[GlobalTableReadProvisionedThroughputSettings]{
-		OutputState: i.ToGlobalTableReadProvisionedThroughputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GlobalTableReadProvisionedThroughputSettingsArgs) ToGlobalTableReadProvisionedThroughputSettingsPtrOutput() GlobalTableReadProvisionedThroughputSettingsPtrOutput {
 	return i.ToGlobalTableReadProvisionedThroughputSettingsPtrOutputWithContext(context.Background())
 }
@@ -1369,12 +1158,6 @@ func (i *globalTableReadProvisionedThroughputSettingsPtrType) ToGlobalTableReadP
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReadProvisionedThroughputSettingsPtrOutput)
 }
 
-func (i *globalTableReadProvisionedThroughputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableReadProvisionedThroughputSettings] {
-	return pulumix.Output[*GlobalTableReadProvisionedThroughputSettings]{
-		OutputState: i.ToGlobalTableReadProvisionedThroughputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableReadProvisionedThroughputSettingsOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableReadProvisionedThroughputSettingsOutput) ElementType() reflect.Type {
@@ -1399,12 +1182,6 @@ func (o GlobalTableReadProvisionedThroughputSettingsOutput) ToGlobalTableReadPro
 	}).(GlobalTableReadProvisionedThroughputSettingsPtrOutput)
 }
 
-func (o GlobalTableReadProvisionedThroughputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableReadProvisionedThroughputSettings] {
-	return pulumix.Output[GlobalTableReadProvisionedThroughputSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTableReadProvisionedThroughputSettingsOutput) ReadCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReadProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		return v.ReadCapacityAutoScalingSettings
@@ -1427,12 +1204,6 @@ func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ToGlobalTableRead
 
 func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ToGlobalTableReadProvisionedThroughputSettingsPtrOutputWithContext(ctx context.Context) GlobalTableReadProvisionedThroughputSettingsPtrOutput {
 	return o
-}
-
-func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableReadProvisionedThroughputSettings] {
-	return pulumix.Output[*GlobalTableReadProvisionedThroughputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) Elem() GlobalTableReadProvisionedThroughputSettingsOutput {
@@ -1498,12 +1269,6 @@ func (i GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs) ToGlobalTableRe
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput)
 }
 
-func (i GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableReplicaGlobalSecondaryIndexSpecification] {
-	return pulumix.Output[GlobalTableReplicaGlobalSecondaryIndexSpecification]{
-		OutputState: i.ToGlobalTableReplicaGlobalSecondaryIndexSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput is an input type that accepts GlobalTableReplicaGlobalSecondaryIndexSpecificationArray and GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput values.
 // You can construct a concrete instance of `GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput` via:
 //
@@ -1529,12 +1294,6 @@ func (i GlobalTableReplicaGlobalSecondaryIndexSpecificationArray) ToGlobalTableR
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput)
 }
 
-func (i GlobalTableReplicaGlobalSecondaryIndexSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableReplicaGlobalSecondaryIndexSpecification] {
-	return pulumix.Output[[]GlobalTableReplicaGlobalSecondaryIndexSpecification]{
-		OutputState: i.ToGlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ElementType() reflect.Type {
@@ -1547,12 +1306,6 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ToGlobalTable
 
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ToGlobalTableReplicaGlobalSecondaryIndexSpecificationOutputWithContext(ctx context.Context) GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput {
 	return o
-}
-
-func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableReplicaGlobalSecondaryIndexSpecification] {
-	return pulumix.Output[GlobalTableReplicaGlobalSecondaryIndexSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ContributorInsightsSpecification() GlobalTableContributorInsightsSpecificationPtrOutput {
@@ -1583,12 +1336,6 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput) ToGlobal
 
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput) ToGlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutputWithContext(ctx context.Context) GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput {
 	return o
-}
-
-func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableReplicaGlobalSecondaryIndexSpecification] {
-	return pulumix.Output[[]GlobalTableReplicaGlobalSecondaryIndexSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput) Index(i pulumi.IntInput) GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput {
@@ -1646,12 +1393,6 @@ func (i GlobalTableReplicaSpecificationArgs) ToGlobalTableReplicaSpecificationOu
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaSpecificationOutput)
 }
 
-func (i GlobalTableReplicaSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableReplicaSpecification] {
-	return pulumix.Output[GlobalTableReplicaSpecification]{
-		OutputState: i.ToGlobalTableReplicaSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalTableReplicaSpecificationArrayInput is an input type that accepts GlobalTableReplicaSpecificationArray and GlobalTableReplicaSpecificationArrayOutput values.
 // You can construct a concrete instance of `GlobalTableReplicaSpecificationArrayInput` via:
 //
@@ -1677,12 +1418,6 @@ func (i GlobalTableReplicaSpecificationArray) ToGlobalTableReplicaSpecificationA
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaSpecificationArrayOutput)
 }
 
-func (i GlobalTableReplicaSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableReplicaSpecification] {
-	return pulumix.Output[[]GlobalTableReplicaSpecification]{
-		OutputState: i.ToGlobalTableReplicaSpecificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableReplicaSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableReplicaSpecificationOutput) ElementType() reflect.Type {
@@ -1695,12 +1430,6 @@ func (o GlobalTableReplicaSpecificationOutput) ToGlobalTableReplicaSpecification
 
 func (o GlobalTableReplicaSpecificationOutput) ToGlobalTableReplicaSpecificationOutputWithContext(ctx context.Context) GlobalTableReplicaSpecificationOutput {
 	return o
-}
-
-func (o GlobalTableReplicaSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableReplicaSpecification] {
-	return pulumix.Output[GlobalTableReplicaSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableReplicaSpecificationOutput) ContributorInsightsSpecification() GlobalTableContributorInsightsSpecificationPtrOutput {
@@ -1767,12 +1496,6 @@ func (o GlobalTableReplicaSpecificationArrayOutput) ToGlobalTableReplicaSpecific
 	return o
 }
 
-func (o GlobalTableReplicaSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableReplicaSpecification] {
-	return pulumix.Output[[]GlobalTableReplicaSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTableReplicaSpecificationArrayOutput) Index(i pulumi.IntInput) GlobalTableReplicaSpecificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalTableReplicaSpecification {
 		return vs[0].([]GlobalTableReplicaSpecification)[vs[1].(int)]
@@ -1808,12 +1531,6 @@ func (i GlobalTableReplicaSseSpecificationArgs) ToGlobalTableReplicaSseSpecifica
 
 func (i GlobalTableReplicaSseSpecificationArgs) ToGlobalTableReplicaSseSpecificationOutputWithContext(ctx context.Context) GlobalTableReplicaSseSpecificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaSseSpecificationOutput)
-}
-
-func (i GlobalTableReplicaSseSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableReplicaSseSpecification] {
-	return pulumix.Output[GlobalTableReplicaSseSpecification]{
-		OutputState: i.ToGlobalTableReplicaSseSpecificationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i GlobalTableReplicaSseSpecificationArgs) ToGlobalTableReplicaSseSpecificationPtrOutput() GlobalTableReplicaSseSpecificationPtrOutput {
@@ -1857,12 +1574,6 @@ func (i *globalTableReplicaSseSpecificationPtrType) ToGlobalTableReplicaSseSpeci
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaSseSpecificationPtrOutput)
 }
 
-func (i *globalTableReplicaSseSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableReplicaSseSpecification] {
-	return pulumix.Output[*GlobalTableReplicaSseSpecification]{
-		OutputState: i.ToGlobalTableReplicaSseSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableReplicaSseSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableReplicaSseSpecificationOutput) ElementType() reflect.Type {
@@ -1887,12 +1598,6 @@ func (o GlobalTableReplicaSseSpecificationOutput) ToGlobalTableReplicaSseSpecifi
 	}).(GlobalTableReplicaSseSpecificationPtrOutput)
 }
 
-func (o GlobalTableReplicaSseSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableReplicaSseSpecification] {
-	return pulumix.Output[GlobalTableReplicaSseSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTableReplicaSseSpecificationOutput) KmsMasterKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSseSpecification) string { return v.KmsMasterKeyId }).(pulumi.StringOutput)
 }
@@ -1909,12 +1614,6 @@ func (o GlobalTableReplicaSseSpecificationPtrOutput) ToGlobalTableReplicaSseSpec
 
 func (o GlobalTableReplicaSseSpecificationPtrOutput) ToGlobalTableReplicaSseSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaSseSpecificationPtrOutput {
 	return o
-}
-
-func (o GlobalTableReplicaSseSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableReplicaSseSpecification] {
-	return pulumix.Output[*GlobalTableReplicaSseSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableReplicaSseSpecificationPtrOutput) Elem() GlobalTableReplicaSseSpecificationOutput {
@@ -1969,12 +1668,6 @@ func (i GlobalTableSseSpecificationArgs) ToGlobalTableSseSpecificationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableSseSpecificationOutput)
 }
 
-func (i GlobalTableSseSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableSseSpecification] {
-	return pulumix.Output[GlobalTableSseSpecification]{
-		OutputState: i.ToGlobalTableSseSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GlobalTableSseSpecificationArgs) ToGlobalTableSseSpecificationPtrOutput() GlobalTableSseSpecificationPtrOutput {
 	return i.ToGlobalTableSseSpecificationPtrOutputWithContext(context.Background())
 }
@@ -2016,12 +1709,6 @@ func (i *globalTableSseSpecificationPtrType) ToGlobalTableSseSpecificationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableSseSpecificationPtrOutput)
 }
 
-func (i *globalTableSseSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableSseSpecification] {
-	return pulumix.Output[*GlobalTableSseSpecification]{
-		OutputState: i.ToGlobalTableSseSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableSseSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableSseSpecificationOutput) ElementType() reflect.Type {
@@ -2046,12 +1733,6 @@ func (o GlobalTableSseSpecificationOutput) ToGlobalTableSseSpecificationPtrOutpu
 	}).(GlobalTableSseSpecificationPtrOutput)
 }
 
-func (o GlobalTableSseSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableSseSpecification] {
-	return pulumix.Output[GlobalTableSseSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTableSseSpecificationOutput) SseEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GlobalTableSseSpecification) bool { return v.SseEnabled }).(pulumi.BoolOutput)
 }
@@ -2072,12 +1753,6 @@ func (o GlobalTableSseSpecificationPtrOutput) ToGlobalTableSseSpecificationPtrOu
 
 func (o GlobalTableSseSpecificationPtrOutput) ToGlobalTableSseSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableSseSpecificationPtrOutput {
 	return o
-}
-
-func (o GlobalTableSseSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableSseSpecification] {
-	return pulumix.Output[*GlobalTableSseSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableSseSpecificationPtrOutput) Elem() GlobalTableSseSpecificationOutput {
@@ -2139,12 +1814,6 @@ func (i GlobalTableStreamSpecificationArgs) ToGlobalTableStreamSpecificationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableStreamSpecificationOutput)
 }
 
-func (i GlobalTableStreamSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableStreamSpecification] {
-	return pulumix.Output[GlobalTableStreamSpecification]{
-		OutputState: i.ToGlobalTableStreamSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GlobalTableStreamSpecificationArgs) ToGlobalTableStreamSpecificationPtrOutput() GlobalTableStreamSpecificationPtrOutput {
 	return i.ToGlobalTableStreamSpecificationPtrOutputWithContext(context.Background())
 }
@@ -2186,12 +1855,6 @@ func (i *globalTableStreamSpecificationPtrType) ToGlobalTableStreamSpecification
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableStreamSpecificationPtrOutput)
 }
 
-func (i *globalTableStreamSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableStreamSpecification] {
-	return pulumix.Output[*GlobalTableStreamSpecification]{
-		OutputState: i.ToGlobalTableStreamSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableStreamSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableStreamSpecificationOutput) ElementType() reflect.Type {
@@ -2216,12 +1879,6 @@ func (o GlobalTableStreamSpecificationOutput) ToGlobalTableStreamSpecificationPt
 	}).(GlobalTableStreamSpecificationPtrOutput)
 }
 
-func (o GlobalTableStreamSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableStreamSpecification] {
-	return pulumix.Output[GlobalTableStreamSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTableStreamSpecificationOutput) StreamViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableStreamSpecification) string { return v.StreamViewType }).(pulumi.StringOutput)
 }
@@ -2238,12 +1895,6 @@ func (o GlobalTableStreamSpecificationPtrOutput) ToGlobalTableStreamSpecificatio
 
 func (o GlobalTableStreamSpecificationPtrOutput) ToGlobalTableStreamSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableStreamSpecificationPtrOutput {
 	return o
-}
-
-func (o GlobalTableStreamSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableStreamSpecification] {
-	return pulumix.Output[*GlobalTableStreamSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableStreamSpecificationPtrOutput) Elem() GlobalTableStreamSpecificationOutput {
@@ -2298,12 +1949,6 @@ func (i GlobalTableTagArgs) ToGlobalTableTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableTagOutput)
 }
 
-func (i GlobalTableTagArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableTag] {
-	return pulumix.Output[GlobalTableTag]{
-		OutputState: i.ToGlobalTableTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalTableTagArrayInput is an input type that accepts GlobalTableTagArray and GlobalTableTagArrayOutput values.
 // You can construct a concrete instance of `GlobalTableTagArrayInput` via:
 //
@@ -2329,12 +1974,6 @@ func (i GlobalTableTagArray) ToGlobalTableTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableTagArrayOutput)
 }
 
-func (i GlobalTableTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableTag] {
-	return pulumix.Output[[]GlobalTableTag]{
-		OutputState: i.ToGlobalTableTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableTagOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableTagOutput) ElementType() reflect.Type {
@@ -2347,12 +1986,6 @@ func (o GlobalTableTagOutput) ToGlobalTableTagOutput() GlobalTableTagOutput {
 
 func (o GlobalTableTagOutput) ToGlobalTableTagOutputWithContext(ctx context.Context) GlobalTableTagOutput {
 	return o
-}
-
-func (o GlobalTableTagOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableTag] {
-	return pulumix.Output[GlobalTableTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableTagOutput) Key() pulumi.StringOutput {
@@ -2375,12 +2008,6 @@ func (o GlobalTableTagArrayOutput) ToGlobalTableTagArrayOutput() GlobalTableTagA
 
 func (o GlobalTableTagArrayOutput) ToGlobalTableTagArrayOutputWithContext(ctx context.Context) GlobalTableTagArrayOutput {
 	return o
-}
-
-func (o GlobalTableTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableTag] {
-	return pulumix.Output[[]GlobalTableTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableTagArrayOutput) Index(i pulumi.IntInput) GlobalTableTagOutput {
@@ -2426,12 +2053,6 @@ func (i GlobalTableTargetTrackingScalingPolicyConfigurationArgs) ToGlobalTableTa
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableTargetTrackingScalingPolicyConfigurationOutput)
 }
 
-func (i GlobalTableTargetTrackingScalingPolicyConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableTargetTrackingScalingPolicyConfiguration] {
-	return pulumix.Output[GlobalTableTargetTrackingScalingPolicyConfiguration]{
-		OutputState: i.ToGlobalTableTargetTrackingScalingPolicyConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GlobalTableTargetTrackingScalingPolicyConfigurationArgs) ToGlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput() GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return i.ToGlobalTableTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2473,12 +2094,6 @@ func (i *globalTableTargetTrackingScalingPolicyConfigurationPtrType) ToGlobalTab
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput)
 }
 
-func (i *globalTableTargetTrackingScalingPolicyConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableTargetTrackingScalingPolicyConfiguration] {
-	return pulumix.Output[*GlobalTableTargetTrackingScalingPolicyConfiguration]{
-		OutputState: i.ToGlobalTableTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableTargetTrackingScalingPolicyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableTargetTrackingScalingPolicyConfigurationOutput) ElementType() reflect.Type {
@@ -2501,12 +2116,6 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) ToGlobalTable
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableTargetTrackingScalingPolicyConfiguration) *GlobalTableTargetTrackingScalingPolicyConfiguration {
 		return &v
 	}).(GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput)
-}
-
-func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableTargetTrackingScalingPolicyConfiguration] {
-	return pulumix.Output[GlobalTableTargetTrackingScalingPolicyConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) DisableScaleIn() pulumi.BoolPtrOutput {
@@ -2537,12 +2146,6 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) ToGlobalTa
 
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) ToGlobalTableTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return o
-}
-
-func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableTargetTrackingScalingPolicyConfiguration] {
-	return pulumix.Output[*GlobalTableTargetTrackingScalingPolicyConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) Elem() GlobalTableTargetTrackingScalingPolicyConfigurationOutput {
@@ -2624,12 +2227,6 @@ func (i GlobalTableTimeToLiveSpecificationArgs) ToGlobalTableTimeToLiveSpecifica
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableTimeToLiveSpecificationOutput)
 }
 
-func (i GlobalTableTimeToLiveSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableTimeToLiveSpecification] {
-	return pulumix.Output[GlobalTableTimeToLiveSpecification]{
-		OutputState: i.ToGlobalTableTimeToLiveSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GlobalTableTimeToLiveSpecificationArgs) ToGlobalTableTimeToLiveSpecificationPtrOutput() GlobalTableTimeToLiveSpecificationPtrOutput {
 	return i.ToGlobalTableTimeToLiveSpecificationPtrOutputWithContext(context.Background())
 }
@@ -2671,12 +2268,6 @@ func (i *globalTableTimeToLiveSpecificationPtrType) ToGlobalTableTimeToLiveSpeci
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }
 
-func (i *globalTableTimeToLiveSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableTimeToLiveSpecification] {
-	return pulumix.Output[*GlobalTableTimeToLiveSpecification]{
-		OutputState: i.ToGlobalTableTimeToLiveSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableTimeToLiveSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableTimeToLiveSpecificationOutput) ElementType() reflect.Type {
@@ -2701,12 +2292,6 @@ func (o GlobalTableTimeToLiveSpecificationOutput) ToGlobalTableTimeToLiveSpecifi
 	}).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }
 
-func (o GlobalTableTimeToLiveSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableTimeToLiveSpecification] {
-	return pulumix.Output[GlobalTableTimeToLiveSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTableTimeToLiveSpecificationOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalTableTimeToLiveSpecification) *string { return v.AttributeName }).(pulumi.StringPtrOutput)
 }
@@ -2727,12 +2312,6 @@ func (o GlobalTableTimeToLiveSpecificationPtrOutput) ToGlobalTableTimeToLiveSpec
 
 func (o GlobalTableTimeToLiveSpecificationPtrOutput) ToGlobalTableTimeToLiveSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableTimeToLiveSpecificationPtrOutput {
 	return o
-}
-
-func (o GlobalTableTimeToLiveSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableTimeToLiveSpecification] {
-	return pulumix.Output[*GlobalTableTimeToLiveSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableTimeToLiveSpecificationPtrOutput) Elem() GlobalTableTimeToLiveSpecificationOutput {
@@ -2794,12 +2373,6 @@ func (i GlobalTableWriteProvisionedThroughputSettingsArgs) ToGlobalTableWritePro
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableWriteProvisionedThroughputSettingsOutput)
 }
 
-func (i GlobalTableWriteProvisionedThroughputSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableWriteProvisionedThroughputSettings] {
-	return pulumix.Output[GlobalTableWriteProvisionedThroughputSettings]{
-		OutputState: i.ToGlobalTableWriteProvisionedThroughputSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GlobalTableWriteProvisionedThroughputSettingsArgs) ToGlobalTableWriteProvisionedThroughputSettingsPtrOutput() GlobalTableWriteProvisionedThroughputSettingsPtrOutput {
 	return i.ToGlobalTableWriteProvisionedThroughputSettingsPtrOutputWithContext(context.Background())
 }
@@ -2841,12 +2414,6 @@ func (i *globalTableWriteProvisionedThroughputSettingsPtrType) ToGlobalTableWrit
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableWriteProvisionedThroughputSettingsPtrOutput)
 }
 
-func (i *globalTableWriteProvisionedThroughputSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableWriteProvisionedThroughputSettings] {
-	return pulumix.Output[*GlobalTableWriteProvisionedThroughputSettings]{
-		OutputState: i.ToGlobalTableWriteProvisionedThroughputSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableWriteProvisionedThroughputSettingsOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableWriteProvisionedThroughputSettingsOutput) ElementType() reflect.Type {
@@ -2871,12 +2438,6 @@ func (o GlobalTableWriteProvisionedThroughputSettingsOutput) ToGlobalTableWriteP
 	}).(GlobalTableWriteProvisionedThroughputSettingsPtrOutput)
 }
 
-func (o GlobalTableWriteProvisionedThroughputSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableWriteProvisionedThroughputSettings] {
-	return pulumix.Output[GlobalTableWriteProvisionedThroughputSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTableWriteProvisionedThroughputSettingsOutput) WriteCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableWriteProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		return v.WriteCapacityAutoScalingSettings
@@ -2895,12 +2456,6 @@ func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) ToGlobalTableWri
 
 func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) ToGlobalTableWriteProvisionedThroughputSettingsPtrOutputWithContext(ctx context.Context) GlobalTableWriteProvisionedThroughputSettingsPtrOutput {
 	return o
-}
-
-func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTableWriteProvisionedThroughputSettings] {
-	return pulumix.Output[*GlobalTableWriteProvisionedThroughputSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) Elem() GlobalTableWriteProvisionedThroughputSettingsOutput {
@@ -2955,12 +2510,6 @@ func (i TableAttributeDefinitionArgs) ToTableAttributeDefinitionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TableAttributeDefinitionOutput)
 }
 
-func (i TableAttributeDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[TableAttributeDefinition] {
-	return pulumix.Output[TableAttributeDefinition]{
-		OutputState: i.ToTableAttributeDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TableAttributeDefinitionArrayInput is an input type that accepts TableAttributeDefinitionArray and TableAttributeDefinitionArrayOutput values.
 // You can construct a concrete instance of `TableAttributeDefinitionArrayInput` via:
 //
@@ -2986,12 +2535,6 @@ func (i TableAttributeDefinitionArray) ToTableAttributeDefinitionArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TableAttributeDefinitionArrayOutput)
 }
 
-func (i TableAttributeDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]TableAttributeDefinition] {
-	return pulumix.Output[[]TableAttributeDefinition]{
-		OutputState: i.ToTableAttributeDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableAttributeDefinitionOutput struct{ *pulumi.OutputState }
 
 func (TableAttributeDefinitionOutput) ElementType() reflect.Type {
@@ -3004,12 +2547,6 @@ func (o TableAttributeDefinitionOutput) ToTableAttributeDefinitionOutput() Table
 
 func (o TableAttributeDefinitionOutput) ToTableAttributeDefinitionOutputWithContext(ctx context.Context) TableAttributeDefinitionOutput {
 	return o
-}
-
-func (o TableAttributeDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[TableAttributeDefinition] {
-	return pulumix.Output[TableAttributeDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableAttributeDefinitionOutput) AttributeName() pulumi.StringOutput {
@@ -3032,12 +2569,6 @@ func (o TableAttributeDefinitionArrayOutput) ToTableAttributeDefinitionArrayOutp
 
 func (o TableAttributeDefinitionArrayOutput) ToTableAttributeDefinitionArrayOutputWithContext(ctx context.Context) TableAttributeDefinitionArrayOutput {
 	return o
-}
-
-func (o TableAttributeDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableAttributeDefinition] {
-	return pulumix.Output[[]TableAttributeDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) TableAttributeDefinitionOutput {
@@ -3075,12 +2606,6 @@ func (i TableContributorInsightsSpecificationArgs) ToTableContributorInsightsSpe
 
 func (i TableContributorInsightsSpecificationArgs) ToTableContributorInsightsSpecificationOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableContributorInsightsSpecificationOutput)
-}
-
-func (i TableContributorInsightsSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[TableContributorInsightsSpecification] {
-	return pulumix.Output[TableContributorInsightsSpecification]{
-		OutputState: i.ToTableContributorInsightsSpecificationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TableContributorInsightsSpecificationArgs) ToTableContributorInsightsSpecificationPtrOutput() TableContributorInsightsSpecificationPtrOutput {
@@ -3124,12 +2649,6 @@ func (i *tableContributorInsightsSpecificationPtrType) ToTableContributorInsight
 	return pulumi.ToOutputWithContext(ctx, i).(TableContributorInsightsSpecificationPtrOutput)
 }
 
-func (i *tableContributorInsightsSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableContributorInsightsSpecification] {
-	return pulumix.Output[*TableContributorInsightsSpecification]{
-		OutputState: i.ToTableContributorInsightsSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableContributorInsightsSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableContributorInsightsSpecificationOutput) ElementType() reflect.Type {
@@ -3154,12 +2673,6 @@ func (o TableContributorInsightsSpecificationOutput) ToTableContributorInsightsS
 	}).(TableContributorInsightsSpecificationPtrOutput)
 }
 
-func (o TableContributorInsightsSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[TableContributorInsightsSpecification] {
-	return pulumix.Output[TableContributorInsightsSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableContributorInsightsSpecificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TableContributorInsightsSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -3176,12 +2689,6 @@ func (o TableContributorInsightsSpecificationPtrOutput) ToTableContributorInsigh
 
 func (o TableContributorInsightsSpecificationPtrOutput) ToTableContributorInsightsSpecificationPtrOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationPtrOutput {
 	return o
-}
-
-func (o TableContributorInsightsSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableContributorInsightsSpecification] {
-	return pulumix.Output[*TableContributorInsightsSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableContributorInsightsSpecificationPtrOutput) Elem() TableContributorInsightsSpecificationOutput {
@@ -3236,12 +2743,6 @@ func (i TableCsvArgs) ToTableCsvOutputWithContext(ctx context.Context) TableCsvO
 	return pulumi.ToOutputWithContext(ctx, i).(TableCsvOutput)
 }
 
-func (i TableCsvArgs) ToOutput(ctx context.Context) pulumix.Output[TableCsv] {
-	return pulumix.Output[TableCsv]{
-		OutputState: i.ToTableCsvOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TableCsvArgs) ToTableCsvPtrOutput() TableCsvPtrOutput {
 	return i.ToTableCsvPtrOutputWithContext(context.Background())
 }
@@ -3283,12 +2784,6 @@ func (i *tableCsvPtrType) ToTableCsvPtrOutputWithContext(ctx context.Context) Ta
 	return pulumi.ToOutputWithContext(ctx, i).(TableCsvPtrOutput)
 }
 
-func (i *tableCsvPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableCsv] {
-	return pulumix.Output[*TableCsv]{
-		OutputState: i.ToTableCsvPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableCsvOutput struct{ *pulumi.OutputState }
 
 func (TableCsvOutput) ElementType() reflect.Type {
@@ -3313,12 +2808,6 @@ func (o TableCsvOutput) ToTableCsvPtrOutputWithContext(ctx context.Context) Tabl
 	}).(TableCsvPtrOutput)
 }
 
-func (o TableCsvOutput) ToOutput(ctx context.Context) pulumix.Output[TableCsv] {
-	return pulumix.Output[TableCsv]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableCsvOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableCsv) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
@@ -3339,12 +2828,6 @@ func (o TableCsvPtrOutput) ToTableCsvPtrOutput() TableCsvPtrOutput {
 
 func (o TableCsvPtrOutput) ToTableCsvPtrOutputWithContext(ctx context.Context) TableCsvPtrOutput {
 	return o
-}
-
-func (o TableCsvPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableCsv] {
-	return pulumix.Output[*TableCsv]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableCsvPtrOutput) Elem() TableCsvOutput {
@@ -3414,12 +2897,6 @@ func (i TableGlobalSecondaryIndexArgs) ToTableGlobalSecondaryIndexOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexOutput)
 }
 
-func (i TableGlobalSecondaryIndexArgs) ToOutput(ctx context.Context) pulumix.Output[TableGlobalSecondaryIndex] {
-	return pulumix.Output[TableGlobalSecondaryIndex]{
-		OutputState: i.ToTableGlobalSecondaryIndexOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TableGlobalSecondaryIndexArrayInput is an input type that accepts TableGlobalSecondaryIndexArray and TableGlobalSecondaryIndexArrayOutput values.
 // You can construct a concrete instance of `TableGlobalSecondaryIndexArrayInput` via:
 //
@@ -3445,12 +2922,6 @@ func (i TableGlobalSecondaryIndexArray) ToTableGlobalSecondaryIndexArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexArrayOutput)
 }
 
-func (i TableGlobalSecondaryIndexArray) ToOutput(ctx context.Context) pulumix.Output[[]TableGlobalSecondaryIndex] {
-	return pulumix.Output[[]TableGlobalSecondaryIndex]{
-		OutputState: i.ToTableGlobalSecondaryIndexArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableGlobalSecondaryIndexOutput struct{ *pulumi.OutputState }
 
 func (TableGlobalSecondaryIndexOutput) ElementType() reflect.Type {
@@ -3463,12 +2934,6 @@ func (o TableGlobalSecondaryIndexOutput) ToTableGlobalSecondaryIndexOutput() Tab
 
 func (o TableGlobalSecondaryIndexOutput) ToTableGlobalSecondaryIndexOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexOutput {
 	return o
-}
-
-func (o TableGlobalSecondaryIndexOutput) ToOutput(ctx context.Context) pulumix.Output[TableGlobalSecondaryIndex] {
-	return pulumix.Output[TableGlobalSecondaryIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableGlobalSecondaryIndexOutput) ContributorInsightsSpecification() TableContributorInsightsSpecificationPtrOutput {
@@ -3505,12 +2970,6 @@ func (o TableGlobalSecondaryIndexArrayOutput) ToTableGlobalSecondaryIndexArrayOu
 
 func (o TableGlobalSecondaryIndexArrayOutput) ToTableGlobalSecondaryIndexArrayOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexArrayOutput {
 	return o
-}
-
-func (o TableGlobalSecondaryIndexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableGlobalSecondaryIndex] {
-	return pulumix.Output[[]TableGlobalSecondaryIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableGlobalSecondaryIndexOutput {
@@ -3556,12 +3015,6 @@ func (i TableImportSourceSpecificationArgs) ToTableImportSourceSpecificationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TableImportSourceSpecificationOutput)
 }
 
-func (i TableImportSourceSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[TableImportSourceSpecification] {
-	return pulumix.Output[TableImportSourceSpecification]{
-		OutputState: i.ToTableImportSourceSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TableImportSourceSpecificationArgs) ToTableImportSourceSpecificationPtrOutput() TableImportSourceSpecificationPtrOutput {
 	return i.ToTableImportSourceSpecificationPtrOutputWithContext(context.Background())
 }
@@ -3603,12 +3056,6 @@ func (i *tableImportSourceSpecificationPtrType) ToTableImportSourceSpecification
 	return pulumi.ToOutputWithContext(ctx, i).(TableImportSourceSpecificationPtrOutput)
 }
 
-func (i *tableImportSourceSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableImportSourceSpecification] {
-	return pulumix.Output[*TableImportSourceSpecification]{
-		OutputState: i.ToTableImportSourceSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableImportSourceSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableImportSourceSpecificationOutput) ElementType() reflect.Type {
@@ -3631,12 +3078,6 @@ func (o TableImportSourceSpecificationOutput) ToTableImportSourceSpecificationPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableImportSourceSpecification) *TableImportSourceSpecification {
 		return &v
 	}).(TableImportSourceSpecificationPtrOutput)
-}
-
-func (o TableImportSourceSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[TableImportSourceSpecification] {
-	return pulumix.Output[TableImportSourceSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableImportSourceSpecificationOutput) InputCompressionType() pulumi.StringPtrOutput {
@@ -3667,12 +3108,6 @@ func (o TableImportSourceSpecificationPtrOutput) ToTableImportSourceSpecificatio
 
 func (o TableImportSourceSpecificationPtrOutput) ToTableImportSourceSpecificationPtrOutputWithContext(ctx context.Context) TableImportSourceSpecificationPtrOutput {
 	return o
-}
-
-func (o TableImportSourceSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableImportSourceSpecification] {
-	return pulumix.Output[*TableImportSourceSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableImportSourceSpecificationPtrOutput) Elem() TableImportSourceSpecificationOutput {
@@ -3752,12 +3187,6 @@ func (i TableInputFormatOptionsArgs) ToTableInputFormatOptionsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TableInputFormatOptionsOutput)
 }
 
-func (i TableInputFormatOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[TableInputFormatOptions] {
-	return pulumix.Output[TableInputFormatOptions]{
-		OutputState: i.ToTableInputFormatOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TableInputFormatOptionsArgs) ToTableInputFormatOptionsPtrOutput() TableInputFormatOptionsPtrOutput {
 	return i.ToTableInputFormatOptionsPtrOutputWithContext(context.Background())
 }
@@ -3799,12 +3228,6 @@ func (i *tableInputFormatOptionsPtrType) ToTableInputFormatOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TableInputFormatOptionsPtrOutput)
 }
 
-func (i *tableInputFormatOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableInputFormatOptions] {
-	return pulumix.Output[*TableInputFormatOptions]{
-		OutputState: i.ToTableInputFormatOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableInputFormatOptionsOutput struct{ *pulumi.OutputState }
 
 func (TableInputFormatOptionsOutput) ElementType() reflect.Type {
@@ -3829,12 +3252,6 @@ func (o TableInputFormatOptionsOutput) ToTableInputFormatOptionsPtrOutputWithCon
 	}).(TableInputFormatOptionsPtrOutput)
 }
 
-func (o TableInputFormatOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TableInputFormatOptions] {
-	return pulumix.Output[TableInputFormatOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableInputFormatOptionsOutput) Csv() TableCsvPtrOutput {
 	return o.ApplyT(func(v TableInputFormatOptions) *TableCsv { return v.Csv }).(TableCsvPtrOutput)
 }
@@ -3851,12 +3268,6 @@ func (o TableInputFormatOptionsPtrOutput) ToTableInputFormatOptionsPtrOutput() T
 
 func (o TableInputFormatOptionsPtrOutput) ToTableInputFormatOptionsPtrOutputWithContext(ctx context.Context) TableInputFormatOptionsPtrOutput {
 	return o
-}
-
-func (o TableInputFormatOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableInputFormatOptions] {
-	return pulumix.Output[*TableInputFormatOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableInputFormatOptionsPtrOutput) Elem() TableInputFormatOptionsOutput {
@@ -3911,12 +3322,6 @@ func (i TableKeySchemaArgs) ToTableKeySchemaOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TableKeySchemaOutput)
 }
 
-func (i TableKeySchemaArgs) ToOutput(ctx context.Context) pulumix.Output[TableKeySchema] {
-	return pulumix.Output[TableKeySchema]{
-		OutputState: i.ToTableKeySchemaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TableKeySchemaArrayInput is an input type that accepts TableKeySchemaArray and TableKeySchemaArrayOutput values.
 // You can construct a concrete instance of `TableKeySchemaArrayInput` via:
 //
@@ -3942,12 +3347,6 @@ func (i TableKeySchemaArray) ToTableKeySchemaArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TableKeySchemaArrayOutput)
 }
 
-func (i TableKeySchemaArray) ToOutput(ctx context.Context) pulumix.Output[[]TableKeySchema] {
-	return pulumix.Output[[]TableKeySchema]{
-		OutputState: i.ToTableKeySchemaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableKeySchemaOutput struct{ *pulumi.OutputState }
 
 func (TableKeySchemaOutput) ElementType() reflect.Type {
@@ -3960,12 +3359,6 @@ func (o TableKeySchemaOutput) ToTableKeySchemaOutput() TableKeySchemaOutput {
 
 func (o TableKeySchemaOutput) ToTableKeySchemaOutputWithContext(ctx context.Context) TableKeySchemaOutput {
 	return o
-}
-
-func (o TableKeySchemaOutput) ToOutput(ctx context.Context) pulumix.Output[TableKeySchema] {
-	return pulumix.Output[TableKeySchema]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableKeySchemaOutput) AttributeName() pulumi.StringOutput {
@@ -3988,12 +3381,6 @@ func (o TableKeySchemaArrayOutput) ToTableKeySchemaArrayOutput() TableKeySchemaA
 
 func (o TableKeySchemaArrayOutput) ToTableKeySchemaArrayOutputWithContext(ctx context.Context) TableKeySchemaArrayOutput {
 	return o
-}
-
-func (o TableKeySchemaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableKeySchema] {
-	return pulumix.Output[[]TableKeySchema]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableKeySchemaArrayOutput) Index(i pulumi.IntInput) TableKeySchemaOutput {
@@ -4033,12 +3420,6 @@ func (i TableKinesisStreamSpecificationArgs) ToTableKinesisStreamSpecificationOu
 
 func (i TableKinesisStreamSpecificationArgs) ToTableKinesisStreamSpecificationOutputWithContext(ctx context.Context) TableKinesisStreamSpecificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableKinesisStreamSpecificationOutput)
-}
-
-func (i TableKinesisStreamSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[TableKinesisStreamSpecification] {
-	return pulumix.Output[TableKinesisStreamSpecification]{
-		OutputState: i.ToTableKinesisStreamSpecificationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TableKinesisStreamSpecificationArgs) ToTableKinesisStreamSpecificationPtrOutput() TableKinesisStreamSpecificationPtrOutput {
@@ -4082,12 +3463,6 @@ func (i *tableKinesisStreamSpecificationPtrType) ToTableKinesisStreamSpecificati
 	return pulumi.ToOutputWithContext(ctx, i).(TableKinesisStreamSpecificationPtrOutput)
 }
 
-func (i *tableKinesisStreamSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableKinesisStreamSpecification] {
-	return pulumix.Output[*TableKinesisStreamSpecification]{
-		OutputState: i.ToTableKinesisStreamSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableKinesisStreamSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableKinesisStreamSpecificationOutput) ElementType() reflect.Type {
@@ -4112,12 +3487,6 @@ func (o TableKinesisStreamSpecificationOutput) ToTableKinesisStreamSpecification
 	}).(TableKinesisStreamSpecificationPtrOutput)
 }
 
-func (o TableKinesisStreamSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[TableKinesisStreamSpecification] {
-	return pulumix.Output[TableKinesisStreamSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableKinesisStreamSpecificationOutput) ApproximateCreationDateTimePrecision() TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput {
 	return o.ApplyT(func(v TableKinesisStreamSpecification) *TableKinesisStreamSpecificationApproximateCreationDateTimePrecision {
 		return v.ApproximateCreationDateTimePrecision
@@ -4140,12 +3509,6 @@ func (o TableKinesisStreamSpecificationPtrOutput) ToTableKinesisStreamSpecificat
 
 func (o TableKinesisStreamSpecificationPtrOutput) ToTableKinesisStreamSpecificationPtrOutputWithContext(ctx context.Context) TableKinesisStreamSpecificationPtrOutput {
 	return o
-}
-
-func (o TableKinesisStreamSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableKinesisStreamSpecification] {
-	return pulumix.Output[*TableKinesisStreamSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableKinesisStreamSpecificationPtrOutput) Elem() TableKinesisStreamSpecificationOutput {
@@ -4211,12 +3574,6 @@ func (i TableLocalSecondaryIndexArgs) ToTableLocalSecondaryIndexOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TableLocalSecondaryIndexOutput)
 }
 
-func (i TableLocalSecondaryIndexArgs) ToOutput(ctx context.Context) pulumix.Output[TableLocalSecondaryIndex] {
-	return pulumix.Output[TableLocalSecondaryIndex]{
-		OutputState: i.ToTableLocalSecondaryIndexOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TableLocalSecondaryIndexArrayInput is an input type that accepts TableLocalSecondaryIndexArray and TableLocalSecondaryIndexArrayOutput values.
 // You can construct a concrete instance of `TableLocalSecondaryIndexArrayInput` via:
 //
@@ -4242,12 +3599,6 @@ func (i TableLocalSecondaryIndexArray) ToTableLocalSecondaryIndexArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TableLocalSecondaryIndexArrayOutput)
 }
 
-func (i TableLocalSecondaryIndexArray) ToOutput(ctx context.Context) pulumix.Output[[]TableLocalSecondaryIndex] {
-	return pulumix.Output[[]TableLocalSecondaryIndex]{
-		OutputState: i.ToTableLocalSecondaryIndexArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableLocalSecondaryIndexOutput struct{ *pulumi.OutputState }
 
 func (TableLocalSecondaryIndexOutput) ElementType() reflect.Type {
@@ -4260,12 +3611,6 @@ func (o TableLocalSecondaryIndexOutput) ToTableLocalSecondaryIndexOutput() Table
 
 func (o TableLocalSecondaryIndexOutput) ToTableLocalSecondaryIndexOutputWithContext(ctx context.Context) TableLocalSecondaryIndexOutput {
 	return o
-}
-
-func (o TableLocalSecondaryIndexOutput) ToOutput(ctx context.Context) pulumix.Output[TableLocalSecondaryIndex] {
-	return pulumix.Output[TableLocalSecondaryIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableLocalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
@@ -4292,12 +3637,6 @@ func (o TableLocalSecondaryIndexArrayOutput) ToTableLocalSecondaryIndexArrayOutp
 
 func (o TableLocalSecondaryIndexArrayOutput) ToTableLocalSecondaryIndexArrayOutputWithContext(ctx context.Context) TableLocalSecondaryIndexArrayOutput {
 	return o
-}
-
-func (o TableLocalSecondaryIndexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableLocalSecondaryIndex] {
-	return pulumix.Output[[]TableLocalSecondaryIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableLocalSecondaryIndexOutput {
@@ -4335,12 +3674,6 @@ func (i TablePointInTimeRecoverySpecificationArgs) ToTablePointInTimeRecoverySpe
 
 func (i TablePointInTimeRecoverySpecificationArgs) ToTablePointInTimeRecoverySpecificationOutputWithContext(ctx context.Context) TablePointInTimeRecoverySpecificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TablePointInTimeRecoverySpecificationOutput)
-}
-
-func (i TablePointInTimeRecoverySpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[TablePointInTimeRecoverySpecification] {
-	return pulumix.Output[TablePointInTimeRecoverySpecification]{
-		OutputState: i.ToTablePointInTimeRecoverySpecificationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TablePointInTimeRecoverySpecificationArgs) ToTablePointInTimeRecoverySpecificationPtrOutput() TablePointInTimeRecoverySpecificationPtrOutput {
@@ -4384,12 +3717,6 @@ func (i *tablePointInTimeRecoverySpecificationPtrType) ToTablePointInTimeRecover
 	return pulumi.ToOutputWithContext(ctx, i).(TablePointInTimeRecoverySpecificationPtrOutput)
 }
 
-func (i *tablePointInTimeRecoverySpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TablePointInTimeRecoverySpecification] {
-	return pulumix.Output[*TablePointInTimeRecoverySpecification]{
-		OutputState: i.ToTablePointInTimeRecoverySpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TablePointInTimeRecoverySpecificationOutput struct{ *pulumi.OutputState }
 
 func (TablePointInTimeRecoverySpecificationOutput) ElementType() reflect.Type {
@@ -4414,12 +3741,6 @@ func (o TablePointInTimeRecoverySpecificationOutput) ToTablePointInTimeRecoveryS
 	}).(TablePointInTimeRecoverySpecificationPtrOutput)
 }
 
-func (o TablePointInTimeRecoverySpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[TablePointInTimeRecoverySpecification] {
-	return pulumix.Output[TablePointInTimeRecoverySpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TablePointInTimeRecoverySpecificationOutput) PointInTimeRecoveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TablePointInTimeRecoverySpecification) *bool { return v.PointInTimeRecoveryEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -4436,12 +3757,6 @@ func (o TablePointInTimeRecoverySpecificationPtrOutput) ToTablePointInTimeRecove
 
 func (o TablePointInTimeRecoverySpecificationPtrOutput) ToTablePointInTimeRecoverySpecificationPtrOutputWithContext(ctx context.Context) TablePointInTimeRecoverySpecificationPtrOutput {
 	return o
-}
-
-func (o TablePointInTimeRecoverySpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TablePointInTimeRecoverySpecification] {
-	return pulumix.Output[*TablePointInTimeRecoverySpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TablePointInTimeRecoverySpecificationPtrOutput) Elem() TablePointInTimeRecoverySpecificationOutput {
@@ -4496,12 +3811,6 @@ func (i TableProjectionArgs) ToTableProjectionOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TableProjectionOutput)
 }
 
-func (i TableProjectionArgs) ToOutput(ctx context.Context) pulumix.Output[TableProjection] {
-	return pulumix.Output[TableProjection]{
-		OutputState: i.ToTableProjectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableProjectionOutput struct{ *pulumi.OutputState }
 
 func (TableProjectionOutput) ElementType() reflect.Type {
@@ -4514,12 +3823,6 @@ func (o TableProjectionOutput) ToTableProjectionOutput() TableProjectionOutput {
 
 func (o TableProjectionOutput) ToTableProjectionOutputWithContext(ctx context.Context) TableProjectionOutput {
 	return o
-}
-
-func (o TableProjectionOutput) ToOutput(ctx context.Context) pulumix.Output[TableProjection] {
-	return pulumix.Output[TableProjection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableProjectionOutput) NonKeyAttributes() pulumi.StringArrayOutput {
@@ -4563,12 +3866,6 @@ func (i TableProvisionedThroughputArgs) ToTableProvisionedThroughputOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(TableProvisionedThroughputOutput)
 }
 
-func (i TableProvisionedThroughputArgs) ToOutput(ctx context.Context) pulumix.Output[TableProvisionedThroughput] {
-	return pulumix.Output[TableProvisionedThroughput]{
-		OutputState: i.ToTableProvisionedThroughputOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TableProvisionedThroughputArgs) ToTableProvisionedThroughputPtrOutput() TableProvisionedThroughputPtrOutput {
 	return i.ToTableProvisionedThroughputPtrOutputWithContext(context.Background())
 }
@@ -4610,12 +3907,6 @@ func (i *tableProvisionedThroughputPtrType) ToTableProvisionedThroughputPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TableProvisionedThroughputPtrOutput)
 }
 
-func (i *tableProvisionedThroughputPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableProvisionedThroughput] {
-	return pulumix.Output[*TableProvisionedThroughput]{
-		OutputState: i.ToTableProvisionedThroughputPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableProvisionedThroughputOutput struct{ *pulumi.OutputState }
 
 func (TableProvisionedThroughputOutput) ElementType() reflect.Type {
@@ -4640,12 +3931,6 @@ func (o TableProvisionedThroughputOutput) ToTableProvisionedThroughputPtrOutputW
 	}).(TableProvisionedThroughputPtrOutput)
 }
 
-func (o TableProvisionedThroughputOutput) ToOutput(ctx context.Context) pulumix.Output[TableProvisionedThroughput] {
-	return pulumix.Output[TableProvisionedThroughput]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableProvisionedThroughputOutput) ReadCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v TableProvisionedThroughput) int { return v.ReadCapacityUnits }).(pulumi.IntOutput)
 }
@@ -4666,12 +3951,6 @@ func (o TableProvisionedThroughputPtrOutput) ToTableProvisionedThroughputPtrOutp
 
 func (o TableProvisionedThroughputPtrOutput) ToTableProvisionedThroughputPtrOutputWithContext(ctx context.Context) TableProvisionedThroughputPtrOutput {
 	return o
-}
-
-func (o TableProvisionedThroughputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableProvisionedThroughput] {
-	return pulumix.Output[*TableProvisionedThroughput]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableProvisionedThroughputPtrOutput) Elem() TableProvisionedThroughputOutput {
@@ -4737,12 +4016,6 @@ func (i TableS3BucketSourceArgs) ToTableS3BucketSourceOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TableS3BucketSourceOutput)
 }
 
-func (i TableS3BucketSourceArgs) ToOutput(ctx context.Context) pulumix.Output[TableS3BucketSource] {
-	return pulumix.Output[TableS3BucketSource]{
-		OutputState: i.ToTableS3BucketSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TableS3BucketSourceArgs) ToTableS3BucketSourcePtrOutput() TableS3BucketSourcePtrOutput {
 	return i.ToTableS3BucketSourcePtrOutputWithContext(context.Background())
 }
@@ -4784,12 +4057,6 @@ func (i *tableS3BucketSourcePtrType) ToTableS3BucketSourcePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TableS3BucketSourcePtrOutput)
 }
 
-func (i *tableS3BucketSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*TableS3BucketSource] {
-	return pulumix.Output[*TableS3BucketSource]{
-		OutputState: i.ToTableS3BucketSourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableS3BucketSourceOutput struct{ *pulumi.OutputState }
 
 func (TableS3BucketSourceOutput) ElementType() reflect.Type {
@@ -4812,12 +4079,6 @@ func (o TableS3BucketSourceOutput) ToTableS3BucketSourcePtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableS3BucketSource) *TableS3BucketSource {
 		return &v
 	}).(TableS3BucketSourcePtrOutput)
-}
-
-func (o TableS3BucketSourceOutput) ToOutput(ctx context.Context) pulumix.Output[TableS3BucketSource] {
-	return pulumix.Output[TableS3BucketSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableS3BucketSourceOutput) S3Bucket() pulumi.StringOutput {
@@ -4844,12 +4105,6 @@ func (o TableS3BucketSourcePtrOutput) ToTableS3BucketSourcePtrOutput() TableS3Bu
 
 func (o TableS3BucketSourcePtrOutput) ToTableS3BucketSourcePtrOutputWithContext(ctx context.Context) TableS3BucketSourcePtrOutput {
 	return o
-}
-
-func (o TableS3BucketSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableS3BucketSource] {
-	return pulumix.Output[*TableS3BucketSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableS3BucketSourcePtrOutput) Elem() TableS3BucketSourceOutput {
@@ -4924,12 +4179,6 @@ func (i TableSseSpecificationArgs) ToTableSseSpecificationOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TableSseSpecificationOutput)
 }
 
-func (i TableSseSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[TableSseSpecification] {
-	return pulumix.Output[TableSseSpecification]{
-		OutputState: i.ToTableSseSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TableSseSpecificationArgs) ToTableSseSpecificationPtrOutput() TableSseSpecificationPtrOutput {
 	return i.ToTableSseSpecificationPtrOutputWithContext(context.Background())
 }
@@ -4971,12 +4220,6 @@ func (i *tableSseSpecificationPtrType) ToTableSseSpecificationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TableSseSpecificationPtrOutput)
 }
 
-func (i *tableSseSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableSseSpecification] {
-	return pulumix.Output[*TableSseSpecification]{
-		OutputState: i.ToTableSseSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableSseSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableSseSpecificationOutput) ElementType() reflect.Type {
@@ -4999,12 +4242,6 @@ func (o TableSseSpecificationOutput) ToTableSseSpecificationPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSseSpecification) *TableSseSpecification {
 		return &v
 	}).(TableSseSpecificationPtrOutput)
-}
-
-func (o TableSseSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[TableSseSpecification] {
-	return pulumix.Output[TableSseSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableSseSpecificationOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
@@ -5031,12 +4268,6 @@ func (o TableSseSpecificationPtrOutput) ToTableSseSpecificationPtrOutput() Table
 
 func (o TableSseSpecificationPtrOutput) ToTableSseSpecificationPtrOutputWithContext(ctx context.Context) TableSseSpecificationPtrOutput {
 	return o
-}
-
-func (o TableSseSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableSseSpecification] {
-	return pulumix.Output[*TableSseSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableSseSpecificationPtrOutput) Elem() TableSseSpecificationOutput {
@@ -5107,12 +4338,6 @@ func (i TableStreamSpecificationArgs) ToTableStreamSpecificationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TableStreamSpecificationOutput)
 }
 
-func (i TableStreamSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[TableStreamSpecification] {
-	return pulumix.Output[TableStreamSpecification]{
-		OutputState: i.ToTableStreamSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TableStreamSpecificationArgs) ToTableStreamSpecificationPtrOutput() TableStreamSpecificationPtrOutput {
 	return i.ToTableStreamSpecificationPtrOutputWithContext(context.Background())
 }
@@ -5154,12 +4379,6 @@ func (i *tableStreamSpecificationPtrType) ToTableStreamSpecificationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TableStreamSpecificationPtrOutput)
 }
 
-func (i *tableStreamSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableStreamSpecification] {
-	return pulumix.Output[*TableStreamSpecification]{
-		OutputState: i.ToTableStreamSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableStreamSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableStreamSpecificationOutput) ElementType() reflect.Type {
@@ -5184,12 +4403,6 @@ func (o TableStreamSpecificationOutput) ToTableStreamSpecificationPtrOutputWithC
 	}).(TableStreamSpecificationPtrOutput)
 }
 
-func (o TableStreamSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[TableStreamSpecification] {
-	return pulumix.Output[TableStreamSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableStreamSpecificationOutput) StreamViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableStreamSpecification) string { return v.StreamViewType }).(pulumi.StringOutput)
 }
@@ -5206,12 +4419,6 @@ func (o TableStreamSpecificationPtrOutput) ToTableStreamSpecificationPtrOutput()
 
 func (o TableStreamSpecificationPtrOutput) ToTableStreamSpecificationPtrOutputWithContext(ctx context.Context) TableStreamSpecificationPtrOutput {
 	return o
-}
-
-func (o TableStreamSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableStreamSpecification] {
-	return pulumix.Output[*TableStreamSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableStreamSpecificationPtrOutput) Elem() TableStreamSpecificationOutput {
@@ -5266,12 +4473,6 @@ func (i TableTagArgs) ToTableTagOutputWithContext(ctx context.Context) TableTagO
 	return pulumi.ToOutputWithContext(ctx, i).(TableTagOutput)
 }
 
-func (i TableTagArgs) ToOutput(ctx context.Context) pulumix.Output[TableTag] {
-	return pulumix.Output[TableTag]{
-		OutputState: i.ToTableTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TableTagArrayInput is an input type that accepts TableTagArray and TableTagArrayOutput values.
 // You can construct a concrete instance of `TableTagArrayInput` via:
 //
@@ -5297,12 +4498,6 @@ func (i TableTagArray) ToTableTagArrayOutputWithContext(ctx context.Context) Tab
 	return pulumi.ToOutputWithContext(ctx, i).(TableTagArrayOutput)
 }
 
-func (i TableTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TableTag] {
-	return pulumix.Output[[]TableTag]{
-		OutputState: i.ToTableTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableTagOutput struct{ *pulumi.OutputState }
 
 func (TableTagOutput) ElementType() reflect.Type {
@@ -5315,12 +4510,6 @@ func (o TableTagOutput) ToTableTagOutput() TableTagOutput {
 
 func (o TableTagOutput) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
 	return o
-}
-
-func (o TableTagOutput) ToOutput(ctx context.Context) pulumix.Output[TableTag] {
-	return pulumix.Output[TableTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableTagOutput) Key() pulumi.StringOutput {
@@ -5343,12 +4532,6 @@ func (o TableTagArrayOutput) ToTableTagArrayOutput() TableTagArrayOutput {
 
 func (o TableTagArrayOutput) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
 	return o
-}
-
-func (o TableTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableTag] {
-	return pulumix.Output[[]TableTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
@@ -5388,12 +4571,6 @@ func (i TableTimeToLiveSpecificationArgs) ToTableTimeToLiveSpecificationOutput()
 
 func (i TableTimeToLiveSpecificationArgs) ToTableTimeToLiveSpecificationOutputWithContext(ctx context.Context) TableTimeToLiveSpecificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableTimeToLiveSpecificationOutput)
-}
-
-func (i TableTimeToLiveSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[TableTimeToLiveSpecification] {
-	return pulumix.Output[TableTimeToLiveSpecification]{
-		OutputState: i.ToTableTimeToLiveSpecificationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TableTimeToLiveSpecificationArgs) ToTableTimeToLiveSpecificationPtrOutput() TableTimeToLiveSpecificationPtrOutput {
@@ -5437,12 +4614,6 @@ func (i *tableTimeToLiveSpecificationPtrType) ToTableTimeToLiveSpecificationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TableTimeToLiveSpecificationPtrOutput)
 }
 
-func (i *tableTimeToLiveSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableTimeToLiveSpecification] {
-	return pulumix.Output[*TableTimeToLiveSpecification]{
-		OutputState: i.ToTableTimeToLiveSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableTimeToLiveSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableTimeToLiveSpecificationOutput) ElementType() reflect.Type {
@@ -5467,12 +4638,6 @@ func (o TableTimeToLiveSpecificationOutput) ToTableTimeToLiveSpecificationPtrOut
 	}).(TableTimeToLiveSpecificationPtrOutput)
 }
 
-func (o TableTimeToLiveSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[TableTimeToLiveSpecification] {
-	return pulumix.Output[TableTimeToLiveSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableTimeToLiveSpecificationOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableTimeToLiveSpecification) *string { return v.AttributeName }).(pulumi.StringPtrOutput)
 }
@@ -5493,12 +4658,6 @@ func (o TableTimeToLiveSpecificationPtrOutput) ToTableTimeToLiveSpecificationPtr
 
 func (o TableTimeToLiveSpecificationPtrOutput) ToTableTimeToLiveSpecificationPtrOutputWithContext(ctx context.Context) TableTimeToLiveSpecificationPtrOutput {
 	return o
-}
-
-func (o TableTimeToLiveSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableTimeToLiveSpecification] {
-	return pulumix.Output[*TableTimeToLiveSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableTimeToLiveSpecificationPtrOutput) Elem() TableTimeToLiveSpecificationOutput {

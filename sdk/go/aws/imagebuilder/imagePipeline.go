@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::ImageBuilder::ImagePipeline
@@ -177,12 +176,6 @@ func (i *ImagePipeline) ToImagePipelineOutputWithContext(ctx context.Context) Im
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineOutput)
 }
 
-func (i *ImagePipeline) ToOutput(ctx context.Context) pulumix.Output[*ImagePipeline] {
-	return pulumix.Output[*ImagePipeline]{
-		OutputState: i.ToImagePipelineOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ImagePipelineOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelineOutput) ElementType() reflect.Type {
@@ -195,12 +188,6 @@ func (o ImagePipelineOutput) ToImagePipelineOutput() ImagePipelineOutput {
 
 func (o ImagePipelineOutput) ToImagePipelineOutputWithContext(ctx context.Context) ImagePipelineOutput {
 	return o
-}
-
-func (o ImagePipelineOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipeline] {
-	return pulumix.Output[*ImagePipeline]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the image pipeline.

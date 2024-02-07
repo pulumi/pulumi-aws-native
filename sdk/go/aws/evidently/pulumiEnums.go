@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ExperimentMetricGoalObjectDesiredChange string
@@ -78,12 +77,6 @@ func (o ExperimentMetricGoalObjectDesiredChangeOutput) ToExperimentMetricGoalObj
 	}).(ExperimentMetricGoalObjectDesiredChangePtrOutput)
 }
 
-func (o ExperimentMetricGoalObjectDesiredChangeOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentMetricGoalObjectDesiredChange] {
-	return pulumix.Output[ExperimentMetricGoalObjectDesiredChange]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExperimentMetricGoalObjectDesiredChangeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o ExperimentMetricGoalObjectDesiredChangePtrOutput) ToExperimentMetricGoal
 	return o
 }
 
-func (o ExperimentMetricGoalObjectDesiredChangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentMetricGoalObjectDesiredChange] {
-	return pulumix.Output[*ExperimentMetricGoalObjectDesiredChange]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExperimentMetricGoalObjectDesiredChangePtrOutput) Elem() ExperimentMetricGoalObjectDesiredChangeOutput {
 	return o.ApplyT(func(v *ExperimentMetricGoalObjectDesiredChange) ExperimentMetricGoalObjectDesiredChange {
 		if v != nil {
@@ -149,10 +136,11 @@ func (o ExperimentMetricGoalObjectDesiredChangePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExperimentMetricGoalObjectDesiredChangeInput is an input type that accepts ExperimentMetricGoalObjectDesiredChangeArgs and ExperimentMetricGoalObjectDesiredChangeOutput values.
-// You can construct a concrete instance of `ExperimentMetricGoalObjectDesiredChangeInput` via:
+// ExperimentMetricGoalObjectDesiredChangeInput is an input type that accepts values of the ExperimentMetricGoalObjectDesiredChange enum
+// A concrete instance of `ExperimentMetricGoalObjectDesiredChangeInput` can be one of the following:
 //
-//	ExperimentMetricGoalObjectDesiredChangeArgs{...}
+//	ExperimentMetricGoalObjectDesiredChangeIncrease
+//	ExperimentMetricGoalObjectDesiredChangeDecrease
 type ExperimentMetricGoalObjectDesiredChangeInput interface {
 	pulumi.Input
 
@@ -185,12 +173,6 @@ func (in *experimentMetricGoalObjectDesiredChangePtr) ToExperimentMetricGoalObje
 
 func (in *experimentMetricGoalObjectDesiredChangePtr) ToExperimentMetricGoalObjectDesiredChangePtrOutputWithContext(ctx context.Context) ExperimentMetricGoalObjectDesiredChangePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExperimentMetricGoalObjectDesiredChangePtrOutput)
-}
-
-func (in *experimentMetricGoalObjectDesiredChangePtr) ToOutput(ctx context.Context) pulumix.Output[*ExperimentMetricGoalObjectDesiredChange] {
-	return pulumix.Output[*ExperimentMetricGoalObjectDesiredChange]{
-		OutputState: in.ToExperimentMetricGoalObjectDesiredChangePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type FeatureEvaluationStrategy string
@@ -260,12 +242,6 @@ func (o FeatureEvaluationStrategyOutput) ToFeatureEvaluationStrategyPtrOutputWit
 	}).(FeatureEvaluationStrategyPtrOutput)
 }
 
-func (o FeatureEvaluationStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[FeatureEvaluationStrategy] {
-	return pulumix.Output[FeatureEvaluationStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FeatureEvaluationStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +277,6 @@ func (o FeatureEvaluationStrategyPtrOutput) ToFeatureEvaluationStrategyPtrOutput
 	return o
 }
 
-func (o FeatureEvaluationStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeatureEvaluationStrategy] {
-	return pulumix.Output[*FeatureEvaluationStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FeatureEvaluationStrategyPtrOutput) Elem() FeatureEvaluationStrategyOutput {
 	return o.ApplyT(func(v *FeatureEvaluationStrategy) FeatureEvaluationStrategy {
 		if v != nil {
@@ -331,10 +301,11 @@ func (o FeatureEvaluationStrategyPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// FeatureEvaluationStrategyInput is an input type that accepts FeatureEvaluationStrategyArgs and FeatureEvaluationStrategyOutput values.
-// You can construct a concrete instance of `FeatureEvaluationStrategyInput` via:
+// FeatureEvaluationStrategyInput is an input type that accepts values of the FeatureEvaluationStrategy enum
+// A concrete instance of `FeatureEvaluationStrategyInput` can be one of the following:
 //
-//	FeatureEvaluationStrategyArgs{...}
+//	FeatureEvaluationStrategyAllRules
+//	FeatureEvaluationStrategyDefaultVariation
 type FeatureEvaluationStrategyInput interface {
 	pulumi.Input
 
@@ -367,12 +338,6 @@ func (in *featureEvaluationStrategyPtr) ToFeatureEvaluationStrategyPtrOutput() F
 
 func (in *featureEvaluationStrategyPtr) ToFeatureEvaluationStrategyPtrOutputWithContext(ctx context.Context) FeatureEvaluationStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FeatureEvaluationStrategyPtrOutput)
-}
-
-func (in *featureEvaluationStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*FeatureEvaluationStrategy] {
-	return pulumix.Output[*FeatureEvaluationStrategy]{
-		OutputState: in.ToFeatureEvaluationStrategyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

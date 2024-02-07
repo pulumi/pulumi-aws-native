@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The account type to use when starting the SSM automation document.
@@ -79,12 +78,6 @@ func (o ResponsePlanSsmAutomationTargetAccountOutput) ToResponsePlanSsmAutomatio
 	}).(ResponsePlanSsmAutomationTargetAccountPtrOutput)
 }
 
-func (o ResponsePlanSsmAutomationTargetAccountOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanSsmAutomationTargetAccount] {
-	return pulumix.Output[ResponsePlanSsmAutomationTargetAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResponsePlanSsmAutomationTargetAccountOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) ToResponsePlanSsmAutoma
 	return o
 }
 
-func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanSsmAutomationTargetAccount] {
-	return pulumix.Output[*ResponsePlanSsmAutomationTargetAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) Elem() ResponsePlanSsmAutomationTargetAccountOutput {
 	return o.ApplyT(func(v *ResponsePlanSsmAutomationTargetAccount) ResponsePlanSsmAutomationTargetAccount {
 		if v != nil {
@@ -150,10 +137,11 @@ func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResponsePlanSsmAutomationTargetAccountInput is an input type that accepts ResponsePlanSsmAutomationTargetAccountArgs and ResponsePlanSsmAutomationTargetAccountOutput values.
-// You can construct a concrete instance of `ResponsePlanSsmAutomationTargetAccountInput` via:
+// ResponsePlanSsmAutomationTargetAccountInput is an input type that accepts values of the ResponsePlanSsmAutomationTargetAccount enum
+// A concrete instance of `ResponsePlanSsmAutomationTargetAccountInput` can be one of the following:
 //
-//	ResponsePlanSsmAutomationTargetAccountArgs{...}
+//	ResponsePlanSsmAutomationTargetAccountImpactedAccount
+//	ResponsePlanSsmAutomationTargetAccountResponsePlanOwnerAccount
 type ResponsePlanSsmAutomationTargetAccountInput interface {
 	pulumi.Input
 
@@ -186,12 +174,6 @@ func (in *responsePlanSsmAutomationTargetAccountPtr) ToResponsePlanSsmAutomation
 
 func (in *responsePlanSsmAutomationTargetAccountPtr) ToResponsePlanSsmAutomationTargetAccountPtrOutputWithContext(ctx context.Context) ResponsePlanSsmAutomationTargetAccountPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ResponsePlanSsmAutomationTargetAccountPtrOutput)
-}
-
-func (in *responsePlanSsmAutomationTargetAccountPtr) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanSsmAutomationTargetAccount] {
-	return pulumix.Output[*ResponsePlanSsmAutomationTargetAccount]{
-		OutputState: in.ToResponsePlanSsmAutomationTargetAccountPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The variable types used as dynamic parameter value when starting the SSM automation document.
@@ -262,12 +244,6 @@ func (o ResponsePlanVariableTypeOutput) ToResponsePlanVariableTypePtrOutputWithC
 	}).(ResponsePlanVariableTypePtrOutput)
 }
 
-func (o ResponsePlanVariableTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanVariableType] {
-	return pulumix.Output[ResponsePlanVariableType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResponsePlanVariableTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +279,6 @@ func (o ResponsePlanVariableTypePtrOutput) ToResponsePlanVariableTypePtrOutputWi
 	return o
 }
 
-func (o ResponsePlanVariableTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanVariableType] {
-	return pulumix.Output[*ResponsePlanVariableType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResponsePlanVariableTypePtrOutput) Elem() ResponsePlanVariableTypeOutput {
 	return o.ApplyT(func(v *ResponsePlanVariableType) ResponsePlanVariableType {
 		if v != nil {
@@ -333,10 +303,11 @@ func (o ResponsePlanVariableTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResponsePlanVariableTypeInput is an input type that accepts ResponsePlanVariableTypeArgs and ResponsePlanVariableTypeOutput values.
-// You can construct a concrete instance of `ResponsePlanVariableTypeInput` via:
+// ResponsePlanVariableTypeInput is an input type that accepts values of the ResponsePlanVariableType enum
+// A concrete instance of `ResponsePlanVariableTypeInput` can be one of the following:
 //
-//	ResponsePlanVariableTypeArgs{...}
+//	ResponsePlanVariableTypeIncidentRecordArn
+//	ResponsePlanVariableTypeInvolvedResources
 type ResponsePlanVariableTypeInput interface {
 	pulumi.Input
 
@@ -369,12 +340,6 @@ func (in *responsePlanVariableTypePtr) ToResponsePlanVariableTypePtrOutput() Res
 
 func (in *responsePlanVariableTypePtr) ToResponsePlanVariableTypePtrOutputWithContext(ctx context.Context) ResponsePlanVariableTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ResponsePlanVariableTypePtrOutput)
-}
-
-func (in *responsePlanVariableTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanVariableType] {
-	return pulumix.Output[*ResponsePlanVariableType]{
-		OutputState: in.ToResponsePlanVariableTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

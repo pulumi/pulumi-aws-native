@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i CidrCollectionLocationArgs) ToCidrCollectionLocationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CidrCollectionLocationOutput)
 }
 
-func (i CidrCollectionLocationArgs) ToOutput(ctx context.Context) pulumix.Output[CidrCollectionLocation] {
-	return pulumix.Output[CidrCollectionLocation]{
-		OutputState: i.ToCidrCollectionLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CidrCollectionLocationArrayInput is an input type that accepts CidrCollectionLocationArray and CidrCollectionLocationArrayOutput values.
 // You can construct a concrete instance of `CidrCollectionLocationArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i CidrCollectionLocationArray) ToCidrCollectionLocationArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CidrCollectionLocationArrayOutput)
 }
 
-func (i CidrCollectionLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]CidrCollectionLocation] {
-	return pulumix.Output[[]CidrCollectionLocation]{
-		OutputState: i.ToCidrCollectionLocationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CidrCollectionLocationOutput struct{ *pulumi.OutputState }
 
 func (CidrCollectionLocationOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o CidrCollectionLocationOutput) ToCidrCollectionLocationOutput() CidrColle
 
 func (o CidrCollectionLocationOutput) ToCidrCollectionLocationOutputWithContext(ctx context.Context) CidrCollectionLocationOutput {
 	return o
-}
-
-func (o CidrCollectionLocationOutput) ToOutput(ctx context.Context) pulumix.Output[CidrCollectionLocation] {
-	return pulumix.Output[CidrCollectionLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of CIDR blocks.
@@ -130,12 +111,6 @@ func (o CidrCollectionLocationArrayOutput) ToCidrCollectionLocationArrayOutput()
 
 func (o CidrCollectionLocationArrayOutput) ToCidrCollectionLocationArrayOutputWithContext(ctx context.Context) CidrCollectionLocationArrayOutput {
 	return o
-}
-
-func (o CidrCollectionLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CidrCollectionLocation] {
-	return pulumix.Output[[]CidrCollectionLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CidrCollectionLocationArrayOutput) Index(i pulumi.IntInput) CidrCollectionLocationOutput {
@@ -183,12 +158,6 @@ func (i HealthCheckAlarmIdentifierArgs) ToHealthCheckAlarmIdentifierOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckAlarmIdentifierOutput)
 }
 
-func (i HealthCheckAlarmIdentifierArgs) ToOutput(ctx context.Context) pulumix.Output[HealthCheckAlarmIdentifier] {
-	return pulumix.Output[HealthCheckAlarmIdentifier]{
-		OutputState: i.ToHealthCheckAlarmIdentifierOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HealthCheckAlarmIdentifierArgs) ToHealthCheckAlarmIdentifierPtrOutput() HealthCheckAlarmIdentifierPtrOutput {
 	return i.ToHealthCheckAlarmIdentifierPtrOutputWithContext(context.Background())
 }
@@ -230,12 +199,6 @@ func (i *healthCheckAlarmIdentifierPtrType) ToHealthCheckAlarmIdentifierPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckAlarmIdentifierPtrOutput)
 }
 
-func (i *healthCheckAlarmIdentifierPtrType) ToOutput(ctx context.Context) pulumix.Output[*HealthCheckAlarmIdentifier] {
-	return pulumix.Output[*HealthCheckAlarmIdentifier]{
-		OutputState: i.ToHealthCheckAlarmIdentifierPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
 type HealthCheckAlarmIdentifierOutput struct{ *pulumi.OutputState }
 
@@ -261,12 +224,6 @@ func (o HealthCheckAlarmIdentifierOutput) ToHealthCheckAlarmIdentifierPtrOutputW
 	}).(HealthCheckAlarmIdentifierPtrOutput)
 }
 
-func (o HealthCheckAlarmIdentifierOutput) ToOutput(ctx context.Context) pulumix.Output[HealthCheckAlarmIdentifier] {
-	return pulumix.Output[HealthCheckAlarmIdentifier]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
 func (o HealthCheckAlarmIdentifierOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthCheckAlarmIdentifier) string { return v.Name }).(pulumi.StringOutput)
@@ -289,12 +246,6 @@ func (o HealthCheckAlarmIdentifierPtrOutput) ToHealthCheckAlarmIdentifierPtrOutp
 
 func (o HealthCheckAlarmIdentifierPtrOutput) ToHealthCheckAlarmIdentifierPtrOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierPtrOutput {
 	return o
-}
-
-func (o HealthCheckAlarmIdentifierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HealthCheckAlarmIdentifier] {
-	return pulumix.Output[*HealthCheckAlarmIdentifier]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HealthCheckAlarmIdentifierPtrOutput) Elem() HealthCheckAlarmIdentifierOutput {
@@ -392,12 +343,6 @@ func (i HealthCheckConfigPropertiesArgs) ToHealthCheckConfigPropertiesOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckConfigPropertiesOutput)
 }
 
-func (i HealthCheckConfigPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[HealthCheckConfigProperties] {
-	return pulumix.Output[HealthCheckConfigProperties]{
-		OutputState: i.ToHealthCheckConfigPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A complex type that contains information about the health check.
 type HealthCheckConfigPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -411,12 +356,6 @@ func (o HealthCheckConfigPropertiesOutput) ToHealthCheckConfigPropertiesOutput()
 
 func (o HealthCheckConfigPropertiesOutput) ToHealthCheckConfigPropertiesOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesOutput {
 	return o
-}
-
-func (o HealthCheckConfigPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[HealthCheckConfigProperties] {
-	return pulumix.Output[HealthCheckConfigProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HealthCheckConfigPropertiesOutput) AlarmIdentifier() HealthCheckAlarmIdentifierPtrOutput {
@@ -501,12 +440,6 @@ func (o HealthCheckConfigPropertiesPtrOutput) ToHealthCheckConfigPropertiesPtrOu
 
 func (o HealthCheckConfigPropertiesPtrOutput) ToHealthCheckConfigPropertiesPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesPtrOutput {
 	return o
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HealthCheckConfigProperties] {
-	return pulumix.Output[*HealthCheckConfigProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HealthCheckConfigPropertiesPtrOutput) Elem() HealthCheckConfigPropertiesOutput {
@@ -711,12 +644,6 @@ func (i HealthCheckTagArgs) ToHealthCheckTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckTagOutput)
 }
 
-func (i HealthCheckTagArgs) ToOutput(ctx context.Context) pulumix.Output[HealthCheckTag] {
-	return pulumix.Output[HealthCheckTag]{
-		OutputState: i.ToHealthCheckTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HealthCheckTagArrayInput is an input type that accepts HealthCheckTagArray and HealthCheckTagArrayOutput values.
 // You can construct a concrete instance of `HealthCheckTagArrayInput` via:
 //
@@ -742,12 +669,6 @@ func (i HealthCheckTagArray) ToHealthCheckTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckTagArrayOutput)
 }
 
-func (i HealthCheckTagArray) ToOutput(ctx context.Context) pulumix.Output[[]HealthCheckTag] {
-	return pulumix.Output[[]HealthCheckTag]{
-		OutputState: i.ToHealthCheckTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type HealthCheckTagOutput struct{ *pulumi.OutputState }
 
@@ -761,12 +682,6 @@ func (o HealthCheckTagOutput) ToHealthCheckTagOutput() HealthCheckTagOutput {
 
 func (o HealthCheckTagOutput) ToHealthCheckTagOutputWithContext(ctx context.Context) HealthCheckTagOutput {
 	return o
-}
-
-func (o HealthCheckTagOutput) ToOutput(ctx context.Context) pulumix.Output[HealthCheckTag] {
-	return pulumix.Output[HealthCheckTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag.
@@ -791,12 +706,6 @@ func (o HealthCheckTagArrayOutput) ToHealthCheckTagArrayOutput() HealthCheckTagA
 
 func (o HealthCheckTagArrayOutput) ToHealthCheckTagArrayOutputWithContext(ctx context.Context) HealthCheckTagArrayOutput {
 	return o
-}
-
-func (o HealthCheckTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HealthCheckTag] {
-	return pulumix.Output[[]HealthCheckTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HealthCheckTagArrayOutput) Index(i pulumi.IntInput) HealthCheckTagOutput {
@@ -844,12 +753,6 @@ func (i HostedZoneConfigArgs) ToHostedZoneConfigOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneConfigOutput)
 }
 
-func (i HostedZoneConfigArgs) ToOutput(ctx context.Context) pulumix.Output[HostedZoneConfig] {
-	return pulumix.Output[HostedZoneConfig]{
-		OutputState: i.ToHostedZoneConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HostedZoneConfigArgs) ToHostedZoneConfigPtrOutput() HostedZoneConfigPtrOutput {
 	return i.ToHostedZoneConfigPtrOutputWithContext(context.Background())
 }
@@ -891,12 +794,6 @@ func (i *hostedZoneConfigPtrType) ToHostedZoneConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneConfigPtrOutput)
 }
 
-func (i *hostedZoneConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*HostedZoneConfig] {
-	return pulumix.Output[*HostedZoneConfig]{
-		OutputState: i.ToHostedZoneConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A complex type that contains an optional comment.
 //
 // If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
@@ -924,12 +821,6 @@ func (o HostedZoneConfigOutput) ToHostedZoneConfigPtrOutputWithContext(ctx conte
 	}).(HostedZoneConfigPtrOutput)
 }
 
-func (o HostedZoneConfigOutput) ToOutput(ctx context.Context) pulumix.Output[HostedZoneConfig] {
-	return pulumix.Output[HostedZoneConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Any comments that you want to include about the hosted zone.
 func (o HostedZoneConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostedZoneConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
@@ -947,12 +838,6 @@ func (o HostedZoneConfigPtrOutput) ToHostedZoneConfigPtrOutput() HostedZoneConfi
 
 func (o HostedZoneConfigPtrOutput) ToHostedZoneConfigPtrOutputWithContext(ctx context.Context) HostedZoneConfigPtrOutput {
 	return o
-}
-
-func (o HostedZoneConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HostedZoneConfig] {
-	return pulumix.Output[*HostedZoneConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HostedZoneConfigPtrOutput) Elem() HostedZoneConfigOutput {
@@ -1010,12 +895,6 @@ func (i HostedZoneQueryLoggingConfigArgs) ToHostedZoneQueryLoggingConfigOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneQueryLoggingConfigOutput)
 }
 
-func (i HostedZoneQueryLoggingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[HostedZoneQueryLoggingConfig] {
-	return pulumix.Output[HostedZoneQueryLoggingConfig]{
-		OutputState: i.ToHostedZoneQueryLoggingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HostedZoneQueryLoggingConfigArgs) ToHostedZoneQueryLoggingConfigPtrOutput() HostedZoneQueryLoggingConfigPtrOutput {
 	return i.ToHostedZoneQueryLoggingConfigPtrOutputWithContext(context.Background())
 }
@@ -1057,12 +936,6 @@ func (i *hostedZoneQueryLoggingConfigPtrType) ToHostedZoneQueryLoggingConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneQueryLoggingConfigPtrOutput)
 }
 
-func (i *hostedZoneQueryLoggingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*HostedZoneQueryLoggingConfig] {
-	return pulumix.Output[*HostedZoneQueryLoggingConfig]{
-		OutputState: i.ToHostedZoneQueryLoggingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A complex type that contains information about a configuration for DNS query logging.
 type HostedZoneQueryLoggingConfigOutput struct{ *pulumi.OutputState }
 
@@ -1088,12 +961,6 @@ func (o HostedZoneQueryLoggingConfigOutput) ToHostedZoneQueryLoggingConfigPtrOut
 	}).(HostedZoneQueryLoggingConfigPtrOutput)
 }
 
-func (o HostedZoneQueryLoggingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[HostedZoneQueryLoggingConfig] {
-	return pulumix.Output[HostedZoneQueryLoggingConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
 func (o HostedZoneQueryLoggingConfigOutput) CloudWatchLogsLogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v HostedZoneQueryLoggingConfig) string { return v.CloudWatchLogsLogGroupArn }).(pulumi.StringOutput)
@@ -1111,12 +978,6 @@ func (o HostedZoneQueryLoggingConfigPtrOutput) ToHostedZoneQueryLoggingConfigPtr
 
 func (o HostedZoneQueryLoggingConfigPtrOutput) ToHostedZoneQueryLoggingConfigPtrOutputWithContext(ctx context.Context) HostedZoneQueryLoggingConfigPtrOutput {
 	return o
-}
-
-func (o HostedZoneQueryLoggingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HostedZoneQueryLoggingConfig] {
-	return pulumix.Output[*HostedZoneQueryLoggingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HostedZoneQueryLoggingConfigPtrOutput) Elem() HostedZoneQueryLoggingConfigOutput {
@@ -1178,12 +1039,6 @@ func (i HostedZoneTagArgs) ToHostedZoneTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneTagOutput)
 }
 
-func (i HostedZoneTagArgs) ToOutput(ctx context.Context) pulumix.Output[HostedZoneTag] {
-	return pulumix.Output[HostedZoneTag]{
-		OutputState: i.ToHostedZoneTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HostedZoneTagArrayInput is an input type that accepts HostedZoneTagArray and HostedZoneTagArrayOutput values.
 // You can construct a concrete instance of `HostedZoneTagArrayInput` via:
 //
@@ -1209,12 +1064,6 @@ func (i HostedZoneTagArray) ToHostedZoneTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneTagArrayOutput)
 }
 
-func (i HostedZoneTagArray) ToOutput(ctx context.Context) pulumix.Output[[]HostedZoneTag] {
-	return pulumix.Output[[]HostedZoneTag]{
-		OutputState: i.ToHostedZoneTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
 type HostedZoneTagOutput struct{ *pulumi.OutputState }
 
@@ -1228,12 +1077,6 @@ func (o HostedZoneTagOutput) ToHostedZoneTagOutput() HostedZoneTagOutput {
 
 func (o HostedZoneTagOutput) ToHostedZoneTagOutputWithContext(ctx context.Context) HostedZoneTagOutput {
 	return o
-}
-
-func (o HostedZoneTagOutput) ToOutput(ctx context.Context) pulumix.Output[HostedZoneTag] {
-	return pulumix.Output[HostedZoneTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag.
@@ -1258,12 +1101,6 @@ func (o HostedZoneTagArrayOutput) ToHostedZoneTagArrayOutput() HostedZoneTagArra
 
 func (o HostedZoneTagArrayOutput) ToHostedZoneTagArrayOutputWithContext(ctx context.Context) HostedZoneTagArrayOutput {
 	return o
-}
-
-func (o HostedZoneTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HostedZoneTag] {
-	return pulumix.Output[[]HostedZoneTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HostedZoneTagArrayOutput) Index(i pulumi.IntInput) HostedZoneTagOutput {
@@ -1311,12 +1148,6 @@ func (i HostedZoneVpcArgs) ToHostedZoneVpcOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneVpcOutput)
 }
 
-func (i HostedZoneVpcArgs) ToOutput(ctx context.Context) pulumix.Output[HostedZoneVpc] {
-	return pulumix.Output[HostedZoneVpc]{
-		OutputState: i.ToHostedZoneVpcOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HostedZoneVpcArrayInput is an input type that accepts HostedZoneVpcArray and HostedZoneVpcArrayOutput values.
 // You can construct a concrete instance of `HostedZoneVpcArrayInput` via:
 //
@@ -1342,12 +1173,6 @@ func (i HostedZoneVpcArray) ToHostedZoneVpcArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneVpcArrayOutput)
 }
 
-func (i HostedZoneVpcArray) ToOutput(ctx context.Context) pulumix.Output[[]HostedZoneVpc] {
-	return pulumix.Output[[]HostedZoneVpc]{
-		OutputState: i.ToHostedZoneVpcArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
 type HostedZoneVpcOutput struct{ *pulumi.OutputState }
 
@@ -1361,12 +1186,6 @@ func (o HostedZoneVpcOutput) ToHostedZoneVpcOutput() HostedZoneVpcOutput {
 
 func (o HostedZoneVpcOutput) ToHostedZoneVpcOutputWithContext(ctx context.Context) HostedZoneVpcOutput {
 	return o
-}
-
-func (o HostedZoneVpcOutput) ToOutput(ctx context.Context) pulumix.Output[HostedZoneVpc] {
-	return pulumix.Output[HostedZoneVpc]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of an Amazon VPC.
@@ -1391,12 +1210,6 @@ func (o HostedZoneVpcArrayOutput) ToHostedZoneVpcArrayOutput() HostedZoneVpcArra
 
 func (o HostedZoneVpcArrayOutput) ToHostedZoneVpcArrayOutputWithContext(ctx context.Context) HostedZoneVpcArrayOutput {
 	return o
-}
-
-func (o HostedZoneVpcArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HostedZoneVpc] {
-	return pulumix.Output[[]HostedZoneVpc]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HostedZoneVpcArrayOutput) Index(i pulumi.IntInput) HostedZoneVpcOutput {
@@ -1440,12 +1253,6 @@ func (i RecordSetAliasTargetArgs) ToRecordSetAliasTargetOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetAliasTargetOutput)
 }
 
-func (i RecordSetAliasTargetArgs) ToOutput(ctx context.Context) pulumix.Output[RecordSetAliasTarget] {
-	return pulumix.Output[RecordSetAliasTarget]{
-		OutputState: i.ToRecordSetAliasTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RecordSetAliasTargetArgs) ToRecordSetAliasTargetPtrOutput() RecordSetAliasTargetPtrOutput {
 	return i.ToRecordSetAliasTargetPtrOutputWithContext(context.Background())
 }
@@ -1487,12 +1294,6 @@ func (i *recordSetAliasTargetPtrType) ToRecordSetAliasTargetPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetAliasTargetPtrOutput)
 }
 
-func (i *recordSetAliasTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordSetAliasTarget] {
-	return pulumix.Output[*RecordSetAliasTarget]{
-		OutputState: i.ToRecordSetAliasTargetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordSetAliasTargetOutput struct{ *pulumi.OutputState }
 
 func (RecordSetAliasTargetOutput) ElementType() reflect.Type {
@@ -1515,12 +1316,6 @@ func (o RecordSetAliasTargetOutput) ToRecordSetAliasTargetPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetAliasTarget) *RecordSetAliasTarget {
 		return &v
 	}).(RecordSetAliasTargetPtrOutput)
-}
-
-func (o RecordSetAliasTargetOutput) ToOutput(ctx context.Context) pulumix.Output[RecordSetAliasTarget] {
-	return pulumix.Output[RecordSetAliasTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetAliasTargetOutput) DnsName() pulumi.StringOutput {
@@ -1547,12 +1342,6 @@ func (o RecordSetAliasTargetPtrOutput) ToRecordSetAliasTargetPtrOutput() RecordS
 
 func (o RecordSetAliasTargetPtrOutput) ToRecordSetAliasTargetPtrOutputWithContext(ctx context.Context) RecordSetAliasTargetPtrOutput {
 	return o
-}
-
-func (o RecordSetAliasTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordSetAliasTarget] {
-	return pulumix.Output[*RecordSetAliasTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetAliasTargetPtrOutput) Elem() RecordSetAliasTargetOutput {
@@ -1625,12 +1414,6 @@ func (i RecordSetCidrRoutingConfigArgs) ToRecordSetCidrRoutingConfigOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetCidrRoutingConfigOutput)
 }
 
-func (i RecordSetCidrRoutingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[RecordSetCidrRoutingConfig] {
-	return pulumix.Output[RecordSetCidrRoutingConfig]{
-		OutputState: i.ToRecordSetCidrRoutingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RecordSetCidrRoutingConfigArgs) ToRecordSetCidrRoutingConfigPtrOutput() RecordSetCidrRoutingConfigPtrOutput {
 	return i.ToRecordSetCidrRoutingConfigPtrOutputWithContext(context.Background())
 }
@@ -1672,12 +1455,6 @@ func (i *recordSetCidrRoutingConfigPtrType) ToRecordSetCidrRoutingConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetCidrRoutingConfigPtrOutput)
 }
 
-func (i *recordSetCidrRoutingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordSetCidrRoutingConfig] {
-	return pulumix.Output[*RecordSetCidrRoutingConfig]{
-		OutputState: i.ToRecordSetCidrRoutingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordSetCidrRoutingConfigOutput struct{ *pulumi.OutputState }
 
 func (RecordSetCidrRoutingConfigOutput) ElementType() reflect.Type {
@@ -1702,12 +1479,6 @@ func (o RecordSetCidrRoutingConfigOutput) ToRecordSetCidrRoutingConfigPtrOutputW
 	}).(RecordSetCidrRoutingConfigPtrOutput)
 }
 
-func (o RecordSetCidrRoutingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[RecordSetCidrRoutingConfig] {
-	return pulumix.Output[RecordSetCidrRoutingConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordSetCidrRoutingConfigOutput) CollectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordSetCidrRoutingConfig) string { return v.CollectionId }).(pulumi.StringOutput)
 }
@@ -1728,12 +1499,6 @@ func (o RecordSetCidrRoutingConfigPtrOutput) ToRecordSetCidrRoutingConfigPtrOutp
 
 func (o RecordSetCidrRoutingConfigPtrOutput) ToRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigPtrOutput {
 	return o
-}
-
-func (o RecordSetCidrRoutingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordSetCidrRoutingConfig] {
-	return pulumix.Output[*RecordSetCidrRoutingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetCidrRoutingConfigPtrOutput) Elem() RecordSetCidrRoutingConfigOutput {
@@ -1799,12 +1564,6 @@ func (i RecordSetGeoLocationArgs) ToRecordSetGeoLocationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGeoLocationOutput)
 }
 
-func (i RecordSetGeoLocationArgs) ToOutput(ctx context.Context) pulumix.Output[RecordSetGeoLocation] {
-	return pulumix.Output[RecordSetGeoLocation]{
-		OutputState: i.ToRecordSetGeoLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RecordSetGeoLocationArgs) ToRecordSetGeoLocationPtrOutput() RecordSetGeoLocationPtrOutput {
 	return i.ToRecordSetGeoLocationPtrOutputWithContext(context.Background())
 }
@@ -1846,12 +1605,6 @@ func (i *recordSetGeoLocationPtrType) ToRecordSetGeoLocationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGeoLocationPtrOutput)
 }
 
-func (i *recordSetGeoLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordSetGeoLocation] {
-	return pulumix.Output[*RecordSetGeoLocation]{
-		OutputState: i.ToRecordSetGeoLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordSetGeoLocationOutput struct{ *pulumi.OutputState }
 
 func (RecordSetGeoLocationOutput) ElementType() reflect.Type {
@@ -1874,12 +1627,6 @@ func (o RecordSetGeoLocationOutput) ToRecordSetGeoLocationPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetGeoLocation) *RecordSetGeoLocation {
 		return &v
 	}).(RecordSetGeoLocationPtrOutput)
-}
-
-func (o RecordSetGeoLocationOutput) ToOutput(ctx context.Context) pulumix.Output[RecordSetGeoLocation] {
-	return pulumix.Output[RecordSetGeoLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetGeoLocationOutput) ContinentCode() pulumi.StringPtrOutput {
@@ -1906,12 +1653,6 @@ func (o RecordSetGeoLocationPtrOutput) ToRecordSetGeoLocationPtrOutput() RecordS
 
 func (o RecordSetGeoLocationPtrOutput) ToRecordSetGeoLocationPtrOutputWithContext(ctx context.Context) RecordSetGeoLocationPtrOutput {
 	return o
-}
-
-func (o RecordSetGeoLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordSetGeoLocation] {
-	return pulumix.Output[*RecordSetGeoLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetGeoLocationPtrOutput) Elem() RecordSetGeoLocationOutput {
@@ -1986,12 +1727,6 @@ func (i RecordSetGroupAliasTargetArgs) ToRecordSetGroupAliasTargetOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupAliasTargetOutput)
 }
 
-func (i RecordSetGroupAliasTargetArgs) ToOutput(ctx context.Context) pulumix.Output[RecordSetGroupAliasTarget] {
-	return pulumix.Output[RecordSetGroupAliasTarget]{
-		OutputState: i.ToRecordSetGroupAliasTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RecordSetGroupAliasTargetArgs) ToRecordSetGroupAliasTargetPtrOutput() RecordSetGroupAliasTargetPtrOutput {
 	return i.ToRecordSetGroupAliasTargetPtrOutputWithContext(context.Background())
 }
@@ -2033,12 +1768,6 @@ func (i *recordSetGroupAliasTargetPtrType) ToRecordSetGroupAliasTargetPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupAliasTargetPtrOutput)
 }
 
-func (i *recordSetGroupAliasTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordSetGroupAliasTarget] {
-	return pulumix.Output[*RecordSetGroupAliasTarget]{
-		OutputState: i.ToRecordSetGroupAliasTargetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordSetGroupAliasTargetOutput struct{ *pulumi.OutputState }
 
 func (RecordSetGroupAliasTargetOutput) ElementType() reflect.Type {
@@ -2061,12 +1790,6 @@ func (o RecordSetGroupAliasTargetOutput) ToRecordSetGroupAliasTargetPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetGroupAliasTarget) *RecordSetGroupAliasTarget {
 		return &v
 	}).(RecordSetGroupAliasTargetPtrOutput)
-}
-
-func (o RecordSetGroupAliasTargetOutput) ToOutput(ctx context.Context) pulumix.Output[RecordSetGroupAliasTarget] {
-	return pulumix.Output[RecordSetGroupAliasTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetGroupAliasTargetOutput) DnsName() pulumi.StringOutput {
@@ -2093,12 +1816,6 @@ func (o RecordSetGroupAliasTargetPtrOutput) ToRecordSetGroupAliasTargetPtrOutput
 
 func (o RecordSetGroupAliasTargetPtrOutput) ToRecordSetGroupAliasTargetPtrOutputWithContext(ctx context.Context) RecordSetGroupAliasTargetPtrOutput {
 	return o
-}
-
-func (o RecordSetGroupAliasTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordSetGroupAliasTarget] {
-	return pulumix.Output[*RecordSetGroupAliasTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetGroupAliasTargetPtrOutput) Elem() RecordSetGroupAliasTargetOutput {
@@ -2171,12 +1888,6 @@ func (i RecordSetGroupCidrRoutingConfigArgs) ToRecordSetGroupCidrRoutingConfigOu
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupCidrRoutingConfigOutput)
 }
 
-func (i RecordSetGroupCidrRoutingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[RecordSetGroupCidrRoutingConfig] {
-	return pulumix.Output[RecordSetGroupCidrRoutingConfig]{
-		OutputState: i.ToRecordSetGroupCidrRoutingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RecordSetGroupCidrRoutingConfigArgs) ToRecordSetGroupCidrRoutingConfigPtrOutput() RecordSetGroupCidrRoutingConfigPtrOutput {
 	return i.ToRecordSetGroupCidrRoutingConfigPtrOutputWithContext(context.Background())
 }
@@ -2218,12 +1929,6 @@ func (i *recordSetGroupCidrRoutingConfigPtrType) ToRecordSetGroupCidrRoutingConf
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupCidrRoutingConfigPtrOutput)
 }
 
-func (i *recordSetGroupCidrRoutingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordSetGroupCidrRoutingConfig] {
-	return pulumix.Output[*RecordSetGroupCidrRoutingConfig]{
-		OutputState: i.ToRecordSetGroupCidrRoutingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordSetGroupCidrRoutingConfigOutput struct{ *pulumi.OutputState }
 
 func (RecordSetGroupCidrRoutingConfigOutput) ElementType() reflect.Type {
@@ -2248,12 +1953,6 @@ func (o RecordSetGroupCidrRoutingConfigOutput) ToRecordSetGroupCidrRoutingConfig
 	}).(RecordSetGroupCidrRoutingConfigPtrOutput)
 }
 
-func (o RecordSetGroupCidrRoutingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[RecordSetGroupCidrRoutingConfig] {
-	return pulumix.Output[RecordSetGroupCidrRoutingConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecordSetGroupCidrRoutingConfigOutput) CollectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordSetGroupCidrRoutingConfig) string { return v.CollectionId }).(pulumi.StringOutput)
 }
@@ -2274,12 +1973,6 @@ func (o RecordSetGroupCidrRoutingConfigPtrOutput) ToRecordSetGroupCidrRoutingCon
 
 func (o RecordSetGroupCidrRoutingConfigPtrOutput) ToRecordSetGroupCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetGroupCidrRoutingConfigPtrOutput {
 	return o
-}
-
-func (o RecordSetGroupCidrRoutingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordSetGroupCidrRoutingConfig] {
-	return pulumix.Output[*RecordSetGroupCidrRoutingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetGroupCidrRoutingConfigPtrOutput) Elem() RecordSetGroupCidrRoutingConfigOutput {
@@ -2345,12 +2038,6 @@ func (i RecordSetGroupGeoLocationArgs) ToRecordSetGroupGeoLocationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupGeoLocationOutput)
 }
 
-func (i RecordSetGroupGeoLocationArgs) ToOutput(ctx context.Context) pulumix.Output[RecordSetGroupGeoLocation] {
-	return pulumix.Output[RecordSetGroupGeoLocation]{
-		OutputState: i.ToRecordSetGroupGeoLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RecordSetGroupGeoLocationArgs) ToRecordSetGroupGeoLocationPtrOutput() RecordSetGroupGeoLocationPtrOutput {
 	return i.ToRecordSetGroupGeoLocationPtrOutputWithContext(context.Background())
 }
@@ -2392,12 +2079,6 @@ func (i *recordSetGroupGeoLocationPtrType) ToRecordSetGroupGeoLocationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupGeoLocationPtrOutput)
 }
 
-func (i *recordSetGroupGeoLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordSetGroupGeoLocation] {
-	return pulumix.Output[*RecordSetGroupGeoLocation]{
-		OutputState: i.ToRecordSetGroupGeoLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordSetGroupGeoLocationOutput struct{ *pulumi.OutputState }
 
 func (RecordSetGroupGeoLocationOutput) ElementType() reflect.Type {
@@ -2420,12 +2101,6 @@ func (o RecordSetGroupGeoLocationOutput) ToRecordSetGroupGeoLocationPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetGroupGeoLocation) *RecordSetGroupGeoLocation {
 		return &v
 	}).(RecordSetGroupGeoLocationPtrOutput)
-}
-
-func (o RecordSetGroupGeoLocationOutput) ToOutput(ctx context.Context) pulumix.Output[RecordSetGroupGeoLocation] {
-	return pulumix.Output[RecordSetGroupGeoLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetGroupGeoLocationOutput) ContinentCode() pulumi.StringPtrOutput {
@@ -2452,12 +2127,6 @@ func (o RecordSetGroupGeoLocationPtrOutput) ToRecordSetGroupGeoLocationPtrOutput
 
 func (o RecordSetGroupGeoLocationPtrOutput) ToRecordSetGroupGeoLocationPtrOutputWithContext(ctx context.Context) RecordSetGroupGeoLocationPtrOutput {
 	return o
-}
-
-func (o RecordSetGroupGeoLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordSetGroupGeoLocation] {
-	return pulumix.Output[*RecordSetGroupGeoLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetGroupGeoLocationPtrOutput) Elem() RecordSetGroupGeoLocationOutput {
@@ -2556,12 +2225,6 @@ func (i RecordSetGroupRecordSetArgs) ToRecordSetGroupRecordSetOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupRecordSetOutput)
 }
 
-func (i RecordSetGroupRecordSetArgs) ToOutput(ctx context.Context) pulumix.Output[RecordSetGroupRecordSet] {
-	return pulumix.Output[RecordSetGroupRecordSet]{
-		OutputState: i.ToRecordSetGroupRecordSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RecordSetGroupRecordSetArrayInput is an input type that accepts RecordSetGroupRecordSetArray and RecordSetGroupRecordSetArrayOutput values.
 // You can construct a concrete instance of `RecordSetGroupRecordSetArrayInput` via:
 //
@@ -2587,12 +2250,6 @@ func (i RecordSetGroupRecordSetArray) ToRecordSetGroupRecordSetArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupRecordSetArrayOutput)
 }
 
-func (i RecordSetGroupRecordSetArray) ToOutput(ctx context.Context) pulumix.Output[[]RecordSetGroupRecordSet] {
-	return pulumix.Output[[]RecordSetGroupRecordSet]{
-		OutputState: i.ToRecordSetGroupRecordSetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordSetGroupRecordSetOutput struct{ *pulumi.OutputState }
 
 func (RecordSetGroupRecordSetOutput) ElementType() reflect.Type {
@@ -2605,12 +2262,6 @@ func (o RecordSetGroupRecordSetOutput) ToRecordSetGroupRecordSetOutput() RecordS
 
 func (o RecordSetGroupRecordSetOutput) ToRecordSetGroupRecordSetOutputWithContext(ctx context.Context) RecordSetGroupRecordSetOutput {
 	return o
-}
-
-func (o RecordSetGroupRecordSetOutput) ToOutput(ctx context.Context) pulumix.Output[RecordSetGroupRecordSet] {
-	return pulumix.Output[RecordSetGroupRecordSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetGroupRecordSetOutput) AliasTarget() RecordSetGroupAliasTargetPtrOutput {
@@ -2685,12 +2336,6 @@ func (o RecordSetGroupRecordSetArrayOutput) ToRecordSetGroupRecordSetArrayOutput
 
 func (o RecordSetGroupRecordSetArrayOutput) ToRecordSetGroupRecordSetArrayOutputWithContext(ctx context.Context) RecordSetGroupRecordSetArrayOutput {
 	return o
-}
-
-func (o RecordSetGroupRecordSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RecordSetGroupRecordSet] {
-	return pulumix.Output[[]RecordSetGroupRecordSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordSetGroupRecordSetArrayOutput) Index(i pulumi.IntInput) RecordSetGroupRecordSetOutput {

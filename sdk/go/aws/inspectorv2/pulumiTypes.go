@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -41,12 +40,6 @@ func (i CisScanConfigurationCisTagMapArgs) ToCisScanConfigurationCisTagMapOutput
 
 func (i CisScanConfigurationCisTagMapArgs) ToCisScanConfigurationCisTagMapOutputWithContext(ctx context.Context) CisScanConfigurationCisTagMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationCisTagMapOutput)
-}
-
-func (i CisScanConfigurationCisTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationCisTagMap] {
-	return pulumix.Output[CisScanConfigurationCisTagMap]{
-		OutputState: i.ToCisScanConfigurationCisTagMapOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i CisScanConfigurationCisTagMapArgs) ToCisScanConfigurationCisTagMapPtrOutput() CisScanConfigurationCisTagMapPtrOutput {
@@ -90,12 +83,6 @@ func (i *cisScanConfigurationCisTagMapPtrType) ToCisScanConfigurationCisTagMapPt
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationCisTagMapPtrOutput)
 }
 
-func (i *cisScanConfigurationCisTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationCisTagMap] {
-	return pulumix.Output[*CisScanConfigurationCisTagMap]{
-		OutputState: i.ToCisScanConfigurationCisTagMapPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CisScanConfigurationCisTagMapOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationCisTagMapOutput) ElementType() reflect.Type {
@@ -120,12 +107,6 @@ func (o CisScanConfigurationCisTagMapOutput) ToCisScanConfigurationCisTagMapPtrO
 	}).(CisScanConfigurationCisTagMapPtrOutput)
 }
 
-func (o CisScanConfigurationCisTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationCisTagMap] {
-	return pulumix.Output[CisScanConfigurationCisTagMap]{
-		OutputState: o.OutputState,
-	}
-}
-
 type CisScanConfigurationCisTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationCisTagMapPtrOutput) ElementType() reflect.Type {
@@ -138,12 +119,6 @@ func (o CisScanConfigurationCisTagMapPtrOutput) ToCisScanConfigurationCisTagMapP
 
 func (o CisScanConfigurationCisTagMapPtrOutput) ToCisScanConfigurationCisTagMapPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisTagMapPtrOutput {
 	return o
-}
-
-func (o CisScanConfigurationCisTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationCisTagMap] {
-	return pulumix.Output[*CisScanConfigurationCisTagMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CisScanConfigurationCisTagMapPtrOutput) Elem() CisScanConfigurationCisTagMapOutput {
@@ -189,12 +164,6 @@ func (i CisScanConfigurationCisTargetsArgs) ToCisScanConfigurationCisTargetsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationCisTargetsOutput)
 }
 
-func (i CisScanConfigurationCisTargetsArgs) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationCisTargets] {
-	return pulumix.Output[CisScanConfigurationCisTargets]{
-		OutputState: i.ToCisScanConfigurationCisTargetsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CisScanConfigurationCisTargetsArgs) ToCisScanConfigurationCisTargetsPtrOutput() CisScanConfigurationCisTargetsPtrOutput {
 	return i.ToCisScanConfigurationCisTargetsPtrOutputWithContext(context.Background())
 }
@@ -236,12 +205,6 @@ func (i *cisScanConfigurationCisTargetsPtrType) ToCisScanConfigurationCisTargets
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationCisTargetsPtrOutput)
 }
 
-func (i *cisScanConfigurationCisTargetsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationCisTargets] {
-	return pulumix.Output[*CisScanConfigurationCisTargets]{
-		OutputState: i.ToCisScanConfigurationCisTargetsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CisScanConfigurationCisTargetsOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationCisTargetsOutput) ElementType() reflect.Type {
@@ -266,12 +229,6 @@ func (o CisScanConfigurationCisTargetsOutput) ToCisScanConfigurationCisTargetsPt
 	}).(CisScanConfigurationCisTargetsPtrOutput)
 }
 
-func (o CisScanConfigurationCisTargetsOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationCisTargets] {
-	return pulumix.Output[CisScanConfigurationCisTargets]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CisScanConfigurationCisTargetsOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CisScanConfigurationCisTargets) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
@@ -294,12 +251,6 @@ func (o CisScanConfigurationCisTargetsPtrOutput) ToCisScanConfigurationCisTarget
 
 func (o CisScanConfigurationCisTargetsPtrOutput) ToCisScanConfigurationCisTargetsPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisTargetsPtrOutput {
 	return o
-}
-
-func (o CisScanConfigurationCisTargetsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationCisTargets] {
-	return pulumix.Output[*CisScanConfigurationCisTargets]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CisScanConfigurationCisTargetsPtrOutput) Elem() CisScanConfigurationCisTargetsOutput {
@@ -361,12 +312,6 @@ func (i CisScanConfigurationDailyScheduleArgs) ToCisScanConfigurationDailySchedu
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationDailyScheduleOutput)
 }
 
-func (i CisScanConfigurationDailyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationDailySchedule] {
-	return pulumix.Output[CisScanConfigurationDailySchedule]{
-		OutputState: i.ToCisScanConfigurationDailyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CisScanConfigurationDailyScheduleArgs) ToCisScanConfigurationDailySchedulePtrOutput() CisScanConfigurationDailySchedulePtrOutput {
 	return i.ToCisScanConfigurationDailySchedulePtrOutputWithContext(context.Background())
 }
@@ -408,12 +353,6 @@ func (i *cisScanConfigurationDailySchedulePtrType) ToCisScanConfigurationDailySc
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationDailySchedulePtrOutput)
 }
 
-func (i *cisScanConfigurationDailySchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationDailySchedule] {
-	return pulumix.Output[*CisScanConfigurationDailySchedule]{
-		OutputState: i.ToCisScanConfigurationDailySchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CisScanConfigurationDailyScheduleOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationDailyScheduleOutput) ElementType() reflect.Type {
@@ -438,12 +377,6 @@ func (o CisScanConfigurationDailyScheduleOutput) ToCisScanConfigurationDailySche
 	}).(CisScanConfigurationDailySchedulePtrOutput)
 }
 
-func (o CisScanConfigurationDailyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationDailySchedule] {
-	return pulumix.Output[CisScanConfigurationDailySchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CisScanConfigurationDailyScheduleOutput) StartTime() CisScanConfigurationTimeOutput {
 	return o.ApplyT(func(v CisScanConfigurationDailySchedule) CisScanConfigurationTime { return v.StartTime }).(CisScanConfigurationTimeOutput)
 }
@@ -460,12 +393,6 @@ func (o CisScanConfigurationDailySchedulePtrOutput) ToCisScanConfigurationDailyS
 
 func (o CisScanConfigurationDailySchedulePtrOutput) ToCisScanConfigurationDailySchedulePtrOutputWithContext(ctx context.Context) CisScanConfigurationDailySchedulePtrOutput {
 	return o
-}
-
-func (o CisScanConfigurationDailySchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationDailySchedule] {
-	return pulumix.Output[*CisScanConfigurationDailySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CisScanConfigurationDailySchedulePtrOutput) Elem() CisScanConfigurationDailyScheduleOutput {
@@ -520,12 +447,6 @@ func (i CisScanConfigurationMonthlyScheduleArgs) ToCisScanConfigurationMonthlySc
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationMonthlyScheduleOutput)
 }
 
-func (i CisScanConfigurationMonthlyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationMonthlySchedule] {
-	return pulumix.Output[CisScanConfigurationMonthlySchedule]{
-		OutputState: i.ToCisScanConfigurationMonthlyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CisScanConfigurationMonthlyScheduleArgs) ToCisScanConfigurationMonthlySchedulePtrOutput() CisScanConfigurationMonthlySchedulePtrOutput {
 	return i.ToCisScanConfigurationMonthlySchedulePtrOutputWithContext(context.Background())
 }
@@ -567,12 +488,6 @@ func (i *cisScanConfigurationMonthlySchedulePtrType) ToCisScanConfigurationMonth
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationMonthlySchedulePtrOutput)
 }
 
-func (i *cisScanConfigurationMonthlySchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationMonthlySchedule] {
-	return pulumix.Output[*CisScanConfigurationMonthlySchedule]{
-		OutputState: i.ToCisScanConfigurationMonthlySchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CisScanConfigurationMonthlyScheduleOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationMonthlyScheduleOutput) ElementType() reflect.Type {
@@ -597,12 +512,6 @@ func (o CisScanConfigurationMonthlyScheduleOutput) ToCisScanConfigurationMonthly
 	}).(CisScanConfigurationMonthlySchedulePtrOutput)
 }
 
-func (o CisScanConfigurationMonthlyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationMonthlySchedule] {
-	return pulumix.Output[CisScanConfigurationMonthlySchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CisScanConfigurationMonthlyScheduleOutput) Day() CisScanConfigurationDayOutput {
 	return o.ApplyT(func(v CisScanConfigurationMonthlySchedule) CisScanConfigurationDay { return v.Day }).(CisScanConfigurationDayOutput)
 }
@@ -623,12 +532,6 @@ func (o CisScanConfigurationMonthlySchedulePtrOutput) ToCisScanConfigurationMont
 
 func (o CisScanConfigurationMonthlySchedulePtrOutput) ToCisScanConfigurationMonthlySchedulePtrOutputWithContext(ctx context.Context) CisScanConfigurationMonthlySchedulePtrOutput {
 	return o
-}
-
-func (o CisScanConfigurationMonthlySchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationMonthlySchedule] {
-	return pulumix.Output[*CisScanConfigurationMonthlySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CisScanConfigurationMonthlySchedulePtrOutput) Elem() CisScanConfigurationMonthlyScheduleOutput {
@@ -688,12 +591,6 @@ func (i CisScanConfigurationOneTimeScheduleArgs) ToCisScanConfigurationOneTimeSc
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationOneTimeScheduleOutput)
 }
 
-func (i CisScanConfigurationOneTimeScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationOneTimeSchedule] {
-	return pulumix.Output[CisScanConfigurationOneTimeSchedule]{
-		OutputState: i.ToCisScanConfigurationOneTimeScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CisScanConfigurationOneTimeScheduleArgs) ToCisScanConfigurationOneTimeSchedulePtrOutput() CisScanConfigurationOneTimeSchedulePtrOutput {
 	return i.ToCisScanConfigurationOneTimeSchedulePtrOutputWithContext(context.Background())
 }
@@ -735,12 +632,6 @@ func (i *cisScanConfigurationOneTimeSchedulePtrType) ToCisScanConfigurationOneTi
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationOneTimeSchedulePtrOutput)
 }
 
-func (i *cisScanConfigurationOneTimeSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationOneTimeSchedule] {
-	return pulumix.Output[*CisScanConfigurationOneTimeSchedule]{
-		OutputState: i.ToCisScanConfigurationOneTimeSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CisScanConfigurationOneTimeScheduleOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationOneTimeScheduleOutput) ElementType() reflect.Type {
@@ -765,12 +656,6 @@ func (o CisScanConfigurationOneTimeScheduleOutput) ToCisScanConfigurationOneTime
 	}).(CisScanConfigurationOneTimeSchedulePtrOutput)
 }
 
-func (o CisScanConfigurationOneTimeScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationOneTimeSchedule] {
-	return pulumix.Output[CisScanConfigurationOneTimeSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 type CisScanConfigurationOneTimeSchedulePtrOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationOneTimeSchedulePtrOutput) ElementType() reflect.Type {
@@ -783,12 +668,6 @@ func (o CisScanConfigurationOneTimeSchedulePtrOutput) ToCisScanConfigurationOneT
 
 func (o CisScanConfigurationOneTimeSchedulePtrOutput) ToCisScanConfigurationOneTimeSchedulePtrOutputWithContext(ctx context.Context) CisScanConfigurationOneTimeSchedulePtrOutput {
 	return o
-}
-
-func (o CisScanConfigurationOneTimeSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationOneTimeSchedule] {
-	return pulumix.Output[*CisScanConfigurationOneTimeSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CisScanConfigurationOneTimeSchedulePtrOutput) Elem() CisScanConfigurationOneTimeScheduleOutput {
@@ -840,12 +719,6 @@ func (i CisScanConfigurationScheduleArgs) ToCisScanConfigurationScheduleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationScheduleOutput)
 }
 
-func (i CisScanConfigurationScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationSchedule] {
-	return pulumix.Output[CisScanConfigurationSchedule]{
-		OutputState: i.ToCisScanConfigurationScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CisScanConfigurationScheduleArgs) ToCisScanConfigurationSchedulePtrOutput() CisScanConfigurationSchedulePtrOutput {
 	return i.ToCisScanConfigurationSchedulePtrOutputWithContext(context.Background())
 }
@@ -887,12 +760,6 @@ func (i *cisScanConfigurationSchedulePtrType) ToCisScanConfigurationSchedulePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationSchedulePtrOutput)
 }
 
-func (i *cisScanConfigurationSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationSchedule] {
-	return pulumix.Output[*CisScanConfigurationSchedule]{
-		OutputState: i.ToCisScanConfigurationSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Choose a Schedule cadence
 type CisScanConfigurationScheduleOutput struct{ *pulumi.OutputState }
 
@@ -916,12 +783,6 @@ func (o CisScanConfigurationScheduleOutput) ToCisScanConfigurationSchedulePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CisScanConfigurationSchedule) *CisScanConfigurationSchedule {
 		return &v
 	}).(CisScanConfigurationSchedulePtrOutput)
-}
-
-func (o CisScanConfigurationScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationSchedule] {
-	return pulumix.Output[CisScanConfigurationSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CisScanConfigurationScheduleOutput) Daily() CisScanConfigurationDailySchedulePtrOutput {
@@ -952,12 +813,6 @@ func (o CisScanConfigurationSchedulePtrOutput) ToCisScanConfigurationSchedulePtr
 
 func (o CisScanConfigurationSchedulePtrOutput) ToCisScanConfigurationSchedulePtrOutputWithContext(ctx context.Context) CisScanConfigurationSchedulePtrOutput {
 	return o
-}
-
-func (o CisScanConfigurationSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationSchedule] {
-	return pulumix.Output[*CisScanConfigurationSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CisScanConfigurationSchedulePtrOutput) Elem() CisScanConfigurationScheduleOutput {
@@ -1035,12 +890,6 @@ func (i CisScanConfigurationTargetResourceTagsArgs) ToCisScanConfigurationTarget
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationTargetResourceTagsOutput)
 }
 
-func (i CisScanConfigurationTargetResourceTagsArgs) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationTargetResourceTags] {
-	return pulumix.Output[CisScanConfigurationTargetResourceTags]{
-		OutputState: i.ToCisScanConfigurationTargetResourceTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CisScanConfigurationTargetResourceTagsArgs) ToCisScanConfigurationTargetResourceTagsPtrOutput() CisScanConfigurationTargetResourceTagsPtrOutput {
 	return i.ToCisScanConfigurationTargetResourceTagsPtrOutputWithContext(context.Background())
 }
@@ -1082,12 +931,6 @@ func (i *cisScanConfigurationTargetResourceTagsPtrType) ToCisScanConfigurationTa
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationTargetResourceTagsPtrOutput)
 }
 
-func (i *cisScanConfigurationTargetResourceTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationTargetResourceTags] {
-	return pulumix.Output[*CisScanConfigurationTargetResourceTags]{
-		OutputState: i.ToCisScanConfigurationTargetResourceTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CisScanConfigurationTargetResourceTagsOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationTargetResourceTagsOutput) ElementType() reflect.Type {
@@ -1112,12 +955,6 @@ func (o CisScanConfigurationTargetResourceTagsOutput) ToCisScanConfigurationTarg
 	}).(CisScanConfigurationTargetResourceTagsPtrOutput)
 }
 
-func (o CisScanConfigurationTargetResourceTagsOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationTargetResourceTags] {
-	return pulumix.Output[CisScanConfigurationTargetResourceTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type CisScanConfigurationTargetResourceTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationTargetResourceTagsPtrOutput) ElementType() reflect.Type {
@@ -1130,12 +967,6 @@ func (o CisScanConfigurationTargetResourceTagsPtrOutput) ToCisScanConfigurationT
 
 func (o CisScanConfigurationTargetResourceTagsPtrOutput) ToCisScanConfigurationTargetResourceTagsPtrOutputWithContext(ctx context.Context) CisScanConfigurationTargetResourceTagsPtrOutput {
 	return o
-}
-
-func (o CisScanConfigurationTargetResourceTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationTargetResourceTags] {
-	return pulumix.Output[*CisScanConfigurationTargetResourceTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CisScanConfigurationTargetResourceTagsPtrOutput) Elem() CisScanConfigurationTargetResourceTagsOutput {
@@ -1181,12 +1012,6 @@ func (i CisScanConfigurationTimeArgs) ToCisScanConfigurationTimeOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationTimeOutput)
 }
 
-func (i CisScanConfigurationTimeArgs) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationTime] {
-	return pulumix.Output[CisScanConfigurationTime]{
-		OutputState: i.ToCisScanConfigurationTimeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CisScanConfigurationTimeArgs) ToCisScanConfigurationTimePtrOutput() CisScanConfigurationTimePtrOutput {
 	return i.ToCisScanConfigurationTimePtrOutputWithContext(context.Background())
 }
@@ -1228,12 +1053,6 @@ func (i *cisScanConfigurationTimePtrType) ToCisScanConfigurationTimePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationTimePtrOutput)
 }
 
-func (i *cisScanConfigurationTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationTime] {
-	return pulumix.Output[*CisScanConfigurationTime]{
-		OutputState: i.ToCisScanConfigurationTimePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CisScanConfigurationTimeOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationTimeOutput) ElementType() reflect.Type {
@@ -1258,12 +1077,6 @@ func (o CisScanConfigurationTimeOutput) ToCisScanConfigurationTimePtrOutputWithC
 	}).(CisScanConfigurationTimePtrOutput)
 }
 
-func (o CisScanConfigurationTimeOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationTime] {
-	return pulumix.Output[CisScanConfigurationTime]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CisScanConfigurationTimeOutput) TimeOfDay() pulumi.StringOutput {
 	return o.ApplyT(func(v CisScanConfigurationTime) string { return v.TimeOfDay }).(pulumi.StringOutput)
 }
@@ -1284,12 +1097,6 @@ func (o CisScanConfigurationTimePtrOutput) ToCisScanConfigurationTimePtrOutput()
 
 func (o CisScanConfigurationTimePtrOutput) ToCisScanConfigurationTimePtrOutputWithContext(ctx context.Context) CisScanConfigurationTimePtrOutput {
 	return o
-}
-
-func (o CisScanConfigurationTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationTime] {
-	return pulumix.Output[*CisScanConfigurationTime]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CisScanConfigurationTimePtrOutput) Elem() CisScanConfigurationTimeOutput {
@@ -1353,12 +1160,6 @@ func (i CisScanConfigurationWeeklyScheduleArgs) ToCisScanConfigurationWeeklySche
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationWeeklyScheduleOutput)
 }
 
-func (i CisScanConfigurationWeeklyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationWeeklySchedule] {
-	return pulumix.Output[CisScanConfigurationWeeklySchedule]{
-		OutputState: i.ToCisScanConfigurationWeeklyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CisScanConfigurationWeeklyScheduleArgs) ToCisScanConfigurationWeeklySchedulePtrOutput() CisScanConfigurationWeeklySchedulePtrOutput {
 	return i.ToCisScanConfigurationWeeklySchedulePtrOutputWithContext(context.Background())
 }
@@ -1400,12 +1201,6 @@ func (i *cisScanConfigurationWeeklySchedulePtrType) ToCisScanConfigurationWeekly
 	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationWeeklySchedulePtrOutput)
 }
 
-func (i *cisScanConfigurationWeeklySchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationWeeklySchedule] {
-	return pulumix.Output[*CisScanConfigurationWeeklySchedule]{
-		OutputState: i.ToCisScanConfigurationWeeklySchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CisScanConfigurationWeeklyScheduleOutput struct{ *pulumi.OutputState }
 
 func (CisScanConfigurationWeeklyScheduleOutput) ElementType() reflect.Type {
@@ -1430,12 +1225,6 @@ func (o CisScanConfigurationWeeklyScheduleOutput) ToCisScanConfigurationWeeklySc
 	}).(CisScanConfigurationWeeklySchedulePtrOutput)
 }
 
-func (o CisScanConfigurationWeeklyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[CisScanConfigurationWeeklySchedule] {
-	return pulumix.Output[CisScanConfigurationWeeklySchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CisScanConfigurationWeeklyScheduleOutput) Days() CisScanConfigurationDayArrayOutput {
 	return o.ApplyT(func(v CisScanConfigurationWeeklySchedule) []CisScanConfigurationDay { return v.Days }).(CisScanConfigurationDayArrayOutput)
 }
@@ -1456,12 +1245,6 @@ func (o CisScanConfigurationWeeklySchedulePtrOutput) ToCisScanConfigurationWeekl
 
 func (o CisScanConfigurationWeeklySchedulePtrOutput) ToCisScanConfigurationWeeklySchedulePtrOutputWithContext(ctx context.Context) CisScanConfigurationWeeklySchedulePtrOutput {
 	return o
-}
-
-func (o CisScanConfigurationWeeklySchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CisScanConfigurationWeeklySchedule] {
-	return pulumix.Output[*CisScanConfigurationWeeklySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CisScanConfigurationWeeklySchedulePtrOutput) Elem() CisScanConfigurationWeeklyScheduleOutput {
@@ -1583,12 +1366,6 @@ func (i FilterCriteriaArgs) ToFilterCriteriaOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FilterCriteriaOutput)
 }
 
-func (i FilterCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[FilterCriteria] {
-	return pulumix.Output[FilterCriteria]{
-		OutputState: i.ToFilterCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FilterCriteriaOutput struct{ *pulumi.OutputState }
 
 func (FilterCriteriaOutput) ElementType() reflect.Type {
@@ -1601,12 +1378,6 @@ func (o FilterCriteriaOutput) ToFilterCriteriaOutput() FilterCriteriaOutput {
 
 func (o FilterCriteriaOutput) ToFilterCriteriaOutputWithContext(ctx context.Context) FilterCriteriaOutput {
 	return o
-}
-
-func (o FilterCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[FilterCriteria] {
-	return pulumix.Output[FilterCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterCriteriaOutput) AwsAccountId() FilterStringFilterArrayOutput {
@@ -1745,12 +1516,6 @@ func (o FilterCriteriaPtrOutput) ToFilterCriteriaPtrOutput() FilterCriteriaPtrOu
 
 func (o FilterCriteriaPtrOutput) ToFilterCriteriaPtrOutputWithContext(ctx context.Context) FilterCriteriaPtrOutput {
 	return o
-}
-
-func (o FilterCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterCriteria] {
-	return pulumix.Output[*FilterCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterCriteriaPtrOutput) Elem() FilterCriteriaOutput {
@@ -2075,12 +1840,6 @@ func (i FilterDateFilterArgs) ToFilterDateFilterOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FilterDateFilterOutput)
 }
 
-func (i FilterDateFilterArgs) ToOutput(ctx context.Context) pulumix.Output[FilterDateFilter] {
-	return pulumix.Output[FilterDateFilter]{
-		OutputState: i.ToFilterDateFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterDateFilterArrayInput is an input type that accepts FilterDateFilterArray and FilterDateFilterArrayOutput values.
 // You can construct a concrete instance of `FilterDateFilterArrayInput` via:
 //
@@ -2106,12 +1865,6 @@ func (i FilterDateFilterArray) ToFilterDateFilterArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FilterDateFilterArrayOutput)
 }
 
-func (i FilterDateFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterDateFilter] {
-	return pulumix.Output[[]FilterDateFilter]{
-		OutputState: i.ToFilterDateFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FilterDateFilterOutput struct{ *pulumi.OutputState }
 
 func (FilterDateFilterOutput) ElementType() reflect.Type {
@@ -2124,12 +1877,6 @@ func (o FilterDateFilterOutput) ToFilterDateFilterOutput() FilterDateFilterOutpu
 
 func (o FilterDateFilterOutput) ToFilterDateFilterOutputWithContext(ctx context.Context) FilterDateFilterOutput {
 	return o
-}
-
-func (o FilterDateFilterOutput) ToOutput(ctx context.Context) pulumix.Output[FilterDateFilter] {
-	return pulumix.Output[FilterDateFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterDateFilterOutput) EndInclusive() pulumi.IntPtrOutput {
@@ -2152,12 +1899,6 @@ func (o FilterDateFilterArrayOutput) ToFilterDateFilterArrayOutput() FilterDateF
 
 func (o FilterDateFilterArrayOutput) ToFilterDateFilterArrayOutputWithContext(ctx context.Context) FilterDateFilterArrayOutput {
 	return o
-}
-
-func (o FilterDateFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterDateFilter] {
-	return pulumix.Output[[]FilterDateFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterDateFilterArrayOutput) Index(i pulumi.IntInput) FilterDateFilterOutput {
@@ -2201,12 +1942,6 @@ func (i FilterMapFilterArgs) ToFilterMapFilterOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FilterMapFilterOutput)
 }
 
-func (i FilterMapFilterArgs) ToOutput(ctx context.Context) pulumix.Output[FilterMapFilter] {
-	return pulumix.Output[FilterMapFilter]{
-		OutputState: i.ToFilterMapFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterMapFilterArrayInput is an input type that accepts FilterMapFilterArray and FilterMapFilterArrayOutput values.
 // You can construct a concrete instance of `FilterMapFilterArrayInput` via:
 //
@@ -2232,12 +1967,6 @@ func (i FilterMapFilterArray) ToFilterMapFilterArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FilterMapFilterArrayOutput)
 }
 
-func (i FilterMapFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterMapFilter] {
-	return pulumix.Output[[]FilterMapFilter]{
-		OutputState: i.ToFilterMapFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FilterMapFilterOutput struct{ *pulumi.OutputState }
 
 func (FilterMapFilterOutput) ElementType() reflect.Type {
@@ -2250,12 +1979,6 @@ func (o FilterMapFilterOutput) ToFilterMapFilterOutput() FilterMapFilterOutput {
 
 func (o FilterMapFilterOutput) ToFilterMapFilterOutputWithContext(ctx context.Context) FilterMapFilterOutput {
 	return o
-}
-
-func (o FilterMapFilterOutput) ToOutput(ctx context.Context) pulumix.Output[FilterMapFilter] {
-	return pulumix.Output[FilterMapFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterMapFilterOutput) Comparison() FilterMapComparisonOutput {
@@ -2282,12 +2005,6 @@ func (o FilterMapFilterArrayOutput) ToFilterMapFilterArrayOutput() FilterMapFilt
 
 func (o FilterMapFilterArrayOutput) ToFilterMapFilterArrayOutputWithContext(ctx context.Context) FilterMapFilterArrayOutput {
 	return o
-}
-
-func (o FilterMapFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterMapFilter] {
-	return pulumix.Output[[]FilterMapFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterMapFilterArrayOutput) Index(i pulumi.IntInput) FilterMapFilterOutput {
@@ -2327,12 +2044,6 @@ func (i FilterNumberFilterArgs) ToFilterNumberFilterOutput() FilterNumberFilterO
 
 func (i FilterNumberFilterArgs) ToFilterNumberFilterOutputWithContext(ctx context.Context) FilterNumberFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FilterNumberFilterOutput)
-}
-
-func (i FilterNumberFilterArgs) ToOutput(ctx context.Context) pulumix.Output[FilterNumberFilter] {
-	return pulumix.Output[FilterNumberFilter]{
-		OutputState: i.ToFilterNumberFilterOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FilterNumberFilterArgs) ToFilterNumberFilterPtrOutput() FilterNumberFilterPtrOutput {
@@ -2376,12 +2087,6 @@ func (i *filterNumberFilterPtrType) ToFilterNumberFilterPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FilterNumberFilterPtrOutput)
 }
 
-func (i *filterNumberFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*FilterNumberFilter] {
-	return pulumix.Output[*FilterNumberFilter]{
-		OutputState: i.ToFilterNumberFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterNumberFilterArrayInput is an input type that accepts FilterNumberFilterArray and FilterNumberFilterArrayOutput values.
 // You can construct a concrete instance of `FilterNumberFilterArrayInput` via:
 //
@@ -2405,12 +2110,6 @@ func (i FilterNumberFilterArray) ToFilterNumberFilterArrayOutput() FilterNumberF
 
 func (i FilterNumberFilterArray) ToFilterNumberFilterArrayOutputWithContext(ctx context.Context) FilterNumberFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FilterNumberFilterArrayOutput)
-}
-
-func (i FilterNumberFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterNumberFilter] {
-	return pulumix.Output[[]FilterNumberFilter]{
-		OutputState: i.ToFilterNumberFilterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 type FilterNumberFilterOutput struct{ *pulumi.OutputState }
@@ -2437,12 +2136,6 @@ func (o FilterNumberFilterOutput) ToFilterNumberFilterPtrOutputWithContext(ctx c
 	}).(FilterNumberFilterPtrOutput)
 }
 
-func (o FilterNumberFilterOutput) ToOutput(ctx context.Context) pulumix.Output[FilterNumberFilter] {
-	return pulumix.Output[FilterNumberFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FilterNumberFilterOutput) LowerInclusive() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FilterNumberFilter) *float64 { return v.LowerInclusive }).(pulumi.Float64PtrOutput)
 }
@@ -2463,12 +2156,6 @@ func (o FilterNumberFilterPtrOutput) ToFilterNumberFilterPtrOutput() FilterNumbe
 
 func (o FilterNumberFilterPtrOutput) ToFilterNumberFilterPtrOutputWithContext(ctx context.Context) FilterNumberFilterPtrOutput {
 	return o
-}
-
-func (o FilterNumberFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterNumberFilter] {
-	return pulumix.Output[*FilterNumberFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterNumberFilterPtrOutput) Elem() FilterNumberFilterOutput {
@@ -2511,12 +2198,6 @@ func (o FilterNumberFilterArrayOutput) ToFilterNumberFilterArrayOutput() FilterN
 
 func (o FilterNumberFilterArrayOutput) ToFilterNumberFilterArrayOutputWithContext(ctx context.Context) FilterNumberFilterArrayOutput {
 	return o
-}
-
-func (o FilterNumberFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterNumberFilter] {
-	return pulumix.Output[[]FilterNumberFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterNumberFilterArrayOutput) Index(i pulumi.IntInput) FilterNumberFilterOutput {
@@ -2566,12 +2247,6 @@ func (i FilterPackageFilterArgs) ToFilterPackageFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FilterPackageFilterOutput)
 }
 
-func (i FilterPackageFilterArgs) ToOutput(ctx context.Context) pulumix.Output[FilterPackageFilter] {
-	return pulumix.Output[FilterPackageFilter]{
-		OutputState: i.ToFilterPackageFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterPackageFilterArrayInput is an input type that accepts FilterPackageFilterArray and FilterPackageFilterArrayOutput values.
 // You can construct a concrete instance of `FilterPackageFilterArrayInput` via:
 //
@@ -2597,12 +2272,6 @@ func (i FilterPackageFilterArray) ToFilterPackageFilterArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FilterPackageFilterArrayOutput)
 }
 
-func (i FilterPackageFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterPackageFilter] {
-	return pulumix.Output[[]FilterPackageFilter]{
-		OutputState: i.ToFilterPackageFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FilterPackageFilterOutput struct{ *pulumi.OutputState }
 
 func (FilterPackageFilterOutput) ElementType() reflect.Type {
@@ -2615,12 +2284,6 @@ func (o FilterPackageFilterOutput) ToFilterPackageFilterOutput() FilterPackageFi
 
 func (o FilterPackageFilterOutput) ToFilterPackageFilterOutputWithContext(ctx context.Context) FilterPackageFilterOutput {
 	return o
-}
-
-func (o FilterPackageFilterOutput) ToOutput(ctx context.Context) pulumix.Output[FilterPackageFilter] {
-	return pulumix.Output[FilterPackageFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterPackageFilterOutput) Architecture() FilterStringFilterPtrOutput {
@@ -2659,12 +2322,6 @@ func (o FilterPackageFilterArrayOutput) ToFilterPackageFilterArrayOutput() Filte
 
 func (o FilterPackageFilterArrayOutput) ToFilterPackageFilterArrayOutputWithContext(ctx context.Context) FilterPackageFilterArrayOutput {
 	return o
-}
-
-func (o FilterPackageFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterPackageFilter] {
-	return pulumix.Output[[]FilterPackageFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterPackageFilterArrayOutput) Index(i pulumi.IntInput) FilterPackageFilterOutput {
@@ -2706,12 +2363,6 @@ func (i FilterPortRangeFilterArgs) ToFilterPortRangeFilterOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FilterPortRangeFilterOutput)
 }
 
-func (i FilterPortRangeFilterArgs) ToOutput(ctx context.Context) pulumix.Output[FilterPortRangeFilter] {
-	return pulumix.Output[FilterPortRangeFilter]{
-		OutputState: i.ToFilterPortRangeFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterPortRangeFilterArrayInput is an input type that accepts FilterPortRangeFilterArray and FilterPortRangeFilterArrayOutput values.
 // You can construct a concrete instance of `FilterPortRangeFilterArrayInput` via:
 //
@@ -2737,12 +2388,6 @@ func (i FilterPortRangeFilterArray) ToFilterPortRangeFilterArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FilterPortRangeFilterArrayOutput)
 }
 
-func (i FilterPortRangeFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterPortRangeFilter] {
-	return pulumix.Output[[]FilterPortRangeFilter]{
-		OutputState: i.ToFilterPortRangeFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FilterPortRangeFilterOutput struct{ *pulumi.OutputState }
 
 func (FilterPortRangeFilterOutput) ElementType() reflect.Type {
@@ -2755,12 +2400,6 @@ func (o FilterPortRangeFilterOutput) ToFilterPortRangeFilterOutput() FilterPortR
 
 func (o FilterPortRangeFilterOutput) ToFilterPortRangeFilterOutputWithContext(ctx context.Context) FilterPortRangeFilterOutput {
 	return o
-}
-
-func (o FilterPortRangeFilterOutput) ToOutput(ctx context.Context) pulumix.Output[FilterPortRangeFilter] {
-	return pulumix.Output[FilterPortRangeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterPortRangeFilterOutput) BeginInclusive() pulumi.IntPtrOutput {
@@ -2783,12 +2422,6 @@ func (o FilterPortRangeFilterArrayOutput) ToFilterPortRangeFilterArrayOutput() F
 
 func (o FilterPortRangeFilterArrayOutput) ToFilterPortRangeFilterArrayOutputWithContext(ctx context.Context) FilterPortRangeFilterArrayOutput {
 	return o
-}
-
-func (o FilterPortRangeFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterPortRangeFilter] {
-	return pulumix.Output[[]FilterPortRangeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterPortRangeFilterArrayOutput) Index(i pulumi.IntInput) FilterPortRangeFilterOutput {
@@ -2828,12 +2461,6 @@ func (i FilterStringFilterArgs) ToFilterStringFilterOutput() FilterStringFilterO
 
 func (i FilterStringFilterArgs) ToFilterStringFilterOutputWithContext(ctx context.Context) FilterStringFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FilterStringFilterOutput)
-}
-
-func (i FilterStringFilterArgs) ToOutput(ctx context.Context) pulumix.Output[FilterStringFilter] {
-	return pulumix.Output[FilterStringFilter]{
-		OutputState: i.ToFilterStringFilterOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FilterStringFilterArgs) ToFilterStringFilterPtrOutput() FilterStringFilterPtrOutput {
@@ -2877,12 +2504,6 @@ func (i *filterStringFilterPtrType) ToFilterStringFilterPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FilterStringFilterPtrOutput)
 }
 
-func (i *filterStringFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*FilterStringFilter] {
-	return pulumix.Output[*FilterStringFilter]{
-		OutputState: i.ToFilterStringFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterStringFilterArrayInput is an input type that accepts FilterStringFilterArray and FilterStringFilterArrayOutput values.
 // You can construct a concrete instance of `FilterStringFilterArrayInput` via:
 //
@@ -2906,12 +2527,6 @@ func (i FilterStringFilterArray) ToFilterStringFilterArrayOutput() FilterStringF
 
 func (i FilterStringFilterArray) ToFilterStringFilterArrayOutputWithContext(ctx context.Context) FilterStringFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FilterStringFilterArrayOutput)
-}
-
-func (i FilterStringFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterStringFilter] {
-	return pulumix.Output[[]FilterStringFilter]{
-		OutputState: i.ToFilterStringFilterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 type FilterStringFilterOutput struct{ *pulumi.OutputState }
@@ -2938,12 +2553,6 @@ func (o FilterStringFilterOutput) ToFilterStringFilterPtrOutputWithContext(ctx c
 	}).(FilterStringFilterPtrOutput)
 }
 
-func (o FilterStringFilterOutput) ToOutput(ctx context.Context) pulumix.Output[FilterStringFilter] {
-	return pulumix.Output[FilterStringFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FilterStringFilterOutput) Comparison() FilterStringComparisonOutput {
 	return o.ApplyT(func(v FilterStringFilter) FilterStringComparison { return v.Comparison }).(FilterStringComparisonOutput)
 }
@@ -2964,12 +2573,6 @@ func (o FilterStringFilterPtrOutput) ToFilterStringFilterPtrOutput() FilterStrin
 
 func (o FilterStringFilterPtrOutput) ToFilterStringFilterPtrOutputWithContext(ctx context.Context) FilterStringFilterPtrOutput {
 	return o
-}
-
-func (o FilterStringFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterStringFilter] {
-	return pulumix.Output[*FilterStringFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterStringFilterPtrOutput) Elem() FilterStringFilterOutput {
@@ -3012,12 +2615,6 @@ func (o FilterStringFilterArrayOutput) ToFilterStringFilterArrayOutput() FilterS
 
 func (o FilterStringFilterArrayOutput) ToFilterStringFilterArrayOutputWithContext(ctx context.Context) FilterStringFilterArrayOutput {
 	return o
-}
-
-func (o FilterStringFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterStringFilter] {
-	return pulumix.Output[[]FilterStringFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterStringFilterArrayOutput) Index(i pulumi.IntInput) FilterStringFilterOutput {

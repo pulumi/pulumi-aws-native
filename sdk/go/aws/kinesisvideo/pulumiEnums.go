@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
@@ -78,12 +77,6 @@ func (o SignalingChannelTypeOutput) ToSignalingChannelTypePtrOutputWithContext(c
 	}).(SignalingChannelTypePtrOutput)
 }
 
-func (o SignalingChannelTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SignalingChannelType] {
-	return pulumix.Output[SignalingChannelType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SignalingChannelTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o SignalingChannelTypePtrOutput) ToSignalingChannelTypePtrOutputWithContex
 	return o
 }
 
-func (o SignalingChannelTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SignalingChannelType] {
-	return pulumix.Output[*SignalingChannelType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SignalingChannelTypePtrOutput) Elem() SignalingChannelTypeOutput {
 	return o.ApplyT(func(v *SignalingChannelType) SignalingChannelType {
 		if v != nil {
@@ -149,10 +136,10 @@ func (o SignalingChannelTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// SignalingChannelTypeInput is an input type that accepts SignalingChannelTypeArgs and SignalingChannelTypeOutput values.
-// You can construct a concrete instance of `SignalingChannelTypeInput` via:
+// SignalingChannelTypeInput is an input type that accepts values of the SignalingChannelType enum
+// A concrete instance of `SignalingChannelTypeInput` can be one of the following:
 //
-//	SignalingChannelTypeArgs{...}
+//	SignalingChannelTypeSingleMaster
 type SignalingChannelTypeInput interface {
 	pulumi.Input
 
@@ -185,12 +172,6 @@ func (in *signalingChannelTypePtr) ToSignalingChannelTypePtrOutput() SignalingCh
 
 func (in *signalingChannelTypePtr) ToSignalingChannelTypePtrOutputWithContext(ctx context.Context) SignalingChannelTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SignalingChannelTypePtrOutput)
-}
-
-func (in *signalingChannelTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SignalingChannelType] {
-	return pulumix.Output[*SignalingChannelType]{
-		OutputState: in.ToSignalingChannelTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

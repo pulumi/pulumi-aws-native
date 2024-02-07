@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoT::TopicRule
@@ -105,12 +104,6 @@ func (i *TopicRule) ToTopicRuleOutputWithContext(ctx context.Context) TopicRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleOutput)
 }
 
-func (i *TopicRule) ToOutput(ctx context.Context) pulumix.Output[*TopicRule] {
-	return pulumix.Output[*TopicRule]{
-		OutputState: i.ToTopicRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicRuleOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleOutput) ElementType() reflect.Type {
@@ -123,12 +116,6 @@ func (o TopicRuleOutput) ToTopicRuleOutput() TopicRuleOutput {
 
 func (o TopicRuleOutput) ToTopicRuleOutputWithContext(ctx context.Context) TopicRuleOutput {
 	return o
-}
-
-func (o TopicRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicRule] {
-	return pulumix.Output[*TopicRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicRuleOutput) Arn() pulumi.StringOutput {

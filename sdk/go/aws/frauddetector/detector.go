@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource schema for a Detector in Amazon Fraud Detector.
@@ -151,12 +150,6 @@ func (i *Detector) ToDetectorOutputWithContext(ctx context.Context) DetectorOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorOutput)
 }
 
-func (i *Detector) ToOutput(ctx context.Context) pulumix.Output[*Detector] {
-	return pulumix.Output[*Detector]{
-		OutputState: i.ToDetectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DetectorOutput struct{ *pulumi.OutputState }
 
 func (DetectorOutput) ElementType() reflect.Type {
@@ -169,12 +162,6 @@ func (o DetectorOutput) ToDetectorOutput() DetectorOutput {
 
 func (o DetectorOutput) ToDetectorOutputWithContext(ctx context.Context) DetectorOutput {
 	return o
-}
-
-func (o DetectorOutput) ToOutput(ctx context.Context) pulumix.Output[*Detector] {
-	return pulumix.Output[*Detector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the detector.

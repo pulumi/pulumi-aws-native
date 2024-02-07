@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaTailor::PlaybackConfiguration
@@ -194,12 +193,6 @@ func (i *PlaybackConfiguration) ToPlaybackConfigurationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationOutput)
 }
 
-func (i *PlaybackConfiguration) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfiguration] {
-	return pulumix.Output[*PlaybackConfiguration]{
-		OutputState: i.ToPlaybackConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlaybackConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PlaybackConfigurationOutput) ElementType() reflect.Type {
@@ -212,12 +205,6 @@ func (o PlaybackConfigurationOutput) ToPlaybackConfigurationOutput() PlaybackCon
 
 func (o PlaybackConfigurationOutput) ToPlaybackConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationOutput {
 	return o
-}
-
-func (o PlaybackConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfiguration] {
-	return pulumix.Output[*PlaybackConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.

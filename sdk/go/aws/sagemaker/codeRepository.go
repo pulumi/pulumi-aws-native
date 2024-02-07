@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::CodeRepository
@@ -106,12 +105,6 @@ func (i *CodeRepository) ToCodeRepositoryOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryOutput)
 }
 
-func (i *CodeRepository) ToOutput(ctx context.Context) pulumix.Output[*CodeRepository] {
-	return pulumix.Output[*CodeRepository]{
-		OutputState: i.ToCodeRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CodeRepositoryOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryOutput) ElementType() reflect.Type {
@@ -124,12 +117,6 @@ func (o CodeRepositoryOutput) ToCodeRepositoryOutput() CodeRepositoryOutput {
 
 func (o CodeRepositoryOutput) ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput {
 	return o
-}
-
-func (o CodeRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*CodeRepository] {
-	return pulumix.Output[*CodeRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CodeRepositoryOutput) CodeRepositoryName() pulumi.StringPtrOutput {

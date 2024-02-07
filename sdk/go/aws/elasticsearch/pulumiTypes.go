@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i DomainAdvancedSecurityOptionsInputArgs) ToDomainAdvancedSecurityOptionsI
 
 func (i DomainAdvancedSecurityOptionsInputArgs) ToDomainAdvancedSecurityOptionsInputOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsInputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsInputOutput)
-}
-
-func (i DomainAdvancedSecurityOptionsInputArgs) ToOutput(ctx context.Context) pulumix.Output[DomainAdvancedSecurityOptionsInput] {
-	return pulumix.Output[DomainAdvancedSecurityOptionsInput]{
-		OutputState: i.ToDomainAdvancedSecurityOptionsInputOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DomainAdvancedSecurityOptionsInputArgs) ToDomainAdvancedSecurityOptionsInputPtrOutput() DomainAdvancedSecurityOptionsInputPtrOutput {
@@ -98,12 +91,6 @@ func (i *domainAdvancedSecurityOptionsInputPtrType) ToDomainAdvancedSecurityOpti
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsInputPtrOutput)
 }
 
-func (i *domainAdvancedSecurityOptionsInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainAdvancedSecurityOptionsInput] {
-	return pulumix.Output[*DomainAdvancedSecurityOptionsInput]{
-		OutputState: i.ToDomainAdvancedSecurityOptionsInputPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainAdvancedSecurityOptionsInputOutput struct{ *pulumi.OutputState }
 
 func (DomainAdvancedSecurityOptionsInputOutput) ElementType() reflect.Type {
@@ -126,12 +113,6 @@ func (o DomainAdvancedSecurityOptionsInputOutput) ToDomainAdvancedSecurityOption
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAdvancedSecurityOptionsInput) *DomainAdvancedSecurityOptionsInput {
 		return &v
 	}).(DomainAdvancedSecurityOptionsInputPtrOutput)
-}
-
-func (o DomainAdvancedSecurityOptionsInputOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAdvancedSecurityOptionsInput] {
-	return pulumix.Output[DomainAdvancedSecurityOptionsInput]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainAdvancedSecurityOptionsInputOutput) AnonymousAuthEnabled() pulumi.BoolPtrOutput {
@@ -162,12 +143,6 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) ToDomainAdvancedSecurityOpt
 
 func (o DomainAdvancedSecurityOptionsInputPtrOutput) ToDomainAdvancedSecurityOptionsInputPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsInputPtrOutput {
 	return o
-}
-
-func (o DomainAdvancedSecurityOptionsInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAdvancedSecurityOptionsInput] {
-	return pulumix.Output[*DomainAdvancedSecurityOptionsInput]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainAdvancedSecurityOptionsInputPtrOutput) Elem() DomainAdvancedSecurityOptionsInputOutput {
@@ -253,12 +228,6 @@ func (i DomainCognitoOptionsArgs) ToDomainCognitoOptionsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DomainCognitoOptionsOutput)
 }
 
-func (i DomainCognitoOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainCognitoOptions] {
-	return pulumix.Output[DomainCognitoOptions]{
-		OutputState: i.ToDomainCognitoOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainCognitoOptionsArgs) ToDomainCognitoOptionsPtrOutput() DomainCognitoOptionsPtrOutput {
 	return i.ToDomainCognitoOptionsPtrOutputWithContext(context.Background())
 }
@@ -300,12 +269,6 @@ func (i *domainCognitoOptionsPtrType) ToDomainCognitoOptionsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DomainCognitoOptionsPtrOutput)
 }
 
-func (i *domainCognitoOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainCognitoOptions] {
-	return pulumix.Output[*DomainCognitoOptions]{
-		OutputState: i.ToDomainCognitoOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainCognitoOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainCognitoOptionsOutput) ElementType() reflect.Type {
@@ -328,12 +291,6 @@ func (o DomainCognitoOptionsOutput) ToDomainCognitoOptionsPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainCognitoOptions) *DomainCognitoOptions {
 		return &v
 	}).(DomainCognitoOptionsPtrOutput)
-}
-
-func (o DomainCognitoOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainCognitoOptions] {
-	return pulumix.Output[DomainCognitoOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainCognitoOptionsOutput) Enabled() pulumi.BoolPtrOutput {
@@ -364,12 +321,6 @@ func (o DomainCognitoOptionsPtrOutput) ToDomainCognitoOptionsPtrOutput() DomainC
 
 func (o DomainCognitoOptionsPtrOutput) ToDomainCognitoOptionsPtrOutputWithContext(ctx context.Context) DomainCognitoOptionsPtrOutput {
 	return o
-}
-
-func (o DomainCognitoOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainCognitoOptions] {
-	return pulumix.Output[*DomainCognitoOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainCognitoOptionsPtrOutput) Elem() DomainCognitoOptionsOutput {
@@ -449,12 +400,6 @@ func (i DomainColdStorageOptionsArgs) ToDomainColdStorageOptionsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DomainColdStorageOptionsOutput)
 }
 
-func (i DomainColdStorageOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainColdStorageOptions] {
-	return pulumix.Output[DomainColdStorageOptions]{
-		OutputState: i.ToDomainColdStorageOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainColdStorageOptionsArgs) ToDomainColdStorageOptionsPtrOutput() DomainColdStorageOptionsPtrOutput {
 	return i.ToDomainColdStorageOptionsPtrOutputWithContext(context.Background())
 }
@@ -496,12 +441,6 @@ func (i *domainColdStorageOptionsPtrType) ToDomainColdStorageOptionsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DomainColdStorageOptionsPtrOutput)
 }
 
-func (i *domainColdStorageOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainColdStorageOptions] {
-	return pulumix.Output[*DomainColdStorageOptions]{
-		OutputState: i.ToDomainColdStorageOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainColdStorageOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainColdStorageOptionsOutput) ElementType() reflect.Type {
@@ -526,12 +465,6 @@ func (o DomainColdStorageOptionsOutput) ToDomainColdStorageOptionsPtrOutputWithC
 	}).(DomainColdStorageOptionsPtrOutput)
 }
 
-func (o DomainColdStorageOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainColdStorageOptions] {
-	return pulumix.Output[DomainColdStorageOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainColdStorageOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainColdStorageOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -548,12 +481,6 @@ func (o DomainColdStorageOptionsPtrOutput) ToDomainColdStorageOptionsPtrOutput()
 
 func (o DomainColdStorageOptionsPtrOutput) ToDomainColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainColdStorageOptionsPtrOutput {
 	return o
-}
-
-func (o DomainColdStorageOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainColdStorageOptions] {
-	return pulumix.Output[*DomainColdStorageOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainColdStorageOptionsPtrOutput) Elem() DomainColdStorageOptionsOutput {
@@ -612,12 +539,6 @@ func (i DomainEbsOptionsArgs) ToDomainEbsOptionsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEbsOptionsOutput)
 }
 
-func (i DomainEbsOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainEbsOptions] {
-	return pulumix.Output[DomainEbsOptions]{
-		OutputState: i.ToDomainEbsOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainEbsOptionsArgs) ToDomainEbsOptionsPtrOutput() DomainEbsOptionsPtrOutput {
 	return i.ToDomainEbsOptionsPtrOutputWithContext(context.Background())
 }
@@ -659,12 +580,6 @@ func (i *domainEbsOptionsPtrType) ToDomainEbsOptionsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEbsOptionsPtrOutput)
 }
 
-func (i *domainEbsOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainEbsOptions] {
-	return pulumix.Output[*DomainEbsOptions]{
-		OutputState: i.ToDomainEbsOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainEbsOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainEbsOptionsOutput) ElementType() reflect.Type {
@@ -687,12 +602,6 @@ func (o DomainEbsOptionsOutput) ToDomainEbsOptionsPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainEbsOptions) *DomainEbsOptions {
 		return &v
 	}).(DomainEbsOptionsPtrOutput)
-}
-
-func (o DomainEbsOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainEbsOptions] {
-	return pulumix.Output[DomainEbsOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainEbsOptionsOutput) EbsEnabled() pulumi.BoolPtrOutput {
@@ -723,12 +632,6 @@ func (o DomainEbsOptionsPtrOutput) ToDomainEbsOptionsPtrOutput() DomainEbsOption
 
 func (o DomainEbsOptionsPtrOutput) ToDomainEbsOptionsPtrOutputWithContext(ctx context.Context) DomainEbsOptionsPtrOutput {
 	return o
-}
-
-func (o DomainEbsOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainEbsOptions] {
-	return pulumix.Output[*DomainEbsOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainEbsOptionsPtrOutput) Elem() DomainEbsOptionsOutput {
@@ -828,12 +731,6 @@ func (i DomainElasticsearchClusterConfigArgs) ToDomainElasticsearchClusterConfig
 	return pulumi.ToOutputWithContext(ctx, i).(DomainElasticsearchClusterConfigOutput)
 }
 
-func (i DomainElasticsearchClusterConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DomainElasticsearchClusterConfig] {
-	return pulumix.Output[DomainElasticsearchClusterConfig]{
-		OutputState: i.ToDomainElasticsearchClusterConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainElasticsearchClusterConfigArgs) ToDomainElasticsearchClusterConfigPtrOutput() DomainElasticsearchClusterConfigPtrOutput {
 	return i.ToDomainElasticsearchClusterConfigPtrOutputWithContext(context.Background())
 }
@@ -875,12 +772,6 @@ func (i *domainElasticsearchClusterConfigPtrType) ToDomainElasticsearchClusterCo
 	return pulumi.ToOutputWithContext(ctx, i).(DomainElasticsearchClusterConfigPtrOutput)
 }
 
-func (i *domainElasticsearchClusterConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainElasticsearchClusterConfig] {
-	return pulumix.Output[*DomainElasticsearchClusterConfig]{
-		OutputState: i.ToDomainElasticsearchClusterConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainElasticsearchClusterConfigOutput struct{ *pulumi.OutputState }
 
 func (DomainElasticsearchClusterConfigOutput) ElementType() reflect.Type {
@@ -903,12 +794,6 @@ func (o DomainElasticsearchClusterConfigOutput) ToDomainElasticsearchClusterConf
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainElasticsearchClusterConfig) *DomainElasticsearchClusterConfig {
 		return &v
 	}).(DomainElasticsearchClusterConfigPtrOutput)
-}
-
-func (o DomainElasticsearchClusterConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DomainElasticsearchClusterConfig] {
-	return pulumix.Output[DomainElasticsearchClusterConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainElasticsearchClusterConfigOutput) ColdStorageOptions() DomainColdStorageOptionsPtrOutput {
@@ -967,12 +852,6 @@ func (o DomainElasticsearchClusterConfigPtrOutput) ToDomainElasticsearchClusterC
 
 func (o DomainElasticsearchClusterConfigPtrOutput) ToDomainElasticsearchClusterConfigPtrOutputWithContext(ctx context.Context) DomainElasticsearchClusterConfigPtrOutput {
 	return o
-}
-
-func (o DomainElasticsearchClusterConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainElasticsearchClusterConfig] {
-	return pulumix.Output[*DomainElasticsearchClusterConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainElasticsearchClusterConfigPtrOutput) Elem() DomainElasticsearchClusterConfigOutput {
@@ -1117,12 +996,6 @@ func (i DomainEncryptionAtRestOptionsArgs) ToDomainEncryptionAtRestOptionsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEncryptionAtRestOptionsOutput)
 }
 
-func (i DomainEncryptionAtRestOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainEncryptionAtRestOptions] {
-	return pulumix.Output[DomainEncryptionAtRestOptions]{
-		OutputState: i.ToDomainEncryptionAtRestOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainEncryptionAtRestOptionsArgs) ToDomainEncryptionAtRestOptionsPtrOutput() DomainEncryptionAtRestOptionsPtrOutput {
 	return i.ToDomainEncryptionAtRestOptionsPtrOutputWithContext(context.Background())
 }
@@ -1164,12 +1037,6 @@ func (i *domainEncryptionAtRestOptionsPtrType) ToDomainEncryptionAtRestOptionsPt
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEncryptionAtRestOptionsPtrOutput)
 }
 
-func (i *domainEncryptionAtRestOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainEncryptionAtRestOptions] {
-	return pulumix.Output[*DomainEncryptionAtRestOptions]{
-		OutputState: i.ToDomainEncryptionAtRestOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainEncryptionAtRestOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainEncryptionAtRestOptionsOutput) ElementType() reflect.Type {
@@ -1194,12 +1061,6 @@ func (o DomainEncryptionAtRestOptionsOutput) ToDomainEncryptionAtRestOptionsPtrO
 	}).(DomainEncryptionAtRestOptionsPtrOutput)
 }
 
-func (o DomainEncryptionAtRestOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainEncryptionAtRestOptions] {
-	return pulumix.Output[DomainEncryptionAtRestOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainEncryptionAtRestOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainEncryptionAtRestOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1220,12 +1081,6 @@ func (o DomainEncryptionAtRestOptionsPtrOutput) ToDomainEncryptionAtRestOptionsP
 
 func (o DomainEncryptionAtRestOptionsPtrOutput) ToDomainEncryptionAtRestOptionsPtrOutputWithContext(ctx context.Context) DomainEncryptionAtRestOptionsPtrOutput {
 	return o
-}
-
-func (o DomainEncryptionAtRestOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainEncryptionAtRestOptions] {
-	return pulumix.Output[*DomainEncryptionAtRestOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainEncryptionAtRestOptionsPtrOutput) Elem() DomainEncryptionAtRestOptionsOutput {
@@ -1295,12 +1150,6 @@ func (i DomainEndpointOptionsArgs) ToDomainEndpointOptionsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEndpointOptionsOutput)
 }
 
-func (i DomainEndpointOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainEndpointOptions] {
-	return pulumix.Output[DomainEndpointOptions]{
-		OutputState: i.ToDomainEndpointOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainEndpointOptionsArgs) ToDomainEndpointOptionsPtrOutput() DomainEndpointOptionsPtrOutput {
 	return i.ToDomainEndpointOptionsPtrOutputWithContext(context.Background())
 }
@@ -1342,12 +1191,6 @@ func (i *domainEndpointOptionsPtrType) ToDomainEndpointOptionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEndpointOptionsPtrOutput)
 }
 
-func (i *domainEndpointOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainEndpointOptions] {
-	return pulumix.Output[*DomainEndpointOptions]{
-		OutputState: i.ToDomainEndpointOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainEndpointOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainEndpointOptionsOutput) ElementType() reflect.Type {
@@ -1370,12 +1213,6 @@ func (o DomainEndpointOptionsOutput) ToDomainEndpointOptionsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainEndpointOptions) *DomainEndpointOptions {
 		return &v
 	}).(DomainEndpointOptionsPtrOutput)
-}
-
-func (o DomainEndpointOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainEndpointOptions] {
-	return pulumix.Output[DomainEndpointOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainEndpointOptionsOutput) CustomEndpoint() pulumi.StringPtrOutput {
@@ -1410,12 +1247,6 @@ func (o DomainEndpointOptionsPtrOutput) ToDomainEndpointOptionsPtrOutput() Domai
 
 func (o DomainEndpointOptionsPtrOutput) ToDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainEndpointOptionsPtrOutput {
 	return o
-}
-
-func (o DomainEndpointOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainEndpointOptions] {
-	return pulumix.Output[*DomainEndpointOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainEndpointOptionsPtrOutput) Elem() DomainEndpointOptionsOutput {
@@ -1508,12 +1339,6 @@ func (i DomainMasterUserOptionsArgs) ToDomainMasterUserOptionsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DomainMasterUserOptionsOutput)
 }
 
-func (i DomainMasterUserOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainMasterUserOptions] {
-	return pulumix.Output[DomainMasterUserOptions]{
-		OutputState: i.ToDomainMasterUserOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainMasterUserOptionsArgs) ToDomainMasterUserOptionsPtrOutput() DomainMasterUserOptionsPtrOutput {
 	return i.ToDomainMasterUserOptionsPtrOutputWithContext(context.Background())
 }
@@ -1555,12 +1380,6 @@ func (i *domainMasterUserOptionsPtrType) ToDomainMasterUserOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DomainMasterUserOptionsPtrOutput)
 }
 
-func (i *domainMasterUserOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainMasterUserOptions] {
-	return pulumix.Output[*DomainMasterUserOptions]{
-		OutputState: i.ToDomainMasterUserOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainMasterUserOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainMasterUserOptionsOutput) ElementType() reflect.Type {
@@ -1583,12 +1402,6 @@ func (o DomainMasterUserOptionsOutput) ToDomainMasterUserOptionsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainMasterUserOptions) *DomainMasterUserOptions {
 		return &v
 	}).(DomainMasterUserOptionsPtrOutput)
-}
-
-func (o DomainMasterUserOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainMasterUserOptions] {
-	return pulumix.Output[DomainMasterUserOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainMasterUserOptionsOutput) MasterUserArn() pulumi.StringPtrOutput {
@@ -1615,12 +1428,6 @@ func (o DomainMasterUserOptionsPtrOutput) ToDomainMasterUserOptionsPtrOutput() D
 
 func (o DomainMasterUserOptionsPtrOutput) ToDomainMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainMasterUserOptionsPtrOutput {
 	return o
-}
-
-func (o DomainMasterUserOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainMasterUserOptions] {
-	return pulumix.Output[*DomainMasterUserOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainMasterUserOptionsPtrOutput) Elem() DomainMasterUserOptionsOutput {
@@ -1691,12 +1498,6 @@ func (i DomainNodeToNodeEncryptionOptionsArgs) ToDomainNodeToNodeEncryptionOptio
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNodeToNodeEncryptionOptionsOutput)
 }
 
-func (i DomainNodeToNodeEncryptionOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainNodeToNodeEncryptionOptions] {
-	return pulumix.Output[DomainNodeToNodeEncryptionOptions]{
-		OutputState: i.ToDomainNodeToNodeEncryptionOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainNodeToNodeEncryptionOptionsArgs) ToDomainNodeToNodeEncryptionOptionsPtrOutput() DomainNodeToNodeEncryptionOptionsPtrOutput {
 	return i.ToDomainNodeToNodeEncryptionOptionsPtrOutputWithContext(context.Background())
 }
@@ -1738,12 +1539,6 @@ func (i *domainNodeToNodeEncryptionOptionsPtrType) ToDomainNodeToNodeEncryptionO
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNodeToNodeEncryptionOptionsPtrOutput)
 }
 
-func (i *domainNodeToNodeEncryptionOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainNodeToNodeEncryptionOptions] {
-	return pulumix.Output[*DomainNodeToNodeEncryptionOptions]{
-		OutputState: i.ToDomainNodeToNodeEncryptionOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainNodeToNodeEncryptionOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainNodeToNodeEncryptionOptionsOutput) ElementType() reflect.Type {
@@ -1768,12 +1563,6 @@ func (o DomainNodeToNodeEncryptionOptionsOutput) ToDomainNodeToNodeEncryptionOpt
 	}).(DomainNodeToNodeEncryptionOptionsPtrOutput)
 }
 
-func (o DomainNodeToNodeEncryptionOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainNodeToNodeEncryptionOptions] {
-	return pulumix.Output[DomainNodeToNodeEncryptionOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainNodeToNodeEncryptionOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainNodeToNodeEncryptionOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1790,12 +1579,6 @@ func (o DomainNodeToNodeEncryptionOptionsPtrOutput) ToDomainNodeToNodeEncryption
 
 func (o DomainNodeToNodeEncryptionOptionsPtrOutput) ToDomainNodeToNodeEncryptionOptionsPtrOutputWithContext(ctx context.Context) DomainNodeToNodeEncryptionOptionsPtrOutput {
 	return o
-}
-
-func (o DomainNodeToNodeEncryptionOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainNodeToNodeEncryptionOptions] {
-	return pulumix.Output[*DomainNodeToNodeEncryptionOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainNodeToNodeEncryptionOptionsPtrOutput) Elem() DomainNodeToNodeEncryptionOptionsOutput {
@@ -1848,12 +1631,6 @@ func (i DomainSnapshotOptionsArgs) ToDomainSnapshotOptionsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSnapshotOptionsOutput)
 }
 
-func (i DomainSnapshotOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainSnapshotOptions] {
-	return pulumix.Output[DomainSnapshotOptions]{
-		OutputState: i.ToDomainSnapshotOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainSnapshotOptionsArgs) ToDomainSnapshotOptionsPtrOutput() DomainSnapshotOptionsPtrOutput {
 	return i.ToDomainSnapshotOptionsPtrOutputWithContext(context.Background())
 }
@@ -1895,12 +1672,6 @@ func (i *domainSnapshotOptionsPtrType) ToDomainSnapshotOptionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSnapshotOptionsPtrOutput)
 }
 
-func (i *domainSnapshotOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainSnapshotOptions] {
-	return pulumix.Output[*DomainSnapshotOptions]{
-		OutputState: i.ToDomainSnapshotOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainSnapshotOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainSnapshotOptionsOutput) ElementType() reflect.Type {
@@ -1925,12 +1696,6 @@ func (o DomainSnapshotOptionsOutput) ToDomainSnapshotOptionsPtrOutputWithContext
 	}).(DomainSnapshotOptionsPtrOutput)
 }
 
-func (o DomainSnapshotOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainSnapshotOptions] {
-	return pulumix.Output[DomainSnapshotOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainSnapshotOptionsOutput) AutomatedSnapshotStartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainSnapshotOptions) *int { return v.AutomatedSnapshotStartHour }).(pulumi.IntPtrOutput)
 }
@@ -1947,12 +1712,6 @@ func (o DomainSnapshotOptionsPtrOutput) ToDomainSnapshotOptionsPtrOutput() Domai
 
 func (o DomainSnapshotOptionsPtrOutput) ToDomainSnapshotOptionsPtrOutputWithContext(ctx context.Context) DomainSnapshotOptionsPtrOutput {
 	return o
-}
-
-func (o DomainSnapshotOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainSnapshotOptions] {
-	return pulumix.Output[*DomainSnapshotOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainSnapshotOptionsPtrOutput) Elem() DomainSnapshotOptionsOutput {
@@ -2007,12 +1766,6 @@ func (i DomainTagArgs) ToDomainTagOutputWithContext(ctx context.Context) DomainT
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTagOutput)
 }
 
-func (i DomainTagArgs) ToOutput(ctx context.Context) pulumix.Output[DomainTag] {
-	return pulumix.Output[DomainTag]{
-		OutputState: i.ToDomainTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DomainTagArrayInput is an input type that accepts DomainTagArray and DomainTagArrayOutput values.
 // You can construct a concrete instance of `DomainTagArrayInput` via:
 //
@@ -2038,12 +1791,6 @@ func (i DomainTagArray) ToDomainTagArrayOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTagArrayOutput)
 }
 
-func (i DomainTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainTag] {
-	return pulumix.Output[[]DomainTag]{
-		OutputState: i.ToDomainTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainTagOutput struct{ *pulumi.OutputState }
 
 func (DomainTagOutput) ElementType() reflect.Type {
@@ -2056,12 +1803,6 @@ func (o DomainTagOutput) ToDomainTagOutput() DomainTagOutput {
 
 func (o DomainTagOutput) ToDomainTagOutputWithContext(ctx context.Context) DomainTagOutput {
 	return o
-}
-
-func (o DomainTagOutput) ToOutput(ctx context.Context) pulumix.Output[DomainTag] {
-	return pulumix.Output[DomainTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainTagOutput) Key() pulumi.StringOutput {
@@ -2084,12 +1825,6 @@ func (o DomainTagArrayOutput) ToDomainTagArrayOutput() DomainTagArrayOutput {
 
 func (o DomainTagArrayOutput) ToDomainTagArrayOutputWithContext(ctx context.Context) DomainTagArrayOutput {
 	return o
-}
-
-func (o DomainTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainTag] {
-	return pulumix.Output[[]DomainTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {
@@ -2129,12 +1864,6 @@ func (i DomainVpcOptionsArgs) ToDomainVpcOptionsOutput() DomainVpcOptionsOutput 
 
 func (i DomainVpcOptionsArgs) ToDomainVpcOptionsOutputWithContext(ctx context.Context) DomainVpcOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainVpcOptionsOutput)
-}
-
-func (i DomainVpcOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainVpcOptions] {
-	return pulumix.Output[DomainVpcOptions]{
-		OutputState: i.ToDomainVpcOptionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DomainVpcOptionsArgs) ToDomainVpcOptionsPtrOutput() DomainVpcOptionsPtrOutput {
@@ -2178,12 +1907,6 @@ func (i *domainVpcOptionsPtrType) ToDomainVpcOptionsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DomainVpcOptionsPtrOutput)
 }
 
-func (i *domainVpcOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainVpcOptions] {
-	return pulumix.Output[*DomainVpcOptions]{
-		OutputState: i.ToDomainVpcOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainVpcOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainVpcOptionsOutput) ElementType() reflect.Type {
@@ -2208,12 +1931,6 @@ func (o DomainVpcOptionsOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx conte
 	}).(DomainVpcOptionsPtrOutput)
 }
 
-func (o DomainVpcOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainVpcOptions] {
-	return pulumix.Output[DomainVpcOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -2234,12 +1951,6 @@ func (o DomainVpcOptionsPtrOutput) ToDomainVpcOptionsPtrOutput() DomainVpcOption
 
 func (o DomainVpcOptionsPtrOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx context.Context) DomainVpcOptionsPtrOutput {
 	return o
-}
-
-func (o DomainVpcOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainVpcOptions] {
-	return pulumix.Output[*DomainVpcOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainVpcOptionsPtrOutput) Elem() DomainVpcOptionsOutput {
@@ -2301,12 +2012,6 @@ func (i DomainZoneAwarenessConfigArgs) ToDomainZoneAwarenessConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainZoneAwarenessConfigOutput)
 }
 
-func (i DomainZoneAwarenessConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DomainZoneAwarenessConfig] {
-	return pulumix.Output[DomainZoneAwarenessConfig]{
-		OutputState: i.ToDomainZoneAwarenessConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainZoneAwarenessConfigArgs) ToDomainZoneAwarenessConfigPtrOutput() DomainZoneAwarenessConfigPtrOutput {
 	return i.ToDomainZoneAwarenessConfigPtrOutputWithContext(context.Background())
 }
@@ -2348,12 +2053,6 @@ func (i *domainZoneAwarenessConfigPtrType) ToDomainZoneAwarenessConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DomainZoneAwarenessConfigPtrOutput)
 }
 
-func (i *domainZoneAwarenessConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainZoneAwarenessConfig] {
-	return pulumix.Output[*DomainZoneAwarenessConfig]{
-		OutputState: i.ToDomainZoneAwarenessConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainZoneAwarenessConfigOutput struct{ *pulumi.OutputState }
 
 func (DomainZoneAwarenessConfigOutput) ElementType() reflect.Type {
@@ -2378,12 +2077,6 @@ func (o DomainZoneAwarenessConfigOutput) ToDomainZoneAwarenessConfigPtrOutputWit
 	}).(DomainZoneAwarenessConfigPtrOutput)
 }
 
-func (o DomainZoneAwarenessConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DomainZoneAwarenessConfig] {
-	return pulumix.Output[DomainZoneAwarenessConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainZoneAwarenessConfigOutput) AvailabilityZoneCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainZoneAwarenessConfig) *int { return v.AvailabilityZoneCount }).(pulumi.IntPtrOutput)
 }
@@ -2400,12 +2093,6 @@ func (o DomainZoneAwarenessConfigPtrOutput) ToDomainZoneAwarenessConfigPtrOutput
 
 func (o DomainZoneAwarenessConfigPtrOutput) ToDomainZoneAwarenessConfigPtrOutputWithContext(ctx context.Context) DomainZoneAwarenessConfigPtrOutput {
 	return o
-}
-
-func (o DomainZoneAwarenessConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainZoneAwarenessConfig] {
-	return pulumix.Output[*DomainZoneAwarenessConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainZoneAwarenessConfigPtrOutput) Elem() DomainZoneAwarenessConfigOutput {

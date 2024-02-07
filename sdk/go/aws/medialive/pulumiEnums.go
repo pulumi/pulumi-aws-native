@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type MultiplexStateEnum string
@@ -49,12 +48,6 @@ func (o MultiplexStateEnumOutput) ToMultiplexStateEnumPtrOutputWithContext(ctx c
 	}).(MultiplexStateEnumPtrOutput)
 }
 
-func (o MultiplexStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexStateEnum] {
-	return pulumix.Output[MultiplexStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MultiplexStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -88,12 +81,6 @@ func (o MultiplexStateEnumPtrOutput) ToMultiplexStateEnumPtrOutput() MultiplexSt
 
 func (o MultiplexStateEnumPtrOutput) ToMultiplexStateEnumPtrOutputWithContext(ctx context.Context) MultiplexStateEnumPtrOutput {
 	return o
-}
-
-func (o MultiplexStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiplexStateEnum] {
-	return pulumix.Output[*MultiplexStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexStateEnumPtrOutput) Elem() MultiplexStateEnumOutput {
@@ -193,12 +180,6 @@ func (o MultiplexprogramPreferredChannelPipelineOutput) ToMultiplexprogramPrefer
 	}).(MultiplexprogramPreferredChannelPipelinePtrOutput)
 }
 
-func (o MultiplexprogramPreferredChannelPipelineOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexprogramPreferredChannelPipeline] {
-	return pulumix.Output[MultiplexprogramPreferredChannelPipeline]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MultiplexprogramPreferredChannelPipelineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -234,12 +215,6 @@ func (o MultiplexprogramPreferredChannelPipelinePtrOutput) ToMultiplexprogramPre
 	return o
 }
 
-func (o MultiplexprogramPreferredChannelPipelinePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiplexprogramPreferredChannelPipeline] {
-	return pulumix.Output[*MultiplexprogramPreferredChannelPipeline]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MultiplexprogramPreferredChannelPipelinePtrOutput) Elem() MultiplexprogramPreferredChannelPipelineOutput {
 	return o.ApplyT(func(v *MultiplexprogramPreferredChannelPipeline) MultiplexprogramPreferredChannelPipeline {
 		if v != nil {
@@ -264,10 +239,12 @@ func (o MultiplexprogramPreferredChannelPipelinePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// MultiplexprogramPreferredChannelPipelineInput is an input type that accepts MultiplexprogramPreferredChannelPipelineArgs and MultiplexprogramPreferredChannelPipelineOutput values.
-// You can construct a concrete instance of `MultiplexprogramPreferredChannelPipelineInput` via:
+// MultiplexprogramPreferredChannelPipelineInput is an input type that accepts values of the MultiplexprogramPreferredChannelPipeline enum
+// A concrete instance of `MultiplexprogramPreferredChannelPipelineInput` can be one of the following:
 //
-//	MultiplexprogramPreferredChannelPipelineArgs{...}
+//	MultiplexprogramPreferredChannelPipelineCurrentlyActive
+//	MultiplexprogramPreferredChannelPipelinePipeline0
+//	MultiplexprogramPreferredChannelPipelinePipeline1
 type MultiplexprogramPreferredChannelPipelineInput interface {
 	pulumi.Input
 
@@ -300,12 +277,6 @@ func (in *multiplexprogramPreferredChannelPipelinePtr) ToMultiplexprogramPreferr
 
 func (in *multiplexprogramPreferredChannelPipelinePtr) ToMultiplexprogramPreferredChannelPipelinePtrOutputWithContext(ctx context.Context) MultiplexprogramPreferredChannelPipelinePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MultiplexprogramPreferredChannelPipelinePtrOutput)
-}
-
-func (in *multiplexprogramPreferredChannelPipelinePtr) ToOutput(ctx context.Context) pulumix.Output[*MultiplexprogramPreferredChannelPipeline] {
-	return pulumix.Output[*MultiplexprogramPreferredChannelPipeline]{
-		OutputState: in.ToMultiplexprogramPreferredChannelPipelinePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

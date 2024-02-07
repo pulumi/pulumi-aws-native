@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::NetworkManager::TransitGatewayRouteTableAttachment Resource Type definition.
@@ -147,12 +146,6 @@ func (i *TransitGatewayRouteTableAttachment) ToTransitGatewayRouteTableAttachmen
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentOutput)
 }
 
-func (i *TransitGatewayRouteTableAttachment) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRouteTableAttachment] {
-	return pulumix.Output[*TransitGatewayRouteTableAttachment]{
-		OutputState: i.ToTransitGatewayRouteTableAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransitGatewayRouteTableAttachmentOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayRouteTableAttachmentOutput) ElementType() reflect.Type {
@@ -165,12 +158,6 @@ func (o TransitGatewayRouteTableAttachmentOutput) ToTransitGatewayRouteTableAtta
 
 func (o TransitGatewayRouteTableAttachmentOutput) ToTransitGatewayRouteTableAttachmentOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentOutput {
 	return o
-}
-
-func (o TransitGatewayRouteTableAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRouteTableAttachment] {
-	return pulumix.Output[*TransitGatewayRouteTableAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the attachment.

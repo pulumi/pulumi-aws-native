@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::AppBlockBuilder.
@@ -136,12 +135,6 @@ func (i *AppBlockBuilder) ToAppBlockBuilderOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AppBlockBuilderOutput)
 }
 
-func (i *AppBlockBuilder) ToOutput(ctx context.Context) pulumix.Output[*AppBlockBuilder] {
-	return pulumix.Output[*AppBlockBuilder]{
-		OutputState: i.ToAppBlockBuilderOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppBlockBuilderOutput struct{ *pulumi.OutputState }
 
 func (AppBlockBuilderOutput) ElementType() reflect.Type {
@@ -154,12 +147,6 @@ func (o AppBlockBuilderOutput) ToAppBlockBuilderOutput() AppBlockBuilderOutput {
 
 func (o AppBlockBuilderOutput) ToAppBlockBuilderOutputWithContext(ctx context.Context) AppBlockBuilderOutput {
 	return o
-}
-
-func (o AppBlockBuilderOutput) ToOutput(ctx context.Context) pulumix.Output[*AppBlockBuilder] {
-	return pulumix.Output[*AppBlockBuilder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppBlockBuilderOutput) AccessEndpoints() AppBlockBuilderAccessEndpointArrayOutput {

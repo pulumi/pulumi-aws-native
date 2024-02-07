@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::Flow
@@ -125,12 +124,6 @@ func (i *Flow) ToFlowOutputWithContext(ctx context.Context) FlowOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlowOutput)
 }
 
-func (i *Flow) ToOutput(ctx context.Context) pulumix.Output[*Flow] {
-	return pulumix.Output[*Flow]{
-		OutputState: i.ToFlowOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowOutput struct{ *pulumi.OutputState }
 
 func (FlowOutput) ElementType() reflect.Type {
@@ -143,12 +136,6 @@ func (o FlowOutput) ToFlowOutput() FlowOutput {
 
 func (o FlowOutput) ToFlowOutputWithContext(ctx context.Context) FlowOutput {
 	return o
-}
-
-func (o FlowOutput) ToOutput(ctx context.Context) pulumix.Output[*Flow] {
-	return pulumix.Output[*Flow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.

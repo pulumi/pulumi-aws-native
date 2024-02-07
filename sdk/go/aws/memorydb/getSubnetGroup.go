@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
@@ -73,12 +72,6 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutput() LookupS
 
 func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContext(ctx context.Context) LookupSubnetGroupResultOutput {
 	return o
-}
-
-func (o LookupSubnetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubnetGroupResult] {
-	return pulumix.Output[LookupSubnetGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the subnet group.

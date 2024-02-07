@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::UserAccessLoggingSettings Resource Type
@@ -68,12 +67,6 @@ func (o LookupUserAccessLoggingSettingsResultOutput) ToLookupUserAccessLoggingSe
 
 func (o LookupUserAccessLoggingSettingsResultOutput) ToLookupUserAccessLoggingSettingsResultOutputWithContext(ctx context.Context) LookupUserAccessLoggingSettingsResultOutput {
 	return o
-}
-
-func (o LookupUserAccessLoggingSettingsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserAccessLoggingSettingsResult] {
-	return pulumix.Output[LookupUserAccessLoggingSettingsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupUserAccessLoggingSettingsResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {

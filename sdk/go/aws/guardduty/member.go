@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GuardDuty::Member
@@ -123,12 +122,6 @@ func (i *Member) ToMemberOutputWithContext(ctx context.Context) MemberOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MemberOutput)
 }
 
-func (i *Member) ToOutput(ctx context.Context) pulumix.Output[*Member] {
-	return pulumix.Output[*Member]{
-		OutputState: i.ToMemberOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MemberOutput struct{ *pulumi.OutputState }
 
 func (MemberOutput) ElementType() reflect.Type {
@@ -141,12 +134,6 @@ func (o MemberOutput) ToMemberOutput() MemberOutput {
 
 func (o MemberOutput) ToMemberOutputWithContext(ctx context.Context) MemberOutput {
 	return o
-}
-
-func (o MemberOutput) ToOutput(ctx context.Context) pulumix.Output[*Member] {
-	return pulumix.Output[*Member]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberOutput) DetectorId() pulumi.StringOutput {

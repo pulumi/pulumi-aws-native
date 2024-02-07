@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i ZonalAutoshiftConfigurationControlConditionArgs) ToZonalAutoshiftConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ZonalAutoshiftConfigurationControlConditionOutput)
 }
 
-func (i ZonalAutoshiftConfigurationControlConditionArgs) ToOutput(ctx context.Context) pulumix.Output[ZonalAutoshiftConfigurationControlCondition] {
-	return pulumix.Output[ZonalAutoshiftConfigurationControlCondition]{
-		OutputState: i.ToZonalAutoshiftConfigurationControlConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ZonalAutoshiftConfigurationControlConditionArrayInput is an input type that accepts ZonalAutoshiftConfigurationControlConditionArray and ZonalAutoshiftConfigurationControlConditionArrayOutput values.
 // You can construct a concrete instance of `ZonalAutoshiftConfigurationControlConditionArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i ZonalAutoshiftConfigurationControlConditionArray) ToZonalAutoshiftConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ZonalAutoshiftConfigurationControlConditionArrayOutput)
 }
 
-func (i ZonalAutoshiftConfigurationControlConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]ZonalAutoshiftConfigurationControlCondition] {
-	return pulumix.Output[[]ZonalAutoshiftConfigurationControlCondition]{
-		OutputState: i.ToZonalAutoshiftConfigurationControlConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ZonalAutoshiftConfigurationControlConditionOutput struct{ *pulumi.OutputState }
 
 func (ZonalAutoshiftConfigurationControlConditionOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o ZonalAutoshiftConfigurationControlConditionOutput) ToZonalAutoshiftConfi
 
 func (o ZonalAutoshiftConfigurationControlConditionOutput) ToZonalAutoshiftConfigurationControlConditionOutputWithContext(ctx context.Context) ZonalAutoshiftConfigurationControlConditionOutput {
 	return o
-}
-
-func (o ZonalAutoshiftConfigurationControlConditionOutput) ToOutput(ctx context.Context) pulumix.Output[ZonalAutoshiftConfigurationControlCondition] {
-	return pulumix.Output[ZonalAutoshiftConfigurationControlCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ZonalAutoshiftConfigurationControlConditionOutput) AlarmIdentifier() pulumi.StringOutput {
@@ -126,12 +107,6 @@ func (o ZonalAutoshiftConfigurationControlConditionArrayOutput) ToZonalAutoshift
 
 func (o ZonalAutoshiftConfigurationControlConditionArrayOutput) ToZonalAutoshiftConfigurationControlConditionArrayOutputWithContext(ctx context.Context) ZonalAutoshiftConfigurationControlConditionArrayOutput {
 	return o
-}
-
-func (o ZonalAutoshiftConfigurationControlConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ZonalAutoshiftConfigurationControlCondition] {
-	return pulumix.Output[[]ZonalAutoshiftConfigurationControlCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ZonalAutoshiftConfigurationControlConditionArrayOutput) Index(i pulumi.IntInput) ZonalAutoshiftConfigurationControlConditionOutput {
@@ -177,12 +152,6 @@ func (i ZonalAutoshiftConfigurationPracticeRunConfigurationArgs) ToZonalAutoshif
 	return pulumi.ToOutputWithContext(ctx, i).(ZonalAutoshiftConfigurationPracticeRunConfigurationOutput)
 }
 
-func (i ZonalAutoshiftConfigurationPracticeRunConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ZonalAutoshiftConfigurationPracticeRunConfiguration] {
-	return pulumix.Output[ZonalAutoshiftConfigurationPracticeRunConfiguration]{
-		OutputState: i.ToZonalAutoshiftConfigurationPracticeRunConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ZonalAutoshiftConfigurationPracticeRunConfigurationArgs) ToZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput() ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput {
 	return i.ToZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutputWithContext(context.Background())
 }
@@ -224,12 +193,6 @@ func (i *zonalAutoshiftConfigurationPracticeRunConfigurationPtrType) ToZonalAuto
 	return pulumi.ToOutputWithContext(ctx, i).(ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput)
 }
 
-func (i *zonalAutoshiftConfigurationPracticeRunConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ZonalAutoshiftConfigurationPracticeRunConfiguration] {
-	return pulumix.Output[*ZonalAutoshiftConfigurationPracticeRunConfiguration]{
-		OutputState: i.ToZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ZonalAutoshiftConfigurationPracticeRunConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ZonalAutoshiftConfigurationPracticeRunConfigurationOutput) ElementType() reflect.Type {
@@ -252,12 +215,6 @@ func (o ZonalAutoshiftConfigurationPracticeRunConfigurationOutput) ToZonalAutosh
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ZonalAutoshiftConfigurationPracticeRunConfiguration) *ZonalAutoshiftConfigurationPracticeRunConfiguration {
 		return &v
 	}).(ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput)
-}
-
-func (o ZonalAutoshiftConfigurationPracticeRunConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ZonalAutoshiftConfigurationPracticeRunConfiguration] {
-	return pulumix.Output[ZonalAutoshiftConfigurationPracticeRunConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationOutput) BlockedDates() pulumi.StringArrayOutput {
@@ -292,12 +249,6 @@ func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) ToZonalAut
 
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) ToZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutputWithContext(ctx context.Context) ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput {
 	return o
-}
-
-func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ZonalAutoshiftConfigurationPracticeRunConfiguration] {
-	return pulumix.Output[*ZonalAutoshiftConfigurationPracticeRunConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) Elem() ZonalAutoshiftConfigurationPracticeRunConfigurationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
@@ -87,12 +86,6 @@ func (o LookupAccountPolicyResultOutput) ToLookupAccountPolicyResultOutput() Loo
 
 func (o LookupAccountPolicyResultOutput) ToLookupAccountPolicyResultOutputWithContext(ctx context.Context) LookupAccountPolicyResultOutput {
 	return o
-}
-
-func (o LookupAccountPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccountPolicyResult] {
-	return pulumix.Output[LookupAccountPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // User account id

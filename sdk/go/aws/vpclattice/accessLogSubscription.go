@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
@@ -107,12 +106,6 @@ func (i *AccessLogSubscription) ToAccessLogSubscriptionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AccessLogSubscriptionOutput)
 }
 
-func (i *AccessLogSubscription) ToOutput(ctx context.Context) pulumix.Output[*AccessLogSubscription] {
-	return pulumix.Output[*AccessLogSubscription]{
-		OutputState: i.ToAccessLogSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessLogSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (AccessLogSubscriptionOutput) ElementType() reflect.Type {
@@ -125,12 +118,6 @@ func (o AccessLogSubscriptionOutput) ToAccessLogSubscriptionOutput() AccessLogSu
 
 func (o AccessLogSubscriptionOutput) ToAccessLogSubscriptionOutputWithContext(ctx context.Context) AccessLogSubscriptionOutput {
 	return o
-}
-
-func (o AccessLogSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessLogSubscription] {
-	return pulumix.Output[*AccessLogSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessLogSubscriptionOutput) Arn() pulumi.StringOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
@@ -64,12 +63,6 @@ func (o LookupSubnetRouteTableAssociationResultOutput) ToLookupSubnetRouteTableA
 
 func (o LookupSubnetRouteTableAssociationResultOutput) ToLookupSubnetRouteTableAssociationResultOutputWithContext(ctx context.Context) LookupSubnetRouteTableAssociationResultOutput {
 	return o
-}
-
-func (o LookupSubnetRouteTableAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubnetRouteTableAssociationResult] {
-	return pulumix.Output[LookupSubnetRouteTableAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSubnetRouteTableAssociationResultOutput) Id() pulumi.StringPtrOutput {

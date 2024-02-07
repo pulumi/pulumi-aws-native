@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type FleetComputeType string
@@ -80,12 +79,6 @@ func (o FleetComputeTypeOutput) ToFleetComputeTypePtrOutputWithContext(ctx conte
 	}).(FleetComputeTypePtrOutput)
 }
 
-func (o FleetComputeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetComputeType] {
-	return pulumix.Output[FleetComputeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetComputeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +114,6 @@ func (o FleetComputeTypePtrOutput) ToFleetComputeTypePtrOutputWithContext(ctx co
 	return o
 }
 
-func (o FleetComputeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetComputeType] {
-	return pulumix.Output[*FleetComputeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetComputeTypePtrOutput) Elem() FleetComputeTypeOutput {
 	return o.ApplyT(func(v *FleetComputeType) FleetComputeType {
 		if v != nil {
@@ -151,10 +138,13 @@ func (o FleetComputeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetComputeTypeInput is an input type that accepts FleetComputeTypeArgs and FleetComputeTypeOutput values.
-// You can construct a concrete instance of `FleetComputeTypeInput` via:
+// FleetComputeTypeInput is an input type that accepts values of the FleetComputeType enum
+// A concrete instance of `FleetComputeTypeInput` can be one of the following:
 //
-//	FleetComputeTypeArgs{...}
+//	FleetComputeTypeBuildGeneral1Small
+//	FleetComputeTypeBuildGeneral1Medium
+//	FleetComputeTypeBuildGeneral1Large
+//	FleetComputeTypeBuildGeneral12xlarge
 type FleetComputeTypeInput interface {
 	pulumi.Input
 
@@ -187,12 +177,6 @@ func (in *fleetComputeTypePtr) ToFleetComputeTypePtrOutput() FleetComputeTypePtr
 
 func (in *fleetComputeTypePtr) ToFleetComputeTypePtrOutputWithContext(ctx context.Context) FleetComputeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FleetComputeTypePtrOutput)
-}
-
-func (in *fleetComputeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FleetComputeType] {
-	return pulumix.Output[*FleetComputeType]{
-		OutputState: in.ToFleetComputeTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type FleetEnvironmentType string
@@ -265,12 +249,6 @@ func (o FleetEnvironmentTypeOutput) ToFleetEnvironmentTypePtrOutputWithContext(c
 	}).(FleetEnvironmentTypePtrOutput)
 }
 
-func (o FleetEnvironmentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetEnvironmentType] {
-	return pulumix.Output[FleetEnvironmentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetEnvironmentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -306,12 +284,6 @@ func (o FleetEnvironmentTypePtrOutput) ToFleetEnvironmentTypePtrOutputWithContex
 	return o
 }
 
-func (o FleetEnvironmentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetEnvironmentType] {
-	return pulumix.Output[*FleetEnvironmentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetEnvironmentTypePtrOutput) Elem() FleetEnvironmentTypeOutput {
 	return o.ApplyT(func(v *FleetEnvironmentType) FleetEnvironmentType {
 		if v != nil {
@@ -336,10 +308,14 @@ func (o FleetEnvironmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetEnvironmentTypeInput is an input type that accepts FleetEnvironmentTypeArgs and FleetEnvironmentTypeOutput values.
-// You can construct a concrete instance of `FleetEnvironmentTypeInput` via:
+// FleetEnvironmentTypeInput is an input type that accepts values of the FleetEnvironmentType enum
+// A concrete instance of `FleetEnvironmentTypeInput` can be one of the following:
 //
-//	FleetEnvironmentTypeArgs{...}
+//	FleetEnvironmentTypeWindowsServer2019Container
+//	FleetEnvironmentTypeWindowsServer2022Container
+//	FleetEnvironmentTypeLinuxContainer
+//	FleetEnvironmentTypeLinuxGpuContainer
+//	FleetEnvironmentTypeArmContainer
 type FleetEnvironmentTypeInput interface {
 	pulumi.Input
 
@@ -372,12 +348,6 @@ func (in *fleetEnvironmentTypePtr) ToFleetEnvironmentTypePtrOutput() FleetEnviro
 
 func (in *fleetEnvironmentTypePtr) ToFleetEnvironmentTypePtrOutputWithContext(ctx context.Context) FleetEnvironmentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FleetEnvironmentTypePtrOutput)
-}
-
-func (in *fleetEnvironmentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FleetEnvironmentType] {
-	return pulumix.Output[*FleetEnvironmentType]{
-		OutputState: in.ToFleetEnvironmentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

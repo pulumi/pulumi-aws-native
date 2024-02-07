@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
@@ -95,12 +94,6 @@ func (i *CloudFrontOriginAccessIdentity) ToCloudFrontOriginAccessIdentityOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFrontOriginAccessIdentityOutput)
 }
 
-func (i *CloudFrontOriginAccessIdentity) ToOutput(ctx context.Context) pulumix.Output[*CloudFrontOriginAccessIdentity] {
-	return pulumix.Output[*CloudFrontOriginAccessIdentity]{
-		OutputState: i.ToCloudFrontOriginAccessIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudFrontOriginAccessIdentityOutput struct{ *pulumi.OutputState }
 
 func (CloudFrontOriginAccessIdentityOutput) ElementType() reflect.Type {
@@ -113,12 +106,6 @@ func (o CloudFrontOriginAccessIdentityOutput) ToCloudFrontOriginAccessIdentityOu
 
 func (o CloudFrontOriginAccessIdentityOutput) ToCloudFrontOriginAccessIdentityOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityOutput {
 	return o
-}
-
-func (o CloudFrontOriginAccessIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFrontOriginAccessIdentity] {
-	return pulumix.Output[*CloudFrontOriginAccessIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFrontOriginAccessIdentityOutput) CloudFrontOriginAccessIdentityConfig() CloudFrontOriginAccessIdentityConfigOutput {

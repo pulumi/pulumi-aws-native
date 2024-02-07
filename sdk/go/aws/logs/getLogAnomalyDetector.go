@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Logs::LogAnomalyDetector resource specifies a CloudWatch Logs LogAnomalyDetector.
@@ -83,12 +82,6 @@ func (o LookupLogAnomalyDetectorResultOutput) ToLookupLogAnomalyDetectorResultOu
 
 func (o LookupLogAnomalyDetectorResultOutput) ToLookupLogAnomalyDetectorResultOutputWithContext(ctx context.Context) LookupLogAnomalyDetectorResultOutput {
 	return o
-}
-
-func (o LookupLogAnomalyDetectorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLogAnomalyDetectorResult] {
-	return pulumix.Output[LookupLogAnomalyDetectorResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of LogAnomalyDetector

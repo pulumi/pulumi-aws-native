@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
@@ -75,12 +74,6 @@ func (o LookupResolverQueryLoggingConfigAssociationResultOutput) ToLookupResolve
 
 func (o LookupResolverQueryLoggingConfigAssociationResultOutput) ToLookupResolverQueryLoggingConfigAssociationResultOutputWithContext(ctx context.Context) LookupResolverQueryLoggingConfigAssociationResultOutput {
 	return o
-}
-
-func (o LookupResolverQueryLoggingConfigAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverQueryLoggingConfigAssociationResult] {
-	return pulumix.Output[LookupResolverQueryLoggingConfigAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Rfc3339TimeString

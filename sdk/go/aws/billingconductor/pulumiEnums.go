@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type BillingGroupStatus string
@@ -40,12 +39,6 @@ func (o BillingGroupStatusOutput) ToBillingGroupStatusPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BillingGroupStatus) *BillingGroupStatus {
 		return &v
 	}).(BillingGroupStatusPtrOutput)
-}
-
-func (o BillingGroupStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BillingGroupStatus] {
-	return pulumix.Output[BillingGroupStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BillingGroupStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -81,12 +74,6 @@ func (o BillingGroupStatusPtrOutput) ToBillingGroupStatusPtrOutput() BillingGrou
 
 func (o BillingGroupStatusPtrOutput) ToBillingGroupStatusPtrOutputWithContext(ctx context.Context) BillingGroupStatusPtrOutput {
 	return o
-}
-
-func (o BillingGroupStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BillingGroupStatus] {
-	return pulumix.Output[*BillingGroupStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BillingGroupStatusPtrOutput) Elem() BillingGroupStatusOutput {
@@ -144,12 +131,6 @@ func (o CustomLineItemCurrencyCodeOutput) ToCustomLineItemCurrencyCodePtrOutputW
 	}).(CustomLineItemCurrencyCodePtrOutput)
 }
 
-func (o CustomLineItemCurrencyCodeOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemCurrencyCode] {
-	return pulumix.Output[CustomLineItemCurrencyCode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomLineItemCurrencyCodeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -183,12 +164,6 @@ func (o CustomLineItemCurrencyCodePtrOutput) ToCustomLineItemCurrencyCodePtrOutp
 
 func (o CustomLineItemCurrencyCodePtrOutput) ToCustomLineItemCurrencyCodePtrOutputWithContext(ctx context.Context) CustomLineItemCurrencyCodePtrOutput {
 	return o
-}
-
-func (o CustomLineItemCurrencyCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemCurrencyCode] {
-	return pulumix.Output[*CustomLineItemCurrencyCode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomLineItemCurrencyCodePtrOutput) Elem() CustomLineItemCurrencyCodeOutput {
@@ -281,12 +256,6 @@ func (o CustomLineItemLineItemFilterAttributeOutput) ToCustomLineItemLineItemFil
 	}).(CustomLineItemLineItemFilterAttributePtrOutput)
 }
 
-func (o CustomLineItemLineItemFilterAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemLineItemFilterAttribute] {
-	return pulumix.Output[CustomLineItemLineItemFilterAttribute]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomLineItemLineItemFilterAttributeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -322,12 +291,6 @@ func (o CustomLineItemLineItemFilterAttributePtrOutput) ToCustomLineItemLineItem
 	return o
 }
 
-func (o CustomLineItemLineItemFilterAttributePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemLineItemFilterAttribute] {
-	return pulumix.Output[*CustomLineItemLineItemFilterAttribute]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomLineItemLineItemFilterAttributePtrOutput) Elem() CustomLineItemLineItemFilterAttributeOutput {
 	return o.ApplyT(func(v *CustomLineItemLineItemFilterAttribute) CustomLineItemLineItemFilterAttribute {
 		if v != nil {
@@ -352,10 +315,10 @@ func (o CustomLineItemLineItemFilterAttributePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// CustomLineItemLineItemFilterAttributeInput is an input type that accepts CustomLineItemLineItemFilterAttributeArgs and CustomLineItemLineItemFilterAttributeOutput values.
-// You can construct a concrete instance of `CustomLineItemLineItemFilterAttributeInput` via:
+// CustomLineItemLineItemFilterAttributeInput is an input type that accepts values of the CustomLineItemLineItemFilterAttribute enum
+// A concrete instance of `CustomLineItemLineItemFilterAttributeInput` can be one of the following:
 //
-//	CustomLineItemLineItemFilterAttributeArgs{...}
+//	CustomLineItemLineItemFilterAttributeLineItemType
 type CustomLineItemLineItemFilterAttributeInput interface {
 	pulumi.Input
 
@@ -388,12 +351,6 @@ func (in *customLineItemLineItemFilterAttributePtr) ToCustomLineItemLineItemFilt
 
 func (in *customLineItemLineItemFilterAttributePtr) ToCustomLineItemLineItemFilterAttributePtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterAttributePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CustomLineItemLineItemFilterAttributePtrOutput)
-}
-
-func (in *customLineItemLineItemFilterAttributePtr) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemLineItemFilterAttribute] {
-	return pulumix.Output[*CustomLineItemLineItemFilterAttribute]{
-		OutputState: in.ToCustomLineItemLineItemFilterAttributePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type CustomLineItemLineItemFilterMatchOption string
@@ -462,12 +419,6 @@ func (o CustomLineItemLineItemFilterMatchOptionOutput) ToCustomLineItemLineItemF
 	}).(CustomLineItemLineItemFilterMatchOptionPtrOutput)
 }
 
-func (o CustomLineItemLineItemFilterMatchOptionOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemLineItemFilterMatchOption] {
-	return pulumix.Output[CustomLineItemLineItemFilterMatchOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomLineItemLineItemFilterMatchOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -503,12 +454,6 @@ func (o CustomLineItemLineItemFilterMatchOptionPtrOutput) ToCustomLineItemLineIt
 	return o
 }
 
-func (o CustomLineItemLineItemFilterMatchOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemLineItemFilterMatchOption] {
-	return pulumix.Output[*CustomLineItemLineItemFilterMatchOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomLineItemLineItemFilterMatchOptionPtrOutput) Elem() CustomLineItemLineItemFilterMatchOptionOutput {
 	return o.ApplyT(func(v *CustomLineItemLineItemFilterMatchOption) CustomLineItemLineItemFilterMatchOption {
 		if v != nil {
@@ -533,10 +478,10 @@ func (o CustomLineItemLineItemFilterMatchOptionPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// CustomLineItemLineItemFilterMatchOptionInput is an input type that accepts CustomLineItemLineItemFilterMatchOptionArgs and CustomLineItemLineItemFilterMatchOptionOutput values.
-// You can construct a concrete instance of `CustomLineItemLineItemFilterMatchOptionInput` via:
+// CustomLineItemLineItemFilterMatchOptionInput is an input type that accepts values of the CustomLineItemLineItemFilterMatchOption enum
+// A concrete instance of `CustomLineItemLineItemFilterMatchOptionInput` can be one of the following:
 //
-//	CustomLineItemLineItemFilterMatchOptionArgs{...}
+//	CustomLineItemLineItemFilterMatchOptionNotEqual
 type CustomLineItemLineItemFilterMatchOptionInput interface {
 	pulumi.Input
 
@@ -569,12 +514,6 @@ func (in *customLineItemLineItemFilterMatchOptionPtr) ToCustomLineItemLineItemFi
 
 func (in *customLineItemLineItemFilterMatchOptionPtr) ToCustomLineItemLineItemFilterMatchOptionPtrOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterMatchOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CustomLineItemLineItemFilterMatchOptionPtrOutput)
-}
-
-func (in *customLineItemLineItemFilterMatchOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemLineItemFilterMatchOption] {
-	return pulumix.Output[*CustomLineItemLineItemFilterMatchOption]{
-		OutputState: in.ToCustomLineItemLineItemFilterMatchOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type CustomLineItemLineItemFilterValue string
@@ -643,12 +582,6 @@ func (o CustomLineItemLineItemFilterValueOutput) ToCustomLineItemLineItemFilterV
 	}).(CustomLineItemLineItemFilterValuePtrOutput)
 }
 
-func (o CustomLineItemLineItemFilterValueOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemLineItemFilterValue] {
-	return pulumix.Output[CustomLineItemLineItemFilterValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomLineItemLineItemFilterValueOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -684,12 +617,6 @@ func (o CustomLineItemLineItemFilterValuePtrOutput) ToCustomLineItemLineItemFilt
 	return o
 }
 
-func (o CustomLineItemLineItemFilterValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemLineItemFilterValue] {
-	return pulumix.Output[*CustomLineItemLineItemFilterValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomLineItemLineItemFilterValuePtrOutput) Elem() CustomLineItemLineItemFilterValueOutput {
 	return o.ApplyT(func(v *CustomLineItemLineItemFilterValue) CustomLineItemLineItemFilterValue {
 		if v != nil {
@@ -714,10 +641,10 @@ func (o CustomLineItemLineItemFilterValuePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// CustomLineItemLineItemFilterValueInput is an input type that accepts CustomLineItemLineItemFilterValueArgs and CustomLineItemLineItemFilterValueOutput values.
-// You can construct a concrete instance of `CustomLineItemLineItemFilterValueInput` via:
+// CustomLineItemLineItemFilterValueInput is an input type that accepts values of the CustomLineItemLineItemFilterValue enum
+// A concrete instance of `CustomLineItemLineItemFilterValueInput` can be one of the following:
 //
-//	CustomLineItemLineItemFilterValueArgs{...}
+//	CustomLineItemLineItemFilterValueSavingsPlanNegation
 type CustomLineItemLineItemFilterValueInput interface {
 	pulumi.Input
 
@@ -752,12 +679,6 @@ func (in *customLineItemLineItemFilterValuePtr) ToCustomLineItemLineItemFilterVa
 	return pulumi.ToOutputWithContext(ctx, in).(CustomLineItemLineItemFilterValuePtrOutput)
 }
 
-func (in *customLineItemLineItemFilterValuePtr) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemLineItemFilterValue] {
-	return pulumix.Output[*CustomLineItemLineItemFilterValue]{
-		OutputState: in.ToCustomLineItemLineItemFilterValuePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CustomLineItemLineItemFilterValueArrayInput is an input type that accepts CustomLineItemLineItemFilterValueArray and CustomLineItemLineItemFilterValueArrayOutput values.
 // You can construct a concrete instance of `CustomLineItemLineItemFilterValueArrayInput` via:
 //
@@ -783,12 +704,6 @@ func (i CustomLineItemLineItemFilterValueArray) ToCustomLineItemLineItemFilterVa
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemLineItemFilterValueArrayOutput)
 }
 
-func (i CustomLineItemLineItemFilterValueArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomLineItemLineItemFilterValue] {
-	return pulumix.Output[[]CustomLineItemLineItemFilterValue]{
-		OutputState: i.ToCustomLineItemLineItemFilterValueArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomLineItemLineItemFilterValueArrayOutput struct{ *pulumi.OutputState }
 
 func (CustomLineItemLineItemFilterValueArrayOutput) ElementType() reflect.Type {
@@ -801,12 +716,6 @@ func (o CustomLineItemLineItemFilterValueArrayOutput) ToCustomLineItemLineItemFi
 
 func (o CustomLineItemLineItemFilterValueArrayOutput) ToCustomLineItemLineItemFilterValueArrayOutputWithContext(ctx context.Context) CustomLineItemLineItemFilterValueArrayOutput {
 	return o
-}
-
-func (o CustomLineItemLineItemFilterValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomLineItemLineItemFilterValue] {
-	return pulumix.Output[[]CustomLineItemLineItemFilterValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomLineItemLineItemFilterValueArrayOutput) Index(i pulumi.IntInput) CustomLineItemLineItemFilterValueOutput {
@@ -882,12 +791,6 @@ func (o CustomLineItemTypeOutput) ToCustomLineItemTypePtrOutputWithContext(ctx c
 	}).(CustomLineItemTypePtrOutput)
 }
 
-func (o CustomLineItemTypeOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemType] {
-	return pulumix.Output[CustomLineItemType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomLineItemTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -923,12 +826,6 @@ func (o CustomLineItemTypePtrOutput) ToCustomLineItemTypePtrOutputWithContext(ct
 	return o
 }
 
-func (o CustomLineItemTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemType] {
-	return pulumix.Output[*CustomLineItemType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomLineItemTypePtrOutput) Elem() CustomLineItemTypeOutput {
 	return o.ApplyT(func(v *CustomLineItemType) CustomLineItemType {
 		if v != nil {
@@ -953,10 +850,11 @@ func (o CustomLineItemTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// CustomLineItemTypeInput is an input type that accepts CustomLineItemTypeArgs and CustomLineItemTypeOutput values.
-// You can construct a concrete instance of `CustomLineItemTypeInput` via:
+// CustomLineItemTypeInput is an input type that accepts values of the CustomLineItemType enum
+// A concrete instance of `CustomLineItemTypeInput` can be one of the following:
 //
-//	CustomLineItemTypeArgs{...}
+//	CustomLineItemTypeFee
+//	CustomLineItemTypeCredit
 type CustomLineItemTypeInput interface {
 	pulumi.Input
 
@@ -989,12 +887,6 @@ func (in *customLineItemTypePtr) ToCustomLineItemTypePtrOutput() CustomLineItemT
 
 func (in *customLineItemTypePtr) ToCustomLineItemTypePtrOutputWithContext(ctx context.Context) CustomLineItemTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CustomLineItemTypePtrOutput)
-}
-
-func (in *customLineItemTypePtr) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemType] {
-	return pulumix.Output[*CustomLineItemType]{
-		OutputState: in.ToCustomLineItemTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
@@ -1066,12 +958,6 @@ func (o PricingRuleBillingEntityOutput) ToPricingRuleBillingEntityPtrOutputWithC
 	}).(PricingRuleBillingEntityPtrOutput)
 }
 
-func (o PricingRuleBillingEntityOutput) ToOutput(ctx context.Context) pulumix.Output[PricingRuleBillingEntity] {
-	return pulumix.Output[PricingRuleBillingEntity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PricingRuleBillingEntityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1107,12 +993,6 @@ func (o PricingRuleBillingEntityPtrOutput) ToPricingRuleBillingEntityPtrOutputWi
 	return o
 }
 
-func (o PricingRuleBillingEntityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PricingRuleBillingEntity] {
-	return pulumix.Output[*PricingRuleBillingEntity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PricingRuleBillingEntityPtrOutput) Elem() PricingRuleBillingEntityOutput {
 	return o.ApplyT(func(v *PricingRuleBillingEntity) PricingRuleBillingEntity {
 		if v != nil {
@@ -1137,10 +1017,12 @@ func (o PricingRuleBillingEntityPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// PricingRuleBillingEntityInput is an input type that accepts PricingRuleBillingEntityArgs and PricingRuleBillingEntityOutput values.
-// You can construct a concrete instance of `PricingRuleBillingEntityInput` via:
+// PricingRuleBillingEntityInput is an input type that accepts values of the PricingRuleBillingEntity enum
+// A concrete instance of `PricingRuleBillingEntityInput` can be one of the following:
 //
-//	PricingRuleBillingEntityArgs{...}
+//	PricingRuleBillingEntityAws
+//	PricingRuleBillingEntityAwsMarketplace
+//	PricingRuleBillingEntityAispl
 type PricingRuleBillingEntityInput interface {
 	pulumi.Input
 
@@ -1173,12 +1055,6 @@ func (in *pricingRuleBillingEntityPtr) ToPricingRuleBillingEntityPtrOutput() Pri
 
 func (in *pricingRuleBillingEntityPtr) ToPricingRuleBillingEntityPtrOutputWithContext(ctx context.Context) PricingRuleBillingEntityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PricingRuleBillingEntityPtrOutput)
-}
-
-func (in *pricingRuleBillingEntityPtr) ToOutput(ctx context.Context) pulumix.Output[*PricingRuleBillingEntity] {
-	return pulumix.Output[*PricingRuleBillingEntity]{
-		OutputState: in.ToPricingRuleBillingEntityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A term used to categorize the granularity of a Pricing Rule.
@@ -1251,12 +1127,6 @@ func (o PricingRuleScopeOutput) ToPricingRuleScopePtrOutputWithContext(ctx conte
 	}).(PricingRuleScopePtrOutput)
 }
 
-func (o PricingRuleScopeOutput) ToOutput(ctx context.Context) pulumix.Output[PricingRuleScope] {
-	return pulumix.Output[PricingRuleScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PricingRuleScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1292,12 +1162,6 @@ func (o PricingRuleScopePtrOutput) ToPricingRuleScopePtrOutputWithContext(ctx co
 	return o
 }
 
-func (o PricingRuleScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PricingRuleScope] {
-	return pulumix.Output[*PricingRuleScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PricingRuleScopePtrOutput) Elem() PricingRuleScopeOutput {
 	return o.ApplyT(func(v *PricingRuleScope) PricingRuleScope {
 		if v != nil {
@@ -1322,10 +1186,13 @@ func (o PricingRuleScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// PricingRuleScopeInput is an input type that accepts PricingRuleScopeArgs and PricingRuleScopeOutput values.
-// You can construct a concrete instance of `PricingRuleScopeInput` via:
+// PricingRuleScopeInput is an input type that accepts values of the PricingRuleScope enum
+// A concrete instance of `PricingRuleScopeInput` can be one of the following:
 //
-//	PricingRuleScopeArgs{...}
+//	PricingRuleScopeGlobal
+//	PricingRuleScopeService
+//	PricingRuleScopeBillingEntity
+//	PricingRuleScopeSku
 type PricingRuleScopeInput interface {
 	pulumi.Input
 
@@ -1358,12 +1225,6 @@ func (in *pricingRuleScopePtr) ToPricingRuleScopePtrOutput() PricingRuleScopePtr
 
 func (in *pricingRuleScopePtr) ToPricingRuleScopePtrOutputWithContext(ctx context.Context) PricingRuleScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PricingRuleScopePtrOutput)
-}
-
-func (in *pricingRuleScopePtr) ToOutput(ctx context.Context) pulumix.Output[*PricingRuleScope] {
-	return pulumix.Output[*PricingRuleScope]{
-		OutputState: in.ToPricingRuleScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
@@ -1435,12 +1296,6 @@ func (o PricingRuleTypeOutput) ToPricingRuleTypePtrOutputWithContext(ctx context
 	}).(PricingRuleTypePtrOutput)
 }
 
-func (o PricingRuleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PricingRuleType] {
-	return pulumix.Output[PricingRuleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PricingRuleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1476,12 +1331,6 @@ func (o PricingRuleTypePtrOutput) ToPricingRuleTypePtrOutputWithContext(ctx cont
 	return o
 }
 
-func (o PricingRuleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PricingRuleType] {
-	return pulumix.Output[*PricingRuleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PricingRuleTypePtrOutput) Elem() PricingRuleTypeOutput {
 	return o.ApplyT(func(v *PricingRuleType) PricingRuleType {
 		if v != nil {
@@ -1506,10 +1355,12 @@ func (o PricingRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// PricingRuleTypeInput is an input type that accepts PricingRuleTypeArgs and PricingRuleTypeOutput values.
-// You can construct a concrete instance of `PricingRuleTypeInput` via:
+// PricingRuleTypeInput is an input type that accepts values of the PricingRuleType enum
+// A concrete instance of `PricingRuleTypeInput` can be one of the following:
 //
-//	PricingRuleTypeArgs{...}
+//	PricingRuleTypeMarkup
+//	PricingRuleTypeDiscount
+//	PricingRuleTypeTiering
 type PricingRuleTypeInput interface {
 	pulumi.Input
 
@@ -1542,12 +1393,6 @@ func (in *pricingRuleTypePtr) ToPricingRuleTypePtrOutput() PricingRuleTypePtrOut
 
 func (in *pricingRuleTypePtr) ToPricingRuleTypePtrOutputWithContext(ctx context.Context) PricingRuleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PricingRuleTypePtrOutput)
-}
-
-func (in *pricingRuleTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PricingRuleType] {
-	return pulumix.Output[*PricingRuleType]{
-		OutputState: in.ToPricingRuleTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -118,12 +117,6 @@ func (i *Grant) ToGrantOutputWithContext(ctx context.Context) GrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GrantOutput)
 }
 
-func (i *Grant) ToOutput(ctx context.Context) pulumix.Output[*Grant] {
-	return pulumix.Output[*Grant]{
-		OutputState: i.ToGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GrantOutput struct{ *pulumi.OutputState }
 
 func (GrantOutput) ElementType() reflect.Type {
@@ -136,12 +129,6 @@ func (o GrantOutput) ToGrantOutput() GrantOutput {
 
 func (o GrantOutput) ToGrantOutputWithContext(ctx context.Context) GrantOutput {
 	return o
-}
-
-func (o GrantOutput) ToOutput(ctx context.Context) pulumix.Output[*Grant] {
-	return pulumix.Output[*Grant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GrantOutput) AllowedOperations() pulumi.StringArrayOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetUrlSuffix(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetUrlSuffixResult, error) {
@@ -49,12 +48,6 @@ func (o GetUrlSuffixResultOutput) ToGetUrlSuffixResultOutput() GetUrlSuffixResul
 
 func (o GetUrlSuffixResultOutput) ToGetUrlSuffixResultOutputWithContext(ctx context.Context) GetUrlSuffixResultOutput {
 	return o
-}
-
-func (o GetUrlSuffixResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUrlSuffixResult] {
-	return pulumix.Output[GetUrlSuffixResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetUrlSuffixResultOutput) UrlSuffix() pulumi.StringOutput {

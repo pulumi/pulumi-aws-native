@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -107,12 +106,6 @@ func (i *ServiceProfile) ToServiceProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileOutput)
 }
 
-func (i *ServiceProfile) ToOutput(ctx context.Context) pulumix.Output[*ServiceProfile] {
-	return pulumix.Output[*ServiceProfile]{
-		OutputState: i.ToServiceProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceProfileOutput struct{ *pulumi.OutputState }
 
 func (ServiceProfileOutput) ElementType() reflect.Type {
@@ -125,12 +118,6 @@ func (o ServiceProfileOutput) ToServiceProfileOutput() ServiceProfileOutput {
 
 func (o ServiceProfileOutput) ToServiceProfileOutputWithContext(ctx context.Context) ServiceProfileOutput {
 	return o
-}
-
-func (o ServiceProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceProfile] {
-	return pulumix.Output[*ServiceProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Service profile Arn. Returned after successful create.

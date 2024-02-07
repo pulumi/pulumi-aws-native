@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppMesh::VirtualService
@@ -120,12 +119,6 @@ func (i *VirtualService) ToVirtualServiceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceOutput)
 }
 
-func (i *VirtualService) ToOutput(ctx context.Context) pulumix.Output[*VirtualService] {
-	return pulumix.Output[*VirtualService]{
-		OutputState: i.ToVirtualServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualServiceOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o VirtualServiceOutput) ToVirtualServiceOutput() VirtualServiceOutput {
 
 func (o VirtualServiceOutput) ToVirtualServiceOutputWithContext(ctx context.Context) VirtualServiceOutput {
 	return o
-}
-
-func (o VirtualServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualService] {
-	return pulumix.Output[*VirtualService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualServiceOutput) Arn() pulumi.StringOutput {

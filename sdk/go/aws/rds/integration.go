@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -138,12 +137,6 @@ func (i *Integration) ToIntegrationOutputWithContext(ctx context.Context) Integr
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationOutput)
 }
 
-func (i *Integration) ToOutput(ctx context.Context) pulumix.Output[*Integration] {
-	return pulumix.Output[*Integration]{
-		OutputState: i.ToIntegrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationOutput) ElementType() reflect.Type {
@@ -156,12 +149,6 @@ func (o IntegrationOutput) ToIntegrationOutput() IntegrationOutput {
 
 func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput {
 	return o
-}
-
-func (o IntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*Integration] {
-	return pulumix.Output[*Integration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationOutput) AdditionalEncryptionContext() IntegrationEncryptionContextMapPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoT::ThingType
@@ -68,12 +67,6 @@ func (o LookupThingTypeResultOutput) ToLookupThingTypeResultOutput() LookupThing
 
 func (o LookupThingTypeResultOutput) ToLookupThingTypeResultOutputWithContext(ctx context.Context) LookupThingTypeResultOutput {
 	return o
-}
-
-func (o LookupThingTypeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupThingTypeResult] {
-	return pulumix.Output[LookupThingTypeResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupThingTypeResultOutput) Arn() pulumi.StringPtrOutput {

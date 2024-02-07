@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data type of the field
@@ -82,12 +81,6 @@ func (o DatasetAttributesItemPropertiesAttributeTypeOutput) ToDatasetAttributesI
 	}).(DatasetAttributesItemPropertiesAttributeTypePtrOutput)
 }
 
-func (o DatasetAttributesItemPropertiesAttributeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetAttributesItemPropertiesAttributeType] {
-	return pulumix.Output[DatasetAttributesItemPropertiesAttributeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetAttributesItemPropertiesAttributeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -123,12 +116,6 @@ func (o DatasetAttributesItemPropertiesAttributeTypePtrOutput) ToDatasetAttribut
 	return o
 }
 
-func (o DatasetAttributesItemPropertiesAttributeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetAttributesItemPropertiesAttributeType] {
-	return pulumix.Output[*DatasetAttributesItemPropertiesAttributeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetAttributesItemPropertiesAttributeTypePtrOutput) Elem() DatasetAttributesItemPropertiesAttributeTypeOutput {
 	return o.ApplyT(func(v *DatasetAttributesItemPropertiesAttributeType) DatasetAttributesItemPropertiesAttributeType {
 		if v != nil {
@@ -153,10 +140,14 @@ func (o DatasetAttributesItemPropertiesAttributeTypePtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasetAttributesItemPropertiesAttributeTypeInput is an input type that accepts DatasetAttributesItemPropertiesAttributeTypeArgs and DatasetAttributesItemPropertiesAttributeTypeOutput values.
-// You can construct a concrete instance of `DatasetAttributesItemPropertiesAttributeTypeInput` via:
+// DatasetAttributesItemPropertiesAttributeTypeInput is an input type that accepts values of the DatasetAttributesItemPropertiesAttributeType enum
+// A concrete instance of `DatasetAttributesItemPropertiesAttributeTypeInput` can be one of the following:
 //
-//	DatasetAttributesItemPropertiesAttributeTypeArgs{...}
+//	DatasetAttributesItemPropertiesAttributeTypeString
+//	DatasetAttributesItemPropertiesAttributeTypeInteger
+//	DatasetAttributesItemPropertiesAttributeTypeFloat
+//	DatasetAttributesItemPropertiesAttributeTypeTimestamp
+//	DatasetAttributesItemPropertiesAttributeTypeGeolocation
 type DatasetAttributesItemPropertiesAttributeTypeInput interface {
 	pulumi.Input
 
@@ -189,12 +180,6 @@ func (in *datasetAttributesItemPropertiesAttributeTypePtr) ToDatasetAttributesIt
 
 func (in *datasetAttributesItemPropertiesAttributeTypePtr) ToDatasetAttributesItemPropertiesAttributeTypePtrOutputWithContext(ctx context.Context) DatasetAttributesItemPropertiesAttributeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatasetAttributesItemPropertiesAttributeTypePtrOutput)
-}
-
-func (in *datasetAttributesItemPropertiesAttributeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DatasetAttributesItemPropertiesAttributeType] {
-	return pulumix.Output[*DatasetAttributesItemPropertiesAttributeType]{
-		OutputState: in.ToDatasetAttributesItemPropertiesAttributeTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The domain associated with the dataset
@@ -270,12 +255,6 @@ func (o DatasetDomainOutput) ToDatasetDomainPtrOutputWithContext(ctx context.Con
 	}).(DatasetDomainPtrOutput)
 }
 
-func (o DatasetDomainOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetDomain] {
-	return pulumix.Output[DatasetDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetDomainOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -311,12 +290,6 @@ func (o DatasetDomainPtrOutput) ToDatasetDomainPtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o DatasetDomainPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetDomain] {
-	return pulumix.Output[*DatasetDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetDomainPtrOutput) Elem() DatasetDomainOutput {
 	return o.ApplyT(func(v *DatasetDomain) DatasetDomain {
 		if v != nil {
@@ -341,10 +314,16 @@ func (o DatasetDomainPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasetDomainInput is an input type that accepts DatasetDomainArgs and DatasetDomainOutput values.
-// You can construct a concrete instance of `DatasetDomainInput` via:
+// DatasetDomainInput is an input type that accepts values of the DatasetDomain enum
+// A concrete instance of `DatasetDomainInput` can be one of the following:
 //
-//	DatasetDomainArgs{...}
+//	DatasetDomainRetail
+//	DatasetDomainCustom
+//	DatasetDomainInventoryPlanning
+//	DatasetDomainEc2Capacity
+//	DatasetDomainWorkForce
+//	DatasetDomainWebTraffic
+//	DatasetDomainMetrics
 type DatasetDomainInput interface {
 	pulumi.Input
 
@@ -377,12 +356,6 @@ func (in *datasetDomainPtr) ToDatasetDomainPtrOutput() DatasetDomainPtrOutput {
 
 func (in *datasetDomainPtr) ToDatasetDomainPtrOutputWithContext(ctx context.Context) DatasetDomainPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatasetDomainPtrOutput)
-}
-
-func (in *datasetDomainPtr) ToOutput(ctx context.Context) pulumix.Output[*DatasetDomain] {
-	return pulumix.Output[*DatasetDomain]{
-		OutputState: in.ToDatasetDomainPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
@@ -458,12 +431,6 @@ func (o DatasetGroupDomainOutput) ToDatasetGroupDomainPtrOutputWithContext(ctx c
 	}).(DatasetGroupDomainPtrOutput)
 }
 
-func (o DatasetGroupDomainOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetGroupDomain] {
-	return pulumix.Output[DatasetGroupDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetGroupDomainOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -499,12 +466,6 @@ func (o DatasetGroupDomainPtrOutput) ToDatasetGroupDomainPtrOutputWithContext(ct
 	return o
 }
 
-func (o DatasetGroupDomainPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetGroupDomain] {
-	return pulumix.Output[*DatasetGroupDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetGroupDomainPtrOutput) Elem() DatasetGroupDomainOutput {
 	return o.ApplyT(func(v *DatasetGroupDomain) DatasetGroupDomain {
 		if v != nil {
@@ -529,10 +490,16 @@ func (o DatasetGroupDomainPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasetGroupDomainInput is an input type that accepts DatasetGroupDomainArgs and DatasetGroupDomainOutput values.
-// You can construct a concrete instance of `DatasetGroupDomainInput` via:
+// DatasetGroupDomainInput is an input type that accepts values of the DatasetGroupDomain enum
+// A concrete instance of `DatasetGroupDomainInput` can be one of the following:
 //
-//	DatasetGroupDomainArgs{...}
+//	DatasetGroupDomainRetail
+//	DatasetGroupDomainCustom
+//	DatasetGroupDomainInventoryPlanning
+//	DatasetGroupDomainEc2Capacity
+//	DatasetGroupDomainWorkForce
+//	DatasetGroupDomainWebTraffic
+//	DatasetGroupDomainMetrics
 type DatasetGroupDomainInput interface {
 	pulumi.Input
 
@@ -565,12 +532,6 @@ func (in *datasetGroupDomainPtr) ToDatasetGroupDomainPtrOutput() DatasetGroupDom
 
 func (in *datasetGroupDomainPtr) ToDatasetGroupDomainPtrOutputWithContext(ctx context.Context) DatasetGroupDomainPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatasetGroupDomainPtrOutput)
-}
-
-func (in *datasetGroupDomainPtr) ToOutput(ctx context.Context) pulumix.Output[*DatasetGroupDomain] {
-	return pulumix.Output[*DatasetGroupDomain]{
-		OutputState: in.ToDatasetGroupDomainPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The dataset type
@@ -642,12 +603,6 @@ func (o DatasetTypeOutput) ToDatasetTypePtrOutputWithContext(ctx context.Context
 	}).(DatasetTypePtrOutput)
 }
 
-func (o DatasetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetType] {
-	return pulumix.Output[DatasetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -683,12 +638,6 @@ func (o DatasetTypePtrOutput) ToDatasetTypePtrOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o DatasetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetType] {
-	return pulumix.Output[*DatasetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetTypePtrOutput) Elem() DatasetTypeOutput {
 	return o.ApplyT(func(v *DatasetType) DatasetType {
 		if v != nil {
@@ -713,10 +662,12 @@ func (o DatasetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasetTypeInput is an input type that accepts DatasetTypeArgs and DatasetTypeOutput values.
-// You can construct a concrete instance of `DatasetTypeInput` via:
+// DatasetTypeInput is an input type that accepts values of the DatasetType enum
+// A concrete instance of `DatasetTypeInput` can be one of the following:
 //
-//	DatasetTypeArgs{...}
+//	DatasetTypeTargetTimeSeries
+//	DatasetTypeRelatedTimeSeries
+//	DatasetTypeItemMetadata
 type DatasetTypeInput interface {
 	pulumi.Input
 
@@ -749,12 +700,6 @@ func (in *datasetTypePtr) ToDatasetTypePtrOutput() DatasetTypePtrOutput {
 
 func (in *datasetTypePtr) ToDatasetTypePtrOutputWithContext(ctx context.Context) DatasetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatasetTypePtrOutput)
-}
-
-func (in *datasetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DatasetType] {
-	return pulumix.Output[*DatasetType]{
-		OutputState: in.ToDatasetTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
@@ -72,12 +71,6 @@ func (o LookupSafetyRuleResultOutput) ToLookupSafetyRuleResultOutput() LookupSaf
 
 func (o LookupSafetyRuleResultOutput) ToLookupSafetyRuleResultOutputWithContext(ctx context.Context) LookupSafetyRuleResultOutput {
 	return o
-}
-
-func (o LookupSafetyRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSafetyRuleResult] {
-	return pulumix.Output[LookupSafetyRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSafetyRuleResultOutput) AssertionRule() SafetyRuleAssertionRulePtrOutput {

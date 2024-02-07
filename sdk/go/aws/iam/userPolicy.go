@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for IAM User Policy
@@ -117,12 +116,6 @@ func (i *UserPolicy) ToUserPolicyOutputWithContext(ctx context.Context) UserPoli
 	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyOutput)
 }
 
-func (i *UserPolicy) ToOutput(ctx context.Context) pulumix.Output[*UserPolicy] {
-	return pulumix.Output[*UserPolicy]{
-		OutputState: i.ToUserPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPolicyOutput struct{ *pulumi.OutputState }
 
 func (UserPolicyOutput) ElementType() reflect.Type {
@@ -135,12 +128,6 @@ func (o UserPolicyOutput) ToUserPolicyOutput() UserPolicyOutput {
 
 func (o UserPolicyOutput) ToUserPolicyOutputWithContext(ctx context.Context) UserPolicyOutput {
 	return o
-}
-
-func (o UserPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPolicy] {
-	return pulumix.Output[*UserPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The policy document.

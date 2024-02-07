@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AmazonMQ::Broker
@@ -85,12 +84,6 @@ func (o LookupBrokerResultOutput) ToLookupBrokerResultOutput() LookupBrokerResul
 
 func (o LookupBrokerResultOutput) ToLookupBrokerResultOutputWithContext(ctx context.Context) LookupBrokerResultOutput {
 	return o
-}
-
-func (o LookupBrokerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBrokerResult] {
-	return pulumix.Output[LookupBrokerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupBrokerResultOutput) AmqpEndpoints() pulumi.StringArrayOutput {

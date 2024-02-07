@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Publishes new or first hook version to AWS CloudFormation Registry.
@@ -81,12 +80,6 @@ func (o LookupHookVersionResultOutput) ToLookupHookVersionResultOutput() LookupH
 
 func (o LookupHookVersionResultOutput) ToLookupHookVersionResultOutputWithContext(ctx context.Context) LookupHookVersionResultOutput {
 	return o
-}
-
-func (o LookupHookVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHookVersionResult] {
-	return pulumix.Output[LookupHookVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the type, here the HookVersion. This is used to uniquely identify a HookVersion resource

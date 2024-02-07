@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::LakeFormation::Permissions
@@ -66,12 +65,6 @@ func (o LookupPermissionsResultOutput) ToLookupPermissionsResultOutput() LookupP
 
 func (o LookupPermissionsResultOutput) ToLookupPermissionsResultOutputWithContext(ctx context.Context) LookupPermissionsResultOutput {
 	return o
-}
-
-func (o LookupPermissionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPermissionsResult] {
-	return pulumix.Output[LookupPermissionsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPermissionsResultOutput) Id() pulumi.StringPtrOutput {

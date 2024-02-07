@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Location::Tracker Resource Type
@@ -75,12 +74,6 @@ func (o LookupTrackerResultOutput) ToLookupTrackerResultOutput() LookupTrackerRe
 
 func (o LookupTrackerResultOutput) ToLookupTrackerResultOutputWithContext(ctx context.Context) LookupTrackerResultOutput {
 	return o
-}
-
-func (o LookupTrackerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTrackerResult] {
-	return pulumix.Output[LookupTrackerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTrackerResultOutput) Arn() pulumi.StringPtrOutput {

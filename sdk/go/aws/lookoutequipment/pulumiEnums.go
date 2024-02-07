@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // How often data is uploaded to the source S3 bucket for the input data.
@@ -82,12 +81,6 @@ func (o InferenceSchedulerDataUploadFrequencyOutput) ToInferenceSchedulerDataUpl
 	}).(InferenceSchedulerDataUploadFrequencyPtrOutput)
 }
 
-func (o InferenceSchedulerDataUploadFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceSchedulerDataUploadFrequency] {
-	return pulumix.Output[InferenceSchedulerDataUploadFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InferenceSchedulerDataUploadFrequencyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -123,12 +116,6 @@ func (o InferenceSchedulerDataUploadFrequencyPtrOutput) ToInferenceSchedulerData
 	return o
 }
 
-func (o InferenceSchedulerDataUploadFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceSchedulerDataUploadFrequency] {
-	return pulumix.Output[*InferenceSchedulerDataUploadFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InferenceSchedulerDataUploadFrequencyPtrOutput) Elem() InferenceSchedulerDataUploadFrequencyOutput {
 	return o.ApplyT(func(v *InferenceSchedulerDataUploadFrequency) InferenceSchedulerDataUploadFrequency {
 		if v != nil {
@@ -153,10 +140,14 @@ func (o InferenceSchedulerDataUploadFrequencyPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// InferenceSchedulerDataUploadFrequencyInput is an input type that accepts InferenceSchedulerDataUploadFrequencyArgs and InferenceSchedulerDataUploadFrequencyOutput values.
-// You can construct a concrete instance of `InferenceSchedulerDataUploadFrequencyInput` via:
+// InferenceSchedulerDataUploadFrequencyInput is an input type that accepts values of the InferenceSchedulerDataUploadFrequency enum
+// A concrete instance of `InferenceSchedulerDataUploadFrequencyInput` can be one of the following:
 //
-//	InferenceSchedulerDataUploadFrequencyArgs{...}
+//	InferenceSchedulerDataUploadFrequencyPt5m
+//	InferenceSchedulerDataUploadFrequencyPt10m
+//	InferenceSchedulerDataUploadFrequencyPt15m
+//	InferenceSchedulerDataUploadFrequencyPt30m
+//	InferenceSchedulerDataUploadFrequencyPt1h
 type InferenceSchedulerDataUploadFrequencyInput interface {
 	pulumi.Input
 
@@ -189,12 +180,6 @@ func (in *inferenceSchedulerDataUploadFrequencyPtr) ToInferenceSchedulerDataUplo
 
 func (in *inferenceSchedulerDataUploadFrequencyPtr) ToInferenceSchedulerDataUploadFrequencyPtrOutputWithContext(ctx context.Context) InferenceSchedulerDataUploadFrequencyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InferenceSchedulerDataUploadFrequencyPtrOutput)
-}
-
-func (in *inferenceSchedulerDataUploadFrequencyPtr) ToOutput(ctx context.Context) pulumix.Output[*InferenceSchedulerDataUploadFrequency] {
-	return pulumix.Output[*InferenceSchedulerDataUploadFrequency]{
-		OutputState: in.ToInferenceSchedulerDataUploadFrequencyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

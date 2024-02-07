@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i ByteMatchSetByteMatchTupleArgs) ToByteMatchSetByteMatchTupleOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetByteMatchTupleOutput)
 }
 
-func (i ByteMatchSetByteMatchTupleArgs) ToOutput(ctx context.Context) pulumix.Output[ByteMatchSetByteMatchTuple] {
-	return pulumix.Output[ByteMatchSetByteMatchTuple]{
-		OutputState: i.ToByteMatchSetByteMatchTupleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ByteMatchSetByteMatchTupleArrayInput is an input type that accepts ByteMatchSetByteMatchTupleArray and ByteMatchSetByteMatchTupleArrayOutput values.
 // You can construct a concrete instance of `ByteMatchSetByteMatchTupleArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i ByteMatchSetByteMatchTupleArray) ToByteMatchSetByteMatchTupleArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetByteMatchTupleArrayOutput)
 }
 
-func (i ByteMatchSetByteMatchTupleArray) ToOutput(ctx context.Context) pulumix.Output[[]ByteMatchSetByteMatchTuple] {
-	return pulumix.Output[[]ByteMatchSetByteMatchTuple]{
-		OutputState: i.ToByteMatchSetByteMatchTupleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ByteMatchSetByteMatchTupleOutput struct{ *pulumi.OutputState }
 
 func (ByteMatchSetByteMatchTupleOutput) ElementType() reflect.Type {
@@ -102,12 +89,6 @@ func (o ByteMatchSetByteMatchTupleOutput) ToByteMatchSetByteMatchTupleOutput() B
 
 func (o ByteMatchSetByteMatchTupleOutput) ToByteMatchSetByteMatchTupleOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTupleOutput {
 	return o
-}
-
-func (o ByteMatchSetByteMatchTupleOutput) ToOutput(ctx context.Context) pulumix.Output[ByteMatchSetByteMatchTuple] {
-	return pulumix.Output[ByteMatchSetByteMatchTuple]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ByteMatchSetByteMatchTupleOutput) FieldToMatch() ByteMatchSetFieldToMatchOutput {
@@ -142,12 +123,6 @@ func (o ByteMatchSetByteMatchTupleArrayOutput) ToByteMatchSetByteMatchTupleArray
 
 func (o ByteMatchSetByteMatchTupleArrayOutput) ToByteMatchSetByteMatchTupleArrayOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTupleArrayOutput {
 	return o
-}
-
-func (o ByteMatchSetByteMatchTupleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ByteMatchSetByteMatchTuple] {
-	return pulumix.Output[[]ByteMatchSetByteMatchTuple]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ByteMatchSetByteMatchTupleArrayOutput) Index(i pulumi.IntInput) ByteMatchSetByteMatchTupleOutput {
@@ -189,12 +164,6 @@ func (i ByteMatchSetFieldToMatchArgs) ToByteMatchSetFieldToMatchOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetFieldToMatchOutput)
 }
 
-func (i ByteMatchSetFieldToMatchArgs) ToOutput(ctx context.Context) pulumix.Output[ByteMatchSetFieldToMatch] {
-	return pulumix.Output[ByteMatchSetFieldToMatch]{
-		OutputState: i.ToByteMatchSetFieldToMatchOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ByteMatchSetFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (ByteMatchSetFieldToMatchOutput) ElementType() reflect.Type {
@@ -207,12 +176,6 @@ func (o ByteMatchSetFieldToMatchOutput) ToByteMatchSetFieldToMatchOutput() ByteM
 
 func (o ByteMatchSetFieldToMatchOutput) ToByteMatchSetFieldToMatchOutputWithContext(ctx context.Context) ByteMatchSetFieldToMatchOutput {
 	return o
-}
-
-func (o ByteMatchSetFieldToMatchOutput) ToOutput(ctx context.Context) pulumix.Output[ByteMatchSetFieldToMatch] {
-	return pulumix.Output[ByteMatchSetFieldToMatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ByteMatchSetFieldToMatchOutput) Data() pulumi.StringPtrOutput {
@@ -256,12 +219,6 @@ func (i GeoMatchSetGeoMatchConstraintArgs) ToGeoMatchSetGeoMatchConstraintOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GeoMatchSetGeoMatchConstraintOutput)
 }
 
-func (i GeoMatchSetGeoMatchConstraintArgs) ToOutput(ctx context.Context) pulumix.Output[GeoMatchSetGeoMatchConstraint] {
-	return pulumix.Output[GeoMatchSetGeoMatchConstraint]{
-		OutputState: i.ToGeoMatchSetGeoMatchConstraintOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GeoMatchSetGeoMatchConstraintArrayInput is an input type that accepts GeoMatchSetGeoMatchConstraintArray and GeoMatchSetGeoMatchConstraintArrayOutput values.
 // You can construct a concrete instance of `GeoMatchSetGeoMatchConstraintArrayInput` via:
 //
@@ -287,12 +244,6 @@ func (i GeoMatchSetGeoMatchConstraintArray) ToGeoMatchSetGeoMatchConstraintArray
 	return pulumi.ToOutputWithContext(ctx, i).(GeoMatchSetGeoMatchConstraintArrayOutput)
 }
 
-func (i GeoMatchSetGeoMatchConstraintArray) ToOutput(ctx context.Context) pulumix.Output[[]GeoMatchSetGeoMatchConstraint] {
-	return pulumix.Output[[]GeoMatchSetGeoMatchConstraint]{
-		OutputState: i.ToGeoMatchSetGeoMatchConstraintArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GeoMatchSetGeoMatchConstraintOutput struct{ *pulumi.OutputState }
 
 func (GeoMatchSetGeoMatchConstraintOutput) ElementType() reflect.Type {
@@ -305,12 +256,6 @@ func (o GeoMatchSetGeoMatchConstraintOutput) ToGeoMatchSetGeoMatchConstraintOutp
 
 func (o GeoMatchSetGeoMatchConstraintOutput) ToGeoMatchSetGeoMatchConstraintOutputWithContext(ctx context.Context) GeoMatchSetGeoMatchConstraintOutput {
 	return o
-}
-
-func (o GeoMatchSetGeoMatchConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[GeoMatchSetGeoMatchConstraint] {
-	return pulumix.Output[GeoMatchSetGeoMatchConstraint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GeoMatchSetGeoMatchConstraintOutput) Type() pulumi.StringOutput {
@@ -333,12 +278,6 @@ func (o GeoMatchSetGeoMatchConstraintArrayOutput) ToGeoMatchSetGeoMatchConstrain
 
 func (o GeoMatchSetGeoMatchConstraintArrayOutput) ToGeoMatchSetGeoMatchConstraintArrayOutputWithContext(ctx context.Context) GeoMatchSetGeoMatchConstraintArrayOutput {
 	return o
-}
-
-func (o GeoMatchSetGeoMatchConstraintArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GeoMatchSetGeoMatchConstraint] {
-	return pulumix.Output[[]GeoMatchSetGeoMatchConstraint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GeoMatchSetGeoMatchConstraintArrayOutput) Index(i pulumi.IntInput) GeoMatchSetGeoMatchConstraintOutput {
@@ -380,12 +319,6 @@ func (i IpSetIpSetDescriptorArgs) ToIpSetIpSetDescriptorOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IpSetIpSetDescriptorOutput)
 }
 
-func (i IpSetIpSetDescriptorArgs) ToOutput(ctx context.Context) pulumix.Output[IpSetIpSetDescriptor] {
-	return pulumix.Output[IpSetIpSetDescriptor]{
-		OutputState: i.ToIpSetIpSetDescriptorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IpSetIpSetDescriptorArrayInput is an input type that accepts IpSetIpSetDescriptorArray and IpSetIpSetDescriptorArrayOutput values.
 // You can construct a concrete instance of `IpSetIpSetDescriptorArrayInput` via:
 //
@@ -411,12 +344,6 @@ func (i IpSetIpSetDescriptorArray) ToIpSetIpSetDescriptorArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IpSetIpSetDescriptorArrayOutput)
 }
 
-func (i IpSetIpSetDescriptorArray) ToOutput(ctx context.Context) pulumix.Output[[]IpSetIpSetDescriptor] {
-	return pulumix.Output[[]IpSetIpSetDescriptor]{
-		OutputState: i.ToIpSetIpSetDescriptorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IpSetIpSetDescriptorOutput struct{ *pulumi.OutputState }
 
 func (IpSetIpSetDescriptorOutput) ElementType() reflect.Type {
@@ -429,12 +356,6 @@ func (o IpSetIpSetDescriptorOutput) ToIpSetIpSetDescriptorOutput() IpSetIpSetDes
 
 func (o IpSetIpSetDescriptorOutput) ToIpSetIpSetDescriptorOutputWithContext(ctx context.Context) IpSetIpSetDescriptorOutput {
 	return o
-}
-
-func (o IpSetIpSetDescriptorOutput) ToOutput(ctx context.Context) pulumix.Output[IpSetIpSetDescriptor] {
-	return pulumix.Output[IpSetIpSetDescriptor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpSetIpSetDescriptorOutput) Type() pulumi.StringOutput {
@@ -457,12 +378,6 @@ func (o IpSetIpSetDescriptorArrayOutput) ToIpSetIpSetDescriptorArrayOutput() IpS
 
 func (o IpSetIpSetDescriptorArrayOutput) ToIpSetIpSetDescriptorArrayOutputWithContext(ctx context.Context) IpSetIpSetDescriptorArrayOutput {
 	return o
-}
-
-func (o IpSetIpSetDescriptorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IpSetIpSetDescriptor] {
-	return pulumix.Output[[]IpSetIpSetDescriptor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpSetIpSetDescriptorArrayOutput) Index(i pulumi.IntInput) IpSetIpSetDescriptorOutput {
@@ -506,12 +421,6 @@ func (i RateBasedRulePredicateArgs) ToRateBasedRulePredicateOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRulePredicateOutput)
 }
 
-func (i RateBasedRulePredicateArgs) ToOutput(ctx context.Context) pulumix.Output[RateBasedRulePredicate] {
-	return pulumix.Output[RateBasedRulePredicate]{
-		OutputState: i.ToRateBasedRulePredicateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RateBasedRulePredicateArrayInput is an input type that accepts RateBasedRulePredicateArray and RateBasedRulePredicateArrayOutput values.
 // You can construct a concrete instance of `RateBasedRulePredicateArrayInput` via:
 //
@@ -537,12 +446,6 @@ func (i RateBasedRulePredicateArray) ToRateBasedRulePredicateArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRulePredicateArrayOutput)
 }
 
-func (i RateBasedRulePredicateArray) ToOutput(ctx context.Context) pulumix.Output[[]RateBasedRulePredicate] {
-	return pulumix.Output[[]RateBasedRulePredicate]{
-		OutputState: i.ToRateBasedRulePredicateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RateBasedRulePredicateOutput struct{ *pulumi.OutputState }
 
 func (RateBasedRulePredicateOutput) ElementType() reflect.Type {
@@ -555,12 +458,6 @@ func (o RateBasedRulePredicateOutput) ToRateBasedRulePredicateOutput() RateBased
 
 func (o RateBasedRulePredicateOutput) ToRateBasedRulePredicateOutputWithContext(ctx context.Context) RateBasedRulePredicateOutput {
 	return o
-}
-
-func (o RateBasedRulePredicateOutput) ToOutput(ctx context.Context) pulumix.Output[RateBasedRulePredicate] {
-	return pulumix.Output[RateBasedRulePredicate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RateBasedRulePredicateOutput) DataId() pulumi.StringOutput {
@@ -587,12 +484,6 @@ func (o RateBasedRulePredicateArrayOutput) ToRateBasedRulePredicateArrayOutput()
 
 func (o RateBasedRulePredicateArrayOutput) ToRateBasedRulePredicateArrayOutputWithContext(ctx context.Context) RateBasedRulePredicateArrayOutput {
 	return o
-}
-
-func (o RateBasedRulePredicateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RateBasedRulePredicate] {
-	return pulumix.Output[[]RateBasedRulePredicate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RateBasedRulePredicateArrayOutput) Index(i pulumi.IntInput) RateBasedRulePredicateOutput {
@@ -636,12 +527,6 @@ func (i RulePredicateArgs) ToRulePredicateOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RulePredicateOutput)
 }
 
-func (i RulePredicateArgs) ToOutput(ctx context.Context) pulumix.Output[RulePredicate] {
-	return pulumix.Output[RulePredicate]{
-		OutputState: i.ToRulePredicateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RulePredicateArrayInput is an input type that accepts RulePredicateArray and RulePredicateArrayOutput values.
 // You can construct a concrete instance of `RulePredicateArrayInput` via:
 //
@@ -667,12 +552,6 @@ func (i RulePredicateArray) ToRulePredicateArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RulePredicateArrayOutput)
 }
 
-func (i RulePredicateArray) ToOutput(ctx context.Context) pulumix.Output[[]RulePredicate] {
-	return pulumix.Output[[]RulePredicate]{
-		OutputState: i.ToRulePredicateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RulePredicateOutput struct{ *pulumi.OutputState }
 
 func (RulePredicateOutput) ElementType() reflect.Type {
@@ -685,12 +564,6 @@ func (o RulePredicateOutput) ToRulePredicateOutput() RulePredicateOutput {
 
 func (o RulePredicateOutput) ToRulePredicateOutputWithContext(ctx context.Context) RulePredicateOutput {
 	return o
-}
-
-func (o RulePredicateOutput) ToOutput(ctx context.Context) pulumix.Output[RulePredicate] {
-	return pulumix.Output[RulePredicate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RulePredicateOutput) DataId() pulumi.StringOutput {
@@ -717,12 +590,6 @@ func (o RulePredicateArrayOutput) ToRulePredicateArrayOutput() RulePredicateArra
 
 func (o RulePredicateArrayOutput) ToRulePredicateArrayOutputWithContext(ctx context.Context) RulePredicateArrayOutput {
 	return o
-}
-
-func (o RulePredicateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulePredicate] {
-	return pulumix.Output[[]RulePredicate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RulePredicateArrayOutput) Index(i pulumi.IntInput) RulePredicateOutput {
@@ -764,12 +631,6 @@ func (i SizeConstraintSetFieldToMatchArgs) ToSizeConstraintSetFieldToMatchOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetFieldToMatchOutput)
 }
 
-func (i SizeConstraintSetFieldToMatchArgs) ToOutput(ctx context.Context) pulumix.Output[SizeConstraintSetFieldToMatch] {
-	return pulumix.Output[SizeConstraintSetFieldToMatch]{
-		OutputState: i.ToSizeConstraintSetFieldToMatchOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SizeConstraintSetFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (SizeConstraintSetFieldToMatchOutput) ElementType() reflect.Type {
@@ -782,12 +643,6 @@ func (o SizeConstraintSetFieldToMatchOutput) ToSizeConstraintSetFieldToMatchOutp
 
 func (o SizeConstraintSetFieldToMatchOutput) ToSizeConstraintSetFieldToMatchOutputWithContext(ctx context.Context) SizeConstraintSetFieldToMatchOutput {
 	return o
-}
-
-func (o SizeConstraintSetFieldToMatchOutput) ToOutput(ctx context.Context) pulumix.Output[SizeConstraintSetFieldToMatch] {
-	return pulumix.Output[SizeConstraintSetFieldToMatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SizeConstraintSetFieldToMatchOutput) Data() pulumi.StringPtrOutput {
@@ -835,12 +690,6 @@ func (i SizeConstraintSetSizeConstraintArgs) ToSizeConstraintSetSizeConstraintOu
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetSizeConstraintOutput)
 }
 
-func (i SizeConstraintSetSizeConstraintArgs) ToOutput(ctx context.Context) pulumix.Output[SizeConstraintSetSizeConstraint] {
-	return pulumix.Output[SizeConstraintSetSizeConstraint]{
-		OutputState: i.ToSizeConstraintSetSizeConstraintOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SizeConstraintSetSizeConstraintArrayInput is an input type that accepts SizeConstraintSetSizeConstraintArray and SizeConstraintSetSizeConstraintArrayOutput values.
 // You can construct a concrete instance of `SizeConstraintSetSizeConstraintArrayInput` via:
 //
@@ -866,12 +715,6 @@ func (i SizeConstraintSetSizeConstraintArray) ToSizeConstraintSetSizeConstraintA
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetSizeConstraintArrayOutput)
 }
 
-func (i SizeConstraintSetSizeConstraintArray) ToOutput(ctx context.Context) pulumix.Output[[]SizeConstraintSetSizeConstraint] {
-	return pulumix.Output[[]SizeConstraintSetSizeConstraint]{
-		OutputState: i.ToSizeConstraintSetSizeConstraintArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SizeConstraintSetSizeConstraintOutput struct{ *pulumi.OutputState }
 
 func (SizeConstraintSetSizeConstraintOutput) ElementType() reflect.Type {
@@ -884,12 +727,6 @@ func (o SizeConstraintSetSizeConstraintOutput) ToSizeConstraintSetSizeConstraint
 
 func (o SizeConstraintSetSizeConstraintOutput) ToSizeConstraintSetSizeConstraintOutputWithContext(ctx context.Context) SizeConstraintSetSizeConstraintOutput {
 	return o
-}
-
-func (o SizeConstraintSetSizeConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[SizeConstraintSetSizeConstraint] {
-	return pulumix.Output[SizeConstraintSetSizeConstraint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SizeConstraintSetSizeConstraintOutput) ComparisonOperator() pulumi.StringOutput {
@@ -920,12 +757,6 @@ func (o SizeConstraintSetSizeConstraintArrayOutput) ToSizeConstraintSetSizeConst
 
 func (o SizeConstraintSetSizeConstraintArrayOutput) ToSizeConstraintSetSizeConstraintArrayOutputWithContext(ctx context.Context) SizeConstraintSetSizeConstraintArrayOutput {
 	return o
-}
-
-func (o SizeConstraintSetSizeConstraintArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SizeConstraintSetSizeConstraint] {
-	return pulumix.Output[[]SizeConstraintSetSizeConstraint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SizeConstraintSetSizeConstraintArrayOutput) Index(i pulumi.IntInput) SizeConstraintSetSizeConstraintOutput {
@@ -967,12 +798,6 @@ func (i SqlInjectionMatchSetFieldToMatchArgs) ToSqlInjectionMatchSetFieldToMatch
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetFieldToMatchOutput)
 }
 
-func (i SqlInjectionMatchSetFieldToMatchArgs) ToOutput(ctx context.Context) pulumix.Output[SqlInjectionMatchSetFieldToMatch] {
-	return pulumix.Output[SqlInjectionMatchSetFieldToMatch]{
-		OutputState: i.ToSqlInjectionMatchSetFieldToMatchOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SqlInjectionMatchSetFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (SqlInjectionMatchSetFieldToMatchOutput) ElementType() reflect.Type {
@@ -985,12 +810,6 @@ func (o SqlInjectionMatchSetFieldToMatchOutput) ToSqlInjectionMatchSetFieldToMat
 
 func (o SqlInjectionMatchSetFieldToMatchOutput) ToSqlInjectionMatchSetFieldToMatchOutputWithContext(ctx context.Context) SqlInjectionMatchSetFieldToMatchOutput {
 	return o
-}
-
-func (o SqlInjectionMatchSetFieldToMatchOutput) ToOutput(ctx context.Context) pulumix.Output[SqlInjectionMatchSetFieldToMatch] {
-	return pulumix.Output[SqlInjectionMatchSetFieldToMatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlInjectionMatchSetFieldToMatchOutput) Data() pulumi.StringPtrOutput {
@@ -1034,12 +853,6 @@ func (i SqlInjectionMatchSetSqlInjectionMatchTupleArgs) ToSqlInjectionMatchSetSq
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetSqlInjectionMatchTupleOutput)
 }
 
-func (i SqlInjectionMatchSetSqlInjectionMatchTupleArgs) ToOutput(ctx context.Context) pulumix.Output[SqlInjectionMatchSetSqlInjectionMatchTuple] {
-	return pulumix.Output[SqlInjectionMatchSetSqlInjectionMatchTuple]{
-		OutputState: i.ToSqlInjectionMatchSetSqlInjectionMatchTupleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput is an input type that accepts SqlInjectionMatchSetSqlInjectionMatchTupleArray and SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput values.
 // You can construct a concrete instance of `SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput` via:
 //
@@ -1065,12 +878,6 @@ func (i SqlInjectionMatchSetSqlInjectionMatchTupleArray) ToSqlInjectionMatchSetS
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput)
 }
 
-func (i SqlInjectionMatchSetSqlInjectionMatchTupleArray) ToOutput(ctx context.Context) pulumix.Output[[]SqlInjectionMatchSetSqlInjectionMatchTuple] {
-	return pulumix.Output[[]SqlInjectionMatchSetSqlInjectionMatchTuple]{
-		OutputState: i.ToSqlInjectionMatchSetSqlInjectionMatchTupleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SqlInjectionMatchSetSqlInjectionMatchTupleOutput struct{ *pulumi.OutputState }
 
 func (SqlInjectionMatchSetSqlInjectionMatchTupleOutput) ElementType() reflect.Type {
@@ -1083,12 +890,6 @@ func (o SqlInjectionMatchSetSqlInjectionMatchTupleOutput) ToSqlInjectionMatchSet
 
 func (o SqlInjectionMatchSetSqlInjectionMatchTupleOutput) ToSqlInjectionMatchSetSqlInjectionMatchTupleOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTupleOutput {
 	return o
-}
-
-func (o SqlInjectionMatchSetSqlInjectionMatchTupleOutput) ToOutput(ctx context.Context) pulumix.Output[SqlInjectionMatchSetSqlInjectionMatchTuple] {
-	return pulumix.Output[SqlInjectionMatchSetSqlInjectionMatchTuple]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlInjectionMatchSetSqlInjectionMatchTupleOutput) FieldToMatch() SqlInjectionMatchSetFieldToMatchOutput {
@@ -1113,12 +914,6 @@ func (o SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput) ToSqlInjectionMat
 
 func (o SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput) ToSqlInjectionMatchSetSqlInjectionMatchTupleArrayOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput {
 	return o
-}
-
-func (o SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SqlInjectionMatchSetSqlInjectionMatchTuple] {
-	return pulumix.Output[[]SqlInjectionMatchSetSqlInjectionMatchTuple]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput) Index(i pulumi.IntInput) SqlInjectionMatchSetSqlInjectionMatchTupleOutput {
@@ -1158,12 +953,6 @@ func (i WebAclActionArgs) ToWebAclActionOutputWithContext(ctx context.Context) W
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclActionOutput)
 }
 
-func (i WebAclActionArgs) ToOutput(ctx context.Context) pulumix.Output[WebAclAction] {
-	return pulumix.Output[WebAclAction]{
-		OutputState: i.ToWebAclActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WebAclActionOutput struct{ *pulumi.OutputState }
 
 func (WebAclActionOutput) ElementType() reflect.Type {
@@ -1176,12 +965,6 @@ func (o WebAclActionOutput) ToWebAclActionOutput() WebAclActionOutput {
 
 func (o WebAclActionOutput) ToWebAclActionOutputWithContext(ctx context.Context) WebAclActionOutput {
 	return o
-}
-
-func (o WebAclActionOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclAction] {
-	return pulumix.Output[WebAclAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WebAclActionOutput) Type() pulumi.StringOutput {
@@ -1200,12 +983,6 @@ func (o WebAclActionPtrOutput) ToWebAclActionPtrOutput() WebAclActionPtrOutput {
 
 func (o WebAclActionPtrOutput) ToWebAclActionPtrOutputWithContext(ctx context.Context) WebAclActionPtrOutput {
 	return o
-}
-
-func (o WebAclActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclAction] {
-	return pulumix.Output[*WebAclAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WebAclActionPtrOutput) Elem() WebAclActionOutput {
@@ -1262,12 +1039,6 @@ func (i WebAclRuleArgs) ToWebAclRuleOutputWithContext(ctx context.Context) WebAc
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleOutput)
 }
 
-func (i WebAclRuleArgs) ToOutput(ctx context.Context) pulumix.Output[WebAclRule] {
-	return pulumix.Output[WebAclRule]{
-		OutputState: i.ToWebAclRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WebAclRuleArrayInput is an input type that accepts WebAclRuleArray and WebAclRuleArrayOutput values.
 // You can construct a concrete instance of `WebAclRuleArrayInput` via:
 //
@@ -1293,12 +1064,6 @@ func (i WebAclRuleArray) ToWebAclRuleArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleArrayOutput)
 }
 
-func (i WebAclRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]WebAclRule] {
-	return pulumix.Output[[]WebAclRule]{
-		OutputState: i.ToWebAclRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WebAclRuleOutput struct{ *pulumi.OutputState }
 
 func (WebAclRuleOutput) ElementType() reflect.Type {
@@ -1311,12 +1076,6 @@ func (o WebAclRuleOutput) ToWebAclRuleOutput() WebAclRuleOutput {
 
 func (o WebAclRuleOutput) ToWebAclRuleOutputWithContext(ctx context.Context) WebAclRuleOutput {
 	return o
-}
-
-func (o WebAclRuleOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclRule] {
-	return pulumix.Output[WebAclRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WebAclRuleOutput) Action() WebAclActionOutput {
@@ -1343,12 +1102,6 @@ func (o WebAclRuleArrayOutput) ToWebAclRuleArrayOutput() WebAclRuleArrayOutput {
 
 func (o WebAclRuleArrayOutput) ToWebAclRuleArrayOutputWithContext(ctx context.Context) WebAclRuleArrayOutput {
 	return o
-}
-
-func (o WebAclRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WebAclRule] {
-	return pulumix.Output[[]WebAclRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WebAclRuleArrayOutput) Index(i pulumi.IntInput) WebAclRuleOutput {
@@ -1390,12 +1143,6 @@ func (i XssMatchSetFieldToMatchArgs) ToXssMatchSetFieldToMatchOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetFieldToMatchOutput)
 }
 
-func (i XssMatchSetFieldToMatchArgs) ToOutput(ctx context.Context) pulumix.Output[XssMatchSetFieldToMatch] {
-	return pulumix.Output[XssMatchSetFieldToMatch]{
-		OutputState: i.ToXssMatchSetFieldToMatchOutputWithContext(ctx).OutputState,
-	}
-}
-
 type XssMatchSetFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (XssMatchSetFieldToMatchOutput) ElementType() reflect.Type {
@@ -1408,12 +1155,6 @@ func (o XssMatchSetFieldToMatchOutput) ToXssMatchSetFieldToMatchOutput() XssMatc
 
 func (o XssMatchSetFieldToMatchOutput) ToXssMatchSetFieldToMatchOutputWithContext(ctx context.Context) XssMatchSetFieldToMatchOutput {
 	return o
-}
-
-func (o XssMatchSetFieldToMatchOutput) ToOutput(ctx context.Context) pulumix.Output[XssMatchSetFieldToMatch] {
-	return pulumix.Output[XssMatchSetFieldToMatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o XssMatchSetFieldToMatchOutput) Data() pulumi.StringPtrOutput {
@@ -1457,12 +1198,6 @@ func (i XssMatchSetXssMatchTupleArgs) ToXssMatchSetXssMatchTupleOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetXssMatchTupleOutput)
 }
 
-func (i XssMatchSetXssMatchTupleArgs) ToOutput(ctx context.Context) pulumix.Output[XssMatchSetXssMatchTuple] {
-	return pulumix.Output[XssMatchSetXssMatchTuple]{
-		OutputState: i.ToXssMatchSetXssMatchTupleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // XssMatchSetXssMatchTupleArrayInput is an input type that accepts XssMatchSetXssMatchTupleArray and XssMatchSetXssMatchTupleArrayOutput values.
 // You can construct a concrete instance of `XssMatchSetXssMatchTupleArrayInput` via:
 //
@@ -1488,12 +1223,6 @@ func (i XssMatchSetXssMatchTupleArray) ToXssMatchSetXssMatchTupleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetXssMatchTupleArrayOutput)
 }
 
-func (i XssMatchSetXssMatchTupleArray) ToOutput(ctx context.Context) pulumix.Output[[]XssMatchSetXssMatchTuple] {
-	return pulumix.Output[[]XssMatchSetXssMatchTuple]{
-		OutputState: i.ToXssMatchSetXssMatchTupleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type XssMatchSetXssMatchTupleOutput struct{ *pulumi.OutputState }
 
 func (XssMatchSetXssMatchTupleOutput) ElementType() reflect.Type {
@@ -1506,12 +1235,6 @@ func (o XssMatchSetXssMatchTupleOutput) ToXssMatchSetXssMatchTupleOutput() XssMa
 
 func (o XssMatchSetXssMatchTupleOutput) ToXssMatchSetXssMatchTupleOutputWithContext(ctx context.Context) XssMatchSetXssMatchTupleOutput {
 	return o
-}
-
-func (o XssMatchSetXssMatchTupleOutput) ToOutput(ctx context.Context) pulumix.Output[XssMatchSetXssMatchTuple] {
-	return pulumix.Output[XssMatchSetXssMatchTuple]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o XssMatchSetXssMatchTupleOutput) FieldToMatch() XssMatchSetFieldToMatchOutput {
@@ -1534,12 +1257,6 @@ func (o XssMatchSetXssMatchTupleArrayOutput) ToXssMatchSetXssMatchTupleArrayOutp
 
 func (o XssMatchSetXssMatchTupleArrayOutput) ToXssMatchSetXssMatchTupleArrayOutputWithContext(ctx context.Context) XssMatchSetXssMatchTupleArrayOutput {
 	return o
-}
-
-func (o XssMatchSetXssMatchTupleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]XssMatchSetXssMatchTuple] {
-	return pulumix.Output[[]XssMatchSetXssMatchTuple]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o XssMatchSetXssMatchTupleArrayOutput) Index(i pulumi.IntInput) XssMatchSetXssMatchTupleOutput {
