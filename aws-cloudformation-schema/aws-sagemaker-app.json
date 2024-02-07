@@ -104,10 +104,10 @@
       "permissions" : [ "sagemaker:CreateApp", "sagemaker:DescribeApp" ]
     },
     "read" : {
-      "permissions" : [ "sagemaker:DescribeApp" ]
+      "permissions" : [ "sagemaker:DescribeApp", "sagemaker:DescribeApp" ]
     },
     "delete" : {
-      "permissions" : [ "sagemaker:DeleteApp" ]
+      "permissions" : [ "sagemaker:DeleteApp", "sagemaker:DescribeApp" ]
     },
     "list" : {
       "permissions" : [ "sagemaker:ListApps" ]

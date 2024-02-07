@@ -10,20 +10,10 @@
       "type" : "string"
     },
     "AttributeMapping" : {
-      "type" : "object",
-      "patternProperties" : {
-        "[a-zA-Z0-9]+" : {
-          "type" : "string"
-        }
-      }
+      "type" : "object"
     },
     "ProviderDetails" : {
-      "type" : "object",
-      "patternProperties" : {
-        "[a-zA-Z0-9]+" : {
-          "type" : "string"
-        }
-      }
+      "type" : "object"
     },
     "ProviderType" : {
       "type" : "string"
@@ -39,7 +29,7 @@
       }
     }
   },
-  "required" : [ "ProviderName", "UserPoolId", "ProviderDetails", "ProviderType" ],
+  "required" : [ "ProviderName", "UserPoolId", "ProviderType" ],
   "createOnlyProperties" : [ "/properties/UserPoolId", "/properties/ProviderName", "/properties/ProviderType" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]

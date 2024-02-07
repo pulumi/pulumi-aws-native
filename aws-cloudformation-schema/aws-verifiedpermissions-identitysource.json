@@ -103,7 +103,7 @@
       "pattern" : "^.*$"
     }
   },
-  "required" : [ "Configuration" ],
+  "required" : [ "Configuration", "PolicyStoreId" ],
   "readOnlyProperties" : [ "/properties/Details", "/properties/IdentitySourceId" ],
   "createOnlyProperties" : [ "/properties/PolicyStoreId" ],
   "primaryIdentifier" : [ "/properties/IdentitySourceId", "/properties/PolicyStoreId" ],

@@ -42,8 +42,10 @@ AWS::ApiGatewayV2::RouteResponse
 AWS::ApiGatewayV2::VpcLink
 AWS::AppConfig::Application
 AWS::AppConfig::ConfigurationProfile
+AWS::AppConfig::Environment
 AWS::AppConfig::Extension
 AWS::AppConfig::ExtensionAssociation
+AWS::AppConfig::HostedConfigurationVersion
 AWS::AppFlow::Connector
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
