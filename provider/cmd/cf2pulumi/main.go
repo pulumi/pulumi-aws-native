@@ -5,6 +5,7 @@ package main
 import (
 	"bytes"
 	"compress/gzip"
+	_ "embed"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -24,6 +25,12 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
+//go:embed schema.json.gz
+var schemaBytes []byte
+
+//go:embed metadata.json.gz
+var metadataBytes []byte
+
 func main() {
 	if len(os.Args) != 3 {
 		fmt.Fprintf(os.Stderr, "Usage: %s [target] [template path]\n", os.Args[0])
@@ -39,7 +46,7 @@ func main() {
 		log.Fatalf("failed to load schema: %v", err)
 	}
 
-	metadata, err := provider.LoadMetadata(cloudApiResources)
+	metadata, err := provider.LoadMetadata(metadataBytes)
 	if err != nil {
 		log.Fatalf("failed to load metadata: %v", err)
 	}
@@ -112,7 +119,7 @@ func main() {
 // loadSchema loads the serialized/compressed schema generated during generation from schema.go.
 func loadSchema() (*schema.PackageSpec, error) {
 	var pkgSpec schema.PackageSpec
-	uncompressed, err := gzip.NewReader(bytes.NewReader(pulumiSchema))
+	uncompressed, err := gzip.NewReader(bytes.NewReader(schemaBytes))
 	if err != nil {
 		return nil, fmt.Errorf("loading schema: %w", err)
 	}

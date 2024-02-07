@@ -93,7 +93,9 @@ func main() {
 			err = emitPackage(fullSpec, language, dir)
 		case "schema":
 			cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
-			writePulumiSchema(*fullSpec, cf2pulumiDir, "schema-full.json")
+			if err = writePulumiSchema(*fullSpec, cf2pulumiDir, "schema-full.json"); err != nil {
+				break
+			}
 
 			supportedSpec, meta, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument)
 			if err != nil {
@@ -106,7 +108,12 @@ func main() {
 				panic(fmt.Sprintf("error generating examples: %v", err))
 			}
 			providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
-			writePulumiSchema(*supportedSpec, providerDir, "schema.json")
+			if err = writePulumiSchema(*supportedSpec, providerDir, "schema.json"); err != nil {
+				break
+			}
+			if err = writePulumiSchema(*supportedSpec, "bin", "schema.json"); err != nil {
+				break
+			}
 
 			// Emit the resource metadata for cf2pulumi.
 			if err = writeMetadata(meta, cf2pulumiDir, "main", false); err != nil {
@@ -114,6 +121,10 @@ func main() {
 			}
 			// Also, emit the resource metadata for the provider.
 			if err = writeMetadata(meta, providerDir, "main", true); err != nil {
+				break
+			}
+			// Also write to bin folder to be picked up as an asset for testing.
+			if err = writeMetadata(meta, "bin", "main", true); err != nil {
 				break
 			}
 		default:
@@ -316,9 +327,7 @@ func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir, jsonFileName string)
 	if err != nil {
 		return errors.Wrap(err, "failed to compress schema")
 	}
-	err = emitFile(outdir, "schema.go", []byte(fmt.Sprintf(`package main
-var pulumiSchema = %#v
-`, compressedSchema)))
+	err = emitFile(outdir, "schema.json.gz", []byte(compressedSchema))
 	if err != nil {
 		panic(errors.Wrap(err, "saving metadata"))
 	}
@@ -352,9 +361,7 @@ func writeMetadata(metadata *schema.CloudAPIMetadata, outDir string, goPackageNa
 		return errors.Wrap(err, "marshaling metadata")
 	}
 
-	err = emitFile(outDir, "metadata.go", []byte(fmt.Sprintf(`package %s
-var cloudApiResources = %#v
-`, goPackageName, compressedMeta.Bytes())))
+	err = emitFile(outDir, "metadata.json.gz", []byte(compressedMeta.Bytes()))
 	if err != nil {
 		return err
 	}

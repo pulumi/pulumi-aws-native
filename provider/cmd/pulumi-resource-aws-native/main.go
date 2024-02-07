@@ -17,10 +17,18 @@
 package main
 
 import (
+	_ "embed"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 )
 
+//go:embed schema.json.gz
+var schemaBytes []byte
+
+//go:embed metadata.json.gz
+var metadataBytes []byte
+
 func main() {
-	provider.Serve(version.Version, pulumiSchema, cloudApiResources)
+	provider.Serve(version.Version, schemaBytes, metadataBytes)
 }
