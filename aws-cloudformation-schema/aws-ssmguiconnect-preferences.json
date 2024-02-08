@@ -1,44 +1,24 @@
 {
   "typeName" : "AWS::SSMGuiConnect::Preferences",
-  "description" : "Definition of AWS::SSMGuiConnect::Preferences Resource Type",
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ssm-guiconnect.git",
+  "description" : "Resource Type definition for AWS::SSMGuiConnect::Preferences",
+  "additionalProperties" : false,
+  "properties" : {
+    "IdleConnection" : {
+      "type" : "array",
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/IdleConnectionPreferences"
+      }
+    },
+    "AccountId" : {
+      "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
+    }
+  },
   "definitions" : {
-    "IdleConnectionTimeout" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Type" : {
-          "type" : "string",
-          "enum" : [ "MINUTES" ]
-        },
-        "Value" : {
-          "type" : "integer",
-          "default" : 10,
-          "minimum" : 1,
-          "maximum" : 60
-        }
-      },
-      "required" : [ "Value" ]
-    },
-    "IdleConnectionAlert" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Type" : {
-          "type" : "string",
-          "enum" : [ "MINUTES" ]
-        },
-        "Value" : {
-          "type" : "integer",
-          "default" : 1,
-          "minimum" : 0,
-          "maximum" : 60
-        }
-      },
-      "required" : [ "Value" ]
-    },
     "IdleConnectionPreferences" : {
-      "description" : "Idle Connection Preferences",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
@@ -49,46 +29,34 @@
           "$ref" : "#/definitions/IdleConnectionAlert"
         }
       }
-    }
-  },
-  "properties" : {
-    "AccountId" : {
-      "description" : "The AWS Account Id that the preference is associated with, used as the unique identifier for this resource.",
-      "type" : "string",
-      "pattern" : "\\d{12}"
     },
-    "IdleConnection" : {
-      "description" : "A map for Idle Connection Preferences",
-      "type" : "array",
-      "uniqueItems" : true,
-      "items" : {
-        "$ref" : "#/definitions/IdleConnectionPreferences"
+    "IdleConnectionAlert" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "integer"
+        },
+        "Type" : {
+          "type" : "string"
+        }
       },
-      "minItems" : 1,
-      "maxItems" : 1
+      "required" : [ "Value" ]
+    },
+    "IdleConnectionTimeout" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "integer"
+        },
+        "Type" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Value" ]
     }
   },
-  "tagging" : {
-    "taggable" : false
-  },
-  "additionalProperties" : false,
-  "readOnlyProperties" : [ "/properties/AccountId" ],
-  "primaryIdentifier" : [ "/properties/AccountId" ],
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "ssm-guiconnect:UpdatePreferences", "ssm-guiconnect:GetPreferences" ]
-    },
-    "read" : {
-      "permissions" : [ "ssm-guiconnect:GetPreferences" ]
-    },
-    "update" : {
-      "permissions" : [ "ssm-guiconnect:UpdatePreferences", "ssm-guiconnect:GetPreferences", "ssm-guiconnect:DeletePreferences" ]
-    },
-    "delete" : {
-      "permissions" : [ "ssm-guiconnect:GetPreferences", "ssm-guiconnect:DeletePreferences" ]
-    },
-    "list" : {
-      "permissions" : [ "ssm-guiconnect:GetPreferences" ]
-    }
-  }
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/AccountId" ]
 }

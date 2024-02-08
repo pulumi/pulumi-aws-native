@@ -71,7 +71,7 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:CreateOpenIDConnectProvider", "iam:GetOpenIDConnectProvider" ]
+      "permissions" : [ "iam:CreateOpenIDConnectProvider", "iam:TagOpenIDConnectProvider", "iam:GetOpenIDConnectProvider" ]
     },
     "read" : {
       "permissions" : [ "iam:GetOpenIDConnectProvider" ]

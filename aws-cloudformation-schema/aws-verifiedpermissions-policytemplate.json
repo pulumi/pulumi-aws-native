@@ -26,7 +26,7 @@
       "minLength" : 1
     }
   },
-  "required" : [ "Statement" ],
+  "required" : [ "Statement", "PolicyStoreId" ],
   "readOnlyProperties" : [ "/properties/PolicyTemplateId" ],
   "createOnlyProperties" : [ "/properties/PolicyStoreId" ],
   "primaryIdentifier" : [ "/properties/PolicyStoreId", "/properties/PolicyTemplateId" ],
