@@ -199,9 +199,6 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 		case "defaultTags":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/107")})
-		case "endpoints":
-			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/108")})
 		case "ignoreTags":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/110")})
@@ -333,6 +330,22 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		// If all required values are not present/valid, the client will return an appropriate error.
 		credsProvider := credentials.NewStaticCredentialsProvider(accessKey, secretKey, token)
 		loadOptions = append(loadOptions, config.WithCredentialsProvider(credsProvider))
+	}
+
+	if endpointsString, ok := vars["aws-native:config:endpoints"]; ok {
+		var endpoints map[string]string
+		err := json.Unmarshal([]byte(endpointsString), &endpoints)
+		if err != nil {
+			return nil, fmt.Errorf("failed to unmarshal 'endpoints' config: %w", err)
+		}
+		glog.V(4).Infof("using AWS endpoints: %v", endpoints)
+		resolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
+			if endpoint, ok := endpoints[strings.ToLower(service)]; ok {
+				return aws.Endpoint{URL: endpoint}, nil
+			}
+			return aws.Endpoint{}, &aws.EndpointNotFoundError{}
+		})
+		loadOptions = append(loadOptions, config.WithEndpointResolverWithOptions(resolver))
 	}
 
 	// Attach custom middleware to the client.

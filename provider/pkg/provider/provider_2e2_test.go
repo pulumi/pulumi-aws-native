@@ -46,15 +46,19 @@ func newAwsTest(t *testing.T, source string, opts ...opttest.Option) *pulumitest
 
 func attachProvider() opttest.Option {
 	return opttest.AttachProviderServer("aws-native", func() (pulumirpc.ResourceProviderServer, error) {
-		cmdDir := filepath.Join("..", "..", "..", "bin")
-		schemaBytes, err := os.ReadFile(filepath.Join(cmdDir, "schema.json.gz"))
-		if err != nil {
-			return nil, err
-		}
-		metadataBytes, err := os.ReadFile(filepath.Join(cmdDir, "metadata.json.gz"))
-		if err != nil {
-			return nil, err
-		}
-		return provider.NewAwsNativeProvider(nil, "aws-native", "0.1.0", schemaBytes, metadataBytes)
+		return testProviderServer()
 	})
+}
+
+func testProviderServer() (pulumirpc.ResourceProviderServer, error) {
+	cmdDir := filepath.Join("..", "..", "..", "bin")
+	schemaBytes, err := os.ReadFile(filepath.Join(cmdDir, "schema.json.gz"))
+	if err != nil {
+		return nil, err
+	}
+	metadataBytes, err := os.ReadFile(filepath.Join(cmdDir, "metadata.json.gz"))
+	if err != nil {
+		return nil, err
+	}
+	return provider.NewAwsNativeProvider(nil, "aws-native", "0.1.0", schemaBytes, metadataBytes)
 }
