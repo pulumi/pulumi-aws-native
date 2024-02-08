@@ -9,6 +9,7 @@ import (
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"google.golang.org/protobuf/types/known/structpb"
 )
 
 func TestProviderEndpoints(t *testing.T) {
@@ -92,5 +93,79 @@ func TestProviderEndpoints(t *testing.T) {
 		assert.Equal(t, map[string]interface{}{
 			"accountId": "123456789012",
 		}, invokeResponse.Return.AsMap())
+	})
+
+	t.Run("resource create", func(t *testing.T) {
+		t.Parallel()
+
+		reqCount := 0
+		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			reqCount++
+			if reqCount == 1 {
+				w.Write([]byte(`
+			{
+				"ProgressEvent": {
+					"Identifier": "CloudApiLogGroup",
+					"OperationStatus": "IN_PROGRESS",
+					"EventTime": 1707429589,
+					"TypeName": "AWS::Logs::LogGroup",
+					"RequestToken": "f2fcf5a1-7f17-4c7a-b67f-ab0123456789",
+					"Operation": "CREATE"
+				}
+			}`))
+				return
+			}
+			if reqCount == 2 {
+				w.Write([]byte(`
+			{
+				"ProgressEvent": {
+					"Identifier": "CloudApiLogGroup",
+					"OperationStatus": "SUCCESS",
+					"EventTime": 1707429589,
+					"TypeName": "AWS::Logs::LogGroup",
+					"RequestToken": "f2fcf5a1-7f17-4c7a-b67f-ab0123456789",
+					"Operation": "CREATE"
+				}
+			}`))
+				return
+			}
+			w.Write([]byte(`
+			{
+				"ResourceDescription": {
+					"Identifier": "CloudApiLogGroup",
+					"Properties": "{\"LogGroupName\": \"lg\"}"
+				},
+				"TypeName": "AWS::Logs::LogGroup"
+			}`))
+		}))
+		t.Cleanup(server.Close)
+
+		provider, err := testProviderServer()
+		require.NoError(t, err)
+		ctx := context.Background()
+		_, err = provider.Configure(ctx, &pulumirpc.ConfigureRequest{
+			Variables: map[string]string{
+				"aws-native:config:region":                    "us-west-2",
+				"aws-native:config:endpoints":                 `{"cloudcontrol": "` + server.URL + `"}`,
+				"aws-native:config:skipCredentialsValidation": "true", // Skip so we don't have to mock STS.
+				// Set fake credentials to avoid making real requests and override any local credentials.
+				"aws-native:config:accessKey": "fake",
+				"aws-native:config:secretKey": "fake",
+				"aws-native:config:token":     "fake",
+			},
+		})
+		require.NoError(t, err)
+
+		createResponse, err := provider.Create(ctx, &pulumirpc.CreateRequest{
+			Urn: "urn:pulumi:stack::project::aws-native:logs:LogGroup::lg",
+			Properties: &structpb.Struct{
+				Fields: map[string]*structpb.Value{},
+			},
+		})
+		require.NoError(t, err)
+		assert.Equal(t, "CloudApiLogGroup", createResponse.Id)
+		assert.Subset(t, createResponse.Properties.AsMap(), map[string]interface{}{
+			"logGroupName": "lg",
+		})
 	})
 }
