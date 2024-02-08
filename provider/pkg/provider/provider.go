@@ -111,6 +111,7 @@ type cfnProvider struct {
 	cctl *cloudcontrol.Client
 	ec2  *ec2.Client
 	ssm  *ssm.Client
+	sts  *sts.Client
 }
 
 var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
@@ -458,10 +459,14 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		}
 	}
 
-	p.cfn, p.cctl, p.ec2, p.ssm = cloudformation.NewFromConfig(cfg), cloudcontrol.NewFromConfig(cfg), ec2.NewFromConfig(cfg), ssm.NewFromConfig(cfg)
+	p.cfn = cloudformation.NewFromConfig(cfg)
+	p.cctl = cloudcontrol.NewFromConfig(cfg)
+	p.ec2 = ec2.NewFromConfig(cfg)
+	p.ssm = ssm.NewFromConfig(cfg)
+	p.sts = sts.NewFromConfig(cfg)
 
 	if !skipCredentialsValidation {
-		callerIdentityResp, err := sts.NewFromConfig(cfg).GetCallerIdentity(ctx, &sts.GetCallerIdentityInput{})
+		callerIdentityResp, err := p.sts.GetCallerIdentity(ctx, &sts.GetCallerIdentityInput{})
 		if err != nil {
 			return nil, errors.Wrapf(err, "could not get AWS account ID")
 		}

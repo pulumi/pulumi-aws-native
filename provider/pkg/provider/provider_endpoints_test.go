@@ -57,4 +57,40 @@ func TestProviderEndpoints(t *testing.T) {
 			"accountId": "123456789012",
 		}, invokeResponse.Return.AsMap())
 	})
+
+	t.Run("skipping credentials doesn't break getAccountId", func(t *testing.T) {
+		t.Parallel()
+		stsRequestCount := 0
+		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			stsRequestCount++
+			w.Write([]byte(stsGetCallerIdentityResponse))
+		}))
+		t.Cleanup(server.Close)
+
+		provider, err := testProviderServer()
+		require.NoError(t, err)
+		ctx := context.Background()
+		_, err = provider.Configure(ctx, &pulumirpc.ConfigureRequest{
+			Variables: map[string]string{
+				"aws-native:config:region":                    "us-west-2",
+				"aws-native:config:endpoints":                 `{"sts": "` + server.URL + `"}`,
+				"aws-native:config:skipCredentialsValidation": "true",
+				// Set fake credentials to avoid making real requests and override any local credentials.
+				"aws-native:config:accessKey": "fake",
+				"aws-native:config:secretKey": "fake",
+				"aws-native:config:token":     "fake",
+			},
+		})
+		require.NoError(t, err)
+		assert.Equal(t, 0, stsRequestCount) // No STS request should be made due to skipping verification.
+
+		invokeResponse, err := provider.Invoke(ctx, &pulumirpc.InvokeRequest{
+			Tok: "aws-native:index:getAccountId",
+		})
+		require.NoError(t, err)
+		assert.Equal(t, 1, stsRequestCount)
+		assert.Equal(t, map[string]interface{}{
+			"accountId": "123456789012",
+		}, invokeResponse.Return.AsMap())
+	})
 }

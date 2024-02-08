@@ -4,11 +4,20 @@ package provider
 
 import (
 	"context"
+	"fmt"
 
+	"github.com/aws/aws-sdk-go-v2/service/sts"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
 func (p *cfnProvider) getAccountID(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+	if p.accountID == "" {
+		callerIdentityResp, err := p.sts.GetCallerIdentity(ctx, &sts.GetCallerIdentityInput{})
+		if err != nil {
+			return nil, fmt.Errorf("could not get AWS account ID: %w", err)
+		}
+		p.accountID = *callerIdentityResp.Account
+	}
 	return resource.NewPropertyMapFromMap(map[string]interface{}{
 		"accountId": p.accountID,
 	}), nil
