@@ -10,13 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
+    /// <summary>
+    /// The caching configuration for a resolver that has caching activated.
+    /// </summary>
     public sealed class ResolverCachingConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("cachingKeys")]
         private InputList<string>? _cachingKeys;
 
         /// <summary>
-        /// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        /// The caching keys for a resolver that has caching activated.
+        ///  Valid values are entries from the ``$context.arguments``, ``$context.source``, and ``$context.identity`` maps.
         /// </summary>
         public InputList<string> CachingKeys
         {
@@ -25,7 +29,8 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         }
 
         /// <summary>
-        /// The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+        /// The TTL in seconds for a resolver that has caching activated.
+        ///  Valid values are 1–3,600 seconds.
         /// </summary>
         [Input("ttl", required: true)]
         public Input<double> Ttl { get; set; } = null!;

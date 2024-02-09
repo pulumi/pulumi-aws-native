@@ -10,13 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
+    /// <summary>
+    /// Use the ``PipelineConfig`` property type to specify ``PipelineConfig`` for an APSYlong resolver.
+    ///   ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
+    /// </summary>
     public sealed class ResolverPipelineConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("functions")]
         private InputList<string>? _functions;
 
         /// <summary>
-        /// A list of Function objects.
+        /// A list of ``Function`` objects.
         /// </summary>
         public InputList<string> Functions
         {

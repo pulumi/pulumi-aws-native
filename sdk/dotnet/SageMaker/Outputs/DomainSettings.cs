@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class DomainSettings
     {
+        public readonly Outputs.DomainDockerSettings? DockerSettings;
         public readonly Outputs.DomainRStudioServerProDomainSettings? RStudioServerProDomainSettings;
         /// <summary>
         /// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
@@ -24,10 +25,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private DomainSettings(
+            Outputs.DomainDockerSettings? dockerSettings,
+
             Outputs.DomainRStudioServerProDomainSettings? rStudioServerProDomainSettings,
 
             ImmutableArray<string> securityGroupIds)
         {
+            DockerSettings = dockerSettings;
             RStudioServerProDomainSettings = rStudioServerProDomainSettings;
             SecurityGroupIds = securityGroupIds;
         }

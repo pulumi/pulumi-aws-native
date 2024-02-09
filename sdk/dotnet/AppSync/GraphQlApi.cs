@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
 
+        [Output("environmentVariables")]
+        public Output<object?> EnvironmentVariables { get; private set; } = null!;
+
         [Output("graphQlDns")]
         public Output<string> GraphQlDns { get; private set; } = null!;
 
@@ -143,6 +146,9 @@ namespace Pulumi.AwsNative.AppSync
 
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
+
+        [Input("environmentVariables")]
+        public Input<object>? EnvironmentVariables { get; set; }
 
         [Input("introspectionConfig")]
         public Input<string>? IntrospectionConfig { get; set; }

@@ -17,15 +17,19 @@ type Space struct {
 	pulumi.CustomResourceState
 
 	// The ID of the associated Domain.
-	DomainId pulumi.StringOutput `pulumi:"domainId"`
+	DomainId          pulumi.StringOutput             `pulumi:"domainId"`
+	OwnershipSettings SpaceOwnershipSettingsPtrOutput `pulumi:"ownershipSettings"`
 	// The space Amazon Resource Name (ARN).
-	SpaceArn pulumi.StringOutput `pulumi:"spaceArn"`
+	SpaceArn         pulumi.StringOutput    `pulumi:"spaceArn"`
+	SpaceDisplayName pulumi.StringPtrOutput `pulumi:"spaceDisplayName"`
 	// A name for the Space.
 	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
 	// A collection of settings.
-	SpaceSettings SpaceSettingsPtrOutput `pulumi:"spaceSettings"`
+	SpaceSettings        SpaceSettingsPtrOutput        `pulumi:"spaceSettings"`
+	SpaceSharingSettings SpaceSharingSettingsPtrOutput `pulumi:"spaceSharingSettings"`
 	// A list of tags to apply to the space.
 	Tags SpaceTagArrayOutput `pulumi:"tags"`
+	Url  pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewSpace registers a new resource with the given unique name, arguments, and options.
@@ -40,7 +44,9 @@ func NewSpace(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"domainId",
+		"ownershipSettings",
 		"spaceName",
+		"spaceSharingSettings",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -77,11 +83,14 @@ func (SpaceState) ElementType() reflect.Type {
 
 type spaceArgs struct {
 	// The ID of the associated Domain.
-	DomainId string `pulumi:"domainId"`
+	DomainId          string                  `pulumi:"domainId"`
+	OwnershipSettings *SpaceOwnershipSettings `pulumi:"ownershipSettings"`
+	SpaceDisplayName  *string                 `pulumi:"spaceDisplayName"`
 	// A name for the Space.
 	SpaceName *string `pulumi:"spaceName"`
 	// A collection of settings.
-	SpaceSettings *SpaceSettings `pulumi:"spaceSettings"`
+	SpaceSettings        *SpaceSettings        `pulumi:"spaceSettings"`
+	SpaceSharingSettings *SpaceSharingSettings `pulumi:"spaceSharingSettings"`
 	// A list of tags to apply to the space.
 	Tags []SpaceTag `pulumi:"tags"`
 }
@@ -89,11 +98,14 @@ type spaceArgs struct {
 // The set of arguments for constructing a Space resource.
 type SpaceArgs struct {
 	// The ID of the associated Domain.
-	DomainId pulumi.StringInput
+	DomainId          pulumi.StringInput
+	OwnershipSettings SpaceOwnershipSettingsPtrInput
+	SpaceDisplayName  pulumi.StringPtrInput
 	// A name for the Space.
 	SpaceName pulumi.StringPtrInput
 	// A collection of settings.
-	SpaceSettings SpaceSettingsPtrInput
+	SpaceSettings        SpaceSettingsPtrInput
+	SpaceSharingSettings SpaceSharingSettingsPtrInput
 	// A list of tags to apply to the space.
 	Tags SpaceTagArrayInput
 }
@@ -140,9 +152,17 @@ func (o SpaceOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
+func (o SpaceOutput) OwnershipSettings() SpaceOwnershipSettingsPtrOutput {
+	return o.ApplyT(func(v *Space) SpaceOwnershipSettingsPtrOutput { return v.OwnershipSettings }).(SpaceOwnershipSettingsPtrOutput)
+}
+
 // The space Amazon Resource Name (ARN).
 func (o SpaceOutput) SpaceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.SpaceArn }).(pulumi.StringOutput)
+}
+
+func (o SpaceOutput) SpaceDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Space) pulumi.StringPtrOutput { return v.SpaceDisplayName }).(pulumi.StringPtrOutput)
 }
 
 // A name for the Space.
@@ -155,9 +175,17 @@ func (o SpaceOutput) SpaceSettings() SpaceSettingsPtrOutput {
 	return o.ApplyT(func(v *Space) SpaceSettingsPtrOutput { return v.SpaceSettings }).(SpaceSettingsPtrOutput)
 }
 
+func (o SpaceOutput) SpaceSharingSettings() SpaceSharingSettingsPtrOutput {
+	return o.ApplyT(func(v *Space) SpaceSharingSettingsPtrOutput { return v.SpaceSharingSettings }).(SpaceSharingSettingsPtrOutput)
+}
+
 // A list of tags to apply to the space.
 func (o SpaceOutput) Tags() SpaceTagArrayOutput {
 	return o.ApplyT(func(v *Space) SpaceTagArrayOutput { return v.Tags }).(SpaceTagArrayOutput)
+}
+
+func (o SpaceOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
 func init() {

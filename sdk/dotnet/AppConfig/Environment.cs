@@ -12,24 +12,44 @@ namespace Pulumi.AwsNative.AppConfig
     /// <summary>
     /// Resource Type definition for AWS::AppConfig::Environment
     /// </summary>
-    [Obsolete(@"Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appconfig:Environment")]
     public partial class Environment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the environment.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("monitors")]
-        public Output<ImmutableArray<Outputs.EnvironmentMonitors>> Monitors { get; private set; } = null!;
+        /// <summary>
+        /// The environment ID.
+        /// </summary>
+        [Output("environmentId")]
+        public Output<string> EnvironmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon CloudWatch alarms to monitor during the deployment process.
+        /// </summary>
+        [Output("monitors")]
+        public Output<ImmutableArray<Outputs.EnvironmentMonitor>> Monitors { get; private set; } = null!;
+
+        /// <summary>
+        /// A name for the environment.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.EnvironmentTags>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EnvironmentTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -80,28 +100,45 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// A description of the environment.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("monitors")]
-        private InputList<Inputs.EnvironmentMonitorsArgs>? _monitors;
-        public InputList<Inputs.EnvironmentMonitorsArgs> Monitors
+        private InputList<Inputs.EnvironmentMonitorArgs>? _monitors;
+
+        /// <summary>
+        /// Amazon CloudWatch alarms to monitor during the deployment process.
+        /// </summary>
+        public InputList<Inputs.EnvironmentMonitorArgs> Monitors
         {
-            get => _monitors ?? (_monitors = new InputList<Inputs.EnvironmentMonitorsArgs>());
+            get => _monitors ?? (_monitors = new InputList<Inputs.EnvironmentMonitorArgs>());
             set => _monitors = value;
         }
 
+        /// <summary>
+        /// A name for the environment.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.EnvironmentTagsArgs>? _tags;
-        public InputList<Inputs.EnvironmentTagsArgs> Tags
+        private InputList<Inputs.EnvironmentTagArgs>? _tags;
+
+        /// <summary>
+        /// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
+        public InputList<Inputs.EnvironmentTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.EnvironmentTagsArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.EnvironmentTagArgs>());
             set => _tags = value;
         }
 

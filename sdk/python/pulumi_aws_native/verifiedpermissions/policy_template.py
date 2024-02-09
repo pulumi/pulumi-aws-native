@@ -14,17 +14,25 @@ __all__ = ['PolicyTemplateArgs', 'PolicyTemplate']
 @pulumi.input_type
 class PolicyTemplateArgs:
     def __init__(__self__, *,
+                 policy_store_id: pulumi.Input[str],
                  statement: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
-                 policy_store_id: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PolicyTemplate resource.
         """
+        pulumi.set(__self__, "policy_store_id", policy_store_id)
         pulumi.set(__self__, "statement", statement)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if policy_store_id is not None:
-            pulumi.set(__self__, "policy_store_id", policy_store_id)
+
+    @property
+    @pulumi.getter(name="policyStoreId")
+    def policy_store_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "policy_store_id")
+
+    @policy_store_id.setter
+    def policy_store_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_store_id", value)
 
     @property
     @pulumi.getter
@@ -43,15 +51,6 @@ class PolicyTemplateArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="policyStoreId")
-    def policy_store_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "policy_store_id")
-
-    @policy_store_id.setter
-    def policy_store_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy_store_id", value)
 
 
 class PolicyTemplate(pulumi.CustomResource):
@@ -106,6 +105,8 @@ class PolicyTemplate(pulumi.CustomResource):
             __props__ = PolicyTemplateArgs.__new__(PolicyTemplateArgs)
 
             __props__.__dict__["description"] = description
+            if policy_store_id is None and not opts.urn:
+                raise TypeError("Missing required property 'policy_store_id'")
             __props__.__dict__["policy_store_id"] = policy_store_id
             if statement is None and not opts.urn:
                 raise TypeError("Missing required property 'statement'")
@@ -148,7 +149,7 @@ class PolicyTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyStoreId")
-    def policy_store_id(self) -> pulumi.Output[Optional[str]]:
+    def policy_store_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "policy_store_id")
 
     @property

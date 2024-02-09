@@ -37,6 +37,7 @@ export class Table extends pulumi.CustomResource {
         return obj['__pulumiType'] === Table.__pulumiType;
     }
 
+    public readonly autoScalingSpecifications!: pulumi.Output<outputs.cassandra.TableAutoScalingSpecification | undefined>;
     public readonly billingMode!: pulumi.Output<outputs.cassandra.TableBillingMode | undefined>;
     /**
      * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
@@ -67,6 +68,7 @@ export class Table extends pulumi.CustomResource {
      * Non-key columns of the table
      */
     public readonly regularColumns!: pulumi.Output<outputs.cassandra.TableColumn[] | undefined>;
+    public readonly replicaSpecifications!: pulumi.Output<outputs.cassandra.TableReplicaSpecification[] | undefined>;
     /**
      * Name for Cassandra table
      */
@@ -93,6 +95,7 @@ export class Table extends pulumi.CustomResource {
             if ((!args || args.partitionKeyColumns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'partitionKeyColumns'");
             }
+            resourceInputs["autoScalingSpecifications"] = args ? args.autoScalingSpecifications : undefined;
             resourceInputs["billingMode"] = args ? args.billingMode : undefined;
             resourceInputs["clientSideTimestampsEnabled"] = args ? args.clientSideTimestampsEnabled : undefined;
             resourceInputs["clusteringKeyColumns"] = args ? args.clusteringKeyColumns : undefined;
@@ -102,9 +105,11 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["partitionKeyColumns"] = args ? args.partitionKeyColumns : undefined;
             resourceInputs["pointInTimeRecoveryEnabled"] = args ? args.pointInTimeRecoveryEnabled : undefined;
             resourceInputs["regularColumns"] = args ? args.regularColumns : undefined;
+            resourceInputs["replicaSpecifications"] = args ? args.replicaSpecifications : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
+            resourceInputs["autoScalingSpecifications"] = undefined /*out*/;
             resourceInputs["billingMode"] = undefined /*out*/;
             resourceInputs["clientSideTimestampsEnabled"] = undefined /*out*/;
             resourceInputs["clusteringKeyColumns"] = undefined /*out*/;
@@ -114,6 +119,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["partitionKeyColumns"] = undefined /*out*/;
             resourceInputs["pointInTimeRecoveryEnabled"] = undefined /*out*/;
             resourceInputs["regularColumns"] = undefined /*out*/;
+            resourceInputs["replicaSpecifications"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -128,6 +134,7 @@ export class Table extends pulumi.CustomResource {
  * The set of arguments for constructing a Table resource.
  */
 export interface TableArgs {
+    autoScalingSpecifications?: pulumi.Input<inputs.cassandra.TableAutoScalingSpecificationArgs>;
     billingMode?: pulumi.Input<inputs.cassandra.TableBillingModeArgs>;
     /**
      * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
@@ -158,6 +165,7 @@ export interface TableArgs {
      * Non-key columns of the table
      */
     regularColumns?: pulumi.Input<pulumi.Input<inputs.cassandra.TableColumnArgs>[]>;
+    replicaSpecifications?: pulumi.Input<pulumi.Input<inputs.cassandra.TableReplicaSpecificationArgs>[]>;
     /**
      * Name for Cassandra table
      */

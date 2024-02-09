@@ -26,6 +26,7 @@ __all__ = [
     'CustomMetricTag',
     'DimensionTag',
     'DomainConfigurationAuthorizerConfig',
+    'DomainConfigurationServerCertificateConfig',
     'DomainConfigurationServerCertificateSummary',
     'DomainConfigurationTag',
     'DomainConfigurationTlsConfig',
@@ -742,6 +743,36 @@ class DomainConfigurationAuthorizerConfig(dict):
     @pulumi.getter(name="defaultAuthorizerName")
     def default_authorizer_name(self) -> Optional[str]:
         return pulumi.get(self, "default_authorizer_name")
+
+
+@pulumi.output_type
+class DomainConfigurationServerCertificateConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableOcspCheck":
+            suggest = "enable_ocsp_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainConfigurationServerCertificateConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainConfigurationServerCertificateConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainConfigurationServerCertificateConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_ocsp_check: Optional[bool] = None):
+        if enable_ocsp_check is not None:
+            pulumi.set(__self__, "enable_ocsp_check", enable_ocsp_check)
+
+    @property
+    @pulumi.getter(name="enableOcspCheck")
+    def enable_ocsp_check(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_ocsp_check")
 
 
 @pulumi.output_type

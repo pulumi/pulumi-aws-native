@@ -6,6 +6,7 @@ AWS::Cognito::UserPoolUICustomizationAttachment
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::SNS::TopicPolicy
+AWS::SSMGuiConnect::Preferences
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get
 AWSQS::Kubernetes::Helm

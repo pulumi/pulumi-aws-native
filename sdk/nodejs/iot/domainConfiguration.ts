@@ -44,6 +44,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
     public readonly domainName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly domainType!: pulumi.Output<enums.iot.DomainConfigurationDomainType>;
     public readonly serverCertificateArns!: pulumi.Output<string[] | undefined>;
+    public readonly serverCertificateConfig!: pulumi.Output<outputs.iot.DomainConfigurationServerCertificateConfig | undefined>;
     public /*out*/ readonly serverCertificates!: pulumi.Output<outputs.iot.DomainConfigurationServerCertificateSummary[]>;
     public readonly serviceType!: pulumi.Output<enums.iot.DomainConfigurationServiceType | undefined>;
     public readonly tags!: pulumi.Output<outputs.iot.DomainConfigurationTag[] | undefined>;
@@ -66,6 +67,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
             resourceInputs["domainConfigurationStatus"] = args ? args.domainConfigurationStatus : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["serverCertificateArns"] = args ? args.serverCertificateArns : undefined;
+            resourceInputs["serverCertificateConfig"] = args ? args.serverCertificateConfig : undefined;
             resourceInputs["serviceType"] = args ? args.serviceType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tlsConfig"] = args ? args.tlsConfig : undefined;
@@ -81,6 +83,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["domainType"] = undefined /*out*/;
             resourceInputs["serverCertificateArns"] = undefined /*out*/;
+            resourceInputs["serverCertificateConfig"] = undefined /*out*/;
             resourceInputs["serverCertificates"] = undefined /*out*/;
             resourceInputs["serviceType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -103,6 +106,7 @@ export interface DomainConfigurationArgs {
     domainConfigurationStatus?: pulumi.Input<enums.iot.DomainConfigurationStatus>;
     domainName?: pulumi.Input<string>;
     serverCertificateArns?: pulumi.Input<pulumi.Input<string>[]>;
+    serverCertificateConfig?: pulumi.Input<inputs.iot.DomainConfigurationServerCertificateConfigArgs>;
     serviceType?: pulumi.Input<enums.iot.DomainConfigurationServiceType>;
     tags?: pulumi.Input<pulumi.Input<inputs.iot.DomainConfigurationTagArgs>[]>;
     tlsConfig?: pulumi.Input<inputs.iot.DomainConfigurationTlsConfigArgs>;

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Outputs
 {
 
-    /// <summary>
-    /// Structure that contains X.500 attribute type and value.
-    /// </summary>
     [OutputType]
     public sealed class CertificateCustomAttribute
     {

@@ -62,9 +62,15 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the network ACL that is associated with the subnet's VPC
+     */
     public /*out*/ readonly networkAclAssociationId!: pulumi.Output<string>;
     public readonly outpostArn!: pulumi.Output<string | undefined>;
     public readonly privateDnsNameOptionsOnLaunch!: pulumi.Output<outputs.ec2.PrivateDnsNameOptionsOnLaunchProperties | undefined>;
+    /**
+     * The ID of the subnet
+     */
     public /*out*/ readonly subnetId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.ec2.SubnetTag[] | undefined>;
     public readonly vpcId!: pulumi.Output<string>;

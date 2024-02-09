@@ -31,9 +31,6 @@ func NewUserPoolIdentityProvider(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ProviderDetails == nil {
-		return nil, errors.New("invalid value for required argument 'ProviderDetails'")
-	}
 	if args.ProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderName'")
 	}

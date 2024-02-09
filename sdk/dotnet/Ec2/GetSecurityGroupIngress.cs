@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSecurityGroupIngressArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Security Group Rule Id
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSecurityGroupIngressInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Security Group Rule Id
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetSecurityGroupIngressResult
     {
+        /// <summary>
+        /// Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The Security Group Rule Id
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

@@ -26,6 +26,9 @@ namespace Pulumi.AwsNative.AmazonMq.Inputs
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        [Input("replicationUser")]
+        public Input<bool>? ReplicationUser { get; set; }
+
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

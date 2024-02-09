@@ -23,11 +23,17 @@ func LookupHostedConfigurationVersion(ctx *pulumi.Context, args *LookupHostedCon
 }
 
 type LookupHostedConfigurationVersionArgs struct {
-	Id string `pulumi:"id"`
+	// The application ID.
+	ApplicationId string `pulumi:"applicationId"`
+	// The configuration profile ID.
+	ConfigurationProfileId string `pulumi:"configurationProfileId"`
+	// Current version number of hosted configuration version.
+	VersionNumber string `pulumi:"versionNumber"`
 }
 
 type LookupHostedConfigurationVersionResult struct {
-	Id *string `pulumi:"id"`
+	// Current version number of hosted configuration version.
+	VersionNumber *string `pulumi:"versionNumber"`
 }
 
 func LookupHostedConfigurationVersionOutput(ctx *pulumi.Context, args LookupHostedConfigurationVersionOutputArgs, opts ...pulumi.InvokeOption) LookupHostedConfigurationVersionResultOutput {
@@ -44,7 +50,12 @@ func LookupHostedConfigurationVersionOutput(ctx *pulumi.Context, args LookupHost
 }
 
 type LookupHostedConfigurationVersionOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The application ID.
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// The configuration profile ID.
+	ConfigurationProfileId pulumi.StringInput `pulumi:"configurationProfileId"`
+	// Current version number of hosted configuration version.
+	VersionNumber pulumi.StringInput `pulumi:"versionNumber"`
 }
 
 func (LookupHostedConfigurationVersionOutputArgs) ElementType() reflect.Type {
@@ -65,8 +76,9 @@ func (o LookupHostedConfigurationVersionResultOutput) ToLookupHostedConfiguratio
 	return o
 }
 
-func (o LookupHostedConfigurationVersionResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupHostedConfigurationVersionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// Current version number of hosted configuration version.
+func (o LookupHostedConfigurationVersionResultOutput) VersionNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostedConfigurationVersionResult) *string { return v.VersionNumber }).(pulumi.StringPtrOutput)
 }
 
 func init() {

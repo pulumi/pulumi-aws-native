@@ -4790,6 +4790,7 @@ func (o TaskDefinitionAuthorizationConfigPtrOutput) Iam() TaskDefinitionAuthoriz
 type TaskDefinitionContainerDefinition struct {
 	Command               []string                            `pulumi:"command"`
 	Cpu                   *int                                `pulumi:"cpu"`
+	CredentialSpecs       []string                            `pulumi:"credentialSpecs"`
 	DependsOn             []TaskDefinitionContainerDependency `pulumi:"dependsOn"`
 	DisableNetworking     *bool                               `pulumi:"disableNetworking"`
 	DnsSearchDomains      []string                            `pulumi:"dnsSearchDomains"`
@@ -4850,6 +4851,7 @@ type TaskDefinitionContainerDefinitionInput interface {
 type TaskDefinitionContainerDefinitionArgs struct {
 	Command               pulumi.StringArrayInput                     `pulumi:"command"`
 	Cpu                   pulumi.IntPtrInput                          `pulumi:"cpu"`
+	CredentialSpecs       pulumi.StringArrayInput                     `pulumi:"credentialSpecs"`
 	DependsOn             TaskDefinitionContainerDependencyArrayInput `pulumi:"dependsOn"`
 	DisableNetworking     pulumi.BoolPtrInput                         `pulumi:"disableNetworking"`
 	DnsSearchDomains      pulumi.StringArrayInput                     `pulumi:"dnsSearchDomains"`
@@ -4953,6 +4955,10 @@ func (o TaskDefinitionContainerDefinitionOutput) Command() pulumi.StringArrayOut
 
 func (o TaskDefinitionContainerDefinitionOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *int { return v.Cpu }).(pulumi.IntPtrOutput)
+}
+
+func (o TaskDefinitionContainerDefinitionOutput) CredentialSpecs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []string { return v.CredentialSpecs }).(pulumi.StringArrayOutput)
 }
 
 func (o TaskDefinitionContainerDefinitionOutput) DependsOn() TaskDefinitionContainerDependencyArrayOutput {

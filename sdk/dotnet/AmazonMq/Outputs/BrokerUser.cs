@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.AmazonMq.Outputs
         public readonly bool? ConsoleAccess;
         public readonly ImmutableArray<string> Groups;
         public readonly string Password;
+        public readonly bool? ReplicationUser;
         public readonly string Username;
 
         [OutputConstructor]
@@ -26,11 +27,14 @@ namespace Pulumi.AwsNative.AmazonMq.Outputs
 
             string password,
 
+            bool? replicationUser,
+
             string username)
         {
             ConsoleAccess = consoleAccess;
             Groups = groups;
             Password = password;
+            ReplicationUser = replicationUser;
             Username = username;
         }
     }

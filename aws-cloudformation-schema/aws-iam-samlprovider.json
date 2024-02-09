@@ -57,13 +57,13 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:CreateSAMLProvider", "iam:GetSAMLProvider" ]
+      "permissions" : [ "iam:CreateSAMLProvider", "iam:GetSAMLProvider", "iam:TagSAMLProvider" ]
     },
     "read" : {
       "permissions" : [ "iam:GetSAMLProvider" ]
     },
     "update" : {
-      "permissions" : [ "iam:UpdateSAMLProvider", "iam:GetSAMLProvider", "iam:TagSAMLProvider", "iam:UntagSAMLProvider" ]
+      "permissions" : [ "iam:UpdateSAMLProvider", "iam:GetSAMLProvider", "iam:TagSAMLProvider", "iam:ListSAMLProviderTags", "iam:UntagSAMLProvider" ]
     },
     "delete" : {
       "permissions" : [ "iam:DeleteSAMLProvider" ]

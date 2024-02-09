@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
     /// <summary>
-    /// Structure that contains X.500 extensions for a Certificate.
+    /// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
     /// </summary>
     public sealed class CertificateExtensionsArgs : global::Pulumi.ResourceArgs
     {
@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
             set => _extendedKeyUsage = value;
         }
 
+        /// <summary>
+        /// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        /// </summary>
         [Input("keyUsage")]
         public Input<Inputs.CertificateKeyUsageArgs>? KeyUsage { get; set; }
 

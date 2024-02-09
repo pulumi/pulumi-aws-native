@@ -73,11 +73,20 @@ namespace Pulumi.AwsNative.SageMaker
         /// The space Amazon Resource Name (ARN).
         /// </summary>
         public readonly string? SpaceArn;
+        public readonly string? SpaceDisplayName;
+        public readonly string? Url;
 
         [OutputConstructor]
-        private GetSpaceResult(string? spaceArn)
+        private GetSpaceResult(
+            string? spaceArn,
+
+            string? spaceDisplayName,
+
+            string? url)
         {
             SpaceArn = spaceArn;
+            SpaceDisplayName = spaceDisplayName;
+            Url = url;
         }
     }
 }

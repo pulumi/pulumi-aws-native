@@ -22,6 +22,7 @@ __all__ = [
     'ClientVpnEndpointClientAuthenticationRequest',
     'ClientVpnEndpointClientConnectOptions',
     'ClientVpnEndpointClientLoginBannerOptions',
+    'ClientVpnEndpointClientRouteMonitoringOptions',
     'ClientVpnEndpointConnectionLogOptions',
     'ClientVpnEndpointDirectoryServiceAuthenticationRequest',
     'ClientVpnEndpointFederatedAuthenticationRequest',
@@ -622,6 +623,19 @@ class ClientVpnEndpointClientLoginBannerOptions(dict):
     @pulumi.getter(name="bannerText")
     def banner_text(self) -> Optional[str]:
         return pulumi.get(self, "banner_text")
+
+
+@pulumi.output_type
+class ClientVpnEndpointClientRouteMonitoringOptions(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
-    /// <summary>
-    /// Structure that contains X.509 OtherName information.
-    /// </summary>
     public sealed class CertificateOtherNameArgs : global::Pulumi.ResourceArgs
     {
         [Input("typeId", required: true)]

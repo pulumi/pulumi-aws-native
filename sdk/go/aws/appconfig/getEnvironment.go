@@ -23,15 +23,23 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 }
 
 type LookupEnvironmentArgs struct {
-	Id string `pulumi:"id"`
+	// The application ID.
+	ApplicationId string `pulumi:"applicationId"`
+	// The environment ID.
+	EnvironmentId string `pulumi:"environmentId"`
 }
 
 type LookupEnvironmentResult struct {
-	Description *string               `pulumi:"description"`
-	Id          *string               `pulumi:"id"`
-	Monitors    []EnvironmentMonitors `pulumi:"monitors"`
-	Name        *string               `pulumi:"name"`
-	Tags        []EnvironmentTags     `pulumi:"tags"`
+	// A description of the environment.
+	Description *string `pulumi:"description"`
+	// The environment ID.
+	EnvironmentId *string `pulumi:"environmentId"`
+	// Amazon CloudWatch alarms to monitor during the deployment process.
+	Monitors []EnvironmentMonitor `pulumi:"monitors"`
+	// A name for the environment.
+	Name *string `pulumi:"name"`
+	// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags []EnvironmentTag `pulumi:"tags"`
 }
 
 func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentResultOutput {
@@ -48,7 +56,10 @@ func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputAr
 }
 
 type LookupEnvironmentOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The application ID.
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// The environment ID.
+	EnvironmentId pulumi.StringInput `pulumi:"environmentId"`
 }
 
 func (LookupEnvironmentOutputArgs) ElementType() reflect.Type {
@@ -69,24 +80,29 @@ func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutputWithContex
 	return o
 }
 
+// A description of the environment.
 func (o LookupEnvironmentResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEnvironmentResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// The environment ID.
+func (o LookupEnvironmentResultOutput) EnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEnvironmentResultOutput) Monitors() EnvironmentMonitorsArrayOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) []EnvironmentMonitors { return v.Monitors }).(EnvironmentMonitorsArrayOutput)
+// Amazon CloudWatch alarms to monitor during the deployment process.
+func (o LookupEnvironmentResultOutput) Monitors() EnvironmentMonitorArrayOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) []EnvironmentMonitor { return v.Monitors }).(EnvironmentMonitorArrayOutput)
 }
 
+// A name for the environment.
 func (o LookupEnvironmentResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEnvironmentResultOutput) Tags() EnvironmentTagsArrayOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) []EnvironmentTags { return v.Tags }).(EnvironmentTagsArrayOutput)
+// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+func (o LookupEnvironmentResultOutput) Tags() EnvironmentTagArrayOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) []EnvironmentTag { return v.Tags }).(EnvironmentTagArrayOutput)
 }
 
 func init() {

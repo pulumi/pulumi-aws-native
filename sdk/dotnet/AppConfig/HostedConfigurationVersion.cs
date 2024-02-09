@@ -12,30 +12,56 @@ namespace Pulumi.AwsNative.AppConfig
     /// <summary>
     /// Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
     /// </summary>
-    [Obsolete(@"HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appconfig:HostedConfigurationVersion")]
     public partial class HostedConfigurationVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration profile ID.
+        /// </summary>
         [Output("configurationProfileId")]
         public Output<string> ConfigurationProfileId { get; private set; } = null!;
 
+        /// <summary>
+        /// The content of the configuration or the configuration data.
+        /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
 
+        /// <summary>
+        /// A standard MIME type describing the format of the configuration content.
+        /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the hosted configuration version.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
+        /// </summary>
         [Output("latestVersionNumber")]
-        public Output<double?> LatestVersionNumber { get; private set; } = null!;
+        public Output<int?> LatestVersionNumber { get; private set; } = null!;
 
+        /// <summary>
+        /// A user-defined label for an AWS AppConfig hosted configuration version.
+        /// </summary>
         [Output("versionLabel")]
         public Output<string?> VersionLabel { get; private set; } = null!;
+
+        /// <summary>
+        /// Current version number of hosted configuration version.
+        /// </summary>
+        [Output("versionNumber")]
+        public Output<string> VersionNumber { get; private set; } = null!;
 
 
         /// <summary>
@@ -92,24 +118,45 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class HostedConfigurationVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration profile ID.
+        /// </summary>
         [Input("configurationProfileId", required: true)]
         public Input<string> ConfigurationProfileId { get; set; } = null!;
 
+        /// <summary>
+        /// The content of the configuration or the configuration data.
+        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
+        /// <summary>
+        /// A standard MIME type describing the format of the configuration content.
+        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
+        /// <summary>
+        /// A description of the hosted configuration version.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
+        /// </summary>
         [Input("latestVersionNumber")]
-        public Input<double>? LatestVersionNumber { get; set; }
+        public Input<int>? LatestVersionNumber { get; set; }
 
+        /// <summary>
+        /// A user-defined label for an AWS AppConfig hosted configuration version.
+        /// </summary>
         [Input("versionLabel")]
         public Input<string>? VersionLabel { get; set; }
 

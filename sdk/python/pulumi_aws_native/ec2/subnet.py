@@ -469,6 +469,9 @@ class Subnet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="networkAclAssociationId")
     def network_acl_association_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the network ACL that is associated with the subnet's VPC
+        """
         return pulumi.get(self, "network_acl_association_id")
 
     @property
@@ -484,6 +487,9 @@ class Subnet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the subnet
+        """
         return pulumi.get(self, "subnet_id")
 
     @property

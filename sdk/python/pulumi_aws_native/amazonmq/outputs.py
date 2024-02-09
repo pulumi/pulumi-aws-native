@@ -294,6 +294,8 @@ class BrokerUser(dict):
         suggest = None
         if key == "consoleAccess":
             suggest = "console_access"
+        elif key == "replicationUser":
+            suggest = "replication_user"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BrokerUser. Access the value via the '{suggest}' property getter instead.")
@@ -310,13 +312,16 @@ class BrokerUser(dict):
                  password: str,
                  username: str,
                  console_access: Optional[bool] = None,
-                 groups: Optional[Sequence[str]] = None):
+                 groups: Optional[Sequence[str]] = None,
+                 replication_user: Optional[bool] = None):
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
         if console_access is not None:
             pulumi.set(__self__, "console_access", console_access)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
+        if replication_user is not None:
+            pulumi.set(__self__, "replication_user", replication_user)
 
     @property
     @pulumi.getter
@@ -337,6 +342,11 @@ class BrokerUser(dict):
     @pulumi.getter
     def groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter(name="replicationUser")
+    def replication_user(self) -> Optional[bool]:
+        return pulumi.get(self, "replication_user")
 
 
 @pulumi.output_type

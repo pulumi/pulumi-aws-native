@@ -15,6 +15,29 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class SpaceSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("appType")]
+        public Input<Pulumi.AwsNative.SageMaker.SpaceAppType>? AppType { get; set; }
+
+        /// <summary>
+        /// The CodeEditor app settings.
+        /// </summary>
+        [Input("codeEditorAppSettings")]
+        public Input<Inputs.SpaceCodeEditorAppSettingsArgs>? CodeEditorAppSettings { get; set; }
+
+        [Input("customFileSystems")]
+        private InputList<Inputs.SpaceCustomFileSystemArgs>? _customFileSystems;
+        public InputList<Inputs.SpaceCustomFileSystemArgs> CustomFileSystems
+        {
+            get => _customFileSystems ?? (_customFileSystems = new InputList<Inputs.SpaceCustomFileSystemArgs>());
+            set => _customFileSystems = value;
+        }
+
+        /// <summary>
+        /// The JupyterLab app settings.
+        /// </summary>
+        [Input("jupyterLabAppSettings")]
+        public Input<Inputs.SpaceJupyterLabAppSettingsArgs>? JupyterLabAppSettings { get; set; }
+
         /// <summary>
         /// The Jupyter server's app settings.
         /// </summary>
@@ -26,6 +49,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// </summary>
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.SpaceKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }
+
+        /// <summary>
+        /// Default storage settings for a space.
+        /// </summary>
+        [Input("spaceStorageSettings")]
+        public Input<Inputs.SpaceStorageSettingsArgs>? SpaceStorageSettings { get; set; }
 
         public SpaceSettingsArgs()
         {

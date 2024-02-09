@@ -23,19 +23,22 @@ func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.In
 }
 
 type LookupSubnetArgs struct {
+	// The ID of the subnet
 	SubnetId string `pulumi:"subnetId"`
 }
 
 type LookupSubnetResult struct {
-	AssignIpv6AddressOnCreation   *bool                                    `pulumi:"assignIpv6AddressOnCreation"`
-	EnableDns64                   *bool                                    `pulumi:"enableDns64"`
-	Ipv6CidrBlock                 *string                                  `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlocks                []string                                 `pulumi:"ipv6CidrBlocks"`
-	MapPublicIpOnLaunch           *bool                                    `pulumi:"mapPublicIpOnLaunch"`
+	AssignIpv6AddressOnCreation *bool    `pulumi:"assignIpv6AddressOnCreation"`
+	EnableDns64                 *bool    `pulumi:"enableDns64"`
+	Ipv6CidrBlock               *string  `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlocks              []string `pulumi:"ipv6CidrBlocks"`
+	MapPublicIpOnLaunch         *bool    `pulumi:"mapPublicIpOnLaunch"`
+	// The ID of the network ACL that is associated with the subnet's VPC
 	NetworkAclAssociationId       *string                                  `pulumi:"networkAclAssociationId"`
 	PrivateDnsNameOptionsOnLaunch *PrivateDnsNameOptionsOnLaunchProperties `pulumi:"privateDnsNameOptionsOnLaunch"`
-	SubnetId                      *string                                  `pulumi:"subnetId"`
-	Tags                          []SubnetTag                              `pulumi:"tags"`
+	// The ID of the subnet
+	SubnetId *string     `pulumi:"subnetId"`
+	Tags     []SubnetTag `pulumi:"tags"`
 }
 
 func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetResultOutput {
@@ -52,6 +55,7 @@ func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts .
 }
 
 type LookupSubnetOutputArgs struct {
+	// The ID of the subnet
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -93,6 +97,7 @@ func (o LookupSubnetResultOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *bool { return v.MapPublicIpOnLaunch }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the network ACL that is associated with the subnet's VPC
 func (o LookupSubnetResultOutput) NetworkAclAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *string { return v.NetworkAclAssociationId }).(pulumi.StringPtrOutput)
 }
@@ -103,6 +108,7 @@ func (o LookupSubnetResultOutput) PrivateDnsNameOptionsOnLaunch() PrivateDnsName
 	}).(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput)
 }
 
+// The ID of the subnet
 func (o LookupSubnetResultOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }

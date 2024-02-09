@@ -18,14 +18,13 @@ __all__ = ['IdentitySourceArgs', 'IdentitySource']
 class IdentitySourceArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input['IdentitySourceConfigurationArgs'],
-                 policy_store_id: Optional[pulumi.Input[str]] = None,
+                 policy_store_id: pulumi.Input[str],
                  principal_entity_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IdentitySource resource.
         """
         pulumi.set(__self__, "configuration", configuration)
-        if policy_store_id is not None:
-            pulumi.set(__self__, "policy_store_id", policy_store_id)
+        pulumi.set(__self__, "policy_store_id", policy_store_id)
         if principal_entity_type is not None:
             pulumi.set(__self__, "principal_entity_type", principal_entity_type)
 
@@ -40,11 +39,11 @@ class IdentitySourceArgs:
 
     @property
     @pulumi.getter(name="policyStoreId")
-    def policy_store_id(self) -> Optional[pulumi.Input[str]]:
+    def policy_store_id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "policy_store_id")
 
     @policy_store_id.setter
-    def policy_store_id(self, value: Optional[pulumi.Input[str]]):
+    def policy_store_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_store_id", value)
 
     @property
@@ -111,6 +110,8 @@ class IdentitySource(pulumi.CustomResource):
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
+            if policy_store_id is None and not opts.urn:
+                raise TypeError("Missing required property 'policy_store_id'")
             __props__.__dict__["policy_store_id"] = policy_store_id
             __props__.__dict__["principal_entity_type"] = principal_entity_type
             __props__.__dict__["details"] = None
@@ -163,7 +164,7 @@ class IdentitySource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyStoreId")
-    def policy_store_id(self) -> pulumi.Output[Optional[str]]:
+    def policy_store_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "policy_store_id")
 
     @property

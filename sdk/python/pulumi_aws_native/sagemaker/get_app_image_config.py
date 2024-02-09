@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppImageConfigResult:
-    def __init__(__self__, app_image_config_arn=None, kernel_gateway_image_config=None):
+    def __init__(__self__, app_image_config_arn=None, jupyter_lab_app_image_config=None, kernel_gateway_image_config=None):
         if app_image_config_arn and not isinstance(app_image_config_arn, str):
             raise TypeError("Expected argument 'app_image_config_arn' to be a str")
         pulumi.set(__self__, "app_image_config_arn", app_image_config_arn)
+        if jupyter_lab_app_image_config and not isinstance(jupyter_lab_app_image_config, dict):
+            raise TypeError("Expected argument 'jupyter_lab_app_image_config' to be a dict")
+        pulumi.set(__self__, "jupyter_lab_app_image_config", jupyter_lab_app_image_config)
         if kernel_gateway_image_config and not isinstance(kernel_gateway_image_config, dict):
             raise TypeError("Expected argument 'kernel_gateway_image_config' to be a dict")
         pulumi.set(__self__, "kernel_gateway_image_config", kernel_gateway_image_config)
@@ -34,6 +37,14 @@ class GetAppImageConfigResult:
         The Amazon Resource Name (ARN) of the AppImageConfig.
         """
         return pulumi.get(self, "app_image_config_arn")
+
+    @property
+    @pulumi.getter(name="jupyterLabAppImageConfig")
+    def jupyter_lab_app_image_config(self) -> Optional['outputs.AppImageConfigJupyterLabAppImageConfig']:
+        """
+        The JupyterLabAppImageConfig.
+        """
+        return pulumi.get(self, "jupyter_lab_app_image_config")
 
     @property
     @pulumi.getter(name="kernelGatewayImageConfig")
@@ -51,6 +62,7 @@ class AwaitableGetAppImageConfigResult(GetAppImageConfigResult):
             yield self
         return GetAppImageConfigResult(
             app_image_config_arn=self.app_image_config_arn,
+            jupyter_lab_app_image_config=self.jupyter_lab_app_image_config,
             kernel_gateway_image_config=self.kernel_gateway_image_config)
 
 
@@ -69,6 +81,7 @@ def get_app_image_config(app_image_config_name: Optional[str] = None,
 
     return AwaitableGetAppImageConfigResult(
         app_image_config_arn=pulumi.get(__ret__, 'app_image_config_arn'),
+        jupyter_lab_app_image_config=pulumi.get(__ret__, 'jupyter_lab_app_image_config'),
         kernel_gateway_image_config=pulumi.get(__ret__, 'kernel_gateway_image_config'))
 
 

@@ -17,10 +17,6 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     public sealed class LoggingConfigurationFieldToMatch
     {
         /// <summary>
-        /// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
-        /// </summary>
-        public readonly Outputs.LoggingConfigurationFieldToMatchJsonBodyProperties? JsonBody;
-        /// <summary>
         /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
         /// </summary>
         public readonly object? Method;
@@ -39,8 +35,6 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
 
         [OutputConstructor]
         private LoggingConfigurationFieldToMatch(
-            Outputs.LoggingConfigurationFieldToMatchJsonBodyProperties? jsonBody,
-
             object? method,
 
             object? queryString,
@@ -49,7 +43,6 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
 
             object? uriPath)
         {
-            JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;
             SingleHeader = singleHeader;

@@ -36,28 +36,6 @@ export const LoggingConfigurationConditionActionConditionPropertiesAction = {
  */
 export type LoggingConfigurationConditionActionConditionPropertiesAction = (typeof LoggingConfigurationConditionActionConditionPropertiesAction)[keyof typeof LoggingConfigurationConditionActionConditionPropertiesAction];
 
-export const LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior = {
-    Match: "MATCH",
-    NoMatch: "NO_MATCH",
-    EvaluateAsString: "EVALUATE_AS_STRING",
-} as const;
-
-/**
- * What AWS WAF should do if it fails to completely parse the JSON body.
- */
-export type LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior = (typeof LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior)[keyof typeof LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior];
-
-export const LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope = {
-    All: "ALL",
-    Key: "KEY",
-    Value: "VALUE",
-} as const;
-
-/**
- * The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
- */
-export type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope = (typeof LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope)[keyof typeof LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope];
-
 export const LoggingConfigurationFilterBehavior = {
     Keep: "KEEP",
     Drop: "DROP",

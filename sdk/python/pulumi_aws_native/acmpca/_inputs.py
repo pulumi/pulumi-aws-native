@@ -46,7 +46,8 @@ class CertificateApiPassthroughArgs:
                  extensions: Optional[pulumi.Input['CertificateExtensionsArgs']] = None,
                  subject: Optional[pulumi.Input['CertificateSubjectArgs']] = None):
         """
-        Structure that specifies fields to be overridden in a certificate at the time of issuance. These requires an API Passthrough template be used or they will be ignored.
+        Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+        :param pulumi.Input['CertificateSubjectArgs'] subject: Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
         """
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
@@ -65,6 +66,9 @@ class CertificateApiPassthroughArgs:
     @property
     @pulumi.getter
     def subject(self) -> Optional[pulumi.Input['CertificateSubjectArgs']]:
+        """
+        Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+        """
         return pulumi.get(self, "subject")
 
     @subject.setter
@@ -861,9 +865,6 @@ class CertificateCustomAttributeArgs:
     def __init__(__self__, *,
                  object_identifier: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        Structure that contains X.500 attribute type and value.
-        """
         pulumi.set(__self__, "object_identifier", object_identifier)
         pulumi.set(__self__, "value", value)
 
@@ -892,9 +893,6 @@ class CertificateCustomExtensionArgs:
                  object_identifier: pulumi.Input[str],
                  value: pulumi.Input[str],
                  critical: Optional[pulumi.Input[bool]] = None):
-        """
-        Structure that contains X.509 extension information for a certificate.
-        """
         pulumi.set(__self__, "object_identifier", object_identifier)
         pulumi.set(__self__, "value", value)
         if critical is not None:
@@ -933,9 +931,6 @@ class CertificateEdiPartyNameArgs:
     def __init__(__self__, *,
                  name_assigner: pulumi.Input[str],
                  party_name: pulumi.Input[str]):
-        """
-        Structure that contains X.509 EdiPartyName information.
-        """
         pulumi.set(__self__, "name_assigner", name_assigner)
         pulumi.set(__self__, "party_name", party_name)
 
@@ -963,9 +958,6 @@ class CertificateExtendedKeyUsageArgs:
     def __init__(__self__, *,
                  extended_key_usage_object_identifier: Optional[pulumi.Input[str]] = None,
                  extended_key_usage_type: Optional[pulumi.Input[str]] = None):
-        """
-        Structure that contains X.509 ExtendedKeyUsage information.
-        """
         if extended_key_usage_object_identifier is not None:
             pulumi.set(__self__, "extended_key_usage_object_identifier", extended_key_usage_object_identifier)
         if extended_key_usage_type is not None:
@@ -999,7 +991,8 @@ class CertificateExtensionsArgs:
                  key_usage: Optional[pulumi.Input['CertificateKeyUsageArgs']] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]] = None):
         """
-        Structure that contains X.500 extensions for a Certificate.
+        Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        :param pulumi.Input['CertificateKeyUsageArgs'] key_usage: Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
         """
         if certificate_policies is not None:
             pulumi.set(__self__, "certificate_policies", certificate_policies)
@@ -1042,6 +1035,9 @@ class CertificateExtensionsArgs:
     @property
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> Optional[pulumi.Input['CertificateKeyUsageArgs']]:
+        """
+        Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        """
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
@@ -1070,7 +1066,8 @@ class CertificateGeneralNameArgs:
                  rfc822_name: Optional[pulumi.Input[str]] = None,
                  uniform_resource_identifier: Optional[pulumi.Input[str]] = None):
         """
-        Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
+        Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+        :param pulumi.Input['CertificateSubjectArgs'] directory_name: Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
         """
         if directory_name is not None:
             pulumi.set(__self__, "directory_name", directory_name)
@@ -1092,6 +1089,9 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> Optional[pulumi.Input['CertificateSubjectArgs']]:
+        """
+        Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+        """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
@@ -1174,9 +1174,6 @@ class CertificateKeyUsageArgs:
                  key_cert_sign: Optional[pulumi.Input[bool]] = None,
                  key_encipherment: Optional[pulumi.Input[bool]] = None,
                  non_repudiation: Optional[pulumi.Input[bool]] = None):
-        """
-        Structure that contains X.509 KeyUsage information.
-        """
         if crl_sign is not None:
             pulumi.set(__self__, "crl_sign", crl_sign)
         if data_encipherment is not None:
@@ -1283,9 +1280,6 @@ class CertificateOtherNameArgs:
     def __init__(__self__, *,
                  type_id: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        Structure that contains X.509 OtherName information.
-        """
         pulumi.set(__self__, "type_id", type_id)
         pulumi.set(__self__, "value", value)
 
@@ -1313,9 +1307,6 @@ class CertificatePolicyInformationArgs:
     def __init__(__self__, *,
                  cert_policy_id: pulumi.Input[str],
                  policy_qualifiers: Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]] = None):
-        """
-        Structure that contains X.509 Policy information.
-        """
         pulumi.set(__self__, "cert_policy_id", cert_policy_id)
         if policy_qualifiers is not None:
             pulumi.set(__self__, "policy_qualifiers", policy_qualifiers)
@@ -1344,9 +1335,6 @@ class CertificatePolicyQualifierInfoArgs:
     def __init__(__self__, *,
                  policy_qualifier_id: pulumi.Input[str],
                  qualifier: pulumi.Input['CertificateQualifierArgs']):
-        """
-        Structure that contains X.509 Policy qualifier information.
-        """
         pulumi.set(__self__, "policy_qualifier_id", policy_qualifier_id)
         pulumi.set(__self__, "qualifier", qualifier)
 
@@ -1373,9 +1361,6 @@ class CertificatePolicyQualifierInfoArgs:
 class CertificateQualifierArgs:
     def __init__(__self__, *,
                  cps_uri: pulumi.Input[str]):
-        """
-        Structure that contains a X.509 policy qualifier.
-        """
         pulumi.set(__self__, "cps_uri", cps_uri)
 
     @property
@@ -1407,7 +1392,22 @@ class CertificateSubjectArgs:
                  surname: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None):
         """
-        Structure that contains X.500 distinguished name information.
+        Contains information about the certificate subject. The ``Subject`` field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The ``Subject``must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+        :param pulumi.Input[str] common_name: For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
+                Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
+        :param pulumi.Input[str] country: Two-digit code that specifies the country in which the certificate subject located.
+        :param pulumi.Input[str] distinguished_name_qualifier: Disambiguating information for the certificate subject.
+        :param pulumi.Input[str] generation_qualifier: Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+        :param pulumi.Input[str] given_name: First name.
+        :param pulumi.Input[str] initials: Concatenation that typically contains the first letter of the *GivenName*, the first letter of the middle name if one exists, and the first letter of the *Surname*.
+        :param pulumi.Input[str] locality: The locality (such as a city or town) in which the certificate subject is located.
+        :param pulumi.Input[str] organization: Legal name of the organization with which the certificate subject is affiliated.
+        :param pulumi.Input[str] organizational_unit: A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+        :param pulumi.Input[str] pseudonym: Typically a shortened version of a longer *GivenName*. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+        :param pulumi.Input[str] serial_number: The certificate serial number.
+        :param pulumi.Input[str] state: State in which the subject of the certificate is located.
+        :param pulumi.Input[str] surname: Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+        :param pulumi.Input[str] title: A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
         """
         if common_name is not None:
             pulumi.set(__self__, "common_name", common_name)
@@ -1443,6 +1443,10 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="commonName")
     def common_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
+         Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
+        """
         return pulumi.get(self, "common_name")
 
     @common_name.setter
@@ -1452,6 +1456,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[str]]:
+        """
+        Two-digit code that specifies the country in which the certificate subject located.
+        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -1470,6 +1477,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="distinguishedNameQualifier")
     def distinguished_name_qualifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Disambiguating information for the certificate subject.
+        """
         return pulumi.get(self, "distinguished_name_qualifier")
 
     @distinguished_name_qualifier.setter
@@ -1479,6 +1489,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="generationQualifier")
     def generation_qualifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+        """
         return pulumi.get(self, "generation_qualifier")
 
     @generation_qualifier.setter
@@ -1488,6 +1501,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="givenName")
     def given_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        First name.
+        """
         return pulumi.get(self, "given_name")
 
     @given_name.setter
@@ -1497,6 +1513,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def initials(self) -> Optional[pulumi.Input[str]]:
+        """
+        Concatenation that typically contains the first letter of the *GivenName*, the first letter of the middle name if one exists, and the first letter of the *Surname*.
+        """
         return pulumi.get(self, "initials")
 
     @initials.setter
@@ -1506,6 +1525,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def locality(self) -> Optional[pulumi.Input[str]]:
+        """
+        The locality (such as a city or town) in which the certificate subject is located.
+        """
         return pulumi.get(self, "locality")
 
     @locality.setter
@@ -1515,6 +1537,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
+        """
+        Legal name of the organization with which the certificate subject is affiliated.
+        """
         return pulumi.get(self, "organization")
 
     @organization.setter
@@ -1524,6 +1549,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="organizationalUnit")
     def organizational_unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+        """
         return pulumi.get(self, "organizational_unit")
 
     @organizational_unit.setter
@@ -1533,6 +1561,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def pseudonym(self) -> Optional[pulumi.Input[str]]:
+        """
+        Typically a shortened version of a longer *GivenName*. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+        """
         return pulumi.get(self, "pseudonym")
 
     @pseudonym.setter
@@ -1542,6 +1573,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate serial number.
+        """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
@@ -1551,6 +1585,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State in which the subject of the certificate is located.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -1560,6 +1597,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def surname(self) -> Optional[pulumi.Input[str]]:
+        """
+        Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+        """
         return pulumi.get(self, "surname")
 
     @surname.setter
@@ -1569,6 +1609,9 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
+        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -1582,7 +1625,9 @@ class CertificateValidityArgs:
                  type: pulumi.Input[str],
                  value: pulumi.Input[float]):
         """
-        Validity for a certificate.
+        Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the ``IssueCertificate`` operation.
+        :param pulumi.Input[str] type: Specifies whether the ``Value`` parameter represents days, months, or years.
+        :param pulumi.Input[float] value: Time period.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -1590,6 +1635,9 @@ class CertificateValidityArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Specifies whether the ``Value`` parameter represents days, months, or years.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1599,6 +1647,9 @@ class CertificateValidityArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[float]:
+        """
+        Time period.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

@@ -21,11 +21,17 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
+        [Output("ownershipSettings")]
+        public Output<Outputs.SpaceOwnershipSettings?> OwnershipSettings { get; private set; } = null!;
+
         /// <summary>
         /// The space Amazon Resource Name (ARN).
         /// </summary>
         [Output("spaceArn")]
         public Output<string> SpaceArn { get; private set; } = null!;
+
+        [Output("spaceDisplayName")]
+        public Output<string?> SpaceDisplayName { get; private set; } = null!;
 
         /// <summary>
         /// A name for the Space.
@@ -39,11 +45,17 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("spaceSettings")]
         public Output<Outputs.SpaceSettings?> SpaceSettings { get; private set; } = null!;
 
+        [Output("spaceSharingSettings")]
+        public Output<Outputs.SpaceSharingSettings?> SpaceSharingSettings { get; private set; } = null!;
+
         /// <summary>
         /// A list of tags to apply to the space.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.SpaceTag>> Tags { get; private set; } = null!;
+
+        [Output("url")]
+        public Output<string> Url { get; private set; } = null!;
 
 
         /// <summary>
@@ -71,7 +83,9 @@ namespace Pulumi.AwsNative.SageMaker
                 ReplaceOnChanges =
                 {
                     "domainId",
+                    "ownershipSettings",
                     "spaceName",
+                    "spaceSharingSettings",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,6 +115,12 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
 
+        [Input("ownershipSettings")]
+        public Input<Inputs.SpaceOwnershipSettingsArgs>? OwnershipSettings { get; set; }
+
+        [Input("spaceDisplayName")]
+        public Input<string>? SpaceDisplayName { get; set; }
+
         /// <summary>
         /// A name for the Space.
         /// </summary>
@@ -112,6 +132,9 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSettingsArgs>? SpaceSettings { get; set; }
+
+        [Input("spaceSharingSettings")]
+        public Input<Inputs.SpaceSharingSettingsArgs>? SpaceSharingSettings { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.SpaceTagArgs>? _tags;

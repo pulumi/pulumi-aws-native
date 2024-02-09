@@ -1192,6 +1192,139 @@ func (o ClientVpnEndpointClientLoginBannerOptionsPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ClientVpnEndpointClientRouteMonitoringOptions struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ClientVpnEndpointClientRouteMonitoringOptionsInput is an input type that accepts ClientVpnEndpointClientRouteMonitoringOptionsArgs and ClientVpnEndpointClientRouteMonitoringOptionsOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientRouteMonitoringOptionsInput` via:
+//
+//	ClientVpnEndpointClientRouteMonitoringOptionsArgs{...}
+type ClientVpnEndpointClientRouteMonitoringOptionsInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientRouteMonitoringOptionsOutput() ClientVpnEndpointClientRouteMonitoringOptionsOutput
+	ToClientVpnEndpointClientRouteMonitoringOptionsOutputWithContext(context.Context) ClientVpnEndpointClientRouteMonitoringOptionsOutput
+}
+
+type ClientVpnEndpointClientRouteMonitoringOptionsArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ClientVpnEndpointClientRouteMonitoringOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientRouteMonitoringOptions)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientRouteMonitoringOptionsArgs) ToClientVpnEndpointClientRouteMonitoringOptionsOutput() ClientVpnEndpointClientRouteMonitoringOptionsOutput {
+	return i.ToClientVpnEndpointClientRouteMonitoringOptionsOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientRouteMonitoringOptionsArgs) ToClientVpnEndpointClientRouteMonitoringOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteMonitoringOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientRouteMonitoringOptionsOutput)
+}
+
+func (i ClientVpnEndpointClientRouteMonitoringOptionsArgs) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutput() ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientRouteMonitoringOptionsArgs) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientRouteMonitoringOptionsOutput).ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointClientRouteMonitoringOptionsPtrInput is an input type that accepts ClientVpnEndpointClientRouteMonitoringOptionsArgs, ClientVpnEndpointClientRouteMonitoringOptionsPtr and ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientRouteMonitoringOptionsPtrInput` via:
+//
+//	        ClientVpnEndpointClientRouteMonitoringOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClientVpnEndpointClientRouteMonitoringOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutput() ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput
+	ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput
+}
+
+type clientVpnEndpointClientRouteMonitoringOptionsPtrType ClientVpnEndpointClientRouteMonitoringOptionsArgs
+
+func ClientVpnEndpointClientRouteMonitoringOptionsPtr(v *ClientVpnEndpointClientRouteMonitoringOptionsArgs) ClientVpnEndpointClientRouteMonitoringOptionsPtrInput {
+	return (*clientVpnEndpointClientRouteMonitoringOptionsPtrType)(v)
+}
+
+func (*clientVpnEndpointClientRouteMonitoringOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientRouteMonitoringOptions)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointClientRouteMonitoringOptionsPtrType) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutput() ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointClientRouteMonitoringOptionsPtrType) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput)
+}
+
+type ClientVpnEndpointClientRouteMonitoringOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientRouteMonitoringOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientRouteMonitoringOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientRouteMonitoringOptionsOutput) ToClientVpnEndpointClientRouteMonitoringOptionsOutput() ClientVpnEndpointClientRouteMonitoringOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientRouteMonitoringOptionsOutput) ToClientVpnEndpointClientRouteMonitoringOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteMonitoringOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientRouteMonitoringOptionsOutput) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutput() ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
+	return o.ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointClientRouteMonitoringOptionsOutput) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointClientRouteMonitoringOptions) *ClientVpnEndpointClientRouteMonitoringOptions {
+		return &v
+	}).(ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput)
+}
+
+func (o ClientVpnEndpointClientRouteMonitoringOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientRouteMonitoringOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientRouteMonitoringOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutput() ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput) Elem() ClientVpnEndpointClientRouteMonitoringOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientRouteMonitoringOptions) ClientVpnEndpointClientRouteMonitoringOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointClientRouteMonitoringOptions
+		return ret
+	}).(ClientVpnEndpointClientRouteMonitoringOptionsOutput)
+}
+
+func (o ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientRouteMonitoringOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ClientVpnEndpointConnectionLogOptions struct {
 	CloudwatchLogGroup  *string `pulumi:"cloudwatchLogGroup"`
 	CloudwatchLogStream *string `pulumi:"cloudwatchLogStream"`
@@ -32052,6 +32185,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientConnectOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointClientConnectOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptionsInput)(nil)).Elem(), ClientVpnEndpointClientLoginBannerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointClientLoginBannerOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientRouteMonitoringOptionsInput)(nil)).Elem(), ClientVpnEndpointClientRouteMonitoringOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientRouteMonitoringOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointClientRouteMonitoringOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointConnectionLogOptionsInput)(nil)).Elem(), ClientVpnEndpointConnectionLogOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequestInput)(nil)).Elem(), ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput)(nil)).Elem(), ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{})
@@ -32477,6 +32612,8 @@ func init() {
 	pulumi.RegisterOutputType(ClientVpnEndpointClientConnectOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointClientLoginBannerOptionsOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointClientLoginBannerOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientRouteMonitoringOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput{})

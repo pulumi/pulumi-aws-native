@@ -19,6 +19,7 @@ class TableArgs:
     def __init__(__self__, *,
                  keyspace_name: pulumi.Input[str],
                  partition_key_columns: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]],
+                 auto_scaling_specifications: Optional[pulumi.Input['TableAutoScalingSpecificationArgs']] = None,
                  billing_mode: Optional[pulumi.Input['TableBillingModeArgs']] = None,
                  client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
                  clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]] = None,
@@ -26,6 +27,7 @@ class TableArgs:
                  encryption_specification: Optional[pulumi.Input['TableEncryptionSpecificationArgs']] = None,
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
                  regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
+                 replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaSpecificationArgs']]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
@@ -42,6 +44,8 @@ class TableArgs:
         """
         pulumi.set(__self__, "keyspace_name", keyspace_name)
         pulumi.set(__self__, "partition_key_columns", partition_key_columns)
+        if auto_scaling_specifications is not None:
+            pulumi.set(__self__, "auto_scaling_specifications", auto_scaling_specifications)
         if billing_mode is not None:
             pulumi.set(__self__, "billing_mode", billing_mode)
         if client_side_timestamps_enabled is not None:
@@ -56,6 +60,8 @@ class TableArgs:
             pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
         if regular_columns is not None:
             pulumi.set(__self__, "regular_columns", regular_columns)
+        if replica_specifications is not None:
+            pulumi.set(__self__, "replica_specifications", replica_specifications)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
         if tags is not None:
@@ -84,6 +90,15 @@ class TableArgs:
     @partition_key_columns.setter
     def partition_key_columns(self, value: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]):
         pulumi.set(self, "partition_key_columns", value)
+
+    @property
+    @pulumi.getter(name="autoScalingSpecifications")
+    def auto_scaling_specifications(self) -> Optional[pulumi.Input['TableAutoScalingSpecificationArgs']]:
+        return pulumi.get(self, "auto_scaling_specifications")
+
+    @auto_scaling_specifications.setter
+    def auto_scaling_specifications(self, value: Optional[pulumi.Input['TableAutoScalingSpecificationArgs']]):
+        pulumi.set(self, "auto_scaling_specifications", value)
 
     @property
     @pulumi.getter(name="billingMode")
@@ -164,6 +179,15 @@ class TableArgs:
         pulumi.set(self, "regular_columns", value)
 
     @property
+    @pulumi.getter(name="replicaSpecifications")
+    def replica_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaSpecificationArgs']]]]:
+        return pulumi.get(self, "replica_specifications")
+
+    @replica_specifications.setter
+    def replica_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaSpecificationArgs']]]]):
+        pulumi.set(self, "replica_specifications", value)
+
+    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -193,6 +217,7 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_scaling_specifications: Optional[pulumi.Input[pulumi.InputType['TableAutoScalingSpecificationArgs']]] = None,
                  billing_mode: Optional[pulumi.Input[pulumi.InputType['TableBillingModeArgs']]] = None,
                  client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
                  clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableClusteringKeyColumnArgs']]]]] = None,
@@ -202,6 +227,7 @@ class Table(pulumi.CustomResource):
                  partition_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
                  regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
+                 replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaSpecificationArgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  __props__=None):
@@ -244,6 +270,7 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_scaling_specifications: Optional[pulumi.Input[pulumi.InputType['TableAutoScalingSpecificationArgs']]] = None,
                  billing_mode: Optional[pulumi.Input[pulumi.InputType['TableBillingModeArgs']]] = None,
                  client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
                  clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableClusteringKeyColumnArgs']]]]] = None,
@@ -253,6 +280,7 @@ class Table(pulumi.CustomResource):
                  partition_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
                  regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
+                 replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaSpecificationArgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  __props__=None):
@@ -264,6 +292,7 @@ class Table(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TableArgs.__new__(TableArgs)
 
+            __props__.__dict__["auto_scaling_specifications"] = auto_scaling_specifications
             __props__.__dict__["billing_mode"] = billing_mode
             __props__.__dict__["client_side_timestamps_enabled"] = client_side_timestamps_enabled
             __props__.__dict__["clustering_key_columns"] = clustering_key_columns
@@ -277,6 +306,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["partition_key_columns"] = partition_key_columns
             __props__.__dict__["point_in_time_recovery_enabled"] = point_in_time_recovery_enabled
             __props__.__dict__["regular_columns"] = regular_columns
+            __props__.__dict__["replica_specifications"] = replica_specifications
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_side_timestamps_enabled", "clustering_key_columns[*]", "keyspace_name", "partition_key_columns[*]", "table_name"])
@@ -303,6 +333,7 @@ class Table(pulumi.CustomResource):
 
         __props__ = TableArgs.__new__(TableArgs)
 
+        __props__.__dict__["auto_scaling_specifications"] = None
         __props__.__dict__["billing_mode"] = None
         __props__.__dict__["client_side_timestamps_enabled"] = None
         __props__.__dict__["clustering_key_columns"] = None
@@ -312,9 +343,15 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["partition_key_columns"] = None
         __props__.__dict__["point_in_time_recovery_enabled"] = None
         __props__.__dict__["regular_columns"] = None
+        __props__.__dict__["replica_specifications"] = None
         __props__.__dict__["table_name"] = None
         __props__.__dict__["tags"] = None
         return Table(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoScalingSpecifications")
+    def auto_scaling_specifications(self) -> pulumi.Output[Optional['outputs.TableAutoScalingSpecification']]:
+        return pulumi.get(self, "auto_scaling_specifications")
 
     @property
     @pulumi.getter(name="billingMode")
@@ -381,6 +418,11 @@ class Table(pulumi.CustomResource):
         Non-key columns of the table
         """
         return pulumi.get(self, "regular_columns")
+
+    @property
+    @pulumi.getter(name="replicaSpecifications")
+    def replica_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.TableReplicaSpecification']]]:
+        return pulumi.get(self, "replica_specifications")
 
     @property
     @pulumi.getter(name="tableName")

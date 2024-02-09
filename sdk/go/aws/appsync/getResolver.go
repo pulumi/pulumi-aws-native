@@ -11,7 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::AppSync::Resolver
+// The “AWS::AppSync::Resolver“ resource defines the logical GraphQL resolver that you attach to fields in a schema. Request and response templates for resolvers are written in Apache Velocity Template Language (VTL) format. For more information about resolvers, see [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html).
+//
+//	 When you submit an update, CFNLong updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the CFNshort template. Changing the S3 file content without changing a property value will not result in an update operation.
+//	See [Update Behaviors of Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html) in the *User Guide*.
 func LookupResolver(ctx *pulumi.Context, args *LookupResolverArgs, opts ...pulumi.InvokeOption) (*LookupResolverResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverResult
@@ -23,32 +26,33 @@ func LookupResolver(ctx *pulumi.Context, args *LookupResolverArgs, opts ...pulum
 }
 
 type LookupResolverArgs struct {
-	// The Amazon Resource Name (ARN) for the resolver.
 	ResolverArn string `pulumi:"resolverArn"`
 }
 
 type LookupResolverResult struct {
 	// The caching configuration for the resolver.
 	CachingConfig *ResolverCachingConfig `pulumi:"cachingConfig"`
-	// The resolver code that contains the request and response functions. When code is used, the runtime is required.
+	// The ``resolver`` code that contains the request and response functions. When code is used, the ``runtime`` is required. The runtime value must be ``APPSYNC_JS``.
 	Code *string `pulumi:"code"`
 	// The resolver data source name.
 	DataSourceName *string `pulumi:"dataSourceName"`
 	// The resolver type.
+	//   +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+	//   +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 	Kind *string `pulumi:"kind"`
-	// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+	// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
 	// Functions linked with the pipeline resolver.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
-	// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
+	// The request mapping template.
+	//  Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
 	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
-	// The Amazon Resource Name (ARN) for the resolver.
-	ResolverArn *string `pulumi:"resolverArn"`
+	ResolverArn            *string `pulumi:"resolverArn"`
 	// The response mapping template.
 	ResponseMappingTemplate *string `pulumi:"responseMappingTemplate"`
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+	// Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 	Runtime *ResolverAppSyncRuntime `pulumi:"runtime"`
-	// The SyncConfig for a resolver attached to a versioned data source.
+	// The ``SyncConfig`` for a resolver attached to a versioned data source.
 	SyncConfig *ResolverSyncConfig `pulumi:"syncConfig"`
 }
 
@@ -66,7 +70,6 @@ func LookupResolverOutput(ctx *pulumi.Context, args LookupResolverOutputArgs, op
 }
 
 type LookupResolverOutputArgs struct {
-	// The Amazon Resource Name (ARN) for the resolver.
 	ResolverArn pulumi.StringInput `pulumi:"resolverArn"`
 }
 
@@ -93,7 +96,7 @@ func (o LookupResolverResultOutput) CachingConfig() ResolverCachingConfigPtrOutp
 	return o.ApplyT(func(v LookupResolverResult) *ResolverCachingConfig { return v.CachingConfig }).(ResolverCachingConfigPtrOutput)
 }
 
-// The resolver code that contains the request and response functions. When code is used, the runtime is required.
+// The “resolver“ code that contains the request and response functions. When code is used, the “runtime“ is required. The runtime value must be “APPSYNC_JS“.
 func (o LookupResolverResultOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
@@ -104,11 +107,13 @@ func (o LookupResolverResultOutput) DataSourceName() pulumi.StringPtrOutput {
 }
 
 // The resolver type.
+//   - *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+//   - *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of “Function“ objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 func (o LookupResolverResultOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a “BatchInvoke“ operation.
 func (o LookupResolverResultOutput) MaxBatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *int { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
 }
@@ -118,12 +123,13 @@ func (o LookupResolverResultOutput) PipelineConfig() ResolverPipelineConfigPtrOu
 	return o.ApplyT(func(v LookupResolverResult) *ResolverPipelineConfig { return v.PipelineConfig }).(ResolverPipelineConfigPtrOutput)
 }
 
-// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
+// The request mapping template.
+//
+//	Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
 func (o LookupResolverResultOutput) RequestMappingTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.RequestMappingTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the resolver.
 func (o LookupResolverResultOutput) ResolverArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.ResolverArn }).(pulumi.StringPtrOutput)
 }
@@ -133,12 +139,12 @@ func (o LookupResolverResultOutput) ResponseMappingTemplate() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.ResponseMappingTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+// Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 func (o LookupResolverResultOutput) Runtime() ResolverAppSyncRuntimePtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *ResolverAppSyncRuntime { return v.Runtime }).(ResolverAppSyncRuntimePtrOutput)
 }
 
-// The SyncConfig for a resolver attached to a versioned data source.
+// The “SyncConfig“ for a resolver attached to a versioned data source.
 func (o LookupResolverResultOutput) SyncConfig() ResolverSyncConfigPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *ResolverSyncConfig { return v.SyncConfig }).(ResolverSyncConfigPtrOutput)
 }

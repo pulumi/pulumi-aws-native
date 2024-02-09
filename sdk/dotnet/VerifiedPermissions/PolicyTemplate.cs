@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("policyStoreId")]
-        public Output<string?> PolicyStoreId { get; private set; } = null!;
+        public Output<string> PolicyStoreId { get; private set; } = null!;
 
         [Output("policyTemplateId")]
         public Output<string> PolicyTemplateId { get; private set; } = null!;
@@ -79,8 +79,8 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("policyStoreId")]
-        public Input<string>? PolicyStoreId { get; set; }
+        [Input("policyStoreId", required: true)]
+        public Input<string> PolicyStoreId { get; set; } = null!;
 
         [Input("statement", required: true)]
         public Input<string> Statement { get; set; } = null!;

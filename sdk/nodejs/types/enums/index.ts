@@ -142,7 +142,6 @@ import * as signer from "./signer";
 import * as sns from "./sns";
 import * as ssm from "./ssm";
 import * as ssmcontacts from "./ssmcontacts";
-import * as ssmguiconnect from "./ssmguiconnect";
 import * as ssmincidents from "./ssmincidents";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
@@ -299,7 +298,6 @@ export {
     sns,
     ssm,
     ssmcontacts,
-    ssmguiconnect,
     ssmincidents,
     sso,
     stepfunctions,

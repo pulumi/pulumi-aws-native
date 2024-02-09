@@ -12,7 +12,10 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AppImageConfigContainerConfig',
+    'AppImageConfigCustomImageContainerEnvironmentVariable',
     'AppImageConfigFileSystemConfig',
+    'AppImageConfigJupyterLabAppImageConfig',
     'AppImageConfigKernelGatewayImageConfig',
     'AppImageConfigKernelSpec',
     'AppImageConfigTag',
@@ -51,6 +54,7 @@ __all__ = [
     'DomainDefaultEbsStorageSettings',
     'DomainDefaultSpaceSettings',
     'DomainDefaultSpaceStorageSettings',
+    'DomainDockerSettings',
     'DomainEfsFileSystemConfig',
     'DomainJupyterLabAppSettings',
     'DomainJupyterServerAppSettings',
@@ -281,11 +285,20 @@ __all__ = [
     'ProjectTag',
     'ServiceCatalogProvisionedProductDetailsProperties',
     'ServiceCatalogProvisioningDetailsProperties',
+    'SpaceCodeEditorAppSettings',
+    'SpaceCodeRepository',
+    'SpaceCustomFileSystem',
     'SpaceCustomImage',
+    'SpaceEbsStorageSettings',
+    'SpaceEfsFileSystem',
+    'SpaceJupyterLabAppSettings',
     'SpaceJupyterServerAppSettings',
     'SpaceKernelGatewayAppSettings',
+    'SpaceOwnershipSettings',
     'SpaceResourceSpec',
     'SpaceSettings',
+    'SpaceSharingSettings',
+    'SpaceStorageSettings',
     'SpaceTag',
     'UserProfileCodeEditorAppSettings',
     'UserProfileCodeRepository',
@@ -309,6 +322,93 @@ __all__ = [
     'WorkteamOidcMemberDefinition',
     'WorkteamTag',
 ]
+
+@pulumi.output_type
+class AppImageConfigContainerConfig(dict):
+    """
+    The container configuration for a SageMaker image.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerArguments":
+            suggest = "container_arguments"
+        elif key == "containerEntrypoint":
+            suggest = "container_entrypoint"
+        elif key == "containerEnvironmentVariables":
+            suggest = "container_environment_variables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppImageConfigContainerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppImageConfigContainerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppImageConfigContainerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_arguments: Optional[Sequence[str]] = None,
+                 container_entrypoint: Optional[Sequence[str]] = None,
+                 container_environment_variables: Optional[Sequence['outputs.AppImageConfigCustomImageContainerEnvironmentVariable']] = None):
+        """
+        The container configuration for a SageMaker image.
+        :param Sequence[str] container_arguments: A list of arguments to apply to the container.
+        :param Sequence[str] container_entrypoint: The custom entry point to use on container.
+        :param Sequence['AppImageConfigCustomImageContainerEnvironmentVariable'] container_environment_variables: A list of variables to apply to the custom container.
+        """
+        if container_arguments is not None:
+            pulumi.set(__self__, "container_arguments", container_arguments)
+        if container_entrypoint is not None:
+            pulumi.set(__self__, "container_entrypoint", container_entrypoint)
+        if container_environment_variables is not None:
+            pulumi.set(__self__, "container_environment_variables", container_environment_variables)
+
+    @property
+    @pulumi.getter(name="containerArguments")
+    def container_arguments(self) -> Optional[Sequence[str]]:
+        """
+        A list of arguments to apply to the container.
+        """
+        return pulumi.get(self, "container_arguments")
+
+    @property
+    @pulumi.getter(name="containerEntrypoint")
+    def container_entrypoint(self) -> Optional[Sequence[str]]:
+        """
+        The custom entry point to use on container.
+        """
+        return pulumi.get(self, "container_entrypoint")
+
+    @property
+    @pulumi.getter(name="containerEnvironmentVariables")
+    def container_environment_variables(self) -> Optional[Sequence['outputs.AppImageConfigCustomImageContainerEnvironmentVariable']]:
+        """
+        A list of variables to apply to the custom container.
+        """
+        return pulumi.get(self, "container_environment_variables")
+
+
+@pulumi.output_type
+class AppImageConfigCustomImageContainerEnvironmentVariable(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class AppImageConfigFileSystemConfig(dict):
@@ -376,6 +476,46 @@ class AppImageConfigFileSystemConfig(dict):
         The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
         """
         return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
+class AppImageConfigJupyterLabAppImageConfig(dict):
+    """
+    The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerConfig":
+            suggest = "container_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppImageConfigJupyterLabAppImageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppImageConfigJupyterLabAppImageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppImageConfigJupyterLabAppImageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_config: Optional['outputs.AppImageConfigContainerConfig'] = None):
+        """
+        The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+        :param 'AppImageConfigContainerConfig' container_config: The container configuration for a SageMaker image.
+        """
+        if container_config is not None:
+            pulumi.set(__self__, "container_config", container_config)
+
+    @property
+    @pulumi.getter(name="containerConfig")
+    def container_config(self) -> Optional['outputs.AppImageConfigContainerConfig']:
+        """
+        The container configuration for a SageMaker image.
+        """
+        return pulumi.get(self, "container_config")
 
 
 @pulumi.output_type
@@ -2213,6 +2353,60 @@ class DomainDefaultSpaceStorageSettings(dict):
 
 
 @pulumi.output_type
+class DomainDockerSettings(dict):
+    """
+    A collection of settings that are required to start docker-proxy server.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableDockerAccess":
+            suggest = "enable_docker_access"
+        elif key == "vpcOnlyTrustedAccounts":
+            suggest = "vpc_only_trusted_accounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDockerSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDockerSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDockerSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_docker_access: Optional['DomainDockerSettingsEnableDockerAccess'] = None,
+                 vpc_only_trusted_accounts: Optional[Sequence[str]] = None):
+        """
+        A collection of settings that are required to start docker-proxy server.
+        :param 'DomainDockerSettingsEnableDockerAccess' enable_docker_access: The flag to enable/disable docker-proxy server
+        :param Sequence[str] vpc_only_trusted_accounts: A list of account id's that would be used to pull images from in VpcOnly mode
+        """
+        if enable_docker_access is not None:
+            pulumi.set(__self__, "enable_docker_access", enable_docker_access)
+        if vpc_only_trusted_accounts is not None:
+            pulumi.set(__self__, "vpc_only_trusted_accounts", vpc_only_trusted_accounts)
+
+    @property
+    @pulumi.getter(name="enableDockerAccess")
+    def enable_docker_access(self) -> Optional['DomainDockerSettingsEnableDockerAccess']:
+        """
+        The flag to enable/disable docker-proxy server
+        """
+        return pulumi.get(self, "enable_docker_access")
+
+    @property
+    @pulumi.getter(name="vpcOnlyTrustedAccounts")
+    def vpc_only_trusted_accounts(self) -> Optional[Sequence[str]]:
+        """
+        A list of account id's that would be used to pull images from in VpcOnly mode
+        """
+        return pulumi.get(self, "vpc_only_trusted_accounts")
+
+
+@pulumi.output_type
 class DomainEfsFileSystemConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2690,7 +2884,9 @@ class DomainSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "rStudioServerProDomainSettings":
+        if key == "dockerSettings":
+            suggest = "docker_settings"
+        elif key == "rStudioServerProDomainSettings":
             suggest = "r_studio_server_pro_domain_settings"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
@@ -2707,16 +2903,24 @@ class DomainSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 docker_settings: Optional['outputs.DomainDockerSettings'] = None,
                  r_studio_server_pro_domain_settings: Optional['outputs.DomainRStudioServerProDomainSettings'] = None,
                  security_group_ids: Optional[Sequence[str]] = None):
         """
         A collection of Domain settings.
         :param Sequence[str] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
+        if docker_settings is not None:
+            pulumi.set(__self__, "docker_settings", docker_settings)
         if r_studio_server_pro_domain_settings is not None:
             pulumi.set(__self__, "r_studio_server_pro_domain_settings", r_studio_server_pro_domain_settings)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @property
+    @pulumi.getter(name="dockerSettings")
+    def docker_settings(self) -> Optional['outputs.DomainDockerSettings']:
+        return pulumi.get(self, "docker_settings")
 
     @property
     @pulumi.getter(name="rStudioServerProDomainSettings")
@@ -14577,6 +14781,107 @@ class ServiceCatalogProvisioningDetailsProperties(dict):
 
 
 @pulumi.output_type
+class SpaceCodeEditorAppSettings(dict):
+    """
+    The CodeEditor app settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultResourceSpec":
+            suggest = "default_resource_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceCodeEditorAppSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceCodeEditorAppSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceCodeEditorAppSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_resource_spec: Optional['outputs.SpaceResourceSpec'] = None):
+        """
+        The CodeEditor app settings.
+        """
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional['outputs.SpaceResourceSpec']:
+        return pulumi.get(self, "default_resource_spec")
+
+
+@pulumi.output_type
+class SpaceCodeRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryUrl":
+            suggest = "repository_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceCodeRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceCodeRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceCodeRepository.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_url: str):
+        """
+        :param str repository_url: A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> str:
+        """
+        A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+        """
+        return pulumi.get(self, "repository_url")
+
+
+@pulumi.output_type
+class SpaceCustomFileSystem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "efsFileSystem":
+            suggest = "efs_file_system"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceCustomFileSystem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceCustomFileSystem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceCustomFileSystem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 efs_file_system: Optional['outputs.SpaceEfsFileSystem'] = None):
+        if efs_file_system is not None:
+            pulumi.set(__self__, "efs_file_system", efs_file_system)
+
+    @property
+    @pulumi.getter(name="efsFileSystem")
+    def efs_file_system(self) -> Optional['outputs.SpaceEfsFileSystem']:
+        return pulumi.get(self, "efs_file_system")
+
+
+@pulumi.output_type
 class SpaceCustomImage(dict):
     """
     A custom SageMaker image.
@@ -14640,6 +14945,124 @@ class SpaceCustomImage(dict):
         The version number of the CustomImage.
         """
         return pulumi.get(self, "image_version_number")
+
+
+@pulumi.output_type
+class SpaceEbsStorageSettings(dict):
+    """
+    Properties related to the space's Amazon Elastic Block Store volume.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ebsVolumeSizeInGb":
+            suggest = "ebs_volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceEbsStorageSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceEbsStorageSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceEbsStorageSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ebs_volume_size_in_gb: int):
+        """
+        Properties related to the space's Amazon Elastic Block Store volume.
+        :param int ebs_volume_size_in_gb: Size of the Amazon EBS volume in Gb
+        """
+        pulumi.set(__self__, "ebs_volume_size_in_gb", ebs_volume_size_in_gb)
+
+    @property
+    @pulumi.getter(name="ebsVolumeSizeInGb")
+    def ebs_volume_size_in_gb(self) -> int:
+        """
+        Size of the Amazon EBS volume in Gb
+        """
+        return pulumi.get(self, "ebs_volume_size_in_gb")
+
+
+@pulumi.output_type
+class SpaceEfsFileSystem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemId":
+            suggest = "file_system_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceEfsFileSystem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceEfsFileSystem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceEfsFileSystem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system_id: str):
+        pulumi.set(__self__, "file_system_id", file_system_id)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> str:
+        return pulumi.get(self, "file_system_id")
+
+
+@pulumi.output_type
+class SpaceJupyterLabAppSettings(dict):
+    """
+    The JupyterServer app settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeRepositories":
+            suggest = "code_repositories"
+        elif key == "defaultResourceSpec":
+            suggest = "default_resource_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceJupyterLabAppSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceJupyterLabAppSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceJupyterLabAppSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_repositories: Optional[Sequence['outputs.SpaceCodeRepository']] = None,
+                 default_resource_spec: Optional['outputs.SpaceResourceSpec'] = None):
+        """
+        The JupyterServer app settings.
+        :param Sequence['SpaceCodeRepository'] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
+        """
+        if code_repositories is not None:
+            pulumi.set(__self__, "code_repositories", code_repositories)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="codeRepositories")
+    def code_repositories(self) -> Optional[Sequence['outputs.SpaceCodeRepository']]:
+        """
+        A list of CodeRepositories available for use with JupyterLab apps.
+        """
+        return pulumi.get(self, "code_repositories")
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional['outputs.SpaceResourceSpec']:
+        return pulumi.get(self, "default_resource_spec")
 
 
 @pulumi.output_type
@@ -14733,6 +15156,35 @@ class SpaceKernelGatewayAppSettings(dict):
 
 
 @pulumi.output_type
+class SpaceOwnershipSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ownerUserProfileName":
+            suggest = "owner_user_profile_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceOwnershipSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceOwnershipSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceOwnershipSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 owner_user_profile_name: str):
+        pulumi.set(__self__, "owner_user_profile_name", owner_user_profile_name)
+
+    @property
+    @pulumi.getter(name="ownerUserProfileName")
+    def owner_user_profile_name(self) -> str:
+        return pulumi.get(self, "owner_user_profile_name")
+
+
+@pulumi.output_type
 class SpaceResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -14804,10 +15256,20 @@ class SpaceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "jupyterServerAppSettings":
+        if key == "appType":
+            suggest = "app_type"
+        elif key == "codeEditorAppSettings":
+            suggest = "code_editor_app_settings"
+        elif key == "customFileSystems":
+            suggest = "custom_file_systems"
+        elif key == "jupyterLabAppSettings":
+            suggest = "jupyter_lab_app_settings"
+        elif key == "jupyterServerAppSettings":
             suggest = "jupyter_server_app_settings"
         elif key == "kernelGatewayAppSettings":
             suggest = "kernel_gateway_app_settings"
+        elif key == "spaceStorageSettings":
+            suggest = "space_storage_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SpaceSettings. Access the value via the '{suggest}' property getter instead.")
@@ -14821,17 +15283,61 @@ class SpaceSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_type: Optional['SpaceAppType'] = None,
+                 code_editor_app_settings: Optional['outputs.SpaceCodeEditorAppSettings'] = None,
+                 custom_file_systems: Optional[Sequence['outputs.SpaceCustomFileSystem']] = None,
+                 jupyter_lab_app_settings: Optional['outputs.SpaceJupyterLabAppSettings'] = None,
                  jupyter_server_app_settings: Optional['outputs.SpaceJupyterServerAppSettings'] = None,
-                 kernel_gateway_app_settings: Optional['outputs.SpaceKernelGatewayAppSettings'] = None):
+                 kernel_gateway_app_settings: Optional['outputs.SpaceKernelGatewayAppSettings'] = None,
+                 space_storage_settings: Optional['outputs.SpaceStorageSettings'] = None):
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+        :param 'SpaceCodeEditorAppSettings' code_editor_app_settings: The CodeEditor app settings.
+        :param 'SpaceJupyterLabAppSettings' jupyter_lab_app_settings: The JupyterLab app settings.
         :param 'SpaceJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
         :param 'SpaceKernelGatewayAppSettings' kernel_gateway_app_settings: The kernel gateway app settings.
+        :param 'SpaceStorageSettings' space_storage_settings: Default storage settings for a space.
         """
+        if app_type is not None:
+            pulumi.set(__self__, "app_type", app_type)
+        if code_editor_app_settings is not None:
+            pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
+        if custom_file_systems is not None:
+            pulumi.set(__self__, "custom_file_systems", custom_file_systems)
+        if jupyter_lab_app_settings is not None:
+            pulumi.set(__self__, "jupyter_lab_app_settings", jupyter_lab_app_settings)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if space_storage_settings is not None:
+            pulumi.set(__self__, "space_storage_settings", space_storage_settings)
+
+    @property
+    @pulumi.getter(name="appType")
+    def app_type(self) -> Optional['SpaceAppType']:
+        return pulumi.get(self, "app_type")
+
+    @property
+    @pulumi.getter(name="codeEditorAppSettings")
+    def code_editor_app_settings(self) -> Optional['outputs.SpaceCodeEditorAppSettings']:
+        """
+        The CodeEditor app settings.
+        """
+        return pulumi.get(self, "code_editor_app_settings")
+
+    @property
+    @pulumi.getter(name="customFileSystems")
+    def custom_file_systems(self) -> Optional[Sequence['outputs.SpaceCustomFileSystem']]:
+        return pulumi.get(self, "custom_file_systems")
+
+    @property
+    @pulumi.getter(name="jupyterLabAppSettings")
+    def jupyter_lab_app_settings(self) -> Optional['outputs.SpaceJupyterLabAppSettings']:
+        """
+        The JupyterLab app settings.
+        """
+        return pulumi.get(self, "jupyter_lab_app_settings")
 
     @property
     @pulumi.getter(name="jupyterServerAppSettings")
@@ -14848,6 +15354,73 @@ class SpaceSettings(dict):
         The kernel gateway app settings.
         """
         return pulumi.get(self, "kernel_gateway_app_settings")
+
+    @property
+    @pulumi.getter(name="spaceStorageSettings")
+    def space_storage_settings(self) -> Optional['outputs.SpaceStorageSettings']:
+        """
+        Default storage settings for a space.
+        """
+        return pulumi.get(self, "space_storage_settings")
+
+
+@pulumi.output_type
+class SpaceSharingSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sharingType":
+            suggest = "sharing_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSharingSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSharingSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSharingSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sharing_type: 'SpaceSharingSettingsSharingType'):
+        pulumi.set(__self__, "sharing_type", sharing_type)
+
+    @property
+    @pulumi.getter(name="sharingType")
+    def sharing_type(self) -> 'SpaceSharingSettingsSharingType':
+        return pulumi.get(self, "sharing_type")
+
+
+@pulumi.output_type
+class SpaceStorageSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ebsStorageSettings":
+            suggest = "ebs_storage_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceStorageSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceStorageSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceStorageSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ebs_storage_settings: Optional['outputs.SpaceEbsStorageSettings'] = None):
+        if ebs_storage_settings is not None:
+            pulumi.set(__self__, "ebs_storage_settings", ebs_storage_settings)
+
+    @property
+    @pulumi.getter(name="ebsStorageSettings")
+    def ebs_storage_settings(self) -> Optional['outputs.SpaceEbsStorageSettings']:
+        return pulumi.get(self, "ebs_storage_settings")
 
 
 @pulumi.output_type

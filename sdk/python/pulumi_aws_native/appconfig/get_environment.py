@@ -19,13 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetEnvironmentResult:
-    def __init__(__self__, description=None, id=None, monitors=None, name=None, tags=None):
+    def __init__(__self__, description=None, environment_id=None, monitors=None, name=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+        if environment_id and not isinstance(environment_id, str):
+            raise TypeError("Expected argument 'environment_id' to be a str")
+        pulumi.set(__self__, "environment_id", environment_id)
         if monitors and not isinstance(monitors, list):
             raise TypeError("Expected argument 'monitors' to be a list")
         pulumi.set(__self__, "monitors", monitors)
@@ -39,26 +39,41 @@ class GetEnvironmentResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the environment.
+        """
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[str]:
+        """
+        The environment ID.
+        """
+        return pulumi.get(self, "environment_id")
 
     @property
     @pulumi.getter
-    def monitors(self) -> Optional[Sequence['outputs.EnvironmentMonitors']]:
+    def monitors(self) -> Optional[Sequence['outputs.EnvironmentMonitor']]:
+        """
+        Amazon CloudWatch alarms to monitor during the deployment process.
+        """
         return pulumi.get(self, "monitors")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        A name for the environment.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.EnvironmentTags']]:
+    def tags(self) -> Optional[Sequence['outputs.EnvironmentTag']]:
+        """
+        Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -69,34 +84,45 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             yield self
         return GetEnvironmentResult(
             description=self.description,
-            id=self.id,
+            environment_id=self.environment_id,
             monitors=self.monitors,
             name=self.name,
             tags=self.tags)
 
 
-def get_environment(id: Optional[str] = None,
+def get_environment(application_id: Optional[str] = None,
+                    environment_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
     Resource Type definition for AWS::AppConfig::Environment
+
+
+    :param str application_id: The application ID.
+    :param str environment_id: The environment ID.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['applicationId'] = application_id
+    __args__['environmentId'] = environment_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:appconfig:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
         description=pulumi.get(__ret__, 'description'),
-        id=pulumi.get(__ret__, 'id'),
+        environment_id=pulumi.get(__ret__, 'environment_id'),
         monitors=pulumi.get(__ret__, 'monitors'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_environment)
-def get_environment_output(id: Optional[pulumi.Input[str]] = None,
+def get_environment_output(application_id: Optional[pulumi.Input[str]] = None,
+                           environment_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Resource Type definition for AWS::AppConfig::Environment
+
+
+    :param str application_id: The application ID.
+    :param str environment_id: The environment ID.
     """
     ...

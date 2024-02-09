@@ -31,14 +31,16 @@ type Subnet struct {
 	Ipv6IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
 	Ipv6Native     pulumi.BoolPtrOutput   `pulumi:"ipv6Native"`
 	// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-	Ipv6NetmaskLength             pulumi.IntPtrOutput                              `pulumi:"ipv6NetmaskLength"`
-	MapPublicIpOnLaunch           pulumi.BoolPtrOutput                             `pulumi:"mapPublicIpOnLaunch"`
+	Ipv6NetmaskLength   pulumi.IntPtrOutput  `pulumi:"ipv6NetmaskLength"`
+	MapPublicIpOnLaunch pulumi.BoolPtrOutput `pulumi:"mapPublicIpOnLaunch"`
+	// The ID of the network ACL that is associated with the subnet's VPC
 	NetworkAclAssociationId       pulumi.StringOutput                              `pulumi:"networkAclAssociationId"`
 	OutpostArn                    pulumi.StringPtrOutput                           `pulumi:"outpostArn"`
 	PrivateDnsNameOptionsOnLaunch PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput `pulumi:"privateDnsNameOptionsOnLaunch"`
-	SubnetId                      pulumi.StringOutput                              `pulumi:"subnetId"`
-	Tags                          SubnetTagArrayOutput                             `pulumi:"tags"`
-	VpcId                         pulumi.StringOutput                              `pulumi:"vpcId"`
+	// The ID of the subnet
+	SubnetId pulumi.StringOutput  `pulumi:"subnetId"`
+	Tags     SubnetTagArrayOutput `pulumi:"tags"`
+	VpcId    pulumi.StringOutput  `pulumi:"vpcId"`
 }
 
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
@@ -238,6 +240,7 @@ func (o SubnetOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.MapPublicIpOnLaunch }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the network ACL that is associated with the subnet's VPC
 func (o SubnetOutput) NetworkAclAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.NetworkAclAssociationId }).(pulumi.StringOutput)
 }
@@ -252,6 +255,7 @@ func (o SubnetOutput) PrivateDnsNameOptionsOnLaunch() PrivateDnsNameOptionsOnLau
 	}).(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput)
 }
 
+// The ID of the subnet
 func (o SubnetOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         public Output<string> IdentitySourceId { get; private set; } = null!;
 
         [Output("policyStoreId")]
-        public Output<string?> PolicyStoreId { get; private set; } = null!;
+        public Output<string> PolicyStoreId { get; private set; } = null!;
 
         [Output("principalEntityType")]
         public Output<string?> PrincipalEntityType { get; private set; } = null!;
@@ -82,8 +82,8 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         [Input("configuration", required: true)]
         public Input<Inputs.IdentitySourceConfigurationArgs> Configuration { get; set; } = null!;
 
-        [Input("policyStoreId")]
-        public Input<string>? PolicyStoreId { get; set; }
+        [Input("policyStoreId", required: true)]
+        public Input<string> PolicyStoreId { get; set; } = null!;
 
         [Input("principalEntityType")]
         public Input<string>? PrincipalEntityType { get; set; }

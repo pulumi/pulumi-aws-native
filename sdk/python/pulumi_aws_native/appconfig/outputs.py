@@ -15,8 +15,8 @@ __all__ = [
     'ConfigurationProfileValidators',
     'DeploymentStrategyTags',
     'DeploymentTags',
-    'EnvironmentMonitors',
-    'EnvironmentTags',
+    'EnvironmentMonitor',
+    'EnvironmentTag',
     'ExtensionAssociationTag',
     'ExtensionTag',
 ]
@@ -167,7 +167,10 @@ class DeploymentTags(dict):
 
 
 @pulumi.output_type
-class EnvironmentMonitors(dict):
+class EnvironmentMonitor(dict):
+    """
+    Amazon CloudWatch alarm to monitor during the deployment process.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -177,53 +180,75 @@ class EnvironmentMonitors(dict):
             suggest = "alarm_role_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EnvironmentMonitors. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentMonitor. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EnvironmentMonitors.__key_warning(key)
+        EnvironmentMonitor.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EnvironmentMonitors.__key_warning(key)
+        EnvironmentMonitor.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 alarm_arn: Optional[str] = None,
+                 alarm_arn: str,
                  alarm_role_arn: Optional[str] = None):
-        if alarm_arn is not None:
-            pulumi.set(__self__, "alarm_arn", alarm_arn)
+        """
+        Amazon CloudWatch alarm to monitor during the deployment process.
+        :param str alarm_arn: Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+        :param str alarm_role_arn: ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
+        """
+        pulumi.set(__self__, "alarm_arn", alarm_arn)
         if alarm_role_arn is not None:
             pulumi.set(__self__, "alarm_role_arn", alarm_role_arn)
 
     @property
     @pulumi.getter(name="alarmArn")
-    def alarm_arn(self) -> Optional[str]:
+    def alarm_arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+        """
         return pulumi.get(self, "alarm_arn")
 
     @property
     @pulumi.getter(name="alarmRoleArn")
     def alarm_role_arn(self) -> Optional[str]:
+        """
+        ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
+        """
         return pulumi.get(self, "alarm_role_arn")
 
 
 @pulumi.output_type
-class EnvironmentTags(dict):
+class EnvironmentTag(dict):
+    """
+    Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+    """
     def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+                 key: str,
+                 value: str):
+        """
+        Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        :param str key: The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+        :param str value: The tag value can be up to 256 characters.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[str]:
+    def key(self) -> str:
+        """
+        The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[str]:
+    def value(self) -> str:
+        """
+        The tag value can be up to 256 characters.
+        """
         return pulumi.get(self, "value")
 
 

@@ -41,10 +41,12 @@ export class Space extends pulumi.CustomResource {
      * The ID of the associated Domain.
      */
     public readonly domainId!: pulumi.Output<string>;
+    public readonly ownershipSettings!: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
     /**
      * The space Amazon Resource Name (ARN).
      */
     public /*out*/ readonly spaceArn!: pulumi.Output<string>;
+    public readonly spaceDisplayName!: pulumi.Output<string | undefined>;
     /**
      * A name for the Space.
      */
@@ -53,10 +55,12 @@ export class Space extends pulumi.CustomResource {
      * A collection of settings.
      */
     public readonly spaceSettings!: pulumi.Output<outputs.sagemaker.SpaceSettings | undefined>;
+    public readonly spaceSharingSettings!: pulumi.Output<outputs.sagemaker.SpaceSharingSettings | undefined>;
     /**
      * A list of tags to apply to the space.
      */
     public readonly tags!: pulumi.Output<outputs.sagemaker.SpaceTag[] | undefined>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Space resource with the given unique name, arguments, and options.
@@ -73,19 +77,27 @@ export class Space extends pulumi.CustomResource {
                 throw new Error("Missing required property 'domainId'");
             }
             resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["ownershipSettings"] = args ? args.ownershipSettings : undefined;
+            resourceInputs["spaceDisplayName"] = args ? args.spaceDisplayName : undefined;
             resourceInputs["spaceName"] = args ? args.spaceName : undefined;
             resourceInputs["spaceSettings"] = args ? args.spaceSettings : undefined;
+            resourceInputs["spaceSharingSettings"] = args ? args.spaceSharingSettings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["spaceArn"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         } else {
             resourceInputs["domainId"] = undefined /*out*/;
+            resourceInputs["ownershipSettings"] = undefined /*out*/;
             resourceInputs["spaceArn"] = undefined /*out*/;
+            resourceInputs["spaceDisplayName"] = undefined /*out*/;
             resourceInputs["spaceName"] = undefined /*out*/;
             resourceInputs["spaceSettings"] = undefined /*out*/;
+            resourceInputs["spaceSharingSettings"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainId", "spaceName"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainId", "ownershipSettings", "spaceName", "spaceSharingSettings"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Space.__pulumiType, name, resourceInputs, opts);
     }
@@ -99,6 +111,8 @@ export interface SpaceArgs {
      * The ID of the associated Domain.
      */
     domainId: pulumi.Input<string>;
+    ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettingsArgs>;
+    spaceDisplayName?: pulumi.Input<string>;
     /**
      * A name for the Space.
      */
@@ -107,6 +121,7 @@ export interface SpaceArgs {
      * A collection of settings.
      */
     spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSettingsArgs>;
+    spaceSharingSettings?: pulumi.Input<inputs.sagemaker.SpaceSharingSettingsArgs>;
     /**
      * A list of tags to apply to the space.
      */

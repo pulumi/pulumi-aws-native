@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A certificate issued via a private certificate authority
+ * The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -17,40 +17,28 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetCertificateArgs {
-    /**
-     * The ARN of the issued certificate.
-     */
     arn: string;
     /**
-     * The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+     * The Amazon Resource Name (ARN) for the private CA issues the certificate.
      */
     certificateAuthorityArn: string;
 }
 
 export interface GetCertificateResult {
-    /**
-     * The ARN of the issued certificate.
-     */
     readonly arn?: string;
-    /**
-     * The issued certificate in base 64 PEM-encoded format.
-     */
     readonly certificate?: string;
 }
 /**
- * A certificate issued via a private certificate authority
+ * The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
 
 export interface GetCertificateOutputArgs {
-    /**
-     * The ARN of the issued certificate.
-     */
     arn: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+     * The Amazon Resource Name (ARN) for the private CA issues the certificate.
      */
     certificateAuthorityArn: pulumi.Input<string>;
 }

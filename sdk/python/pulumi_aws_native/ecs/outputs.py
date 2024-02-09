@@ -1625,7 +1625,9 @@ class TaskDefinitionContainerDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dependsOn":
+        if key == "credentialSpecs":
+            suggest = "credential_specs"
+        elif key == "dependsOn":
             suggest = "depends_on"
         elif key == "disableNetworking":
             suggest = "disable_networking"
@@ -1692,6 +1694,7 @@ class TaskDefinitionContainerDefinition(dict):
                  name: str,
                  command: Optional[Sequence[str]] = None,
                  cpu: Optional[int] = None,
+                 credential_specs: Optional[Sequence[str]] = None,
                  depends_on: Optional[Sequence['outputs.TaskDefinitionContainerDependency']] = None,
                  disable_networking: Optional[bool] = None,
                  dns_search_domains: Optional[Sequence[str]] = None,
@@ -1742,6 +1745,8 @@ class TaskDefinitionContainerDefinition(dict):
             pulumi.set(__self__, "command", command)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if credential_specs is not None:
+            pulumi.set(__self__, "credential_specs", credential_specs)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if disable_networking is not None:
@@ -1838,6 +1843,11 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter
     def cpu(self) -> Optional[int]:
         return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="credentialSpecs")
+    def credential_specs(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "credential_specs")
 
     @property
     @pulumi.getter(name="dependsOn")

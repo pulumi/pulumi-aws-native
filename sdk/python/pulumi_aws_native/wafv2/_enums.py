@@ -8,8 +8,6 @@ __all__ = [
     'IpSetIpAddressVersion',
     'IpSetScope',
     'LoggingConfigurationConditionActionConditionPropertiesAction',
-    'LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior',
-    'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope',
     'LoggingConfigurationFilterBehavior',
     'LoggingConfigurationFilterRequirement',
     'LoggingConfigurationLoggingFilterPropertiesDefaultBehavior',
@@ -75,24 +73,6 @@ class LoggingConfigurationConditionActionConditionPropertiesAction(str, Enum):
     CAPTCHA = "CAPTCHA"
     CHALLENGE = "CHALLENGE"
     EXCLUDED_AS_COUNT = "EXCLUDED_AS_COUNT"
-
-
-class LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior(str, Enum):
-    """
-    What AWS WAF should do if it fails to completely parse the JSON body.
-    """
-    MATCH = "MATCH"
-    NO_MATCH = "NO_MATCH"
-    EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
-
-
-class LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope(str, Enum):
-    """
-    The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
-    """
-    ALL = "ALL"
-    KEY = "KEY"
-    VALUE = "VALUE"
 
 
 class LoggingConfigurationFilterBehavior(str, Enum):

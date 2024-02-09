@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
+    /// <summary>
+    /// Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+    /// </summary>
     public sealed class ResolverAppSyncRuntimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the runtime to use.
+        /// The ``name`` of the runtime to use. Currently, the only allowed value is ``APPSYNC_JS``.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The version of the runtime to use.
+        /// The ``version`` of the runtime to use. Currently, the only allowed version is ``1.0.0``.
         /// </summary>
         [Input("runtimeVersion", required: true)]
         public Input<string> RuntimeVersion { get; set; } = null!;

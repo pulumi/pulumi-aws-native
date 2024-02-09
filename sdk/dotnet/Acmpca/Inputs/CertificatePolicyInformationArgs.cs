@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
-    /// <summary>
-    /// Structure that contains X.509 Policy information.
-    /// </summary>
     public sealed class CertificatePolicyInformationArgs : global::Pulumi.ResourceArgs
     {
         [Input("certPolicyId", required: true)]

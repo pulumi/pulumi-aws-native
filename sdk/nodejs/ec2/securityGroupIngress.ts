@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::SecurityGroupIngress
- *
- * @deprecated SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class SecurityGroupIngress extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SecurityGroupIngress {
-        pulumi.log.warn("SecurityGroupIngress is deprecated: SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new SecurityGroupIngress(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,17 +34,65 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroupIngress.__pulumiType;
     }
 
+    /**
+     * The IPv4 ranges
+     */
     public readonly cidrIp!: pulumi.Output<string | undefined>;
+    /**
+     * [VPC only] The IPv6 ranges
+     */
     public readonly cidrIpv6!: pulumi.Output<string | undefined>;
+    /**
+     * Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+     *
+     * Use this for ICMP and any protocol that uses ports.
+     */
     public readonly fromPort!: pulumi.Output<number | undefined>;
+    /**
+     * The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+     *
+     * You must specify the GroupName property or the GroupId property. For security groups that are in a VPC, you must use the GroupId property.
+     */
     public readonly groupId!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the security group.
+     */
     public readonly groupName!: pulumi.Output<string | undefined>;
+    /**
+     * The IP protocol name (tcp, udp, icmp, icmpv6) or number (see Protocol Numbers).
+     *
+     * [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+     */
     public readonly ipProtocol!: pulumi.Output<string>;
+    /**
+     * [EC2-VPC only] The ID of a prefix list.
+     */
     public readonly sourcePrefixListId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the security group. You must specify either the security group ID or the security group name. For security groups in a nondefault VPC, you must specify the security group ID.
+     */
     public readonly sourceSecurityGroupId!: pulumi.Output<string | undefined>;
+    /**
+     * [EC2-Classic, default VPC] The name of the source security group.
+     *
+     * You must specify the GroupName property or the GroupId property. For security groups that are in a VPC, you must use the GroupId property.
+     */
     public readonly sourceSecurityGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * [nondefault VPC] The AWS account ID that owns the source security group. You can't specify this property with an IP address range.
+     *
+     * If you specify SourceSecurityGroupName or SourceSecurityGroupId and that security group is owned by a different account than the account creating the stack, you must specify the SourceSecurityGroupOwnerId; otherwise, this property is optional.
+     */
     public readonly sourceSecurityGroupOwnerId!: pulumi.Output<string | undefined>;
+    /**
+     * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+     *
+     * Use this for ICMP and any protocol that uses ports.
+     */
     public readonly toPort!: pulumi.Output<number | undefined>;
 
     /**
@@ -57,9 +102,7 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SecurityGroupIngressArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SecurityGroupIngress is deprecated: SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -103,16 +146,64 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
  * The set of arguments for constructing a SecurityGroupIngress resource.
  */
 export interface SecurityGroupIngressArgs {
+    /**
+     * The IPv4 ranges
+     */
     cidrIp?: pulumi.Input<string>;
+    /**
+     * [VPC only] The IPv6 ranges
+     */
     cidrIpv6?: pulumi.Input<string>;
+    /**
+     * Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+     *
+     * Use this for ICMP and any protocol that uses ports.
+     */
     fromPort?: pulumi.Input<number>;
+    /**
+     * The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+     *
+     * You must specify the GroupName property or the GroupId property. For security groups that are in a VPC, you must use the GroupId property.
+     */
     groupId?: pulumi.Input<string>;
+    /**
+     * The name of the security group.
+     */
     groupName?: pulumi.Input<string>;
+    /**
+     * The IP protocol name (tcp, udp, icmp, icmpv6) or number (see Protocol Numbers).
+     *
+     * [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+     */
     ipProtocol: pulumi.Input<string>;
+    /**
+     * [EC2-VPC only] The ID of a prefix list.
+     */
     sourcePrefixListId?: pulumi.Input<string>;
+    /**
+     * The ID of the security group. You must specify either the security group ID or the security group name. For security groups in a nondefault VPC, you must specify the security group ID.
+     */
     sourceSecurityGroupId?: pulumi.Input<string>;
+    /**
+     * [EC2-Classic, default VPC] The name of the source security group.
+     *
+     * You must specify the GroupName property or the GroupId property. For security groups that are in a VPC, you must use the GroupId property.
+     */
     sourceSecurityGroupName?: pulumi.Input<string>;
+    /**
+     * [nondefault VPC] The AWS account ID that owns the source security group. You can't specify this property with an IP address range.
+     *
+     * If you specify SourceSecurityGroupName or SourceSecurityGroupId and that security group is owned by a different account than the account creating the stack, you must specify the SourceSecurityGroupOwnerId; otherwise, this property is optional.
+     */
     sourceSecurityGroupOwnerId?: pulumi.Input<string>;
+    /**
+     * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+     *
+     * Use this for ICMP and any protocol that uses ports.
+     */
     toPort?: pulumi.Input<number>;
 }

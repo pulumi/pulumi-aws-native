@@ -1499,6 +1499,7 @@ class TaskDefinitionContainerDefinitionArgs:
                  name: pulumi.Input[str],
                  command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
+                 credential_specs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionContainerDependencyArgs']]]] = None,
                  disable_networking: Optional[pulumi.Input[bool]] = None,
                  dns_search_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1549,6 +1550,8 @@ class TaskDefinitionContainerDefinitionArgs:
             pulumi.set(__self__, "command", command)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if credential_specs is not None:
+            pulumi.set(__self__, "credential_specs", credential_specs)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if disable_networking is not None:
@@ -1661,6 +1664,15 @@ class TaskDefinitionContainerDefinitionArgs:
     @cpu.setter
     def cpu(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter(name="credentialSpecs")
+    def credential_specs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "credential_specs")
+
+    @credential_specs.setter
+    def credential_specs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "credential_specs", value)
 
     @property
     @pulumi.getter(name="dependsOn")

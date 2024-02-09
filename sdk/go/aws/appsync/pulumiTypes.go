@@ -3256,10 +3256,11 @@ func (o GraphQlApiUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 type ResolverAppSyncRuntime struct {
-	// The name of the runtime to use.
+	// The ``name`` of the runtime to use. Currently, the only allowed value is ``APPSYNC_JS``.
 	Name string `pulumi:"name"`
-	// The version of the runtime to use.
+	// The ``version`` of the runtime to use. Currently, the only allowed version is ``1.0.0``.
 	RuntimeVersion string `pulumi:"runtimeVersion"`
 }
 
@@ -3274,10 +3275,11 @@ type ResolverAppSyncRuntimeInput interface {
 	ToResolverAppSyncRuntimeOutputWithContext(context.Context) ResolverAppSyncRuntimeOutput
 }
 
+// Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 type ResolverAppSyncRuntimeArgs struct {
-	// The name of the runtime to use.
+	// The ``name`` of the runtime to use. Currently, the only allowed value is ``APPSYNC_JS``.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The version of the runtime to use.
+	// The ``version`` of the runtime to use. Currently, the only allowed version is ``1.0.0``.
 	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
 }
 
@@ -3334,6 +3336,7 @@ func (i *resolverAppSyncRuntimePtrType) ToResolverAppSyncRuntimePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverAppSyncRuntimePtrOutput)
 }
 
+// Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 type ResolverAppSyncRuntimeOutput struct{ *pulumi.OutputState }
 
 func (ResolverAppSyncRuntimeOutput) ElementType() reflect.Type {
@@ -3358,12 +3361,12 @@ func (o ResolverAppSyncRuntimeOutput) ToResolverAppSyncRuntimePtrOutputWithConte
 	}).(ResolverAppSyncRuntimePtrOutput)
 }
 
-// The name of the runtime to use.
+// The “name“ of the runtime to use. Currently, the only allowed value is “APPSYNC_JS“.
 func (o ResolverAppSyncRuntimeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverAppSyncRuntime) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The version of the runtime to use.
+// The “version“ of the runtime to use. Currently, the only allowed version is “1.0.0“.
 func (o ResolverAppSyncRuntimeOutput) RuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverAppSyncRuntime) string { return v.RuntimeVersion }).(pulumi.StringOutput)
 }
@@ -3392,7 +3395,7 @@ func (o ResolverAppSyncRuntimePtrOutput) Elem() ResolverAppSyncRuntimeOutput {
 	}).(ResolverAppSyncRuntimeOutput)
 }
 
-// The name of the runtime to use.
+// The “name“ of the runtime to use. Currently, the only allowed value is “APPSYNC_JS“.
 func (o ResolverAppSyncRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverAppSyncRuntime) *string {
 		if v == nil {
@@ -3402,7 +3405,7 @@ func (o ResolverAppSyncRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the runtime to use.
+// The “version“ of the runtime to use. Currently, the only allowed version is “1.0.0“.
 func (o ResolverAppSyncRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverAppSyncRuntime) *string {
 		if v == nil {
@@ -3412,10 +3415,13 @@ func (o ResolverAppSyncRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The caching configuration for a resolver that has caching activated.
 type ResolverCachingConfig struct {
-	// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+	// The caching keys for a resolver that has caching activated.
+	//  Valid values are entries from the ``$context.arguments``, ``$context.source``, and ``$context.identity`` maps.
 	CachingKeys []string `pulumi:"cachingKeys"`
-	// The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+	// The TTL in seconds for a resolver that has caching activated.
+	//  Valid values are 1–3,600 seconds.
 	Ttl float64 `pulumi:"ttl"`
 }
 
@@ -3430,10 +3436,13 @@ type ResolverCachingConfigInput interface {
 	ToResolverCachingConfigOutputWithContext(context.Context) ResolverCachingConfigOutput
 }
 
+// The caching configuration for a resolver that has caching activated.
 type ResolverCachingConfigArgs struct {
-	// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+	// The caching keys for a resolver that has caching activated.
+	//  Valid values are entries from the ``$context.arguments``, ``$context.source``, and ``$context.identity`` maps.
 	CachingKeys pulumi.StringArrayInput `pulumi:"cachingKeys"`
-	// The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+	// The TTL in seconds for a resolver that has caching activated.
+	//  Valid values are 1–3,600 seconds.
 	Ttl pulumi.Float64Input `pulumi:"ttl"`
 }
 
@@ -3490,6 +3499,7 @@ func (i *resolverCachingConfigPtrType) ToResolverCachingConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverCachingConfigPtrOutput)
 }
 
+// The caching configuration for a resolver that has caching activated.
 type ResolverCachingConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverCachingConfigOutput) ElementType() reflect.Type {
@@ -3514,12 +3524,16 @@ func (o ResolverCachingConfigOutput) ToResolverCachingConfigPtrOutputWithContext
 	}).(ResolverCachingConfigPtrOutput)
 }
 
-// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+// The caching keys for a resolver that has caching activated.
+//
+//	Valid values are entries from the ``$context.arguments``, ``$context.source``, and ``$context.identity`` maps.
 func (o ResolverCachingConfigOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverCachingConfig) []string { return v.CachingKeys }).(pulumi.StringArrayOutput)
 }
 
-// The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+// The TTL in seconds for a resolver that has caching activated.
+//
+//	Valid values are 1–3,600 seconds.
 func (o ResolverCachingConfigOutput) Ttl() pulumi.Float64Output {
 	return o.ApplyT(func(v ResolverCachingConfig) float64 { return v.Ttl }).(pulumi.Float64Output)
 }
@@ -3548,7 +3562,9 @@ func (o ResolverCachingConfigPtrOutput) Elem() ResolverCachingConfigOutput {
 	}).(ResolverCachingConfigOutput)
 }
 
-// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+// The caching keys for a resolver that has caching activated.
+//
+//	Valid values are entries from the ``$context.arguments``, ``$context.source``, and ``$context.identity`` maps.
 func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverCachingConfig) []string {
 		if v == nil {
@@ -3558,7 +3574,9 @@ func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+// The TTL in seconds for a resolver that has caching activated.
+//
+//	Valid values are 1–3,600 seconds.
 func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ResolverCachingConfig) *float64 {
 		if v == nil {
@@ -3568,7 +3586,7 @@ func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+// The “LambdaConflictHandlerConfig“ when configuring LAMBDA as the Conflict Handler.
 type ResolverLambdaConflictHandlerConfig struct {
 	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn *string `pulumi:"lambdaConflictHandlerArn"`
@@ -3585,7 +3603,7 @@ type ResolverLambdaConflictHandlerConfigInput interface {
 	ToResolverLambdaConflictHandlerConfigOutputWithContext(context.Context) ResolverLambdaConflictHandlerConfigOutput
 }
 
-// The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+// The “LambdaConflictHandlerConfig“ when configuring LAMBDA as the Conflict Handler.
 type ResolverLambdaConflictHandlerConfigArgs struct {
 	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn pulumi.StringPtrInput `pulumi:"lambdaConflictHandlerArn"`
@@ -3644,7 +3662,7 @@ func (i *resolverLambdaConflictHandlerConfigPtrType) ToResolverLambdaConflictHan
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverLambdaConflictHandlerConfigPtrOutput)
 }
 
-// The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+// The “LambdaConflictHandlerConfig“ when configuring LAMBDA as the Conflict Handler.
 type ResolverLambdaConflictHandlerConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverLambdaConflictHandlerConfigOutput) ElementType() reflect.Type {
@@ -3708,8 +3726,11 @@ func (o ResolverLambdaConflictHandlerConfigPtrOutput) LambdaConflictHandlerArn()
 	}).(pulumi.StringPtrOutput)
 }
 
+// Use the “PipelineConfig“ property type to specify “PipelineConfig“ for an APSYlong resolver.
+//
+//	``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
 type ResolverPipelineConfig struct {
-	// A list of Function objects.
+	// A list of ``Function`` objects.
 	Functions []string `pulumi:"functions"`
 }
 
@@ -3724,8 +3745,11 @@ type ResolverPipelineConfigInput interface {
 	ToResolverPipelineConfigOutputWithContext(context.Context) ResolverPipelineConfigOutput
 }
 
+// Use the “PipelineConfig“ property type to specify “PipelineConfig“ for an APSYlong resolver.
+//
+//	``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
 type ResolverPipelineConfigArgs struct {
-	// A list of Function objects.
+	// A list of ``Function`` objects.
 	Functions pulumi.StringArrayInput `pulumi:"functions"`
 }
 
@@ -3782,6 +3806,9 @@ func (i *resolverPipelineConfigPtrType) ToResolverPipelineConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverPipelineConfigPtrOutput)
 }
 
+// Use the “PipelineConfig“ property type to specify “PipelineConfig“ for an APSYlong resolver.
+//
+//	``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
 type ResolverPipelineConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverPipelineConfigOutput) ElementType() reflect.Type {
@@ -3806,7 +3833,7 @@ func (o ResolverPipelineConfigOutput) ToResolverPipelineConfigPtrOutputWithConte
 	}).(ResolverPipelineConfigPtrOutput)
 }
 
-// A list of Function objects.
+// A list of “Function“ objects.
 func (o ResolverPipelineConfigOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverPipelineConfig) []string { return v.Functions }).(pulumi.StringArrayOutput)
 }
@@ -3835,7 +3862,7 @@ func (o ResolverPipelineConfigPtrOutput) Elem() ResolverPipelineConfigOutput {
 	}).(ResolverPipelineConfigOutput)
 }
 
-// A list of Function objects.
+// A list of “Function“ objects.
 func (o ResolverPipelineConfigPtrOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverPipelineConfig) []string {
 		if v == nil {
@@ -3845,11 +3872,20 @@ func (o ResolverPipelineConfigPtrOutput) Functions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Describes a Sync configuration for a resolver.
+//
+//	Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
 type ResolverSyncConfig struct {
 	// The Conflict Detection strategy to use.
+	//   +   *VERSION*: Detect conflicts based on object versions for this resolver.
+	//   +   *NONE*: Do not detect conflicts when invoking this resolver.
 	ConflictDetection string `pulumi:"conflictDetection"`
 	// The Conflict Resolution strategy to perform in the event of a conflict.
-	ConflictHandler             *string                              `pulumi:"conflictHandler"`
+	//   +   *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
+	//   +   *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
+	//   +   *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
+	ConflictHandler *string `pulumi:"conflictHandler"`
+	// The ``LambdaConflictHandlerConfig`` when configuring ``LAMBDA`` as the Conflict Handler.
 	LambdaConflictHandlerConfig *ResolverLambdaConflictHandlerConfig `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -3864,11 +3900,20 @@ type ResolverSyncConfigInput interface {
 	ToResolverSyncConfigOutputWithContext(context.Context) ResolverSyncConfigOutput
 }
 
+// Describes a Sync configuration for a resolver.
+//
+//	Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
 type ResolverSyncConfigArgs struct {
 	// The Conflict Detection strategy to use.
+	//   +   *VERSION*: Detect conflicts based on object versions for this resolver.
+	//   +   *NONE*: Do not detect conflicts when invoking this resolver.
 	ConflictDetection pulumi.StringInput `pulumi:"conflictDetection"`
 	// The Conflict Resolution strategy to perform in the event of a conflict.
-	ConflictHandler             pulumi.StringPtrInput                       `pulumi:"conflictHandler"`
+	//   +   *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
+	//   +   *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
+	//   +   *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
+	ConflictHandler pulumi.StringPtrInput `pulumi:"conflictHandler"`
+	// The ``LambdaConflictHandlerConfig`` when configuring ``LAMBDA`` as the Conflict Handler.
 	LambdaConflictHandlerConfig ResolverLambdaConflictHandlerConfigPtrInput `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -3925,6 +3970,9 @@ func (i *resolverSyncConfigPtrType) ToResolverSyncConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverSyncConfigPtrOutput)
 }
 
+// Describes a Sync configuration for a resolver.
+//
+//	Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
 type ResolverSyncConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverSyncConfigOutput) ElementType() reflect.Type {
@@ -3950,15 +3998,21 @@ func (o ResolverSyncConfigOutput) ToResolverSyncConfigPtrOutputWithContext(ctx c
 }
 
 // The Conflict Detection strategy to use.
+//   - *VERSION*: Detect conflicts based on object versions for this resolver.
+//   - *NONE*: Do not detect conflicts when invoking this resolver.
 func (o ResolverSyncConfigOutput) ConflictDetection() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverSyncConfig) string { return v.ConflictDetection }).(pulumi.StringOutput)
 }
 
 // The Conflict Resolution strategy to perform in the event of a conflict.
+//   - *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
+//   - *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
+//   - *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the “LambdaConflictHandlerConfig“.
 func (o ResolverSyncConfigOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverSyncConfig) *string { return v.ConflictHandler }).(pulumi.StringPtrOutput)
 }
 
+// The “LambdaConflictHandlerConfig“ when configuring “LAMBDA“ as the Conflict Handler.
 func (o ResolverSyncConfigOutput) LambdaConflictHandlerConfig() ResolverLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v ResolverSyncConfig) *ResolverLambdaConflictHandlerConfig { return v.LambdaConflictHandlerConfig }).(ResolverLambdaConflictHandlerConfigPtrOutput)
 }
@@ -3988,6 +4042,8 @@ func (o ResolverSyncConfigPtrOutput) Elem() ResolverSyncConfigOutput {
 }
 
 // The Conflict Detection strategy to use.
+//   - *VERSION*: Detect conflicts based on object versions for this resolver.
+//   - *NONE*: Do not detect conflicts when invoking this resolver.
 func (o ResolverSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfig) *string {
 		if v == nil {
@@ -3998,6 +4054,9 @@ func (o ResolverSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput 
 }
 
 // The Conflict Resolution strategy to perform in the event of a conflict.
+//   - *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
+//   - *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
+//   - *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the “LambdaConflictHandlerConfig“.
 func (o ResolverSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfig) *string {
 		if v == nil {
@@ -4007,6 +4066,7 @@ func (o ResolverSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The “LambdaConflictHandlerConfig“ when configuring “LAMBDA“ as the Conflict Handler.
 func (o ResolverSyncConfigPtrOutput) LambdaConflictHandlerConfig() ResolverLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfig) *ResolverLambdaConflictHandlerConfig {
 		if v == nil {

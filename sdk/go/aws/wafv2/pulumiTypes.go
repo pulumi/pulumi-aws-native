@@ -507,8 +507,6 @@ func (o LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput) Labe
 
 // A key-value pair to associate with a resource.
 type LoggingConfigurationFieldToMatch struct {
-	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-	JsonBody *LoggingConfigurationFieldToMatchJsonBodyProperties `pulumi:"jsonBody"`
 	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
 	// Inspect the query string. This is the part of a URL that appears after a ? character, if any.
@@ -532,8 +530,6 @@ type LoggingConfigurationFieldToMatchInput interface {
 
 // A key-value pair to associate with a resource.
 type LoggingConfigurationFieldToMatchArgs struct {
-	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-	JsonBody LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput `pulumi:"jsonBody"`
 	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
 	// Inspect the query string. This is the part of a URL that appears after a ? character, if any.
@@ -596,13 +592,6 @@ func (o LoggingConfigurationFieldToMatchOutput) ToLoggingConfigurationFieldToMat
 	return o
 }
 
-// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-func (o LoggingConfigurationFieldToMatchOutput) JsonBody() LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
-	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) *LoggingConfigurationFieldToMatchJsonBodyProperties {
-		return v.JsonBody
-	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput)
-}
-
 // Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o LoggingConfigurationFieldToMatchOutput) Method() pulumi.AnyOutput {
 	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.Method }).(pulumi.AnyOutput)
@@ -643,353 +632,6 @@ func (o LoggingConfigurationFieldToMatchArrayOutput) Index(i pulumi.IntInput) Lo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoggingConfigurationFieldToMatch {
 		return vs[0].([]LoggingConfigurationFieldToMatch)[vs[1].(int)]
 	}).(LoggingConfigurationFieldToMatchOutput)
-}
-
-// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-type LoggingConfigurationFieldToMatchJsonBodyProperties struct {
-	// What AWS WAF should do if it fails to completely parse the JSON body.
-	InvalidFallbackBehavior *LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-	MatchPattern LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values.
-	MatchScope LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope `pulumi:"matchScope"`
-}
-
-// LoggingConfigurationFieldToMatchJsonBodyPropertiesInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs and LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput values.
-// You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesInput` via:
-//
-//	LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{...}
-type LoggingConfigurationFieldToMatchJsonBodyPropertiesInput interface {
-	pulumi.Input
-
-	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput
-	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutputWithContext(context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput
-}
-
-// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-type LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs struct {
-	// What AWS WAF should do if it fails to completely parse the JSON body.
-	InvalidFallbackBehavior LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-	MatchPattern LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values.
-	MatchScope LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput `pulumi:"matchScope"`
-}
-
-func (LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyProperties)(nil)).Elem()
-}
-
-func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput {
-	return i.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutputWithContext(context.Background())
-}
-
-func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput)
-}
-
-func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
-	return i.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput).ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(ctx)
-}
-
-// LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs, LoggingConfigurationFieldToMatchJsonBodyPropertiesPtr and LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput values.
-// You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput` via:
-//
-//	        LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput
-	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput
-}
-
-type loggingConfigurationFieldToMatchJsonBodyPropertiesPtrType LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs
-
-func LoggingConfigurationFieldToMatchJsonBodyPropertiesPtr(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput {
-	return (*loggingConfigurationFieldToMatchJsonBodyPropertiesPtrType)(v)
-}
-
-func (*loggingConfigurationFieldToMatchJsonBodyPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoggingConfigurationFieldToMatchJsonBodyProperties)(nil)).Elem()
-}
-
-func (i *loggingConfigurationFieldToMatchJsonBodyPropertiesPtrType) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
-	return i.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *loggingConfigurationFieldToMatchJsonBodyPropertiesPtrType) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput)
-}
-
-// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-type LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput struct{ *pulumi.OutputState }
-
-func (LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyProperties)(nil)).Elem()
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput {
-	return o
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput {
-	return o
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
-	return o.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationFieldToMatchJsonBodyProperties) *LoggingConfigurationFieldToMatchJsonBodyProperties {
-		return &v
-	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput)
-}
-
-// What AWS WAF should do if it fails to completely parse the JSON body.
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) InvalidFallbackBehavior() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
-	return o.ApplyT(func(v LoggingConfigurationFieldToMatchJsonBodyProperties) *LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior {
-		return v.InvalidFallbackBehavior
-	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput)
-}
-
-// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) MatchPattern() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput {
-	return o.ApplyT(func(v LoggingConfigurationFieldToMatchJsonBodyProperties) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties {
-		return v.MatchPattern
-	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput)
-}
-
-// The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values.
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) MatchScope() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput {
-	return o.ApplyT(func(v LoggingConfigurationFieldToMatchJsonBodyProperties) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope {
-		return v.MatchScope
-	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput)
-}
-
-type LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoggingConfigurationFieldToMatchJsonBodyProperties)(nil)).Elem()
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
-	return o
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
-	return o
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) Elem() LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput {
-	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyProperties) LoggingConfigurationFieldToMatchJsonBodyProperties {
-		if v != nil {
-			return *v
-		}
-		var ret LoggingConfigurationFieldToMatchJsonBodyProperties
-		return ret
-	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput)
-}
-
-// What AWS WAF should do if it fails to completely parse the JSON body.
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) InvalidFallbackBehavior() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
-	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyProperties) *LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior {
-		if v == nil {
-			return nil
-		}
-		return v.InvalidFallbackBehavior
-	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput)
-}
-
-// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) MatchPattern() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
-	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyProperties) *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties {
-		if v == nil {
-			return nil
-		}
-		return &v.MatchPattern
-	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput)
-}
-
-// The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values.
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) MatchScope() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
-	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyProperties) *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope {
-		if v == nil {
-			return nil
-		}
-		return &v.MatchScope
-	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput)
-}
-
-// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties struct {
-	// Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
-	All interface{} `pulumi:"all"`
-	// Match only the specified include paths. See also MatchScope in JsonBody.
-	IncludedPaths []string `pulumi:"includedPaths"`
-}
-
-// LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs and LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput values.
-// You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesInput` via:
-//
-//	LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{...}
-type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesInput interface {
-	pulumi.Input
-
-	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput
-	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutputWithContext(context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput
-}
-
-// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs struct {
-	// Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
-	All pulumi.Input `pulumi:"all"`
-	// Match only the specified include paths. See also MatchScope in JsonBody.
-	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
-}
-
-func (LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties)(nil)).Elem()
-}
-
-func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput {
-	return i.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutputWithContext(context.Background())
-}
-
-func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput)
-}
-
-func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
-	return i.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput).ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(ctx)
-}
-
-// LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs, LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtr and LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput values.
-// You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrInput` via:
-//
-//	        LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput
-	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput
-}
-
-type loggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrType LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs
-
-func LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtr(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrInput {
-	return (*loggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrType)(v)
-}
-
-func (*loggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties)(nil)).Elem()
-}
-
-func (i *loggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrType) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
-	return i.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *loggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrType) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput)
-}
-
-// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput struct{ *pulumi.OutputState }
-
-func (LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties)(nil)).Elem()
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput {
-	return o
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput {
-	return o
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
-	return o.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties) *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties {
-		return &v
-	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput)
-}
-
-// Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) All() pulumi.AnyOutput {
-	return o.ApplyT(func(v LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties) interface{} {
-		return v.All
-	}).(pulumi.AnyOutput)
-}
-
-// Match only the specified include paths. See also MatchScope in JsonBody.
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) IncludedPaths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties) []string {
-		return v.IncludedPaths
-	}).(pulumi.StringArrayOutput)
-}
-
-type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties)(nil)).Elem()
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
-	return o
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
-	return o
-}
-
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput) Elem() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput {
-	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties {
-		if v != nil {
-			return *v
-		}
-		var ret LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties
-		return ret
-	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput)
-}
-
-// Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput) All() pulumi.AnyOutput {
-	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.All
-	}).(pulumi.AnyOutput)
-}
-
-// Match only the specified include paths. See also MatchScope in JsonBody.
-func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput) IncludedPaths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.IncludedPaths
-	}).(pulumi.StringArrayOutput)
 }
 
 // Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
@@ -21216,10 +20858,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationConditionLabelNameConditionPropertiesPtrInput)(nil)).Elem(), LoggingConfigurationConditionLabelNameConditionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationFieldToMatchInput)(nil)).Elem(), LoggingConfigurationFieldToMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationFieldToMatchArrayInput)(nil)).Elem(), LoggingConfigurationFieldToMatchArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesInput)(nil)).Elem(), LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput)(nil)).Elem(), LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesInput)(nil)).Elem(), LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrInput)(nil)).Elem(), LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationFieldToMatchSingleHeaderPropertiesInput)(nil)).Elem(), LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrInput)(nil)).Elem(), LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationFilterInput)(nil)).Elem(), LoggingConfigurationFilterArgs{})
@@ -21496,10 +21134,6 @@ func init() {
 	pulumi.RegisterOutputType(LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchArrayOutput{})
-	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput{})
-	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput{})
-	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationFilterOutput{})

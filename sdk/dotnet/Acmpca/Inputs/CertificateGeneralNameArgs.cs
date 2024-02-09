@@ -11,10 +11,13 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
     /// <summary>
-    /// Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
+    /// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
     /// </summary>
     public sealed class CertificateGeneralNameArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+        /// </summary>
         [Input("directoryName")]
         public Input<Inputs.CertificateSubjectArgs>? DirectoryName { get; set; }
 

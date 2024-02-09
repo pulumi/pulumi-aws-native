@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     {
         public readonly ImmutableArray<string> Command;
         public readonly int? Cpu;
+        public readonly ImmutableArray<string> CredentialSpecs;
         public readonly ImmutableArray<Outputs.TaskDefinitionContainerDependency> DependsOn;
         public readonly bool? DisableNetworking;
         public readonly ImmutableArray<string> DnsSearchDomains;
@@ -79,6 +80,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
             ImmutableArray<string> command,
 
             int? cpu,
+
+            ImmutableArray<string> credentialSpecs,
 
             ImmutableArray<Outputs.TaskDefinitionContainerDependency> dependsOn,
 
@@ -156,6 +159,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         {
             Command = command;
             Cpu = cpu;
+            CredentialSpecs = credentialSpecs;
             DependsOn = dependsOn;
             DisableNetworking = disableNetworking;
             DnsSearchDomains = dnsSearchDomains;

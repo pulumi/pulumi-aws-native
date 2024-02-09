@@ -1004,10 +1004,11 @@ func (o BrokerTagsEntryArrayOutput) Index(i pulumi.IntInput) BrokerTagsEntryOutp
 }
 
 type BrokerUser struct {
-	ConsoleAccess *bool    `pulumi:"consoleAccess"`
-	Groups        []string `pulumi:"groups"`
-	Password      string   `pulumi:"password"`
-	Username      string   `pulumi:"username"`
+	ConsoleAccess   *bool    `pulumi:"consoleAccess"`
+	Groups          []string `pulumi:"groups"`
+	Password        string   `pulumi:"password"`
+	ReplicationUser *bool    `pulumi:"replicationUser"`
+	Username        string   `pulumi:"username"`
 }
 
 // BrokerUserInput is an input type that accepts BrokerUserArgs and BrokerUserOutput values.
@@ -1022,10 +1023,11 @@ type BrokerUserInput interface {
 }
 
 type BrokerUserArgs struct {
-	ConsoleAccess pulumi.BoolPtrInput     `pulumi:"consoleAccess"`
-	Groups        pulumi.StringArrayInput `pulumi:"groups"`
-	Password      pulumi.StringInput      `pulumi:"password"`
-	Username      pulumi.StringInput      `pulumi:"username"`
+	ConsoleAccess   pulumi.BoolPtrInput     `pulumi:"consoleAccess"`
+	Groups          pulumi.StringArrayInput `pulumi:"groups"`
+	Password        pulumi.StringInput      `pulumi:"password"`
+	ReplicationUser pulumi.BoolPtrInput     `pulumi:"replicationUser"`
+	Username        pulumi.StringInput      `pulumi:"username"`
 }
 
 func (BrokerUserArgs) ElementType() reflect.Type {
@@ -1089,6 +1091,10 @@ func (o BrokerUserOutput) Groups() pulumi.StringArrayOutput {
 
 func (o BrokerUserOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerUser) string { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o BrokerUserOutput) ReplicationUser() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BrokerUser) *bool { return v.ReplicationUser }).(pulumi.BoolPtrOutput)
 }
 
 func (o BrokerUserOutput) Username() pulumi.StringOutput {

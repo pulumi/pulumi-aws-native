@@ -27,8 +27,17 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetEnvironmentArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("applicationId", required: true)]
+        public string ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// The environment ID.
+        /// </summary>
+        [Input("environmentId", required: true)]
+        public string EnvironmentId { get; set; } = null!;
 
         public GetEnvironmentArgs()
         {
@@ -38,8 +47,17 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("applicationId", required: true)]
+        public Input<string> ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// The environment ID.
+        /// </summary>
+        [Input("environmentId", required: true)]
+        public Input<string> EnvironmentId { get; set; } = null!;
 
         public GetEnvironmentInvokeArgs()
         {
@@ -51,26 +69,41 @@ namespace Pulumi.AwsNative.AppConfig
     [OutputType]
     public sealed class GetEnvironmentResult
     {
+        /// <summary>
+        /// A description of the environment.
+        /// </summary>
         public readonly string? Description;
-        public readonly string? Id;
-        public readonly ImmutableArray<Outputs.EnvironmentMonitors> Monitors;
+        /// <summary>
+        /// The environment ID.
+        /// </summary>
+        public readonly string? EnvironmentId;
+        /// <summary>
+        /// Amazon CloudWatch alarms to monitor during the deployment process.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EnvironmentMonitor> Monitors;
+        /// <summary>
+        /// A name for the environment.
+        /// </summary>
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.EnvironmentTags> Tags;
+        /// <summary>
+        /// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EnvironmentTag> Tags;
 
         [OutputConstructor]
         private GetEnvironmentResult(
             string? description,
 
-            string? id,
+            string? environmentId,
 
-            ImmutableArray<Outputs.EnvironmentMonitors> monitors,
+            ImmutableArray<Outputs.EnvironmentMonitor> monitors,
 
             string? name,
 
-            ImmutableArray<Outputs.EnvironmentTags> tags)
+            ImmutableArray<Outputs.EnvironmentTag> tags)
         {
             Description = description;
-            Id = id;
+            EnvironmentId = environmentId;
             Monitors = monitors;
             Name = name;
             Tags = tags;

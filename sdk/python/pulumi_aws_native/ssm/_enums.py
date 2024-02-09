@@ -70,7 +70,6 @@ class DocumentType(str, Enum):
     PROBLEM_ANALYSIS = "ProblemAnalysis"
     PROBLEM_ANALYSIS_TEMPLATE = "ProblemAnalysisTemplate"
     SESSION = "Session"
-    OPS_PACK = "OpsPack"
 
 
 class DocumentUpdateMethod(str, Enum):
@@ -83,7 +82,7 @@ class DocumentUpdateMethod(str, Enum):
 
 class ParameterDataType(str, Enum):
     """
-    The corresponding DataType of the parameter.
+    The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
     """
     TEXT = "text"
     AWSEC2IMAGE = "aws:ec2:image"
@@ -91,7 +90,7 @@ class ParameterDataType(str, Enum):
 
 class ParameterTier(str, Enum):
     """
-    The corresponding tier of the parameter.
+    The parameter tier.
     """
     STANDARD = "Standard"
     ADVANCED = "Advanced"
@@ -100,11 +99,11 @@ class ParameterTier(str, Enum):
 
 class ParameterType(str, Enum):
     """
-    The type of the parameter.
+    The type of parameter.
+      Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
     """
     STRING = "String"
     STRING_LIST = "StringList"
-    SECURE_STRING = "SecureString"
 
 
 class PatchBaselineApprovedPatchesComplianceLevel(str, Enum):

@@ -16,12 +16,6 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     public sealed class LoggingConfigurationFieldToMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
-        /// </summary>
-        [Input("jsonBody")]
-        public Input<Inputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs>? JsonBody { get; set; }
-
-        /// <summary>
         /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
         /// </summary>
         [Input("method")]

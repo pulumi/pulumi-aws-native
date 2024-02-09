@@ -11,7 +11,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AppImageConfigContainerConfigArgs',
+    'AppImageConfigCustomImageContainerEnvironmentVariableArgs',
     'AppImageConfigFileSystemConfigArgs',
+    'AppImageConfigJupyterLabAppImageConfigArgs',
     'AppImageConfigKernelGatewayImageConfigArgs',
     'AppImageConfigKernelSpecArgs',
     'AppImageConfigTagArgs',
@@ -50,6 +53,7 @@ __all__ = [
     'DomainDefaultEbsStorageSettingsArgs',
     'DomainDefaultSpaceSettingsArgs',
     'DomainDefaultSpaceStorageSettingsArgs',
+    'DomainDockerSettingsArgs',
     'DomainEfsFileSystemConfigArgs',
     'DomainJupyterLabAppSettingsArgs',
     'DomainJupyterServerAppSettingsArgs',
@@ -279,11 +283,20 @@ __all__ = [
     'ProjectTagArgs',
     'ServiceCatalogProvisionedProductDetailsPropertiesArgs',
     'ServiceCatalogProvisioningDetailsPropertiesArgs',
+    'SpaceCodeEditorAppSettingsArgs',
+    'SpaceCodeRepositoryArgs',
+    'SpaceCustomFileSystemArgs',
     'SpaceCustomImageArgs',
+    'SpaceEbsStorageSettingsArgs',
+    'SpaceEfsFileSystemArgs',
+    'SpaceJupyterLabAppSettingsArgs',
     'SpaceJupyterServerAppSettingsArgs',
     'SpaceKernelGatewayAppSettingsArgs',
+    'SpaceOwnershipSettingsArgs',
     'SpaceResourceSpecArgs',
     'SpaceSettingsArgs',
+    'SpaceSharingSettingsArgs',
+    'SpaceStorageSettingsArgs',
     'SpaceTagArgs',
     'UserProfileCodeEditorAppSettingsArgs',
     'UserProfileCodeRepositoryArgs',
@@ -307,6 +320,89 @@ __all__ = [
     'WorkteamOidcMemberDefinitionArgs',
     'WorkteamTagArgs',
 ]
+
+@pulumi.input_type
+class AppImageConfigContainerConfigArgs:
+    def __init__(__self__, *,
+                 container_arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 container_entrypoint: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 container_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AppImageConfigCustomImageContainerEnvironmentVariableArgs']]]] = None):
+        """
+        The container configuration for a SageMaker image.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_arguments: A list of arguments to apply to the container.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_entrypoint: The custom entry point to use on container.
+        :param pulumi.Input[Sequence[pulumi.Input['AppImageConfigCustomImageContainerEnvironmentVariableArgs']]] container_environment_variables: A list of variables to apply to the custom container.
+        """
+        if container_arguments is not None:
+            pulumi.set(__self__, "container_arguments", container_arguments)
+        if container_entrypoint is not None:
+            pulumi.set(__self__, "container_entrypoint", container_entrypoint)
+        if container_environment_variables is not None:
+            pulumi.set(__self__, "container_environment_variables", container_environment_variables)
+
+    @property
+    @pulumi.getter(name="containerArguments")
+    def container_arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of arguments to apply to the container.
+        """
+        return pulumi.get(self, "container_arguments")
+
+    @container_arguments.setter
+    def container_arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "container_arguments", value)
+
+    @property
+    @pulumi.getter(name="containerEntrypoint")
+    def container_entrypoint(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The custom entry point to use on container.
+        """
+        return pulumi.get(self, "container_entrypoint")
+
+    @container_entrypoint.setter
+    def container_entrypoint(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "container_entrypoint", value)
+
+    @property
+    @pulumi.getter(name="containerEnvironmentVariables")
+    def container_environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppImageConfigCustomImageContainerEnvironmentVariableArgs']]]]:
+        """
+        A list of variables to apply to the custom container.
+        """
+        return pulumi.get(self, "container_environment_variables")
+
+    @container_environment_variables.setter
+    def container_environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppImageConfigCustomImageContainerEnvironmentVariableArgs']]]]):
+        pulumi.set(self, "container_environment_variables", value)
+
+
+@pulumi.input_type
+class AppImageConfigCustomImageContainerEnvironmentVariableArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class AppImageConfigFileSystemConfigArgs:
@@ -362,6 +458,30 @@ class AppImageConfigFileSystemConfigArgs:
     @mount_path.setter
     def mount_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mount_path", value)
+
+
+@pulumi.input_type
+class AppImageConfigJupyterLabAppImageConfigArgs:
+    def __init__(__self__, *,
+                 container_config: Optional[pulumi.Input['AppImageConfigContainerConfigArgs']] = None):
+        """
+        The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+        :param pulumi.Input['AppImageConfigContainerConfigArgs'] container_config: The container configuration for a SageMaker image.
+        """
+        if container_config is not None:
+            pulumi.set(__self__, "container_config", container_config)
+
+    @property
+    @pulumi.getter(name="containerConfig")
+    def container_config(self) -> Optional[pulumi.Input['AppImageConfigContainerConfigArgs']]:
+        """
+        The container configuration for a SageMaker image.
+        """
+        return pulumi.get(self, "container_config")
+
+    @container_config.setter
+    def container_config(self, value: Optional[pulumi.Input['AppImageConfigContainerConfigArgs']]):
+        pulumi.set(self, "container_config", value)
 
 
 @pulumi.input_type
@@ -1924,6 +2044,46 @@ class DomainDefaultSpaceStorageSettingsArgs:
 
 
 @pulumi.input_type
+class DomainDockerSettingsArgs:
+    def __init__(__self__, *,
+                 enable_docker_access: Optional[pulumi.Input['DomainDockerSettingsEnableDockerAccess']] = None,
+                 vpc_only_trusted_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        A collection of settings that are required to start docker-proxy server.
+        :param pulumi.Input['DomainDockerSettingsEnableDockerAccess'] enable_docker_access: The flag to enable/disable docker-proxy server
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_only_trusted_accounts: A list of account id's that would be used to pull images from in VpcOnly mode
+        """
+        if enable_docker_access is not None:
+            pulumi.set(__self__, "enable_docker_access", enable_docker_access)
+        if vpc_only_trusted_accounts is not None:
+            pulumi.set(__self__, "vpc_only_trusted_accounts", vpc_only_trusted_accounts)
+
+    @property
+    @pulumi.getter(name="enableDockerAccess")
+    def enable_docker_access(self) -> Optional[pulumi.Input['DomainDockerSettingsEnableDockerAccess']]:
+        """
+        The flag to enable/disable docker-proxy server
+        """
+        return pulumi.get(self, "enable_docker_access")
+
+    @enable_docker_access.setter
+    def enable_docker_access(self, value: Optional[pulumi.Input['DomainDockerSettingsEnableDockerAccess']]):
+        pulumi.set(self, "enable_docker_access", value)
+
+    @property
+    @pulumi.getter(name="vpcOnlyTrustedAccounts")
+    def vpc_only_trusted_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of account id's that would be used to pull images from in VpcOnly mode
+        """
+        return pulumi.get(self, "vpc_only_trusted_accounts")
+
+    @vpc_only_trusted_accounts.setter
+    def vpc_only_trusted_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpc_only_trusted_accounts", value)
+
+
+@pulumi.input_type
 class DomainEfsFileSystemConfigArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str],
@@ -2300,16 +2460,28 @@ class DomainResourceSpecArgs:
 @pulumi.input_type
 class DomainSettingsArgs:
     def __init__(__self__, *,
+                 docker_settings: Optional[pulumi.Input['DomainDockerSettingsArgs']] = None,
                  r_studio_server_pro_domain_settings: Optional[pulumi.Input['DomainRStudioServerProDomainSettingsArgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         A collection of Domain settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
+        if docker_settings is not None:
+            pulumi.set(__self__, "docker_settings", docker_settings)
         if r_studio_server_pro_domain_settings is not None:
             pulumi.set(__self__, "r_studio_server_pro_domain_settings", r_studio_server_pro_domain_settings)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @property
+    @pulumi.getter(name="dockerSettings")
+    def docker_settings(self) -> Optional[pulumi.Input['DomainDockerSettingsArgs']]:
+        return pulumi.get(self, "docker_settings")
+
+    @docker_settings.setter
+    def docker_settings(self, value: Optional[pulumi.Input['DomainDockerSettingsArgs']]):
+        pulumi.set(self, "docker_settings", value)
 
     @property
     @pulumi.getter(name="rStudioServerProDomainSettings")
@@ -12732,6 +12904,65 @@ class ServiceCatalogProvisioningDetailsPropertiesArgs:
 
 
 @pulumi.input_type
+class SpaceCodeEditorAppSettingsArgs:
+    def __init__(__self__, *,
+                 default_resource_spec: Optional[pulumi.Input['SpaceResourceSpecArgs']] = None):
+        """
+        The CodeEditor app settings.
+        """
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['SpaceResourceSpecArgs']]:
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['SpaceResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+
+@pulumi.input_type
+class SpaceCodeRepositoryArgs:
+    def __init__(__self__, *,
+                 repository_url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] repository_url: A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Input[str]:
+        """
+        A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+        """
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_url", value)
+
+
+@pulumi.input_type
+class SpaceCustomFileSystemArgs:
+    def __init__(__self__, *,
+                 efs_file_system: Optional[pulumi.Input['SpaceEfsFileSystemArgs']] = None):
+        if efs_file_system is not None:
+            pulumi.set(__self__, "efs_file_system", efs_file_system)
+
+    @property
+    @pulumi.getter(name="efsFileSystem")
+    def efs_file_system(self) -> Optional[pulumi.Input['SpaceEfsFileSystemArgs']]:
+        return pulumi.get(self, "efs_file_system")
+
+    @efs_file_system.setter
+    def efs_file_system(self, value: Optional[pulumi.Input['SpaceEfsFileSystemArgs']]):
+        pulumi.set(self, "efs_file_system", value)
+
+
+@pulumi.input_type
 class SpaceCustomImageArgs:
     def __init__(__self__, *,
                  app_image_config_name: pulumi.Input[str],
@@ -12783,6 +13014,81 @@ class SpaceCustomImageArgs:
     @image_version_number.setter
     def image_version_number(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "image_version_number", value)
+
+
+@pulumi.input_type
+class SpaceEbsStorageSettingsArgs:
+    def __init__(__self__, *,
+                 ebs_volume_size_in_gb: pulumi.Input[int]):
+        """
+        Properties related to the space's Amazon Elastic Block Store volume.
+        :param pulumi.Input[int] ebs_volume_size_in_gb: Size of the Amazon EBS volume in Gb
+        """
+        pulumi.set(__self__, "ebs_volume_size_in_gb", ebs_volume_size_in_gb)
+
+    @property
+    @pulumi.getter(name="ebsVolumeSizeInGb")
+    def ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        Size of the Amazon EBS volume in Gb
+        """
+        return pulumi.get(self, "ebs_volume_size_in_gb")
+
+    @ebs_volume_size_in_gb.setter
+    def ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "ebs_volume_size_in_gb", value)
+
+
+@pulumi.input_type
+class SpaceEfsFileSystemArgs:
+    def __init__(__self__, *,
+                 file_system_id: pulumi.Input[str]):
+        pulumi.set(__self__, "file_system_id", file_system_id)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_id", value)
+
+
+@pulumi.input_type
+class SpaceJupyterLabAppSettingsArgs:
+    def __init__(__self__, *,
+                 code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceCodeRepositoryArgs']]]] = None,
+                 default_resource_spec: Optional[pulumi.Input['SpaceResourceSpecArgs']] = None):
+        """
+        The JupyterServer app settings.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceCodeRepositoryArgs']]] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
+        """
+        if code_repositories is not None:
+            pulumi.set(__self__, "code_repositories", code_repositories)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="codeRepositories")
+    def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceCodeRepositoryArgs']]]]:
+        """
+        A list of CodeRepositories available for use with JupyterLab apps.
+        """
+        return pulumi.get(self, "code_repositories")
+
+    @code_repositories.setter
+    def code_repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceCodeRepositoryArgs']]]]):
+        pulumi.set(self, "code_repositories", value)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['SpaceResourceSpecArgs']]:
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['SpaceResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
 
 
 @pulumi.input_type
@@ -12846,6 +13152,22 @@ class SpaceKernelGatewayAppSettingsArgs:
 
 
 @pulumi.input_type
+class SpaceOwnershipSettingsArgs:
+    def __init__(__self__, *,
+                 owner_user_profile_name: pulumi.Input[str]):
+        pulumi.set(__self__, "owner_user_profile_name", owner_user_profile_name)
+
+    @property
+    @pulumi.getter(name="ownerUserProfileName")
+    def owner_user_profile_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "owner_user_profile_name")
+
+    @owner_user_profile_name.setter
+    def owner_user_profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "owner_user_profile_name", value)
+
+
+@pulumi.input_type
 class SpaceResourceSpecArgs:
     def __init__(__self__, *,
                  instance_type: Optional[pulumi.Input['SpaceResourceSpecInstanceType']] = None,
@@ -12903,17 +13225,77 @@ class SpaceResourceSpecArgs:
 @pulumi.input_type
 class SpaceSettingsArgs:
     def __init__(__self__, *,
+                 app_type: Optional[pulumi.Input['SpaceAppType']] = None,
+                 code_editor_app_settings: Optional[pulumi.Input['SpaceCodeEditorAppSettingsArgs']] = None,
+                 custom_file_systems: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceCustomFileSystemArgs']]]] = None,
+                 jupyter_lab_app_settings: Optional[pulumi.Input['SpaceJupyterLabAppSettingsArgs']] = None,
                  jupyter_server_app_settings: Optional[pulumi.Input['SpaceJupyterServerAppSettingsArgs']] = None,
-                 kernel_gateway_app_settings: Optional[pulumi.Input['SpaceKernelGatewayAppSettingsArgs']] = None):
+                 kernel_gateway_app_settings: Optional[pulumi.Input['SpaceKernelGatewayAppSettingsArgs']] = None,
+                 space_storage_settings: Optional[pulumi.Input['SpaceStorageSettingsArgs']] = None):
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+        :param pulumi.Input['SpaceCodeEditorAppSettingsArgs'] code_editor_app_settings: The CodeEditor app settings.
+        :param pulumi.Input['SpaceJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The JupyterLab app settings.
         :param pulumi.Input['SpaceJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
         :param pulumi.Input['SpaceKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
+        :param pulumi.Input['SpaceStorageSettingsArgs'] space_storage_settings: Default storage settings for a space.
         """
+        if app_type is not None:
+            pulumi.set(__self__, "app_type", app_type)
+        if code_editor_app_settings is not None:
+            pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
+        if custom_file_systems is not None:
+            pulumi.set(__self__, "custom_file_systems", custom_file_systems)
+        if jupyter_lab_app_settings is not None:
+            pulumi.set(__self__, "jupyter_lab_app_settings", jupyter_lab_app_settings)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if space_storage_settings is not None:
+            pulumi.set(__self__, "space_storage_settings", space_storage_settings)
+
+    @property
+    @pulumi.getter(name="appType")
+    def app_type(self) -> Optional[pulumi.Input['SpaceAppType']]:
+        return pulumi.get(self, "app_type")
+
+    @app_type.setter
+    def app_type(self, value: Optional[pulumi.Input['SpaceAppType']]):
+        pulumi.set(self, "app_type", value)
+
+    @property
+    @pulumi.getter(name="codeEditorAppSettings")
+    def code_editor_app_settings(self) -> Optional[pulumi.Input['SpaceCodeEditorAppSettingsArgs']]:
+        """
+        The CodeEditor app settings.
+        """
+        return pulumi.get(self, "code_editor_app_settings")
+
+    @code_editor_app_settings.setter
+    def code_editor_app_settings(self, value: Optional[pulumi.Input['SpaceCodeEditorAppSettingsArgs']]):
+        pulumi.set(self, "code_editor_app_settings", value)
+
+    @property
+    @pulumi.getter(name="customFileSystems")
+    def custom_file_systems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceCustomFileSystemArgs']]]]:
+        return pulumi.get(self, "custom_file_systems")
+
+    @custom_file_systems.setter
+    def custom_file_systems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceCustomFileSystemArgs']]]]):
+        pulumi.set(self, "custom_file_systems", value)
+
+    @property
+    @pulumi.getter(name="jupyterLabAppSettings")
+    def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['SpaceJupyterLabAppSettingsArgs']]:
+        """
+        The JupyterLab app settings.
+        """
+        return pulumi.get(self, "jupyter_lab_app_settings")
+
+    @jupyter_lab_app_settings.setter
+    def jupyter_lab_app_settings(self, value: Optional[pulumi.Input['SpaceJupyterLabAppSettingsArgs']]):
+        pulumi.set(self, "jupyter_lab_app_settings", value)
 
     @property
     @pulumi.getter(name="jupyterServerAppSettings")
@@ -12938,6 +13320,51 @@ class SpaceSettingsArgs:
     @kernel_gateway_app_settings.setter
     def kernel_gateway_app_settings(self, value: Optional[pulumi.Input['SpaceKernelGatewayAppSettingsArgs']]):
         pulumi.set(self, "kernel_gateway_app_settings", value)
+
+    @property
+    @pulumi.getter(name="spaceStorageSettings")
+    def space_storage_settings(self) -> Optional[pulumi.Input['SpaceStorageSettingsArgs']]:
+        """
+        Default storage settings for a space.
+        """
+        return pulumi.get(self, "space_storage_settings")
+
+    @space_storage_settings.setter
+    def space_storage_settings(self, value: Optional[pulumi.Input['SpaceStorageSettingsArgs']]):
+        pulumi.set(self, "space_storage_settings", value)
+
+
+@pulumi.input_type
+class SpaceSharingSettingsArgs:
+    def __init__(__self__, *,
+                 sharing_type: pulumi.Input['SpaceSharingSettingsSharingType']):
+        pulumi.set(__self__, "sharing_type", sharing_type)
+
+    @property
+    @pulumi.getter(name="sharingType")
+    def sharing_type(self) -> pulumi.Input['SpaceSharingSettingsSharingType']:
+        return pulumi.get(self, "sharing_type")
+
+    @sharing_type.setter
+    def sharing_type(self, value: pulumi.Input['SpaceSharingSettingsSharingType']):
+        pulumi.set(self, "sharing_type", value)
+
+
+@pulumi.input_type
+class SpaceStorageSettingsArgs:
+    def __init__(__self__, *,
+                 ebs_storage_settings: Optional[pulumi.Input['SpaceEbsStorageSettingsArgs']] = None):
+        if ebs_storage_settings is not None:
+            pulumi.set(__self__, "ebs_storage_settings", ebs_storage_settings)
+
+    @property
+    @pulumi.getter(name="ebsStorageSettings")
+    def ebs_storage_settings(self) -> Optional[pulumi.Input['SpaceEbsStorageSettingsArgs']]:
+        return pulumi.get(self, "ebs_storage_settings")
+
+    @ebs_storage_settings.setter
+    def ebs_storage_settings(self, value: Optional[pulumi.Input['SpaceEbsStorageSettingsArgs']]):
+        pulumi.set(self, "ebs_storage_settings", value)
 
 
 @pulumi.input_type

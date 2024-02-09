@@ -16,11 +16,20 @@ export function getSecurityGroupIngress(args: GetSecurityGroupIngressArgs, opts?
 }
 
 export interface GetSecurityGroupIngressArgs {
+    /**
+     * The Security Group Rule Id
+     */
     id: string;
 }
 
 export interface GetSecurityGroupIngressResult {
+    /**
+     * Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously
+     */
     readonly description?: string;
+    /**
+     * The Security Group Rule Id
+     */
     readonly id?: string;
 }
 /**
@@ -31,5 +40,8 @@ export function getSecurityGroupIngressOutput(args: GetSecurityGroupIngressOutpu
 }
 
 export interface GetSecurityGroupIngressOutputArgs {
+    /**
+     * The Security Group Rule Id
+     */
     id: pulumi.Input<string>;
 }

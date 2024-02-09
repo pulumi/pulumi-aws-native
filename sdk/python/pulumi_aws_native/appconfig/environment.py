@@ -18,11 +18,16 @@ class EnvironmentArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorsArgs']]]] = None,
+                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagsArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] description: A description of the environment.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]] monitors: Amazon CloudWatch alarms to monitor during the deployment process.
+        :param pulumi.Input[str] name: A name for the environment.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]] tags: Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
         """
         pulumi.set(__self__, "application_id", application_id)
         if description is not None:
@@ -37,6 +42,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
+        """
+        The application ID.
+        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -46,6 +54,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the environment.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -54,16 +65,22 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter
-    def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorsArgs']]]]:
+    def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]:
+        """
+        Amazon CloudWatch alarms to monitor during the deployment process.
+        """
         return pulumi.get(self, "monitors")
 
     @monitors.setter
-    def monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorsArgs']]]]):
+    def monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]):
         pulumi.set(self, "monitors", value)
 
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the environment.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -72,35 +89,38 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagsArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]]:
+        """
+        Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagsArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Environment(pulumi.CustomResource):
-    warnings.warn("""Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorsArgs']]]]] = None,
+                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagsArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppConfig::Environment
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] description: A description of the environment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArgs']]]] monitors: Amazon CloudWatch alarms to monitor during the deployment process.
+        :param pulumi.Input[str] name: A name for the environment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]] tags: Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
         """
         ...
     @overload
@@ -128,11 +148,10 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorsArgs']]]]] = None,
+                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagsArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Environment is deprecated: Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -148,6 +167,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["monitors"] = monitors
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["environment_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
@@ -174,6 +194,7 @@ class Environment(pulumi.CustomResource):
 
         __props__.__dict__["application_id"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["environment_id"] = None
         __props__.__dict__["monitors"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -182,25 +203,48 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
+        """
+        The application ID.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the environment.
+        """
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> pulumi.Output[str]:
+        """
+        The environment ID.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @property
     @pulumi.getter
-    def monitors(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentMonitors']]]:
+    def monitors(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentMonitor']]]:
+        """
+        Amazon CloudWatch alarms to monitor during the deployment process.
+        """
         return pulumi.get(self, "monitors")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A name for the environment.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentTags']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentTag']]]:
+        """
+        Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        """
         return pulumi.get(self, "tags")
 

@@ -13,12 +13,12 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::TransitGatewayRouteTableAssociation
-//
-// Deprecated: TransitGatewayRouteTableAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type TransitGatewayRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
+	// The ID of transit gateway attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
+	// The ID of transit gateway route table.
 	TransitGatewayRouteTableId pulumi.StringOutput `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -73,13 +73,17 @@ func (TransitGatewayRouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type transitGatewayRouteTableAssociationArgs struct {
+	// The ID of transit gateway attachment.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
+	// The ID of transit gateway route table.
 	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
 }
 
 // The set of arguments for constructing a TransitGatewayRouteTableAssociation resource.
 type TransitGatewayRouteTableAssociationArgs struct {
+	// The ID of transit gateway attachment.
 	TransitGatewayAttachmentId pulumi.StringInput
+	// The ID of transit gateway route table.
 	TransitGatewayRouteTableId pulumi.StringInput
 }
 
@@ -120,10 +124,12 @@ func (o TransitGatewayRouteTableAssociationOutput) ToTransitGatewayRouteTableAss
 	return o
 }
 
+// The ID of transit gateway attachment.
 func (o TransitGatewayRouteTableAssociationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAssociation) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
+// The ID of transit gateway route table.
 func (o TransitGatewayRouteTableAssociationOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAssociation) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
 }

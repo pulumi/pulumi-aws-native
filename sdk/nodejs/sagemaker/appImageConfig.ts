@@ -46,6 +46,10 @@ export class AppImageConfig extends pulumi.CustomResource {
      */
     public readonly appImageConfigName!: pulumi.Output<string>;
     /**
+     * The JupyterLabAppImageConfig.
+     */
+    public readonly jupyterLabAppImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigJupyterLabAppImageConfig | undefined>;
+    /**
      * The KernelGatewayImageConfig.
      */
     public readonly kernelGatewayImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
@@ -66,12 +70,14 @@ export class AppImageConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["appImageConfigName"] = args ? args.appImageConfigName : undefined;
+            resourceInputs["jupyterLabAppImageConfig"] = args ? args.jupyterLabAppImageConfig : undefined;
             resourceInputs["kernelGatewayImageConfig"] = args ? args.kernelGatewayImageConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["appImageConfigArn"] = undefined /*out*/;
         } else {
             resourceInputs["appImageConfigArn"] = undefined /*out*/;
             resourceInputs["appImageConfigName"] = undefined /*out*/;
+            resourceInputs["jupyterLabAppImageConfig"] = undefined /*out*/;
             resourceInputs["kernelGatewayImageConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -90,6 +96,10 @@ export interface AppImageConfigArgs {
      * The Name of the AppImageConfig.
      */
     appImageConfigName?: pulumi.Input<string>;
+    /**
+     * The JupyterLabAppImageConfig.
+     */
+    jupyterLabAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabAppImageConfigArgs>;
     /**
      * The KernelGatewayImageConfig.
      */

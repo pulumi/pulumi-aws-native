@@ -1798,6 +1798,172 @@ func (in *domainAuthModePtr) ToDomainAuthModePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(DomainAuthModePtrOutput)
 }
 
+// The flag to enable/disable docker-proxy server
+type DomainDockerSettingsEnableDockerAccess string
+
+const (
+	DomainDockerSettingsEnableDockerAccessEnabled  = DomainDockerSettingsEnableDockerAccess("ENABLED")
+	DomainDockerSettingsEnableDockerAccessDisabled = DomainDockerSettingsEnableDockerAccess("DISABLED")
+)
+
+func (DomainDockerSettingsEnableDockerAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDockerSettingsEnableDockerAccess)(nil)).Elem()
+}
+
+func (e DomainDockerSettingsEnableDockerAccess) ToDomainDockerSettingsEnableDockerAccessOutput() DomainDockerSettingsEnableDockerAccessOutput {
+	return pulumi.ToOutput(e).(DomainDockerSettingsEnableDockerAccessOutput)
+}
+
+func (e DomainDockerSettingsEnableDockerAccess) ToDomainDockerSettingsEnableDockerAccessOutputWithContext(ctx context.Context) DomainDockerSettingsEnableDockerAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainDockerSettingsEnableDockerAccessOutput)
+}
+
+func (e DomainDockerSettingsEnableDockerAccess) ToDomainDockerSettingsEnableDockerAccessPtrOutput() DomainDockerSettingsEnableDockerAccessPtrOutput {
+	return e.ToDomainDockerSettingsEnableDockerAccessPtrOutputWithContext(context.Background())
+}
+
+func (e DomainDockerSettingsEnableDockerAccess) ToDomainDockerSettingsEnableDockerAccessPtrOutputWithContext(ctx context.Context) DomainDockerSettingsEnableDockerAccessPtrOutput {
+	return DomainDockerSettingsEnableDockerAccess(e).ToDomainDockerSettingsEnableDockerAccessOutputWithContext(ctx).ToDomainDockerSettingsEnableDockerAccessPtrOutputWithContext(ctx)
+}
+
+func (e DomainDockerSettingsEnableDockerAccess) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainDockerSettingsEnableDockerAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainDockerSettingsEnableDockerAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainDockerSettingsEnableDockerAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainDockerSettingsEnableDockerAccessOutput struct{ *pulumi.OutputState }
+
+func (DomainDockerSettingsEnableDockerAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDockerSettingsEnableDockerAccess)(nil)).Elem()
+}
+
+func (o DomainDockerSettingsEnableDockerAccessOutput) ToDomainDockerSettingsEnableDockerAccessOutput() DomainDockerSettingsEnableDockerAccessOutput {
+	return o
+}
+
+func (o DomainDockerSettingsEnableDockerAccessOutput) ToDomainDockerSettingsEnableDockerAccessOutputWithContext(ctx context.Context) DomainDockerSettingsEnableDockerAccessOutput {
+	return o
+}
+
+func (o DomainDockerSettingsEnableDockerAccessOutput) ToDomainDockerSettingsEnableDockerAccessPtrOutput() DomainDockerSettingsEnableDockerAccessPtrOutput {
+	return o.ToDomainDockerSettingsEnableDockerAccessPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDockerSettingsEnableDockerAccessOutput) ToDomainDockerSettingsEnableDockerAccessPtrOutputWithContext(ctx context.Context) DomainDockerSettingsEnableDockerAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDockerSettingsEnableDockerAccess) *DomainDockerSettingsEnableDockerAccess {
+		return &v
+	}).(DomainDockerSettingsEnableDockerAccessPtrOutput)
+}
+
+func (o DomainDockerSettingsEnableDockerAccessOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainDockerSettingsEnableDockerAccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainDockerSettingsEnableDockerAccess) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainDockerSettingsEnableDockerAccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDockerSettingsEnableDockerAccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainDockerSettingsEnableDockerAccess) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDockerSettingsEnableDockerAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDockerSettingsEnableDockerAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDockerSettingsEnableDockerAccess)(nil)).Elem()
+}
+
+func (o DomainDockerSettingsEnableDockerAccessPtrOutput) ToDomainDockerSettingsEnableDockerAccessPtrOutput() DomainDockerSettingsEnableDockerAccessPtrOutput {
+	return o
+}
+
+func (o DomainDockerSettingsEnableDockerAccessPtrOutput) ToDomainDockerSettingsEnableDockerAccessPtrOutputWithContext(ctx context.Context) DomainDockerSettingsEnableDockerAccessPtrOutput {
+	return o
+}
+
+func (o DomainDockerSettingsEnableDockerAccessPtrOutput) Elem() DomainDockerSettingsEnableDockerAccessOutput {
+	return o.ApplyT(func(v *DomainDockerSettingsEnableDockerAccess) DomainDockerSettingsEnableDockerAccess {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDockerSettingsEnableDockerAccess
+		return ret
+	}).(DomainDockerSettingsEnableDockerAccessOutput)
+}
+
+func (o DomainDockerSettingsEnableDockerAccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDockerSettingsEnableDockerAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainDockerSettingsEnableDockerAccess) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainDockerSettingsEnableDockerAccessInput is an input type that accepts values of the DomainDockerSettingsEnableDockerAccess enum
+// A concrete instance of `DomainDockerSettingsEnableDockerAccessInput` can be one of the following:
+//
+//	DomainDockerSettingsEnableDockerAccessEnabled
+//	DomainDockerSettingsEnableDockerAccessDisabled
+type DomainDockerSettingsEnableDockerAccessInput interface {
+	pulumi.Input
+
+	ToDomainDockerSettingsEnableDockerAccessOutput() DomainDockerSettingsEnableDockerAccessOutput
+	ToDomainDockerSettingsEnableDockerAccessOutputWithContext(context.Context) DomainDockerSettingsEnableDockerAccessOutput
+}
+
+var domainDockerSettingsEnableDockerAccessPtrType = reflect.TypeOf((**DomainDockerSettingsEnableDockerAccess)(nil)).Elem()
+
+type DomainDockerSettingsEnableDockerAccessPtrInput interface {
+	pulumi.Input
+
+	ToDomainDockerSettingsEnableDockerAccessPtrOutput() DomainDockerSettingsEnableDockerAccessPtrOutput
+	ToDomainDockerSettingsEnableDockerAccessPtrOutputWithContext(context.Context) DomainDockerSettingsEnableDockerAccessPtrOutput
+}
+
+type domainDockerSettingsEnableDockerAccessPtr string
+
+func DomainDockerSettingsEnableDockerAccessPtr(v string) DomainDockerSettingsEnableDockerAccessPtrInput {
+	return (*domainDockerSettingsEnableDockerAccessPtr)(&v)
+}
+
+func (*domainDockerSettingsEnableDockerAccessPtr) ElementType() reflect.Type {
+	return domainDockerSettingsEnableDockerAccessPtrType
+}
+
+func (in *domainDockerSettingsEnableDockerAccessPtr) ToDomainDockerSettingsEnableDockerAccessPtrOutput() DomainDockerSettingsEnableDockerAccessPtrOutput {
+	return pulumi.ToOutput(in).(DomainDockerSettingsEnableDockerAccessPtrOutput)
+}
+
+func (in *domainDockerSettingsEnableDockerAccessPtr) ToDomainDockerSettingsEnableDockerAccessPtrOutputWithContext(ctx context.Context) DomainDockerSettingsEnableDockerAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainDockerSettingsEnableDockerAccessPtrOutput)
+}
+
 // Indicates whether the current user has access to the RStudioServerPro app.
 type DomainRStudioServerProAppSettingsAccessStatus string
 
@@ -11927,6 +12093,181 @@ func (o ProjectStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+type SpaceAppType string
+
+const (
+	SpaceAppTypeJupyterServer    = SpaceAppType("JupyterServer")
+	SpaceAppTypeKernelGateway    = SpaceAppType("KernelGateway")
+	SpaceAppTypeTensorBoard      = SpaceAppType("TensorBoard")
+	SpaceAppTypeRStudioServerPro = SpaceAppType("RStudioServerPro")
+	SpaceAppTypeRSessionGateway  = SpaceAppType("RSessionGateway")
+	SpaceAppTypeJupyterLab       = SpaceAppType("JupyterLab")
+	SpaceAppTypeCodeEditor       = SpaceAppType("CodeEditor")
+)
+
+func (SpaceAppType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceAppType)(nil)).Elem()
+}
+
+func (e SpaceAppType) ToSpaceAppTypeOutput() SpaceAppTypeOutput {
+	return pulumi.ToOutput(e).(SpaceAppTypeOutput)
+}
+
+func (e SpaceAppType) ToSpaceAppTypeOutputWithContext(ctx context.Context) SpaceAppTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpaceAppTypeOutput)
+}
+
+func (e SpaceAppType) ToSpaceAppTypePtrOutput() SpaceAppTypePtrOutput {
+	return e.ToSpaceAppTypePtrOutputWithContext(context.Background())
+}
+
+func (e SpaceAppType) ToSpaceAppTypePtrOutputWithContext(ctx context.Context) SpaceAppTypePtrOutput {
+	return SpaceAppType(e).ToSpaceAppTypeOutputWithContext(ctx).ToSpaceAppTypePtrOutputWithContext(ctx)
+}
+
+func (e SpaceAppType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceAppType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceAppType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpaceAppType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpaceAppTypeOutput struct{ *pulumi.OutputState }
+
+func (SpaceAppTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceAppType)(nil)).Elem()
+}
+
+func (o SpaceAppTypeOutput) ToSpaceAppTypeOutput() SpaceAppTypeOutput {
+	return o
+}
+
+func (o SpaceAppTypeOutput) ToSpaceAppTypeOutputWithContext(ctx context.Context) SpaceAppTypeOutput {
+	return o
+}
+
+func (o SpaceAppTypeOutput) ToSpaceAppTypePtrOutput() SpaceAppTypePtrOutput {
+	return o.ToSpaceAppTypePtrOutputWithContext(context.Background())
+}
+
+func (o SpaceAppTypeOutput) ToSpaceAppTypePtrOutputWithContext(ctx context.Context) SpaceAppTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceAppType) *SpaceAppType {
+		return &v
+	}).(SpaceAppTypePtrOutput)
+}
+
+func (o SpaceAppTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpaceAppTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceAppType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpaceAppTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceAppTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceAppType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceAppTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceAppTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceAppType)(nil)).Elem()
+}
+
+func (o SpaceAppTypePtrOutput) ToSpaceAppTypePtrOutput() SpaceAppTypePtrOutput {
+	return o
+}
+
+func (o SpaceAppTypePtrOutput) ToSpaceAppTypePtrOutputWithContext(ctx context.Context) SpaceAppTypePtrOutput {
+	return o
+}
+
+func (o SpaceAppTypePtrOutput) Elem() SpaceAppTypeOutput {
+	return o.ApplyT(func(v *SpaceAppType) SpaceAppType {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceAppType
+		return ret
+	}).(SpaceAppTypeOutput)
+}
+
+func (o SpaceAppTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceAppTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpaceAppType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpaceAppTypeInput is an input type that accepts values of the SpaceAppType enum
+// A concrete instance of `SpaceAppTypeInput` can be one of the following:
+//
+//	SpaceAppTypeJupyterServer
+//	SpaceAppTypeKernelGateway
+//	SpaceAppTypeTensorBoard
+//	SpaceAppTypeRStudioServerPro
+//	SpaceAppTypeRSessionGateway
+//	SpaceAppTypeJupyterLab
+//	SpaceAppTypeCodeEditor
+type SpaceAppTypeInput interface {
+	pulumi.Input
+
+	ToSpaceAppTypeOutput() SpaceAppTypeOutput
+	ToSpaceAppTypeOutputWithContext(context.Context) SpaceAppTypeOutput
+}
+
+var spaceAppTypePtrType = reflect.TypeOf((**SpaceAppType)(nil)).Elem()
+
+type SpaceAppTypePtrInput interface {
+	pulumi.Input
+
+	ToSpaceAppTypePtrOutput() SpaceAppTypePtrOutput
+	ToSpaceAppTypePtrOutputWithContext(context.Context) SpaceAppTypePtrOutput
+}
+
+type spaceAppTypePtr string
+
+func SpaceAppTypePtr(v string) SpaceAppTypePtrInput {
+	return (*spaceAppTypePtr)(&v)
+}
+
+func (*spaceAppTypePtr) ElementType() reflect.Type {
+	return spaceAppTypePtrType
+}
+
+func (in *spaceAppTypePtr) ToSpaceAppTypePtrOutput() SpaceAppTypePtrOutput {
+	return pulumi.ToOutput(in).(SpaceAppTypePtrOutput)
+}
+
+func (in *spaceAppTypePtr) ToSpaceAppTypePtrOutputWithContext(ctx context.Context) SpaceAppTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpaceAppTypePtrOutput)
+}
+
 // The instance type that the image version runs on.
 type SpaceResourceSpecInstanceType string
 
@@ -11991,6 +12332,9 @@ const (
 	SpaceResourceSpecInstanceTypeMlP4d24xlarge           = SpaceResourceSpecInstanceType("ml.p4d.24xlarge")
 	SpaceResourceSpecInstanceTypeMlP4de24xlarge          = SpaceResourceSpecInstanceType("ml.p4de.24xlarge")
 	SpaceResourceSpecInstanceTypeMlGeospatialInteractive = SpaceResourceSpecInstanceType("ml.geospatial.interactive")
+	SpaceResourceSpecInstanceTypeMlTrn12xlarge           = SpaceResourceSpecInstanceType("ml.trn1.2xlarge")
+	SpaceResourceSpecInstanceTypeMlTrn132xlarge          = SpaceResourceSpecInstanceType("ml.trn1.32xlarge")
+	SpaceResourceSpecInstanceTypeMlTrn1n32xlarge         = SpaceResourceSpecInstanceType("ml.trn1n.32xlarge")
 )
 
 func (SpaceResourceSpecInstanceType) ElementType() reflect.Type {
@@ -12175,6 +12519,9 @@ func (o SpaceResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx
 //	SpaceResourceSpecInstanceTypeMlP4d24xlarge
 //	SpaceResourceSpecInstanceTypeMlP4de24xlarge
 //	SpaceResourceSpecInstanceTypeMlGeospatialInteractive
+//	SpaceResourceSpecInstanceTypeMlTrn12xlarge
+//	SpaceResourceSpecInstanceTypeMlTrn132xlarge
+//	SpaceResourceSpecInstanceTypeMlTrn1n32xlarge
 type SpaceResourceSpecInstanceTypeInput interface {
 	pulumi.Input
 
@@ -12207,6 +12554,171 @@ func (in *spaceResourceSpecInstanceTypePtr) ToSpaceResourceSpecInstanceTypePtrOu
 
 func (in *spaceResourceSpecInstanceTypePtr) ToSpaceResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) SpaceResourceSpecInstanceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpaceResourceSpecInstanceTypePtrOutput)
+}
+
+type SpaceSharingSettingsSharingType string
+
+const (
+	SpaceSharingSettingsSharingTypePrivate = SpaceSharingSettingsSharingType("Private")
+	SpaceSharingSettingsSharingTypeShared  = SpaceSharingSettingsSharingType("Shared")
+)
+
+func (SpaceSharingSettingsSharingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSharingSettingsSharingType)(nil)).Elem()
+}
+
+func (e SpaceSharingSettingsSharingType) ToSpaceSharingSettingsSharingTypeOutput() SpaceSharingSettingsSharingTypeOutput {
+	return pulumi.ToOutput(e).(SpaceSharingSettingsSharingTypeOutput)
+}
+
+func (e SpaceSharingSettingsSharingType) ToSpaceSharingSettingsSharingTypeOutputWithContext(ctx context.Context) SpaceSharingSettingsSharingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpaceSharingSettingsSharingTypeOutput)
+}
+
+func (e SpaceSharingSettingsSharingType) ToSpaceSharingSettingsSharingTypePtrOutput() SpaceSharingSettingsSharingTypePtrOutput {
+	return e.ToSpaceSharingSettingsSharingTypePtrOutputWithContext(context.Background())
+}
+
+func (e SpaceSharingSettingsSharingType) ToSpaceSharingSettingsSharingTypePtrOutputWithContext(ctx context.Context) SpaceSharingSettingsSharingTypePtrOutput {
+	return SpaceSharingSettingsSharingType(e).ToSpaceSharingSettingsSharingTypeOutputWithContext(ctx).ToSpaceSharingSettingsSharingTypePtrOutputWithContext(ctx)
+}
+
+func (e SpaceSharingSettingsSharingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceSharingSettingsSharingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceSharingSettingsSharingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpaceSharingSettingsSharingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpaceSharingSettingsSharingTypeOutput struct{ *pulumi.OutputState }
+
+func (SpaceSharingSettingsSharingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSharingSettingsSharingType)(nil)).Elem()
+}
+
+func (o SpaceSharingSettingsSharingTypeOutput) ToSpaceSharingSettingsSharingTypeOutput() SpaceSharingSettingsSharingTypeOutput {
+	return o
+}
+
+func (o SpaceSharingSettingsSharingTypeOutput) ToSpaceSharingSettingsSharingTypeOutputWithContext(ctx context.Context) SpaceSharingSettingsSharingTypeOutput {
+	return o
+}
+
+func (o SpaceSharingSettingsSharingTypeOutput) ToSpaceSharingSettingsSharingTypePtrOutput() SpaceSharingSettingsSharingTypePtrOutput {
+	return o.ToSpaceSharingSettingsSharingTypePtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSharingSettingsSharingTypeOutput) ToSpaceSharingSettingsSharingTypePtrOutputWithContext(ctx context.Context) SpaceSharingSettingsSharingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSharingSettingsSharingType) *SpaceSharingSettingsSharingType {
+		return &v
+	}).(SpaceSharingSettingsSharingTypePtrOutput)
+}
+
+func (o SpaceSharingSettingsSharingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpaceSharingSettingsSharingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceSharingSettingsSharingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpaceSharingSettingsSharingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSharingSettingsSharingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceSharingSettingsSharingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceSharingSettingsSharingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSharingSettingsSharingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSharingSettingsSharingType)(nil)).Elem()
+}
+
+func (o SpaceSharingSettingsSharingTypePtrOutput) ToSpaceSharingSettingsSharingTypePtrOutput() SpaceSharingSettingsSharingTypePtrOutput {
+	return o
+}
+
+func (o SpaceSharingSettingsSharingTypePtrOutput) ToSpaceSharingSettingsSharingTypePtrOutputWithContext(ctx context.Context) SpaceSharingSettingsSharingTypePtrOutput {
+	return o
+}
+
+func (o SpaceSharingSettingsSharingTypePtrOutput) Elem() SpaceSharingSettingsSharingTypeOutput {
+	return o.ApplyT(func(v *SpaceSharingSettingsSharingType) SpaceSharingSettingsSharingType {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSharingSettingsSharingType
+		return ret
+	}).(SpaceSharingSettingsSharingTypeOutput)
+}
+
+func (o SpaceSharingSettingsSharingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSharingSettingsSharingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpaceSharingSettingsSharingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpaceSharingSettingsSharingTypeInput is an input type that accepts values of the SpaceSharingSettingsSharingType enum
+// A concrete instance of `SpaceSharingSettingsSharingTypeInput` can be one of the following:
+//
+//	SpaceSharingSettingsSharingTypePrivate
+//	SpaceSharingSettingsSharingTypeShared
+type SpaceSharingSettingsSharingTypeInput interface {
+	pulumi.Input
+
+	ToSpaceSharingSettingsSharingTypeOutput() SpaceSharingSettingsSharingTypeOutput
+	ToSpaceSharingSettingsSharingTypeOutputWithContext(context.Context) SpaceSharingSettingsSharingTypeOutput
+}
+
+var spaceSharingSettingsSharingTypePtrType = reflect.TypeOf((**SpaceSharingSettingsSharingType)(nil)).Elem()
+
+type SpaceSharingSettingsSharingTypePtrInput interface {
+	pulumi.Input
+
+	ToSpaceSharingSettingsSharingTypePtrOutput() SpaceSharingSettingsSharingTypePtrOutput
+	ToSpaceSharingSettingsSharingTypePtrOutputWithContext(context.Context) SpaceSharingSettingsSharingTypePtrOutput
+}
+
+type spaceSharingSettingsSharingTypePtr string
+
+func SpaceSharingSettingsSharingTypePtr(v string) SpaceSharingSettingsSharingTypePtrInput {
+	return (*spaceSharingSettingsSharingTypePtr)(&v)
+}
+
+func (*spaceSharingSettingsSharingTypePtr) ElementType() reflect.Type {
+	return spaceSharingSettingsSharingTypePtrType
+}
+
+func (in *spaceSharingSettingsSharingTypePtr) ToSpaceSharingSettingsSharingTypePtrOutput() SpaceSharingSettingsSharingTypePtrOutput {
+	return pulumi.ToOutput(in).(SpaceSharingSettingsSharingTypePtrOutput)
+}
+
+func (in *spaceSharingSettingsSharingTypePtr) ToSpaceSharingSettingsSharingTypePtrOutputWithContext(ctx context.Context) SpaceSharingSettingsSharingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpaceSharingSettingsSharingTypePtrOutput)
 }
 
 // Indicates whether the current user has access to the RStudioServerPro app.
@@ -13182,6 +13694,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppSecurityGroupManagementPtrInput)(nil)).Elem(), DomainAppSecurityGroupManagement("Service"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAuthModeInput)(nil)).Elem(), DomainAuthMode("SSO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAuthModePtrInput)(nil)).Elem(), DomainAuthMode("SSO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDockerSettingsEnableDockerAccessInput)(nil)).Elem(), DomainDockerSettingsEnableDockerAccess("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDockerSettingsEnableDockerAccessPtrInput)(nil)).Elem(), DomainDockerSettingsEnableDockerAccess("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsAccessStatusInput)(nil)).Elem(), DomainRStudioServerProAppSettingsAccessStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsAccessStatusPtrInput)(nil)).Elem(), DomainRStudioServerProAppSettingsAccessStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsUserGroupInput)(nil)).Elem(), DomainRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN"))
@@ -13294,8 +13808,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleS3OutputS3UploadModePtrInput)(nil)).Elem(), MonitoringScheduleS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleStatusInput)(nil)).Elem(), MonitoringScheduleStatus("Pending"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleStatusPtrInput)(nil)).Elem(), MonitoringScheduleStatus("Pending"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceAppTypeInput)(nil)).Elem(), SpaceAppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceAppTypePtrInput)(nil)).Elem(), SpaceAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecInstanceTypeInput)(nil)).Elem(), SpaceResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecInstanceTypePtrInput)(nil)).Elem(), SpaceResourceSpecInstanceType("system"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSharingSettingsSharingTypeInput)(nil)).Elem(), SpaceSharingSettingsSharingType("Private"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSharingSettingsSharingTypePtrInput)(nil)).Elem(), SpaceSharingSettingsSharingType("Private"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsAccessStatusInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsAccessStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsAccessStatusPtrInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsAccessStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsUserGroupInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN"))
@@ -13326,6 +13844,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainAppSecurityGroupManagementPtrOutput{})
 	pulumi.RegisterOutputType(DomainAuthModeOutput{})
 	pulumi.RegisterOutputType(DomainAuthModePtrOutput{})
+	pulumi.RegisterOutputType(DomainDockerSettingsEnableDockerAccessOutput{})
+	pulumi.RegisterOutputType(DomainDockerSettingsEnableDockerAccessPtrOutput{})
 	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsAccessStatusOutput{})
 	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsAccessStatusPtrOutput{})
 	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsUserGroupOutput{})
@@ -13452,8 +13972,12 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleStatusPtrOutput{})
 	pulumi.RegisterOutputType(ProjectStatusOutput{})
 	pulumi.RegisterOutputType(ProjectStatusPtrOutput{})
+	pulumi.RegisterOutputType(SpaceAppTypeOutput{})
+	pulumi.RegisterOutputType(SpaceAppTypePtrOutput{})
 	pulumi.RegisterOutputType(SpaceResourceSpecInstanceTypeOutput{})
 	pulumi.RegisterOutputType(SpaceResourceSpecInstanceTypePtrOutput{})
+	pulumi.RegisterOutputType(SpaceSharingSettingsSharingTypeOutput{})
+	pulumi.RegisterOutputType(SpaceSharingSettingsSharingTypePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsAccessStatusOutput{})
 	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsUserGroupOutput{})

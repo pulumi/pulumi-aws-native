@@ -3,14 +3,8 @@
   "description" : "Resource Type definition for AWS::AppSync::GraphQLApi",
   "additionalProperties" : false,
   "properties" : {
-    "QueryDepthLimit" : {
-      "type" : "integer"
-    },
     "OpenIDConnectConfig" : {
       "$ref" : "#/definitions/OpenIDConnectConfig"
-    },
-    "IntrospectionConfig" : {
-      "type" : "string"
     },
     "MergedApiExecutionRoleArn" : {
       "type" : "string"
@@ -18,14 +12,48 @@
     "RealtimeDns" : {
       "type" : "string"
     },
+    "Name" : {
+      "type" : "string"
+    },
+    "GraphQLUrl" : {
+      "type" : "string"
+    },
+    "EnvironmentVariables" : {
+      "type" : "object"
+    },
+    "GraphQLDns" : {
+      "type" : "string"
+    },
+    "ApiType" : {
+      "type" : "string"
+    },
+    "LambdaAuthorizerConfig" : {
+      "$ref" : "#/definitions/LambdaAuthorizerConfig"
+    },
+    "Tags" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
+    },
+    "GraphQLEndpointArn" : {
+      "type" : "string"
+    },
+    "AuthenticationType" : {
+      "type" : "string"
+    },
+    "QueryDepthLimit" : {
+      "type" : "integer"
+    },
+    "IntrospectionConfig" : {
+      "type" : "string"
+    },
     "OwnerContact" : {
       "type" : "string"
     },
     "ResolverCountLimit" : {
       "type" : "integer"
-    },
-    "Name" : {
-      "type" : "string"
     },
     "AdditionalAuthenticationProviders" : {
       "type" : "array",
@@ -36,18 +64,6 @@
     },
     "RealtimeUrl" : {
       "type" : "string"
-    },
-    "GraphQLUrl" : {
-      "type" : "string"
-    },
-    "GraphQLDns" : {
-      "type" : "string"
-    },
-    "ApiType" : {
-      "type" : "string"
-    },
-    "LambdaAuthorizerConfig" : {
-      "$ref" : "#/definitions/LambdaAuthorizerConfig"
     },
     "XrayEnabled" : {
       "type" : "boolean"
@@ -65,19 +81,6 @@
       "$ref" : "#/definitions/UserPoolConfig"
     },
     "ApiId" : {
-      "type" : "string"
-    },
-    "Tags" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/Tag"
-      }
-    },
-    "GraphQLEndpointArn" : {
-      "type" : "string"
-    },
-    "AuthenticationType" : {
       "type" : "string"
     },
     "LogConfig" : {

@@ -147,10 +147,13 @@ export namespace accessanalyzer {
 
 export namespace acmpca {
     /**
-     * Structure that specifies fields to be overridden in a certificate at the time of issuance. These requires an API Passthrough template be used or they will be ignored.
+     * Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
      */
     export interface CertificateApiPassthroughArgs {
         extensions?: pulumi.Input<inputs.acmpca.CertificateExtensionsArgs>;
+        /**
+         * Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+         */
         subject?: pulumi.Input<inputs.acmpca.CertificateSubjectArgs>;
     }
 
@@ -292,54 +295,48 @@ export namespace acmpca {
         value?: pulumi.Input<string>;
     }
 
-    /**
-     * Structure that contains X.500 attribute type and value.
-     */
     export interface CertificateCustomAttributeArgs {
         objectIdentifier: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
 
-    /**
-     * Structure that contains X.509 extension information for a certificate.
-     */
     export interface CertificateCustomExtensionArgs {
         critical?: pulumi.Input<boolean>;
         objectIdentifier: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
 
-    /**
-     * Structure that contains X.509 EdiPartyName information.
-     */
     export interface CertificateEdiPartyNameArgs {
         nameAssigner: pulumi.Input<string>;
         partyName: pulumi.Input<string>;
     }
 
-    /**
-     * Structure that contains X.509 ExtendedKeyUsage information.
-     */
     export interface CertificateExtendedKeyUsageArgs {
         extendedKeyUsageObjectIdentifier?: pulumi.Input<string>;
         extendedKeyUsageType?: pulumi.Input<string>;
     }
 
     /**
-     * Structure that contains X.500 extensions for a Certificate.
+     * Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
      */
     export interface CertificateExtensionsArgs {
         certificatePolicies?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificatePolicyInformationArgs>[]>;
         customExtensions?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificateCustomExtensionArgs>[]>;
         extendedKeyUsage?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificateExtendedKeyUsageArgs>[]>;
+        /**
+         * Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+         */
         keyUsage?: pulumi.Input<inputs.acmpca.CertificateKeyUsageArgs>;
         subjectAlternativeNames?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificateGeneralNameArgs>[]>;
     }
 
     /**
-     * Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
+     * Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
      */
     export interface CertificateGeneralNameArgs {
+        /**
+         * Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+         */
         directoryName?: pulumi.Input<inputs.acmpca.CertificateSubjectArgs>;
         dnsName?: pulumi.Input<string>;
         ediPartyName?: pulumi.Input<inputs.acmpca.CertificateEdiPartyNameArgs>;
@@ -350,9 +347,6 @@ export namespace acmpca {
         uniformResourceIdentifier?: pulumi.Input<string>;
     }
 
-    /**
-     * Structure that contains X.509 KeyUsage information.
-     */
     export interface CertificateKeyUsageArgs {
         crlSign?: pulumi.Input<boolean>;
         dataEncipherment?: pulumi.Input<boolean>;
@@ -365,63 +359,100 @@ export namespace acmpca {
         nonRepudiation?: pulumi.Input<boolean>;
     }
 
-    /**
-     * Structure that contains X.509 OtherName information.
-     */
     export interface CertificateOtherNameArgs {
         typeId: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
 
-    /**
-     * Structure that contains X.509 Policy information.
-     */
     export interface CertificatePolicyInformationArgs {
         certPolicyId: pulumi.Input<string>;
         policyQualifiers?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificatePolicyQualifierInfoArgs>[]>;
     }
 
-    /**
-     * Structure that contains X.509 Policy qualifier information.
-     */
     export interface CertificatePolicyQualifierInfoArgs {
         policyQualifierId: pulumi.Input<string>;
         qualifier: pulumi.Input<inputs.acmpca.CertificateQualifierArgs>;
     }
 
-    /**
-     * Structure that contains a X.509 policy qualifier.
-     */
     export interface CertificateQualifierArgs {
         cpsUri: pulumi.Input<string>;
     }
 
     /**
-     * Structure that contains X.500 distinguished name information.
+     * Contains information about the certificate subject. The ``Subject`` field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The ``Subject``must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
      */
     export interface CertificateSubjectArgs {
+        /**
+         * For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
+         *  Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
+         */
         commonName?: pulumi.Input<string>;
+        /**
+         * Two-digit code that specifies the country in which the certificate subject located.
+         */
         country?: pulumi.Input<string>;
         customAttributes?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificateCustomAttributeArgs>[]>;
+        /**
+         * Disambiguating information for the certificate subject.
+         */
         distinguishedNameQualifier?: pulumi.Input<string>;
+        /**
+         * Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+         */
         generationQualifier?: pulumi.Input<string>;
+        /**
+         * First name.
+         */
         givenName?: pulumi.Input<string>;
+        /**
+         * Concatenation that typically contains the first letter of the *GivenName*, the first letter of the middle name if one exists, and the first letter of the *Surname*.
+         */
         initials?: pulumi.Input<string>;
+        /**
+         * The locality (such as a city or town) in which the certificate subject is located.
+         */
         locality?: pulumi.Input<string>;
+        /**
+         * Legal name of the organization with which the certificate subject is affiliated.
+         */
         organization?: pulumi.Input<string>;
+        /**
+         * A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+         */
         organizationalUnit?: pulumi.Input<string>;
+        /**
+         * Typically a shortened version of a longer *GivenName*. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+         */
         pseudonym?: pulumi.Input<string>;
+        /**
+         * The certificate serial number.
+         */
         serialNumber?: pulumi.Input<string>;
+        /**
+         * State in which the subject of the certificate is located.
+         */
         state?: pulumi.Input<string>;
+        /**
+         * Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+         */
         surname?: pulumi.Input<string>;
+        /**
+         * A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
+         */
         title?: pulumi.Input<string>;
     }
 
     /**
-     * Validity for a certificate.
+     * Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the ``IssueCertificate`` operation.
      */
     export interface CertificateValidityArgs {
+        /**
+         * Specifies whether the ``Value`` parameter represents days, months, or years.
+         */
         type: pulumi.Input<string>;
+        /**
+         * Time period.
+         */
         value: pulumi.Input<number>;
     }
 }
@@ -471,6 +502,7 @@ export namespace amazonmq {
         consoleAccess?: pulumi.Input<boolean>;
         groups?: pulumi.Input<pulumi.Input<string>[]>;
         password: pulumi.Input<string>;
+        replicationUser?: pulumi.Input<boolean>;
         username: pulumi.Input<string>;
     }
 
@@ -1443,14 +1475,32 @@ export namespace appconfig {
         value?: pulumi.Input<string>;
     }
 
-    export interface EnvironmentMonitorsArgs {
-        alarmArn?: pulumi.Input<string>;
+    /**
+     * Amazon CloudWatch alarm to monitor during the deployment process.
+     */
+    export interface EnvironmentMonitorArgs {
+        /**
+         * Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+         */
+        alarmArn: pulumi.Input<string>;
+        /**
+         * ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
+         */
         alarmRoleArn?: pulumi.Input<string>;
     }
 
-    export interface EnvironmentTagsArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
+    /**
+     * Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
+    export interface EnvironmentTagArgs {
+        /**
+         * The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The tag value can be up to 256 characters.
+         */
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -4431,30 +4481,38 @@ export namespace appsync {
         userPoolId?: pulumi.Input<string>;
     }
 
+    /**
+     * Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+     */
     export interface ResolverAppSyncRuntimeArgs {
         /**
-         * The name of the runtime to use.
+         * The ``name`` of the runtime to use. Currently, the only allowed value is ``APPSYNC_JS``.
          */
         name: pulumi.Input<string>;
         /**
-         * The version of the runtime to use.
+         * The ``version`` of the runtime to use. Currently, the only allowed version is ``1.0.0``.
          */
         runtimeVersion: pulumi.Input<string>;
     }
 
+    /**
+     * The caching configuration for a resolver that has caching activated.
+     */
     export interface ResolverCachingConfigArgs {
         /**
-         * The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+         * The caching keys for a resolver that has caching activated.
+         *  Valid values are entries from the ``$context.arguments``, ``$context.source``, and ``$context.identity`` maps.
          */
         cachingKeys?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+         * The TTL in seconds for a resolver that has caching activated.
+         *  Valid values are 1–3,600 seconds.
          */
         ttl: pulumi.Input<number>;
     }
 
     /**
-     * The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+     * The ``LambdaConflictHandlerConfig`` when configuring LAMBDA as the Conflict Handler.
      */
     export interface ResolverLambdaConflictHandlerConfigArgs {
         /**
@@ -4463,22 +4521,38 @@ export namespace appsync {
         lambdaConflictHandlerArn?: pulumi.Input<string>;
     }
 
+    /**
+     * Use the ``PipelineConfig`` property type to specify ``PipelineConfig`` for an APSYlong resolver.
+     *   ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
+     */
     export interface ResolverPipelineConfigArgs {
         /**
-         * A list of Function objects.
+         * A list of ``Function`` objects.
          */
         functions?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * Describes a Sync configuration for a resolver.
+     *  Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+     */
     export interface ResolverSyncConfigArgs {
         /**
          * The Conflict Detection strategy to use.
+         *   +   *VERSION*: Detect conflicts based on object versions for this resolver.
+         *   +   *NONE*: Do not detect conflicts when invoking this resolver.
          */
         conflictDetection: pulumi.Input<string>;
         /**
          * The Conflict Resolution strategy to perform in the event of a conflict.
+         *   +   *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
+         *   +   *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
+         *   +   *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
          */
         conflictHandler?: pulumi.Input<string>;
+        /**
+         * The ``LambdaConflictHandlerConfig`` when configuring ``LAMBDA`` as the Conflict Handler.
+         */
         lambdaConflictHandlerConfig?: pulumi.Input<inputs.appsync.ResolverLambdaConflictHandlerConfigArgs>;
     }
 
@@ -5889,6 +5963,24 @@ export namespace cassandra {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * Represents configuration for auto scaling.
+     */
+    export interface TableAutoScalingSettingArgs {
+        autoScalingDisabled?: pulumi.Input<boolean>;
+        maximumUnits?: pulumi.Input<number>;
+        minimumUnits?: pulumi.Input<number>;
+        scalingPolicy?: pulumi.Input<inputs.cassandra.TableScalingPolicyArgs>;
+    }
+
+    /**
+     * Represents the read and write settings used for AutoScaling.
+     */
+    export interface TableAutoScalingSpecificationArgs {
+        readCapacityAutoScaling?: pulumi.Input<inputs.cassandra.TableAutoScalingSettingArgs>;
+        writeCapacityAutoScaling?: pulumi.Input<inputs.cassandra.TableAutoScalingSettingArgs>;
+    }
+
     export interface TableBillingModeArgs {
         mode: pulumi.Input<enums.cassandra.TableMode>;
         provisionedThroughput?: pulumi.Input<inputs.cassandra.TableProvisionedThroughputArgs>;
@@ -5921,11 +6013,37 @@ export namespace cassandra {
     }
 
     /**
+     * Represents replica specifications.
+     */
+    export interface TableReplicaSpecificationArgs {
+        readCapacityAutoScaling?: pulumi.Input<inputs.cassandra.TableAutoScalingSettingArgs>;
+        readCapacityUnits?: pulumi.Input<number>;
+        region: pulumi.Input<string>;
+    }
+
+    /**
+     * Represents scaling policy.
+     */
+    export interface TableScalingPolicyArgs {
+        targetTrackingScalingPolicyConfiguration?: pulumi.Input<inputs.cassandra.TableTargetTrackingScalingPolicyConfigurationArgs>;
+    }
+
+    /**
      * A key-value pair to apply to the resource
      */
     export interface TableTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * Represents configuration for target tracking scaling policy.
+     */
+    export interface TableTargetTrackingScalingPolicyConfigurationArgs {
+        disableScaleIn?: pulumi.Input<boolean>;
+        scaleInCooldown?: pulumi.Input<number>;
+        scaleOutCooldown?: pulumi.Input<number>;
+        targetValue: pulumi.Input<number>;
     }
 }
 
@@ -12370,6 +12488,10 @@ export namespace ec2 {
         enabled: pulumi.Input<boolean>;
     }
 
+    export interface ClientVpnEndpointClientRouteMonitoringOptionsArgs {
+        enabled?: pulumi.Input<boolean>;
+    }
+
     export interface ClientVpnEndpointConnectionLogOptionsArgs {
         cloudwatchLogGroup?: pulumi.Input<string>;
         cloudwatchLogStream?: pulumi.Input<string>;
@@ -14831,6 +14953,7 @@ export namespace ecs {
     export interface TaskDefinitionContainerDefinitionArgs {
         command?: pulumi.Input<pulumi.Input<string>[]>;
         cpu?: pulumi.Input<number>;
+        credentialSpecs?: pulumi.Input<pulumi.Input<string>[]>;
         dependsOn?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionContainerDependencyArgs>[]>;
         disableNetworking?: pulumi.Input<boolean>;
         dnsSearchDomains?: pulumi.Input<pulumi.Input<string>[]>;
@@ -21322,6 +21445,10 @@ export namespace iot {
     export interface DomainConfigurationAuthorizerConfigArgs {
         allowAuthorizerOverride?: pulumi.Input<boolean>;
         defaultAuthorizerName?: pulumi.Input<string>;
+    }
+
+    export interface DomainConfigurationServerCertificateConfigArgs {
+        enableOcspCheck?: pulumi.Input<boolean>;
     }
 
     export interface DomainConfigurationTagArgs {
@@ -48608,6 +48735,29 @@ export namespace s3outposts {
 
 export namespace sagemaker {
     /**
+     * The container configuration for a SageMaker image.
+     */
+    export interface AppImageConfigContainerConfigArgs {
+        /**
+         * A list of arguments to apply to the container.
+         */
+        containerArguments?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The custom entry point to use on container.
+         */
+        containerEntrypoint?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of variables to apply to the custom container.
+         */
+        containerEnvironmentVariables?: pulumi.Input<pulumi.Input<inputs.sagemaker.AppImageConfigCustomImageContainerEnvironmentVariableArgs>[]>;
+    }
+
+    export interface AppImageConfigCustomImageContainerEnvironmentVariableArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
      */
     export interface AppImageConfigFileSystemConfigArgs {
@@ -48623,6 +48773,16 @@ export namespace sagemaker {
          * The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
          */
         mountPath?: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+     */
+    export interface AppImageConfigJupyterLabAppImageConfigArgs {
+        /**
+         * The container configuration for a SageMaker image.
+         */
+        containerConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigContainerConfigArgs>;
     }
 
     /**
@@ -49098,6 +49258,20 @@ export namespace sagemaker {
         defaultEbsStorageSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultEbsStorageSettingsArgs>;
     }
 
+    /**
+     * A collection of settings that are required to start docker-proxy server.
+     */
+    export interface DomainDockerSettingsArgs {
+        /**
+         * The flag to enable/disable docker-proxy server
+         */
+        enableDockerAccess?: pulumi.Input<enums.sagemaker.DomainDockerSettingsEnableDockerAccess>;
+        /**
+         * A list of account id's that would be used to pull images from in VpcOnly mode
+         */
+        vpcOnlyTrustedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface DomainEfsFileSystemConfigArgs {
         fileSystemId: pulumi.Input<string>;
         fileSystemPath?: pulumi.Input<string>;
@@ -49213,6 +49387,7 @@ export namespace sagemaker {
      * A collection of Domain settings.
      */
     export interface DomainSettingsArgs {
+        dockerSettings?: pulumi.Input<inputs.sagemaker.DomainDockerSettingsArgs>;
         rStudioServerProDomainSettings?: pulumi.Input<inputs.sagemaker.DomainRStudioServerProDomainSettingsArgs>;
         /**
          * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
@@ -51920,6 +52095,24 @@ export namespace sagemaker {
     }
 
     /**
+     * The CodeEditor app settings.
+     */
+    export interface SpaceCodeEditorAppSettingsArgs {
+        defaultResourceSpec?: pulumi.Input<inputs.sagemaker.SpaceResourceSpecArgs>;
+    }
+
+    export interface SpaceCodeRepositoryArgs {
+        /**
+         * A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+         */
+        repositoryUrl: pulumi.Input<string>;
+    }
+
+    export interface SpaceCustomFileSystemArgs {
+        efsFileSystem?: pulumi.Input<inputs.sagemaker.SpaceEfsFileSystemArgs>;
+    }
+
+    /**
      * A custom SageMaker image.
      */
     export interface SpaceCustomImageArgs {
@@ -51935,6 +52128,31 @@ export namespace sagemaker {
          * The version number of the CustomImage.
          */
         imageVersionNumber?: pulumi.Input<number>;
+    }
+
+    /**
+     * Properties related to the space's Amazon Elastic Block Store volume.
+     */
+    export interface SpaceEbsStorageSettingsArgs {
+        /**
+         * Size of the Amazon EBS volume in Gb
+         */
+        ebsVolumeSizeInGb: pulumi.Input<number>;
+    }
+
+    export interface SpaceEfsFileSystemArgs {
+        fileSystemId: pulumi.Input<string>;
+    }
+
+    /**
+     * The JupyterServer app settings.
+     */
+    export interface SpaceJupyterLabAppSettingsArgs {
+        /**
+         * A list of CodeRepositories available for use with JupyterLab apps.
+         */
+        codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceCodeRepositoryArgs>[]>;
+        defaultResourceSpec?: pulumi.Input<inputs.sagemaker.SpaceResourceSpecArgs>;
     }
 
     /**
@@ -51958,6 +52176,10 @@ export namespace sagemaker {
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.SpaceResourceSpecArgs>;
     }
 
+    export interface SpaceOwnershipSettingsArgs {
+        ownerUserProfileName: pulumi.Input<string>;
+    }
+
     export interface SpaceResourceSpecArgs {
         /**
          * The instance type that the image version runs on.
@@ -51977,6 +52199,16 @@ export namespace sagemaker {
      * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
      */
     export interface SpaceSettingsArgs {
+        appType?: pulumi.Input<enums.sagemaker.SpaceAppType>;
+        /**
+         * The CodeEditor app settings.
+         */
+        codeEditorAppSettings?: pulumi.Input<inputs.sagemaker.SpaceCodeEditorAppSettingsArgs>;
+        customFileSystems?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceCustomFileSystemArgs>[]>;
+        /**
+         * The JupyterLab app settings.
+         */
+        jupyterLabAppSettings?: pulumi.Input<inputs.sagemaker.SpaceJupyterLabAppSettingsArgs>;
         /**
          * The Jupyter server's app settings.
          */
@@ -51985,6 +52217,18 @@ export namespace sagemaker {
          * The kernel gateway app settings.
          */
         kernelGatewayAppSettings?: pulumi.Input<inputs.sagemaker.SpaceKernelGatewayAppSettingsArgs>;
+        /**
+         * Default storage settings for a space.
+         */
+        spaceStorageSettings?: pulumi.Input<inputs.sagemaker.SpaceStorageSettingsArgs>;
+    }
+
+    export interface SpaceSharingSettingsArgs {
+        sharingType: pulumi.Input<enums.sagemaker.SpaceSharingSettingsSharingType>;
+    }
+
+    export interface SpaceStorageSettingsArgs {
+        ebsStorageSettings?: pulumi.Input<inputs.sagemaker.SpaceEbsStorageSettingsArgs>;
     }
 
     export interface SpaceTagArgs {
@@ -53742,26 +53986,6 @@ export namespace ssmcontacts {
     }
 }
 
-export namespace ssmguiconnect {
-    export interface PreferencesIdleConnectionAlertArgs {
-        type?: pulumi.Input<enums.ssmguiconnect.PreferencesIdleConnectionAlertType>;
-        value: pulumi.Input<number>;
-    }
-
-    /**
-     * Idle Connection Preferences
-     */
-    export interface PreferencesIdleConnectionPreferencesArgs {
-        alert?: pulumi.Input<inputs.ssmguiconnect.PreferencesIdleConnectionAlertArgs>;
-        timeout?: pulumi.Input<inputs.ssmguiconnect.PreferencesIdleConnectionTimeoutArgs>;
-    }
-
-    export interface PreferencesIdleConnectionTimeoutArgs {
-        type?: pulumi.Input<enums.ssmguiconnect.PreferencesIdleConnectionTimeoutType>;
-        value: pulumi.Input<number>;
-    }
-}
-
 export namespace ssmincidents {
     /**
      * The ReplicationSet regional configuration.
@@ -55140,10 +55364,6 @@ export namespace wafv2 {
      */
     export interface LoggingConfigurationFieldToMatchArgs {
         /**
-         * Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
-         */
-        jsonBody?: pulumi.Input<inputs.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs>;
-        /**
          * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
          */
         method?: any;
@@ -55159,38 +55379,6 @@ export namespace wafv2 {
          * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
          */
         uriPath?: any;
-    }
-
-    /**
-     * Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
-     */
-    export interface LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs {
-        /**
-         * What AWS WAF should do if it fails to completely parse the JSON body.
-         */
-        invalidFallbackBehavior?: pulumi.Input<enums.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior>;
-        /**
-         * The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
-         */
-        matchPattern: pulumi.Input<inputs.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs>;
-        /**
-         * The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
-         */
-        matchScope: pulumi.Input<enums.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope>;
-    }
-
-    /**
-     * The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
-     */
-    export interface LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs {
-        /**
-         * Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
-         */
-        all?: any;
-        /**
-         * Match only the specified include paths. See also MatchScope in JsonBody.
-         */
-        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**

@@ -45,6 +45,7 @@ export class GraphQlApi extends pulumi.CustomResource {
     public readonly apiType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authenticationType!: pulumi.Output<string>;
+    public readonly environmentVariables!: pulumi.Output<any | undefined>;
     public /*out*/ readonly graphQlDns!: pulumi.Output<string>;
     public /*out*/ readonly graphQlEndpointArn!: pulumi.Output<string>;
     public /*out*/ readonly graphQlUrl!: pulumi.Output<string>;
@@ -83,6 +84,7 @@ export class GraphQlApi extends pulumi.CustomResource {
             resourceInputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
             resourceInputs["apiType"] = args ? args.apiType : undefined;
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["introspectionConfig"] = args ? args.introspectionConfig : undefined;
             resourceInputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
             resourceInputs["logConfig"] = args ? args.logConfig : undefined;
@@ -109,6 +111,7 @@ export class GraphQlApi extends pulumi.CustomResource {
             resourceInputs["apiType"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authenticationType"] = undefined /*out*/;
+            resourceInputs["environmentVariables"] = undefined /*out*/;
             resourceInputs["graphQlDns"] = undefined /*out*/;
             resourceInputs["graphQlEndpointArn"] = undefined /*out*/;
             resourceInputs["graphQlUrl"] = undefined /*out*/;
@@ -140,6 +143,7 @@ export interface GraphQlApiArgs {
     additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQlApiAdditionalAuthenticationProviderArgs>[]>;
     apiType?: pulumi.Input<string>;
     authenticationType: pulumi.Input<string>;
+    environmentVariables?: any;
     introspectionConfig?: pulumi.Input<string>;
     lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQlApiLambdaAuthorizerConfigArgs>;
     logConfig?: pulumi.Input<inputs.appsync.GraphQlApiLogConfigArgs>;

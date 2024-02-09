@@ -19,6 +19,7 @@ class GraphQlApiArgs:
                  authentication_type: pulumi.Input[str],
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiAdditionalAuthenticationProviderArgs']]]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
+                 environment_variables: Optional[Any] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQlApiLogConfigArgs']] = None,
@@ -40,6 +41,8 @@ class GraphQlApiArgs:
             pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
         if api_type is not None:
             pulumi.set(__self__, "api_type", api_type)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
         if introspection_config is not None:
             pulumi.set(__self__, "introspection_config", introspection_config)
         if lambda_authorizer_config is not None:
@@ -93,6 +96,15 @@ class GraphQlApiArgs:
     @api_type.setter
     def api_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "api_type", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Any]:
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[Any]):
+        pulumi.set(self, "environment_variables", value)
 
     @property
     @pulumi.getter(name="introspectionConfig")
@@ -225,6 +237,7 @@ class GraphQlApi(pulumi.CustomResource):
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 environment_variables: Optional[Any] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLambdaAuthorizerConfigArgs']]] = None,
                  log_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLogConfigArgs']]] = None,
@@ -272,6 +285,7 @@ class GraphQlApi(pulumi.CustomResource):
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 environment_variables: Optional[Any] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLambdaAuthorizerConfigArgs']]] = None,
                  log_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLogConfigArgs']]] = None,
@@ -300,6 +314,7 @@ class GraphQlApi(pulumi.CustomResource):
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__.__dict__["authentication_type"] = authentication_type
+            __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["introspection_config"] = introspection_config
             __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
             __props__.__dict__["log_config"] = log_config
@@ -347,6 +362,7 @@ class GraphQlApi(pulumi.CustomResource):
         __props__.__dict__["api_type"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["authentication_type"] = None
+        __props__.__dict__["environment_variables"] = None
         __props__.__dict__["graph_ql_dns"] = None
         __props__.__dict__["graph_ql_endpoint_arn"] = None
         __props__.__dict__["graph_ql_url"] = None
@@ -391,6 +407,11 @@ class GraphQlApi(pulumi.CustomResource):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> pulumi.Output[Optional[Any]]:
+        return pulumi.get(self, "environment_variables")
 
     @property
     @pulumi.getter(name="graphQlDns")

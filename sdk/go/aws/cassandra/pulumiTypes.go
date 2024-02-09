@@ -263,6 +263,338 @@ func (o KeyspaceTagArrayOutput) Index(i pulumi.IntInput) KeyspaceTagOutput {
 	}).(KeyspaceTagOutput)
 }
 
+// Represents configuration for auto scaling.
+type TableAutoScalingSetting struct {
+	AutoScalingDisabled *bool               `pulumi:"autoScalingDisabled"`
+	MaximumUnits        *int                `pulumi:"maximumUnits"`
+	MinimumUnits        *int                `pulumi:"minimumUnits"`
+	ScalingPolicy       *TableScalingPolicy `pulumi:"scalingPolicy"`
+}
+
+// TableAutoScalingSettingInput is an input type that accepts TableAutoScalingSettingArgs and TableAutoScalingSettingOutput values.
+// You can construct a concrete instance of `TableAutoScalingSettingInput` via:
+//
+//	TableAutoScalingSettingArgs{...}
+type TableAutoScalingSettingInput interface {
+	pulumi.Input
+
+	ToTableAutoScalingSettingOutput() TableAutoScalingSettingOutput
+	ToTableAutoScalingSettingOutputWithContext(context.Context) TableAutoScalingSettingOutput
+}
+
+// Represents configuration for auto scaling.
+type TableAutoScalingSettingArgs struct {
+	AutoScalingDisabled pulumi.BoolPtrInput        `pulumi:"autoScalingDisabled"`
+	MaximumUnits        pulumi.IntPtrInput         `pulumi:"maximumUnits"`
+	MinimumUnits        pulumi.IntPtrInput         `pulumi:"minimumUnits"`
+	ScalingPolicy       TableScalingPolicyPtrInput `pulumi:"scalingPolicy"`
+}
+
+func (TableAutoScalingSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableAutoScalingSetting)(nil)).Elem()
+}
+
+func (i TableAutoScalingSettingArgs) ToTableAutoScalingSettingOutput() TableAutoScalingSettingOutput {
+	return i.ToTableAutoScalingSettingOutputWithContext(context.Background())
+}
+
+func (i TableAutoScalingSettingArgs) ToTableAutoScalingSettingOutputWithContext(ctx context.Context) TableAutoScalingSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAutoScalingSettingOutput)
+}
+
+func (i TableAutoScalingSettingArgs) ToTableAutoScalingSettingPtrOutput() TableAutoScalingSettingPtrOutput {
+	return i.ToTableAutoScalingSettingPtrOutputWithContext(context.Background())
+}
+
+func (i TableAutoScalingSettingArgs) ToTableAutoScalingSettingPtrOutputWithContext(ctx context.Context) TableAutoScalingSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAutoScalingSettingOutput).ToTableAutoScalingSettingPtrOutputWithContext(ctx)
+}
+
+// TableAutoScalingSettingPtrInput is an input type that accepts TableAutoScalingSettingArgs, TableAutoScalingSettingPtr and TableAutoScalingSettingPtrOutput values.
+// You can construct a concrete instance of `TableAutoScalingSettingPtrInput` via:
+//
+//	        TableAutoScalingSettingArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableAutoScalingSettingPtrInput interface {
+	pulumi.Input
+
+	ToTableAutoScalingSettingPtrOutput() TableAutoScalingSettingPtrOutput
+	ToTableAutoScalingSettingPtrOutputWithContext(context.Context) TableAutoScalingSettingPtrOutput
+}
+
+type tableAutoScalingSettingPtrType TableAutoScalingSettingArgs
+
+func TableAutoScalingSettingPtr(v *TableAutoScalingSettingArgs) TableAutoScalingSettingPtrInput {
+	return (*tableAutoScalingSettingPtrType)(v)
+}
+
+func (*tableAutoScalingSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableAutoScalingSetting)(nil)).Elem()
+}
+
+func (i *tableAutoScalingSettingPtrType) ToTableAutoScalingSettingPtrOutput() TableAutoScalingSettingPtrOutput {
+	return i.ToTableAutoScalingSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *tableAutoScalingSettingPtrType) ToTableAutoScalingSettingPtrOutputWithContext(ctx context.Context) TableAutoScalingSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAutoScalingSettingPtrOutput)
+}
+
+// Represents configuration for auto scaling.
+type TableAutoScalingSettingOutput struct{ *pulumi.OutputState }
+
+func (TableAutoScalingSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableAutoScalingSetting)(nil)).Elem()
+}
+
+func (o TableAutoScalingSettingOutput) ToTableAutoScalingSettingOutput() TableAutoScalingSettingOutput {
+	return o
+}
+
+func (o TableAutoScalingSettingOutput) ToTableAutoScalingSettingOutputWithContext(ctx context.Context) TableAutoScalingSettingOutput {
+	return o
+}
+
+func (o TableAutoScalingSettingOutput) ToTableAutoScalingSettingPtrOutput() TableAutoScalingSettingPtrOutput {
+	return o.ToTableAutoScalingSettingPtrOutputWithContext(context.Background())
+}
+
+func (o TableAutoScalingSettingOutput) ToTableAutoScalingSettingPtrOutputWithContext(ctx context.Context) TableAutoScalingSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableAutoScalingSetting) *TableAutoScalingSetting {
+		return &v
+	}).(TableAutoScalingSettingPtrOutput)
+}
+
+func (o TableAutoScalingSettingOutput) AutoScalingDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableAutoScalingSetting) *bool { return v.AutoScalingDisabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o TableAutoScalingSettingOutput) MaximumUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableAutoScalingSetting) *int { return v.MaximumUnits }).(pulumi.IntPtrOutput)
+}
+
+func (o TableAutoScalingSettingOutput) MinimumUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableAutoScalingSetting) *int { return v.MinimumUnits }).(pulumi.IntPtrOutput)
+}
+
+func (o TableAutoScalingSettingOutput) ScalingPolicy() TableScalingPolicyPtrOutput {
+	return o.ApplyT(func(v TableAutoScalingSetting) *TableScalingPolicy { return v.ScalingPolicy }).(TableScalingPolicyPtrOutput)
+}
+
+type TableAutoScalingSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (TableAutoScalingSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableAutoScalingSetting)(nil)).Elem()
+}
+
+func (o TableAutoScalingSettingPtrOutput) ToTableAutoScalingSettingPtrOutput() TableAutoScalingSettingPtrOutput {
+	return o
+}
+
+func (o TableAutoScalingSettingPtrOutput) ToTableAutoScalingSettingPtrOutputWithContext(ctx context.Context) TableAutoScalingSettingPtrOutput {
+	return o
+}
+
+func (o TableAutoScalingSettingPtrOutput) Elem() TableAutoScalingSettingOutput {
+	return o.ApplyT(func(v *TableAutoScalingSetting) TableAutoScalingSetting {
+		if v != nil {
+			return *v
+		}
+		var ret TableAutoScalingSetting
+		return ret
+	}).(TableAutoScalingSettingOutput)
+}
+
+func (o TableAutoScalingSettingPtrOutput) AutoScalingDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableAutoScalingSetting) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScalingDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TableAutoScalingSettingPtrOutput) MaximumUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableAutoScalingSetting) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TableAutoScalingSettingPtrOutput) MinimumUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableAutoScalingSetting) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TableAutoScalingSettingPtrOutput) ScalingPolicy() TableScalingPolicyPtrOutput {
+	return o.ApplyT(func(v *TableAutoScalingSetting) *TableScalingPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ScalingPolicy
+	}).(TableScalingPolicyPtrOutput)
+}
+
+// Represents the read and write settings used for AutoScaling.
+type TableAutoScalingSpecification struct {
+	ReadCapacityAutoScaling  *TableAutoScalingSetting `pulumi:"readCapacityAutoScaling"`
+	WriteCapacityAutoScaling *TableAutoScalingSetting `pulumi:"writeCapacityAutoScaling"`
+}
+
+// TableAutoScalingSpecificationInput is an input type that accepts TableAutoScalingSpecificationArgs and TableAutoScalingSpecificationOutput values.
+// You can construct a concrete instance of `TableAutoScalingSpecificationInput` via:
+//
+//	TableAutoScalingSpecificationArgs{...}
+type TableAutoScalingSpecificationInput interface {
+	pulumi.Input
+
+	ToTableAutoScalingSpecificationOutput() TableAutoScalingSpecificationOutput
+	ToTableAutoScalingSpecificationOutputWithContext(context.Context) TableAutoScalingSpecificationOutput
+}
+
+// Represents the read and write settings used for AutoScaling.
+type TableAutoScalingSpecificationArgs struct {
+	ReadCapacityAutoScaling  TableAutoScalingSettingPtrInput `pulumi:"readCapacityAutoScaling"`
+	WriteCapacityAutoScaling TableAutoScalingSettingPtrInput `pulumi:"writeCapacityAutoScaling"`
+}
+
+func (TableAutoScalingSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableAutoScalingSpecification)(nil)).Elem()
+}
+
+func (i TableAutoScalingSpecificationArgs) ToTableAutoScalingSpecificationOutput() TableAutoScalingSpecificationOutput {
+	return i.ToTableAutoScalingSpecificationOutputWithContext(context.Background())
+}
+
+func (i TableAutoScalingSpecificationArgs) ToTableAutoScalingSpecificationOutputWithContext(ctx context.Context) TableAutoScalingSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAutoScalingSpecificationOutput)
+}
+
+func (i TableAutoScalingSpecificationArgs) ToTableAutoScalingSpecificationPtrOutput() TableAutoScalingSpecificationPtrOutput {
+	return i.ToTableAutoScalingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TableAutoScalingSpecificationArgs) ToTableAutoScalingSpecificationPtrOutputWithContext(ctx context.Context) TableAutoScalingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAutoScalingSpecificationOutput).ToTableAutoScalingSpecificationPtrOutputWithContext(ctx)
+}
+
+// TableAutoScalingSpecificationPtrInput is an input type that accepts TableAutoScalingSpecificationArgs, TableAutoScalingSpecificationPtr and TableAutoScalingSpecificationPtrOutput values.
+// You can construct a concrete instance of `TableAutoScalingSpecificationPtrInput` via:
+//
+//	        TableAutoScalingSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableAutoScalingSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTableAutoScalingSpecificationPtrOutput() TableAutoScalingSpecificationPtrOutput
+	ToTableAutoScalingSpecificationPtrOutputWithContext(context.Context) TableAutoScalingSpecificationPtrOutput
+}
+
+type tableAutoScalingSpecificationPtrType TableAutoScalingSpecificationArgs
+
+func TableAutoScalingSpecificationPtr(v *TableAutoScalingSpecificationArgs) TableAutoScalingSpecificationPtrInput {
+	return (*tableAutoScalingSpecificationPtrType)(v)
+}
+
+func (*tableAutoScalingSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableAutoScalingSpecification)(nil)).Elem()
+}
+
+func (i *tableAutoScalingSpecificationPtrType) ToTableAutoScalingSpecificationPtrOutput() TableAutoScalingSpecificationPtrOutput {
+	return i.ToTableAutoScalingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableAutoScalingSpecificationPtrType) ToTableAutoScalingSpecificationPtrOutputWithContext(ctx context.Context) TableAutoScalingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAutoScalingSpecificationPtrOutput)
+}
+
+// Represents the read and write settings used for AutoScaling.
+type TableAutoScalingSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableAutoScalingSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableAutoScalingSpecification)(nil)).Elem()
+}
+
+func (o TableAutoScalingSpecificationOutput) ToTableAutoScalingSpecificationOutput() TableAutoScalingSpecificationOutput {
+	return o
+}
+
+func (o TableAutoScalingSpecificationOutput) ToTableAutoScalingSpecificationOutputWithContext(ctx context.Context) TableAutoScalingSpecificationOutput {
+	return o
+}
+
+func (o TableAutoScalingSpecificationOutput) ToTableAutoScalingSpecificationPtrOutput() TableAutoScalingSpecificationPtrOutput {
+	return o.ToTableAutoScalingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TableAutoScalingSpecificationOutput) ToTableAutoScalingSpecificationPtrOutputWithContext(ctx context.Context) TableAutoScalingSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableAutoScalingSpecification) *TableAutoScalingSpecification {
+		return &v
+	}).(TableAutoScalingSpecificationPtrOutput)
+}
+
+func (o TableAutoScalingSpecificationOutput) ReadCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
+	return o.ApplyT(func(v TableAutoScalingSpecification) *TableAutoScalingSetting { return v.ReadCapacityAutoScaling }).(TableAutoScalingSettingPtrOutput)
+}
+
+func (o TableAutoScalingSpecificationOutput) WriteCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
+	return o.ApplyT(func(v TableAutoScalingSpecification) *TableAutoScalingSetting { return v.WriteCapacityAutoScaling }).(TableAutoScalingSettingPtrOutput)
+}
+
+type TableAutoScalingSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableAutoScalingSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableAutoScalingSpecification)(nil)).Elem()
+}
+
+func (o TableAutoScalingSpecificationPtrOutput) ToTableAutoScalingSpecificationPtrOutput() TableAutoScalingSpecificationPtrOutput {
+	return o
+}
+
+func (o TableAutoScalingSpecificationPtrOutput) ToTableAutoScalingSpecificationPtrOutputWithContext(ctx context.Context) TableAutoScalingSpecificationPtrOutput {
+	return o
+}
+
+func (o TableAutoScalingSpecificationPtrOutput) Elem() TableAutoScalingSpecificationOutput {
+	return o.ApplyT(func(v *TableAutoScalingSpecification) TableAutoScalingSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TableAutoScalingSpecification
+		return ret
+	}).(TableAutoScalingSpecificationOutput)
+}
+
+func (o TableAutoScalingSpecificationPtrOutput) ReadCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
+	return o.ApplyT(func(v *TableAutoScalingSpecification) *TableAutoScalingSetting {
+		if v == nil {
+			return nil
+		}
+		return v.ReadCapacityAutoScaling
+	}).(TableAutoScalingSettingPtrOutput)
+}
+
+func (o TableAutoScalingSpecificationPtrOutput) WriteCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
+	return o.ApplyT(func(v *TableAutoScalingSpecification) *TableAutoScalingSetting {
+		if v == nil {
+			return nil
+		}
+		return v.WriteCapacityAutoScaling
+	}).(TableAutoScalingSettingPtrOutput)
+}
+
 type TableBillingMode struct {
 	Mode                  TableMode                   `pulumi:"mode"`
 	ProvisionedThroughput *TableProvisionedThroughput `pulumi:"provisionedThroughput"`
@@ -913,6 +1245,253 @@ func (o TableProvisionedThroughputPtrOutput) WriteCapacityUnits() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// Represents replica specifications.
+type TableReplicaSpecification struct {
+	ReadCapacityAutoScaling *TableAutoScalingSetting `pulumi:"readCapacityAutoScaling"`
+	ReadCapacityUnits       *int                     `pulumi:"readCapacityUnits"`
+	Region                  string                   `pulumi:"region"`
+}
+
+// TableReplicaSpecificationInput is an input type that accepts TableReplicaSpecificationArgs and TableReplicaSpecificationOutput values.
+// You can construct a concrete instance of `TableReplicaSpecificationInput` via:
+//
+//	TableReplicaSpecificationArgs{...}
+type TableReplicaSpecificationInput interface {
+	pulumi.Input
+
+	ToTableReplicaSpecificationOutput() TableReplicaSpecificationOutput
+	ToTableReplicaSpecificationOutputWithContext(context.Context) TableReplicaSpecificationOutput
+}
+
+// Represents replica specifications.
+type TableReplicaSpecificationArgs struct {
+	ReadCapacityAutoScaling TableAutoScalingSettingPtrInput `pulumi:"readCapacityAutoScaling"`
+	ReadCapacityUnits       pulumi.IntPtrInput              `pulumi:"readCapacityUnits"`
+	Region                  pulumi.StringInput              `pulumi:"region"`
+}
+
+func (TableReplicaSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableReplicaSpecification)(nil)).Elem()
+}
+
+func (i TableReplicaSpecificationArgs) ToTableReplicaSpecificationOutput() TableReplicaSpecificationOutput {
+	return i.ToTableReplicaSpecificationOutputWithContext(context.Background())
+}
+
+func (i TableReplicaSpecificationArgs) ToTableReplicaSpecificationOutputWithContext(ctx context.Context) TableReplicaSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableReplicaSpecificationOutput)
+}
+
+// TableReplicaSpecificationArrayInput is an input type that accepts TableReplicaSpecificationArray and TableReplicaSpecificationArrayOutput values.
+// You can construct a concrete instance of `TableReplicaSpecificationArrayInput` via:
+//
+//	TableReplicaSpecificationArray{ TableReplicaSpecificationArgs{...} }
+type TableReplicaSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToTableReplicaSpecificationArrayOutput() TableReplicaSpecificationArrayOutput
+	ToTableReplicaSpecificationArrayOutputWithContext(context.Context) TableReplicaSpecificationArrayOutput
+}
+
+type TableReplicaSpecificationArray []TableReplicaSpecificationInput
+
+func (TableReplicaSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableReplicaSpecification)(nil)).Elem()
+}
+
+func (i TableReplicaSpecificationArray) ToTableReplicaSpecificationArrayOutput() TableReplicaSpecificationArrayOutput {
+	return i.ToTableReplicaSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i TableReplicaSpecificationArray) ToTableReplicaSpecificationArrayOutputWithContext(ctx context.Context) TableReplicaSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableReplicaSpecificationArrayOutput)
+}
+
+// Represents replica specifications.
+type TableReplicaSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableReplicaSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableReplicaSpecification)(nil)).Elem()
+}
+
+func (o TableReplicaSpecificationOutput) ToTableReplicaSpecificationOutput() TableReplicaSpecificationOutput {
+	return o
+}
+
+func (o TableReplicaSpecificationOutput) ToTableReplicaSpecificationOutputWithContext(ctx context.Context) TableReplicaSpecificationOutput {
+	return o
+}
+
+func (o TableReplicaSpecificationOutput) ReadCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
+	return o.ApplyT(func(v TableReplicaSpecification) *TableAutoScalingSetting { return v.ReadCapacityAutoScaling }).(TableAutoScalingSettingPtrOutput)
+}
+
+func (o TableReplicaSpecificationOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableReplicaSpecification) *int { return v.ReadCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+func (o TableReplicaSpecificationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v TableReplicaSpecification) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type TableReplicaSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (TableReplicaSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableReplicaSpecification)(nil)).Elem()
+}
+
+func (o TableReplicaSpecificationArrayOutput) ToTableReplicaSpecificationArrayOutput() TableReplicaSpecificationArrayOutput {
+	return o
+}
+
+func (o TableReplicaSpecificationArrayOutput) ToTableReplicaSpecificationArrayOutputWithContext(ctx context.Context) TableReplicaSpecificationArrayOutput {
+	return o
+}
+
+func (o TableReplicaSpecificationArrayOutput) Index(i pulumi.IntInput) TableReplicaSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableReplicaSpecification {
+		return vs[0].([]TableReplicaSpecification)[vs[1].(int)]
+	}).(TableReplicaSpecificationOutput)
+}
+
+// Represents scaling policy.
+type TableScalingPolicy struct {
+	TargetTrackingScalingPolicyConfiguration *TableTargetTrackingScalingPolicyConfiguration `pulumi:"targetTrackingScalingPolicyConfiguration"`
+}
+
+// TableScalingPolicyInput is an input type that accepts TableScalingPolicyArgs and TableScalingPolicyOutput values.
+// You can construct a concrete instance of `TableScalingPolicyInput` via:
+//
+//	TableScalingPolicyArgs{...}
+type TableScalingPolicyInput interface {
+	pulumi.Input
+
+	ToTableScalingPolicyOutput() TableScalingPolicyOutput
+	ToTableScalingPolicyOutputWithContext(context.Context) TableScalingPolicyOutput
+}
+
+// Represents scaling policy.
+type TableScalingPolicyArgs struct {
+	TargetTrackingScalingPolicyConfiguration TableTargetTrackingScalingPolicyConfigurationPtrInput `pulumi:"targetTrackingScalingPolicyConfiguration"`
+}
+
+func (TableScalingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableScalingPolicy)(nil)).Elem()
+}
+
+func (i TableScalingPolicyArgs) ToTableScalingPolicyOutput() TableScalingPolicyOutput {
+	return i.ToTableScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i TableScalingPolicyArgs) ToTableScalingPolicyOutputWithContext(ctx context.Context) TableScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableScalingPolicyOutput)
+}
+
+func (i TableScalingPolicyArgs) ToTableScalingPolicyPtrOutput() TableScalingPolicyPtrOutput {
+	return i.ToTableScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i TableScalingPolicyArgs) ToTableScalingPolicyPtrOutputWithContext(ctx context.Context) TableScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableScalingPolicyOutput).ToTableScalingPolicyPtrOutputWithContext(ctx)
+}
+
+// TableScalingPolicyPtrInput is an input type that accepts TableScalingPolicyArgs, TableScalingPolicyPtr and TableScalingPolicyPtrOutput values.
+// You can construct a concrete instance of `TableScalingPolicyPtrInput` via:
+//
+//	        TableScalingPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableScalingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToTableScalingPolicyPtrOutput() TableScalingPolicyPtrOutput
+	ToTableScalingPolicyPtrOutputWithContext(context.Context) TableScalingPolicyPtrOutput
+}
+
+type tableScalingPolicyPtrType TableScalingPolicyArgs
+
+func TableScalingPolicyPtr(v *TableScalingPolicyArgs) TableScalingPolicyPtrInput {
+	return (*tableScalingPolicyPtrType)(v)
+}
+
+func (*tableScalingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableScalingPolicy)(nil)).Elem()
+}
+
+func (i *tableScalingPolicyPtrType) ToTableScalingPolicyPtrOutput() TableScalingPolicyPtrOutput {
+	return i.ToTableScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *tableScalingPolicyPtrType) ToTableScalingPolicyPtrOutputWithContext(ctx context.Context) TableScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableScalingPolicyPtrOutput)
+}
+
+// Represents scaling policy.
+type TableScalingPolicyOutput struct{ *pulumi.OutputState }
+
+func (TableScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableScalingPolicy)(nil)).Elem()
+}
+
+func (o TableScalingPolicyOutput) ToTableScalingPolicyOutput() TableScalingPolicyOutput {
+	return o
+}
+
+func (o TableScalingPolicyOutput) ToTableScalingPolicyOutputWithContext(ctx context.Context) TableScalingPolicyOutput {
+	return o
+}
+
+func (o TableScalingPolicyOutput) ToTableScalingPolicyPtrOutput() TableScalingPolicyPtrOutput {
+	return o.ToTableScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o TableScalingPolicyOutput) ToTableScalingPolicyPtrOutputWithContext(ctx context.Context) TableScalingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableScalingPolicy) *TableScalingPolicy {
+		return &v
+	}).(TableScalingPolicyPtrOutput)
+}
+
+func (o TableScalingPolicyOutput) TargetTrackingScalingPolicyConfiguration() TableTargetTrackingScalingPolicyConfigurationPtrOutput {
+	return o.ApplyT(func(v TableScalingPolicy) *TableTargetTrackingScalingPolicyConfiguration {
+		return v.TargetTrackingScalingPolicyConfiguration
+	}).(TableTargetTrackingScalingPolicyConfigurationPtrOutput)
+}
+
+type TableScalingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (TableScalingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableScalingPolicy)(nil)).Elem()
+}
+
+func (o TableScalingPolicyPtrOutput) ToTableScalingPolicyPtrOutput() TableScalingPolicyPtrOutput {
+	return o
+}
+
+func (o TableScalingPolicyPtrOutput) ToTableScalingPolicyPtrOutputWithContext(ctx context.Context) TableScalingPolicyPtrOutput {
+	return o
+}
+
+func (o TableScalingPolicyPtrOutput) Elem() TableScalingPolicyOutput {
+	return o.ApplyT(func(v *TableScalingPolicy) TableScalingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret TableScalingPolicy
+		return ret
+	}).(TableScalingPolicyOutput)
+}
+
+func (o TableScalingPolicyPtrOutput) TargetTrackingScalingPolicyConfiguration() TableTargetTrackingScalingPolicyConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableScalingPolicy) *TableTargetTrackingScalingPolicyConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TargetTrackingScalingPolicyConfiguration
+	}).(TableTargetTrackingScalingPolicyConfigurationPtrOutput)
+}
+
 // A key-value pair to apply to the resource
 type TableTag struct {
 	Key   string `pulumi:"key"`
@@ -1016,11 +1595,196 @@ func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
 	}).(TableTagOutput)
 }
 
+// Represents configuration for target tracking scaling policy.
+type TableTargetTrackingScalingPolicyConfiguration struct {
+	DisableScaleIn   *bool `pulumi:"disableScaleIn"`
+	ScaleInCooldown  *int  `pulumi:"scaleInCooldown"`
+	ScaleOutCooldown *int  `pulumi:"scaleOutCooldown"`
+	TargetValue      int   `pulumi:"targetValue"`
+}
+
+// TableTargetTrackingScalingPolicyConfigurationInput is an input type that accepts TableTargetTrackingScalingPolicyConfigurationArgs and TableTargetTrackingScalingPolicyConfigurationOutput values.
+// You can construct a concrete instance of `TableTargetTrackingScalingPolicyConfigurationInput` via:
+//
+//	TableTargetTrackingScalingPolicyConfigurationArgs{...}
+type TableTargetTrackingScalingPolicyConfigurationInput interface {
+	pulumi.Input
+
+	ToTableTargetTrackingScalingPolicyConfigurationOutput() TableTargetTrackingScalingPolicyConfigurationOutput
+	ToTableTargetTrackingScalingPolicyConfigurationOutputWithContext(context.Context) TableTargetTrackingScalingPolicyConfigurationOutput
+}
+
+// Represents configuration for target tracking scaling policy.
+type TableTargetTrackingScalingPolicyConfigurationArgs struct {
+	DisableScaleIn   pulumi.BoolPtrInput `pulumi:"disableScaleIn"`
+	ScaleInCooldown  pulumi.IntPtrInput  `pulumi:"scaleInCooldown"`
+	ScaleOutCooldown pulumi.IntPtrInput  `pulumi:"scaleOutCooldown"`
+	TargetValue      pulumi.IntInput     `pulumi:"targetValue"`
+}
+
+func (TableTargetTrackingScalingPolicyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTargetTrackingScalingPolicyConfiguration)(nil)).Elem()
+}
+
+func (i TableTargetTrackingScalingPolicyConfigurationArgs) ToTableTargetTrackingScalingPolicyConfigurationOutput() TableTargetTrackingScalingPolicyConfigurationOutput {
+	return i.ToTableTargetTrackingScalingPolicyConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableTargetTrackingScalingPolicyConfigurationArgs) ToTableTargetTrackingScalingPolicyConfigurationOutputWithContext(ctx context.Context) TableTargetTrackingScalingPolicyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTargetTrackingScalingPolicyConfigurationOutput)
+}
+
+func (i TableTargetTrackingScalingPolicyConfigurationArgs) ToTableTargetTrackingScalingPolicyConfigurationPtrOutput() TableTargetTrackingScalingPolicyConfigurationPtrOutput {
+	return i.ToTableTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableTargetTrackingScalingPolicyConfigurationArgs) ToTableTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) TableTargetTrackingScalingPolicyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTargetTrackingScalingPolicyConfigurationOutput).ToTableTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableTargetTrackingScalingPolicyConfigurationPtrInput is an input type that accepts TableTargetTrackingScalingPolicyConfigurationArgs, TableTargetTrackingScalingPolicyConfigurationPtr and TableTargetTrackingScalingPolicyConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableTargetTrackingScalingPolicyConfigurationPtrInput` via:
+//
+//	        TableTargetTrackingScalingPolicyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableTargetTrackingScalingPolicyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableTargetTrackingScalingPolicyConfigurationPtrOutput() TableTargetTrackingScalingPolicyConfigurationPtrOutput
+	ToTableTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(context.Context) TableTargetTrackingScalingPolicyConfigurationPtrOutput
+}
+
+type tableTargetTrackingScalingPolicyConfigurationPtrType TableTargetTrackingScalingPolicyConfigurationArgs
+
+func TableTargetTrackingScalingPolicyConfigurationPtr(v *TableTargetTrackingScalingPolicyConfigurationArgs) TableTargetTrackingScalingPolicyConfigurationPtrInput {
+	return (*tableTargetTrackingScalingPolicyConfigurationPtrType)(v)
+}
+
+func (*tableTargetTrackingScalingPolicyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableTargetTrackingScalingPolicyConfiguration)(nil)).Elem()
+}
+
+func (i *tableTargetTrackingScalingPolicyConfigurationPtrType) ToTableTargetTrackingScalingPolicyConfigurationPtrOutput() TableTargetTrackingScalingPolicyConfigurationPtrOutput {
+	return i.ToTableTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableTargetTrackingScalingPolicyConfigurationPtrType) ToTableTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) TableTargetTrackingScalingPolicyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTargetTrackingScalingPolicyConfigurationPtrOutput)
+}
+
+// Represents configuration for target tracking scaling policy.
+type TableTargetTrackingScalingPolicyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableTargetTrackingScalingPolicyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTargetTrackingScalingPolicyConfiguration)(nil)).Elem()
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationOutput) ToTableTargetTrackingScalingPolicyConfigurationOutput() TableTargetTrackingScalingPolicyConfigurationOutput {
+	return o
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationOutput) ToTableTargetTrackingScalingPolicyConfigurationOutputWithContext(ctx context.Context) TableTargetTrackingScalingPolicyConfigurationOutput {
+	return o
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationOutput) ToTableTargetTrackingScalingPolicyConfigurationPtrOutput() TableTargetTrackingScalingPolicyConfigurationPtrOutput {
+	return o.ToTableTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationOutput) ToTableTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) TableTargetTrackingScalingPolicyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableTargetTrackingScalingPolicyConfiguration) *TableTargetTrackingScalingPolicyConfiguration {
+		return &v
+	}).(TableTargetTrackingScalingPolicyConfigurationPtrOutput)
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationOutput) DisableScaleIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableTargetTrackingScalingPolicyConfiguration) *bool { return v.DisableScaleIn }).(pulumi.BoolPtrOutput)
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationOutput) ScaleInCooldown() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableTargetTrackingScalingPolicyConfiguration) *int { return v.ScaleInCooldown }).(pulumi.IntPtrOutput)
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationOutput) ScaleOutCooldown() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableTargetTrackingScalingPolicyConfiguration) *int { return v.ScaleOutCooldown }).(pulumi.IntPtrOutput)
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationOutput) TargetValue() pulumi.IntOutput {
+	return o.ApplyT(func(v TableTargetTrackingScalingPolicyConfiguration) int { return v.TargetValue }).(pulumi.IntOutput)
+}
+
+type TableTargetTrackingScalingPolicyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableTargetTrackingScalingPolicyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableTargetTrackingScalingPolicyConfiguration)(nil)).Elem()
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) ToTableTargetTrackingScalingPolicyConfigurationPtrOutput() TableTargetTrackingScalingPolicyConfigurationPtrOutput {
+	return o
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) ToTableTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) TableTargetTrackingScalingPolicyConfigurationPtrOutput {
+	return o
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) Elem() TableTargetTrackingScalingPolicyConfigurationOutput {
+	return o.ApplyT(func(v *TableTargetTrackingScalingPolicyConfiguration) TableTargetTrackingScalingPolicyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableTargetTrackingScalingPolicyConfiguration
+		return ret
+	}).(TableTargetTrackingScalingPolicyConfigurationOutput)
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) DisableScaleIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableTargetTrackingScalingPolicyConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableScaleIn
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleInCooldown() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableTargetTrackingScalingPolicyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleInCooldown
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleOutCooldown() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableTargetTrackingScalingPolicyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleOutCooldown
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableTargetTrackingScalingPolicyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetValue
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationInput)(nil)).Elem(), KeyspaceReplicationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationPtrInput)(nil)).Elem(), KeyspaceReplicationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceTagInput)(nil)).Elem(), KeyspaceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceTagArrayInput)(nil)).Elem(), KeyspaceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableAutoScalingSettingInput)(nil)).Elem(), TableAutoScalingSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableAutoScalingSettingPtrInput)(nil)).Elem(), TableAutoScalingSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableAutoScalingSpecificationInput)(nil)).Elem(), TableAutoScalingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableAutoScalingSpecificationPtrInput)(nil)).Elem(), TableAutoScalingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBillingModeInput)(nil)).Elem(), TableBillingModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBillingModePtrInput)(nil)).Elem(), TableBillingModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnInput)(nil)).Elem(), TableClusteringKeyColumnArgs{})
@@ -1031,12 +1795,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionSpecificationPtrInput)(nil)).Elem(), TableEncryptionSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputPtrInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableReplicaSpecificationInput)(nil)).Elem(), TableReplicaSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableReplicaSpecificationArrayInput)(nil)).Elem(), TableReplicaSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableScalingPolicyInput)(nil)).Elem(), TableScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableScalingPolicyPtrInput)(nil)).Elem(), TableScalingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableTargetTrackingScalingPolicyConfigurationInput)(nil)).Elem(), TableTargetTrackingScalingPolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableTargetTrackingScalingPolicyConfigurationPtrInput)(nil)).Elem(), TableTargetTrackingScalingPolicyConfigurationArgs{})
 	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationOutput{})
 	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(KeyspaceTagOutput{})
 	pulumi.RegisterOutputType(KeyspaceTagArrayOutput{})
+	pulumi.RegisterOutputType(TableAutoScalingSettingOutput{})
+	pulumi.RegisterOutputType(TableAutoScalingSettingPtrOutput{})
+	pulumi.RegisterOutputType(TableAutoScalingSpecificationOutput{})
+	pulumi.RegisterOutputType(TableAutoScalingSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableBillingModeOutput{})
 	pulumi.RegisterOutputType(TableBillingModePtrOutput{})
 	pulumi.RegisterOutputType(TableClusteringKeyColumnOutput{})
@@ -1047,6 +1821,12 @@ func init() {
 	pulumi.RegisterOutputType(TableEncryptionSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableProvisionedThroughputOutput{})
 	pulumi.RegisterOutputType(TableProvisionedThroughputPtrOutput{})
+	pulumi.RegisterOutputType(TableReplicaSpecificationOutput{})
+	pulumi.RegisterOutputType(TableReplicaSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(TableScalingPolicyOutput{})
+	pulumi.RegisterOutputType(TableScalingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(TableTagOutput{})
 	pulumi.RegisterOutputType(TableTagArrayOutput{})
+	pulumi.RegisterOutputType(TableTargetTrackingScalingPolicyConfigurationOutput{})
+	pulumi.RegisterOutputType(TableTargetTrackingScalingPolicyConfigurationPtrOutput{})
 }

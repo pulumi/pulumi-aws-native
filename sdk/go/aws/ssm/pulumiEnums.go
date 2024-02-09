@@ -699,7 +699,6 @@ const (
 	DocumentTypeProblemAnalysis                = DocumentType("ProblemAnalysis")
 	DocumentTypeProblemAnalysisTemplate        = DocumentType("ProblemAnalysisTemplate")
 	DocumentTypeSession                        = DocumentType("Session")
-	DocumentTypeOpsPack                        = DocumentType("OpsPack")
 )
 
 func (DocumentType) ElementType() reflect.Type {
@@ -837,7 +836,6 @@ func (o DocumentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	DocumentTypeProblemAnalysis
 //	DocumentTypeProblemAnalysisTemplate
 //	DocumentTypeSession
-//	DocumentTypeOpsPack
 type DocumentTypeInput interface {
 	pulumi.Input
 
@@ -1038,7 +1036,7 @@ func (in *documentUpdateMethodPtr) ToDocumentUpdateMethodPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(DocumentUpdateMethodPtrOutput)
 }
 
-// The corresponding DataType of the parameter.
+// The data type of the parameter, such as “text“ or “aws:ec2:image“. The default is “text“.
 type ParameterDataType string
 
 const (
@@ -1204,7 +1202,7 @@ func (in *parameterDataTypePtr) ToParameterDataTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ParameterDataTypePtrOutput)
 }
 
-// The corresponding tier of the parameter.
+// The parameter tier.
 type ParameterTier string
 
 const (
@@ -1372,13 +1370,14 @@ func (in *parameterTierPtr) ToParameterTierPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ParameterTierPtrOutput)
 }
 
-// The type of the parameter.
+// The type of parameter.
+//
+//	Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
 type ParameterType string
 
 const (
-	ParameterTypeString       = ParameterType("String")
-	ParameterTypeStringList   = ParameterType("StringList")
-	ParameterTypeSecureString = ParameterType("SecureString")
+	ParameterTypeString     = ParameterType("String")
+	ParameterTypeStringList = ParameterType("StringList")
 )
 
 func (ParameterType) ElementType() reflect.Type {
@@ -1505,7 +1504,6 @@ func (o ParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //
 //	ParameterTypeString
 //	ParameterTypeStringList
-//	ParameterTypeSecureString
 type ParameterTypeInput interface {
 	pulumi.Input
 

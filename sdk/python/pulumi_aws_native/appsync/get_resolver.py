@@ -66,7 +66,7 @@ class GetResolverResult:
     @pulumi.getter
     def code(self) -> Optional[str]:
         """
-        The resolver code that contains the request and response functions. When code is used, the runtime is required.
+        The ``resolver`` code that contains the request and response functions. When code is used, the ``runtime`` is required. The runtime value must be ``APPSYNC_JS``.
         """
         return pulumi.get(self, "code")
 
@@ -83,6 +83,8 @@ class GetResolverResult:
     def kind(self) -> Optional[str]:
         """
         The resolver type.
+          +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+          +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
         """
         return pulumi.get(self, "kind")
 
@@ -90,7 +92,7 @@ class GetResolverResult:
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> Optional[int]:
         """
-        The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+        The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
         """
         return pulumi.get(self, "max_batch_size")
 
@@ -106,16 +108,14 @@ class GetResolverResult:
     @pulumi.getter(name="requestMappingTemplate")
     def request_mapping_template(self) -> Optional[str]:
         """
-        Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
+        The request mapping template.
+         Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
         """
         return pulumi.get(self, "request_mapping_template")
 
     @property
     @pulumi.getter(name="resolverArn")
     def resolver_arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) for the resolver.
-        """
         return pulumi.get(self, "resolver_arn")
 
     @property
@@ -130,7 +130,7 @@ class GetResolverResult:
     @pulumi.getter
     def runtime(self) -> Optional['outputs.ResolverAppSyncRuntime']:
         """
-        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+        Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
         """
         return pulumi.get(self, "runtime")
 
@@ -138,7 +138,7 @@ class GetResolverResult:
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> Optional['outputs.ResolverSyncConfig']:
         """
-        The SyncConfig for a resolver attached to a versioned data source.
+        The ``SyncConfig`` for a resolver attached to a versioned data source.
         """
         return pulumi.get(self, "sync_config")
 
@@ -165,10 +165,9 @@ class AwaitableGetResolverResult(GetResolverResult):
 def get_resolver(resolver_arn: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverResult:
     """
-    Resource Type definition for AWS::AppSync::Resolver
-
-
-    :param str resolver_arn: The Amazon Resource Name (ARN) for the resolver.
+    The ``AWS::AppSync::Resolver`` resource defines the logical GraphQL resolver that you attach to fields in a schema. Request and response templates for resolvers are written in Apache Velocity Template Language (VTL) format. For more information about resolvers, see [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html).
+      When you submit an update, CFNLong updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the CFNshort template. Changing the S3 file content without changing a property value will not result in an update operation.
+     See [Update Behaviors of Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html) in the *User Guide*.
     """
     __args__ = dict()
     __args__['resolverArn'] = resolver_arn
@@ -193,9 +192,8 @@ def get_resolver(resolver_arn: Optional[str] = None,
 def get_resolver_output(resolver_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverResult]:
     """
-    Resource Type definition for AWS::AppSync::Resolver
-
-
-    :param str resolver_arn: The Amazon Resource Name (ARN) for the resolver.
+    The ``AWS::AppSync::Resolver`` resource defines the logical GraphQL resolver that you attach to fields in a schema. Request and response templates for resolvers are written in Apache Velocity Template Language (VTL) format. For more information about resolvers, see [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html).
+      When you submit an update, CFNLong updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the CFNshort template. Changing the S3 file content without changing a property value will not result in an update operation.
+     See [Update Behaviors of Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html) in the *User Guide*.
     """
     ...

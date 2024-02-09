@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Cassandra
     [AwsNativeResourceType("aws-native:cassandra:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {
+        [Output("autoScalingSpecifications")]
+        public Output<Outputs.TableAutoScalingSpecification?> AutoScalingSpecifications { get; private set; } = null!;
+
         [Output("billingMode")]
         public Output<Outputs.TableBillingMode?> BillingMode { get; private set; } = null!;
 
@@ -62,6 +65,9 @@ namespace Pulumi.AwsNative.Cassandra
         /// </summary>
         [Output("regularColumns")]
         public Output<ImmutableArray<Outputs.TableColumn>> RegularColumns { get; private set; } = null!;
+
+        [Output("replicaSpecifications")]
+        public Output<ImmutableArray<Outputs.TableReplicaSpecification>> ReplicaSpecifications { get; private set; } = null!;
 
         /// <summary>
         /// Name for Cassandra table
@@ -128,6 +134,9 @@ namespace Pulumi.AwsNative.Cassandra
 
     public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoScalingSpecifications")]
+        public Input<Inputs.TableAutoScalingSpecificationArgs>? AutoScalingSpecifications { get; set; }
+
         [Input("billingMode")]
         public Input<Inputs.TableBillingModeArgs>? BillingMode { get; set; }
 
@@ -192,6 +201,14 @@ namespace Pulumi.AwsNative.Cassandra
         {
             get => _regularColumns ?? (_regularColumns = new InputList<Inputs.TableColumnArgs>());
             set => _regularColumns = value;
+        }
+
+        [Input("replicaSpecifications")]
+        private InputList<Inputs.TableReplicaSpecificationArgs>? _replicaSpecifications;
+        public InputList<Inputs.TableReplicaSpecificationArgs> ReplicaSpecifications
+        {
+            get => _replicaSpecifications ?? (_replicaSpecifications = new InputList<Inputs.TableReplicaSpecificationArgs>());
+            set => _replicaSpecifications = value;
         }
 
         /// <summary>

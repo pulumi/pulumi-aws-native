@@ -27,8 +27,23 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetHostedConfigurationVersionArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("applicationId", required: true)]
+        public string ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// The configuration profile ID.
+        /// </summary>
+        [Input("configurationProfileId", required: true)]
+        public string ConfigurationProfileId { get; set; } = null!;
+
+        /// <summary>
+        /// Current version number of hosted configuration version.
+        /// </summary>
+        [Input("versionNumber", required: true)]
+        public string VersionNumber { get; set; } = null!;
 
         public GetHostedConfigurationVersionArgs()
         {
@@ -38,8 +53,23 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetHostedConfigurationVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("applicationId", required: true)]
+        public Input<string> ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// The configuration profile ID.
+        /// </summary>
+        [Input("configurationProfileId", required: true)]
+        public Input<string> ConfigurationProfileId { get; set; } = null!;
+
+        /// <summary>
+        /// Current version number of hosted configuration version.
+        /// </summary>
+        [Input("versionNumber", required: true)]
+        public Input<string> VersionNumber { get; set; } = null!;
 
         public GetHostedConfigurationVersionInvokeArgs()
         {
@@ -51,12 +81,15 @@ namespace Pulumi.AwsNative.AppConfig
     [OutputType]
     public sealed class GetHostedConfigurationVersionResult
     {
-        public readonly string? Id;
+        /// <summary>
+        /// Current version number of hosted configuration version.
+        /// </summary>
+        public readonly string? VersionNumber;
 
         [OutputConstructor]
-        private GetHostedConfigurationVersionResult(string? id)
+        private GetHostedConfigurationVersionResult(string? versionNumber)
         {
-            Id = id;
+            VersionNumber = versionNumber;
         }
     }
 }

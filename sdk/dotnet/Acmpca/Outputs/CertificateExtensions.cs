@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
 {
 
     /// <summary>
-    /// Structure that contains X.500 extensions for a Certificate.
+    /// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
     /// </summary>
     [OutputType]
     public sealed class CertificateExtensions
@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
         public readonly ImmutableArray<Outputs.CertificatePolicyInformation> CertificatePolicies;
         public readonly ImmutableArray<Outputs.CertificateCustomExtension> CustomExtensions;
         public readonly ImmutableArray<Outputs.CertificateExtendedKeyUsage> ExtendedKeyUsage;
+        /// <summary>
+        /// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        /// </summary>
         public readonly Outputs.CertificateKeyUsage? KeyUsage;
         public readonly ImmutableArray<Outputs.CertificateGeneralName> SubjectAlternativeNames;
 

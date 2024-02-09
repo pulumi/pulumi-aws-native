@@ -540,204 +540,222 @@ func (o DeploymentTagsArrayOutput) Index(i pulumi.IntInput) DeploymentTagsOutput
 	}).(DeploymentTagsOutput)
 }
 
-type EnvironmentMonitors struct {
-	AlarmArn     *string `pulumi:"alarmArn"`
+// Amazon CloudWatch alarm to monitor during the deployment process.
+type EnvironmentMonitor struct {
+	// Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+	AlarmArn string `pulumi:"alarmArn"`
+	// ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
 	AlarmRoleArn *string `pulumi:"alarmRoleArn"`
 }
 
-// EnvironmentMonitorsInput is an input type that accepts EnvironmentMonitorsArgs and EnvironmentMonitorsOutput values.
-// You can construct a concrete instance of `EnvironmentMonitorsInput` via:
+// EnvironmentMonitorInput is an input type that accepts EnvironmentMonitorArgs and EnvironmentMonitorOutput values.
+// You can construct a concrete instance of `EnvironmentMonitorInput` via:
 //
-//	EnvironmentMonitorsArgs{...}
-type EnvironmentMonitorsInput interface {
+//	EnvironmentMonitorArgs{...}
+type EnvironmentMonitorInput interface {
 	pulumi.Input
 
-	ToEnvironmentMonitorsOutput() EnvironmentMonitorsOutput
-	ToEnvironmentMonitorsOutputWithContext(context.Context) EnvironmentMonitorsOutput
+	ToEnvironmentMonitorOutput() EnvironmentMonitorOutput
+	ToEnvironmentMonitorOutputWithContext(context.Context) EnvironmentMonitorOutput
 }
 
-type EnvironmentMonitorsArgs struct {
-	AlarmArn     pulumi.StringPtrInput `pulumi:"alarmArn"`
+// Amazon CloudWatch alarm to monitor during the deployment process.
+type EnvironmentMonitorArgs struct {
+	// Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+	AlarmArn pulumi.StringInput `pulumi:"alarmArn"`
+	// ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
 	AlarmRoleArn pulumi.StringPtrInput `pulumi:"alarmRoleArn"`
 }
 
-func (EnvironmentMonitorsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentMonitors)(nil)).Elem()
+func (EnvironmentMonitorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentMonitor)(nil)).Elem()
 }
 
-func (i EnvironmentMonitorsArgs) ToEnvironmentMonitorsOutput() EnvironmentMonitorsOutput {
-	return i.ToEnvironmentMonitorsOutputWithContext(context.Background())
+func (i EnvironmentMonitorArgs) ToEnvironmentMonitorOutput() EnvironmentMonitorOutput {
+	return i.ToEnvironmentMonitorOutputWithContext(context.Background())
 }
 
-func (i EnvironmentMonitorsArgs) ToEnvironmentMonitorsOutputWithContext(ctx context.Context) EnvironmentMonitorsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMonitorsOutput)
+func (i EnvironmentMonitorArgs) ToEnvironmentMonitorOutputWithContext(ctx context.Context) EnvironmentMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMonitorOutput)
 }
 
-// EnvironmentMonitorsArrayInput is an input type that accepts EnvironmentMonitorsArray and EnvironmentMonitorsArrayOutput values.
-// You can construct a concrete instance of `EnvironmentMonitorsArrayInput` via:
+// EnvironmentMonitorArrayInput is an input type that accepts EnvironmentMonitorArray and EnvironmentMonitorArrayOutput values.
+// You can construct a concrete instance of `EnvironmentMonitorArrayInput` via:
 //
-//	EnvironmentMonitorsArray{ EnvironmentMonitorsArgs{...} }
-type EnvironmentMonitorsArrayInput interface {
+//	EnvironmentMonitorArray{ EnvironmentMonitorArgs{...} }
+type EnvironmentMonitorArrayInput interface {
 	pulumi.Input
 
-	ToEnvironmentMonitorsArrayOutput() EnvironmentMonitorsArrayOutput
-	ToEnvironmentMonitorsArrayOutputWithContext(context.Context) EnvironmentMonitorsArrayOutput
+	ToEnvironmentMonitorArrayOutput() EnvironmentMonitorArrayOutput
+	ToEnvironmentMonitorArrayOutputWithContext(context.Context) EnvironmentMonitorArrayOutput
 }
 
-type EnvironmentMonitorsArray []EnvironmentMonitorsInput
+type EnvironmentMonitorArray []EnvironmentMonitorInput
 
-func (EnvironmentMonitorsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentMonitors)(nil)).Elem()
+func (EnvironmentMonitorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentMonitor)(nil)).Elem()
 }
 
-func (i EnvironmentMonitorsArray) ToEnvironmentMonitorsArrayOutput() EnvironmentMonitorsArrayOutput {
-	return i.ToEnvironmentMonitorsArrayOutputWithContext(context.Background())
+func (i EnvironmentMonitorArray) ToEnvironmentMonitorArrayOutput() EnvironmentMonitorArrayOutput {
+	return i.ToEnvironmentMonitorArrayOutputWithContext(context.Background())
 }
 
-func (i EnvironmentMonitorsArray) ToEnvironmentMonitorsArrayOutputWithContext(ctx context.Context) EnvironmentMonitorsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMonitorsArrayOutput)
+func (i EnvironmentMonitorArray) ToEnvironmentMonitorArrayOutputWithContext(ctx context.Context) EnvironmentMonitorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMonitorArrayOutput)
 }
 
-type EnvironmentMonitorsOutput struct{ *pulumi.OutputState }
+// Amazon CloudWatch alarm to monitor during the deployment process.
+type EnvironmentMonitorOutput struct{ *pulumi.OutputState }
 
-func (EnvironmentMonitorsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentMonitors)(nil)).Elem()
+func (EnvironmentMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentMonitor)(nil)).Elem()
 }
 
-func (o EnvironmentMonitorsOutput) ToEnvironmentMonitorsOutput() EnvironmentMonitorsOutput {
+func (o EnvironmentMonitorOutput) ToEnvironmentMonitorOutput() EnvironmentMonitorOutput {
 	return o
 }
 
-func (o EnvironmentMonitorsOutput) ToEnvironmentMonitorsOutputWithContext(ctx context.Context) EnvironmentMonitorsOutput {
+func (o EnvironmentMonitorOutput) ToEnvironmentMonitorOutputWithContext(ctx context.Context) EnvironmentMonitorOutput {
 	return o
 }
 
-func (o EnvironmentMonitorsOutput) AlarmArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentMonitors) *string { return v.AlarmArn }).(pulumi.StringPtrOutput)
+// Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+func (o EnvironmentMonitorOutput) AlarmArn() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentMonitor) string { return v.AlarmArn }).(pulumi.StringOutput)
 }
 
-func (o EnvironmentMonitorsOutput) AlarmRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentMonitors) *string { return v.AlarmRoleArn }).(pulumi.StringPtrOutput)
+// ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
+func (o EnvironmentMonitorOutput) AlarmRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentMonitor) *string { return v.AlarmRoleArn }).(pulumi.StringPtrOutput)
 }
 
-type EnvironmentMonitorsArrayOutput struct{ *pulumi.OutputState }
+type EnvironmentMonitorArrayOutput struct{ *pulumi.OutputState }
 
-func (EnvironmentMonitorsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentMonitors)(nil)).Elem()
+func (EnvironmentMonitorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentMonitor)(nil)).Elem()
 }
 
-func (o EnvironmentMonitorsArrayOutput) ToEnvironmentMonitorsArrayOutput() EnvironmentMonitorsArrayOutput {
+func (o EnvironmentMonitorArrayOutput) ToEnvironmentMonitorArrayOutput() EnvironmentMonitorArrayOutput {
 	return o
 }
 
-func (o EnvironmentMonitorsArrayOutput) ToEnvironmentMonitorsArrayOutputWithContext(ctx context.Context) EnvironmentMonitorsArrayOutput {
+func (o EnvironmentMonitorArrayOutput) ToEnvironmentMonitorArrayOutputWithContext(ctx context.Context) EnvironmentMonitorArrayOutput {
 	return o
 }
 
-func (o EnvironmentMonitorsArrayOutput) Index(i pulumi.IntInput) EnvironmentMonitorsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentMonitors {
-		return vs[0].([]EnvironmentMonitors)[vs[1].(int)]
-	}).(EnvironmentMonitorsOutput)
+func (o EnvironmentMonitorArrayOutput) Index(i pulumi.IntInput) EnvironmentMonitorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentMonitor {
+		return vs[0].([]EnvironmentMonitor)[vs[1].(int)]
+	}).(EnvironmentMonitorOutput)
 }
 
-type EnvironmentTags struct {
-	Key   *string `pulumi:"key"`
-	Value *string `pulumi:"value"`
+// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+type EnvironmentTag struct {
+	// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+	Key string `pulumi:"key"`
+	// The tag value can be up to 256 characters.
+	Value string `pulumi:"value"`
 }
 
-// EnvironmentTagsInput is an input type that accepts EnvironmentTagsArgs and EnvironmentTagsOutput values.
-// You can construct a concrete instance of `EnvironmentTagsInput` via:
+// EnvironmentTagInput is an input type that accepts EnvironmentTagArgs and EnvironmentTagOutput values.
+// You can construct a concrete instance of `EnvironmentTagInput` via:
 //
-//	EnvironmentTagsArgs{...}
-type EnvironmentTagsInput interface {
+//	EnvironmentTagArgs{...}
+type EnvironmentTagInput interface {
 	pulumi.Input
 
-	ToEnvironmentTagsOutput() EnvironmentTagsOutput
-	ToEnvironmentTagsOutputWithContext(context.Context) EnvironmentTagsOutput
+	ToEnvironmentTagOutput() EnvironmentTagOutput
+	ToEnvironmentTagOutputWithContext(context.Context) EnvironmentTagOutput
 }
 
-type EnvironmentTagsArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+type EnvironmentTagArgs struct {
+	// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value can be up to 256 characters.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (EnvironmentTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentTags)(nil)).Elem()
+func (EnvironmentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentTag)(nil)).Elem()
 }
 
-func (i EnvironmentTagsArgs) ToEnvironmentTagsOutput() EnvironmentTagsOutput {
-	return i.ToEnvironmentTagsOutputWithContext(context.Background())
+func (i EnvironmentTagArgs) ToEnvironmentTagOutput() EnvironmentTagOutput {
+	return i.ToEnvironmentTagOutputWithContext(context.Background())
 }
 
-func (i EnvironmentTagsArgs) ToEnvironmentTagsOutputWithContext(ctx context.Context) EnvironmentTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagsOutput)
+func (i EnvironmentTagArgs) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagOutput)
 }
 
-// EnvironmentTagsArrayInput is an input type that accepts EnvironmentTagsArray and EnvironmentTagsArrayOutput values.
-// You can construct a concrete instance of `EnvironmentTagsArrayInput` via:
+// EnvironmentTagArrayInput is an input type that accepts EnvironmentTagArray and EnvironmentTagArrayOutput values.
+// You can construct a concrete instance of `EnvironmentTagArrayInput` via:
 //
-//	EnvironmentTagsArray{ EnvironmentTagsArgs{...} }
-type EnvironmentTagsArrayInput interface {
+//	EnvironmentTagArray{ EnvironmentTagArgs{...} }
+type EnvironmentTagArrayInput interface {
 	pulumi.Input
 
-	ToEnvironmentTagsArrayOutput() EnvironmentTagsArrayOutput
-	ToEnvironmentTagsArrayOutputWithContext(context.Context) EnvironmentTagsArrayOutput
+	ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput
+	ToEnvironmentTagArrayOutputWithContext(context.Context) EnvironmentTagArrayOutput
 }
 
-type EnvironmentTagsArray []EnvironmentTagsInput
+type EnvironmentTagArray []EnvironmentTagInput
 
-func (EnvironmentTagsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentTags)(nil)).Elem()
+func (EnvironmentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentTag)(nil)).Elem()
 }
 
-func (i EnvironmentTagsArray) ToEnvironmentTagsArrayOutput() EnvironmentTagsArrayOutput {
-	return i.ToEnvironmentTagsArrayOutputWithContext(context.Background())
+func (i EnvironmentTagArray) ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput {
+	return i.ToEnvironmentTagArrayOutputWithContext(context.Background())
 }
 
-func (i EnvironmentTagsArray) ToEnvironmentTagsArrayOutputWithContext(ctx context.Context) EnvironmentTagsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagsArrayOutput)
+func (i EnvironmentTagArray) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagArrayOutput)
 }
 
-type EnvironmentTagsOutput struct{ *pulumi.OutputState }
+// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+type EnvironmentTagOutput struct{ *pulumi.OutputState }
 
-func (EnvironmentTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentTags)(nil)).Elem()
+func (EnvironmentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentTag)(nil)).Elem()
 }
 
-func (o EnvironmentTagsOutput) ToEnvironmentTagsOutput() EnvironmentTagsOutput {
+func (o EnvironmentTagOutput) ToEnvironmentTagOutput() EnvironmentTagOutput {
 	return o
 }
 
-func (o EnvironmentTagsOutput) ToEnvironmentTagsOutputWithContext(ctx context.Context) EnvironmentTagsOutput {
+func (o EnvironmentTagOutput) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
 	return o
 }
 
-func (o EnvironmentTagsOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+func (o EnvironmentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o EnvironmentTagsOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentTags) *string { return v.Value }).(pulumi.StringPtrOutput)
+// The tag value can be up to 256 characters.
+func (o EnvironmentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type EnvironmentTagsArrayOutput struct{ *pulumi.OutputState }
+type EnvironmentTagArrayOutput struct{ *pulumi.OutputState }
 
-func (EnvironmentTagsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentTags)(nil)).Elem()
+func (EnvironmentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentTag)(nil)).Elem()
 }
 
-func (o EnvironmentTagsArrayOutput) ToEnvironmentTagsArrayOutput() EnvironmentTagsArrayOutput {
+func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput {
 	return o
 }
 
-func (o EnvironmentTagsArrayOutput) ToEnvironmentTagsArrayOutputWithContext(ctx context.Context) EnvironmentTagsArrayOutput {
+func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
 	return o
 }
 
-func (o EnvironmentTagsArrayOutput) Index(i pulumi.IntInput) EnvironmentTagsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentTags {
-		return vs[0].([]EnvironmentTags)[vs[1].(int)]
-	}).(EnvironmentTagsOutput)
+func (o EnvironmentTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentTag {
+		return vs[0].([]EnvironmentTag)[vs[1].(int)]
+	}).(EnvironmentTagOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -969,10 +987,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyTagsArrayInput)(nil)).Elem(), DeploymentStrategyTagsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentTagsInput)(nil)).Elem(), DeploymentTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentTagsArrayInput)(nil)).Elem(), DeploymentTagsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorsInput)(nil)).Elem(), EnvironmentMonitorsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorsArrayInput)(nil)).Elem(), EnvironmentMonitorsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagsInput)(nil)).Elem(), EnvironmentTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagsArrayInput)(nil)).Elem(), EnvironmentTagsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorInput)(nil)).Elem(), EnvironmentMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorArrayInput)(nil)).Elem(), EnvironmentMonitorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagInput)(nil)).Elem(), EnvironmentTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagArrayInput)(nil)).Elem(), EnvironmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionAssociationTagInput)(nil)).Elem(), ExtensionAssociationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionAssociationTagArrayInput)(nil)).Elem(), ExtensionAssociationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionTagInput)(nil)).Elem(), ExtensionTagArgs{})
@@ -987,10 +1005,10 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentStrategyTagsArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentTagsOutput{})
 	pulumi.RegisterOutputType(DeploymentTagsArrayOutput{})
-	pulumi.RegisterOutputType(EnvironmentMonitorsOutput{})
-	pulumi.RegisterOutputType(EnvironmentMonitorsArrayOutput{})
-	pulumi.RegisterOutputType(EnvironmentTagsOutput{})
-	pulumi.RegisterOutputType(EnvironmentTagsArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentMonitorOutput{})
+	pulumi.RegisterOutputType(EnvironmentMonitorArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentTagOutput{})
+	pulumi.RegisterOutputType(EnvironmentTagArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionAssociationTagOutput{})
 	pulumi.RegisterOutputType(ExtensionAssociationTagArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionTagOutput{})

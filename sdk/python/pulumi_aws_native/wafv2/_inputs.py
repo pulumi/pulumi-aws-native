@@ -15,8 +15,6 @@ __all__ = [
     'LoggingConfigurationConditionActionConditionPropertiesArgs',
     'LoggingConfigurationConditionLabelNameConditionPropertiesArgs',
     'LoggingConfigurationConditionArgs',
-    'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs',
-    'LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs',
     'LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs',
     'LoggingConfigurationFieldToMatchArgs',
     'LoggingConfigurationFilterArgs',
@@ -268,100 +266,6 @@ class LoggingConfigurationConditionArgs:
 
 
 @pulumi.input_type
-class LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs:
-    def __init__(__self__, *,
-                 all: Optional[Any] = None,
-                 included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
-        :param Any all: Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_paths: Match only the specified include paths. See also MatchScope in JsonBody.
-        """
-        if all is not None:
-            pulumi.set(__self__, "all", all)
-        if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
-
-    @property
-    @pulumi.getter
-    def all(self) -> Optional[Any]:
-        """
-        Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
-        """
-        return pulumi.get(self, "all")
-
-    @all.setter
-    def all(self, value: Optional[Any]):
-        pulumi.set(self, "all", value)
-
-    @property
-    @pulumi.getter(name="includedPaths")
-    def included_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Match only the specified include paths. See also MatchScope in JsonBody.
-        """
-        return pulumi.get(self, "included_paths")
-
-    @included_paths.setter
-    def included_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "included_paths", value)
-
-
-@pulumi.input_type
-class LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs:
-    def __init__(__self__, *,
-                 match_pattern: pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs'],
-                 match_scope: pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope'],
-                 invalid_fallback_behavior: Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior']] = None):
-        """
-        Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
-        :param pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs'] match_pattern: The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
-        :param pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope'] match_scope: The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
-        :param pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior'] invalid_fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body.
-        """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
-
-    @property
-    @pulumi.getter(name="matchPattern")
-    def match_pattern(self) -> pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs']:
-        """
-        The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
-        """
-        return pulumi.get(self, "match_pattern")
-
-    @match_pattern.setter
-    def match_pattern(self, value: pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs']):
-        pulumi.set(self, "match_pattern", value)
-
-    @property
-    @pulumi.getter(name="matchScope")
-    def match_scope(self) -> pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope']:
-        """
-        The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
-        """
-        return pulumi.get(self, "match_scope")
-
-    @match_scope.setter
-    def match_scope(self, value: pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope']):
-        pulumi.set(self, "match_scope", value)
-
-    @property
-    @pulumi.getter(name="invalidFallbackBehavior")
-    def invalid_fallback_behavior(self) -> Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior']]:
-        """
-        What AWS WAF should do if it fails to completely parse the JSON body.
-        """
-        return pulumi.get(self, "invalid_fallback_behavior")
-
-    @invalid_fallback_behavior.setter
-    def invalid_fallback_behavior(self, value: Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior']]):
-        pulumi.set(self, "invalid_fallback_behavior", value)
-
-
-@pulumi.input_type
 class LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
@@ -387,21 +291,17 @@ class LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs:
 @pulumi.input_type
 class LoggingConfigurationFieldToMatchArgs:
     def __init__(__self__, *,
-                 json_body: Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs']] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
                  single_header: Optional[pulumi.Input['LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs']] = None,
                  uri_path: Optional[Any] = None):
         """
         A key-value pair to associate with a resource.
-        :param pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs'] json_body: Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
         :param Any method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
         :param Any query_string: Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
         :param pulumi.Input['LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs'] single_header: Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
         :param Any uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
         """
-        if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
         if method is not None:
             pulumi.set(__self__, "method", method)
         if query_string is not None:
@@ -410,18 +310,6 @@ class LoggingConfigurationFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
-
-    @property
-    @pulumi.getter(name="jsonBody")
-    def json_body(self) -> Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs']]:
-        """
-        Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
-        """
-        return pulumi.get(self, "json_body")
-
-    @json_body.setter
-    def json_body(self, value: Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs']]):
-        pulumi.set(self, "json_body", value)
 
     @property
     @pulumi.getter

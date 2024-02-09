@@ -11,13 +11,16 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
     /// <summary>
-    /// Structure that specifies fields to be overridden in a certificate at the time of issuance. These requires an API Passthrough template be used or they will be ignored.
+    /// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
     /// </summary>
     public sealed class CertificateApiPassthroughArgs : global::Pulumi.ResourceArgs
     {
         [Input("extensions")]
         public Input<Inputs.CertificateExtensionsArgs>? Extensions { get; set; }
 
+        /// <summary>
+        /// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+        /// </summary>
         [Input("subject")]
         public Input<Inputs.CertificateSubjectArgs>? Subject { get; set; }
 

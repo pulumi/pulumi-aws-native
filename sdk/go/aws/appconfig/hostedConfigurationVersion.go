@@ -13,18 +13,25 @@ import (
 )
 
 // Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
-//
-// Deprecated: HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type HostedConfigurationVersion struct {
 	pulumi.CustomResourceState
 
-	ApplicationId          pulumi.StringOutput     `pulumi:"applicationId"`
-	ConfigurationProfileId pulumi.StringOutput     `pulumi:"configurationProfileId"`
-	Content                pulumi.StringOutput     `pulumi:"content"`
-	ContentType            pulumi.StringOutput     `pulumi:"contentType"`
-	Description            pulumi.StringPtrOutput  `pulumi:"description"`
-	LatestVersionNumber    pulumi.Float64PtrOutput `pulumi:"latestVersionNumber"`
-	VersionLabel           pulumi.StringPtrOutput  `pulumi:"versionLabel"`
+	// The application ID.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// The configuration profile ID.
+	ConfigurationProfileId pulumi.StringOutput `pulumi:"configurationProfileId"`
+	// The content of the configuration or the configuration data.
+	Content pulumi.StringOutput `pulumi:"content"`
+	// A standard MIME type describing the format of the configuration content.
+	ContentType pulumi.StringOutput `pulumi:"contentType"`
+	// A description of the hosted configuration version.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
+	LatestVersionNumber pulumi.IntPtrOutput `pulumi:"latestVersionNumber"`
+	// A user-defined label for an AWS AppConfig hosted configuration version.
+	VersionLabel pulumi.StringPtrOutput `pulumi:"versionLabel"`
+	// Current version number of hosted configuration version.
+	VersionNumber pulumi.StringOutput `pulumi:"versionNumber"`
 }
 
 // NewHostedConfigurationVersion registers a new resource with the given unique name, arguments, and options.
@@ -89,24 +96,38 @@ func (HostedConfigurationVersionState) ElementType() reflect.Type {
 }
 
 type hostedConfigurationVersionArgs struct {
-	ApplicationId          string   `pulumi:"applicationId"`
-	ConfigurationProfileId string   `pulumi:"configurationProfileId"`
-	Content                string   `pulumi:"content"`
-	ContentType            string   `pulumi:"contentType"`
-	Description            *string  `pulumi:"description"`
-	LatestVersionNumber    *float64 `pulumi:"latestVersionNumber"`
-	VersionLabel           *string  `pulumi:"versionLabel"`
+	// The application ID.
+	ApplicationId string `pulumi:"applicationId"`
+	// The configuration profile ID.
+	ConfigurationProfileId string `pulumi:"configurationProfileId"`
+	// The content of the configuration or the configuration data.
+	Content string `pulumi:"content"`
+	// A standard MIME type describing the format of the configuration content.
+	ContentType string `pulumi:"contentType"`
+	// A description of the hosted configuration version.
+	Description *string `pulumi:"description"`
+	// An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
+	LatestVersionNumber *int `pulumi:"latestVersionNumber"`
+	// A user-defined label for an AWS AppConfig hosted configuration version.
+	VersionLabel *string `pulumi:"versionLabel"`
 }
 
 // The set of arguments for constructing a HostedConfigurationVersion resource.
 type HostedConfigurationVersionArgs struct {
-	ApplicationId          pulumi.StringInput
+	// The application ID.
+	ApplicationId pulumi.StringInput
+	// The configuration profile ID.
 	ConfigurationProfileId pulumi.StringInput
-	Content                pulumi.StringInput
-	ContentType            pulumi.StringInput
-	Description            pulumi.StringPtrInput
-	LatestVersionNumber    pulumi.Float64PtrInput
-	VersionLabel           pulumi.StringPtrInput
+	// The content of the configuration or the configuration data.
+	Content pulumi.StringInput
+	// A standard MIME type describing the format of the configuration content.
+	ContentType pulumi.StringInput
+	// A description of the hosted configuration version.
+	Description pulumi.StringPtrInput
+	// An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
+	LatestVersionNumber pulumi.IntPtrInput
+	// A user-defined label for an AWS AppConfig hosted configuration version.
+	VersionLabel pulumi.StringPtrInput
 }
 
 func (HostedConfigurationVersionArgs) ElementType() reflect.Type {
@@ -146,32 +167,44 @@ func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionOutputWith
 	return o
 }
 
+// The application ID.
 func (o HostedConfigurationVersionOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// The configuration profile ID.
 func (o HostedConfigurationVersionOutput) ConfigurationProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.ConfigurationProfileId }).(pulumi.StringOutput)
 }
 
+// The content of the configuration or the configuration data.
 func (o HostedConfigurationVersionOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
+// A standard MIME type describing the format of the configuration content.
 func (o HostedConfigurationVersionOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
+// A description of the hosted configuration version.
 func (o HostedConfigurationVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o HostedConfigurationVersionOutput) LatestVersionNumber() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.Float64PtrOutput { return v.LatestVersionNumber }).(pulumi.Float64PtrOutput)
+// An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
+func (o HostedConfigurationVersionOutput) LatestVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.IntPtrOutput { return v.LatestVersionNumber }).(pulumi.IntPtrOutput)
 }
 
+// A user-defined label for an AWS AppConfig hosted configuration version.
 func (o HostedConfigurationVersionOutput) VersionLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringPtrOutput { return v.VersionLabel }).(pulumi.StringPtrOutput)
+}
+
+// Current version number of hosted configuration version.
+func (o HostedConfigurationVersionOutput) VersionNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.VersionNumber }).(pulumi.StringOutput)
 }
 
 func init() {

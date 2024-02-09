@@ -22,6 +22,7 @@ class DomainConfigurationArgs:
                  domain_configuration_status: Optional[pulumi.Input['DomainConfigurationStatus']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 server_certificate_config: Optional[pulumi.Input['DomainConfigurationServerCertificateConfigArgs']] = None,
                  service_type: Optional[pulumi.Input['DomainConfigurationServiceType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainConfigurationTagArgs']]]] = None,
                  tls_config: Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']] = None,
@@ -39,6 +40,8 @@ class DomainConfigurationArgs:
             pulumi.set(__self__, "domain_name", domain_name)
         if server_certificate_arns is not None:
             pulumi.set(__self__, "server_certificate_arns", server_certificate_arns)
+        if server_certificate_config is not None:
+            pulumi.set(__self__, "server_certificate_config", server_certificate_config)
         if service_type is not None:
             pulumi.set(__self__, "service_type", service_type)
         if tags is not None:
@@ -94,6 +97,15 @@ class DomainConfigurationArgs:
         pulumi.set(self, "server_certificate_arns", value)
 
     @property
+    @pulumi.getter(name="serverCertificateConfig")
+    def server_certificate_config(self) -> Optional[pulumi.Input['DomainConfigurationServerCertificateConfigArgs']]:
+        return pulumi.get(self, "server_certificate_config")
+
+    @server_certificate_config.setter
+    def server_certificate_config(self, value: Optional[pulumi.Input['DomainConfigurationServerCertificateConfigArgs']]):
+        pulumi.set(self, "server_certificate_config", value)
+
+    @property
     @pulumi.getter(name="serviceType")
     def service_type(self) -> Optional[pulumi.Input['DomainConfigurationServiceType']]:
         return pulumi.get(self, "service_type")
@@ -140,6 +152,7 @@ class DomainConfiguration(pulumi.CustomResource):
                  domain_configuration_status: Optional[pulumi.Input['DomainConfigurationStatus']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 server_certificate_config: Optional[pulumi.Input[pulumi.InputType['DomainConfigurationServerCertificateConfigArgs']]] = None,
                  service_type: Optional[pulumi.Input['DomainConfigurationServiceType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainConfigurationTagArgs']]]]] = None,
                  tls_config: Optional[pulumi.Input[pulumi.InputType['DomainConfigurationTlsConfigArgs']]] = None,
@@ -180,6 +193,7 @@ class DomainConfiguration(pulumi.CustomResource):
                  domain_configuration_status: Optional[pulumi.Input['DomainConfigurationStatus']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 server_certificate_config: Optional[pulumi.Input[pulumi.InputType['DomainConfigurationServerCertificateConfigArgs']]] = None,
                  service_type: Optional[pulumi.Input['DomainConfigurationServiceType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainConfigurationTagArgs']]]]] = None,
                  tls_config: Optional[pulumi.Input[pulumi.InputType['DomainConfigurationTlsConfigArgs']]] = None,
@@ -198,6 +212,7 @@ class DomainConfiguration(pulumi.CustomResource):
             __props__.__dict__["domain_configuration_status"] = domain_configuration_status
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["server_certificate_arns"] = server_certificate_arns
+            __props__.__dict__["server_certificate_config"] = server_certificate_config
             __props__.__dict__["service_type"] = service_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tls_config"] = tls_config
@@ -236,6 +251,7 @@ class DomainConfiguration(pulumi.CustomResource):
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["domain_type"] = None
         __props__.__dict__["server_certificate_arns"] = None
+        __props__.__dict__["server_certificate_config"] = None
         __props__.__dict__["server_certificates"] = None
         __props__.__dict__["service_type"] = None
         __props__.__dict__["tags"] = None
@@ -277,6 +293,11 @@ class DomainConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="serverCertificateArns")
     def server_certificate_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "server_certificate_arns")
+
+    @property
+    @pulumi.getter(name="serverCertificateConfig")
+    def server_certificate_config(self) -> pulumi.Output[Optional['outputs.DomainConfigurationServerCertificateConfig']]:
+        return pulumi.get(self, "server_certificate_config")
 
     @property
     @pulumi.getter(name="serverCertificates")

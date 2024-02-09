@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainConfigurationResult:
-    def __init__(__self__, arn=None, authorizer_config=None, domain_configuration_status=None, domain_type=None, server_certificates=None, tags=None, tls_config=None):
+    def __init__(__self__, arn=None, authorizer_config=None, domain_configuration_status=None, domain_type=None, server_certificate_config=None, server_certificates=None, tags=None, tls_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -33,6 +33,9 @@ class GetDomainConfigurationResult:
         if domain_type and not isinstance(domain_type, str):
             raise TypeError("Expected argument 'domain_type' to be a str")
         pulumi.set(__self__, "domain_type", domain_type)
+        if server_certificate_config and not isinstance(server_certificate_config, dict):
+            raise TypeError("Expected argument 'server_certificate_config' to be a dict")
+        pulumi.set(__self__, "server_certificate_config", server_certificate_config)
         if server_certificates and not isinstance(server_certificates, list):
             raise TypeError("Expected argument 'server_certificates' to be a list")
         pulumi.set(__self__, "server_certificates", server_certificates)
@@ -64,6 +67,11 @@ class GetDomainConfigurationResult:
         return pulumi.get(self, "domain_type")
 
     @property
+    @pulumi.getter(name="serverCertificateConfig")
+    def server_certificate_config(self) -> Optional['outputs.DomainConfigurationServerCertificateConfig']:
+        return pulumi.get(self, "server_certificate_config")
+
+    @property
     @pulumi.getter(name="serverCertificates")
     def server_certificates(self) -> Optional[Sequence['outputs.DomainConfigurationServerCertificateSummary']]:
         return pulumi.get(self, "server_certificates")
@@ -89,6 +97,7 @@ class AwaitableGetDomainConfigurationResult(GetDomainConfigurationResult):
             authorizer_config=self.authorizer_config,
             domain_configuration_status=self.domain_configuration_status,
             domain_type=self.domain_type,
+            server_certificate_config=self.server_certificate_config,
             server_certificates=self.server_certificates,
             tags=self.tags,
             tls_config=self.tls_config)
@@ -109,6 +118,7 @@ def get_domain_configuration(domain_configuration_name: Optional[str] = None,
         authorizer_config=pulumi.get(__ret__, 'authorizer_config'),
         domain_configuration_status=pulumi.get(__ret__, 'domain_configuration_status'),
         domain_type=pulumi.get(__ret__, 'domain_type'),
+        server_certificate_config=pulumi.get(__ret__, 'server_certificate_config'),
         server_certificates=pulumi.get(__ret__, 'server_certificates'),
         tags=pulumi.get(__ret__, 'tags'),
         tls_config=pulumi.get(__ret__, 'tls_config'))

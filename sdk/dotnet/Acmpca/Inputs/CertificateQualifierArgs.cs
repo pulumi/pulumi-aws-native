@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
-    /// <summary>
-    /// Structure that contains a X.509 policy qualifier.
-    /// </summary>
     public sealed class CertificateQualifierArgs : global::Pulumi.ResourceArgs
     {
         [Input("cpsUri", required: true)]

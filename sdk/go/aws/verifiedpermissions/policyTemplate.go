@@ -17,7 +17,7 @@ type PolicyTemplate struct {
 	pulumi.CustomResourceState
 
 	Description      pulumi.StringPtrOutput `pulumi:"description"`
-	PolicyStoreId    pulumi.StringPtrOutput `pulumi:"policyStoreId"`
+	PolicyStoreId    pulumi.StringOutput    `pulumi:"policyStoreId"`
 	PolicyTemplateId pulumi.StringOutput    `pulumi:"policyTemplateId"`
 	Statement        pulumi.StringOutput    `pulumi:"statement"`
 }
@@ -29,6 +29,9 @@ func NewPolicyTemplate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.PolicyStoreId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyStoreId'")
+	}
 	if args.Statement == nil {
 		return nil, errors.New("invalid value for required argument 'Statement'")
 	}
@@ -70,14 +73,14 @@ func (PolicyTemplateState) ElementType() reflect.Type {
 
 type policyTemplateArgs struct {
 	Description   *string `pulumi:"description"`
-	PolicyStoreId *string `pulumi:"policyStoreId"`
+	PolicyStoreId string  `pulumi:"policyStoreId"`
 	Statement     string  `pulumi:"statement"`
 }
 
 // The set of arguments for constructing a PolicyTemplate resource.
 type PolicyTemplateArgs struct {
 	Description   pulumi.StringPtrInput
-	PolicyStoreId pulumi.StringPtrInput
+	PolicyStoreId pulumi.StringInput
 	Statement     pulumi.StringInput
 }
 
@@ -122,8 +125,8 @@ func (o PolicyTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o PolicyTemplateOutput) PolicyStoreId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringPtrOutput { return v.PolicyStoreId }).(pulumi.StringPtrOutput)
+func (o PolicyTemplateOutput) PolicyStoreId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
 
 func (o PolicyTemplateOutput) PolicyTemplateId() pulumi.StringOutput {

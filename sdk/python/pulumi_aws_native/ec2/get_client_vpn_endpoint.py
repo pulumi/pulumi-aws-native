@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetClientVpnEndpointResult:
-    def __init__(__self__, client_connect_options=None, client_login_banner_options=None, connection_log_options=None, description=None, dns_servers=None, id=None, security_group_ids=None, self_service_portal=None, server_certificate_arn=None, session_timeout_hours=None, split_tunnel=None, vpc_id=None, vpn_port=None):
+    def __init__(__self__, client_connect_options=None, client_login_banner_options=None, client_route_monitoring_options=None, connection_log_options=None, description=None, dns_servers=None, id=None, security_group_ids=None, self_service_portal=None, server_certificate_arn=None, session_timeout_hours=None, split_tunnel=None, vpc_id=None, vpn_port=None):
         if client_connect_options and not isinstance(client_connect_options, dict):
             raise TypeError("Expected argument 'client_connect_options' to be a dict")
         pulumi.set(__self__, "client_connect_options", client_connect_options)
         if client_login_banner_options and not isinstance(client_login_banner_options, dict):
             raise TypeError("Expected argument 'client_login_banner_options' to be a dict")
         pulumi.set(__self__, "client_login_banner_options", client_login_banner_options)
+        if client_route_monitoring_options and not isinstance(client_route_monitoring_options, dict):
+            raise TypeError("Expected argument 'client_route_monitoring_options' to be a dict")
+        pulumi.set(__self__, "client_route_monitoring_options", client_route_monitoring_options)
         if connection_log_options and not isinstance(connection_log_options, dict):
             raise TypeError("Expected argument 'connection_log_options' to be a dict")
         pulumi.set(__self__, "connection_log_options", connection_log_options)
@@ -69,6 +72,11 @@ class GetClientVpnEndpointResult:
     @pulumi.getter(name="clientLoginBannerOptions")
     def client_login_banner_options(self) -> Optional['outputs.ClientVpnEndpointClientLoginBannerOptions']:
         return pulumi.get(self, "client_login_banner_options")
+
+    @property
+    @pulumi.getter(name="clientRouteMonitoringOptions")
+    def client_route_monitoring_options(self) -> Optional['outputs.ClientVpnEndpointClientRouteMonitoringOptions']:
+        return pulumi.get(self, "client_route_monitoring_options")
 
     @property
     @pulumi.getter(name="connectionLogOptions")
@@ -134,6 +142,7 @@ class AwaitableGetClientVpnEndpointResult(GetClientVpnEndpointResult):
         return GetClientVpnEndpointResult(
             client_connect_options=self.client_connect_options,
             client_login_banner_options=self.client_login_banner_options,
+            client_route_monitoring_options=self.client_route_monitoring_options,
             connection_log_options=self.connection_log_options,
             description=self.description,
             dns_servers=self.dns_servers,
@@ -160,6 +169,7 @@ def get_client_vpn_endpoint(id: Optional[str] = None,
     return AwaitableGetClientVpnEndpointResult(
         client_connect_options=pulumi.get(__ret__, 'client_connect_options'),
         client_login_banner_options=pulumi.get(__ret__, 'client_login_banner_options'),
+        client_route_monitoring_options=pulumi.get(__ret__, 'client_route_monitoring_options'),
         connection_log_options=pulumi.get(__ret__, 'connection_log_options'),
         description=pulumi.get(__ret__, 'description'),
         dns_servers=pulumi.get(__ret__, 'dns_servers'),

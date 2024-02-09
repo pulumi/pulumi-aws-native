@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A certificate issued via a private certificate authority
+// The “AWS::ACMPCA::Certificate“ resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCertificateResult
@@ -23,16 +23,13 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 }
 
 type LookupCertificateArgs struct {
-	// The ARN of the issued certificate.
 	Arn string `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+	// The Amazon Resource Name (ARN) for the private CA issues the certificate.
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 }
 
 type LookupCertificateResult struct {
-	// The ARN of the issued certificate.
-	Arn *string `pulumi:"arn"`
-	// The issued certificate in base 64 PEM-encoded format.
+	Arn         *string `pulumi:"arn"`
 	Certificate *string `pulumi:"certificate"`
 }
 
@@ -50,9 +47,8 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 }
 
 type LookupCertificateOutputArgs struct {
-	// The ARN of the issued certificate.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+	// The Amazon Resource Name (ARN) for the private CA issues the certificate.
 	CertificateAuthorityArn pulumi.StringInput `pulumi:"certificateAuthorityArn"`
 }
 
@@ -74,12 +70,10 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 	return o
 }
 
-// The ARN of the issued certificate.
 func (o LookupCertificateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The issued certificate in base 64 PEM-encoded format.
 func (o LookupCertificateResultOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }

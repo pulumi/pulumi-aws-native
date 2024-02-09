@@ -12,27 +12,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::SSM::Parameter
+// The “AWS::SSM::Parameter“ resource creates an SSM parameter in SYSlong Parameter Store.
+//
+//	 To create an SSM parameter, you must have the IAMlong (IAM) permissions ``ssm:PutParameter`` and ``ssm:AddTagsToResource``. On stack creation, CFNlong adds the following three tags to the parameter: ``aws:cloudformation:stack-name``, ``aws:cloudformation:logical-id``, and ``aws:cloudformation:stack-id``, in addition to any custom tags you specify.
+//	To add, update, or remove tags during stack update, you must have IAM permissions for both ``ssm:AddTagsToResource`` and ``ssm:RemoveTagsFromResource``. For more information, see [Managing Access Using Policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/security-iam.html#security_iam_access-manage) in the *User Guide*.
+//	 For information about valid values for parameters, see [Requirements and Constraints for Parameter Names](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramete
 type Parameter struct {
 	pulumi.CustomResourceState
 
-	// The regular expression used to validate the parameter value.
+	// A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
 	AllowedPattern pulumi.StringPtrOutput `pulumi:"allowedPattern"`
-	// The corresponding DataType of the parameter.
+	// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
 	DataType ParameterDataTypePtrOutput `pulumi:"dataType"`
-	// The information about the parameter.
+	// Information about the parameter.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the parameter.
+	//  The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter ARN, is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The policies attached to the parameter.
+	// Information about the policies assigned to a parameter.
+	//   [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
 	Policies pulumi.StringPtrOutput `pulumi:"policies"`
-	// A key-value pair to associate with a resource.
+	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
-	// The corresponding tier of the parameter.
+	// The parameter tier.
 	Tier ParameterTierPtrOutput `pulumi:"tier"`
-	// The type of the parameter.
+	// The type of parameter.
+	//   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
 	Type ParameterTypeOutput `pulumi:"type"`
-	// The value associated with the parameter.
+	// The parameter value.
+	//   If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
@@ -86,45 +94,53 @@ func (ParameterState) ElementType() reflect.Type {
 }
 
 type parameterArgs struct {
-	// The regular expression used to validate the parameter value.
+	// A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
 	AllowedPattern *string `pulumi:"allowedPattern"`
-	// The corresponding DataType of the parameter.
+	// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
 	DataType *ParameterDataType `pulumi:"dataType"`
-	// The information about the parameter.
+	// Information about the parameter.
 	Description *string `pulumi:"description"`
 	// The name of the parameter.
+	//  The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter ARN, is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
 	Name *string `pulumi:"name"`
-	// The policies attached to the parameter.
+	// Information about the policies assigned to a parameter.
+	//   [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
 	Policies *string `pulumi:"policies"`
-	// A key-value pair to associate with a resource.
+	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
 	Tags interface{} `pulumi:"tags"`
-	// The corresponding tier of the parameter.
+	// The parameter tier.
 	Tier *ParameterTier `pulumi:"tier"`
-	// The type of the parameter.
+	// The type of parameter.
+	//   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
 	Type ParameterType `pulumi:"type"`
-	// The value associated with the parameter.
+	// The parameter value.
+	//   If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
 	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Parameter resource.
 type ParameterArgs struct {
-	// The regular expression used to validate the parameter value.
+	// A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
 	AllowedPattern pulumi.StringPtrInput
-	// The corresponding DataType of the parameter.
+	// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
 	DataType ParameterDataTypePtrInput
-	// The information about the parameter.
+	// Information about the parameter.
 	Description pulumi.StringPtrInput
 	// The name of the parameter.
+	//  The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter ARN, is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
 	Name pulumi.StringPtrInput
-	// The policies attached to the parameter.
+	// Information about the policies assigned to a parameter.
+	//   [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
 	Policies pulumi.StringPtrInput
-	// A key-value pair to associate with a resource.
+	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
 	Tags pulumi.Input
-	// The corresponding tier of the parameter.
+	// The parameter tier.
 	Tier ParameterTierPtrInput
-	// The type of the parameter.
+	// The type of parameter.
+	//   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
 	Type ParameterTypeInput
-	// The value associated with the parameter.
+	// The parameter value.
+	//   If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
 	Value pulumi.StringInput
 }
 
@@ -165,47 +181,55 @@ func (o ParameterOutput) ToParameterOutputWithContext(ctx context.Context) Param
 	return o
 }
 
-// The regular expression used to validate the parameter value.
+// A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: “AllowedPattern=^\d+$“
 func (o ParameterOutput) AllowedPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.AllowedPattern }).(pulumi.StringPtrOutput)
 }
 
-// The corresponding DataType of the parameter.
+// The data type of the parameter, such as “text“ or “aws:ec2:image“. The default is “text“.
 func (o ParameterOutput) DataType() ParameterDataTypePtrOutput {
 	return o.ApplyT(func(v *Parameter) ParameterDataTypePtrOutput { return v.DataType }).(ParameterDataTypePtrOutput)
 }
 
-// The information about the parameter.
+// Information about the parameter.
 func (o ParameterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The name of the parameter.
+//
+//	The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter ARN, is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
 func (o ParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The policies attached to the parameter.
+// Information about the policies assigned to a parameter.
+//
+//	[Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
 func (o ParameterOutput) Policies() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Policies }).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair to associate with a resource.
+// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
 func (o ParameterOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }
 
-// The corresponding tier of the parameter.
+// The parameter tier.
 func (o ParameterOutput) Tier() ParameterTierPtrOutput {
 	return o.ApplyT(func(v *Parameter) ParameterTierPtrOutput { return v.Tier }).(ParameterTierPtrOutput)
 }
 
-// The type of the parameter.
+// The type of parameter.
+//
+//	Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
 func (o ParameterOutput) Type() ParameterTypeOutput {
 	return o.ApplyT(func(v *Parameter) ParameterTypeOutput { return v.Type }).(ParameterTypeOutput)
 }
 
-// The value associated with the parameter.
+// The parameter value.
+//
+//	If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
 func (o ParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

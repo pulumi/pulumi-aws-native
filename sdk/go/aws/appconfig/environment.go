@@ -13,16 +13,21 @@ import (
 )
 
 // Resource Type definition for AWS::AppConfig::Environment
-//
-// Deprecated: Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Environment struct {
 	pulumi.CustomResourceState
 
-	ApplicationId pulumi.StringOutput            `pulumi:"applicationId"`
-	Description   pulumi.StringPtrOutput         `pulumi:"description"`
-	Monitors      EnvironmentMonitorsArrayOutput `pulumi:"monitors"`
-	Name          pulumi.StringOutput            `pulumi:"name"`
-	Tags          EnvironmentTagsArrayOutput     `pulumi:"tags"`
+	// The application ID.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// A description of the environment.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The environment ID.
+	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
+	// Amazon CloudWatch alarms to monitor during the deployment process.
+	Monitors EnvironmentMonitorArrayOutput `pulumi:"monitors"`
+	// A name for the environment.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags EnvironmentTagArrayOutput `pulumi:"tags"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -72,20 +77,30 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	ApplicationId string                `pulumi:"applicationId"`
-	Description   *string               `pulumi:"description"`
-	Monitors      []EnvironmentMonitors `pulumi:"monitors"`
-	Name          *string               `pulumi:"name"`
-	Tags          []EnvironmentTags     `pulumi:"tags"`
+	// The application ID.
+	ApplicationId string `pulumi:"applicationId"`
+	// A description of the environment.
+	Description *string `pulumi:"description"`
+	// Amazon CloudWatch alarms to monitor during the deployment process.
+	Monitors []EnvironmentMonitor `pulumi:"monitors"`
+	// A name for the environment.
+	Name *string `pulumi:"name"`
+	// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags []EnvironmentTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
+	// The application ID.
 	ApplicationId pulumi.StringInput
-	Description   pulumi.StringPtrInput
-	Monitors      EnvironmentMonitorsArrayInput
-	Name          pulumi.StringPtrInput
-	Tags          EnvironmentTagsArrayInput
+	// A description of the environment.
+	Description pulumi.StringPtrInput
+	// Amazon CloudWatch alarms to monitor during the deployment process.
+	Monitors EnvironmentMonitorArrayInput
+	// A name for the environment.
+	Name pulumi.StringPtrInput
+	// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags EnvironmentTagArrayInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -125,24 +140,34 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// The application ID.
 func (o EnvironmentOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// A description of the environment.
 func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o EnvironmentOutput) Monitors() EnvironmentMonitorsArrayOutput {
-	return o.ApplyT(func(v *Environment) EnvironmentMonitorsArrayOutput { return v.Monitors }).(EnvironmentMonitorsArrayOutput)
+// The environment ID.
+func (o EnvironmentOutput) EnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
 
+// Amazon CloudWatch alarms to monitor during the deployment process.
+func (o EnvironmentOutput) Monitors() EnvironmentMonitorArrayOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentMonitorArrayOutput { return v.Monitors }).(EnvironmentMonitorArrayOutput)
+}
+
+// A name for the environment.
 func (o EnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o EnvironmentOutput) Tags() EnvironmentTagsArrayOutput {
-	return o.ApplyT(func(v *Environment) EnvironmentTagsArrayOutput { return v.Tags }).(EnvironmentTagsArrayOutput)
+// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+func (o EnvironmentOutput) Tags() EnvironmentTagArrayOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentTagArrayOutput { return v.Tags }).(EnvironmentTagArrayOutput)
 }
 
 func init() {

@@ -25,6 +25,7 @@ export interface GetClientVpnEndpointArgs {
 export interface GetClientVpnEndpointResult {
     readonly clientConnectOptions?: outputs.ec2.ClientVpnEndpointClientConnectOptions;
     readonly clientLoginBannerOptions?: outputs.ec2.ClientVpnEndpointClientLoginBannerOptions;
+    readonly clientRouteMonitoringOptions?: outputs.ec2.ClientVpnEndpointClientRouteMonitoringOptions;
     readonly connectionLogOptions?: outputs.ec2.ClientVpnEndpointConnectionLogOptions;
     readonly description?: string;
     readonly dnsServers?: string[];

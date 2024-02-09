@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
     /// <summary>
-    /// The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+    /// The ``LambdaConflictHandlerConfig`` when configuring LAMBDA as the Conflict Handler.
     /// </summary>
     public sealed class ResolverLambdaConflictHandlerConfigArgs : global::Pulumi.ResourceArgs
     {

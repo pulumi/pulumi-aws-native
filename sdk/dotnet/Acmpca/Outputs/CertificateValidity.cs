@@ -11,12 +11,18 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
 {
 
     /// <summary>
-    /// Validity for a certificate.
+    /// Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the ``IssueCertificate`` operation.
     /// </summary>
     [OutputType]
     public sealed class CertificateValidity
     {
+        /// <summary>
+        /// Specifies whether the ``Value`` parameter represents days, months, or years.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Time period.
+        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

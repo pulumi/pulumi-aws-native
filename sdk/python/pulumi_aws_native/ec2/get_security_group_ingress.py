@@ -29,11 +29,17 @@ class GetSecurityGroupIngressResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The Security Group Rule Id
+        """
         return pulumi.get(self, "id")
 
 
@@ -51,6 +57,9 @@ def get_security_group_ingress(id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupIngressResult:
     """
     Resource Type definition for AWS::EC2::SecurityGroupIngress
+
+
+    :param str id: The Security Group Rule Id
     """
     __args__ = dict()
     __args__['id'] = id
@@ -67,5 +76,8 @@ def get_security_group_ingress_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupIngressResult]:
     """
     Resource Type definition for AWS::EC2::SecurityGroupIngress
+
+
+    :param str id: The Security Group Rule Id
     """
     ...

@@ -306,13 +306,16 @@ class BrokerUserArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str],
                  console_access: Optional[pulumi.Input[bool]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 replication_user: Optional[pulumi.Input[bool]] = None):
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
         if console_access is not None:
             pulumi.set(__self__, "console_access", console_access)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
+        if replication_user is not None:
+            pulumi.set(__self__, "replication_user", replication_user)
 
     @property
     @pulumi.getter
@@ -349,6 +352,15 @@ class BrokerUserArgs:
     @groups.setter
     def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="replicationUser")
+    def replication_user(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "replication_user")
+
+    @replication_user.setter
+    def replication_user(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "replication_user", value)
 
 
 @pulumi.input_type

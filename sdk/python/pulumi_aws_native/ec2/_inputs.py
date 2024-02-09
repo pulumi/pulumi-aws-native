@@ -21,6 +21,7 @@ __all__ = [
     'ClientVpnEndpointClientAuthenticationRequestArgs',
     'ClientVpnEndpointClientConnectOptionsArgs',
     'ClientVpnEndpointClientLoginBannerOptionsArgs',
+    'ClientVpnEndpointClientRouteMonitoringOptionsArgs',
     'ClientVpnEndpointConnectionLogOptionsArgs',
     'ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs',
     'ClientVpnEndpointFederatedAuthenticationRequestArgs',
@@ -580,6 +581,23 @@ class ClientVpnEndpointClientLoginBannerOptionsArgs:
     @banner_text.setter
     def banner_text(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "banner_text", value)
+
+
+@pulumi.input_type
+class ClientVpnEndpointClientRouteMonitoringOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type

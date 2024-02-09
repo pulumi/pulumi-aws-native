@@ -10,15 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Outputs
 {
 
+    /// <summary>
+    /// The caching configuration for a resolver that has caching activated.
+    /// </summary>
     [OutputType]
     public sealed class ResolverCachingConfig
     {
         /// <summary>
-        /// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        /// The caching keys for a resolver that has caching activated.
+        ///  Valid values are entries from the ``$context.arguments``, ``$context.source``, and ``$context.identity`` maps.
         /// </summary>
         public readonly ImmutableArray<string> CachingKeys;
         /// <summary>
-        /// The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+        /// The TTL in seconds for a resolver that has caching activated.
+        ///  Valid values are 1–3,600 seconds.
         /// </summary>
         public readonly double Ttl;
 

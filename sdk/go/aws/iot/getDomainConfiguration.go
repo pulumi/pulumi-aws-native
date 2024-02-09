@@ -31,6 +31,7 @@ type LookupDomainConfigurationResult struct {
 	AuthorizerConfig          *DomainConfigurationAuthorizerConfig          `pulumi:"authorizerConfig"`
 	DomainConfigurationStatus *DomainConfigurationStatus                    `pulumi:"domainConfigurationStatus"`
 	DomainType                *DomainConfigurationDomainType                `pulumi:"domainType"`
+	ServerCertificateConfig   *DomainConfigurationServerCertificateConfig   `pulumi:"serverCertificateConfig"`
 	ServerCertificates        []DomainConfigurationServerCertificateSummary `pulumi:"serverCertificates"`
 	Tags                      []DomainConfigurationTag                      `pulumi:"tags"`
 	TlsConfig                 *DomainConfigurationTlsConfig                 `pulumi:"tlsConfig"`
@@ -87,6 +88,12 @@ func (o LookupDomainConfigurationResultOutput) DomainConfigurationStatus() Domai
 
 func (o LookupDomainConfigurationResultOutput) DomainType() DomainConfigurationDomainTypePtrOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) *DomainConfigurationDomainType { return v.DomainType }).(DomainConfigurationDomainTypePtrOutput)
+}
+
+func (o LookupDomainConfigurationResultOutput) ServerCertificateConfig() DomainConfigurationServerCertificateConfigPtrOutput {
+	return o.ApplyT(func(v LookupDomainConfigurationResult) *DomainConfigurationServerCertificateConfig {
+		return v.ServerCertificateConfig
+	}).(DomainConfigurationServerCertificateConfigPtrOutput)
 }
 
 func (o LookupDomainConfigurationResultOutput) ServerCertificates() DomainConfigurationServerCertificateSummaryArrayOutput {

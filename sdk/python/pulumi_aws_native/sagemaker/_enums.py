@@ -15,6 +15,7 @@ __all__ = [
     'DomainAppNetworkAccessType',
     'DomainAppSecurityGroupManagement',
     'DomainAuthMode',
+    'DomainDockerSettingsEnableDockerAccess',
     'DomainRStudioServerProAppSettingsAccessStatus',
     'DomainRStudioServerProAppSettingsUserGroup',
     'DomainResourceSpecInstanceType',
@@ -78,7 +79,9 @@ __all__ = [
     'MonitoringScheduleS3OutputS3UploadMode',
     'MonitoringScheduleStatus',
     'ProjectStatus',
+    'SpaceAppType',
     'SpaceResourceSpecInstanceType',
+    'SpaceSharingSettingsSharingType',
     'UserProfileRStudioServerProAppSettingsAccessStatus',
     'UserProfileRStudioServerProAppSettingsUserGroup',
     'UserProfileResourceSpecInstanceType',
@@ -229,6 +232,14 @@ class DomainAuthMode(str, Enum):
     """
     SSO = "SSO"
     IAM = "IAM"
+
+
+class DomainDockerSettingsEnableDockerAccess(str, Enum):
+    """
+    The flag to enable/disable docker-proxy server
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class DomainRStudioServerProAppSettingsAccessStatus(str, Enum):
@@ -829,6 +840,16 @@ class ProjectStatus(str, Enum):
     DELETE_COMPLETED = "DeleteCompleted"
 
 
+class SpaceAppType(str, Enum):
+    JUPYTER_SERVER = "JupyterServer"
+    KERNEL_GATEWAY = "KernelGateway"
+    TENSOR_BOARD = "TensorBoard"
+    R_STUDIO_SERVER_PRO = "RStudioServerPro"
+    R_SESSION_GATEWAY = "RSessionGateway"
+    JUPYTER_LAB = "JupyterLab"
+    CODE_EDITOR = "CodeEditor"
+
+
 class SpaceResourceSpecInstanceType(str, Enum):
     """
     The instance type that the image version runs on.
@@ -893,6 +914,14 @@ class SpaceResourceSpecInstanceType(str, Enum):
     ML_P4D24XLARGE = "ml.p4d.24xlarge"
     ML_P4DE24XLARGE = "ml.p4de.24xlarge"
     ML_GEOSPATIAL_INTERACTIVE = "ml.geospatial.interactive"
+    ML_TRN12XLARGE = "ml.trn1.2xlarge"
+    ML_TRN132XLARGE = "ml.trn1.32xlarge"
+    ML_TRN1N32XLARGE = "ml.trn1n.32xlarge"
+
+
+class SpaceSharingSettingsSharingType(str, Enum):
+    PRIVATE = "Private"
+    SHARED = "Shared"
 
 
 class UserProfileRStudioServerProAppSettingsAccessStatus(str, Enum):

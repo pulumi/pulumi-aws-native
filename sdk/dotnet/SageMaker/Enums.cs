@@ -382,6 +382,37 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The flag to enable/disable docker-proxy server
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainDockerSettingsEnableDockerAccess : IEquatable<DomainDockerSettingsEnableDockerAccess>
+    {
+        private readonly string _value;
+
+        private DomainDockerSettingsEnableDockerAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainDockerSettingsEnableDockerAccess Enabled { get; } = new DomainDockerSettingsEnableDockerAccess("ENABLED");
+        public static DomainDockerSettingsEnableDockerAccess Disabled { get; } = new DomainDockerSettingsEnableDockerAccess("DISABLED");
+
+        public static bool operator ==(DomainDockerSettingsEnableDockerAccess left, DomainDockerSettingsEnableDockerAccess right) => left.Equals(right);
+        public static bool operator !=(DomainDockerSettingsEnableDockerAccess left, DomainDockerSettingsEnableDockerAccess right) => !left.Equals(right);
+
+        public static explicit operator string(DomainDockerSettingsEnableDockerAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainDockerSettingsEnableDockerAccess other && Equals(other);
+        public bool Equals(DomainDockerSettingsEnableDockerAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the current user has access to the RStudioServerPro app.
     /// </summary>
     [EnumType]
@@ -2428,6 +2459,39 @@ namespace Pulumi.AwsNative.SageMaker
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct SpaceAppType : IEquatable<SpaceAppType>
+    {
+        private readonly string _value;
+
+        private SpaceAppType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpaceAppType JupyterServer { get; } = new SpaceAppType("JupyterServer");
+        public static SpaceAppType KernelGateway { get; } = new SpaceAppType("KernelGateway");
+        public static SpaceAppType TensorBoard { get; } = new SpaceAppType("TensorBoard");
+        public static SpaceAppType RStudioServerPro { get; } = new SpaceAppType("RStudioServerPro");
+        public static SpaceAppType RSessionGateway { get; } = new SpaceAppType("RSessionGateway");
+        public static SpaceAppType JupyterLab { get; } = new SpaceAppType("JupyterLab");
+        public static SpaceAppType CodeEditor { get; } = new SpaceAppType("CodeEditor");
+
+        public static bool operator ==(SpaceAppType left, SpaceAppType right) => left.Equals(right);
+        public static bool operator !=(SpaceAppType left, SpaceAppType right) => !left.Equals(right);
+
+        public static explicit operator string(SpaceAppType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpaceAppType other && Equals(other);
+        public bool Equals(SpaceAppType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The instance type that the image version runs on.
     /// </summary>
@@ -2501,6 +2565,9 @@ namespace Pulumi.AwsNative.SageMaker
         public static SpaceResourceSpecInstanceType MlP4d24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p4d.24xlarge");
         public static SpaceResourceSpecInstanceType MlP4de24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p4de.24xlarge");
         public static SpaceResourceSpecInstanceType MlGeospatialInteractive { get; } = new SpaceResourceSpecInstanceType("ml.geospatial.interactive");
+        public static SpaceResourceSpecInstanceType MlTrn12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.trn1.2xlarge");
+        public static SpaceResourceSpecInstanceType MlTrn132xlarge { get; } = new SpaceResourceSpecInstanceType("ml.trn1.32xlarge");
+        public static SpaceResourceSpecInstanceType MlTrn1n32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.trn1n.32xlarge");
 
         public static bool operator ==(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => !left.Equals(right);
@@ -2510,6 +2577,34 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SpaceResourceSpecInstanceType other && Equals(other);
         public bool Equals(SpaceResourceSpecInstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpaceSharingSettingsSharingType : IEquatable<SpaceSharingSettingsSharingType>
+    {
+        private readonly string _value;
+
+        private SpaceSharingSettingsSharingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpaceSharingSettingsSharingType Private { get; } = new SpaceSharingSettingsSharingType("Private");
+        public static SpaceSharingSettingsSharingType Shared { get; } = new SpaceSharingSettingsSharingType("Shared");
+
+        public static bool operator ==(SpaceSharingSettingsSharingType left, SpaceSharingSettingsSharingType right) => left.Equals(right);
+        public static bool operator !=(SpaceSharingSettingsSharingType left, SpaceSharingSettingsSharingType right) => !left.Equals(right);
+
+        public static explicit operator string(SpaceSharingSettingsSharingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpaceSharingSettingsSharingType other && Equals(other);
+        public bool Equals(SpaceSharingSettingsSharingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

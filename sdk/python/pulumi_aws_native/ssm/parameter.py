@@ -26,15 +26,19 @@ class ParameterArgs:
                  tier: Optional[pulumi.Input['ParameterTier']] = None):
         """
         The set of arguments for constructing a Parameter resource.
-        :param pulumi.Input['ParameterType'] type: The type of the parameter.
-        :param pulumi.Input[str] value: The value associated with the parameter.
-        :param pulumi.Input[str] allowed_pattern: The regular expression used to validate the parameter value.
-        :param pulumi.Input['ParameterDataType'] data_type: The corresponding DataType of the parameter.
-        :param pulumi.Input[str] description: The information about the parameter.
+        :param pulumi.Input['ParameterType'] type: The type of parameter.
+                 Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
+        :param pulumi.Input[str] value: The parameter value.
+                 If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
+        :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
+        :param pulumi.Input['ParameterDataType'] data_type: The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
+        :param pulumi.Input[str] description: Information about the parameter.
         :param pulumi.Input[str] name: The name of the parameter.
-        :param pulumi.Input[str] policies: The policies attached to the parameter.
-        :param Any tags: A key-value pair to associate with a resource.
-        :param pulumi.Input['ParameterTier'] tier: The corresponding tier of the parameter.
+                The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter ARN, is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
+        :param pulumi.Input[str] policies: Information about the policies assigned to a parameter.
+                 [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
+        :param Any tags: Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
+        :param pulumi.Input['ParameterTier'] tier: The parameter tier.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -57,7 +61,8 @@ class ParameterArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input['ParameterType']:
         """
-        The type of the parameter.
+        The type of parameter.
+          Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
         """
         return pulumi.get(self, "type")
 
@@ -69,7 +74,8 @@ class ParameterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value associated with the parameter.
+        The parameter value.
+          If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
         """
         return pulumi.get(self, "value")
 
@@ -81,7 +87,7 @@ class ParameterArgs:
     @pulumi.getter(name="allowedPattern")
     def allowed_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        The regular expression used to validate the parameter value.
+        A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
         """
         return pulumi.get(self, "allowed_pattern")
 
@@ -93,7 +99,7 @@ class ParameterArgs:
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional[pulumi.Input['ParameterDataType']]:
         """
-        The corresponding DataType of the parameter.
+        The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
         """
         return pulumi.get(self, "data_type")
 
@@ -105,7 +111,7 @@ class ParameterArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The information about the parameter.
+        Information about the parameter.
         """
         return pulumi.get(self, "description")
 
@@ -118,6 +124,7 @@ class ParameterArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the parameter.
+         The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter ARN, is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
         """
         return pulumi.get(self, "name")
 
@@ -129,7 +136,8 @@ class ParameterArgs:
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input[str]]:
         """
-        The policies attached to the parameter.
+        Information about the policies assigned to a parameter.
+          [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
         """
         return pulumi.get(self, "policies")
 
@@ -141,7 +149,7 @@ class ParameterArgs:
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         """
-        A key-value pair to associate with a resource.
+        Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
         """
         return pulumi.get(self, "tags")
 
@@ -153,7 +161,7 @@ class ParameterArgs:
     @pulumi.getter
     def tier(self) -> Optional[pulumi.Input['ParameterTier']]:
         """
-        The corresponding tier of the parameter.
+        The parameter tier.
         """
         return pulumi.get(self, "tier")
 
@@ -178,19 +186,26 @@ class Parameter(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::SSM::Parameter
+        The ``AWS::SSM::Parameter`` resource creates an SSM parameter in SYSlong Parameter Store.
+          To create an SSM parameter, you must have the IAMlong (IAM) permissions ``ssm:PutParameter`` and ``ssm:AddTagsToResource``. On stack creation, CFNlong adds the following three tags to the parameter: ``aws:cloudformation:stack-name``, ``aws:cloudformation:logical-id``, and ``aws:cloudformation:stack-id``, in addition to any custom tags you specify.
+         To add, update, or remove tags during stack update, you must have IAM permissions for both ``ssm:AddTagsToResource`` and ``ssm:RemoveTagsFromResource``. For more information, see [Managing Access Using Policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/security-iam.html#security_iam_access-manage) in the *User Guide*.
+          For information about valid values for parameters, see [Requirements and Constraints for Parameter Names](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramete
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allowed_pattern: The regular expression used to validate the parameter value.
-        :param pulumi.Input['ParameterDataType'] data_type: The corresponding DataType of the parameter.
-        :param pulumi.Input[str] description: The information about the parameter.
+        :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
+        :param pulumi.Input['ParameterDataType'] data_type: The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
+        :param pulumi.Input[str] description: Information about the parameter.
         :param pulumi.Input[str] name: The name of the parameter.
-        :param pulumi.Input[str] policies: The policies attached to the parameter.
-        :param Any tags: A key-value pair to associate with a resource.
-        :param pulumi.Input['ParameterTier'] tier: The corresponding tier of the parameter.
-        :param pulumi.Input['ParameterType'] type: The type of the parameter.
-        :param pulumi.Input[str] value: The value associated with the parameter.
+                The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter ARN, is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
+        :param pulumi.Input[str] policies: Information about the policies assigned to a parameter.
+                 [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
+        :param Any tags: Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
+        :param pulumi.Input['ParameterTier'] tier: The parameter tier.
+        :param pulumi.Input['ParameterType'] type: The type of parameter.
+                 Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
+        :param pulumi.Input[str] value: The parameter value.
+                 If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
         """
         ...
     @overload
@@ -199,7 +214,10 @@ class Parameter(pulumi.CustomResource):
                  args: ParameterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::SSM::Parameter
+        The ``AWS::SSM::Parameter`` resource creates an SSM parameter in SYSlong Parameter Store.
+          To create an SSM parameter, you must have the IAMlong (IAM) permissions ``ssm:PutParameter`` and ``ssm:AddTagsToResource``. On stack creation, CFNlong adds the following three tags to the parameter: ``aws:cloudformation:stack-name``, ``aws:cloudformation:logical-id``, and ``aws:cloudformation:stack-id``, in addition to any custom tags you specify.
+         To add, update, or remove tags during stack update, you must have IAM permissions for both ``ssm:AddTagsToResource`` and ``ssm:RemoveTagsFromResource``. For more information, see [Managing Access Using Policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/security-iam.html#security_iam_access-manage) in the *User Guide*.
+          For information about valid values for parameters, see [Requirements and Constraints for Parameter Names](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramete
 
         :param str resource_name: The name of the resource.
         :param ParameterArgs args: The arguments to use to populate this resource's properties.
@@ -286,7 +304,7 @@ class Parameter(pulumi.CustomResource):
     @pulumi.getter(name="allowedPattern")
     def allowed_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        The regular expression used to validate the parameter value.
+        A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
         """
         return pulumi.get(self, "allowed_pattern")
 
@@ -294,7 +312,7 @@ class Parameter(pulumi.CustomResource):
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Output[Optional['ParameterDataType']]:
         """
-        The corresponding DataType of the parameter.
+        The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
         """
         return pulumi.get(self, "data_type")
 
@@ -302,7 +320,7 @@ class Parameter(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The information about the parameter.
+        Information about the parameter.
         """
         return pulumi.get(self, "description")
 
@@ -311,6 +329,7 @@ class Parameter(pulumi.CustomResource):
     def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the parameter.
+         The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter ARN, is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
         """
         return pulumi.get(self, "name")
 
@@ -318,7 +337,8 @@ class Parameter(pulumi.CustomResource):
     @pulumi.getter
     def policies(self) -> pulumi.Output[Optional[str]]:
         """
-        The policies attached to the parameter.
+        Information about the policies assigned to a parameter.
+          [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
         """
         return pulumi.get(self, "policies")
 
@@ -326,7 +346,7 @@ class Parameter(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
         """
-        A key-value pair to associate with a resource.
+        Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
         """
         return pulumi.get(self, "tags")
 
@@ -334,7 +354,7 @@ class Parameter(pulumi.CustomResource):
     @pulumi.getter
     def tier(self) -> pulumi.Output[Optional['ParameterTier']]:
         """
-        The corresponding tier of the parameter.
+        The parameter tier.
         """
         return pulumi.get(self, "tier")
 
@@ -342,7 +362,8 @@ class Parameter(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output['ParameterType']:
         """
-        The type of the parameter.
+        The type of parameter.
+          Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
         """
         return pulumi.get(self, "type")
 
@@ -350,7 +371,8 @@ class Parameter(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
         """
-        The value associated with the parameter.
+        The parameter value.
+          If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
         """
         return pulumi.get(self, "value")
 

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<ImmutableArray<string>> IdpIdentifiers { get; private set; } = null!;
 
         [Output("providerDetails")]
-        public Output<object> ProviderDetails { get; private set; } = null!;
+        public Output<object?> ProviderDetails { get; private set; } = null!;
 
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
@@ -95,8 +95,8 @@ namespace Pulumi.AwsNative.Cognito
             set => _idpIdentifiers = value;
         }
 
-        [Input("providerDetails", required: true)]
-        public Input<object> ProviderDetails { get; set; } = null!;
+        [Input("providerDetails")]
+        public Input<object>? ProviderDetails { get; set; }
 
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;

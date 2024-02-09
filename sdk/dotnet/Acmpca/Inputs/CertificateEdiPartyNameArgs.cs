@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
-    /// <summary>
-    /// Structure that contains X.509 EdiPartyName information.
-    /// </summary>
     public sealed class CertificateEdiPartyNameArgs : global::Pulumi.ResourceArgs
     {
         [Input("nameAssigner", required: true)]

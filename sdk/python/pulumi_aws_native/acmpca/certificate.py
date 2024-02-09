@@ -25,13 +25,18 @@ class CertificateArgs:
                  validity_not_before: Optional[pulumi.Input['CertificateValidityArgs']] = None):
         """
         The set of arguments for constructing a Certificate resource.
-        :param pulumi.Input[str] certificate_authority_arn: The Amazon Resource Name (ARN) for the private CA to issue the certificate.
-        :param pulumi.Input[str] certificate_signing_request: The certificate signing request (CSR) for the Certificate.
-        :param pulumi.Input[str] signing_algorithm: The name of the algorithm that will be used to sign the Certificate.
-        :param pulumi.Input['CertificateValidityArgs'] validity: The time before which the Certificate will be valid.
-        :param pulumi.Input['CertificateApiPassthroughArgs'] api_passthrough: These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
-        :param pulumi.Input[str] template_arn: Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template.
-        :param pulumi.Input['CertificateValidityArgs'] validity_not_before: The time after which the Certificate will be valid.
+        :param pulumi.Input[str] certificate_authority_arn: The Amazon Resource Name (ARN) for the private CA issues the certificate.
+        :param pulumi.Input[str] certificate_signing_request: The certificate signing request (CSR) for the certificate.
+        :param pulumi.Input[str] signing_algorithm: The name of the algorithm that will be used to sign the certificate to be issued. 
+                This parameter should not be confused with the ``SigningAlgorithm`` parameter used to sign a CSR in the ``CreateCertificateAuthority`` action.
+                 The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
+        :param pulumi.Input['CertificateValidityArgs'] validity: The period of time during which the certificate will be valid.
+        :param pulumi.Input['CertificateApiPassthroughArgs'] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
+        :param pulumi.Input[str] template_arn: Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
+        :param pulumi.Input['CertificateValidityArgs'] validity_not_before: Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
+                By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+                Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
+                The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
         """
         pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
@@ -48,7 +53,7 @@ class CertificateArgs:
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+        The Amazon Resource Name (ARN) for the private CA issues the certificate.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
@@ -60,7 +65,7 @@ class CertificateArgs:
     @pulumi.getter(name="certificateSigningRequest")
     def certificate_signing_request(self) -> pulumi.Input[str]:
         """
-        The certificate signing request (CSR) for the Certificate.
+        The certificate signing request (CSR) for the certificate.
         """
         return pulumi.get(self, "certificate_signing_request")
 
@@ -72,7 +77,9 @@ class CertificateArgs:
     @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> pulumi.Input[str]:
         """
-        The name of the algorithm that will be used to sign the Certificate.
+        The name of the algorithm that will be used to sign the certificate to be issued. 
+         This parameter should not be confused with the ``SigningAlgorithm`` parameter used to sign a CSR in the ``CreateCertificateAuthority`` action.
+          The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
         """
         return pulumi.get(self, "signing_algorithm")
 
@@ -84,7 +91,7 @@ class CertificateArgs:
     @pulumi.getter
     def validity(self) -> pulumi.Input['CertificateValidityArgs']:
         """
-        The time before which the Certificate will be valid.
+        The period of time during which the certificate will be valid.
         """
         return pulumi.get(self, "validity")
 
@@ -96,7 +103,7 @@ class CertificateArgs:
     @pulumi.getter(name="apiPassthrough")
     def api_passthrough(self) -> Optional[pulumi.Input['CertificateApiPassthroughArgs']]:
         """
-        These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
+        Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
         """
         return pulumi.get(self, "api_passthrough")
 
@@ -108,7 +115,7 @@ class CertificateArgs:
     @pulumi.getter(name="templateArn")
     def template_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template.
+        Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
         """
         return pulumi.get(self, "template_arn")
 
@@ -120,7 +127,10 @@ class CertificateArgs:
     @pulumi.getter(name="validityNotBefore")
     def validity_not_before(self) -> Optional[pulumi.Input['CertificateValidityArgs']]:
         """
-        The time after which the Certificate will be valid.
+        Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
+         By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+         Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
+         The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
         """
         return pulumi.get(self, "validity_not_before")
 
@@ -143,17 +153,22 @@ class Certificate(pulumi.CustomResource):
                  validity_not_before: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArgs']]] = None,
                  __props__=None):
         """
-        A certificate issued via a private certificate authority
+        The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CertificateApiPassthroughArgs']] api_passthrough: These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
-        :param pulumi.Input[str] certificate_authority_arn: The Amazon Resource Name (ARN) for the private CA to issue the certificate.
-        :param pulumi.Input[str] certificate_signing_request: The certificate signing request (CSR) for the Certificate.
-        :param pulumi.Input[str] signing_algorithm: The name of the algorithm that will be used to sign the Certificate.
-        :param pulumi.Input[str] template_arn: Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template.
-        :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity: The time before which the Certificate will be valid.
-        :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity_not_before: The time after which the Certificate will be valid.
+        :param pulumi.Input[pulumi.InputType['CertificateApiPassthroughArgs']] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
+        :param pulumi.Input[str] certificate_authority_arn: The Amazon Resource Name (ARN) for the private CA issues the certificate.
+        :param pulumi.Input[str] certificate_signing_request: The certificate signing request (CSR) for the certificate.
+        :param pulumi.Input[str] signing_algorithm: The name of the algorithm that will be used to sign the certificate to be issued. 
+                This parameter should not be confused with the ``SigningAlgorithm`` parameter used to sign a CSR in the ``CreateCertificateAuthority`` action.
+                 The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
+        :param pulumi.Input[str] template_arn: Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
+        :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity: The period of time during which the certificate will be valid.
+        :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity_not_before: Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
+                By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+                Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
+                The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
         """
         ...
     @overload
@@ -162,7 +177,7 @@ class Certificate(pulumi.CustomResource):
                  args: CertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A certificate issued via a private certificate authority
+        The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
@@ -251,31 +266,25 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="apiPassthrough")
     def api_passthrough(self) -> pulumi.Output[Optional['outputs.CertificateApiPassthrough']]:
         """
-        These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
+        Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
         """
         return pulumi.get(self, "api_passthrough")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the issued certificate.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def certificate(self) -> pulumi.Output[str]:
-        """
-        The issued certificate in base 64 PEM-encoded format.
-        """
         return pulumi.get(self, "certificate")
 
     @property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+        The Amazon Resource Name (ARN) for the private CA issues the certificate.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
@@ -283,7 +292,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="certificateSigningRequest")
     def certificate_signing_request(self) -> pulumi.Output[str]:
         """
-        The certificate signing request (CSR) for the Certificate.
+        The certificate signing request (CSR) for the certificate.
         """
         return pulumi.get(self, "certificate_signing_request")
 
@@ -291,7 +300,9 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> pulumi.Output[str]:
         """
-        The name of the algorithm that will be used to sign the Certificate.
+        The name of the algorithm that will be used to sign the certificate to be issued. 
+         This parameter should not be confused with the ``SigningAlgorithm`` parameter used to sign a CSR in the ``CreateCertificateAuthority`` action.
+          The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
         """
         return pulumi.get(self, "signing_algorithm")
 
@@ -299,7 +310,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="templateArn")
     def template_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template.
+        Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
         """
         return pulumi.get(self, "template_arn")
 
@@ -307,7 +318,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def validity(self) -> pulumi.Output['outputs.CertificateValidity']:
         """
-        The time before which the Certificate will be valid.
+        The period of time during which the certificate will be valid.
         """
         return pulumi.get(self, "validity")
 
@@ -315,7 +326,10 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="validityNotBefore")
     def validity_not_before(self) -> pulumi.Output[Optional['outputs.CertificateValidity']]:
         """
-        The time after which the Certificate will be valid.
+        Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
+         By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+         Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
+         The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
         """
         return pulumi.get(self, "validity_not_before")
 

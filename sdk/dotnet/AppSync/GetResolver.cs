@@ -12,13 +12,17 @@ namespace Pulumi.AwsNative.AppSync
     public static class GetResolver
     {
         /// <summary>
-        /// Resource Type definition for AWS::AppSync::Resolver
+        /// The ``AWS::AppSync::Resolver`` resource defines the logical GraphQL resolver that you attach to fields in a schema. Request and response templates for resolvers are written in Apache Velocity Template Language (VTL) format. For more information about resolvers, see [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html).
+        ///   When you submit an update, CFNLong updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the CFNshort template. Changing the S3 file content without changing a property value will not result in an update operation.
+        ///  See [Update Behaviors of Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html) in the *User Guide*.
         /// </summary>
         public static Task<GetResolverResult> InvokeAsync(GetResolverArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverResult>("aws-native:appsync:getResolver", args ?? new GetResolverArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::AppSync::Resolver
+        /// The ``AWS::AppSync::Resolver`` resource defines the logical GraphQL resolver that you attach to fields in a schema. Request and response templates for resolvers are written in Apache Velocity Template Language (VTL) format. For more information about resolvers, see [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html).
+        ///   When you submit an update, CFNLong updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the CFNshort template. Changing the S3 file content without changing a property value will not result in an update operation.
+        ///  See [Update Behaviors of Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html) in the *User Guide*.
         /// </summary>
         public static Output<GetResolverResult> Invoke(GetResolverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverResult>("aws-native:appsync:getResolver", args ?? new GetResolverInvokeArgs(), options.WithDefaults());
@@ -27,9 +31,6 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetResolverArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the resolver.
-        /// </summary>
         [Input("resolverArn", required: true)]
         public string ResolverArn { get; set; } = null!;
 
@@ -41,9 +42,6 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetResolverInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the resolver.
-        /// </summary>
         [Input("resolverArn", required: true)]
         public Input<string> ResolverArn { get; set; } = null!;
 
@@ -62,7 +60,7 @@ namespace Pulumi.AwsNative.AppSync
         /// </summary>
         public readonly Outputs.ResolverCachingConfig? CachingConfig;
         /// <summary>
-        /// The resolver code that contains the request and response functions. When code is used, the runtime is required.
+        /// The ``resolver`` code that contains the request and response functions. When code is used, the ``runtime`` is required. The runtime value must be ``APPSYNC_JS``.
         /// </summary>
         public readonly string? Code;
         /// <summary>
@@ -71,10 +69,12 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? DataSourceName;
         /// <summary>
         /// The resolver type.
+        ///   +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+        ///   +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+        /// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
         /// </summary>
         public readonly int? MaxBatchSize;
         /// <summary>
@@ -82,23 +82,21 @@ namespace Pulumi.AwsNative.AppSync
         /// </summary>
         public readonly Outputs.ResolverPipelineConfig? PipelineConfig;
         /// <summary>
-        /// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
+        /// The request mapping template.
+        ///  Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
         /// </summary>
         public readonly string? RequestMappingTemplate;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the resolver.
-        /// </summary>
         public readonly string? ResolverArn;
         /// <summary>
         /// The response mapping template.
         /// </summary>
         public readonly string? ResponseMappingTemplate;
         /// <summary>
-        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+        /// Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
         /// </summary>
         public readonly Outputs.ResolverAppSyncRuntime? Runtime;
         /// <summary>
-        /// The SyncConfig for a resolver attached to a versioned data source.
+        /// The ``SyncConfig`` for a resolver attached to a versioned data source.
         /// </summary>
         public readonly Outputs.ResolverSyncConfig? SyncConfig;
 

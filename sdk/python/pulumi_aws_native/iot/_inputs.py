@@ -25,6 +25,7 @@ __all__ = [
     'CustomMetricTagArgs',
     'DimensionTagArgs',
     'DomainConfigurationAuthorizerConfigArgs',
+    'DomainConfigurationServerCertificateConfigArgs',
     'DomainConfigurationTagArgs',
     'DomainConfigurationTlsConfigArgs',
     'FleetMetricAggregationTypeArgs',
@@ -733,6 +734,23 @@ class DomainConfigurationAuthorizerConfigArgs:
     @default_authorizer_name.setter
     def default_authorizer_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_authorizer_name", value)
+
+
+@pulumi.input_type
+class DomainConfigurationServerCertificateConfigArgs:
+    def __init__(__self__, *,
+                 enable_ocsp_check: Optional[pulumi.Input[bool]] = None):
+        if enable_ocsp_check is not None:
+            pulumi.set(__self__, "enable_ocsp_check", enable_ocsp_check)
+
+    @property
+    @pulumi.getter(name="enableOcspCheck")
+    def enable_ocsp_check(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_ocsp_check")
+
+    @enable_ocsp_check.setter
+    def enable_ocsp_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_ocsp_check", value)
 
 
 @pulumi.input_type

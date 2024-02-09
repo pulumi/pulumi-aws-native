@@ -31,7 +31,9 @@ type LookupSpaceArgs struct {
 
 type LookupSpaceResult struct {
 	// The space Amazon Resource Name (ARN).
-	SpaceArn *string `pulumi:"spaceArn"`
+	SpaceArn         *string `pulumi:"spaceArn"`
+	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
+	Url              *string `pulumi:"url"`
 }
 
 func LookupSpaceOutput(ctx *pulumi.Context, args LookupSpaceOutputArgs, opts ...pulumi.InvokeOption) LookupSpaceResultOutput {
@@ -75,6 +77,14 @@ func (o LookupSpaceResultOutput) ToLookupSpaceResultOutputWithContext(ctx contex
 // The space Amazon Resource Name (ARN).
 func (o LookupSpaceResultOutput) SpaceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *string { return v.SpaceArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSpaceResultOutput) SpaceDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSpaceResult) *string { return v.SpaceDisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSpaceResultOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSpaceResult) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 func init() {

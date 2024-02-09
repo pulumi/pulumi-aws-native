@@ -279,7 +279,6 @@ import * as sns from "./sns";
 import * as sqs from "./sqs";
 import * as ssm from "./ssm";
 import * as ssmcontacts from "./ssmcontacts";
-import * as ssmguiconnect from "./ssmguiconnect";
 import * as ssmincidents from "./ssmincidents";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
@@ -516,7 +515,6 @@ export {
     sqs,
     ssm,
     ssmcontacts,
-    ssmguiconnect,
     ssmincidents,
     sso,
     stepfunctions,

@@ -26,6 +26,14 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }
 
+        [Input("credentialSpecs")]
+        private InputList<string>? _credentialSpecs;
+        public InputList<string> CredentialSpecs
+        {
+            get => _credentialSpecs ?? (_credentialSpecs = new InputList<string>());
+            set => _credentialSpecs = value;
+        }
+
         [Input("dependsOn")]
         private InputList<Inputs.TaskDefinitionContainerDependencyArgs>? _dependsOn;
         public InputList<Inputs.TaskDefinitionContainerDependencyArgs> DependsOn

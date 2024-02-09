@@ -13,10 +13,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Structure that specifies fields to be overridden in a certificate at the time of issuance. These requires an API Passthrough template be used or they will be ignored.
+// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 type CertificateApiPassthrough struct {
 	Extensions *CertificateExtensions `pulumi:"extensions"`
-	Subject    *CertificateSubject    `pulumi:"subject"`
+	// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+	Subject *CertificateSubject `pulumi:"subject"`
 }
 
 // CertificateApiPassthroughInput is an input type that accepts CertificateApiPassthroughArgs and CertificateApiPassthroughOutput values.
@@ -30,10 +31,11 @@ type CertificateApiPassthroughInput interface {
 	ToCertificateApiPassthroughOutputWithContext(context.Context) CertificateApiPassthroughOutput
 }
 
-// Structure that specifies fields to be overridden in a certificate at the time of issuance. These requires an API Passthrough template be used or they will be ignored.
+// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 type CertificateApiPassthroughArgs struct {
 	Extensions CertificateExtensionsPtrInput `pulumi:"extensions"`
-	Subject    CertificateSubjectPtrInput    `pulumi:"subject"`
+	// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+	Subject CertificateSubjectPtrInput `pulumi:"subject"`
 }
 
 func (CertificateApiPassthroughArgs) ElementType() reflect.Type {
@@ -89,7 +91,7 @@ func (i *certificateApiPassthroughPtrType) ToCertificateApiPassthroughPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateApiPassthroughPtrOutput)
 }
 
-// Structure that specifies fields to be overridden in a certificate at the time of issuance. These requires an API Passthrough template be used or they will be ignored.
+// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 type CertificateApiPassthroughOutput struct{ *pulumi.OutputState }
 
 func (CertificateApiPassthroughOutput) ElementType() reflect.Type {
@@ -118,6 +120,7 @@ func (o CertificateApiPassthroughOutput) Extensions() CertificateExtensionsPtrOu
 	return o.ApplyT(func(v CertificateApiPassthrough) *CertificateExtensions { return v.Extensions }).(CertificateExtensionsPtrOutput)
 }
 
+// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 func (o CertificateApiPassthroughOutput) Subject() CertificateSubjectPtrOutput {
 	return o.ApplyT(func(v CertificateApiPassthrough) *CertificateSubject { return v.Subject }).(CertificateSubjectPtrOutput)
 }
@@ -155,6 +158,7 @@ func (o CertificateApiPassthroughPtrOutput) Extensions() CertificateExtensionsPt
 	}).(CertificateExtensionsPtrOutput)
 }
 
+// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 func (o CertificateApiPassthroughPtrOutput) Subject() CertificateSubjectPtrOutput {
 	return o.ApplyT(func(v *CertificateApiPassthrough) *CertificateSubject {
 		if v == nil {
@@ -2334,7 +2338,6 @@ func (o CertificateAuthorityTagArrayOutput) Index(i pulumi.IntInput) Certificate
 	}).(CertificateAuthorityTagOutput)
 }
 
-// Structure that contains X.500 attribute type and value.
 type CertificateCustomAttribute struct {
 	ObjectIdentifier string `pulumi:"objectIdentifier"`
 	Value            string `pulumi:"value"`
@@ -2351,7 +2354,6 @@ type CertificateCustomAttributeInput interface {
 	ToCertificateCustomAttributeOutputWithContext(context.Context) CertificateCustomAttributeOutput
 }
 
-// Structure that contains X.500 attribute type and value.
 type CertificateCustomAttributeArgs struct {
 	ObjectIdentifier pulumi.StringInput `pulumi:"objectIdentifier"`
 	Value            pulumi.StringInput `pulumi:"value"`
@@ -2394,7 +2396,6 @@ func (i CertificateCustomAttributeArray) ToCertificateCustomAttributeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCustomAttributeArrayOutput)
 }
 
-// Structure that contains X.500 attribute type and value.
 type CertificateCustomAttributeOutput struct{ *pulumi.OutputState }
 
 func (CertificateCustomAttributeOutput) ElementType() reflect.Type {
@@ -2437,7 +2438,6 @@ func (o CertificateCustomAttributeArrayOutput) Index(i pulumi.IntInput) Certific
 	}).(CertificateCustomAttributeOutput)
 }
 
-// Structure that contains X.509 extension information for a certificate.
 type CertificateCustomExtension struct {
 	Critical         *bool  `pulumi:"critical"`
 	ObjectIdentifier string `pulumi:"objectIdentifier"`
@@ -2455,7 +2455,6 @@ type CertificateCustomExtensionInput interface {
 	ToCertificateCustomExtensionOutputWithContext(context.Context) CertificateCustomExtensionOutput
 }
 
-// Structure that contains X.509 extension information for a certificate.
 type CertificateCustomExtensionArgs struct {
 	Critical         pulumi.BoolPtrInput `pulumi:"critical"`
 	ObjectIdentifier pulumi.StringInput  `pulumi:"objectIdentifier"`
@@ -2499,7 +2498,6 @@ func (i CertificateCustomExtensionArray) ToCertificateCustomExtensionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCustomExtensionArrayOutput)
 }
 
-// Structure that contains X.509 extension information for a certificate.
 type CertificateCustomExtensionOutput struct{ *pulumi.OutputState }
 
 func (CertificateCustomExtensionOutput) ElementType() reflect.Type {
@@ -2546,7 +2544,6 @@ func (o CertificateCustomExtensionArrayOutput) Index(i pulumi.IntInput) Certific
 	}).(CertificateCustomExtensionOutput)
 }
 
-// Structure that contains X.509 EdiPartyName information.
 type CertificateEdiPartyName struct {
 	NameAssigner string `pulumi:"nameAssigner"`
 	PartyName    string `pulumi:"partyName"`
@@ -2563,7 +2560,6 @@ type CertificateEdiPartyNameInput interface {
 	ToCertificateEdiPartyNameOutputWithContext(context.Context) CertificateEdiPartyNameOutput
 }
 
-// Structure that contains X.509 EdiPartyName information.
 type CertificateEdiPartyNameArgs struct {
 	NameAssigner pulumi.StringInput `pulumi:"nameAssigner"`
 	PartyName    pulumi.StringInput `pulumi:"partyName"`
@@ -2622,7 +2618,6 @@ func (i *certificateEdiPartyNamePtrType) ToCertificateEdiPartyNamePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateEdiPartyNamePtrOutput)
 }
 
-// Structure that contains X.509 EdiPartyName information.
 type CertificateEdiPartyNameOutput struct{ *pulumi.OutputState }
 
 func (CertificateEdiPartyNameOutput) ElementType() reflect.Type {
@@ -2697,7 +2692,6 @@ func (o CertificateEdiPartyNamePtrOutput) PartyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Structure that contains X.509 ExtendedKeyUsage information.
 type CertificateExtendedKeyUsage struct {
 	ExtendedKeyUsageObjectIdentifier *string `pulumi:"extendedKeyUsageObjectIdentifier"`
 	ExtendedKeyUsageType             *string `pulumi:"extendedKeyUsageType"`
@@ -2714,7 +2708,6 @@ type CertificateExtendedKeyUsageInput interface {
 	ToCertificateExtendedKeyUsageOutputWithContext(context.Context) CertificateExtendedKeyUsageOutput
 }
 
-// Structure that contains X.509 ExtendedKeyUsage information.
 type CertificateExtendedKeyUsageArgs struct {
 	ExtendedKeyUsageObjectIdentifier pulumi.StringPtrInput `pulumi:"extendedKeyUsageObjectIdentifier"`
 	ExtendedKeyUsageType             pulumi.StringPtrInput `pulumi:"extendedKeyUsageType"`
@@ -2757,7 +2750,6 @@ func (i CertificateExtendedKeyUsageArray) ToCertificateExtendedKeyUsageArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtendedKeyUsageArrayOutput)
 }
 
-// Structure that contains X.509 ExtendedKeyUsage information.
 type CertificateExtendedKeyUsageOutput struct{ *pulumi.OutputState }
 
 func (CertificateExtendedKeyUsageOutput) ElementType() reflect.Type {
@@ -2800,13 +2792,14 @@ func (o CertificateExtendedKeyUsageArrayOutput) Index(i pulumi.IntInput) Certifi
 	}).(CertificateExtendedKeyUsageOutput)
 }
 
-// Structure that contains X.500 extensions for a Certificate.
+// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
 type CertificateExtensions struct {
-	CertificatePolicies     []CertificatePolicyInformation `pulumi:"certificatePolicies"`
-	CustomExtensions        []CertificateCustomExtension   `pulumi:"customExtensions"`
-	ExtendedKeyUsage        []CertificateExtendedKeyUsage  `pulumi:"extendedKeyUsage"`
-	KeyUsage                *CertificateKeyUsage           `pulumi:"keyUsage"`
-	SubjectAlternativeNames []CertificateGeneralName       `pulumi:"subjectAlternativeNames"`
+	CertificatePolicies []CertificatePolicyInformation `pulumi:"certificatePolicies"`
+	CustomExtensions    []CertificateCustomExtension   `pulumi:"customExtensions"`
+	ExtendedKeyUsage    []CertificateExtendedKeyUsage  `pulumi:"extendedKeyUsage"`
+	// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+	KeyUsage                *CertificateKeyUsage     `pulumi:"keyUsage"`
+	SubjectAlternativeNames []CertificateGeneralName `pulumi:"subjectAlternativeNames"`
 }
 
 // CertificateExtensionsInput is an input type that accepts CertificateExtensionsArgs and CertificateExtensionsOutput values.
@@ -2820,13 +2813,14 @@ type CertificateExtensionsInput interface {
 	ToCertificateExtensionsOutputWithContext(context.Context) CertificateExtensionsOutput
 }
 
-// Structure that contains X.500 extensions for a Certificate.
+// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
 type CertificateExtensionsArgs struct {
-	CertificatePolicies     CertificatePolicyInformationArrayInput `pulumi:"certificatePolicies"`
-	CustomExtensions        CertificateCustomExtensionArrayInput   `pulumi:"customExtensions"`
-	ExtendedKeyUsage        CertificateExtendedKeyUsageArrayInput  `pulumi:"extendedKeyUsage"`
-	KeyUsage                CertificateKeyUsagePtrInput            `pulumi:"keyUsage"`
-	SubjectAlternativeNames CertificateGeneralNameArrayInput       `pulumi:"subjectAlternativeNames"`
+	CertificatePolicies CertificatePolicyInformationArrayInput `pulumi:"certificatePolicies"`
+	CustomExtensions    CertificateCustomExtensionArrayInput   `pulumi:"customExtensions"`
+	ExtendedKeyUsage    CertificateExtendedKeyUsageArrayInput  `pulumi:"extendedKeyUsage"`
+	// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+	KeyUsage                CertificateKeyUsagePtrInput      `pulumi:"keyUsage"`
+	SubjectAlternativeNames CertificateGeneralNameArrayInput `pulumi:"subjectAlternativeNames"`
 }
 
 func (CertificateExtensionsArgs) ElementType() reflect.Type {
@@ -2882,7 +2876,7 @@ func (i *certificateExtensionsPtrType) ToCertificateExtensionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtensionsPtrOutput)
 }
 
-// Structure that contains X.500 extensions for a Certificate.
+// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
 type CertificateExtensionsOutput struct{ *pulumi.OutputState }
 
 func (CertificateExtensionsOutput) ElementType() reflect.Type {
@@ -2919,6 +2913,7 @@ func (o CertificateExtensionsOutput) ExtendedKeyUsage() CertificateExtendedKeyUs
 	return o.ApplyT(func(v CertificateExtensions) []CertificateExtendedKeyUsage { return v.ExtendedKeyUsage }).(CertificateExtendedKeyUsageArrayOutput)
 }
 
+// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
 func (o CertificateExtensionsOutput) KeyUsage() CertificateKeyUsagePtrOutput {
 	return o.ApplyT(func(v CertificateExtensions) *CertificateKeyUsage { return v.KeyUsage }).(CertificateKeyUsagePtrOutput)
 }
@@ -2978,6 +2973,7 @@ func (o CertificateExtensionsPtrOutput) ExtendedKeyUsage() CertificateExtendedKe
 	}).(CertificateExtendedKeyUsageArrayOutput)
 }
 
+// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
 func (o CertificateExtensionsPtrOutput) KeyUsage() CertificateKeyUsagePtrOutput {
 	return o.ApplyT(func(v *CertificateExtensions) *CertificateKeyUsage {
 		if v == nil {
@@ -2996,8 +2992,9 @@ func (o CertificateExtensionsPtrOutput) SubjectAlternativeNames() CertificateGen
 	}).(CertificateGeneralNameArrayOutput)
 }
 
-// Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
+// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
 type CertificateGeneralName struct {
+	// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
 	DirectoryName             *CertificateSubject      `pulumi:"directoryName"`
 	DnsName                   *string                  `pulumi:"dnsName"`
 	EdiPartyName              *CertificateEdiPartyName `pulumi:"ediPartyName"`
@@ -3019,8 +3016,9 @@ type CertificateGeneralNameInput interface {
 	ToCertificateGeneralNameOutputWithContext(context.Context) CertificateGeneralNameOutput
 }
 
-// Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
+// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
 type CertificateGeneralNameArgs struct {
+	// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
 	DirectoryName             CertificateSubjectPtrInput      `pulumi:"directoryName"`
 	DnsName                   pulumi.StringPtrInput           `pulumi:"dnsName"`
 	EdiPartyName              CertificateEdiPartyNamePtrInput `pulumi:"ediPartyName"`
@@ -3068,7 +3066,7 @@ func (i CertificateGeneralNameArray) ToCertificateGeneralNameArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateGeneralNameArrayOutput)
 }
 
-// Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
+// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
 type CertificateGeneralNameOutput struct{ *pulumi.OutputState }
 
 func (CertificateGeneralNameOutput) ElementType() reflect.Type {
@@ -3083,6 +3081,7 @@ func (o CertificateGeneralNameOutput) ToCertificateGeneralNameOutputWithContext(
 	return o
 }
 
+// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
 func (o CertificateGeneralNameOutput) DirectoryName() CertificateSubjectPtrOutput {
 	return o.ApplyT(func(v CertificateGeneralName) *CertificateSubject { return v.DirectoryName }).(CertificateSubjectPtrOutput)
 }
@@ -3135,7 +3134,6 @@ func (o CertificateGeneralNameArrayOutput) Index(i pulumi.IntInput) CertificateG
 	}).(CertificateGeneralNameOutput)
 }
 
-// Structure that contains X.509 KeyUsage information.
 type CertificateKeyUsage struct {
 	CrlSign          *bool `pulumi:"crlSign"`
 	DataEncipherment *bool `pulumi:"dataEncipherment"`
@@ -3159,7 +3157,6 @@ type CertificateKeyUsageInput interface {
 	ToCertificateKeyUsageOutputWithContext(context.Context) CertificateKeyUsageOutput
 }
 
-// Structure that contains X.509 KeyUsage information.
 type CertificateKeyUsageArgs struct {
 	CrlSign          pulumi.BoolPtrInput `pulumi:"crlSign"`
 	DataEncipherment pulumi.BoolPtrInput `pulumi:"dataEncipherment"`
@@ -3225,7 +3222,6 @@ func (i *certificateKeyUsagePtrType) ToCertificateKeyUsagePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateKeyUsagePtrOutput)
 }
 
-// Structure that contains X.509 KeyUsage information.
 type CertificateKeyUsageOutput struct{ *pulumi.OutputState }
 
 func (CertificateKeyUsageOutput) ElementType() reflect.Type {
@@ -3391,7 +3387,6 @@ func (o CertificateKeyUsagePtrOutput) NonRepudiation() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Structure that contains X.509 OtherName information.
 type CertificateOtherName struct {
 	TypeId string `pulumi:"typeId"`
 	Value  string `pulumi:"value"`
@@ -3408,7 +3403,6 @@ type CertificateOtherNameInput interface {
 	ToCertificateOtherNameOutputWithContext(context.Context) CertificateOtherNameOutput
 }
 
-// Structure that contains X.509 OtherName information.
 type CertificateOtherNameArgs struct {
 	TypeId pulumi.StringInput `pulumi:"typeId"`
 	Value  pulumi.StringInput `pulumi:"value"`
@@ -3467,7 +3461,6 @@ func (i *certificateOtherNamePtrType) ToCertificateOtherNamePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOtherNamePtrOutput)
 }
 
-// Structure that contains X.509 OtherName information.
 type CertificateOtherNameOutput struct{ *pulumi.OutputState }
 
 func (CertificateOtherNameOutput) ElementType() reflect.Type {
@@ -3542,7 +3535,6 @@ func (o CertificateOtherNamePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Structure that contains X.509 Policy information.
 type CertificatePolicyInformation struct {
 	CertPolicyId     string                           `pulumi:"certPolicyId"`
 	PolicyQualifiers []CertificatePolicyQualifierInfo `pulumi:"policyQualifiers"`
@@ -3559,7 +3551,6 @@ type CertificatePolicyInformationInput interface {
 	ToCertificatePolicyInformationOutputWithContext(context.Context) CertificatePolicyInformationOutput
 }
 
-// Structure that contains X.509 Policy information.
 type CertificatePolicyInformationArgs struct {
 	CertPolicyId     pulumi.StringInput                       `pulumi:"certPolicyId"`
 	PolicyQualifiers CertificatePolicyQualifierInfoArrayInput `pulumi:"policyQualifiers"`
@@ -3602,7 +3593,6 @@ func (i CertificatePolicyInformationArray) ToCertificatePolicyInformationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePolicyInformationArrayOutput)
 }
 
-// Structure that contains X.509 Policy information.
 type CertificatePolicyInformationOutput struct{ *pulumi.OutputState }
 
 func (CertificatePolicyInformationOutput) ElementType() reflect.Type {
@@ -3645,7 +3635,6 @@ func (o CertificatePolicyInformationArrayOutput) Index(i pulumi.IntInput) Certif
 	}).(CertificatePolicyInformationOutput)
 }
 
-// Structure that contains X.509 Policy qualifier information.
 type CertificatePolicyQualifierInfo struct {
 	PolicyQualifierId string               `pulumi:"policyQualifierId"`
 	Qualifier         CertificateQualifier `pulumi:"qualifier"`
@@ -3662,7 +3651,6 @@ type CertificatePolicyQualifierInfoInput interface {
 	ToCertificatePolicyQualifierInfoOutputWithContext(context.Context) CertificatePolicyQualifierInfoOutput
 }
 
-// Structure that contains X.509 Policy qualifier information.
 type CertificatePolicyQualifierInfoArgs struct {
 	PolicyQualifierId pulumi.StringInput        `pulumi:"policyQualifierId"`
 	Qualifier         CertificateQualifierInput `pulumi:"qualifier"`
@@ -3705,7 +3693,6 @@ func (i CertificatePolicyQualifierInfoArray) ToCertificatePolicyQualifierInfoArr
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePolicyQualifierInfoArrayOutput)
 }
 
-// Structure that contains X.509 Policy qualifier information.
 type CertificatePolicyQualifierInfoOutput struct{ *pulumi.OutputState }
 
 func (CertificatePolicyQualifierInfoOutput) ElementType() reflect.Type {
@@ -3748,7 +3735,6 @@ func (o CertificatePolicyQualifierInfoArrayOutput) Index(i pulumi.IntInput) Cert
 	}).(CertificatePolicyQualifierInfoOutput)
 }
 
-// Structure that contains a X.509 policy qualifier.
 type CertificateQualifier struct {
 	CpsUri string `pulumi:"cpsUri"`
 }
@@ -3764,7 +3750,6 @@ type CertificateQualifierInput interface {
 	ToCertificateQualifierOutputWithContext(context.Context) CertificateQualifierOutput
 }
 
-// Structure that contains a X.509 policy qualifier.
 type CertificateQualifierArgs struct {
 	CpsUri pulumi.StringInput `pulumi:"cpsUri"`
 }
@@ -3781,7 +3766,6 @@ func (i CertificateQualifierArgs) ToCertificateQualifierOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateQualifierOutput)
 }
 
-// Structure that contains a X.509 policy qualifier.
 type CertificateQualifierOutput struct{ *pulumi.OutputState }
 
 func (CertificateQualifierOutput) ElementType() reflect.Type {
@@ -3800,23 +3784,38 @@ func (o CertificateQualifierOutput) CpsUri() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateQualifier) string { return v.CpsUri }).(pulumi.StringOutput)
 }
 
-// Structure that contains X.500 distinguished name information.
+// Contains information about the certificate subject. The “Subject“ field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The “Subject“must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 type CertificateSubject struct {
-	CommonName                 *string                      `pulumi:"commonName"`
-	Country                    *string                      `pulumi:"country"`
-	CustomAttributes           []CertificateCustomAttribute `pulumi:"customAttributes"`
-	DistinguishedNameQualifier *string                      `pulumi:"distinguishedNameQualifier"`
-	GenerationQualifier        *string                      `pulumi:"generationQualifier"`
-	GivenName                  *string                      `pulumi:"givenName"`
-	Initials                   *string                      `pulumi:"initials"`
-	Locality                   *string                      `pulumi:"locality"`
-	Organization               *string                      `pulumi:"organization"`
-	OrganizationalUnit         *string                      `pulumi:"organizationalUnit"`
-	Pseudonym                  *string                      `pulumi:"pseudonym"`
-	SerialNumber               *string                      `pulumi:"serialNumber"`
-	State                      *string                      `pulumi:"state"`
-	Surname                    *string                      `pulumi:"surname"`
-	Title                      *string                      `pulumi:"title"`
+	// For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
+	//  Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
+	CommonName *string `pulumi:"commonName"`
+	// Two-digit code that specifies the country in which the certificate subject located.
+	Country          *string                      `pulumi:"country"`
+	CustomAttributes []CertificateCustomAttribute `pulumi:"customAttributes"`
+	// Disambiguating information for the certificate subject.
+	DistinguishedNameQualifier *string `pulumi:"distinguishedNameQualifier"`
+	// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+	GenerationQualifier *string `pulumi:"generationQualifier"`
+	// First name.
+	GivenName *string `pulumi:"givenName"`
+	// Concatenation that typically contains the first letter of the *GivenName*, the first letter of the middle name if one exists, and the first letter of the *Surname*.
+	Initials *string `pulumi:"initials"`
+	// The locality (such as a city or town) in which the certificate subject is located.
+	Locality *string `pulumi:"locality"`
+	// Legal name of the organization with which the certificate subject is affiliated.
+	Organization *string `pulumi:"organization"`
+	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+	OrganizationalUnit *string `pulumi:"organizationalUnit"`
+	// Typically a shortened version of a longer *GivenName*. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+	Pseudonym *string `pulumi:"pseudonym"`
+	// The certificate serial number.
+	SerialNumber *string `pulumi:"serialNumber"`
+	// State in which the subject of the certificate is located.
+	State *string `pulumi:"state"`
+	// Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+	Surname *string `pulumi:"surname"`
+	// A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
+	Title *string `pulumi:"title"`
 }
 
 // CertificateSubjectInput is an input type that accepts CertificateSubjectArgs and CertificateSubjectOutput values.
@@ -3830,23 +3829,38 @@ type CertificateSubjectInput interface {
 	ToCertificateSubjectOutputWithContext(context.Context) CertificateSubjectOutput
 }
 
-// Structure that contains X.500 distinguished name information.
+// Contains information about the certificate subject. The “Subject“ field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The “Subject“must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 type CertificateSubjectArgs struct {
-	CommonName                 pulumi.StringPtrInput                `pulumi:"commonName"`
-	Country                    pulumi.StringPtrInput                `pulumi:"country"`
-	CustomAttributes           CertificateCustomAttributeArrayInput `pulumi:"customAttributes"`
-	DistinguishedNameQualifier pulumi.StringPtrInput                `pulumi:"distinguishedNameQualifier"`
-	GenerationQualifier        pulumi.StringPtrInput                `pulumi:"generationQualifier"`
-	GivenName                  pulumi.StringPtrInput                `pulumi:"givenName"`
-	Initials                   pulumi.StringPtrInput                `pulumi:"initials"`
-	Locality                   pulumi.StringPtrInput                `pulumi:"locality"`
-	Organization               pulumi.StringPtrInput                `pulumi:"organization"`
-	OrganizationalUnit         pulumi.StringPtrInput                `pulumi:"organizationalUnit"`
-	Pseudonym                  pulumi.StringPtrInput                `pulumi:"pseudonym"`
-	SerialNumber               pulumi.StringPtrInput                `pulumi:"serialNumber"`
-	State                      pulumi.StringPtrInput                `pulumi:"state"`
-	Surname                    pulumi.StringPtrInput                `pulumi:"surname"`
-	Title                      pulumi.StringPtrInput                `pulumi:"title"`
+	// For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
+	//  Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
+	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
+	// Two-digit code that specifies the country in which the certificate subject located.
+	Country          pulumi.StringPtrInput                `pulumi:"country"`
+	CustomAttributes CertificateCustomAttributeArrayInput `pulumi:"customAttributes"`
+	// Disambiguating information for the certificate subject.
+	DistinguishedNameQualifier pulumi.StringPtrInput `pulumi:"distinguishedNameQualifier"`
+	// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+	GenerationQualifier pulumi.StringPtrInput `pulumi:"generationQualifier"`
+	// First name.
+	GivenName pulumi.StringPtrInput `pulumi:"givenName"`
+	// Concatenation that typically contains the first letter of the *GivenName*, the first letter of the middle name if one exists, and the first letter of the *Surname*.
+	Initials pulumi.StringPtrInput `pulumi:"initials"`
+	// The locality (such as a city or town) in which the certificate subject is located.
+	Locality pulumi.StringPtrInput `pulumi:"locality"`
+	// Legal name of the organization with which the certificate subject is affiliated.
+	Organization pulumi.StringPtrInput `pulumi:"organization"`
+	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
+	// Typically a shortened version of a longer *GivenName*. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+	Pseudonym pulumi.StringPtrInput `pulumi:"pseudonym"`
+	// The certificate serial number.
+	SerialNumber pulumi.StringPtrInput `pulumi:"serialNumber"`
+	// State in which the subject of the certificate is located.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+	Surname pulumi.StringPtrInput `pulumi:"surname"`
+	// A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
+	Title pulumi.StringPtrInput `pulumi:"title"`
 }
 
 func (CertificateSubjectArgs) ElementType() reflect.Type {
@@ -3902,7 +3916,7 @@ func (i *certificateSubjectPtrType) ToCertificateSubjectPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateSubjectPtrOutput)
 }
 
-// Structure that contains X.500 distinguished name information.
+// Contains information about the certificate subject. The “Subject“ field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The “Subject“must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 type CertificateSubjectOutput struct{ *pulumi.OutputState }
 
 func (CertificateSubjectOutput) ElementType() reflect.Type {
@@ -3927,10 +3941,14 @@ func (o CertificateSubjectOutput) ToCertificateSubjectPtrOutputWithContext(ctx c
 	}).(CertificateSubjectPtrOutput)
 }
 
+// For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
+//
+//	Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
 func (o CertificateSubjectOutput) CommonName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.CommonName }).(pulumi.StringPtrOutput)
 }
 
+// Two-digit code that specifies the country in which the certificate subject located.
 func (o CertificateSubjectOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
@@ -3939,50 +3957,62 @@ func (o CertificateSubjectOutput) CustomAttributes() CertificateCustomAttributeA
 	return o.ApplyT(func(v CertificateSubject) []CertificateCustomAttribute { return v.CustomAttributes }).(CertificateCustomAttributeArrayOutput)
 }
 
+// Disambiguating information for the certificate subject.
 func (o CertificateSubjectOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.DistinguishedNameQualifier }).(pulumi.StringPtrOutput)
 }
 
+// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
 func (o CertificateSubjectOutput) GenerationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.GenerationQualifier }).(pulumi.StringPtrOutput)
 }
 
+// First name.
 func (o CertificateSubjectOutput) GivenName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.GivenName }).(pulumi.StringPtrOutput)
 }
 
+// Concatenation that typically contains the first letter of the *GivenName*, the first letter of the middle name if one exists, and the first letter of the *Surname*.
 func (o CertificateSubjectOutput) Initials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.Initials }).(pulumi.StringPtrOutput)
 }
 
+// The locality (such as a city or town) in which the certificate subject is located.
 func (o CertificateSubjectOutput) Locality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.Locality }).(pulumi.StringPtrOutput)
 }
 
+// Legal name of the organization with which the certificate subject is affiliated.
 func (o CertificateSubjectOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.Organization }).(pulumi.StringPtrOutput)
 }
 
+// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
 func (o CertificateSubjectOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
+// Typically a shortened version of a longer *GivenName*. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
 func (o CertificateSubjectOutput) Pseudonym() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.Pseudonym }).(pulumi.StringPtrOutput)
 }
 
+// The certificate serial number.
 func (o CertificateSubjectOutput) SerialNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.SerialNumber }).(pulumi.StringPtrOutput)
 }
 
+// State in which the subject of the certificate is located.
 func (o CertificateSubjectOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
 func (o CertificateSubjectOutput) Surname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.Surname }).(pulumi.StringPtrOutput)
 }
 
+// A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
 func (o CertificateSubjectOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -4011,6 +4041,9 @@ func (o CertificateSubjectPtrOutput) Elem() CertificateSubjectOutput {
 	}).(CertificateSubjectOutput)
 }
 
+// For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
+//
+//	Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
 func (o CertificateSubjectPtrOutput) CommonName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4020,6 +4053,7 @@ func (o CertificateSubjectPtrOutput) CommonName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Two-digit code that specifies the country in which the certificate subject located.
 func (o CertificateSubjectPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4038,6 +4072,7 @@ func (o CertificateSubjectPtrOutput) CustomAttributes() CertificateCustomAttribu
 	}).(CertificateCustomAttributeArrayOutput)
 }
 
+// Disambiguating information for the certificate subject.
 func (o CertificateSubjectPtrOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4047,6 +4082,7 @@ func (o CertificateSubjectPtrOutput) DistinguishedNameQualifier() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
 func (o CertificateSubjectPtrOutput) GenerationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4056,6 +4092,7 @@ func (o CertificateSubjectPtrOutput) GenerationQualifier() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// First name.
 func (o CertificateSubjectPtrOutput) GivenName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4065,6 +4102,7 @@ func (o CertificateSubjectPtrOutput) GivenName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Concatenation that typically contains the first letter of the *GivenName*, the first letter of the middle name if one exists, and the first letter of the *Surname*.
 func (o CertificateSubjectPtrOutput) Initials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4074,6 +4112,7 @@ func (o CertificateSubjectPtrOutput) Initials() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The locality (such as a city or town) in which the certificate subject is located.
 func (o CertificateSubjectPtrOutput) Locality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4083,6 +4122,7 @@ func (o CertificateSubjectPtrOutput) Locality() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Legal name of the organization with which the certificate subject is affiliated.
 func (o CertificateSubjectPtrOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4092,6 +4132,7 @@ func (o CertificateSubjectPtrOutput) Organization() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
 func (o CertificateSubjectPtrOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4101,6 +4142,7 @@ func (o CertificateSubjectPtrOutput) OrganizationalUnit() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Typically a shortened version of a longer *GivenName*. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
 func (o CertificateSubjectPtrOutput) Pseudonym() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4110,6 +4152,7 @@ func (o CertificateSubjectPtrOutput) Pseudonym() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The certificate serial number.
 func (o CertificateSubjectPtrOutput) SerialNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4119,6 +4162,7 @@ func (o CertificateSubjectPtrOutput) SerialNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// State in which the subject of the certificate is located.
 func (o CertificateSubjectPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4128,6 +4172,7 @@ func (o CertificateSubjectPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
 func (o CertificateSubjectPtrOutput) Surname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4137,6 +4182,7 @@ func (o CertificateSubjectPtrOutput) Surname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
 func (o CertificateSubjectPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateSubject) *string {
 		if v == nil {
@@ -4146,9 +4192,11 @@ func (o CertificateSubjectPtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Validity for a certificate.
+// Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the “IssueCertificate“ operation.
 type CertificateValidity struct {
-	Type  string  `pulumi:"type"`
+	// Specifies whether the ``Value`` parameter represents days, months, or years.
+	Type string `pulumi:"type"`
+	// Time period.
 	Value float64 `pulumi:"value"`
 }
 
@@ -4163,9 +4211,11 @@ type CertificateValidityInput interface {
 	ToCertificateValidityOutputWithContext(context.Context) CertificateValidityOutput
 }
 
-// Validity for a certificate.
+// Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the “IssueCertificate“ operation.
 type CertificateValidityArgs struct {
-	Type  pulumi.StringInput  `pulumi:"type"`
+	// Specifies whether the ``Value`` parameter represents days, months, or years.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Time period.
 	Value pulumi.Float64Input `pulumi:"value"`
 }
 
@@ -4222,7 +4272,7 @@ func (i *certificateValidityPtrType) ToCertificateValidityPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidityPtrOutput)
 }
 
-// Validity for a certificate.
+// Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the “IssueCertificate“ operation.
 type CertificateValidityOutput struct{ *pulumi.OutputState }
 
 func (CertificateValidityOutput) ElementType() reflect.Type {
@@ -4247,10 +4297,12 @@ func (o CertificateValidityOutput) ToCertificateValidityPtrOutputWithContext(ctx
 	}).(CertificateValidityPtrOutput)
 }
 
+// Specifies whether the “Value“ parameter represents days, months, or years.
 func (o CertificateValidityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateValidity) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Time period.
 func (o CertificateValidityOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v CertificateValidity) float64 { return v.Value }).(pulumi.Float64Output)
 }
@@ -4279,6 +4331,7 @@ func (o CertificateValidityPtrOutput) Elem() CertificateValidityOutput {
 	}).(CertificateValidityOutput)
 }
 
+// Specifies whether the “Value“ parameter represents days, months, or years.
 func (o CertificateValidityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateValidity) *string {
 		if v == nil {
@@ -4288,6 +4341,7 @@ func (o CertificateValidityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Time period.
 func (o CertificateValidityPtrOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CertificateValidity) *float64 {
 		if v == nil {

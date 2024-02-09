@@ -61,10 +61,13 @@ export namespace accessanalyzer {
 
 export namespace acmpca {
     /**
-     * Structure that specifies fields to be overridden in a certificate at the time of issuance. These requires an API Passthrough template be used or they will be ignored.
+     * Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
      */
     export interface CertificateApiPassthrough {
         extensions?: outputs.acmpca.CertificateExtensions;
+        /**
+         * Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+         */
         subject?: outputs.acmpca.CertificateSubject;
     }
 
@@ -206,54 +209,48 @@ export namespace acmpca {
         value?: string;
     }
 
-    /**
-     * Structure that contains X.500 attribute type and value.
-     */
     export interface CertificateCustomAttribute {
         objectIdentifier: string;
         value: string;
     }
 
-    /**
-     * Structure that contains X.509 extension information for a certificate.
-     */
     export interface CertificateCustomExtension {
         critical?: boolean;
         objectIdentifier: string;
         value: string;
     }
 
-    /**
-     * Structure that contains X.509 EdiPartyName information.
-     */
     export interface CertificateEdiPartyName {
         nameAssigner: string;
         partyName: string;
     }
 
-    /**
-     * Structure that contains X.509 ExtendedKeyUsage information.
-     */
     export interface CertificateExtendedKeyUsage {
         extendedKeyUsageObjectIdentifier?: string;
         extendedKeyUsageType?: string;
     }
 
     /**
-     * Structure that contains X.500 extensions for a Certificate.
+     * Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
      */
     export interface CertificateExtensions {
         certificatePolicies?: outputs.acmpca.CertificatePolicyInformation[];
         customExtensions?: outputs.acmpca.CertificateCustomExtension[];
         extendedKeyUsage?: outputs.acmpca.CertificateExtendedKeyUsage[];
+        /**
+         * Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+         */
         keyUsage?: outputs.acmpca.CertificateKeyUsage;
         subjectAlternativeNames?: outputs.acmpca.CertificateGeneralName[];
     }
 
     /**
-     * Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
+     * Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
      */
     export interface CertificateGeneralName {
+        /**
+         * Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+         */
         directoryName?: outputs.acmpca.CertificateSubject;
         dnsName?: string;
         ediPartyName?: outputs.acmpca.CertificateEdiPartyName;
@@ -264,9 +261,6 @@ export namespace acmpca {
         uniformResourceIdentifier?: string;
     }
 
-    /**
-     * Structure that contains X.509 KeyUsage information.
-     */
     export interface CertificateKeyUsage {
         crlSign?: boolean;
         dataEncipherment?: boolean;
@@ -279,63 +273,100 @@ export namespace acmpca {
         nonRepudiation?: boolean;
     }
 
-    /**
-     * Structure that contains X.509 OtherName information.
-     */
     export interface CertificateOtherName {
         typeId: string;
         value: string;
     }
 
-    /**
-     * Structure that contains X.509 Policy information.
-     */
     export interface CertificatePolicyInformation {
         certPolicyId: string;
         policyQualifiers?: outputs.acmpca.CertificatePolicyQualifierInfo[];
     }
 
-    /**
-     * Structure that contains X.509 Policy qualifier information.
-     */
     export interface CertificatePolicyQualifierInfo {
         policyQualifierId: string;
         qualifier: outputs.acmpca.CertificateQualifier;
     }
 
-    /**
-     * Structure that contains a X.509 policy qualifier.
-     */
     export interface CertificateQualifier {
         cpsUri: string;
     }
 
     /**
-     * Structure that contains X.500 distinguished name information.
+     * Contains information about the certificate subject. The ``Subject`` field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The ``Subject``must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
      */
     export interface CertificateSubject {
+        /**
+         * For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
+         *  Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
+         */
         commonName?: string;
+        /**
+         * Two-digit code that specifies the country in which the certificate subject located.
+         */
         country?: string;
         customAttributes?: outputs.acmpca.CertificateCustomAttribute[];
+        /**
+         * Disambiguating information for the certificate subject.
+         */
         distinguishedNameQualifier?: string;
+        /**
+         * Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+         */
         generationQualifier?: string;
+        /**
+         * First name.
+         */
         givenName?: string;
+        /**
+         * Concatenation that typically contains the first letter of the *GivenName*, the first letter of the middle name if one exists, and the first letter of the *Surname*.
+         */
         initials?: string;
+        /**
+         * The locality (such as a city or town) in which the certificate subject is located.
+         */
         locality?: string;
+        /**
+         * Legal name of the organization with which the certificate subject is affiliated.
+         */
         organization?: string;
+        /**
+         * A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+         */
         organizationalUnit?: string;
+        /**
+         * Typically a shortened version of a longer *GivenName*. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+         */
         pseudonym?: string;
+        /**
+         * The certificate serial number.
+         */
         serialNumber?: string;
+        /**
+         * State in which the subject of the certificate is located.
+         */
         state?: string;
+        /**
+         * Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+         */
         surname?: string;
+        /**
+         * A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
+         */
         title?: string;
     }
 
     /**
-     * Validity for a certificate.
+     * Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the ``IssueCertificate`` operation.
      */
     export interface CertificateValidity {
+        /**
+         * Specifies whether the ``Value`` parameter represents days, months, or years.
+         */
         type: string;
+        /**
+         * Time period.
+         */
         value: number;
     }
 
@@ -386,6 +417,7 @@ export namespace amazonmq {
         consoleAccess?: boolean;
         groups?: string[];
         password: string;
+        replicationUser?: boolean;
         username: string;
     }
 
@@ -1363,14 +1395,32 @@ export namespace appconfig {
         value?: string;
     }
 
-    export interface EnvironmentMonitors {
-        alarmArn?: string;
+    /**
+     * Amazon CloudWatch alarm to monitor during the deployment process.
+     */
+    export interface EnvironmentMonitor {
+        /**
+         * Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+         */
+        alarmArn: string;
+        /**
+         * ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
+         */
         alarmRoleArn?: string;
     }
 
-    export interface EnvironmentTags {
-        key?: string;
-        value?: string;
+    /**
+     * Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
+    export interface EnvironmentTag {
+        /**
+         * The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+         */
+        key: string;
+        /**
+         * The tag value can be up to 256 characters.
+         */
+        value: string;
     }
 
     /**
@@ -4359,30 +4409,38 @@ export namespace appsync {
         userPoolId?: string;
     }
 
+    /**
+     * Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+     */
     export interface ResolverAppSyncRuntime {
         /**
-         * The name of the runtime to use.
+         * The ``name`` of the runtime to use. Currently, the only allowed value is ``APPSYNC_JS``.
          */
         name: string;
         /**
-         * The version of the runtime to use.
+         * The ``version`` of the runtime to use. Currently, the only allowed version is ``1.0.0``.
          */
         runtimeVersion: string;
     }
 
+    /**
+     * The caching configuration for a resolver that has caching activated.
+     */
     export interface ResolverCachingConfig {
         /**
-         * The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+         * The caching keys for a resolver that has caching activated.
+         *  Valid values are entries from the ``$context.arguments``, ``$context.source``, and ``$context.identity`` maps.
          */
         cachingKeys?: string[];
         /**
-         * The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+         * The TTL in seconds for a resolver that has caching activated.
+         *  Valid values are 1–3,600 seconds.
          */
         ttl: number;
     }
 
     /**
-     * The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+     * The ``LambdaConflictHandlerConfig`` when configuring LAMBDA as the Conflict Handler.
      */
     export interface ResolverLambdaConflictHandlerConfig {
         /**
@@ -4391,22 +4449,38 @@ export namespace appsync {
         lambdaConflictHandlerArn?: string;
     }
 
+    /**
+     * Use the ``PipelineConfig`` property type to specify ``PipelineConfig`` for an APSYlong resolver.
+     *   ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
+     */
     export interface ResolverPipelineConfig {
         /**
-         * A list of Function objects.
+         * A list of ``Function`` objects.
          */
         functions?: string[];
     }
 
+    /**
+     * Describes a Sync configuration for a resolver.
+     *  Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+     */
     export interface ResolverSyncConfig {
         /**
          * The Conflict Detection strategy to use.
+         *   +   *VERSION*: Detect conflicts based on object versions for this resolver.
+         *   +   *NONE*: Do not detect conflicts when invoking this resolver.
          */
         conflictDetection: string;
         /**
          * The Conflict Resolution strategy to perform in the event of a conflict.
+         *   +   *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
+         *   +   *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
+         *   +   *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
          */
         conflictHandler?: string;
+        /**
+         * The ``LambdaConflictHandlerConfig`` when configuring ``LAMBDA`` as the Conflict Handler.
+         */
         lambdaConflictHandlerConfig?: outputs.appsync.ResolverLambdaConflictHandlerConfig;
     }
 
@@ -5831,6 +5905,24 @@ export namespace cassandra {
         value: string;
     }
 
+    /**
+     * Represents configuration for auto scaling.
+     */
+    export interface TableAutoScalingSetting {
+        autoScalingDisabled?: boolean;
+        maximumUnits?: number;
+        minimumUnits?: number;
+        scalingPolicy?: outputs.cassandra.TableScalingPolicy;
+    }
+
+    /**
+     * Represents the read and write settings used for AutoScaling.
+     */
+    export interface TableAutoScalingSpecification {
+        readCapacityAutoScaling?: outputs.cassandra.TableAutoScalingSetting;
+        writeCapacityAutoScaling?: outputs.cassandra.TableAutoScalingSetting;
+    }
+
     export interface TableBillingMode {
         mode: enums.cassandra.TableMode;
         provisionedThroughput?: outputs.cassandra.TableProvisionedThroughput;
@@ -5863,11 +5955,37 @@ export namespace cassandra {
     }
 
     /**
+     * Represents replica specifications.
+     */
+    export interface TableReplicaSpecification {
+        readCapacityAutoScaling?: outputs.cassandra.TableAutoScalingSetting;
+        readCapacityUnits?: number;
+        region: string;
+    }
+
+    /**
+     * Represents scaling policy.
+     */
+    export interface TableScalingPolicy {
+        targetTrackingScalingPolicyConfiguration?: outputs.cassandra.TableTargetTrackingScalingPolicyConfiguration;
+    }
+
+    /**
      * A key-value pair to apply to the resource
      */
     export interface TableTag {
         key: string;
         value: string;
+    }
+
+    /**
+     * Represents configuration for target tracking scaling policy.
+     */
+    export interface TableTargetTrackingScalingPolicyConfiguration {
+        disableScaleIn?: boolean;
+        scaleInCooldown?: number;
+        scaleOutCooldown?: number;
+        targetValue: number;
     }
 
 }
@@ -12481,6 +12599,10 @@ export namespace ec2 {
         enabled: boolean;
     }
 
+    export interface ClientVpnEndpointClientRouteMonitoringOptions {
+        enabled?: boolean;
+    }
+
     export interface ClientVpnEndpointConnectionLogOptions {
         cloudwatchLogGroup?: string;
         cloudwatchLogStream?: string;
@@ -15113,6 +15235,7 @@ export namespace ecs {
     export interface TaskDefinitionContainerDefinition {
         command?: string[];
         cpu?: number;
+        credentialSpecs?: string[];
         dependsOn?: outputs.ecs.TaskDefinitionContainerDependency[];
         disableNetworking?: boolean;
         dnsSearchDomains?: string[];
@@ -21662,6 +21785,10 @@ export namespace iot {
     export interface DomainConfigurationAuthorizerConfig {
         allowAuthorizerOverride?: boolean;
         defaultAuthorizerName?: string;
+    }
+
+    export interface DomainConfigurationServerCertificateConfig {
+        enableOcspCheck?: boolean;
     }
 
     export interface DomainConfigurationServerCertificateSummary {
@@ -49452,6 +49579,29 @@ export namespace s3outposts {
 
 export namespace sagemaker {
     /**
+     * The container configuration for a SageMaker image.
+     */
+    export interface AppImageConfigContainerConfig {
+        /**
+         * A list of arguments to apply to the container.
+         */
+        containerArguments?: string[];
+        /**
+         * The custom entry point to use on container.
+         */
+        containerEntrypoint?: string[];
+        /**
+         * A list of variables to apply to the custom container.
+         */
+        containerEnvironmentVariables?: outputs.sagemaker.AppImageConfigCustomImageContainerEnvironmentVariable[];
+    }
+
+    export interface AppImageConfigCustomImageContainerEnvironmentVariable {
+        key: string;
+        value: string;
+    }
+
+    /**
      * The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
      */
     export interface AppImageConfigFileSystemConfig {
@@ -49467,6 +49617,16 @@ export namespace sagemaker {
          * The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
          */
         mountPath?: string;
+    }
+
+    /**
+     * The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+     */
+    export interface AppImageConfigJupyterLabAppImageConfig {
+        /**
+         * The container configuration for a SageMaker image.
+         */
+        containerConfig?: outputs.sagemaker.AppImageConfigContainerConfig;
     }
 
     /**
@@ -49942,6 +50102,20 @@ export namespace sagemaker {
         defaultEbsStorageSettings?: outputs.sagemaker.DomainDefaultEbsStorageSettings;
     }
 
+    /**
+     * A collection of settings that are required to start docker-proxy server.
+     */
+    export interface DomainDockerSettings {
+        /**
+         * The flag to enable/disable docker-proxy server
+         */
+        enableDockerAccess?: enums.sagemaker.DomainDockerSettingsEnableDockerAccess;
+        /**
+         * A list of account id's that would be used to pull images from in VpcOnly mode
+         */
+        vpcOnlyTrustedAccounts?: string[];
+    }
+
     export interface DomainEfsFileSystemConfig {
         fileSystemId: string;
         fileSystemPath?: string;
@@ -50057,6 +50231,7 @@ export namespace sagemaker {
      * A collection of Domain settings.
      */
     export interface DomainSettings {
+        dockerSettings?: outputs.sagemaker.DomainDockerSettings;
         rStudioServerProDomainSettings?: outputs.sagemaker.DomainRStudioServerProDomainSettings;
         /**
          * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
@@ -52779,6 +52954,24 @@ export namespace sagemaker {
     }
 
     /**
+     * The CodeEditor app settings.
+     */
+    export interface SpaceCodeEditorAppSettings {
+        defaultResourceSpec?: outputs.sagemaker.SpaceResourceSpec;
+    }
+
+    export interface SpaceCodeRepository {
+        /**
+         * A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+         */
+        repositoryUrl: string;
+    }
+
+    export interface SpaceCustomFileSystem {
+        efsFileSystem?: outputs.sagemaker.SpaceEfsFileSystem;
+    }
+
+    /**
      * A custom SageMaker image.
      */
     export interface SpaceCustomImage {
@@ -52794,6 +52987,31 @@ export namespace sagemaker {
          * The version number of the CustomImage.
          */
         imageVersionNumber?: number;
+    }
+
+    /**
+     * Properties related to the space's Amazon Elastic Block Store volume.
+     */
+    export interface SpaceEbsStorageSettings {
+        /**
+         * Size of the Amazon EBS volume in Gb
+         */
+        ebsVolumeSizeInGb: number;
+    }
+
+    export interface SpaceEfsFileSystem {
+        fileSystemId: string;
+    }
+
+    /**
+     * The JupyterServer app settings.
+     */
+    export interface SpaceJupyterLabAppSettings {
+        /**
+         * A list of CodeRepositories available for use with JupyterLab apps.
+         */
+        codeRepositories?: outputs.sagemaker.SpaceCodeRepository[];
+        defaultResourceSpec?: outputs.sagemaker.SpaceResourceSpec;
     }
 
     /**
@@ -52817,6 +53035,10 @@ export namespace sagemaker {
         defaultResourceSpec?: outputs.sagemaker.SpaceResourceSpec;
     }
 
+    export interface SpaceOwnershipSettings {
+        ownerUserProfileName: string;
+    }
+
     export interface SpaceResourceSpec {
         /**
          * The instance type that the image version runs on.
@@ -52836,6 +53058,16 @@ export namespace sagemaker {
      * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
      */
     export interface SpaceSettings {
+        appType?: enums.sagemaker.SpaceAppType;
+        /**
+         * The CodeEditor app settings.
+         */
+        codeEditorAppSettings?: outputs.sagemaker.SpaceCodeEditorAppSettings;
+        customFileSystems?: outputs.sagemaker.SpaceCustomFileSystem[];
+        /**
+         * The JupyterLab app settings.
+         */
+        jupyterLabAppSettings?: outputs.sagemaker.SpaceJupyterLabAppSettings;
         /**
          * The Jupyter server's app settings.
          */
@@ -52844,6 +53076,18 @@ export namespace sagemaker {
          * The kernel gateway app settings.
          */
         kernelGatewayAppSettings?: outputs.sagemaker.SpaceKernelGatewayAppSettings;
+        /**
+         * Default storage settings for a space.
+         */
+        spaceStorageSettings?: outputs.sagemaker.SpaceStorageSettings;
+    }
+
+    export interface SpaceSharingSettings {
+        sharingType: enums.sagemaker.SpaceSharingSettingsSharingType;
+    }
+
+    export interface SpaceStorageSettings {
+        ebsStorageSettings?: outputs.sagemaker.SpaceEbsStorageSettings;
     }
 
     export interface SpaceTag {
@@ -54616,27 +54860,6 @@ export namespace ssmcontacts {
 
 }
 
-export namespace ssmguiconnect {
-    export interface PreferencesIdleConnectionAlert {
-        type?: enums.ssmguiconnect.PreferencesIdleConnectionAlertType;
-        value: number;
-    }
-
-    /**
-     * Idle Connection Preferences
-     */
-    export interface PreferencesIdleConnectionPreferences {
-        alert?: outputs.ssmguiconnect.PreferencesIdleConnectionAlert;
-        timeout?: outputs.ssmguiconnect.PreferencesIdleConnectionTimeout;
-    }
-
-    export interface PreferencesIdleConnectionTimeout {
-        type?: enums.ssmguiconnect.PreferencesIdleConnectionTimeoutType;
-        value: number;
-    }
-
-}
-
 export namespace ssmincidents {
     /**
      * The ReplicationSet regional configuration.
@@ -56034,10 +56257,6 @@ export namespace wafv2 {
      */
     export interface LoggingConfigurationFieldToMatch {
         /**
-         * Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
-         */
-        jsonBody?: outputs.wafv2.LoggingConfigurationFieldToMatchJsonBodyProperties;
-        /**
          * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
          */
         method?: any;
@@ -56053,38 +56272,6 @@ export namespace wafv2 {
          * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
          */
         uriPath?: any;
-    }
-
-    /**
-     * Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
-     */
-    export interface LoggingConfigurationFieldToMatchJsonBodyProperties {
-        /**
-         * What AWS WAF should do if it fails to completely parse the JSON body.
-         */
-        invalidFallbackBehavior?: enums.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior;
-        /**
-         * The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
-         */
-        matchPattern: outputs.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties;
-        /**
-         * The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
-         */
-        matchScope: enums.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope;
-    }
-
-    /**
-     * The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
-     */
-    export interface LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties {
-        /**
-         * Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
-         */
-        all?: any;
-        /**
-         * Match only the specified include paths. See also MatchScope in JsonBody.
-         */
-        includedPaths?: string[];
     }
 
     /**

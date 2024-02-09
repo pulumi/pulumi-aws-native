@@ -18,8 +18,11 @@ __all__ = ['SpaceArgs', 'Space']
 class SpaceArgs:
     def __init__(__self__, *,
                  domain_id: pulumi.Input[str],
+                 ownership_settings: Optional[pulumi.Input['SpaceOwnershipSettingsArgs']] = None,
+                 space_display_name: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  space_settings: Optional[pulumi.Input['SpaceSettingsArgs']] = None,
+                 space_sharing_settings: Optional[pulumi.Input['SpaceSharingSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceTagArgs']]]] = None):
         """
         The set of arguments for constructing a Space resource.
@@ -29,10 +32,16 @@ class SpaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SpaceTagArgs']]] tags: A list of tags to apply to the space.
         """
         pulumi.set(__self__, "domain_id", domain_id)
+        if ownership_settings is not None:
+            pulumi.set(__self__, "ownership_settings", ownership_settings)
+        if space_display_name is not None:
+            pulumi.set(__self__, "space_display_name", space_display_name)
         if space_name is not None:
             pulumi.set(__self__, "space_name", space_name)
         if space_settings is not None:
             pulumi.set(__self__, "space_settings", space_settings)
+        if space_sharing_settings is not None:
+            pulumi.set(__self__, "space_sharing_settings", space_sharing_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -47,6 +56,24 @@ class SpaceArgs:
     @domain_id.setter
     def domain_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "domain_id", value)
+
+    @property
+    @pulumi.getter(name="ownershipSettings")
+    def ownership_settings(self) -> Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]:
+        return pulumi.get(self, "ownership_settings")
+
+    @ownership_settings.setter
+    def ownership_settings(self, value: Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]):
+        pulumi.set(self, "ownership_settings", value)
+
+    @property
+    @pulumi.getter(name="spaceDisplayName")
+    def space_display_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "space_display_name")
+
+    @space_display_name.setter
+    def space_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "space_display_name", value)
 
     @property
     @pulumi.getter(name="spaceName")
@@ -73,6 +100,15 @@ class SpaceArgs:
         pulumi.set(self, "space_settings", value)
 
     @property
+    @pulumi.getter(name="spaceSharingSettings")
+    def space_sharing_settings(self) -> Optional[pulumi.Input['SpaceSharingSettingsArgs']]:
+        return pulumi.get(self, "space_sharing_settings")
+
+    @space_sharing_settings.setter
+    def space_sharing_settings(self, value: Optional[pulumi.Input['SpaceSharingSettingsArgs']]):
+        pulumi.set(self, "space_sharing_settings", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceTagArgs']]]]:
         """
@@ -91,8 +127,11 @@ class Space(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
+                 ownership_settings: Optional[pulumi.Input[pulumi.InputType['SpaceOwnershipSettingsArgs']]] = None,
+                 space_display_name: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSettingsArgs']]] = None,
+                 space_sharing_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSharingSettingsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpaceTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -130,8 +169,11 @@ class Space(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
+                 ownership_settings: Optional[pulumi.Input[pulumi.InputType['SpaceOwnershipSettingsArgs']]] = None,
+                 space_display_name: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSettingsArgs']]] = None,
+                 space_sharing_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSharingSettingsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpaceTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -145,11 +187,15 @@ class Space(pulumi.CustomResource):
             if domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_id'")
             __props__.__dict__["domain_id"] = domain_id
+            __props__.__dict__["ownership_settings"] = ownership_settings
+            __props__.__dict__["space_display_name"] = space_display_name
             __props__.__dict__["space_name"] = space_name
             __props__.__dict__["space_settings"] = space_settings
+            __props__.__dict__["space_sharing_settings"] = space_sharing_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["space_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_id", "space_name"])
+            __props__.__dict__["url"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_id", "ownership_settings", "space_name", "space_sharing_settings"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Space, __self__).__init__(
             'aws-native:sagemaker:Space',
@@ -174,10 +220,14 @@ class Space(pulumi.CustomResource):
         __props__ = SpaceArgs.__new__(SpaceArgs)
 
         __props__.__dict__["domain_id"] = None
+        __props__.__dict__["ownership_settings"] = None
         __props__.__dict__["space_arn"] = None
+        __props__.__dict__["space_display_name"] = None
         __props__.__dict__["space_name"] = None
         __props__.__dict__["space_settings"] = None
+        __props__.__dict__["space_sharing_settings"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["url"] = None
         return Space(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -189,12 +239,22 @@ class Space(pulumi.CustomResource):
         return pulumi.get(self, "domain_id")
 
     @property
+    @pulumi.getter(name="ownershipSettings")
+    def ownership_settings(self) -> pulumi.Output[Optional['outputs.SpaceOwnershipSettings']]:
+        return pulumi.get(self, "ownership_settings")
+
+    @property
     @pulumi.getter(name="spaceArn")
     def space_arn(self) -> pulumi.Output[str]:
         """
         The space Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "space_arn")
+
+    @property
+    @pulumi.getter(name="spaceDisplayName")
+    def space_display_name(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "space_display_name")
 
     @property
     @pulumi.getter(name="spaceName")
@@ -213,10 +273,20 @@ class Space(pulumi.CustomResource):
         return pulumi.get(self, "space_settings")
 
     @property
+    @pulumi.getter(name="spaceSharingSettings")
+    def space_sharing_settings(self) -> pulumi.Output[Optional['outputs.SpaceSharingSettings']]:
+        return pulumi.get(self, "space_sharing_settings")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SpaceTag']]]:
         """
         A list of tags to apply to the space.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "url")
 

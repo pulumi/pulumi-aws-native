@@ -42,8 +42,10 @@ AWS::ApiGatewayV2::RouteResponse
 AWS::ApiGatewayV2::VpcLink
 AWS::AppConfig::Application
 AWS::AppConfig::ConfigurationProfile
+AWS::AppConfig::Environment
 AWS::AppConfig::Extension
 AWS::AppConfig::ExtensionAssociation
+AWS::AppConfig::HostedConfigurationVersion
 AWS::AppFlow::Connector
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
@@ -300,6 +302,7 @@ AWS::EC2::Route
 AWS::EC2::RouteTable
 AWS::EC2::SecurityGroup
 AWS::EC2::SecurityGroupEgress
+AWS::EC2::SecurityGroupIngress
 AWS::EC2::SnapshotBlockPublicAccess
 AWS::EC2::SpotFleet
 AWS::EC2::Subnet
@@ -315,6 +318,7 @@ AWS::EC2::TransitGatewayMulticastGroupMember
 AWS::EC2::TransitGatewayMulticastGroupSource
 AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayRouteTable
+AWS::EC2::TransitGatewayRouteTableAssociation
 AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation

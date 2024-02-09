@@ -27,6 +27,7 @@ export interface GetDomainConfigurationResult {
     readonly authorizerConfig?: outputs.iot.DomainConfigurationAuthorizerConfig;
     readonly domainConfigurationStatus?: enums.iot.DomainConfigurationStatus;
     readonly domainType?: enums.iot.DomainConfigurationDomainType;
+    readonly serverCertificateConfig?: outputs.iot.DomainConfigurationServerCertificateConfig;
     readonly serverCertificates?: outputs.iot.DomainConfigurationServerCertificateSummary[];
     readonly tags?: outputs.iot.DomainConfigurationTag[];
     readonly tlsConfig?: outputs.iot.DomainConfigurationTlsConfig;

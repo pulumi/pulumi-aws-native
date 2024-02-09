@@ -12,43 +12,90 @@ namespace Pulumi.AwsNative.Ec2
     /// <summary>
     /// Resource Type definition for AWS::EC2::SecurityGroupIngress
     /// </summary>
-    [Obsolete(@"SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:SecurityGroupIngress")]
     public partial class SecurityGroupIngress : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The IPv4 ranges
+        /// </summary>
         [Output("cidrIp")]
         public Output<string?> CidrIp { get; private set; } = null!;
 
+        /// <summary>
+        /// [VPC only] The IPv6 ranges
+        /// </summary>
         [Output("cidrIpv6")]
         public Output<string?> CidrIpv6 { get; private set; } = null!;
 
+        /// <summary>
+        /// Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+        /// 
+        /// Use this for ICMP and any protocol that uses ports.
+        /// </summary>
         [Output("fromPort")]
         public Output<int?> FromPort { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+        /// 
+        /// You must specify the GroupName property or the GroupId property. For security groups that are in a VPC, you must use the GroupId property.
+        /// </summary>
         [Output("groupId")]
         public Output<string?> GroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the security group.
+        /// </summary>
         [Output("groupName")]
         public Output<string?> GroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The IP protocol name (tcp, udp, icmp, icmpv6) or number (see Protocol Numbers).
+        /// 
+        /// [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+        /// </summary>
         [Output("ipProtocol")]
         public Output<string> IpProtocol { get; private set; } = null!;
 
+        /// <summary>
+        /// [EC2-VPC only] The ID of a prefix list.
+        /// </summary>
         [Output("sourcePrefixListId")]
         public Output<string?> SourcePrefixListId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the security group. You must specify either the security group ID or the security group name. For security groups in a nondefault VPC, you must specify the security group ID.
+        /// </summary>
         [Output("sourceSecurityGroupId")]
         public Output<string?> SourceSecurityGroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// [EC2-Classic, default VPC] The name of the source security group.
+        /// 
+        /// You must specify the GroupName property or the GroupId property. For security groups that are in a VPC, you must use the GroupId property.
+        /// </summary>
         [Output("sourceSecurityGroupName")]
         public Output<string?> SourceSecurityGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// [nondefault VPC] The AWS account ID that owns the source security group. You can't specify this property with an IP address range.
+        /// 
+        /// If you specify SourceSecurityGroupName or SourceSecurityGroupId and that security group is owned by a different account than the account creating the stack, you must specify the SourceSecurityGroupOwnerId; otherwise, this property is optional.
+        /// </summary>
         [Output("sourceSecurityGroupOwnerId")]
         public Output<string?> SourceSecurityGroupOwnerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+        /// 
+        /// Use this for ICMP and any protocol that uses ports.
+        /// </summary>
         [Output("toPort")]
         public Output<int?> ToPort { get; private set; } = null!;
 
@@ -111,39 +158,87 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class SecurityGroupIngressArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IPv4 ranges
+        /// </summary>
         [Input("cidrIp")]
         public Input<string>? CidrIp { get; set; }
 
+        /// <summary>
+        /// [VPC only] The IPv6 ranges
+        /// </summary>
         [Input("cidrIpv6")]
         public Input<string>? CidrIpv6 { get; set; }
 
+        /// <summary>
+        /// Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+        /// 
+        /// Use this for ICMP and any protocol that uses ports.
+        /// </summary>
         [Input("fromPort")]
         public Input<int>? FromPort { get; set; }
 
+        /// <summary>
+        /// The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+        /// 
+        /// You must specify the GroupName property or the GroupId property. For security groups that are in a VPC, you must use the GroupId property.
+        /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
 
+        /// <summary>
+        /// The name of the security group.
+        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
+        /// <summary>
+        /// The IP protocol name (tcp, udp, icmp, icmpv6) or number (see Protocol Numbers).
+        /// 
+        /// [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+        /// </summary>
         [Input("ipProtocol", required: true)]
         public Input<string> IpProtocol { get; set; } = null!;
 
+        /// <summary>
+        /// [EC2-VPC only] The ID of a prefix list.
+        /// </summary>
         [Input("sourcePrefixListId")]
         public Input<string>? SourcePrefixListId { get; set; }
 
+        /// <summary>
+        /// The ID of the security group. You must specify either the security group ID or the security group name. For security groups in a nondefault VPC, you must specify the security group ID.
+        /// </summary>
         [Input("sourceSecurityGroupId")]
         public Input<string>? SourceSecurityGroupId { get; set; }
 
+        /// <summary>
+        /// [EC2-Classic, default VPC] The name of the source security group.
+        /// 
+        /// You must specify the GroupName property or the GroupId property. For security groups that are in a VPC, you must use the GroupId property.
+        /// </summary>
         [Input("sourceSecurityGroupName")]
         public Input<string>? SourceSecurityGroupName { get; set; }
 
+        /// <summary>
+        /// [nondefault VPC] The AWS account ID that owns the source security group. You can't specify this property with an IP address range.
+        /// 
+        /// If you specify SourceSecurityGroupName or SourceSecurityGroupId and that security group is owned by a different account than the account creating the stack, you must specify the SourceSecurityGroupOwnerId; otherwise, this property is optional.
+        /// </summary>
         [Input("sourceSecurityGroupOwnerId")]
         public Input<string>? SourceSecurityGroupOwnerId { get; set; }
 
+        /// <summary>
+        /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+        /// 
+        /// Use this for ICMP and any protocol that uses ports.
+        /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }
 

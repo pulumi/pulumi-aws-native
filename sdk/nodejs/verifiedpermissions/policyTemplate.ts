@@ -35,7 +35,7 @@ export class PolicyTemplate extends pulumi.CustomResource {
     }
 
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly policyStoreId!: pulumi.Output<string | undefined>;
+    public readonly policyStoreId!: pulumi.Output<string>;
     public /*out*/ readonly policyTemplateId!: pulumi.Output<string>;
     public readonly statement!: pulumi.Output<string>;
 
@@ -50,6 +50,9 @@ export class PolicyTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.policyStoreId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'policyStoreId'");
+            }
             if ((!args || args.statement === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'statement'");
             }
@@ -75,6 +78,6 @@ export class PolicyTemplate extends pulumi.CustomResource {
  */
 export interface PolicyTemplateArgs {
     description?: pulumi.Input<string>;
-    policyStoreId?: pulumi.Input<string>;
+    policyStoreId: pulumi.Input<string>;
     statement: pulumi.Input<string>;
 }

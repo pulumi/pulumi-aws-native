@@ -36,7 +36,7 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
 
     public readonly attributeMapping!: pulumi.Output<any | undefined>;
     public readonly idpIdentifiers!: pulumi.Output<string[] | undefined>;
-    public readonly providerDetails!: pulumi.Output<any>;
+    public readonly providerDetails!: pulumi.Output<any | undefined>;
     public readonly providerName!: pulumi.Output<string>;
     public readonly providerType!: pulumi.Output<string>;
     public readonly userPoolId!: pulumi.Output<string>;
@@ -52,9 +52,6 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.providerDetails === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'providerDetails'");
-            }
             if ((!args || args.providerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
@@ -91,7 +88,7 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
 export interface UserPoolIdentityProviderArgs {
     attributeMapping?: any;
     idpIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
-    providerDetails: any;
+    providerDetails?: any;
     providerName: pulumi.Input<string>;
     providerType: pulumi.Input<string>;
     userPoolId: pulumi.Input<string>;

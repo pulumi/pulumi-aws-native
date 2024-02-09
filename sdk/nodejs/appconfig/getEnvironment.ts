@@ -14,20 +14,43 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appconfig:getEnvironment", {
-        "id": args.id,
+        "applicationId": args.applicationId,
+        "environmentId": args.environmentId,
     }, opts);
 }
 
 export interface GetEnvironmentArgs {
-    id: string;
+    /**
+     * The application ID.
+     */
+    applicationId: string;
+    /**
+     * The environment ID.
+     */
+    environmentId: string;
 }
 
 export interface GetEnvironmentResult {
+    /**
+     * A description of the environment.
+     */
     readonly description?: string;
-    readonly id?: string;
-    readonly monitors?: outputs.appconfig.EnvironmentMonitors[];
+    /**
+     * The environment ID.
+     */
+    readonly environmentId?: string;
+    /**
+     * Amazon CloudWatch alarms to monitor during the deployment process.
+     */
+    readonly monitors?: outputs.appconfig.EnvironmentMonitor[];
+    /**
+     * A name for the environment.
+     */
     readonly name?: string;
-    readonly tags?: outputs.appconfig.EnvironmentTags[];
+    /**
+     * Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
+    readonly tags?: outputs.appconfig.EnvironmentTag[];
 }
 /**
  * Resource Type definition for AWS::AppConfig::Environment
@@ -37,5 +60,12 @@ export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulu
 }
 
 export interface GetEnvironmentOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The application ID.
+     */
+    applicationId: pulumi.Input<string>;
+    /**
+     * The environment ID.
+     */
+    environmentId: pulumi.Input<string>;
 }

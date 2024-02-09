@@ -166,6 +166,16 @@ export const DomainAuthMode = {
  */
 export type DomainAuthMode = (typeof DomainAuthMode)[keyof typeof DomainAuthMode];
 
+export const DomainDockerSettingsEnableDockerAccess = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The flag to enable/disable docker-proxy server
+ */
+export type DomainDockerSettingsEnableDockerAccess = (typeof DomainDockerSettingsEnableDockerAccess)[keyof typeof DomainDockerSettingsEnableDockerAccess];
+
 export const DomainRStudioServerProAppSettingsAccessStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -890,6 +900,18 @@ export const ProjectStatus = {
  */
 export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
 
+export const SpaceAppType = {
+    JupyterServer: "JupyterServer",
+    KernelGateway: "KernelGateway",
+    TensorBoard: "TensorBoard",
+    RStudioServerPro: "RStudioServerPro",
+    RSessionGateway: "RSessionGateway",
+    JupyterLab: "JupyterLab",
+    CodeEditor: "CodeEditor",
+} as const;
+
+export type SpaceAppType = (typeof SpaceAppType)[keyof typeof SpaceAppType];
+
 export const SpaceResourceSpecInstanceType = {
     System: "system",
     MlT3Micro: "ml.t3.micro",
@@ -951,12 +973,22 @@ export const SpaceResourceSpecInstanceType = {
     MlP4d24xlarge: "ml.p4d.24xlarge",
     MlP4de24xlarge: "ml.p4de.24xlarge",
     MlGeospatialInteractive: "ml.geospatial.interactive",
+    MlTrn12xlarge: "ml.trn1.2xlarge",
+    MlTrn132xlarge: "ml.trn1.32xlarge",
+    MlTrn1n32xlarge: "ml.trn1n.32xlarge",
 } as const;
 
 /**
  * The instance type that the image version runs on.
  */
 export type SpaceResourceSpecInstanceType = (typeof SpaceResourceSpecInstanceType)[keyof typeof SpaceResourceSpecInstanceType];
+
+export const SpaceSharingSettingsSharingType = {
+    Private: "Private",
+    Shared: "Shared",
+} as const;
+
+export type SpaceSharingSettingsSharingType = (typeof SpaceSharingSettingsSharingType)[keyof typeof SpaceSharingSettingsSharingType];
 
 export const UserProfileRStudioServerProAppSettingsAccessStatus = {
     Enabled: "ENABLED",

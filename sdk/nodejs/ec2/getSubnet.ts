@@ -19,6 +19,9 @@ export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetSubnetArgs {
+    /**
+     * The ID of the subnet
+     */
     subnetId: string;
 }
 
@@ -28,8 +31,14 @@ export interface GetSubnetResult {
     readonly ipv6CidrBlock?: string;
     readonly ipv6CidrBlocks?: string[];
     readonly mapPublicIpOnLaunch?: boolean;
+    /**
+     * The ID of the network ACL that is associated with the subnet's VPC
+     */
     readonly networkAclAssociationId?: string;
     readonly privateDnsNameOptionsOnLaunch?: outputs.ec2.PrivateDnsNameOptionsOnLaunchProperties;
+    /**
+     * The ID of the subnet
+     */
     readonly subnetId?: string;
     readonly tags?: outputs.ec2.SubnetTag[];
 }
@@ -41,5 +50,8 @@ export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetSubnetOutputArgs {
+    /**
+     * The ID of the subnet
+     */
     subnetId: pulumi.Input<string>;
 }

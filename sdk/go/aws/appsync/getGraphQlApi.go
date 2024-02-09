@@ -32,6 +32,7 @@ type LookupGraphQlApiResult struct {
 	ApiType                           *string                                      `pulumi:"apiType"`
 	Arn                               *string                                      `pulumi:"arn"`
 	AuthenticationType                *string                                      `pulumi:"authenticationType"`
+	EnvironmentVariables              interface{}                                  `pulumi:"environmentVariables"`
 	GraphQlDns                        *string                                      `pulumi:"graphQlDns"`
 	GraphQlEndpointArn                *string                                      `pulumi:"graphQlEndpointArn"`
 	GraphQlUrl                        *string                                      `pulumi:"graphQlUrl"`
@@ -108,6 +109,10 @@ func (o LookupGraphQlApiResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupGraphQlApiResultOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQlApiResult) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGraphQlApiResultOutput) EnvironmentVariables() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupGraphQlApiResult) interface{} { return v.EnvironmentVariables }).(pulumi.AnyOutput)
 }
 
 func (o LookupGraphQlApiResultOutput) GraphQlDns() pulumi.StringPtrOutput {

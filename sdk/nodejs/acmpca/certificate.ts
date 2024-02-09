@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A certificate issued via a private certificate authority
+ * The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -38,39 +38,38 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
-     * These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
+     * Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
      */
     public readonly apiPassthrough!: pulumi.Output<outputs.acmpca.CertificateApiPassthrough | undefined>;
-    /**
-     * The ARN of the issued certificate.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The issued certificate in base 64 PEM-encoded format.
-     */
     public /*out*/ readonly certificate!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+     * The Amazon Resource Name (ARN) for the private CA issues the certificate.
      */
     public readonly certificateAuthorityArn!: pulumi.Output<string>;
     /**
-     * The certificate signing request (CSR) for the Certificate.
+     * The certificate signing request (CSR) for the certificate.
      */
     public readonly certificateSigningRequest!: pulumi.Output<string>;
     /**
-     * The name of the algorithm that will be used to sign the Certificate.
+     * The name of the algorithm that will be used to sign the certificate to be issued. 
+     *  This parameter should not be confused with the ``SigningAlgorithm`` parameter used to sign a CSR in the ``CreateCertificateAuthority`` action.
+     *   The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
      */
     public readonly signingAlgorithm!: pulumi.Output<string>;
     /**
-     * Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template.
+     * Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
      */
     public readonly templateArn!: pulumi.Output<string | undefined>;
     /**
-     * The time before which the Certificate will be valid.
+     * The period of time during which the certificate will be valid.
      */
     public readonly validity!: pulumi.Output<outputs.acmpca.CertificateValidity>;
     /**
-     * The time after which the Certificate will be valid.
+     * Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
+     *  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+     *  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
+     *  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
      */
     public readonly validityNotBefore!: pulumi.Output<outputs.acmpca.CertificateValidity | undefined>;
 
@@ -129,31 +128,36 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateArgs {
     /**
-     * These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
+     * Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
      */
     apiPassthrough?: pulumi.Input<inputs.acmpca.CertificateApiPassthroughArgs>;
     /**
-     * The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+     * The Amazon Resource Name (ARN) for the private CA issues the certificate.
      */
     certificateAuthorityArn: pulumi.Input<string>;
     /**
-     * The certificate signing request (CSR) for the Certificate.
+     * The certificate signing request (CSR) for the certificate.
      */
     certificateSigningRequest: pulumi.Input<string>;
     /**
-     * The name of the algorithm that will be used to sign the Certificate.
+     * The name of the algorithm that will be used to sign the certificate to be issued. 
+     *  This parameter should not be confused with the ``SigningAlgorithm`` parameter used to sign a CSR in the ``CreateCertificateAuthority`` action.
+     *   The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
      */
     signingAlgorithm: pulumi.Input<string>;
     /**
-     * Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template.
+     * Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
      */
     templateArn?: pulumi.Input<string>;
     /**
-     * The time before which the Certificate will be valid.
+     * The period of time during which the certificate will be valid.
      */
     validity: pulumi.Input<inputs.acmpca.CertificateValidityArgs>;
     /**
-     * The time after which the Certificate will be valid.
+     * Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
+     *  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+     *  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
+     *  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
      */
     validityNotBefore?: pulumi.Input<inputs.acmpca.CertificateValidityArgs>;
 }

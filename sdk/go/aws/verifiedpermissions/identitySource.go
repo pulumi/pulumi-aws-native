@@ -19,7 +19,7 @@ type IdentitySource struct {
 	Configuration       IdentitySourceConfigurationOutput `pulumi:"configuration"`
 	Details             IdentitySourceDetailsOutput       `pulumi:"details"`
 	IdentitySourceId    pulumi.StringOutput               `pulumi:"identitySourceId"`
-	PolicyStoreId       pulumi.StringPtrOutput            `pulumi:"policyStoreId"`
+	PolicyStoreId       pulumi.StringOutput               `pulumi:"policyStoreId"`
 	PrincipalEntityType pulumi.StringPtrOutput            `pulumi:"principalEntityType"`
 }
 
@@ -32,6 +32,9 @@ func NewIdentitySource(ctx *pulumi.Context,
 
 	if args.Configuration == nil {
 		return nil, errors.New("invalid value for required argument 'Configuration'")
+	}
+	if args.PolicyStoreId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyStoreId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"policyStoreId",
@@ -71,14 +74,14 @@ func (IdentitySourceState) ElementType() reflect.Type {
 
 type identitySourceArgs struct {
 	Configuration       IdentitySourceConfiguration `pulumi:"configuration"`
-	PolicyStoreId       *string                     `pulumi:"policyStoreId"`
+	PolicyStoreId       string                      `pulumi:"policyStoreId"`
 	PrincipalEntityType *string                     `pulumi:"principalEntityType"`
 }
 
 // The set of arguments for constructing a IdentitySource resource.
 type IdentitySourceArgs struct {
 	Configuration       IdentitySourceConfigurationInput
-	PolicyStoreId       pulumi.StringPtrInput
+	PolicyStoreId       pulumi.StringInput
 	PrincipalEntityType pulumi.StringPtrInput
 }
 
@@ -131,8 +134,8 @@ func (o IdentitySourceOutput) IdentitySourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentitySource) pulumi.StringOutput { return v.IdentitySourceId }).(pulumi.StringOutput)
 }
 
-func (o IdentitySourceOutput) PolicyStoreId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentitySource) pulumi.StringPtrOutput { return v.PolicyStoreId }).(pulumi.StringPtrOutput)
+func (o IdentitySourceOutput) PolicyStoreId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentitySource) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
 
 func (o IdentitySourceOutput) PrincipalEntityType() pulumi.StringPtrOutput {

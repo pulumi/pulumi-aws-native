@@ -18,6 +18,8 @@ class TransitGatewayRouteTableAssociationArgs:
                  transit_gateway_route_table_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a TransitGatewayRouteTableAssociation resource.
+        :param pulumi.Input[str] transit_gateway_attachment_id: The ID of transit gateway attachment.
+        :param pulumi.Input[str] transit_gateway_route_table_id: The ID of transit gateway route table.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
@@ -25,6 +27,9 @@ class TransitGatewayRouteTableAssociationArgs:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Input[str]:
+        """
+        The ID of transit gateway attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -34,6 +39,9 @@ class TransitGatewayRouteTableAssociationArgs:
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Input[str]:
+        """
+        The ID of transit gateway route table.
+        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
@@ -41,12 +49,7 @@ class TransitGatewayRouteTableAssociationArgs:
         pulumi.set(self, "transit_gateway_route_table_id", value)
 
 
-warnings.warn("""TransitGatewayRouteTableAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class TransitGatewayRouteTableAssociation(pulumi.CustomResource):
-    warnings.warn("""TransitGatewayRouteTableAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -59,6 +62,8 @@ class TransitGatewayRouteTableAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] transit_gateway_attachment_id: The ID of transit gateway attachment.
+        :param pulumi.Input[str] transit_gateway_route_table_id: The ID of transit gateway route table.
         """
         ...
     @overload
@@ -87,7 +92,6 @@ class TransitGatewayRouteTableAssociation(pulumi.CustomResource):
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""TransitGatewayRouteTableAssociation is deprecated: TransitGatewayRouteTableAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -133,10 +137,16 @@ class TransitGatewayRouteTableAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
+        """
+        The ID of transit gateway attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Output[str]:
+        """
+        The ID of transit gateway route table.
+        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 

@@ -11,16 +11,32 @@ export function getHostedConfigurationVersion(args: GetHostedConfigurationVersio
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appconfig:getHostedConfigurationVersion", {
-        "id": args.id,
+        "applicationId": args.applicationId,
+        "configurationProfileId": args.configurationProfileId,
+        "versionNumber": args.versionNumber,
     }, opts);
 }
 
 export interface GetHostedConfigurationVersionArgs {
-    id: string;
+    /**
+     * The application ID.
+     */
+    applicationId: string;
+    /**
+     * The configuration profile ID.
+     */
+    configurationProfileId: string;
+    /**
+     * Current version number of hosted configuration version.
+     */
+    versionNumber: string;
 }
 
 export interface GetHostedConfigurationVersionResult {
-    readonly id?: string;
+    /**
+     * Current version number of hosted configuration version.
+     */
+    readonly versionNumber?: string;
 }
 /**
  * Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
@@ -30,5 +46,16 @@ export function getHostedConfigurationVersionOutput(args: GetHostedConfiguration
 }
 
 export interface GetHostedConfigurationVersionOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The application ID.
+     */
+    applicationId: pulumi.Input<string>;
+    /**
+     * The configuration profile ID.
+     */
+    configurationProfileId: pulumi.Input<string>;
+    /**
+     * Current version number of hosted configuration version.
+     */
+    versionNumber: pulumi.Input<string>;
 }

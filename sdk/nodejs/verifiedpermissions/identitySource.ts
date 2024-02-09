@@ -40,7 +40,7 @@ export class IdentitySource extends pulumi.CustomResource {
     public readonly configuration!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration>;
     public /*out*/ readonly details!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceDetails>;
     public /*out*/ readonly identitySourceId!: pulumi.Output<string>;
-    public readonly policyStoreId!: pulumi.Output<string | undefined>;
+    public readonly policyStoreId!: pulumi.Output<string>;
     public readonly principalEntityType!: pulumi.Output<string | undefined>;
 
     /**
@@ -56,6 +56,9 @@ export class IdentitySource extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.configuration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
+            }
+            if ((!args || args.policyStoreId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'policyStoreId'");
             }
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
@@ -81,6 +84,6 @@ export class IdentitySource extends pulumi.CustomResource {
  */
 export interface IdentitySourceArgs {
     configuration: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationArgs>;
-    policyStoreId?: pulumi.Input<string>;
+    policyStoreId: pulumi.Input<string>;
     principalEntityType?: pulumi.Input<string>;
 }

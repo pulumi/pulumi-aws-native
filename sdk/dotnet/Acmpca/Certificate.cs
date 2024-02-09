@@ -10,61 +10,60 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca
 {
     /// <summary>
-    /// A certificate issued via a private certificate authority
+    /// The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
     /// </summary>
     [AwsNativeResourceType("aws-native:acmpca:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
+        /// Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
         /// </summary>
         [Output("apiPassthrough")]
         public Output<Outputs.CertificateApiPassthrough?> ApiPassthrough { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the issued certificate.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The issued certificate in base 64 PEM-encoded format.
-        /// </summary>
         [Output("certificate")]
         public Output<string> CertificateValue { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+        /// The Amazon Resource Name (ARN) for the private CA issues the certificate.
         /// </summary>
         [Output("certificateAuthorityArn")]
         public Output<string> CertificateAuthorityArn { get; private set; } = null!;
 
         /// <summary>
-        /// The certificate signing request (CSR) for the Certificate.
+        /// The certificate signing request (CSR) for the certificate.
         /// </summary>
         [Output("certificateSigningRequest")]
         public Output<string> CertificateSigningRequest { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the algorithm that will be used to sign the Certificate.
+        /// The name of the algorithm that will be used to sign the certificate to be issued. 
+        ///  This parameter should not be confused with the ``SigningAlgorithm`` parameter used to sign a CSR in the ``CreateCertificateAuthority`` action.
+        ///   The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
         /// </summary>
         [Output("signingAlgorithm")]
         public Output<string> SigningAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template.
+        /// Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
         /// </summary>
         [Output("templateArn")]
         public Output<string?> TemplateArn { get; private set; } = null!;
 
         /// <summary>
-        /// The time before which the Certificate will be valid.
+        /// The period of time during which the certificate will be valid.
         /// </summary>
         [Output("validity")]
         public Output<Outputs.CertificateValidity> Validity { get; private set; } = null!;
 
         /// <summary>
-        /// The time after which the Certificate will be valid.
+        /// Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
+        ///  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+        ///  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
+        ///  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
         /// </summary>
         [Output("validityNotBefore")]
         public Output<Outputs.CertificateValidity?> ValidityNotBefore { get; private set; } = null!;
@@ -125,43 +124,48 @@ namespace Pulumi.AwsNative.Acmpca
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
+        /// Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
         /// </summary>
         [Input("apiPassthrough")]
         public Input<Inputs.CertificateApiPassthroughArgs>? ApiPassthrough { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+        /// The Amazon Resource Name (ARN) for the private CA issues the certificate.
         /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
         /// <summary>
-        /// The certificate signing request (CSR) for the Certificate.
+        /// The certificate signing request (CSR) for the certificate.
         /// </summary>
         [Input("certificateSigningRequest", required: true)]
         public Input<string> CertificateSigningRequest { get; set; } = null!;
 
         /// <summary>
-        /// The name of the algorithm that will be used to sign the Certificate.
+        /// The name of the algorithm that will be used to sign the certificate to be issued. 
+        ///  This parameter should not be confused with the ``SigningAlgorithm`` parameter used to sign a CSR in the ``CreateCertificateAuthority`` action.
+        ///   The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
         /// </summary>
         [Input("signingAlgorithm", required: true)]
         public Input<string> SigningAlgorithm { get; set; } = null!;
 
         /// <summary>
-        /// Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template.
+        /// Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
         /// </summary>
         [Input("templateArn")]
         public Input<string>? TemplateArn { get; set; }
 
         /// <summary>
-        /// The time before which the Certificate will be valid.
+        /// The period of time during which the certificate will be valid.
         /// </summary>
         [Input("validity", required: true)]
         public Input<Inputs.CertificateValidityArgs> Validity { get; set; } = null!;
 
         /// <summary>
-        /// The time after which the Certificate will be valid.
+        /// Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
+        ///  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+        ///  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
+        ///  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
         /// </summary>
         [Input("validityNotBefore")]
         public Input<Inputs.CertificateValidityArgs>? ValidityNotBefore { get; set; }

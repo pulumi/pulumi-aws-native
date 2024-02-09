@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
-    /// <summary>
-    /// Structure that contains X.509 extension information for a certificate.
-    /// </summary>
     public sealed class CertificateCustomExtensionArgs : global::Pulumi.ResourceArgs
     {
         [Input("critical")]

@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
- *
- * @deprecated HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class HostedConfigurationVersion extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HostedConfigurationVersion {
-        pulumi.log.warn("HostedConfigurationVersion is deprecated: HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new HostedConfigurationVersion(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,13 +34,38 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === HostedConfigurationVersion.__pulumiType;
     }
 
+    /**
+     * The application ID.
+     */
     public readonly applicationId!: pulumi.Output<string>;
+    /**
+     * The configuration profile ID.
+     */
     public readonly configurationProfileId!: pulumi.Output<string>;
+    /**
+     * The content of the configuration or the configuration data.
+     */
     public readonly content!: pulumi.Output<string>;
+    /**
+     * A standard MIME type describing the format of the configuration content.
+     */
     public readonly contentType!: pulumi.Output<string>;
+    /**
+     * A description of the hosted configuration version.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
+     */
     public readonly latestVersionNumber!: pulumi.Output<number | undefined>;
+    /**
+     * A user-defined label for an AWS AppConfig hosted configuration version.
+     */
     public readonly versionLabel!: pulumi.Output<string | undefined>;
+    /**
+     * Current version number of hosted configuration version.
+     */
+    public /*out*/ readonly versionNumber!: pulumi.Output<string>;
 
     /**
      * Create a HostedConfigurationVersion resource with the given unique name, arguments, and options.
@@ -52,9 +74,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: HostedConfigurationVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("HostedConfigurationVersion is deprecated: HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -77,6 +97,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["latestVersionNumber"] = args ? args.latestVersionNumber : undefined;
             resourceInputs["versionLabel"] = args ? args.versionLabel : undefined;
+            resourceInputs["versionNumber"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["configurationProfileId"] = undefined /*out*/;
@@ -85,6 +106,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["latestVersionNumber"] = undefined /*out*/;
             resourceInputs["versionLabel"] = undefined /*out*/;
+            resourceInputs["versionNumber"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["applicationId", "configurationProfileId", "content", "contentType", "description", "latestVersionNumber", "versionLabel"] };
@@ -97,11 +119,32 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a HostedConfigurationVersion resource.
  */
 export interface HostedConfigurationVersionArgs {
+    /**
+     * The application ID.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * The configuration profile ID.
+     */
     configurationProfileId: pulumi.Input<string>;
+    /**
+     * The content of the configuration or the configuration data.
+     */
     content: pulumi.Input<string>;
+    /**
+     * A standard MIME type describing the format of the configuration content.
+     */
     contentType: pulumi.Input<string>;
+    /**
+     * A description of the hosted configuration version.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
+     */
     latestVersionNumber?: pulumi.Input<number>;
+    /**
+     * A user-defined label for an AWS AppConfig hosted configuration version.
+     */
     versionLabel?: pulumi.Input<string>;
 }

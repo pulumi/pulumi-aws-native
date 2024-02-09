@@ -15,8 +15,8 @@ __all__ = [
     'ConfigurationProfileValidatorsArgs',
     'DeploymentStrategyTagsArgs',
     'DeploymentTagsArgs',
-    'EnvironmentMonitorsArgs',
-    'EnvironmentTagsArgs',
+    'EnvironmentMonitorArgs',
+    'EnvironmentTagArgs',
     'ExtensionAssociationTagArgs',
     'ExtensionTagArgs',
 ]
@@ -198,27 +198,37 @@ class DeploymentTagsArgs:
 
 
 @pulumi.input_type
-class EnvironmentMonitorsArgs:
+class EnvironmentMonitorArgs:
     def __init__(__self__, *,
-                 alarm_arn: Optional[pulumi.Input[str]] = None,
+                 alarm_arn: pulumi.Input[str],
                  alarm_role_arn: Optional[pulumi.Input[str]] = None):
-        if alarm_arn is not None:
-            pulumi.set(__self__, "alarm_arn", alarm_arn)
+        """
+        Amazon CloudWatch alarm to monitor during the deployment process.
+        :param pulumi.Input[str] alarm_arn: Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+        :param pulumi.Input[str] alarm_role_arn: ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
+        """
+        pulumi.set(__self__, "alarm_arn", alarm_arn)
         if alarm_role_arn is not None:
             pulumi.set(__self__, "alarm_role_arn", alarm_role_arn)
 
     @property
     @pulumi.getter(name="alarmArn")
-    def alarm_arn(self) -> Optional[pulumi.Input[str]]:
+    def alarm_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+        """
         return pulumi.get(self, "alarm_arn")
 
     @alarm_arn.setter
-    def alarm_arn(self, value: Optional[pulumi.Input[str]]):
+    def alarm_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "alarm_arn", value)
 
     @property
     @pulumi.getter(name="alarmRoleArn")
     def alarm_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
+        """
         return pulumi.get(self, "alarm_role_arn")
 
     @alarm_role_arn.setter
@@ -227,31 +237,40 @@ class EnvironmentMonitorsArgs:
 
 
 @pulumi.input_type
-class EnvironmentTagsArgs:
+class EnvironmentTagArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input[str] key: The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+        :param pulumi.Input[str] value: The tag value can be up to 256 characters.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
+    def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
+    def value(self) -> pulumi.Input[str]:
+        """
+        The tag value can be up to 256 characters.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 

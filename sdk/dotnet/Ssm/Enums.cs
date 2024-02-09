@@ -156,7 +156,6 @@ namespace Pulumi.AwsNative.Ssm
         public static DocumentType ProblemAnalysis { get; } = new DocumentType("ProblemAnalysis");
         public static DocumentType ProblemAnalysisTemplate { get; } = new DocumentType("ProblemAnalysisTemplate");
         public static DocumentType Session { get; } = new DocumentType("Session");
-        public static DocumentType OpsPack { get; } = new DocumentType("OpsPack");
 
         public static bool operator ==(DocumentType left, DocumentType right) => left.Equals(right);
         public static bool operator !=(DocumentType left, DocumentType right) => !left.Equals(right);
@@ -205,7 +204,7 @@ namespace Pulumi.AwsNative.Ssm
     }
 
     /// <summary>
-    /// The corresponding DataType of the parameter.
+    /// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
     /// </summary>
     [EnumType]
     public readonly struct ParameterDataType : IEquatable<ParameterDataType>
@@ -236,7 +235,7 @@ namespace Pulumi.AwsNative.Ssm
     }
 
     /// <summary>
-    /// The corresponding tier of the parameter.
+    /// The parameter tier.
     /// </summary>
     [EnumType]
     public readonly struct ParameterTier : IEquatable<ParameterTier>
@@ -268,7 +267,8 @@ namespace Pulumi.AwsNative.Ssm
     }
 
     /// <summary>
-    /// The type of the parameter.
+    /// The type of parameter.
+    ///   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
     /// </summary>
     [EnumType]
     public readonly struct ParameterType : IEquatable<ParameterType>
@@ -282,7 +282,6 @@ namespace Pulumi.AwsNative.Ssm
 
         public static ParameterType String { get; } = new ParameterType("String");
         public static ParameterType StringList { get; } = new ParameterType("StringList");
-        public static ParameterType SecureString { get; } = new ParameterType("SecureString");
 
         public static bool operator ==(ParameterType left, ParameterType right) => left.Equals(right);
         public static bool operator !=(ParameterType left, ParameterType right) => !left.Equals(right);

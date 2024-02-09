@@ -1005,6 +1005,9 @@ class GraphQlApiUserPoolConfig(dict):
 
 @pulumi.output_type
 class ResolverAppSyncRuntime(dict):
+    """
+    Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1026,8 +1029,9 @@ class ResolverAppSyncRuntime(dict):
                  name: str,
                  runtime_version: str):
         """
-        :param str name: The name of the runtime to use.
-        :param str runtime_version: The version of the runtime to use.
+        Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+        :param str name: The ``name`` of the runtime to use. Currently, the only allowed value is ``APPSYNC_JS``.
+        :param str runtime_version: The ``version`` of the runtime to use. Currently, the only allowed version is ``1.0.0``.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "runtime_version", runtime_version)
@@ -1036,7 +1040,7 @@ class ResolverAppSyncRuntime(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the runtime to use.
+        The ``name`` of the runtime to use. Currently, the only allowed value is ``APPSYNC_JS``.
         """
         return pulumi.get(self, "name")
 
@@ -1044,13 +1048,16 @@ class ResolverAppSyncRuntime(dict):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> str:
         """
-        The version of the runtime to use.
+        The ``version`` of the runtime to use. Currently, the only allowed version is ``1.0.0``.
         """
         return pulumi.get(self, "runtime_version")
 
 
 @pulumi.output_type
 class ResolverCachingConfig(dict):
+    """
+    The caching configuration for a resolver that has caching activated.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1072,8 +1079,11 @@ class ResolverCachingConfig(dict):
                  ttl: float,
                  caching_keys: Optional[Sequence[str]] = None):
         """
-        :param float ttl: The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
-        :param Sequence[str] caching_keys: The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        The caching configuration for a resolver that has caching activated.
+        :param float ttl: The TTL in seconds for a resolver that has caching activated.
+                Valid values are 1–3,600 seconds.
+        :param Sequence[str] caching_keys: The caching keys for a resolver that has caching activated.
+                Valid values are entries from the ``$context.arguments``, ``$context.source``, and ``$context.identity`` maps.
         """
         pulumi.set(__self__, "ttl", ttl)
         if caching_keys is not None:
@@ -1083,7 +1093,8 @@ class ResolverCachingConfig(dict):
     @pulumi.getter
     def ttl(self) -> float:
         """
-        The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+        The TTL in seconds for a resolver that has caching activated.
+         Valid values are 1–3,600 seconds.
         """
         return pulumi.get(self, "ttl")
 
@@ -1091,7 +1102,8 @@ class ResolverCachingConfig(dict):
     @pulumi.getter(name="cachingKeys")
     def caching_keys(self) -> Optional[Sequence[str]]:
         """
-        The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        The caching keys for a resolver that has caching activated.
+         Valid values are entries from the ``$context.arguments``, ``$context.source``, and ``$context.identity`` maps.
         """
         return pulumi.get(self, "caching_keys")
 
@@ -1099,7 +1111,7 @@ class ResolverCachingConfig(dict):
 @pulumi.output_type
 class ResolverLambdaConflictHandlerConfig(dict):
     """
-    The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+    The ``LambdaConflictHandlerConfig`` when configuring LAMBDA as the Conflict Handler.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1121,7 +1133,7 @@ class ResolverLambdaConflictHandlerConfig(dict):
     def __init__(__self__, *,
                  lambda_conflict_handler_arn: Optional[str] = None):
         """
-        The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+        The ``LambdaConflictHandlerConfig`` when configuring LAMBDA as the Conflict Handler.
         :param str lambda_conflict_handler_arn: The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
         """
         if lambda_conflict_handler_arn is not None:
@@ -1138,10 +1150,16 @@ class ResolverLambdaConflictHandlerConfig(dict):
 
 @pulumi.output_type
 class ResolverPipelineConfig(dict):
+    """
+    Use the ``PipelineConfig`` property type to specify ``PipelineConfig`` for an APSYlong resolver.
+      ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
+    """
     def __init__(__self__, *,
                  functions: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] functions: A list of Function objects.
+        Use the ``PipelineConfig`` property type to specify ``PipelineConfig`` for an APSYlong resolver.
+          ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
+        :param Sequence[str] functions: A list of ``Function`` objects.
         """
         if functions is not None:
             pulumi.set(__self__, "functions", functions)
@@ -1150,13 +1168,17 @@ class ResolverPipelineConfig(dict):
     @pulumi.getter
     def functions(self) -> Optional[Sequence[str]]:
         """
-        A list of Function objects.
+        A list of ``Function`` objects.
         """
         return pulumi.get(self, "functions")
 
 
 @pulumi.output_type
 class ResolverSyncConfig(dict):
+    """
+    Describes a Sync configuration for a resolver.
+     Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1183,8 +1205,16 @@ class ResolverSyncConfig(dict):
                  conflict_handler: Optional[str] = None,
                  lambda_conflict_handler_config: Optional['outputs.ResolverLambdaConflictHandlerConfig'] = None):
         """
+        Describes a Sync configuration for a resolver.
+         Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
         :param str conflict_detection: The Conflict Detection strategy to use.
+                 +   *VERSION*: Detect conflicts based on object versions for this resolver.
+                 +   *NONE*: Do not detect conflicts when invoking this resolver.
         :param str conflict_handler: The Conflict Resolution strategy to perform in the event of a conflict.
+                 +   *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
+                 +   *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
+                 +   *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
+        :param 'ResolverLambdaConflictHandlerConfig' lambda_conflict_handler_config: The ``LambdaConflictHandlerConfig`` when configuring ``LAMBDA`` as the Conflict Handler.
         """
         pulumi.set(__self__, "conflict_detection", conflict_detection)
         if conflict_handler is not None:
@@ -1197,6 +1227,8 @@ class ResolverSyncConfig(dict):
     def conflict_detection(self) -> str:
         """
         The Conflict Detection strategy to use.
+          +   *VERSION*: Detect conflicts based on object versions for this resolver.
+          +   *NONE*: Do not detect conflicts when invoking this resolver.
         """
         return pulumi.get(self, "conflict_detection")
 
@@ -1205,12 +1237,18 @@ class ResolverSyncConfig(dict):
     def conflict_handler(self) -> Optional[str]:
         """
         The Conflict Resolution strategy to perform in the event of a conflict.
+          +   *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
+          +   *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
+          +   *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
         """
         return pulumi.get(self, "conflict_handler")
 
     @property
     @pulumi.getter(name="lambdaConflictHandlerConfig")
     def lambda_conflict_handler_config(self) -> Optional['outputs.ResolverLambdaConflictHandlerConfig']:
+        """
+        The ``LambdaConflictHandlerConfig`` when configuring ``LAMBDA`` as the Conflict Handler.
+        """
         return pulumi.get(self, "lambda_conflict_handler_config")
 
 

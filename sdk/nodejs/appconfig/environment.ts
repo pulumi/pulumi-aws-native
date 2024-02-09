@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::AppConfig::Environment
- *
- * @deprecated Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Environment extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Environment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Environment {
-        pulumi.log.warn("Environment is deprecated: Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Environment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,11 +37,30 @@ export class Environment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Environment.__pulumiType;
     }
 
+    /**
+     * The application ID.
+     */
     public readonly applicationId!: pulumi.Output<string>;
+    /**
+     * A description of the environment.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly monitors!: pulumi.Output<outputs.appconfig.EnvironmentMonitors[] | undefined>;
+    /**
+     * The environment ID.
+     */
+    public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    /**
+     * Amazon CloudWatch alarms to monitor during the deployment process.
+     */
+    public readonly monitors!: pulumi.Output<outputs.appconfig.EnvironmentMonitor[] | undefined>;
+    /**
+     * A name for the environment.
+     */
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.appconfig.EnvironmentTags[] | undefined>;
+    /**
+     * Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
+    public readonly tags!: pulumi.Output<outputs.appconfig.EnvironmentTag[] | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -53,9 +69,7 @@ export class Environment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Environment is deprecated: Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -67,9 +81,11 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["monitors"] = args ? args.monitors : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["environmentId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["environmentId"] = undefined /*out*/;
             resourceInputs["monitors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -85,9 +101,24 @@ export class Environment extends pulumi.CustomResource {
  * The set of arguments for constructing a Environment resource.
  */
 export interface EnvironmentArgs {
+    /**
+     * The application ID.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * A description of the environment.
+     */
     description?: pulumi.Input<string>;
-    monitors?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentMonitorsArgs>[]>;
+    /**
+     * Amazon CloudWatch alarms to monitor during the deployment process.
+     */
+    monitors?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentMonitorArgs>[]>;
+    /**
+     * A name for the environment.
+     */
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentTagsArgs>[]>;
+    /**
+     * Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentTagArgs>[]>;
 }

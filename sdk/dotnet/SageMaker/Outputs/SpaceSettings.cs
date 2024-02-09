@@ -16,6 +16,16 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class SpaceSettings
     {
+        public readonly Pulumi.AwsNative.SageMaker.SpaceAppType? AppType;
+        /// <summary>
+        /// The CodeEditor app settings.
+        /// </summary>
+        public readonly Outputs.SpaceCodeEditorAppSettings? CodeEditorAppSettings;
+        public readonly ImmutableArray<Outputs.SpaceCustomFileSystem> CustomFileSystems;
+        /// <summary>
+        /// The JupyterLab app settings.
+        /// </summary>
+        public readonly Outputs.SpaceJupyterLabAppSettings? JupyterLabAppSettings;
         /// <summary>
         /// The Jupyter server's app settings.
         /// </summary>
@@ -24,15 +34,34 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The kernel gateway app settings.
         /// </summary>
         public readonly Outputs.SpaceKernelGatewayAppSettings? KernelGatewayAppSettings;
+        /// <summary>
+        /// Default storage settings for a space.
+        /// </summary>
+        public readonly Outputs.SpaceStorageSettings? SpaceStorageSettings;
 
         [OutputConstructor]
         private SpaceSettings(
+            Pulumi.AwsNative.SageMaker.SpaceAppType? appType,
+
+            Outputs.SpaceCodeEditorAppSettings? codeEditorAppSettings,
+
+            ImmutableArray<Outputs.SpaceCustomFileSystem> customFileSystems,
+
+            Outputs.SpaceJupyterLabAppSettings? jupyterLabAppSettings,
+
             Outputs.SpaceJupyterServerAppSettings? jupyterServerAppSettings,
 
-            Outputs.SpaceKernelGatewayAppSettings? kernelGatewayAppSettings)
+            Outputs.SpaceKernelGatewayAppSettings? kernelGatewayAppSettings,
+
+            Outputs.SpaceStorageSettings? spaceStorageSettings)
         {
+            AppType = appType;
+            CodeEditorAppSettings = codeEditorAppSettings;
+            CustomFileSystems = customFileSystems;
+            JupyterLabAppSettings = jupyterLabAppSettings;
             JupyterServerAppSettings = jupyterServerAppSettings;
             KernelGatewayAppSettings = kernelGatewayAppSettings;
+            SpaceStorageSettings = spaceStorageSettings;
         }
     }
 }

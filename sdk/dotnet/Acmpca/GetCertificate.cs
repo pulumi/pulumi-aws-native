@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Acmpca
     public static class GetCertificate
     {
         /// <summary>
-        /// A certificate issued via a private certificate authority
+        /// The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws-native:acmpca:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A certificate issued via a private certificate authority
+        /// The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws-native:acmpca:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
@@ -27,14 +27,11 @@ namespace Pulumi.AwsNative.Acmpca
 
     public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ARN of the issued certificate.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+        /// The Amazon Resource Name (ARN) for the private CA issues the certificate.
         /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public string CertificateAuthorityArn { get; set; } = null!;
@@ -47,14 +44,11 @@ namespace Pulumi.AwsNative.Acmpca
 
     public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ARN of the issued certificate.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the private CA to issue the certificate.
+        /// The Amazon Resource Name (ARN) for the private CA issues the certificate.
         /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
@@ -69,13 +63,7 @@ namespace Pulumi.AwsNative.Acmpca
     [OutputType]
     public sealed class GetCertificateResult
     {
-        /// <summary>
-        /// The ARN of the issued certificate.
-        /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// The issued certificate in base 64 PEM-encoded format.
-        /// </summary>
         public readonly string? CertificateValue;
 
         [OutputConstructor]

@@ -23,12 +23,15 @@ func LookupSecurityGroupIngress(ctx *pulumi.Context, args *LookupSecurityGroupIn
 }
 
 type LookupSecurityGroupIngressArgs struct {
+	// The Security Group Rule Id
 	Id string `pulumi:"id"`
 }
 
 type LookupSecurityGroupIngressResult struct {
+	// Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously
 	Description *string `pulumi:"description"`
-	Id          *string `pulumi:"id"`
+	// The Security Group Rule Id
+	Id *string `pulumi:"id"`
 }
 
 func LookupSecurityGroupIngressOutput(ctx *pulumi.Context, args LookupSecurityGroupIngressOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityGroupIngressResultOutput {
@@ -45,6 +48,7 @@ func LookupSecurityGroupIngressOutput(ctx *pulumi.Context, args LookupSecurityGr
 }
 
 type LookupSecurityGroupIngressOutputArgs struct {
+	// The Security Group Rule Id
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupSecurityGroupIngressResultOutput) ToLookupSecurityGroupIngressResu
 	return o
 }
 
+// Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously
 func (o LookupSecurityGroupIngressResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityGroupIngressResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Security Group Rule Id
 func (o LookupSecurityGroupIngressResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityGroupIngressResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

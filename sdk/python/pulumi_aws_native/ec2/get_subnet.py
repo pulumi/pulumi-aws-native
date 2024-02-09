@@ -76,6 +76,9 @@ class GetSubnetResult:
     @property
     @pulumi.getter(name="networkAclAssociationId")
     def network_acl_association_id(self) -> Optional[str]:
+        """
+        The ID of the network ACL that is associated with the subnet's VPC
+        """
         return pulumi.get(self, "network_acl_association_id")
 
     @property
@@ -86,6 +89,9 @@ class GetSubnetResult:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
+        """
+        The ID of the subnet
+        """
         return pulumi.get(self, "subnet_id")
 
     @property
@@ -115,6 +121,9 @@ def get_subnet(subnet_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetResult:
     """
     Resource Type definition for AWS::EC2::Subnet
+
+
+    :param str subnet_id: The ID of the subnet
     """
     __args__ = dict()
     __args__['subnetId'] = subnet_id
@@ -138,5 +147,8 @@ def get_subnet_output(subnet_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
     """
     Resource Type definition for AWS::EC2::Subnet
+
+
+    :param str subnet_id: The ID of the subnet
     """
     ...

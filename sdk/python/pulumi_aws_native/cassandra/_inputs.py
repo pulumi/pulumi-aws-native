@@ -13,12 +13,17 @@ from ._enums import *
 __all__ = [
     'KeyspaceReplicationSpecificationArgs',
     'KeyspaceTagArgs',
+    'TableAutoScalingSettingArgs',
+    'TableAutoScalingSpecificationArgs',
     'TableBillingModeArgs',
     'TableClusteringKeyColumnArgs',
     'TableColumnArgs',
     'TableEncryptionSpecificationArgs',
     'TableProvisionedThroughputArgs',
+    'TableReplicaSpecificationArgs',
+    'TableScalingPolicyArgs',
     'TableTagArgs',
+    'TableTargetTrackingScalingPolicyConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -75,6 +80,94 @@ class KeyspaceTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TableAutoScalingSettingArgs:
+    def __init__(__self__, *,
+                 auto_scaling_disabled: Optional[pulumi.Input[bool]] = None,
+                 maximum_units: Optional[pulumi.Input[int]] = None,
+                 minimum_units: Optional[pulumi.Input[int]] = None,
+                 scaling_policy: Optional[pulumi.Input['TableScalingPolicyArgs']] = None):
+        """
+        Represents configuration for auto scaling.
+        """
+        if auto_scaling_disabled is not None:
+            pulumi.set(__self__, "auto_scaling_disabled", auto_scaling_disabled)
+        if maximum_units is not None:
+            pulumi.set(__self__, "maximum_units", maximum_units)
+        if minimum_units is not None:
+            pulumi.set(__self__, "minimum_units", minimum_units)
+        if scaling_policy is not None:
+            pulumi.set(__self__, "scaling_policy", scaling_policy)
+
+    @property
+    @pulumi.getter(name="autoScalingDisabled")
+    def auto_scaling_disabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "auto_scaling_disabled")
+
+    @auto_scaling_disabled.setter
+    def auto_scaling_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_scaling_disabled", value)
+
+    @property
+    @pulumi.getter(name="maximumUnits")
+    def maximum_units(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "maximum_units")
+
+    @maximum_units.setter
+    def maximum_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_units", value)
+
+    @property
+    @pulumi.getter(name="minimumUnits")
+    def minimum_units(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "minimum_units")
+
+    @minimum_units.setter
+    def minimum_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum_units", value)
+
+    @property
+    @pulumi.getter(name="scalingPolicy")
+    def scaling_policy(self) -> Optional[pulumi.Input['TableScalingPolicyArgs']]:
+        return pulumi.get(self, "scaling_policy")
+
+    @scaling_policy.setter
+    def scaling_policy(self, value: Optional[pulumi.Input['TableScalingPolicyArgs']]):
+        pulumi.set(self, "scaling_policy", value)
+
+
+@pulumi.input_type
+class TableAutoScalingSpecificationArgs:
+    def __init__(__self__, *,
+                 read_capacity_auto_scaling: Optional[pulumi.Input['TableAutoScalingSettingArgs']] = None,
+                 write_capacity_auto_scaling: Optional[pulumi.Input['TableAutoScalingSettingArgs']] = None):
+        """
+        Represents the read and write settings used for AutoScaling.
+        """
+        if read_capacity_auto_scaling is not None:
+            pulumi.set(__self__, "read_capacity_auto_scaling", read_capacity_auto_scaling)
+        if write_capacity_auto_scaling is not None:
+            pulumi.set(__self__, "write_capacity_auto_scaling", write_capacity_auto_scaling)
+
+    @property
+    @pulumi.getter(name="readCapacityAutoScaling")
+    def read_capacity_auto_scaling(self) -> Optional[pulumi.Input['TableAutoScalingSettingArgs']]:
+        return pulumi.get(self, "read_capacity_auto_scaling")
+
+    @read_capacity_auto_scaling.setter
+    def read_capacity_auto_scaling(self, value: Optional[pulumi.Input['TableAutoScalingSettingArgs']]):
+        pulumi.set(self, "read_capacity_auto_scaling", value)
+
+    @property
+    @pulumi.getter(name="writeCapacityAutoScaling")
+    def write_capacity_auto_scaling(self) -> Optional[pulumi.Input['TableAutoScalingSettingArgs']]:
+        return pulumi.get(self, "write_capacity_auto_scaling")
+
+    @write_capacity_auto_scaling.setter
+    def write_capacity_auto_scaling(self, value: Optional[pulumi.Input['TableAutoScalingSettingArgs']]):
+        pulumi.set(self, "write_capacity_auto_scaling", value)
 
 
 @pulumi.input_type
@@ -222,6 +315,69 @@ class TableProvisionedThroughputArgs:
 
 
 @pulumi.input_type
+class TableReplicaSpecificationArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[str],
+                 read_capacity_auto_scaling: Optional[pulumi.Input['TableAutoScalingSettingArgs']] = None,
+                 read_capacity_units: Optional[pulumi.Input[int]] = None):
+        """
+        Represents replica specifications.
+        """
+        pulumi.set(__self__, "region", region)
+        if read_capacity_auto_scaling is not None:
+            pulumi.set(__self__, "read_capacity_auto_scaling", read_capacity_auto_scaling)
+        if read_capacity_units is not None:
+            pulumi.set(__self__, "read_capacity_units", read_capacity_units)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="readCapacityAutoScaling")
+    def read_capacity_auto_scaling(self) -> Optional[pulumi.Input['TableAutoScalingSettingArgs']]:
+        return pulumi.get(self, "read_capacity_auto_scaling")
+
+    @read_capacity_auto_scaling.setter
+    def read_capacity_auto_scaling(self, value: Optional[pulumi.Input['TableAutoScalingSettingArgs']]):
+        pulumi.set(self, "read_capacity_auto_scaling", value)
+
+    @property
+    @pulumi.getter(name="readCapacityUnits")
+    def read_capacity_units(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "read_capacity_units")
+
+    @read_capacity_units.setter
+    def read_capacity_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "read_capacity_units", value)
+
+
+@pulumi.input_type
+class TableScalingPolicyArgs:
+    def __init__(__self__, *,
+                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input['TableTargetTrackingScalingPolicyConfigurationArgs']] = None):
+        """
+        Represents scaling policy.
+        """
+        if target_tracking_scaling_policy_configuration is not None:
+            pulumi.set(__self__, "target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
+
+    @property
+    @pulumi.getter(name="targetTrackingScalingPolicyConfiguration")
+    def target_tracking_scaling_policy_configuration(self) -> Optional[pulumi.Input['TableTargetTrackingScalingPolicyConfigurationArgs']]:
+        return pulumi.get(self, "target_tracking_scaling_policy_configuration")
+
+    @target_tracking_scaling_policy_configuration.setter
+    def target_tracking_scaling_policy_configuration(self, value: Optional[pulumi.Input['TableTargetTrackingScalingPolicyConfigurationArgs']]):
+        pulumi.set(self, "target_tracking_scaling_policy_configuration", value)
+
+
+@pulumi.input_type
 class TableTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -249,5 +405,60 @@ class TableTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TableTargetTrackingScalingPolicyConfigurationArgs:
+    def __init__(__self__, *,
+                 target_value: pulumi.Input[int],
+                 disable_scale_in: Optional[pulumi.Input[bool]] = None,
+                 scale_in_cooldown: Optional[pulumi.Input[int]] = None,
+                 scale_out_cooldown: Optional[pulumi.Input[int]] = None):
+        """
+        Represents configuration for target tracking scaling policy.
+        """
+        pulumi.set(__self__, "target_value", target_value)
+        if disable_scale_in is not None:
+            pulumi.set(__self__, "disable_scale_in", disable_scale_in)
+        if scale_in_cooldown is not None:
+            pulumi.set(__self__, "scale_in_cooldown", scale_in_cooldown)
+        if scale_out_cooldown is not None:
+            pulumi.set(__self__, "scale_out_cooldown", scale_out_cooldown)
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "target_value")
+
+    @target_value.setter
+    def target_value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "target_value", value)
+
+    @property
+    @pulumi.getter(name="disableScaleIn")
+    def disable_scale_in(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_scale_in")
+
+    @disable_scale_in.setter
+    def disable_scale_in(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_scale_in", value)
+
+    @property
+    @pulumi.getter(name="scaleInCooldown")
+    def scale_in_cooldown(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "scale_in_cooldown")
+
+    @scale_in_cooldown.setter
+    def scale_in_cooldown(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scale_in_cooldown", value)
+
+    @property
+    @pulumi.getter(name="scaleOutCooldown")
+    def scale_out_cooldown(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "scale_out_cooldown")
+
+    @scale_out_cooldown.setter
+    def scale_out_cooldown(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scale_out_cooldown", value)
 
 

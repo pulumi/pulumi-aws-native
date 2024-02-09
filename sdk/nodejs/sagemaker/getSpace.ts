@@ -32,6 +32,8 @@ export interface GetSpaceResult {
      * The space Amazon Resource Name (ARN).
      */
     readonly spaceArn?: string;
+    readonly spaceDisplayName?: string;
+    readonly url?: string;
 }
 /**
  * Resource Type definition for AWS::SageMaker::Space

@@ -16,7 +16,8 @@ import (
 type Table struct {
 	pulumi.CustomResourceState
 
-	BillingMode TableBillingModePtrOutput `pulumi:"billingMode"`
+	AutoScalingSpecifications TableAutoScalingSpecificationPtrOutput `pulumi:"autoScalingSpecifications"`
+	BillingMode               TableBillingModePtrOutput              `pulumi:"billingMode"`
 	// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
 	ClientSideTimestampsEnabled pulumi.BoolPtrOutput `pulumi:"clientSideTimestampsEnabled"`
 	// Clustering key columns of the table
@@ -31,7 +32,8 @@ type Table struct {
 	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
 	PointInTimeRecoveryEnabled pulumi.BoolPtrOutput `pulumi:"pointInTimeRecoveryEnabled"`
 	// Non-key columns of the table
-	RegularColumns TableColumnArrayOutput `pulumi:"regularColumns"`
+	RegularColumns        TableColumnArrayOutput               `pulumi:"regularColumns"`
+	ReplicaSpecifications TableReplicaSpecificationArrayOutput `pulumi:"replicaSpecifications"`
 	// Name for Cassandra table
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 	// An array of key-value pairs to apply to this resource
@@ -92,7 +94,8 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
-	BillingMode *TableBillingMode `pulumi:"billingMode"`
+	AutoScalingSpecifications *TableAutoScalingSpecification `pulumi:"autoScalingSpecifications"`
+	BillingMode               *TableBillingMode              `pulumi:"billingMode"`
 	// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
 	ClientSideTimestampsEnabled *bool `pulumi:"clientSideTimestampsEnabled"`
 	// Clustering key columns of the table
@@ -107,7 +110,8 @@ type tableArgs struct {
 	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
 	PointInTimeRecoveryEnabled *bool `pulumi:"pointInTimeRecoveryEnabled"`
 	// Non-key columns of the table
-	RegularColumns []TableColumn `pulumi:"regularColumns"`
+	RegularColumns        []TableColumn               `pulumi:"regularColumns"`
+	ReplicaSpecifications []TableReplicaSpecification `pulumi:"replicaSpecifications"`
 	// Name for Cassandra table
 	TableName *string `pulumi:"tableName"`
 	// An array of key-value pairs to apply to this resource
@@ -116,7 +120,8 @@ type tableArgs struct {
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
-	BillingMode TableBillingModePtrInput
+	AutoScalingSpecifications TableAutoScalingSpecificationPtrInput
+	BillingMode               TableBillingModePtrInput
 	// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
 	ClientSideTimestampsEnabled pulumi.BoolPtrInput
 	// Clustering key columns of the table
@@ -131,7 +136,8 @@ type TableArgs struct {
 	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
 	PointInTimeRecoveryEnabled pulumi.BoolPtrInput
 	// Non-key columns of the table
-	RegularColumns TableColumnArrayInput
+	RegularColumns        TableColumnArrayInput
+	ReplicaSpecifications TableReplicaSpecificationArrayInput
 	// Name for Cassandra table
 	TableName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource
@@ -175,6 +181,10 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
+func (o TableOutput) AutoScalingSpecifications() TableAutoScalingSpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TableAutoScalingSpecificationPtrOutput { return v.AutoScalingSpecifications }).(TableAutoScalingSpecificationPtrOutput)
+}
+
 func (o TableOutput) BillingMode() TableBillingModePtrOutput {
 	return o.ApplyT(func(v *Table) TableBillingModePtrOutput { return v.BillingMode }).(TableBillingModePtrOutput)
 }
@@ -216,6 +226,10 @@ func (o TableOutput) PointInTimeRecoveryEnabled() pulumi.BoolPtrOutput {
 // Non-key columns of the table
 func (o TableOutput) RegularColumns() TableColumnArrayOutput {
 	return o.ApplyT(func(v *Table) TableColumnArrayOutput { return v.RegularColumns }).(TableColumnArrayOutput)
+}
+
+func (o TableOutput) ReplicaSpecifications() TableReplicaSpecificationArrayOutput {
+	return o.ApplyT(func(v *Table) TableReplicaSpecificationArrayOutput { return v.ReplicaSpecifications }).(TableReplicaSpecificationArrayOutput)
 }
 
 // Name for Cassandra table

@@ -18,10 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetSpaceResult:
-    def __init__(__self__, space_arn=None):
+    def __init__(__self__, space_arn=None, space_display_name=None, url=None):
         if space_arn and not isinstance(space_arn, str):
             raise TypeError("Expected argument 'space_arn' to be a str")
         pulumi.set(__self__, "space_arn", space_arn)
+        if space_display_name and not isinstance(space_display_name, str):
+            raise TypeError("Expected argument 'space_display_name' to be a str")
+        pulumi.set(__self__, "space_display_name", space_display_name)
+        if url and not isinstance(url, str):
+            raise TypeError("Expected argument 'url' to be a str")
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="spaceArn")
@@ -31,6 +37,16 @@ class GetSpaceResult:
         """
         return pulumi.get(self, "space_arn")
 
+    @property
+    @pulumi.getter(name="spaceDisplayName")
+    def space_display_name(self) -> Optional[str]:
+        return pulumi.get(self, "space_display_name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        return pulumi.get(self, "url")
+
 
 class AwaitableGetSpaceResult(GetSpaceResult):
     # pylint: disable=using-constant-test
@@ -38,7 +54,9 @@ class AwaitableGetSpaceResult(GetSpaceResult):
         if False:
             yield self
         return GetSpaceResult(
-            space_arn=self.space_arn)
+            space_arn=self.space_arn,
+            space_display_name=self.space_display_name,
+            url=self.url)
 
 
 def get_space(domain_id: Optional[str] = None,
@@ -58,7 +76,9 @@ def get_space(domain_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getSpace', __args__, opts=opts, typ=GetSpaceResult).value
 
     return AwaitableGetSpaceResult(
-        space_arn=pulumi.get(__ret__, 'space_arn'))
+        space_arn=pulumi.get(__ret__, 'space_arn'),
+        space_display_name=pulumi.get(__ret__, 'space_display_name'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_space)

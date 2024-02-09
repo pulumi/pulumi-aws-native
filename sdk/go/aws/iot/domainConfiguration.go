@@ -22,6 +22,7 @@ type DomainConfiguration struct {
 	DomainName                pulumi.StringPtrOutput                                 `pulumi:"domainName"`
 	DomainType                DomainConfigurationDomainTypeOutput                    `pulumi:"domainType"`
 	ServerCertificateArns     pulumi.StringArrayOutput                               `pulumi:"serverCertificateArns"`
+	ServerCertificateConfig   DomainConfigurationServerCertificateConfigPtrOutput    `pulumi:"serverCertificateConfig"`
 	ServerCertificates        DomainConfigurationServerCertificateSummaryArrayOutput `pulumi:"serverCertificates"`
 	ServiceType               DomainConfigurationServiceTypePtrOutput                `pulumi:"serviceType"`
 	Tags                      DomainConfigurationTagArrayOutput                      `pulumi:"tags"`
@@ -77,15 +78,16 @@ func (DomainConfigurationState) ElementType() reflect.Type {
 }
 
 type domainConfigurationArgs struct {
-	AuthorizerConfig          *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
-	DomainConfigurationName   *string                              `pulumi:"domainConfigurationName"`
-	DomainConfigurationStatus *DomainConfigurationStatus           `pulumi:"domainConfigurationStatus"`
-	DomainName                *string                              `pulumi:"domainName"`
-	ServerCertificateArns     []string                             `pulumi:"serverCertificateArns"`
-	ServiceType               *DomainConfigurationServiceType      `pulumi:"serviceType"`
-	Tags                      []DomainConfigurationTag             `pulumi:"tags"`
-	TlsConfig                 *DomainConfigurationTlsConfig        `pulumi:"tlsConfig"`
-	ValidationCertificateArn  *string                              `pulumi:"validationCertificateArn"`
+	AuthorizerConfig          *DomainConfigurationAuthorizerConfig        `pulumi:"authorizerConfig"`
+	DomainConfigurationName   *string                                     `pulumi:"domainConfigurationName"`
+	DomainConfigurationStatus *DomainConfigurationStatus                  `pulumi:"domainConfigurationStatus"`
+	DomainName                *string                                     `pulumi:"domainName"`
+	ServerCertificateArns     []string                                    `pulumi:"serverCertificateArns"`
+	ServerCertificateConfig   *DomainConfigurationServerCertificateConfig `pulumi:"serverCertificateConfig"`
+	ServiceType               *DomainConfigurationServiceType             `pulumi:"serviceType"`
+	Tags                      []DomainConfigurationTag                    `pulumi:"tags"`
+	TlsConfig                 *DomainConfigurationTlsConfig               `pulumi:"tlsConfig"`
+	ValidationCertificateArn  *string                                     `pulumi:"validationCertificateArn"`
 }
 
 // The set of arguments for constructing a DomainConfiguration resource.
@@ -95,6 +97,7 @@ type DomainConfigurationArgs struct {
 	DomainConfigurationStatus DomainConfigurationStatusPtrInput
 	DomainName                pulumi.StringPtrInput
 	ServerCertificateArns     pulumi.StringArrayInput
+	ServerCertificateConfig   DomainConfigurationServerCertificateConfigPtrInput
 	ServiceType               DomainConfigurationServiceTypePtrInput
 	Tags                      DomainConfigurationTagArrayInput
 	TlsConfig                 DomainConfigurationTlsConfigPtrInput
@@ -164,6 +167,12 @@ func (o DomainConfigurationOutput) DomainType() DomainConfigurationDomainTypeOut
 
 func (o DomainConfigurationOutput) ServerCertificateArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringArrayOutput { return v.ServerCertificateArns }).(pulumi.StringArrayOutput)
+}
+
+func (o DomainConfigurationOutput) ServerCertificateConfig() DomainConfigurationServerCertificateConfigPtrOutput {
+	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationServerCertificateConfigPtrOutput {
+		return v.ServerCertificateConfig
+	}).(DomainConfigurationServerCertificateConfigPtrOutput)
 }
 
 func (o DomainConfigurationOutput) ServerCertificates() DomainConfigurationServerCertificateSummaryArrayOutput {

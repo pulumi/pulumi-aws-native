@@ -14,12 +14,17 @@ from ._enums import *
 __all__ = [
     'KeyspaceReplicationSpecification',
     'KeyspaceTag',
+    'TableAutoScalingSetting',
+    'TableAutoScalingSpecification',
     'TableBillingMode',
     'TableClusteringKeyColumn',
     'TableColumn',
     'TableEncryptionSpecification',
     'TableProvisionedThroughput',
+    'TableReplicaSpecification',
+    'TableScalingPolicy',
     'TableTag',
+    'TableTargetTrackingScalingPolicyConfiguration',
 ]
 
 @pulumi.output_type
@@ -79,6 +84,118 @@ class KeyspaceTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TableAutoScalingSetting(dict):
+    """
+    Represents configuration for auto scaling.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoScalingDisabled":
+            suggest = "auto_scaling_disabled"
+        elif key == "maximumUnits":
+            suggest = "maximum_units"
+        elif key == "minimumUnits":
+            suggest = "minimum_units"
+        elif key == "scalingPolicy":
+            suggest = "scaling_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableAutoScalingSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableAutoScalingSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableAutoScalingSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_scaling_disabled: Optional[bool] = None,
+                 maximum_units: Optional[int] = None,
+                 minimum_units: Optional[int] = None,
+                 scaling_policy: Optional['outputs.TableScalingPolicy'] = None):
+        """
+        Represents configuration for auto scaling.
+        """
+        if auto_scaling_disabled is not None:
+            pulumi.set(__self__, "auto_scaling_disabled", auto_scaling_disabled)
+        if maximum_units is not None:
+            pulumi.set(__self__, "maximum_units", maximum_units)
+        if minimum_units is not None:
+            pulumi.set(__self__, "minimum_units", minimum_units)
+        if scaling_policy is not None:
+            pulumi.set(__self__, "scaling_policy", scaling_policy)
+
+    @property
+    @pulumi.getter(name="autoScalingDisabled")
+    def auto_scaling_disabled(self) -> Optional[bool]:
+        return pulumi.get(self, "auto_scaling_disabled")
+
+    @property
+    @pulumi.getter(name="maximumUnits")
+    def maximum_units(self) -> Optional[int]:
+        return pulumi.get(self, "maximum_units")
+
+    @property
+    @pulumi.getter(name="minimumUnits")
+    def minimum_units(self) -> Optional[int]:
+        return pulumi.get(self, "minimum_units")
+
+    @property
+    @pulumi.getter(name="scalingPolicy")
+    def scaling_policy(self) -> Optional['outputs.TableScalingPolicy']:
+        return pulumi.get(self, "scaling_policy")
+
+
+@pulumi.output_type
+class TableAutoScalingSpecification(dict):
+    """
+    Represents the read and write settings used for AutoScaling.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readCapacityAutoScaling":
+            suggest = "read_capacity_auto_scaling"
+        elif key == "writeCapacityAutoScaling":
+            suggest = "write_capacity_auto_scaling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableAutoScalingSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableAutoScalingSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableAutoScalingSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 read_capacity_auto_scaling: Optional['outputs.TableAutoScalingSetting'] = None,
+                 write_capacity_auto_scaling: Optional['outputs.TableAutoScalingSetting'] = None):
+        """
+        Represents the read and write settings used for AutoScaling.
+        """
+        if read_capacity_auto_scaling is not None:
+            pulumi.set(__self__, "read_capacity_auto_scaling", read_capacity_auto_scaling)
+        if write_capacity_auto_scaling is not None:
+            pulumi.set(__self__, "write_capacity_auto_scaling", write_capacity_auto_scaling)
+
+    @property
+    @pulumi.getter(name="readCapacityAutoScaling")
+    def read_capacity_auto_scaling(self) -> Optional['outputs.TableAutoScalingSetting']:
+        return pulumi.get(self, "read_capacity_auto_scaling")
+
+    @property
+    @pulumi.getter(name="writeCapacityAutoScaling")
+    def write_capacity_auto_scaling(self) -> Optional['outputs.TableAutoScalingSetting']:
+        return pulumi.get(self, "write_capacity_auto_scaling")
 
 
 @pulumi.output_type
@@ -283,6 +400,95 @@ class TableProvisionedThroughput(dict):
 
 
 @pulumi.output_type
+class TableReplicaSpecification(dict):
+    """
+    Represents replica specifications.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readCapacityAutoScaling":
+            suggest = "read_capacity_auto_scaling"
+        elif key == "readCapacityUnits":
+            suggest = "read_capacity_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableReplicaSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableReplicaSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableReplicaSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: str,
+                 read_capacity_auto_scaling: Optional['outputs.TableAutoScalingSetting'] = None,
+                 read_capacity_units: Optional[int] = None):
+        """
+        Represents replica specifications.
+        """
+        pulumi.set(__self__, "region", region)
+        if read_capacity_auto_scaling is not None:
+            pulumi.set(__self__, "read_capacity_auto_scaling", read_capacity_auto_scaling)
+        if read_capacity_units is not None:
+            pulumi.set(__self__, "read_capacity_units", read_capacity_units)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="readCapacityAutoScaling")
+    def read_capacity_auto_scaling(self) -> Optional['outputs.TableAutoScalingSetting']:
+        return pulumi.get(self, "read_capacity_auto_scaling")
+
+    @property
+    @pulumi.getter(name="readCapacityUnits")
+    def read_capacity_units(self) -> Optional[int]:
+        return pulumi.get(self, "read_capacity_units")
+
+
+@pulumi.output_type
+class TableScalingPolicy(dict):
+    """
+    Represents scaling policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetTrackingScalingPolicyConfiguration":
+            suggest = "target_tracking_scaling_policy_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableScalingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableScalingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableScalingPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_tracking_scaling_policy_configuration: Optional['outputs.TableTargetTrackingScalingPolicyConfiguration'] = None):
+        """
+        Represents scaling policy.
+        """
+        if target_tracking_scaling_policy_configuration is not None:
+            pulumi.set(__self__, "target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
+
+    @property
+    @pulumi.getter(name="targetTrackingScalingPolicyConfiguration")
+    def target_tracking_scaling_policy_configuration(self) -> Optional['outputs.TableTargetTrackingScalingPolicyConfiguration']:
+        return pulumi.get(self, "target_tracking_scaling_policy_configuration")
+
+
+@pulumi.output_type
 class TableTag(dict):
     """
     A key-value pair to apply to the resource
@@ -305,5 +511,70 @@ class TableTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TableTargetTrackingScalingPolicyConfiguration(dict):
+    """
+    Represents configuration for target tracking scaling policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetValue":
+            suggest = "target_value"
+        elif key == "disableScaleIn":
+            suggest = "disable_scale_in"
+        elif key == "scaleInCooldown":
+            suggest = "scale_in_cooldown"
+        elif key == "scaleOutCooldown":
+            suggest = "scale_out_cooldown"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableTargetTrackingScalingPolicyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableTargetTrackingScalingPolicyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableTargetTrackingScalingPolicyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_value: int,
+                 disable_scale_in: Optional[bool] = None,
+                 scale_in_cooldown: Optional[int] = None,
+                 scale_out_cooldown: Optional[int] = None):
+        """
+        Represents configuration for target tracking scaling policy.
+        """
+        pulumi.set(__self__, "target_value", target_value)
+        if disable_scale_in is not None:
+            pulumi.set(__self__, "disable_scale_in", disable_scale_in)
+        if scale_in_cooldown is not None:
+            pulumi.set(__self__, "scale_in_cooldown", scale_in_cooldown)
+        if scale_out_cooldown is not None:
+            pulumi.set(__self__, "scale_out_cooldown", scale_out_cooldown)
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> int:
+        return pulumi.get(self, "target_value")
+
+    @property
+    @pulumi.getter(name="disableScaleIn")
+    def disable_scale_in(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_scale_in")
+
+    @property
+    @pulumi.getter(name="scaleInCooldown")
+    def scale_in_cooldown(self) -> Optional[int]:
+        return pulumi.get(self, "scale_in_cooldown")
+
+    @property
+    @pulumi.getter(name="scaleOutCooldown")
+    def scale_out_cooldown(self) -> Optional[int]:
+        return pulumi.get(self, "scale_out_cooldown")
 
 

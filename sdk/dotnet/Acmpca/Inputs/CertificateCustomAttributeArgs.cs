@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
-    /// <summary>
-    /// Structure that contains X.500 attribute type and value.
-    /// </summary>
     public sealed class CertificateCustomAttributeArgs : global::Pulumi.ResourceArgs
     {
         [Input("objectIdentifier", required: true)]

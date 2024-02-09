@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("serverCertificateArns")]
         public Output<ImmutableArray<string>> ServerCertificateArns { get; private set; } = null!;
 
+        [Output("serverCertificateConfig")]
+        public Output<Outputs.DomainConfigurationServerCertificateConfig?> ServerCertificateConfig { get; private set; } = null!;
+
         [Output("serverCertificates")]
         public Output<ImmutableArray<Outputs.DomainConfigurationServerCertificateSummary>> ServerCertificates { get; private set; } = null!;
 
@@ -123,6 +126,9 @@ namespace Pulumi.AwsNative.IoT
             get => _serverCertificateArns ?? (_serverCertificateArns = new InputList<string>());
             set => _serverCertificateArns = value;
         }
+
+        [Input("serverCertificateConfig")]
+        public Input<Inputs.DomainConfigurationServerCertificateConfigArgs>? ServerCertificateConfig { get; set; }
 
         [Input("serviceType")]
         public Input<Pulumi.AwsNative.IoT.DomainConfigurationServiceType>? ServiceType { get; set; }

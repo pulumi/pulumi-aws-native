@@ -17,8 +17,6 @@ __all__ = [
     'LoggingConfigurationConditionActionConditionProperties',
     'LoggingConfigurationConditionLabelNameConditionProperties',
     'LoggingConfigurationFieldToMatch',
-    'LoggingConfigurationFieldToMatchJsonBodyProperties',
-    'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties',
     'LoggingConfigurationFieldToMatchSingleHeaderProperties',
     'LoggingConfigurationFilter',
     'LoggingFilterProperties',
@@ -294,9 +292,7 @@ class LoggingConfigurationFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "jsonBody":
-            suggest = "json_body"
-        elif key == "queryString":
+        if key == "queryString":
             suggest = "query_string"
         elif key == "singleHeader":
             suggest = "single_header"
@@ -315,21 +311,17 @@ class LoggingConfigurationFieldToMatch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 json_body: Optional['outputs.LoggingConfigurationFieldToMatchJsonBodyProperties'] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
                  single_header: Optional['outputs.LoggingConfigurationFieldToMatchSingleHeaderProperties'] = None,
                  uri_path: Optional[Any] = None):
         """
         A key-value pair to associate with a resource.
-        :param 'LoggingConfigurationFieldToMatchJsonBodyProperties' json_body: Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
         :param Any method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
         :param Any query_string: Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
         :param 'LoggingConfigurationFieldToMatchSingleHeaderProperties' single_header: Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
         :param Any uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
         """
-        if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
         if method is not None:
             pulumi.set(__self__, "method", method)
         if query_string is not None:
@@ -338,14 +330,6 @@ class LoggingConfigurationFieldToMatch(dict):
             pulumi.set(__self__, "single_header", single_header)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
-
-    @property
-    @pulumi.getter(name="jsonBody")
-    def json_body(self) -> Optional['outputs.LoggingConfigurationFieldToMatchJsonBodyProperties']:
-        """
-        Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
-        """
-        return pulumi.get(self, "json_body")
 
     @property
     @pulumi.getter
@@ -378,124 +362,6 @@ class LoggingConfigurationFieldToMatch(dict):
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
         """
         return pulumi.get(self, "uri_path")
-
-
-@pulumi.output_type
-class LoggingConfigurationFieldToMatchJsonBodyProperties(dict):
-    """
-    Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "matchPattern":
-            suggest = "match_pattern"
-        elif key == "matchScope":
-            suggest = "match_scope"
-        elif key == "invalidFallbackBehavior":
-            suggest = "invalid_fallback_behavior"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationFieldToMatchJsonBodyProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LoggingConfigurationFieldToMatchJsonBodyProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LoggingConfigurationFieldToMatchJsonBodyProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 match_pattern: 'outputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties',
-                 match_scope: 'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope',
-                 invalid_fallback_behavior: Optional['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior'] = None):
-        """
-        Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
-        :param 'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties' match_pattern: The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
-        :param 'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope' match_scope: The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
-        :param 'LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior' invalid_fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body.
-        """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
-
-    @property
-    @pulumi.getter(name="matchPattern")
-    def match_pattern(self) -> 'outputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties':
-        """
-        The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
-        """
-        return pulumi.get(self, "match_pattern")
-
-    @property
-    @pulumi.getter(name="matchScope")
-    def match_scope(self) -> 'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope':
-        """
-        The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
-        """
-        return pulumi.get(self, "match_scope")
-
-    @property
-    @pulumi.getter(name="invalidFallbackBehavior")
-    def invalid_fallback_behavior(self) -> Optional['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior']:
-        """
-        What AWS WAF should do if it fails to completely parse the JSON body.
-        """
-        return pulumi.get(self, "invalid_fallback_behavior")
-
-
-@pulumi.output_type
-class LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties(dict):
-    """
-    The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "includedPaths":
-            suggest = "included_paths"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 all: Optional[Any] = None,
-                 included_paths: Optional[Sequence[str]] = None):
-        """
-        The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
-        :param Any all: Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
-        :param Sequence[str] included_paths: Match only the specified include paths. See also MatchScope in JsonBody.
-        """
-        if all is not None:
-            pulumi.set(__self__, "all", all)
-        if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
-
-    @property
-    @pulumi.getter
-    def all(self) -> Optional[Any]:
-        """
-        Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
-        """
-        return pulumi.get(self, "all")
-
-    @property
-    @pulumi.getter(name="includedPaths")
-    def included_paths(self) -> Optional[Sequence[str]]:
-        """
-        Match only the specified include paths. See also MatchScope in JsonBody.
-        """
-        return pulumi.get(self, "included_paths")
 
 
 @pulumi.output_type

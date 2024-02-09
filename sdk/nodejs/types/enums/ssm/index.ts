@@ -55,7 +55,6 @@ export const DocumentType = {
     ProblemAnalysis: "ProblemAnalysis",
     ProblemAnalysisTemplate: "ProblemAnalysisTemplate",
     Session: "Session",
-    OpsPack: "OpsPack",
 } as const;
 
 /**
@@ -79,7 +78,7 @@ export const ParameterDataType = {
 } as const;
 
 /**
- * The corresponding DataType of the parameter.
+ * The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
  */
 export type ParameterDataType = (typeof ParameterDataType)[keyof typeof ParameterDataType];
 
@@ -90,18 +89,18 @@ export const ParameterTier = {
 } as const;
 
 /**
- * The corresponding tier of the parameter.
+ * The parameter tier.
  */
 export type ParameterTier = (typeof ParameterTier)[keyof typeof ParameterTier];
 
 export const ParameterType = {
     String: "String",
     StringList: "StringList",
-    SecureString: "SecureString",
 } as const;
 
 /**
- * The type of the parameter.
+ * The type of parameter.
+ *   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
  */
 export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 

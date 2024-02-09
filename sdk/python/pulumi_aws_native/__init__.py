@@ -449,8 +449,6 @@ if typing.TYPE_CHECKING:
     ssm = __ssm
     import pulumi_aws_native.ssmcontacts as __ssmcontacts
     ssmcontacts = __ssmcontacts
-    import pulumi_aws_native.ssmguiconnect as __ssmguiconnect
-    ssmguiconnect = __ssmguiconnect
     import pulumi_aws_native.ssmincidents as __ssmincidents
     ssmincidents = __ssmincidents
     import pulumi_aws_native.sso as __sso
@@ -704,7 +702,6 @@ else:
     sqs = _utilities.lazy_import('pulumi_aws_native.sqs')
     ssm = _utilities.lazy_import('pulumi_aws_native.ssm')
     ssmcontacts = _utilities.lazy_import('pulumi_aws_native.ssmcontacts')
-    ssmguiconnect = _utilities.lazy_import('pulumi_aws_native.ssmguiconnect')
     ssmincidents = _utilities.lazy_import('pulumi_aws_native.ssmincidents')
     sso = _utilities.lazy_import('pulumi_aws_native.sso')
     stepfunctions = _utilities.lazy_import('pulumi_aws_native.stepfunctions')
@@ -3355,14 +3352,6 @@ _utilities.register(
    "aws-native:ssmcontacts:ContactChannel": "ContactChannel",
    "aws-native:ssmcontacts:Plan": "Plan",
    "aws-native:ssmcontacts:Rotation": "Rotation"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "ssmguiconnect",
-  "fqn": "pulumi_aws_native.ssmguiconnect",
-  "classes": {
-   "aws-native:ssmguiconnect:Preferences": "Preferences"
   }
  },
  {

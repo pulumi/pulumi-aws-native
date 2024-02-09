@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSubnetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the subnet
+        /// </summary>
         [Input("subnetId", required: true)]
         public string SubnetId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSubnetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the subnet
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -56,8 +62,14 @@ namespace Pulumi.AwsNative.Ec2
         public readonly string? Ipv6CidrBlock;
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
         public readonly bool? MapPublicIpOnLaunch;
+        /// <summary>
+        /// The ID of the network ACL that is associated with the subnet's VPC
+        /// </summary>
         public readonly string? NetworkAclAssociationId;
         public readonly Outputs.PrivateDnsNameOptionsOnLaunchProperties? PrivateDnsNameOptionsOnLaunch;
+        /// <summary>
+        /// The ID of the subnet
+        /// </summary>
         public readonly string? SubnetId;
         public readonly ImmutableArray<Outputs.SubnetTag> Tags;
 

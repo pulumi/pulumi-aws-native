@@ -19,10 +19,17 @@ class HostedConfigurationVersionArgs:
                  content: pulumi.Input[str],
                  content_type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 latest_version_number: Optional[pulumi.Input[float]] = None,
+                 latest_version_number: Optional[pulumi.Input[int]] = None,
                  version_label: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a HostedConfigurationVersion resource.
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] configuration_profile_id: The configuration profile ID.
+        :param pulumi.Input[str] content: The content of the configuration or the configuration data.
+        :param pulumi.Input[str] content_type: A standard MIME type describing the format of the configuration content.
+        :param pulumi.Input[str] description: A description of the hosted configuration version.
+        :param pulumi.Input[int] latest_version_number: An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
+        :param pulumi.Input[str] version_label: A user-defined label for an AWS AppConfig hosted configuration version.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
@@ -38,6 +45,9 @@ class HostedConfigurationVersionArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
+        """
+        The application ID.
+        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -47,6 +57,9 @@ class HostedConfigurationVersionArgs:
     @property
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> pulumi.Input[str]:
+        """
+        The configuration profile ID.
+        """
         return pulumi.get(self, "configuration_profile_id")
 
     @configuration_profile_id.setter
@@ -56,6 +69,9 @@ class HostedConfigurationVersionArgs:
     @property
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
+        """
+        The content of the configuration or the configuration data.
+        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -65,6 +81,9 @@ class HostedConfigurationVersionArgs:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[str]:
+        """
+        A standard MIME type describing the format of the configuration content.
+        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -74,6 +93,9 @@ class HostedConfigurationVersionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the hosted configuration version.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -82,16 +104,22 @@ class HostedConfigurationVersionArgs:
 
     @property
     @pulumi.getter(name="latestVersionNumber")
-    def latest_version_number(self) -> Optional[pulumi.Input[float]]:
+    def latest_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
+        """
         return pulumi.get(self, "latest_version_number")
 
     @latest_version_number.setter
-    def latest_version_number(self, value: Optional[pulumi.Input[float]]):
+    def latest_version_number(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "latest_version_number", value)
 
     @property
     @pulumi.getter(name="versionLabel")
     def version_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        A user-defined label for an AWS AppConfig hosted configuration version.
+        """
         return pulumi.get(self, "version_label")
 
     @version_label.setter
@@ -99,12 +127,7 @@ class HostedConfigurationVersionArgs:
         pulumi.set(self, "version_label", value)
 
 
-warnings.warn("""HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class HostedConfigurationVersion(pulumi.CustomResource):
-    warnings.warn("""HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -114,7 +137,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  content: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 latest_version_number: Optional[pulumi.Input[float]] = None,
+                 latest_version_number: Optional[pulumi.Input[int]] = None,
                  version_label: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -122,6 +145,13 @@ class HostedConfigurationVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] configuration_profile_id: The configuration profile ID.
+        :param pulumi.Input[str] content: The content of the configuration or the configuration data.
+        :param pulumi.Input[str] content_type: A standard MIME type describing the format of the configuration content.
+        :param pulumi.Input[str] description: A description of the hosted configuration version.
+        :param pulumi.Input[int] latest_version_number: An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
+        :param pulumi.Input[str] version_label: A user-defined label for an AWS AppConfig hosted configuration version.
         """
         ...
     @overload
@@ -152,10 +182,9 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  content: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 latest_version_number: Optional[pulumi.Input[float]] = None,
+                 latest_version_number: Optional[pulumi.Input[int]] = None,
                  version_label: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""HostedConfigurationVersion is deprecated: HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -179,6 +208,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["latest_version_number"] = latest_version_number
             __props__.__dict__["version_label"] = version_label
+            __props__.__dict__["version_number"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id", "configuration_profile_id", "content", "content_type", "description", "latest_version_number", "version_label"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(HostedConfigurationVersion, __self__).__init__(
@@ -210,40 +240,70 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["latest_version_number"] = None
         __props__.__dict__["version_label"] = None
+        __props__.__dict__["version_number"] = None
         return HostedConfigurationVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
+        """
+        The application ID.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> pulumi.Output[str]:
+        """
+        The configuration profile ID.
+        """
         return pulumi.get(self, "configuration_profile_id")
 
     @property
     @pulumi.getter
     def content(self) -> pulumi.Output[str]:
+        """
+        The content of the configuration or the configuration data.
+        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[str]:
+        """
+        A standard MIME type describing the format of the configuration content.
+        """
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the hosted configuration version.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="latestVersionNumber")
-    def latest_version_number(self) -> pulumi.Output[Optional[float]]:
+    def latest_version_number(self) -> pulumi.Output[Optional[int]]:
+        """
+        An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
+        """
         return pulumi.get(self, "latest_version_number")
 
     @property
     @pulumi.getter(name="versionLabel")
     def version_label(self) -> pulumi.Output[Optional[str]]:
+        """
+        A user-defined label for an AWS AppConfig hosted configuration version.
+        """
         return pulumi.get(self, "version_label")
+
+    @property
+    @pulumi.getter(name="versionNumber")
+    def version_number(self) -> pulumi.Output[str]:
+        """
+        Current version number of hosted configuration version.
+        """
+        return pulumi.get(self, "version_number")
 
