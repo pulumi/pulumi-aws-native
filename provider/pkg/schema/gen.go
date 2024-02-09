@@ -23,6 +23,15 @@ const packageName = "aws-native"
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
 func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schema,
 	genAll bool, semanticsDocument *SemanticsSpecDocument) (*pschema.PackageSpec, *CloudAPIMetadata, *Reports, error) {
+	tagsType := pschema.ObjectTypeSpec{
+		Type:        "object",
+		Description: "A set of tags to apply to the resource.",
+		Properties: map[string]pschema.PropertySpec{
+			"key":   {TypeSpec: primitiveTypeSpec("String"), Description: "The key name of the tag"},
+			"value": {TypeSpec: primitiveTypeSpec("String"), Description: "The value of the tag"},
+		},
+		Required: []string{"key", "value"},
+	}
 	p := pschema.PackageSpec{
 		Name:        packageName,
 		Description: "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
@@ -336,7 +345,11 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				"region",
 			},
 		},
-		Types: map[string]pschema.ComplexTypeSpec{},
+		Types: map[string]pschema.ComplexTypeSpec{
+			"aws-native:index:Tag": {
+				ObjectTypeSpec: tagsType,
+			},
+		},
 		Resources: map[string]pschema.ResourceSpec{
 			ExtensionResourceToken: {
 				ObjectTypeSpec: pschema.ObjectTypeSpec{
@@ -426,7 +439,12 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				CreateOnly: []string{"type", "properties"},
 			},
 		},
-		Types:     map[string]CloudAPIType{},
+		Types: map[string]CloudAPIType{
+			"aws-native:index:Tag": {
+				Type:       "object",
+				Properties: tagsType.Properties,
+			},
+		},
 		Functions: map[string]CloudAPIFunction{},
 	}
 
