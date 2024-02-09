@@ -83,7 +83,7 @@
       "permissions" : [ "kms:CreateGrant", "kms:DescribeKey", "wisdom:CreateAssistant", "wisdom:TagResource" ]
     },
     "update" : {
-      "permissions" : [ ]
+      "permissions" : [ "wisdom:GetAssistant" ]
     },
     "read" : {
       "permissions" : [ "wisdom:GetAssistant" ]

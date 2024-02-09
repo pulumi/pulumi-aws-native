@@ -76,13 +76,13 @@
   "primaryIdentifier" : [ "/properties/ServerCertificateName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:UploadServerCertificate", "iam:GetServerCertificate" ]
+      "permissions" : [ "iam:UploadServerCertificate", "iam:TagServerCertificate", "iam:GetServerCertificate" ]
     },
     "read" : {
       "permissions" : [ "iam:GetServerCertificate" ]
     },
     "update" : {
-      "permissions" : [ "iam:TagServerCertificate", "iam:UntagServerCertificate" ]
+      "permissions" : [ "iam:TagServerCertificate", "iam:UntagServerCertificate", "iam:ListServerCertificateTags", "iam:GetServerCertificate" ]
     },
     "delete" : {
       "permissions" : [ "iam:DeleteServerCertificate" ]

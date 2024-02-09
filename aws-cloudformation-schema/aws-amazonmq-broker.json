@@ -195,6 +195,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "ReplicationUser" : {
+          "type" : "boolean"
+        },
         "ConsoleAccess" : {
           "type" : "boolean"
         },

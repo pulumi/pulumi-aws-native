@@ -65,13 +65,21 @@
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/Tag"
-      }
+      },
+      "insertionOrder" : false
     }
   },
   "required" : [ "ConnectionName" ],
   "createOnlyProperties" : [ "/properties/ConnectionName", "/properties/ProviderType", "/properties/HostArn" ],
   "readOnlyProperties" : [ "/properties/ConnectionArn", "/properties/ConnectionStatus", "/properties/OwnerAccountId" ],
   "primaryIdentifier" : [ "/properties/ConnectionArn" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "codestar-connections:CreateConnection", "codestar-connections:TagResource" ]

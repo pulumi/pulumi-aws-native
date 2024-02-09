@@ -82,7 +82,7 @@
       "permissions" : [ "wisdom:CreateAssistantAssociation", "wisdom:TagResource" ]
     },
     "update" : {
-      "permissions" : [ ]
+      "permissions" : [ "wisdom:GetAssistantAssociation" ]
     },
     "read" : {
       "permissions" : [ "wisdom:GetAssistantAssociation" ]
