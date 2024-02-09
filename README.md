@@ -6,10 +6,9 @@ You can use AWS Native from a Pulumi program written in any Pulumi language: C#,
 You'll need to [install and configure the Pulumi CLI](https://pulumi.com/docs/get-started/install) if you haven't already.
 
 ---
-**NOTE**
-
-AWS Native is in public preview.
-Not all AWS resources are currently available in the AWS Native Provider. It covers all resources that are currently supported by the AWS Cloud Control API and AWS CloudFormation Registry. [List of supported resources](https://github.com/pulumi/pulumi-aws-native/blob/master/provider/cmd/pulumi-gen-aws-native/supported-types.txt).
+> [!NOTE]
+> AWS Native is in public preview.
+> This provider covers all resources as supported by the [AWS Cloud Control API](https://aws.amazon.com/cloudcontrolapi/). This does not yet include all AWS resources. See the [list of supported resources](https://github.com/pulumi/pulumi-aws-native/blob/master/provider/cmd/pulumi-gen-aws-native/supported-types.txt) for full details.
 
 For new projects, we recommend using AWS Native and [AWS Classic](https://github.com/pulumi/pulumi-aws) side-by-side so you can get the speed and correctness benefits of AWS Native where possible.
 For existing projects, AWS Classic remains fully supported; at this time, we recommend waiting to migrate existing projects to AWS Native.
@@ -35,13 +34,13 @@ To learn how to configure credentials refer to the [AWS configuration options](h
 
 You can quickly launch a shell environment with all the required dependencies using
 [devbox](https://www.jetpack.io/devbox/):
-```
-# Install devbox if needed
-$ which devbox || curl -fsSL https://get.jetpack.io/devbox | bash
-$ devbox shell
+
+```bash
+which devbox || curl -fsSL https://get.jetpack.io/devbox | bash
+devbox shell
 ```
 
-Alternatively, you can develop in a preconfigured container environment using 
+Alternatively, you can develop in a preconfigured container environment using
 [an editor or service that supports the devcontainer standard](https://containers.dev/supporting#editors)
 such as [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or [Github Codespaces](https://codespaces.new/pulumi/pulumi-aws-native). Please note that building this project can be fairly memory intensive, if you are having trouble building in a container, please ensure you have at least 12GB of memory available for the container.
 
@@ -49,9 +48,9 @@ such as [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-
 
 Run the following commands to install Go modules, generate all SDKs, and build the provider:
 
-```
-$ make ensure
-$ make build
+```bash
+make ensure
+make build
 ```
 
 Add the `bin` folder to your `$PATH` or copy the `bin/pulumi-resource-aws-native` file to another location in your `$PATH`.
@@ -60,27 +59,27 @@ Add the `bin` folder to your `$PATH` or copy the `bin/pulumi-resource-aws-native
 
 To run unittests, use:
 
-```
-$ make test_provider
+```bash
+make test_provider
 ```
 
 ### Running an example
 
 Navigate to the ECS example and run Pulumi:
 
+```bash
+cd ./examples/ecs
+yarn link @pulumi/aws-native
+pulumi config set aws:region us-west-2
+pulumi config set aws-native:region us-west-2
+pulumi up
 ```
-$ cd ./examples/ecs
-$ yarn link @pulumi/aws-native
-$ pulumi config set aws:region us-west-2
-$ pulumi config set aws-native:region us-west-2
-$ pulumi up
-``` 
 
 ### Local Development
 
 #### Additional Build Targets
 
-`make build` can be a bit slow as it rebuilds the sdks for every language; 
+`make build` can be a bit slow as it rebuilds the sdks for every language;
 you can use `make provider` or `make codegen` to just rebuild the provider plugin or codegen binaries
 
 #### Debugging / Logging
