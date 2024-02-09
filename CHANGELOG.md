@@ -1,4 +1,41 @@
-## Unreleased
+# Change Log
+
+## 0.96.0 (2024-02-09)
+
+- [Added configuration option `aws-native:config:skipCredentialsValidation` (or via environment variable `AWS_SKIP_CREDENTIALS_VALIDATION`)](https://github.com/pulumi/pulumi-aws-native/issues/1326)
+- [Upgraded internal dependencies](https://github.com/pulumi/pulumi-aws-native/issues/1328)
+- [Implemented custom endpoints configuration](https://github.com/pulumi/pulumi-aws-native/issues/1332)
+- [Automated upgrade to latest specifications](https://github.com/pulumi/pulumi-aws-native/pull/1333)
+
+### Breaking Changes
+
+#### Resources
+
+- "aws-native:cognito:UserPoolIdentityProvider": required: "providerDetails" property is no longer Required
+- "aws-native:ssmguiconnect:Preferences" removed
+- "aws-native:verifiedpermissions:IdentitySource": "policyStoreId" input has changed to Required
+- "aws-native:verifiedpermissions:PolicyTemplate": "policyStoreId" input has changed to Required
+
+#### Functions
+
+- "aws-native:ssmguiconnect:getPreferences" removed
+
+#### Types
+
+- "aws-native:wafv2:LoggingConfigurationFieldToMatch": property "jsonBody" removed
+
+### New resources
+
+- `appconfig.Environment`
+- `appconfig.HostedConfigurationVersion`
+- `ec2.SecurityGroupIngress`
+- `ec2.TransitGatewayRouteTableAssociation`
+
+### New functions
+
+- `appconfig.getEnvironment`
+- `appconfig.getHostedConfigurationVersion`
+- `ec2.getSecurityGroupIngress`
 
 ## 0.95.0 (2024-01-25)
 
