@@ -22,7 +22,7 @@ const packageName = "aws-native"
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
 func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schema,
-	genAll bool, semanticsDocument *SemanticsSpecDocument) (*pschema.PackageSpec, *CloudAPIMetadata, error) {
+	genAll bool, semanticsDocument *SemanticsSpecDocument) (*pschema.PackageSpec, *CloudAPIMetadata, *Reports, error) {
 	p := pschema.PackageSpec{
 		Name:        packageName,
 		Description: "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
@@ -430,6 +430,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		Functions: map[string]CloudAPIFunction{},
 	}
 
+	reports := &Reports{
+		UnexpectedTagsShapes: map[string]interface{}{},
+	}
+
 	supportedResources := codegen.NewStringSet(supportedResourceTypes...)
 
 	var resourceCount int
@@ -451,14 +455,15 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				visitedTypes:  codegen.NewStringSet(),
 				isSupported:   isSupported,
 				semantics:     semanticsDocument,
+				reports:       reports,
 			}
 			err := ctx.gatherResourceType()
 			if err != nil {
-				return nil, nil, err
+				return nil, nil, nil, err
 			}
 			err = ctx.gatherInvoke()
 			if err != nil {
-				return nil, nil, err
+				return nil, nil, nil, err
 			}
 			csharpNamespaces[mod] = fullMod
 			resourceCount++
@@ -595,7 +600,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		},
 	}
 
-	return &p, &metadata, nil
+	return &p, &metadata, reports, nil
 }
 
 // context holds shared information for a single CF JSON schema.
@@ -610,6 +615,7 @@ type context struct {
 	visitedTypes  codegen.StringSet
 	isSupported   bool
 	semantics     *SemanticsSpecDocument
+	reports       *Reports
 }
 
 func (ctx *context) markCreateOnlyProperties(createOnlyProperties codegen.StringSet, resource *pschema.ResourceSpec) error {
@@ -934,6 +940,10 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 				Name: propName + "Value",
 			}),
 		}
+	}
+
+	if propName == "Tags" {
+		ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
 	}
 
 	return &propertySpec, nil
@@ -1346,4 +1356,36 @@ func GatherSemantics(schemaDir string) (SemanticsSpecDocument, error) {
 		return semanticsDocument, err
 	}
 	return semanticsDocument, nil
+}
+
+type Reports struct {
+	// UnexpectedTagsShapes is a map of the resource token of resources which have a `Tags` field but don't match an expected pattern.
+	UnexpectedTagsShapes map[string]interface{}
+}
+
+func (r *Reports) WriteToDirectory(dir string) error {
+	err := os.MkdirAll(dir, 0755)
+	if err != nil {
+		return fmt.Errorf("creating directory: %w", err)
+	}
+
+	writeFile := func(filename string, data any) error {
+		f, err := os.Create(filepath.Join(dir, filename))
+		if err != nil {
+			return fmt.Errorf("creating file: %w", err)
+		}
+		defer contract.IgnoreClose(f)
+
+		enc := json.NewEncoder(f)
+		enc.SetIndent("", "  ")
+		if err = enc.Encode(data); err != nil {
+			return fmt.Errorf("writing file: %w", err)
+		}
+		return nil
+	}
+
+	if err = writeFile("unexpectedTagsShapes.json", r.UnexpectedTagsShapes); err != nil {
+		return err
+	}
+	return nil
 }
