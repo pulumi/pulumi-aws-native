@@ -111,6 +111,7 @@ type cfnProvider struct {
 	cctl *cloudcontrol.Client
 	ec2  *ec2.Client
 	ssm  *ssm.Client
+	sts  *sts.Client
 }
 
 var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
@@ -199,9 +200,6 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 		case "defaultTags":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/107")})
-		case "endpoints":
-			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/108")})
 		case "ignoreTags":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/110")})
@@ -335,6 +333,22 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		loadOptions = append(loadOptions, config.WithCredentialsProvider(credsProvider))
 	}
 
+	if endpointsString, ok := vars["aws-native:config:endpoints"]; ok {
+		var endpoints map[string]string
+		err := json.Unmarshal([]byte(endpointsString), &endpoints)
+		if err != nil {
+			return nil, fmt.Errorf("failed to unmarshal 'endpoints' config: %w", err)
+		}
+		glog.V(4).Infof("using AWS endpoints: %v", endpoints)
+		resolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
+			if endpoint, ok := endpoints[strings.ToLower(service)]; ok {
+				return aws.Endpoint{URL: endpoint}, nil
+			}
+			return aws.Endpoint{}, &aws.EndpointNotFoundError{}
+		})
+		loadOptions = append(loadOptions, config.WithEndpointResolverWithOptions(resolver))
+	}
+
 	// Attach custom middleware to the client.
 	loadOptions = append(loadOptions, config.WithAPIOptions(func() (v []func(stack *middleware.Stack) error) {
 		v = append(v, attachCustomMiddleware)
@@ -445,10 +459,14 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		}
 	}
 
-	p.cfn, p.cctl, p.ec2, p.ssm = cloudformation.NewFromConfig(cfg), cloudcontrol.NewFromConfig(cfg), ec2.NewFromConfig(cfg), ssm.NewFromConfig(cfg)
+	p.cfn = cloudformation.NewFromConfig(cfg)
+	p.cctl = cloudcontrol.NewFromConfig(cfg)
+	p.ec2 = ec2.NewFromConfig(cfg)
+	p.ssm = ssm.NewFromConfig(cfg)
+	p.sts = sts.NewFromConfig(cfg)
 
 	if !skipCredentialsValidation {
-		callerIdentityResp, err := sts.NewFromConfig(cfg).GetCallerIdentity(ctx, &sts.GetCallerIdentityInput{})
+		callerIdentityResp, err := p.sts.GetCallerIdentity(ctx, &sts.GetCallerIdentityInput{})
 		if err != nil {
 			return nil, errors.Wrapf(err, "could not get AWS account ID")
 		}
