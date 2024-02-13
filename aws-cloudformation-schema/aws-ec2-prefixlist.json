@@ -85,7 +85,7 @@
       "type" : "string"
     }
   },
-  "required" : [ "PrefixListName", "MaxEntries", "AddressFamily" ],
+  "required" : [ "PrefixListName", "AddressFamily" ],
   "readOnlyProperties" : [ "/properties/PrefixListId", "/properties/OwnerId", "/properties/Version", "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/PrefixListId" ],
   "tagging" : {
