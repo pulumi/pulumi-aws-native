@@ -83,6 +83,9 @@
     },
     "ImportSourceSpecification" : {
       "$ref" : "#/definitions/ImportSourceSpecification"
+    },
+    "ResourcePolicy" : {
+      "$ref" : "#/definitions/ResourcePolicy"
     }
   },
   "propertyTransform" : {
@@ -95,6 +98,9 @@
       "properties" : {
         "StreamViewType" : {
           "type" : "string"
+        },
+        "ResourcePolicy" : {
+          "$ref" : "#/definitions/ResourcePolicy"
         }
       },
       "required" : [ "StreamViewType" ]
@@ -357,6 +363,16 @@
           "type" : "string"
         }
       }
+    },
+    "ResourcePolicy" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PolicyDocument" : {
+          "type" : "object"
+        }
+      },
+      "required" : [ "PolicyDocument" ]
     }
   },
   "tagging" : {
@@ -373,14 +389,14 @@
   "writeOnlyProperties" : [ "/properties/ImportSourceSpecification" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "dynamodb:CreateTable", "dynamodb:DescribeImport", "dynamodb:DescribeTable", "dynamodb:DescribeTimeToLive", "dynamodb:UpdateTimeToLive", "dynamodb:UpdateContributorInsights", "dynamodb:UpdateContinuousBackups", "dynamodb:DescribeContinuousBackups", "dynamodb:DescribeContributorInsights", "dynamodb:EnableKinesisStreamingDestination", "dynamodb:DisableKinesisStreamingDestination", "dynamodb:DescribeKinesisStreamingDestination", "dynamodb:ImportTable", "dynamodb:ListTagsOfResource", "dynamodb:TagResource", "dynamodb:UpdateTable", "kinesis:DescribeStream", "kinesis:PutRecords", "iam:CreateServiceLinkedRole", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:ListAliases", "kms:Encrypt", "kms:RevokeGrant", "logs:CreateLogGroup", "logs:CreateLogStream", "logs:DescribeLogGroups", "logs:DescribeLogStreams", "logs:PutLogEvents", "logs:PutRetentionPolicy", "s3:GetObject", "s3:GetObjectMetadata", "s3:ListBucket" ],
+      "permissions" : [ "dynamodb:CreateTable", "dynamodb:DescribeImport", "dynamodb:DescribeTable", "dynamodb:DescribeTimeToLive", "dynamodb:UpdateTimeToLive", "dynamodb:UpdateContributorInsights", "dynamodb:UpdateContinuousBackups", "dynamodb:DescribeContinuousBackups", "dynamodb:DescribeContributorInsights", "dynamodb:EnableKinesisStreamingDestination", "dynamodb:DisableKinesisStreamingDestination", "dynamodb:DescribeKinesisStreamingDestination", "dynamodb:ImportTable", "dynamodb:ListTagsOfResource", "dynamodb:TagResource", "dynamodb:UpdateTable", "dynamodb:GetResourcePolicy", "dynamodb:PutResourcePolicy", "kinesis:DescribeStream", "kinesis:PutRecords", "iam:CreateServiceLinkedRole", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:ListAliases", "kms:Encrypt", "kms:RevokeGrant", "logs:CreateLogGroup", "logs:CreateLogStream", "logs:DescribeLogGroups", "logs:DescribeLogStreams", "logs:PutLogEvents", "logs:PutRetentionPolicy", "s3:GetObject", "s3:GetObjectMetadata", "s3:ListBucket" ],
       "timeoutInMinutes" : 720
     },
     "read" : {
-      "permissions" : [ "dynamodb:DescribeTable", "dynamodb:DescribeContinuousBackups", "dynamodb:DescribeContributorInsights", "dynamodb:DescribeKinesisStreamingDestination", "dynamodb:ListTagsOfResource" ]
+      "permissions" : [ "dynamodb:DescribeTable", "dynamodb:DescribeContinuousBackups", "dynamodb:DescribeContributorInsights", "dynamodb:DescribeKinesisStreamingDestination", "dynamodb:ListTagsOfResource", "dynamodb:GetResourcePolicy" ]
     },
     "update" : {
-      "permissions" : [ "dynamodb:UpdateTable", "dynamodb:DescribeTable", "dynamodb:DescribeTimeToLive", "dynamodb:UpdateTimeToLive", "dynamodb:UpdateContinuousBackups", "dynamodb:UpdateContributorInsights", "dynamodb:UpdateKinesisStreamingDestination", "dynamodb:DescribeContinuousBackups", "dynamodb:DescribeKinesisStreamingDestination", "dynamodb:ListTagsOfResource", "dynamodb:TagResource", "dynamodb:UntagResource", "dynamodb:DescribeContributorInsights", "dynamodb:EnableKinesisStreamingDestination", "dynamodb:DisableKinesisStreamingDestination", "kinesis:DescribeStream", "kinesis:PutRecords", "iam:CreateServiceLinkedRole", "kms:CreateGrant", "kms:DescribeKey", "kms:ListAliases", "kms:RevokeGrant" ],
+      "permissions" : [ "dynamodb:UpdateTable", "dynamodb:DescribeTable", "dynamodb:DescribeTimeToLive", "dynamodb:UpdateTimeToLive", "dynamodb:UpdateContinuousBackups", "dynamodb:UpdateContributorInsights", "dynamodb:UpdateKinesisStreamingDestination", "dynamodb:DescribeContinuousBackups", "dynamodb:DescribeKinesisStreamingDestination", "dynamodb:ListTagsOfResource", "dynamodb:TagResource", "dynamodb:UntagResource", "dynamodb:DescribeContributorInsights", "dynamodb:EnableKinesisStreamingDestination", "dynamodb:DisableKinesisStreamingDestination", "dynamodb:GetResourcePolicy", "dynamodb:PutResourcePolicy", "dynamodb:DeleteResourcePolicy", "kinesis:DescribeStream", "kinesis:PutRecords", "iam:CreateServiceLinkedRole", "kms:CreateGrant", "kms:DescribeKey", "kms:ListAliases", "kms:RevokeGrant" ],
       "timeoutInMinutes" : 720
     },
     "delete" : {
