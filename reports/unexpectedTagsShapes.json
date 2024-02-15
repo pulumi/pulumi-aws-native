@@ -95,36 +95,6 @@
     "type": "array",
     "uniqueItems": true
   },
-  "aws-native:apigatewayv2:Api": {
-    "additionalProperties": false,
-    "description": "The collection of tags. Each tag element is associated with a given resource.",
-    "patternProperties": {
-      ".*": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:apigatewayv2:DomainName": {
-    "additionalProperties": false,
-    "description": "The collection of tags associated with a domain name.",
-    "patternProperties": {
-      ".*": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:apigatewayv2:VpcLink": {
-    "additionalProperties": false,
-    "description": "This resource type use map for Tags, suggest to use List of Tag",
-    "patternProperties": {
-      ".*": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
   "aws-native:appconfig:Application": {
     "description": "Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.",
     "insertionOrder": false,
@@ -364,39 +334,6 @@
     },
     "type": "array"
   },
-  "aws-native:batch:ComputeEnvironment": {
-    "additionalProperties": false,
-    "description": "A key-value pair to associate with a resource.",
-    "patternProperties": {
-      ".*": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:batch:JobDefinition": {
-    "type": "object"
-  },
-  "aws-native:batch:JobQueue": {
-    "additionalProperties": false,
-    "description": "A key-value pair to associate with a resource.",
-    "patternProperties": {
-      ".*": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:batch:SchedulingPolicy": {
-    "additionalProperties": false,
-    "description": "A key-value pair to associate with a resource.",
-    "patternProperties": {
-      ".*": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
   "aws-native:cassandra:Keyspace": {
     "items": {
       "$ref": "#/definitions/Tag"
@@ -591,15 +528,6 @@
       "$ref": "#/definitions/Tag"
     },
     "type": "array"
-  },
-  "aws-native:codestarnotifications:NotificationRule": {
-    "additionalProperties": false,
-    "patternProperties": {
-      ".*": {
-        "type": "string"
-      }
-    },
-    "type": "object"
   },
   "aws-native:comprehend:DocumentClassifier": {
     "insertionOrder": false,
@@ -1612,16 +1540,6 @@
     "type": "array",
     "uniqueItems": true
   },
-  "aws-native:eks:Nodegroup": {
-    "additionalProperties": false,
-    "description": "The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.",
-    "patternProperties": {
-      "^.+$": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
   "aws-native:eks:PodIdentityAssociation": {
     "description": "An array of key-value pairs to apply to this resource.",
     "insertionOrder": false,
@@ -1851,16 +1769,6 @@
     "type": "array",
     "uniqueItems": false
   },
-  "aws-native:fis:ExperimentTemplate": {
-    "additionalProperties": false,
-    "patternProperties": {
-      ".{1,128}": {
-        "maxLength": 256,
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
   "aws-native:fms:Policy": {
     "insertionOrder": true,
     "items": {
@@ -2067,22 +1975,6 @@
     "minItems": 0,
     "type": "array"
   },
-  "aws-native:greengrassv2:ComponentVersion": {
-    "additionalProperties": false,
-    "maxProperties": 50,
-    "type": "object"
-  },
-  "aws-native:greengrassv2:Deployment": {
-    "additionalProperties": false,
-    "maxProperties": 200,
-    "patternProperties": {
-      ".*": {
-        "maxLength": 256,
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
   "aws-native:groundstation:Config": {
     "items": {
       "$ref": "#/definitions/Tag"
@@ -2183,96 +2075,6 @@
     },
     "type": "array",
     "uniqueItems": false
-  },
-  "aws-native:imagebuilder:Component": {
-    "additionalProperties": false,
-    "description": "The tags associated with the component.",
-    "patternProperties": {
-      ".{1,}": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:imagebuilder:ContainerRecipe": {
-    "additionalProperties": false,
-    "description": "Tags that are attached to the container recipe.",
-    "patternProperties": {
-      ".{1,}": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:imagebuilder:DistributionConfiguration": {
-    "additionalProperties": false,
-    "description": "The tags associated with the component.",
-    "patternProperties": {
-      ".{1,}": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:imagebuilder:Image": {
-    "additionalProperties": false,
-    "description": "The tags associated with the image.",
-    "patternProperties": {
-      ".{1,}": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:imagebuilder:ImagePipeline": {
-    "additionalProperties": false,
-    "description": "The tags of this image pipeline.",
-    "patternProperties": {
-      ".{1,}": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:imagebuilder:ImageRecipe": {
-    "additionalProperties": false,
-    "description": "The tags of the image recipe.",
-    "patternProperties": {
-      ".{1,}": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:imagebuilder:InfrastructureConfiguration": {
-    "additionalProperties": false,
-    "description": "The tags associated with the component.",
-    "patternProperties": {
-      ".{1,}": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:imagebuilder:LifecyclePolicy": {
-    "additionalProperties": false,
-    "description": "The tags associated with the lifecycle policy.",
-    "patternProperties": {
-      ".{1,}": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:imagebuilder:Workflow": {
-    "additionalProperties": false,
-    "description": "The tags associated with the workflow.",
-    "patternProperties": {
-      ".{1,}": {
-        "type": "string"
-      }
-    },
-    "type": "object"
   },
   "aws-native:inspectorv2:CisScanConfiguration": {
     "$ref": "#/definitions/CisTagMap"
@@ -2602,68 +2404,6 @@
     },
     "type": "array",
     "uniqueItems": false
-  },
-  "aws-native:iottwinmaker:ComponentType": {
-    "additionalProperties": false,
-    "description": "A map of key-value pairs to associate with a resource.",
-    "maxProperties": 50,
-    "patternProperties": {
-      "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$": {
-        "maxLength": 256,
-        "minLength": 1,
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:iottwinmaker:Entity": {
-    "additionalProperties": false,
-    "description": "A key-value pair to associate with a resource.",
-    "patternProperties": {
-      "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$": {
-        "maxLength": 256,
-        "minLength": 1,
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:iottwinmaker:Scene": {
-    "additionalProperties": false,
-    "description": "A key-value pair to associate with a resource.",
-    "patternProperties": {
-      "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$": {
-        "maxLength": 256,
-        "minLength": 1,
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:iottwinmaker:SyncJob": {
-    "additionalProperties": false,
-    "description": "A key-value pair to associate with a resource.",
-    "patternProperties": {
-      "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$": {
-        "maxLength": 256,
-        "minLength": 1,
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
-  "aws-native:iottwinmaker:Workspace": {
-    "additionalProperties": false,
-    "description": "A map of key-value pairs to associate with a resource.",
-    "maxProperties": 50,
-    "patternProperties": {
-      "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$": {
-        "maxLength": 256,
-        "minLength": 1,
-        "type": "string"
-      }
-    },
-    "type": "object"
   },
   "aws-native:iotwireless:Destination": {
     "description": "A list of key-value pairs that contain metadata for the destination.",
@@ -3276,16 +3016,6 @@
     "type": "array",
     "uniqueItems": true
   },
-  "aws-native:msk:Cluster": {
-    "additionalProperties": false,
-    "description": "A key-value pair to associate with a resource.",
-    "patternProperties": {
-      "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
   "aws-native:msk:Replicator": {
     "description": "A collection of tags associated with a resource",
     "insertionOrder": false,
@@ -3295,22 +3025,8 @@
     "type": "array",
     "uniqueItems": true
   },
-  "aws-native:msk:ServerlessCluster": {
-    "additionalProperties": false,
-    "description": "A key-value pair to associate with a resource.",
-    "patternProperties": {
-      "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$": {
-        "type": "string"
-      }
-    },
-    "type": "object"
-  },
   "aws-native:msk:VpcConnection": {
     "$ref": "#/definitions/Tags"
-  },
-  "aws-native:mwaa:Environment": {
-    "description": "A map of tags for the environment.",
-    "type": "object"
   },
   "aws-native:neptune:DbCluster": {
     "description": "The tags assigned to this cluster.",
@@ -3475,16 +3191,6 @@
   "aws-native:nimblestudio:StudioComponent": {
     "$ref": "#/definitions/Tags"
   },
-  "aws-native:oam:Link": {
-    "additionalProperties": false,
-    "description": "Tags to apply to the link",
-    "type": "object"
-  },
-  "aws-native:oam:Sink": {
-    "additionalProperties": false,
-    "description": "Tags to apply to the sink",
-    "type": "object"
-  },
   "aws-native:omics:AnnotationStore": {
     "$ref": "#/definitions/TagMap"
   },
@@ -3587,9 +3293,6 @@
   },
   "aws-native:pcaconnectorad:Template": {
     "$ref": "#/definitions/Tags"
-  },
-  "aws-native:pinpoint:InAppTemplate": {
-    "type": "object"
   },
   "aws-native:pipes:Pipe": {
     "$ref": "#/definitions/TagMap"
@@ -4400,16 +4103,6 @@
     },
     "maxItems": 1000,
     "type": "array"
-  },
-  "aws-native:ssm:Parameter": {
-    "additionalProperties": false,
-    "description": "Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.",
-    "patternProperties": {
-      "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$": {
-        "type": "string"
-      }
-    },
-    "type": "object"
   },
   "aws-native:ssm:PatchBaseline": {
     "description": "Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.",

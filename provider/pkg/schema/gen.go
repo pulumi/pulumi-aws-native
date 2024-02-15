@@ -943,7 +943,19 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 	}
 
 	if propName == "Tags" {
-		ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
+		switch ctx.GetTagsStyle(typeSpec, spec) {
+		case TagsStyleUntyped:
+			if propertySpec.Description != "" {
+				propertySpec.Description += "\n\n"
+			}
+			propertySpec.Description += "No additional type information is available in the schema for this property, please refer to the Cloud Control documentation for the expected schema."
+		case TagsStyleStringMap:
+			// Nothing to do
+		case TagsStyleKeyValueArray:
+			// Swap referenced type to shared definition and remove custom type.
+		default: // Unknown
+			ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
+		}
 	}
 
 	return &propertySpec, nil
