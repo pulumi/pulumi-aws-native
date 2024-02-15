@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string Type;
         public readonly bool? UpdateToLatestImageVersion;
 
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             ImmutableArray<string> subnets,
 
-            object? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string type,
 

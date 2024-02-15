@@ -55,7 +55,7 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * The collection of tags associated with a domain name.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -111,5 +111,5 @@ export interface DomainNameArgs {
     /**
      * The collection of tags associated with a domain name.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

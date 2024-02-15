@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// <summary>
         /// The Image Builder resources to select by tag.
         /// </summary>
-        public readonly object? TagMap;
+        public readonly ImmutableDictionary<string, string>? TagMap;
 
         [OutputConstructor]
         private LifecyclePolicyResourceSelection(
             ImmutableArray<Outputs.LifecyclePolicyRecipeSelection> recipes,
 
-            object? tagMap)
+            ImmutableDictionary<string, string>? tagMap)
         {
             Recipes = recipes;
             TagMap = tagMap;

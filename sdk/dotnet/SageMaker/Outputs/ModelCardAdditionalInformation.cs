@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// customer details.
         /// </summary>
-        public readonly object? CustomDetails;
+        public readonly ImmutableDictionary<string, string>? CustomDetails;
         /// <summary>
         /// Any ethical considerations that the author wants to provide.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private ModelCardAdditionalInformation(
             string? caveatsAndRecommendations,
 
-            object? customDetails,
+            ImmutableDictionary<string, string>? customDetails,
 
             string? ethicalConsiderations)
         {

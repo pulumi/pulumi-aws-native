@@ -18,7 +18,7 @@ class BackupVaultArgs:
     def __init__(__self__, *,
                  access_policy: Optional[Any] = None,
                  backup_vault_name: Optional[pulumi.Input[str]] = None,
-                 backup_vault_tags: Optional[Any] = None,
+                 backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  lock_configuration: Optional[pulumi.Input['BackupVaultLockConfigurationTypeArgs']] = None,
                  notifications: Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']] = None):
@@ -58,11 +58,11 @@ class BackupVaultArgs:
 
     @property
     @pulumi.getter(name="backupVaultTags")
-    def backup_vault_tags(self) -> Optional[Any]:
+    def backup_vault_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "backup_vault_tags")
 
     @backup_vault_tags.setter
-    def backup_vault_tags(self, value: Optional[Any]):
+    def backup_vault_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "backup_vault_tags", value)
 
     @property
@@ -100,7 +100,7 @@ class BackupVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[Any] = None,
                  backup_vault_name: Optional[pulumi.Input[str]] = None,
-                 backup_vault_tags: Optional[Any] = None,
+                 backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  lock_configuration: Optional[pulumi.Input[pulumi.InputType['BackupVaultLockConfigurationTypeArgs']]] = None,
                  notifications: Optional[pulumi.Input[pulumi.InputType['BackupVaultNotificationObjectTypeArgs']]] = None,
@@ -137,7 +137,7 @@ class BackupVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[Any] = None,
                  backup_vault_name: Optional[pulumi.Input[str]] = None,
-                 backup_vault_tags: Optional[Any] = None,
+                 backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  lock_configuration: Optional[pulumi.Input[pulumi.InputType['BackupVaultLockConfigurationTypeArgs']]] = None,
                  notifications: Optional[pulumi.Input[pulumi.InputType['BackupVaultNotificationObjectTypeArgs']]] = None,
@@ -207,7 +207,7 @@ class BackupVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupVaultTags")
-    def backup_vault_tags(self) -> pulumi.Output[Optional[Any]]:
+    def backup_vault_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "backup_vault_tags")
 
     @property

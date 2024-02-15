@@ -24,7 +24,7 @@ export interface GetDomainArgs {
 
 export interface GetDomainResult {
     readonly accessPolicies?: any;
-    readonly advancedOptions?: any;
+    readonly advancedOptions?: {[key: string]: string};
     readonly advancedSecurityOptions?: outputs.opensearchservice.DomainAdvancedSecurityOptionsInput;
     readonly arn?: string;
     readonly clusterConfig?: outputs.opensearchservice.DomainClusterConfig;
@@ -33,13 +33,13 @@ export interface GetDomainResult {
     readonly domainEndpoint?: string;
     readonly domainEndpointOptions?: outputs.opensearchservice.DomainEndpointOptions;
     readonly domainEndpointV2?: string;
-    readonly domainEndpoints?: any;
+    readonly domainEndpoints?: {[key: string]: string};
     readonly ebsOptions?: outputs.opensearchservice.DomainEbsOptions;
     readonly encryptionAtRestOptions?: outputs.opensearchservice.DomainEncryptionAtRestOptions;
     readonly engineVersion?: string;
     readonly id?: string;
     readonly ipAddressType?: string;
-    readonly logPublishingOptions?: any;
+    readonly logPublishingOptions?: {[key: string]: outputs.opensearchservice.DomainLogPublishingOption};
     readonly nodeToNodeEncryptionOptions?: outputs.opensearchservice.DomainNodeToNodeEncryptionOptions;
     readonly offPeakWindowOptions?: outputs.opensearchservice.DomainOffPeakWindowOptions;
     readonly serviceSoftwareOptions?: outputs.opensearchservice.DomainServiceSoftwareOptions;

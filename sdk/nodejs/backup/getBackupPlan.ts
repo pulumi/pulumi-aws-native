@@ -26,7 +26,7 @@ export interface GetBackupPlanResult {
     readonly backupPlan?: outputs.backup.BackupPlanResourceType;
     readonly backupPlanArn?: string;
     readonly backupPlanId?: string;
-    readonly backupPlanTags?: any;
+    readonly backupPlanTags?: {[key: string]: string};
     readonly versionId?: string;
 }
 /**

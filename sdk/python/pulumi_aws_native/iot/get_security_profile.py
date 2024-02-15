@@ -56,7 +56,7 @@ class GetSecurityProfileResult:
 
     @property
     @pulumi.getter(name="alertTargets")
-    def alert_targets(self) -> Optional[Any]:
+    def alert_targets(self) -> Optional[Mapping[str, 'outputs.SecurityProfileAlertTarget']]:
         """
         Specifies the destinations to which alerts are sent.
         """

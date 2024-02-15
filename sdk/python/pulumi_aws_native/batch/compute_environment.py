@@ -23,12 +23,12 @@ class ComputeEnvironmentArgs:
                  replace_compute_environment: Optional[pulumi.Input[bool]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
                  update_policy: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']] = None):
         """
         The set of arguments for constructing a ComputeEnvironment resource.
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "type", type)
         if compute_environment_name is not None:
@@ -115,14 +115,14 @@ class ComputeEnvironmentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -155,7 +155,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  replace_compute_environment: Optional[pulumi.Input[bool]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
                  update_policy: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']]] = None,
@@ -165,7 +165,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         ...
     @overload
@@ -197,7 +197,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  replace_compute_environment: Optional[pulumi.Input[bool]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
                  update_policy: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']]] = None,
@@ -223,7 +223,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             __props__.__dict__["unmanagedv_cpus"] = unmanagedv_cpus
             __props__.__dict__["update_policy"] = update_policy
             __props__.__dict__["compute_environment_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["compute_environment_name", "compute_resources.spot_iam_fleet_role", "eks_configuration", "tags", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["compute_environment_name", "compute_resources.spot_iam_fleet_role", "eks_configuration", "tags.*", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ComputeEnvironment, __self__).__init__(
             'aws-native:batch:ComputeEnvironment',
@@ -297,7 +297,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A key-value pair to associate with a resource.
         """

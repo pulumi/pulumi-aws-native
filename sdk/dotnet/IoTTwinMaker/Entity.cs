@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// A map that sets information about a component type.
         /// </summary>
         [Output("components")]
-        public Output<object?> Components { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.EntityComponent>?> Components { get; private set; } = null!;
 
         /// <summary>
         /// A map that sets information about a composite component.
         /// </summary>
         [Output("compositeComponents")]
-        public Output<object?> CompositeComponents { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.EntityCompositeComponent>?> CompositeComponents { get; private set; } = null!;
 
         /// <summary>
         /// The date and time when the entity was created.
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// A key-value pair to associate with a resource.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The last date and time when the entity was updated.
@@ -143,17 +143,29 @@ namespace Pulumi.AwsNative.IoTTwinMaker
 
     public sealed class EntityArgs : global::Pulumi.ResourceArgs
     {
+        [Input("components")]
+        private InputMap<Inputs.EntityComponentArgs>? _components;
+
         /// <summary>
         /// A map that sets information about a component type.
         /// </summary>
-        [Input("components")]
-        public Input<object>? Components { get; set; }
+        public InputMap<Inputs.EntityComponentArgs> Components
+        {
+            get => _components ?? (_components = new InputMap<Inputs.EntityComponentArgs>());
+            set => _components = value;
+        }
+
+        [Input("compositeComponents")]
+        private InputMap<Inputs.EntityCompositeComponentArgs>? _compositeComponents;
 
         /// <summary>
         /// A map that sets information about a composite component.
         /// </summary>
-        [Input("compositeComponents")]
-        public Input<object>? CompositeComponents { get; set; }
+        public InputMap<Inputs.EntityCompositeComponentArgs> CompositeComponents
+        {
+            get => _compositeComponents ?? (_compositeComponents = new InputMap<Inputs.EntityCompositeComponentArgs>());
+            set => _compositeComponents = value;
+        }
 
         /// <summary>
         /// The description of the entity.
@@ -179,11 +191,17 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         [Input("parentEntityId")]
         public Input<string>? ParentEntityId { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The ID of the workspace.

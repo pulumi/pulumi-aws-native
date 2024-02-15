@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Backup
         public readonly Outputs.BackupPlanResourceType? BackupPlanValue;
         public readonly string? BackupPlanArn;
         public readonly string? BackupPlanId;
-        public readonly object? BackupPlanTags;
+        public readonly ImmutableDictionary<string, string>? BackupPlanTags;
         public readonly string? VersionId;
 
         [OutputConstructor]
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Backup
 
             string? backupPlanId,
 
-            object? backupPlanTags,
+            ImmutableDictionary<string, string>? backupPlanTags,
 
             string? versionId)
         {

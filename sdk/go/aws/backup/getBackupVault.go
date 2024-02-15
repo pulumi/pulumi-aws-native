@@ -29,7 +29,7 @@ type LookupBackupVaultArgs struct {
 type LookupBackupVaultResult struct {
 	AccessPolicy      interface{}                        `pulumi:"accessPolicy"`
 	BackupVaultArn    *string                            `pulumi:"backupVaultArn"`
-	BackupVaultTags   interface{}                        `pulumi:"backupVaultTags"`
+	BackupVaultTags   map[string]string                  `pulumi:"backupVaultTags"`
 	LockConfiguration *BackupVaultLockConfigurationType  `pulumi:"lockConfiguration"`
 	Notifications     *BackupVaultNotificationObjectType `pulumi:"notifications"`
 }
@@ -77,8 +77,8 @@ func (o LookupBackupVaultResultOutput) BackupVaultArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBackupVaultResult) *string { return v.BackupVaultArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupBackupVaultResultOutput) BackupVaultTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupBackupVaultResult) interface{} { return v.BackupVaultTags }).(pulumi.AnyOutput)
+func (o LookupBackupVaultResultOutput) BackupVaultTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBackupVaultResult) map[string]string { return v.BackupVaultTags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupBackupVaultResultOutput) LockConfiguration() BackupVaultLockConfigurationTypePtrOutput {

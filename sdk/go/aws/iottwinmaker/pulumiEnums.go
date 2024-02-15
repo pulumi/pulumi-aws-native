@@ -10,6 +10,514 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The underlying type of the data type.
+type ComponentTypeDataTypeType string
+
+const (
+	ComponentTypeDataTypeTypeRelationship = ComponentTypeDataTypeType("RELATIONSHIP")
+	ComponentTypeDataTypeTypeString       = ComponentTypeDataTypeType("STRING")
+	ComponentTypeDataTypeTypeLong         = ComponentTypeDataTypeType("LONG")
+	ComponentTypeDataTypeTypeBoolean      = ComponentTypeDataTypeType("BOOLEAN")
+	ComponentTypeDataTypeTypeInteger      = ComponentTypeDataTypeType("INTEGER")
+	ComponentTypeDataTypeTypeDouble       = ComponentTypeDataTypeType("DOUBLE")
+	ComponentTypeDataTypeTypeList         = ComponentTypeDataTypeType("LIST")
+	ComponentTypeDataTypeTypeMap          = ComponentTypeDataTypeType("MAP")
+)
+
+func (ComponentTypeDataTypeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentTypeDataTypeType)(nil)).Elem()
+}
+
+func (e ComponentTypeDataTypeType) ToComponentTypeDataTypeTypeOutput() ComponentTypeDataTypeTypeOutput {
+	return pulumi.ToOutput(e).(ComponentTypeDataTypeTypeOutput)
+}
+
+func (e ComponentTypeDataTypeType) ToComponentTypeDataTypeTypeOutputWithContext(ctx context.Context) ComponentTypeDataTypeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComponentTypeDataTypeTypeOutput)
+}
+
+func (e ComponentTypeDataTypeType) ToComponentTypeDataTypeTypePtrOutput() ComponentTypeDataTypeTypePtrOutput {
+	return e.ToComponentTypeDataTypeTypePtrOutputWithContext(context.Background())
+}
+
+func (e ComponentTypeDataTypeType) ToComponentTypeDataTypeTypePtrOutputWithContext(ctx context.Context) ComponentTypeDataTypeTypePtrOutput {
+	return ComponentTypeDataTypeType(e).ToComponentTypeDataTypeTypeOutputWithContext(ctx).ToComponentTypeDataTypeTypePtrOutputWithContext(ctx)
+}
+
+func (e ComponentTypeDataTypeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComponentTypeDataTypeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComponentTypeDataTypeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComponentTypeDataTypeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComponentTypeDataTypeTypeOutput struct{ *pulumi.OutputState }
+
+func (ComponentTypeDataTypeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentTypeDataTypeType)(nil)).Elem()
+}
+
+func (o ComponentTypeDataTypeTypeOutput) ToComponentTypeDataTypeTypeOutput() ComponentTypeDataTypeTypeOutput {
+	return o
+}
+
+func (o ComponentTypeDataTypeTypeOutput) ToComponentTypeDataTypeTypeOutputWithContext(ctx context.Context) ComponentTypeDataTypeTypeOutput {
+	return o
+}
+
+func (o ComponentTypeDataTypeTypeOutput) ToComponentTypeDataTypeTypePtrOutput() ComponentTypeDataTypeTypePtrOutput {
+	return o.ToComponentTypeDataTypeTypePtrOutputWithContext(context.Background())
+}
+
+func (o ComponentTypeDataTypeTypeOutput) ToComponentTypeDataTypeTypePtrOutputWithContext(ctx context.Context) ComponentTypeDataTypeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentTypeDataTypeType) *ComponentTypeDataTypeType {
+		return &v
+	}).(ComponentTypeDataTypeTypePtrOutput)
+}
+
+func (o ComponentTypeDataTypeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComponentTypeDataTypeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComponentTypeDataTypeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComponentTypeDataTypeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentTypeDataTypeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComponentTypeDataTypeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComponentTypeDataTypeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentTypeDataTypeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentTypeDataTypeType)(nil)).Elem()
+}
+
+func (o ComponentTypeDataTypeTypePtrOutput) ToComponentTypeDataTypeTypePtrOutput() ComponentTypeDataTypeTypePtrOutput {
+	return o
+}
+
+func (o ComponentTypeDataTypeTypePtrOutput) ToComponentTypeDataTypeTypePtrOutputWithContext(ctx context.Context) ComponentTypeDataTypeTypePtrOutput {
+	return o
+}
+
+func (o ComponentTypeDataTypeTypePtrOutput) Elem() ComponentTypeDataTypeTypeOutput {
+	return o.ApplyT(func(v *ComponentTypeDataTypeType) ComponentTypeDataTypeType {
+		if v != nil {
+			return *v
+		}
+		var ret ComponentTypeDataTypeType
+		return ret
+	}).(ComponentTypeDataTypeTypeOutput)
+}
+
+func (o ComponentTypeDataTypeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentTypeDataTypeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComponentTypeDataTypeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComponentTypeDataTypeTypeInput is an input type that accepts values of the ComponentTypeDataTypeType enum
+// A concrete instance of `ComponentTypeDataTypeTypeInput` can be one of the following:
+//
+//	ComponentTypeDataTypeTypeRelationship
+//	ComponentTypeDataTypeTypeString
+//	ComponentTypeDataTypeTypeLong
+//	ComponentTypeDataTypeTypeBoolean
+//	ComponentTypeDataTypeTypeInteger
+//	ComponentTypeDataTypeTypeDouble
+//	ComponentTypeDataTypeTypeList
+//	ComponentTypeDataTypeTypeMap
+type ComponentTypeDataTypeTypeInput interface {
+	pulumi.Input
+
+	ToComponentTypeDataTypeTypeOutput() ComponentTypeDataTypeTypeOutput
+	ToComponentTypeDataTypeTypeOutputWithContext(context.Context) ComponentTypeDataTypeTypeOutput
+}
+
+var componentTypeDataTypeTypePtrType = reflect.TypeOf((**ComponentTypeDataTypeType)(nil)).Elem()
+
+type ComponentTypeDataTypeTypePtrInput interface {
+	pulumi.Input
+
+	ToComponentTypeDataTypeTypePtrOutput() ComponentTypeDataTypeTypePtrOutput
+	ToComponentTypeDataTypeTypePtrOutputWithContext(context.Context) ComponentTypeDataTypeTypePtrOutput
+}
+
+type componentTypeDataTypeTypePtr string
+
+func ComponentTypeDataTypeTypePtr(v string) ComponentTypeDataTypeTypePtrInput {
+	return (*componentTypeDataTypeTypePtr)(&v)
+}
+
+func (*componentTypeDataTypeTypePtr) ElementType() reflect.Type {
+	return componentTypeDataTypeTypePtrType
+}
+
+func (in *componentTypeDataTypeTypePtr) ToComponentTypeDataTypeTypePtrOutput() ComponentTypeDataTypeTypePtrOutput {
+	return pulumi.ToOutput(in).(ComponentTypeDataTypeTypePtrOutput)
+}
+
+func (in *componentTypeDataTypeTypePtr) ToComponentTypeDataTypeTypePtrOutputWithContext(ctx context.Context) ComponentTypeDataTypeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComponentTypeDataTypeTypePtrOutput)
+}
+
+// The scope of the function.
+type ComponentTypeFunctionScope string
+
+const (
+	ComponentTypeFunctionScopeEntity    = ComponentTypeFunctionScope("ENTITY")
+	ComponentTypeFunctionScopeWorkspace = ComponentTypeFunctionScope("WORKSPACE")
+)
+
+func (ComponentTypeFunctionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentTypeFunctionScope)(nil)).Elem()
+}
+
+func (e ComponentTypeFunctionScope) ToComponentTypeFunctionScopeOutput() ComponentTypeFunctionScopeOutput {
+	return pulumi.ToOutput(e).(ComponentTypeFunctionScopeOutput)
+}
+
+func (e ComponentTypeFunctionScope) ToComponentTypeFunctionScopeOutputWithContext(ctx context.Context) ComponentTypeFunctionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComponentTypeFunctionScopeOutput)
+}
+
+func (e ComponentTypeFunctionScope) ToComponentTypeFunctionScopePtrOutput() ComponentTypeFunctionScopePtrOutput {
+	return e.ToComponentTypeFunctionScopePtrOutputWithContext(context.Background())
+}
+
+func (e ComponentTypeFunctionScope) ToComponentTypeFunctionScopePtrOutputWithContext(ctx context.Context) ComponentTypeFunctionScopePtrOutput {
+	return ComponentTypeFunctionScope(e).ToComponentTypeFunctionScopeOutputWithContext(ctx).ToComponentTypeFunctionScopePtrOutputWithContext(ctx)
+}
+
+func (e ComponentTypeFunctionScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComponentTypeFunctionScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComponentTypeFunctionScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComponentTypeFunctionScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComponentTypeFunctionScopeOutput struct{ *pulumi.OutputState }
+
+func (ComponentTypeFunctionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentTypeFunctionScope)(nil)).Elem()
+}
+
+func (o ComponentTypeFunctionScopeOutput) ToComponentTypeFunctionScopeOutput() ComponentTypeFunctionScopeOutput {
+	return o
+}
+
+func (o ComponentTypeFunctionScopeOutput) ToComponentTypeFunctionScopeOutputWithContext(ctx context.Context) ComponentTypeFunctionScopeOutput {
+	return o
+}
+
+func (o ComponentTypeFunctionScopeOutput) ToComponentTypeFunctionScopePtrOutput() ComponentTypeFunctionScopePtrOutput {
+	return o.ToComponentTypeFunctionScopePtrOutputWithContext(context.Background())
+}
+
+func (o ComponentTypeFunctionScopeOutput) ToComponentTypeFunctionScopePtrOutputWithContext(ctx context.Context) ComponentTypeFunctionScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentTypeFunctionScope) *ComponentTypeFunctionScope {
+		return &v
+	}).(ComponentTypeFunctionScopePtrOutput)
+}
+
+func (o ComponentTypeFunctionScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComponentTypeFunctionScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComponentTypeFunctionScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComponentTypeFunctionScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentTypeFunctionScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComponentTypeFunctionScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComponentTypeFunctionScopePtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentTypeFunctionScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentTypeFunctionScope)(nil)).Elem()
+}
+
+func (o ComponentTypeFunctionScopePtrOutput) ToComponentTypeFunctionScopePtrOutput() ComponentTypeFunctionScopePtrOutput {
+	return o
+}
+
+func (o ComponentTypeFunctionScopePtrOutput) ToComponentTypeFunctionScopePtrOutputWithContext(ctx context.Context) ComponentTypeFunctionScopePtrOutput {
+	return o
+}
+
+func (o ComponentTypeFunctionScopePtrOutput) Elem() ComponentTypeFunctionScopeOutput {
+	return o.ApplyT(func(v *ComponentTypeFunctionScope) ComponentTypeFunctionScope {
+		if v != nil {
+			return *v
+		}
+		var ret ComponentTypeFunctionScope
+		return ret
+	}).(ComponentTypeFunctionScopeOutput)
+}
+
+func (o ComponentTypeFunctionScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentTypeFunctionScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComponentTypeFunctionScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComponentTypeFunctionScopeInput is an input type that accepts values of the ComponentTypeFunctionScope enum
+// A concrete instance of `ComponentTypeFunctionScopeInput` can be one of the following:
+//
+//	ComponentTypeFunctionScopeEntity
+//	ComponentTypeFunctionScopeWorkspace
+type ComponentTypeFunctionScopeInput interface {
+	pulumi.Input
+
+	ToComponentTypeFunctionScopeOutput() ComponentTypeFunctionScopeOutput
+	ToComponentTypeFunctionScopeOutputWithContext(context.Context) ComponentTypeFunctionScopeOutput
+}
+
+var componentTypeFunctionScopePtrType = reflect.TypeOf((**ComponentTypeFunctionScope)(nil)).Elem()
+
+type ComponentTypeFunctionScopePtrInput interface {
+	pulumi.Input
+
+	ToComponentTypeFunctionScopePtrOutput() ComponentTypeFunctionScopePtrOutput
+	ToComponentTypeFunctionScopePtrOutputWithContext(context.Context) ComponentTypeFunctionScopePtrOutput
+}
+
+type componentTypeFunctionScopePtr string
+
+func ComponentTypeFunctionScopePtr(v string) ComponentTypeFunctionScopePtrInput {
+	return (*componentTypeFunctionScopePtr)(&v)
+}
+
+func (*componentTypeFunctionScopePtr) ElementType() reflect.Type {
+	return componentTypeFunctionScopePtrType
+}
+
+func (in *componentTypeFunctionScopePtr) ToComponentTypeFunctionScopePtrOutput() ComponentTypeFunctionScopePtrOutput {
+	return pulumi.ToOutput(in).(ComponentTypeFunctionScopePtrOutput)
+}
+
+func (in *componentTypeFunctionScopePtr) ToComponentTypeFunctionScopePtrOutputWithContext(ctx context.Context) ComponentTypeFunctionScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComponentTypeFunctionScopePtrOutput)
+}
+
+// The type of property group.
+type ComponentTypePropertyGroupGroupType string
+
+const (
+	ComponentTypePropertyGroupGroupTypeTabular = ComponentTypePropertyGroupGroupType("TABULAR")
+)
+
+func (ComponentTypePropertyGroupGroupType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentTypePropertyGroupGroupType)(nil)).Elem()
+}
+
+func (e ComponentTypePropertyGroupGroupType) ToComponentTypePropertyGroupGroupTypeOutput() ComponentTypePropertyGroupGroupTypeOutput {
+	return pulumi.ToOutput(e).(ComponentTypePropertyGroupGroupTypeOutput)
+}
+
+func (e ComponentTypePropertyGroupGroupType) ToComponentTypePropertyGroupGroupTypeOutputWithContext(ctx context.Context) ComponentTypePropertyGroupGroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComponentTypePropertyGroupGroupTypeOutput)
+}
+
+func (e ComponentTypePropertyGroupGroupType) ToComponentTypePropertyGroupGroupTypePtrOutput() ComponentTypePropertyGroupGroupTypePtrOutput {
+	return e.ToComponentTypePropertyGroupGroupTypePtrOutputWithContext(context.Background())
+}
+
+func (e ComponentTypePropertyGroupGroupType) ToComponentTypePropertyGroupGroupTypePtrOutputWithContext(ctx context.Context) ComponentTypePropertyGroupGroupTypePtrOutput {
+	return ComponentTypePropertyGroupGroupType(e).ToComponentTypePropertyGroupGroupTypeOutputWithContext(ctx).ToComponentTypePropertyGroupGroupTypePtrOutputWithContext(ctx)
+}
+
+func (e ComponentTypePropertyGroupGroupType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComponentTypePropertyGroupGroupType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComponentTypePropertyGroupGroupType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComponentTypePropertyGroupGroupType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComponentTypePropertyGroupGroupTypeOutput struct{ *pulumi.OutputState }
+
+func (ComponentTypePropertyGroupGroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentTypePropertyGroupGroupType)(nil)).Elem()
+}
+
+func (o ComponentTypePropertyGroupGroupTypeOutput) ToComponentTypePropertyGroupGroupTypeOutput() ComponentTypePropertyGroupGroupTypeOutput {
+	return o
+}
+
+func (o ComponentTypePropertyGroupGroupTypeOutput) ToComponentTypePropertyGroupGroupTypeOutputWithContext(ctx context.Context) ComponentTypePropertyGroupGroupTypeOutput {
+	return o
+}
+
+func (o ComponentTypePropertyGroupGroupTypeOutput) ToComponentTypePropertyGroupGroupTypePtrOutput() ComponentTypePropertyGroupGroupTypePtrOutput {
+	return o.ToComponentTypePropertyGroupGroupTypePtrOutputWithContext(context.Background())
+}
+
+func (o ComponentTypePropertyGroupGroupTypeOutput) ToComponentTypePropertyGroupGroupTypePtrOutputWithContext(ctx context.Context) ComponentTypePropertyGroupGroupTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentTypePropertyGroupGroupType) *ComponentTypePropertyGroupGroupType {
+		return &v
+	}).(ComponentTypePropertyGroupGroupTypePtrOutput)
+}
+
+func (o ComponentTypePropertyGroupGroupTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComponentTypePropertyGroupGroupTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComponentTypePropertyGroupGroupType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComponentTypePropertyGroupGroupTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentTypePropertyGroupGroupTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComponentTypePropertyGroupGroupType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComponentTypePropertyGroupGroupTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentTypePropertyGroupGroupTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentTypePropertyGroupGroupType)(nil)).Elem()
+}
+
+func (o ComponentTypePropertyGroupGroupTypePtrOutput) ToComponentTypePropertyGroupGroupTypePtrOutput() ComponentTypePropertyGroupGroupTypePtrOutput {
+	return o
+}
+
+func (o ComponentTypePropertyGroupGroupTypePtrOutput) ToComponentTypePropertyGroupGroupTypePtrOutputWithContext(ctx context.Context) ComponentTypePropertyGroupGroupTypePtrOutput {
+	return o
+}
+
+func (o ComponentTypePropertyGroupGroupTypePtrOutput) Elem() ComponentTypePropertyGroupGroupTypeOutput {
+	return o.ApplyT(func(v *ComponentTypePropertyGroupGroupType) ComponentTypePropertyGroupGroupType {
+		if v != nil {
+			return *v
+		}
+		var ret ComponentTypePropertyGroupGroupType
+		return ret
+	}).(ComponentTypePropertyGroupGroupTypeOutput)
+}
+
+func (o ComponentTypePropertyGroupGroupTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentTypePropertyGroupGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComponentTypePropertyGroupGroupType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComponentTypePropertyGroupGroupTypeInput is an input type that accepts values of the ComponentTypePropertyGroupGroupType enum
+// A concrete instance of `ComponentTypePropertyGroupGroupTypeInput` can be one of the following:
+//
+//	ComponentTypePropertyGroupGroupTypeTabular
+type ComponentTypePropertyGroupGroupTypeInput interface {
+	pulumi.Input
+
+	ToComponentTypePropertyGroupGroupTypeOutput() ComponentTypePropertyGroupGroupTypeOutput
+	ToComponentTypePropertyGroupGroupTypeOutputWithContext(context.Context) ComponentTypePropertyGroupGroupTypeOutput
+}
+
+var componentTypePropertyGroupGroupTypePtrType = reflect.TypeOf((**ComponentTypePropertyGroupGroupType)(nil)).Elem()
+
+type ComponentTypePropertyGroupGroupTypePtrInput interface {
+	pulumi.Input
+
+	ToComponentTypePropertyGroupGroupTypePtrOutput() ComponentTypePropertyGroupGroupTypePtrOutput
+	ToComponentTypePropertyGroupGroupTypePtrOutputWithContext(context.Context) ComponentTypePropertyGroupGroupTypePtrOutput
+}
+
+type componentTypePropertyGroupGroupTypePtr string
+
+func ComponentTypePropertyGroupGroupTypePtr(v string) ComponentTypePropertyGroupGroupTypePtrInput {
+	return (*componentTypePropertyGroupGroupTypePtr)(&v)
+}
+
+func (*componentTypePropertyGroupGroupTypePtr) ElementType() reflect.Type {
+	return componentTypePropertyGroupGroupTypePtrType
+}
+
+func (in *componentTypePropertyGroupGroupTypePtr) ToComponentTypePropertyGroupGroupTypePtrOutput() ComponentTypePropertyGroupGroupTypePtrOutput {
+	return pulumi.ToOutput(in).(ComponentTypePropertyGroupGroupTypePtrOutput)
+}
+
+func (in *componentTypePropertyGroupGroupTypePtr) ToComponentTypePropertyGroupGroupTypePtrOutputWithContext(ctx context.Context) ComponentTypePropertyGroupGroupTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComponentTypePropertyGroupGroupTypePtrOutput)
+}
+
 type ComponentTypeStatusError1PropertiesCode string
 
 const (
@@ -200,6 +708,348 @@ func (o ComponentTypeStatusStatePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
+// The underlying type of the data type.
+type EntityDataTypeType string
+
+const (
+	EntityDataTypeTypeRelationship = EntityDataTypeType("RELATIONSHIP")
+	EntityDataTypeTypeString       = EntityDataTypeType("STRING")
+	EntityDataTypeTypeLong         = EntityDataTypeType("LONG")
+	EntityDataTypeTypeBoolean      = EntityDataTypeType("BOOLEAN")
+	EntityDataTypeTypeInteger      = EntityDataTypeType("INTEGER")
+	EntityDataTypeTypeDouble       = EntityDataTypeType("DOUBLE")
+	EntityDataTypeTypeList         = EntityDataTypeType("LIST")
+	EntityDataTypeTypeMap          = EntityDataTypeType("MAP")
+)
+
+func (EntityDataTypeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityDataTypeType)(nil)).Elem()
+}
+
+func (e EntityDataTypeType) ToEntityDataTypeTypeOutput() EntityDataTypeTypeOutput {
+	return pulumi.ToOutput(e).(EntityDataTypeTypeOutput)
+}
+
+func (e EntityDataTypeType) ToEntityDataTypeTypeOutputWithContext(ctx context.Context) EntityDataTypeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EntityDataTypeTypeOutput)
+}
+
+func (e EntityDataTypeType) ToEntityDataTypeTypePtrOutput() EntityDataTypeTypePtrOutput {
+	return e.ToEntityDataTypeTypePtrOutputWithContext(context.Background())
+}
+
+func (e EntityDataTypeType) ToEntityDataTypeTypePtrOutputWithContext(ctx context.Context) EntityDataTypeTypePtrOutput {
+	return EntityDataTypeType(e).ToEntityDataTypeTypeOutputWithContext(ctx).ToEntityDataTypeTypePtrOutputWithContext(ctx)
+}
+
+func (e EntityDataTypeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityDataTypeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityDataTypeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntityDataTypeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EntityDataTypeTypeOutput struct{ *pulumi.OutputState }
+
+func (EntityDataTypeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityDataTypeType)(nil)).Elem()
+}
+
+func (o EntityDataTypeTypeOutput) ToEntityDataTypeTypeOutput() EntityDataTypeTypeOutput {
+	return o
+}
+
+func (o EntityDataTypeTypeOutput) ToEntityDataTypeTypeOutputWithContext(ctx context.Context) EntityDataTypeTypeOutput {
+	return o
+}
+
+func (o EntityDataTypeTypeOutput) ToEntityDataTypeTypePtrOutput() EntityDataTypeTypePtrOutput {
+	return o.ToEntityDataTypeTypePtrOutputWithContext(context.Background())
+}
+
+func (o EntityDataTypeTypeOutput) ToEntityDataTypeTypePtrOutputWithContext(ctx context.Context) EntityDataTypeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityDataTypeType) *EntityDataTypeType {
+		return &v
+	}).(EntityDataTypeTypePtrOutput)
+}
+
+func (o EntityDataTypeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EntityDataTypeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityDataTypeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EntityDataTypeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityDataTypeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityDataTypeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntityDataTypeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EntityDataTypeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityDataTypeType)(nil)).Elem()
+}
+
+func (o EntityDataTypeTypePtrOutput) ToEntityDataTypeTypePtrOutput() EntityDataTypeTypePtrOutput {
+	return o
+}
+
+func (o EntityDataTypeTypePtrOutput) ToEntityDataTypeTypePtrOutputWithContext(ctx context.Context) EntityDataTypeTypePtrOutput {
+	return o
+}
+
+func (o EntityDataTypeTypePtrOutput) Elem() EntityDataTypeTypeOutput {
+	return o.ApplyT(func(v *EntityDataTypeType) EntityDataTypeType {
+		if v != nil {
+			return *v
+		}
+		var ret EntityDataTypeType
+		return ret
+	}).(EntityDataTypeTypeOutput)
+}
+
+func (o EntityDataTypeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityDataTypeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EntityDataTypeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EntityDataTypeTypeInput is an input type that accepts values of the EntityDataTypeType enum
+// A concrete instance of `EntityDataTypeTypeInput` can be one of the following:
+//
+//	EntityDataTypeTypeRelationship
+//	EntityDataTypeTypeString
+//	EntityDataTypeTypeLong
+//	EntityDataTypeTypeBoolean
+//	EntityDataTypeTypeInteger
+//	EntityDataTypeTypeDouble
+//	EntityDataTypeTypeList
+//	EntityDataTypeTypeMap
+type EntityDataTypeTypeInput interface {
+	pulumi.Input
+
+	ToEntityDataTypeTypeOutput() EntityDataTypeTypeOutput
+	ToEntityDataTypeTypeOutputWithContext(context.Context) EntityDataTypeTypeOutput
+}
+
+var entityDataTypeTypePtrType = reflect.TypeOf((**EntityDataTypeType)(nil)).Elem()
+
+type EntityDataTypeTypePtrInput interface {
+	pulumi.Input
+
+	ToEntityDataTypeTypePtrOutput() EntityDataTypeTypePtrOutput
+	ToEntityDataTypeTypePtrOutputWithContext(context.Context) EntityDataTypeTypePtrOutput
+}
+
+type entityDataTypeTypePtr string
+
+func EntityDataTypeTypePtr(v string) EntityDataTypeTypePtrInput {
+	return (*entityDataTypeTypePtr)(&v)
+}
+
+func (*entityDataTypeTypePtr) ElementType() reflect.Type {
+	return entityDataTypeTypePtrType
+}
+
+func (in *entityDataTypeTypePtr) ToEntityDataTypeTypePtrOutput() EntityDataTypeTypePtrOutput {
+	return pulumi.ToOutput(in).(EntityDataTypeTypePtrOutput)
+}
+
+func (in *entityDataTypeTypePtr) ToEntityDataTypeTypePtrOutputWithContext(ctx context.Context) EntityDataTypeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EntityDataTypeTypePtrOutput)
+}
+
+// The type of property group.
+type EntityPropertyGroupGroupType string
+
+const (
+	EntityPropertyGroupGroupTypeTabular = EntityPropertyGroupGroupType("TABULAR")
+)
+
+func (EntityPropertyGroupGroupType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityPropertyGroupGroupType)(nil)).Elem()
+}
+
+func (e EntityPropertyGroupGroupType) ToEntityPropertyGroupGroupTypeOutput() EntityPropertyGroupGroupTypeOutput {
+	return pulumi.ToOutput(e).(EntityPropertyGroupGroupTypeOutput)
+}
+
+func (e EntityPropertyGroupGroupType) ToEntityPropertyGroupGroupTypeOutputWithContext(ctx context.Context) EntityPropertyGroupGroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EntityPropertyGroupGroupTypeOutput)
+}
+
+func (e EntityPropertyGroupGroupType) ToEntityPropertyGroupGroupTypePtrOutput() EntityPropertyGroupGroupTypePtrOutput {
+	return e.ToEntityPropertyGroupGroupTypePtrOutputWithContext(context.Background())
+}
+
+func (e EntityPropertyGroupGroupType) ToEntityPropertyGroupGroupTypePtrOutputWithContext(ctx context.Context) EntityPropertyGroupGroupTypePtrOutput {
+	return EntityPropertyGroupGroupType(e).ToEntityPropertyGroupGroupTypeOutputWithContext(ctx).ToEntityPropertyGroupGroupTypePtrOutputWithContext(ctx)
+}
+
+func (e EntityPropertyGroupGroupType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityPropertyGroupGroupType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityPropertyGroupGroupType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntityPropertyGroupGroupType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EntityPropertyGroupGroupTypeOutput struct{ *pulumi.OutputState }
+
+func (EntityPropertyGroupGroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityPropertyGroupGroupType)(nil)).Elem()
+}
+
+func (o EntityPropertyGroupGroupTypeOutput) ToEntityPropertyGroupGroupTypeOutput() EntityPropertyGroupGroupTypeOutput {
+	return o
+}
+
+func (o EntityPropertyGroupGroupTypeOutput) ToEntityPropertyGroupGroupTypeOutputWithContext(ctx context.Context) EntityPropertyGroupGroupTypeOutput {
+	return o
+}
+
+func (o EntityPropertyGroupGroupTypeOutput) ToEntityPropertyGroupGroupTypePtrOutput() EntityPropertyGroupGroupTypePtrOutput {
+	return o.ToEntityPropertyGroupGroupTypePtrOutputWithContext(context.Background())
+}
+
+func (o EntityPropertyGroupGroupTypeOutput) ToEntityPropertyGroupGroupTypePtrOutputWithContext(ctx context.Context) EntityPropertyGroupGroupTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityPropertyGroupGroupType) *EntityPropertyGroupGroupType {
+		return &v
+	}).(EntityPropertyGroupGroupTypePtrOutput)
+}
+
+func (o EntityPropertyGroupGroupTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EntityPropertyGroupGroupTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityPropertyGroupGroupType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EntityPropertyGroupGroupTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityPropertyGroupGroupTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityPropertyGroupGroupType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntityPropertyGroupGroupTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EntityPropertyGroupGroupTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityPropertyGroupGroupType)(nil)).Elem()
+}
+
+func (o EntityPropertyGroupGroupTypePtrOutput) ToEntityPropertyGroupGroupTypePtrOutput() EntityPropertyGroupGroupTypePtrOutput {
+	return o
+}
+
+func (o EntityPropertyGroupGroupTypePtrOutput) ToEntityPropertyGroupGroupTypePtrOutputWithContext(ctx context.Context) EntityPropertyGroupGroupTypePtrOutput {
+	return o
+}
+
+func (o EntityPropertyGroupGroupTypePtrOutput) Elem() EntityPropertyGroupGroupTypeOutput {
+	return o.ApplyT(func(v *EntityPropertyGroupGroupType) EntityPropertyGroupGroupType {
+		if v != nil {
+			return *v
+		}
+		var ret EntityPropertyGroupGroupType
+		return ret
+	}).(EntityPropertyGroupGroupTypeOutput)
+}
+
+func (o EntityPropertyGroupGroupTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityPropertyGroupGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EntityPropertyGroupGroupType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EntityPropertyGroupGroupTypeInput is an input type that accepts values of the EntityPropertyGroupGroupType enum
+// A concrete instance of `EntityPropertyGroupGroupTypeInput` can be one of the following:
+//
+//	EntityPropertyGroupGroupTypeTabular
+type EntityPropertyGroupGroupTypeInput interface {
+	pulumi.Input
+
+	ToEntityPropertyGroupGroupTypeOutput() EntityPropertyGroupGroupTypeOutput
+	ToEntityPropertyGroupGroupTypeOutputWithContext(context.Context) EntityPropertyGroupGroupTypeOutput
+}
+
+var entityPropertyGroupGroupTypePtrType = reflect.TypeOf((**EntityPropertyGroupGroupType)(nil)).Elem()
+
+type EntityPropertyGroupGroupTypePtrInput interface {
+	pulumi.Input
+
+	ToEntityPropertyGroupGroupTypePtrOutput() EntityPropertyGroupGroupTypePtrOutput
+	ToEntityPropertyGroupGroupTypePtrOutputWithContext(context.Context) EntityPropertyGroupGroupTypePtrOutput
+}
+
+type entityPropertyGroupGroupTypePtr string
+
+func EntityPropertyGroupGroupTypePtr(v string) EntityPropertyGroupGroupTypePtrInput {
+	return (*entityPropertyGroupGroupTypePtr)(&v)
+}
+
+func (*entityPropertyGroupGroupTypePtr) ElementType() reflect.Type {
+	return entityPropertyGroupGroupTypePtrType
+}
+
+func (in *entityPropertyGroupGroupTypePtr) ToEntityPropertyGroupGroupTypePtrOutput() EntityPropertyGroupGroupTypePtrOutput {
+	return pulumi.ToOutput(in).(EntityPropertyGroupGroupTypePtrOutput)
+}
+
+func (in *entityPropertyGroupGroupTypePtr) ToEntityPropertyGroupGroupTypePtrOutputWithContext(ctx context.Context) EntityPropertyGroupGroupTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EntityPropertyGroupGroupTypePtrOutput)
+}
+
 type EntityStatusError1PropertiesCode string
 
 const (
@@ -213,6 +1063,42 @@ const (
 	EntityStatusErrorPropertiesCodeValidationError = EntityStatusErrorPropertiesCode("VALIDATION_ERROR")
 	EntityStatusErrorPropertiesCodeInternalFailure = EntityStatusErrorPropertiesCode("INTERNAL_FAILURE")
 )
+
+func (EntityStatusErrorPropertiesCode) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityStatusErrorPropertiesCode)(nil)).Elem()
+}
+
+func (e EntityStatusErrorPropertiesCode) ToEntityStatusErrorPropertiesCodeOutput() EntityStatusErrorPropertiesCodeOutput {
+	return pulumi.ToOutput(e).(EntityStatusErrorPropertiesCodeOutput)
+}
+
+func (e EntityStatusErrorPropertiesCode) ToEntityStatusErrorPropertiesCodeOutputWithContext(ctx context.Context) EntityStatusErrorPropertiesCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EntityStatusErrorPropertiesCodeOutput)
+}
+
+func (e EntityStatusErrorPropertiesCode) ToEntityStatusErrorPropertiesCodePtrOutput() EntityStatusErrorPropertiesCodePtrOutput {
+	return e.ToEntityStatusErrorPropertiesCodePtrOutputWithContext(context.Background())
+}
+
+func (e EntityStatusErrorPropertiesCode) ToEntityStatusErrorPropertiesCodePtrOutputWithContext(ctx context.Context) EntityStatusErrorPropertiesCodePtrOutput {
+	return EntityStatusErrorPropertiesCode(e).ToEntityStatusErrorPropertiesCodeOutputWithContext(ctx).ToEntityStatusErrorPropertiesCodePtrOutputWithContext(ctx)
+}
+
+func (e EntityStatusErrorPropertiesCode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityStatusErrorPropertiesCode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityStatusErrorPropertiesCode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntityStatusErrorPropertiesCode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
 
 type EntityStatusErrorPropertiesCodeOutput struct{ *pulumi.OutputState }
 
@@ -297,6 +1183,45 @@ func (o EntityStatusErrorPropertiesCodePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
+// EntityStatusErrorPropertiesCodeInput is an input type that accepts values of the EntityStatusErrorPropertiesCode enum
+// A concrete instance of `EntityStatusErrorPropertiesCodeInput` can be one of the following:
+//
+//	EntityStatusErrorPropertiesCodeValidationError
+//	EntityStatusErrorPropertiesCodeInternalFailure
+type EntityStatusErrorPropertiesCodeInput interface {
+	pulumi.Input
+
+	ToEntityStatusErrorPropertiesCodeOutput() EntityStatusErrorPropertiesCodeOutput
+	ToEntityStatusErrorPropertiesCodeOutputWithContext(context.Context) EntityStatusErrorPropertiesCodeOutput
+}
+
+var entityStatusErrorPropertiesCodePtrType = reflect.TypeOf((**EntityStatusErrorPropertiesCode)(nil)).Elem()
+
+type EntityStatusErrorPropertiesCodePtrInput interface {
+	pulumi.Input
+
+	ToEntityStatusErrorPropertiesCodePtrOutput() EntityStatusErrorPropertiesCodePtrOutput
+	ToEntityStatusErrorPropertiesCodePtrOutputWithContext(context.Context) EntityStatusErrorPropertiesCodePtrOutput
+}
+
+type entityStatusErrorPropertiesCodePtr string
+
+func EntityStatusErrorPropertiesCodePtr(v string) EntityStatusErrorPropertiesCodePtrInput {
+	return (*entityStatusErrorPropertiesCodePtr)(&v)
+}
+
+func (*entityStatusErrorPropertiesCodePtr) ElementType() reflect.Type {
+	return entityStatusErrorPropertiesCodePtrType
+}
+
+func (in *entityStatusErrorPropertiesCodePtr) ToEntityStatusErrorPropertiesCodePtrOutput() EntityStatusErrorPropertiesCodePtrOutput {
+	return pulumi.ToOutput(in).(EntityStatusErrorPropertiesCodePtrOutput)
+}
+
+func (in *entityStatusErrorPropertiesCodePtr) ToEntityStatusErrorPropertiesCodePtrOutputWithContext(ctx context.Context) EntityStatusErrorPropertiesCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EntityStatusErrorPropertiesCodePtrOutput)
+}
+
 type EntityStatusState string
 
 const (
@@ -306,6 +1231,42 @@ const (
 	EntityStatusStateActive   = EntityStatusState("ACTIVE")
 	EntityStatusStateError    = EntityStatusState("ERROR")
 )
+
+func (EntityStatusState) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityStatusState)(nil)).Elem()
+}
+
+func (e EntityStatusState) ToEntityStatusStateOutput() EntityStatusStateOutput {
+	return pulumi.ToOutput(e).(EntityStatusStateOutput)
+}
+
+func (e EntityStatusState) ToEntityStatusStateOutputWithContext(ctx context.Context) EntityStatusStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EntityStatusStateOutput)
+}
+
+func (e EntityStatusState) ToEntityStatusStatePtrOutput() EntityStatusStatePtrOutput {
+	return e.ToEntityStatusStatePtrOutputWithContext(context.Background())
+}
+
+func (e EntityStatusState) ToEntityStatusStatePtrOutputWithContext(ctx context.Context) EntityStatusStatePtrOutput {
+	return EntityStatusState(e).ToEntityStatusStateOutputWithContext(ctx).ToEntityStatusStatePtrOutputWithContext(ctx)
+}
+
+func (e EntityStatusState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityStatusState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityStatusState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntityStatusState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
 
 type EntityStatusStateOutput struct{ *pulumi.OutputState }
 
@@ -390,11 +1351,77 @@ func (o EntityStatusStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+// EntityStatusStateInput is an input type that accepts values of the EntityStatusState enum
+// A concrete instance of `EntityStatusStateInput` can be one of the following:
+//
+//	EntityStatusStateCreating
+//	EntityStatusStateUpdating
+//	EntityStatusStateDeleting
+//	EntityStatusStateActive
+//	EntityStatusStateError
+type EntityStatusStateInput interface {
+	pulumi.Input
+
+	ToEntityStatusStateOutput() EntityStatusStateOutput
+	ToEntityStatusStateOutputWithContext(context.Context) EntityStatusStateOutput
+}
+
+var entityStatusStatePtrType = reflect.TypeOf((**EntityStatusState)(nil)).Elem()
+
+type EntityStatusStatePtrInput interface {
+	pulumi.Input
+
+	ToEntityStatusStatePtrOutput() EntityStatusStatePtrOutput
+	ToEntityStatusStatePtrOutputWithContext(context.Context) EntityStatusStatePtrOutput
+}
+
+type entityStatusStatePtr string
+
+func EntityStatusStatePtr(v string) EntityStatusStatePtrInput {
+	return (*entityStatusStatePtr)(&v)
+}
+
+func (*entityStatusStatePtr) ElementType() reflect.Type {
+	return entityStatusStatePtrType
+}
+
+func (in *entityStatusStatePtr) ToEntityStatusStatePtrOutput() EntityStatusStatePtrOutput {
+	return pulumi.ToOutput(in).(EntityStatusStatePtrOutput)
+}
+
+func (in *entityStatusStatePtr) ToEntityStatusStatePtrOutputWithContext(ctx context.Context) EntityStatusStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EntityStatusStatePtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTypeDataTypeTypeInput)(nil)).Elem(), ComponentTypeDataTypeType("RELATIONSHIP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTypeDataTypeTypePtrInput)(nil)).Elem(), ComponentTypeDataTypeType("RELATIONSHIP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTypeFunctionScopeInput)(nil)).Elem(), ComponentTypeFunctionScope("ENTITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTypeFunctionScopePtrInput)(nil)).Elem(), ComponentTypeFunctionScope("ENTITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTypePropertyGroupGroupTypeInput)(nil)).Elem(), ComponentTypePropertyGroupGroupType("TABULAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTypePropertyGroupGroupTypePtrInput)(nil)).Elem(), ComponentTypePropertyGroupGroupType("TABULAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityDataTypeTypeInput)(nil)).Elem(), EntityDataTypeType("RELATIONSHIP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityDataTypeTypePtrInput)(nil)).Elem(), EntityDataTypeType("RELATIONSHIP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyGroupGroupTypeInput)(nil)).Elem(), EntityPropertyGroupGroupType("TABULAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyGroupGroupTypePtrInput)(nil)).Elem(), EntityPropertyGroupGroupType("TABULAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityStatusErrorPropertiesCodeInput)(nil)).Elem(), EntityStatusErrorPropertiesCode("VALIDATION_ERROR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityStatusErrorPropertiesCodePtrInput)(nil)).Elem(), EntityStatusErrorPropertiesCode("VALIDATION_ERROR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityStatusStateInput)(nil)).Elem(), EntityStatusState("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityStatusStatePtrInput)(nil)).Elem(), EntityStatusState("CREATING"))
+	pulumi.RegisterOutputType(ComponentTypeDataTypeTypeOutput{})
+	pulumi.RegisterOutputType(ComponentTypeDataTypeTypePtrOutput{})
+	pulumi.RegisterOutputType(ComponentTypeFunctionScopeOutput{})
+	pulumi.RegisterOutputType(ComponentTypeFunctionScopePtrOutput{})
+	pulumi.RegisterOutputType(ComponentTypePropertyGroupGroupTypeOutput{})
+	pulumi.RegisterOutputType(ComponentTypePropertyGroupGroupTypePtrOutput{})
 	pulumi.RegisterOutputType(ComponentTypeStatusErrorPropertiesCodeOutput{})
 	pulumi.RegisterOutputType(ComponentTypeStatusErrorPropertiesCodePtrOutput{})
 	pulumi.RegisterOutputType(ComponentTypeStatusStateOutput{})
 	pulumi.RegisterOutputType(ComponentTypeStatusStatePtrOutput{})
+	pulumi.RegisterOutputType(EntityDataTypeTypeOutput{})
+	pulumi.RegisterOutputType(EntityDataTypeTypePtrOutput{})
+	pulumi.RegisterOutputType(EntityPropertyGroupGroupTypeOutput{})
+	pulumi.RegisterOutputType(EntityPropertyGroupGroupTypePtrOutput{})
 	pulumi.RegisterOutputType(EntityStatusErrorPropertiesCodeOutput{})
 	pulumi.RegisterOutputType(EntityStatusErrorPropertiesCodePtrOutput{})
 	pulumi.RegisterOutputType(EntityStatusStateOutput{})

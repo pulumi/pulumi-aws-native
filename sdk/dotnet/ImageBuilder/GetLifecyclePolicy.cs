@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The tags associated with the lifecycle policy.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetLifecyclePolicyResult(
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             Pulumi.AwsNative.ImageBuilder.LifecyclePolicyStatus? status,
 
-            object? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;

@@ -27,13 +27,13 @@ type Scene struct {
 	// The description of the scene.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A key-value pair of generated scene metadata for the scene.
-	GeneratedSceneMetadata pulumi.AnyOutput `pulumi:"generatedSceneMetadata"`
+	GeneratedSceneMetadata pulumi.StringMapOutput `pulumi:"generatedSceneMetadata"`
 	// The ID of the scene.
 	SceneId pulumi.StringOutput `pulumi:"sceneId"`
 	// A key-value pair of scene metadata for the scene.
-	SceneMetadata pulumi.AnyOutput `pulumi:"sceneMetadata"`
+	SceneMetadata pulumi.StringMapOutput `pulumi:"sceneMetadata"`
 	// A key-value pair to associate with a resource.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The date and time of the current update.
 	UpdateDateTime pulumi.StringOutput `pulumi:"updateDateTime"`
 	// The ID of the scene.
@@ -103,9 +103,9 @@ type sceneArgs struct {
 	// The ID of the scene.
 	SceneId string `pulumi:"sceneId"`
 	// A key-value pair of scene metadata for the scene.
-	SceneMetadata interface{} `pulumi:"sceneMetadata"`
+	SceneMetadata map[string]string `pulumi:"sceneMetadata"`
 	// A key-value pair to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the scene.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
@@ -121,9 +121,9 @@ type SceneArgs struct {
 	// The ID of the scene.
 	SceneId pulumi.StringInput
 	// A key-value pair of scene metadata for the scene.
-	SceneMetadata pulumi.Input
+	SceneMetadata pulumi.StringMapInput
 	// A key-value pair to associate with a resource.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The ID of the scene.
 	WorkspaceId pulumi.StringInput
 }
@@ -191,8 +191,8 @@ func (o SceneOutput) Description() pulumi.StringPtrOutput {
 }
 
 // A key-value pair of generated scene metadata for the scene.
-func (o SceneOutput) GeneratedSceneMetadata() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Scene) pulumi.AnyOutput { return v.GeneratedSceneMetadata }).(pulumi.AnyOutput)
+func (o SceneOutput) GeneratedSceneMetadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Scene) pulumi.StringMapOutput { return v.GeneratedSceneMetadata }).(pulumi.StringMapOutput)
 }
 
 // The ID of the scene.
@@ -201,13 +201,13 @@ func (o SceneOutput) SceneId() pulumi.StringOutput {
 }
 
 // A key-value pair of scene metadata for the scene.
-func (o SceneOutput) SceneMetadata() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Scene) pulumi.AnyOutput { return v.SceneMetadata }).(pulumi.AnyOutput)
+func (o SceneOutput) SceneMetadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Scene) pulumi.StringMapOutput { return v.SceneMetadata }).(pulumi.StringMapOutput)
 }
 
 // A key-value pair to associate with a resource.
-func (o SceneOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Scene) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o SceneOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Scene) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The date and time of the current update.

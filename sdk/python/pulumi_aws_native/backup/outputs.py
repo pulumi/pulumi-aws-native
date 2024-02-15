@@ -117,7 +117,7 @@ class BackupPlanBackupRuleResourceType(dict):
                  copy_actions: Optional[Sequence['outputs.BackupPlanCopyActionResourceType']] = None,
                  enable_continuous_backup: Optional[bool] = None,
                  lifecycle: Optional['outputs.BackupPlanLifecycleResourceType'] = None,
-                 recovery_point_tags: Optional[Any] = None,
+                 recovery_point_tags: Optional[Mapping[str, str]] = None,
                  schedule_expression: Optional[str] = None,
                  schedule_expression_timezone: Optional[str] = None,
                  start_window_minutes: Optional[float] = None):
@@ -172,7 +172,7 @@ class BackupPlanBackupRuleResourceType(dict):
 
     @property
     @pulumi.getter(name="recoveryPointTags")
-    def recovery_point_tags(self) -> Optional[Any]:
+    def recovery_point_tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "recovery_point_tags")
 
     @property

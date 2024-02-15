@@ -30,7 +30,7 @@ class ApiArgs:
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  route_key: Optional[pulumi.Input[str]] = None,
                  route_selection_expression: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -49,7 +49,7 @@ class ApiArgs:
         :param pulumi.Input[str] protocol_type: The API protocol. Valid values are ``WEBSOCKET`` or ``HTTP``. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
         :param pulumi.Input[str] route_key: This property is part of quick create. If you don't specify a ``routeKey``, a default route of ``$default`` is created. The ``$default`` route acts as a catch-all for any request made to your API, for a particular stage. The ``$default`` route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.
         :param pulumi.Input[str] route_selection_expression: The route selection expression for the API. For HTTP APIs, the ``routeSelectionExpression`` must be ``${request.method} ${request.path}``. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
-        :param Any tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The collection of tags. Each tag element is associated with a given resource.
         :param pulumi.Input[str] target: This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.
         :param pulumi.Input[str] version: A version identifier for the API.
         """
@@ -258,14 +258,14 @@ class ApiArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -312,7 +312,7 @@ class Api(pulumi.CustomResource):
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  route_key: Optional[pulumi.Input[str]] = None,
                  route_selection_expression: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -335,7 +335,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] protocol_type: The API protocol. Valid values are ``WEBSOCKET`` or ``HTTP``. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
         :param pulumi.Input[str] route_key: This property is part of quick create. If you don't specify a ``routeKey``, a default route of ``$default`` is created. The ``$default`` route acts as a catch-all for any request made to your API, for a particular stage. The ``$default`` route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.
         :param pulumi.Input[str] route_selection_expression: The route selection expression for the API. For HTTP APIs, the ``routeSelectionExpression`` must be ``${request.method} ${request.path}``. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
-        :param Any tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The collection of tags. Each tag element is associated with a given resource.
         :param pulumi.Input[str] target: This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.
         :param pulumi.Input[str] version: A version identifier for the API.
         """
@@ -377,7 +377,7 @@ class Api(pulumi.CustomResource):
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  route_key: Optional[pulumi.Input[str]] = None,
                  route_selection_expression: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -577,7 +577,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The collection of tags. Each tag element is associated with a given resource.
         """

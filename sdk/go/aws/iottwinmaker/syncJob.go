@@ -27,7 +27,7 @@ type SyncJob struct {
 	// The source of the SyncJob.
 	SyncSource pulumi.StringOutput `pulumi:"syncSource"`
 	// A key-value pair to associate with a resource.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The date and time when the sync job was updated.
 	UpdateDateTime pulumi.StringOutput `pulumi:"updateDateTime"`
 	// The ID of the workspace.
@@ -53,7 +53,7 @@ func NewSyncJob(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"syncRole",
 		"syncSource",
-		"tags",
+		"tags.*",
 		"workspaceId",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -95,7 +95,7 @@ type syncJobArgs struct {
 	// The source of the SyncJob.
 	SyncSource string `pulumi:"syncSource"`
 	// A key-value pair to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the workspace.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
@@ -107,7 +107,7 @@ type SyncJobArgs struct {
 	// The source of the SyncJob.
 	SyncSource pulumi.StringInput
 	// A key-value pair to associate with a resource.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The ID of the workspace.
 	WorkspaceId pulumi.StringInput
 }
@@ -175,8 +175,8 @@ func (o SyncJobOutput) SyncSource() pulumi.StringOutput {
 }
 
 // A key-value pair to associate with a resource.
-func (o SyncJobOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SyncJob) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o SyncJobOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyncJob) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The date and time when the sync job was updated.

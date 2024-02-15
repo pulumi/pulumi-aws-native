@@ -185,7 +185,7 @@ class SamplingRuleTagArgs:
 @pulumi.input_type
 class SamplingRuleUpdateArgs:
     def __init__(__self__, *,
-                 attributes: Optional[Any] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fixed_rate: Optional[pulumi.Input[float]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
@@ -198,7 +198,7 @@ class SamplingRuleUpdateArgs:
                  service_type: Optional[pulumi.Input[str]] = None,
                  url_path: Optional[pulumi.Input[str]] = None):
         """
-        :param Any attributes: Matches attributes derived from the request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Matches attributes derived from the request.
         :param pulumi.Input[float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
         :param pulumi.Input[str] host: Matches the hostname from a request URL.
         :param pulumi.Input[str] http_method: Matches the HTTP method from a request URL.
@@ -236,14 +236,14 @@ class SamplingRuleUpdateArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Matches attributes derived from the request.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[Any]):
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "attributes", value)
 
     @property
@@ -385,7 +385,7 @@ class SamplingRuleArgs:
                  service_name: pulumi.Input[str],
                  service_type: pulumi.Input[str],
                  url_path: pulumi.Input[str],
-                 attributes: Optional[Any] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  rule_arn: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[int]] = None):
@@ -399,7 +399,7 @@ class SamplingRuleArgs:
         :param pulumi.Input[str] service_name: Matches the name that the service uses to identify itself in segments.
         :param pulumi.Input[str] service_type: Matches the origin that the service uses to identify its type in segments.
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
-        :param Any attributes: Matches attributes derived from the request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Matches attributes derived from the request.
         :param pulumi.Input[int] version: The version of the sampling rule format (1)
         """
         pulumi.set(__self__, "fixed_rate", fixed_rate)
@@ -530,14 +530,14 @@ class SamplingRuleArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Matches attributes derived from the request.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[Any]):
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "attributes", value)
 
     @property

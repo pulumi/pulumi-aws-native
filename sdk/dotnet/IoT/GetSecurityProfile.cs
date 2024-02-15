@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Specifies the destinations to which alerts are sent.
         /// </summary>
-        public readonly object? AlertTargets;
+        public readonly ImmutableDictionary<string, Outputs.SecurityProfileAlertTarget>? AlertTargets;
         /// <summary>
         /// Specifies the behaviors that, when violated by a device (thing), cause an alert.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.IoT
         private GetSecurityProfileResult(
             ImmutableArray<Outputs.SecurityProfileMetricToRetain> additionalMetricsToRetainV2,
 
-            object? alertTargets,
+            ImmutableDictionary<string, Outputs.SecurityProfileAlertTarget>? alertTargets,
 
             ImmutableArray<Outputs.SecurityProfileBehavior> behaviors,
 

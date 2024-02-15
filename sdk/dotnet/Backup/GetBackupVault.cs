@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Backup
     {
         public readonly object? AccessPolicy;
         public readonly string? BackupVaultArn;
-        public readonly object? BackupVaultTags;
+        public readonly ImmutableDictionary<string, string>? BackupVaultTags;
         public readonly Outputs.BackupVaultLockConfigurationType? LockConfiguration;
         public readonly Outputs.BackupVaultNotificationObjectType? Notifications;
 
@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.Backup
 
             string? backupVaultArn,
 
-            object? backupVaultTags,
+            ImmutableDictionary<string, string>? backupVaultTags,
 
             Outputs.BackupVaultLockConfigurationType? lockConfiguration,
 

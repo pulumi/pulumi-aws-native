@@ -33,7 +33,7 @@ type LifecyclePolicy struct {
 	// The status of the lifecycle policy.
 	Status LifecyclePolicyStatusPtrOutput `pulumi:"status"`
 	// The tags associated with the lifecycle policy.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewLifecyclePolicy registers a new resource with the given unique name, arguments, and options.
@@ -107,7 +107,7 @@ type lifecyclePolicyArgs struct {
 	// The status of the lifecycle policy.
 	Status *LifecyclePolicyStatus `pulumi:"status"`
 	// The tags associated with the lifecycle policy.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LifecyclePolicy resource.
@@ -127,7 +127,7 @@ type LifecyclePolicyArgs struct {
 	// The status of the lifecycle policy.
 	Status LifecyclePolicyStatusPtrInput
 	// The tags associated with the lifecycle policy.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 }
 
 func (LifecyclePolicyArgs) ElementType() reflect.Type {
@@ -208,8 +208,8 @@ func (o LifecyclePolicyOutput) Status() LifecyclePolicyStatusPtrOutput {
 }
 
 // The tags associated with the lifecycle policy.
-func (o LifecyclePolicyOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *LifecyclePolicy) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o LifecyclePolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

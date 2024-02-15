@@ -29,9 +29,9 @@ type LookupGatewayResponseArgs struct {
 type LookupGatewayResponseResult struct {
 	Id *string `pulumi:"id"`
 	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
-	ResponseParameters interface{} `pulumi:"responseParameters"`
+	ResponseParameters map[string]string `pulumi:"responseParameters"`
 	// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
-	ResponseTemplates interface{} `pulumi:"responseTemplates"`
+	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
 	// The HTTP status code for this GatewayResponse.
 	StatusCode *string `pulumi:"statusCode"`
 }
@@ -76,13 +76,13 @@ func (o LookupGatewayResponseResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
-func (o LookupGatewayResponseResultOutput) ResponseParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupGatewayResponseResult) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
+func (o LookupGatewayResponseResultOutput) ResponseParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupGatewayResponseResult) map[string]string { return v.ResponseParameters }).(pulumi.StringMapOutput)
 }
 
 // Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
-func (o LookupGatewayResponseResultOutput) ResponseTemplates() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupGatewayResponseResult) interface{} { return v.ResponseTemplates }).(pulumi.AnyOutput)
+func (o LookupGatewayResponseResultOutput) ResponseTemplates() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupGatewayResponseResult) map[string]string { return v.ResponseTemplates }).(pulumi.StringMapOutput)
 }
 
 // The HTTP status code for this GatewayResponse.

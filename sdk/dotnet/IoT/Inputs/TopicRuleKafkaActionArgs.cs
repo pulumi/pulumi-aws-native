@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.IoT.Inputs
     public sealed class TopicRuleKafkaActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientProperties", required: true)]
-        public Input<object> ClientProperties { get; set; } = null!;
+        private InputMap<string>? _clientProperties;
+        public InputMap<string> ClientProperties
+        {
+            get => _clientProperties ?? (_clientProperties = new InputMap<string>());
+            set => _clientProperties = value;
+        }
 
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;

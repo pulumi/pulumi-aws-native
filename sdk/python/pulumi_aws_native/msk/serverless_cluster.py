@@ -19,10 +19,10 @@ class ServerlessClusterArgs:
                  client_authentication: pulumi.Input['ServerlessClusterClientAuthenticationArgs'],
                  cluster_name: pulumi.Input[str],
                  vpc_configs: pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]],
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServerlessCluster resource.
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "client_authentication", client_authentication)
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -59,14 +59,14 @@ class ServerlessClusterArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -77,7 +77,7 @@ class ServerlessCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_authentication: Optional[pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessClusterVpcConfigArgs']]]]] = None,
                  __props__=None):
         """
@@ -85,7 +85,7 @@ class ServerlessCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         ...
     @overload
@@ -113,7 +113,7 @@ class ServerlessCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_authentication: Optional[pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessClusterVpcConfigArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -135,7 +135,7 @@ class ServerlessCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_configs'")
             __props__.__dict__["vpc_configs"] = vpc_configs
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_authentication", "cluster_name", "tags", "vpc_configs[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_authentication", "cluster_name", "tags.*", "vpc_configs[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ServerlessCluster, __self__).__init__(
             'aws-native:msk:ServerlessCluster',
@@ -183,7 +183,7 @@ class ServerlessCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A key-value pair to associate with a resource.
         """

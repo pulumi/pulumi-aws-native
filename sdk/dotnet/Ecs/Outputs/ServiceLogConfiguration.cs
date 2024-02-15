@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     public sealed class ServiceLogConfiguration
     {
         public readonly string? LogDriver;
-        public readonly object? Options;
+        public readonly ImmutableDictionary<string, string>? Options;
         public readonly ImmutableArray<Outputs.ServiceSecret> SecretOptions;
 
         [OutputConstructor]
         private ServiceLogConfiguration(
             string? logDriver,
 
-            object? options,
+            ImmutableDictionary<string, string>? options,
 
             ImmutableArray<Outputs.ServiceSecret> secretOptions)
         {

@@ -46,7 +46,7 @@ export interface GetUserPoolResult {
     readonly userPoolAddOns?: outputs.cognito.UserPoolAddOns;
     readonly userPoolId?: string;
     readonly userPoolName?: string;
-    readonly userPoolTags?: any;
+    readonly userPoolTags?: {[key: string]: string};
     readonly usernameAttributes?: string[];
     readonly usernameConfiguration?: outputs.cognito.UserPoolUsernameConfiguration;
     readonly verificationMessageTemplate?: outputs.cognito.UserPoolVerificationMessageTemplate;

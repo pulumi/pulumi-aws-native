@@ -136,11 +136,17 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         [Input("tracingEnabled")]
         public Input<bool>? TracingEnabled { get; set; }
 
+        [Input("variables")]
+        private InputMap<string>? _variables;
+
         /// <summary>
         /// A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&amp;=,]+``.
         /// </summary>
-        [Input("variables")]
-        public Input<object>? Variables { get; set; }
+        public InputMap<string> Variables
+        {
+            get => _variables ?? (_variables = new InputMap<string>());
+            set => _variables = value;
+        }
 
         public DeploymentStageDescriptionArgs()
         {

@@ -28,7 +28,7 @@ export interface GetNodegroupResult {
     /**
      * The Kubernetes labels to be applied to the nodes in the node group when they are created.
      */
-    readonly labels?: any;
+    readonly labels?: {[key: string]: string};
     /**
      * An object representing a node group's launch template specification.
      */
@@ -44,7 +44,7 @@ export interface GetNodegroupResult {
     /**
      * The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     /**
      * The Kubernetes taints to be applied to the nodes in the node group when they are created.
      */

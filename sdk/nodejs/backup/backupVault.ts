@@ -40,7 +40,7 @@ export class BackupVault extends pulumi.CustomResource {
     public readonly accessPolicy!: pulumi.Output<any | undefined>;
     public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
     public readonly backupVaultName!: pulumi.Output<string>;
-    public readonly backupVaultTags!: pulumi.Output<any | undefined>;
+    public readonly backupVaultTags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
     public readonly lockConfiguration!: pulumi.Output<outputs.backup.BackupVaultLockConfigurationType | undefined>;
     public readonly notifications!: pulumi.Output<outputs.backup.BackupVaultNotificationObjectType | undefined>;
@@ -85,7 +85,7 @@ export class BackupVault extends pulumi.CustomResource {
 export interface BackupVaultArgs {
     accessPolicy?: any;
     backupVaultName?: pulumi.Input<string>;
-    backupVaultTags?: any;
+    backupVaultTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     encryptionKeyArn?: pulumi.Input<string>;
     lockConfiguration?: pulumi.Input<inputs.backup.BackupVaultLockConfigurationTypeArgs>;
     notifications?: pulumi.Input<inputs.backup.BackupVaultNotificationObjectTypeArgs>;

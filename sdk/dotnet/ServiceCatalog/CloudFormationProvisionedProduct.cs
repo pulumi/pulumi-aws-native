@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// List of key-value pair outputs.
         /// </summary>
         [Output("outputs")]
-        public Output<object> Outputs { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Outputs { get; private set; } = null!;
 
         [Output("pathId")]
         public Output<string?> PathId { get; private set; } = null!;

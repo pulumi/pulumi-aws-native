@@ -35,7 +35,7 @@ type Component struct {
 	// The operating system (OS) version supported by the component.
 	SupportedOsVersions pulumi.StringArrayOutput `pulumi:"supportedOsVersions"`
 	// The tags associated with the component.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the component denotes whether the component is used to build the image or only to test it.
 	Type ComponentTypeOutput `pulumi:"type"`
 	// The uri of the component.
@@ -65,7 +65,7 @@ func NewComponent(ctx *pulumi.Context,
 		"name",
 		"platform",
 		"supportedOsVersions[*]",
-		"tags",
+		"tags.*",
 		"uri",
 		"version",
 	})
@@ -118,7 +118,7 @@ type componentArgs struct {
 	// The operating system (OS) version supported by the component.
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
 	// The tags associated with the component.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The uri of the component.
 	Uri *string `pulumi:"uri"`
 	// The version of the component.
@@ -142,7 +142,7 @@ type ComponentArgs struct {
 	// The operating system (OS) version supported by the component.
 	SupportedOsVersions pulumi.StringArrayInput
 	// The tags associated with the component.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The uri of the component.
 	Uri pulumi.StringPtrInput
 	// The version of the component.
@@ -232,8 +232,8 @@ func (o ComponentOutput) SupportedOsVersions() pulumi.StringArrayOutput {
 }
 
 // The tags associated with the component.
-func (o ComponentOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Component) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o ComponentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of the component denotes whether the component is used to build the image or only to test it.

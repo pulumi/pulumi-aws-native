@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
     public sealed class ComponentVersionLambdaFunctionRecipeSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("componentDependencies")]
-        public Input<object>? ComponentDependencies { get; set; }
+        private InputMap<Inputs.ComponentVersionComponentDependencyRequirementArgs>? _componentDependencies;
+        public InputMap<Inputs.ComponentVersionComponentDependencyRequirementArgs> ComponentDependencies
+        {
+            get => _componentDependencies ?? (_componentDependencies = new InputMap<Inputs.ComponentVersionComponentDependencyRequirementArgs>());
+            set => _componentDependencies = value;
+        }
 
         [Input("componentLambdaParameters")]
         public Input<Inputs.ComponentVersionLambdaExecutionParametersArgs>? ComponentLambdaParameters { get; set; }

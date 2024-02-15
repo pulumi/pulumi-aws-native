@@ -39,7 +39,7 @@ type LookupWorkspaceResult struct {
 	// The ARN of the S3 bucket where resources associated with the workspace are stored.
 	S3Location *string `pulumi:"s3Location"`
 	// A map of key-value pairs to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The date and time of the current update.
 	UpdateDateTime *string `pulumi:"updateDateTime"`
 }
@@ -106,8 +106,8 @@ func (o LookupWorkspaceResultOutput) S3Location() pulumi.StringPtrOutput {
 }
 
 // A map of key-value pairs to associate with a resource.
-func (o LookupWorkspaceResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The date and time of the current update.

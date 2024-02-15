@@ -532,7 +532,7 @@ type ApplicationConfigurationObject struct {
 	// String with a maximum length of 1024.
 	Classification string                           `pulumi:"classification"`
 	Configurations []ApplicationConfigurationObject `pulumi:"configurations"`
-	Properties     interface{}                      `pulumi:"properties"`
+	Properties     map[string]string                `pulumi:"properties"`
 }
 
 // ApplicationConfigurationObjectInput is an input type that accepts ApplicationConfigurationObjectArgs and ApplicationConfigurationObjectOutput values.
@@ -551,7 +551,7 @@ type ApplicationConfigurationObjectArgs struct {
 	// String with a maximum length of 1024.
 	Classification pulumi.StringInput                       `pulumi:"classification"`
 	Configurations ApplicationConfigurationObjectArrayInput `pulumi:"configurations"`
-	Properties     pulumi.Input                             `pulumi:"properties"`
+	Properties     pulumi.StringMapInput                    `pulumi:"properties"`
 }
 
 func (ApplicationConfigurationObjectArgs) ElementType() reflect.Type {
@@ -615,8 +615,8 @@ func (o ApplicationConfigurationObjectOutput) Configurations() ApplicationConfig
 	return o.ApplyT(func(v ApplicationConfigurationObject) []ApplicationConfigurationObject { return v.Configurations }).(ApplicationConfigurationObjectArrayOutput)
 }
 
-func (o ApplicationConfigurationObjectOutput) Properties() pulumi.AnyOutput {
-	return o.ApplyT(func(v ApplicationConfigurationObject) interface{} { return v.Properties }).(pulumi.AnyOutput)
+func (o ApplicationConfigurationObjectOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationConfigurationObject) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
 type ApplicationConfigurationObjectArrayOutput struct{ *pulumi.OutputState }

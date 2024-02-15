@@ -20,13 +20,13 @@ class DistributionConfigurationArgs:
                  distributions: pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DistributionConfiguration resource.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]] distributions: The distributions of the distribution configuration.
         :param pulumi.Input[str] description: The description of the distribution configuration.
         :param pulumi.Input[str] name: The name of the distribution configuration.
-        :param Any tags: The tags associated with the component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the component.
         """
         pulumi.set(__self__, "distributions", distributions)
         if description is not None:
@@ -74,14 +74,14 @@ class DistributionConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The tags associated with the component.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -93,7 +93,7 @@ class DistributionConfiguration(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::ImageBuilder::DistributionConfiguration
@@ -103,7 +103,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the distribution configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]] distributions: The distributions of the distribution configuration.
         :param pulumi.Input[str] name: The name of the distribution configuration.
-        :param Any tags: The tags associated with the component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the component.
         """
         ...
     @overload
@@ -132,7 +132,7 @@ class DistributionConfiguration(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -214,7 +214,7 @@ class DistributionConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags associated with the component.
         """

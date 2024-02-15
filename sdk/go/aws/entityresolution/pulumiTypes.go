@@ -460,7 +460,7 @@ func (o IdMappingWorkflowOutputSourceArrayOutput) Index(i pulumi.IntInput) IdMap
 type IdMappingWorkflowProviderProperties struct {
 	IntermediateSourceConfiguration *IdMappingWorkflowIntermediateSourceConfiguration `pulumi:"intermediateSourceConfiguration"`
 	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
-	ProviderConfiguration interface{} `pulumi:"providerConfiguration"`
+	ProviderConfiguration map[string]string `pulumi:"providerConfiguration"`
 	// Arn of the Provider Service being used.
 	ProviderServiceArn string `pulumi:"providerServiceArn"`
 }
@@ -479,7 +479,7 @@ type IdMappingWorkflowProviderPropertiesInput interface {
 type IdMappingWorkflowProviderPropertiesArgs struct {
 	IntermediateSourceConfiguration IdMappingWorkflowIntermediateSourceConfigurationPtrInput `pulumi:"intermediateSourceConfiguration"`
 	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
-	ProviderConfiguration pulumi.Input `pulumi:"providerConfiguration"`
+	ProviderConfiguration pulumi.StringMapInput `pulumi:"providerConfiguration"`
 	// Arn of the Provider Service being used.
 	ProviderServiceArn pulumi.StringInput `pulumi:"providerServiceArn"`
 }
@@ -568,8 +568,8 @@ func (o IdMappingWorkflowProviderPropertiesOutput) IntermediateSourceConfigurati
 }
 
 // Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
-func (o IdMappingWorkflowProviderPropertiesOutput) ProviderConfiguration() pulumi.AnyOutput {
-	return o.ApplyT(func(v IdMappingWorkflowProviderProperties) interface{} { return v.ProviderConfiguration }).(pulumi.AnyOutput)
+func (o IdMappingWorkflowProviderPropertiesOutput) ProviderConfiguration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v IdMappingWorkflowProviderProperties) map[string]string { return v.ProviderConfiguration }).(pulumi.StringMapOutput)
 }
 
 // Arn of the Provider Service being used.
@@ -611,13 +611,13 @@ func (o IdMappingWorkflowProviderPropertiesPtrOutput) IntermediateSourceConfigur
 }
 
 // Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
-func (o IdMappingWorkflowProviderPropertiesPtrOutput) ProviderConfiguration() pulumi.AnyOutput {
-	return o.ApplyT(func(v *IdMappingWorkflowProviderProperties) interface{} {
+func (o IdMappingWorkflowProviderPropertiesPtrOutput) ProviderConfiguration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IdMappingWorkflowProviderProperties) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ProviderConfiguration
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Arn of the Provider Service being used.
@@ -1203,7 +1203,7 @@ func (o MatchingWorkflowOutputSourceArrayOutput) Index(i pulumi.IntInput) Matchi
 type MatchingWorkflowProviderProperties struct {
 	IntermediateSourceConfiguration *MatchingWorkflowIntermediateSourceConfiguration `pulumi:"intermediateSourceConfiguration"`
 	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
-	ProviderConfiguration interface{} `pulumi:"providerConfiguration"`
+	ProviderConfiguration map[string]string `pulumi:"providerConfiguration"`
 	// Arn of the Provider service being used.
 	ProviderServiceArn string `pulumi:"providerServiceArn"`
 }
@@ -1222,7 +1222,7 @@ type MatchingWorkflowProviderPropertiesInput interface {
 type MatchingWorkflowProviderPropertiesArgs struct {
 	IntermediateSourceConfiguration MatchingWorkflowIntermediateSourceConfigurationPtrInput `pulumi:"intermediateSourceConfiguration"`
 	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
-	ProviderConfiguration pulumi.Input `pulumi:"providerConfiguration"`
+	ProviderConfiguration pulumi.StringMapInput `pulumi:"providerConfiguration"`
 	// Arn of the Provider service being used.
 	ProviderServiceArn pulumi.StringInput `pulumi:"providerServiceArn"`
 }
@@ -1311,8 +1311,8 @@ func (o MatchingWorkflowProviderPropertiesOutput) IntermediateSourceConfiguratio
 }
 
 // Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
-func (o MatchingWorkflowProviderPropertiesOutput) ProviderConfiguration() pulumi.AnyOutput {
-	return o.ApplyT(func(v MatchingWorkflowProviderProperties) interface{} { return v.ProviderConfiguration }).(pulumi.AnyOutput)
+func (o MatchingWorkflowProviderPropertiesOutput) ProviderConfiguration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MatchingWorkflowProviderProperties) map[string]string { return v.ProviderConfiguration }).(pulumi.StringMapOutput)
 }
 
 // Arn of the Provider service being used.
@@ -1354,13 +1354,13 @@ func (o MatchingWorkflowProviderPropertiesPtrOutput) IntermediateSourceConfigura
 }
 
 // Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
-func (o MatchingWorkflowProviderPropertiesPtrOutput) ProviderConfiguration() pulumi.AnyOutput {
-	return o.ApplyT(func(v *MatchingWorkflowProviderProperties) interface{} {
+func (o MatchingWorkflowProviderPropertiesPtrOutput) ProviderConfiguration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MatchingWorkflowProviderProperties) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ProviderConfiguration
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Arn of the Provider service being used.

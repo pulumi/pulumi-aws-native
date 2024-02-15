@@ -75,7 +75,7 @@ class GetAuthorizerResult:
 
     @property
     @pulumi.getter(name="tokenSigningPublicKeys")
-    def token_signing_public_keys(self) -> Optional[Any]:
+    def token_signing_public_keys(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "token_signing_public_keys")
 
 

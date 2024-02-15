@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string?> TokenKeyName { get; private set; } = null!;
 
         [Output("tokenSigningPublicKeys")]
-        public Output<object?> TokenSigningPublicKeys { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> TokenSigningPublicKeys { get; private set; } = null!;
 
 
         /// <summary>
@@ -119,7 +119,12 @@ namespace Pulumi.AwsNative.IoT
         public Input<string>? TokenKeyName { get; set; }
 
         [Input("tokenSigningPublicKeys")]
-        public Input<object>? TokenSigningPublicKeys { get; set; }
+        private InputMap<string>? _tokenSigningPublicKeys;
+        public InputMap<string> TokenSigningPublicKeys
+        {
+            get => _tokenSigningPublicKeys ?? (_tokenSigningPublicKeys = new InputMap<string>());
+            set => _tokenSigningPublicKeys = value;
+        }
 
         public AuthorizerArgs()
         {

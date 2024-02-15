@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.XRay.Outputs
         /// <summary>
         /// Matches attributes derived from the request.
         /// </summary>
-        public readonly object? Attributes;
+        public readonly ImmutableDictionary<string, string>? Attributes;
         /// <summary>
         /// The percentage of matching requests to instrument, after the reservoir is exhausted.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.XRay.Outputs
 
         [OutputConstructor]
         private SamplingRule(
-            object? attributes,
+            ImmutableDictionary<string, string>? attributes,
 
             double fixedRate,
 

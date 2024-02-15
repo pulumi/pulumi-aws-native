@@ -6876,11 +6876,11 @@ class ModelCardAdditionalInformation(dict):
 
     def __init__(__self__, *,
                  caveats_and_recommendations: Optional[str] = None,
-                 custom_details: Optional[Any] = None,
+                 custom_details: Optional[Mapping[str, str]] = None,
                  ethical_considerations: Optional[str] = None):
         """
         :param str caveats_and_recommendations: Caveats and recommendations for people who might use this model in their applications.
-        :param Any custom_details: customer details.
+        :param Mapping[str, str] custom_details: customer details.
         :param str ethical_considerations: Any ethical considerations that the author wants to provide.
         """
         if caveats_and_recommendations is not None:
@@ -6900,7 +6900,7 @@ class ModelCardAdditionalInformation(dict):
 
     @property
     @pulumi.getter(name="customDetails")
-    def custom_details(self) -> Optional[Any]:
+    def custom_details(self) -> Optional[Mapping[str, str]]:
         """
         customer details.
         """
@@ -7240,11 +7240,11 @@ class ModelCardEvaluationDetail(dict):
                  datasets: Optional[Sequence[str]] = None,
                  evaluation_job_arn: Optional[str] = None,
                  evaluation_observation: Optional[str] = None,
-                 metadata: Optional[Any] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
                  metric_groups: Optional[Sequence['outputs.ModelCardMetricGroup']] = None):
         """
         item of evaluation details
-        :param Any metadata: additional attributes associated with the evaluation results.
+        :param Mapping[str, str] metadata: additional attributes associated with the evaluation results.
         """
         pulumi.set(__self__, "name", name)
         if datasets is not None:
@@ -7280,7 +7280,7 @@ class ModelCardEvaluationDetail(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
+    def metadata(self) -> Optional[Mapping[str, str]]:
         """
         additional attributes associated with the evaluation results.
         """

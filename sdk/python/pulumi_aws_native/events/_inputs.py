@@ -863,9 +863,9 @@ class RuleEcsParametersArgs:
 @pulumi.input_type
 class RuleHttpParametersArgs:
     def __init__(__self__, *,
-                 header_parameters: Optional[Any] = None,
+                 header_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  path_parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 query_string_parameters: Optional[Any] = None):
+                 query_string_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         if header_parameters is not None:
             pulumi.set(__self__, "header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -875,11 +875,11 @@ class RuleHttpParametersArgs:
 
     @property
     @pulumi.getter(name="headerParameters")
-    def header_parameters(self) -> Optional[Any]:
+    def header_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "header_parameters")
 
     @header_parameters.setter
-    def header_parameters(self, value: Optional[Any]):
+    def header_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "header_parameters", value)
 
     @property
@@ -893,11 +893,11 @@ class RuleHttpParametersArgs:
 
     @property
     @pulumi.getter(name="queryStringParameters")
-    def query_string_parameters(self) -> Optional[Any]:
+    def query_string_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "query_string_parameters")
 
     @query_string_parameters.setter
-    def query_string_parameters(self, value: Optional[Any]):
+    def query_string_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "query_string_parameters", value)
 
 
@@ -905,7 +905,7 @@ class RuleHttpParametersArgs:
 class RuleInputTransformerArgs:
     def __init__(__self__, *,
                  input_template: pulumi.Input[str],
-                 input_paths_map: Optional[Any] = None):
+                 input_paths_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "input_template", input_template)
         if input_paths_map is not None:
             pulumi.set(__self__, "input_paths_map", input_paths_map)
@@ -921,11 +921,11 @@ class RuleInputTransformerArgs:
 
     @property
     @pulumi.getter(name="inputPathsMap")
-    def input_paths_map(self) -> Optional[Any]:
+    def input_paths_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "input_paths_map")
 
     @input_paths_map.setter
-    def input_paths_map(self, value: Optional[Any]):
+    def input_paths_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "input_paths_map", value)
 
 

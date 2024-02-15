@@ -44,11 +44,11 @@ export class Entity extends pulumi.CustomResource {
     /**
      * A map that sets information about a component type.
      */
-    public readonly components!: pulumi.Output<any | undefined>;
+    public readonly components!: pulumi.Output<{[key: string]: outputs.iottwinmaker.EntityComponent} | undefined>;
     /**
      * A map that sets information about a composite component.
      */
-    public readonly compositeComponents!: pulumi.Output<any | undefined>;
+    public readonly compositeComponents!: pulumi.Output<{[key: string]: outputs.iottwinmaker.EntityCompositeComponent} | undefined>;
     /**
      * The date and time when the entity was created.
      */
@@ -80,7 +80,7 @@ export class Entity extends pulumi.CustomResource {
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The last date and time when the entity was updated.
      */
@@ -146,11 +146,11 @@ export interface EntityArgs {
     /**
      * A map that sets information about a component type.
      */
-    components?: any;
+    components?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.EntityComponentArgs>}>;
     /**
      * A map that sets information about a composite component.
      */
-    compositeComponents?: any;
+    compositeComponents?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.EntityCompositeComponentArgs>}>;
     /**
      * The description of the entity.
      */
@@ -170,7 +170,7 @@ export interface EntityArgs {
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the workspace.
      */

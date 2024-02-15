@@ -44,7 +44,7 @@ class GetDataCatalogResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
+    def parameters(self) -> Optional[Mapping[str, str]]:
         """
         Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
         """

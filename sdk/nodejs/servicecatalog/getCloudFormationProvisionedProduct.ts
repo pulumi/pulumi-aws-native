@@ -28,7 +28,7 @@ export interface GetCloudFormationProvisionedProductResult {
     /**
      * List of key-value pair outputs.
      */
-    readonly outputs?: any;
+    readonly outputs?: {[key: string]: string};
     readonly pathId?: string;
     readonly pathName?: string;
     readonly productId?: string;

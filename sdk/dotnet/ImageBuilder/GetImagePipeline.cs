@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The tags of this image pipeline.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Workflows to define the image build process
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             Pulumi.AwsNative.ImageBuilder.ImagePipelineStatus? status,
 
-            object? tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.ImagePipelineWorkflowConfiguration> workflows)
         {

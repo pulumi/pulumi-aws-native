@@ -74,7 +74,7 @@ class GetComponentTypeResult:
 
     @property
     @pulumi.getter(name="compositeComponentTypes")
-    def composite_component_types(self) -> Optional[Any]:
+    def composite_component_types(self) -> Optional[Mapping[str, 'outputs.ComponentTypeCompositeComponentType']]:
         """
         An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
         """
@@ -106,7 +106,7 @@ class GetComponentTypeResult:
 
     @property
     @pulumi.getter
-    def functions(self) -> Optional[Any]:
+    def functions(self) -> Optional[Mapping[str, 'outputs.ComponentTypeFunction']]:
         """
         a Map of functions in the component type. Each function's key must be unique to this map.
         """
@@ -138,7 +138,7 @@ class GetComponentTypeResult:
 
     @property
     @pulumi.getter(name="propertyDefinitions")
-    def property_definitions(self) -> Optional[Any]:
+    def property_definitions(self) -> Optional[Mapping[str, 'outputs.ComponentTypePropertyDefinition']]:
         """
         An map of the property definitions in the component type. Each property definition's key must be unique to this map.
         """
@@ -146,7 +146,7 @@ class GetComponentTypeResult:
 
     @property
     @pulumi.getter(name="propertyGroups")
-    def property_groups(self) -> Optional[Any]:
+    def property_groups(self) -> Optional[Mapping[str, 'outputs.ComponentTypePropertyGroup']]:
         """
         An map of the property groups in the component type. Each property group's key must be unique to this map.
         """
@@ -162,7 +162,7 @@ class GetComponentTypeResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of key-value pairs to associate with a resource.
         """

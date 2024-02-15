@@ -25,7 +25,7 @@ export interface GetBackupVaultArgs {
 export interface GetBackupVaultResult {
     readonly accessPolicy?: any;
     readonly backupVaultArn?: string;
-    readonly backupVaultTags?: any;
+    readonly backupVaultTags?: {[key: string]: string};
     readonly lockConfiguration?: outputs.backup.BackupVaultLockConfigurationType;
     readonly notifications?: outputs.backup.BackupVaultNotificationObjectType;
 }

@@ -23,7 +23,7 @@ class ComponentArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Component resource.
@@ -35,7 +35,7 @@ class ComponentArgs:
         :param pulumi.Input[str] kms_key_id: The KMS key identifier used to encrypt the component.
         :param pulumi.Input[str] name: The name of the component.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: The operating system (OS) version supported by the component.
-        :param Any tags: The tags associated with the component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the component.
         :param pulumi.Input[str] uri: The uri of the component.
         """
         pulumi.set(__self__, "platform", platform)
@@ -155,14 +155,14 @@ class ComponentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The tags associated with the component.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -190,7 +190,7 @@ class Component(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input['ComponentPlatform']] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -206,7 +206,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the component.
         :param pulumi.Input['ComponentPlatform'] platform: The platform of the component.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: The operating system (OS) version supported by the component.
-        :param Any tags: The tags associated with the component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the component.
         :param pulumi.Input[str] uri: The uri of the component.
         :param pulumi.Input[str] version: The version of the component.
         """
@@ -241,7 +241,7 @@ class Component(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input['ComponentPlatform']] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -270,7 +270,7 @@ class Component(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["encrypted"] = None
             __props__.__dict__["type"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["change_description", "data", "description", "kms_key_id", "name", "platform", "supported_os_versions[*]", "tags", "uri", "version"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["change_description", "data", "description", "kms_key_id", "name", "platform", "supported_os_versions[*]", "tags.*", "uri", "version"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Component, __self__).__init__(
             'aws-native:imagebuilder:Component',
@@ -383,7 +383,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags associated with the component.
         """

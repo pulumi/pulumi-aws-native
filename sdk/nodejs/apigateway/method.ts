@@ -73,11 +73,11 @@ export class Method extends pulumi.CustomResource {
     /**
      * A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
      */
-    public readonly requestModels!: pulumi.Output<any | undefined>;
+    public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
      */
-    public readonly requestParameters!: pulumi.Output<any | undefined>;
+    public readonly requestParameters!: pulumi.Output<{[key: string]: boolean} | undefined>;
     /**
      * The identifier of a RequestValidator for request validation.
      */
@@ -186,11 +186,11 @@ export interface MethodArgs {
     /**
      * A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
      */
-    requestModels?: any;
+    requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
      */
-    requestParameters?: any;
+    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**
      * The identifier of a RequestValidator for request validation.
      */

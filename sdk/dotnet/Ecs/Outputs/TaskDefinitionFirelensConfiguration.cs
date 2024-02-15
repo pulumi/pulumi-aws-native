@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class TaskDefinitionFirelensConfiguration
     {
-        public readonly object? Options;
+        public readonly ImmutableDictionary<string, string>? Options;
         public readonly string? Type;
 
         [OutputConstructor]
         private TaskDefinitionFirelensConfiguration(
-            object? options,
+            ImmutableDictionary<string, string>? options,
 
             string? type)
         {

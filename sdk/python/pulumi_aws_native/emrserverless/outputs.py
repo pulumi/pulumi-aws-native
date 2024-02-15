@@ -203,7 +203,7 @@ class ApplicationConfigurationObject(dict):
     def __init__(__self__, *,
                  classification: str,
                  configurations: Optional[Sequence['outputs.ApplicationConfigurationObject']] = None,
-                 properties: Optional[Any] = None):
+                 properties: Optional[Mapping[str, str]] = None):
         """
         Configuration for a JobRun.
         :param str classification: String with a maximum length of 1024.
@@ -229,7 +229,7 @@ class ApplicationConfigurationObject(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Any]:
+    def properties(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "properties")
 
 

@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// <summary>
         /// Environment variable key-value pairs.
         /// </summary>
-        public readonly object? Variables;
+        public readonly ImmutableDictionary<string, string>? Variables;
 
         [OutputConstructor]
-        private FunctionEnvironment(object? variables)
+        private FunctionEnvironment(ImmutableDictionary<string, string>? variables)
         {
             Variables = variables;
         }

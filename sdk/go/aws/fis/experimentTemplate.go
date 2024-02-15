@@ -22,7 +22,7 @@ type ExperimentTemplate struct {
 	LogConfiguration  ExperimentTemplateLogConfigurationPtrOutput  `pulumi:"logConfiguration"`
 	RoleArn           pulumi.StringOutput                          `pulumi:"roleArn"`
 	StopConditions    ExperimentTemplateStopConditionArrayOutput   `pulumi:"stopConditions"`
-	Tags              pulumi.AnyOutput                             `pulumi:"tags"`
+	Tags              pulumi.StringMapOutput                       `pulumi:"tags"`
 	Targets           ExperimentTemplateTargetMapOutput            `pulumi:"targets"`
 }
 
@@ -49,7 +49,7 @@ func NewExperimentTemplate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Targets'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"tags",
+		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -91,7 +91,7 @@ type experimentTemplateArgs struct {
 	LogConfiguration  *ExperimentTemplateLogConfiguration  `pulumi:"logConfiguration"`
 	RoleArn           string                               `pulumi:"roleArn"`
 	StopConditions    []ExperimentTemplateStopCondition    `pulumi:"stopConditions"`
-	Tags              interface{}                          `pulumi:"tags"`
+	Tags              map[string]string                    `pulumi:"tags"`
 	Targets           ExperimentTemplateTargetMap          `pulumi:"targets"`
 }
 
@@ -103,7 +103,7 @@ type ExperimentTemplateArgs struct {
 	LogConfiguration  ExperimentTemplateLogConfigurationPtrInput
 	RoleArn           pulumi.StringInput
 	StopConditions    ExperimentTemplateStopConditionArrayInput
-	Tags              pulumi.Input
+	Tags              pulumi.StringMapInput
 	Targets           ExperimentTemplateTargetMapInput
 }
 
@@ -168,8 +168,8 @@ func (o ExperimentTemplateOutput) StopConditions() ExperimentTemplateStopConditi
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateStopConditionArrayOutput { return v.StopConditions }).(ExperimentTemplateStopConditionArrayOutput)
 }
 
-func (o ExperimentTemplateOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ExperimentTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o ExperimentTemplateOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o ExperimentTemplateOutput) Targets() ExperimentTemplateTargetMapOutput {

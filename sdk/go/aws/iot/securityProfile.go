@@ -18,7 +18,7 @@ type SecurityProfile struct {
 	// A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
 	AdditionalMetricsToRetainV2 SecurityProfileMetricToRetainArrayOutput `pulumi:"additionalMetricsToRetainV2"`
 	// Specifies the destinations to which alerts are sent.
-	AlertTargets pulumi.AnyOutput `pulumi:"alertTargets"`
+	AlertTargets SecurityProfileAlertTargetMapOutput `pulumi:"alertTargets"`
 	// Specifies the behaviors that, when violated by a device (thing), cause an alert.
 	Behaviors SecurityProfileBehaviorArrayOutput `pulumi:"behaviors"`
 	// A structure containing the mqtt topic for metrics export.
@@ -82,7 +82,7 @@ type securityProfileArgs struct {
 	// A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
 	AdditionalMetricsToRetainV2 []SecurityProfileMetricToRetain `pulumi:"additionalMetricsToRetainV2"`
 	// Specifies the destinations to which alerts are sent.
-	AlertTargets interface{} `pulumi:"alertTargets"`
+	AlertTargets map[string]SecurityProfileAlertTarget `pulumi:"alertTargets"`
 	// Specifies the behaviors that, when violated by a device (thing), cause an alert.
 	Behaviors []SecurityProfileBehavior `pulumi:"behaviors"`
 	// A structure containing the mqtt topic for metrics export.
@@ -102,7 +102,7 @@ type SecurityProfileArgs struct {
 	// A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
 	AdditionalMetricsToRetainV2 SecurityProfileMetricToRetainArrayInput
 	// Specifies the destinations to which alerts are sent.
-	AlertTargets pulumi.Input
+	AlertTargets SecurityProfileAlertTargetMapInput
 	// Specifies the behaviors that, when violated by a device (thing), cause an alert.
 	Behaviors SecurityProfileBehaviorArrayInput
 	// A structure containing the mqtt topic for metrics export.
@@ -162,8 +162,8 @@ func (o SecurityProfileOutput) AdditionalMetricsToRetainV2() SecurityProfileMetr
 }
 
 // Specifies the destinations to which alerts are sent.
-func (o SecurityProfileOutput) AlertTargets() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SecurityProfile) pulumi.AnyOutput { return v.AlertTargets }).(pulumi.AnyOutput)
+func (o SecurityProfileOutput) AlertTargets() SecurityProfileAlertTargetMapOutput {
+	return o.ApplyT(func(v *SecurityProfile) SecurityProfileAlertTargetMapOutput { return v.AlertTargets }).(SecurityProfileAlertTargetMapOutput)
 }
 
 // Specifies the behaviors that, when violated by a device (thing), cause an alert.

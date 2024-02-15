@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleVariables
     {
-        public readonly object? IpSets;
-        public readonly object? PortSets;
+        public readonly ImmutableDictionary<string, Outputs.RuleGroupIpSet>? IpSets;
+        public readonly ImmutableDictionary<string, Outputs.RuleGroupPortSet>? PortSets;
 
         [OutputConstructor]
         private RuleGroupRuleVariables(
-            object? ipSets,
+            ImmutableDictionary<string, Outputs.RuleGroupIpSet>? ipSets,
 
-            object? portSets)
+            ImmutableDictionary<string, Outputs.RuleGroupPortSet>? portSets)
         {
             IpSets = ipSets;
             PortSets = portSets;

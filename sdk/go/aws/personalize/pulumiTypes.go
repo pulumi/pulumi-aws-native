@@ -481,13 +481,13 @@ func (o SolutionCategoricalHyperParameterRangeArrayOutput) Index(i pulumi.IntInp
 // The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
 type SolutionConfig struct {
 	// Lists the hyperparameter names and ranges.
-	AlgorithmHyperParameters interface{} `pulumi:"algorithmHyperParameters"`
+	AlgorithmHyperParameters map[string]string `pulumi:"algorithmHyperParameters"`
 	// The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
 	AutoMlConfig *SolutionConfigAutoMlConfigProperties `pulumi:"autoMlConfig"`
 	// Only events with a value greater than or equal to this threshold are used for training a model.
 	EventValueThreshold *string `pulumi:"eventValueThreshold"`
 	// Lists the feature transformation parameters.
-	FeatureTransformationParameters interface{} `pulumi:"featureTransformationParameters"`
+	FeatureTransformationParameters map[string]string `pulumi:"featureTransformationParameters"`
 	// Describes the properties for hyperparameter optimization (HPO)
 	HpoConfig *SolutionConfigHpoConfigProperties `pulumi:"hpoConfig"`
 }
@@ -506,13 +506,13 @@ type SolutionConfigInput interface {
 // The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
 type SolutionConfigArgs struct {
 	// Lists the hyperparameter names and ranges.
-	AlgorithmHyperParameters pulumi.Input `pulumi:"algorithmHyperParameters"`
+	AlgorithmHyperParameters pulumi.StringMapInput `pulumi:"algorithmHyperParameters"`
 	// The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
 	AutoMlConfig SolutionConfigAutoMlConfigPropertiesPtrInput `pulumi:"autoMlConfig"`
 	// Only events with a value greater than or equal to this threshold are used for training a model.
 	EventValueThreshold pulumi.StringPtrInput `pulumi:"eventValueThreshold"`
 	// Lists the feature transformation parameters.
-	FeatureTransformationParameters pulumi.Input `pulumi:"featureTransformationParameters"`
+	FeatureTransformationParameters pulumi.StringMapInput `pulumi:"featureTransformationParameters"`
 	// Describes the properties for hyperparameter optimization (HPO)
 	HpoConfig SolutionConfigHpoConfigPropertiesPtrInput `pulumi:"hpoConfig"`
 }
@@ -596,8 +596,8 @@ func (o SolutionConfigOutput) ToSolutionConfigPtrOutputWithContext(ctx context.C
 }
 
 // Lists the hyperparameter names and ranges.
-func (o SolutionConfigOutput) AlgorithmHyperParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v SolutionConfig) interface{} { return v.AlgorithmHyperParameters }).(pulumi.AnyOutput)
+func (o SolutionConfigOutput) AlgorithmHyperParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SolutionConfig) map[string]string { return v.AlgorithmHyperParameters }).(pulumi.StringMapOutput)
 }
 
 // The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
@@ -611,8 +611,8 @@ func (o SolutionConfigOutput) EventValueThreshold() pulumi.StringPtrOutput {
 }
 
 // Lists the feature transformation parameters.
-func (o SolutionConfigOutput) FeatureTransformationParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v SolutionConfig) interface{} { return v.FeatureTransformationParameters }).(pulumi.AnyOutput)
+func (o SolutionConfigOutput) FeatureTransformationParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SolutionConfig) map[string]string { return v.FeatureTransformationParameters }).(pulumi.StringMapOutput)
 }
 
 // Describes the properties for hyperparameter optimization (HPO)
@@ -645,13 +645,13 @@ func (o SolutionConfigPtrOutput) Elem() SolutionConfigOutput {
 }
 
 // Lists the hyperparameter names and ranges.
-func (o SolutionConfigPtrOutput) AlgorithmHyperParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SolutionConfig) interface{} {
+func (o SolutionConfigPtrOutput) AlgorithmHyperParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SolutionConfig) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.AlgorithmHyperParameters
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
@@ -675,13 +675,13 @@ func (o SolutionConfigPtrOutput) EventValueThreshold() pulumi.StringPtrOutput {
 }
 
 // Lists the feature transformation parameters.
-func (o SolutionConfigPtrOutput) FeatureTransformationParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SolutionConfig) interface{} {
+func (o SolutionConfigPtrOutput) FeatureTransformationParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SolutionConfig) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.FeatureTransformationParameters
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Describes the properties for hyperparameter optimization (HPO)

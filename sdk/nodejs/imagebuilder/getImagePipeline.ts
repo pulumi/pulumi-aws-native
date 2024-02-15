@@ -77,7 +77,7 @@ export interface GetImagePipelineResult {
     /**
      * The tags of this image pipeline.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     /**
      * Workflows to define the image build process
      */

@@ -57,7 +57,7 @@ export class SyncJob extends pulumi.CustomResource {
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The date and time when the sync job was updated.
      */
@@ -106,7 +106,7 @@ export class SyncJob extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["syncRole", "syncSource", "tags", "workspaceId"] };
+        const replaceOnChanges = { replaceOnChanges: ["syncRole", "syncSource", "tags.*", "workspaceId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SyncJob.__pulumiType, name, resourceInputs, opts);
     }
@@ -127,7 +127,7 @@ export interface SyncJobArgs {
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the workspace.
      */

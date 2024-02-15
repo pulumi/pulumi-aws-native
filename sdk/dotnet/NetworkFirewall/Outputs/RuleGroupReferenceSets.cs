@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupReferenceSets
     {
-        public readonly object? IpSetReferences;
+        public readonly ImmutableDictionary<string, Outputs.RuleGroupIpSetReference>? IpSetReferences;
 
         [OutputConstructor]
-        private RuleGroupReferenceSets(object? ipSetReferences)
+        private RuleGroupReferenceSets(ImmutableDictionary<string, Outputs.RuleGroupIpSetReference>? ipSetReferences)
         {
             IpSetReferences = ipSetReferences;
         }

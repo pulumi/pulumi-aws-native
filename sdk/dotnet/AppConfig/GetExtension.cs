@@ -51,19 +51,19 @@ namespace Pulumi.AwsNative.AppConfig
     [OutputType]
     public sealed class GetExtensionResult
     {
-        public readonly object? Actions;
+        public readonly ImmutableDictionary<string, ImmutableArray<Outputs.ExtensionAction>>? Actions;
         public readonly string? Arn;
         /// <summary>
         /// Description of the extension.
         /// </summary>
         public readonly string? Description;
         public readonly string? Id;
-        public readonly object? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ExtensionParameter>? Parameters;
         public readonly int? VersionNumber;
 
         [OutputConstructor]
         private GetExtensionResult(
-            object? actions,
+            ImmutableDictionary<string, ImmutableArray<Outputs.ExtensionAction>>? actions,
 
             string? arn,
 
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.AppConfig
 
             string? id,
 
-            object? parameters,
+            ImmutableDictionary<string, Outputs.ExtensionParameter>? parameters,
 
             int? versionNumber)
         {

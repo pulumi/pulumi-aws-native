@@ -76,11 +76,11 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// <summary>
         /// A map that sets information about a component type.
         /// </summary>
-        public readonly object? Components;
+        public readonly ImmutableDictionary<string, Outputs.EntityComponent>? Components;
         /// <summary>
         /// A map that sets information about a composite component.
         /// </summary>
-        public readonly object? CompositeComponents;
+        public readonly ImmutableDictionary<string, Outputs.EntityCompositeComponent>? CompositeComponents;
         /// <summary>
         /// The date and time when the entity was created.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The last date and time when the entity was updated.
         /// </summary>
@@ -118,9 +118,9 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         private GetEntityResult(
             string? arn,
 
-            object? components,
+            ImmutableDictionary<string, Outputs.EntityComponent>? components,
 
-            object? compositeComponents,
+            ImmutableDictionary<string, Outputs.EntityCompositeComponent>? compositeComponents,
 
             string? creationDateTime,
 
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
 
             Outputs.EntityStatus? status,
 
-            object? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? updateDateTime)
         {

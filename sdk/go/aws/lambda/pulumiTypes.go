@@ -2783,7 +2783,7 @@ func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 // A function's environment variable settings.
 type FunctionEnvironment struct {
 	// Environment variable key-value pairs.
-	Variables interface{} `pulumi:"variables"`
+	Variables map[string]string `pulumi:"variables"`
 }
 
 // FunctionEnvironmentInput is an input type that accepts FunctionEnvironmentArgs and FunctionEnvironmentOutput values.
@@ -2800,7 +2800,7 @@ type FunctionEnvironmentInput interface {
 // A function's environment variable settings.
 type FunctionEnvironmentArgs struct {
 	// Environment variable key-value pairs.
-	Variables pulumi.Input `pulumi:"variables"`
+	Variables pulumi.StringMapInput `pulumi:"variables"`
 }
 
 func (FunctionEnvironmentArgs) ElementType() reflect.Type {
@@ -2882,8 +2882,8 @@ func (o FunctionEnvironmentOutput) ToFunctionEnvironmentPtrOutputWithContext(ctx
 }
 
 // Environment variable key-value pairs.
-func (o FunctionEnvironmentOutput) Variables() pulumi.AnyOutput {
-	return o.ApplyT(func(v FunctionEnvironment) interface{} { return v.Variables }).(pulumi.AnyOutput)
+func (o FunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
 
 type FunctionEnvironmentPtrOutput struct{ *pulumi.OutputState }
@@ -2911,13 +2911,13 @@ func (o FunctionEnvironmentPtrOutput) Elem() FunctionEnvironmentOutput {
 }
 
 // Environment variable key-value pairs.
-func (o FunctionEnvironmentPtrOutput) Variables() pulumi.AnyOutput {
-	return o.ApplyT(func(v *FunctionEnvironment) interface{} {
+func (o FunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FunctionEnvironment) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Variables
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // A function's ephemeral storage settings.

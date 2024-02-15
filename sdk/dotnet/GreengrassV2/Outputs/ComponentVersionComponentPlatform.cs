@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     [OutputType]
     public sealed class ComponentVersionComponentPlatform
     {
-        public readonly object? Attributes;
+        public readonly ImmutableDictionary<string, string>? Attributes;
         public readonly string? Name;
 
         [OutputConstructor]
         private ComponentVersionComponentPlatform(
-            object? attributes,
+            ImmutableDictionary<string, string>? attributes,
 
             string? name)
         {

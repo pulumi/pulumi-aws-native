@@ -13,6 +13,9 @@ __all__ = [
     'IdentityPoolCognitoIdentityProviderArgs',
     'IdentityPoolCognitoStreamsArgs',
     'IdentityPoolPushSyncArgs',
+    'IdentityPoolRoleAttachmentMappingRuleArgs',
+    'IdentityPoolRoleAttachmentRoleMappingArgs',
+    'IdentityPoolRoleAttachmentRulesConfigurationTypeArgs',
     'LogDeliveryConfigurationCloudWatchLogsConfigurationArgs',
     'LogDeliveryConfigurationLogConfigurationArgs',
     'UserPoolAccountRecoverySettingArgs',
@@ -157,6 +160,123 @@ class IdentityPoolPushSyncArgs:
     @role_arn.setter
     def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class IdentityPoolRoleAttachmentMappingRuleArgs:
+    def __init__(__self__, *,
+                 claim: pulumi.Input[str],
+                 match_type: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "claim", claim)
+        pulumi.set(__self__, "match_type", match_type)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def claim(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "claim")
+
+    @claim.setter
+    def claim(self, value: pulumi.Input[str]):
+        pulumi.set(self, "claim", value)
+
+    @property
+    @pulumi.getter(name="matchType")
+    def match_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "match_type")
+
+    @match_type.setter
+    def match_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "match_type", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class IdentityPoolRoleAttachmentRoleMappingArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 ambiguous_role_resolution: Optional[pulumi.Input[str]] = None,
+                 identity_provider: Optional[pulumi.Input[str]] = None,
+                 rules_configuration: Optional[pulumi.Input['IdentityPoolRoleAttachmentRulesConfigurationTypeArgs']] = None):
+        pulumi.set(__self__, "type", type)
+        if ambiguous_role_resolution is not None:
+            pulumi.set(__self__, "ambiguous_role_resolution", ambiguous_role_resolution)
+        if identity_provider is not None:
+            pulumi.set(__self__, "identity_provider", identity_provider)
+        if rules_configuration is not None:
+            pulumi.set(__self__, "rules_configuration", rules_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="ambiguousRoleResolution")
+    def ambiguous_role_resolution(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ambiguous_role_resolution")
+
+    @ambiguous_role_resolution.setter
+    def ambiguous_role_resolution(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ambiguous_role_resolution", value)
+
+    @property
+    @pulumi.getter(name="identityProvider")
+    def identity_provider(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "identity_provider")
+
+    @identity_provider.setter
+    def identity_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_provider", value)
+
+    @property
+    @pulumi.getter(name="rulesConfiguration")
+    def rules_configuration(self) -> Optional[pulumi.Input['IdentityPoolRoleAttachmentRulesConfigurationTypeArgs']]:
+        return pulumi.get(self, "rules_configuration")
+
+    @rules_configuration.setter
+    def rules_configuration(self, value: Optional[pulumi.Input['IdentityPoolRoleAttachmentRulesConfigurationTypeArgs']]):
+        pulumi.set(self, "rules_configuration", value)
+
+
+@pulumi.input_type
+class IdentityPoolRoleAttachmentRulesConfigurationTypeArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentMappingRuleArgs']]]):
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentMappingRuleArgs']]]:
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentMappingRuleArgs']]]):
+        pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type

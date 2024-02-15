@@ -310,7 +310,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> pulumi.Output[Any]:
+    def outputs(self) -> pulumi.Output[Mapping[str, str]]:
         """
         List of key-value pair outputs.
         """

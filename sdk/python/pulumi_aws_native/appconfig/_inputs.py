@@ -17,7 +17,9 @@ __all__ = [
     'DeploymentTagsArgs',
     'EnvironmentMonitorArgs',
     'EnvironmentTagArgs',
+    'ExtensionActionArgs',
     'ExtensionAssociationTagArgs',
+    'ExtensionParameterArgs',
     'ExtensionTagArgs',
 ]
 
@@ -275,6 +277,76 @@ class EnvironmentTagArgs:
 
 
 @pulumi.input_type
+class ExtensionActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        An action for an extension to take at a specific action point.
+        :param pulumi.Input[str] name: The name of the extension action.
+        :param pulumi.Input[str] uri: The URI of the extension action.
+        :param pulumi.Input[str] description: The description of the extension Action.
+        :param pulumi.Input[str] role_arn: The ARN of the role for invoking the extension action.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the extension action.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI of the extension action.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the extension Action.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the role for invoking the extension action.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
 class ExtensionAssociationTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -310,6 +382,41 @@ class ExtensionAssociationTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ExtensionParameterArgs:
+    def __init__(__self__, *,
+                 required: pulumi.Input[bool],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        A parameter for the extension to send to a specific action.
+        :param pulumi.Input[str] description: The description of the extension Parameter.
+        """
+        pulumi.set(__self__, "required", required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def required(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the extension Parameter.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type

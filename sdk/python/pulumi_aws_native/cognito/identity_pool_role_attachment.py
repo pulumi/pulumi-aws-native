@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['IdentityPoolRoleAttachmentArgs', 'IdentityPoolRoleAttachment']
 
@@ -15,8 +17,8 @@ __all__ = ['IdentityPoolRoleAttachmentArgs', 'IdentityPoolRoleAttachment']
 class IdentityPoolRoleAttachmentArgs:
     def __init__(__self__, *,
                  identity_pool_id: pulumi.Input[str],
-                 role_mappings: Optional[Any] = None,
-                 roles: Optional[Any] = None):
+                 role_mappings: Optional[pulumi.Input[Mapping[str, pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]] = None,
+                 roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IdentityPoolRoleAttachment resource.
         """
@@ -37,20 +39,20 @@ class IdentityPoolRoleAttachmentArgs:
 
     @property
     @pulumi.getter(name="roleMappings")
-    def role_mappings(self) -> Optional[Any]:
+    def role_mappings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]]:
         return pulumi.get(self, "role_mappings")
 
     @role_mappings.setter
-    def role_mappings(self, value: Optional[Any]):
+    def role_mappings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]]):
         pulumi.set(self, "role_mappings", value)
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[Any]:
+    def roles(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[Any]):
+    def roles(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "roles", value)
 
 
@@ -60,8 +62,8 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_pool_id: Optional[pulumi.Input[str]] = None,
-                 role_mappings: Optional[Any] = None,
-                 roles: Optional[Any] = None,
+                 role_mappings: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
@@ -94,8 +96,8 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_pool_id: Optional[pulumi.Input[str]] = None,
-                 role_mappings: Optional[Any] = None,
-                 roles: Optional[Any] = None,
+                 role_mappings: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -146,11 +148,11 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleMappings")
-    def role_mappings(self) -> pulumi.Output[Optional[Any]]:
+    def role_mappings(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.IdentityPoolRoleAttachmentRoleMapping']]]:
         return pulumi.get(self, "role_mappings")
 
     @property
     @pulumi.getter
-    def roles(self) -> pulumi.Output[Optional[Any]]:
+    def roles(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "roles")
 

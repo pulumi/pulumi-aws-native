@@ -153,10 +153,10 @@ class IdMappingWorkflowProviderPropertiesArgs:
     def __init__(__self__, *,
                  provider_service_arn: pulumi.Input[str],
                  intermediate_source_configuration: Optional[pulumi.Input['IdMappingWorkflowIntermediateSourceConfigurationArgs']] = None,
-                 provider_configuration: Optional[Any] = None):
+                 provider_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] provider_service_arn: Arn of the Provider Service being used.
-        :param Any provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
         """
         pulumi.set(__self__, "provider_service_arn", provider_service_arn)
         if intermediate_source_configuration is not None:
@@ -187,14 +187,14 @@ class IdMappingWorkflowProviderPropertiesArgs:
 
     @property
     @pulumi.getter(name="providerConfiguration")
-    def provider_configuration(self) -> Optional[Any]:
+    def provider_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
         """
         return pulumi.get(self, "provider_configuration")
 
     @provider_configuration.setter
-    def provider_configuration(self, value: Optional[Any]):
+    def provider_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "provider_configuration", value)
 
 
@@ -393,10 +393,10 @@ class MatchingWorkflowProviderPropertiesArgs:
     def __init__(__self__, *,
                  provider_service_arn: pulumi.Input[str],
                  intermediate_source_configuration: Optional[pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgs']] = None,
-                 provider_configuration: Optional[Any] = None):
+                 provider_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] provider_service_arn: Arn of the Provider service being used.
-        :param Any provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
         """
         pulumi.set(__self__, "provider_service_arn", provider_service_arn)
         if intermediate_source_configuration is not None:
@@ -427,14 +427,14 @@ class MatchingWorkflowProviderPropertiesArgs:
 
     @property
     @pulumi.getter(name="providerConfiguration")
-    def provider_configuration(self) -> Optional[Any]:
+    def provider_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
         """
         return pulumi.get(self, "provider_configuration")
 
     @provider_configuration.setter
-    def provider_configuration(self, value: Optional[Any]):
+    def provider_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "provider_configuration", value)
 
 

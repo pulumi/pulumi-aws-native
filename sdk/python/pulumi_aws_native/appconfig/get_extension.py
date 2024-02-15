@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetExtensionResult',
@@ -40,7 +41,7 @@ class GetExtensionResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[Any]:
+    def actions(self) -> Optional[Mapping[str, Sequence['outputs.ExtensionAction']]]:
         return pulumi.get(self, "actions")
 
     @property
@@ -63,7 +64,7 @@ class GetExtensionResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ExtensionParameter']]:
         return pulumi.get(self, "parameters")
 
     @property

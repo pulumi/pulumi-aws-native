@@ -190,12 +190,12 @@ class DeploymentAccessLogSettingArgs:
 class DeploymentCanarySettingsArgs:
     def __init__(__self__, *,
                  percent_traffic: Optional[pulumi.Input[float]] = None,
-                 stage_variable_overrides: Optional[Any] = None,
+                 stage_variable_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_stage_cache: Optional[pulumi.Input[bool]] = None):
         """
         The ``DeploymentCanarySettings`` property type specifies settings for the canary deployment.
         :param pulumi.Input[float] percent_traffic: The percentage (0.0-100.0) of traffic routed to the canary deployment.
-        :param Any stage_variable_overrides: A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variable_overrides: A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
         :param pulumi.Input[bool] use_stage_cache: A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
         """
         if percent_traffic is not None:
@@ -219,14 +219,14 @@ class DeploymentCanarySettingsArgs:
 
     @property
     @pulumi.getter(name="stageVariableOverrides")
-    def stage_variable_overrides(self) -> Optional[Any]:
+    def stage_variable_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
         """
         return pulumi.get(self, "stage_variable_overrides")
 
     @stage_variable_overrides.setter
-    def stage_variable_overrides(self, value: Optional[Any]):
+    def stage_variable_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "stage_variable_overrides", value)
 
     @property
@@ -246,13 +246,13 @@ class DeploymentCanarySettingsArgs:
 class DeploymentCanarySettingArgs:
     def __init__(__self__, *,
                  percent_traffic: Optional[pulumi.Input[float]] = None,
-                 stage_variable_overrides: Optional[Any] = None,
+                 stage_variable_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_stage_cache: Optional[pulumi.Input[bool]] = None):
         """
         The ``CanarySetting`` property type specifies settings for the canary deployment in this stage.
          ``CanarySetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
         :param pulumi.Input[float] percent_traffic: The percent (0-100) of traffic diverted to a canary deployment.
-        :param Any stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
         :param pulumi.Input[bool] use_stage_cache: A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
         """
         if percent_traffic is not None:
@@ -276,14 +276,14 @@ class DeploymentCanarySettingArgs:
 
     @property
     @pulumi.getter(name="stageVariableOverrides")
-    def stage_variable_overrides(self) -> Optional[Any]:
+    def stage_variable_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
         """
         return pulumi.get(self, "stage_variable_overrides")
 
     @stage_variable_overrides.setter
-    def stage_variable_overrides(self, value: Optional[Any]):
+    def stage_variable_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "stage_variable_overrides", value)
 
     @property
@@ -489,7 +489,7 @@ class DeploymentStageDescriptionArgs:
                  throttling_burst_limit: Optional[pulumi.Input[int]] = None,
                  throttling_rate_limit: Optional[pulumi.Input[float]] = None,
                  tracing_enabled: Optional[pulumi.Input[bool]] = None,
-                 variables: Optional[Any] = None):
+                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         ``StageDescription`` is a property of the [AWS::ApiGateway::Deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html) resource that configures a deployment stage.
         :param pulumi.Input['DeploymentAccessLogSettingArgs'] access_log_setting: Specifies settings for logging access in this stage.
@@ -511,7 +511,7 @@ class DeploymentStageDescriptionArgs:
         :param pulumi.Input[float] throttling_rate_limit: The target request steady-state rate limit. For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide*.
         :param pulumi.Input[bool] tracing_enabled: Specifies whether active tracing with X-ray is enabled for this stage.
                 For more information, see [Trace API Gateway API Execution with X-Ray](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html) in the *API Gateway Developer Guide*.
-        :param Any variables: A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         if access_log_setting is not None:
             pulumi.set(__self__, "access_log_setting", access_log_setting)
@@ -771,14 +771,14 @@ class DeploymentStageDescriptionArgs:
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Any]:
+    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[Any]):
+    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "variables", value)
 
 
@@ -988,16 +988,16 @@ class MethodIntegrationResponseArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[str],
                  content_handling: Optional[pulumi.Input['MethodIntegrationResponseContentHandling']] = None,
-                 response_parameters: Optional[Any] = None,
-                 response_templates: Optional[Any] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  selection_pattern: Optional[pulumi.Input[str]] = None):
         """
         ``IntegrationResponse`` is a property of the [Amazon API Gateway Method Integration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html) property type that specifies the response that API Gateway sends after a method's backend finishes processing a request.
         :param pulumi.Input[str] status_code: Specifies the status code that is used to map the integration response to an existing MethodResponse.
         :param pulumi.Input['MethodIntegrationResponseContentHandling'] content_handling: Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
                 If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
-        :param Any response_parameters: A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
-        :param Any response_templates: Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
         :param pulumi.Input[str] selection_pattern: Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
         """
         pulumi.set(__self__, "status_code", status_code)
@@ -1037,26 +1037,26 @@ class MethodIntegrationResponseArgs:
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[Any]:
+    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[Any]):
+    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "response_parameters", value)
 
     @property
     @pulumi.getter(name="responseTemplates")
-    def response_templates(self) -> Optional[Any]:
+    def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
         """
         return pulumi.get(self, "response_templates")
 
     @response_templates.setter
-    def response_templates(self, value: Optional[Any]):
+    def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "response_templates", value)
 
     @property
@@ -1085,8 +1085,8 @@ class MethodIntegrationArgs:
                  integration_http_method: Optional[pulumi.Input[str]] = None,
                  integration_responses: Optional[pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]] = None,
                  passthrough_behavior: Optional[pulumi.Input['MethodIntegrationPassthroughBehavior']] = None,
-                 request_parameters: Optional[Any] = None,
-                 request_templates: Optional[Any] = None,
+                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout_in_millis: Optional[pulumi.Input[int]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
@@ -1103,8 +1103,8 @@ class MethodIntegrationArgs:
         :param pulumi.Input[str] integration_http_method: Specifies the integration's HTTP method type. For the Type property, if you specify ``MOCK``, this property is optional. For Lambda integrations, you must set the integration method to ``POST``. For all other types, you must specify this property.
         :param pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]] integration_responses: Specifies the integration's responses.
         :param pulumi.Input['MethodIntegrationPassthroughBehavior'] passthrough_behavior: Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in ``requestTemplates``. The valid value is one of the following: ``WHEN_NO_MATCH``: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. ``WHEN_NO_TEMPLATES``: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. ``NEVER``: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
-        :param Any request_parameters: A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
-        :param Any request_templates: Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_parameters: A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
         :param pulumi.Input[int] timeout_in_millis: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
         :param pulumi.Input[str] uri: Specifies Uniform Resource Identifier (URI) of the integration endpoint.
                 For ``HTTP`` or ``HTTP_PROXY`` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If ``connectionType`` is ``VPC_LINK`` specify the Network Load Balancer DNS name. For ``AWS`` or ``AWS_PROXY`` integrations, the URI is of the form ``arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}``. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either ``arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}`` or ``arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}``
@@ -1261,26 +1261,26 @@ class MethodIntegrationArgs:
 
     @property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> Optional[Any]:
+    def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
         """
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
-    def request_parameters(self, value: Optional[Any]):
+    def request_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "request_parameters", value)
 
     @property
     @pulumi.getter(name="requestTemplates")
-    def request_templates(self) -> Optional[Any]:
+    def request_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
         """
         return pulumi.get(self, "request_templates")
 
     @request_templates.setter
-    def request_templates(self, value: Optional[Any]):
+    def request_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "request_templates", value)
 
     @property
@@ -1313,13 +1313,13 @@ class MethodIntegrationArgs:
 class MethodResponseArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[str],
-                 response_models: Optional[Any] = None,
-                 response_parameters: Optional[Any] = None):
+                 response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None):
         """
         Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template.
         :param pulumi.Input[str] status_code: The method response's status code.
-        :param Any response_models: Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
-        :param Any response_parameters: A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         """
         pulumi.set(__self__, "status_code", status_code)
         if response_models is not None:
@@ -1341,26 +1341,26 @@ class MethodResponseArgs:
 
     @property
     @pulumi.getter(name="responseModels")
-    def response_models(self) -> Optional[Any]:
+    def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
         """
         return pulumi.get(self, "response_models")
 
     @response_models.setter
-    def response_models(self, value: Optional[Any]):
+    def response_models(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "response_models", value)
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[Any]:
+    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]:
         """
         A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[Any]):
+    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]):
         pulumi.set(self, "response_parameters", value)
 
 
@@ -1551,13 +1551,13 @@ class StageCanarySettingArgs:
     def __init__(__self__, *,
                  deployment_id: Optional[pulumi.Input[str]] = None,
                  percent_traffic: Optional[pulumi.Input[float]] = None,
-                 stage_variable_overrides: Optional[Any] = None,
+                 stage_variable_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_stage_cache: Optional[pulumi.Input[bool]] = None):
         """
         Configuration settings of a canary deployment.
         :param pulumi.Input[str] deployment_id: The ID of the canary deployment.
         :param pulumi.Input[float] percent_traffic: The percent (0-100) of traffic diverted to a canary deployment.
-        :param Any stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
         :param pulumi.Input[bool] use_stage_cache: A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
         """
         if deployment_id is not None:
@@ -1595,14 +1595,14 @@ class StageCanarySettingArgs:
 
     @property
     @pulumi.getter(name="stageVariableOverrides")
-    def stage_variable_overrides(self) -> Optional[Any]:
+    def stage_variable_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
         """
         return pulumi.get(self, "stage_variable_overrides")
 
     @stage_variable_overrides.setter
-    def stage_variable_overrides(self, value: Optional[Any]):
+    def stage_variable_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "stage_variable_overrides", value)
 
     @property
@@ -1829,12 +1829,12 @@ class UsagePlanApiStageArgs:
     def __init__(__self__, *,
                  api_id: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input[str]] = None,
-                 throttle: Optional[Any] = None):
+                 throttle: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]] = None):
         """
         API stage name of the associated API stage in a usage plan.
         :param pulumi.Input[str] api_id: API Id of the associated API stage in a usage plan.
         :param pulumi.Input[str] stage: API stage name of the associated API stage in a usage plan.
-        :param Any throttle: Map containing method level throttling information for API stage in a usage plan.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]] throttle: Map containing method level throttling information for API stage in a usage plan.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -1869,14 +1869,14 @@ class UsagePlanApiStageArgs:
 
     @property
     @pulumi.getter
-    def throttle(self) -> Optional[Any]:
+    def throttle(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]]:
         """
         Map containing method level throttling information for API stage in a usage plan.
         """
         return pulumi.get(self, "throttle")
 
     @throttle.setter
-    def throttle(self, value: Optional[Any]):
+    def throttle(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]]):
         pulumi.set(self, "throttle", value)
 
 

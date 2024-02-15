@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The tags of this image pipeline.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Workflows to define the image build process
@@ -226,11 +226,17 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Input("status")]
         public Input<Pulumi.AwsNative.ImageBuilder.ImagePipelineStatus>? Status { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// The tags of this image pipeline.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("workflows")]
         private InputList<Inputs.ImagePipelineWorkflowConfigurationArgs>? _workflows;

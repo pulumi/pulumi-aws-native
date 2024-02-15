@@ -31,7 +31,7 @@ type LookupSecurityProfileResult struct {
 	// A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
 	AdditionalMetricsToRetainV2 []SecurityProfileMetricToRetain `pulumi:"additionalMetricsToRetainV2"`
 	// Specifies the destinations to which alerts are sent.
-	AlertTargets interface{} `pulumi:"alertTargets"`
+	AlertTargets map[string]SecurityProfileAlertTarget `pulumi:"alertTargets"`
 	// Specifies the behaviors that, when violated by a device (thing), cause an alert.
 	Behaviors []SecurityProfileBehavior `pulumi:"behaviors"`
 	// A structure containing the mqtt topic for metrics export.
@@ -90,8 +90,8 @@ func (o LookupSecurityProfileResultOutput) AdditionalMetricsToRetainV2() Securit
 }
 
 // Specifies the destinations to which alerts are sent.
-func (o LookupSecurityProfileResultOutput) AlertTargets() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupSecurityProfileResult) interface{} { return v.AlertTargets }).(pulumi.AnyOutput)
+func (o LookupSecurityProfileResultOutput) AlertTargets() SecurityProfileAlertTargetMapOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) map[string]SecurityProfileAlertTarget { return v.AlertTargets }).(SecurityProfileAlertTargetMapOutput)
 }
 
 // Specifies the behaviors that, when violated by a device (thing), cause an alert.

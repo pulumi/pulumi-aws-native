@@ -41,7 +41,7 @@ export interface GetDistributionConfigurationResult {
     /**
      * The tags associated with the component.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource schema for AWS::ImageBuilder::DistributionConfiguration

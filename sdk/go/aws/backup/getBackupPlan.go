@@ -30,7 +30,7 @@ type LookupBackupPlanResult struct {
 	BackupPlan     *BackupPlanResourceType `pulumi:"backupPlan"`
 	BackupPlanArn  *string                 `pulumi:"backupPlanArn"`
 	BackupPlanId   *string                 `pulumi:"backupPlanId"`
-	BackupPlanTags interface{}             `pulumi:"backupPlanTags"`
+	BackupPlanTags map[string]string       `pulumi:"backupPlanTags"`
 	VersionId      *string                 `pulumi:"versionId"`
 }
 
@@ -81,8 +81,8 @@ func (o LookupBackupPlanResultOutput) BackupPlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBackupPlanResult) *string { return v.BackupPlanId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupBackupPlanResultOutput) BackupPlanTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupBackupPlanResult) interface{} { return v.BackupPlanTags }).(pulumi.AnyOutput)
+func (o LookupBackupPlanResultOutput) BackupPlanTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBackupPlanResult) map[string]string { return v.BackupPlanTags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupBackupPlanResultOutput) VersionId() pulumi.StringPtrOutput {

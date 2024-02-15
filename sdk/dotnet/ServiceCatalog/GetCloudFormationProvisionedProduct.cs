@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// List of key-value pair outputs.
         /// </summary>
-        public readonly object? Outputs;
+        public readonly ImmutableDictionary<string, string>? Outputs;
         public readonly string? PathId;
         public readonly string? PathName;
         public readonly string? ProductId;
@@ -75,7 +75,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
             string? cloudformationStackArn,
 
-            object? outputs,
+            ImmutableDictionary<string, string>? outputs,
 
             string? pathId,
 

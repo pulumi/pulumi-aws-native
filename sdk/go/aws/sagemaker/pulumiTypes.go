@@ -18186,7 +18186,7 @@ type ModelCardAdditionalInformation struct {
 	// Caveats and recommendations for people who might use this model in their applications.
 	CaveatsAndRecommendations *string `pulumi:"caveatsAndRecommendations"`
 	// customer details.
-	CustomDetails interface{} `pulumi:"customDetails"`
+	CustomDetails map[string]string `pulumi:"customDetails"`
 	// Any ethical considerations that the author wants to provide.
 	EthicalConsiderations *string `pulumi:"ethicalConsiderations"`
 }
@@ -18206,7 +18206,7 @@ type ModelCardAdditionalInformationArgs struct {
 	// Caveats and recommendations for people who might use this model in their applications.
 	CaveatsAndRecommendations pulumi.StringPtrInput `pulumi:"caveatsAndRecommendations"`
 	// customer details.
-	CustomDetails pulumi.Input `pulumi:"customDetails"`
+	CustomDetails pulumi.StringMapInput `pulumi:"customDetails"`
 	// Any ethical considerations that the author wants to provide.
 	EthicalConsiderations pulumi.StringPtrInput `pulumi:"ethicalConsiderations"`
 }
@@ -18294,8 +18294,8 @@ func (o ModelCardAdditionalInformationOutput) CaveatsAndRecommendations() pulumi
 }
 
 // customer details.
-func (o ModelCardAdditionalInformationOutput) CustomDetails() pulumi.AnyOutput {
-	return o.ApplyT(func(v ModelCardAdditionalInformation) interface{} { return v.CustomDetails }).(pulumi.AnyOutput)
+func (o ModelCardAdditionalInformationOutput) CustomDetails() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ModelCardAdditionalInformation) map[string]string { return v.CustomDetails }).(pulumi.StringMapOutput)
 }
 
 // Any ethical considerations that the author wants to provide.
@@ -18338,13 +18338,13 @@ func (o ModelCardAdditionalInformationPtrOutput) CaveatsAndRecommendations() pul
 }
 
 // customer details.
-func (o ModelCardAdditionalInformationPtrOutput) CustomDetails() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ModelCardAdditionalInformation) interface{} {
+func (o ModelCardAdditionalInformationPtrOutput) CustomDetails() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ModelCardAdditionalInformation) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.CustomDetails
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Any ethical considerations that the author wants to provide.
@@ -18910,7 +18910,7 @@ type ModelCardEvaluationDetail struct {
 	EvaluationJobArn      *string  `pulumi:"evaluationJobArn"`
 	EvaluationObservation *string  `pulumi:"evaluationObservation"`
 	// additional attributes associated with the evaluation results.
-	Metadata     interface{}            `pulumi:"metadata"`
+	Metadata     map[string]string      `pulumi:"metadata"`
 	MetricGroups []ModelCardMetricGroup `pulumi:"metricGroups"`
 	Name         string                 `pulumi:"name"`
 }
@@ -18932,7 +18932,7 @@ type ModelCardEvaluationDetailArgs struct {
 	EvaluationJobArn      pulumi.StringPtrInput   `pulumi:"evaluationJobArn"`
 	EvaluationObservation pulumi.StringPtrInput   `pulumi:"evaluationObservation"`
 	// additional attributes associated with the evaluation results.
-	Metadata     pulumi.Input                   `pulumi:"metadata"`
+	Metadata     pulumi.StringMapInput          `pulumi:"metadata"`
 	MetricGroups ModelCardMetricGroupArrayInput `pulumi:"metricGroups"`
 	Name         pulumi.StringInput             `pulumi:"name"`
 }
@@ -19002,8 +19002,8 @@ func (o ModelCardEvaluationDetailOutput) EvaluationObservation() pulumi.StringPt
 }
 
 // additional attributes associated with the evaluation results.
-func (o ModelCardEvaluationDetailOutput) Metadata() pulumi.AnyOutput {
-	return o.ApplyT(func(v ModelCardEvaluationDetail) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+func (o ModelCardEvaluationDetailOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ModelCardEvaluationDetail) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
 func (o ModelCardEvaluationDetailOutput) MetricGroups() ModelCardMetricGroupArrayOutput {

@@ -64,7 +64,7 @@ class GetDomainNameResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The collection of tags associated with a domain name.
         """

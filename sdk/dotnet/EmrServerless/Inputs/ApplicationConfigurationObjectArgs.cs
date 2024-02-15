@@ -30,7 +30,12 @@ namespace Pulumi.AwsNative.EmrServerless.Inputs
         }
 
         [Input("properties")]
-        public Input<object>? Properties { get; set; }
+        private InputMap<string>? _properties;
+        public InputMap<string> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<string>());
+            set => _properties = value;
+        }
 
         public ApplicationConfigurationObjectArgs()
         {

@@ -417,7 +417,7 @@ type CanaryRunConfig struct {
 	// Enable active tracing if set to true
 	ActiveTracing *bool `pulumi:"activeTracing"`
 	// Environment variable key-value pairs.
-	EnvironmentVariables interface{} `pulumi:"environmentVariables"`
+	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// Provide maximum memory available for canary in MB
 	MemoryInMb *int `pulumi:"memoryInMb"`
 	// Provide maximum canary timeout per run in seconds
@@ -439,7 +439,7 @@ type CanaryRunConfigArgs struct {
 	// Enable active tracing if set to true
 	ActiveTracing pulumi.BoolPtrInput `pulumi:"activeTracing"`
 	// Environment variable key-value pairs.
-	EnvironmentVariables pulumi.Input `pulumi:"environmentVariables"`
+	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
 	// Provide maximum memory available for canary in MB
 	MemoryInMb pulumi.IntPtrInput `pulumi:"memoryInMb"`
 	// Provide maximum canary timeout per run in seconds
@@ -529,8 +529,8 @@ func (o CanaryRunConfigOutput) ActiveTracing() pulumi.BoolPtrOutput {
 }
 
 // Environment variable key-value pairs.
-func (o CanaryRunConfigOutput) EnvironmentVariables() pulumi.AnyOutput {
-	return o.ApplyT(func(v CanaryRunConfig) interface{} { return v.EnvironmentVariables }).(pulumi.AnyOutput)
+func (o CanaryRunConfigOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CanaryRunConfig) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
 // Provide maximum memory available for canary in MB
@@ -578,13 +578,13 @@ func (o CanaryRunConfigPtrOutput) ActiveTracing() pulumi.BoolPtrOutput {
 }
 
 // Environment variable key-value pairs.
-func (o CanaryRunConfigPtrOutput) EnvironmentVariables() pulumi.AnyOutput {
-	return o.ApplyT(func(v *CanaryRunConfig) interface{} {
+func (o CanaryRunConfigPtrOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CanaryRunConfig) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.EnvironmentVariables
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Provide maximum memory available for canary in MB

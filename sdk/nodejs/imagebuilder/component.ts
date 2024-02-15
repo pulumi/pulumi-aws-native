@@ -76,7 +76,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * The tags associated with the component.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the component denotes whether the component is used to build the image or only to test it. 
      */
@@ -136,7 +136,7 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["changeDescription", "data", "description", "kmsKeyId", "name", "platform", "supportedOsVersions[*]", "tags", "uri", "version"] };
+        const replaceOnChanges = { replaceOnChanges: ["changeDescription", "data", "description", "kmsKeyId", "name", "platform", "supportedOsVersions[*]", "tags.*", "uri", "version"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Component.__pulumiType, name, resourceInputs, opts);
     }
@@ -177,7 +177,7 @@ export interface ComponentArgs {
     /**
      * The tags associated with the component.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The uri of the component.
      */

@@ -92,15 +92,15 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// <summary>
         /// A key-value pair of generated scene metadata for the scene.
         /// </summary>
-        public readonly object? GeneratedSceneMetadata;
+        public readonly ImmutableDictionary<string, string>? GeneratedSceneMetadata;
         /// <summary>
         /// A key-value pair of scene metadata for the scene.
         /// </summary>
-        public readonly object? SceneMetadata;
+        public readonly ImmutableDictionary<string, string>? SceneMetadata;
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The date and time of the current update.
         /// </summary>
@@ -118,11 +118,11 @@ namespace Pulumi.AwsNative.IoTTwinMaker
 
             string? description,
 
-            object? generatedSceneMetadata,
+            ImmutableDictionary<string, string>? generatedSceneMetadata,
 
-            object? sceneMetadata,
+            ImmutableDictionary<string, string>? sceneMetadata,
 
-            object? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? updateDateTime)
         {

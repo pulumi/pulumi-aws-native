@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
         public readonly ImmutableArray<Outputs.BackupPlanCopyActionResourceType> CopyActions;
         public readonly bool? EnableContinuousBackup;
         public readonly Outputs.BackupPlanLifecycleResourceType? Lifecycle;
-        public readonly object? RecoveryPointTags;
+        public readonly ImmutableDictionary<string, string>? RecoveryPointTags;
         public readonly string RuleName;
         public readonly string? ScheduleExpression;
         public readonly string? ScheduleExpressionTimezone;
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
             Outputs.BackupPlanLifecycleResourceType? lifecycle,
 
-            object? recoveryPointTags,
+            ImmutableDictionary<string, string>? recoveryPointTags,
 
             string ruleName,
 

@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&amp;=,]+``.
         /// </summary>
-        public readonly object? Variables;
+        public readonly ImmutableDictionary<string, string>? Variables;
 
         [OutputConstructor]
         private GetStageResult(
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.ApiGateway
 
             bool? tracingEnabled,
 
-            object? variables)
+            ImmutableDictionary<string, string>? variables)
         {
             AccessLogSetting = accessLogSetting;
             CacheClusterEnabled = cacheClusterEnabled;

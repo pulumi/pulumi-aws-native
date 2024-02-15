@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -20,14 +23,14 @@ export interface GetExtensionArgs {
 }
 
 export interface GetExtensionResult {
-    readonly actions?: any;
+    readonly actions?: {[key: string]: outputs.appconfig.ExtensionAction[]};
     readonly arn?: string;
     /**
      * Description of the extension.
      */
     readonly description?: string;
     readonly id?: string;
-    readonly parameters?: any;
+    readonly parameters?: {[key: string]: outputs.appconfig.ExtensionParameter};
     readonly versionNumber?: number;
 }
 /**

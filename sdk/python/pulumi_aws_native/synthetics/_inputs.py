@@ -163,12 +163,12 @@ class CanaryCodeArgs:
 class CanaryRunConfigArgs:
     def __init__(__self__, *,
                  active_tracing: Optional[pulumi.Input[bool]] = None,
-                 environment_variables: Optional[Any] = None,
+                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  memory_in_mb: Optional[pulumi.Input[int]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] active_tracing: Enable active tracing if set to true
-        :param Any environment_variables: Environment variable key-value pairs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variable key-value pairs.
         :param pulumi.Input[int] memory_in_mb: Provide maximum memory available for canary in MB
         :param pulumi.Input[int] timeout_in_seconds: Provide maximum canary timeout per run in seconds
         """
@@ -195,14 +195,14 @@ class CanaryRunConfigArgs:
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[Any]:
+    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Environment variable key-value pairs.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[Any]):
+    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "environment_variables", value)
 
     @property

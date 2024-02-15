@@ -43,7 +43,7 @@ type LookupLifecyclePolicyResult struct {
 	// The status of the lifecycle policy.
 	Status *LifecyclePolicyStatus `pulumi:"status"`
 	// The tags associated with the lifecycle policy.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupLifecyclePolicyOutput(ctx *pulumi.Context, args LookupLifecyclePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupLifecyclePolicyResultOutput {
@@ -118,8 +118,8 @@ func (o LookupLifecyclePolicyResultOutput) Status() LifecyclePolicyStatusPtrOutp
 }
 
 // The tags associated with the lifecycle policy.
-func (o LookupLifecyclePolicyResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupLifecyclePolicyResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupLifecyclePolicyResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupLifecyclePolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

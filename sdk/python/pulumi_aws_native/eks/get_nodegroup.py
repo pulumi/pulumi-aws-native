@@ -63,7 +63,7 @@ class GetNodegroupResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[Any]:
+    def labels(self) -> Optional[Mapping[str, str]]:
         """
         The Kubernetes labels to be applied to the nodes in the node group when they are created.
         """
@@ -95,7 +95,7 @@ class GetNodegroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
         """

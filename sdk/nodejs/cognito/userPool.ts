@@ -61,7 +61,7 @@ export class UserPool extends pulumi.CustomResource {
     public readonly userPoolAddOns!: pulumi.Output<outputs.cognito.UserPoolAddOns | undefined>;
     public /*out*/ readonly userPoolId!: pulumi.Output<string>;
     public readonly userPoolName!: pulumi.Output<string | undefined>;
-    public readonly userPoolTags!: pulumi.Output<any | undefined>;
+    public readonly userPoolTags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly usernameAttributes!: pulumi.Output<string[] | undefined>;
     public readonly usernameConfiguration!: pulumi.Output<outputs.cognito.UserPoolUsernameConfiguration | undefined>;
     public readonly verificationMessageTemplate!: pulumi.Output<outputs.cognito.UserPoolVerificationMessageTemplate | undefined>;
@@ -164,7 +164,7 @@ export interface UserPoolArgs {
     userAttributeUpdateSettings?: pulumi.Input<inputs.cognito.UserPoolUserAttributeUpdateSettingsArgs>;
     userPoolAddOns?: pulumi.Input<inputs.cognito.UserPoolAddOnsArgs>;
     userPoolName?: pulumi.Input<string>;
-    userPoolTags?: any;
+    userPoolTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     usernameAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     usernameConfiguration?: pulumi.Input<inputs.cognito.UserPoolUsernameConfigurationArgs>;
     verificationMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolVerificationMessageTemplateArgs>;

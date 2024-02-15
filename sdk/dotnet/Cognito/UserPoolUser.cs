@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Cognito
     public partial class UserPoolUser : global::Pulumi.CustomResource
     {
         [Output("clientMetadata")]
-        public Output<object?> ClientMetadata { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> ClientMetadata { get; private set; } = null!;
 
         [Output("desiredDeliveryMediums")]
         public Output<ImmutableArray<string>> DesiredDeliveryMediums { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Cognito
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "clientMetadata",
+                    "clientMetadata.*",
                     "desiredDeliveryMediums[*]",
                     "forceAliasCreation",
                     "messageAction",
@@ -96,7 +96,12 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class UserPoolUserArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientMetadata")]
-        public Input<object>? ClientMetadata { get; set; }
+        private InputMap<string>? _clientMetadata;
+        public InputMap<string> ClientMetadata
+        {
+            get => _clientMetadata ?? (_clientMetadata = new InputMap<string>());
+            set => _clientMetadata = value;
+        }
 
         [Input("desiredDeliveryMediums")]
         private InputList<string>? _desiredDeliveryMediums;

@@ -31,7 +31,7 @@ type Cluster struct {
 	OpenMonitoring      ClusterOpenMonitoringPtrOutput     `pulumi:"openMonitoring"`
 	StorageMode         ClusterStorageModePtrOutput        `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -106,7 +106,7 @@ type clusterArgs struct {
 	OpenMonitoring      *ClusterOpenMonitoring     `pulumi:"openMonitoring"`
 	StorageMode         *ClusterStorageMode        `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -125,7 +125,7 @@ type ClusterArgs struct {
 	OpenMonitoring      ClusterOpenMonitoringPtrInput
 	StorageMode         ClusterStorageModePtrInput
 	// A key-value pair to associate with a resource.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -219,8 +219,8 @@ func (o ClusterOutput) StorageMode() ClusterStorageModePtrOutput {
 }
 
 // A key-value pair to associate with a resource.
-func (o ClusterOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o ClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

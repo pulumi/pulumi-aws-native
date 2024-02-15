@@ -30,7 +30,7 @@ type LookupNodegroupResult struct {
 	Arn *string `pulumi:"arn"`
 	Id  *string `pulumi:"id"`
 	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
-	Labels interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// An object representing a node group's launch template specification.
 	LaunchTemplate *NodegroupLaunchTemplateSpecification `pulumi:"launchTemplate"`
 	// The AMI version of the Amazon EKS-optimized AMI to use with your node group.
@@ -38,7 +38,7 @@ type LookupNodegroupResult struct {
 	// The scaling configuration details for the Auto Scaling group that is created for your node group.
 	ScalingConfig *NodegroupScalingConfig `pulumi:"scalingConfig"`
 	// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
 	Taints []NodegroupTaint `pulumi:"taints"`
 	// The node group update configuration.
@@ -91,8 +91,8 @@ func (o LookupNodegroupResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The Kubernetes labels to be applied to the nodes in the node group when they are created.
-func (o LookupNodegroupResultOutput) Labels() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupNodegroupResult) interface{} { return v.Labels }).(pulumi.AnyOutput)
+func (o LookupNodegroupResultOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNodegroupResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // An object representing a node group's launch template specification.
@@ -111,8 +111,8 @@ func (o LookupNodegroupResultOutput) ScalingConfig() NodegroupScalingConfigPtrOu
 }
 
 // The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
-func (o LookupNodegroupResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupNodegroupResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupNodegroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNodegroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The Kubernetes taints to be applied to the nodes in the node group when they are created.

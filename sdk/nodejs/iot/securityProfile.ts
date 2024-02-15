@@ -44,7 +44,7 @@ export class SecurityProfile extends pulumi.CustomResource {
     /**
      * Specifies the destinations to which alerts are sent.
      */
-    public readonly alertTargets!: pulumi.Output<any | undefined>;
+    public readonly alertTargets!: pulumi.Output<{[key: string]: outputs.iot.SecurityProfileAlertTarget} | undefined>;
     /**
      * Specifies the behaviors that, when violated by a device (thing), cause an alert.
      */
@@ -123,7 +123,7 @@ export interface SecurityProfileArgs {
     /**
      * Specifies the destinations to which alerts are sent.
      */
-    alertTargets?: any;
+    alertTargets?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iot.SecurityProfileAlertTargetArgs>}>;
     /**
      * Specifies the behaviors that, when violated by a device (thing), cause an alert.
      */

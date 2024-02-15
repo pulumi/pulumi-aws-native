@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ComponentVersionComponentDependencyRequirementDependencyType = {
+    Soft: "SOFT",
+    Hard: "HARD",
+} as const;
+
+export type ComponentVersionComponentDependencyRequirementDependencyType = (typeof ComponentVersionComponentDependencyRequirementDependencyType)[keyof typeof ComponentVersionComponentDependencyRequirementDependencyType];
+
 export const ComponentVersionLambdaEventSourceType = {
     PubSub: "PUB_SUB",
     IotCore: "IOT_CORE",

@@ -21,11 +21,17 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         [Input("percentTraffic")]
         public Input<double>? PercentTraffic { get; set; }
 
+        [Input("stageVariableOverrides")]
+        private InputMap<string>? _stageVariableOverrides;
+
         /// <summary>
         /// A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
         /// </summary>
-        [Input("stageVariableOverrides")]
-        public Input<object>? StageVariableOverrides { get; set; }
+        public InputMap<string> StageVariableOverrides
+        {
+            get => _stageVariableOverrides ?? (_stageVariableOverrides = new InputMap<string>());
+            set => _stageVariableOverrides = value;
+        }
 
         /// <summary>
         /// A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.

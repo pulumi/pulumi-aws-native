@@ -16,14 +16,14 @@ import (
 type Extension struct {
 	pulumi.CustomResourceState
 
-	Actions pulumi.AnyOutput    `pulumi:"actions"`
-	Arn     pulumi.StringOutput `pulumi:"arn"`
+	Actions ExtensionActionArrayMapOutput `pulumi:"actions"`
+	Arn     pulumi.StringOutput           `pulumi:"arn"`
 	// Description of the extension.
 	Description         pulumi.StringPtrOutput `pulumi:"description"`
 	LatestVersionNumber pulumi.IntPtrOutput    `pulumi:"latestVersionNumber"`
 	// Name of the extension.
-	Name       pulumi.StringOutput `pulumi:"name"`
-	Parameters pulumi.AnyOutput    `pulumi:"parameters"`
+	Name       pulumi.StringOutput         `pulumi:"name"`
+	Parameters ExtensionParameterMapOutput `pulumi:"parameters"`
 	// An array of key-value tags to apply to this resource.
 	Tags          ExtensionTagArrayOutput `pulumi:"tags"`
 	VersionNumber pulumi.IntOutput        `pulumi:"versionNumber"`
@@ -77,26 +77,26 @@ func (ExtensionState) ElementType() reflect.Type {
 }
 
 type extensionArgs struct {
-	Actions interface{} `pulumi:"actions"`
+	Actions map[string][]ExtensionAction `pulumi:"actions"`
 	// Description of the extension.
 	Description         *string `pulumi:"description"`
 	LatestVersionNumber *int    `pulumi:"latestVersionNumber"`
 	// Name of the extension.
-	Name       *string     `pulumi:"name"`
-	Parameters interface{} `pulumi:"parameters"`
+	Name       *string                       `pulumi:"name"`
+	Parameters map[string]ExtensionParameter `pulumi:"parameters"`
 	// An array of key-value tags to apply to this resource.
 	Tags []ExtensionTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Extension resource.
 type ExtensionArgs struct {
-	Actions pulumi.Input
+	Actions ExtensionActionArrayMapInput
 	// Description of the extension.
 	Description         pulumi.StringPtrInput
 	LatestVersionNumber pulumi.IntPtrInput
 	// Name of the extension.
 	Name       pulumi.StringPtrInput
-	Parameters pulumi.Input
+	Parameters ExtensionParameterMapInput
 	// An array of key-value tags to apply to this resource.
 	Tags ExtensionTagArrayInput
 }
@@ -138,8 +138,8 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 	return o
 }
 
-func (o ExtensionOutput) Actions() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Extension) pulumi.AnyOutput { return v.Actions }).(pulumi.AnyOutput)
+func (o ExtensionOutput) Actions() ExtensionActionArrayMapOutput {
+	return o.ApplyT(func(v *Extension) ExtensionActionArrayMapOutput { return v.Actions }).(ExtensionActionArrayMapOutput)
 }
 
 func (o ExtensionOutput) Arn() pulumi.StringOutput {
@@ -160,8 +160,8 @@ func (o ExtensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o ExtensionOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Extension) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+func (o ExtensionOutput) Parameters() ExtensionParameterMapOutput {
+	return o.ApplyT(func(v *Extension) ExtensionParameterMapOutput { return v.Parameters }).(ExtensionParameterMapOutput)
 }
 
 // An array of key-value tags to apply to this resource.

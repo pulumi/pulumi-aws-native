@@ -64,7 +64,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * The tags associated with the workflow.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the workflow denotes whether the workflow is used to build, test, or distribute.
      */
@@ -118,7 +118,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["changeDescription", "data", "description", "kmsKeyId", "name", "tags", "type", "uri", "version"] };
+        const replaceOnChanges = { replaceOnChanges: ["changeDescription", "data", "description", "kmsKeyId", "name", "tags.*", "type", "uri", "version"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Workflow.__pulumiType, name, resourceInputs, opts);
     }
@@ -151,7 +151,7 @@ export interface WorkflowArgs {
     /**
      * The tags associated with the workflow.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the workflow denotes whether the workflow is used to build, test, or distribute.
      */

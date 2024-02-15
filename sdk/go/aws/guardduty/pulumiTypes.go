@@ -1155,8 +1155,168 @@ func (o DetectorTagItemArrayOutput) Index(i pulumi.IntInput) DetectorTagItemOutp
 	}).(DetectorTagItemOutput)
 }
 
+type FilterCondition struct {
+	Eq                 []string `pulumi:"eq"`
+	Equals             []string `pulumi:"equals"`
+	GreaterThan        *int     `pulumi:"greaterThan"`
+	GreaterThanOrEqual *int     `pulumi:"greaterThanOrEqual"`
+	Gt                 *int     `pulumi:"gt"`
+	Gte                *int     `pulumi:"gte"`
+	LessThan           *int     `pulumi:"lessThan"`
+	LessThanOrEqual    *int     `pulumi:"lessThanOrEqual"`
+	Lt                 *int     `pulumi:"lt"`
+	Lte                *int     `pulumi:"lte"`
+	Neq                []string `pulumi:"neq"`
+	NotEquals          []string `pulumi:"notEquals"`
+}
+
+// FilterConditionInput is an input type that accepts FilterConditionArgs and FilterConditionOutput values.
+// You can construct a concrete instance of `FilterConditionInput` via:
+//
+//	FilterConditionArgs{...}
+type FilterConditionInput interface {
+	pulumi.Input
+
+	ToFilterConditionOutput() FilterConditionOutput
+	ToFilterConditionOutputWithContext(context.Context) FilterConditionOutput
+}
+
+type FilterConditionArgs struct {
+	Eq                 pulumi.StringArrayInput `pulumi:"eq"`
+	Equals             pulumi.StringArrayInput `pulumi:"equals"`
+	GreaterThan        pulumi.IntPtrInput      `pulumi:"greaterThan"`
+	GreaterThanOrEqual pulumi.IntPtrInput      `pulumi:"greaterThanOrEqual"`
+	Gt                 pulumi.IntPtrInput      `pulumi:"gt"`
+	Gte                pulumi.IntPtrInput      `pulumi:"gte"`
+	LessThan           pulumi.IntPtrInput      `pulumi:"lessThan"`
+	LessThanOrEqual    pulumi.IntPtrInput      `pulumi:"lessThanOrEqual"`
+	Lt                 pulumi.IntPtrInput      `pulumi:"lt"`
+	Lte                pulumi.IntPtrInput      `pulumi:"lte"`
+	Neq                pulumi.StringArrayInput `pulumi:"neq"`
+	NotEquals          pulumi.StringArrayInput `pulumi:"notEquals"`
+}
+
+func (FilterConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterCondition)(nil)).Elem()
+}
+
+func (i FilterConditionArgs) ToFilterConditionOutput() FilterConditionOutput {
+	return i.ToFilterConditionOutputWithContext(context.Background())
+}
+
+func (i FilterConditionArgs) ToFilterConditionOutputWithContext(ctx context.Context) FilterConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterConditionOutput)
+}
+
+// FilterConditionMapInput is an input type that accepts FilterConditionMap and FilterConditionMapOutput values.
+// You can construct a concrete instance of `FilterConditionMapInput` via:
+//
+//	FilterConditionMap{ "key": FilterConditionArgs{...} }
+type FilterConditionMapInput interface {
+	pulumi.Input
+
+	ToFilterConditionMapOutput() FilterConditionMapOutput
+	ToFilterConditionMapOutputWithContext(context.Context) FilterConditionMapOutput
+}
+
+type FilterConditionMap map[string]FilterConditionInput
+
+func (FilterConditionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FilterCondition)(nil)).Elem()
+}
+
+func (i FilterConditionMap) ToFilterConditionMapOutput() FilterConditionMapOutput {
+	return i.ToFilterConditionMapOutputWithContext(context.Background())
+}
+
+func (i FilterConditionMap) ToFilterConditionMapOutputWithContext(ctx context.Context) FilterConditionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterConditionMapOutput)
+}
+
+type FilterConditionOutput struct{ *pulumi.OutputState }
+
+func (FilterConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterCondition)(nil)).Elem()
+}
+
+func (o FilterConditionOutput) ToFilterConditionOutput() FilterConditionOutput {
+	return o
+}
+
+func (o FilterConditionOutput) ToFilterConditionOutputWithContext(ctx context.Context) FilterConditionOutput {
+	return o
+}
+
+func (o FilterConditionOutput) Eq() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterCondition) []string { return v.Eq }).(pulumi.StringArrayOutput)
+}
+
+func (o FilterConditionOutput) Equals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterCondition) []string { return v.Equals }).(pulumi.StringArrayOutput)
+}
+
+func (o FilterConditionOutput) GreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.GreaterThan }).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionOutput) GreaterThanOrEqual() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.GreaterThanOrEqual }).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionOutput) Gt() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.Gt }).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionOutput) Gte() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.Gte }).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionOutput) LessThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.LessThan }).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionOutput) LessThanOrEqual() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.LessThanOrEqual }).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionOutput) Lt() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.Lt }).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionOutput) Lte() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FilterCondition) *int { return v.Lte }).(pulumi.IntPtrOutput)
+}
+
+func (o FilterConditionOutput) Neq() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterCondition) []string { return v.Neq }).(pulumi.StringArrayOutput)
+}
+
+func (o FilterConditionOutput) NotEquals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterCondition) []string { return v.NotEquals }).(pulumi.StringArrayOutput)
+}
+
+type FilterConditionMapOutput struct{ *pulumi.OutputState }
+
+func (FilterConditionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FilterCondition)(nil)).Elem()
+}
+
+func (o FilterConditionMapOutput) ToFilterConditionMapOutput() FilterConditionMapOutput {
+	return o
+}
+
+func (o FilterConditionMapOutput) ToFilterConditionMapOutputWithContext(ctx context.Context) FilterConditionMapOutput {
+	return o
+}
+
+func (o FilterConditionMapOutput) MapIndex(k pulumi.StringInput) FilterConditionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FilterCondition {
+		return vs[0].(map[string]FilterCondition)[vs[1].(string)]
+	}).(FilterConditionOutput)
+}
+
 type FilterFindingCriteria struct {
-	Criterion interface{} `pulumi:"criterion"`
+	Criterion map[string]FilterCondition `pulumi:"criterion"`
 }
 
 // FilterFindingCriteriaInput is an input type that accepts FilterFindingCriteriaArgs and FilterFindingCriteriaOutput values.
@@ -1171,7 +1331,7 @@ type FilterFindingCriteriaInput interface {
 }
 
 type FilterFindingCriteriaArgs struct {
-	Criterion pulumi.Input `pulumi:"criterion"`
+	Criterion FilterConditionMapInput `pulumi:"criterion"`
 }
 
 func (FilterFindingCriteriaArgs) ElementType() reflect.Type {
@@ -1200,8 +1360,8 @@ func (o FilterFindingCriteriaOutput) ToFilterFindingCriteriaOutputWithContext(ct
 	return o
 }
 
-func (o FilterFindingCriteriaOutput) Criterion() pulumi.AnyOutput {
-	return o.ApplyT(func(v FilterFindingCriteria) interface{} { return v.Criterion }).(pulumi.AnyOutput)
+func (o FilterFindingCriteriaOutput) Criterion() FilterConditionMapOutput {
+	return o.ApplyT(func(v FilterFindingCriteria) map[string]FilterCondition { return v.Criterion }).(FilterConditionMapOutput)
 }
 
 type FilterFindingCriteriaPtrOutput struct{ *pulumi.OutputState }
@@ -1228,13 +1388,13 @@ func (o FilterFindingCriteriaPtrOutput) Elem() FilterFindingCriteriaOutput {
 	}).(FilterFindingCriteriaOutput)
 }
 
-func (o FilterFindingCriteriaPtrOutput) Criterion() pulumi.AnyOutput {
-	return o.ApplyT(func(v *FilterFindingCriteria) interface{} {
+func (o FilterFindingCriteriaPtrOutput) Criterion() FilterConditionMapOutput {
+	return o.ApplyT(func(v *FilterFindingCriteria) map[string]FilterCondition {
 		if v == nil {
 			return nil
 		}
 		return v.Criterion
-	}).(pulumi.AnyOutput)
+	}).(FilterConditionMapOutput)
 }
 
 type FilterTagItem struct {
@@ -1556,6 +1716,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfns3LogsConfigurationPtrInput)(nil)).Elem(), DetectorCfns3LogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorTagItemInput)(nil)).Elem(), DetectorTagItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorTagItemArrayInput)(nil)).Elem(), DetectorTagItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterConditionInput)(nil)).Elem(), FilterConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterConditionMapInput)(nil)).Elem(), FilterConditionMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterTagItemInput)(nil)).Elem(), FilterTagItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterTagItemArrayInput)(nil)).Elem(), FilterTagItemArray{})
@@ -1581,6 +1743,8 @@ func init() {
 	pulumi.RegisterOutputType(DetectorCfns3LogsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DetectorTagItemOutput{})
 	pulumi.RegisterOutputType(DetectorTagItemArrayOutput{})
+	pulumi.RegisterOutputType(FilterConditionOutput{})
+	pulumi.RegisterOutputType(FilterConditionMapOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(FilterTagItemOutput{})

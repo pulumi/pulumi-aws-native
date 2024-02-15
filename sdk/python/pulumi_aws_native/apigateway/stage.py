@@ -29,7 +29,7 @@ class StageArgs:
                  stage_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]] = None,
                  tracing_enabled: Optional[pulumi.Input[bool]] = None,
-                 variables: Optional[Any] = None):
+                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Stage resource.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
@@ -45,7 +45,7 @@ class StageArgs:
         :param pulumi.Input[str] stage_name: The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
         :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
         :param pulumi.Input[bool] tracing_enabled: Specifies whether active tracing with X-ray is enabled for the Stage.
-        :param Any variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         pulumi.set(__self__, "rest_api_id", rest_api_id)
         if access_log_setting is not None:
@@ -233,14 +233,14 @@ class StageArgs:
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Any]:
+    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[Any]):
+    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "variables", value)
 
 
@@ -262,7 +262,7 @@ class Stage(pulumi.CustomResource):
                  stage_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]]] = None,
                  tracing_enabled: Optional[pulumi.Input[bool]] = None,
-                 variables: Optional[Any] = None,
+                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
@@ -282,7 +282,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] stage_name: The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]] tags: The collection of tags. Each tag element is associated with a given resource.
         :param pulumi.Input[bool] tracing_enabled: Specifies whether active tracing with X-ray is enabled for the Stage.
-        :param Any variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         ...
     @overload
@@ -321,7 +321,7 @@ class Stage(pulumi.CustomResource):
                  stage_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]]] = None,
                  tracing_enabled: Optional[pulumi.Input[bool]] = None,
-                 variables: Optional[Any] = None,
+                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -493,7 +493,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def variables(self) -> pulumi.Output[Optional[Any]]:
+    def variables(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """

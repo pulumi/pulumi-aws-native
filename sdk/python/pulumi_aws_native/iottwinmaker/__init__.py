@@ -16,4 +16,5 @@ from .get_workspace import *
 from .scene import *
 from .sync_job import *
 from .workspace import *
+from ._inputs import *
 from . import outputs

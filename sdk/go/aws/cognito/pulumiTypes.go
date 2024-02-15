@@ -430,6 +430,367 @@ func (o IdentityPoolPushSyncPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type IdentityPoolRoleAttachmentMappingRule struct {
+	Claim     string `pulumi:"claim"`
+	MatchType string `pulumi:"matchType"`
+	RoleArn   string `pulumi:"roleArn"`
+	Value     string `pulumi:"value"`
+}
+
+// IdentityPoolRoleAttachmentMappingRuleInput is an input type that accepts IdentityPoolRoleAttachmentMappingRuleArgs and IdentityPoolRoleAttachmentMappingRuleOutput values.
+// You can construct a concrete instance of `IdentityPoolRoleAttachmentMappingRuleInput` via:
+//
+//	IdentityPoolRoleAttachmentMappingRuleArgs{...}
+type IdentityPoolRoleAttachmentMappingRuleInput interface {
+	pulumi.Input
+
+	ToIdentityPoolRoleAttachmentMappingRuleOutput() IdentityPoolRoleAttachmentMappingRuleOutput
+	ToIdentityPoolRoleAttachmentMappingRuleOutputWithContext(context.Context) IdentityPoolRoleAttachmentMappingRuleOutput
+}
+
+type IdentityPoolRoleAttachmentMappingRuleArgs struct {
+	Claim     pulumi.StringInput `pulumi:"claim"`
+	MatchType pulumi.StringInput `pulumi:"matchType"`
+	RoleArn   pulumi.StringInput `pulumi:"roleArn"`
+	Value     pulumi.StringInput `pulumi:"value"`
+}
+
+func (IdentityPoolRoleAttachmentMappingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPoolRoleAttachmentMappingRule)(nil)).Elem()
+}
+
+func (i IdentityPoolRoleAttachmentMappingRuleArgs) ToIdentityPoolRoleAttachmentMappingRuleOutput() IdentityPoolRoleAttachmentMappingRuleOutput {
+	return i.ToIdentityPoolRoleAttachmentMappingRuleOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolRoleAttachmentMappingRuleArgs) ToIdentityPoolRoleAttachmentMappingRuleOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentMappingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentMappingRuleOutput)
+}
+
+// IdentityPoolRoleAttachmentMappingRuleArrayInput is an input type that accepts IdentityPoolRoleAttachmentMappingRuleArray and IdentityPoolRoleAttachmentMappingRuleArrayOutput values.
+// You can construct a concrete instance of `IdentityPoolRoleAttachmentMappingRuleArrayInput` via:
+//
+//	IdentityPoolRoleAttachmentMappingRuleArray{ IdentityPoolRoleAttachmentMappingRuleArgs{...} }
+type IdentityPoolRoleAttachmentMappingRuleArrayInput interface {
+	pulumi.Input
+
+	ToIdentityPoolRoleAttachmentMappingRuleArrayOutput() IdentityPoolRoleAttachmentMappingRuleArrayOutput
+	ToIdentityPoolRoleAttachmentMappingRuleArrayOutputWithContext(context.Context) IdentityPoolRoleAttachmentMappingRuleArrayOutput
+}
+
+type IdentityPoolRoleAttachmentMappingRuleArray []IdentityPoolRoleAttachmentMappingRuleInput
+
+func (IdentityPoolRoleAttachmentMappingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentityPoolRoleAttachmentMappingRule)(nil)).Elem()
+}
+
+func (i IdentityPoolRoleAttachmentMappingRuleArray) ToIdentityPoolRoleAttachmentMappingRuleArrayOutput() IdentityPoolRoleAttachmentMappingRuleArrayOutput {
+	return i.ToIdentityPoolRoleAttachmentMappingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolRoleAttachmentMappingRuleArray) ToIdentityPoolRoleAttachmentMappingRuleArrayOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentMappingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentMappingRuleArrayOutput)
+}
+
+type IdentityPoolRoleAttachmentMappingRuleOutput struct{ *pulumi.OutputState }
+
+func (IdentityPoolRoleAttachmentMappingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPoolRoleAttachmentMappingRule)(nil)).Elem()
+}
+
+func (o IdentityPoolRoleAttachmentMappingRuleOutput) ToIdentityPoolRoleAttachmentMappingRuleOutput() IdentityPoolRoleAttachmentMappingRuleOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentMappingRuleOutput) ToIdentityPoolRoleAttachmentMappingRuleOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentMappingRuleOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentMappingRuleOutput) Claim() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityPoolRoleAttachmentMappingRule) string { return v.Claim }).(pulumi.StringOutput)
+}
+
+func (o IdentityPoolRoleAttachmentMappingRuleOutput) MatchType() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityPoolRoleAttachmentMappingRule) string { return v.MatchType }).(pulumi.StringOutput)
+}
+
+func (o IdentityPoolRoleAttachmentMappingRuleOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityPoolRoleAttachmentMappingRule) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o IdentityPoolRoleAttachmentMappingRuleOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityPoolRoleAttachmentMappingRule) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IdentityPoolRoleAttachmentMappingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentityPoolRoleAttachmentMappingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentityPoolRoleAttachmentMappingRule)(nil)).Elem()
+}
+
+func (o IdentityPoolRoleAttachmentMappingRuleArrayOutput) ToIdentityPoolRoleAttachmentMappingRuleArrayOutput() IdentityPoolRoleAttachmentMappingRuleArrayOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentMappingRuleArrayOutput) ToIdentityPoolRoleAttachmentMappingRuleArrayOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentMappingRuleArrayOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentMappingRuleArrayOutput) Index(i pulumi.IntInput) IdentityPoolRoleAttachmentMappingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityPoolRoleAttachmentMappingRule {
+		return vs[0].([]IdentityPoolRoleAttachmentMappingRule)[vs[1].(int)]
+	}).(IdentityPoolRoleAttachmentMappingRuleOutput)
+}
+
+type IdentityPoolRoleAttachmentRoleMapping struct {
+	AmbiguousRoleResolution *string                                           `pulumi:"ambiguousRoleResolution"`
+	IdentityProvider        *string                                           `pulumi:"identityProvider"`
+	RulesConfiguration      *IdentityPoolRoleAttachmentRulesConfigurationType `pulumi:"rulesConfiguration"`
+	Type                    string                                            `pulumi:"type"`
+}
+
+// IdentityPoolRoleAttachmentRoleMappingInput is an input type that accepts IdentityPoolRoleAttachmentRoleMappingArgs and IdentityPoolRoleAttachmentRoleMappingOutput values.
+// You can construct a concrete instance of `IdentityPoolRoleAttachmentRoleMappingInput` via:
+//
+//	IdentityPoolRoleAttachmentRoleMappingArgs{...}
+type IdentityPoolRoleAttachmentRoleMappingInput interface {
+	pulumi.Input
+
+	ToIdentityPoolRoleAttachmentRoleMappingOutput() IdentityPoolRoleAttachmentRoleMappingOutput
+	ToIdentityPoolRoleAttachmentRoleMappingOutputWithContext(context.Context) IdentityPoolRoleAttachmentRoleMappingOutput
+}
+
+type IdentityPoolRoleAttachmentRoleMappingArgs struct {
+	AmbiguousRoleResolution pulumi.StringPtrInput                                    `pulumi:"ambiguousRoleResolution"`
+	IdentityProvider        pulumi.StringPtrInput                                    `pulumi:"identityProvider"`
+	RulesConfiguration      IdentityPoolRoleAttachmentRulesConfigurationTypePtrInput `pulumi:"rulesConfiguration"`
+	Type                    pulumi.StringInput                                       `pulumi:"type"`
+}
+
+func (IdentityPoolRoleAttachmentRoleMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPoolRoleAttachmentRoleMapping)(nil)).Elem()
+}
+
+func (i IdentityPoolRoleAttachmentRoleMappingArgs) ToIdentityPoolRoleAttachmentRoleMappingOutput() IdentityPoolRoleAttachmentRoleMappingOutput {
+	return i.ToIdentityPoolRoleAttachmentRoleMappingOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolRoleAttachmentRoleMappingArgs) ToIdentityPoolRoleAttachmentRoleMappingOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentRoleMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentRoleMappingOutput)
+}
+
+// IdentityPoolRoleAttachmentRoleMappingMapInput is an input type that accepts IdentityPoolRoleAttachmentRoleMappingMap and IdentityPoolRoleAttachmentRoleMappingMapOutput values.
+// You can construct a concrete instance of `IdentityPoolRoleAttachmentRoleMappingMapInput` via:
+//
+//	IdentityPoolRoleAttachmentRoleMappingMap{ "key": IdentityPoolRoleAttachmentRoleMappingArgs{...} }
+type IdentityPoolRoleAttachmentRoleMappingMapInput interface {
+	pulumi.Input
+
+	ToIdentityPoolRoleAttachmentRoleMappingMapOutput() IdentityPoolRoleAttachmentRoleMappingMapOutput
+	ToIdentityPoolRoleAttachmentRoleMappingMapOutputWithContext(context.Context) IdentityPoolRoleAttachmentRoleMappingMapOutput
+}
+
+type IdentityPoolRoleAttachmentRoleMappingMap map[string]IdentityPoolRoleAttachmentRoleMappingInput
+
+func (IdentityPoolRoleAttachmentRoleMappingMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityPoolRoleAttachmentRoleMapping)(nil)).Elem()
+}
+
+func (i IdentityPoolRoleAttachmentRoleMappingMap) ToIdentityPoolRoleAttachmentRoleMappingMapOutput() IdentityPoolRoleAttachmentRoleMappingMapOutput {
+	return i.ToIdentityPoolRoleAttachmentRoleMappingMapOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolRoleAttachmentRoleMappingMap) ToIdentityPoolRoleAttachmentRoleMappingMapOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentRoleMappingMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentRoleMappingMapOutput)
+}
+
+type IdentityPoolRoleAttachmentRoleMappingOutput struct{ *pulumi.OutputState }
+
+func (IdentityPoolRoleAttachmentRoleMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPoolRoleAttachmentRoleMapping)(nil)).Elem()
+}
+
+func (o IdentityPoolRoleAttachmentRoleMappingOutput) ToIdentityPoolRoleAttachmentRoleMappingOutput() IdentityPoolRoleAttachmentRoleMappingOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentRoleMappingOutput) ToIdentityPoolRoleAttachmentRoleMappingOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentRoleMappingOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentRoleMappingOutput) AmbiguousRoleResolution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMapping) *string { return v.AmbiguousRoleResolution }).(pulumi.StringPtrOutput)
+}
+
+func (o IdentityPoolRoleAttachmentRoleMappingOutput) IdentityProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMapping) *string { return v.IdentityProvider }).(pulumi.StringPtrOutput)
+}
+
+func (o IdentityPoolRoleAttachmentRoleMappingOutput) RulesConfiguration() IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput {
+	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMapping) *IdentityPoolRoleAttachmentRulesConfigurationType {
+		return v.RulesConfiguration
+	}).(IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput)
+}
+
+func (o IdentityPoolRoleAttachmentRoleMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMapping) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type IdentityPoolRoleAttachmentRoleMappingMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityPoolRoleAttachmentRoleMappingMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityPoolRoleAttachmentRoleMapping)(nil)).Elem()
+}
+
+func (o IdentityPoolRoleAttachmentRoleMappingMapOutput) ToIdentityPoolRoleAttachmentRoleMappingMapOutput() IdentityPoolRoleAttachmentRoleMappingMapOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentRoleMappingMapOutput) ToIdentityPoolRoleAttachmentRoleMappingMapOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentRoleMappingMapOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentRoleMappingMapOutput) MapIndex(k pulumi.StringInput) IdentityPoolRoleAttachmentRoleMappingOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityPoolRoleAttachmentRoleMapping {
+		return vs[0].(map[string]IdentityPoolRoleAttachmentRoleMapping)[vs[1].(string)]
+	}).(IdentityPoolRoleAttachmentRoleMappingOutput)
+}
+
+type IdentityPoolRoleAttachmentRulesConfigurationType struct {
+	Rules []IdentityPoolRoleAttachmentMappingRule `pulumi:"rules"`
+}
+
+// IdentityPoolRoleAttachmentRulesConfigurationTypeInput is an input type that accepts IdentityPoolRoleAttachmentRulesConfigurationTypeArgs and IdentityPoolRoleAttachmentRulesConfigurationTypeOutput values.
+// You can construct a concrete instance of `IdentityPoolRoleAttachmentRulesConfigurationTypeInput` via:
+//
+//	IdentityPoolRoleAttachmentRulesConfigurationTypeArgs{...}
+type IdentityPoolRoleAttachmentRulesConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToIdentityPoolRoleAttachmentRulesConfigurationTypeOutput() IdentityPoolRoleAttachmentRulesConfigurationTypeOutput
+	ToIdentityPoolRoleAttachmentRulesConfigurationTypeOutputWithContext(context.Context) IdentityPoolRoleAttachmentRulesConfigurationTypeOutput
+}
+
+type IdentityPoolRoleAttachmentRulesConfigurationTypeArgs struct {
+	Rules IdentityPoolRoleAttachmentMappingRuleArrayInput `pulumi:"rules"`
+}
+
+func (IdentityPoolRoleAttachmentRulesConfigurationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPoolRoleAttachmentRulesConfigurationType)(nil)).Elem()
+}
+
+func (i IdentityPoolRoleAttachmentRulesConfigurationTypeArgs) ToIdentityPoolRoleAttachmentRulesConfigurationTypeOutput() IdentityPoolRoleAttachmentRulesConfigurationTypeOutput {
+	return i.ToIdentityPoolRoleAttachmentRulesConfigurationTypeOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolRoleAttachmentRulesConfigurationTypeArgs) ToIdentityPoolRoleAttachmentRulesConfigurationTypeOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentRulesConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentRulesConfigurationTypeOutput)
+}
+
+func (i IdentityPoolRoleAttachmentRulesConfigurationTypeArgs) ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput() IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput {
+	return i.ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolRoleAttachmentRulesConfigurationTypeArgs) ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentRulesConfigurationTypeOutput).ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutputWithContext(ctx)
+}
+
+// IdentityPoolRoleAttachmentRulesConfigurationTypePtrInput is an input type that accepts IdentityPoolRoleAttachmentRulesConfigurationTypeArgs, IdentityPoolRoleAttachmentRulesConfigurationTypePtr and IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput values.
+// You can construct a concrete instance of `IdentityPoolRoleAttachmentRulesConfigurationTypePtrInput` via:
+//
+//	        IdentityPoolRoleAttachmentRulesConfigurationTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentityPoolRoleAttachmentRulesConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput() IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput
+	ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutputWithContext(context.Context) IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput
+}
+
+type identityPoolRoleAttachmentRulesConfigurationTypePtrType IdentityPoolRoleAttachmentRulesConfigurationTypeArgs
+
+func IdentityPoolRoleAttachmentRulesConfigurationTypePtr(v *IdentityPoolRoleAttachmentRulesConfigurationTypeArgs) IdentityPoolRoleAttachmentRulesConfigurationTypePtrInput {
+	return (*identityPoolRoleAttachmentRulesConfigurationTypePtrType)(v)
+}
+
+func (*identityPoolRoleAttachmentRulesConfigurationTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityPoolRoleAttachmentRulesConfigurationType)(nil)).Elem()
+}
+
+func (i *identityPoolRoleAttachmentRulesConfigurationTypePtrType) ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput() IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput {
+	return i.ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (i *identityPoolRoleAttachmentRulesConfigurationTypePtrType) ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput)
+}
+
+type IdentityPoolRoleAttachmentRulesConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (IdentityPoolRoleAttachmentRulesConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPoolRoleAttachmentRulesConfigurationType)(nil)).Elem()
+}
+
+func (o IdentityPoolRoleAttachmentRulesConfigurationTypeOutput) ToIdentityPoolRoleAttachmentRulesConfigurationTypeOutput() IdentityPoolRoleAttachmentRulesConfigurationTypeOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentRulesConfigurationTypeOutput) ToIdentityPoolRoleAttachmentRulesConfigurationTypeOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentRulesConfigurationTypeOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentRulesConfigurationTypeOutput) ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput() IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput {
+	return o.ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o IdentityPoolRoleAttachmentRulesConfigurationTypeOutput) ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPoolRoleAttachmentRulesConfigurationType) *IdentityPoolRoleAttachmentRulesConfigurationType {
+		return &v
+	}).(IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput)
+}
+
+func (o IdentityPoolRoleAttachmentRulesConfigurationTypeOutput) Rules() IdentityPoolRoleAttachmentMappingRuleArrayOutput {
+	return o.ApplyT(func(v IdentityPoolRoleAttachmentRulesConfigurationType) []IdentityPoolRoleAttachmentMappingRule {
+		return v.Rules
+	}).(IdentityPoolRoleAttachmentMappingRuleArrayOutput)
+}
+
+type IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityPoolRoleAttachmentRulesConfigurationType)(nil)).Elem()
+}
+
+func (o IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput) ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput() IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput) ToIdentityPoolRoleAttachmentRulesConfigurationTypePtrOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput) Elem() IdentityPoolRoleAttachmentRulesConfigurationTypeOutput {
+	return o.ApplyT(func(v *IdentityPoolRoleAttachmentRulesConfigurationType) IdentityPoolRoleAttachmentRulesConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityPoolRoleAttachmentRulesConfigurationType
+		return ret
+	}).(IdentityPoolRoleAttachmentRulesConfigurationTypeOutput)
+}
+
+func (o IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput) Rules() IdentityPoolRoleAttachmentMappingRuleArrayOutput {
+	return o.ApplyT(func(v *IdentityPoolRoleAttachmentRulesConfigurationType) []IdentityPoolRoleAttachmentMappingRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(IdentityPoolRoleAttachmentMappingRuleArrayOutput)
+}
+
 type LogDeliveryConfigurationCloudWatchLogsConfiguration struct {
 	LogGroupArn *string `pulumi:"logGroupArn"`
 }
@@ -5867,6 +6228,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolCognitoStreamsPtrInput)(nil)).Elem(), IdentityPoolCognitoStreamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolPushSyncInput)(nil)).Elem(), IdentityPoolPushSyncArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolPushSyncPtrInput)(nil)).Elem(), IdentityPoolPushSyncArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentMappingRuleInput)(nil)).Elem(), IdentityPoolRoleAttachmentMappingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentMappingRuleArrayInput)(nil)).Elem(), IdentityPoolRoleAttachmentMappingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRoleMappingInput)(nil)).Elem(), IdentityPoolRoleAttachmentRoleMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRoleMappingMapInput)(nil)).Elem(), IdentityPoolRoleAttachmentRoleMappingMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRulesConfigurationTypeInput)(nil)).Elem(), IdentityPoolRoleAttachmentRulesConfigurationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRulesConfigurationTypePtrInput)(nil)).Elem(), IdentityPoolRoleAttachmentRulesConfigurationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationCloudWatchLogsConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationCloudWatchLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationCloudWatchLogsConfigurationPtrInput)(nil)).Elem(), LogDeliveryConfigurationCloudWatchLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationArgs{})
@@ -5943,6 +6310,12 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPoolCognitoStreamsPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPoolPushSyncOutput{})
 	pulumi.RegisterOutputType(IdentityPoolPushSyncPtrOutput{})
+	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentMappingRuleOutput{})
+	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentMappingRuleArrayOutput{})
+	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingOutput{})
+	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingMapOutput{})
+	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRulesConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRulesConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationCloudWatchLogsConfigurationOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationOutput{})

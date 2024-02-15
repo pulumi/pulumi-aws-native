@@ -52,16 +52,16 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetIdentityPoolRoleAttachmentResult
     {
         public readonly string? Id;
-        public readonly object? RoleMappings;
-        public readonly object? Roles;
+        public readonly ImmutableDictionary<string, Outputs.IdentityPoolRoleAttachmentRoleMapping>? RoleMappings;
+        public readonly ImmutableDictionary<string, string>? Roles;
 
         [OutputConstructor]
         private GetIdentityPoolRoleAttachmentResult(
             string? id,
 
-            object? roleMappings,
+            ImmutableDictionary<string, Outputs.IdentityPoolRoleAttachmentRoleMapping>? roleMappings,
 
-            object? roles)
+            ImmutableDictionary<string, string>? roles)
         {
             Id = id;
             RoleMappings = roleMappings;

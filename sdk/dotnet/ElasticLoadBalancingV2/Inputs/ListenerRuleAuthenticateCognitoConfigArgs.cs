@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
     public sealed class ListenerRuleAuthenticateCognitoConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationRequestExtraParams")]
-        public Input<object>? AuthenticationRequestExtraParams { get; set; }
+        private InputMap<string>? _authenticationRequestExtraParams;
+        public InputMap<string> AuthenticationRequestExtraParams
+        {
+            get => _authenticationRequestExtraParams ?? (_authenticationRequestExtraParams = new InputMap<string>());
+            set => _authenticationRequestExtraParams = value;
+        }
 
         [Input("onUnauthenticatedRequest")]
         public Input<string>? OnUnauthenticatedRequest { get; set; }

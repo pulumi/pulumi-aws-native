@@ -20,7 +20,7 @@ type SchedulingPolicy struct {
 	// Name of Scheduling Policy.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A key-value pair to associate with a resource.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewSchedulingPolicy registers a new resource with the given unique name, arguments, and options.
@@ -32,7 +32,7 @@ func NewSchedulingPolicy(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
-		"tags",
+		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -72,7 +72,7 @@ type schedulingPolicyArgs struct {
 	// Name of Scheduling Policy.
 	Name *string `pulumi:"name"`
 	// A key-value pair to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SchedulingPolicy resource.
@@ -81,7 +81,7 @@ type SchedulingPolicyArgs struct {
 	// Name of Scheduling Policy.
 	Name pulumi.StringPtrInput
 	// A key-value pair to associate with a resource.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 }
 
 func (SchedulingPolicyArgs) ElementType() reflect.Type {
@@ -135,8 +135,8 @@ func (o SchedulingPolicyOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A key-value pair to associate with a resource.
-func (o SchedulingPolicyOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SchedulingPolicy) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o SchedulingPolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

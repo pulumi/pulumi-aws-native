@@ -37,7 +37,7 @@ type LookupDomainNameResult struct {
 	RegionalDomainName      *string                            `pulumi:"regionalDomainName"`
 	RegionalHostedZoneId    *string                            `pulumi:"regionalHostedZoneId"`
 	// The collection of tags associated with a domain name.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameResultOutput {
@@ -95,8 +95,8 @@ func (o LookupDomainNameResultOutput) RegionalHostedZoneId() pulumi.StringPtrOut
 }
 
 // The collection of tags associated with a domain name.
-func (o LookupDomainNameResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupDomainNameResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupDomainNameResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

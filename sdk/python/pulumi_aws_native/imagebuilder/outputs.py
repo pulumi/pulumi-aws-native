@@ -488,7 +488,7 @@ class DistributionConfigurationAmiDistributionConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ami_tags: Optional[Any] = None,
+                 ami_tags: Optional[Mapping[str, str]] = None,
                  description: Optional[str] = None,
                  kms_key_id: Optional[str] = None,
                  launch_permission_configuration: Optional['outputs.DistributionConfigurationLaunchPermissionConfiguration'] = None,
@@ -496,7 +496,7 @@ class DistributionConfigurationAmiDistributionConfiguration(dict):
                  target_account_ids: Optional[Sequence[str]] = None):
         """
         The specific AMI settings (for example, launch permissions, AMI tags).
-        :param Any ami_tags: The tags to apply to AMIs distributed to this Region.
+        :param Mapping[str, str] ami_tags: The tags to apply to AMIs distributed to this Region.
         :param str description: The description of the AMI distribution configuration.
         :param str kms_key_id: The KMS key identifier used to encrypt the distributed image.
         :param str name: The name of the AMI distribution configuration.
@@ -517,7 +517,7 @@ class DistributionConfigurationAmiDistributionConfiguration(dict):
 
     @property
     @pulumi.getter(name="amiTags")
-    def ami_tags(self) -> Optional[Any]:
+    def ami_tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags to apply to AMIs distributed to this Region.
         """
@@ -2337,14 +2337,14 @@ class LifecyclePolicyAmiExclusionRules(dict):
                  last_launched: Optional['outputs.LifecyclePolicyLastLaunched'] = None,
                  regions: Optional[Sequence[str]] = None,
                  shared_accounts: Optional[Sequence[str]] = None,
-                 tag_map: Optional[Any] = None):
+                 tag_map: Optional[Mapping[str, str]] = None):
         """
         The AMI exclusion rules for the policy detail.
         :param bool is_public: Use to apply lifecycle policy actions on whether the AMI is public.
         :param 'LifecyclePolicyLastLaunched' last_launched: Use to apply lifecycle policy actions on AMIs launched before a certain time.
         :param Sequence[str] regions: Use to apply lifecycle policy actions on AMIs distributed to a set of regions.
         :param Sequence[str] shared_accounts: Use to apply lifecycle policy actions on AMIs shared with a set of regions.
-        :param Any tag_map: The AMIs to select by tag.
+        :param Mapping[str, str] tag_map: The AMIs to select by tag.
         """
         if is_public is not None:
             pulumi.set(__self__, "is_public", is_public)
@@ -2391,7 +2391,7 @@ class LifecyclePolicyAmiExclusionRules(dict):
 
     @property
     @pulumi.getter(name="tagMap")
-    def tag_map(self) -> Optional[Any]:
+    def tag_map(self) -> Optional[Mapping[str, str]]:
         """
         The AMIs to select by tag.
         """
@@ -2422,10 +2422,10 @@ class LifecyclePolicyExclusionRules(dict):
 
     def __init__(__self__, *,
                  amis: Optional['outputs.LifecyclePolicyAmiExclusionRules'] = None,
-                 tag_map: Optional[Any] = None):
+                 tag_map: Optional[Mapping[str, str]] = None):
         """
         The exclusion rules to apply of the policy detail.
-        :param Any tag_map: The Image Builder tags to filter on.
+        :param Mapping[str, str] tag_map: The Image Builder tags to filter on.
         """
         if amis is not None:
             pulumi.set(__self__, "amis", amis)
@@ -2439,7 +2439,7 @@ class LifecyclePolicyExclusionRules(dict):
 
     @property
     @pulumi.getter(name="tagMap")
-    def tag_map(self) -> Optional[Any]:
+    def tag_map(self) -> Optional[Mapping[str, str]]:
         """
         The Image Builder tags to filter on.
         """
@@ -2724,11 +2724,11 @@ class LifecyclePolicyResourceSelection(dict):
 
     def __init__(__self__, *,
                  recipes: Optional[Sequence['outputs.LifecyclePolicyRecipeSelection']] = None,
-                 tag_map: Optional[Any] = None):
+                 tag_map: Optional[Mapping[str, str]] = None):
         """
         The resource selection for the lifecycle policy.
         :param Sequence['LifecyclePolicyRecipeSelection'] recipes: The recipes to select.
-        :param Any tag_map: The Image Builder resources to select by tag.
+        :param Mapping[str, str] tag_map: The Image Builder resources to select by tag.
         """
         if recipes is not None:
             pulumi.set(__self__, "recipes", recipes)
@@ -2745,7 +2745,7 @@ class LifecyclePolicyResourceSelection(dict):
 
     @property
     @pulumi.getter(name="tagMap")
-    def tag_map(self) -> Optional[Any]:
+    def tag_map(self) -> Optional[Mapping[str, str]]:
         """
         The Image Builder resources to select by tag.
         """

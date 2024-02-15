@@ -18,11 +18,11 @@ class SchedulingPolicyArgs:
     def __init__(__self__, *,
                  fairshare_policy: Optional[pulumi.Input['SchedulingPolicyFairsharePolicyArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SchedulingPolicy resource.
         :param pulumi.Input[str] name: Name of Scheduling Policy.
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         if fairshare_policy is not None:
             pulumi.set(__self__, "fairshare_policy", fairshare_policy)
@@ -54,14 +54,14 @@ class SchedulingPolicyArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -72,7 +72,7 @@ class SchedulingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fairshare_policy: Optional[pulumi.Input[pulumi.InputType['SchedulingPolicyFairsharePolicyArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource Type schema for AWS::Batch::SchedulingPolicy
@@ -80,7 +80,7 @@ class SchedulingPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of Scheduling Policy.
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         ...
     @overload
@@ -108,7 +108,7 @@ class SchedulingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fairshare_policy: Optional[pulumi.Input[pulumi.InputType['SchedulingPolicyFairsharePolicyArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -122,7 +122,7 @@ class SchedulingPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SchedulingPolicy, __self__).__init__(
             'aws-native:batch:SchedulingPolicy',
@@ -172,7 +172,7 @@ class SchedulingPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A key-value pair to associate with a resource.
         """

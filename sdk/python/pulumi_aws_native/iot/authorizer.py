@@ -24,7 +24,7 @@ class AuthorizerArgs:
                  status: Optional[pulumi.Input['AuthorizerStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizerTagArgs']]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
-                 token_signing_public_keys: Optional[Any] = None):
+                 token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
         """
@@ -109,11 +109,11 @@ class AuthorizerArgs:
 
     @property
     @pulumi.getter(name="tokenSigningPublicKeys")
-    def token_signing_public_keys(self) -> Optional[Any]:
+    def token_signing_public_keys(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "token_signing_public_keys")
 
     @token_signing_public_keys.setter
-    def token_signing_public_keys(self, value: Optional[Any]):
+    def token_signing_public_keys(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "token_signing_public_keys", value)
 
 
@@ -129,7 +129,7 @@ class Authorizer(pulumi.CustomResource):
                  status: Optional[pulumi.Input['AuthorizerStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizerTagArgs']]]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
-                 token_signing_public_keys: Optional[Any] = None,
+                 token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Creates an authorizer.
@@ -168,7 +168,7 @@ class Authorizer(pulumi.CustomResource):
                  status: Optional[pulumi.Input['AuthorizerStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizerTagArgs']]]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
-                 token_signing_public_keys: Optional[Any] = None,
+                 token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -266,6 +266,6 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tokenSigningPublicKeys")
-    def token_signing_public_keys(self) -> pulumi.Output[Optional[Any]]:
+    def token_signing_public_keys(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "token_signing_public_keys")
 

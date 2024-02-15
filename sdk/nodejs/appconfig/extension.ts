@@ -37,7 +37,7 @@ export class Extension extends pulumi.CustomResource {
         return obj['__pulumiType'] === Extension.__pulumiType;
     }
 
-    public readonly actions!: pulumi.Output<any>;
+    public readonly actions!: pulumi.Output<{[key: string]: outputs.appconfig.ExtensionAction[]}>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the extension.
@@ -48,7 +48,7 @@ export class Extension extends pulumi.CustomResource {
      * Name of the extension.
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly parameters!: pulumi.Output<any | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: outputs.appconfig.ExtensionParameter} | undefined>;
     /**
      * An array of key-value tags to apply to this resource.
      */
@@ -98,7 +98,7 @@ export class Extension extends pulumi.CustomResource {
  * The set of arguments for constructing a Extension resource.
  */
 export interface ExtensionArgs {
-    actions: any;
+    actions: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionActionArgs>[]>}>;
     /**
      * Description of the extension.
      */
@@ -108,7 +108,7 @@ export interface ExtensionArgs {
      * Name of the extension.
      */
     name?: pulumi.Input<string>;
-    parameters?: any;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.appconfig.ExtensionParameterArgs>}>;
     /**
      * An array of key-value tags to apply to this resource.
      */

@@ -33,7 +33,7 @@ type Parameter struct {
 	//   [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
 	Policies pulumi.StringPtrOutput `pulumi:"policies"`
 	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The parameter tier.
 	Tier ParameterTierPtrOutput `pulumi:"tier"`
 	// The type of parameter.
@@ -107,7 +107,7 @@ type parameterArgs struct {
 	//   [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
 	Policies *string `pulumi:"policies"`
 	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The parameter tier.
 	Tier *ParameterTier `pulumi:"tier"`
 	// The type of parameter.
@@ -133,7 +133,7 @@ type ParameterArgs struct {
 	//   [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
 	Policies pulumi.StringPtrInput
 	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The parameter tier.
 	Tier ParameterTierPtrInput
 	// The type of parameter.
@@ -211,8 +211,8 @@ func (o ParameterOutput) Policies() pulumi.StringPtrOutput {
 }
 
 // Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
-func (o ParameterOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Parameter) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o ParameterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The parameter tier.

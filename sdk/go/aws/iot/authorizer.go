@@ -24,7 +24,7 @@ type Authorizer struct {
 	Status                 AuthorizerStatusPtrOutput `pulumi:"status"`
 	Tags                   AuthorizerTagArrayOutput  `pulumi:"tags"`
 	TokenKeyName           pulumi.StringPtrOutput    `pulumi:"tokenKeyName"`
-	TokenSigningPublicKeys pulumi.AnyOutput          `pulumi:"tokenSigningPublicKeys"`
+	TokenSigningPublicKeys pulumi.StringMapOutput    `pulumi:"tokenSigningPublicKeys"`
 }
 
 // NewAuthorizer registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +82,7 @@ type authorizerArgs struct {
 	Status                 *AuthorizerStatus `pulumi:"status"`
 	Tags                   []AuthorizerTag   `pulumi:"tags"`
 	TokenKeyName           *string           `pulumi:"tokenKeyName"`
-	TokenSigningPublicKeys interface{}       `pulumi:"tokenSigningPublicKeys"`
+	TokenSigningPublicKeys map[string]string `pulumi:"tokenSigningPublicKeys"`
 }
 
 // The set of arguments for constructing a Authorizer resource.
@@ -94,7 +94,7 @@ type AuthorizerArgs struct {
 	Status                 AuthorizerStatusPtrInput
 	Tags                   AuthorizerTagArrayInput
 	TokenKeyName           pulumi.StringPtrInput
-	TokenSigningPublicKeys pulumi.Input
+	TokenSigningPublicKeys pulumi.StringMapInput
 }
 
 func (AuthorizerArgs) ElementType() reflect.Type {
@@ -166,8 +166,8 @@ func (o AuthorizerOutput) TokenKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.TokenKeyName }).(pulumi.StringPtrOutput)
 }
 
-func (o AuthorizerOutput) TokenSigningPublicKeys() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Authorizer) pulumi.AnyOutput { return v.TokenSigningPublicKeys }).(pulumi.AnyOutput)
+func (o AuthorizerOutput) TokenSigningPublicKeys() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringMapOutput { return v.TokenSigningPublicKeys }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -30,7 +30,7 @@ type LookupCloudFormationProvisionedProductResult struct {
 	AcceptLanguage         *CloudFormationProvisionedProductAcceptLanguage `pulumi:"acceptLanguage"`
 	CloudformationStackArn *string                                         `pulumi:"cloudformationStackArn"`
 	// List of key-value pair outputs.
-	Outputs                  interface{}                                              `pulumi:"outputs"`
+	Outputs                  map[string]string                                        `pulumi:"outputs"`
 	PathId                   *string                                                  `pulumi:"pathId"`
 	PathName                 *string                                                  `pulumi:"pathName"`
 	ProductId                *string                                                  `pulumi:"productId"`
@@ -90,8 +90,8 @@ func (o LookupCloudFormationProvisionedProductResultOutput) CloudformationStackA
 }
 
 // List of key-value pair outputs.
-func (o LookupCloudFormationProvisionedProductResultOutput) Outputs() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupCloudFormationProvisionedProductResult) interface{} { return v.Outputs }).(pulumi.AnyOutput)
+func (o LookupCloudFormationProvisionedProductResultOutput) Outputs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCloudFormationProvisionedProductResult) map[string]string { return v.Outputs }).(pulumi.StringMapOutput)
 }
 
 func (o LookupCloudFormationProvisionedProductResultOutput) PathId() pulumi.StringPtrOutput {

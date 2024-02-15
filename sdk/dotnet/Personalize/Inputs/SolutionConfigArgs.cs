@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.Personalize.Inputs
     /// </summary>
     public sealed class SolutionConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("algorithmHyperParameters")]
+        private InputMap<string>? _algorithmHyperParameters;
+
         /// <summary>
         /// Lists the hyperparameter names and ranges.
         /// </summary>
-        [Input("algorithmHyperParameters")]
-        public Input<object>? AlgorithmHyperParameters { get; set; }
+        public InputMap<string> AlgorithmHyperParameters
+        {
+            get => _algorithmHyperParameters ?? (_algorithmHyperParameters = new InputMap<string>());
+            set => _algorithmHyperParameters = value;
+        }
 
         /// <summary>
         /// The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
@@ -33,11 +39,17 @@ namespace Pulumi.AwsNative.Personalize.Inputs
         [Input("eventValueThreshold")]
         public Input<string>? EventValueThreshold { get; set; }
 
+        [Input("featureTransformationParameters")]
+        private InputMap<string>? _featureTransformationParameters;
+
         /// <summary>
         /// Lists the feature transformation parameters.
         /// </summary>
-        [Input("featureTransformationParameters")]
-        public Input<object>? FeatureTransformationParameters { get; set; }
+        public InputMap<string> FeatureTransformationParameters
+        {
+            get => _featureTransformationParameters ?? (_featureTransformationParameters = new InputMap<string>());
+            set => _featureTransformationParameters = value;
+        }
 
         /// <summary>
         /// Describes the properties for hyperparameter optimization (HPO)

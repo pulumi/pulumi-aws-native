@@ -24,7 +24,7 @@ class ImageRecipeArgs:
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ImageRecipe resource.
@@ -35,7 +35,7 @@ class ImageRecipeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]] block_device_mappings: The block device mappings to apply when creating images from this recipe.
         :param pulumi.Input[str] description: The description of the image recipe.
         :param pulumi.Input[str] name: The name of the image recipe.
-        :param Any tags: The tags of the image recipe.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the image recipe.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         pulumi.set(__self__, "components", components)
@@ -140,14 +140,14 @@ class ImageRecipeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The tags of the image recipe.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -174,7 +174,7 @@ class ImageRecipe(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -189,7 +189,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the image recipe.
         :param pulumi.Input[str] name: The name of the image recipe.
         :param pulumi.Input[str] parent_image: The parent image of the image recipe.
-        :param Any tags: The tags of the image recipe.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the image recipe.
         :param pulumi.Input[str] version: The version of the image recipe.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
@@ -223,7 +223,7 @@ class ImageRecipe(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -251,7 +251,7 @@ class ImageRecipe(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["working_directory"] = working_directory
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["block_device_mappings[*]", "components[*]", "description", "name", "parent_image", "tags", "version", "working_directory"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["block_device_mappings[*]", "components[*]", "description", "name", "parent_image", "tags.*", "version", "working_directory"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ImageRecipe, __self__).__init__(
             'aws-native:imagebuilder:ImageRecipe',
@@ -345,7 +345,7 @@ class ImageRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the image recipe.
         """

@@ -53,7 +53,7 @@ type LookupStageResult struct {
 	// Specifies whether active tracing with X-ray is enabled for the Stage.
 	TracingEnabled *bool `pulumi:"tracingEnabled"`
 	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
-	Variables interface{} `pulumi:"variables"`
+	Variables map[string]string `pulumi:"variables"`
 }
 
 func LookupStageOutput(ctx *pulumi.Context, args LookupStageOutputArgs, opts ...pulumi.InvokeOption) LookupStageResultOutput {
@@ -150,8 +150,8 @@ func (o LookupStageResultOutput) TracingEnabled() pulumi.BoolPtrOutput {
 }
 
 // A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: “[A-Za-z0-9-._~:/?#&=,]+“.
-func (o LookupStageResultOutput) Variables() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupStageResult) interface{} { return v.Variables }).(pulumi.AnyOutput)
+func (o LookupStageResultOutput) Variables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupStageResult) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
 
 func init() {

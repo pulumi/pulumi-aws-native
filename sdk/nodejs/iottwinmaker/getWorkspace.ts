@@ -46,7 +46,7 @@ export interface GetWorkspaceResult {
     /**
      * A map of key-value pairs to associate with a resource.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     /**
      * The date and time of the current update.
      */

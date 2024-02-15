@@ -19,7 +19,7 @@ type BackupPlan struct {
 	BackupPlan     BackupPlanResourceTypeOutput `pulumi:"backupPlan"`
 	BackupPlanArn  pulumi.StringOutput          `pulumi:"backupPlanArn"`
 	BackupPlanId   pulumi.StringOutput          `pulumi:"backupPlanId"`
-	BackupPlanTags pulumi.AnyOutput             `pulumi:"backupPlanTags"`
+	BackupPlanTags pulumi.StringMapOutput       `pulumi:"backupPlanTags"`
 	VersionId      pulumi.StringOutput          `pulumi:"versionId"`
 }
 
@@ -67,13 +67,13 @@ func (BackupPlanState) ElementType() reflect.Type {
 
 type backupPlanArgs struct {
 	BackupPlan     BackupPlanResourceType `pulumi:"backupPlan"`
-	BackupPlanTags interface{}            `pulumi:"backupPlanTags"`
+	BackupPlanTags map[string]string      `pulumi:"backupPlanTags"`
 }
 
 // The set of arguments for constructing a BackupPlan resource.
 type BackupPlanArgs struct {
 	BackupPlan     BackupPlanResourceTypeInput
-	BackupPlanTags pulumi.Input
+	BackupPlanTags pulumi.StringMapInput
 }
 
 func (BackupPlanArgs) ElementType() reflect.Type {
@@ -125,8 +125,8 @@ func (o BackupPlanOutput) BackupPlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPlan) pulumi.StringOutput { return v.BackupPlanId }).(pulumi.StringOutput)
 }
 
-func (o BackupPlanOutput) BackupPlanTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *BackupPlan) pulumi.AnyOutput { return v.BackupPlanTags }).(pulumi.AnyOutput)
+func (o BackupPlanOutput) BackupPlanTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BackupPlan) pulumi.StringMapOutput { return v.BackupPlanTags }).(pulumi.StringMapOutput)
 }
 
 func (o BackupPlanOutput) VersionId() pulumi.StringOutput {

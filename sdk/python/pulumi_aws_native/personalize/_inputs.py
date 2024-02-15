@@ -427,17 +427,17 @@ class SolutionConfigHpoConfigPropertiesArgs:
 @pulumi.input_type
 class SolutionConfigArgs:
     def __init__(__self__, *,
-                 algorithm_hyper_parameters: Optional[Any] = None,
+                 algorithm_hyper_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auto_ml_config: Optional[pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgs']] = None,
                  event_value_threshold: Optional[pulumi.Input[str]] = None,
-                 feature_transformation_parameters: Optional[Any] = None,
+                 feature_transformation_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  hpo_config: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesArgs']] = None):
         """
         The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
-        :param Any algorithm_hyper_parameters: Lists the hyperparameter names and ranges.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] algorithm_hyper_parameters: Lists the hyperparameter names and ranges.
         :param pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgs'] auto_ml_config: The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
         :param pulumi.Input[str] event_value_threshold: Only events with a value greater than or equal to this threshold are used for training a model.
-        :param Any feature_transformation_parameters: Lists the feature transformation parameters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] feature_transformation_parameters: Lists the feature transformation parameters.
         :param pulumi.Input['SolutionConfigHpoConfigPropertiesArgs'] hpo_config: Describes the properties for hyperparameter optimization (HPO)
         """
         if algorithm_hyper_parameters is not None:
@@ -453,14 +453,14 @@ class SolutionConfigArgs:
 
     @property
     @pulumi.getter(name="algorithmHyperParameters")
-    def algorithm_hyper_parameters(self) -> Optional[Any]:
+    def algorithm_hyper_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Lists the hyperparameter names and ranges.
         """
         return pulumi.get(self, "algorithm_hyper_parameters")
 
     @algorithm_hyper_parameters.setter
-    def algorithm_hyper_parameters(self, value: Optional[Any]):
+    def algorithm_hyper_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "algorithm_hyper_parameters", value)
 
     @property
@@ -489,14 +489,14 @@ class SolutionConfigArgs:
 
     @property
     @pulumi.getter(name="featureTransformationParameters")
-    def feature_transformation_parameters(self) -> Optional[Any]:
+    def feature_transformation_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Lists the feature transformation parameters.
         """
         return pulumi.get(self, "feature_transformation_parameters")
 
     @feature_transformation_parameters.setter
-    def feature_transformation_parameters(self, value: Optional[Any]):
+    def feature_transformation_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "feature_transformation_parameters", value)
 
     @property

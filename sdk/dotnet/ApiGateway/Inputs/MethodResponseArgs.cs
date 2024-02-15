@@ -15,17 +15,29 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
     /// </summary>
     public sealed class MethodResponseArgs : global::Pulumi.ResourceArgs
     {
+        [Input("responseModels")]
+        private InputMap<string>? _responseModels;
+
         /// <summary>
         /// Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
         /// </summary>
-        [Input("responseModels")]
-        public Input<object>? ResponseModels { get; set; }
+        public InputMap<string> ResponseModels
+        {
+            get => _responseModels ?? (_responseModels = new InputMap<string>());
+            set => _responseModels = value;
+        }
+
+        [Input("responseParameters")]
+        private InputMap<bool>? _responseParameters;
 
         /// <summary>
         /// A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         /// </summary>
-        [Input("responseParameters")]
-        public Input<object>? ResponseParameters { get; set; }
+        public InputMap<bool> ResponseParameters
+        {
+            get => _responseParameters ?? (_responseParameters = new InputMap<bool>());
+            set => _responseParameters = value;
+        }
 
         /// <summary>
         /// The method response's status code.

@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Batch
         /// A key-value pair to associate with a resource.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Batch
                     "computeEnvironmentName",
                     "computeResources.spotIamFleetRole",
                     "eksConfiguration",
-                    "tags",
+                    "tags.*",
                     "type",
                 },
             };
@@ -122,11 +122,17 @@ namespace Pulumi.AwsNative.Batch
         [Input("state")]
         public Input<string>? State { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

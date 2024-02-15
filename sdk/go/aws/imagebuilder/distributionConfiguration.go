@@ -25,7 +25,7 @@ type DistributionConfiguration struct {
 	// The name of the distribution configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The tags associated with the component.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewDistributionConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +82,7 @@ type distributionConfigurationArgs struct {
 	// The name of the distribution configuration.
 	Name *string `pulumi:"name"`
 	// The tags associated with the component.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DistributionConfiguration resource.
@@ -94,7 +94,7 @@ type DistributionConfigurationArgs struct {
 	// The name of the distribution configuration.
 	Name pulumi.StringPtrInput
 	// The tags associated with the component.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 }
 
 func (DistributionConfigurationArgs) ElementType() reflect.Type {
@@ -157,8 +157,8 @@ func (o DistributionConfigurationOutput) Name() pulumi.StringOutput {
 }
 
 // The tags associated with the component.
-func (o DistributionConfigurationOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DistributionConfiguration) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o DistributionConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

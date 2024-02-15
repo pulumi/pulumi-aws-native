@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&amp;=,]+``.
         /// </summary>
         [Output("variables")]
-        public Output<object?> Variables { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Variables { get; private set; } = null!;
 
 
         /// <summary>
@@ -239,11 +239,17 @@ namespace Pulumi.AwsNative.ApiGateway
         [Input("tracingEnabled")]
         public Input<bool>? TracingEnabled { get; set; }
 
+        [Input("variables")]
+        private InputMap<string>? _variables;
+
         /// <summary>
         /// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&amp;=,]+``.
         /// </summary>
-        [Input("variables")]
-        public Input<object>? Variables { get; set; }
+        public InputMap<string> Variables
+        {
+            get => _variables ?? (_variables = new InputMap<string>());
+            set => _variables = value;
+        }
 
         public StageArgs()
         {

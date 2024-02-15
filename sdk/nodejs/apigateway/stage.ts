@@ -92,7 +92,7 @@ export class Stage extends pulumi.CustomResource {
     /**
      * A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
      */
-    public readonly variables!: pulumi.Output<any | undefined>;
+    public readonly variables!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Stage resource with the given unique name, arguments, and options.
@@ -204,5 +204,5 @@ export interface StageArgs {
     /**
      * A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
      */
-    variables?: any;
+    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

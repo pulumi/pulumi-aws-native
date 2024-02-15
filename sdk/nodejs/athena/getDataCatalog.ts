@@ -33,7 +33,7 @@ export interface GetDataCatalogResult {
     /**
      * Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
      */
-    readonly parameters?: any;
+    readonly parameters?: {[key: string]: string};
     /**
      * A list of comma separated tags to add to the data catalog that is created. 
      */

@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The tags associated with the component.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the component denotes whether the component is used to build the image or only to test it. 
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.ImageBuilder
                     "name",
                     "platform",
                     "supportedOsVersions[*]",
-                    "tags",
+                    "tags.*",
                     "uri",
                     "version",
                 },
@@ -199,11 +199,17 @@ namespace Pulumi.AwsNative.ImageBuilder
             set => _supportedOsVersions = value;
         }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// The tags associated with the component.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The uri of the component.

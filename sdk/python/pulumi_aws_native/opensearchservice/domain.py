@@ -17,7 +17,7 @@ __all__ = ['DomainArgs', 'Domain']
 class DomainArgs:
     def __init__(__self__, *,
                  access_policies: Optional[Any] = None,
-                 advanced_options: Optional[Any] = None,
+                 advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsInputArgs']] = None,
                  cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
@@ -27,7 +27,7 @@ class DomainArgs:
                  encryption_at_rest_options: Optional[pulumi.Input['DomainEncryptionAtRestOptionsArgs']] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
-                 log_publishing_options: Optional[Any] = None,
+                 log_publishing_options: Optional[pulumi.Input[Mapping[str, pulumi.Input['DomainLogPublishingOptionArgs']]]] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input['DomainNodeToNodeEncryptionOptionsArgs']] = None,
                  off_peak_window_options: Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']] = None,
                  snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
@@ -86,11 +86,11 @@ class DomainArgs:
 
     @property
     @pulumi.getter(name="advancedOptions")
-    def advanced_options(self) -> Optional[Any]:
+    def advanced_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "advanced_options")
 
     @advanced_options.setter
-    def advanced_options(self, value: Optional[Any]):
+    def advanced_options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "advanced_options", value)
 
     @property
@@ -176,11 +176,11 @@ class DomainArgs:
 
     @property
     @pulumi.getter(name="logPublishingOptions")
-    def log_publishing_options(self) -> Optional[Any]:
+    def log_publishing_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DomainLogPublishingOptionArgs']]]]:
         return pulumi.get(self, "log_publishing_options")
 
     @log_publishing_options.setter
-    def log_publishing_options(self, value: Optional[Any]):
+    def log_publishing_options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DomainLogPublishingOptionArgs']]]]):
         pulumi.set(self, "log_publishing_options", value)
 
     @property
@@ -247,7 +247,7 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policies: Optional[Any] = None,
-                 advanced_options: Optional[Any] = None,
+                 advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsInputArgs']]] = None,
                  cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']]] = None,
                  cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
@@ -257,7 +257,7 @@ class Domain(pulumi.CustomResource):
                  encryption_at_rest_options: Optional[pulumi.Input[pulumi.InputType['DomainEncryptionAtRestOptionsArgs']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
-                 log_publishing_options: Optional[Any] = None,
+                 log_publishing_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]]] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionOptionsArgs']]] = None,
                  off_peak_window_options: Optional[pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']]] = None,
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
@@ -297,7 +297,7 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policies: Optional[Any] = None,
-                 advanced_options: Optional[Any] = None,
+                 advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsInputArgs']]] = None,
                  cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']]] = None,
                  cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
@@ -307,7 +307,7 @@ class Domain(pulumi.CustomResource):
                  encryption_at_rest_options: Optional[pulumi.Input[pulumi.InputType['DomainEncryptionAtRestOptionsArgs']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
-                 log_publishing_options: Optional[Any] = None,
+                 log_publishing_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]]] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionOptionsArgs']]] = None,
                  off_peak_window_options: Optional[pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']]] = None,
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
@@ -404,7 +404,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="advancedOptions")
-    def advanced_options(self) -> pulumi.Output[Optional[Any]]:
+    def advanced_options(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "advanced_options")
 
     @property
@@ -449,7 +449,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainEndpoints")
-    def domain_endpoints(self) -> pulumi.Output[Any]:
+    def domain_endpoints(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "domain_endpoints")
 
     @property
@@ -479,7 +479,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logPublishingOptions")
-    def log_publishing_options(self) -> pulumi.Output[Optional[Any]]:
+    def log_publishing_options(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DomainLogPublishingOption']]]:
         return pulumi.get(self, "log_publishing_options")
 
     @property

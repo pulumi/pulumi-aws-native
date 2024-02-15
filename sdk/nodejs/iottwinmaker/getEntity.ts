@@ -38,11 +38,11 @@ export interface GetEntityResult {
     /**
      * A map that sets information about a component type.
      */
-    readonly components?: any;
+    readonly components?: {[key: string]: outputs.iottwinmaker.EntityComponent};
     /**
      * A map that sets information about a composite component.
      */
-    readonly compositeComponents?: any;
+    readonly compositeComponents?: {[key: string]: outputs.iottwinmaker.EntityCompositeComponent};
     /**
      * The date and time when the entity was created.
      */
@@ -70,7 +70,7 @@ export interface GetEntityResult {
     /**
      * A key-value pair to associate with a resource.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     /**
      * The last date and time when the entity was updated.
      */

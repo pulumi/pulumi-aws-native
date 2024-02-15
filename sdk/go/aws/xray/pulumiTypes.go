@@ -277,7 +277,7 @@ func (o GroupTagArrayOutput) Index(i pulumi.IntInput) GroupTagOutput {
 
 type SamplingRuleType struct {
 	// Matches attributes derived from the request.
-	Attributes interface{} `pulumi:"attributes"`
+	Attributes map[string]string `pulumi:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
 	FixedRate float64 `pulumi:"fixedRate"`
 	// Matches the hostname from a request URL.
@@ -315,7 +315,7 @@ type SamplingRuleTypeInput interface {
 
 type SamplingRuleTypeArgs struct {
 	// Matches attributes derived from the request.
-	Attributes pulumi.Input `pulumi:"attributes"`
+	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
 	FixedRate pulumi.Float64Input `pulumi:"fixedRate"`
 	// Matches the hostname from a request URL.
@@ -418,8 +418,8 @@ func (o SamplingRuleTypeOutput) ToSamplingRuleTypePtrOutputWithContext(ctx conte
 }
 
 // Matches attributes derived from the request.
-func (o SamplingRuleTypeOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v SamplingRuleType) interface{} { return v.Attributes }).(pulumi.AnyOutput)
+func (o SamplingRuleTypeOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SamplingRuleType) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 // The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -505,13 +505,13 @@ func (o SamplingRuleTypePtrOutput) Elem() SamplingRuleTypeOutput {
 }
 
 // Matches attributes derived from the request.
-func (o SamplingRuleTypePtrOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SamplingRuleType) interface{} {
+func (o SamplingRuleTypePtrOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SamplingRuleType) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Attributes
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -911,7 +911,7 @@ func (o SamplingRuleTagArrayOutput) Index(i pulumi.IntInput) SamplingRuleTagOutp
 
 type SamplingRuleUpdate struct {
 	// Matches attributes derived from the request.
-	Attributes interface{} `pulumi:"attributes"`
+	Attributes map[string]string `pulumi:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
 	FixedRate *float64 `pulumi:"fixedRate"`
 	// Matches the hostname from a request URL.
@@ -947,7 +947,7 @@ type SamplingRuleUpdateInput interface {
 
 type SamplingRuleUpdateArgs struct {
 	// Matches attributes derived from the request.
-	Attributes pulumi.Input `pulumi:"attributes"`
+	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
 	FixedRate pulumi.Float64PtrInput `pulumi:"fixedRate"`
 	// Matches the hostname from a request URL.
@@ -1048,8 +1048,8 @@ func (o SamplingRuleUpdateOutput) ToSamplingRuleUpdatePtrOutputWithContext(ctx c
 }
 
 // Matches attributes derived from the request.
-func (o SamplingRuleUpdateOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v SamplingRuleUpdate) interface{} { return v.Attributes }).(pulumi.AnyOutput)
+func (o SamplingRuleUpdateOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 // The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -1130,13 +1130,13 @@ func (o SamplingRuleUpdatePtrOutput) Elem() SamplingRuleUpdateOutput {
 }
 
 // Matches attributes derived from the request.
-func (o SamplingRuleUpdatePtrOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SamplingRuleUpdate) interface{} {
+func (o SamplingRuleUpdatePtrOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Attributes
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The percentage of matching requests to instrument, after the reservoir is exhausted.

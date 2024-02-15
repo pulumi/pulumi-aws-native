@@ -25,7 +25,7 @@ class ImageArgs:
                  image_scanning_configuration: Optional[pulumi.Input['ImageScanningConfigurationArgs']] = None,
                  image_tests_configuration: Optional[pulumi.Input['ImageTestsConfigurationArgs']] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImageWorkflowConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Image resource.
@@ -37,7 +37,7 @@ class ImageArgs:
         :param pulumi.Input['ImageScanningConfigurationArgs'] image_scanning_configuration: Contains settings for vulnerability scans.
         :param pulumi.Input['ImageTestsConfigurationArgs'] image_tests_configuration: The image tests configuration used when creating this image.
         :param pulumi.Input[str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration.
-        :param Any tags: The tags associated with the image.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the image.
         :param pulumi.Input[Sequence[pulumi.Input['ImageWorkflowConfigurationArgs']]] workflows: Workflows to define the image build process
         """
         if container_recipe_arn is not None:
@@ -159,14 +159,14 @@ class ImageArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The tags associated with the image.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -195,7 +195,7 @@ class Image(pulumi.CustomResource):
                  image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImageScanningConfigurationArgs']]] = None,
                  image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageTestsConfigurationArgs']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageWorkflowConfigurationArgs']]]]] = None,
                  __props__=None):
         """
@@ -211,7 +211,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ImageScanningConfigurationArgs']] image_scanning_configuration: Contains settings for vulnerability scans.
         :param pulumi.Input[pulumi.InputType['ImageTestsConfigurationArgs']] image_tests_configuration: The image tests configuration used when creating this image.
         :param pulumi.Input[str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration.
-        :param Any tags: The tags associated with the image.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the image.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageWorkflowConfigurationArgs']]]] workflows: Workflows to define the image build process
         """
         ...
@@ -246,7 +246,7 @@ class Image(pulumi.CustomResource):
                  image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImageScanningConfigurationArgs']]] = None,
                  image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageTestsConfigurationArgs']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageWorkflowConfigurationArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -271,7 +271,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["image_id"] = None
             __props__.__dict__["image_uri"] = None
             __props__.__dict__["name"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["container_recipe_arn", "distribution_configuration_arn", "enhanced_image_metadata_enabled", "image_recipe_arn", "image_scanning_configuration", "image_tests_configuration", "infrastructure_configuration_arn", "tags", "workflows[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["container_recipe_arn", "distribution_configuration_arn", "enhanced_image_metadata_enabled", "image_recipe_arn", "image_scanning_configuration", "image_tests_configuration", "infrastructure_configuration_arn", "tags.*", "workflows[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Image, __self__).__init__(
             'aws-native:imagebuilder:Image',
@@ -409,7 +409,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags associated with the image.
         """

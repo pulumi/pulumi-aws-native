@@ -36,7 +36,7 @@ class UserPoolArgs:
                  user_attribute_update_settings: Optional[pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs']] = None,
                  user_pool_add_ons: Optional[pulumi.Input['UserPoolAddOnsArgs']] = None,
                  user_pool_name: Optional[pulumi.Input[str]] = None,
-                 user_pool_tags: Optional[Any] = None,
+                 user_pool_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  username_configuration: Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']] = None,
                  verification_message_template: Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']] = None):
@@ -274,11 +274,11 @@ class UserPoolArgs:
 
     @property
     @pulumi.getter(name="userPoolTags")
-    def user_pool_tags(self) -> Optional[Any]:
+    def user_pool_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "user_pool_tags")
 
     @user_pool_tags.setter
-    def user_pool_tags(self, value: Optional[Any]):
+    def user_pool_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "user_pool_tags", value)
 
     @property
@@ -334,7 +334,7 @@ class UserPool(pulumi.CustomResource):
                  user_attribute_update_settings: Optional[pulumi.Input[pulumi.InputType['UserPoolUserAttributeUpdateSettingsArgs']]] = None,
                  user_pool_add_ons: Optional[pulumi.Input[pulumi.InputType['UserPoolAddOnsArgs']]] = None,
                  user_pool_name: Optional[pulumi.Input[str]] = None,
-                 user_pool_tags: Optional[Any] = None,
+                 user_pool_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  username_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolUsernameConfigurationArgs']]] = None,
                  verification_message_template: Optional[pulumi.Input[pulumi.InputType['UserPoolVerificationMessageTemplateArgs']]] = None,
@@ -389,7 +389,7 @@ class UserPool(pulumi.CustomResource):
                  user_attribute_update_settings: Optional[pulumi.Input[pulumi.InputType['UserPoolUserAttributeUpdateSettingsArgs']]] = None,
                  user_pool_add_ons: Optional[pulumi.Input[pulumi.InputType['UserPoolAddOnsArgs']]] = None,
                  user_pool_name: Optional[pulumi.Input[str]] = None,
-                 user_pool_tags: Optional[Any] = None,
+                 user_pool_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  username_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolUsernameConfigurationArgs']]] = None,
                  verification_message_template: Optional[pulumi.Input[pulumi.InputType['UserPoolVerificationMessageTemplateArgs']]] = None,
@@ -604,7 +604,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userPoolTags")
-    def user_pool_tags(self) -> pulumi.Output[Optional[Any]]:
+    def user_pool_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "user_pool_tags")
 
     @property

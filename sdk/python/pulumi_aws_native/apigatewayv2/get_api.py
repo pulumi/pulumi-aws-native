@@ -111,7 +111,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The collection of tags. Each tag element is associated with a given resource.
         """

@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// A key-value pair of generated scene metadata for the scene.
         /// </summary>
         [Output("generatedSceneMetadata")]
-        public Output<object> GeneratedSceneMetadata { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> GeneratedSceneMetadata { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the scene.
@@ -61,13 +61,13 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// A key-value pair of scene metadata for the scene.
         /// </summary>
         [Output("sceneMetadata")]
-        public Output<object?> SceneMetadata { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> SceneMetadata { get; private set; } = null!;
 
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The date and time of the current update.
@@ -161,17 +161,29 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         [Input("sceneId", required: true)]
         public Input<string> SceneId { get; set; } = null!;
 
+        [Input("sceneMetadata")]
+        private InputMap<string>? _sceneMetadata;
+
         /// <summary>
         /// A key-value pair of scene metadata for the scene.
         /// </summary>
-        [Input("sceneMetadata")]
-        public Input<object>? SceneMetadata { get; set; }
+        public InputMap<string> SceneMetadata
+        {
+            get => _sceneMetadata ?? (_sceneMetadata = new InputMap<string>());
+            set => _sceneMetadata = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The ID of the scene.

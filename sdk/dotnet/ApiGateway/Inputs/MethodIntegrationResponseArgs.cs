@@ -22,17 +22,29 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         [Input("contentHandling")]
         public Input<Pulumi.AwsNative.ApiGateway.MethodIntegrationResponseContentHandling>? ContentHandling { get; set; }
 
+        [Input("responseParameters")]
+        private InputMap<string>? _responseParameters;
+
         /// <summary>
         /// A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
         /// </summary>
-        [Input("responseParameters")]
-        public Input<object>? ResponseParameters { get; set; }
+        public InputMap<string> ResponseParameters
+        {
+            get => _responseParameters ?? (_responseParameters = new InputMap<string>());
+            set => _responseParameters = value;
+        }
+
+        [Input("responseTemplates")]
+        private InputMap<string>? _responseTemplates;
 
         /// <summary>
         /// Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
         /// </summary>
-        [Input("responseTemplates")]
-        public Input<object>? ResponseTemplates { get; set; }
+        public InputMap<string> ResponseTemplates
+        {
+            get => _responseTemplates ?? (_responseTemplates = new InputMap<string>());
+            set => _responseTemplates = value;
+        }
 
         /// <summary>
         /// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.

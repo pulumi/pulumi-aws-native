@@ -32,8 +32,11 @@ __all__ = [
     'RuleGroupCustomActionArgs',
     'RuleGroupDimensionArgs',
     'RuleGroupHeaderArgs',
+    'RuleGroupIpSetReferenceArgs',
+    'RuleGroupIpSetArgs',
     'RuleGroupMatchAttributesArgs',
     'RuleGroupPortRangeArgs',
+    'RuleGroupPortSetArgs',
     'RuleGroupPublishMetricActionArgs',
     'RuleGroupReferenceSetsArgs',
     'RuleGroupRuleDefinitionArgs',
@@ -476,11 +479,11 @@ class FirewallTagArgs:
 @pulumi.input_type
 class LoggingConfigurationLogDestinationConfigArgs:
     def __init__(__self__, *,
-                 log_destination: Any,
+                 log_destination: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  log_destination_type: pulumi.Input['LoggingConfigurationLogDestinationConfigLogDestinationType'],
                  log_type: pulumi.Input['LoggingConfigurationLogDestinationConfigLogType']):
         """
-        :param Any log_destination: A key-value pair to configure the logDestinations.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] log_destination: A key-value pair to configure the logDestinations.
         """
         pulumi.set(__self__, "log_destination", log_destination)
         pulumi.set(__self__, "log_destination_type", log_destination_type)
@@ -488,14 +491,14 @@ class LoggingConfigurationLogDestinationConfigArgs:
 
     @property
     @pulumi.getter(name="logDestination")
-    def log_destination(self) -> Any:
+    def log_destination(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
         A key-value pair to configure the logDestinations.
         """
         return pulumi.get(self, "log_destination")
 
     @log_destination.setter
-    def log_destination(self, value: Any):
+    def log_destination(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "log_destination", value)
 
     @property
@@ -681,6 +684,40 @@ class RuleGroupHeaderArgs:
 
 
 @pulumi.input_type
+class RuleGroupIpSetReferenceArgs:
+    def __init__(__self__, *,
+                 reference_arn: Optional[pulumi.Input[str]] = None):
+        if reference_arn is not None:
+            pulumi.set(__self__, "reference_arn", reference_arn)
+
+    @property
+    @pulumi.getter(name="referenceArn")
+    def reference_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "reference_arn")
+
+    @reference_arn.setter
+    def reference_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reference_arn", value)
+
+
+@pulumi.input_type
+class RuleGroupIpSetArgs:
+    def __init__(__self__, *,
+                 definition: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "definition", value)
+
+
+@pulumi.input_type
 class RuleGroupMatchAttributesArgs:
     def __init__(__self__, *,
                  destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]] = None,
@@ -785,6 +822,23 @@ class RuleGroupPortRangeArgs:
 
 
 @pulumi.input_type
+class RuleGroupPortSetArgs:
+    def __init__(__self__, *,
+                 definition: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "definition", value)
+
+
+@pulumi.input_type
 class RuleGroupPublishMetricActionArgs:
     def __init__(__self__, *,
                  dimensions: pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]]):
@@ -803,17 +857,17 @@ class RuleGroupPublishMetricActionArgs:
 @pulumi.input_type
 class RuleGroupReferenceSetsArgs:
     def __init__(__self__, *,
-                 ip_set_references: Optional[Any] = None):
+                 ip_set_references: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupIpSetReferenceArgs']]]] = None):
         if ip_set_references is not None:
             pulumi.set(__self__, "ip_set_references", ip_set_references)
 
     @property
     @pulumi.getter(name="ipSetReferences")
-    def ip_set_references(self) -> Optional[Any]:
+    def ip_set_references(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupIpSetReferenceArgs']]]]:
         return pulumi.get(self, "ip_set_references")
 
     @ip_set_references.setter
-    def ip_set_references(self, value: Optional[Any]):
+    def ip_set_references(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupIpSetReferenceArgs']]]]):
         pulumi.set(self, "ip_set_references", value)
 
 
@@ -875,8 +929,8 @@ class RuleGroupRuleOptionArgs:
 @pulumi.input_type
 class RuleGroupRuleVariablesArgs:
     def __init__(__self__, *,
-                 ip_sets: Optional[Any] = None,
-                 port_sets: Optional[Any] = None):
+                 ip_sets: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupIpSetArgs']]]] = None,
+                 port_sets: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupPortSetArgs']]]] = None):
         if ip_sets is not None:
             pulumi.set(__self__, "ip_sets", ip_sets)
         if port_sets is not None:
@@ -884,20 +938,20 @@ class RuleGroupRuleVariablesArgs:
 
     @property
     @pulumi.getter(name="ipSets")
-    def ip_sets(self) -> Optional[Any]:
+    def ip_sets(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupIpSetArgs']]]]:
         return pulumi.get(self, "ip_sets")
 
     @ip_sets.setter
-    def ip_sets(self, value: Optional[Any]):
+    def ip_sets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupIpSetArgs']]]]):
         pulumi.set(self, "ip_sets", value)
 
     @property
     @pulumi.getter(name="portSets")
-    def port_sets(self) -> Optional[Any]:
+    def port_sets(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupPortSetArgs']]]]:
         return pulumi.get(self, "port_sets")
 
     @port_sets.setter
-    def port_sets(self, value: Optional[Any]):
+    def port_sets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupPortSetArgs']]]]):
         pulumi.set(self, "port_sets", value)
 
 

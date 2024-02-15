@@ -16,15 +16,15 @@ class GatewayResponseArgs:
     def __init__(__self__, *,
                  response_type: pulumi.Input[str],
                  rest_api_id: pulumi.Input[str],
-                 response_parameters: Optional[Any] = None,
-                 response_templates: Optional[Any] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  status_code: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GatewayResponse resource.
         :param pulumi.Input[str] response_type: The response type of the associated GatewayResponse.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
-        :param Any response_parameters: Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
-        :param Any response_templates: Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
         :param pulumi.Input[str] status_code: The HTTP status code for this GatewayResponse.
         """
         pulumi.set(__self__, "response_type", response_type)
@@ -62,26 +62,26 @@ class GatewayResponseArgs:
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[Any]:
+    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[Any]):
+    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "response_parameters", value)
 
     @property
     @pulumi.getter(name="responseTemplates")
-    def response_templates(self) -> Optional[Any]:
+    def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
         """
         return pulumi.get(self, "response_templates")
 
     @response_templates.setter
-    def response_templates(self, value: Optional[Any]):
+    def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "response_templates", value)
 
     @property
@@ -107,8 +107,8 @@ class GatewayResponse(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 response_parameters: Optional[Any] = None,
-                 response_templates: Optional[Any] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  response_type: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  status_code: Optional[pulumi.Input[str]] = None,
@@ -118,8 +118,8 @@ class GatewayResponse(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any response_parameters: Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
-        :param Any response_templates: Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
         :param pulumi.Input[str] response_type: The response type of the associated GatewayResponse.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[str] status_code: The HTTP status code for this GatewayResponse.
@@ -148,8 +148,8 @@ class GatewayResponse(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 response_parameters: Optional[Any] = None,
-                 response_templates: Optional[Any] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  response_type: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  status_code: Optional[pulumi.Input[str]] = None,
@@ -205,7 +205,7 @@ class GatewayResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> pulumi.Output[Optional[Any]]:
+    def response_parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
         """
@@ -213,7 +213,7 @@ class GatewayResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseTemplates")
-    def response_templates(self) -> pulumi.Output[Optional[Any]]:
+    def response_templates(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
         """

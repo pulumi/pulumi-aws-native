@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     public sealed class TaskDefinitionFirelensConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("options")]
-        public Input<object>? Options { get; set; }
+        private InputMap<string>? _options;
+        public InputMap<string> Options
+        {
+            get => _options ?? (_options = new InputMap<string>());
+            set => _options = value;
+        }
 
         [Input("type")]
         public Input<string>? Type { get; set; }

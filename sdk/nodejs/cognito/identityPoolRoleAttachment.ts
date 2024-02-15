@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -35,8 +38,8 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     }
 
     public readonly identityPoolId!: pulumi.Output<string>;
-    public readonly roleMappings!: pulumi.Output<any | undefined>;
-    public readonly roles!: pulumi.Output<any | undefined>;
+    public readonly roleMappings!: pulumi.Output<{[key: string]: outputs.cognito.IdentityPoolRoleAttachmentRoleMapping} | undefined>;
+    public readonly roles!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a IdentityPoolRoleAttachment resource with the given unique name, arguments, and options.
@@ -72,6 +75,6 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
  */
 export interface IdentityPoolRoleAttachmentArgs {
     identityPoolId: pulumi.Input<string>;
-    roleMappings?: any;
-    roles?: any;
+    roleMappings?: pulumi.Input<{[key: string]: pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoleMappingArgs>}>;
+    roles?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

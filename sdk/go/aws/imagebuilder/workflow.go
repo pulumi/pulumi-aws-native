@@ -29,7 +29,7 @@ type Workflow struct {
 	// The name of the workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The tags associated with the workflow.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the workflow denotes whether the workflow is used to build, test, or distribute.
 	Type WorkflowTypeOutput `pulumi:"type"`
 	// The uri of the workflow.
@@ -57,7 +57,7 @@ func NewWorkflow(ctx *pulumi.Context,
 		"description",
 		"kmsKeyId",
 		"name",
-		"tags",
+		"tags.*",
 		"type",
 		"uri",
 		"version",
@@ -107,7 +107,7 @@ type workflowArgs struct {
 	// The name of the workflow.
 	Name *string `pulumi:"name"`
 	// The tags associated with the workflow.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the workflow denotes whether the workflow is used to build, test, or distribute.
 	Type WorkflowType `pulumi:"type"`
 	// The uri of the workflow.
@@ -129,7 +129,7 @@ type WorkflowArgs struct {
 	// The name of the workflow.
 	Name pulumi.StringPtrInput
 	// The tags associated with the workflow.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The type of the workflow denotes whether the workflow is used to build, test, or distribute.
 	Type WorkflowTypeInput
 	// The uri of the workflow.
@@ -206,8 +206,8 @@ func (o WorkflowOutput) Name() pulumi.StringOutput {
 }
 
 // The tags associated with the workflow.
-func (o WorkflowOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Workflow) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of the workflow denotes whether the workflow is used to build, test, or distribute.

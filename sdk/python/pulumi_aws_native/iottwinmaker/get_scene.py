@@ -89,7 +89,7 @@ class GetSceneResult:
 
     @property
     @pulumi.getter(name="generatedSceneMetadata")
-    def generated_scene_metadata(self) -> Optional[Any]:
+    def generated_scene_metadata(self) -> Optional[Mapping[str, str]]:
         """
         A key-value pair of generated scene metadata for the scene.
         """
@@ -97,7 +97,7 @@ class GetSceneResult:
 
     @property
     @pulumi.getter(name="sceneMetadata")
-    def scene_metadata(self) -> Optional[Any]:
+    def scene_metadata(self) -> Optional[Mapping[str, str]]:
         """
         A key-value pair of scene metadata for the scene.
         """
@@ -105,7 +105,7 @@ class GetSceneResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A key-value pair to associate with a resource.
         """

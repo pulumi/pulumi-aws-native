@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AppIntegrations.Outputs
         /// <summary>
         /// Restrictions for what files should be pulled from the source.
         /// </summary>
-        public readonly object? Filters;
+        public readonly ImmutableDictionary<string, ImmutableArray<string>>? Filters;
         /// <summary>
         /// Identifiers for the source folders to pull all files from recursively.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.AppIntegrations.Outputs
 
         [OutputConstructor]
         private DataIntegrationFileConfiguration(
-            object? filters,
+            ImmutableDictionary<string, ImmutableArray<string>>? filters,
 
             ImmutableArray<string> folders)
         {

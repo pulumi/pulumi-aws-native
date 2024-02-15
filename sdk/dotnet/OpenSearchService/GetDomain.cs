@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.OpenSearchService
     public sealed class GetDomainResult
     {
         public readonly object? AccessPolicies;
-        public readonly object? AdvancedOptions;
+        public readonly ImmutableDictionary<string, string>? AdvancedOptions;
         public readonly Outputs.DomainAdvancedSecurityOptionsInput? AdvancedSecurityOptions;
         public readonly string? Arn;
         public readonly Outputs.DomainClusterConfig? ClusterConfig;
@@ -61,13 +61,13 @@ namespace Pulumi.AwsNative.OpenSearchService
         public readonly string? DomainEndpoint;
         public readonly Outputs.DomainEndpointOptions? DomainEndpointOptions;
         public readonly string? DomainEndpointV2;
-        public readonly object? DomainEndpoints;
+        public readonly ImmutableDictionary<string, string>? DomainEndpoints;
         public readonly Outputs.DomainEbsOptions? EbsOptions;
         public readonly Outputs.DomainEncryptionAtRestOptions? EncryptionAtRestOptions;
         public readonly string? EngineVersion;
         public readonly string? Id;
         public readonly string? IpAddressType;
-        public readonly object? LogPublishingOptions;
+        public readonly ImmutableDictionary<string, Outputs.DomainLogPublishingOption>? LogPublishingOptions;
         public readonly Outputs.DomainNodeToNodeEncryptionOptions? NodeToNodeEncryptionOptions;
         public readonly Outputs.DomainOffPeakWindowOptions? OffPeakWindowOptions;
         public readonly Outputs.DomainServiceSoftwareOptions? ServiceSoftwareOptions;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         private GetDomainResult(
             object? accessPolicies,
 
-            object? advancedOptions,
+            ImmutableDictionary<string, string>? advancedOptions,
 
             Outputs.DomainAdvancedSecurityOptionsInput? advancedSecurityOptions,
 
@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             string? domainEndpointV2,
 
-            object? domainEndpoints,
+            ImmutableDictionary<string, string>? domainEndpoints,
 
             Outputs.DomainEbsOptions? ebsOptions,
 
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             string? ipAddressType,
 
-            object? logPublishingOptions,
+            ImmutableDictionary<string, Outputs.DomainLogPublishingOption>? logPublishingOptions,
 
             Outputs.DomainNodeToNodeEncryptionOptions? nodeToNodeEncryptionOptions,
 

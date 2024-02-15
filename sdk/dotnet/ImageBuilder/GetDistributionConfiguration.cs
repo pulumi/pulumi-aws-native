@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The tags associated with the component.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetDistributionConfigurationResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             ImmutableArray<Outputs.DistributionConfigurationDistribution> distributions,
 
-            object? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;

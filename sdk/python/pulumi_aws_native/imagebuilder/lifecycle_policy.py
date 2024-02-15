@@ -24,7 +24,7 @@ class LifecyclePolicyArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['LifecyclePolicyStatus']] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LifecyclePolicy resource.
         :param pulumi.Input[str] execution_role: The execution role of the lifecycle policy.
@@ -34,7 +34,7 @@ class LifecyclePolicyArgs:
         :param pulumi.Input[str] description: The description of the lifecycle policy.
         :param pulumi.Input[str] name: The name of the lifecycle policy.
         :param pulumi.Input['LifecyclePolicyStatus'] status: The status of the lifecycle policy.
-        :param Any tags: The tags associated with the lifecycle policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the lifecycle policy.
         """
         pulumi.set(__self__, "execution_role", execution_role)
         pulumi.set(__self__, "policy_details", policy_details)
@@ -135,14 +135,14 @@ class LifecyclePolicyArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The tags associated with the lifecycle policy.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -158,7 +158,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  resource_selection: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyResourceSelectionArgs']]] = None,
                  resource_type: Optional[pulumi.Input['LifecyclePolicyResourceType']] = None,
                  status: Optional[pulumi.Input['LifecyclePolicyStatus']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::ImageBuilder::LifecyclePolicy
@@ -172,7 +172,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LifecyclePolicyResourceSelectionArgs']] resource_selection: The resource selection of the lifecycle policy.
         :param pulumi.Input['LifecyclePolicyResourceType'] resource_type: The resource type of the lifecycle policy.
         :param pulumi.Input['LifecyclePolicyStatus'] status: The status of the lifecycle policy.
-        :param Any tags: The tags associated with the lifecycle policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the lifecycle policy.
         """
         ...
     @overload
@@ -205,7 +205,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  resource_selection: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyResourceSelectionArgs']]] = None,
                  resource_type: Optional[pulumi.Input['LifecyclePolicyResourceType']] = None,
                  status: Optional[pulumi.Input['LifecyclePolicyStatus']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -333,7 +333,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags associated with the lifecycle policy.
         """

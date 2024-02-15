@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.EmrServerless.Outputs
         /// </summary>
         public readonly string Classification;
         public readonly ImmutableArray<Outputs.ApplicationConfigurationObject> Configurations;
-        public readonly object? Properties;
+        public readonly ImmutableDictionary<string, string>? Properties;
 
         [OutputConstructor]
         private ApplicationConfigurationObject(
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.EmrServerless.Outputs
 
             ImmutableArray<Outputs.ApplicationConfigurationObject> configurations,
 
-            object? properties)
+            ImmutableDictionary<string, string>? properties)
         {
             Classification = classification;
             Configurations = configurations;

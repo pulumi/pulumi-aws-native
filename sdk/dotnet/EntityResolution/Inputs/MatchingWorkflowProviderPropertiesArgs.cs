@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         [Input("intermediateSourceConfiguration")]
         public Input<Inputs.MatchingWorkflowIntermediateSourceConfigurationArgs>? IntermediateSourceConfiguration { get; set; }
 
+        [Input("providerConfiguration")]
+        private InputMap<string>? _providerConfiguration;
+
         /// <summary>
         /// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
         /// </summary>
-        [Input("providerConfiguration")]
-        public Input<object>? ProviderConfiguration { get; set; }
+        public InputMap<string> ProviderConfiguration
+        {
+            get => _providerConfiguration ?? (_providerConfiguration = new InputMap<string>());
+            set => _providerConfiguration = value;
+        }
 
         /// <summary>
         /// Arn of the Provider service being used.

@@ -13,9 +13,111 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ComponentVersionComponentDependencyRequirement struct {
+	DependencyType     *ComponentVersionComponentDependencyRequirementDependencyType `pulumi:"dependencyType"`
+	VersionRequirement *string                                                       `pulumi:"versionRequirement"`
+}
+
+// ComponentVersionComponentDependencyRequirementInput is an input type that accepts ComponentVersionComponentDependencyRequirementArgs and ComponentVersionComponentDependencyRequirementOutput values.
+// You can construct a concrete instance of `ComponentVersionComponentDependencyRequirementInput` via:
+//
+//	ComponentVersionComponentDependencyRequirementArgs{...}
+type ComponentVersionComponentDependencyRequirementInput interface {
+	pulumi.Input
+
+	ToComponentVersionComponentDependencyRequirementOutput() ComponentVersionComponentDependencyRequirementOutput
+	ToComponentVersionComponentDependencyRequirementOutputWithContext(context.Context) ComponentVersionComponentDependencyRequirementOutput
+}
+
+type ComponentVersionComponentDependencyRequirementArgs struct {
+	DependencyType     ComponentVersionComponentDependencyRequirementDependencyTypePtrInput `pulumi:"dependencyType"`
+	VersionRequirement pulumi.StringPtrInput                                                `pulumi:"versionRequirement"`
+}
+
+func (ComponentVersionComponentDependencyRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentVersionComponentDependencyRequirement)(nil)).Elem()
+}
+
+func (i ComponentVersionComponentDependencyRequirementArgs) ToComponentVersionComponentDependencyRequirementOutput() ComponentVersionComponentDependencyRequirementOutput {
+	return i.ToComponentVersionComponentDependencyRequirementOutputWithContext(context.Background())
+}
+
+func (i ComponentVersionComponentDependencyRequirementArgs) ToComponentVersionComponentDependencyRequirementOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionComponentDependencyRequirementOutput)
+}
+
+// ComponentVersionComponentDependencyRequirementMapInput is an input type that accepts ComponentVersionComponentDependencyRequirementMap and ComponentVersionComponentDependencyRequirementMapOutput values.
+// You can construct a concrete instance of `ComponentVersionComponentDependencyRequirementMapInput` via:
+//
+//	ComponentVersionComponentDependencyRequirementMap{ "key": ComponentVersionComponentDependencyRequirementArgs{...} }
+type ComponentVersionComponentDependencyRequirementMapInput interface {
+	pulumi.Input
+
+	ToComponentVersionComponentDependencyRequirementMapOutput() ComponentVersionComponentDependencyRequirementMapOutput
+	ToComponentVersionComponentDependencyRequirementMapOutputWithContext(context.Context) ComponentVersionComponentDependencyRequirementMapOutput
+}
+
+type ComponentVersionComponentDependencyRequirementMap map[string]ComponentVersionComponentDependencyRequirementInput
+
+func (ComponentVersionComponentDependencyRequirementMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ComponentVersionComponentDependencyRequirement)(nil)).Elem()
+}
+
+func (i ComponentVersionComponentDependencyRequirementMap) ToComponentVersionComponentDependencyRequirementMapOutput() ComponentVersionComponentDependencyRequirementMapOutput {
+	return i.ToComponentVersionComponentDependencyRequirementMapOutputWithContext(context.Background())
+}
+
+func (i ComponentVersionComponentDependencyRequirementMap) ToComponentVersionComponentDependencyRequirementMapOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionComponentDependencyRequirementMapOutput)
+}
+
+type ComponentVersionComponentDependencyRequirementOutput struct{ *pulumi.OutputState }
+
+func (ComponentVersionComponentDependencyRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentVersionComponentDependencyRequirement)(nil)).Elem()
+}
+
+func (o ComponentVersionComponentDependencyRequirementOutput) ToComponentVersionComponentDependencyRequirementOutput() ComponentVersionComponentDependencyRequirementOutput {
+	return o
+}
+
+func (o ComponentVersionComponentDependencyRequirementOutput) ToComponentVersionComponentDependencyRequirementOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementOutput {
+	return o
+}
+
+func (o ComponentVersionComponentDependencyRequirementOutput) DependencyType() ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput {
+	return o.ApplyT(func(v ComponentVersionComponentDependencyRequirement) *ComponentVersionComponentDependencyRequirementDependencyType {
+		return v.DependencyType
+	}).(ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput)
+}
+
+func (o ComponentVersionComponentDependencyRequirementOutput) VersionRequirement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentVersionComponentDependencyRequirement) *string { return v.VersionRequirement }).(pulumi.StringPtrOutput)
+}
+
+type ComponentVersionComponentDependencyRequirementMapOutput struct{ *pulumi.OutputState }
+
+func (ComponentVersionComponentDependencyRequirementMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ComponentVersionComponentDependencyRequirement)(nil)).Elem()
+}
+
+func (o ComponentVersionComponentDependencyRequirementMapOutput) ToComponentVersionComponentDependencyRequirementMapOutput() ComponentVersionComponentDependencyRequirementMapOutput {
+	return o
+}
+
+func (o ComponentVersionComponentDependencyRequirementMapOutput) ToComponentVersionComponentDependencyRequirementMapOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementMapOutput {
+	return o
+}
+
+func (o ComponentVersionComponentDependencyRequirementMapOutput) MapIndex(k pulumi.StringInput) ComponentVersionComponentDependencyRequirementOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ComponentVersionComponentDependencyRequirement {
+		return vs[0].(map[string]ComponentVersionComponentDependencyRequirement)[vs[1].(string)]
+	}).(ComponentVersionComponentDependencyRequirementOutput)
+}
+
 type ComponentVersionComponentPlatform struct {
-	Attributes interface{} `pulumi:"attributes"`
-	Name       *string     `pulumi:"name"`
+	Attributes map[string]string `pulumi:"attributes"`
+	Name       *string           `pulumi:"name"`
 }
 
 // ComponentVersionComponentPlatformInput is an input type that accepts ComponentVersionComponentPlatformArgs and ComponentVersionComponentPlatformOutput values.
@@ -30,7 +132,7 @@ type ComponentVersionComponentPlatformInput interface {
 }
 
 type ComponentVersionComponentPlatformArgs struct {
-	Attributes pulumi.Input          `pulumi:"attributes"`
+	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 	Name       pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -85,8 +187,8 @@ func (o ComponentVersionComponentPlatformOutput) ToComponentVersionComponentPlat
 	return o
 }
 
-func (o ComponentVersionComponentPlatformOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v ComponentVersionComponentPlatform) interface{} { return v.Attributes }).(pulumi.AnyOutput)
+func (o ComponentVersionComponentPlatformOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ComponentVersionComponentPlatform) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 func (o ComponentVersionComponentPlatformOutput) Name() pulumi.StringPtrOutput {
@@ -500,7 +602,7 @@ func (o ComponentVersionLambdaEventSourceArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type ComponentVersionLambdaExecutionParameters struct {
-	EnvironmentVariables     interface{}                                                        `pulumi:"environmentVariables"`
+	EnvironmentVariables     map[string]string                                                  `pulumi:"environmentVariables"`
 	EventSources             []ComponentVersionLambdaEventSource                                `pulumi:"eventSources"`
 	ExecArgs                 []string                                                           `pulumi:"execArgs"`
 	InputPayloadEncodingType *ComponentVersionLambdaExecutionParametersInputPayloadEncodingType `pulumi:"inputPayloadEncodingType"`
@@ -525,7 +627,7 @@ type ComponentVersionLambdaExecutionParametersInput interface {
 }
 
 type ComponentVersionLambdaExecutionParametersArgs struct {
-	EnvironmentVariables     pulumi.Input                                                              `pulumi:"environmentVariables"`
+	EnvironmentVariables     pulumi.StringMapInput                                                     `pulumi:"environmentVariables"`
 	EventSources             ComponentVersionLambdaEventSourceArrayInput                               `pulumi:"eventSources"`
 	ExecArgs                 pulumi.StringArrayInput                                                   `pulumi:"execArgs"`
 	InputPayloadEncodingType ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrInput `pulumi:"inputPayloadEncodingType"`
@@ -615,8 +717,8 @@ func (o ComponentVersionLambdaExecutionParametersOutput) ToComponentVersionLambd
 	}).(ComponentVersionLambdaExecutionParametersPtrOutput)
 }
 
-func (o ComponentVersionLambdaExecutionParametersOutput) EnvironmentVariables() pulumi.AnyOutput {
-	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) interface{} { return v.EnvironmentVariables }).(pulumi.AnyOutput)
+func (o ComponentVersionLambdaExecutionParametersOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
 func (o ComponentVersionLambdaExecutionParametersOutput) EventSources() ComponentVersionLambdaEventSourceArrayOutput {
@@ -689,13 +791,13 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) Elem() ComponentVers
 	}).(ComponentVersionLambdaExecutionParametersOutput)
 }
 
-func (o ComponentVersionLambdaExecutionParametersPtrOutput) EnvironmentVariables() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) interface{} {
+func (o ComponentVersionLambdaExecutionParametersPtrOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.EnvironmentVariables
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) EventSources() ComponentVersionLambdaEventSourceArrayOutput {
@@ -789,12 +891,12 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) TimeoutInSeconds() p
 }
 
 type ComponentVersionLambdaFunctionRecipeSource struct {
-	ComponentDependencies     interface{}                                `pulumi:"componentDependencies"`
-	ComponentLambdaParameters *ComponentVersionLambdaExecutionParameters `pulumi:"componentLambdaParameters"`
-	ComponentName             *string                                    `pulumi:"componentName"`
-	ComponentPlatforms        []ComponentVersionComponentPlatform        `pulumi:"componentPlatforms"`
-	ComponentVersion          *string                                    `pulumi:"componentVersion"`
-	LambdaArn                 *string                                    `pulumi:"lambdaArn"`
+	ComponentDependencies     map[string]ComponentVersionComponentDependencyRequirement `pulumi:"componentDependencies"`
+	ComponentLambdaParameters *ComponentVersionLambdaExecutionParameters                `pulumi:"componentLambdaParameters"`
+	ComponentName             *string                                                   `pulumi:"componentName"`
+	ComponentPlatforms        []ComponentVersionComponentPlatform                       `pulumi:"componentPlatforms"`
+	ComponentVersion          *string                                                   `pulumi:"componentVersion"`
+	LambdaArn                 *string                                                   `pulumi:"lambdaArn"`
 }
 
 // ComponentVersionLambdaFunctionRecipeSourceInput is an input type that accepts ComponentVersionLambdaFunctionRecipeSourceArgs and ComponentVersionLambdaFunctionRecipeSourceOutput values.
@@ -809,12 +911,12 @@ type ComponentVersionLambdaFunctionRecipeSourceInput interface {
 }
 
 type ComponentVersionLambdaFunctionRecipeSourceArgs struct {
-	ComponentDependencies     pulumi.Input                                      `pulumi:"componentDependencies"`
-	ComponentLambdaParameters ComponentVersionLambdaExecutionParametersPtrInput `pulumi:"componentLambdaParameters"`
-	ComponentName             pulumi.StringPtrInput                             `pulumi:"componentName"`
-	ComponentPlatforms        ComponentVersionComponentPlatformArrayInput       `pulumi:"componentPlatforms"`
-	ComponentVersion          pulumi.StringPtrInput                             `pulumi:"componentVersion"`
-	LambdaArn                 pulumi.StringPtrInput                             `pulumi:"lambdaArn"`
+	ComponentDependencies     ComponentVersionComponentDependencyRequirementMapInput `pulumi:"componentDependencies"`
+	ComponentLambdaParameters ComponentVersionLambdaExecutionParametersPtrInput      `pulumi:"componentLambdaParameters"`
+	ComponentName             pulumi.StringPtrInput                                  `pulumi:"componentName"`
+	ComponentPlatforms        ComponentVersionComponentPlatformArrayInput            `pulumi:"componentPlatforms"`
+	ComponentVersion          pulumi.StringPtrInput                                  `pulumi:"componentVersion"`
+	LambdaArn                 pulumi.StringPtrInput                                  `pulumi:"lambdaArn"`
 }
 
 func (ComponentVersionLambdaFunctionRecipeSourceArgs) ElementType() reflect.Type {
@@ -894,8 +996,10 @@ func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ToComponentVersionLamb
 	}).(ComponentVersionLambdaFunctionRecipeSourcePtrOutput)
 }
 
-func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentDependencies() pulumi.AnyOutput {
-	return o.ApplyT(func(v ComponentVersionLambdaFunctionRecipeSource) interface{} { return v.ComponentDependencies }).(pulumi.AnyOutput)
+func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentDependencies() ComponentVersionComponentDependencyRequirementMapOutput {
+	return o.ApplyT(func(v ComponentVersionLambdaFunctionRecipeSource) map[string]ComponentVersionComponentDependencyRequirement {
+		return v.ComponentDependencies
+	}).(ComponentVersionComponentDependencyRequirementMapOutput)
 }
 
 func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentLambdaParameters() ComponentVersionLambdaExecutionParametersPtrOutput {
@@ -946,13 +1050,13 @@ func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) Elem() ComponentVer
 	}).(ComponentVersionLambdaFunctionRecipeSourceOutput)
 }
 
-func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentDependencies() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ComponentVersionLambdaFunctionRecipeSource) interface{} {
+func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentDependencies() ComponentVersionComponentDependencyRequirementMapOutput {
+	return o.ApplyT(func(v *ComponentVersionLambdaFunctionRecipeSource) map[string]ComponentVersionComponentDependencyRequirement {
 		if v == nil {
 			return nil
 		}
 		return v.ComponentDependencies
-	}).(pulumi.AnyOutput)
+	}).(ComponentVersionComponentDependencyRequirementMapOutput)
 }
 
 func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentLambdaParameters() ComponentVersionLambdaExecutionParametersPtrOutput {
@@ -1264,6 +1368,425 @@ func (o ComponentVersionLambdaVolumeMountArrayOutput) Index(i pulumi.IntInput) C
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComponentVersionLambdaVolumeMount {
 		return vs[0].([]ComponentVersionLambdaVolumeMount)[vs[1].(int)]
 	}).(ComponentVersionLambdaVolumeMountOutput)
+}
+
+type DeploymentComponentConfigurationUpdate struct {
+	Merge *string  `pulumi:"merge"`
+	Reset []string `pulumi:"reset"`
+}
+
+// DeploymentComponentConfigurationUpdateInput is an input type that accepts DeploymentComponentConfigurationUpdateArgs and DeploymentComponentConfigurationUpdateOutput values.
+// You can construct a concrete instance of `DeploymentComponentConfigurationUpdateInput` via:
+//
+//	DeploymentComponentConfigurationUpdateArgs{...}
+type DeploymentComponentConfigurationUpdateInput interface {
+	pulumi.Input
+
+	ToDeploymentComponentConfigurationUpdateOutput() DeploymentComponentConfigurationUpdateOutput
+	ToDeploymentComponentConfigurationUpdateOutputWithContext(context.Context) DeploymentComponentConfigurationUpdateOutput
+}
+
+type DeploymentComponentConfigurationUpdateArgs struct {
+	Merge pulumi.StringPtrInput   `pulumi:"merge"`
+	Reset pulumi.StringArrayInput `pulumi:"reset"`
+}
+
+func (DeploymentComponentConfigurationUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentComponentConfigurationUpdate)(nil)).Elem()
+}
+
+func (i DeploymentComponentConfigurationUpdateArgs) ToDeploymentComponentConfigurationUpdateOutput() DeploymentComponentConfigurationUpdateOutput {
+	return i.ToDeploymentComponentConfigurationUpdateOutputWithContext(context.Background())
+}
+
+func (i DeploymentComponentConfigurationUpdateArgs) ToDeploymentComponentConfigurationUpdateOutputWithContext(ctx context.Context) DeploymentComponentConfigurationUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentConfigurationUpdateOutput)
+}
+
+func (i DeploymentComponentConfigurationUpdateArgs) ToDeploymentComponentConfigurationUpdatePtrOutput() DeploymentComponentConfigurationUpdatePtrOutput {
+	return i.ToDeploymentComponentConfigurationUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentComponentConfigurationUpdateArgs) ToDeploymentComponentConfigurationUpdatePtrOutputWithContext(ctx context.Context) DeploymentComponentConfigurationUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentConfigurationUpdateOutput).ToDeploymentComponentConfigurationUpdatePtrOutputWithContext(ctx)
+}
+
+// DeploymentComponentConfigurationUpdatePtrInput is an input type that accepts DeploymentComponentConfigurationUpdateArgs, DeploymentComponentConfigurationUpdatePtr and DeploymentComponentConfigurationUpdatePtrOutput values.
+// You can construct a concrete instance of `DeploymentComponentConfigurationUpdatePtrInput` via:
+//
+//	        DeploymentComponentConfigurationUpdateArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentComponentConfigurationUpdatePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentComponentConfigurationUpdatePtrOutput() DeploymentComponentConfigurationUpdatePtrOutput
+	ToDeploymentComponentConfigurationUpdatePtrOutputWithContext(context.Context) DeploymentComponentConfigurationUpdatePtrOutput
+}
+
+type deploymentComponentConfigurationUpdatePtrType DeploymentComponentConfigurationUpdateArgs
+
+func DeploymentComponentConfigurationUpdatePtr(v *DeploymentComponentConfigurationUpdateArgs) DeploymentComponentConfigurationUpdatePtrInput {
+	return (*deploymentComponentConfigurationUpdatePtrType)(v)
+}
+
+func (*deploymentComponentConfigurationUpdatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentComponentConfigurationUpdate)(nil)).Elem()
+}
+
+func (i *deploymentComponentConfigurationUpdatePtrType) ToDeploymentComponentConfigurationUpdatePtrOutput() DeploymentComponentConfigurationUpdatePtrOutput {
+	return i.ToDeploymentComponentConfigurationUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentComponentConfigurationUpdatePtrType) ToDeploymentComponentConfigurationUpdatePtrOutputWithContext(ctx context.Context) DeploymentComponentConfigurationUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentConfigurationUpdatePtrOutput)
+}
+
+type DeploymentComponentConfigurationUpdateOutput struct{ *pulumi.OutputState }
+
+func (DeploymentComponentConfigurationUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentComponentConfigurationUpdate)(nil)).Elem()
+}
+
+func (o DeploymentComponentConfigurationUpdateOutput) ToDeploymentComponentConfigurationUpdateOutput() DeploymentComponentConfigurationUpdateOutput {
+	return o
+}
+
+func (o DeploymentComponentConfigurationUpdateOutput) ToDeploymentComponentConfigurationUpdateOutputWithContext(ctx context.Context) DeploymentComponentConfigurationUpdateOutput {
+	return o
+}
+
+func (o DeploymentComponentConfigurationUpdateOutput) ToDeploymentComponentConfigurationUpdatePtrOutput() DeploymentComponentConfigurationUpdatePtrOutput {
+	return o.ToDeploymentComponentConfigurationUpdatePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentComponentConfigurationUpdateOutput) ToDeploymentComponentConfigurationUpdatePtrOutputWithContext(ctx context.Context) DeploymentComponentConfigurationUpdatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentComponentConfigurationUpdate) *DeploymentComponentConfigurationUpdate {
+		return &v
+	}).(DeploymentComponentConfigurationUpdatePtrOutput)
+}
+
+func (o DeploymentComponentConfigurationUpdateOutput) Merge() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentComponentConfigurationUpdate) *string { return v.Merge }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentComponentConfigurationUpdateOutput) Reset() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeploymentComponentConfigurationUpdate) []string { return v.Reset }).(pulumi.StringArrayOutput)
+}
+
+type DeploymentComponentConfigurationUpdatePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentComponentConfigurationUpdatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentComponentConfigurationUpdate)(nil)).Elem()
+}
+
+func (o DeploymentComponentConfigurationUpdatePtrOutput) ToDeploymentComponentConfigurationUpdatePtrOutput() DeploymentComponentConfigurationUpdatePtrOutput {
+	return o
+}
+
+func (o DeploymentComponentConfigurationUpdatePtrOutput) ToDeploymentComponentConfigurationUpdatePtrOutputWithContext(ctx context.Context) DeploymentComponentConfigurationUpdatePtrOutput {
+	return o
+}
+
+func (o DeploymentComponentConfigurationUpdatePtrOutput) Elem() DeploymentComponentConfigurationUpdateOutput {
+	return o.ApplyT(func(v *DeploymentComponentConfigurationUpdate) DeploymentComponentConfigurationUpdate {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentComponentConfigurationUpdate
+		return ret
+	}).(DeploymentComponentConfigurationUpdateOutput)
+}
+
+func (o DeploymentComponentConfigurationUpdatePtrOutput) Merge() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentComponentConfigurationUpdate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Merge
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentComponentConfigurationUpdatePtrOutput) Reset() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeploymentComponentConfigurationUpdate) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Reset
+	}).(pulumi.StringArrayOutput)
+}
+
+type DeploymentComponentDeploymentSpecification struct {
+	ComponentVersion    *string                                 `pulumi:"componentVersion"`
+	ConfigurationUpdate *DeploymentComponentConfigurationUpdate `pulumi:"configurationUpdate"`
+	RunWith             *DeploymentComponentRunWith             `pulumi:"runWith"`
+}
+
+// DeploymentComponentDeploymentSpecificationInput is an input type that accepts DeploymentComponentDeploymentSpecificationArgs and DeploymentComponentDeploymentSpecificationOutput values.
+// You can construct a concrete instance of `DeploymentComponentDeploymentSpecificationInput` via:
+//
+//	DeploymentComponentDeploymentSpecificationArgs{...}
+type DeploymentComponentDeploymentSpecificationInput interface {
+	pulumi.Input
+
+	ToDeploymentComponentDeploymentSpecificationOutput() DeploymentComponentDeploymentSpecificationOutput
+	ToDeploymentComponentDeploymentSpecificationOutputWithContext(context.Context) DeploymentComponentDeploymentSpecificationOutput
+}
+
+type DeploymentComponentDeploymentSpecificationArgs struct {
+	ComponentVersion    pulumi.StringPtrInput                          `pulumi:"componentVersion"`
+	ConfigurationUpdate DeploymentComponentConfigurationUpdatePtrInput `pulumi:"configurationUpdate"`
+	RunWith             DeploymentComponentRunWithPtrInput             `pulumi:"runWith"`
+}
+
+func (DeploymentComponentDeploymentSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentComponentDeploymentSpecification)(nil)).Elem()
+}
+
+func (i DeploymentComponentDeploymentSpecificationArgs) ToDeploymentComponentDeploymentSpecificationOutput() DeploymentComponentDeploymentSpecificationOutput {
+	return i.ToDeploymentComponentDeploymentSpecificationOutputWithContext(context.Background())
+}
+
+func (i DeploymentComponentDeploymentSpecificationArgs) ToDeploymentComponentDeploymentSpecificationOutputWithContext(ctx context.Context) DeploymentComponentDeploymentSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentDeploymentSpecificationOutput)
+}
+
+// DeploymentComponentDeploymentSpecificationMapInput is an input type that accepts DeploymentComponentDeploymentSpecificationMap and DeploymentComponentDeploymentSpecificationMapOutput values.
+// You can construct a concrete instance of `DeploymentComponentDeploymentSpecificationMapInput` via:
+//
+//	DeploymentComponentDeploymentSpecificationMap{ "key": DeploymentComponentDeploymentSpecificationArgs{...} }
+type DeploymentComponentDeploymentSpecificationMapInput interface {
+	pulumi.Input
+
+	ToDeploymentComponentDeploymentSpecificationMapOutput() DeploymentComponentDeploymentSpecificationMapOutput
+	ToDeploymentComponentDeploymentSpecificationMapOutputWithContext(context.Context) DeploymentComponentDeploymentSpecificationMapOutput
+}
+
+type DeploymentComponentDeploymentSpecificationMap map[string]DeploymentComponentDeploymentSpecificationInput
+
+func (DeploymentComponentDeploymentSpecificationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DeploymentComponentDeploymentSpecification)(nil)).Elem()
+}
+
+func (i DeploymentComponentDeploymentSpecificationMap) ToDeploymentComponentDeploymentSpecificationMapOutput() DeploymentComponentDeploymentSpecificationMapOutput {
+	return i.ToDeploymentComponentDeploymentSpecificationMapOutputWithContext(context.Background())
+}
+
+func (i DeploymentComponentDeploymentSpecificationMap) ToDeploymentComponentDeploymentSpecificationMapOutputWithContext(ctx context.Context) DeploymentComponentDeploymentSpecificationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentDeploymentSpecificationMapOutput)
+}
+
+type DeploymentComponentDeploymentSpecificationOutput struct{ *pulumi.OutputState }
+
+func (DeploymentComponentDeploymentSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentComponentDeploymentSpecification)(nil)).Elem()
+}
+
+func (o DeploymentComponentDeploymentSpecificationOutput) ToDeploymentComponentDeploymentSpecificationOutput() DeploymentComponentDeploymentSpecificationOutput {
+	return o
+}
+
+func (o DeploymentComponentDeploymentSpecificationOutput) ToDeploymentComponentDeploymentSpecificationOutputWithContext(ctx context.Context) DeploymentComponentDeploymentSpecificationOutput {
+	return o
+}
+
+func (o DeploymentComponentDeploymentSpecificationOutput) ComponentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentComponentDeploymentSpecification) *string { return v.ComponentVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentComponentDeploymentSpecificationOutput) ConfigurationUpdate() DeploymentComponentConfigurationUpdatePtrOutput {
+	return o.ApplyT(func(v DeploymentComponentDeploymentSpecification) *DeploymentComponentConfigurationUpdate {
+		return v.ConfigurationUpdate
+	}).(DeploymentComponentConfigurationUpdatePtrOutput)
+}
+
+func (o DeploymentComponentDeploymentSpecificationOutput) RunWith() DeploymentComponentRunWithPtrOutput {
+	return o.ApplyT(func(v DeploymentComponentDeploymentSpecification) *DeploymentComponentRunWith { return v.RunWith }).(DeploymentComponentRunWithPtrOutput)
+}
+
+type DeploymentComponentDeploymentSpecificationMapOutput struct{ *pulumi.OutputState }
+
+func (DeploymentComponentDeploymentSpecificationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DeploymentComponentDeploymentSpecification)(nil)).Elem()
+}
+
+func (o DeploymentComponentDeploymentSpecificationMapOutput) ToDeploymentComponentDeploymentSpecificationMapOutput() DeploymentComponentDeploymentSpecificationMapOutput {
+	return o
+}
+
+func (o DeploymentComponentDeploymentSpecificationMapOutput) ToDeploymentComponentDeploymentSpecificationMapOutputWithContext(ctx context.Context) DeploymentComponentDeploymentSpecificationMapOutput {
+	return o
+}
+
+func (o DeploymentComponentDeploymentSpecificationMapOutput) MapIndex(k pulumi.StringInput) DeploymentComponentDeploymentSpecificationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DeploymentComponentDeploymentSpecification {
+		return vs[0].(map[string]DeploymentComponentDeploymentSpecification)[vs[1].(string)]
+	}).(DeploymentComponentDeploymentSpecificationOutput)
+}
+
+type DeploymentComponentRunWith struct {
+	PosixUser            *string                         `pulumi:"posixUser"`
+	SystemResourceLimits *DeploymentSystemResourceLimits `pulumi:"systemResourceLimits"`
+	WindowsUser          *string                         `pulumi:"windowsUser"`
+}
+
+// DeploymentComponentRunWithInput is an input type that accepts DeploymentComponentRunWithArgs and DeploymentComponentRunWithOutput values.
+// You can construct a concrete instance of `DeploymentComponentRunWithInput` via:
+//
+//	DeploymentComponentRunWithArgs{...}
+type DeploymentComponentRunWithInput interface {
+	pulumi.Input
+
+	ToDeploymentComponentRunWithOutput() DeploymentComponentRunWithOutput
+	ToDeploymentComponentRunWithOutputWithContext(context.Context) DeploymentComponentRunWithOutput
+}
+
+type DeploymentComponentRunWithArgs struct {
+	PosixUser            pulumi.StringPtrInput                  `pulumi:"posixUser"`
+	SystemResourceLimits DeploymentSystemResourceLimitsPtrInput `pulumi:"systemResourceLimits"`
+	WindowsUser          pulumi.StringPtrInput                  `pulumi:"windowsUser"`
+}
+
+func (DeploymentComponentRunWithArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentComponentRunWith)(nil)).Elem()
+}
+
+func (i DeploymentComponentRunWithArgs) ToDeploymentComponentRunWithOutput() DeploymentComponentRunWithOutput {
+	return i.ToDeploymentComponentRunWithOutputWithContext(context.Background())
+}
+
+func (i DeploymentComponentRunWithArgs) ToDeploymentComponentRunWithOutputWithContext(ctx context.Context) DeploymentComponentRunWithOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentRunWithOutput)
+}
+
+func (i DeploymentComponentRunWithArgs) ToDeploymentComponentRunWithPtrOutput() DeploymentComponentRunWithPtrOutput {
+	return i.ToDeploymentComponentRunWithPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentComponentRunWithArgs) ToDeploymentComponentRunWithPtrOutputWithContext(ctx context.Context) DeploymentComponentRunWithPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentRunWithOutput).ToDeploymentComponentRunWithPtrOutputWithContext(ctx)
+}
+
+// DeploymentComponentRunWithPtrInput is an input type that accepts DeploymentComponentRunWithArgs, DeploymentComponentRunWithPtr and DeploymentComponentRunWithPtrOutput values.
+// You can construct a concrete instance of `DeploymentComponentRunWithPtrInput` via:
+//
+//	        DeploymentComponentRunWithArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentComponentRunWithPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentComponentRunWithPtrOutput() DeploymentComponentRunWithPtrOutput
+	ToDeploymentComponentRunWithPtrOutputWithContext(context.Context) DeploymentComponentRunWithPtrOutput
+}
+
+type deploymentComponentRunWithPtrType DeploymentComponentRunWithArgs
+
+func DeploymentComponentRunWithPtr(v *DeploymentComponentRunWithArgs) DeploymentComponentRunWithPtrInput {
+	return (*deploymentComponentRunWithPtrType)(v)
+}
+
+func (*deploymentComponentRunWithPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentComponentRunWith)(nil)).Elem()
+}
+
+func (i *deploymentComponentRunWithPtrType) ToDeploymentComponentRunWithPtrOutput() DeploymentComponentRunWithPtrOutput {
+	return i.ToDeploymentComponentRunWithPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentComponentRunWithPtrType) ToDeploymentComponentRunWithPtrOutputWithContext(ctx context.Context) DeploymentComponentRunWithPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentRunWithPtrOutput)
+}
+
+type DeploymentComponentRunWithOutput struct{ *pulumi.OutputState }
+
+func (DeploymentComponentRunWithOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentComponentRunWith)(nil)).Elem()
+}
+
+func (o DeploymentComponentRunWithOutput) ToDeploymentComponentRunWithOutput() DeploymentComponentRunWithOutput {
+	return o
+}
+
+func (o DeploymentComponentRunWithOutput) ToDeploymentComponentRunWithOutputWithContext(ctx context.Context) DeploymentComponentRunWithOutput {
+	return o
+}
+
+func (o DeploymentComponentRunWithOutput) ToDeploymentComponentRunWithPtrOutput() DeploymentComponentRunWithPtrOutput {
+	return o.ToDeploymentComponentRunWithPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentComponentRunWithOutput) ToDeploymentComponentRunWithPtrOutputWithContext(ctx context.Context) DeploymentComponentRunWithPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentComponentRunWith) *DeploymentComponentRunWith {
+		return &v
+	}).(DeploymentComponentRunWithPtrOutput)
+}
+
+func (o DeploymentComponentRunWithOutput) PosixUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentComponentRunWith) *string { return v.PosixUser }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentComponentRunWithOutput) SystemResourceLimits() DeploymentSystemResourceLimitsPtrOutput {
+	return o.ApplyT(func(v DeploymentComponentRunWith) *DeploymentSystemResourceLimits { return v.SystemResourceLimits }).(DeploymentSystemResourceLimitsPtrOutput)
+}
+
+func (o DeploymentComponentRunWithOutput) WindowsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentComponentRunWith) *string { return v.WindowsUser }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentComponentRunWithPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentComponentRunWithPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentComponentRunWith)(nil)).Elem()
+}
+
+func (o DeploymentComponentRunWithPtrOutput) ToDeploymentComponentRunWithPtrOutput() DeploymentComponentRunWithPtrOutput {
+	return o
+}
+
+func (o DeploymentComponentRunWithPtrOutput) ToDeploymentComponentRunWithPtrOutputWithContext(ctx context.Context) DeploymentComponentRunWithPtrOutput {
+	return o
+}
+
+func (o DeploymentComponentRunWithPtrOutput) Elem() DeploymentComponentRunWithOutput {
+	return o.ApplyT(func(v *DeploymentComponentRunWith) DeploymentComponentRunWith {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentComponentRunWith
+		return ret
+	}).(DeploymentComponentRunWithOutput)
+}
+
+func (o DeploymentComponentRunWithPtrOutput) PosixUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentComponentRunWith) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PosixUser
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentComponentRunWithPtrOutput) SystemResourceLimits() DeploymentSystemResourceLimitsPtrOutput {
+	return o.ApplyT(func(v *DeploymentComponentRunWith) *DeploymentSystemResourceLimits {
+		if v == nil {
+			return nil
+		}
+		return v.SystemResourceLimits
+	}).(DeploymentSystemResourceLimitsPtrOutput)
+}
+
+func (o DeploymentComponentRunWithPtrOutput) WindowsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentComponentRunWith) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WindowsUser
+	}).(pulumi.StringPtrOutput)
 }
 
 type DeploymentComponentUpdatePolicy struct {
@@ -2688,7 +3211,157 @@ func (o DeploymentPoliciesPtrOutput) FailureHandlingPolicy() DeploymentPoliciesF
 	}).(DeploymentPoliciesFailureHandlingPolicyPtrOutput)
 }
 
+type DeploymentSystemResourceLimits struct {
+	Cpus   *float64 `pulumi:"cpus"`
+	Memory *int     `pulumi:"memory"`
+}
+
+// DeploymentSystemResourceLimitsInput is an input type that accepts DeploymentSystemResourceLimitsArgs and DeploymentSystemResourceLimitsOutput values.
+// You can construct a concrete instance of `DeploymentSystemResourceLimitsInput` via:
+//
+//	DeploymentSystemResourceLimitsArgs{...}
+type DeploymentSystemResourceLimitsInput interface {
+	pulumi.Input
+
+	ToDeploymentSystemResourceLimitsOutput() DeploymentSystemResourceLimitsOutput
+	ToDeploymentSystemResourceLimitsOutputWithContext(context.Context) DeploymentSystemResourceLimitsOutput
+}
+
+type DeploymentSystemResourceLimitsArgs struct {
+	Cpus   pulumi.Float64PtrInput `pulumi:"cpus"`
+	Memory pulumi.IntPtrInput     `pulumi:"memory"`
+}
+
+func (DeploymentSystemResourceLimitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentSystemResourceLimits)(nil)).Elem()
+}
+
+func (i DeploymentSystemResourceLimitsArgs) ToDeploymentSystemResourceLimitsOutput() DeploymentSystemResourceLimitsOutput {
+	return i.ToDeploymentSystemResourceLimitsOutputWithContext(context.Background())
+}
+
+func (i DeploymentSystemResourceLimitsArgs) ToDeploymentSystemResourceLimitsOutputWithContext(ctx context.Context) DeploymentSystemResourceLimitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSystemResourceLimitsOutput)
+}
+
+func (i DeploymentSystemResourceLimitsArgs) ToDeploymentSystemResourceLimitsPtrOutput() DeploymentSystemResourceLimitsPtrOutput {
+	return i.ToDeploymentSystemResourceLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentSystemResourceLimitsArgs) ToDeploymentSystemResourceLimitsPtrOutputWithContext(ctx context.Context) DeploymentSystemResourceLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSystemResourceLimitsOutput).ToDeploymentSystemResourceLimitsPtrOutputWithContext(ctx)
+}
+
+// DeploymentSystemResourceLimitsPtrInput is an input type that accepts DeploymentSystemResourceLimitsArgs, DeploymentSystemResourceLimitsPtr and DeploymentSystemResourceLimitsPtrOutput values.
+// You can construct a concrete instance of `DeploymentSystemResourceLimitsPtrInput` via:
+//
+//	        DeploymentSystemResourceLimitsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentSystemResourceLimitsPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentSystemResourceLimitsPtrOutput() DeploymentSystemResourceLimitsPtrOutput
+	ToDeploymentSystemResourceLimitsPtrOutputWithContext(context.Context) DeploymentSystemResourceLimitsPtrOutput
+}
+
+type deploymentSystemResourceLimitsPtrType DeploymentSystemResourceLimitsArgs
+
+func DeploymentSystemResourceLimitsPtr(v *DeploymentSystemResourceLimitsArgs) DeploymentSystemResourceLimitsPtrInput {
+	return (*deploymentSystemResourceLimitsPtrType)(v)
+}
+
+func (*deploymentSystemResourceLimitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentSystemResourceLimits)(nil)).Elem()
+}
+
+func (i *deploymentSystemResourceLimitsPtrType) ToDeploymentSystemResourceLimitsPtrOutput() DeploymentSystemResourceLimitsPtrOutput {
+	return i.ToDeploymentSystemResourceLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentSystemResourceLimitsPtrType) ToDeploymentSystemResourceLimitsPtrOutputWithContext(ctx context.Context) DeploymentSystemResourceLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSystemResourceLimitsPtrOutput)
+}
+
+type DeploymentSystemResourceLimitsOutput struct{ *pulumi.OutputState }
+
+func (DeploymentSystemResourceLimitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentSystemResourceLimits)(nil)).Elem()
+}
+
+func (o DeploymentSystemResourceLimitsOutput) ToDeploymentSystemResourceLimitsOutput() DeploymentSystemResourceLimitsOutput {
+	return o
+}
+
+func (o DeploymentSystemResourceLimitsOutput) ToDeploymentSystemResourceLimitsOutputWithContext(ctx context.Context) DeploymentSystemResourceLimitsOutput {
+	return o
+}
+
+func (o DeploymentSystemResourceLimitsOutput) ToDeploymentSystemResourceLimitsPtrOutput() DeploymentSystemResourceLimitsPtrOutput {
+	return o.ToDeploymentSystemResourceLimitsPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentSystemResourceLimitsOutput) ToDeploymentSystemResourceLimitsPtrOutputWithContext(ctx context.Context) DeploymentSystemResourceLimitsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentSystemResourceLimits) *DeploymentSystemResourceLimits {
+		return &v
+	}).(DeploymentSystemResourceLimitsPtrOutput)
+}
+
+func (o DeploymentSystemResourceLimitsOutput) Cpus() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DeploymentSystemResourceLimits) *float64 { return v.Cpus }).(pulumi.Float64PtrOutput)
+}
+
+func (o DeploymentSystemResourceLimitsOutput) Memory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentSystemResourceLimits) *int { return v.Memory }).(pulumi.IntPtrOutput)
+}
+
+type DeploymentSystemResourceLimitsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentSystemResourceLimitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentSystemResourceLimits)(nil)).Elem()
+}
+
+func (o DeploymentSystemResourceLimitsPtrOutput) ToDeploymentSystemResourceLimitsPtrOutput() DeploymentSystemResourceLimitsPtrOutput {
+	return o
+}
+
+func (o DeploymentSystemResourceLimitsPtrOutput) ToDeploymentSystemResourceLimitsPtrOutputWithContext(ctx context.Context) DeploymentSystemResourceLimitsPtrOutput {
+	return o
+}
+
+func (o DeploymentSystemResourceLimitsPtrOutput) Elem() DeploymentSystemResourceLimitsOutput {
+	return o.ApplyT(func(v *DeploymentSystemResourceLimits) DeploymentSystemResourceLimits {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentSystemResourceLimits
+		return ret
+	}).(DeploymentSystemResourceLimitsOutput)
+}
+
+func (o DeploymentSystemResourceLimitsPtrOutput) Cpus() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DeploymentSystemResourceLimits) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Cpus
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o DeploymentSystemResourceLimitsPtrOutput) Memory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentSystemResourceLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Memory
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionComponentDependencyRequirementInput)(nil)).Elem(), ComponentVersionComponentDependencyRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionComponentDependencyRequirementMapInput)(nil)).Elem(), ComponentVersionComponentDependencyRequirementMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionComponentPlatformInput)(nil)).Elem(), ComponentVersionComponentPlatformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionComponentPlatformArrayInput)(nil)).Elem(), ComponentVersionComponentPlatformArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaContainerParamsInput)(nil)).Elem(), ComponentVersionLambdaContainerParamsArgs{})
@@ -2705,6 +3378,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaLinuxProcessParamsPtrInput)(nil)).Elem(), ComponentVersionLambdaLinuxProcessParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaVolumeMountInput)(nil)).Elem(), ComponentVersionLambdaVolumeMountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaVolumeMountArrayInput)(nil)).Elem(), ComponentVersionLambdaVolumeMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentComponentConfigurationUpdateInput)(nil)).Elem(), DeploymentComponentConfigurationUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentComponentConfigurationUpdatePtrInput)(nil)).Elem(), DeploymentComponentConfigurationUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentComponentDeploymentSpecificationInput)(nil)).Elem(), DeploymentComponentDeploymentSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentComponentDeploymentSpecificationMapInput)(nil)).Elem(), DeploymentComponentDeploymentSpecificationMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentComponentRunWithInput)(nil)).Elem(), DeploymentComponentRunWithArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentComponentRunWithPtrInput)(nil)).Elem(), DeploymentComponentRunWithArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentComponentUpdatePolicyInput)(nil)).Elem(), DeploymentComponentUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentComponentUpdatePolicyPtrInput)(nil)).Elem(), DeploymentComponentUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationValidationPolicyInput)(nil)).Elem(), DeploymentConfigurationValidationPolicyArgs{})
@@ -2725,6 +3404,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobTimeoutConfigPtrInput)(nil)).Elem(), DeploymentIoTJobTimeoutConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentPoliciesInput)(nil)).Elem(), DeploymentPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentPoliciesPtrInput)(nil)).Elem(), DeploymentPoliciesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentSystemResourceLimitsInput)(nil)).Elem(), DeploymentSystemResourceLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentSystemResourceLimitsPtrInput)(nil)).Elem(), DeploymentSystemResourceLimitsArgs{})
+	pulumi.RegisterOutputType(ComponentVersionComponentDependencyRequirementOutput{})
+	pulumi.RegisterOutputType(ComponentVersionComponentDependencyRequirementMapOutput{})
 	pulumi.RegisterOutputType(ComponentVersionComponentPlatformOutput{})
 	pulumi.RegisterOutputType(ComponentVersionComponentPlatformArrayOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaContainerParamsOutput{})
@@ -2741,6 +3424,12 @@ func init() {
 	pulumi.RegisterOutputType(ComponentVersionLambdaLinuxProcessParamsPtrOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaVolumeMountOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaVolumeMountArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentComponentConfigurationUpdateOutput{})
+	pulumi.RegisterOutputType(DeploymentComponentConfigurationUpdatePtrOutput{})
+	pulumi.RegisterOutputType(DeploymentComponentDeploymentSpecificationOutput{})
+	pulumi.RegisterOutputType(DeploymentComponentDeploymentSpecificationMapOutput{})
+	pulumi.RegisterOutputType(DeploymentComponentRunWithOutput{})
+	pulumi.RegisterOutputType(DeploymentComponentRunWithPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentComponentUpdatePolicyOutput{})
 	pulumi.RegisterOutputType(DeploymentComponentUpdatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigurationValidationPolicyOutput{})
@@ -2761,4 +3450,6 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentIoTJobTimeoutConfigPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentPoliciesOutput{})
 	pulumi.RegisterOutputType(DeploymentPoliciesPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentSystemResourceLimitsOutput{})
+	pulumi.RegisterOutputType(DeploymentSystemResourceLimitsPtrOutput{})
 }

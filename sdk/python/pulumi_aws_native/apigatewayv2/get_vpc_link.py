@@ -36,7 +36,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         This resource type use map for Tags, suggest to use List of Tag
         """

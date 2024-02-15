@@ -19,9 +19,9 @@ type GatewayResponse struct {
 	pulumi.CustomResourceState
 
 	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
-	ResponseParameters pulumi.AnyOutput `pulumi:"responseParameters"`
+	ResponseParameters pulumi.StringMapOutput `pulumi:"responseParameters"`
 	// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
-	ResponseTemplates pulumi.AnyOutput `pulumi:"responseTemplates"`
+	ResponseTemplates pulumi.StringMapOutput `pulumi:"responseTemplates"`
 	// The response type of the associated GatewayResponse.
 	ResponseType pulumi.StringOutput `pulumi:"responseType"`
 	// The string identifier of the associated RestApi.
@@ -82,9 +82,9 @@ func (GatewayResponseState) ElementType() reflect.Type {
 
 type gatewayResponseArgs struct {
 	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
-	ResponseParameters interface{} `pulumi:"responseParameters"`
+	ResponseParameters map[string]string `pulumi:"responseParameters"`
 	// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
-	ResponseTemplates interface{} `pulumi:"responseTemplates"`
+	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
 	// The response type of the associated GatewayResponse.
 	ResponseType string `pulumi:"responseType"`
 	// The string identifier of the associated RestApi.
@@ -96,9 +96,9 @@ type gatewayResponseArgs struct {
 // The set of arguments for constructing a GatewayResponse resource.
 type GatewayResponseArgs struct {
 	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
-	ResponseParameters pulumi.Input
+	ResponseParameters pulumi.StringMapInput
 	// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
-	ResponseTemplates pulumi.Input
+	ResponseTemplates pulumi.StringMapInput
 	// The response type of the associated GatewayResponse.
 	ResponseType pulumi.StringInput
 	// The string identifier of the associated RestApi.
@@ -145,13 +145,13 @@ func (o GatewayResponseOutput) ToGatewayResponseOutputWithContext(ctx context.Co
 }
 
 // Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
-func (o GatewayResponseOutput) ResponseParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *GatewayResponse) pulumi.AnyOutput { return v.ResponseParameters }).(pulumi.AnyOutput)
+func (o GatewayResponseOutput) ResponseParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GatewayResponse) pulumi.StringMapOutput { return v.ResponseParameters }).(pulumi.StringMapOutput)
 }
 
 // Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
-func (o GatewayResponseOutput) ResponseTemplates() pulumi.AnyOutput {
-	return o.ApplyT(func(v *GatewayResponse) pulumi.AnyOutput { return v.ResponseTemplates }).(pulumi.AnyOutput)
+func (o GatewayResponseOutput) ResponseTemplates() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GatewayResponse) pulumi.StringMapOutput { return v.ResponseTemplates }).(pulumi.StringMapOutput)
 }
 
 // The response type of the associated GatewayResponse.

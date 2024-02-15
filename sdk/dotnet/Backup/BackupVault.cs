@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Backup
         public Output<string> BackupVaultName { get; private set; } = null!;
 
         [Output("backupVaultTags")]
-        public Output<object?> BackupVaultTags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> BackupVaultTags { get; private set; } = null!;
 
         [Output("encryptionKeyArn")]
         public Output<string?> EncryptionKeyArn { get; private set; } = null!;
@@ -93,7 +93,12 @@ namespace Pulumi.AwsNative.Backup
         public Input<string>? BackupVaultName { get; set; }
 
         [Input("backupVaultTags")]
-        public Input<object>? BackupVaultTags { get; set; }
+        private InputMap<string>? _backupVaultTags;
+        public InputMap<string> BackupVaultTags
+        {
+            get => _backupVaultTags ?? (_backupVaultTags = new InputMap<string>());
+            set => _backupVaultTags = value;
+        }
 
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }

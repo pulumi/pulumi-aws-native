@@ -16,7 +16,7 @@ type Domain struct {
 	pulumi.CustomResourceState
 
 	AccessPolicies              pulumi.AnyOutput                            `pulumi:"accessPolicies"`
-	AdvancedOptions             pulumi.AnyOutput                            `pulumi:"advancedOptions"`
+	AdvancedOptions             pulumi.StringMapOutput                      `pulumi:"advancedOptions"`
 	AdvancedSecurityOptions     DomainAdvancedSecurityOptionsInputPtrOutput `pulumi:"advancedSecurityOptions"`
 	Arn                         pulumi.StringOutput                         `pulumi:"arn"`
 	ClusterConfig               DomainClusterConfigPtrOutput                `pulumi:"clusterConfig"`
@@ -25,13 +25,13 @@ type Domain struct {
 	DomainEndpoint              pulumi.StringOutput                         `pulumi:"domainEndpoint"`
 	DomainEndpointOptions       DomainEndpointOptionsPtrOutput              `pulumi:"domainEndpointOptions"`
 	DomainEndpointV2            pulumi.StringOutput                         `pulumi:"domainEndpointV2"`
-	DomainEndpoints             pulumi.AnyOutput                            `pulumi:"domainEndpoints"`
+	DomainEndpoints             pulumi.StringMapOutput                      `pulumi:"domainEndpoints"`
 	DomainName                  pulumi.StringPtrOutput                      `pulumi:"domainName"`
 	EbsOptions                  DomainEbsOptionsPtrOutput                   `pulumi:"ebsOptions"`
 	EncryptionAtRestOptions     DomainEncryptionAtRestOptionsPtrOutput      `pulumi:"encryptionAtRestOptions"`
 	EngineVersion               pulumi.StringPtrOutput                      `pulumi:"engineVersion"`
 	IpAddressType               pulumi.StringPtrOutput                      `pulumi:"ipAddressType"`
-	LogPublishingOptions        pulumi.AnyOutput                            `pulumi:"logPublishingOptions"`
+	LogPublishingOptions        DomainLogPublishingOptionMapOutput          `pulumi:"logPublishingOptions"`
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrOutput  `pulumi:"nodeToNodeEncryptionOptions"`
 	OffPeakWindowOptions        DomainOffPeakWindowOptionsPtrOutput         `pulumi:"offPeakWindowOptions"`
 	ServiceSoftwareOptions      DomainServiceSoftwareOptionsOutput          `pulumi:"serviceSoftwareOptions"`
@@ -86,22 +86,22 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	AccessPolicies              interface{}                         `pulumi:"accessPolicies"`
-	AdvancedOptions             interface{}                         `pulumi:"advancedOptions"`
-	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput `pulumi:"advancedSecurityOptions"`
-	ClusterConfig               *DomainClusterConfig                `pulumi:"clusterConfig"`
-	CognitoOptions              *DomainCognitoOptions               `pulumi:"cognitoOptions"`
-	DomainEndpointOptions       *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
-	DomainName                  *string                             `pulumi:"domainName"`
-	EbsOptions                  *DomainEbsOptions                   `pulumi:"ebsOptions"`
-	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
-	EngineVersion               *string                             `pulumi:"engineVersion"`
-	IpAddressType               *string                             `pulumi:"ipAddressType"`
-	LogPublishingOptions        interface{}                         `pulumi:"logPublishingOptions"`
-	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions  `pulumi:"nodeToNodeEncryptionOptions"`
-	OffPeakWindowOptions        *DomainOffPeakWindowOptions         `pulumi:"offPeakWindowOptions"`
-	SnapshotOptions             *DomainSnapshotOptions              `pulumi:"snapshotOptions"`
-	SoftwareUpdateOptions       *DomainSoftwareUpdateOptions        `pulumi:"softwareUpdateOptions"`
+	AccessPolicies              interface{}                          `pulumi:"accessPolicies"`
+	AdvancedOptions             map[string]string                    `pulumi:"advancedOptions"`
+	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput  `pulumi:"advancedSecurityOptions"`
+	ClusterConfig               *DomainClusterConfig                 `pulumi:"clusterConfig"`
+	CognitoOptions              *DomainCognitoOptions                `pulumi:"cognitoOptions"`
+	DomainEndpointOptions       *DomainEndpointOptions               `pulumi:"domainEndpointOptions"`
+	DomainName                  *string                              `pulumi:"domainName"`
+	EbsOptions                  *DomainEbsOptions                    `pulumi:"ebsOptions"`
+	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions       `pulumi:"encryptionAtRestOptions"`
+	EngineVersion               *string                              `pulumi:"engineVersion"`
+	IpAddressType               *string                              `pulumi:"ipAddressType"`
+	LogPublishingOptions        map[string]DomainLogPublishingOption `pulumi:"logPublishingOptions"`
+	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions   `pulumi:"nodeToNodeEncryptionOptions"`
+	OffPeakWindowOptions        *DomainOffPeakWindowOptions          `pulumi:"offPeakWindowOptions"`
+	SnapshotOptions             *DomainSnapshotOptions               `pulumi:"snapshotOptions"`
+	SoftwareUpdateOptions       *DomainSoftwareUpdateOptions         `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags       []DomainTag       `pulumi:"tags"`
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
@@ -110,7 +110,7 @@ type domainArgs struct {
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	AccessPolicies              pulumi.Input
-	AdvancedOptions             pulumi.Input
+	AdvancedOptions             pulumi.StringMapInput
 	AdvancedSecurityOptions     DomainAdvancedSecurityOptionsInputPtrInput
 	ClusterConfig               DomainClusterConfigPtrInput
 	CognitoOptions              DomainCognitoOptionsPtrInput
@@ -120,7 +120,7 @@ type DomainArgs struct {
 	EncryptionAtRestOptions     DomainEncryptionAtRestOptionsPtrInput
 	EngineVersion               pulumi.StringPtrInput
 	IpAddressType               pulumi.StringPtrInput
-	LogPublishingOptions        pulumi.Input
+	LogPublishingOptions        DomainLogPublishingOptionMapInput
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrInput
 	OffPeakWindowOptions        DomainOffPeakWindowOptionsPtrInput
 	SnapshotOptions             DomainSnapshotOptionsPtrInput
@@ -171,8 +171,8 @@ func (o DomainOutput) AccessPolicies() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.AccessPolicies }).(pulumi.AnyOutput)
 }
 
-func (o DomainOutput) AdvancedOptions() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.AdvancedOptions }).(pulumi.AnyOutput)
+func (o DomainOutput) AdvancedOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.AdvancedOptions }).(pulumi.StringMapOutput)
 }
 
 func (o DomainOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsInputPtrOutput {
@@ -207,8 +207,8 @@ func (o DomainOutput) DomainEndpointV2() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainEndpointV2 }).(pulumi.StringOutput)
 }
 
-func (o DomainOutput) DomainEndpoints() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.DomainEndpoints }).(pulumi.AnyOutput)
+func (o DomainOutput) DomainEndpoints() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.DomainEndpoints }).(pulumi.StringMapOutput)
 }
 
 func (o DomainOutput) DomainName() pulumi.StringPtrOutput {
@@ -231,8 +231,8 @@ func (o DomainOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
-func (o DomainOutput) LogPublishingOptions() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.LogPublishingOptions }).(pulumi.AnyOutput)
+func (o DomainOutput) LogPublishingOptions() DomainLogPublishingOptionMapOutput {
+	return o.ApplyT(func(v *Domain) DomainLogPublishingOptionMapOutput { return v.LogPublishingOptions }).(DomainLogPublishingOptionMapOutput)
 }
 
 func (o DomainOutput) NodeToNodeEncryptionOptions() DomainNodeToNodeEncryptionOptionsPtrOutput {

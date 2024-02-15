@@ -5845,9 +5845,9 @@ func (o PipelineActivityArrayOutput) Index(i pulumi.IntInput) PipelineActivityOu
 }
 
 type PipelineAddAttributes struct {
-	Attributes interface{} `pulumi:"attributes"`
-	Name       string      `pulumi:"name"`
-	Next       *string     `pulumi:"next"`
+	Attributes map[string]string `pulumi:"attributes"`
+	Name       string            `pulumi:"name"`
+	Next       *string           `pulumi:"next"`
 }
 
 // PipelineAddAttributesInput is an input type that accepts PipelineAddAttributesArgs and PipelineAddAttributesOutput values.
@@ -5862,7 +5862,7 @@ type PipelineAddAttributesInput interface {
 }
 
 type PipelineAddAttributesArgs struct {
-	Attributes pulumi.Input          `pulumi:"attributes"`
+	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 	Name       pulumi.StringInput    `pulumi:"name"`
 	Next       pulumi.StringPtrInput `pulumi:"next"`
 }
@@ -5944,8 +5944,8 @@ func (o PipelineAddAttributesOutput) ToPipelineAddAttributesPtrOutputWithContext
 	}).(PipelineAddAttributesPtrOutput)
 }
 
-func (o PipelineAddAttributesOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v PipelineAddAttributes) interface{} { return v.Attributes }).(pulumi.AnyOutput)
+func (o PipelineAddAttributesOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PipelineAddAttributes) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 func (o PipelineAddAttributesOutput) Name() pulumi.StringOutput {
@@ -5980,13 +5980,13 @@ func (o PipelineAddAttributesPtrOutput) Elem() PipelineAddAttributesOutput {
 	}).(PipelineAddAttributesOutput)
 }
 
-func (o PipelineAddAttributesPtrOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *PipelineAddAttributes) interface{} {
+func (o PipelineAddAttributesPtrOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PipelineAddAttributes) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Attributes
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o PipelineAddAttributesPtrOutput) Name() pulumi.StringPtrOutput {

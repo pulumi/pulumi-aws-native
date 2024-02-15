@@ -18,7 +18,7 @@ type BackupVault struct {
 	AccessPolicy      pulumi.AnyOutput                           `pulumi:"accessPolicy"`
 	BackupVaultArn    pulumi.StringOutput                        `pulumi:"backupVaultArn"`
 	BackupVaultName   pulumi.StringOutput                        `pulumi:"backupVaultName"`
-	BackupVaultTags   pulumi.AnyOutput                           `pulumi:"backupVaultTags"`
+	BackupVaultTags   pulumi.StringMapOutput                     `pulumi:"backupVaultTags"`
 	EncryptionKeyArn  pulumi.StringPtrOutput                     `pulumi:"encryptionKeyArn"`
 	LockConfiguration BackupVaultLockConfigurationTypePtrOutput  `pulumi:"lockConfiguration"`
 	Notifications     BackupVaultNotificationObjectTypePtrOutput `pulumi:"notifications"`
@@ -71,7 +71,7 @@ func (BackupVaultState) ElementType() reflect.Type {
 type backupVaultArgs struct {
 	AccessPolicy      interface{}                        `pulumi:"accessPolicy"`
 	BackupVaultName   *string                            `pulumi:"backupVaultName"`
-	BackupVaultTags   interface{}                        `pulumi:"backupVaultTags"`
+	BackupVaultTags   map[string]string                  `pulumi:"backupVaultTags"`
 	EncryptionKeyArn  *string                            `pulumi:"encryptionKeyArn"`
 	LockConfiguration *BackupVaultLockConfigurationType  `pulumi:"lockConfiguration"`
 	Notifications     *BackupVaultNotificationObjectType `pulumi:"notifications"`
@@ -81,7 +81,7 @@ type backupVaultArgs struct {
 type BackupVaultArgs struct {
 	AccessPolicy      pulumi.Input
 	BackupVaultName   pulumi.StringPtrInput
-	BackupVaultTags   pulumi.Input
+	BackupVaultTags   pulumi.StringMapInput
 	EncryptionKeyArn  pulumi.StringPtrInput
 	LockConfiguration BackupVaultLockConfigurationTypePtrInput
 	Notifications     BackupVaultNotificationObjectTypePtrInput
@@ -136,8 +136,8 @@ func (o BackupVaultOutput) BackupVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.BackupVaultName }).(pulumi.StringOutput)
 }
 
-func (o BackupVaultOutput) BackupVaultTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *BackupVault) pulumi.AnyOutput { return v.BackupVaultTags }).(pulumi.AnyOutput)
+func (o BackupVaultOutput) BackupVaultTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.StringMapOutput { return v.BackupVaultTags }).(pulumi.StringMapOutput)
 }
 
 func (o BackupVaultOutput) EncryptionKeyArn() pulumi.StringPtrOutput {

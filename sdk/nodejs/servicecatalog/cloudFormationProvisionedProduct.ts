@@ -43,7 +43,7 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
     /**
      * List of key-value pair outputs.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<any>;
+    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
     public readonly pathId!: pulumi.Output<string | undefined>;
     public readonly pathName!: pulumi.Output<string | undefined>;
     public readonly productId!: pulumi.Output<string | undefined>;

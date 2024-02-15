@@ -16,14 +16,14 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	Components          pulumi.AnyOutput                       `pulumi:"components"`
-	DeploymentId        pulumi.StringOutput                    `pulumi:"deploymentId"`
-	DeploymentName      pulumi.StringPtrOutput                 `pulumi:"deploymentName"`
-	DeploymentPolicies  DeploymentPoliciesPtrOutput            `pulumi:"deploymentPolicies"`
-	IotJobConfiguration DeploymentIoTJobConfigurationPtrOutput `pulumi:"iotJobConfiguration"`
-	ParentTargetArn     pulumi.StringPtrOutput                 `pulumi:"parentTargetArn"`
-	Tags                pulumi.AnyOutput                       `pulumi:"tags"`
-	TargetArn           pulumi.StringOutput                    `pulumi:"targetArn"`
+	Components          DeploymentComponentDeploymentSpecificationMapOutput `pulumi:"components"`
+	DeploymentId        pulumi.StringOutput                                 `pulumi:"deploymentId"`
+	DeploymentName      pulumi.StringPtrOutput                              `pulumi:"deploymentName"`
+	DeploymentPolicies  DeploymentPoliciesPtrOutput                         `pulumi:"deploymentPolicies"`
+	IotJobConfiguration DeploymentIoTJobConfigurationPtrOutput              `pulumi:"iotJobConfiguration"`
+	ParentTargetArn     pulumi.StringPtrOutput                              `pulumi:"parentTargetArn"`
+	Tags                pulumi.StringMapOutput                              `pulumi:"tags"`
+	TargetArn           pulumi.StringOutput                                 `pulumi:"targetArn"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -37,7 +37,7 @@ func NewDeployment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"components",
+		"components.*",
 		"deploymentName",
 		"deploymentPolicies",
 		"iotJobConfiguration",
@@ -78,23 +78,23 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	Components          interface{}                    `pulumi:"components"`
-	DeploymentName      *string                        `pulumi:"deploymentName"`
-	DeploymentPolicies  *DeploymentPolicies            `pulumi:"deploymentPolicies"`
-	IotJobConfiguration *DeploymentIoTJobConfiguration `pulumi:"iotJobConfiguration"`
-	ParentTargetArn     *string                        `pulumi:"parentTargetArn"`
-	Tags                interface{}                    `pulumi:"tags"`
-	TargetArn           string                         `pulumi:"targetArn"`
+	Components          map[string]DeploymentComponentDeploymentSpecification `pulumi:"components"`
+	DeploymentName      *string                                               `pulumi:"deploymentName"`
+	DeploymentPolicies  *DeploymentPolicies                                   `pulumi:"deploymentPolicies"`
+	IotJobConfiguration *DeploymentIoTJobConfiguration                        `pulumi:"iotJobConfiguration"`
+	ParentTargetArn     *string                                               `pulumi:"parentTargetArn"`
+	Tags                map[string]string                                     `pulumi:"tags"`
+	TargetArn           string                                                `pulumi:"targetArn"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	Components          pulumi.Input
+	Components          DeploymentComponentDeploymentSpecificationMapInput
 	DeploymentName      pulumi.StringPtrInput
 	DeploymentPolicies  DeploymentPoliciesPtrInput
 	IotJobConfiguration DeploymentIoTJobConfigurationPtrInput
 	ParentTargetArn     pulumi.StringPtrInput
-	Tags                pulumi.Input
+	Tags                pulumi.StringMapInput
 	TargetArn           pulumi.StringInput
 }
 
@@ -135,8 +135,8 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
-func (o DeploymentOutput) Components() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Deployment) pulumi.AnyOutput { return v.Components }).(pulumi.AnyOutput)
+func (o DeploymentOutput) Components() DeploymentComponentDeploymentSpecificationMapOutput {
+	return o.ApplyT(func(v *Deployment) DeploymentComponentDeploymentSpecificationMapOutput { return v.Components }).(DeploymentComponentDeploymentSpecificationMapOutput)
 }
 
 func (o DeploymentOutput) DeploymentId() pulumi.StringOutput {
@@ -159,8 +159,8 @@ func (o DeploymentOutput) ParentTargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.ParentTargetArn }).(pulumi.StringPtrOutput)
 }
 
-func (o DeploymentOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Deployment) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o DeploymentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o DeploymentOutput) TargetArn() pulumi.StringOutput {

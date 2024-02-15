@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// A map of key-value pairs to associate with a resource.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The date and time of the current update.
@@ -130,11 +130,17 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         [Input("s3Location", required: true)]
         public Input<string> S3Location { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// A map of key-value pairs to associate with a resource.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The ID of the workspace.

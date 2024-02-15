@@ -41,7 +41,7 @@ type LookupClusterResult struct {
 	OpenMonitoring      *ClusterOpenMonitoring     `pulumi:"openMonitoring"`
 	StorageMode         *ClusterStorageMode        `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -129,8 +129,8 @@ func (o LookupClusterResultOutput) StorageMode() ClusterStorageModePtrOutput {
 }
 
 // A key-value pair to associate with a resource.
-func (o LookupClusterResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupClusterResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

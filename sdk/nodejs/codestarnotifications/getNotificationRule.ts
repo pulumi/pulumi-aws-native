@@ -29,7 +29,7 @@ export interface GetNotificationRuleResult {
     readonly eventTypeIds?: string[];
     readonly name?: string;
     readonly status?: enums.codestarnotifications.NotificationRuleStatus;
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     readonly targets?: outputs.codestarnotifications.NotificationRuleTarget[];
 }
 /**

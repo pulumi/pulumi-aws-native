@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Eks
         /// <summary>
         /// The Kubernetes labels to be applied to the nodes in the node group when they are created.
         /// </summary>
-        public readonly object? Labels;
+        public readonly ImmutableDictionary<string, string>? Labels;
         /// <summary>
         /// An object representing a node group's launch template specification.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Eks
         /// <summary>
         /// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The Kubernetes taints to be applied to the nodes in the node group when they are created.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Eks
 
             string? id,
 
-            object? labels,
+            ImmutableDictionary<string, string>? labels,
 
             Outputs.NodegroupLaunchTemplateSpecification? launchTemplate,
 
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Eks
 
             Outputs.NodegroupScalingConfig? scalingConfig,
 
-            object? tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.NodegroupTaint> taints,
 

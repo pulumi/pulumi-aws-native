@@ -31,7 +31,7 @@ type ImageRecipe struct {
 	// The parent image of the image recipe.
 	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
 	// The tags of the image recipe.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The version of the image recipe.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
@@ -60,7 +60,7 @@ func NewImageRecipe(ctx *pulumi.Context,
 		"description",
 		"name",
 		"parentImage",
-		"tags",
+		"tags.*",
 		"version",
 		"workingDirectory",
 	})
@@ -111,7 +111,7 @@ type imageRecipeArgs struct {
 	// The parent image of the image recipe.
 	ParentImage string `pulumi:"parentImage"`
 	// The tags of the image recipe.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The version of the image recipe.
 	Version string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
@@ -133,7 +133,7 @@ type ImageRecipeArgs struct {
 	// The parent image of the image recipe.
 	ParentImage pulumi.StringInput
 	// The tags of the image recipe.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The version of the image recipe.
 	Version pulumi.StringInput
 	// The working directory to be used during build and test workflows.
@@ -215,8 +215,8 @@ func (o ImageRecipeOutput) ParentImage() pulumi.StringOutput {
 }
 
 // The tags of the image recipe.
-func (o ImageRecipeOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ImageRecipe) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o ImageRecipeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The version of the image recipe.

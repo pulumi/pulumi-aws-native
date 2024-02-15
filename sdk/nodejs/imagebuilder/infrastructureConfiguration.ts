@@ -72,7 +72,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     /**
      * The tags attached to the resource created by Image Builder.
      */
-    public readonly resourceTags!: pulumi.Output<any | undefined>;
+    public readonly resourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The security group IDs of the infrastructure configuration.
      */
@@ -88,7 +88,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     /**
      * The tags associated with the component.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The terminate instance on failure configuration of the infrastructure configuration.
      */
@@ -180,7 +180,7 @@ export interface InfrastructureConfigurationArgs {
     /**
      * The tags attached to the resource created by Image Builder.
      */
-    resourceTags?: any;
+    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The security group IDs of the infrastructure configuration.
      */
@@ -196,7 +196,7 @@ export interface InfrastructureConfigurationArgs {
     /**
      * The tags associated with the component.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The terminate instance on failure configuration of the infrastructure configuration.
      */

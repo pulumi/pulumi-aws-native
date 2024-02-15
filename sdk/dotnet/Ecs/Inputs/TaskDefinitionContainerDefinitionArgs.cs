@@ -62,7 +62,12 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         }
 
         [Input("dockerLabels")]
-        public Input<object>? DockerLabels { get; set; }
+        private InputMap<string>? _dockerLabels;
+        public InputMap<string> DockerLabels
+        {
+            get => _dockerLabels ?? (_dockerLabels = new InputMap<string>());
+            set => _dockerLabels = value;
+        }
 
         [Input("dockerSecurityOptions")]
         private InputList<string>? _dockerSecurityOptions;

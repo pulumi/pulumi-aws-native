@@ -19,8 +19,8 @@ class SceneArgs:
                  workspace_id: pulumi.Input[str],
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 scene_metadata: Optional[Any] = None,
-                 tags: Optional[Any] = None):
+                 scene_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Scene resource.
         :param pulumi.Input[str] content_location: The relative path that specifies the location of the content definition file.
@@ -28,8 +28,8 @@ class SceneArgs:
         :param pulumi.Input[str] workspace_id: The ID of the scene.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities that the scene uses to render.
         :param pulumi.Input[str] description: The description of the scene.
-        :param Any scene_metadata: A key-value pair of scene metadata for the scene.
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] scene_metadata: A key-value pair of scene metadata for the scene.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "content_location", content_location)
         pulumi.set(__self__, "scene_id", scene_id)
@@ -105,26 +105,26 @@ class SceneArgs:
 
     @property
     @pulumi.getter(name="sceneMetadata")
-    def scene_metadata(self) -> Optional[Any]:
+    def scene_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A key-value pair of scene metadata for the scene.
         """
         return pulumi.get(self, "scene_metadata")
 
     @scene_metadata.setter
-    def scene_metadata(self, value: Optional[Any]):
+    def scene_metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "scene_metadata", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -137,8 +137,8 @@ class Scene(pulumi.CustomResource):
                  content_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  scene_id: Optional[pulumi.Input[str]] = None,
-                 scene_metadata: Optional[Any] = None,
-                 tags: Optional[Any] = None,
+                 scene_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -150,8 +150,8 @@ class Scene(pulumi.CustomResource):
         :param pulumi.Input[str] content_location: The relative path that specifies the location of the content definition file.
         :param pulumi.Input[str] description: The description of the scene.
         :param pulumi.Input[str] scene_id: The ID of the scene.
-        :param Any scene_metadata: A key-value pair of scene metadata for the scene.
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] scene_metadata: A key-value pair of scene metadata for the scene.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         :param pulumi.Input[str] workspace_id: The ID of the scene.
         """
         ...
@@ -182,8 +182,8 @@ class Scene(pulumi.CustomResource):
                  content_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  scene_id: Optional[pulumi.Input[str]] = None,
-                 scene_metadata: Optional[Any] = None,
-                 tags: Optional[Any] = None,
+                 scene_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -290,7 +290,7 @@ class Scene(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="generatedSceneMetadata")
-    def generated_scene_metadata(self) -> pulumi.Output[Any]:
+    def generated_scene_metadata(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A key-value pair of generated scene metadata for the scene.
         """
@@ -306,7 +306,7 @@ class Scene(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sceneMetadata")
-    def scene_metadata(self) -> pulumi.Output[Optional[Any]]:
+    def scene_metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A key-value pair of scene metadata for the scene.
         """
@@ -314,7 +314,7 @@ class Scene(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A key-value pair to associate with a resource.
         """

@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
     public sealed class FilterFindingCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("criterion")]
-        public Input<object>? Criterion { get; set; }
+        private InputMap<Inputs.FilterConditionArgs>? _criterion;
+        public InputMap<Inputs.FilterConditionArgs> Criterion
+        {
+            get => _criterion ?? (_criterion = new InputMap<Inputs.FilterConditionArgs>());
+            set => _criterion = value;
+        }
 
         public FilterFindingCriteriaArgs()
         {

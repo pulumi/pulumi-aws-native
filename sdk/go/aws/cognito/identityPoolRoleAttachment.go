@@ -16,9 +16,9 @@ import (
 type IdentityPoolRoleAttachment struct {
 	pulumi.CustomResourceState
 
-	IdentityPoolId pulumi.StringOutput `pulumi:"identityPoolId"`
-	RoleMappings   pulumi.AnyOutput    `pulumi:"roleMappings"`
-	Roles          pulumi.AnyOutput    `pulumi:"roles"`
+	IdentityPoolId pulumi.StringOutput                            `pulumi:"identityPoolId"`
+	RoleMappings   IdentityPoolRoleAttachmentRoleMappingMapOutput `pulumi:"roleMappings"`
+	Roles          pulumi.StringMapOutput                         `pulumi:"roles"`
 }
 
 // NewIdentityPoolRoleAttachment registers a new resource with the given unique name, arguments, and options.
@@ -68,16 +68,16 @@ func (IdentityPoolRoleAttachmentState) ElementType() reflect.Type {
 }
 
 type identityPoolRoleAttachmentArgs struct {
-	IdentityPoolId string      `pulumi:"identityPoolId"`
-	RoleMappings   interface{} `pulumi:"roleMappings"`
-	Roles          interface{} `pulumi:"roles"`
+	IdentityPoolId string                                           `pulumi:"identityPoolId"`
+	RoleMappings   map[string]IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
+	Roles          map[string]string                                `pulumi:"roles"`
 }
 
 // The set of arguments for constructing a IdentityPoolRoleAttachment resource.
 type IdentityPoolRoleAttachmentArgs struct {
 	IdentityPoolId pulumi.StringInput
-	RoleMappings   pulumi.Input
-	Roles          pulumi.Input
+	RoleMappings   IdentityPoolRoleAttachmentRoleMappingMapInput
+	Roles          pulumi.StringMapInput
 }
 
 func (IdentityPoolRoleAttachmentArgs) ElementType() reflect.Type {
@@ -121,12 +121,14 @@ func (o IdentityPoolRoleAttachmentOutput) IdentityPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringOutput { return v.IdentityPoolId }).(pulumi.StringOutput)
 }
 
-func (o IdentityPoolRoleAttachmentOutput) RoleMappings() pulumi.AnyOutput {
-	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.AnyOutput { return v.RoleMappings }).(pulumi.AnyOutput)
+func (o IdentityPoolRoleAttachmentOutput) RoleMappings() IdentityPoolRoleAttachmentRoleMappingMapOutput {
+	return o.ApplyT(func(v *IdentityPoolRoleAttachment) IdentityPoolRoleAttachmentRoleMappingMapOutput {
+		return v.RoleMappings
+	}).(IdentityPoolRoleAttachmentRoleMappingMapOutput)
 }
 
-func (o IdentityPoolRoleAttachmentOutput) Roles() pulumi.AnyOutput {
-	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.AnyOutput { return v.Roles }).(pulumi.AnyOutput)
+func (o IdentityPoolRoleAttachmentOutput) Roles() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringMapOutput { return v.Roles }).(pulumi.StringMapOutput)
 }
 
 func init() {

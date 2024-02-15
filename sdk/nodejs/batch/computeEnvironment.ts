@@ -47,7 +47,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly type!: pulumi.Output<string>;
     public readonly unmanagedvCpus!: pulumi.Output<number | undefined>;
     public readonly updatePolicy!: pulumi.Output<outputs.batch.ComputeEnvironmentUpdatePolicy | undefined>;
@@ -91,7 +91,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["updatePolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["computeEnvironmentName", "computeResources.spotIamFleetRole", "eksConfiguration", "tags", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["computeEnvironmentName", "computeResources.spotIamFleetRole", "eksConfiguration", "tags.*", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ComputeEnvironment.__pulumiType, name, resourceInputs, opts);
     }
@@ -110,7 +110,7 @@ export interface ComputeEnvironmentArgs {
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     type: pulumi.Input<string>;
     unmanagedvCpus?: pulumi.Input<number>;
     updatePolicy?: pulumi.Input<inputs.batch.ComputeEnvironmentUpdatePolicyArgs>;

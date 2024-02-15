@@ -185,7 +185,7 @@ class ApplicationConfigurationObjectArgs:
     def __init__(__self__, *,
                  classification: pulumi.Input[str],
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]]] = None,
-                 properties: Optional[Any] = None):
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Configuration for a JobRun.
         :param pulumi.Input[str] classification: String with a maximum length of 1024.
@@ -219,11 +219,11 @@ class ApplicationConfigurationObjectArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Any]:
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[Any]):
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "properties", value)
 
 

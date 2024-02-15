@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     [OutputType]
     public sealed class FilterFindingCriteria
     {
-        public readonly object? Criterion;
+        public readonly ImmutableDictionary<string, Outputs.FilterCondition>? Criterion;
 
         [OutputConstructor]
-        private FilterFindingCriteria(object? criterion)
+        private FilterFindingCriteria(ImmutableDictionary<string, Outputs.FilterCondition>? criterion)
         {
             Criterion = criterion;
         }

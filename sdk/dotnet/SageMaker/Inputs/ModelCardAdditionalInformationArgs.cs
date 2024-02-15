@@ -18,11 +18,17 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("caveatsAndRecommendations")]
         public Input<string>? CaveatsAndRecommendations { get; set; }
 
+        [Input("customDetails")]
+        private InputMap<string>? _customDetails;
+
         /// <summary>
         /// customer details.
         /// </summary>
-        [Input("customDetails")]
-        public Input<object>? CustomDetails { get; set; }
+        public InputMap<string> CustomDetails
+        {
+            get => _customDetails ?? (_customDetails = new InputMap<string>());
+            set => _customDetails = value;
+        }
 
         /// <summary>
         /// Any ethical considerations that the author wants to provide.

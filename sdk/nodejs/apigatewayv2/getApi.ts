@@ -52,7 +52,7 @@ export interface GetApiResult {
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     /**
      * A version identifier for the API.
      */

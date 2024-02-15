@@ -39,7 +39,7 @@ class GetGatewayResponseResult:
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[Any]:
+    def response_parameters(self) -> Optional[Mapping[str, str]]:
         """
         Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
         """
@@ -47,7 +47,7 @@ class GetGatewayResponseResult:
 
     @property
     @pulumi.getter(name="responseTemplates")
-    def response_templates(self) -> Optional[Any]:
+    def response_templates(self) -> Optional[Mapping[str, str]]:
         """
         Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
         """

@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
         /// <summary>
         /// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
         /// </summary>
-        public readonly object? StageVariableOverrides;
+        public readonly ImmutableDictionary<string, string>? StageVariableOverrides;
         /// <summary>
         /// A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
         private DeploymentCanarySetting(
             double? percentTraffic,
 
-            object? stageVariableOverrides,
+            ImmutableDictionary<string, string>? stageVariableOverrides,
 
             bool? useStageCache)
         {

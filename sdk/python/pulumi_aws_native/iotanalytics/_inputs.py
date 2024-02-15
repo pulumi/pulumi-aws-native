@@ -1353,7 +1353,7 @@ class PipelineActivityArgs:
 @pulumi.input_type
 class PipelineAddAttributesArgs:
     def __init__(__self__, *,
-                 attributes: Any,
+                 attributes: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  name: pulumi.Input[str],
                  next: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "attributes", attributes)
@@ -1363,11 +1363,11 @@ class PipelineAddAttributesArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Any:
+    def attributes(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Any):
+    def attributes(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "attributes", value)
 
     @property

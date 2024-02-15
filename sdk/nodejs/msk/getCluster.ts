@@ -41,7 +41,7 @@ export interface GetClusterResult {
     /**
      * A key-value pair to associate with a resource.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource Type definition for AWS::MSK::Cluster

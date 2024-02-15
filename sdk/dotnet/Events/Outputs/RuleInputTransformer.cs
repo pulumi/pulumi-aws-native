@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleInputTransformer
     {
-        public readonly object? InputPathsMap;
+        public readonly ImmutableDictionary<string, string>? InputPathsMap;
         public readonly string InputTemplate;
 
         [OutputConstructor]
         private RuleInputTransformer(
-            object? inputPathsMap,
+            ImmutableDictionary<string, string>? inputPathsMap,
 
             string inputTemplate)
         {

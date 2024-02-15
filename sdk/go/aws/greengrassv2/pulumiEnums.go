@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ComponentVersionComponentDependencyRequirementDependencyType string
+
+const (
+	ComponentVersionComponentDependencyRequirementDependencyTypeSoft = ComponentVersionComponentDependencyRequirementDependencyType("SOFT")
+	ComponentVersionComponentDependencyRequirementDependencyTypeHard = ComponentVersionComponentDependencyRequirementDependencyType("HARD")
+)
+
+func (ComponentVersionComponentDependencyRequirementDependencyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentVersionComponentDependencyRequirementDependencyType)(nil)).Elem()
+}
+
+func (e ComponentVersionComponentDependencyRequirementDependencyType) ToComponentVersionComponentDependencyRequirementDependencyTypeOutput() ComponentVersionComponentDependencyRequirementDependencyTypeOutput {
+	return pulumi.ToOutput(e).(ComponentVersionComponentDependencyRequirementDependencyTypeOutput)
+}
+
+func (e ComponentVersionComponentDependencyRequirementDependencyType) ToComponentVersionComponentDependencyRequirementDependencyTypeOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementDependencyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComponentVersionComponentDependencyRequirementDependencyTypeOutput)
+}
+
+func (e ComponentVersionComponentDependencyRequirementDependencyType) ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutput() ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput {
+	return e.ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutputWithContext(context.Background())
+}
+
+func (e ComponentVersionComponentDependencyRequirementDependencyType) ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput {
+	return ComponentVersionComponentDependencyRequirementDependencyType(e).ToComponentVersionComponentDependencyRequirementDependencyTypeOutputWithContext(ctx).ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutputWithContext(ctx)
+}
+
+func (e ComponentVersionComponentDependencyRequirementDependencyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComponentVersionComponentDependencyRequirementDependencyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComponentVersionComponentDependencyRequirementDependencyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComponentVersionComponentDependencyRequirementDependencyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComponentVersionComponentDependencyRequirementDependencyTypeOutput struct{ *pulumi.OutputState }
+
+func (ComponentVersionComponentDependencyRequirementDependencyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentVersionComponentDependencyRequirementDependencyType)(nil)).Elem()
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypeOutput) ToComponentVersionComponentDependencyRequirementDependencyTypeOutput() ComponentVersionComponentDependencyRequirementDependencyTypeOutput {
+	return o
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypeOutput) ToComponentVersionComponentDependencyRequirementDependencyTypeOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementDependencyTypeOutput {
+	return o
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypeOutput) ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutput() ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput {
+	return o.ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutputWithContext(context.Background())
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypeOutput) ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentVersionComponentDependencyRequirementDependencyType) *ComponentVersionComponentDependencyRequirementDependencyType {
+		return &v
+	}).(ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput)
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComponentVersionComponentDependencyRequirementDependencyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComponentVersionComponentDependencyRequirementDependencyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentVersionComponentDependencyRequirementDependencyType)(nil)).Elem()
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput) ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutput() ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput {
+	return o
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput) ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput {
+	return o
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput) Elem() ComponentVersionComponentDependencyRequirementDependencyTypeOutput {
+	return o.ApplyT(func(v *ComponentVersionComponentDependencyRequirementDependencyType) ComponentVersionComponentDependencyRequirementDependencyType {
+		if v != nil {
+			return *v
+		}
+		var ret ComponentVersionComponentDependencyRequirementDependencyType
+		return ret
+	}).(ComponentVersionComponentDependencyRequirementDependencyTypeOutput)
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComponentVersionComponentDependencyRequirementDependencyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComponentVersionComponentDependencyRequirementDependencyTypeInput is an input type that accepts values of the ComponentVersionComponentDependencyRequirementDependencyType enum
+// A concrete instance of `ComponentVersionComponentDependencyRequirementDependencyTypeInput` can be one of the following:
+//
+//	ComponentVersionComponentDependencyRequirementDependencyTypeSoft
+//	ComponentVersionComponentDependencyRequirementDependencyTypeHard
+type ComponentVersionComponentDependencyRequirementDependencyTypeInput interface {
+	pulumi.Input
+
+	ToComponentVersionComponentDependencyRequirementDependencyTypeOutput() ComponentVersionComponentDependencyRequirementDependencyTypeOutput
+	ToComponentVersionComponentDependencyRequirementDependencyTypeOutputWithContext(context.Context) ComponentVersionComponentDependencyRequirementDependencyTypeOutput
+}
+
+var componentVersionComponentDependencyRequirementDependencyTypePtrType = reflect.TypeOf((**ComponentVersionComponentDependencyRequirementDependencyType)(nil)).Elem()
+
+type ComponentVersionComponentDependencyRequirementDependencyTypePtrInput interface {
+	pulumi.Input
+
+	ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutput() ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput
+	ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutputWithContext(context.Context) ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput
+}
+
+type componentVersionComponentDependencyRequirementDependencyTypePtr string
+
+func ComponentVersionComponentDependencyRequirementDependencyTypePtr(v string) ComponentVersionComponentDependencyRequirementDependencyTypePtrInput {
+	return (*componentVersionComponentDependencyRequirementDependencyTypePtr)(&v)
+}
+
+func (*componentVersionComponentDependencyRequirementDependencyTypePtr) ElementType() reflect.Type {
+	return componentVersionComponentDependencyRequirementDependencyTypePtrType
+}
+
+func (in *componentVersionComponentDependencyRequirementDependencyTypePtr) ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutput() ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput {
+	return pulumi.ToOutput(in).(ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput)
+}
+
+func (in *componentVersionComponentDependencyRequirementDependencyTypePtr) ToComponentVersionComponentDependencyRequirementDependencyTypePtrOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput)
+}
+
 type ComponentVersionLambdaEventSourceType string
 
 const (
@@ -1333,6 +1498,8 @@ func (in *deploymentPoliciesFailureHandlingPolicyPtr) ToDeploymentPoliciesFailur
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionComponentDependencyRequirementDependencyTypeInput)(nil)).Elem(), ComponentVersionComponentDependencyRequirementDependencyType("SOFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionComponentDependencyRequirementDependencyTypePtrInput)(nil)).Elem(), ComponentVersionComponentDependencyRequirementDependencyType("SOFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaEventSourceTypeInput)(nil)).Elem(), ComponentVersionLambdaEventSourceType("PUB_SUB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaEventSourceTypePtrInput)(nil)).Elem(), ComponentVersionLambdaEventSourceType("PUB_SUB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeInput)(nil)).Elem(), ComponentVersionLambdaExecutionParametersInputPayloadEncodingType("json"))
@@ -1349,6 +1516,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobAbortCriteriaFailureTypePtrInput)(nil)).Elem(), DeploymentIoTJobAbortCriteriaFailureType("FAILED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentPoliciesFailureHandlingPolicyInput)(nil)).Elem(), DeploymentPoliciesFailureHandlingPolicy("ROLLBACK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentPoliciesFailureHandlingPolicyPtrInput)(nil)).Elem(), DeploymentPoliciesFailureHandlingPolicy("ROLLBACK"))
+	pulumi.RegisterOutputType(ComponentVersionComponentDependencyRequirementDependencyTypeOutput{})
+	pulumi.RegisterOutputType(ComponentVersionComponentDependencyRequirementDependencyTypePtrOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaEventSourceTypeOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaEventSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeOutput{})

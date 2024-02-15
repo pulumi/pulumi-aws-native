@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// Tags that are attached to the container recipe.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The destination repository for the container image.
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.ImageBuilder
                     "name",
                     "parentImage",
                     "platformOverride",
-                    "tags",
+                    "tags.*",
                     "targetRepository",
                     "version",
                     "workingDirectory",
@@ -246,11 +246,17 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Input("platformOverride")]
         public Input<Pulumi.AwsNative.ImageBuilder.ContainerRecipePlatformOverride>? PlatformOverride { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// Tags that are attached to the container recipe.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The destination repository for the container image.

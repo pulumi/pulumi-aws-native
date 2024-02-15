@@ -48,7 +48,7 @@ class GetBackupVaultResult:
 
     @property
     @pulumi.getter(name="backupVaultTags")
-    def backup_vault_tags(self) -> Optional[Any]:
+    def backup_vault_tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "backup_vault_tags")
 
     @property

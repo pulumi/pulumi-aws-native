@@ -33,7 +33,7 @@ type LookupComponentTypeResult struct {
 	// The ARN of the component type.
 	Arn *string `pulumi:"arn"`
 	// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
-	CompositeComponentTypes interface{} `pulumi:"compositeComponentTypes"`
+	CompositeComponentTypes map[string]ComponentTypeCompositeComponentType `pulumi:"compositeComponentTypes"`
 	// The date and time when the component type was created.
 	CreationDateTime *string `pulumi:"creationDateTime"`
 	// The description of the component type.
@@ -41,7 +41,7 @@ type LookupComponentTypeResult struct {
 	// Specifies the parent component type to extend.
 	ExtendsFrom []string `pulumi:"extendsFrom"`
 	// a Map of functions in the component type. Each function's key must be unique to this map.
-	Functions interface{} `pulumi:"functions"`
+	Functions map[string]ComponentTypeFunction `pulumi:"functions"`
 	// A Boolean value that specifies whether the component type is abstract.
 	IsAbstract *bool `pulumi:"isAbstract"`
 	// A Boolean value that specifies whether the component type has a schema initializer and that the schema initializer has run.
@@ -49,13 +49,13 @@ type LookupComponentTypeResult struct {
 	// A Boolean value that specifies whether an entity can have more than one component of this type.
 	IsSingleton *bool `pulumi:"isSingleton"`
 	// An map of the property definitions in the component type. Each property definition's key must be unique to this map.
-	PropertyDefinitions interface{} `pulumi:"propertyDefinitions"`
+	PropertyDefinitions map[string]ComponentTypePropertyDefinition `pulumi:"propertyDefinitions"`
 	// An map of the property groups in the component type. Each property group's key must be unique to this map.
-	PropertyGroups interface{} `pulumi:"propertyGroups"`
+	PropertyGroups map[string]ComponentTypePropertyGroup `pulumi:"propertyGroups"`
 	// The current status of the component type.
 	Status *ComponentTypeStatus `pulumi:"status"`
 	// A map of key-value pairs to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The last date and time when the component type was updated.
 	UpdateDateTime *string `pulumi:"updateDateTime"`
 }
@@ -104,8 +104,10 @@ func (o LookupComponentTypeResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
-func (o LookupComponentTypeResultOutput) CompositeComponentTypes() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupComponentTypeResult) interface{} { return v.CompositeComponentTypes }).(pulumi.AnyOutput)
+func (o LookupComponentTypeResultOutput) CompositeComponentTypes() ComponentTypeCompositeComponentTypeMapOutput {
+	return o.ApplyT(func(v LookupComponentTypeResult) map[string]ComponentTypeCompositeComponentType {
+		return v.CompositeComponentTypes
+	}).(ComponentTypeCompositeComponentTypeMapOutput)
 }
 
 // The date and time when the component type was created.
@@ -124,8 +126,8 @@ func (o LookupComponentTypeResultOutput) ExtendsFrom() pulumi.StringArrayOutput 
 }
 
 // a Map of functions in the component type. Each function's key must be unique to this map.
-func (o LookupComponentTypeResultOutput) Functions() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupComponentTypeResult) interface{} { return v.Functions }).(pulumi.AnyOutput)
+func (o LookupComponentTypeResultOutput) Functions() ComponentTypeFunctionMapOutput {
+	return o.ApplyT(func(v LookupComponentTypeResult) map[string]ComponentTypeFunction { return v.Functions }).(ComponentTypeFunctionMapOutput)
 }
 
 // A Boolean value that specifies whether the component type is abstract.
@@ -144,13 +146,15 @@ func (o LookupComponentTypeResultOutput) IsSingleton() pulumi.BoolPtrOutput {
 }
 
 // An map of the property definitions in the component type. Each property definition's key must be unique to this map.
-func (o LookupComponentTypeResultOutput) PropertyDefinitions() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupComponentTypeResult) interface{} { return v.PropertyDefinitions }).(pulumi.AnyOutput)
+func (o LookupComponentTypeResultOutput) PropertyDefinitions() ComponentTypePropertyDefinitionMapOutput {
+	return o.ApplyT(func(v LookupComponentTypeResult) map[string]ComponentTypePropertyDefinition {
+		return v.PropertyDefinitions
+	}).(ComponentTypePropertyDefinitionMapOutput)
 }
 
 // An map of the property groups in the component type. Each property group's key must be unique to this map.
-func (o LookupComponentTypeResultOutput) PropertyGroups() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupComponentTypeResult) interface{} { return v.PropertyGroups }).(pulumi.AnyOutput)
+func (o LookupComponentTypeResultOutput) PropertyGroups() ComponentTypePropertyGroupMapOutput {
+	return o.ApplyT(func(v LookupComponentTypeResult) map[string]ComponentTypePropertyGroup { return v.PropertyGroups }).(ComponentTypePropertyGroupMapOutput)
 }
 
 // The current status of the component type.
@@ -159,8 +163,8 @@ func (o LookupComponentTypeResultOutput) Status() ComponentTypeStatusPtrOutput {
 }
 
 // A map of key-value pairs to associate with a resource.
-func (o LookupComponentTypeResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupComponentTypeResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupComponentTypeResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupComponentTypeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The last date and time when the component type was updated.

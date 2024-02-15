@@ -18,14 +18,14 @@ class WorkspaceArgs:
                  s3_location: pulumi.Input[str],
                  workspace_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] role: The ARN of the execution role associated with the workspace.
         :param pulumi.Input[str] s3_location: The ARN of the S3 bucket where resources associated with the workspace are stored.
         :param pulumi.Input[str] workspace_id: The ID of the workspace.
         :param pulumi.Input[str] description: The description of the workspace.
-        :param Any tags: A map of key-value pairs to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs to associate with a resource.
         """
         pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "s3_location", s3_location)
@@ -85,14 +85,14 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of key-value pairs to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -104,7 +104,7 @@ class Workspace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  s3_location: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -115,7 +115,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the workspace.
         :param pulumi.Input[str] role: The ARN of the execution role associated with the workspace.
         :param pulumi.Input[str] s3_location: The ARN of the S3 bucket where resources associated with the workspace are stored.
-        :param Any tags: A map of key-value pairs to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs to associate with a resource.
         :param pulumi.Input[str] workspace_id: The ID of the workspace.
         """
         ...
@@ -145,7 +145,7 @@ class Workspace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  s3_location: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -246,7 +246,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of key-value pairs to associate with a resource.
         """

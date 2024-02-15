@@ -53,7 +53,7 @@ class GetBackupPlanResult:
 
     @property
     @pulumi.getter(name="backupPlanTags")
-    def backup_plan_tags(self) -> Optional[Any]:
+    def backup_plan_tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "backup_plan_tags")
 
     @property

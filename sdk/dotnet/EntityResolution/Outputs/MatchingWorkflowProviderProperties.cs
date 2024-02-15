@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// <summary>
         /// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
         /// </summary>
-        public readonly object? ProviderConfiguration;
+        public readonly ImmutableDictionary<string, string>? ProviderConfiguration;
         /// <summary>
         /// Arn of the Provider service being used.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         private MatchingWorkflowProviderProperties(
             Outputs.MatchingWorkflowIntermediateSourceConfiguration? intermediateSourceConfiguration,
 
-            object? providerConfiguration,
+            ImmutableDictionary<string, string>? providerConfiguration,
 
             string providerServiceArn)
         {

@@ -33,7 +33,7 @@ export interface GetSecurityProfileResult {
     /**
      * Specifies the destinations to which alerts are sent.
      */
-    readonly alertTargets?: any;
+    readonly alertTargets?: {[key: string]: outputs.iot.SecurityProfileAlertTarget};
     /**
      * Specifies the behaviors that, when violated by a device (thing), cause an alert.
      */

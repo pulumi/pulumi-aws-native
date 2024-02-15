@@ -53,7 +53,7 @@ type LookupImagePipelineResult struct {
 	// The status of the image pipeline.
 	Status *ImagePipelineStatus `pulumi:"status"`
 	// The tags of this image pipeline.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Workflows to define the image build process
 	Workflows []ImagePipelineWorkflowConfiguration `pulumi:"workflows"`
 }
@@ -159,8 +159,8 @@ func (o LookupImagePipelineResultOutput) Status() ImagePipelineStatusPtrOutput {
 }
 
 // The tags of this image pipeline.
-func (o LookupImagePipelineResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupImagePipelineResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupImagePipelineResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Workflows to define the image build process

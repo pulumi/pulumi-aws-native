@@ -24,11 +24,11 @@ class InfrastructureConfigurationArgs:
                  key_pair: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_tags: Optional[Any] = None,
+                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a InfrastructureConfiguration resource.
@@ -39,11 +39,11 @@ class InfrastructureConfigurationArgs:
         :param pulumi.Input[str] key_pair: The EC2 key pair of the infrastructure configuration..
         :param pulumi.Input['InfrastructureConfigurationLoggingArgs'] logging: The logging configuration of the infrastructure configuration.
         :param pulumi.Input[str] name: The name of the infrastructure configuration.
-        :param Any resource_tags: The tags attached to the resource created by Image Builder.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: The tags attached to the resource created by Image Builder.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the infrastructure configuration.
         :param pulumi.Input[str] sns_topic_arn: The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
         :param pulumi.Input[str] subnet_id: The subnet ID of the infrastructure configuration.
-        :param Any tags: The tags associated with the component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the component.
         :param pulumi.Input[bool] terminate_instance_on_failure: The terminate instance on failure configuration of the infrastructure configuration.
         """
         pulumi.set(__self__, "instance_profile_name", instance_profile_name)
@@ -158,14 +158,14 @@ class InfrastructureConfigurationArgs:
 
     @property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[Any]:
+    def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The tags attached to the resource created by Image Builder.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[Any]):
+    def resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "resource_tags", value)
 
     @property
@@ -206,14 +206,14 @@ class InfrastructureConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The tags associated with the component.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -241,11 +241,11 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  key_pair: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_tags: Optional[Any] = None,
+                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -260,11 +260,11 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] key_pair: The EC2 key pair of the infrastructure configuration..
         :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']] logging: The logging configuration of the infrastructure configuration.
         :param pulumi.Input[str] name: The name of the infrastructure configuration.
-        :param Any resource_tags: The tags attached to the resource created by Image Builder.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: The tags attached to the resource created by Image Builder.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the infrastructure configuration.
         :param pulumi.Input[str] sns_topic_arn: The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
         :param pulumi.Input[str] subnet_id: The subnet ID of the infrastructure configuration.
-        :param Any tags: The tags associated with the component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the component.
         :param pulumi.Input[bool] terminate_instance_on_failure: The terminate instance on failure configuration of the infrastructure configuration.
         """
         ...
@@ -298,11 +298,11 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  key_pair: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_tags: Optional[Any] = None,
+                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -435,7 +435,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> pulumi.Output[Optional[Any]]:
+    def resource_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags attached to the resource created by Image Builder.
         """
@@ -467,7 +467,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags associated with the component.
         """

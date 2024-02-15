@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.Events.Inputs
     public sealed class RuleInputTransformerArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputPathsMap")]
-        public Input<object>? InputPathsMap { get; set; }
+        private InputMap<string>? _inputPathsMap;
+        public InputMap<string> InputPathsMap
+        {
+            get => _inputPathsMap ?? (_inputPathsMap = new InputMap<string>());
+            set => _inputPathsMap = value;
+        }
 
         [Input("inputTemplate", required: true)]
         public Input<string> InputTemplate { get; set; } = null!;

@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleHttpParameters
     {
-        public readonly object? HeaderParameters;
+        public readonly ImmutableDictionary<string, string>? HeaderParameters;
         public readonly ImmutableArray<string> PathParameterValues;
-        public readonly object? QueryStringParameters;
+        public readonly ImmutableDictionary<string, string>? QueryStringParameters;
 
         [OutputConstructor]
         private RuleHttpParameters(
-            object? headerParameters,
+            ImmutableDictionary<string, string>? headerParameters,
 
             ImmutableArray<string> pathParameterValues,
 
-            object? queryStringParameters)
+            ImmutableDictionary<string, string>? queryStringParameters)
         {
             HeaderParameters = headerParameters;
             PathParameterValues = pathParameterValues;

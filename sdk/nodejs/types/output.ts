@@ -660,7 +660,7 @@ export namespace apigateway {
         /**
          * Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
          */
-        stageVariableOverrides?: any;
+        stageVariableOverrides?: {[key: string]: string};
         /**
          * A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
          */
@@ -678,7 +678,7 @@ export namespace apigateway {
         /**
          * A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
          */
-        stageVariableOverrides?: any;
+        stageVariableOverrides?: {[key: string]: string};
         /**
          * A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
          */
@@ -812,7 +812,7 @@ export namespace apigateway {
         /**
          * A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
          */
-        variables?: any;
+        variables?: {[key: string]: string};
     }
 
     export interface DeploymentTag {
@@ -911,11 +911,11 @@ export namespace apigateway {
         /**
          * A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
          */
-        requestParameters?: any;
+        requestParameters?: {[key: string]: string};
         /**
          * Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
          */
-        requestTemplates?: any;
+        requestTemplates?: {[key: string]: string};
         /**
          * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
          */
@@ -944,11 +944,11 @@ export namespace apigateway {
         /**
          * A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
          */
-        responseParameters?: any;
+        responseParameters?: {[key: string]: string};
         /**
          * Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
          */
-        responseTemplates?: any;
+        responseTemplates?: {[key: string]: string};
         /**
          * Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
          */
@@ -966,11 +966,11 @@ export namespace apigateway {
         /**
          * Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
          */
-        responseModels?: any;
+        responseModels?: {[key: string]: string};
         /**
          * A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
          */
-        responseParameters?: any;
+        responseParameters?: {[key: string]: boolean};
         /**
          * The method response's status code.
          */
@@ -1050,7 +1050,7 @@ export namespace apigateway {
         /**
          * Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
          */
-        stageVariableOverrides?: any;
+        stageVariableOverrides?: {[key: string]: string};
         /**
          * A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
          */
@@ -1130,7 +1130,7 @@ export namespace apigateway {
         /**
          * Map containing method level throttling information for API stage in a usage plan.
          */
-        throttle?: any;
+        throttle?: {[key: string]: outputs.apigateway.UsagePlanThrottleSettings};
     }
 
     /**
@@ -1424,6 +1424,28 @@ export namespace appconfig {
     }
 
     /**
+     * An action for an extension to take at a specific action point.
+     */
+    export interface ExtensionAction {
+        /**
+         * The description of the extension Action.
+         */
+        description?: string;
+        /**
+         * The name of the extension action.
+         */
+        name: string;
+        /**
+         * The ARN of the role for invoking the extension action.
+         */
+        roleArn?: string;
+        /**
+         * The URI of the extension action.
+         */
+        uri: string;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface ExtensionAssociationTag {
@@ -1435,6 +1457,17 @@ export namespace appconfig {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: string;
+    }
+
+    /**
+     * A parameter for the extension to send to a specific action.
+     */
+    export interface ExtensionParameter {
+        /**
+         * The description of the extension Parameter.
+         */
+        description?: string;
+        required: boolean;
     }
 
     /**
@@ -2478,7 +2511,7 @@ export namespace appintegrations {
         /**
          * Restrictions for what files should be pulled from the source.
          */
-        filters?: any;
+        filters?: {[key: string]: string[]};
         /**
          * Identifiers for the source folders to pull all files from recursively.
          */
@@ -5213,7 +5246,7 @@ export namespace backup {
         copyActions?: outputs.backup.BackupPlanCopyActionResourceType[];
         enableContinuousBackup?: boolean;
         lifecycle?: outputs.backup.BackupPlanLifecycleResourceType;
-        recoveryPointTags?: any;
+        recoveryPointTags?: {[key: string]: string};
         ruleName: string;
         scheduleExpression?: string;
         scheduleExpressionTimezone?: string;
@@ -5448,7 +5481,7 @@ export namespace batch {
         /**
          * A key-value pair to associate with a resource.
          */
-        tags?: any;
+        tags?: {[key: string]: string};
         type: string;
         updateToLatestImageVersion?: boolean;
     }
@@ -7947,6 +7980,24 @@ export namespace cognito {
     export interface IdentityPoolPushSync {
         applicationArns?: string[];
         roleArn?: string;
+    }
+
+    export interface IdentityPoolRoleAttachmentMappingRule {
+        claim: string;
+        matchType: string;
+        roleArn: string;
+        value: string;
+    }
+
+    export interface IdentityPoolRoleAttachmentRoleMapping {
+        ambiguousRoleResolution?: string;
+        identityProvider?: string;
+        rulesConfiguration?: outputs.cognito.IdentityPoolRoleAttachmentRulesConfigurationType;
+        type: string;
+    }
+
+    export interface IdentityPoolRoleAttachmentRulesConfigurationType {
+        rules: outputs.cognito.IdentityPoolRoleAttachmentMappingRule[];
     }
 
     export interface LogDeliveryConfigurationCloudWatchLogsConfiguration {
@@ -15166,7 +15217,7 @@ export namespace ecs {
 
     export interface ServiceLogConfiguration {
         logDriver?: string;
-        options?: any;
+        options?: {[key: string]: string};
         secretOptions?: outputs.ecs.ServiceSecret[];
     }
 
@@ -15240,7 +15291,7 @@ export namespace ecs {
         disableNetworking?: boolean;
         dnsSearchDomains?: string[];
         dnsServers?: string[];
-        dockerLabels?: any;
+        dockerLabels?: {[key: string]: string};
         dockerSecurityOptions?: string[];
         entryPoint?: string[];
         /**
@@ -15307,8 +15358,8 @@ export namespace ecs {
     export interface TaskDefinitionDockerVolumeConfiguration {
         autoprovision?: boolean;
         driver?: string;
-        driverOpts?: any;
-        labels?: any;
+        driverOpts?: {[key: string]: string};
+        labels?: {[key: string]: string};
         scope?: string;
     }
 
@@ -15330,7 +15381,7 @@ export namespace ecs {
     }
 
     export interface TaskDefinitionFirelensConfiguration {
-        options?: any;
+        options?: {[key: string]: string};
         type?: string;
     }
 
@@ -15396,7 +15447,7 @@ export namespace ecs {
 
     export interface TaskDefinitionLogConfiguration {
         logDriver: string;
-        options?: any;
+        options?: {[key: string]: string};
         secretOptions?: outputs.ecs.TaskDefinitionSecret[];
     }
 
@@ -16496,7 +16547,7 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface ListenerRuleAuthenticateCognitoConfig {
-        authenticationRequestExtraParams?: any;
+        authenticationRequestExtraParams?: {[key: string]: string};
         onUnauthenticatedRequest?: string;
         scope?: string;
         sessionCookieName?: string;
@@ -16507,7 +16558,7 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface ListenerRuleAuthenticateOidcConfig {
-        authenticationRequestExtraParams?: any;
+        authenticationRequestExtraParams?: {[key: string]: string};
         authorizationEndpoint: string;
         clientId: string;
         clientSecret?: string;
@@ -17241,7 +17292,7 @@ export namespace emrserverless {
          */
         classification: string;
         configurations?: outputs.emrserverless.ApplicationConfigurationObject[];
-        properties?: any;
+        properties?: {[key: string]: string};
     }
 
     /**
@@ -17406,7 +17457,7 @@ export namespace entityresolution {
         /**
          * Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
          */
-        providerConfiguration?: any;
+        providerConfiguration?: {[key: string]: string};
         /**
          * Arn of the Provider Service being used.
          */
@@ -17463,7 +17514,7 @@ export namespace entityresolution {
         /**
          * Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
          */
-        providerConfiguration?: any;
+        providerConfiguration?: {[key: string]: string};
         /**
          * Arn of the Provider service being used.
          */
@@ -17658,13 +17709,13 @@ export namespace events {
     }
 
     export interface RuleHttpParameters {
-        headerParameters?: any;
+        headerParameters?: {[key: string]: string};
         pathParameterValues?: string[];
-        queryStringParameters?: any;
+        queryStringParameters?: {[key: string]: string};
     }
 
     export interface RuleInputTransformer {
-        inputPathsMap?: any;
+        inputPathsMap?: {[key: string]: string};
         inputTemplate: string;
     }
 
@@ -20121,8 +20172,13 @@ export namespace greengrass {
 }
 
 export namespace greengrassv2 {
+    export interface ComponentVersionComponentDependencyRequirement {
+        dependencyType?: enums.greengrassv2.ComponentVersionComponentDependencyRequirementDependencyType;
+        versionRequirement?: string;
+    }
+
     export interface ComponentVersionComponentPlatform {
-        attributes?: any;
+        attributes?: {[key: string]: string};
         name?: string;
     }
 
@@ -20145,7 +20201,7 @@ export namespace greengrassv2 {
     }
 
     export interface ComponentVersionLambdaExecutionParameters {
-        environmentVariables?: any;
+        environmentVariables?: {[key: string]: string};
         eventSources?: outputs.greengrassv2.ComponentVersionLambdaEventSource[];
         execArgs?: string[];
         inputPayloadEncodingType?: enums.greengrassv2.ComponentVersionLambdaExecutionParametersInputPayloadEncodingType;
@@ -20159,7 +20215,7 @@ export namespace greengrassv2 {
     }
 
     export interface ComponentVersionLambdaFunctionRecipeSource {
-        componentDependencies?: any;
+        componentDependencies?: {[key: string]: outputs.greengrassv2.ComponentVersionComponentDependencyRequirement};
         componentLambdaParameters?: outputs.greengrassv2.ComponentVersionLambdaExecutionParameters;
         componentName?: string;
         componentPlatforms?: outputs.greengrassv2.ComponentVersionComponentPlatform[];
@@ -20177,6 +20233,23 @@ export namespace greengrassv2 {
         destinationPath?: string;
         permission?: enums.greengrassv2.ComponentVersionLambdaFilesystemPermission;
         sourcePath?: string;
+    }
+
+    export interface DeploymentComponentConfigurationUpdate {
+        merge?: string;
+        reset?: string[];
+    }
+
+    export interface DeploymentComponentDeploymentSpecification {
+        componentVersion?: string;
+        configurationUpdate?: outputs.greengrassv2.DeploymentComponentConfigurationUpdate;
+        runWith?: outputs.greengrassv2.DeploymentComponentRunWith;
+    }
+
+    export interface DeploymentComponentRunWith {
+        posixUser?: string;
+        systemResourceLimits?: outputs.greengrassv2.DeploymentSystemResourceLimits;
+        windowsUser?: string;
     }
 
     export interface DeploymentComponentUpdatePolicy {
@@ -20227,6 +20300,11 @@ export namespace greengrassv2 {
         componentUpdatePolicy?: outputs.greengrassv2.DeploymentComponentUpdatePolicy;
         configurationValidationPolicy?: outputs.greengrassv2.DeploymentConfigurationValidationPolicy;
         failureHandlingPolicy?: enums.greengrassv2.DeploymentPoliciesFailureHandlingPolicy;
+    }
+
+    export interface DeploymentSystemResourceLimits {
+        cpus?: number;
+        memory?: number;
     }
 
 }
@@ -20466,8 +20544,23 @@ export namespace guardduty {
         value: string;
     }
 
+    export interface FilterCondition {
+        eq?: string[];
+        equals?: string[];
+        greaterThan?: number;
+        greaterThanOrEqual?: number;
+        gt?: number;
+        gte?: number;
+        lessThan?: number;
+        lessThanOrEqual?: number;
+        lt?: number;
+        lte?: number;
+        neq?: string[];
+        notEquals?: string[];
+    }
+
     export interface FilterFindingCriteria {
-        criterion?: any;
+        criterion?: {[key: string]: outputs.guardduty.FilterCondition};
     }
 
     export interface FilterTagItem {
@@ -20857,7 +20950,7 @@ export namespace imagebuilder {
         /**
          * The tags to apply to AMIs distributed to this Region.
          */
-        amiTags?: any;
+        amiTags?: {[key: string]: string};
         /**
          * The description of the AMI distribution configuration.
          */
@@ -21366,7 +21459,7 @@ export namespace imagebuilder {
         /**
          * The AMIs to select by tag.
          */
-        tagMap?: any;
+        tagMap?: {[key: string]: string};
     }
 
     /**
@@ -21377,7 +21470,7 @@ export namespace imagebuilder {
         /**
          * The Image Builder tags to filter on.
          */
-        tagMap?: any;
+        tagMap?: {[key: string]: string};
     }
 
     /**
@@ -21468,7 +21561,7 @@ export namespace imagebuilder {
         /**
          * The Image Builder resources to select by tag.
          */
-        tagMap?: any;
+        tagMap?: {[key: string]: string};
     }
 
 }
@@ -22078,6 +22171,20 @@ export namespace iot {
     }
 
     /**
+     * A structure containing the alert target ARN and the role ARN.
+     */
+    export interface SecurityProfileAlertTarget {
+        /**
+         * The ARN of the notification target to which alerts are sent.
+         */
+        alertTargetArn: string;
+        /**
+         * The ARN of the role that grants permission to send alerts to the notification target.
+         */
+        roleArn: string;
+    }
+
+    /**
      * A security profile behavior.
      */
     export interface SecurityProfileBehavior {
@@ -22245,11 +22352,11 @@ export namespace iot {
     }
 
     export interface ThingAttributePayload {
-        attributes?: any;
+        attributes?: {[key: string]: string};
     }
 
     export interface ThingGroupAttributePayload {
-        attributes?: any;
+        attributes?: {[key: string]: string};
     }
 
     export interface ThingGroupPropertiesProperties {
@@ -22440,7 +22547,7 @@ export namespace iot {
     }
 
     export interface TopicRuleKafkaAction {
-        clientProperties: any;
+        clientProperties: {[key: string]: string};
         destinationArn: string;
         headers?: outputs.iot.TopicRuleKafkaActionHeader[];
         key?: string;
@@ -22819,7 +22926,7 @@ export namespace iotanalytics {
     }
 
     export interface PipelineAddAttributes {
-        attributes: any;
+        attributes: {[key: string]: string};
         name: string;
         next?: string;
     }
@@ -24276,6 +24383,190 @@ export namespace iotthingsgraph {
 }
 
 export namespace iottwinmaker {
+    /**
+     * An object that sets information about a composite component type.
+     */
+    export interface ComponentTypeCompositeComponentType {
+        /**
+         * The id of the composite component type.
+         */
+        componentTypeId?: string;
+    }
+
+    /**
+     * The data connector.
+     */
+    export interface ComponentTypeDataConnector {
+        /**
+         * A Boolean value that specifies whether the data connector is native to IoT TwinMaker.
+         */
+        isNative?: boolean;
+        /**
+         * The Lambda function associated with this data connector.
+         */
+        lambda?: outputs.iottwinmaker.ComponentTypeLambdaFunction;
+    }
+
+    /**
+     * An object that specifies the data type of a property.
+     */
+    export interface ComponentTypeDataType {
+        /**
+         * The allowed values for this data type.
+         */
+        allowedValues?: outputs.iottwinmaker.ComponentTypeDataValue[];
+        /**
+         * The nested type in the data type.
+         */
+        nestedType?: outputs.iottwinmaker.ComponentTypeDataType;
+        /**
+         * A relationship that associates a component with another component.
+         */
+        relationship?: outputs.iottwinmaker.ComponentTypeRelationship;
+        /**
+         * The underlying type of the data type.
+         */
+        type: enums.iottwinmaker.ComponentTypeDataTypeType;
+        /**
+         * The unit of measure used in this data type.
+         */
+        unitOfMeasure?: string;
+    }
+
+    /**
+     * An object that specifies a value for a property.
+     */
+    export interface ComponentTypeDataValue {
+        /**
+         * A Boolean value.
+         */
+        booleanValue?: boolean;
+        /**
+         * A double value.
+         */
+        doubleValue?: number;
+        /**
+         * An expression that produces the value.
+         */
+        expression?: string;
+        /**
+         * An integer value.
+         */
+        integerValue?: number;
+        /**
+         * A list of multiple values.
+         */
+        listValue?: outputs.iottwinmaker.ComponentTypeDataValue[];
+        /**
+         * A long value.
+         */
+        longValue?: number;
+        /**
+         * An object that maps strings to multiple DataValue objects. 
+         */
+        mapValue?: {[key: string]: outputs.iottwinmaker.ComponentTypeDataValue};
+        /**
+         * A value that relates a component to another component.
+         */
+        relationshipValue?: outputs.iottwinmaker.ComponentTypeDataValueRelationshipValueProperties;
+        /**
+         * A string value.
+         */
+        stringValue?: string;
+    }
+
+    /**
+     * A value that relates a component to another component.
+     */
+    export interface ComponentTypeDataValueRelationshipValueProperties {
+        targetComponentName?: string;
+        targetEntityId?: string;
+    }
+
+    /**
+     * The function of component type.
+     */
+    export interface ComponentTypeFunction {
+        /**
+         * The data connector.
+         */
+        implementedBy?: outputs.iottwinmaker.ComponentTypeDataConnector;
+        /**
+         * The required properties of the function.
+         */
+        requiredProperties?: string[];
+        /**
+         * The scope of the function.
+         */
+        scope?: enums.iottwinmaker.ComponentTypeFunctionScope;
+    }
+
+    export interface ComponentTypeLambdaFunction {
+        arn: string;
+    }
+
+    /**
+     * An object that sets information about a property.
+     */
+    export interface ComponentTypePropertyDefinition {
+        /**
+         * An object that specifies information about a property.
+         */
+        configurations?: {[key: string]: string};
+        /**
+         * An object that contains information about the data type.
+         */
+        dataType?: outputs.iottwinmaker.ComponentTypeDataType;
+        /**
+         * An object that contains the default value.
+         */
+        defaultValue?: outputs.iottwinmaker.ComponentTypeDataValue;
+        /**
+         * A Boolean value that specifies whether the property ID comes from an external data store.
+         */
+        isExternalId?: boolean;
+        /**
+         * A Boolean value that specifies whether the property is required.
+         */
+        isRequiredInEntity?: boolean;
+        /**
+         * A Boolean value that specifies whether the property is stored externally.
+         */
+        isStoredExternally?: boolean;
+        /**
+         * A Boolean value that specifies whether the property consists of time series data.
+         */
+        isTimeSeries?: boolean;
+    }
+
+    /**
+     * An object that sets information about a property group.
+     */
+    export interface ComponentTypePropertyGroup {
+        /**
+         * The type of property group.
+         */
+        groupType?: enums.iottwinmaker.ComponentTypePropertyGroupGroupType;
+        /**
+         * The list of property names in the property group.
+         */
+        propertyNames?: string[];
+    }
+
+    /**
+     * The type of the relationship.
+     */
+    export interface ComponentTypeRelationship {
+        /**
+         * The type of the relationship.
+         */
+        relationshipType?: string;
+        /**
+         * The ID of the target component type associated with this relationship.
+         */
+        targetComponentTypeId?: string;
+    }
+
     export interface ComponentTypeStatus {
         error?: any | outputs.iottwinmaker.ComponentTypeStatusErrorProperties;
         state?: enums.iottwinmaker.ComponentTypeStatusState;
@@ -24287,6 +24578,235 @@ export namespace iottwinmaker {
     export interface ComponentTypeStatusErrorProperties {
         code?: enums.iottwinmaker.ComponentTypeStatusErrorPropertiesCode;
         message?: string;
+    }
+
+    export interface EntityComponent {
+        /**
+         * The name of the component.
+         */
+        componentName?: string;
+        /**
+         * The ID of the component type.
+         */
+        componentTypeId?: string;
+        /**
+         * The name of the property definition set in the component.
+         */
+        definedIn?: string;
+        /**
+         * The description of the component.
+         */
+        description?: string;
+        /**
+         * An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
+         */
+        properties?: {[key: string]: outputs.iottwinmaker.EntityProperty};
+        /**
+         * An object that maps strings to the property groups to set in the component type. Each string in the mapping must be unique to this object.
+         */
+        propertyGroups?: {[key: string]: outputs.iottwinmaker.EntityPropertyGroup};
+        /**
+         * The current status of the entity.
+         */
+        status?: outputs.iottwinmaker.EntityStatus;
+    }
+
+    export interface EntityCompositeComponent {
+        /**
+         * The name of the component.
+         */
+        componentName?: string;
+        /**
+         * The path of the component.
+         */
+        componentPath?: string;
+        /**
+         * The ID of the component type.
+         */
+        componentTypeId?: string;
+        /**
+         * The description of the component.
+         */
+        description?: string;
+        /**
+         * An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
+         */
+        properties?: {[key: string]: outputs.iottwinmaker.EntityProperty};
+        /**
+         * An object that maps strings to the property groups to set in the component type. Each string in the mapping must be unique to this object.
+         */
+        propertyGroups?: {[key: string]: outputs.iottwinmaker.EntityPropertyGroup};
+        /**
+         * The current status of the component.
+         */
+        status?: outputs.iottwinmaker.EntityStatus;
+    }
+
+    /**
+     * An object that specifies the data type of a property.
+     */
+    export interface EntityDataType {
+        /**
+         * The allowed values for this data type.
+         */
+        allowedValues?: outputs.iottwinmaker.EntityDataValue[];
+        /**
+         * The nested type in the data type.
+         */
+        nestedType?: outputs.iottwinmaker.EntityDataType;
+        /**
+         * A relationship that associates a component with another component.
+         */
+        relationship?: outputs.iottwinmaker.EntityRelationship;
+        /**
+         * The underlying type of the data type.
+         */
+        type?: enums.iottwinmaker.EntityDataTypeType;
+        /**
+         * The unit of measure used in this data type.
+         */
+        unitOfMeasure?: string;
+    }
+
+    /**
+     * An object that specifies a value for a property.
+     */
+    export interface EntityDataValue {
+        /**
+         * A Boolean value.
+         */
+        booleanValue?: boolean;
+        /**
+         * A double value.
+         */
+        doubleValue?: number;
+        /**
+         * An expression that produces the value.
+         */
+        expression?: string;
+        /**
+         * An integer value.
+         */
+        integerValue?: number;
+        /**
+         * A list of multiple values.
+         */
+        listValue?: outputs.iottwinmaker.EntityDataValue[];
+        /**
+         * A long value.
+         */
+        longValue?: number;
+        /**
+         * An object that maps strings to multiple DataValue objects.
+         */
+        mapValue?: {[key: string]: outputs.iottwinmaker.EntityDataValue};
+        /**
+         * A value that relates a component to another component.
+         */
+        relationshipValue?: outputs.iottwinmaker.EntityDataValueRelationshipValueProperties;
+        /**
+         * A string value.
+         */
+        stringValue?: string;
+    }
+
+    /**
+     * A value that relates a component to another component.
+     */
+    export interface EntityDataValueRelationshipValueProperties {
+        targetComponentName?: string;
+        targetEntityId?: string;
+    }
+
+    export interface EntityProperty {
+        /**
+         * An object that specifies information about a property.
+         */
+        definition?: outputs.iottwinmaker.EntityPropertyDefinitionProperties;
+        /**
+         * The value of the property.
+         */
+        value?: outputs.iottwinmaker.EntityDataValue;
+    }
+
+    /**
+     * An object that specifies information about a property.
+     */
+    export interface EntityPropertyDefinitionConfiguration {
+    }
+
+    /**
+     * An object that specifies information about a property.
+     */
+    export interface EntityPropertyDefinitionProperties {
+        /**
+         * An object that specifies information about a property.
+         */
+        configuration?: outputs.iottwinmaker.EntityPropertyDefinitionConfiguration;
+        /**
+         * An object that contains information about the data type.
+         */
+        dataType?: outputs.iottwinmaker.EntityDataType;
+        /**
+         * An object that contains the default value.
+         */
+        defaultValue?: outputs.iottwinmaker.EntityDataValue;
+        /**
+         * A Boolean value that specifies whether the property ID comes from an external data store.
+         */
+        isExternalId?: boolean;
+        /**
+         * A Boolean value that specifies whether the property definition can be updated.
+         */
+        isFinal?: boolean;
+        /**
+         * A Boolean value that specifies whether the property definition is imported from an external data store.
+         */
+        isImported?: boolean;
+        /**
+         * A Boolean value that specifies whether the property definition is inherited from a parent entity.
+         */
+        isInherited?: boolean;
+        /**
+         * A Boolean value that specifies whether the property is required.
+         */
+        isRequiredInEntity?: boolean;
+        /**
+         * A Boolean value that specifies whether the property is stored externally.
+         */
+        isStoredExternally?: boolean;
+        /**
+         * A Boolean value that specifies whether the property consists of time series data.
+         */
+        isTimeSeries?: boolean;
+    }
+
+    /**
+     * An object that specifies information about a property group.
+     */
+    export interface EntityPropertyGroup {
+        /**
+         * The type of property group.
+         */
+        groupType?: enums.iottwinmaker.EntityPropertyGroupGroupType;
+        /**
+         * The list of property names in the property group.
+         */
+        propertyNames?: string[];
+    }
+
+    /**
+     * The type of the relationship.
+     */
+    export interface EntityRelationship {
+        /**
+         * The type of the relationship.
+         */
+        relationshipType?: string;
+        /**
+         * The ID of the target component type associated with this relationship.
+         */
+        targetComponentTypeId?: string;
     }
 
     export interface EntityStatus {
@@ -27060,7 +27580,7 @@ export namespace lambda {
         /**
          * Environment variable key-value pairs.
          */
-        variables?: any;
+        variables?: {[key: string]: string};
     }
 
     /**
@@ -27393,6 +27913,32 @@ export namespace lex {
     }
 
     /**
+     * Specifies the allowed input types.
+     */
+    export interface BotAllowedInputTypes {
+        /**
+         * Indicates whether audio input is allowed.
+         */
+        allowAudioInput: boolean;
+        /**
+         * Indicates whether DTMF input is allowed.
+         */
+        allowDtmfInput: boolean;
+    }
+
+    /**
+     * Specifies the audio and DTMF input specification.
+     */
+    export interface BotAudioAndDtmfInputSpecification {
+        audioSpecification?: outputs.lex.BotAudioSpecification;
+        dtmfSpecification?: outputs.lex.BotDtmfSpecification;
+        /**
+         * Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
+         */
+        startTimeoutMs: number;
+    }
+
+    /**
      * The location of audio log files collected when conversation logging is enabled for a bot.
      */
     export interface BotAudioLogDestination {
@@ -27405,6 +27951,20 @@ export namespace lex {
     export interface BotAudioLogSetting {
         destination: outputs.lex.BotAudioLogDestination;
         enabled: boolean;
+    }
+
+    /**
+     * Specifies the audio input specifications.
+     */
+    export interface BotAudioSpecification {
+        /**
+         * Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
+         */
+        endTimeoutMs: number;
+        /**
+         * Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
+         */
+        maxLengthMs: number;
     }
 
     /**
@@ -27602,6 +28162,28 @@ export namespace lex {
          * List of session attributes to be applied when the conversation reaches this step.
          */
         sessionAttributes?: outputs.lex.BotSessionAttribute[];
+    }
+
+    /**
+     * Specifies the settings on DTMF input.
+     */
+    export interface BotDtmfSpecification {
+        /**
+         * The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
+         */
+        deletionCharacter: string;
+        /**
+         * The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
+         */
+        endCharacter: string;
+        /**
+         * How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
+         */
+        endTimeoutMs: number;
+        /**
+         * The maximum number of DTMF digits allowed in an utterance.
+         */
+        maxLength: number;
     }
 
     /**
@@ -28065,6 +28647,19 @@ export namespace lex {
     }
 
     /**
+     * Specifies the settings on a prompt attempt.
+     */
+    export interface BotPromptAttemptSpecification {
+        /**
+         * Indicates whether the user can interrupt a speech prompt attempt from the bot.
+         */
+        allowInterrupt?: boolean;
+        allowedInputTypes: outputs.lex.BotAllowedInputTypes;
+        audioAndDtmfInputSpecification?: outputs.lex.BotAudioAndDtmfInputSpecification;
+        textInputSpecification?: outputs.lex.BotTextInputSpecification;
+    }
+
+    /**
      * Prompts the user to confirm the intent.
      */
     export interface BotPromptSpecification {
@@ -28078,7 +28673,7 @@ export namespace lex {
         /**
          * Specifies the advanced settings on each attempt of the prompt.
          */
-        promptAttemptsSpecification?: any;
+        promptAttemptsSpecification?: {[key: string]: outputs.lex.BotPromptAttemptSpecification};
     }
 
     /**
@@ -28397,6 +28992,16 @@ export namespace lex {
          * Enable to call Amazon Comprehend for Sentiment natively within Lex
          */
         detectSentiment: boolean;
+    }
+
+    /**
+     * Specifies the text input specifications.
+     */
+    export interface BotTextInputSpecification {
+        /**
+         * Time for which a bot waits before re-prompting a customer for text input.
+         */
+        startTimeoutMs: number;
     }
 
     /**
@@ -33436,7 +34041,7 @@ export namespace networkfirewall {
         /**
          * A key-value pair to configure the logDestinations.
          */
-        logDestination: any;
+        logDestination: {[key: string]: string};
         logDestinationType: enums.networkfirewall.LoggingConfigurationLogDestinationConfigLogDestinationType;
         logType: enums.networkfirewall.LoggingConfigurationLogDestinationConfigLogType;
     }
@@ -33474,6 +34079,14 @@ export namespace networkfirewall {
         sourcePort: string;
     }
 
+    export interface RuleGroupIpSet {
+        definition?: string[];
+    }
+
+    export interface RuleGroupIpSetReference {
+        referenceArn?: string;
+    }
+
     export interface RuleGroupMatchAttributes {
         destinationPorts?: outputs.networkfirewall.RuleGroupPortRange[];
         destinations?: outputs.networkfirewall.RuleGroupAddress[];
@@ -33488,12 +34101,16 @@ export namespace networkfirewall {
         toPort: number;
     }
 
+    export interface RuleGroupPortSet {
+        definition?: string[];
+    }
+
     export interface RuleGroupPublishMetricAction {
         dimensions: outputs.networkfirewall.RuleGroupDimension[];
     }
 
     export interface RuleGroupReferenceSets {
-        ipSetReferences?: any;
+        ipSetReferences?: {[key: string]: outputs.networkfirewall.RuleGroupIpSetReference};
     }
 
     export interface RuleGroupRuleDefinition {
@@ -33507,8 +34124,8 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupRuleVariables {
-        ipSets?: any;
-        portSets?: any;
+        ipSets?: {[key: string]: outputs.networkfirewall.RuleGroupIpSet};
+        portSets?: {[key: string]: outputs.networkfirewall.RuleGroupPortSet};
     }
 
     export interface RuleGroupRulesSource {
@@ -34469,6 +35086,11 @@ export namespace opensearchservice {
         metadataContent: string;
     }
 
+    export interface DomainLogPublishingOption {
+        cloudWatchLogsLogGroupArn?: string;
+        enabled?: boolean;
+    }
+
     export interface DomainMasterUserOptions {
         masterUserArn?: string;
         masterUserName?: string;
@@ -35188,7 +35810,7 @@ export namespace personalize {
         /**
          * Lists the hyperparameter names and ranges.
          */
-        algorithmHyperParameters?: any;
+        algorithmHyperParameters?: {[key: string]: string};
         /**
          * The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
          */
@@ -35200,7 +35822,7 @@ export namespace personalize {
         /**
          * Lists the feature transformation parameters.
          */
-        featureTransformationParameters?: any;
+        featureTransformationParameters?: {[key: string]: string};
         /**
          * Describes the properties for hyperparameter optimization (HPO)
          */
@@ -51041,7 +51663,7 @@ export namespace sagemaker {
         /**
          * customer details.
          */
-        customDetails?: any;
+        customDetails?: {[key: string]: string};
         /**
          * Any ethical considerations that the author wants to provide.
          */
@@ -51113,7 +51735,7 @@ export namespace sagemaker {
         /**
          * additional attributes associated with the evaluation results.
          */
-        metadata?: any;
+        metadata?: {[key: string]: string};
         metricGroups?: outputs.sagemaker.ModelCardMetricGroup[];
         name: string;
     }
@@ -55177,7 +55799,7 @@ export namespace synthetics {
         /**
          * Environment variable key-value pairs.
          */
-        environmentVariables?: any;
+        environmentVariables?: {[key: string]: string};
         /**
          * Provide maximum memory available for canary in MB
          */
@@ -57651,7 +58273,7 @@ export namespace xray {
         /**
          * Matches attributes derived from the request.
          */
-        attributes?: any;
+        attributes?: {[key: string]: string};
         /**
          * The percentage of matching requests to instrument, after the reservoir is exhausted.
          */
@@ -57723,7 +58345,7 @@ export namespace xray {
         /**
          * Matches attributes derived from the request.
          */
-        attributes?: any;
+        attributes?: {[key: string]: string};
         /**
          * The percentage of matching requests to instrument, after the reservoir is exhausted.
          */

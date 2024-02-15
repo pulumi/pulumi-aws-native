@@ -65,7 +65,7 @@ class GetEntityResult:
 
     @property
     @pulumi.getter
-    def components(self) -> Optional[Any]:
+    def components(self) -> Optional[Mapping[str, 'outputs.EntityComponent']]:
         """
         A map that sets information about a component type.
         """
@@ -73,7 +73,7 @@ class GetEntityResult:
 
     @property
     @pulumi.getter(name="compositeComponents")
-    def composite_components(self) -> Optional[Any]:
+    def composite_components(self) -> Optional[Mapping[str, 'outputs.EntityCompositeComponent']]:
         """
         A map that sets information about a composite component.
         """
@@ -129,7 +129,7 @@ class GetEntityResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A key-value pair to associate with a resource.
         """

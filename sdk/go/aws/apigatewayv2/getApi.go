@@ -42,7 +42,7 @@ type LookupApiResult struct {
 	// The route selection expression for the API. For HTTP APIs, the ``routeSelectionExpression`` must be ``${request.method} ${request.path}``. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
 	RouteSelectionExpression *string `pulumi:"routeSelectionExpression"`
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// A version identifier for the API.
 	Version *string `pulumi:"version"`
 }
@@ -121,8 +121,8 @@ func (o LookupApiResultOutput) RouteSelectionExpression() pulumi.StringPtrOutput
 }
 
 // The collection of tags. Each tag element is associated with a given resource.
-func (o LookupApiResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupApiResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupApiResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApiResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // A version identifier for the API.

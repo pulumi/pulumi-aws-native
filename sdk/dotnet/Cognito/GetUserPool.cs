@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Cognito
         public readonly Outputs.UserPoolAddOns? UserPoolAddOns;
         public readonly string? UserPoolId;
         public readonly string? UserPoolName;
-        public readonly object? UserPoolTags;
+        public readonly ImmutableDictionary<string, string>? UserPoolTags;
         public readonly ImmutableArray<string> UsernameAttributes;
         public readonly Outputs.UserPoolUsernameConfiguration? UsernameConfiguration;
         public readonly Outputs.UserPoolVerificationMessageTemplate? VerificationMessageTemplate;
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.Cognito
 
             string? userPoolName,
 
-            object? userPoolTags,
+            ImmutableDictionary<string, string>? userPoolTags,
 
             ImmutableArray<string> usernameAttributes,
 

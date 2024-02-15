@@ -27,11 +27,11 @@ type LookupExtensionAssociationArgs struct {
 }
 
 type LookupExtensionAssociationResult struct {
-	Arn          *string     `pulumi:"arn"`
-	ExtensionArn *string     `pulumi:"extensionArn"`
-	Id           *string     `pulumi:"id"`
-	Parameters   interface{} `pulumi:"parameters"`
-	ResourceArn  *string     `pulumi:"resourceArn"`
+	Arn          *string           `pulumi:"arn"`
+	ExtensionArn *string           `pulumi:"extensionArn"`
+	Id           *string           `pulumi:"id"`
+	Parameters   map[string]string `pulumi:"parameters"`
+	ResourceArn  *string           `pulumi:"resourceArn"`
 }
 
 func LookupExtensionAssociationOutput(ctx *pulumi.Context, args LookupExtensionAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupExtensionAssociationResultOutput {
@@ -81,8 +81,8 @@ func (o LookupExtensionAssociationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExtensionAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupExtensionAssociationResultOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupExtensionAssociationResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+func (o LookupExtensionAssociationResultOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupExtensionAssociationResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 func (o LookupExtensionAssociationResultOutput) ResourceArn() pulumi.StringPtrOutput {

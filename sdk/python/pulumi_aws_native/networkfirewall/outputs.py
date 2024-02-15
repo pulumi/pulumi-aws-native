@@ -34,8 +34,11 @@ __all__ = [
     'RuleGroupCustomAction',
     'RuleGroupDimension',
     'RuleGroupHeader',
+    'RuleGroupIpSet',
+    'RuleGroupIpSetReference',
     'RuleGroupMatchAttributes',
     'RuleGroupPortRange',
+    'RuleGroupPortSet',
     'RuleGroupPublishMetricAction',
     'RuleGroupReferenceSets',
     'RuleGroupRuleDefinition',
@@ -569,11 +572,11 @@ class LoggingConfigurationLogDestinationConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 log_destination: Any,
+                 log_destination: Mapping[str, str],
                  log_destination_type: 'LoggingConfigurationLogDestinationConfigLogDestinationType',
                  log_type: 'LoggingConfigurationLogDestinationConfigLogType'):
         """
-        :param Any log_destination: A key-value pair to configure the logDestinations.
+        :param Mapping[str, str] log_destination: A key-value pair to configure the logDestinations.
         """
         pulumi.set(__self__, "log_destination", log_destination)
         pulumi.set(__self__, "log_destination_type", log_destination_type)
@@ -581,7 +584,7 @@ class LoggingConfigurationLogDestinationConfig(dict):
 
     @property
     @pulumi.getter(name="logDestination")
-    def log_destination(self) -> Any:
+    def log_destination(self) -> Mapping[str, str]:
         """
         A key-value pair to configure the logDestinations.
         """
@@ -833,6 +836,49 @@ class RuleGroupHeader(dict):
 
 
 @pulumi.output_type
+class RuleGroupIpSet(dict):
+    def __init__(__self__, *,
+                 definition: Optional[Sequence[str]] = None):
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "definition")
+
+
+@pulumi.output_type
+class RuleGroupIpSetReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceArn":
+            suggest = "reference_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupIpSetReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupIpSetReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupIpSetReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reference_arn: Optional[str] = None):
+        if reference_arn is not None:
+            pulumi.set(__self__, "reference_arn", reference_arn)
+
+    @property
+    @pulumi.getter(name="referenceArn")
+    def reference_arn(self) -> Optional[str]:
+        return pulumi.get(self, "reference_arn")
+
+
+@pulumi.output_type
 class RuleGroupMatchAttributes(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -945,6 +991,19 @@ class RuleGroupPortRange(dict):
 
 
 @pulumi.output_type
+class RuleGroupPortSet(dict):
+    def __init__(__self__, *,
+                 definition: Optional[Sequence[str]] = None):
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "definition")
+
+
+@pulumi.output_type
 class RuleGroupPublishMetricAction(dict):
     def __init__(__self__, *,
                  dimensions: Sequence['outputs.RuleGroupDimension']):
@@ -976,13 +1035,13 @@ class RuleGroupReferenceSets(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ip_set_references: Optional[Any] = None):
+                 ip_set_references: Optional[Mapping[str, 'outputs.RuleGroupIpSetReference']] = None):
         if ip_set_references is not None:
             pulumi.set(__self__, "ip_set_references", ip_set_references)
 
     @property
     @pulumi.getter(name="ipSetReferences")
-    def ip_set_references(self) -> Optional[Any]:
+    def ip_set_references(self) -> Optional[Mapping[str, 'outputs.RuleGroupIpSetReference']]:
         return pulumi.get(self, "ip_set_references")
 
 
@@ -1064,8 +1123,8 @@ class RuleGroupRuleVariables(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ip_sets: Optional[Any] = None,
-                 port_sets: Optional[Any] = None):
+                 ip_sets: Optional[Mapping[str, 'outputs.RuleGroupIpSet']] = None,
+                 port_sets: Optional[Mapping[str, 'outputs.RuleGroupPortSet']] = None):
         if ip_sets is not None:
             pulumi.set(__self__, "ip_sets", ip_sets)
         if port_sets is not None:
@@ -1073,12 +1132,12 @@ class RuleGroupRuleVariables(dict):
 
     @property
     @pulumi.getter(name="ipSets")
-    def ip_sets(self) -> Optional[Any]:
+    def ip_sets(self) -> Optional[Mapping[str, 'outputs.RuleGroupIpSet']]:
         return pulumi.get(self, "ip_sets")
 
     @property
     @pulumi.getter(name="portSets")
-    def port_sets(self) -> Optional[Any]:
+    def port_sets(self) -> Optional[Mapping[str, 'outputs.RuleGroupPortSet']]:
         return pulumi.get(self, "port_sets")
 
 

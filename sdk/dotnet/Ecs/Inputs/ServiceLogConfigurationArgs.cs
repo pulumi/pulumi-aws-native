@@ -16,7 +16,12 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<string>? LogDriver { get; set; }
 
         [Input("options")]
-        public Input<object>? Options { get; set; }
+        private InputMap<string>? _options;
+        public InputMap<string> Options
+        {
+            get => _options ?? (_options = new InputMap<string>());
+            set => _options = value;
+        }
 
         [Input("secretOptions")]
         private InputList<Inputs.ServiceSecretArgs>? _secretOptions;

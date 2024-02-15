@@ -18,11 +18,17 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         [Input("activeTracing")]
         public Input<bool>? ActiveTracing { get; set; }
 
+        [Input("environmentVariables")]
+        private InputMap<string>? _environmentVariables;
+
         /// <summary>
         /// Environment variable key-value pairs.
         /// </summary>
-        [Input("environmentVariables")]
-        public Input<object>? EnvironmentVariables { get; set; }
+        public InputMap<string> EnvironmentVariables
+        {
+            get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
+            set => _environmentVariables = value;
+        }
 
         /// <summary>
         /// Provide maximum memory available for canary in MB

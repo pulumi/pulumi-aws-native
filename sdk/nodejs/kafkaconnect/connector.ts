@@ -45,7 +45,7 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The configuration for the connector.
      */
-    public readonly connectorConfiguration!: pulumi.Output<any>;
+    public readonly connectorConfiguration!: pulumi.Output<{[key: string]: string}>;
     /**
      * A summary description of the connector.
      */
@@ -136,7 +136,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["workerConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["connectorConfiguration", "connectorDescription", "connectorName", "kafkaCluster", "kafkaClusterClientAuthentication", "kafkaClusterEncryptionInTransit", "kafkaConnectVersion", "logDelivery", "plugins[*]", "serviceExecutionRoleArn", "workerConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["connectorConfiguration.*", "connectorDescription", "connectorName", "kafkaCluster", "kafkaClusterClientAuthentication", "kafkaClusterEncryptionInTransit", "kafkaConnectVersion", "logDelivery", "plugins[*]", "serviceExecutionRoleArn", "workerConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Connector.__pulumiType, name, resourceInputs, opts);
     }
@@ -150,7 +150,7 @@ export interface ConnectorArgs {
     /**
      * The configuration for the connector.
      */
-    connectorConfiguration: any;
+    connectorConfiguration: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A summary description of the connector.
      */

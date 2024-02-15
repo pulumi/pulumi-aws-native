@@ -27,9 +27,9 @@ type LookupIdentityPoolRoleAttachmentArgs struct {
 }
 
 type LookupIdentityPoolRoleAttachmentResult struct {
-	Id           *string     `pulumi:"id"`
-	RoleMappings interface{} `pulumi:"roleMappings"`
-	Roles        interface{} `pulumi:"roles"`
+	Id           *string                                          `pulumi:"id"`
+	RoleMappings map[string]IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
+	Roles        map[string]string                                `pulumi:"roles"`
 }
 
 func LookupIdentityPoolRoleAttachmentOutput(ctx *pulumi.Context, args LookupIdentityPoolRoleAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityPoolRoleAttachmentResultOutput {
@@ -71,12 +71,14 @@ func (o LookupIdentityPoolRoleAttachmentResultOutput) Id() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupIdentityPoolRoleAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupIdentityPoolRoleAttachmentResultOutput) RoleMappings() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupIdentityPoolRoleAttachmentResult) interface{} { return v.RoleMappings }).(pulumi.AnyOutput)
+func (o LookupIdentityPoolRoleAttachmentResultOutput) RoleMappings() IdentityPoolRoleAttachmentRoleMappingMapOutput {
+	return o.ApplyT(func(v LookupIdentityPoolRoleAttachmentResult) map[string]IdentityPoolRoleAttachmentRoleMapping {
+		return v.RoleMappings
+	}).(IdentityPoolRoleAttachmentRoleMappingMapOutput)
 }
 
-func (o LookupIdentityPoolRoleAttachmentResultOutput) Roles() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupIdentityPoolRoleAttachmentResult) interface{} { return v.Roles }).(pulumi.AnyOutput)
+func (o LookupIdentityPoolRoleAttachmentResultOutput) Roles() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIdentityPoolRoleAttachmentResult) map[string]string { return v.Roles }).(pulumi.StringMapOutput)
 }
 
 func init() {

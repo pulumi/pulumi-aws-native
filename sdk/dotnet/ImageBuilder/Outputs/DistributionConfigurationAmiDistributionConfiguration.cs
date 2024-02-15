@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// <summary>
         /// The tags to apply to AMIs distributed to this Region.
         /// </summary>
-        public readonly object? AmiTags;
+        public readonly ImmutableDictionary<string, string>? AmiTags;
         /// <summary>
         /// The description of the AMI distribution configuration.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
         [OutputConstructor]
         private DistributionConfigurationAmiDistributionConfiguration(
-            object? amiTags,
+            ImmutableDictionary<string, string>? amiTags,
 
             string? description,
 

@@ -1731,7 +1731,7 @@ func (o LoggingConfigurationTypePtrOutput) LogDestinationConfigs() LoggingConfig
 
 type LoggingConfigurationLogDestinationConfig struct {
 	// A key-value pair to configure the logDestinations.
-	LogDestination     interface{}                                                `pulumi:"logDestination"`
+	LogDestination     map[string]string                                          `pulumi:"logDestination"`
 	LogDestinationType LoggingConfigurationLogDestinationConfigLogDestinationType `pulumi:"logDestinationType"`
 	LogType            LoggingConfigurationLogDestinationConfigLogType            `pulumi:"logType"`
 }
@@ -1749,7 +1749,7 @@ type LoggingConfigurationLogDestinationConfigInput interface {
 
 type LoggingConfigurationLogDestinationConfigArgs struct {
 	// A key-value pair to configure the logDestinations.
-	LogDestination     pulumi.Input                                                    `pulumi:"logDestination"`
+	LogDestination     pulumi.StringMapInput                                           `pulumi:"logDestination"`
 	LogDestinationType LoggingConfigurationLogDestinationConfigLogDestinationTypeInput `pulumi:"logDestinationType"`
 	LogType            LoggingConfigurationLogDestinationConfigLogTypeInput            `pulumi:"logType"`
 }
@@ -1806,8 +1806,8 @@ func (o LoggingConfigurationLogDestinationConfigOutput) ToLoggingConfigurationLo
 }
 
 // A key-value pair to configure the logDestinations.
-func (o LoggingConfigurationLogDestinationConfigOutput) LogDestination() pulumi.AnyOutput {
-	return o.ApplyT(func(v LoggingConfigurationLogDestinationConfig) interface{} { return v.LogDestination }).(pulumi.AnyOutput)
+func (o LoggingConfigurationLogDestinationConfigOutput) LogDestination() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LoggingConfigurationLogDestinationConfig) map[string]string { return v.LogDestination }).(pulumi.StringMapOutput)
 }
 
 func (o LoggingConfigurationLogDestinationConfigOutput) LogDestinationType() LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput {
@@ -2436,6 +2436,194 @@ func (o RuleGroupHeaderOutput) SourcePort() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupHeader) string { return v.SourcePort }).(pulumi.StringOutput)
 }
 
+type RuleGroupIpSet struct {
+	Definition []string `pulumi:"definition"`
+}
+
+// RuleGroupIpSetInput is an input type that accepts RuleGroupIpSetArgs and RuleGroupIpSetOutput values.
+// You can construct a concrete instance of `RuleGroupIpSetInput` via:
+//
+//	RuleGroupIpSetArgs{...}
+type RuleGroupIpSetInput interface {
+	pulumi.Input
+
+	ToRuleGroupIpSetOutput() RuleGroupIpSetOutput
+	ToRuleGroupIpSetOutputWithContext(context.Context) RuleGroupIpSetOutput
+}
+
+type RuleGroupIpSetArgs struct {
+	Definition pulumi.StringArrayInput `pulumi:"definition"`
+}
+
+func (RuleGroupIpSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupIpSet)(nil)).Elem()
+}
+
+func (i RuleGroupIpSetArgs) ToRuleGroupIpSetOutput() RuleGroupIpSetOutput {
+	return i.ToRuleGroupIpSetOutputWithContext(context.Background())
+}
+
+func (i RuleGroupIpSetArgs) ToRuleGroupIpSetOutputWithContext(ctx context.Context) RuleGroupIpSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupIpSetOutput)
+}
+
+// RuleGroupIpSetMapInput is an input type that accepts RuleGroupIpSetMap and RuleGroupIpSetMapOutput values.
+// You can construct a concrete instance of `RuleGroupIpSetMapInput` via:
+//
+//	RuleGroupIpSetMap{ "key": RuleGroupIpSetArgs{...} }
+type RuleGroupIpSetMapInput interface {
+	pulumi.Input
+
+	ToRuleGroupIpSetMapOutput() RuleGroupIpSetMapOutput
+	ToRuleGroupIpSetMapOutputWithContext(context.Context) RuleGroupIpSetMapOutput
+}
+
+type RuleGroupIpSetMap map[string]RuleGroupIpSetInput
+
+func (RuleGroupIpSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleGroupIpSet)(nil)).Elem()
+}
+
+func (i RuleGroupIpSetMap) ToRuleGroupIpSetMapOutput() RuleGroupIpSetMapOutput {
+	return i.ToRuleGroupIpSetMapOutputWithContext(context.Background())
+}
+
+func (i RuleGroupIpSetMap) ToRuleGroupIpSetMapOutputWithContext(ctx context.Context) RuleGroupIpSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupIpSetMapOutput)
+}
+
+type RuleGroupIpSetOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupIpSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupIpSet)(nil)).Elem()
+}
+
+func (o RuleGroupIpSetOutput) ToRuleGroupIpSetOutput() RuleGroupIpSetOutput {
+	return o
+}
+
+func (o RuleGroupIpSetOutput) ToRuleGroupIpSetOutputWithContext(ctx context.Context) RuleGroupIpSetOutput {
+	return o
+}
+
+func (o RuleGroupIpSetOutput) Definition() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleGroupIpSet) []string { return v.Definition }).(pulumi.StringArrayOutput)
+}
+
+type RuleGroupIpSetMapOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupIpSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleGroupIpSet)(nil)).Elem()
+}
+
+func (o RuleGroupIpSetMapOutput) ToRuleGroupIpSetMapOutput() RuleGroupIpSetMapOutput {
+	return o
+}
+
+func (o RuleGroupIpSetMapOutput) ToRuleGroupIpSetMapOutputWithContext(ctx context.Context) RuleGroupIpSetMapOutput {
+	return o
+}
+
+func (o RuleGroupIpSetMapOutput) MapIndex(k pulumi.StringInput) RuleGroupIpSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleGroupIpSet {
+		return vs[0].(map[string]RuleGroupIpSet)[vs[1].(string)]
+	}).(RuleGroupIpSetOutput)
+}
+
+type RuleGroupIpSetReference struct {
+	ReferenceArn *string `pulumi:"referenceArn"`
+}
+
+// RuleGroupIpSetReferenceInput is an input type that accepts RuleGroupIpSetReferenceArgs and RuleGroupIpSetReferenceOutput values.
+// You can construct a concrete instance of `RuleGroupIpSetReferenceInput` via:
+//
+//	RuleGroupIpSetReferenceArgs{...}
+type RuleGroupIpSetReferenceInput interface {
+	pulumi.Input
+
+	ToRuleGroupIpSetReferenceOutput() RuleGroupIpSetReferenceOutput
+	ToRuleGroupIpSetReferenceOutputWithContext(context.Context) RuleGroupIpSetReferenceOutput
+}
+
+type RuleGroupIpSetReferenceArgs struct {
+	ReferenceArn pulumi.StringPtrInput `pulumi:"referenceArn"`
+}
+
+func (RuleGroupIpSetReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupIpSetReference)(nil)).Elem()
+}
+
+func (i RuleGroupIpSetReferenceArgs) ToRuleGroupIpSetReferenceOutput() RuleGroupIpSetReferenceOutput {
+	return i.ToRuleGroupIpSetReferenceOutputWithContext(context.Background())
+}
+
+func (i RuleGroupIpSetReferenceArgs) ToRuleGroupIpSetReferenceOutputWithContext(ctx context.Context) RuleGroupIpSetReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupIpSetReferenceOutput)
+}
+
+// RuleGroupIpSetReferenceMapInput is an input type that accepts RuleGroupIpSetReferenceMap and RuleGroupIpSetReferenceMapOutput values.
+// You can construct a concrete instance of `RuleGroupIpSetReferenceMapInput` via:
+//
+//	RuleGroupIpSetReferenceMap{ "key": RuleGroupIpSetReferenceArgs{...} }
+type RuleGroupIpSetReferenceMapInput interface {
+	pulumi.Input
+
+	ToRuleGroupIpSetReferenceMapOutput() RuleGroupIpSetReferenceMapOutput
+	ToRuleGroupIpSetReferenceMapOutputWithContext(context.Context) RuleGroupIpSetReferenceMapOutput
+}
+
+type RuleGroupIpSetReferenceMap map[string]RuleGroupIpSetReferenceInput
+
+func (RuleGroupIpSetReferenceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleGroupIpSetReference)(nil)).Elem()
+}
+
+func (i RuleGroupIpSetReferenceMap) ToRuleGroupIpSetReferenceMapOutput() RuleGroupIpSetReferenceMapOutput {
+	return i.ToRuleGroupIpSetReferenceMapOutputWithContext(context.Background())
+}
+
+func (i RuleGroupIpSetReferenceMap) ToRuleGroupIpSetReferenceMapOutputWithContext(ctx context.Context) RuleGroupIpSetReferenceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupIpSetReferenceMapOutput)
+}
+
+type RuleGroupIpSetReferenceOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupIpSetReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupIpSetReference)(nil)).Elem()
+}
+
+func (o RuleGroupIpSetReferenceOutput) ToRuleGroupIpSetReferenceOutput() RuleGroupIpSetReferenceOutput {
+	return o
+}
+
+func (o RuleGroupIpSetReferenceOutput) ToRuleGroupIpSetReferenceOutputWithContext(ctx context.Context) RuleGroupIpSetReferenceOutput {
+	return o
+}
+
+func (o RuleGroupIpSetReferenceOutput) ReferenceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleGroupIpSetReference) *string { return v.ReferenceArn }).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupIpSetReferenceMapOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupIpSetReferenceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleGroupIpSetReference)(nil)).Elem()
+}
+
+func (o RuleGroupIpSetReferenceMapOutput) ToRuleGroupIpSetReferenceMapOutput() RuleGroupIpSetReferenceMapOutput {
+	return o
+}
+
+func (o RuleGroupIpSetReferenceMapOutput) ToRuleGroupIpSetReferenceMapOutputWithContext(ctx context.Context) RuleGroupIpSetReferenceMapOutput {
+	return o
+}
+
+func (o RuleGroupIpSetReferenceMapOutput) MapIndex(k pulumi.StringInput) RuleGroupIpSetReferenceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleGroupIpSetReference {
+		return vs[0].(map[string]RuleGroupIpSetReference)[vs[1].(string)]
+	}).(RuleGroupIpSetReferenceOutput)
+}
+
 type RuleGroupMatchAttributes struct {
 	DestinationPorts []RuleGroupPortRange    `pulumi:"destinationPorts"`
 	Destinations     []RuleGroupAddress      `pulumi:"destinations"`
@@ -2615,6 +2803,100 @@ func (o RuleGroupPortRangeArrayOutput) Index(i pulumi.IntInput) RuleGroupPortRan
 	}).(RuleGroupPortRangeOutput)
 }
 
+type RuleGroupPortSet struct {
+	Definition []string `pulumi:"definition"`
+}
+
+// RuleGroupPortSetInput is an input type that accepts RuleGroupPortSetArgs and RuleGroupPortSetOutput values.
+// You can construct a concrete instance of `RuleGroupPortSetInput` via:
+//
+//	RuleGroupPortSetArgs{...}
+type RuleGroupPortSetInput interface {
+	pulumi.Input
+
+	ToRuleGroupPortSetOutput() RuleGroupPortSetOutput
+	ToRuleGroupPortSetOutputWithContext(context.Context) RuleGroupPortSetOutput
+}
+
+type RuleGroupPortSetArgs struct {
+	Definition pulumi.StringArrayInput `pulumi:"definition"`
+}
+
+func (RuleGroupPortSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupPortSet)(nil)).Elem()
+}
+
+func (i RuleGroupPortSetArgs) ToRuleGroupPortSetOutput() RuleGroupPortSetOutput {
+	return i.ToRuleGroupPortSetOutputWithContext(context.Background())
+}
+
+func (i RuleGroupPortSetArgs) ToRuleGroupPortSetOutputWithContext(ctx context.Context) RuleGroupPortSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPortSetOutput)
+}
+
+// RuleGroupPortSetMapInput is an input type that accepts RuleGroupPortSetMap and RuleGroupPortSetMapOutput values.
+// You can construct a concrete instance of `RuleGroupPortSetMapInput` via:
+//
+//	RuleGroupPortSetMap{ "key": RuleGroupPortSetArgs{...} }
+type RuleGroupPortSetMapInput interface {
+	pulumi.Input
+
+	ToRuleGroupPortSetMapOutput() RuleGroupPortSetMapOutput
+	ToRuleGroupPortSetMapOutputWithContext(context.Context) RuleGroupPortSetMapOutput
+}
+
+type RuleGroupPortSetMap map[string]RuleGroupPortSetInput
+
+func (RuleGroupPortSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleGroupPortSet)(nil)).Elem()
+}
+
+func (i RuleGroupPortSetMap) ToRuleGroupPortSetMapOutput() RuleGroupPortSetMapOutput {
+	return i.ToRuleGroupPortSetMapOutputWithContext(context.Background())
+}
+
+func (i RuleGroupPortSetMap) ToRuleGroupPortSetMapOutputWithContext(ctx context.Context) RuleGroupPortSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPortSetMapOutput)
+}
+
+type RuleGroupPortSetOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupPortSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupPortSet)(nil)).Elem()
+}
+
+func (o RuleGroupPortSetOutput) ToRuleGroupPortSetOutput() RuleGroupPortSetOutput {
+	return o
+}
+
+func (o RuleGroupPortSetOutput) ToRuleGroupPortSetOutputWithContext(ctx context.Context) RuleGroupPortSetOutput {
+	return o
+}
+
+func (o RuleGroupPortSetOutput) Definition() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleGroupPortSet) []string { return v.Definition }).(pulumi.StringArrayOutput)
+}
+
+type RuleGroupPortSetMapOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupPortSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleGroupPortSet)(nil)).Elem()
+}
+
+func (o RuleGroupPortSetMapOutput) ToRuleGroupPortSetMapOutput() RuleGroupPortSetMapOutput {
+	return o
+}
+
+func (o RuleGroupPortSetMapOutput) ToRuleGroupPortSetMapOutputWithContext(ctx context.Context) RuleGroupPortSetMapOutput {
+	return o
+}
+
+func (o RuleGroupPortSetMapOutput) MapIndex(k pulumi.StringInput) RuleGroupPortSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleGroupPortSet {
+		return vs[0].(map[string]RuleGroupPortSet)[vs[1].(string)]
+	}).(RuleGroupPortSetOutput)
+}
+
 type RuleGroupPublishMetricAction struct {
 	Dimensions []RuleGroupDimension `pulumi:"dimensions"`
 }
@@ -2749,7 +3031,7 @@ func (o RuleGroupPublishMetricActionPtrOutput) Dimensions() RuleGroupDimensionAr
 }
 
 type RuleGroupReferenceSets struct {
-	IpSetReferences interface{} `pulumi:"ipSetReferences"`
+	IpSetReferences map[string]RuleGroupIpSetReference `pulumi:"ipSetReferences"`
 }
 
 // RuleGroupReferenceSetsInput is an input type that accepts RuleGroupReferenceSetsArgs and RuleGroupReferenceSetsOutput values.
@@ -2764,7 +3046,7 @@ type RuleGroupReferenceSetsInput interface {
 }
 
 type RuleGroupReferenceSetsArgs struct {
-	IpSetReferences pulumi.Input `pulumi:"ipSetReferences"`
+	IpSetReferences RuleGroupIpSetReferenceMapInput `pulumi:"ipSetReferences"`
 }
 
 func (RuleGroupReferenceSetsArgs) ElementType() reflect.Type {
@@ -2844,8 +3126,8 @@ func (o RuleGroupReferenceSetsOutput) ToRuleGroupReferenceSetsPtrOutputWithConte
 	}).(RuleGroupReferenceSetsPtrOutput)
 }
 
-func (o RuleGroupReferenceSetsOutput) IpSetReferences() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleGroupReferenceSets) interface{} { return v.IpSetReferences }).(pulumi.AnyOutput)
+func (o RuleGroupReferenceSetsOutput) IpSetReferences() RuleGroupIpSetReferenceMapOutput {
+	return o.ApplyT(func(v RuleGroupReferenceSets) map[string]RuleGroupIpSetReference { return v.IpSetReferences }).(RuleGroupIpSetReferenceMapOutput)
 }
 
 type RuleGroupReferenceSetsPtrOutput struct{ *pulumi.OutputState }
@@ -2872,13 +3154,13 @@ func (o RuleGroupReferenceSetsPtrOutput) Elem() RuleGroupReferenceSetsOutput {
 	}).(RuleGroupReferenceSetsOutput)
 }
 
-func (o RuleGroupReferenceSetsPtrOutput) IpSetReferences() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RuleGroupReferenceSets) interface{} {
+func (o RuleGroupReferenceSetsPtrOutput) IpSetReferences() RuleGroupIpSetReferenceMapOutput {
+	return o.ApplyT(func(v *RuleGroupReferenceSets) map[string]RuleGroupIpSetReference {
 		if v == nil {
 			return nil
 		}
 		return v.IpSetReferences
-	}).(pulumi.AnyOutput)
+	}).(RuleGroupIpSetReferenceMapOutput)
 }
 
 type RuleGroupRuleDefinition struct {
@@ -3037,8 +3319,8 @@ func (o RuleGroupRuleOptionArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleOp
 }
 
 type RuleGroupRuleVariables struct {
-	IpSets   interface{} `pulumi:"ipSets"`
-	PortSets interface{} `pulumi:"portSets"`
+	IpSets   map[string]RuleGroupIpSet   `pulumi:"ipSets"`
+	PortSets map[string]RuleGroupPortSet `pulumi:"portSets"`
 }
 
 // RuleGroupRuleVariablesInput is an input type that accepts RuleGroupRuleVariablesArgs and RuleGroupRuleVariablesOutput values.
@@ -3053,8 +3335,8 @@ type RuleGroupRuleVariablesInput interface {
 }
 
 type RuleGroupRuleVariablesArgs struct {
-	IpSets   pulumi.Input `pulumi:"ipSets"`
-	PortSets pulumi.Input `pulumi:"portSets"`
+	IpSets   RuleGroupIpSetMapInput   `pulumi:"ipSets"`
+	PortSets RuleGroupPortSetMapInput `pulumi:"portSets"`
 }
 
 func (RuleGroupRuleVariablesArgs) ElementType() reflect.Type {
@@ -3134,12 +3416,12 @@ func (o RuleGroupRuleVariablesOutput) ToRuleGroupRuleVariablesPtrOutputWithConte
 	}).(RuleGroupRuleVariablesPtrOutput)
 }
 
-func (o RuleGroupRuleVariablesOutput) IpSets() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleGroupRuleVariables) interface{} { return v.IpSets }).(pulumi.AnyOutput)
+func (o RuleGroupRuleVariablesOutput) IpSets() RuleGroupIpSetMapOutput {
+	return o.ApplyT(func(v RuleGroupRuleVariables) map[string]RuleGroupIpSet { return v.IpSets }).(RuleGroupIpSetMapOutput)
 }
 
-func (o RuleGroupRuleVariablesOutput) PortSets() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleGroupRuleVariables) interface{} { return v.PortSets }).(pulumi.AnyOutput)
+func (o RuleGroupRuleVariablesOutput) PortSets() RuleGroupPortSetMapOutput {
+	return o.ApplyT(func(v RuleGroupRuleVariables) map[string]RuleGroupPortSet { return v.PortSets }).(RuleGroupPortSetMapOutput)
 }
 
 type RuleGroupRuleVariablesPtrOutput struct{ *pulumi.OutputState }
@@ -3166,22 +3448,22 @@ func (o RuleGroupRuleVariablesPtrOutput) Elem() RuleGroupRuleVariablesOutput {
 	}).(RuleGroupRuleVariablesOutput)
 }
 
-func (o RuleGroupRuleVariablesPtrOutput) IpSets() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RuleGroupRuleVariables) interface{} {
+func (o RuleGroupRuleVariablesPtrOutput) IpSets() RuleGroupIpSetMapOutput {
+	return o.ApplyT(func(v *RuleGroupRuleVariables) map[string]RuleGroupIpSet {
 		if v == nil {
 			return nil
 		}
 		return v.IpSets
-	}).(pulumi.AnyOutput)
+	}).(RuleGroupIpSetMapOutput)
 }
 
-func (o RuleGroupRuleVariablesPtrOutput) PortSets() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RuleGroupRuleVariables) interface{} {
+func (o RuleGroupRuleVariablesPtrOutput) PortSets() RuleGroupPortSetMapOutput {
+	return o.ApplyT(func(v *RuleGroupRuleVariables) map[string]RuleGroupPortSet {
 		if v == nil {
 			return nil
 		}
 		return v.PortSets
-	}).(pulumi.AnyOutput)
+	}).(RuleGroupPortSetMapOutput)
 }
 
 type RuleGroupRulesSource struct {
@@ -5124,9 +5406,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupDimensionInput)(nil)).Elem(), RuleGroupDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupDimensionArrayInput)(nil)).Elem(), RuleGroupDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupHeaderInput)(nil)).Elem(), RuleGroupHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetInput)(nil)).Elem(), RuleGroupIpSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetMapInput)(nil)).Elem(), RuleGroupIpSetMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetReferenceInput)(nil)).Elem(), RuleGroupIpSetReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetReferenceMapInput)(nil)).Elem(), RuleGroupIpSetReferenceMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMatchAttributesInput)(nil)).Elem(), RuleGroupMatchAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPortRangeInput)(nil)).Elem(), RuleGroupPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPortRangeArrayInput)(nil)).Elem(), RuleGroupPortRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPortSetInput)(nil)).Elem(), RuleGroupPortSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPortSetMapInput)(nil)).Elem(), RuleGroupPortSetMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPublishMetricActionInput)(nil)).Elem(), RuleGroupPublishMetricActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPublishMetricActionPtrInput)(nil)).Elem(), RuleGroupPublishMetricActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupReferenceSetsInput)(nil)).Elem(), RuleGroupReferenceSetsArgs{})
@@ -5208,9 +5496,15 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupDimensionOutput{})
 	pulumi.RegisterOutputType(RuleGroupDimensionArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupHeaderOutput{})
+	pulumi.RegisterOutputType(RuleGroupIpSetOutput{})
+	pulumi.RegisterOutputType(RuleGroupIpSetMapOutput{})
+	pulumi.RegisterOutputType(RuleGroupIpSetReferenceOutput{})
+	pulumi.RegisterOutputType(RuleGroupIpSetReferenceMapOutput{})
 	pulumi.RegisterOutputType(RuleGroupMatchAttributesOutput{})
 	pulumi.RegisterOutputType(RuleGroupPortRangeOutput{})
 	pulumi.RegisterOutputType(RuleGroupPortRangeArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupPortSetOutput{})
+	pulumi.RegisterOutputType(RuleGroupPortSetMapOutput{})
 	pulumi.RegisterOutputType(RuleGroupPublishMetricActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupPublishMetricActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupReferenceSetsOutput{})

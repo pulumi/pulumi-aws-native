@@ -55,6 +55,7 @@ __all__ = [
     'ProvisioningTemplateTag',
     'RoleAliasTag',
     'ScheduledAuditTag',
+    'SecurityProfileAlertTarget',
     'SecurityProfileBehavior',
     'SecurityProfileBehaviorCriteria',
     'SecurityProfileMachineLearningDetectionConfig',
@@ -1906,6 +1907,58 @@ class ScheduledAuditTag(dict):
 
 
 @pulumi.output_type
+class SecurityProfileAlertTarget(dict):
+    """
+    A structure containing the alert target ARN and the role ARN.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertTargetArn":
+            suggest = "alert_target_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileAlertTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileAlertTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileAlertTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alert_target_arn: str,
+                 role_arn: str):
+        """
+        A structure containing the alert target ARN and the role ARN.
+        :param str alert_target_arn: The ARN of the notification target to which alerts are sent.
+        :param str role_arn: The ARN of the role that grants permission to send alerts to the notification target.
+        """
+        pulumi.set(__self__, "alert_target_arn", alert_target_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="alertTargetArn")
+    def alert_target_arn(self) -> str:
+        """
+        The ARN of the notification target to which alerts are sent.
+        """
+        return pulumi.get(self, "alert_target_arn")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the role that grants permission to send alerts to the notification target.
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
 class SecurityProfileBehavior(dict):
     """
     A security profile behavior.
@@ -2468,26 +2521,26 @@ class SoftwarePackageVersionTag(dict):
 @pulumi.output_type
 class ThingAttributePayload(dict):
     def __init__(__self__, *,
-                 attributes: Optional[Any] = None):
+                 attributes: Optional[Mapping[str, str]] = None):
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
+    def attributes(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "attributes")
 
 
 @pulumi.output_type
 class ThingGroupAttributePayload(dict):
     def __init__(__self__, *,
-                 attributes: Optional[Any] = None):
+                 attributes: Optional[Mapping[str, str]] = None):
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
+    def attributes(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "attributes")
 
 
@@ -3795,7 +3848,7 @@ class TopicRuleKafkaAction(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_properties: Any,
+                 client_properties: Mapping[str, str],
                  destination_arn: str,
                  topic: str,
                  headers: Optional[Sequence['outputs.TopicRuleKafkaActionHeader']] = None,
@@ -3813,7 +3866,7 @@ class TopicRuleKafkaAction(dict):
 
     @property
     @pulumi.getter(name="clientProperties")
-    def client_properties(self) -> Any:
+    def client_properties(self) -> Mapping[str, str]:
         return pulumi.get(self, "client_properties")
 
     @property

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.AppConfig
         public Output<int?> ExtensionVersionNumber { get; private set; } = null!;
 
         [Output("parameters")]
-        public Output<object?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -101,7 +101,12 @@ namespace Pulumi.AwsNative.AppConfig
         public Input<int>? ExtensionVersionNumber { get; set; }
 
         [Input("parameters")]
-        public Input<object>? Parameters { get; set; }
+        private InputMap<string>? _parameters;
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
 
         [Input("resourceIdentifier")]
         public Input<string>? ResourceIdentifier { get; set; }

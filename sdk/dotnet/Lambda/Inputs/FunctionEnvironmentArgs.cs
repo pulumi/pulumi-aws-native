@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// </summary>
     public sealed class FunctionEnvironmentArgs : global::Pulumi.ResourceArgs
     {
+        [Input("variables")]
+        private InputMap<string>? _variables;
+
         /// <summary>
         /// Environment variable key-value pairs.
         /// </summary>
-        [Input("variables")]
-        public Input<object>? Variables { get; set; }
+        public InputMap<string> Variables
+        {
+            get => _variables ?? (_variables = new InputMap<string>());
+            set => _variables = value;
+        }
 
         public FunctionEnvironmentArgs()
         {

@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
         /// </summary>
         [Output("compositeComponentTypes")]
-        public Output<object?> CompositeComponentTypes { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ComponentTypeCompositeComponentType>?> CompositeComponentTypes { get; private set; } = null!;
 
         /// <summary>
         /// The date and time when the component type was created.
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// a Map of functions in the component type. Each function's key must be unique to this map.
         /// </summary>
         [Output("functions")]
-        public Output<object?> Functions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ComponentTypeFunction>?> Functions { get; private set; } = null!;
 
         /// <summary>
         /// A Boolean value that specifies whether the component type is abstract.
@@ -79,13 +79,13 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// An map of the property definitions in the component type. Each property definition's key must be unique to this map.
         /// </summary>
         [Output("propertyDefinitions")]
-        public Output<object?> PropertyDefinitions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ComponentTypePropertyDefinition>?> PropertyDefinitions { get; private set; } = null!;
 
         /// <summary>
         /// An map of the property groups in the component type. Each property group's key must be unique to this map.
         /// </summary>
         [Output("propertyGroups")]
-        public Output<object?> PropertyGroups { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ComponentTypePropertyGroup>?> PropertyGroups { get; private set; } = null!;
 
         /// <summary>
         /// The current status of the component type.
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// A map of key-value pairs to associate with a resource.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The last date and time when the component type was updated.
@@ -167,11 +167,17 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         [Input("componentTypeId", required: true)]
         public Input<string> ComponentTypeId { get; set; } = null!;
 
+        [Input("compositeComponentTypes")]
+        private InputMap<Inputs.ComponentTypeCompositeComponentTypeArgs>? _compositeComponentTypes;
+
         /// <summary>
         /// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
         /// </summary>
-        [Input("compositeComponentTypes")]
-        public Input<object>? CompositeComponentTypes { get; set; }
+        public InputMap<Inputs.ComponentTypeCompositeComponentTypeArgs> CompositeComponentTypes
+        {
+            get => _compositeComponentTypes ?? (_compositeComponentTypes = new InputMap<Inputs.ComponentTypeCompositeComponentTypeArgs>());
+            set => _compositeComponentTypes = value;
+        }
 
         /// <summary>
         /// The description of the component type.
@@ -191,11 +197,17 @@ namespace Pulumi.AwsNative.IoTTwinMaker
             set => _extendsFrom = value;
         }
 
+        [Input("functions")]
+        private InputMap<Inputs.ComponentTypeFunctionArgs>? _functions;
+
         /// <summary>
         /// a Map of functions in the component type. Each function's key must be unique to this map.
         /// </summary>
-        [Input("functions")]
-        public Input<object>? Functions { get; set; }
+        public InputMap<Inputs.ComponentTypeFunctionArgs> Functions
+        {
+            get => _functions ?? (_functions = new InputMap<Inputs.ComponentTypeFunctionArgs>());
+            set => _functions = value;
+        }
 
         /// <summary>
         /// A Boolean value that specifies whether an entity can have more than one component of this type.
@@ -203,23 +215,41 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         [Input("isSingleton")]
         public Input<bool>? IsSingleton { get; set; }
 
+        [Input("propertyDefinitions")]
+        private InputMap<Inputs.ComponentTypePropertyDefinitionArgs>? _propertyDefinitions;
+
         /// <summary>
         /// An map of the property definitions in the component type. Each property definition's key must be unique to this map.
         /// </summary>
-        [Input("propertyDefinitions")]
-        public Input<object>? PropertyDefinitions { get; set; }
+        public InputMap<Inputs.ComponentTypePropertyDefinitionArgs> PropertyDefinitions
+        {
+            get => _propertyDefinitions ?? (_propertyDefinitions = new InputMap<Inputs.ComponentTypePropertyDefinitionArgs>());
+            set => _propertyDefinitions = value;
+        }
+
+        [Input("propertyGroups")]
+        private InputMap<Inputs.ComponentTypePropertyGroupArgs>? _propertyGroups;
 
         /// <summary>
         /// An map of the property groups in the component type. Each property group's key must be unique to this map.
         /// </summary>
-        [Input("propertyGroups")]
-        public Input<object>? PropertyGroups { get; set; }
+        public InputMap<Inputs.ComponentTypePropertyGroupArgs> PropertyGroups
+        {
+            get => _propertyGroups ?? (_propertyGroups = new InputMap<Inputs.ComponentTypePropertyGroupArgs>());
+            set => _propertyGroups = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of key-value pairs to associate with a resource.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The ID of the workspace that contains the component type.

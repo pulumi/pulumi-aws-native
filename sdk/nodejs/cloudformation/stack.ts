@@ -46,7 +46,7 @@ export class Stack extends pulumi.CustomResource {
     public /*out*/ readonly lastUpdateTime!: pulumi.Output<string>;
     public readonly notificationArns!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly outputs!: pulumi.Output<outputs.cloudformation.StackOutput[]>;
-    public readonly parameters!: pulumi.Output<any | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly parentId!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string | undefined>;
     public /*out*/ readonly rootId!: pulumi.Output<string>;
@@ -136,7 +136,7 @@ export interface StackArgs {
     disableRollback?: pulumi.Input<boolean>;
     enableTerminationProtection?: pulumi.Input<boolean>;
     notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
-    parameters?: any;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     roleArn?: pulumi.Input<string>;
     stackName?: pulumi.Input<string>;
     stackPolicyBody?: any;

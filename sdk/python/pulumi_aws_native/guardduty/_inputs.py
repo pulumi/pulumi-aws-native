@@ -20,6 +20,7 @@ __all__ = [
     'DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs',
     'DetectorCfns3LogsConfigurationArgs',
     'DetectorTagItemArgs',
+    'FilterConditionArgs',
     'FilterFindingCriteriaArgs',
     'FilterTagItemArgs',
     'IpSetTagItemArgs',
@@ -245,19 +246,168 @@ class DetectorTagItemArgs:
 
 
 @pulumi.input_type
+class FilterConditionArgs:
+    def __init__(__self__, *,
+                 eq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 greater_than: Optional[pulumi.Input[int]] = None,
+                 greater_than_or_equal: Optional[pulumi.Input[int]] = None,
+                 gt: Optional[pulumi.Input[int]] = None,
+                 gte: Optional[pulumi.Input[int]] = None,
+                 less_than: Optional[pulumi.Input[int]] = None,
+                 less_than_or_equal: Optional[pulumi.Input[int]] = None,
+                 lt: Optional[pulumi.Input[int]] = None,
+                 lte: Optional[pulumi.Input[int]] = None,
+                 neq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if eq is not None:
+            pulumi.set(__self__, "eq", eq)
+        if equals is not None:
+            pulumi.set(__self__, "equals", equals)
+        if greater_than is not None:
+            pulumi.set(__self__, "greater_than", greater_than)
+        if greater_than_or_equal is not None:
+            pulumi.set(__self__, "greater_than_or_equal", greater_than_or_equal)
+        if gt is not None:
+            pulumi.set(__self__, "gt", gt)
+        if gte is not None:
+            pulumi.set(__self__, "gte", gte)
+        if less_than is not None:
+            pulumi.set(__self__, "less_than", less_than)
+        if less_than_or_equal is not None:
+            pulumi.set(__self__, "less_than_or_equal", less_than_or_equal)
+        if lt is not None:
+            pulumi.set(__self__, "lt", lt)
+        if lte is not None:
+            pulumi.set(__self__, "lte", lte)
+        if neq is not None:
+            pulumi.set(__self__, "neq", neq)
+        if not_equals is not None:
+            pulumi.set(__self__, "not_equals", not_equals)
+
+    @property
+    @pulumi.getter
+    def eq(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "eq")
+
+    @eq.setter
+    def eq(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "eq", value)
+
+    @property
+    @pulumi.getter
+    def equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "equals")
+
+    @equals.setter
+    def equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "equals", value)
+
+    @property
+    @pulumi.getter(name="greaterThan")
+    def greater_than(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "greater_than")
+
+    @greater_than.setter
+    def greater_than(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "greater_than", value)
+
+    @property
+    @pulumi.getter(name="greaterThanOrEqual")
+    def greater_than_or_equal(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "greater_than_or_equal")
+
+    @greater_than_or_equal.setter
+    def greater_than_or_equal(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "greater_than_or_equal", value)
+
+    @property
+    @pulumi.getter
+    def gt(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "gt")
+
+    @gt.setter
+    def gt(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "gt", value)
+
+    @property
+    @pulumi.getter
+    def gte(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "gte")
+
+    @gte.setter
+    def gte(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "gte", value)
+
+    @property
+    @pulumi.getter(name="lessThan")
+    def less_than(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "less_than")
+
+    @less_than.setter
+    def less_than(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "less_than", value)
+
+    @property
+    @pulumi.getter(name="lessThanOrEqual")
+    def less_than_or_equal(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "less_than_or_equal")
+
+    @less_than_or_equal.setter
+    def less_than_or_equal(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "less_than_or_equal", value)
+
+    @property
+    @pulumi.getter
+    def lt(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "lt")
+
+    @lt.setter
+    def lt(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "lt", value)
+
+    @property
+    @pulumi.getter
+    def lte(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "lte")
+
+    @lte.setter
+    def lte(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "lte", value)
+
+    @property
+    @pulumi.getter
+    def neq(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "neq")
+
+    @neq.setter
+    def neq(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "neq", value)
+
+    @property
+    @pulumi.getter(name="notEquals")
+    def not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "not_equals")
+
+    @not_equals.setter
+    def not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "not_equals", value)
+
+
+@pulumi.input_type
 class FilterFindingCriteriaArgs:
     def __init__(__self__, *,
-                 criterion: Optional[Any] = None):
+                 criterion: Optional[pulumi.Input[Mapping[str, pulumi.Input['FilterConditionArgs']]]] = None):
         if criterion is not None:
             pulumi.set(__self__, "criterion", criterion)
 
     @property
     @pulumi.getter
-    def criterion(self) -> Optional[Any]:
+    def criterion(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['FilterConditionArgs']]]]:
         return pulumi.get(self, "criterion")
 
     @criterion.setter
-    def criterion(self, value: Optional[Any]):
+    def criterion(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['FilterConditionArgs']]]]):
         pulumi.set(self, "criterion", value)
 
 

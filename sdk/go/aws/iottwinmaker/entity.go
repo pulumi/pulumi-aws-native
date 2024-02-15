@@ -19,9 +19,9 @@ type Entity struct {
 	// The ARN of the entity.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A map that sets information about a component type.
-	Components pulumi.AnyOutput `pulumi:"components"`
+	Components EntityComponentMapOutput `pulumi:"components"`
 	// A map that sets information about a composite component.
-	CompositeComponents pulumi.AnyOutput `pulumi:"compositeComponents"`
+	CompositeComponents EntityCompositeComponentMapOutput `pulumi:"compositeComponents"`
 	// The date and time when the entity was created.
 	CreationDateTime pulumi.StringOutput `pulumi:"creationDateTime"`
 	// The description of the entity.
@@ -37,7 +37,7 @@ type Entity struct {
 	// The current status of the entity.
 	Status EntityStatusOutput `pulumi:"status"`
 	// A key-value pair to associate with a resource.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The last date and time when the entity was updated.
 	UpdateDateTime pulumi.StringOutput `pulumi:"updateDateTime"`
 	// The ID of the workspace.
@@ -93,9 +93,9 @@ func (EntityState) ElementType() reflect.Type {
 
 type entityArgs struct {
 	// A map that sets information about a component type.
-	Components interface{} `pulumi:"components"`
+	Components map[string]EntityComponent `pulumi:"components"`
 	// A map that sets information about a composite component.
-	CompositeComponents interface{} `pulumi:"compositeComponents"`
+	CompositeComponents map[string]EntityCompositeComponent `pulumi:"compositeComponents"`
 	// The description of the entity.
 	Description *string `pulumi:"description"`
 	// The ID of the entity.
@@ -105,7 +105,7 @@ type entityArgs struct {
 	// The ID of the parent entity.
 	ParentEntityId *string `pulumi:"parentEntityId"`
 	// A key-value pair to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the workspace.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
@@ -113,9 +113,9 @@ type entityArgs struct {
 // The set of arguments for constructing a Entity resource.
 type EntityArgs struct {
 	// A map that sets information about a component type.
-	Components pulumi.Input
+	Components EntityComponentMapInput
 	// A map that sets information about a composite component.
-	CompositeComponents pulumi.Input
+	CompositeComponents EntityCompositeComponentMapInput
 	// The description of the entity.
 	Description pulumi.StringPtrInput
 	// The ID of the entity.
@@ -125,7 +125,7 @@ type EntityArgs struct {
 	// The ID of the parent entity.
 	ParentEntityId pulumi.StringPtrInput
 	// A key-value pair to associate with a resource.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The ID of the workspace.
 	WorkspaceId pulumi.StringInput
 }
@@ -173,13 +173,13 @@ func (o EntityOutput) Arn() pulumi.StringOutput {
 }
 
 // A map that sets information about a component type.
-func (o EntityOutput) Components() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Entity) pulumi.AnyOutput { return v.Components }).(pulumi.AnyOutput)
+func (o EntityOutput) Components() EntityComponentMapOutput {
+	return o.ApplyT(func(v *Entity) EntityComponentMapOutput { return v.Components }).(EntityComponentMapOutput)
 }
 
 // A map that sets information about a composite component.
-func (o EntityOutput) CompositeComponents() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Entity) pulumi.AnyOutput { return v.CompositeComponents }).(pulumi.AnyOutput)
+func (o EntityOutput) CompositeComponents() EntityCompositeComponentMapOutput {
+	return o.ApplyT(func(v *Entity) EntityCompositeComponentMapOutput { return v.CompositeComponents }).(EntityCompositeComponentMapOutput)
 }
 
 // The date and time when the entity was created.
@@ -218,8 +218,8 @@ func (o EntityOutput) Status() EntityStatusOutput {
 }
 
 // A key-value pair to associate with a resource.
-func (o EntityOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Entity) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o EntityOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Entity) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The last date and time when the entity was updated.

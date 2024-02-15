@@ -1694,14 +1694,14 @@ func (o ListenerRuleActionArrayOutput) Index(i pulumi.IntInput) ListenerRuleActi
 }
 
 type ListenerRuleAuthenticateCognitoConfig struct {
-	AuthenticationRequestExtraParams interface{} `pulumi:"authenticationRequestExtraParams"`
-	OnUnauthenticatedRequest         *string     `pulumi:"onUnauthenticatedRequest"`
-	Scope                            *string     `pulumi:"scope"`
-	SessionCookieName                *string     `pulumi:"sessionCookieName"`
-	SessionTimeout                   *int        `pulumi:"sessionTimeout"`
-	UserPoolArn                      string      `pulumi:"userPoolArn"`
-	UserPoolClientId                 string      `pulumi:"userPoolClientId"`
-	UserPoolDomain                   string      `pulumi:"userPoolDomain"`
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
+	OnUnauthenticatedRequest         *string           `pulumi:"onUnauthenticatedRequest"`
+	Scope                            *string           `pulumi:"scope"`
+	SessionCookieName                *string           `pulumi:"sessionCookieName"`
+	SessionTimeout                   *int              `pulumi:"sessionTimeout"`
+	UserPoolArn                      string            `pulumi:"userPoolArn"`
+	UserPoolClientId                 string            `pulumi:"userPoolClientId"`
+	UserPoolDomain                   string            `pulumi:"userPoolDomain"`
 }
 
 // ListenerRuleAuthenticateCognitoConfigInput is an input type that accepts ListenerRuleAuthenticateCognitoConfigArgs and ListenerRuleAuthenticateCognitoConfigOutput values.
@@ -1716,7 +1716,7 @@ type ListenerRuleAuthenticateCognitoConfigInput interface {
 }
 
 type ListenerRuleAuthenticateCognitoConfigArgs struct {
-	AuthenticationRequestExtraParams pulumi.Input          `pulumi:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
 	OnUnauthenticatedRequest         pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
 	Scope                            pulumi.StringPtrInput `pulumi:"scope"`
 	SessionCookieName                pulumi.StringPtrInput `pulumi:"sessionCookieName"`
@@ -1803,8 +1803,10 @@ func (o ListenerRuleAuthenticateCognitoConfigOutput) ToListenerRuleAuthenticateC
 	}).(ListenerRuleAuthenticateCognitoConfigPtrOutput)
 }
 
-func (o ListenerRuleAuthenticateCognitoConfigOutput) AuthenticationRequestExtraParams() pulumi.AnyOutput {
-	return o.ApplyT(func(v ListenerRuleAuthenticateCognitoConfig) interface{} { return v.AuthenticationRequestExtraParams }).(pulumi.AnyOutput)
+func (o ListenerRuleAuthenticateCognitoConfigOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListenerRuleAuthenticateCognitoConfig) map[string]string {
+		return v.AuthenticationRequestExtraParams
+	}).(pulumi.StringMapOutput)
 }
 
 func (o ListenerRuleAuthenticateCognitoConfigOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
@@ -1859,13 +1861,13 @@ func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) Elem() ListenerRuleAuthe
 	}).(ListenerRuleAuthenticateCognitoConfigOutput)
 }
 
-func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) AuthenticationRequestExtraParams() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ListenerRuleAuthenticateCognitoConfig) interface{} {
+func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ListenerRuleAuthenticateCognitoConfig) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.AuthenticationRequestExtraParams
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
@@ -1932,18 +1934,18 @@ func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) UserPoolDomain() pulumi.
 }
 
 type ListenerRuleAuthenticateOidcConfig struct {
-	AuthenticationRequestExtraParams interface{} `pulumi:"authenticationRequestExtraParams"`
-	AuthorizationEndpoint            string      `pulumi:"authorizationEndpoint"`
-	ClientId                         string      `pulumi:"clientId"`
-	ClientSecret                     *string     `pulumi:"clientSecret"`
-	Issuer                           string      `pulumi:"issuer"`
-	OnUnauthenticatedRequest         *string     `pulumi:"onUnauthenticatedRequest"`
-	Scope                            *string     `pulumi:"scope"`
-	SessionCookieName                *string     `pulumi:"sessionCookieName"`
-	SessionTimeout                   *int        `pulumi:"sessionTimeout"`
-	TokenEndpoint                    string      `pulumi:"tokenEndpoint"`
-	UseExistingClientSecret          *bool       `pulumi:"useExistingClientSecret"`
-	UserInfoEndpoint                 string      `pulumi:"userInfoEndpoint"`
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
+	AuthorizationEndpoint            string            `pulumi:"authorizationEndpoint"`
+	ClientId                         string            `pulumi:"clientId"`
+	ClientSecret                     *string           `pulumi:"clientSecret"`
+	Issuer                           string            `pulumi:"issuer"`
+	OnUnauthenticatedRequest         *string           `pulumi:"onUnauthenticatedRequest"`
+	Scope                            *string           `pulumi:"scope"`
+	SessionCookieName                *string           `pulumi:"sessionCookieName"`
+	SessionTimeout                   *int              `pulumi:"sessionTimeout"`
+	TokenEndpoint                    string            `pulumi:"tokenEndpoint"`
+	UseExistingClientSecret          *bool             `pulumi:"useExistingClientSecret"`
+	UserInfoEndpoint                 string            `pulumi:"userInfoEndpoint"`
 }
 
 // ListenerRuleAuthenticateOidcConfigInput is an input type that accepts ListenerRuleAuthenticateOidcConfigArgs and ListenerRuleAuthenticateOidcConfigOutput values.
@@ -1958,7 +1960,7 @@ type ListenerRuleAuthenticateOidcConfigInput interface {
 }
 
 type ListenerRuleAuthenticateOidcConfigArgs struct {
-	AuthenticationRequestExtraParams pulumi.Input          `pulumi:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
 	AuthorizationEndpoint            pulumi.StringInput    `pulumi:"authorizationEndpoint"`
 	ClientId                         pulumi.StringInput    `pulumi:"clientId"`
 	ClientSecret                     pulumi.StringPtrInput `pulumi:"clientSecret"`
@@ -2049,8 +2051,10 @@ func (o ListenerRuleAuthenticateOidcConfigOutput) ToListenerRuleAuthenticateOidc
 	}).(ListenerRuleAuthenticateOidcConfigPtrOutput)
 }
 
-func (o ListenerRuleAuthenticateOidcConfigOutput) AuthenticationRequestExtraParams() pulumi.AnyOutput {
-	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) interface{} { return v.AuthenticationRequestExtraParams }).(pulumi.AnyOutput)
+func (o ListenerRuleAuthenticateOidcConfigOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) map[string]string {
+		return v.AuthenticationRequestExtraParams
+	}).(pulumi.StringMapOutput)
 }
 
 func (o ListenerRuleAuthenticateOidcConfigOutput) AuthorizationEndpoint() pulumi.StringOutput {
@@ -2121,13 +2125,13 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) Elem() ListenerRuleAuthenti
 	}).(ListenerRuleAuthenticateOidcConfigOutput)
 }
 
-func (o ListenerRuleAuthenticateOidcConfigPtrOutput) AuthenticationRequestExtraParams() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) interface{} {
+func (o ListenerRuleAuthenticateOidcConfigPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.AuthenticationRequestExtraParams
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {

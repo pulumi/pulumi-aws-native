@@ -29,8 +29,8 @@ type LookupVpcLinkArgs struct {
 type LookupVpcLinkResult struct {
 	Name *string `pulumi:"name"`
 	// This resource type use map for Tags, suggest to use List of Tag
-	Tags      interface{} `pulumi:"tags"`
-	VpcLinkId *string     `pulumi:"vpcLinkId"`
+	Tags      map[string]string `pulumi:"tags"`
+	VpcLinkId *string           `pulumi:"vpcLinkId"`
 }
 
 func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts ...pulumi.InvokeOption) LookupVpcLinkResultOutput {
@@ -73,8 +73,8 @@ func (o LookupVpcLinkResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // This resource type use map for Tags, suggest to use List of Tag
-func (o LookupVpcLinkResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupVpcLinkResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupVpcLinkResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVpcLinkResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupVpcLinkResultOutput) VpcLinkId() pulumi.StringPtrOutput {

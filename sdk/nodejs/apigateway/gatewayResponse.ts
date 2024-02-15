@@ -40,11 +40,11 @@ export class GatewayResponse extends pulumi.CustomResource {
     /**
      * Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
      */
-    public readonly responseParameters!: pulumi.Output<any | undefined>;
+    public readonly responseParameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
      */
-    public readonly responseTemplates!: pulumi.Output<any | undefined>;
+    public readonly responseTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The response type of the associated GatewayResponse.
      */
@@ -103,11 +103,11 @@ export interface GatewayResponseArgs {
     /**
      * Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
      */
-    responseParameters?: any;
+    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
      */
-    responseTemplates?: any;
+    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The response type of the associated GatewayResponse.
      */
