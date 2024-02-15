@@ -168,6 +168,7 @@ AWS::Cognito::UserPoolDomain
 AWS::Cognito::UserPoolGroup
 AWS::Cognito::UserPoolIdentityProvider
 AWS::Cognito::UserPoolResourceServer
+AWS::Cognito::UserPoolRiskConfigurationAttachment
 AWS::Cognito::UserPoolUICustomizationAttachment
 AWS::Cognito::UserPoolUser
 AWS::Cognito::UserPoolUserToGroupAttachment
@@ -440,6 +441,7 @@ AWS::GroundStation::MissionProfile
 AWS::GuardDuty::Detector
 AWS::GuardDuty::Filter
 AWS::GuardDuty::IPSet
+AWS::GuardDuty::Master
 AWS::GuardDuty::ThreatIntelSet
 AWS::HealthImaging::Datastore
 AWS::HealthLake::FHIRDatastore
