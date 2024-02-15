@@ -1092,6 +1092,27 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		}
 	}
 
+	var mapType *jsschema.Schema
+	if propSchema.AdditionalProperties != nil {
+		mapType = propSchema.AdditionalProperties.Schema
+	} else if propSchema.PatternProperties != nil && len(propSchema.PatternProperties) == 1 {
+		// TODO: Capture pattern add add to documentation or even provider metadata for early validation feedback.
+		for _, schema := range propSchema.PatternProperties {
+			mapType = schema
+		}
+	}
+
+	if mapType != nil {
+		valueType, err := ctx.propertyTypeSpec(parentName+"Value", mapType)
+		if err != nil {
+			return nil, err
+		}
+		return &pschema.TypeSpec{
+			Type:                 "object",
+			AdditionalProperties: valueType,
+		}, nil
+	}
+
 	// All other types.
 	if len(propSchema.Type) > 0 {
 		switch propSchema.Type[0] {
