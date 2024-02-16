@@ -10,8 +10,11 @@ import (
 type TagsStyle string
 
 const (
-	TagsStyleUnknown   TagsStyle = ""
-	TagsStyleUntyped   TagsStyle = "untyped"
+	// TagsStyleUnknown indicates we can't identify the style of tags.
+	TagsStyleUnknown TagsStyle = ""
+	// TagsStyleUntyped is a style where the tags are represented as "Any" - without a schema.
+	TagsStyleUntyped TagsStyle = "untyped"
+	// TagsStyleStringMap is a style where the tags are represented as a map of strings.
 	TagsStyleStringMap TagsStyle = "stringMap"
 	// TagsStyleKeyValueArray is a style where the tags are represented as an array of key-value pairs.
 	TagsStyleKeyValueArray TagsStyle = "keyValueArray"
@@ -37,8 +40,8 @@ func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
 	return strings.TrimPrefix(tagPropertyString, "/properties/"), true
 }
 
-func (ctx *context) GetTagsStyle(typeSpec *pschema.TypeSpec, originalSpec *jsschema.Schema) TagsStyle {
-	if typeSpec == nil || originalSpec == nil {
+func (ctx *context) GetTagsStyle(typeSpec *pschema.TypeSpec) TagsStyle {
+	if typeSpec == nil {
 		return TagsStyleUnknown
 	}
 	// Check for "Any" ref
@@ -50,14 +53,14 @@ func (ctx *context) GetTagsStyle(typeSpec *pschema.TypeSpec, originalSpec *jssch
 		return TagsStyleStringMap
 	}
 
-	if ctx.TagStyleIsKeyValueArray(typeSpec, originalSpec) {
+	if ctx.tagStyleIsKeyValueArray(typeSpec) {
 		return TagsStyleKeyValueArray
 	}
 
 	return TagsStyleUnknown
 }
 
-func (ctx *context) TagStyleIsKeyValueArray(typeSpec *pschema.TypeSpec, originalSpec *jsschema.Schema) bool {
+func (ctx *context) tagStyleIsKeyValueArray(typeSpec *pschema.TypeSpec) bool {
 	if typeSpec == nil || typeSpec.Items == nil || typeSpec.Items.Ref == "" {
 		return false
 	}

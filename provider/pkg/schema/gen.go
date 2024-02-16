@@ -800,6 +800,9 @@ func readPropNames(resourceSpec *jsschema.Schema, listName string) []string {
 }
 
 func readPropSdkNames(resourceSpec *jsschema.Schema, listName string) codegen.StringSet {
+	if resourceSpec == nil {
+		return codegen.NewStringSet()
+	}
 	output := codegen.NewStringSet()
 	if p, ok := resourceSpec.Extras[listName]; ok {
 		pSlice := p.([]interface{})
@@ -969,7 +972,7 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 	}
 
 	if tagsProp, hasCustomTagsProp := GetTagsProperty(spec); propName == "Tags" || (hasCustomTagsProp && propName == tagsProp) {
-		switch ctx.GetTagsStyle(typeSpec, spec) {
+		switch ctx.GetTagsStyle(typeSpec) {
 		case TagsStyleUntyped:
 		case TagsStyleStringMap:
 			// Nothing to do
