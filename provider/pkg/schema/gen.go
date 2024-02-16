@@ -1097,6 +1097,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		mapType = propSchema.AdditionalProperties.Schema
 	} else if propSchema.PatternProperties != nil && len(propSchema.PatternProperties) == 1 {
 		// TODO: Capture pattern add add to documentation or even provider metadata for early validation feedback.
+		// https://github.com/pulumi/pulumi-aws-native/issues/1346
 		for _, schema := range propSchema.PatternProperties {
 			mapType = schema
 		}
