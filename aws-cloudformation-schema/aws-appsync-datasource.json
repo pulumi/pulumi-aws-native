@@ -12,6 +12,9 @@
     "ServiceRoleArn" : {
       "type" : "string"
     },
+    "MetricsConfig" : {
+      "type" : "string"
+    },
     "Name" : {
       "type" : "string"
     },

@@ -24,6 +24,9 @@
         "$ref" : "#/definitions/StageDeclaration"
       }
     },
+    "ExecutionMode" : {
+      "type" : "string"
+    },
     "RestartExecutionOnUpdate" : {
       "type" : "boolean"
     },
@@ -94,6 +97,13 @@
         },
         "SourceActionName" : {
           "type" : "string"
+        },
+        "PullRequest" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/GitPullRequestFilter"
+          }
         }
       },
       "required" : [ "SourceActionName" ]
@@ -156,10 +166,35 @@
       },
       "required" : [ "Type", "Id" ]
     },
+    "GitPullRequestFilter" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "FilePaths" : {
+          "$ref" : "#/definitions/GitFilePathFilterCriteria"
+        },
+        "Events" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Branches" : {
+          "$ref" : "#/definitions/GitBranchFilterCriteria"
+        }
+      }
+    },
     "GitPushFilter" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "FilePaths" : {
+          "$ref" : "#/definitions/GitFilePathFilterCriteria"
+        },
+        "Branches" : {
+          "$ref" : "#/definitions/GitBranchFilterCriteria"
+        },
         "Tags" : {
           "$ref" : "#/definitions/GitTagFilterCriteria"
         }
@@ -206,6 +241,26 @@
         }
       },
       "required" : [ "ActionTypeId", "Name" ]
+    },
+    "GitFilePathFilterCriteria" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Includes" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Excludes" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
     },
     "StageDeclaration" : {
       "type" : "object",
@@ -318,6 +373,26 @@
         }
       },
       "required" : [ "Value", "Key" ]
+    },
+    "GitBranchFilterCriteria" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Includes" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Excludes" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
     },
     "OutputArtifact" : {
       "type" : "object",

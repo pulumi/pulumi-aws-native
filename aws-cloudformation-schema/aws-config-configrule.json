@@ -164,6 +164,9 @@
       }
     }
   },
+  "propertyTransform" : {
+    "/properties/Source" : "$count(Source.SourceDetails[MessageType=\"ConfigurationItemChangeNotification\"]) > 0  and $count(Source.SourceDetails[MessageType=\"OversizedConfigurationItemChangeNotification\"]) = 0 ? $ ~> | $.Source | {\"SourceDetails\" : [SourceDetails, {\"EventSource\": \"aws.config\",\"MessageType\": \"OversizedConfigurationItemChangeNotification\"}]} | : $"
+  },
   "tagging" : {
     "taggable" : false
   },
