@@ -67,6 +67,11 @@ func (ctx *context) TagStyleIsKeyValueArray(typeSpec *pschema.TypeSpec, original
 		return false
 	}
 
+	// We can't include tags which are create-only properties because this has to be added on the tags type but this is a shared type
+	if createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties"); createOnlyProps.Has("tags") {
+		return false
+	}
+
 	if refType, ok := ctx.pkg.Types[typeToken]; ok {
 		keyProp, keyPropExists := refType.Properties["key"]
 		valueProp, valuePropExists := refType.Properties["value"]

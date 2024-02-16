@@ -19,11 +19,12 @@ import (
 )
 
 const packageName = "aws-native"
+const globalTagToken = "aws-native:index:Tag"
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
 func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schema,
 	genAll bool, semanticsDocument *SemanticsSpecDocument) (*pschema.PackageSpec, *CloudAPIMetadata, *Reports, error) {
-	tagsType := pschema.ObjectTypeSpec{
+	globalTagType := pschema.ObjectTypeSpec{
 		Type:        "object",
 		Description: "A set of tags to apply to the resource.",
 		Properties: map[string]pschema.PropertySpec{
@@ -346,8 +347,8 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			},
 		},
 		Types: map[string]pschema.ComplexTypeSpec{
-			"aws-native:index:Tag": {
-				ObjectTypeSpec: tagsType,
+			globalTagToken: {
+				ObjectTypeSpec: globalTagType,
 			},
 		},
 		Resources: map[string]pschema.ResourceSpec{
@@ -440,9 +441,9 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			},
 		},
 		Types: map[string]CloudAPIType{
-			"aws-native:index:Tag": {
+			globalTagToken: {
 				Type:       "object",
-				Properties: tagsType.Properties,
+				Properties: globalTagType.Properties,
 			},
 		},
 		Functions: map[string]CloudAPIFunction{},
@@ -670,13 +671,13 @@ func (ctx *context) markCreateOnlyProperty(propPath []string, property *pschema.
 		return ctx.markCreateOnlyProperty(propPath[1:], property)
 	}
 
-	// Default to next path component is ref to object
-	if len(property.Ref) != 0 {
+	// Default to next path component is ref to object, but exclude global types
+	if len(property.Ref) != 0 && !strings.HasPrefix(property.Ref, "#/types/aws-native:index") {
 		return ctx.markCreateOnlyPropertyOnType(propPath[0], property.Ref, propPath[1:])
 	}
 
 	// Next try looking at it as an array of objects
-	if property.Items != nil && len(property.Items.Ref) != 0 {
+	if property.Items != nil && len(property.Items.Ref) != 0 && !strings.HasPrefix(property.Items.Ref, "#/types/aws-native:index") {
 		typeRef := property.Items.Ref
 		if len(typeRef) == 0 {
 			return errors.Errorf("Property does not reference an array: %v", property)
@@ -975,7 +976,7 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 		case TagsStyleKeyValueArray:
 			// Swap referenced type to shared definition and remove custom type.
 			oldRef := propertySpec.TypeSpec.Items.Ref
-			propertySpec.TypeSpec.Items.Ref = "#/types/aws-native:index:Tag"
+			propertySpec.TypeSpec.Items.Ref = "#/types/" + globalTagToken
 			delete(ctx.pkg.Types, oldRef)
 		default: // Unknown
 			ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
