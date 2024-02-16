@@ -974,6 +974,9 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 			// Nothing to do
 		case TagsStyleKeyValueArray:
 			// Swap referenced type to shared definition and remove custom type.
+			oldRef := propertySpec.TypeSpec.Items.Ref
+			propertySpec.TypeSpec.Items.Ref = "#/types/aws-native:index:Tag"
+			delete(ctx.pkg.Types, oldRef)
 		default: // Unknown
 			ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
 		}

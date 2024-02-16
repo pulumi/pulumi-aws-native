@@ -10,9 +10,10 @@ import (
 type TagsStyle string
 
 const (
-	TagsStyleUnknown       TagsStyle = ""
-	TagsStyleUntyped       TagsStyle = "untyped"
-	TagsStyleStringMap     TagsStyle = "stringMap"
+	TagsStyleUnknown   TagsStyle = ""
+	TagsStyleUntyped   TagsStyle = "untyped"
+	TagsStyleStringMap TagsStyle = "stringMap"
+	// TagsStyleKeyValueArray is a style where the tags are represented as an array of key-value pairs.
 	TagsStyleKeyValueArray TagsStyle = "keyValueArray"
 )
 
@@ -44,14 +45,41 @@ func (ctx *context) GetTagsStyle(typeSpec *pschema.TypeSpec, originalSpec *jssch
 	if typeSpec.Ref == "pulumi.json#/Any" {
 		return TagsStyleUntyped
 	}
-	switch typeSpec.Type {
-	case "object":
-		if typeSpec.AdditionalProperties != nil && typeSpec.AdditionalProperties.Type == "string" {
-			return TagsStyleStringMap
-		} else {
-			return TagsStyleUnknown
-		}
-	default:
-		return TagsStyleUnknown
+
+	if typeSpec.AdditionalProperties != nil && typeSpec.AdditionalProperties.Type == "string" {
+		return TagsStyleStringMap
 	}
+
+	if ctx.TagStyleIsKeyValueArray(typeSpec, originalSpec) {
+		return TagsStyleKeyValueArray
+	}
+
+	return TagsStyleUnknown
+}
+
+func (ctx *context) TagStyleIsKeyValueArray(typeSpec *pschema.TypeSpec, originalSpec *jsschema.Schema) bool {
+	if typeSpec == nil || typeSpec.Items == nil || typeSpec.Items.Ref == "" {
+		return false
+	}
+
+	typeToken, hasPrefix := strings.CutPrefix(typeSpec.Items.Ref, "#/types/")
+	if !hasPrefix {
+		return false
+	}
+
+	if refType, ok := ctx.pkg.Types[typeToken]; ok {
+		keyProp, keyPropExists := refType.Properties["key"]
+		valueProp, valuePropExists := refType.Properties["value"]
+		// Check if the type has exactly two properties, "key" and "value", both of type "string"
+		for k := range refType.Properties {
+			if k != "key" && k != "value" {
+				return false
+			}
+		}
+		if keyPropExists && valuePropExists && keyProp.Type == "string" && valueProp.Type == "string" {
+			return true
+		}
+	}
+
+	return false
 }
