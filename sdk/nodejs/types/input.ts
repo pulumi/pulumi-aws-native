@@ -742,7 +742,7 @@ export namespace apigateway {
         /**
          * Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
          */
-        stageVariableOverrides?: any;
+        stageVariableOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
          */
@@ -760,7 +760,7 @@ export namespace apigateway {
         /**
          * A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
          */
-        stageVariableOverrides?: any;
+        stageVariableOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
          */
@@ -894,7 +894,7 @@ export namespace apigateway {
         /**
          * A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
          */
-        variables?: any;
+        variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface DeploymentTagArgs {
@@ -993,11 +993,11 @@ export namespace apigateway {
         /**
          * A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
          */
-        requestParameters?: any;
+        requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
          */
-        requestTemplates?: any;
+        requestTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
          */
@@ -1026,11 +1026,11 @@ export namespace apigateway {
         /**
          * A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
          */
-        responseParameters?: any;
+        responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
          */
-        responseTemplates?: any;
+        responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
          */
@@ -1048,11 +1048,11 @@ export namespace apigateway {
         /**
          * Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
          */
-        responseModels?: any;
+        responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
          */
-        responseParameters?: any;
+        responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
         /**
          * The method response's status code.
          */
@@ -1132,7 +1132,7 @@ export namespace apigateway {
         /**
          * Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
          */
-        stageVariableOverrides?: any;
+        stageVariableOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
          */
@@ -1212,7 +1212,7 @@ export namespace apigateway {
         /**
          * Map containing method level throttling information for API stage in a usage plan.
          */
-        throttle?: any;
+        throttle?: pulumi.Input<{[key: string]: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettingsArgs>}>;
     }
 
     /**
@@ -1504,6 +1504,28 @@ export namespace appconfig {
     }
 
     /**
+     * An action for an extension to take at a specific action point.
+     */
+    export interface ExtensionActionArgs {
+        /**
+         * The description of the extension Action.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name of the extension action.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The ARN of the role for invoking the extension action.
+         */
+        roleArn?: pulumi.Input<string>;
+        /**
+         * The URI of the extension action.
+         */
+        uri: pulumi.Input<string>;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface ExtensionAssociationTagArgs {
@@ -1515,6 +1537,17 @@ export namespace appconfig {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * A parameter for the extension to send to a specific action.
+     */
+    export interface ExtensionParameterArgs {
+        /**
+         * The description of the extension Parameter.
+         */
+        description?: pulumi.Input<string>;
+        required: pulumi.Input<boolean>;
     }
 
     /**
@@ -2556,7 +2589,7 @@ export namespace appintegrations {
         /**
          * Restrictions for what files should be pulled from the source.
          */
-        filters?: any;
+        filters?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
         /**
          * Identifiers for the source folders to pull all files from recursively.
          */
@@ -5276,7 +5309,7 @@ export namespace backup {
         copyActions?: pulumi.Input<pulumi.Input<inputs.backup.BackupPlanCopyActionResourceTypeArgs>[]>;
         enableContinuousBackup?: pulumi.Input<boolean>;
         lifecycle?: pulumi.Input<inputs.backup.BackupPlanLifecycleResourceTypeArgs>;
-        recoveryPointTags?: any;
+        recoveryPointTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         ruleName: pulumi.Input<string>;
         scheduleExpression?: pulumi.Input<string>;
         scheduleExpressionTimezone?: pulumi.Input<string>;
@@ -5509,7 +5542,7 @@ export namespace batch {
         /**
          * A key-value pair to associate with a resource.
          */
-        tags?: any;
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         type: pulumi.Input<string>;
         updateToLatestImageVersion?: pulumi.Input<boolean>;
     }
@@ -7975,6 +8008,24 @@ export namespace cognito {
     export interface IdentityPoolPushSyncArgs {
         applicationArns?: pulumi.Input<pulumi.Input<string>[]>;
         roleArn?: pulumi.Input<string>;
+    }
+
+    export interface IdentityPoolRoleAttachmentMappingRuleArgs {
+        claim: pulumi.Input<string>;
+        matchType: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface IdentityPoolRoleAttachmentRoleMappingArgs {
+        ambiguousRoleResolution?: pulumi.Input<string>;
+        identityProvider?: pulumi.Input<string>;
+        rulesConfiguration?: pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRulesConfigurationTypeArgs>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface IdentityPoolRoleAttachmentRulesConfigurationTypeArgs {
+        rules: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentMappingRuleArgs>[]>;
     }
 
     export interface LogDeliveryConfigurationCloudWatchLogsConfigurationArgs {
@@ -14884,7 +14935,7 @@ export namespace ecs {
 
     export interface ServiceLogConfigurationArgs {
         logDriver?: pulumi.Input<string>;
-        options?: any;
+        options?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         secretOptions?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceSecretArgs>[]>;
     }
 
@@ -14958,7 +15009,7 @@ export namespace ecs {
         disableNetworking?: pulumi.Input<boolean>;
         dnsSearchDomains?: pulumi.Input<pulumi.Input<string>[]>;
         dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
-        dockerLabels?: any;
+        dockerLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         dockerSecurityOptions?: pulumi.Input<pulumi.Input<string>[]>;
         entryPoint?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -15025,8 +15076,8 @@ export namespace ecs {
     export interface TaskDefinitionDockerVolumeConfigurationArgs {
         autoprovision?: pulumi.Input<boolean>;
         driver?: pulumi.Input<string>;
-        driverOpts?: any;
-        labels?: any;
+        driverOpts?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         scope?: pulumi.Input<string>;
     }
 
@@ -15048,7 +15099,7 @@ export namespace ecs {
     }
 
     export interface TaskDefinitionFirelensConfigurationArgs {
-        options?: any;
+        options?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         type?: pulumi.Input<string>;
     }
 
@@ -15114,7 +15165,7 @@ export namespace ecs {
 
     export interface TaskDefinitionLogConfigurationArgs {
         logDriver: pulumi.Input<string>;
-        options?: any;
+        options?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         secretOptions?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionSecretArgs>[]>;
     }
 
@@ -16208,7 +16259,7 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface ListenerRuleAuthenticateCognitoConfigArgs {
-        authenticationRequestExtraParams?: any;
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         onUnauthenticatedRequest?: pulumi.Input<string>;
         scope?: pulumi.Input<string>;
         sessionCookieName?: pulumi.Input<string>;
@@ -16219,7 +16270,7 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface ListenerRuleAuthenticateOidcConfigArgs {
-        authenticationRequestExtraParams?: any;
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         authorizationEndpoint: pulumi.Input<string>;
         clientId: pulumi.Input<string>;
         clientSecret?: pulumi.Input<string>;
@@ -16942,7 +16993,7 @@ export namespace emrserverless {
          */
         classification: pulumi.Input<string>;
         configurations?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationConfigurationObjectArgs>[]>;
-        properties?: any;
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     /**
@@ -17106,7 +17157,7 @@ export namespace entityresolution {
         /**
          * Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
          */
-        providerConfiguration?: any;
+        providerConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Arn of the Provider Service being used.
          */
@@ -17163,7 +17214,7 @@ export namespace entityresolution {
         /**
          * Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
          */
-        providerConfiguration?: any;
+        providerConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Arn of the Provider service being used.
          */
@@ -17357,13 +17408,13 @@ export namespace events {
     }
 
     export interface RuleHttpParametersArgs {
-        headerParameters?: any;
+        headerParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         pathParameterValues?: pulumi.Input<pulumi.Input<string>[]>;
-        queryStringParameters?: any;
+        queryStringParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface RuleInputTransformerArgs {
-        inputPathsMap?: any;
+        inputPathsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         inputTemplate: pulumi.Input<string>;
     }
 
@@ -19806,8 +19857,13 @@ export namespace greengrass {
 }
 
 export namespace greengrassv2 {
+    export interface ComponentVersionComponentDependencyRequirementArgs {
+        dependencyType?: pulumi.Input<enums.greengrassv2.ComponentVersionComponentDependencyRequirementDependencyType>;
+        versionRequirement?: pulumi.Input<string>;
+    }
+
     export interface ComponentVersionComponentPlatformArgs {
-        attributes?: any;
+        attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         name?: pulumi.Input<string>;
     }
 
@@ -19830,7 +19886,7 @@ export namespace greengrassv2 {
     }
 
     export interface ComponentVersionLambdaExecutionParametersArgs {
-        environmentVariables?: any;
+        environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         eventSources?: pulumi.Input<pulumi.Input<inputs.greengrassv2.ComponentVersionLambdaEventSourceArgs>[]>;
         execArgs?: pulumi.Input<pulumi.Input<string>[]>;
         inputPayloadEncodingType?: pulumi.Input<enums.greengrassv2.ComponentVersionLambdaExecutionParametersInputPayloadEncodingType>;
@@ -19844,7 +19900,7 @@ export namespace greengrassv2 {
     }
 
     export interface ComponentVersionLambdaFunctionRecipeSourceArgs {
-        componentDependencies?: any;
+        componentDependencies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.greengrassv2.ComponentVersionComponentDependencyRequirementArgs>}>;
         componentLambdaParameters?: pulumi.Input<inputs.greengrassv2.ComponentVersionLambdaExecutionParametersArgs>;
         componentName?: pulumi.Input<string>;
         componentPlatforms?: pulumi.Input<pulumi.Input<inputs.greengrassv2.ComponentVersionComponentPlatformArgs>[]>;
@@ -19862,6 +19918,23 @@ export namespace greengrassv2 {
         destinationPath?: pulumi.Input<string>;
         permission?: pulumi.Input<enums.greengrassv2.ComponentVersionLambdaFilesystemPermission>;
         sourcePath?: pulumi.Input<string>;
+    }
+
+    export interface DeploymentComponentConfigurationUpdateArgs {
+        merge?: pulumi.Input<string>;
+        reset?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DeploymentComponentDeploymentSpecificationArgs {
+        componentVersion?: pulumi.Input<string>;
+        configurationUpdate?: pulumi.Input<inputs.greengrassv2.DeploymentComponentConfigurationUpdateArgs>;
+        runWith?: pulumi.Input<inputs.greengrassv2.DeploymentComponentRunWithArgs>;
+    }
+
+    export interface DeploymentComponentRunWithArgs {
+        posixUser?: pulumi.Input<string>;
+        systemResourceLimits?: pulumi.Input<inputs.greengrassv2.DeploymentSystemResourceLimitsArgs>;
+        windowsUser?: pulumi.Input<string>;
     }
 
     export interface DeploymentComponentUpdatePolicyArgs {
@@ -19912,6 +19985,11 @@ export namespace greengrassv2 {
         componentUpdatePolicy?: pulumi.Input<inputs.greengrassv2.DeploymentComponentUpdatePolicyArgs>;
         configurationValidationPolicy?: pulumi.Input<inputs.greengrassv2.DeploymentConfigurationValidationPolicyArgs>;
         failureHandlingPolicy?: pulumi.Input<enums.greengrassv2.DeploymentPoliciesFailureHandlingPolicy>;
+    }
+
+    export interface DeploymentSystemResourceLimitsArgs {
+        cpus?: pulumi.Input<number>;
+        memory?: pulumi.Input<number>;
     }
 }
 
@@ -20149,8 +20227,23 @@ export namespace guardduty {
         value: pulumi.Input<string>;
     }
 
+    export interface FilterConditionArgs {
+        eq?: pulumi.Input<pulumi.Input<string>[]>;
+        equals?: pulumi.Input<pulumi.Input<string>[]>;
+        greaterThan?: pulumi.Input<number>;
+        greaterThanOrEqual?: pulumi.Input<number>;
+        gt?: pulumi.Input<number>;
+        gte?: pulumi.Input<number>;
+        lessThan?: pulumi.Input<number>;
+        lessThanOrEqual?: pulumi.Input<number>;
+        lt?: pulumi.Input<number>;
+        lte?: pulumi.Input<number>;
+        neq?: pulumi.Input<pulumi.Input<string>[]>;
+        notEquals?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface FilterFindingCriteriaArgs {
-        criterion?: any;
+        criterion?: pulumi.Input<{[key: string]: pulumi.Input<inputs.guardduty.FilterConditionArgs>}>;
     }
 
     export interface FilterTagItemArgs {
@@ -20521,7 +20614,7 @@ export namespace imagebuilder {
         /**
          * The tags to apply to AMIs distributed to this Region.
          */
-        amiTags?: any;
+        amiTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The description of the AMI distribution configuration.
          */
@@ -21030,7 +21123,7 @@ export namespace imagebuilder {
         /**
          * The AMIs to select by tag.
          */
-        tagMap?: any;
+        tagMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     /**
@@ -21041,7 +21134,7 @@ export namespace imagebuilder {
         /**
          * The Image Builder tags to filter on.
          */
-        tagMap?: any;
+        tagMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     /**
@@ -21132,7 +21225,7 @@ export namespace imagebuilder {
         /**
          * The Image Builder resources to select by tag.
          */
-        tagMap?: any;
+        tagMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 }
 
@@ -21732,6 +21825,20 @@ export namespace iot {
     }
 
     /**
+     * A structure containing the alert target ARN and the role ARN.
+     */
+    export interface SecurityProfileAlertTargetArgs {
+        /**
+         * The ARN of the notification target to which alerts are sent.
+         */
+        alertTargetArn: pulumi.Input<string>;
+        /**
+         * The ARN of the role that grants permission to send alerts to the notification target.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    /**
      * A security profile behavior.
      */
     export interface SecurityProfileBehaviorArgs {
@@ -21899,11 +22006,11 @@ export namespace iot {
     }
 
     export interface ThingAttributePayloadArgs {
-        attributes?: any;
+        attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface ThingGroupAttributePayloadArgs {
-        attributes?: any;
+        attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface ThingGroupPropertiesPropertiesArgs {
@@ -22094,7 +22201,7 @@ export namespace iot {
     }
 
     export interface TopicRuleKafkaActionArgs {
-        clientProperties: any;
+        clientProperties: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         destinationArn: pulumi.Input<string>;
         headers?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKafkaActionHeaderArgs>[]>;
         key?: pulumi.Input<string>;
@@ -22471,7 +22578,7 @@ export namespace iotanalytics {
     }
 
     export interface PipelineAddAttributesArgs {
-        attributes: any;
+        attributes: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
@@ -23921,6 +24028,431 @@ export namespace iotthingsgraph {
 }
 
 export namespace iottwinmaker {
+    /**
+     * An object that sets information about a composite component type.
+     */
+    export interface ComponentTypeCompositeComponentTypeArgs {
+        /**
+         * The id of the composite component type.
+         */
+        componentTypeId?: pulumi.Input<string>;
+    }
+
+    /**
+     * The data connector.
+     */
+    export interface ComponentTypeDataConnectorArgs {
+        /**
+         * A Boolean value that specifies whether the data connector is native to IoT TwinMaker.
+         */
+        isNative?: pulumi.Input<boolean>;
+        /**
+         * The Lambda function associated with this data connector.
+         */
+        lambda?: pulumi.Input<inputs.iottwinmaker.ComponentTypeLambdaFunctionArgs>;
+    }
+
+    /**
+     * An object that specifies the data type of a property.
+     */
+    export interface ComponentTypeDataTypeArgs {
+        /**
+         * The allowed values for this data type.
+         */
+        allowedValues?: pulumi.Input<pulumi.Input<inputs.iottwinmaker.ComponentTypeDataValueArgs>[]>;
+        /**
+         * The nested type in the data type.
+         */
+        nestedType?: pulumi.Input<inputs.iottwinmaker.ComponentTypeDataTypeArgs>;
+        /**
+         * A relationship that associates a component with another component.
+         */
+        relationship?: pulumi.Input<inputs.iottwinmaker.ComponentTypeRelationshipArgs>;
+        /**
+         * The underlying type of the data type.
+         */
+        type: pulumi.Input<enums.iottwinmaker.ComponentTypeDataTypeType>;
+        /**
+         * The unit of measure used in this data type.
+         */
+        unitOfMeasure?: pulumi.Input<string>;
+    }
+
+    /**
+     * An object that specifies a value for a property.
+     */
+    export interface ComponentTypeDataValueArgs {
+        /**
+         * A Boolean value.
+         */
+        booleanValue?: pulumi.Input<boolean>;
+        /**
+         * A double value.
+         */
+        doubleValue?: pulumi.Input<number>;
+        /**
+         * An expression that produces the value.
+         */
+        expression?: pulumi.Input<string>;
+        /**
+         * An integer value.
+         */
+        integerValue?: pulumi.Input<number>;
+        /**
+         * A list of multiple values.
+         */
+        listValue?: pulumi.Input<pulumi.Input<inputs.iottwinmaker.ComponentTypeDataValueArgs>[]>;
+        /**
+         * A long value.
+         */
+        longValue?: pulumi.Input<number>;
+        /**
+         * An object that maps strings to multiple DataValue objects. 
+         */
+        mapValue?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypeDataValueArgs>}>;
+        /**
+         * A value that relates a component to another component.
+         */
+        relationshipValue?: pulumi.Input<inputs.iottwinmaker.ComponentTypeDataValueRelationshipValuePropertiesArgs>;
+        /**
+         * A string value.
+         */
+        stringValue?: pulumi.Input<string>;
+    }
+
+    /**
+     * A value that relates a component to another component.
+     */
+    export interface ComponentTypeDataValueRelationshipValuePropertiesArgs {
+        targetComponentName?: pulumi.Input<string>;
+        targetEntityId?: pulumi.Input<string>;
+    }
+
+    /**
+     * The function of component type.
+     */
+    export interface ComponentTypeFunctionArgs {
+        /**
+         * The data connector.
+         */
+        implementedBy?: pulumi.Input<inputs.iottwinmaker.ComponentTypeDataConnectorArgs>;
+        /**
+         * The required properties of the function.
+         */
+        requiredProperties?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The scope of the function.
+         */
+        scope?: pulumi.Input<enums.iottwinmaker.ComponentTypeFunctionScope>;
+    }
+
+    export interface ComponentTypeLambdaFunctionArgs {
+        arn: pulumi.Input<string>;
+    }
+
+    /**
+     * An object that sets information about a property.
+     */
+    export interface ComponentTypePropertyDefinitionArgs {
+        /**
+         * An object that specifies information about a property.
+         */
+        configurations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * An object that contains information about the data type.
+         */
+        dataType?: pulumi.Input<inputs.iottwinmaker.ComponentTypeDataTypeArgs>;
+        /**
+         * An object that contains the default value.
+         */
+        defaultValue?: pulumi.Input<inputs.iottwinmaker.ComponentTypeDataValueArgs>;
+        /**
+         * A Boolean value that specifies whether the property ID comes from an external data store.
+         */
+        isExternalId?: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that specifies whether the property is required.
+         */
+        isRequiredInEntity?: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that specifies whether the property is stored externally.
+         */
+        isStoredExternally?: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that specifies whether the property consists of time series data.
+         */
+        isTimeSeries?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * An object that sets information about a property group.
+     */
+    export interface ComponentTypePropertyGroupArgs {
+        /**
+         * The type of property group.
+         */
+        groupType?: pulumi.Input<enums.iottwinmaker.ComponentTypePropertyGroupGroupType>;
+        /**
+         * The list of property names in the property group.
+         */
+        propertyNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The type of the relationship.
+     */
+    export interface ComponentTypeRelationshipArgs {
+        /**
+         * The type of the relationship.
+         */
+        relationshipType?: pulumi.Input<string>;
+        /**
+         * The ID of the target component type associated with this relationship.
+         */
+        targetComponentTypeId?: pulumi.Input<string>;
+    }
+
+    export interface EntityComponentArgs {
+        /**
+         * The name of the component.
+         */
+        componentName?: pulumi.Input<string>;
+        /**
+         * The ID of the component type.
+         */
+        componentTypeId?: pulumi.Input<string>;
+        /**
+         * The name of the property definition set in the component.
+         */
+        definedIn?: pulumi.Input<string>;
+        /**
+         * The description of the component.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
+         */
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.EntityPropertyArgs>}>;
+        /**
+         * An object that maps strings to the property groups to set in the component type. Each string in the mapping must be unique to this object.
+         */
+        propertyGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.EntityPropertyGroupArgs>}>;
+        /**
+         * The current status of the entity.
+         */
+        status?: pulumi.Input<inputs.iottwinmaker.EntityStatusArgs>;
+    }
+
+    export interface EntityCompositeComponentArgs {
+        /**
+         * The name of the component.
+         */
+        componentName?: pulumi.Input<string>;
+        /**
+         * The path of the component.
+         */
+        componentPath?: pulumi.Input<string>;
+        /**
+         * The ID of the component type.
+         */
+        componentTypeId?: pulumi.Input<string>;
+        /**
+         * The description of the component.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
+         */
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.EntityPropertyArgs>}>;
+        /**
+         * An object that maps strings to the property groups to set in the component type. Each string in the mapping must be unique to this object.
+         */
+        propertyGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.EntityPropertyGroupArgs>}>;
+        /**
+         * The current status of the component.
+         */
+        status?: pulumi.Input<inputs.iottwinmaker.EntityStatusArgs>;
+    }
+
+    /**
+     * An object that specifies the data type of a property.
+     */
+    export interface EntityDataTypeArgs {
+        /**
+         * The allowed values for this data type.
+         */
+        allowedValues?: pulumi.Input<pulumi.Input<inputs.iottwinmaker.EntityDataValueArgs>[]>;
+        /**
+         * The nested type in the data type.
+         */
+        nestedType?: pulumi.Input<inputs.iottwinmaker.EntityDataTypeArgs>;
+        /**
+         * A relationship that associates a component with another component.
+         */
+        relationship?: pulumi.Input<inputs.iottwinmaker.EntityRelationshipArgs>;
+        /**
+         * The underlying type of the data type.
+         */
+        type?: pulumi.Input<enums.iottwinmaker.EntityDataTypeType>;
+        /**
+         * The unit of measure used in this data type.
+         */
+        unitOfMeasure?: pulumi.Input<string>;
+    }
+
+    /**
+     * An object that specifies a value for a property.
+     */
+    export interface EntityDataValueArgs {
+        /**
+         * A Boolean value.
+         */
+        booleanValue?: pulumi.Input<boolean>;
+        /**
+         * A double value.
+         */
+        doubleValue?: pulumi.Input<number>;
+        /**
+         * An expression that produces the value.
+         */
+        expression?: pulumi.Input<string>;
+        /**
+         * An integer value.
+         */
+        integerValue?: pulumi.Input<number>;
+        /**
+         * A list of multiple values.
+         */
+        listValue?: pulumi.Input<pulumi.Input<inputs.iottwinmaker.EntityDataValueArgs>[]>;
+        /**
+         * A long value.
+         */
+        longValue?: pulumi.Input<number>;
+        /**
+         * An object that maps strings to multiple DataValue objects.
+         */
+        mapValue?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.EntityDataValueArgs>}>;
+        /**
+         * A value that relates a component to another component.
+         */
+        relationshipValue?: pulumi.Input<inputs.iottwinmaker.EntityDataValueRelationshipValuePropertiesArgs>;
+        /**
+         * A string value.
+         */
+        stringValue?: pulumi.Input<string>;
+    }
+
+    /**
+     * A value that relates a component to another component.
+     */
+    export interface EntityDataValueRelationshipValuePropertiesArgs {
+        targetComponentName?: pulumi.Input<string>;
+        targetEntityId?: pulumi.Input<string>;
+    }
+
+    export interface EntityPropertyArgs {
+        /**
+         * An object that specifies information about a property.
+         */
+        definition?: pulumi.Input<inputs.iottwinmaker.EntityPropertyDefinitionPropertiesArgs>;
+        /**
+         * The value of the property.
+         */
+        value?: pulumi.Input<inputs.iottwinmaker.EntityDataValueArgs>;
+    }
+
+    /**
+     * An object that specifies information about a property.
+     */
+    export interface EntityPropertyDefinitionConfigurationArgs {
+    }
+
+    /**
+     * An object that specifies information about a property.
+     */
+    export interface EntityPropertyDefinitionPropertiesArgs {
+        /**
+         * An object that specifies information about a property.
+         */
+        configuration?: pulumi.Input<inputs.iottwinmaker.EntityPropertyDefinitionConfigurationArgs>;
+        /**
+         * An object that contains information about the data type.
+         */
+        dataType?: pulumi.Input<inputs.iottwinmaker.EntityDataTypeArgs>;
+        /**
+         * An object that contains the default value.
+         */
+        defaultValue?: pulumi.Input<inputs.iottwinmaker.EntityDataValueArgs>;
+        /**
+         * A Boolean value that specifies whether the property ID comes from an external data store.
+         */
+        isExternalId?: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that specifies whether the property definition can be updated.
+         */
+        isFinal?: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that specifies whether the property definition is imported from an external data store.
+         */
+        isImported?: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that specifies whether the property definition is inherited from a parent entity.
+         */
+        isInherited?: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that specifies whether the property is required.
+         */
+        isRequiredInEntity?: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that specifies whether the property is stored externally.
+         */
+        isStoredExternally?: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that specifies whether the property consists of time series data.
+         */
+        isTimeSeries?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * An object that specifies information about a property group.
+     */
+    export interface EntityPropertyGroupArgs {
+        /**
+         * The type of property group.
+         */
+        groupType?: pulumi.Input<enums.iottwinmaker.EntityPropertyGroupGroupType>;
+        /**
+         * The list of property names in the property group.
+         */
+        propertyNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The type of the relationship.
+     */
+    export interface EntityRelationshipArgs {
+        /**
+         * The type of the relationship.
+         */
+        relationshipType?: pulumi.Input<string>;
+        /**
+         * The ID of the target component type associated with this relationship.
+         */
+        targetComponentTypeId?: pulumi.Input<string>;
+    }
+
+    export interface EntityStatusArgs {
+        error?: pulumi.Input<any | inputs.iottwinmaker.EntityStatusErrorPropertiesArgs>;
+        state?: pulumi.Input<enums.iottwinmaker.EntityStatusState>;
+    }
+
+    /**
+     * Error object with Message and Code.
+     */
+    export interface EntityStatusErrorPropertiesArgs {
+        code?: pulumi.Input<enums.iottwinmaker.EntityStatusErrorPropertiesCode>;
+        message?: pulumi.Input<string>;
+    }
 }
 
 export namespace iotwireless {
@@ -26666,7 +27198,7 @@ export namespace lambda {
         /**
          * Environment variable key-value pairs.
          */
-        variables?: any;
+        variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     /**
@@ -26984,6 +27516,32 @@ export namespace lex {
     }
 
     /**
+     * Specifies the allowed input types.
+     */
+    export interface BotAllowedInputTypesArgs {
+        /**
+         * Indicates whether audio input is allowed.
+         */
+        allowAudioInput: pulumi.Input<boolean>;
+        /**
+         * Indicates whether DTMF input is allowed.
+         */
+        allowDtmfInput: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Specifies the audio and DTMF input specification.
+     */
+    export interface BotAudioAndDtmfInputSpecificationArgs {
+        audioSpecification?: pulumi.Input<inputs.lex.BotAudioSpecificationArgs>;
+        dtmfSpecification?: pulumi.Input<inputs.lex.BotDtmfSpecificationArgs>;
+        /**
+         * Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
+         */
+        startTimeoutMs: pulumi.Input<number>;
+    }
+
+    /**
      * The location of audio log files collected when conversation logging is enabled for a bot.
      */
     export interface BotAudioLogDestinationArgs {
@@ -26996,6 +27554,20 @@ export namespace lex {
     export interface BotAudioLogSettingArgs {
         destination: pulumi.Input<inputs.lex.BotAudioLogDestinationArgs>;
         enabled: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Specifies the audio input specifications.
+     */
+    export interface BotAudioSpecificationArgs {
+        /**
+         * Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
+         */
+        endTimeoutMs: pulumi.Input<number>;
+        /**
+         * Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
+         */
+        maxLengthMs: pulumi.Input<number>;
     }
 
     /**
@@ -27193,6 +27765,28 @@ export namespace lex {
          * List of session attributes to be applied when the conversation reaches this step.
          */
         sessionAttributes?: pulumi.Input<pulumi.Input<inputs.lex.BotSessionAttributeArgs>[]>;
+    }
+
+    /**
+     * Specifies the settings on DTMF input.
+     */
+    export interface BotDtmfSpecificationArgs {
+        /**
+         * The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
+         */
+        deletionCharacter: pulumi.Input<string>;
+        /**
+         * The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
+         */
+        endCharacter: pulumi.Input<string>;
+        /**
+         * How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
+         */
+        endTimeoutMs: pulumi.Input<number>;
+        /**
+         * The maximum number of DTMF digits allowed in an utterance.
+         */
+        maxLength: pulumi.Input<number>;
     }
 
     /**
@@ -27656,6 +28250,19 @@ export namespace lex {
     }
 
     /**
+     * Specifies the settings on a prompt attempt.
+     */
+    export interface BotPromptAttemptSpecificationArgs {
+        /**
+         * Indicates whether the user can interrupt a speech prompt attempt from the bot.
+         */
+        allowInterrupt?: pulumi.Input<boolean>;
+        allowedInputTypes: pulumi.Input<inputs.lex.BotAllowedInputTypesArgs>;
+        audioAndDtmfInputSpecification?: pulumi.Input<inputs.lex.BotAudioAndDtmfInputSpecificationArgs>;
+        textInputSpecification?: pulumi.Input<inputs.lex.BotTextInputSpecificationArgs>;
+    }
+
+    /**
      * Prompts the user to confirm the intent.
      */
     export interface BotPromptSpecificationArgs {
@@ -27669,7 +28276,7 @@ export namespace lex {
         /**
          * Specifies the advanced settings on each attempt of the prompt.
          */
-        promptAttemptsSpecification?: any;
+        promptAttemptsSpecification?: pulumi.Input<{[key: string]: pulumi.Input<inputs.lex.BotPromptAttemptSpecificationArgs>}>;
     }
 
     /**
@@ -27988,6 +28595,16 @@ export namespace lex {
          * Enable to call Amazon Comprehend for Sentiment natively within Lex
          */
         detectSentiment: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Specifies the text input specifications.
+     */
+    export interface BotTextInputSpecificationArgs {
+        /**
+         * Time for which a bot waits before re-prompting a customer for text input.
+         */
+        startTimeoutMs: pulumi.Input<number>;
     }
 
     /**
@@ -33000,7 +33617,7 @@ export namespace networkfirewall {
         /**
          * A key-value pair to configure the logDestinations.
          */
-        logDestination: any;
+        logDestination: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         logDestinationType: pulumi.Input<enums.networkfirewall.LoggingConfigurationLogDestinationConfigLogDestinationType>;
         logType: pulumi.Input<enums.networkfirewall.LoggingConfigurationLogDestinationConfigLogType>;
     }
@@ -33038,6 +33655,14 @@ export namespace networkfirewall {
         sourcePort: pulumi.Input<string>;
     }
 
+    export interface RuleGroupIpSetArgs {
+        definition?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupIpSetReferenceArgs {
+        referenceArn?: pulumi.Input<string>;
+    }
+
     export interface RuleGroupMatchAttributesArgs {
         destinationPorts?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupPortRangeArgs>[]>;
         destinations?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupAddressArgs>[]>;
@@ -33052,12 +33677,16 @@ export namespace networkfirewall {
         toPort: pulumi.Input<number>;
     }
 
+    export interface RuleGroupPortSetArgs {
+        definition?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface RuleGroupPublishMetricActionArgs {
         dimensions: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupDimensionArgs>[]>;
     }
 
     export interface RuleGroupReferenceSetsArgs {
-        ipSetReferences?: any;
+        ipSetReferences?: pulumi.Input<{[key: string]: pulumi.Input<inputs.networkfirewall.RuleGroupIpSetReferenceArgs>}>;
     }
 
     export interface RuleGroupRuleDefinitionArgs {
@@ -33071,8 +33700,8 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupRuleVariablesArgs {
-        ipSets?: any;
-        portSets?: any;
+        ipSets?: pulumi.Input<{[key: string]: pulumi.Input<inputs.networkfirewall.RuleGroupIpSetArgs>}>;
+        portSets?: pulumi.Input<{[key: string]: pulumi.Input<inputs.networkfirewall.RuleGroupPortSetArgs>}>;
     }
 
     export interface RuleGroupRulesSourceArgs {
@@ -33957,6 +34586,11 @@ export namespace opensearchservice {
         metadataContent: pulumi.Input<string>;
     }
 
+    export interface DomainLogPublishingOptionArgs {
+        cloudWatchLogsLogGroupArn?: pulumi.Input<string>;
+        enabled?: pulumi.Input<boolean>;
+    }
+
     export interface DomainMasterUserOptionsArgs {
         masterUserArn?: pulumi.Input<string>;
         masterUserName?: pulumi.Input<string>;
@@ -34643,7 +35277,7 @@ export namespace personalize {
         /**
          * Lists the hyperparameter names and ranges.
          */
-        algorithmHyperParameters?: any;
+        algorithmHyperParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
          */
@@ -34655,7 +35289,7 @@ export namespace personalize {
         /**
          * Lists the feature transformation parameters.
          */
-        featureTransformationParameters?: any;
+        featureTransformationParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Describes the properties for hyperparameter optimization (HPO)
          */
@@ -50182,7 +50816,7 @@ export namespace sagemaker {
         /**
          * customer details.
          */
-        customDetails?: any;
+        customDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Any ethical considerations that the author wants to provide.
          */
@@ -50254,7 +50888,7 @@ export namespace sagemaker {
         /**
          * additional attributes associated with the evaluation results.
          */
-        metadata?: any;
+        metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         metricGroups?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardMetricGroupArgs>[]>;
         name: pulumi.Input<string>;
     }
@@ -54300,7 +54934,7 @@ export namespace synthetics {
         /**
          * Environment variable key-value pairs.
          */
-        environmentVariables?: any;
+        environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Provide maximum memory available for canary in MB
          */
@@ -56746,7 +57380,7 @@ export namespace xray {
         /**
          * Matches attributes derived from the request.
          */
-        attributes?: any;
+        attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The percentage of matching requests to instrument, after the reservoir is exhausted.
          */
@@ -56818,7 +57452,7 @@ export namespace xray {
         /**
          * Matches attributes derived from the request.
          */
-        attributes?: any;
+        attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The percentage of matching requests to instrument, after the reservoir is exhausted.
          */

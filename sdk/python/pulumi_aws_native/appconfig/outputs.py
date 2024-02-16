@@ -17,7 +17,9 @@ __all__ = [
     'DeploymentTags',
     'EnvironmentMonitor',
     'EnvironmentTag',
+    'ExtensionAction',
     'ExtensionAssociationTag',
+    'ExtensionParameter',
     'ExtensionTag',
 ]
 
@@ -253,6 +255,80 @@ class EnvironmentTag(dict):
 
 
 @pulumi.output_type
+class ExtensionAction(dict):
+    """
+    An action for an extension to take at a specific action point.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtensionAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtensionAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtensionAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 uri: str,
+                 description: Optional[str] = None,
+                 role_arn: Optional[str] = None):
+        """
+        An action for an extension to take at a specific action point.
+        :param str name: The name of the extension action.
+        :param str uri: The URI of the extension action.
+        :param str description: The description of the extension Action.
+        :param str role_arn: The ARN of the role for invoking the extension action.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the extension action.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The URI of the extension action.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the extension Action.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        """
+        The ARN of the role for invoking the extension action.
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
 class ExtensionAssociationTag(dict):
     """
     A key-value pair to associate with a resource.
@@ -283,6 +359,36 @@ class ExtensionAssociationTag(dict):
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExtensionParameter(dict):
+    """
+    A parameter for the extension to send to a specific action.
+    """
+    def __init__(__self__, *,
+                 required: bool,
+                 description: Optional[str] = None):
+        """
+        A parameter for the extension to send to a specific action.
+        :param str description: The description of the extension Parameter.
+        """
+        pulumi.set(__self__, "required", required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def required(self) -> bool:
+        return pulumi.get(self, "required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the extension Parameter.
+        """
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type

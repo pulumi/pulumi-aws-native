@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The tags associated with the component.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -118,11 +118,17 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// The tags associated with the component.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public DistributionConfigurationArgs()
         {

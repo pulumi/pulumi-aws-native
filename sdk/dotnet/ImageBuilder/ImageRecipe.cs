@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The tags of the image recipe.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The version of the image recipe.
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.ImageBuilder
                     "description",
                     "name",
                     "parentImage",
-                    "tags",
+                    "tags.*",
                     "version",
                     "workingDirectory",
                 },
@@ -179,11 +179,17 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Input("parentImage", required: true)]
         public Input<string> ParentImage { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// The tags of the image recipe.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The version of the image recipe.

@@ -18,7 +18,7 @@ __all__ = ['SecurityProfileArgs', 'SecurityProfile']
 class SecurityProfileArgs:
     def __init__(__self__, *,
                  additional_metrics_to_retain_v2: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileMetricToRetainArgs']]]] = None,
-                 alert_targets: Optional[Any] = None,
+                 alert_targets: Optional[pulumi.Input[Mapping[str, pulumi.Input['SecurityProfileAlertTargetArgs']]]] = None,
                  behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileBehaviorArgs']]]] = None,
                  metrics_export_config: Optional[pulumi.Input['MetricsExportConfigPropertiesArgs']] = None,
                  security_profile_description: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class SecurityProfileArgs:
         """
         The set of arguments for constructing a SecurityProfile resource.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileMetricToRetainArgs']]] additional_metrics_to_retain_v2: A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
-        :param Any alert_targets: Specifies the destinations to which alerts are sent.
+        :param pulumi.Input[Mapping[str, pulumi.Input['SecurityProfileAlertTargetArgs']]] alert_targets: Specifies the destinations to which alerts are sent.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileBehaviorArgs']]] behaviors: Specifies the behaviors that, when violated by a device (thing), cause an alert.
         :param pulumi.Input['MetricsExportConfigPropertiesArgs'] metrics_export_config: A structure containing the mqtt topic for metrics export.
         :param pulumi.Input[str] security_profile_description: A description of the security profile.
@@ -67,14 +67,14 @@ class SecurityProfileArgs:
 
     @property
     @pulumi.getter(name="alertTargets")
-    def alert_targets(self) -> Optional[Any]:
+    def alert_targets(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['SecurityProfileAlertTargetArgs']]]]:
         """
         Specifies the destinations to which alerts are sent.
         """
         return pulumi.get(self, "alert_targets")
 
     @alert_targets.setter
-    def alert_targets(self, value: Optional[Any]):
+    def alert_targets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['SecurityProfileAlertTargetArgs']]]]):
         pulumi.set(self, "alert_targets", value)
 
     @property
@@ -156,7 +156,7 @@ class SecurityProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_metrics_to_retain_v2: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileMetricToRetainArgs']]]]] = None,
-                 alert_targets: Optional[Any] = None,
+                 alert_targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['SecurityProfileAlertTargetArgs']]]]] = None,
                  behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileBehaviorArgs']]]]] = None,
                  metrics_export_config: Optional[pulumi.Input[pulumi.InputType['MetricsExportConfigPropertiesArgs']]] = None,
                  security_profile_description: Optional[pulumi.Input[str]] = None,
@@ -170,7 +170,7 @@ class SecurityProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileMetricToRetainArgs']]]] additional_metrics_to_retain_v2: A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
-        :param Any alert_targets: Specifies the destinations to which alerts are sent.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['SecurityProfileAlertTargetArgs']]]] alert_targets: Specifies the destinations to which alerts are sent.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileBehaviorArgs']]]] behaviors: Specifies the behaviors that, when violated by a device (thing), cause an alert.
         :param pulumi.Input[pulumi.InputType['MetricsExportConfigPropertiesArgs']] metrics_export_config: A structure containing the mqtt topic for metrics export.
         :param pulumi.Input[str] security_profile_description: A description of the security profile.
@@ -203,7 +203,7 @@ class SecurityProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_metrics_to_retain_v2: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileMetricToRetainArgs']]]]] = None,
-                 alert_targets: Optional[Any] = None,
+                 alert_targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['SecurityProfileAlertTargetArgs']]]]] = None,
                  behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileBehaviorArgs']]]]] = None,
                  metrics_export_config: Optional[pulumi.Input[pulumi.InputType['MetricsExportConfigPropertiesArgs']]] = None,
                  security_profile_description: Optional[pulumi.Input[str]] = None,
@@ -273,7 +273,7 @@ class SecurityProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alertTargets")
-    def alert_targets(self) -> pulumi.Output[Optional[Any]]:
+    def alert_targets(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.SecurityProfileAlertTarget']]]:
         """
         Specifies the destinations to which alerts are sent.
         """

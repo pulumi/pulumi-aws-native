@@ -57,7 +57,7 @@ export interface GetInfrastructureConfigurationResult {
     /**
      * The tags attached to the resource created by Image Builder.
      */
-    readonly resourceTags?: any;
+    readonly resourceTags?: {[key: string]: string};
     /**
      * The security group IDs of the infrastructure configuration.
      */
@@ -73,7 +73,7 @@ export interface GetInfrastructureConfigurationResult {
     /**
      * The tags associated with the component.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     /**
      * The terminate instance on failure configuration of the infrastructure configuration.
      */

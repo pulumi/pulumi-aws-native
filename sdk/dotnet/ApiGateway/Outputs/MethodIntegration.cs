@@ -56,11 +56,11 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
         /// <summary>
         /// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
         /// </summary>
-        public readonly object? RequestParameters;
+        public readonly ImmutableDictionary<string, string>? RequestParameters;
         /// <summary>
         /// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
         /// </summary>
-        public readonly object? RequestTemplates;
+        public readonly ImmutableDictionary<string, string>? RequestTemplates;
         /// <summary>
         /// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
         /// </summary>
@@ -96,9 +96,9 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 
             Pulumi.AwsNative.ApiGateway.MethodIntegrationPassthroughBehavior? passthroughBehavior,
 
-            object? requestParameters,
+            ImmutableDictionary<string, string>? requestParameters,
 
-            object? requestTemplates,
+            ImmutableDictionary<string, string>? requestTemplates,
 
             int? timeoutInMillis,
 

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.GreengrassV2
     public partial class Deployment : global::Pulumi.CustomResource
     {
         [Output("components")]
-        public Output<object?> Components { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.DeploymentComponentDeploymentSpecification>?> Components { get; private set; } = null!;
 
         [Output("deploymentId")]
         public Output<string> DeploymentId { get; private set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.GreengrassV2
         public Output<string?> ParentTargetArn { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.GreengrassV2
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "components",
+                    "components.*",
                     "deploymentName",
                     "deploymentPolicies",
                     "iotJobConfiguration",
@@ -94,7 +94,12 @@ namespace Pulumi.AwsNative.GreengrassV2
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         [Input("components")]
-        public Input<object>? Components { get; set; }
+        private InputMap<Inputs.DeploymentComponentDeploymentSpecificationArgs>? _components;
+        public InputMap<Inputs.DeploymentComponentDeploymentSpecificationArgs> Components
+        {
+            get => _components ?? (_components = new InputMap<Inputs.DeploymentComponentDeploymentSpecificationArgs>());
+            set => _components = value;
+        }
 
         [Input("deploymentName")]
         public Input<string>? DeploymentName { get; set; }
@@ -109,7 +114,12 @@ namespace Pulumi.AwsNative.GreengrassV2
         public Input<string>? ParentTargetArn { get; set; }
 
         [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;

@@ -21,7 +21,7 @@ type DataCatalog struct {
 	// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
-	Parameters pulumi.AnyOutput `pulumi:"parameters"`
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// A list of comma separated tags to add to the data catalog that is created.
 	Tags DataCatalogTagArrayOutput `pulumi:"tags"`
 	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
@@ -80,7 +80,7 @@ type dataCatalogArgs struct {
 	// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
 	Name *string `pulumi:"name"`
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
-	Parameters interface{} `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// A list of comma separated tags to add to the data catalog that is created.
 	Tags []DataCatalogTag `pulumi:"tags"`
 	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
@@ -94,7 +94,7 @@ type DataCatalogArgs struct {
 	// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
 	Name pulumi.StringPtrInput
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
-	Parameters pulumi.Input
+	Parameters pulumi.StringMapInput
 	// A list of comma separated tags to add to the data catalog that is created.
 	Tags DataCatalogTagArrayInput
 	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
@@ -149,8 +149,8 @@ func (o DataCatalogOutput) Name() pulumi.StringOutput {
 }
 
 // Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
-func (o DataCatalogOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DataCatalog) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+func (o DataCatalogOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataCatalog) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // A list of comma separated tags to add to the data catalog that is created.

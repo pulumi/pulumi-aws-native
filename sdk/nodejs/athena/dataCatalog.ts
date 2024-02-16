@@ -48,7 +48,7 @@ export class DataCatalog extends pulumi.CustomResource {
     /**
      * Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
      */
-    public readonly parameters!: pulumi.Output<any | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of comma separated tags to add to the data catalog that is created. 
      */
@@ -106,7 +106,7 @@ export interface DataCatalogArgs {
     /**
      * Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
      */
-    parameters?: any;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of comma separated tags to add to the data catalog that is created. 
      */

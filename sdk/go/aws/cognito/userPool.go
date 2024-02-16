@@ -39,7 +39,7 @@ type UserPool struct {
 	UserPoolAddOns              UserPoolAddOnsPtrOutput                      `pulumi:"userPoolAddOns"`
 	UserPoolId                  pulumi.StringOutput                          `pulumi:"userPoolId"`
 	UserPoolName                pulumi.StringPtrOutput                       `pulumi:"userPoolName"`
-	UserPoolTags                pulumi.AnyOutput                             `pulumi:"userPoolTags"`
+	UserPoolTags                pulumi.StringMapOutput                       `pulumi:"userPoolTags"`
 	UsernameAttributes          pulumi.StringArrayOutput                     `pulumi:"usernameAttributes"`
 	UsernameConfiguration       UserPoolUsernameConfigurationPtrOutput       `pulumi:"usernameConfiguration"`
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrOutput `pulumi:"verificationMessageTemplate"`
@@ -105,7 +105,7 @@ type userPoolArgs struct {
 	UserAttributeUpdateSettings *UserPoolUserAttributeUpdateSettings `pulumi:"userAttributeUpdateSettings"`
 	UserPoolAddOns              *UserPoolAddOns                      `pulumi:"userPoolAddOns"`
 	UserPoolName                *string                              `pulumi:"userPoolName"`
-	UserPoolTags                interface{}                          `pulumi:"userPoolTags"`
+	UserPoolTags                map[string]string                    `pulumi:"userPoolTags"`
 	UsernameAttributes          []string                             `pulumi:"usernameAttributes"`
 	UsernameConfiguration       *UserPoolUsernameConfiguration       `pulumi:"usernameConfiguration"`
 	VerificationMessageTemplate *UserPoolVerificationMessageTemplate `pulumi:"verificationMessageTemplate"`
@@ -133,7 +133,7 @@ type UserPoolArgs struct {
 	UserAttributeUpdateSettings UserPoolUserAttributeUpdateSettingsPtrInput
 	UserPoolAddOns              UserPoolAddOnsPtrInput
 	UserPoolName                pulumi.StringPtrInput
-	UserPoolTags                pulumi.Input
+	UserPoolTags                pulumi.StringMapInput
 	UsernameAttributes          pulumi.StringArrayInput
 	UsernameConfiguration       UserPoolUsernameConfigurationPtrInput
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrInput
@@ -272,8 +272,8 @@ func (o UserPoolOutput) UserPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.UserPoolName }).(pulumi.StringPtrOutput)
 }
 
-func (o UserPoolOutput) UserPoolTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *UserPool) pulumi.AnyOutput { return v.UserPoolTags }).(pulumi.AnyOutput)
+func (o UserPoolOutput) UserPoolTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringMapOutput { return v.UserPoolTags }).(pulumi.StringMapOutput)
 }
 
 func (o UserPoolOutput) UsernameAttributes() pulumi.StringArrayOutput {

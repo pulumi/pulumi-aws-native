@@ -40,7 +40,7 @@ export class BackupPlan extends pulumi.CustomResource {
     public readonly backupPlan!: pulumi.Output<outputs.backup.BackupPlanResourceType>;
     public /*out*/ readonly backupPlanArn!: pulumi.Output<string>;
     public /*out*/ readonly backupPlanId!: pulumi.Output<string>;
-    public readonly backupPlanTags!: pulumi.Output<any | undefined>;
+    public readonly backupPlanTags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly versionId!: pulumi.Output<string>;
 
     /**
@@ -79,5 +79,5 @@ export class BackupPlan extends pulumi.CustomResource {
  */
 export interface BackupPlanArgs {
     backupPlan: pulumi.Input<inputs.backup.BackupPlanResourceTypeArgs>;
-    backupPlanTags?: any;
+    backupPlanTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

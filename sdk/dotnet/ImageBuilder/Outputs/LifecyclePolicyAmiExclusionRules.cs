@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// <summary>
         /// The AMIs to select by tag.
         /// </summary>
-        public readonly object? TagMap;
+        public readonly ImmutableDictionary<string, string>? TagMap;
 
         [OutputConstructor]
         private LifecyclePolicyAmiExclusionRules(
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
             ImmutableArray<string> sharedAccounts,
 
-            object? tagMap)
+            ImmutableDictionary<string, string>? tagMap)
         {
             IsPublic = isPublic;
             LastLaunched = lastLaunched;

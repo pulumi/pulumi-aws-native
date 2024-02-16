@@ -27,7 +27,7 @@ type Workspace struct {
 	// The ARN of the S3 bucket where resources associated with the workspace are stored.
 	S3Location pulumi.StringOutput `pulumi:"s3Location"`
 	// A map of key-value pairs to associate with a resource.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The date and time of the current update.
 	UpdateDateTime pulumi.StringOutput `pulumi:"updateDateTime"`
 	// The ID of the workspace.
@@ -94,7 +94,7 @@ type workspaceArgs struct {
 	// The ARN of the S3 bucket where resources associated with the workspace are stored.
 	S3Location string `pulumi:"s3Location"`
 	// A map of key-value pairs to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the workspace.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
@@ -108,7 +108,7 @@ type WorkspaceArgs struct {
 	// The ARN of the S3 bucket where resources associated with the workspace are stored.
 	S3Location pulumi.StringInput
 	// A map of key-value pairs to associate with a resource.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The ID of the workspace.
 	WorkspaceId pulumi.StringInput
 }
@@ -176,8 +176,8 @@ func (o WorkspaceOutput) S3Location() pulumi.StringOutput {
 }
 
 // A map of key-value pairs to associate with a resource.
-func (o WorkspaceOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The date and time of the current update.

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     [OutputType]
     public sealed class ComponentVersionLambdaExecutionParameters
     {
-        public readonly object? EnvironmentVariables;
+        public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         public readonly ImmutableArray<Outputs.ComponentVersionLambdaEventSource> EventSources;
         public readonly ImmutableArray<string> ExecArgs;
         public readonly Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaExecutionParametersInputPayloadEncodingType? InputPayloadEncodingType;
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
         [OutputConstructor]
         private ComponentVersionLambdaExecutionParameters(
-            object? environmentVariables,
+            ImmutableDictionary<string, string>? environmentVariables,
 
             ImmutableArray<Outputs.ComponentVersionLambdaEventSource> eventSources,
 

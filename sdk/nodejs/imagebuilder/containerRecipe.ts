@@ -88,7 +88,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * Tags that are attached to the container recipe.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The destination repository for the container image.
      */
@@ -148,7 +148,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
             resourceInputs["workingDirectory"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["components[*]", "containerType", "description", "dockerfileTemplateData", "dockerfileTemplateUri", "imageOsVersionOverride", "instanceConfiguration", "kmsKeyId", "name", "parentImage", "platformOverride", "tags", "targetRepository", "version", "workingDirectory"] };
+        const replaceOnChanges = { replaceOnChanges: ["components[*]", "containerType", "description", "dockerfileTemplateData", "dockerfileTemplateUri", "imageOsVersionOverride", "instanceConfiguration", "kmsKeyId", "name", "parentImage", "platformOverride", "tags.*", "targetRepository", "version", "workingDirectory"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ContainerRecipe.__pulumiType, name, resourceInputs, opts);
     }
@@ -205,7 +205,7 @@ export interface ContainerRecipeArgs {
     /**
      * Tags that are attached to the container recipe.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The destination repository for the container image.
      */

@@ -37,7 +37,7 @@ export class UserPoolUser extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoolUser.__pulumiType;
     }
 
-    public readonly clientMetadata!: pulumi.Output<any | undefined>;
+    public readonly clientMetadata!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly desiredDeliveryMediums!: pulumi.Output<string[] | undefined>;
     public readonly forceAliasCreation!: pulumi.Output<boolean | undefined>;
     public readonly messageAction!: pulumi.Output<string | undefined>;
@@ -79,7 +79,7 @@ export class UserPoolUser extends pulumi.CustomResource {
             resourceInputs["validationData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["clientMetadata", "desiredDeliveryMediums[*]", "forceAliasCreation", "messageAction", "userAttributes[*]", "userPoolId", "username", "validationData[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["clientMetadata.*", "desiredDeliveryMediums[*]", "forceAliasCreation", "messageAction", "userAttributes[*]", "userPoolId", "username", "validationData[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserPoolUser.__pulumiType, name, resourceInputs, opts);
     }
@@ -89,7 +89,7 @@ export class UserPoolUser extends pulumi.CustomResource {
  * The set of arguments for constructing a UserPoolUser resource.
  */
 export interface UserPoolUserArgs {
-    clientMetadata?: any;
+    clientMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     desiredDeliveryMediums?: pulumi.Input<pulumi.Input<string>[]>;
     forceAliasCreation?: pulumi.Input<boolean>;
     messageAction?: pulumi.Input<string>;

@@ -20,8 +20,8 @@ type VpcLink struct {
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	SubnetIds        pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// This resource type use map for Tags, suggest to use List of Tag
-	Tags      pulumi.AnyOutput    `pulumi:"tags"`
-	VpcLinkId pulumi.StringOutput `pulumi:"vpcLinkId"`
+	Tags      pulumi.StringMapOutput `pulumi:"tags"`
+	VpcLinkId pulumi.StringOutput    `pulumi:"vpcLinkId"`
 }
 
 // NewVpcLink registers a new resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ type vpcLinkArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	SubnetIds        []string `pulumi:"subnetIds"`
 	// This resource type use map for Tags, suggest to use List of Tag
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcLink resource.
@@ -85,7 +85,7 @@ type VpcLinkArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	SubnetIds        pulumi.StringArrayInput
 	// This resource type use map for Tags, suggest to use List of Tag
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 }
 
 func (VpcLinkArgs) ElementType() reflect.Type {
@@ -138,8 +138,8 @@ func (o VpcLinkOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // This resource type use map for Tags, suggest to use List of Tag
-func (o VpcLinkOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *VpcLink) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o VpcLinkOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VpcLink) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o VpcLinkOutput) VpcLinkId() pulumi.StringOutput {

@@ -1179,7 +1179,7 @@ class ServiceLogConfiguration(dict):
 
     def __init__(__self__, *,
                  log_driver: Optional[str] = None,
-                 options: Optional[Any] = None,
+                 options: Optional[Mapping[str, str]] = None,
                  secret_options: Optional[Sequence['outputs.ServiceSecret']] = None):
         if log_driver is not None:
             pulumi.set(__self__, "log_driver", log_driver)
@@ -1195,7 +1195,7 @@ class ServiceLogConfiguration(dict):
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[Any]:
+    def options(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "options")
 
     @property
@@ -1699,7 +1699,7 @@ class TaskDefinitionContainerDefinition(dict):
                  disable_networking: Optional[bool] = None,
                  dns_search_domains: Optional[Sequence[str]] = None,
                  dns_servers: Optional[Sequence[str]] = None,
-                 docker_labels: Optional[Any] = None,
+                 docker_labels: Optional[Mapping[str, str]] = None,
                  docker_security_options: Optional[Sequence[str]] = None,
                  entry_point: Optional[Sequence[str]] = None,
                  environment: Optional[Sequence['outputs.TaskDefinitionKeyValuePair']] = None,
@@ -1871,7 +1871,7 @@ class TaskDefinitionContainerDefinition(dict):
 
     @property
     @pulumi.getter(name="dockerLabels")
-    def docker_labels(self) -> Optional[Any]:
+    def docker_labels(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "docker_labels")
 
     @property
@@ -2145,8 +2145,8 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
     def __init__(__self__, *,
                  autoprovision: Optional[bool] = None,
                  driver: Optional[str] = None,
-                 driver_opts: Optional[Any] = None,
-                 labels: Optional[Any] = None,
+                 driver_opts: Optional[Mapping[str, str]] = None,
+                 labels: Optional[Mapping[str, str]] = None,
                  scope: Optional[str] = None):
         if autoprovision is not None:
             pulumi.set(__self__, "autoprovision", autoprovision)
@@ -2171,12 +2171,12 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
 
     @property
     @pulumi.getter(name="driverOpts")
-    def driver_opts(self) -> Optional[Any]:
+    def driver_opts(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "driver_opts")
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[Any]:
+    def labels(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "labels")
 
     @property
@@ -2308,7 +2308,7 @@ class TaskDefinitionEphemeralStorage(dict):
 @pulumi.output_type
 class TaskDefinitionFirelensConfiguration(dict):
     def __init__(__self__, *,
-                 options: Optional[Any] = None,
+                 options: Optional[Mapping[str, str]] = None,
                  type: Optional[str] = None):
         if options is not None:
             pulumi.set(__self__, "options", options)
@@ -2317,7 +2317,7 @@ class TaskDefinitionFirelensConfiguration(dict):
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[Any]:
+    def options(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "options")
 
     @property
@@ -2669,7 +2669,7 @@ class TaskDefinitionLogConfiguration(dict):
 
     def __init__(__self__, *,
                  log_driver: str,
-                 options: Optional[Any] = None,
+                 options: Optional[Mapping[str, str]] = None,
                  secret_options: Optional[Sequence['outputs.TaskDefinitionSecret']] = None):
         pulumi.set(__self__, "log_driver", log_driver)
         if options is not None:
@@ -2684,7 +2684,7 @@ class TaskDefinitionLogConfiguration(dict):
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[Any]:
+    def options(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "options")
 
     @property

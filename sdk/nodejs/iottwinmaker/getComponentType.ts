@@ -38,7 +38,7 @@ export interface GetComponentTypeResult {
     /**
      * An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
      */
-    readonly compositeComponentTypes?: any;
+    readonly compositeComponentTypes?: {[key: string]: outputs.iottwinmaker.ComponentTypeCompositeComponentType};
     /**
      * The date and time when the component type was created.
      */
@@ -54,7 +54,7 @@ export interface GetComponentTypeResult {
     /**
      * a Map of functions in the component type. Each function's key must be unique to this map.
      */
-    readonly functions?: any;
+    readonly functions?: {[key: string]: outputs.iottwinmaker.ComponentTypeFunction};
     /**
      * A Boolean value that specifies whether the component type is abstract.
      */
@@ -70,11 +70,11 @@ export interface GetComponentTypeResult {
     /**
      * An map of the property definitions in the component type. Each property definition's key must be unique to this map.
      */
-    readonly propertyDefinitions?: any;
+    readonly propertyDefinitions?: {[key: string]: outputs.iottwinmaker.ComponentTypePropertyDefinition};
     /**
      * An map of the property groups in the component type. Each property group's key must be unique to this map.
      */
-    readonly propertyGroups?: any;
+    readonly propertyGroups?: {[key: string]: outputs.iottwinmaker.ComponentTypePropertyGroup};
     /**
      * The current status of the component type.
      */
@@ -82,7 +82,7 @@ export interface GetComponentTypeResult {
     /**
      * A map of key-value pairs to associate with a resource.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     /**
      * The last date and time when the component type was updated.
      */

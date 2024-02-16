@@ -36,7 +36,7 @@ type LookupStackResult struct {
 	LastUpdateTime              *string                 `pulumi:"lastUpdateTime"`
 	NotificationArns            []string                `pulumi:"notificationArns"`
 	Outputs                     []StackOutputType       `pulumi:"outputs"`
-	Parameters                  interface{}             `pulumi:"parameters"`
+	Parameters                  map[string]string       `pulumi:"parameters"`
 	ParentId                    *string                 `pulumi:"parentId"`
 	RoleArn                     *string                 `pulumi:"roleArn"`
 	RootId                      *string                 `pulumi:"rootId"`
@@ -120,8 +120,8 @@ func (o LookupStackResultOutput) Outputs() StackOutputTypeArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []StackOutputType { return v.Outputs }).(StackOutputTypeArrayOutput)
 }
 
-func (o LookupStackResultOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupStackResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+func (o LookupStackResultOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupStackResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 func (o LookupStackResultOutput) ParentId() pulumi.StringPtrOutput {

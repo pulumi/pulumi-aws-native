@@ -24,8 +24,11 @@ __all__ = [
     'BotAliasTagArgs',
     'BotAliasTextLogDestinationArgs',
     'BotAliasTextLogSettingArgs',
+    'BotAllowedInputTypesArgs',
+    'BotAudioAndDtmfInputSpecificationArgs',
     'BotAudioLogDestinationArgs',
     'BotAudioLogSettingArgs',
+    'BotAudioSpecificationArgs',
     'BotButtonArgs',
     'BotCloudWatchLogGroupLogDestinationArgs',
     'BotConditionalBranchArgs',
@@ -40,6 +43,7 @@ __all__ = [
     'BotDialogCodeHookInvocationSettingArgs',
     'BotDialogCodeHookSettingArgs',
     'BotDialogStateArgs',
+    'BotDtmfSpecificationArgs',
     'BotElicitationCodeHookInvocationSettingArgs',
     'BotExternalSourceSettingArgs',
     'BotFulfillmentCodeHookSettingArgs',
@@ -65,6 +69,7 @@ __all__ = [
     'BotPlainTextMessageArgs',
     'BotPostDialogCodeHookInvocationSpecificationArgs',
     'BotPostFulfillmentStatusSpecificationArgs',
+    'BotPromptAttemptSpecificationArgs',
     'BotPromptSpecificationArgs',
     'BotResponseSpecificationArgs',
     'BotS3BucketLogDestinationArgs',
@@ -90,6 +95,7 @@ __all__ = [
     'BotTagArgs',
     'BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs',
     'BotTestBotAliasSettingsArgs',
+    'BotTextInputSpecificationArgs',
     'BotTextLogDestinationArgs',
     'BotTextLogSettingArgs',
     'BotVersionLocaleDetailsArgs',
@@ -507,6 +513,91 @@ class BotAliasTextLogSettingArgs:
 
 
 @pulumi.input_type
+class BotAllowedInputTypesArgs:
+    def __init__(__self__, *,
+                 allow_audio_input: pulumi.Input[bool],
+                 allow_dtmf_input: pulumi.Input[bool]):
+        """
+        Specifies the allowed input types.
+        :param pulumi.Input[bool] allow_audio_input: Indicates whether audio input is allowed.
+        :param pulumi.Input[bool] allow_dtmf_input: Indicates whether DTMF input is allowed.
+        """
+        pulumi.set(__self__, "allow_audio_input", allow_audio_input)
+        pulumi.set(__self__, "allow_dtmf_input", allow_dtmf_input)
+
+    @property
+    @pulumi.getter(name="allowAudioInput")
+    def allow_audio_input(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether audio input is allowed.
+        """
+        return pulumi.get(self, "allow_audio_input")
+
+    @allow_audio_input.setter
+    def allow_audio_input(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "allow_audio_input", value)
+
+    @property
+    @pulumi.getter(name="allowDtmfInput")
+    def allow_dtmf_input(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether DTMF input is allowed.
+        """
+        return pulumi.get(self, "allow_dtmf_input")
+
+    @allow_dtmf_input.setter
+    def allow_dtmf_input(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "allow_dtmf_input", value)
+
+
+@pulumi.input_type
+class BotAudioAndDtmfInputSpecificationArgs:
+    def __init__(__self__, *,
+                 start_timeout_ms: pulumi.Input[int],
+                 audio_specification: Optional[pulumi.Input['BotAudioSpecificationArgs']] = None,
+                 dtmf_specification: Optional[pulumi.Input['BotDtmfSpecificationArgs']] = None):
+        """
+        Specifies the audio and DTMF input specification.
+        :param pulumi.Input[int] start_timeout_ms: Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
+        """
+        pulumi.set(__self__, "start_timeout_ms", start_timeout_ms)
+        if audio_specification is not None:
+            pulumi.set(__self__, "audio_specification", audio_specification)
+        if dtmf_specification is not None:
+            pulumi.set(__self__, "dtmf_specification", dtmf_specification)
+
+    @property
+    @pulumi.getter(name="startTimeoutMs")
+    def start_timeout_ms(self) -> pulumi.Input[int]:
+        """
+        Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
+        """
+        return pulumi.get(self, "start_timeout_ms")
+
+    @start_timeout_ms.setter
+    def start_timeout_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_timeout_ms", value)
+
+    @property
+    @pulumi.getter(name="audioSpecification")
+    def audio_specification(self) -> Optional[pulumi.Input['BotAudioSpecificationArgs']]:
+        return pulumi.get(self, "audio_specification")
+
+    @audio_specification.setter
+    def audio_specification(self, value: Optional[pulumi.Input['BotAudioSpecificationArgs']]):
+        pulumi.set(self, "audio_specification", value)
+
+    @property
+    @pulumi.getter(name="dtmfSpecification")
+    def dtmf_specification(self) -> Optional[pulumi.Input['BotDtmfSpecificationArgs']]:
+        return pulumi.get(self, "dtmf_specification")
+
+    @dtmf_specification.setter
+    def dtmf_specification(self, value: Optional[pulumi.Input['BotDtmfSpecificationArgs']]):
+        pulumi.set(self, "dtmf_specification", value)
+
+
+@pulumi.input_type
 class BotAudioLogDestinationArgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input['BotS3BucketLogDestinationArgs']):
@@ -553,6 +644,44 @@ class BotAudioLogSettingArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class BotAudioSpecificationArgs:
+    def __init__(__self__, *,
+                 end_timeout_ms: pulumi.Input[int],
+                 max_length_ms: pulumi.Input[int]):
+        """
+        Specifies the audio input specifications.
+        :param pulumi.Input[int] end_timeout_ms: Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
+        :param pulumi.Input[int] max_length_ms: Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
+        """
+        pulumi.set(__self__, "end_timeout_ms", end_timeout_ms)
+        pulumi.set(__self__, "max_length_ms", max_length_ms)
+
+    @property
+    @pulumi.getter(name="endTimeoutMs")
+    def end_timeout_ms(self) -> pulumi.Input[int]:
+        """
+        Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
+        """
+        return pulumi.get(self, "end_timeout_ms")
+
+    @end_timeout_ms.setter
+    def end_timeout_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_timeout_ms", value)
+
+    @property
+    @pulumi.getter(name="maxLengthMs")
+    def max_length_ms(self) -> pulumi.Input[int]:
+        """
+        Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
+        """
+        return pulumi.get(self, "max_length_ms")
+
+    @max_length_ms.setter
+    def max_length_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_length_ms", value)
 
 
 @pulumi.input_type
@@ -1141,6 +1270,74 @@ class BotDialogStateArgs:
     @session_attributes.setter
     def session_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotSessionAttributeArgs']]]]):
         pulumi.set(self, "session_attributes", value)
+
+
+@pulumi.input_type
+class BotDtmfSpecificationArgs:
+    def __init__(__self__, *,
+                 deletion_character: pulumi.Input[str],
+                 end_character: pulumi.Input[str],
+                 end_timeout_ms: pulumi.Input[int],
+                 max_length: pulumi.Input[int]):
+        """
+        Specifies the settings on DTMF input.
+        :param pulumi.Input[str] deletion_character: The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
+        :param pulumi.Input[str] end_character: The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
+        :param pulumi.Input[int] end_timeout_ms: How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
+        :param pulumi.Input[int] max_length: The maximum number of DTMF digits allowed in an utterance.
+        """
+        pulumi.set(__self__, "deletion_character", deletion_character)
+        pulumi.set(__self__, "end_character", end_character)
+        pulumi.set(__self__, "end_timeout_ms", end_timeout_ms)
+        pulumi.set(__self__, "max_length", max_length)
+
+    @property
+    @pulumi.getter(name="deletionCharacter")
+    def deletion_character(self) -> pulumi.Input[str]:
+        """
+        The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
+        """
+        return pulumi.get(self, "deletion_character")
+
+    @deletion_character.setter
+    def deletion_character(self, value: pulumi.Input[str]):
+        pulumi.set(self, "deletion_character", value)
+
+    @property
+    @pulumi.getter(name="endCharacter")
+    def end_character(self) -> pulumi.Input[str]:
+        """
+        The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
+        """
+        return pulumi.get(self, "end_character")
+
+    @end_character.setter
+    def end_character(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_character", value)
+
+    @property
+    @pulumi.getter(name="endTimeoutMs")
+    def end_timeout_ms(self) -> pulumi.Input[int]:
+        """
+        How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
+        """
+        return pulumi.get(self, "end_timeout_ms")
+
+    @end_timeout_ms.setter
+    def end_timeout_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_timeout_ms", value)
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> pulumi.Input[int]:
+        """
+        The maximum number of DTMF digits allowed in an utterance.
+        """
+        return pulumi.get(self, "max_length")
+
+    @max_length.setter
+    def max_length(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_length", value)
 
 
 @pulumi.input_type
@@ -2834,17 +3031,76 @@ class BotPostFulfillmentStatusSpecificationArgs:
 
 
 @pulumi.input_type
+class BotPromptAttemptSpecificationArgs:
+    def __init__(__self__, *,
+                 allowed_input_types: pulumi.Input['BotAllowedInputTypesArgs'],
+                 allow_interrupt: Optional[pulumi.Input[bool]] = None,
+                 audio_and_dtmf_input_specification: Optional[pulumi.Input['BotAudioAndDtmfInputSpecificationArgs']] = None,
+                 text_input_specification: Optional[pulumi.Input['BotTextInputSpecificationArgs']] = None):
+        """
+        Specifies the settings on a prompt attempt.
+        :param pulumi.Input[bool] allow_interrupt: Indicates whether the user can interrupt a speech prompt attempt from the bot.
+        """
+        pulumi.set(__self__, "allowed_input_types", allowed_input_types)
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if audio_and_dtmf_input_specification is not None:
+            pulumi.set(__self__, "audio_and_dtmf_input_specification", audio_and_dtmf_input_specification)
+        if text_input_specification is not None:
+            pulumi.set(__self__, "text_input_specification", text_input_specification)
+
+    @property
+    @pulumi.getter(name="allowedInputTypes")
+    def allowed_input_types(self) -> pulumi.Input['BotAllowedInputTypesArgs']:
+        return pulumi.get(self, "allowed_input_types")
+
+    @allowed_input_types.setter
+    def allowed_input_types(self, value: pulumi.Input['BotAllowedInputTypesArgs']):
+        pulumi.set(self, "allowed_input_types", value)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the user can interrupt a speech prompt attempt from the bot.
+        """
+        return pulumi.get(self, "allow_interrupt")
+
+    @allow_interrupt.setter
+    def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_interrupt", value)
+
+    @property
+    @pulumi.getter(name="audioAndDtmfInputSpecification")
+    def audio_and_dtmf_input_specification(self) -> Optional[pulumi.Input['BotAudioAndDtmfInputSpecificationArgs']]:
+        return pulumi.get(self, "audio_and_dtmf_input_specification")
+
+    @audio_and_dtmf_input_specification.setter
+    def audio_and_dtmf_input_specification(self, value: Optional[pulumi.Input['BotAudioAndDtmfInputSpecificationArgs']]):
+        pulumi.set(self, "audio_and_dtmf_input_specification", value)
+
+    @property
+    @pulumi.getter(name="textInputSpecification")
+    def text_input_specification(self) -> Optional[pulumi.Input['BotTextInputSpecificationArgs']]:
+        return pulumi.get(self, "text_input_specification")
+
+    @text_input_specification.setter
+    def text_input_specification(self, value: Optional[pulumi.Input['BotTextInputSpecificationArgs']]):
+        pulumi.set(self, "text_input_specification", value)
+
+
+@pulumi.input_type
 class BotPromptSpecificationArgs:
     def __init__(__self__, *,
                  max_retries: pulumi.Input[int],
                  message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]],
                  allow_interrupt: Optional[pulumi.Input[bool]] = None,
                  message_selection_strategy: Optional[pulumi.Input['BotMessageSelectionStrategy']] = None,
-                 prompt_attempts_specification: Optional[Any] = None):
+                 prompt_attempts_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input['BotPromptAttemptSpecificationArgs']]]] = None):
         """
         Prompts the user to confirm the intent.
         :param pulumi.Input[bool] allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
-        :param Any prompt_attempts_specification: Specifies the advanced settings on each attempt of the prompt.
+        :param pulumi.Input[Mapping[str, pulumi.Input['BotPromptAttemptSpecificationArgs']]] prompt_attempts_specification: Specifies the advanced settings on each attempt of the prompt.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "message_groups_list", message_groups_list)
@@ -2896,14 +3152,14 @@ class BotPromptSpecificationArgs:
 
     @property
     @pulumi.getter(name="promptAttemptsSpecification")
-    def prompt_attempts_specification(self) -> Optional[Any]:
+    def prompt_attempts_specification(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['BotPromptAttemptSpecificationArgs']]]]:
         """
         Specifies the advanced settings on each attempt of the prompt.
         """
         return pulumi.get(self, "prompt_attempts_specification")
 
     @prompt_attempts_specification.setter
-    def prompt_attempts_specification(self, value: Optional[Any]):
+    def prompt_attempts_specification(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['BotPromptAttemptSpecificationArgs']]]]):
         pulumi.set(self, "prompt_attempts_specification", value)
 
 
@@ -4006,6 +4262,29 @@ class BotTestBotAliasSettingsArgs:
     @sentiment_analysis_settings.setter
     def sentiment_analysis_settings(self, value: Optional[pulumi.Input['BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs']]):
         pulumi.set(self, "sentiment_analysis_settings", value)
+
+
+@pulumi.input_type
+class BotTextInputSpecificationArgs:
+    def __init__(__self__, *,
+                 start_timeout_ms: pulumi.Input[int]):
+        """
+        Specifies the text input specifications.
+        :param pulumi.Input[int] start_timeout_ms: Time for which a bot waits before re-prompting a customer for text input.
+        """
+        pulumi.set(__self__, "start_timeout_ms", start_timeout_ms)
+
+    @property
+    @pulumi.getter(name="startTimeoutMs")
+    def start_timeout_ms(self) -> pulumi.Input[int]:
+        """
+        Time for which a bot waits before re-prompting a customer for text input.
+        """
+        return pulumi.get(self, "start_timeout_ms")
+
+    @start_timeout_ms.setter
+    def start_timeout_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_timeout_ms", value)
 
 
 @pulumi.input_type

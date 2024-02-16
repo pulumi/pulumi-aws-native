@@ -25,11 +25,11 @@ class DataIntegrationFileConfiguration(dict):
     """
     def __init__(__self__, *,
                  folders: Sequence[str],
-                 filters: Optional[Any] = None):
+                 filters: Optional[Mapping[str, Sequence[str]]] = None):
         """
         The configuration for what files should be pulled from the source.
         :param Sequence[str] folders: Identifiers for the source folders to pull all files from recursively.
-        :param Any filters: Restrictions for what files should be pulled from the source.
+        :param Mapping[str, Sequence[str]] filters: Restrictions for what files should be pulled from the source.
         """
         pulumi.set(__self__, "folders", folders)
         if filters is not None:
@@ -45,7 +45,7 @@ class DataIntegrationFileConfiguration(dict):
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[Any]:
+    def filters(self) -> Optional[Mapping[str, Sequence[str]]]:
         """
         Restrictions for what files should be pulled from the source.
         """

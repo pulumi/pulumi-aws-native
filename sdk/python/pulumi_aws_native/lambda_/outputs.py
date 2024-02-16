@@ -847,17 +847,17 @@ class FunctionEnvironment(dict):
     A function's environment variable settings.
     """
     def __init__(__self__, *,
-                 variables: Optional[Any] = None):
+                 variables: Optional[Mapping[str, str]] = None):
         """
         A function's environment variable settings.
-        :param Any variables: Environment variable key-value pairs.
+        :param Mapping[str, str] variables: Environment variable key-value pairs.
         """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Any]:
+    def variables(self) -> Optional[Mapping[str, str]]:
         """
         Environment variable key-value pairs.
         """

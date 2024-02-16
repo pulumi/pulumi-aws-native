@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string?> UserPoolName { get; private set; } = null!;
 
         [Output("userPoolTags")]
-        public Output<object?> UserPoolTags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> UserPoolTags { get; private set; } = null!;
 
         [Output("usernameAttributes")]
         public Output<ImmutableArray<string>> UsernameAttributes { get; private set; } = null!;
@@ -225,7 +225,12 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string>? UserPoolName { get; set; }
 
         [Input("userPoolTags")]
-        public Input<object>? UserPoolTags { get; set; }
+        private InputMap<string>? _userPoolTags;
+        public InputMap<string> UserPoolTags
+        {
+            get => _userPoolTags ?? (_userPoolTags = new InputMap<string>());
+            set => _userPoolTags = value;
+        }
 
         [Input("usernameAttributes")]
         private InputList<string>? _usernameAttributes;

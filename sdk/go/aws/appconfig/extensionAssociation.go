@@ -19,7 +19,7 @@ type ExtensionAssociation struct {
 	ExtensionArn           pulumi.StringOutput    `pulumi:"extensionArn"`
 	ExtensionIdentifier    pulumi.StringPtrOutput `pulumi:"extensionIdentifier"`
 	ExtensionVersionNumber pulumi.IntPtrOutput    `pulumi:"extensionVersionNumber"`
-	Parameters             pulumi.AnyOutput       `pulumi:"parameters"`
+	Parameters             pulumi.StringMapOutput `pulumi:"parameters"`
 	ResourceArn            pulumi.StringOutput    `pulumi:"resourceArn"`
 	ResourceIdentifier     pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
 	// An array of key-value pairs to apply to this resource.
@@ -73,10 +73,10 @@ func (ExtensionAssociationState) ElementType() reflect.Type {
 }
 
 type extensionAssociationArgs struct {
-	ExtensionIdentifier    *string     `pulumi:"extensionIdentifier"`
-	ExtensionVersionNumber *int        `pulumi:"extensionVersionNumber"`
-	Parameters             interface{} `pulumi:"parameters"`
-	ResourceIdentifier     *string     `pulumi:"resourceIdentifier"`
+	ExtensionIdentifier    *string           `pulumi:"extensionIdentifier"`
+	ExtensionVersionNumber *int              `pulumi:"extensionVersionNumber"`
+	Parameters             map[string]string `pulumi:"parameters"`
+	ResourceIdentifier     *string           `pulumi:"resourceIdentifier"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []ExtensionAssociationTag `pulumi:"tags"`
 }
@@ -85,7 +85,7 @@ type extensionAssociationArgs struct {
 type ExtensionAssociationArgs struct {
 	ExtensionIdentifier    pulumi.StringPtrInput
 	ExtensionVersionNumber pulumi.IntPtrInput
-	Parameters             pulumi.Input
+	Parameters             pulumi.StringMapInput
 	ResourceIdentifier     pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags ExtensionAssociationTagArrayInput
@@ -144,8 +144,8 @@ func (o ExtensionAssociationOutput) ExtensionVersionNumber() pulumi.IntPtrOutput
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.IntPtrOutput { return v.ExtensionVersionNumber }).(pulumi.IntPtrOutput)
 }
 
-func (o ExtensionAssociationOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ExtensionAssociation) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+func (o ExtensionAssociationOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 func (o ExtensionAssociationOutput) ResourceArn() pulumi.StringOutput {

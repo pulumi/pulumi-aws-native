@@ -1,5 +1,87 @@
 # Change Log
 
+## Unreleased
+
+- [Fix types which are maps](https://github.com/pulumi/pulumi-aws-native/pull/1342)
+  - Resources parameters affected:
+    - `aws-native:apigateway:Method`: `requestModels`, `requestParameters`
+    - `aws-native:apigateway:RestApi`: `parameters`
+    - `aws-native:apigateway:Stage`: `variables`
+    - `aws-native:apigatewayv2:Api`: `tags`
+    - `aws-native:apigatewayv2:DomainName`: `tags`
+    - `aws-native:apigatewayv2:VpcLink`: `tags`
+    - `aws-native:appconfig:Extension`: `actions`, `parameters`
+    - `aws-native:appconfig:ExtensionAssociation`: `parameters`
+    - `aws-native:athena:DataCatalog`: `parameters`
+    - `aws-native:backup:BackupPlan`: `backupPlanTags`
+    - `aws-native:backup:BackupVault`: `backupVaultTags`
+    - `aws-native:batch:ComputeEnvironment`: `tags`
+    - `aws-native:batch:JobQueue`: `tags`
+    - `aws-native:batch:SchedulingPolicy`: `tags`
+    - `aws-native:cloudformation:Stack`: `parameters`
+    - `aws-native:codestarnotifications:NotificationRule`: `tags`
+    - `aws-native:cognito:IdentityPoolRoleAttachment`: `roleMappings`, `roles`
+    - `aws-native:cognito:UserPool`: `userPoolTags`
+    - `aws-native:cognito:UserPoolUser`: `clientMetadata`
+    - `aws-native:eks:Nodegroup`: `labels`, `tags`
+    - `aws-native:fis:ExperimentTemplate`: `tags`
+    - `aws-native:greengrassv2:Deployment`: `components`, `tags`
+    - `aws-native:imagebuilder:Component`: `tags`
+    - `aws-native:imagebuilder:ContainerRecipe`: `tags`
+    - `aws-native:imagebuilder:DistributionConfiguration`: `tags`
+    - `aws-native:imagebuilder:Image`: `tags`
+    - `aws-native:imagebuilder:ImagePipeline`: `tags`
+    - `aws-native:imagebuilder:ImageRecipe`: `tags`
+    - `aws-native:imagebuilder:InfrastructureConfiguration`: `resourceTags`, `tags`
+    - `aws-native:imagebuilder:LifecyclePolicy`: `tags`
+    - `aws-native:imagebuilder:Workflow`: `tags`
+    - `aws-native:iot:Authorizer`: `tokenSigningPublicKeys`
+    - `aws-native:iot:SecurityProfile`: `alertTargets`
+    - `aws-native:iottwinmaker:ComponentType`: `compositeComponentTypes`, `functions`, `propertyDefinitions`, `propertyGroups`, `tags`
+    - `aws-native:iottwinmaker:Entity`: `components`, `compositeComponents`, `tags`
+    - `aws-native:iottwinmaker:Scene`: `sceneMetadata`, `tags`
+    - `aws-native:iottwinmaker:SyncJob`: `tags`
+    - `aws-native:iottwinmaker:Workspace`: `tags`
+    - `aws-native:kafkaconnect:Connector`: `connectorConfiguration`
+    - `aws-native:msk:Cluster`: `tags`
+    - `aws-native:msk:ServerlessCluster`: `tags`
+    - `aws-native:opensearchservice:Domain`: `advancedOptions`, `logPublishingOptions`
+    - `aws-native:servicecatalog:CloudFormationProvisionedProduct`, `outputs`
+    - `aws-native:ssm:Parameter`: `tags`
+
+  - Type properties affected:
+    - `aws-native:apigateway:DeploymentCanarySetting`: `stageVariableOverrides`
+    - `aws-native:apigateway:DeploymentCanarySettings`: `stageVariableOverrides`
+    - `aws-native:apigateway:DeploymentStageDescription`: `variables`
+    - `aws-native:apigateway:MethodIntegration`: `requestParameters`, `requestTemplates`
+    - `aws-native:apigateway:MethodIntegrationResponse`: `responseParameters`, `responseTemplates`
+    - `aws-native:apigateway:MethodResponse`: `responseModels`, `responseParameters`
+    - `aws-native:apigateway:StageCanarySetting`: `stageVariableOverrides`
+    - `aws-native:apigateway:UsagePlanApiStage`: `throttle`
+    - `aws-native:appintegrations:DataIntegrationFileConfiguration`: `filters`
+    - `aws-native:backup:BackupPlanBackupRuleResourceType`: `recoveryPointTags`
+    - `aws-native:batch:ComputeEnvironmentComputeResources`: `tags`
+    - `aws-native:ecs:ServiceLogConfiguration`: `options`
+    - `aws-native:ecs:TaskDefinitionContainerDefinition`: `dockerLabels`
+    - `aws-native:ecs:TaskDefinitionDockerVolumeConfiguration`: `driverOpts`, `labels`
+    - `aws-native:ecs:TaskDefinitionFirelensConfiguration`: `options`
+    - `aws-native:ecs:TaskDefinitionLogConfiguration`: `options`
+    - `aws-native:elasticloadbalancingv2:ListenerRuleAuthenticateCognitoConfig`: `authenticationRequestExtraParams`
+    - `aws-native:elasticloadbalancingv2:ListenerRuleAuthenticateOidcConfig`: `authenticationRequestExtraParams`
+    - `aws-native:emrserverless:ApplicationConfigurationObject`: `properties`
+    - `aws-native:entityresolution:IdMappingWorkflowProviderProperties`: `providerConfiguration`
+    - `aws-native:entityresolution:MatchingWorkflowProviderProperties`: `providerConfiguration`
+    - `aws-native:events:RuleHttpParameters`: `headerParameters`, `queryStringParameters`
+    - `aws-native:events:RuleInputTransformer`: `inputPathsMap`
+    - `aws-native:greengrassv2:ComponentVersionComponentPlatform`: `attributes`
+    - `aws-native:greengrassv2:ComponentVersionLambdaExecutionParameters`: `environmentVariables`
+    - `aws-native:greengrassv2:ComponentVersionLambdaFunctionRecipeSource`: `componentDependencies`
+    - `aws-native:guardduty:FilterFindingCriteria`: `criterion`
+    - `aws-native:imagebuilder:DistributionConfigurationAmiDistributionConfiguration`: `amiTags`
+    - `aws-native:imagebuilder:LifecyclePolicyAmiExclusionRules`: `tagMap`
+    - `aws-native:imagebuilder:LifecyclePolicyExclusionRules`: `tagMap`
+    - `aws-native:imagebuilder:LifecyclePolicyResourceSelection`: `tagMap`
+
 ## 0.96.0 (2024-02-09)
 
 - [Added configuration option `aws-native:config:skipCredentialsValidation` (or via environment variable `AWS_SKIP_CREDENTIALS_VALIDATION`)](https://github.com/pulumi/pulumi-aws-native/issues/1326)

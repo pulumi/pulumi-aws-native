@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
         /// </summary>
         [Output("responseParameters")]
-        public Output<object?> ResponseParameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> ResponseParameters { get; private set; } = null!;
 
         /// <summary>
         /// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
         /// </summary>
         [Output("responseTemplates")]
-        public Output<object?> ResponseTemplates { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> ResponseTemplates { get; private set; } = null!;
 
         /// <summary>
         /// The response type of the associated GatewayResponse.
@@ -96,17 +96,29 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GatewayResponseArgs : global::Pulumi.ResourceArgs
     {
+        [Input("responseParameters")]
+        private InputMap<string>? _responseParameters;
+
         /// <summary>
         /// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
         /// </summary>
-        [Input("responseParameters")]
-        public Input<object>? ResponseParameters { get; set; }
+        public InputMap<string> ResponseParameters
+        {
+            get => _responseParameters ?? (_responseParameters = new InputMap<string>());
+            set => _responseParameters = value;
+        }
+
+        [Input("responseTemplates")]
+        private InputMap<string>? _responseTemplates;
 
         /// <summary>
         /// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
         /// </summary>
-        [Input("responseTemplates")]
-        public Input<object>? ResponseTemplates { get; set; }
+        public InputMap<string> ResponseTemplates
+        {
+            get => _responseTemplates ?? (_responseTemplates = new InputMap<string>());
+            set => _responseTemplates = value;
+        }
 
         /// <summary>
         /// The response type of the associated GatewayResponse.

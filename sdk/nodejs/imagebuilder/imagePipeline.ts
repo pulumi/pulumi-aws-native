@@ -92,7 +92,7 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * The tags of this image pipeline.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Workflows to define the image build process
      */
@@ -203,7 +203,7 @@ export interface ImagePipelineArgs {
     /**
      * The tags of this image pipeline.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Workflows to define the image build process
      */

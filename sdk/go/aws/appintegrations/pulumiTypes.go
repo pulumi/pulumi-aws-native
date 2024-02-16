@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 // The configuration for what files should be pulled from the source.
 type DataIntegrationFileConfiguration struct {
 	// Restrictions for what files should be pulled from the source.
-	Filters interface{} `pulumi:"filters"`
+	Filters map[string][]string `pulumi:"filters"`
 	// Identifiers for the source folders to pull all files from recursively.
 	Folders []string `pulumi:"folders"`
 }
@@ -35,7 +35,7 @@ type DataIntegrationFileConfigurationInput interface {
 // The configuration for what files should be pulled from the source.
 type DataIntegrationFileConfigurationArgs struct {
 	// Restrictions for what files should be pulled from the source.
-	Filters pulumi.Input `pulumi:"filters"`
+	Filters pulumi.StringArrayMapInput `pulumi:"filters"`
 	// Identifiers for the source folders to pull all files from recursively.
 	Folders pulumi.StringArrayInput `pulumi:"folders"`
 }
@@ -119,8 +119,8 @@ func (o DataIntegrationFileConfigurationOutput) ToDataIntegrationFileConfigurati
 }
 
 // Restrictions for what files should be pulled from the source.
-func (o DataIntegrationFileConfigurationOutput) Filters() pulumi.AnyOutput {
-	return o.ApplyT(func(v DataIntegrationFileConfiguration) interface{} { return v.Filters }).(pulumi.AnyOutput)
+func (o DataIntegrationFileConfigurationOutput) Filters() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v DataIntegrationFileConfiguration) map[string][]string { return v.Filters }).(pulumi.StringArrayMapOutput)
 }
 
 // Identifiers for the source folders to pull all files from recursively.
@@ -153,13 +153,13 @@ func (o DataIntegrationFileConfigurationPtrOutput) Elem() DataIntegrationFileCon
 }
 
 // Restrictions for what files should be pulled from the source.
-func (o DataIntegrationFileConfigurationPtrOutput) Filters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DataIntegrationFileConfiguration) interface{} {
+func (o DataIntegrationFileConfigurationPtrOutput) Filters() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *DataIntegrationFileConfiguration) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Filters
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Identifiers for the source folders to pull all files from recursively.

@@ -40,7 +40,7 @@ export class VpcLink extends pulumi.CustomResource {
     /**
      * This resource type use map for Tags, suggest to use List of Tag
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly vpcLinkId!: pulumi.Output<string>;
 
     /**
@@ -86,5 +86,5 @@ export interface VpcLinkArgs {
     /**
      * This resource type use map for Tags, suggest to use List of Tag
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

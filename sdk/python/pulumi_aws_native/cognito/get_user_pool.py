@@ -219,7 +219,7 @@ class GetUserPoolResult:
 
     @property
     @pulumi.getter(name="userPoolTags")
-    def user_pool_tags(self) -> Optional[Any]:
+    def user_pool_tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "user_pool_tags")
 
     @property

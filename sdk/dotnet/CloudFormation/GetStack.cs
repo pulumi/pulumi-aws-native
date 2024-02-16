@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public readonly string? LastUpdateTime;
         public readonly ImmutableArray<string> NotificationArns;
         public readonly ImmutableArray<Outputs.StackOutput> Outputs;
-        public readonly object? Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         public readonly string? ParentId;
         public readonly string? RoleArn;
         public readonly string? RootId;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.CloudFormation
 
             ImmutableArray<Outputs.StackOutput> outputs,
 
-            object? parameters,
+            ImmutableDictionary<string, string>? parameters,
 
             string? parentId,
 

@@ -147,7 +147,7 @@ class GetStageResult:
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Any]:
+    def variables(self) -> Optional[Mapping[str, str]]:
         """
         A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """

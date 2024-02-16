@@ -88,7 +88,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * The tags associated with the image.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Workflows to define the image build process
      */
@@ -136,7 +136,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["workflows"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["containerRecipeArn", "distributionConfigurationArn", "enhancedImageMetadataEnabled", "imageRecipeArn", "imageScanningConfiguration", "imageTestsConfiguration", "infrastructureConfigurationArn", "tags", "workflows[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["containerRecipeArn", "distributionConfigurationArn", "enhancedImageMetadataEnabled", "imageRecipeArn", "imageScanningConfiguration", "imageTestsConfiguration", "infrastructureConfigurationArn", "tags.*", "workflows[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Image.__pulumiType, name, resourceInputs, opts);
     }
@@ -181,7 +181,7 @@ export interface ImageArgs {
     /**
      * The tags associated with the image.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Workflows to define the image build process
      */

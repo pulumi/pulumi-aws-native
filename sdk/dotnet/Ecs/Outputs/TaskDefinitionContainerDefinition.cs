@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         public readonly bool? DisableNetworking;
         public readonly ImmutableArray<string> DnsSearchDomains;
         public readonly ImmutableArray<string> DnsServers;
-        public readonly object? DockerLabels;
+        public readonly ImmutableDictionary<string, string>? DockerLabels;
         public readonly ImmutableArray<string> DockerSecurityOptions;
         public readonly ImmutableArray<string> EntryPoint;
         /// <summary>
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             ImmutableArray<string> dnsServers,
 
-            object? dockerLabels,
+            ImmutableDictionary<string, string>? dockerLabels,
 
             ImmutableArray<string> dockerSecurityOptions,
 

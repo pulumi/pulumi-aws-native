@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
     public sealed class PipelineAddAttributesArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes", required: true)]
-        public Input<object> Attributes { get; set; } = null!;
+        private InputMap<string>? _attributes;
+        public InputMap<string> Attributes
+        {
+            get => _attributes ?? (_attributes = new InputMap<string>());
+            set => _attributes = value;
+        }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

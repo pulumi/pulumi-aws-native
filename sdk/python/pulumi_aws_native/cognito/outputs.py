@@ -14,6 +14,9 @@ __all__ = [
     'IdentityPoolCognitoIdentityProvider',
     'IdentityPoolCognitoStreams',
     'IdentityPoolPushSync',
+    'IdentityPoolRoleAttachmentMappingRule',
+    'IdentityPoolRoleAttachmentRoleMapping',
+    'IdentityPoolRoleAttachmentRulesConfigurationType',
     'LogDeliveryConfigurationCloudWatchLogsConfiguration',
     'LogDeliveryConfigurationLogConfiguration',
     'UserPoolAccountRecoverySetting',
@@ -187,6 +190,127 @@ class IdentityPoolPushSync(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class IdentityPoolRoleAttachmentMappingRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchType":
+            suggest = "match_type"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityPoolRoleAttachmentMappingRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityPoolRoleAttachmentMappingRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityPoolRoleAttachmentMappingRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 claim: str,
+                 match_type: str,
+                 role_arn: str,
+                 value: str):
+        pulumi.set(__self__, "claim", claim)
+        pulumi.set(__self__, "match_type", match_type)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def claim(self) -> str:
+        return pulumi.get(self, "claim")
+
+    @property
+    @pulumi.getter(name="matchType")
+    def match_type(self) -> str:
+        return pulumi.get(self, "match_type")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IdentityPoolRoleAttachmentRoleMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ambiguousRoleResolution":
+            suggest = "ambiguous_role_resolution"
+        elif key == "identityProvider":
+            suggest = "identity_provider"
+        elif key == "rulesConfiguration":
+            suggest = "rules_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityPoolRoleAttachmentRoleMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityPoolRoleAttachmentRoleMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityPoolRoleAttachmentRoleMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 ambiguous_role_resolution: Optional[str] = None,
+                 identity_provider: Optional[str] = None,
+                 rules_configuration: Optional['outputs.IdentityPoolRoleAttachmentRulesConfigurationType'] = None):
+        pulumi.set(__self__, "type", type)
+        if ambiguous_role_resolution is not None:
+            pulumi.set(__self__, "ambiguous_role_resolution", ambiguous_role_resolution)
+        if identity_provider is not None:
+            pulumi.set(__self__, "identity_provider", identity_provider)
+        if rules_configuration is not None:
+            pulumi.set(__self__, "rules_configuration", rules_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="ambiguousRoleResolution")
+    def ambiguous_role_resolution(self) -> Optional[str]:
+        return pulumi.get(self, "ambiguous_role_resolution")
+
+    @property
+    @pulumi.getter(name="identityProvider")
+    def identity_provider(self) -> Optional[str]:
+        return pulumi.get(self, "identity_provider")
+
+    @property
+    @pulumi.getter(name="rulesConfiguration")
+    def rules_configuration(self) -> Optional['outputs.IdentityPoolRoleAttachmentRulesConfigurationType']:
+        return pulumi.get(self, "rules_configuration")
+
+
+@pulumi.output_type
+class IdentityPoolRoleAttachmentRulesConfigurationType(dict):
+    def __init__(__self__, *,
+                 rules: Sequence['outputs.IdentityPoolRoleAttachmentMappingRule']):
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.IdentityPoolRoleAttachmentMappingRule']:
+        return pulumi.get(self, "rules")
 
 
 @pulumi.output_type

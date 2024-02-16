@@ -33,7 +33,7 @@ type InfrastructureConfiguration struct {
 	// The name of the infrastructure configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The tags attached to the resource created by Image Builder.
-	ResourceTags pulumi.AnyOutput `pulumi:"resourceTags"`
+	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
 	// The security group IDs of the infrastructure configuration.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -41,7 +41,7 @@ type InfrastructureConfiguration struct {
 	// The subnet ID of the infrastructure configuration.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// The tags associated with the component.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The terminate instance on failure configuration of the infrastructure configuration.
 	TerminateInstanceOnFailure pulumi.BoolPtrOutput `pulumi:"terminateInstanceOnFailure"`
 }
@@ -108,7 +108,7 @@ type infrastructureConfigurationArgs struct {
 	// The name of the infrastructure configuration.
 	Name *string `pulumi:"name"`
 	// The tags attached to the resource created by Image Builder.
-	ResourceTags interface{} `pulumi:"resourceTags"`
+	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// The security group IDs of the infrastructure configuration.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -116,7 +116,7 @@ type infrastructureConfigurationArgs struct {
 	// The subnet ID of the infrastructure configuration.
 	SubnetId *string `pulumi:"subnetId"`
 	// The tags associated with the component.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The terminate instance on failure configuration of the infrastructure configuration.
 	TerminateInstanceOnFailure *bool `pulumi:"terminateInstanceOnFailure"`
 }
@@ -138,7 +138,7 @@ type InfrastructureConfigurationArgs struct {
 	// The name of the infrastructure configuration.
 	Name pulumi.StringPtrInput
 	// The tags attached to the resource created by Image Builder.
-	ResourceTags pulumi.Input
+	ResourceTags pulumi.StringMapInput
 	// The security group IDs of the infrastructure configuration.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -146,7 +146,7 @@ type InfrastructureConfigurationArgs struct {
 	// The subnet ID of the infrastructure configuration.
 	SubnetId pulumi.StringPtrInput
 	// The tags associated with the component.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The terminate instance on failure configuration of the infrastructure configuration.
 	TerminateInstanceOnFailure pulumi.BoolPtrInput
 }
@@ -231,8 +231,8 @@ func (o InfrastructureConfigurationOutput) Name() pulumi.StringOutput {
 }
 
 // The tags attached to the resource created by Image Builder.
-func (o InfrastructureConfigurationOutput) ResourceTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.AnyOutput { return v.ResourceTags }).(pulumi.AnyOutput)
+func (o InfrastructureConfigurationOutput) ResourceTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringMapOutput { return v.ResourceTags }).(pulumi.StringMapOutput)
 }
 
 // The security group IDs of the infrastructure configuration.
@@ -251,8 +251,8 @@ func (o InfrastructureConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 }
 
 // The tags associated with the component.
-func (o InfrastructureConfigurationOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o InfrastructureConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The terminate instance on failure configuration of the infrastructure configuration.

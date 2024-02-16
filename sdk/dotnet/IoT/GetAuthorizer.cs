@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.IoT
         public readonly Pulumi.AwsNative.IoT.AuthorizerStatus? Status;
         public readonly ImmutableArray<Outputs.AuthorizerTag> Tags;
         public readonly string? TokenKeyName;
-        public readonly object? TokenSigningPublicKeys;
+        public readonly ImmutableDictionary<string, string>? TokenSigningPublicKeys;
 
         [OutputConstructor]
         private GetAuthorizerResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.IoT
 
             string? tokenKeyName,
 
-            object? tokenSigningPublicKeys)
+            ImmutableDictionary<string, string>? tokenSigningPublicKeys)
         {
             Arn = arn;
             AuthorizerFunctionArn = authorizerFunctionArn;

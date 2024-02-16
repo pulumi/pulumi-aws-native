@@ -57,7 +57,7 @@ export interface GetLifecyclePolicyResult {
     /**
      * The tags associated with the lifecycle policy.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource schema for AWS::ImageBuilder::LifecyclePolicy

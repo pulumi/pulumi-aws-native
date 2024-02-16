@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ComponentTypeArgs', 'ComponentType']
 
@@ -18,26 +19,26 @@ class ComponentTypeArgs:
     def __init__(__self__, *,
                  component_type_id: pulumi.Input[str],
                  workspace_id: pulumi.Input[str],
-                 composite_component_types: Optional[Any] = None,
+                 composite_component_types: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeCompositeComponentTypeArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  extends_from: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 functions: Optional[Any] = None,
+                 functions: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeFunctionArgs']]]] = None,
                  is_singleton: Optional[pulumi.Input[bool]] = None,
-                 property_definitions: Optional[Any] = None,
-                 property_groups: Optional[Any] = None,
-                 tags: Optional[Any] = None):
+                 property_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyDefinitionArgs']]]] = None,
+                 property_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyGroupArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ComponentType resource.
         :param pulumi.Input[str] component_type_id: The ID of the component type.
         :param pulumi.Input[str] workspace_id: The ID of the workspace that contains the component type.
-        :param Any composite_component_types: An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeCompositeComponentTypeArgs']]] composite_component_types: An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
         :param pulumi.Input[str] description: The description of the component type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extends_from: Specifies the parent component type to extend.
-        :param Any functions: a Map of functions in the component type. Each function's key must be unique to this map.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeFunctionArgs']]] functions: a Map of functions in the component type. Each function's key must be unique to this map.
         :param pulumi.Input[bool] is_singleton: A Boolean value that specifies whether an entity can have more than one component of this type.
-        :param Any property_definitions: An map of the property definitions in the component type. Each property definition's key must be unique to this map.
-        :param Any property_groups: An map of the property groups in the component type. Each property group's key must be unique to this map.
-        :param Any tags: A map of key-value pairs to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyDefinitionArgs']]] property_definitions: An map of the property definitions in the component type. Each property definition's key must be unique to this map.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyGroupArgs']]] property_groups: An map of the property groups in the component type. Each property group's key must be unique to this map.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs to associate with a resource.
         """
         pulumi.set(__self__, "component_type_id", component_type_id)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -84,14 +85,14 @@ class ComponentTypeArgs:
 
     @property
     @pulumi.getter(name="compositeComponentTypes")
-    def composite_component_types(self) -> Optional[Any]:
+    def composite_component_types(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeCompositeComponentTypeArgs']]]]:
         """
         An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
         """
         return pulumi.get(self, "composite_component_types")
 
     @composite_component_types.setter
-    def composite_component_types(self, value: Optional[Any]):
+    def composite_component_types(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeCompositeComponentTypeArgs']]]]):
         pulumi.set(self, "composite_component_types", value)
 
     @property
@@ -120,14 +121,14 @@ class ComponentTypeArgs:
 
     @property
     @pulumi.getter
-    def functions(self) -> Optional[Any]:
+    def functions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeFunctionArgs']]]]:
         """
         a Map of functions in the component type. Each function's key must be unique to this map.
         """
         return pulumi.get(self, "functions")
 
     @functions.setter
-    def functions(self, value: Optional[Any]):
+    def functions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeFunctionArgs']]]]):
         pulumi.set(self, "functions", value)
 
     @property
@@ -144,38 +145,38 @@ class ComponentTypeArgs:
 
     @property
     @pulumi.getter(name="propertyDefinitions")
-    def property_definitions(self) -> Optional[Any]:
+    def property_definitions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyDefinitionArgs']]]]:
         """
         An map of the property definitions in the component type. Each property definition's key must be unique to this map.
         """
         return pulumi.get(self, "property_definitions")
 
     @property_definitions.setter
-    def property_definitions(self, value: Optional[Any]):
+    def property_definitions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyDefinitionArgs']]]]):
         pulumi.set(self, "property_definitions", value)
 
     @property
     @pulumi.getter(name="propertyGroups")
-    def property_groups(self) -> Optional[Any]:
+    def property_groups(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyGroupArgs']]]]:
         """
         An map of the property groups in the component type. Each property group's key must be unique to this map.
         """
         return pulumi.get(self, "property_groups")
 
     @property_groups.setter
-    def property_groups(self, value: Optional[Any]):
+    def property_groups(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyGroupArgs']]]]):
         pulumi.set(self, "property_groups", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of key-value pairs to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -185,14 +186,14 @@ class ComponentType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  component_type_id: Optional[pulumi.Input[str]] = None,
-                 composite_component_types: Optional[Any] = None,
+                 composite_component_types: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentTypeCompositeComponentTypeArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  extends_from: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 functions: Optional[Any] = None,
+                 functions: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentTypeFunctionArgs']]]]] = None,
                  is_singleton: Optional[pulumi.Input[bool]] = None,
-                 property_definitions: Optional[Any] = None,
-                 property_groups: Optional[Any] = None,
-                 tags: Optional[Any] = None,
+                 property_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentTypePropertyDefinitionArgs']]]]] = None,
+                 property_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentTypePropertyGroupArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -201,14 +202,14 @@ class ComponentType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] component_type_id: The ID of the component type.
-        :param Any composite_component_types: An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentTypeCompositeComponentTypeArgs']]]] composite_component_types: An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
         :param pulumi.Input[str] description: The description of the component type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extends_from: Specifies the parent component type to extend.
-        :param Any functions: a Map of functions in the component type. Each function's key must be unique to this map.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentTypeFunctionArgs']]]] functions: a Map of functions in the component type. Each function's key must be unique to this map.
         :param pulumi.Input[bool] is_singleton: A Boolean value that specifies whether an entity can have more than one component of this type.
-        :param Any property_definitions: An map of the property definitions in the component type. Each property definition's key must be unique to this map.
-        :param Any property_groups: An map of the property groups in the component type. Each property group's key must be unique to this map.
-        :param Any tags: A map of key-value pairs to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentTypePropertyDefinitionArgs']]]] property_definitions: An map of the property definitions in the component type. Each property definition's key must be unique to this map.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentTypePropertyGroupArgs']]]] property_groups: An map of the property groups in the component type. Each property group's key must be unique to this map.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs to associate with a resource.
         :param pulumi.Input[str] workspace_id: The ID of the workspace that contains the component type.
         """
         ...
@@ -236,14 +237,14 @@ class ComponentType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  component_type_id: Optional[pulumi.Input[str]] = None,
-                 composite_component_types: Optional[Any] = None,
+                 composite_component_types: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentTypeCompositeComponentTypeArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  extends_from: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 functions: Optional[Any] = None,
+                 functions: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentTypeFunctionArgs']]]]] = None,
                  is_singleton: Optional[pulumi.Input[bool]] = None,
-                 property_definitions: Optional[Any] = None,
-                 property_groups: Optional[Any] = None,
-                 tags: Optional[Any] = None,
+                 property_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentTypePropertyDefinitionArgs']]]]] = None,
+                 property_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentTypePropertyGroupArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -334,7 +335,7 @@ class ComponentType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="compositeComponentTypes")
-    def composite_component_types(self) -> pulumi.Output[Optional[Any]]:
+    def composite_component_types(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ComponentTypeCompositeComponentType']]]:
         """
         An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
         """
@@ -366,7 +367,7 @@ class ComponentType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def functions(self) -> pulumi.Output[Optional[Any]]:
+    def functions(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ComponentTypeFunction']]]:
         """
         a Map of functions in the component type. Each function's key must be unique to this map.
         """
@@ -398,7 +399,7 @@ class ComponentType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="propertyDefinitions")
-    def property_definitions(self) -> pulumi.Output[Optional[Any]]:
+    def property_definitions(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ComponentTypePropertyDefinition']]]:
         """
         An map of the property definitions in the component type. Each property definition's key must be unique to this map.
         """
@@ -406,7 +407,7 @@ class ComponentType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="propertyGroups")
-    def property_groups(self) -> pulumi.Output[Optional[Any]]:
+    def property_groups(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ComponentTypePropertyGroup']]]:
         """
         An map of the property groups in the component type. Each property group's key must be unique to this map.
         """
@@ -422,7 +423,7 @@ class ComponentType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of key-value pairs to associate with a resource.
         """

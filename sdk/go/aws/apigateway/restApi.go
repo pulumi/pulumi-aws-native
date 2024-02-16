@@ -47,7 +47,7 @@ type RestApi struct {
 	// The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
-	Parameters pulumi.AnyOutput `pulumi:"parameters"`
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
 	Policy         pulumi.AnyOutput    `pulumi:"policy"`
 	RestApiId      pulumi.StringOutput `pulumi:"restApiId"`
@@ -126,7 +126,7 @@ type restApiArgs struct {
 	// The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
 	Name *string `pulumi:"name"`
 	// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
-	Parameters interface{} `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
 	Policy interface{} `pulumi:"policy"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
@@ -165,7 +165,7 @@ type RestApiArgs struct {
 	// The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
 	Name pulumi.StringPtrInput
 	// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
-	Parameters pulumi.Input
+	Parameters pulumi.StringMapInput
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
 	Policy pulumi.Input
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
@@ -276,8 +276,8 @@ func (o RestApiOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set “ignore=documentation“ as a “parameters“ value, as in the AWS CLI command of “aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'“.
-func (o RestApiOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RestApi) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+func (o RestApiOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // A policy document that contains the permissions for the “RestApi“ resource. To set the ARN for the policy, use the “!Join“ intrinsic function with “""“ as delimiter and values of “"execute-api:/"“ and “"*"“.

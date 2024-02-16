@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// This resource type use map for Tags, suggest to use List of Tag
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("vpcLinkId")]
         public Output<string> VpcLinkId { get; private set; } = null!;
@@ -102,11 +102,17 @@ namespace Pulumi.AwsNative.ApiGatewayV2
             set => _subnetIds = value;
         }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// This resource type use map for Tags, suggest to use List of Tag
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public VpcLinkArgs()
         {

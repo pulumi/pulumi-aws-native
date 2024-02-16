@@ -23,7 +23,7 @@ type JobQueue struct {
 	SchedulingPolicyArn     pulumi.StringPtrOutput                     `pulumi:"schedulingPolicyArn"`
 	State                   JobQueueStateEnumPtrOutput                 `pulumi:"state"`
 	// A key-value pair to associate with a resource.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewJobQueue registers a new resource with the given unique name, arguments, and options.
@@ -41,7 +41,7 @@ func NewJobQueue(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"jobQueueName",
-		"tags",
+		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -83,7 +83,7 @@ type jobQueueArgs struct {
 	SchedulingPolicyArn     *string                           `pulumi:"schedulingPolicyArn"`
 	State                   *JobQueueStateEnum                `pulumi:"state"`
 	// A key-value pair to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a JobQueue resource.
@@ -94,7 +94,7 @@ type JobQueueArgs struct {
 	SchedulingPolicyArn     pulumi.StringPtrInput
 	State                   JobQueueStateEnumPtrInput
 	// A key-value pair to associate with a resource.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 }
 
 func (JobQueueArgs) ElementType() reflect.Type {
@@ -159,8 +159,8 @@ func (o JobQueueOutput) State() JobQueueStateEnumPtrOutput {
 }
 
 // A key-value pair to associate with a resource.
-func (o JobQueueOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *JobQueue) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o JobQueueOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobQueue) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

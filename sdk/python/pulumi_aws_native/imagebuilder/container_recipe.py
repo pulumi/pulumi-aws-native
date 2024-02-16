@@ -28,7 +28,7 @@ class ContainerRecipeArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
                  platform_override: Optional[pulumi.Input['ContainerRecipePlatformOverride']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_repository: Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None):
@@ -45,7 +45,7 @@ class ContainerRecipeArgs:
         :param pulumi.Input[str] name: The name of the container recipe.
         :param pulumi.Input[str] parent_image: The source image for the container recipe.
         :param pulumi.Input['ContainerRecipePlatformOverride'] platform_override: Specifies the operating system platform when you use a custom source image.
-        :param Any tags: Tags that are attached to the container recipe.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags that are attached to the container recipe.
         :param pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs'] target_repository: The destination repository for the container image.
         :param pulumi.Input[str] version: The semantic version of the container recipe (<major>.<minor>.<patch>).
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
@@ -215,14 +215,14 @@ class ContainerRecipeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Tags that are attached to the container recipe.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -278,7 +278,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
                  platform_override: Optional[pulumi.Input['ContainerRecipePlatformOverride']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_repository: Optional[pulumi.Input[pulumi.InputType['ContainerRecipeTargetContainerRepositoryArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None,
@@ -299,7 +299,7 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the container recipe.
         :param pulumi.Input[str] parent_image: The source image for the container recipe.
         :param pulumi.Input['ContainerRecipePlatformOverride'] platform_override: Specifies the operating system platform when you use a custom source image.
-        :param Any tags: Tags that are attached to the container recipe.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags that are attached to the container recipe.
         :param pulumi.Input[pulumi.InputType['ContainerRecipeTargetContainerRepositoryArgs']] target_repository: The destination repository for the container image.
         :param pulumi.Input[str] version: The semantic version of the container recipe (<major>.<minor>.<patch>).
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
@@ -339,7 +339,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
                  platform_override: Optional[pulumi.Input['ContainerRecipePlatformOverride']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_repository: Optional[pulumi.Input[pulumi.InputType['ContainerRecipeTargetContainerRepositoryArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None,
@@ -368,7 +368,7 @@ class ContainerRecipe(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["working_directory"] = working_directory
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["components[*]", "container_type", "description", "dockerfile_template_data", "dockerfile_template_uri", "image_os_version_override", "instance_configuration", "kms_key_id", "name", "parent_image", "platform_override", "tags", "target_repository", "version", "working_directory"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["components[*]", "container_type", "description", "dockerfile_template_data", "dockerfile_template_uri", "image_os_version_override", "instance_configuration", "kms_key_id", "name", "parent_image", "platform_override", "tags.*", "target_repository", "version", "working_directory"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ContainerRecipe, __self__).__init__(
             'aws-native:imagebuilder:ContainerRecipe',
@@ -508,7 +508,7 @@ class ContainerRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags that are attached to the container recipe.
         """

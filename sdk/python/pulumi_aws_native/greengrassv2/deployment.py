@@ -18,12 +18,12 @@ __all__ = ['DeploymentArgs', 'Deployment']
 class DeploymentArgs:
     def __init__(__self__, *,
                  target_arn: pulumi.Input[str],
-                 components: Optional[Any] = None,
+                 components: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]]] = None,
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  deployment_policies: Optional[pulumi.Input['DeploymentPoliciesArgs']] = None,
                  iot_job_configuration: Optional[pulumi.Input['DeploymentIoTJobConfigurationArgs']] = None,
                  parent_target_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
         """
@@ -52,11 +52,11 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter
-    def components(self) -> Optional[Any]:
+    def components(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]]]:
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[Any]):
+    def components(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]]]):
         pulumi.set(self, "components", value)
 
     @property
@@ -97,11 +97,11 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -110,12 +110,12 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: Optional[Any] = None,
+                 components: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DeploymentComponentDeploymentSpecificationArgs']]]]] = None,
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  deployment_policies: Optional[pulumi.Input[pulumi.InputType['DeploymentPoliciesArgs']]] = None,
                  iot_job_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentIoTJobConfigurationArgs']]] = None,
                  parent_target_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -148,12 +148,12 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: Optional[Any] = None,
+                 components: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DeploymentComponentDeploymentSpecificationArgs']]]]] = None,
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  deployment_policies: Optional[pulumi.Input[pulumi.InputType['DeploymentPoliciesArgs']]] = None,
                  iot_job_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentIoTJobConfigurationArgs']]] = None,
                  parent_target_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -174,7 +174,7 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_arn'")
             __props__.__dict__["target_arn"] = target_arn
             __props__.__dict__["deployment_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["components", "deployment_name", "deployment_policies", "iot_job_configuration", "parent_target_arn", "target_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["components.*", "deployment_name", "deployment_policies", "iot_job_configuration", "parent_target_arn", "target_arn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Deployment, __self__).__init__(
             'aws-native:greengrassv2:Deployment',
@@ -210,7 +210,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def components(self) -> pulumi.Output[Optional[Any]]:
+    def components(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DeploymentComponentDeploymentSpecification']]]:
         return pulumi.get(self, "components")
 
     @property
@@ -240,7 +240,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

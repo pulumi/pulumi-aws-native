@@ -7,6 +7,104 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.IoTTwinMaker
 {
+    /// <summary>
+    /// The underlying type of the data type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComponentTypeDataTypeType : IEquatable<ComponentTypeDataTypeType>
+    {
+        private readonly string _value;
+
+        private ComponentTypeDataTypeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComponentTypeDataTypeType Relationship { get; } = new ComponentTypeDataTypeType("RELATIONSHIP");
+        public static ComponentTypeDataTypeType String { get; } = new ComponentTypeDataTypeType("STRING");
+        public static ComponentTypeDataTypeType Long { get; } = new ComponentTypeDataTypeType("LONG");
+        public static ComponentTypeDataTypeType Boolean { get; } = new ComponentTypeDataTypeType("BOOLEAN");
+        public static ComponentTypeDataTypeType Integer { get; } = new ComponentTypeDataTypeType("INTEGER");
+        public static ComponentTypeDataTypeType Double { get; } = new ComponentTypeDataTypeType("DOUBLE");
+        public static ComponentTypeDataTypeType List { get; } = new ComponentTypeDataTypeType("LIST");
+        public static ComponentTypeDataTypeType Map { get; } = new ComponentTypeDataTypeType("MAP");
+
+        public static bool operator ==(ComponentTypeDataTypeType left, ComponentTypeDataTypeType right) => left.Equals(right);
+        public static bool operator !=(ComponentTypeDataTypeType left, ComponentTypeDataTypeType right) => !left.Equals(right);
+
+        public static explicit operator string(ComponentTypeDataTypeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComponentTypeDataTypeType other && Equals(other);
+        public bool Equals(ComponentTypeDataTypeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scope of the function.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComponentTypeFunctionScope : IEquatable<ComponentTypeFunctionScope>
+    {
+        private readonly string _value;
+
+        private ComponentTypeFunctionScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComponentTypeFunctionScope Entity { get; } = new ComponentTypeFunctionScope("ENTITY");
+        public static ComponentTypeFunctionScope Workspace { get; } = new ComponentTypeFunctionScope("WORKSPACE");
+
+        public static bool operator ==(ComponentTypeFunctionScope left, ComponentTypeFunctionScope right) => left.Equals(right);
+        public static bool operator !=(ComponentTypeFunctionScope left, ComponentTypeFunctionScope right) => !left.Equals(right);
+
+        public static explicit operator string(ComponentTypeFunctionScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComponentTypeFunctionScope other && Equals(other);
+        public bool Equals(ComponentTypeFunctionScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of property group.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComponentTypePropertyGroupGroupType : IEquatable<ComponentTypePropertyGroupGroupType>
+    {
+        private readonly string _value;
+
+        private ComponentTypePropertyGroupGroupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComponentTypePropertyGroupGroupType Tabular { get; } = new ComponentTypePropertyGroupGroupType("TABULAR");
+
+        public static bool operator ==(ComponentTypePropertyGroupGroupType left, ComponentTypePropertyGroupGroupType right) => left.Equals(right);
+        public static bool operator !=(ComponentTypePropertyGroupGroupType left, ComponentTypePropertyGroupGroupType right) => !left.Equals(right);
+
+        public static explicit operator string(ComponentTypePropertyGroupGroupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComponentTypePropertyGroupGroupType other && Equals(other);
+        public bool Equals(ComponentTypePropertyGroupGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct ComponentTypeStatusError1PropertiesCode : IEquatable<ComponentTypeStatusError1PropertiesCode>
     {
@@ -87,6 +185,73 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ComponentTypeStatusState other && Equals(other);
         public bool Equals(ComponentTypeStatusState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The underlying type of the data type.
+    /// </summary>
+    [EnumType]
+    public readonly struct EntityDataTypeType : IEquatable<EntityDataTypeType>
+    {
+        private readonly string _value;
+
+        private EntityDataTypeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EntityDataTypeType Relationship { get; } = new EntityDataTypeType("RELATIONSHIP");
+        public static EntityDataTypeType String { get; } = new EntityDataTypeType("STRING");
+        public static EntityDataTypeType Long { get; } = new EntityDataTypeType("LONG");
+        public static EntityDataTypeType Boolean { get; } = new EntityDataTypeType("BOOLEAN");
+        public static EntityDataTypeType Integer { get; } = new EntityDataTypeType("INTEGER");
+        public static EntityDataTypeType Double { get; } = new EntityDataTypeType("DOUBLE");
+        public static EntityDataTypeType List { get; } = new EntityDataTypeType("LIST");
+        public static EntityDataTypeType Map { get; } = new EntityDataTypeType("MAP");
+
+        public static bool operator ==(EntityDataTypeType left, EntityDataTypeType right) => left.Equals(right);
+        public static bool operator !=(EntityDataTypeType left, EntityDataTypeType right) => !left.Equals(right);
+
+        public static explicit operator string(EntityDataTypeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityDataTypeType other && Equals(other);
+        public bool Equals(EntityDataTypeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of property group.
+    /// </summary>
+    [EnumType]
+    public readonly struct EntityPropertyGroupGroupType : IEquatable<EntityPropertyGroupGroupType>
+    {
+        private readonly string _value;
+
+        private EntityPropertyGroupGroupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EntityPropertyGroupGroupType Tabular { get; } = new EntityPropertyGroupGroupType("TABULAR");
+
+        public static bool operator ==(EntityPropertyGroupGroupType left, EntityPropertyGroupGroupType right) => left.Equals(right);
+        public static bool operator !=(EntityPropertyGroupGroupType left, EntityPropertyGroupGroupType right) => !left.Equals(right);
+
+        public static explicit operator string(EntityPropertyGroupGroupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityPropertyGroupGroupType other && Equals(other);
+        public bool Equals(EntityPropertyGroupGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

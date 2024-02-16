@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'ComponentVersionComponentDependencyRequirementDependencyType',
     'ComponentVersionLambdaEventSourceType',
     'ComponentVersionLambdaExecutionParametersInputPayloadEncodingType',
     'ComponentVersionLambdaFilesystemPermission',
@@ -14,6 +15,11 @@ __all__ = [
     'DeploymentIoTJobAbortCriteriaFailureType',
     'DeploymentPoliciesFailureHandlingPolicy',
 ]
+
+
+class ComponentVersionComponentDependencyRequirementDependencyType(str, Enum):
+    SOFT = "SOFT"
+    HARD = "HARD"
 
 
 class ComponentVersionLambdaEventSourceType(str, Enum):

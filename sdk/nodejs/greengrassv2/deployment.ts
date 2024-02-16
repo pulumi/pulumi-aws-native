@@ -37,13 +37,13 @@ export class Deployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Deployment.__pulumiType;
     }
 
-    public readonly components!: pulumi.Output<any | undefined>;
+    public readonly components!: pulumi.Output<{[key: string]: outputs.greengrassv2.DeploymentComponentDeploymentSpecification} | undefined>;
     public /*out*/ readonly deploymentId!: pulumi.Output<string>;
     public readonly deploymentName!: pulumi.Output<string | undefined>;
     public readonly deploymentPolicies!: pulumi.Output<outputs.greengrassv2.DeploymentPolicies | undefined>;
     public readonly iotJobConfiguration!: pulumi.Output<outputs.greengrassv2.DeploymentIoTJobConfiguration | undefined>;
     public readonly parentTargetArn!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly targetArn!: pulumi.Output<string>;
 
     /**
@@ -79,7 +79,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["targetArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["components", "deploymentName", "deploymentPolicies", "iotJobConfiguration", "parentTargetArn", "targetArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["components.*", "deploymentName", "deploymentPolicies", "iotJobConfiguration", "parentTargetArn", "targetArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Deployment.__pulumiType, name, resourceInputs, opts);
     }
@@ -89,11 +89,11 @@ export class Deployment extends pulumi.CustomResource {
  * The set of arguments for constructing a Deployment resource.
  */
 export interface DeploymentArgs {
-    components?: any;
+    components?: pulumi.Input<{[key: string]: pulumi.Input<inputs.greengrassv2.DeploymentComponentDeploymentSpecificationArgs>}>;
     deploymentName?: pulumi.Input<string>;
     deploymentPolicies?: pulumi.Input<inputs.greengrassv2.DeploymentPoliciesArgs>;
     iotJobConfiguration?: pulumi.Input<inputs.greengrassv2.DeploymentIoTJobConfigurationArgs>;
     parentTargetArn?: pulumi.Input<string>;
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     targetArn: pulumi.Input<string>;
 }

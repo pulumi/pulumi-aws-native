@@ -40,7 +40,7 @@ type Image struct {
 	// The name of the image.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The tags associated with the image.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Workflows to define the image build process
 	Workflows ImageWorkflowConfigurationArrayOutput `pulumi:"workflows"`
 }
@@ -60,7 +60,7 @@ func NewImage(ctx *pulumi.Context,
 		"imageScanningConfiguration",
 		"imageTestsConfiguration",
 		"infrastructureConfigurationArn",
-		"tags",
+		"tags.*",
 		"workflows[*]",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -114,7 +114,7 @@ type imageArgs struct {
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
 	// The tags associated with the image.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Workflows to define the image build process
 	Workflows []ImageWorkflowConfiguration `pulumi:"workflows"`
 }
@@ -138,7 +138,7 @@ type ImageArgs struct {
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
 	InfrastructureConfigurationArn pulumi.StringPtrInput
 	// The tags associated with the image.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// Workflows to define the image build process
 	Workflows ImageWorkflowConfigurationArrayInput
 }
@@ -241,8 +241,8 @@ func (o ImageOutput) Name() pulumi.StringOutput {
 }
 
 // The tags associated with the image.
-func (o ImageOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Image) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o ImageOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Workflows to define the image build process

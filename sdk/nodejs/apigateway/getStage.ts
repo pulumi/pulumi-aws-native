@@ -78,7 +78,7 @@ export interface GetStageResult {
     /**
      * A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
      */
-    readonly variables?: any;
+    readonly variables?: {[key: string]: string};
 }
 /**
  * The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.

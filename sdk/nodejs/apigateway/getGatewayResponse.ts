@@ -24,11 +24,11 @@ export interface GetGatewayResponseResult {
     /**
      * Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
      */
-    readonly responseParameters?: any;
+    readonly responseParameters?: {[key: string]: string};
     /**
      * Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
      */
-    readonly responseTemplates?: any;
+    readonly responseTemplates?: {[key: string]: string};
     /**
      * The HTTP status code for this GatewayResponse.
      */

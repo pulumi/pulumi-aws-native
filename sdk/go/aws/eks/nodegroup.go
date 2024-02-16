@@ -30,7 +30,7 @@ type Nodegroup struct {
 	// Specify the instance types for a node group.
 	InstanceTypes pulumi.StringArrayOutput `pulumi:"instanceTypes"`
 	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
-	Labels pulumi.AnyOutput `pulumi:"labels"`
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// An object representing a node group's launch template specification.
 	LaunchTemplate NodegroupLaunchTemplateSpecificationPtrOutput `pulumi:"launchTemplate"`
 	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
@@ -46,7 +46,7 @@ type Nodegroup struct {
 	// The subnets to use for the Auto Scaling group that is created for your node group.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
 	Taints NodegroupTaintArrayOutput `pulumi:"taints"`
 	// The node group update configuration.
@@ -129,7 +129,7 @@ type nodegroupArgs struct {
 	// Specify the instance types for a node group.
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
-	Labels interface{} `pulumi:"labels"`
+	Labels map[string]string `pulumi:"labels"`
 	// An object representing a node group's launch template specification.
 	LaunchTemplate *NodegroupLaunchTemplateSpecification `pulumi:"launchTemplate"`
 	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
@@ -145,7 +145,7 @@ type nodegroupArgs struct {
 	// The subnets to use for the Auto Scaling group that is created for your node group.
 	Subnets []string `pulumi:"subnets"`
 	// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
 	Taints []NodegroupTaint `pulumi:"taints"`
 	// The node group update configuration.
@@ -169,7 +169,7 @@ type NodegroupArgs struct {
 	// Specify the instance types for a node group.
 	InstanceTypes pulumi.StringArrayInput
 	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
-	Labels pulumi.Input
+	Labels pulumi.StringMapInput
 	// An object representing a node group's launch template specification.
 	LaunchTemplate NodegroupLaunchTemplateSpecificationPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
@@ -185,7 +185,7 @@ type NodegroupArgs struct {
 	// The subnets to use for the Auto Scaling group that is created for your node group.
 	Subnets pulumi.StringArrayInput
 	// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
 	Taints NodegroupTaintArrayInput
 	// The node group update configuration.
@@ -266,8 +266,8 @@ func (o NodegroupOutput) InstanceTypes() pulumi.StringArrayOutput {
 }
 
 // The Kubernetes labels to be applied to the nodes in the node group when they are created.
-func (o NodegroupOutput) Labels() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Nodegroup) pulumi.AnyOutput { return v.Labels }).(pulumi.AnyOutput)
+func (o NodegroupOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.StringMapOutput { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 // An object representing a node group's launch template specification.
@@ -306,8 +306,8 @@ func (o NodegroupOutput) Subnets() pulumi.StringArrayOutput {
 }
 
 // The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
-func (o NodegroupOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Nodegroup) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o NodegroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Nodegroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The Kubernetes taints to be applied to the nodes in the node group when they are created.

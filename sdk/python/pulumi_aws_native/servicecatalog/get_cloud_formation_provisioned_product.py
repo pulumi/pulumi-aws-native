@@ -76,7 +76,7 @@ class GetCloudFormationProvisionedProductResult:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[Any]:
+    def outputs(self) -> Optional[Mapping[str, str]]:
         """
         List of key-value pair outputs.
         """

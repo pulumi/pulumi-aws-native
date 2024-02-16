@@ -24,7 +24,7 @@ type NotificationRule struct {
 	Name          pulumi.StringOutput               `pulumi:"name"`
 	Resource      pulumi.StringOutput               `pulumi:"resource"`
 	Status        NotificationRuleStatusPtrOutput   `pulumi:"status"`
-	Tags          pulumi.AnyOutput                  `pulumi:"tags"`
+	Tags          pulumi.StringMapOutput            `pulumi:"tags"`
 	TargetAddress pulumi.StringPtrOutput            `pulumi:"targetAddress"`
 	Targets       NotificationRuleTargetArrayOutput `pulumi:"targets"`
 }
@@ -92,7 +92,7 @@ type notificationRuleArgs struct {
 	Name          *string                    `pulumi:"name"`
 	Resource      string                     `pulumi:"resource"`
 	Status        *NotificationRuleStatus    `pulumi:"status"`
-	Tags          interface{}                `pulumi:"tags"`
+	Tags          map[string]string          `pulumi:"tags"`
 	TargetAddress *string                    `pulumi:"targetAddress"`
 	Targets       []NotificationRuleTarget   `pulumi:"targets"`
 }
@@ -106,7 +106,7 @@ type NotificationRuleArgs struct {
 	Name          pulumi.StringPtrInput
 	Resource      pulumi.StringInput
 	Status        NotificationRuleStatusPtrInput
-	Tags          pulumi.Input
+	Tags          pulumi.StringMapInput
 	TargetAddress pulumi.StringPtrInput
 	Targets       NotificationRuleTargetArrayInput
 }
@@ -180,8 +180,8 @@ func (o NotificationRuleOutput) Status() NotificationRuleStatusPtrOutput {
 	return o.ApplyT(func(v *NotificationRule) NotificationRuleStatusPtrOutput { return v.Status }).(NotificationRuleStatusPtrOutput)
 }
 
-func (o NotificationRuleOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *NotificationRule) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o NotificationRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o NotificationRuleOutput) TargetAddress() pulumi.StringPtrOutput {

@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ComponentVersionComponentDependencyRequirementArgs',
     'ComponentVersionComponentPlatformArgs',
     'ComponentVersionLambdaContainerParamsArgs',
     'ComponentVersionLambdaDeviceMountArgs',
@@ -19,6 +20,9 @@ __all__ = [
     'ComponentVersionLambdaFunctionRecipeSourceArgs',
     'ComponentVersionLambdaLinuxProcessParamsArgs',
     'ComponentVersionLambdaVolumeMountArgs',
+    'DeploymentComponentConfigurationUpdateArgs',
+    'DeploymentComponentDeploymentSpecificationArgs',
+    'DeploymentComponentRunWithArgs',
     'DeploymentComponentUpdatePolicyArgs',
     'DeploymentConfigurationValidationPolicyArgs',
     'DeploymentIoTJobAbortConfigArgs',
@@ -29,12 +33,42 @@ __all__ = [
     'DeploymentIoTJobRateIncreaseCriteriaArgs',
     'DeploymentIoTJobTimeoutConfigArgs',
     'DeploymentPoliciesArgs',
+    'DeploymentSystemResourceLimitsArgs',
 ]
+
+@pulumi.input_type
+class ComponentVersionComponentDependencyRequirementArgs:
+    def __init__(__self__, *,
+                 dependency_type: Optional[pulumi.Input['ComponentVersionComponentDependencyRequirementDependencyType']] = None,
+                 version_requirement: Optional[pulumi.Input[str]] = None):
+        if dependency_type is not None:
+            pulumi.set(__self__, "dependency_type", dependency_type)
+        if version_requirement is not None:
+            pulumi.set(__self__, "version_requirement", version_requirement)
+
+    @property
+    @pulumi.getter(name="dependencyType")
+    def dependency_type(self) -> Optional[pulumi.Input['ComponentVersionComponentDependencyRequirementDependencyType']]:
+        return pulumi.get(self, "dependency_type")
+
+    @dependency_type.setter
+    def dependency_type(self, value: Optional[pulumi.Input['ComponentVersionComponentDependencyRequirementDependencyType']]):
+        pulumi.set(self, "dependency_type", value)
+
+    @property
+    @pulumi.getter(name="versionRequirement")
+    def version_requirement(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "version_requirement")
+
+    @version_requirement.setter
+    def version_requirement(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_requirement", value)
+
 
 @pulumi.input_type
 class ComponentVersionComponentPlatformArgs:
     def __init__(__self__, *,
-                 attributes: Optional[Any] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -43,11 +77,11 @@ class ComponentVersionComponentPlatformArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[Any]):
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "attributes", value)
 
     @property
@@ -186,7 +220,7 @@ class ComponentVersionLambdaEventSourceArgs:
 @pulumi.input_type
 class ComponentVersionLambdaExecutionParametersArgs:
     def __init__(__self__, *,
-                 environment_variables: Optional[Any] = None,
+                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  event_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgs']]]] = None,
                  exec_args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  input_payload_encoding_type: Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']] = None,
@@ -222,11 +256,11 @@ class ComponentVersionLambdaExecutionParametersArgs:
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[Any]:
+    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[Any]):
+    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "environment_variables", value)
 
     @property
@@ -323,7 +357,7 @@ class ComponentVersionLambdaExecutionParametersArgs:
 @pulumi.input_type
 class ComponentVersionLambdaFunctionRecipeSourceArgs:
     def __init__(__self__, *,
-                 component_dependencies: Optional[Any] = None,
+                 component_dependencies: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgs']]]] = None,
                  component_lambda_parameters: Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersArgs']] = None,
                  component_name: Optional[pulumi.Input[str]] = None,
                  component_platforms: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgs']]]] = None,
@@ -344,11 +378,11 @@ class ComponentVersionLambdaFunctionRecipeSourceArgs:
 
     @property
     @pulumi.getter(name="componentDependencies")
-    def component_dependencies(self) -> Optional[Any]:
+    def component_dependencies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgs']]]]:
         return pulumi.get(self, "component_dependencies")
 
     @component_dependencies.setter
-    def component_dependencies(self, value: Optional[Any]):
+    def component_dependencies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgs']]]]):
         pulumi.set(self, "component_dependencies", value)
 
     @property
@@ -477,6 +511,117 @@ class ComponentVersionLambdaVolumeMountArgs:
     @source_path.setter
     def source_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_path", value)
+
+
+@pulumi.input_type
+class DeploymentComponentConfigurationUpdateArgs:
+    def __init__(__self__, *,
+                 merge: Optional[pulumi.Input[str]] = None,
+                 reset: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if merge is not None:
+            pulumi.set(__self__, "merge", merge)
+        if reset is not None:
+            pulumi.set(__self__, "reset", reset)
+
+    @property
+    @pulumi.getter
+    def merge(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "merge")
+
+    @merge.setter
+    def merge(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "merge", value)
+
+    @property
+    @pulumi.getter
+    def reset(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "reset")
+
+    @reset.setter
+    def reset(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "reset", value)
+
+
+@pulumi.input_type
+class DeploymentComponentDeploymentSpecificationArgs:
+    def __init__(__self__, *,
+                 component_version: Optional[pulumi.Input[str]] = None,
+                 configuration_update: Optional[pulumi.Input['DeploymentComponentConfigurationUpdateArgs']] = None,
+                 run_with: Optional[pulumi.Input['DeploymentComponentRunWithArgs']] = None):
+        if component_version is not None:
+            pulumi.set(__self__, "component_version", component_version)
+        if configuration_update is not None:
+            pulumi.set(__self__, "configuration_update", configuration_update)
+        if run_with is not None:
+            pulumi.set(__self__, "run_with", run_with)
+
+    @property
+    @pulumi.getter(name="componentVersion")
+    def component_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "component_version")
+
+    @component_version.setter
+    def component_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "component_version", value)
+
+    @property
+    @pulumi.getter(name="configurationUpdate")
+    def configuration_update(self) -> Optional[pulumi.Input['DeploymentComponentConfigurationUpdateArgs']]:
+        return pulumi.get(self, "configuration_update")
+
+    @configuration_update.setter
+    def configuration_update(self, value: Optional[pulumi.Input['DeploymentComponentConfigurationUpdateArgs']]):
+        pulumi.set(self, "configuration_update", value)
+
+    @property
+    @pulumi.getter(name="runWith")
+    def run_with(self) -> Optional[pulumi.Input['DeploymentComponentRunWithArgs']]:
+        return pulumi.get(self, "run_with")
+
+    @run_with.setter
+    def run_with(self, value: Optional[pulumi.Input['DeploymentComponentRunWithArgs']]):
+        pulumi.set(self, "run_with", value)
+
+
+@pulumi.input_type
+class DeploymentComponentRunWithArgs:
+    def __init__(__self__, *,
+                 posix_user: Optional[pulumi.Input[str]] = None,
+                 system_resource_limits: Optional[pulumi.Input['DeploymentSystemResourceLimitsArgs']] = None,
+                 windows_user: Optional[pulumi.Input[str]] = None):
+        if posix_user is not None:
+            pulumi.set(__self__, "posix_user", posix_user)
+        if system_resource_limits is not None:
+            pulumi.set(__self__, "system_resource_limits", system_resource_limits)
+        if windows_user is not None:
+            pulumi.set(__self__, "windows_user", windows_user)
+
+    @property
+    @pulumi.getter(name="posixUser")
+    def posix_user(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "posix_user")
+
+    @posix_user.setter
+    def posix_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "posix_user", value)
+
+    @property
+    @pulumi.getter(name="systemResourceLimits")
+    def system_resource_limits(self) -> Optional[pulumi.Input['DeploymentSystemResourceLimitsArgs']]:
+        return pulumi.get(self, "system_resource_limits")
+
+    @system_resource_limits.setter
+    def system_resource_limits(self, value: Optional[pulumi.Input['DeploymentSystemResourceLimitsArgs']]):
+        pulumi.set(self, "system_resource_limits", value)
+
+    @property
+    @pulumi.getter(name="windowsUser")
+    def windows_user(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "windows_user")
+
+    @windows_user.setter
+    def windows_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "windows_user", value)
 
 
 @pulumi.input_type
@@ -760,5 +905,34 @@ class DeploymentPoliciesArgs:
     @failure_handling_policy.setter
     def failure_handling_policy(self, value: Optional[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']]):
         pulumi.set(self, "failure_handling_policy", value)
+
+
+@pulumi.input_type
+class DeploymentSystemResourceLimitsArgs:
+    def __init__(__self__, *,
+                 cpus: Optional[pulumi.Input[float]] = None,
+                 memory: Optional[pulumi.Input[int]] = None):
+        if cpus is not None:
+            pulumi.set(__self__, "cpus", cpus)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpus(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "cpus")
+
+    @cpus.setter
+    def cpus(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "cpus", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "memory", value)
 
 

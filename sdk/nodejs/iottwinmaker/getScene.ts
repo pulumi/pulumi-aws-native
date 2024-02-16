@@ -51,15 +51,15 @@ export interface GetSceneResult {
     /**
      * A key-value pair of generated scene metadata for the scene.
      */
-    readonly generatedSceneMetadata?: any;
+    readonly generatedSceneMetadata?: {[key: string]: string};
     /**
      * A key-value pair of scene metadata for the scene.
      */
-    readonly sceneMetadata?: any;
+    readonly sceneMetadata?: {[key: string]: string};
     /**
      * A key-value pair to associate with a resource.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     /**
      * The date and time of the current update.
      */

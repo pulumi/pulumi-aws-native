@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// <summary>
         /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// A version identifier for the API.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
             string? routeSelectionExpression,
 
-            object? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? version)
         {

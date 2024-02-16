@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Msk
         /// A key-value pair to associate with a resource.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("vpcConfigs")]
         public Output<ImmutableArray<Outputs.ServerlessClusterVpcConfig>> VpcConfigs { get; private set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.Msk
                 {
                     "clientAuthentication",
                     "clusterName",
-                    "tags",
+                    "tags.*",
                     "vpcConfigs[*]",
                 },
             };
@@ -91,11 +91,17 @@ namespace Pulumi.AwsNative.Msk
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("vpcConfigs", required: true)]
         private InputList<Inputs.ServerlessClusterVpcConfigArgs>? _vpcConfigs;

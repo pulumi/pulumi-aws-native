@@ -20,7 +20,7 @@ type Connector struct {
 	// Amazon Resource Name for the created Connector.
 	ConnectorArn pulumi.StringOutput `pulumi:"connectorArn"`
 	// The configuration for the connector.
-	ConnectorConfiguration pulumi.AnyOutput `pulumi:"connectorConfiguration"`
+	ConnectorConfiguration pulumi.StringMapOutput `pulumi:"connectorConfiguration"`
 	// A summary description of the connector.
 	ConnectorDescription pulumi.StringPtrOutput `pulumi:"connectorDescription"`
 	// The name of the connector.
@@ -70,7 +70,7 @@ func NewConnector(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceExecutionRoleArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"connectorConfiguration",
+		"connectorConfiguration.*",
 		"connectorDescription",
 		"connectorName",
 		"kafkaCluster",
@@ -118,7 +118,7 @@ func (ConnectorState) ElementType() reflect.Type {
 type connectorArgs struct {
 	Capacity ConnectorCapacity `pulumi:"capacity"`
 	// The configuration for the connector.
-	ConnectorConfiguration interface{} `pulumi:"connectorConfiguration"`
+	ConnectorConfiguration map[string]string `pulumi:"connectorConfiguration"`
 	// A summary description of the connector.
 	ConnectorDescription *string `pulumi:"connectorDescription"`
 	// The name of the connector.
@@ -140,7 +140,7 @@ type connectorArgs struct {
 type ConnectorArgs struct {
 	Capacity ConnectorCapacityInput
 	// The configuration for the connector.
-	ConnectorConfiguration pulumi.Input
+	ConnectorConfiguration pulumi.StringMapInput
 	// A summary description of the connector.
 	ConnectorDescription pulumi.StringPtrInput
 	// The name of the connector.
@@ -205,8 +205,8 @@ func (o ConnectorOutput) ConnectorArn() pulumi.StringOutput {
 }
 
 // The configuration for the connector.
-func (o ConnectorOutput) ConnectorConfiguration() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Connector) pulumi.AnyOutput { return v.ConnectorConfiguration }).(pulumi.AnyOutput)
+func (o ConnectorOutput) ConnectorConfiguration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.ConnectorConfiguration }).(pulumi.StringMapOutput)
 }
 
 // A summary description of the connector.

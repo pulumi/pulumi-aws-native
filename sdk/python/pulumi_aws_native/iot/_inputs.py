@@ -53,6 +53,7 @@ __all__ = [
     'ProvisioningTemplateTagArgs',
     'RoleAliasTagArgs',
     'ScheduledAuditTagArgs',
+    'SecurityProfileAlertTargetArgs',
     'SecurityProfileBehaviorCriteriaArgs',
     'SecurityProfileBehaviorArgs',
     'SecurityProfileMachineLearningDetectionConfigArgs',
@@ -1686,6 +1687,44 @@ class ScheduledAuditTagArgs:
 
 
 @pulumi.input_type
+class SecurityProfileAlertTargetArgs:
+    def __init__(__self__, *,
+                 alert_target_arn: pulumi.Input[str],
+                 role_arn: pulumi.Input[str]):
+        """
+        A structure containing the alert target ARN and the role ARN.
+        :param pulumi.Input[str] alert_target_arn: The ARN of the notification target to which alerts are sent.
+        :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to send alerts to the notification target.
+        """
+        pulumi.set(__self__, "alert_target_arn", alert_target_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="alertTargetArn")
+    def alert_target_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the notification target to which alerts are sent.
+        """
+        return pulumi.get(self, "alert_target_arn")
+
+    @alert_target_arn.setter
+    def alert_target_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alert_target_arn", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the role that grants permission to send alerts to the notification target.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
 class SecurityProfileBehaviorCriteriaArgs:
     def __init__(__self__, *,
                  comparison_operator: Optional[pulumi.Input['SecurityProfileBehaviorCriteriaComparisonOperator']] = None,
@@ -2245,34 +2284,34 @@ class SoftwarePackageVersionTagArgs:
 @pulumi.input_type
 class ThingAttributePayloadArgs:
     def __init__(__self__, *,
-                 attributes: Optional[Any] = None):
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[Any]):
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "attributes", value)
 
 
 @pulumi.input_type
 class ThingGroupAttributePayloadArgs:
     def __init__(__self__, *,
-                 attributes: Optional[Any] = None):
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[Any]):
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "attributes", value)
 
 
@@ -3540,7 +3579,7 @@ class TopicRuleKafkaActionHeaderArgs:
 @pulumi.input_type
 class TopicRuleKafkaActionArgs:
     def __init__(__self__, *,
-                 client_properties: Any,
+                 client_properties: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  destination_arn: pulumi.Input[str],
                  topic: pulumi.Input[str],
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgs']]]] = None,
@@ -3558,11 +3597,11 @@ class TopicRuleKafkaActionArgs:
 
     @property
     @pulumi.getter(name="clientProperties")
-    def client_properties(self) -> Any:
+    def client_properties(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         return pulumi.get(self, "client_properties")
 
     @client_properties.setter
-    def client_properties(self, value: Any):
+    def client_properties(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "client_properties", value)
 
     @property

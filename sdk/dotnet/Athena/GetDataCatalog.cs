@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
         /// </summary>
-        public readonly object? Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
         /// A list of comma separated tags to add to the data catalog that is created. 
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Athena
         private GetDataCatalogResult(
             string? description,
 
-            object? parameters,
+            ImmutableDictionary<string, string>? parameters,
 
             ImmutableArray<Outputs.DataCatalogTag> tags,
 

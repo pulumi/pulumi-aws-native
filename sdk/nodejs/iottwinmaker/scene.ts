@@ -57,7 +57,7 @@ export class Scene extends pulumi.CustomResource {
     /**
      * A key-value pair of generated scene metadata for the scene.
      */
-    public /*out*/ readonly generatedSceneMetadata!: pulumi.Output<any>;
+    public /*out*/ readonly generatedSceneMetadata!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the scene.
      */
@@ -65,11 +65,11 @@ export class Scene extends pulumi.CustomResource {
     /**
      * A key-value pair of scene metadata for the scene.
      */
-    public readonly sceneMetadata!: pulumi.Output<any | undefined>;
+    public readonly sceneMetadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The date and time of the current update.
      */
@@ -153,11 +153,11 @@ export interface SceneArgs {
     /**
      * A key-value pair of scene metadata for the scene.
      */
-    sceneMetadata?: any;
+    sceneMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the scene.
      */

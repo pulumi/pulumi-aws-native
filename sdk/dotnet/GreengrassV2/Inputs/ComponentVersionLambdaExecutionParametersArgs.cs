@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
     public sealed class ComponentVersionLambdaExecutionParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("environmentVariables")]
-        public Input<object>? EnvironmentVariables { get; set; }
+        private InputMap<string>? _environmentVariables;
+        public InputMap<string> EnvironmentVariables
+        {
+            get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
+            set => _environmentVariables = value;
+        }
 
         [Input("eventSources")]
         private InputList<Inputs.ComponentVersionLambdaEventSourceArgs>? _eventSources;

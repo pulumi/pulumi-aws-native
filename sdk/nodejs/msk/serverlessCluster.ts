@@ -43,7 +43,7 @@ export class ServerlessCluster extends pulumi.CustomResource {
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly vpcConfigs!: pulumi.Output<outputs.msk.ServerlessClusterVpcConfig[]>;
 
     /**
@@ -79,7 +79,7 @@ export class ServerlessCluster extends pulumi.CustomResource {
             resourceInputs["vpcConfigs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["clientAuthentication", "clusterName", "tags", "vpcConfigs[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["clientAuthentication", "clusterName", "tags.*", "vpcConfigs[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServerlessCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -94,6 +94,6 @@ export interface ServerlessClusterArgs {
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     vpcConfigs: pulumi.Input<pulumi.Input<inputs.msk.ServerlessClusterVpcConfigArgs>[]>;
 }

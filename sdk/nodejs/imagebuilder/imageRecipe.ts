@@ -68,7 +68,7 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * The tags of the image recipe.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The version of the image recipe.
      */
@@ -121,7 +121,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["workingDirectory"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["blockDeviceMappings[*]", "components[*]", "description", "name", "parentImage", "tags", "version", "workingDirectory"] };
+        const replaceOnChanges = { replaceOnChanges: ["blockDeviceMappings[*]", "components[*]", "description", "name", "parentImage", "tags.*", "version", "workingDirectory"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ImageRecipe.__pulumiType, name, resourceInputs, opts);
     }
@@ -158,7 +158,7 @@ export interface ImageRecipeArgs {
     /**
      * The tags of the image recipe.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The version of the image recipe.
      */

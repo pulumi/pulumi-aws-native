@@ -22,11 +22,11 @@ __all__ = [
 class DataIntegrationFileConfigurationArgs:
     def __init__(__self__, *,
                  folders: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 filters: Optional[Any] = None):
+                 filters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None):
         """
         The configuration for what files should be pulled from the source.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] folders: Identifiers for the source folders to pull all files from recursively.
-        :param Any filters: Restrictions for what files should be pulled from the source.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] filters: Restrictions for what files should be pulled from the source.
         """
         pulumi.set(__self__, "folders", folders)
         if filters is not None:
@@ -46,14 +46,14 @@ class DataIntegrationFileConfigurationArgs:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[Any]:
+    def filters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]:
         """
         Restrictions for what files should be pulled from the source.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[Any]):
+    def filters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]):
         pulumi.set(self, "filters", value)
 
 

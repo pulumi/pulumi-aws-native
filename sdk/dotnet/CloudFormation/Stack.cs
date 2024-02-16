@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<ImmutableArray<Outputs.StackOutput>> Outputs { get; private set; } = null!;
 
         [Output("parameters")]
-        public Output<object?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         [Output("parentId")]
         public Output<string> ParentId { get; private set; } = null!;
@@ -159,7 +159,12 @@ namespace Pulumi.AwsNative.CloudFormation
         }
 
         [Input("parameters")]
-        public Input<object>? Parameters { get; set; }
+        private InputMap<string>? _parameters;
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
 
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

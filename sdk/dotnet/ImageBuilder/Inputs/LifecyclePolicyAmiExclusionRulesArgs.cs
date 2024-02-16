@@ -51,11 +51,17 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
             set => _sharedAccounts = value;
         }
 
+        [Input("tagMap")]
+        private InputMap<string>? _tagMap;
+
         /// <summary>
         /// The AMIs to select by tag.
         /// </summary>
-        [Input("tagMap")]
-        public Input<object>? TagMap { get; set; }
+        public InputMap<string> TagMap
+        {
+            get => _tagMap ?? (_tagMap = new InputMap<string>());
+            set => _tagMap = value;
+        }
 
         public LifecyclePolicyAmiExclusionRulesArgs()
         {

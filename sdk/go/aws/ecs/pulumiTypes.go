@@ -3315,9 +3315,9 @@ func (o ServiceLoadBalancerArrayOutput) Index(i pulumi.IntInput) ServiceLoadBala
 }
 
 type ServiceLogConfiguration struct {
-	LogDriver     *string         `pulumi:"logDriver"`
-	Options       interface{}     `pulumi:"options"`
-	SecretOptions []ServiceSecret `pulumi:"secretOptions"`
+	LogDriver     *string           `pulumi:"logDriver"`
+	Options       map[string]string `pulumi:"options"`
+	SecretOptions []ServiceSecret   `pulumi:"secretOptions"`
 }
 
 // ServiceLogConfigurationInput is an input type that accepts ServiceLogConfigurationArgs and ServiceLogConfigurationOutput values.
@@ -3333,7 +3333,7 @@ type ServiceLogConfigurationInput interface {
 
 type ServiceLogConfigurationArgs struct {
 	LogDriver     pulumi.StringPtrInput   `pulumi:"logDriver"`
-	Options       pulumi.Input            `pulumi:"options"`
+	Options       pulumi.StringMapInput   `pulumi:"options"`
 	SecretOptions ServiceSecretArrayInput `pulumi:"secretOptions"`
 }
 
@@ -3418,8 +3418,8 @@ func (o ServiceLogConfigurationOutput) LogDriver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLogConfiguration) *string { return v.LogDriver }).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceLogConfigurationOutput) Options() pulumi.AnyOutput {
-	return o.ApplyT(func(v ServiceLogConfiguration) interface{} { return v.Options }).(pulumi.AnyOutput)
+func (o ServiceLogConfigurationOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceLogConfiguration) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
 
 func (o ServiceLogConfigurationOutput) SecretOptions() ServiceSecretArrayOutput {
@@ -3459,13 +3459,13 @@ func (o ServiceLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceLogConfigurationPtrOutput) Options() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ServiceLogConfiguration) interface{} {
+func (o ServiceLogConfigurationPtrOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceLogConfiguration) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o ServiceLogConfigurationPtrOutput) SecretOptions() ServiceSecretArrayOutput {
@@ -4795,7 +4795,7 @@ type TaskDefinitionContainerDefinition struct {
 	DisableNetworking     *bool                               `pulumi:"disableNetworking"`
 	DnsSearchDomains      []string                            `pulumi:"dnsSearchDomains"`
 	DnsServers            []string                            `pulumi:"dnsServers"`
-	DockerLabels          interface{}                         `pulumi:"dockerLabels"`
+	DockerLabels          map[string]string                   `pulumi:"dockerLabels"`
 	DockerSecurityOptions []string                            `pulumi:"dockerSecurityOptions"`
 	EntryPoint            []string                            `pulumi:"entryPoint"`
 	// The environment variables to pass to a container
@@ -4856,7 +4856,7 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	DisableNetworking     pulumi.BoolPtrInput                         `pulumi:"disableNetworking"`
 	DnsSearchDomains      pulumi.StringArrayInput                     `pulumi:"dnsSearchDomains"`
 	DnsServers            pulumi.StringArrayInput                     `pulumi:"dnsServers"`
-	DockerLabels          pulumi.Input                                `pulumi:"dockerLabels"`
+	DockerLabels          pulumi.StringMapInput                       `pulumi:"dockerLabels"`
 	DockerSecurityOptions pulumi.StringArrayInput                     `pulumi:"dockerSecurityOptions"`
 	EntryPoint            pulumi.StringArrayInput                     `pulumi:"entryPoint"`
 	// The environment variables to pass to a container
@@ -4977,8 +4977,8 @@ func (o TaskDefinitionContainerDefinitionOutput) DnsServers() pulumi.StringArray
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-func (o TaskDefinitionContainerDefinitionOutput) DockerLabels() pulumi.AnyOutput {
-	return o.ApplyT(func(v TaskDefinitionContainerDefinition) interface{} { return v.DockerLabels }).(pulumi.AnyOutput)
+func (o TaskDefinitionContainerDefinitionOutput) DockerLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TaskDefinitionContainerDefinition) map[string]string { return v.DockerLabels }).(pulumi.StringMapOutput)
 }
 
 func (o TaskDefinitionContainerDefinitionOutput) DockerSecurityOptions() pulumi.StringArrayOutput {
@@ -5348,11 +5348,11 @@ func (o TaskDefinitionDeviceArrayOutput) Index(i pulumi.IntInput) TaskDefinition
 }
 
 type TaskDefinitionDockerVolumeConfiguration struct {
-	Autoprovision *bool       `pulumi:"autoprovision"`
-	Driver        *string     `pulumi:"driver"`
-	DriverOpts    interface{} `pulumi:"driverOpts"`
-	Labels        interface{} `pulumi:"labels"`
-	Scope         *string     `pulumi:"scope"`
+	Autoprovision *bool             `pulumi:"autoprovision"`
+	Driver        *string           `pulumi:"driver"`
+	DriverOpts    map[string]string `pulumi:"driverOpts"`
+	Labels        map[string]string `pulumi:"labels"`
+	Scope         *string           `pulumi:"scope"`
 }
 
 // TaskDefinitionDockerVolumeConfigurationInput is an input type that accepts TaskDefinitionDockerVolumeConfigurationArgs and TaskDefinitionDockerVolumeConfigurationOutput values.
@@ -5369,8 +5369,8 @@ type TaskDefinitionDockerVolumeConfigurationInput interface {
 type TaskDefinitionDockerVolumeConfigurationArgs struct {
 	Autoprovision pulumi.BoolPtrInput   `pulumi:"autoprovision"`
 	Driver        pulumi.StringPtrInput `pulumi:"driver"`
-	DriverOpts    pulumi.Input          `pulumi:"driverOpts"`
-	Labels        pulumi.Input          `pulumi:"labels"`
+	DriverOpts    pulumi.StringMapInput `pulumi:"driverOpts"`
+	Labels        pulumi.StringMapInput `pulumi:"labels"`
 	Scope         pulumi.StringPtrInput `pulumi:"scope"`
 }
 
@@ -5459,12 +5459,12 @@ func (o TaskDefinitionDockerVolumeConfigurationOutput) Driver() pulumi.StringPtr
 	return o.ApplyT(func(v TaskDefinitionDockerVolumeConfiguration) *string { return v.Driver }).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionDockerVolumeConfigurationOutput) DriverOpts() pulumi.AnyOutput {
-	return o.ApplyT(func(v TaskDefinitionDockerVolumeConfiguration) interface{} { return v.DriverOpts }).(pulumi.AnyOutput)
+func (o TaskDefinitionDockerVolumeConfigurationOutput) DriverOpts() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TaskDefinitionDockerVolumeConfiguration) map[string]string { return v.DriverOpts }).(pulumi.StringMapOutput)
 }
 
-func (o TaskDefinitionDockerVolumeConfigurationOutput) Labels() pulumi.AnyOutput {
-	return o.ApplyT(func(v TaskDefinitionDockerVolumeConfiguration) interface{} { return v.Labels }).(pulumi.AnyOutput)
+func (o TaskDefinitionDockerVolumeConfigurationOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TaskDefinitionDockerVolumeConfiguration) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
 func (o TaskDefinitionDockerVolumeConfigurationOutput) Scope() pulumi.StringPtrOutput {
@@ -5513,22 +5513,22 @@ func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Driver() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) DriverOpts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *TaskDefinitionDockerVolumeConfiguration) interface{} {
+func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) DriverOpts() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TaskDefinitionDockerVolumeConfiguration) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.DriverOpts
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
-func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Labels() pulumi.AnyOutput {
-	return o.ApplyT(func(v *TaskDefinitionDockerVolumeConfiguration) interface{} {
+func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TaskDefinitionDockerVolumeConfiguration) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Labels
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
@@ -5971,8 +5971,8 @@ func (o TaskDefinitionEphemeralStoragePtrOutput) SizeInGiB() pulumi.IntPtrOutput
 }
 
 type TaskDefinitionFirelensConfiguration struct {
-	Options interface{} `pulumi:"options"`
-	Type    *string     `pulumi:"type"`
+	Options map[string]string `pulumi:"options"`
+	Type    *string           `pulumi:"type"`
 }
 
 // TaskDefinitionFirelensConfigurationInput is an input type that accepts TaskDefinitionFirelensConfigurationArgs and TaskDefinitionFirelensConfigurationOutput values.
@@ -5987,7 +5987,7 @@ type TaskDefinitionFirelensConfigurationInput interface {
 }
 
 type TaskDefinitionFirelensConfigurationArgs struct {
-	Options pulumi.Input          `pulumi:"options"`
+	Options pulumi.StringMapInput `pulumi:"options"`
 	Type    pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -6068,8 +6068,8 @@ func (o TaskDefinitionFirelensConfigurationOutput) ToTaskDefinitionFirelensConfi
 	}).(TaskDefinitionFirelensConfigurationPtrOutput)
 }
 
-func (o TaskDefinitionFirelensConfigurationOutput) Options() pulumi.AnyOutput {
-	return o.ApplyT(func(v TaskDefinitionFirelensConfiguration) interface{} { return v.Options }).(pulumi.AnyOutput)
+func (o TaskDefinitionFirelensConfigurationOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TaskDefinitionFirelensConfiguration) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
 
 func (o TaskDefinitionFirelensConfigurationOutput) Type() pulumi.StringPtrOutput {
@@ -6100,13 +6100,13 @@ func (o TaskDefinitionFirelensConfigurationPtrOutput) Elem() TaskDefinitionFirel
 	}).(TaskDefinitionFirelensConfigurationOutput)
 }
 
-func (o TaskDefinitionFirelensConfigurationPtrOutput) Options() pulumi.AnyOutput {
-	return o.ApplyT(func(v *TaskDefinitionFirelensConfiguration) interface{} {
+func (o TaskDefinitionFirelensConfigurationPtrOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TaskDefinitionFirelensConfiguration) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o TaskDefinitionFirelensConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
@@ -7140,7 +7140,7 @@ func (o TaskDefinitionLinuxParametersPtrOutput) Tmpfs() TaskDefinitionTmpfsArray
 
 type TaskDefinitionLogConfiguration struct {
 	LogDriver     string                 `pulumi:"logDriver"`
-	Options       interface{}            `pulumi:"options"`
+	Options       map[string]string      `pulumi:"options"`
 	SecretOptions []TaskDefinitionSecret `pulumi:"secretOptions"`
 }
 
@@ -7157,7 +7157,7 @@ type TaskDefinitionLogConfigurationInput interface {
 
 type TaskDefinitionLogConfigurationArgs struct {
 	LogDriver     pulumi.StringInput             `pulumi:"logDriver"`
-	Options       pulumi.Input                   `pulumi:"options"`
+	Options       pulumi.StringMapInput          `pulumi:"options"`
 	SecretOptions TaskDefinitionSecretArrayInput `pulumi:"secretOptions"`
 }
 
@@ -7242,8 +7242,8 @@ func (o TaskDefinitionLogConfigurationOutput) LogDriver() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionLogConfiguration) string { return v.LogDriver }).(pulumi.StringOutput)
 }
 
-func (o TaskDefinitionLogConfigurationOutput) Options() pulumi.AnyOutput {
-	return o.ApplyT(func(v TaskDefinitionLogConfiguration) interface{} { return v.Options }).(pulumi.AnyOutput)
+func (o TaskDefinitionLogConfigurationOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TaskDefinitionLogConfiguration) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
 
 func (o TaskDefinitionLogConfigurationOutput) SecretOptions() TaskDefinitionSecretArrayOutput {
@@ -7283,13 +7283,13 @@ func (o TaskDefinitionLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionLogConfigurationPtrOutput) Options() pulumi.AnyOutput {
-	return o.ApplyT(func(v *TaskDefinitionLogConfiguration) interface{} {
+func (o TaskDefinitionLogConfigurationPtrOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TaskDefinitionLogConfiguration) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o TaskDefinitionLogConfigurationPtrOutput) SecretOptions() TaskDefinitionSecretArrayOutput {

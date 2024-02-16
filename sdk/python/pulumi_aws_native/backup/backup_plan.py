@@ -17,7 +17,7 @@ __all__ = ['BackupPlanArgs', 'BackupPlan']
 class BackupPlanArgs:
     def __init__(__self__, *,
                  backup_plan: pulumi.Input['BackupPlanResourceTypeArgs'],
-                 backup_plan_tags: Optional[Any] = None):
+                 backup_plan_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BackupPlan resource.
         """
@@ -36,11 +36,11 @@ class BackupPlanArgs:
 
     @property
     @pulumi.getter(name="backupPlanTags")
-    def backup_plan_tags(self) -> Optional[Any]:
+    def backup_plan_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "backup_plan_tags")
 
     @backup_plan_tags.setter
-    def backup_plan_tags(self, value: Optional[Any]):
+    def backup_plan_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "backup_plan_tags", value)
 
 
@@ -50,7 +50,7 @@ class BackupPlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_plan: Optional[pulumi.Input[pulumi.InputType['BackupPlanResourceTypeArgs']]] = None,
-                 backup_plan_tags: Optional[Any] = None,
+                 backup_plan_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Backup::BackupPlan
@@ -83,7 +83,7 @@ class BackupPlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_plan: Optional[pulumi.Input[pulumi.InputType['BackupPlanResourceTypeArgs']]] = None,
-                 backup_plan_tags: Optional[Any] = None,
+                 backup_plan_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -146,7 +146,7 @@ class BackupPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupPlanTags")
-    def backup_plan_tags(self) -> pulumi.Output[Optional[Any]]:
+    def backup_plan_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "backup_plan_tags")
 
     @property

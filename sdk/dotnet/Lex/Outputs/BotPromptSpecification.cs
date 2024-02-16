@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// <summary>
         /// Specifies the advanced settings on each attempt of the prompt.
         /// </summary>
-        public readonly object? PromptAttemptsSpecification;
+        public readonly ImmutableDictionary<string, Outputs.BotPromptAttemptSpecification>? PromptAttemptsSpecification;
 
         [OutputConstructor]
         private BotPromptSpecification(
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             Pulumi.AwsNative.Lex.BotMessageSelectionStrategy? messageSelectionStrategy,
 
-            object? promptAttemptsSpecification)
+            ImmutableDictionary<string, Outputs.BotPromptAttemptSpecification>? promptAttemptsSpecification)
         {
             AllowInterrupt = allowInterrupt;
             MaxRetries = maxRetries;

@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The tags associated with the workflow.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the workflow denotes whether the workflow is used to build, test, or distribute.
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.ImageBuilder
                     "description",
                     "kmsKeyId",
                     "name",
-                    "tags",
+                    "tags.*",
                     "type",
                     "uri",
                     "version",
@@ -162,11 +162,17 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// The tags associated with the workflow.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The type of the workflow denotes whether the workflow is used to build, test, or distribute.

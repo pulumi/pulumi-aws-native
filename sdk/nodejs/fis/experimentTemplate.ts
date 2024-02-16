@@ -43,7 +43,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     public readonly roleArn!: pulumi.Output<string>;
     public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
-    public readonly tags!: pulumi.Output<any>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     public readonly targets!: pulumi.Output<outputs.fis.ExperimentTemplateTargetMap>;
 
     /**
@@ -91,7 +91,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["targets"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ExperimentTemplate.__pulumiType, name, resourceInputs, opts);
     }
@@ -107,6 +107,6 @@ export interface ExperimentTemplateArgs {
     logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfigurationArgs>;
     roleArn: pulumi.Input<string>;
     stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopConditionArgs>[]>;
-    tags: any;
+    tags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     targets: pulumi.Input<inputs.fis.ExperimentTemplateTargetMapArgs>;
 }

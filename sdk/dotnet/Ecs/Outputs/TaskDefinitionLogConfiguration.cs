@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     public sealed class TaskDefinitionLogConfiguration
     {
         public readonly string LogDriver;
-        public readonly object? Options;
+        public readonly ImmutableDictionary<string, string>? Options;
         public readonly ImmutableArray<Outputs.TaskDefinitionSecret> SecretOptions;
 
         [OutputConstructor]
         private TaskDefinitionLogConfiguration(
             string logDriver,
 
-            object? options,
+            ImmutableDictionary<string, string>? options,
 
             ImmutableArray<Outputs.TaskDefinitionSecret> secretOptions)
         {

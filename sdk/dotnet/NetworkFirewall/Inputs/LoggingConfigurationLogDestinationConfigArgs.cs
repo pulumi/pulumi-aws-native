@@ -12,11 +12,17 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class LoggingConfigurationLogDestinationConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("logDestination", required: true)]
+        private InputMap<string>? _logDestination;
+
         /// <summary>
         /// A key-value pair to configure the logDestinations.
         /// </summary>
-        [Input("logDestination", required: true)]
-        public Input<object> LogDestination { get; set; } = null!;
+        public InputMap<string> LogDestination
+        {
+            get => _logDestination ?? (_logDestination = new InputMap<string>());
+            set => _logDestination = value;
+        }
 
         [Input("logDestinationType", required: true)]
         public Input<Pulumi.AwsNative.NetworkFirewall.LoggingConfigurationLogDestinationConfigLogDestinationType> LogDestinationType { get; set; } = null!;

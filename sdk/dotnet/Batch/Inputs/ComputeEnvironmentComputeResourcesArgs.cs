@@ -77,11 +77,17 @@ namespace Pulumi.AwsNative.Batch.Inputs
             set => _subnets = value;
         }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

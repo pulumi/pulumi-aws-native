@@ -25,7 +25,7 @@ class NotificationRuleArgs:
                  event_type_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_address: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NotificationRule resource.
@@ -121,11 +121,11 @@ class NotificationRuleArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -150,7 +150,7 @@ class NotificationRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_address: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None,
                  __props__=None):
@@ -191,7 +191,7 @@ class NotificationRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_address: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None,
                  __props__=None):
@@ -301,7 +301,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

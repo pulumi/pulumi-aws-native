@@ -35,7 +35,7 @@ type LookupDistributionConfigurationResult struct {
 	// The distributions of the distribution configuration.
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
 	// The tags associated with the component.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistributionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionConfigurationResultOutput {
@@ -92,8 +92,8 @@ func (o LookupDistributionConfigurationResultOutput) Distributions() Distributio
 }
 
 // The tags associated with the component.
-func (o LookupDistributionConfigurationResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupDistributionConfigurationResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupDistributionConfigurationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

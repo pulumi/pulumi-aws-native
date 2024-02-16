@@ -129,7 +129,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
+    def parameters(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "parameters")
 
     @property

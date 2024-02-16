@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The tags associated with the lifecycle policy.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -166,11 +166,17 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Input("status")]
         public Input<Pulumi.AwsNative.ImageBuilder.LifecyclePolicyStatus>? Status { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// The tags associated with the lifecycle policy.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public LifecyclePolicyArgs()
         {

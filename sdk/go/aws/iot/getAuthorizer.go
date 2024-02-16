@@ -33,7 +33,7 @@ type LookupAuthorizerResult struct {
 	Status                 *AuthorizerStatus `pulumi:"status"`
 	Tags                   []AuthorizerTag   `pulumi:"tags"`
 	TokenKeyName           *string           `pulumi:"tokenKeyName"`
-	TokenSigningPublicKeys interface{}       `pulumi:"tokenSigningPublicKeys"`
+	TokenSigningPublicKeys map[string]string `pulumi:"tokenSigningPublicKeys"`
 }
 
 func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs, opts ...pulumi.InvokeOption) LookupAuthorizerResultOutput {
@@ -95,8 +95,8 @@ func (o LookupAuthorizerResultOutput) TokenKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.TokenKeyName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAuthorizerResultOutput) TokenSigningPublicKeys() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) interface{} { return v.TokenSigningPublicKeys }).(pulumi.AnyOutput)
+func (o LookupAuthorizerResultOutput) TokenSigningPublicKeys() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) map[string]string { return v.TokenSigningPublicKeys }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Backup
         public Output<string> BackupPlanId { get; private set; } = null!;
 
         [Output("backupPlanTags")]
-        public Output<object?> BackupPlanTags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> BackupPlanTags { get; private set; } = null!;
 
         [Output("versionId")]
         public Output<string> VersionId { get; private set; } = null!;
@@ -79,7 +79,12 @@ namespace Pulumi.AwsNative.Backup
         public Input<Inputs.BackupPlanResourceTypeArgs> BackupPlanValue { get; set; } = null!;
 
         [Input("backupPlanTags")]
-        public Input<object>? BackupPlanTags { get; set; }
+        private InputMap<string>? _backupPlanTags;
+        public InputMap<string> BackupPlanTags
+        {
+            get => _backupPlanTags ?? (_backupPlanTags = new InputMap<string>());
+            set => _backupPlanTags = value;
+        }
 
         public BackupPlanArgs()
         {

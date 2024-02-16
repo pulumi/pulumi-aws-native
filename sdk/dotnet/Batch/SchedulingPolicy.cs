@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Batch
         /// A key-value pair to associate with a resource.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Batch
                 ReplaceOnChanges =
                 {
                     "name",
-                    "tags",
+                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -92,11 +92,17 @@ namespace Pulumi.AwsNative.Batch
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public SchedulingPolicyArgs()
         {

@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Eks
         /// The Kubernetes labels to be applied to the nodes in the node group when they are created.
         /// </summary>
         [Output("labels")]
-        public Output<object?> Labels { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
 
         /// <summary>
         /// An object representing a node group's launch template specification.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Eks
         /// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Kubernetes taints to be applied to the nodes in the node group when they are created.
@@ -225,11 +225,17 @@ namespace Pulumi.AwsNative.Eks
             set => _instanceTypes = value;
         }
 
+        [Input("labels")]
+        private InputMap<string>? _labels;
+
         /// <summary>
         /// The Kubernetes labels to be applied to the nodes in the node group when they are created.
         /// </summary>
-        [Input("labels")]
-        public Input<object>? Labels { get; set; }
+        public InputMap<string> Labels
+        {
+            get => _labels ?? (_labels = new InputMap<string>());
+            set => _labels = value;
+        }
 
         /// <summary>
         /// An object representing a node group's launch template specification.
@@ -279,11 +285,17 @@ namespace Pulumi.AwsNative.Eks
             set => _subnets = value;
         }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("taints")]
         private InputList<Inputs.NodegroupTaintArgs>? _taints;

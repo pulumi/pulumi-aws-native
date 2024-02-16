@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
         /// <summary>
         /// Map containing method level throttling information for API stage in a usage plan.
         /// </summary>
-        public readonly object? Throttle;
+        public readonly ImmutableDictionary<string, Outputs.UsagePlanThrottleSettings>? Throttle;
 
         [OutputConstructor]
         private UsagePlanApiStage(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 
             string? stage,
 
-            object? throttle)
+            ImmutableDictionary<string, Outputs.UsagePlanThrottleSettings>? throttle)
         {
             ApiId = apiId;
             Stage = stage;

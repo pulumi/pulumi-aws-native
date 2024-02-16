@@ -40,7 +40,7 @@ type ContainerRecipe struct {
 	// Specifies the operating system platform when you use a custom source image.
 	PlatformOverride ContainerRecipePlatformOverridePtrOutput `pulumi:"platformOverride"`
 	// Tags that are attached to the container recipe.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The destination repository for the container image.
 	TargetRepository ContainerRecipeTargetContainerRepositoryPtrOutput `pulumi:"targetRepository"`
 	// The semantic version of the container recipe (<major>.<minor>.<patch>).
@@ -68,7 +68,7 @@ func NewContainerRecipe(ctx *pulumi.Context,
 		"name",
 		"parentImage",
 		"platformOverride",
-		"tags",
+		"tags.*",
 		"targetRepository",
 		"version",
 		"workingDirectory",
@@ -130,7 +130,7 @@ type containerRecipeArgs struct {
 	// Specifies the operating system platform when you use a custom source image.
 	PlatformOverride *ContainerRecipePlatformOverride `pulumi:"platformOverride"`
 	// Tags that are attached to the container recipe.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The destination repository for the container image.
 	TargetRepository *ContainerRecipeTargetContainerRepository `pulumi:"targetRepository"`
 	// The semantic version of the container recipe (<major>.<minor>.<patch>).
@@ -164,7 +164,7 @@ type ContainerRecipeArgs struct {
 	// Specifies the operating system platform when you use a custom source image.
 	PlatformOverride ContainerRecipePlatformOverridePtrInput
 	// Tags that are attached to the container recipe.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// The destination repository for the container image.
 	TargetRepository ContainerRecipeTargetContainerRepositoryPtrInput
 	// The semantic version of the container recipe (<major>.<minor>.<patch>).
@@ -271,8 +271,8 @@ func (o ContainerRecipeOutput) PlatformOverride() ContainerRecipePlatformOverrid
 }
 
 // Tags that are attached to the container recipe.
-func (o ContainerRecipeOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ContainerRecipe) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o ContainerRecipeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The destination repository for the container image.

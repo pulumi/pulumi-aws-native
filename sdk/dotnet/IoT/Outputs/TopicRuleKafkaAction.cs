@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleKafkaAction
     {
-        public readonly object ClientProperties;
+        public readonly ImmutableDictionary<string, string> ClientProperties;
         public readonly string DestinationArn;
         public readonly ImmutableArray<Outputs.TopicRuleKafkaActionHeader> Headers;
         public readonly string? Key;
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleKafkaAction(
-            object clientProperties,
+            ImmutableDictionary<string, string> clientProperties,
 
             string destinationArn,
 

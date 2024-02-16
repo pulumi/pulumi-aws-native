@@ -29,7 +29,7 @@ export interface GetAuthorizerResult {
     readonly status?: enums.iot.AuthorizerStatus;
     readonly tags?: outputs.iot.AuthorizerTag[];
     readonly tokenKeyName?: string;
-    readonly tokenSigningPublicKeys?: any;
+    readonly tokenSigningPublicKeys?: {[key: string]: string};
 }
 /**
  * Creates an authorizer.

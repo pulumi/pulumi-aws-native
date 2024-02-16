@@ -56,7 +56,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
     /**
      * The tags associated with the component.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DistributionConfiguration resource with the given unique name, arguments, and options.
@@ -110,5 +110,5 @@ export interface DistributionConfigurationArgs {
     /**
      * The tags associated with the component.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

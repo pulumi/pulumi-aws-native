@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     [OutputType]
     public sealed class ComponentVersionLambdaFunctionRecipeSource
     {
-        public readonly object? ComponentDependencies;
+        public readonly ImmutableDictionary<string, Outputs.ComponentVersionComponentDependencyRequirement>? ComponentDependencies;
         public readonly Outputs.ComponentVersionLambdaExecutionParameters? ComponentLambdaParameters;
         public readonly string? ComponentName;
         public readonly ImmutableArray<Outputs.ComponentVersionComponentPlatform> ComponentPlatforms;
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
         [OutputConstructor]
         private ComponentVersionLambdaFunctionRecipeSource(
-            object? componentDependencies,
+            ImmutableDictionary<string, Outputs.ComponentVersionComponentDependencyRequirement>? componentDependencies,
 
             Outputs.ComponentVersionLambdaExecutionParameters? componentLambdaParameters,
 

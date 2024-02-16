@@ -21,7 +21,7 @@ export interface GetDeploymentArgs {
 
 export interface GetDeploymentResult {
     readonly deploymentId?: string;
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource for Greengrass V2 deployment.

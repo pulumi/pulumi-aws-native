@@ -27,11 +27,17 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         [Input("stage")]
         public Input<string>? Stage { get; set; }
 
+        [Input("throttle")]
+        private InputMap<Inputs.UsagePlanThrottleSettingsArgs>? _throttle;
+
         /// <summary>
         /// Map containing method level throttling information for API stage in a usage plan.
         /// </summary>
-        [Input("throttle")]
-        public Input<object>? Throttle { get; set; }
+        public InputMap<Inputs.UsagePlanThrottleSettingsArgs> Throttle
+        {
+            get => _throttle ?? (_throttle = new InputMap<Inputs.UsagePlanThrottleSettingsArgs>());
+            set => _throttle = value;
+        }
 
         public UsagePlanApiStageArgs()
         {

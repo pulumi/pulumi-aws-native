@@ -50,7 +50,7 @@ type LookupUserPoolResult struct {
 	UserPoolAddOns              *UserPoolAddOns                      `pulumi:"userPoolAddOns"`
 	UserPoolId                  *string                              `pulumi:"userPoolId"`
 	UserPoolName                *string                              `pulumi:"userPoolName"`
-	UserPoolTags                interface{}                          `pulumi:"userPoolTags"`
+	UserPoolTags                map[string]string                    `pulumi:"userPoolTags"`
 	UsernameAttributes          []string                             `pulumi:"usernameAttributes"`
 	UsernameConfiguration       *UserPoolUsernameConfiguration       `pulumi:"usernameConfiguration"`
 	VerificationMessageTemplate *UserPoolVerificationMessageTemplate `pulumi:"verificationMessageTemplate"`
@@ -185,8 +185,8 @@ func (o LookupUserPoolResultOutput) UserPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) *string { return v.UserPoolName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupUserPoolResultOutput) UserPoolTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupUserPoolResult) interface{} { return v.UserPoolTags }).(pulumi.AnyOutput)
+func (o LookupUserPoolResultOutput) UserPoolTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) map[string]string { return v.UserPoolTags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupUserPoolResultOutput) UsernameAttributes() pulumi.StringArrayOutput {

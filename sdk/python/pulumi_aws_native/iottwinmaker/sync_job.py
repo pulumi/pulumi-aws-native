@@ -17,13 +17,13 @@ class SyncJobArgs:
                  sync_role: pulumi.Input[str],
                  sync_source: pulumi.Input[str],
                  workspace_id: pulumi.Input[str],
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SyncJob resource.
         :param pulumi.Input[str] sync_role: The IAM Role that execute SyncJob.
         :param pulumi.Input[str] sync_source: The source of the SyncJob.
         :param pulumi.Input[str] workspace_id: The ID of the workspace.
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "sync_role", sync_role)
         pulumi.set(__self__, "sync_source", sync_source)
@@ -69,14 +69,14 @@ class SyncJobArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -87,7 +87,7 @@ class SyncJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  sync_role: Optional[pulumi.Input[str]] = None,
                  sync_source: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -97,7 +97,7 @@ class SyncJob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] sync_role: The IAM Role that execute SyncJob.
         :param pulumi.Input[str] sync_source: The source of the SyncJob.
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         :param pulumi.Input[str] workspace_id: The ID of the workspace.
         """
         ...
@@ -126,7 +126,7 @@ class SyncJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  sync_role: Optional[pulumi.Input[str]] = None,
                  sync_source: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -151,7 +151,7 @@ class SyncJob(pulumi.CustomResource):
             __props__.__dict__["creation_date_time"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["update_date_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["sync_role", "sync_source", "tags", "workspace_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["sync_role", "sync_source", "tags.*", "workspace_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SyncJob, __self__).__init__(
             'aws-native:iottwinmaker:SyncJob',
@@ -227,7 +227,7 @@ class SyncJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A key-value pair to associate with a resource.
         """

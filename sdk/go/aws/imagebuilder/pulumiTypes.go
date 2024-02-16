@@ -960,7 +960,7 @@ func (o ContainerRecipeTargetContainerRepositoryPtrOutput) Service() ContainerRe
 // The specific AMI settings (for example, launch permissions, AMI tags).
 type DistributionConfigurationAmiDistributionConfiguration struct {
 	// The tags to apply to AMIs distributed to this Region.
-	AmiTags interface{} `pulumi:"amiTags"`
+	AmiTags map[string]string `pulumi:"amiTags"`
 	// The description of the AMI distribution configuration.
 	Description *string `pulumi:"description"`
 	// The KMS key identifier used to encrypt the distributed image.
@@ -986,7 +986,7 @@ type DistributionConfigurationAmiDistributionConfigurationInput interface {
 // The specific AMI settings (for example, launch permissions, AMI tags).
 type DistributionConfigurationAmiDistributionConfigurationArgs struct {
 	// The tags to apply to AMIs distributed to this Region.
-	AmiTags pulumi.Input `pulumi:"amiTags"`
+	AmiTags pulumi.StringMapInput `pulumi:"amiTags"`
 	// The description of the AMI distribution configuration.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The KMS key identifier used to encrypt the distributed image.
@@ -1077,8 +1077,8 @@ func (o DistributionConfigurationAmiDistributionConfigurationOutput) ToDistribut
 }
 
 // The tags to apply to AMIs distributed to this Region.
-func (o DistributionConfigurationAmiDistributionConfigurationOutput) AmiTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v DistributionConfigurationAmiDistributionConfiguration) interface{} { return v.AmiTags }).(pulumi.AnyOutput)
+func (o DistributionConfigurationAmiDistributionConfigurationOutput) AmiTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DistributionConfigurationAmiDistributionConfiguration) map[string]string { return v.AmiTags }).(pulumi.StringMapOutput)
 }
 
 // The description of the AMI distribution configuration.
@@ -1132,13 +1132,13 @@ func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) Elem() D
 }
 
 // The tags to apply to AMIs distributed to this Region.
-func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) AmiTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DistributionConfigurationAmiDistributionConfiguration) interface{} {
+func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) AmiTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DistributionConfigurationAmiDistributionConfiguration) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.AmiTags
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The description of the AMI distribution configuration.
@@ -5489,7 +5489,7 @@ type LifecyclePolicyAmiExclusionRules struct {
 	// Use to apply lifecycle policy actions on AMIs shared with a set of regions.
 	SharedAccounts []string `pulumi:"sharedAccounts"`
 	// The AMIs to select by tag.
-	TagMap interface{} `pulumi:"tagMap"`
+	TagMap map[string]string `pulumi:"tagMap"`
 }
 
 // LifecyclePolicyAmiExclusionRulesInput is an input type that accepts LifecyclePolicyAmiExclusionRulesArgs and LifecyclePolicyAmiExclusionRulesOutput values.
@@ -5514,7 +5514,7 @@ type LifecyclePolicyAmiExclusionRulesArgs struct {
 	// Use to apply lifecycle policy actions on AMIs shared with a set of regions.
 	SharedAccounts pulumi.StringArrayInput `pulumi:"sharedAccounts"`
 	// The AMIs to select by tag.
-	TagMap pulumi.Input `pulumi:"tagMap"`
+	TagMap pulumi.StringMapInput `pulumi:"tagMap"`
 }
 
 func (LifecyclePolicyAmiExclusionRulesArgs) ElementType() reflect.Type {
@@ -5616,8 +5616,8 @@ func (o LifecyclePolicyAmiExclusionRulesOutput) SharedAccounts() pulumi.StringAr
 }
 
 // The AMIs to select by tag.
-func (o LifecyclePolicyAmiExclusionRulesOutput) TagMap() pulumi.AnyOutput {
-	return o.ApplyT(func(v LifecyclePolicyAmiExclusionRules) interface{} { return v.TagMap }).(pulumi.AnyOutput)
+func (o LifecyclePolicyAmiExclusionRulesOutput) TagMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LifecyclePolicyAmiExclusionRules) map[string]string { return v.TagMap }).(pulumi.StringMapOutput)
 }
 
 type LifecyclePolicyAmiExclusionRulesPtrOutput struct{ *pulumi.OutputState }
@@ -5685,20 +5685,20 @@ func (o LifecyclePolicyAmiExclusionRulesPtrOutput) SharedAccounts() pulumi.Strin
 }
 
 // The AMIs to select by tag.
-func (o LifecyclePolicyAmiExclusionRulesPtrOutput) TagMap() pulumi.AnyOutput {
-	return o.ApplyT(func(v *LifecyclePolicyAmiExclusionRules) interface{} {
+func (o LifecyclePolicyAmiExclusionRulesPtrOutput) TagMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LifecyclePolicyAmiExclusionRules) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.TagMap
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The exclusion rules to apply of the policy detail.
 type LifecyclePolicyExclusionRules struct {
 	Amis *LifecyclePolicyAmiExclusionRules `pulumi:"amis"`
 	// The Image Builder tags to filter on.
-	TagMap interface{} `pulumi:"tagMap"`
+	TagMap map[string]string `pulumi:"tagMap"`
 }
 
 // LifecyclePolicyExclusionRulesInput is an input type that accepts LifecyclePolicyExclusionRulesArgs and LifecyclePolicyExclusionRulesOutput values.
@@ -5716,7 +5716,7 @@ type LifecyclePolicyExclusionRulesInput interface {
 type LifecyclePolicyExclusionRulesArgs struct {
 	Amis LifecyclePolicyAmiExclusionRulesPtrInput `pulumi:"amis"`
 	// The Image Builder tags to filter on.
-	TagMap pulumi.Input `pulumi:"tagMap"`
+	TagMap pulumi.StringMapInput `pulumi:"tagMap"`
 }
 
 func (LifecyclePolicyExclusionRulesArgs) ElementType() reflect.Type {
@@ -5802,8 +5802,8 @@ func (o LifecyclePolicyExclusionRulesOutput) Amis() LifecyclePolicyAmiExclusionR
 }
 
 // The Image Builder tags to filter on.
-func (o LifecyclePolicyExclusionRulesOutput) TagMap() pulumi.AnyOutput {
-	return o.ApplyT(func(v LifecyclePolicyExclusionRules) interface{} { return v.TagMap }).(pulumi.AnyOutput)
+func (o LifecyclePolicyExclusionRulesOutput) TagMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LifecyclePolicyExclusionRules) map[string]string { return v.TagMap }).(pulumi.StringMapOutput)
 }
 
 type LifecyclePolicyExclusionRulesPtrOutput struct{ *pulumi.OutputState }
@@ -5840,13 +5840,13 @@ func (o LifecyclePolicyExclusionRulesPtrOutput) Amis() LifecyclePolicyAmiExclusi
 }
 
 // The Image Builder tags to filter on.
-func (o LifecyclePolicyExclusionRulesPtrOutput) TagMap() pulumi.AnyOutput {
-	return o.ApplyT(func(v *LifecyclePolicyExclusionRules) interface{} {
+func (o LifecyclePolicyExclusionRulesPtrOutput) TagMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LifecyclePolicyExclusionRules) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.TagMap
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The filters to apply of the policy detail.
@@ -6491,7 +6491,7 @@ type LifecyclePolicyResourceSelection struct {
 	// The recipes to select.
 	Recipes []LifecyclePolicyRecipeSelection `pulumi:"recipes"`
 	// The Image Builder resources to select by tag.
-	TagMap interface{} `pulumi:"tagMap"`
+	TagMap map[string]string `pulumi:"tagMap"`
 }
 
 // LifecyclePolicyResourceSelectionInput is an input type that accepts LifecyclePolicyResourceSelectionArgs and LifecyclePolicyResourceSelectionOutput values.
@@ -6510,7 +6510,7 @@ type LifecyclePolicyResourceSelectionArgs struct {
 	// The recipes to select.
 	Recipes LifecyclePolicyRecipeSelectionArrayInput `pulumi:"recipes"`
 	// The Image Builder resources to select by tag.
-	TagMap pulumi.Input `pulumi:"tagMap"`
+	TagMap pulumi.StringMapInput `pulumi:"tagMap"`
 }
 
 func (LifecyclePolicyResourceSelectionArgs) ElementType() reflect.Type {
@@ -6546,8 +6546,8 @@ func (o LifecyclePolicyResourceSelectionOutput) Recipes() LifecyclePolicyRecipeS
 }
 
 // The Image Builder resources to select by tag.
-func (o LifecyclePolicyResourceSelectionOutput) TagMap() pulumi.AnyOutput {
-	return o.ApplyT(func(v LifecyclePolicyResourceSelection) interface{} { return v.TagMap }).(pulumi.AnyOutput)
+func (o LifecyclePolicyResourceSelectionOutput) TagMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LifecyclePolicyResourceSelection) map[string]string { return v.TagMap }).(pulumi.StringMapOutput)
 }
 
 type LifecyclePolicyResourceSelectionPtrOutput struct{ *pulumi.OutputState }
@@ -6585,13 +6585,13 @@ func (o LifecyclePolicyResourceSelectionPtrOutput) Recipes() LifecyclePolicyReci
 }
 
 // The Image Builder resources to select by tag.
-func (o LifecyclePolicyResourceSelectionPtrOutput) TagMap() pulumi.AnyOutput {
-	return o.ApplyT(func(v *LifecyclePolicyResourceSelection) interface{} {
+func (o LifecyclePolicyResourceSelectionPtrOutput) TagMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LifecyclePolicyResourceSelection) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.TagMap
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func init() {

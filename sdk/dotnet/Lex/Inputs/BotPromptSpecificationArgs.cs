@@ -35,11 +35,17 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("messageSelectionStrategy")]
         public Input<Pulumi.AwsNative.Lex.BotMessageSelectionStrategy>? MessageSelectionStrategy { get; set; }
 
+        [Input("promptAttemptsSpecification")]
+        private InputMap<Inputs.BotPromptAttemptSpecificationArgs>? _promptAttemptsSpecification;
+
         /// <summary>
         /// Specifies the advanced settings on each attempt of the prompt.
         /// </summary>
-        [Input("promptAttemptsSpecification")]
-        public Input<object>? PromptAttemptsSpecification { get; set; }
+        public InputMap<Inputs.BotPromptAttemptSpecificationArgs> PromptAttemptsSpecification
+        {
+            get => _promptAttemptsSpecification ?? (_promptAttemptsSpecification = new InputMap<Inputs.BotPromptAttemptSpecificationArgs>());
+            set => _promptAttemptsSpecification = value;
+        }
 
         public BotPromptSpecificationArgs()
         {

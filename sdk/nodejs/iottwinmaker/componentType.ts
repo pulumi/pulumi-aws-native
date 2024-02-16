@@ -48,7 +48,7 @@ export class ComponentType extends pulumi.CustomResource {
     /**
      * An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
      */
-    public readonly compositeComponentTypes!: pulumi.Output<any | undefined>;
+    public readonly compositeComponentTypes!: pulumi.Output<{[key: string]: outputs.iottwinmaker.ComponentTypeCompositeComponentType} | undefined>;
     /**
      * The date and time when the component type was created.
      */
@@ -64,7 +64,7 @@ export class ComponentType extends pulumi.CustomResource {
     /**
      * a Map of functions in the component type. Each function's key must be unique to this map.
      */
-    public readonly functions!: pulumi.Output<any | undefined>;
+    public readonly functions!: pulumi.Output<{[key: string]: outputs.iottwinmaker.ComponentTypeFunction} | undefined>;
     /**
      * A Boolean value that specifies whether the component type is abstract.
      */
@@ -80,11 +80,11 @@ export class ComponentType extends pulumi.CustomResource {
     /**
      * An map of the property definitions in the component type. Each property definition's key must be unique to this map.
      */
-    public readonly propertyDefinitions!: pulumi.Output<any | undefined>;
+    public readonly propertyDefinitions!: pulumi.Output<{[key: string]: outputs.iottwinmaker.ComponentTypePropertyDefinition} | undefined>;
     /**
      * An map of the property groups in the component type. Each property group's key must be unique to this map.
      */
-    public readonly propertyGroups!: pulumi.Output<any | undefined>;
+    public readonly propertyGroups!: pulumi.Output<{[key: string]: outputs.iottwinmaker.ComponentTypePropertyGroup} | undefined>;
     /**
      * The current status of the component type.
      */
@@ -92,7 +92,7 @@ export class ComponentType extends pulumi.CustomResource {
     /**
      * A map of key-value pairs to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The last date and time when the component type was updated.
      */
@@ -171,7 +171,7 @@ export interface ComponentTypeArgs {
     /**
      * An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
      */
-    compositeComponentTypes?: any;
+    compositeComponentTypes?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypeCompositeComponentTypeArgs>}>;
     /**
      * The description of the component type.
      */
@@ -183,7 +183,7 @@ export interface ComponentTypeArgs {
     /**
      * a Map of functions in the component type. Each function's key must be unique to this map.
      */
-    functions?: any;
+    functions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypeFunctionArgs>}>;
     /**
      * A Boolean value that specifies whether an entity can have more than one component of this type.
      */
@@ -191,15 +191,15 @@ export interface ComponentTypeArgs {
     /**
      * An map of the property definitions in the component type. Each property definition's key must be unique to this map.
      */
-    propertyDefinitions?: any;
+    propertyDefinitions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypePropertyDefinitionArgs>}>;
     /**
      * An map of the property groups in the component type. Each property group's key must be unique to this map.
      */
-    propertyGroups?: any;
+    propertyGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypePropertyGroupArgs>}>;
     /**
      * A map of key-value pairs to associate with a resource.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the workspace that contains the component type.
      */

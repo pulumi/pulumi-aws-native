@@ -716,7 +716,7 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
                  user_pool_arn: pulumi.Input[str],
                  user_pool_client_id: pulumi.Input[str],
                  user_pool_domain: pulumi.Input[str],
-                 authentication_request_extra_params: Optional[Any] = None,
+                 authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  session_cookie_name: Optional[pulumi.Input[str]] = None,
@@ -764,11 +764,11 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
 
     @property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Optional[Any]:
+    def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "authentication_request_extra_params")
 
     @authentication_request_extra_params.setter
-    def authentication_request_extra_params(self, value: Optional[Any]):
+    def authentication_request_extra_params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @property
@@ -816,7 +816,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
                  issuer: pulumi.Input[str],
                  token_endpoint: pulumi.Input[str],
                  user_info_endpoint: pulumi.Input[str],
-                 authentication_request_extra_params: Optional[Any] = None,
+                 authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -890,11 +890,11 @@ class ListenerRuleAuthenticateOidcConfigArgs:
 
     @property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Optional[Any]:
+    def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "authentication_request_extra_params")
 
     @authentication_request_extra_params.setter
-    def authentication_request_extra_params(self, value: Optional[Any]):
+    def authentication_request_extra_params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @property

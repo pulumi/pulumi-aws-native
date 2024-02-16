@@ -65,7 +65,7 @@ export class Nodegroup extends pulumi.CustomResource {
     /**
      * The Kubernetes labels to be applied to the nodes in the node group when they are created.
      */
-    public readonly labels!: pulumi.Output<any | undefined>;
+    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * An object representing a node group's launch template specification.
      */
@@ -97,7 +97,7 @@ export class Nodegroup extends pulumi.CustomResource {
     /**
      * The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Kubernetes taints to be applied to the nodes in the node group when they are created.
      */
@@ -209,7 +209,7 @@ export interface NodegroupArgs {
     /**
      * The Kubernetes labels to be applied to the nodes in the node group when they are created.
      */
-    labels?: any;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An object representing a node group's launch template specification.
      */
@@ -241,7 +241,7 @@ export interface NodegroupArgs {
     /**
      * The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Kubernetes taints to be applied to the nodes in the node group when they are created.
      */

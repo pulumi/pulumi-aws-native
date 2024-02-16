@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -21,8 +24,8 @@ export interface GetIdentityPoolRoleAttachmentArgs {
 
 export interface GetIdentityPoolRoleAttachmentResult {
     readonly id?: string;
-    readonly roleMappings?: any;
-    readonly roles?: any;
+    readonly roleMappings?: {[key: string]: outputs.cognito.IdentityPoolRoleAttachmentRoleMapping};
+    readonly roles?: {[key: string]: string};
 }
 /**
  * Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment

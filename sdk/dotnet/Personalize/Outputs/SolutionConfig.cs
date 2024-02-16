@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Personalize.Outputs
         /// <summary>
         /// Lists the hyperparameter names and ranges.
         /// </summary>
-        public readonly object? AlgorithmHyperParameters;
+        public readonly ImmutableDictionary<string, string>? AlgorithmHyperParameters;
         /// <summary>
         /// The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Personalize.Outputs
         /// <summary>
         /// Lists the feature transformation parameters.
         /// </summary>
-        public readonly object? FeatureTransformationParameters;
+        public readonly ImmutableDictionary<string, string>? FeatureTransformationParameters;
         /// <summary>
         /// Describes the properties for hyperparameter optimization (HPO)
         /// </summary>
@@ -39,13 +39,13 @@ namespace Pulumi.AwsNative.Personalize.Outputs
 
         [OutputConstructor]
         private SolutionConfig(
-            object? algorithmHyperParameters,
+            ImmutableDictionary<string, string>? algorithmHyperParameters,
 
             Outputs.SolutionConfigAutoMlConfigProperties? autoMlConfig,
 
             string? eventValueThreshold,
 
-            object? featureTransformationParameters,
+            ImmutableDictionary<string, string>? featureTransformationParameters,
 
             Outputs.SolutionConfigHpoConfigProperties? hpoConfig)
         {

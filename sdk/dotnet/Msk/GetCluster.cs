@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.Msk
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Msk
 
             Pulumi.AwsNative.Msk.ClusterStorageMode? storageMode,
 
-            object? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             BrokerNodeGroupInfo = brokerNodeGroupInfo;

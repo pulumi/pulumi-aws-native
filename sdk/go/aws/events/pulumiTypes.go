@@ -3112,9 +3112,9 @@ func (o RuleEcsParametersPtrOutput) TaskDefinitionArn() pulumi.StringPtrOutput {
 }
 
 type RuleHttpParameters struct {
-	HeaderParameters      interface{} `pulumi:"headerParameters"`
-	PathParameterValues   []string    `pulumi:"pathParameterValues"`
-	QueryStringParameters interface{} `pulumi:"queryStringParameters"`
+	HeaderParameters      map[string]string `pulumi:"headerParameters"`
+	PathParameterValues   []string          `pulumi:"pathParameterValues"`
+	QueryStringParameters map[string]string `pulumi:"queryStringParameters"`
 }
 
 // RuleHttpParametersInput is an input type that accepts RuleHttpParametersArgs and RuleHttpParametersOutput values.
@@ -3129,9 +3129,9 @@ type RuleHttpParametersInput interface {
 }
 
 type RuleHttpParametersArgs struct {
-	HeaderParameters      pulumi.Input            `pulumi:"headerParameters"`
+	HeaderParameters      pulumi.StringMapInput   `pulumi:"headerParameters"`
 	PathParameterValues   pulumi.StringArrayInput `pulumi:"pathParameterValues"`
-	QueryStringParameters pulumi.Input            `pulumi:"queryStringParameters"`
+	QueryStringParameters pulumi.StringMapInput   `pulumi:"queryStringParameters"`
 }
 
 func (RuleHttpParametersArgs) ElementType() reflect.Type {
@@ -3211,16 +3211,16 @@ func (o RuleHttpParametersOutput) ToRuleHttpParametersPtrOutputWithContext(ctx c
 	}).(RuleHttpParametersPtrOutput)
 }
 
-func (o RuleHttpParametersOutput) HeaderParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleHttpParameters) interface{} { return v.HeaderParameters }).(pulumi.AnyOutput)
+func (o RuleHttpParametersOutput) HeaderParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RuleHttpParameters) map[string]string { return v.HeaderParameters }).(pulumi.StringMapOutput)
 }
 
 func (o RuleHttpParametersOutput) PathParameterValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleHttpParameters) []string { return v.PathParameterValues }).(pulumi.StringArrayOutput)
 }
 
-func (o RuleHttpParametersOutput) QueryStringParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleHttpParameters) interface{} { return v.QueryStringParameters }).(pulumi.AnyOutput)
+func (o RuleHttpParametersOutput) QueryStringParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RuleHttpParameters) map[string]string { return v.QueryStringParameters }).(pulumi.StringMapOutput)
 }
 
 type RuleHttpParametersPtrOutput struct{ *pulumi.OutputState }
@@ -3247,13 +3247,13 @@ func (o RuleHttpParametersPtrOutput) Elem() RuleHttpParametersOutput {
 	}).(RuleHttpParametersOutput)
 }
 
-func (o RuleHttpParametersPtrOutput) HeaderParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RuleHttpParameters) interface{} {
+func (o RuleHttpParametersPtrOutput) HeaderParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RuleHttpParameters) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.HeaderParameters
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o RuleHttpParametersPtrOutput) PathParameterValues() pulumi.StringArrayOutput {
@@ -3265,18 +3265,18 @@ func (o RuleHttpParametersPtrOutput) PathParameterValues() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o RuleHttpParametersPtrOutput) QueryStringParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RuleHttpParameters) interface{} {
+func (o RuleHttpParametersPtrOutput) QueryStringParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RuleHttpParameters) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.QueryStringParameters
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type RuleInputTransformer struct {
-	InputPathsMap interface{} `pulumi:"inputPathsMap"`
-	InputTemplate string      `pulumi:"inputTemplate"`
+	InputPathsMap map[string]string `pulumi:"inputPathsMap"`
+	InputTemplate string            `pulumi:"inputTemplate"`
 }
 
 // RuleInputTransformerInput is an input type that accepts RuleInputTransformerArgs and RuleInputTransformerOutput values.
@@ -3291,8 +3291,8 @@ type RuleInputTransformerInput interface {
 }
 
 type RuleInputTransformerArgs struct {
-	InputPathsMap pulumi.Input       `pulumi:"inputPathsMap"`
-	InputTemplate pulumi.StringInput `pulumi:"inputTemplate"`
+	InputPathsMap pulumi.StringMapInput `pulumi:"inputPathsMap"`
+	InputTemplate pulumi.StringInput    `pulumi:"inputTemplate"`
 }
 
 func (RuleInputTransformerArgs) ElementType() reflect.Type {
@@ -3372,8 +3372,8 @@ func (o RuleInputTransformerOutput) ToRuleInputTransformerPtrOutputWithContext(c
 	}).(RuleInputTransformerPtrOutput)
 }
 
-func (o RuleInputTransformerOutput) InputPathsMap() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleInputTransformer) interface{} { return v.InputPathsMap }).(pulumi.AnyOutput)
+func (o RuleInputTransformerOutput) InputPathsMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RuleInputTransformer) map[string]string { return v.InputPathsMap }).(pulumi.StringMapOutput)
 }
 
 func (o RuleInputTransformerOutput) InputTemplate() pulumi.StringOutput {
@@ -3404,13 +3404,13 @@ func (o RuleInputTransformerPtrOutput) Elem() RuleInputTransformerOutput {
 	}).(RuleInputTransformerOutput)
 }
 
-func (o RuleInputTransformerPtrOutput) InputPathsMap() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RuleInputTransformer) interface{} {
+func (o RuleInputTransformerPtrOutput) InputPathsMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RuleInputTransformer) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.InputPathsMap
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o RuleInputTransformerPtrOutput) InputTemplate() pulumi.StringPtrOutput {

@@ -2,6 +2,41 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ComponentTypeDataTypeType = {
+    Relationship: "RELATIONSHIP",
+    String: "STRING",
+    Long: "LONG",
+    Boolean: "BOOLEAN",
+    Integer: "INTEGER",
+    Double: "DOUBLE",
+    List: "LIST",
+    Map: "MAP",
+} as const;
+
+/**
+ * The underlying type of the data type.
+ */
+export type ComponentTypeDataTypeType = (typeof ComponentTypeDataTypeType)[keyof typeof ComponentTypeDataTypeType];
+
+export const ComponentTypeFunctionScope = {
+    Entity: "ENTITY",
+    Workspace: "WORKSPACE",
+} as const;
+
+/**
+ * The scope of the function.
+ */
+export type ComponentTypeFunctionScope = (typeof ComponentTypeFunctionScope)[keyof typeof ComponentTypeFunctionScope];
+
+export const ComponentTypePropertyGroupGroupType = {
+    Tabular: "TABULAR",
+} as const;
+
+/**
+ * The type of property group.
+ */
+export type ComponentTypePropertyGroupGroupType = (typeof ComponentTypePropertyGroupGroupType)[keyof typeof ComponentTypePropertyGroupGroupType];
+
 export const ComponentTypeStatusError1PropertiesCode = {
     ValidationError: "VALIDATION_ERROR",
     InternalFailure: "INTERNAL_FAILURE",
@@ -25,6 +60,31 @@ export const ComponentTypeStatusState = {
 } as const;
 
 export type ComponentTypeStatusState = (typeof ComponentTypeStatusState)[keyof typeof ComponentTypeStatusState];
+
+export const EntityDataTypeType = {
+    Relationship: "RELATIONSHIP",
+    String: "STRING",
+    Long: "LONG",
+    Boolean: "BOOLEAN",
+    Integer: "INTEGER",
+    Double: "DOUBLE",
+    List: "LIST",
+    Map: "MAP",
+} as const;
+
+/**
+ * The underlying type of the data type.
+ */
+export type EntityDataTypeType = (typeof EntityDataTypeType)[keyof typeof EntityDataTypeType];
+
+export const EntityPropertyGroupGroupType = {
+    Tabular: "TABULAR",
+} as const;
+
+/**
+ * The type of property group.
+ */
+export type EntityPropertyGroupGroupType = (typeof EntityPropertyGroupGroupType)[keyof typeof EntityPropertyGroupGroupType];
 
 export const EntityStatusError1PropertiesCode = {
     ValidationError: "VALIDATION_ERROR",

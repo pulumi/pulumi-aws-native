@@ -118,7 +118,7 @@ type BackupPlanBackupRuleResourceType struct {
 	CopyActions                []BackupPlanCopyActionResourceType `pulumi:"copyActions"`
 	EnableContinuousBackup     *bool                              `pulumi:"enableContinuousBackup"`
 	Lifecycle                  *BackupPlanLifecycleResourceType   `pulumi:"lifecycle"`
-	RecoveryPointTags          interface{}                        `pulumi:"recoveryPointTags"`
+	RecoveryPointTags          map[string]string                  `pulumi:"recoveryPointTags"`
 	RuleName                   string                             `pulumi:"ruleName"`
 	ScheduleExpression         *string                            `pulumi:"scheduleExpression"`
 	ScheduleExpressionTimezone *string                            `pulumi:"scheduleExpressionTimezone"`
@@ -142,7 +142,7 @@ type BackupPlanBackupRuleResourceTypeArgs struct {
 	CopyActions                BackupPlanCopyActionResourceTypeArrayInput `pulumi:"copyActions"`
 	EnableContinuousBackup     pulumi.BoolPtrInput                        `pulumi:"enableContinuousBackup"`
 	Lifecycle                  BackupPlanLifecycleResourceTypePtrInput    `pulumi:"lifecycle"`
-	RecoveryPointTags          pulumi.Input                               `pulumi:"recoveryPointTags"`
+	RecoveryPointTags          pulumi.StringMapInput                      `pulumi:"recoveryPointTags"`
 	RuleName                   pulumi.StringInput                         `pulumi:"ruleName"`
 	ScheduleExpression         pulumi.StringPtrInput                      `pulumi:"scheduleExpression"`
 	ScheduleExpressionTimezone pulumi.StringPtrInput                      `pulumi:"scheduleExpressionTimezone"`
@@ -217,8 +217,8 @@ func (o BackupPlanBackupRuleResourceTypeOutput) Lifecycle() BackupPlanLifecycleR
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *BackupPlanLifecycleResourceType { return v.Lifecycle }).(BackupPlanLifecycleResourceTypePtrOutput)
 }
 
-func (o BackupPlanBackupRuleResourceTypeOutput) RecoveryPointTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) interface{} { return v.RecoveryPointTags }).(pulumi.AnyOutput)
+func (o BackupPlanBackupRuleResourceTypeOutput) RecoveryPointTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) map[string]string { return v.RecoveryPointTags }).(pulumi.StringMapOutput)
 }
 
 func (o BackupPlanBackupRuleResourceTypeOutput) RuleName() pulumi.StringOutput {

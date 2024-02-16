@@ -46,7 +46,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SchedulingPolicy resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SchedulingPolicy.__pulumiType, name, resourceInputs, opts);
     }
@@ -88,5 +88,5 @@ export interface SchedulingPolicyArgs {
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

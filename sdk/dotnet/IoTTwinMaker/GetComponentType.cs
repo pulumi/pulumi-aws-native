@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// <summary>
         /// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
         /// </summary>
-        public readonly object? CompositeComponentTypes;
+        public readonly ImmutableDictionary<string, Outputs.ComponentTypeCompositeComponentType>? CompositeComponentTypes;
         /// <summary>
         /// The date and time when the component type was created.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// <summary>
         /// a Map of functions in the component type. Each function's key must be unique to this map.
         /// </summary>
-        public readonly object? Functions;
+        public readonly ImmutableDictionary<string, Outputs.ComponentTypeFunction>? Functions;
         /// <summary>
         /// A Boolean value that specifies whether the component type is abstract.
         /// </summary>
@@ -108,11 +108,11 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// <summary>
         /// An map of the property definitions in the component type. Each property definition's key must be unique to this map.
         /// </summary>
-        public readonly object? PropertyDefinitions;
+        public readonly ImmutableDictionary<string, Outputs.ComponentTypePropertyDefinition>? PropertyDefinitions;
         /// <summary>
         /// An map of the property groups in the component type. Each property group's key must be unique to this map.
         /// </summary>
-        public readonly object? PropertyGroups;
+        public readonly ImmutableDictionary<string, Outputs.ComponentTypePropertyGroup>? PropertyGroups;
         /// <summary>
         /// The current status of the component type.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// <summary>
         /// A map of key-value pairs to associate with a resource.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The last date and time when the component type was updated.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         private GetComponentTypeResult(
             string? arn,
 
-            object? compositeComponentTypes,
+            ImmutableDictionary<string, Outputs.ComponentTypeCompositeComponentType>? compositeComponentTypes,
 
             string? creationDateTime,
 
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
 
             ImmutableArray<string> extendsFrom,
 
-            object? functions,
+            ImmutableDictionary<string, Outputs.ComponentTypeFunction>? functions,
 
             bool? isAbstract,
 
@@ -146,13 +146,13 @@ namespace Pulumi.AwsNative.IoTTwinMaker
 
             bool? isSingleton,
 
-            object? propertyDefinitions,
+            ImmutableDictionary<string, Outputs.ComponentTypePropertyDefinition>? propertyDefinitions,
 
-            object? propertyGroups,
+            ImmutableDictionary<string, Outputs.ComponentTypePropertyGroup>? propertyGroups,
 
             Outputs.ComponentTypeStatus? status,
 
-            object? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? updateDateTime)
         {

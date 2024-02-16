@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string> IdentityPoolId { get; private set; } = null!;
 
         [Output("roleMappings")]
-        public Output<object?> RoleMappings { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.IdentityPoolRoleAttachmentRoleMapping>?> RoleMappings { get; private set; } = null!;
 
         [Output("roles")]
-        public Output<object?> Roles { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Roles { get; private set; } = null!;
 
 
         /// <summary>
@@ -77,10 +77,20 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string> IdentityPoolId { get; set; } = null!;
 
         [Input("roleMappings")]
-        public Input<object>? RoleMappings { get; set; }
+        private InputMap<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs>? _roleMappings;
+        public InputMap<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs> RoleMappings
+        {
+            get => _roleMappings ?? (_roleMappings = new InputMap<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs>());
+            set => _roleMappings = value;
+        }
 
         [Input("roles")]
-        public Input<object>? Roles { get; set; }
+        private InputMap<string>? _roles;
+        public InputMap<string> Roles
+        {
+            get => _roles ?? (_roles = new InputMap<string>());
+            set => _roles = value;
+        }
 
         public IdentityPoolRoleAttachmentArgs()
         {

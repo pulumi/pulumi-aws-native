@@ -5816,6 +5816,115 @@ func (o ScheduledAuditTagArrayOutput) Index(i pulumi.IntInput) ScheduledAuditTag
 	}).(ScheduledAuditTagOutput)
 }
 
+// A structure containing the alert target ARN and the role ARN.
+type SecurityProfileAlertTarget struct {
+	// The ARN of the notification target to which alerts are sent.
+	AlertTargetArn string `pulumi:"alertTargetArn"`
+	// The ARN of the role that grants permission to send alerts to the notification target.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// SecurityProfileAlertTargetInput is an input type that accepts SecurityProfileAlertTargetArgs and SecurityProfileAlertTargetOutput values.
+// You can construct a concrete instance of `SecurityProfileAlertTargetInput` via:
+//
+//	SecurityProfileAlertTargetArgs{...}
+type SecurityProfileAlertTargetInput interface {
+	pulumi.Input
+
+	ToSecurityProfileAlertTargetOutput() SecurityProfileAlertTargetOutput
+	ToSecurityProfileAlertTargetOutputWithContext(context.Context) SecurityProfileAlertTargetOutput
+}
+
+// A structure containing the alert target ARN and the role ARN.
+type SecurityProfileAlertTargetArgs struct {
+	// The ARN of the notification target to which alerts are sent.
+	AlertTargetArn pulumi.StringInput `pulumi:"alertTargetArn"`
+	// The ARN of the role that grants permission to send alerts to the notification target.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (SecurityProfileAlertTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileAlertTarget)(nil)).Elem()
+}
+
+func (i SecurityProfileAlertTargetArgs) ToSecurityProfileAlertTargetOutput() SecurityProfileAlertTargetOutput {
+	return i.ToSecurityProfileAlertTargetOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileAlertTargetArgs) ToSecurityProfileAlertTargetOutputWithContext(ctx context.Context) SecurityProfileAlertTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileAlertTargetOutput)
+}
+
+// SecurityProfileAlertTargetMapInput is an input type that accepts SecurityProfileAlertTargetMap and SecurityProfileAlertTargetMapOutput values.
+// You can construct a concrete instance of `SecurityProfileAlertTargetMapInput` via:
+//
+//	SecurityProfileAlertTargetMap{ "key": SecurityProfileAlertTargetArgs{...} }
+type SecurityProfileAlertTargetMapInput interface {
+	pulumi.Input
+
+	ToSecurityProfileAlertTargetMapOutput() SecurityProfileAlertTargetMapOutput
+	ToSecurityProfileAlertTargetMapOutputWithContext(context.Context) SecurityProfileAlertTargetMapOutput
+}
+
+type SecurityProfileAlertTargetMap map[string]SecurityProfileAlertTargetInput
+
+func (SecurityProfileAlertTargetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecurityProfileAlertTarget)(nil)).Elem()
+}
+
+func (i SecurityProfileAlertTargetMap) ToSecurityProfileAlertTargetMapOutput() SecurityProfileAlertTargetMapOutput {
+	return i.ToSecurityProfileAlertTargetMapOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileAlertTargetMap) ToSecurityProfileAlertTargetMapOutputWithContext(ctx context.Context) SecurityProfileAlertTargetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileAlertTargetMapOutput)
+}
+
+// A structure containing the alert target ARN and the role ARN.
+type SecurityProfileAlertTargetOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileAlertTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileAlertTarget)(nil)).Elem()
+}
+
+func (o SecurityProfileAlertTargetOutput) ToSecurityProfileAlertTargetOutput() SecurityProfileAlertTargetOutput {
+	return o
+}
+
+func (o SecurityProfileAlertTargetOutput) ToSecurityProfileAlertTargetOutputWithContext(ctx context.Context) SecurityProfileAlertTargetOutput {
+	return o
+}
+
+// The ARN of the notification target to which alerts are sent.
+func (o SecurityProfileAlertTargetOutput) AlertTargetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityProfileAlertTarget) string { return v.AlertTargetArn }).(pulumi.StringOutput)
+}
+
+// The ARN of the role that grants permission to send alerts to the notification target.
+func (o SecurityProfileAlertTargetOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityProfileAlertTarget) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type SecurityProfileAlertTargetMapOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileAlertTargetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecurityProfileAlertTarget)(nil)).Elem()
+}
+
+func (o SecurityProfileAlertTargetMapOutput) ToSecurityProfileAlertTargetMapOutput() SecurityProfileAlertTargetMapOutput {
+	return o
+}
+
+func (o SecurityProfileAlertTargetMapOutput) ToSecurityProfileAlertTargetMapOutputWithContext(ctx context.Context) SecurityProfileAlertTargetMapOutput {
+	return o
+}
+
+func (o SecurityProfileAlertTargetMapOutput) MapIndex(k pulumi.StringInput) SecurityProfileAlertTargetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecurityProfileAlertTarget {
+		return vs[0].(map[string]SecurityProfileAlertTarget)[vs[1].(string)]
+	}).(SecurityProfileAlertTargetOutput)
+}
+
 // A security profile behavior.
 type SecurityProfileBehavior struct {
 	Criteria     *SecurityProfileBehaviorCriteria `pulumi:"criteria"`
@@ -7436,7 +7545,7 @@ func (o SoftwarePackageVersionTagArrayOutput) Index(i pulumi.IntInput) SoftwareP
 }
 
 type ThingAttributePayload struct {
-	Attributes interface{} `pulumi:"attributes"`
+	Attributes map[string]string `pulumi:"attributes"`
 }
 
 // ThingAttributePayloadInput is an input type that accepts ThingAttributePayloadArgs and ThingAttributePayloadOutput values.
@@ -7451,7 +7560,7 @@ type ThingAttributePayloadInput interface {
 }
 
 type ThingAttributePayloadArgs struct {
-	Attributes pulumi.Input `pulumi:"attributes"`
+	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 }
 
 func (ThingAttributePayloadArgs) ElementType() reflect.Type {
@@ -7531,8 +7640,8 @@ func (o ThingAttributePayloadOutput) ToThingAttributePayloadPtrOutputWithContext
 	}).(ThingAttributePayloadPtrOutput)
 }
 
-func (o ThingAttributePayloadOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v ThingAttributePayload) interface{} { return v.Attributes }).(pulumi.AnyOutput)
+func (o ThingAttributePayloadOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ThingAttributePayload) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 type ThingAttributePayloadPtrOutput struct{ *pulumi.OutputState }
@@ -7559,17 +7668,17 @@ func (o ThingAttributePayloadPtrOutput) Elem() ThingAttributePayloadOutput {
 	}).(ThingAttributePayloadOutput)
 }
 
-func (o ThingAttributePayloadPtrOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ThingAttributePayload) interface{} {
+func (o ThingAttributePayloadPtrOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ThingAttributePayload) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Attributes
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type ThingGroupAttributePayload struct {
-	Attributes interface{} `pulumi:"attributes"`
+	Attributes map[string]string `pulumi:"attributes"`
 }
 
 // ThingGroupAttributePayloadInput is an input type that accepts ThingGroupAttributePayloadArgs and ThingGroupAttributePayloadOutput values.
@@ -7584,7 +7693,7 @@ type ThingGroupAttributePayloadInput interface {
 }
 
 type ThingGroupAttributePayloadArgs struct {
-	Attributes pulumi.Input `pulumi:"attributes"`
+	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 }
 
 func (ThingGroupAttributePayloadArgs) ElementType() reflect.Type {
@@ -7664,8 +7773,8 @@ func (o ThingGroupAttributePayloadOutput) ToThingGroupAttributePayloadPtrOutputW
 	}).(ThingGroupAttributePayloadPtrOutput)
 }
 
-func (o ThingGroupAttributePayloadOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v ThingGroupAttributePayload) interface{} { return v.Attributes }).(pulumi.AnyOutput)
+func (o ThingGroupAttributePayloadOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ThingGroupAttributePayload) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 type ThingGroupAttributePayloadPtrOutput struct{ *pulumi.OutputState }
@@ -7692,13 +7801,13 @@ func (o ThingGroupAttributePayloadPtrOutput) Elem() ThingGroupAttributePayloadOu
 	}).(ThingGroupAttributePayloadOutput)
 }
 
-func (o ThingGroupAttributePayloadPtrOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ThingGroupAttributePayload) interface{} {
+func (o ThingGroupAttributePayloadPtrOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ThingGroupAttributePayload) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Attributes
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type ThingGroupPropertiesProperties struct {
@@ -11607,7 +11716,7 @@ func (o TopicRuleIotSiteWiseActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleKafkaAction struct {
-	ClientProperties interface{}                  `pulumi:"clientProperties"`
+	ClientProperties map[string]string            `pulumi:"clientProperties"`
 	DestinationArn   string                       `pulumi:"destinationArn"`
 	Headers          []TopicRuleKafkaActionHeader `pulumi:"headers"`
 	Key              *string                      `pulumi:"key"`
@@ -11627,7 +11736,7 @@ type TopicRuleKafkaActionInput interface {
 }
 
 type TopicRuleKafkaActionArgs struct {
-	ClientProperties pulumi.Input                         `pulumi:"clientProperties"`
+	ClientProperties pulumi.StringMapInput                `pulumi:"clientProperties"`
 	DestinationArn   pulumi.StringInput                   `pulumi:"destinationArn"`
 	Headers          TopicRuleKafkaActionHeaderArrayInput `pulumi:"headers"`
 	Key              pulumi.StringPtrInput                `pulumi:"key"`
@@ -11712,8 +11821,8 @@ func (o TopicRuleKafkaActionOutput) ToTopicRuleKafkaActionPtrOutputWithContext(c
 	}).(TopicRuleKafkaActionPtrOutput)
 }
 
-func (o TopicRuleKafkaActionOutput) ClientProperties() pulumi.AnyOutput {
-	return o.ApplyT(func(v TopicRuleKafkaAction) interface{} { return v.ClientProperties }).(pulumi.AnyOutput)
+func (o TopicRuleKafkaActionOutput) ClientProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TopicRuleKafkaAction) map[string]string { return v.ClientProperties }).(pulumi.StringMapOutput)
 }
 
 func (o TopicRuleKafkaActionOutput) DestinationArn() pulumi.StringOutput {
@@ -11760,13 +11869,13 @@ func (o TopicRuleKafkaActionPtrOutput) Elem() TopicRuleKafkaActionOutput {
 	}).(TopicRuleKafkaActionOutput)
 }
 
-func (o TopicRuleKafkaActionPtrOutput) ClientProperties() pulumi.AnyOutput {
-	return o.ApplyT(func(v *TopicRuleKafkaAction) interface{} {
+func (o TopicRuleKafkaActionPtrOutput) ClientProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TopicRuleKafkaAction) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ClientProperties
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o TopicRuleKafkaActionPtrOutput) DestinationArn() pulumi.StringPtrOutput {
@@ -15107,6 +15216,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleAliasTagArrayInput)(nil)).Elem(), RoleAliasTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledAuditTagInput)(nil)).Elem(), ScheduledAuditTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledAuditTagArrayInput)(nil)).Elem(), ScheduledAuditTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileAlertTargetInput)(nil)).Elem(), SecurityProfileAlertTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileAlertTargetMapInput)(nil)).Elem(), SecurityProfileAlertTargetMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileBehaviorInput)(nil)).Elem(), SecurityProfileBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileBehaviorArrayInput)(nil)).Elem(), SecurityProfileBehaviorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileBehaviorCriteriaInput)(nil)).Elem(), SecurityProfileBehaviorCriteriaArgs{})
@@ -15309,6 +15420,8 @@ func init() {
 	pulumi.RegisterOutputType(RoleAliasTagArrayOutput{})
 	pulumi.RegisterOutputType(ScheduledAuditTagOutput{})
 	pulumi.RegisterOutputType(ScheduledAuditTagArrayOutput{})
+	pulumi.RegisterOutputType(SecurityProfileAlertTargetOutput{})
+	pulumi.RegisterOutputType(SecurityProfileAlertTargetMapOutput{})
 	pulumi.RegisterOutputType(SecurityProfileBehaviorOutput{})
 	pulumi.RegisterOutputType(SecurityProfileBehaviorArrayOutput{})
 	pulumi.RegisterOutputType(SecurityProfileBehaviorCriteriaOutput{})

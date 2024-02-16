@@ -55,14 +55,14 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// <summary>
         /// This resource type use map for Tags, suggest to use List of Tag
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? VpcLinkId;
 
         [OutputConstructor]
         private GetVpcLinkResult(
             string? name,
 
-            object? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? vpcLinkId)
         {

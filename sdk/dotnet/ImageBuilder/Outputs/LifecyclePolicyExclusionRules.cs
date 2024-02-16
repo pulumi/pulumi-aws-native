@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// <summary>
         /// The Image Builder tags to filter on.
         /// </summary>
-        public readonly object? TagMap;
+        public readonly ImmutableDictionary<string, string>? TagMap;
 
         [OutputConstructor]
         private LifecyclePolicyExclusionRules(
             Outputs.LifecyclePolicyAmiExclusionRules? amis,
 
-            object? tagMap)
+            ImmutableDictionary<string, string>? tagMap)
         {
             Amis = amis;
             TagMap = tagMap;

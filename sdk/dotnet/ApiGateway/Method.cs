@@ -68,13 +68,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
         /// </summary>
         [Output("requestModels")]
-        public Output<object?> RequestModels { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> RequestModels { get; private set; } = null!;
 
         /// <summary>
         /// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         /// </summary>
         [Output("requestParameters")]
-        public Output<object?> RequestParameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, bool>?> RequestParameters { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of a RequestValidator for request validation.
@@ -206,17 +206,29 @@ namespace Pulumi.AwsNative.ApiGateway
         [Input("operationName")]
         public Input<string>? OperationName { get; set; }
 
+        [Input("requestModels")]
+        private InputMap<string>? _requestModels;
+
         /// <summary>
         /// A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
         /// </summary>
-        [Input("requestModels")]
-        public Input<object>? RequestModels { get; set; }
+        public InputMap<string> RequestModels
+        {
+            get => _requestModels ?? (_requestModels = new InputMap<string>());
+            set => _requestModels = value;
+        }
+
+        [Input("requestParameters")]
+        private InputMap<bool>? _requestParameters;
 
         /// <summary>
         /// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         /// </summary>
-        [Input("requestParameters")]
-        public Input<object>? RequestParameters { get; set; }
+        public InputMap<bool> RequestParameters
+        {
+            get => _requestParameters ?? (_requestParameters = new InputMap<bool>());
+            set => _requestParameters = value;
+        }
 
         /// <summary>
         /// The identifier of a RequestValidator for request validation.

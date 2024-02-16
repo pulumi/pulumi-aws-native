@@ -38,7 +38,7 @@ export class Domain extends pulumi.CustomResource {
     }
 
     public readonly accessPolicies!: pulumi.Output<any | undefined>;
-    public readonly advancedOptions!: pulumi.Output<any | undefined>;
+    public readonly advancedOptions!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly advancedSecurityOptions!: pulumi.Output<outputs.opensearchservice.DomainAdvancedSecurityOptionsInput | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly clusterConfig!: pulumi.Output<outputs.opensearchservice.DomainClusterConfig | undefined>;
@@ -47,13 +47,13 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly domainEndpoint!: pulumi.Output<string>;
     public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearchservice.DomainEndpointOptions | undefined>;
     public /*out*/ readonly domainEndpointV2!: pulumi.Output<string>;
-    public /*out*/ readonly domainEndpoints!: pulumi.Output<any>;
+    public /*out*/ readonly domainEndpoints!: pulumi.Output<{[key: string]: string}>;
     public readonly domainName!: pulumi.Output<string | undefined>;
     public readonly ebsOptions!: pulumi.Output<outputs.opensearchservice.DomainEbsOptions | undefined>;
     public readonly encryptionAtRestOptions!: pulumi.Output<outputs.opensearchservice.DomainEncryptionAtRestOptions | undefined>;
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
-    public readonly logPublishingOptions!: pulumi.Output<any | undefined>;
+    public readonly logPublishingOptions!: pulumi.Output<{[key: string]: outputs.opensearchservice.DomainLogPublishingOption} | undefined>;
     public readonly nodeToNodeEncryptionOptions!: pulumi.Output<outputs.opensearchservice.DomainNodeToNodeEncryptionOptions | undefined>;
     public readonly offPeakWindowOptions!: pulumi.Output<outputs.opensearchservice.DomainOffPeakWindowOptions | undefined>;
     public /*out*/ readonly serviceSoftwareOptions!: pulumi.Output<outputs.opensearchservice.DomainServiceSoftwareOptions>;
@@ -138,7 +138,7 @@ export class Domain extends pulumi.CustomResource {
  */
 export interface DomainArgs {
     accessPolicies?: any;
-    advancedOptions?: any;
+    advancedOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     advancedSecurityOptions?: pulumi.Input<inputs.opensearchservice.DomainAdvancedSecurityOptionsInputArgs>;
     clusterConfig?: pulumi.Input<inputs.opensearchservice.DomainClusterConfigArgs>;
     cognitoOptions?: pulumi.Input<inputs.opensearchservice.DomainCognitoOptionsArgs>;
@@ -148,7 +148,7 @@ export interface DomainArgs {
     encryptionAtRestOptions?: pulumi.Input<inputs.opensearchservice.DomainEncryptionAtRestOptionsArgs>;
     engineVersion?: pulumi.Input<string>;
     ipAddressType?: pulumi.Input<string>;
-    logPublishingOptions?: any;
+    logPublishingOptions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.opensearchservice.DomainLogPublishingOptionArgs>}>;
     nodeToNodeEncryptionOptions?: pulumi.Input<inputs.opensearchservice.DomainNodeToNodeEncryptionOptionsArgs>;
     offPeakWindowOptions?: pulumi.Input<inputs.opensearchservice.DomainOffPeakWindowOptionsArgs>;
     snapshotOptions?: pulumi.Input<inputs.opensearchservice.DomainSnapshotOptionsArgs>;

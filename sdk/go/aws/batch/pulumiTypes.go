@@ -30,9 +30,9 @@ type ComputeEnvironmentComputeResources struct {
 	SpotIamFleetRole   *string                                        `pulumi:"spotIamFleetRole"`
 	Subnets            []string                                       `pulumi:"subnets"`
 	// A key-value pair to associate with a resource.
-	Tags                       interface{} `pulumi:"tags"`
-	Type                       string      `pulumi:"type"`
-	UpdateToLatestImageVersion *bool       `pulumi:"updateToLatestImageVersion"`
+	Tags                       map[string]string `pulumi:"tags"`
+	Type                       string            `pulumi:"type"`
+	UpdateToLatestImageVersion *bool             `pulumi:"updateToLatestImageVersion"`
 }
 
 // ComputeEnvironmentComputeResourcesInput is an input type that accepts ComputeEnvironmentComputeResourcesArgs and ComputeEnvironmentComputeResourcesOutput values.
@@ -63,9 +63,9 @@ type ComputeEnvironmentComputeResourcesArgs struct {
 	SpotIamFleetRole   pulumi.StringPtrInput                                 `pulumi:"spotIamFleetRole"`
 	Subnets            pulumi.StringArrayInput                               `pulumi:"subnets"`
 	// A key-value pair to associate with a resource.
-	Tags                       pulumi.Input        `pulumi:"tags"`
-	Type                       pulumi.StringInput  `pulumi:"type"`
-	UpdateToLatestImageVersion pulumi.BoolPtrInput `pulumi:"updateToLatestImageVersion"`
+	Tags                       pulumi.StringMapInput `pulumi:"tags"`
+	Type                       pulumi.StringInput    `pulumi:"type"`
+	UpdateToLatestImageVersion pulumi.BoolPtrInput   `pulumi:"updateToLatestImageVersion"`
 }
 
 func (ComputeEnvironmentComputeResourcesArgs) ElementType() reflect.Type {
@@ -210,8 +210,8 @@ func (o ComputeEnvironmentComputeResourcesOutput) Subnets() pulumi.StringArrayOu
 }
 
 // A key-value pair to associate with a resource.
-func (o ComputeEnvironmentComputeResourcesOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o ComputeEnvironmentComputeResourcesOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ComputeEnvironmentComputeResources) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o ComputeEnvironmentComputeResourcesOutput) Type() pulumi.StringOutput {
@@ -382,13 +382,13 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Subnets() pulumi.StringArra
 }
 
 // A key-value pair to associate with a resource.
-func (o ComputeEnvironmentComputeResourcesPtrOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) interface{} {
+func (o ComputeEnvironmentComputeResourcesPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Tags
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Type() pulumi.StringPtrOutput {

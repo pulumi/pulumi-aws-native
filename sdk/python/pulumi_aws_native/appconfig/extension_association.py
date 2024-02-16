@@ -18,7 +18,7 @@ class ExtensionAssociationArgs:
     def __init__(__self__, *,
                  extension_identifier: Optional[pulumi.Input[str]] = None,
                  extension_version_number: Optional[pulumi.Input[int]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionAssociationTagArgs']]]] = None):
         """
@@ -56,11 +56,11 @@ class ExtensionAssociationArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[Any]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -92,7 +92,7 @@ class ExtensionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extension_identifier: Optional[pulumi.Input[str]] = None,
                  extension_version_number: Optional[pulumi.Input[int]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionAssociationTagArgs']]]]] = None,
                  __props__=None):
@@ -129,7 +129,7 @@ class ExtensionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extension_identifier: Optional[pulumi.Input[str]] = None,
                  extension_version_number: Optional[pulumi.Input[int]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionAssociationTagArgs']]]]] = None,
                  __props__=None):
@@ -205,7 +205,7 @@ class ExtensionAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Any]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "parameters")
 
     @property

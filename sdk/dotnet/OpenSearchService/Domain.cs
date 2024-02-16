@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Output<object?> AccessPolicies { get; private set; } = null!;
 
         [Output("advancedOptions")]
-        public Output<object?> AdvancedOptions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> AdvancedOptions { get; private set; } = null!;
 
         [Output("advancedSecurityOptions")]
         public Output<Outputs.DomainAdvancedSecurityOptionsInput?> AdvancedSecurityOptions { get; private set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Output<string> DomainEndpointV2 { get; private set; } = null!;
 
         [Output("domainEndpoints")]
-        public Output<object> DomainEndpoints { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> DomainEndpoints { get; private set; } = null!;
 
         [Output("domainName")]
         public Output<string?> DomainName { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Output<string?> IpAddressType { get; private set; } = null!;
 
         [Output("logPublishingOptions")]
-        public Output<object?> LogPublishingOptions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.DomainLogPublishingOption>?> LogPublishingOptions { get; private set; } = null!;
 
         [Output("nodeToNodeEncryptionOptions")]
         public Output<Outputs.DomainNodeToNodeEncryptionOptions?> NodeToNodeEncryptionOptions { get; private set; } = null!;
@@ -143,7 +143,12 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Input<object>? AccessPolicies { get; set; }
 
         [Input("advancedOptions")]
-        public Input<object>? AdvancedOptions { get; set; }
+        private InputMap<string>? _advancedOptions;
+        public InputMap<string> AdvancedOptions
+        {
+            get => _advancedOptions ?? (_advancedOptions = new InputMap<string>());
+            set => _advancedOptions = value;
+        }
 
         [Input("advancedSecurityOptions")]
         public Input<Inputs.DomainAdvancedSecurityOptionsInputArgs>? AdvancedSecurityOptions { get; set; }
@@ -173,7 +178,12 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Input<string>? IpAddressType { get; set; }
 
         [Input("logPublishingOptions")]
-        public Input<object>? LogPublishingOptions { get; set; }
+        private InputMap<Inputs.DomainLogPublishingOptionArgs>? _logPublishingOptions;
+        public InputMap<Inputs.DomainLogPublishingOptionArgs> LogPublishingOptions
+        {
+            get => _logPublishingOptions ?? (_logPublishingOptions = new InputMap<Inputs.DomainLogPublishingOptionArgs>());
+            set => _logPublishingOptions = value;
+        }
 
         [Input("nodeToNodeEncryptionOptions")]
         public Input<Inputs.DomainNodeToNodeEncryptionOptionsArgs>? NodeToNodeEncryptionOptions { get; set; }

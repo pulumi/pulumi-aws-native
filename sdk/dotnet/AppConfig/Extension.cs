@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AppConfig
     public partial class Extension : global::Pulumi.CustomResource
     {
         [Output("actions")]
-        public Output<object> Actions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, ImmutableArray<Outputs.ExtensionAction>>> Actions { get; private set; } = null!;
 
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.AppConfig
         public Output<string> Name { get; private set; } = null!;
 
         [Output("parameters")]
-        public Output<object?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ExtensionParameter>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value tags to apply to this resource.
@@ -99,7 +99,12 @@ namespace Pulumi.AwsNative.AppConfig
     public sealed class ExtensionArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
-        public Input<object> Actions { get; set; } = null!;
+        private InputMap<ImmutableArray<Inputs.ExtensionActionArgs>>? _actions;
+        public InputMap<ImmutableArray<Inputs.ExtensionActionArgs>> Actions
+        {
+            get => _actions ?? (_actions = new InputMap<ImmutableArray<Inputs.ExtensionActionArgs>>());
+            set => _actions = value;
+        }
 
         /// <summary>
         /// Description of the extension.
@@ -117,7 +122,12 @@ namespace Pulumi.AwsNative.AppConfig
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
-        public Input<object>? Parameters { get; set; }
+        private InputMap<Inputs.ExtensionParameterArgs>? _parameters;
+        public InputMap<Inputs.ExtensionParameterArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<Inputs.ExtensionParameterArgs>());
+            set => _parameters = value;
+        }
 
         [Input("tags")]
         private InputList<Inputs.ExtensionTagArgs>? _tags;

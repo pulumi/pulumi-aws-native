@@ -24,13 +24,13 @@ class NodegroupArgs:
                  disk_size: Optional[pulumi.Input[int]] = None,
                  force_update_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 labels: Optional[Any] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  launch_template: Optional[pulumi.Input['NodegroupLaunchTemplateSpecificationArgs']] = None,
                  nodegroup_name: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
                  remote_access: Optional[pulumi.Input['NodegroupRemoteAccessArgs']] = None,
                  scaling_config: Optional[pulumi.Input['NodegroupScalingConfigArgs']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodegroupTaintArgs']]]] = None,
                  update_config: Optional[pulumi.Input['NodegroupUpdateConfigArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
@@ -44,13 +44,13 @@ class NodegroupArgs:
         :param pulumi.Input[int] disk_size: The root device disk size (in GiB) for your node group instances.
         :param pulumi.Input[bool] force_update_enabled: Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Specify the instance types for a node group.
-        :param Any labels: The Kubernetes labels to be applied to the nodes in the node group when they are created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: The Kubernetes labels to be applied to the nodes in the node group when they are created.
         :param pulumi.Input['NodegroupLaunchTemplateSpecificationArgs'] launch_template: An object representing a node group's launch template specification.
         :param pulumi.Input[str] nodegroup_name: The unique name to give your node group.
         :param pulumi.Input[str] release_version: The AMI version of the Amazon EKS-optimized AMI to use with your node group.
         :param pulumi.Input['NodegroupRemoteAccessArgs'] remote_access: The remote access (SSH) configuration to use with your node group.
         :param pulumi.Input['NodegroupScalingConfigArgs'] scaling_config: The scaling configuration details for the Auto Scaling group that is created for your node group.
-        :param Any tags: The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
         :param pulumi.Input[Sequence[pulumi.Input['NodegroupTaintArgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group when they are created.
         :param pulumi.Input['NodegroupUpdateConfigArgs'] update_config: The node group update configuration.
         :param pulumi.Input[str] version: The Kubernetes version to use for your managed nodes.
@@ -187,14 +187,14 @@ class NodegroupArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[Any]:
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The Kubernetes labels to be applied to the nodes in the node group when they are created.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[Any]):
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
     @property
@@ -259,14 +259,14 @@ class NodegroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -317,7 +317,7 @@ class Nodegroup(pulumi.CustomResource):
                  disk_size: Optional[pulumi.Input[int]] = None,
                  force_update_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 labels: Optional[Any] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['NodegroupLaunchTemplateSpecificationArgs']]] = None,
                  node_role: Optional[pulumi.Input[str]] = None,
                  nodegroup_name: Optional[pulumi.Input[str]] = None,
@@ -325,7 +325,7 @@ class Nodegroup(pulumi.CustomResource):
                  remote_access: Optional[pulumi.Input[pulumi.InputType['NodegroupRemoteAccessArgs']]] = None,
                  scaling_config: Optional[pulumi.Input[pulumi.InputType['NodegroupScalingConfigArgs']]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodegroupTaintArgs']]]]] = None,
                  update_config: Optional[pulumi.Input[pulumi.InputType['NodegroupUpdateConfigArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -341,7 +341,7 @@ class Nodegroup(pulumi.CustomResource):
         :param pulumi.Input[int] disk_size: The root device disk size (in GiB) for your node group instances.
         :param pulumi.Input[bool] force_update_enabled: Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Specify the instance types for a node group.
-        :param Any labels: The Kubernetes labels to be applied to the nodes in the node group when they are created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: The Kubernetes labels to be applied to the nodes in the node group when they are created.
         :param pulumi.Input[pulumi.InputType['NodegroupLaunchTemplateSpecificationArgs']] launch_template: An object representing a node group's launch template specification.
         :param pulumi.Input[str] node_role: The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
         :param pulumi.Input[str] nodegroup_name: The unique name to give your node group.
@@ -349,7 +349,7 @@ class Nodegroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NodegroupRemoteAccessArgs']] remote_access: The remote access (SSH) configuration to use with your node group.
         :param pulumi.Input[pulumi.InputType['NodegroupScalingConfigArgs']] scaling_config: The scaling configuration details for the Auto Scaling group that is created for your node group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The subnets to use for the Auto Scaling group that is created for your node group.
-        :param Any tags: The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodegroupTaintArgs']]]] taints: The Kubernetes taints to be applied to the nodes in the node group when they are created.
         :param pulumi.Input[pulumi.InputType['NodegroupUpdateConfigArgs']] update_config: The node group update configuration.
         :param pulumi.Input[str] version: The Kubernetes version to use for your managed nodes.
@@ -384,7 +384,7 @@ class Nodegroup(pulumi.CustomResource):
                  disk_size: Optional[pulumi.Input[int]] = None,
                  force_update_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 labels: Optional[Any] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['NodegroupLaunchTemplateSpecificationArgs']]] = None,
                  node_role: Optional[pulumi.Input[str]] = None,
                  nodegroup_name: Optional[pulumi.Input[str]] = None,
@@ -392,7 +392,7 @@ class Nodegroup(pulumi.CustomResource):
                  remote_access: Optional[pulumi.Input[pulumi.InputType['NodegroupRemoteAccessArgs']]] = None,
                  scaling_config: Optional[pulumi.Input[pulumi.InputType['NodegroupScalingConfigArgs']]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodegroupTaintArgs']]]]] = None,
                  update_config: Optional[pulumi.Input[pulumi.InputType['NodegroupUpdateConfigArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -530,7 +530,7 @@ class Nodegroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[Any]]:
+    def labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The Kubernetes labels to be applied to the nodes in the node group when they are created.
         """
@@ -594,7 +594,7 @@ class Nodegroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
         """

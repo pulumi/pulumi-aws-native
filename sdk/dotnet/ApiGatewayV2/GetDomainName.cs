@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// <summary>
         /// The collection of tags associated with a domain name.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetDomainNameResult(
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
             string? regionalHostedZoneId,
 
-            object? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             DomainNameConfigurations = domainNameConfigurations;
             MutualTlsAuthentication = mutualTlsAuthentication;

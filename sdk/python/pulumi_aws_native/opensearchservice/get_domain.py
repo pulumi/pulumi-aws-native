@@ -100,7 +100,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="advancedOptions")
-    def advanced_options(self) -> Optional[Any]:
+    def advanced_options(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "advanced_options")
 
     @property
@@ -145,7 +145,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="domainEndpoints")
-    def domain_endpoints(self) -> Optional[Any]:
+    def domain_endpoints(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "domain_endpoints")
 
     @property
@@ -175,7 +175,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="logPublishingOptions")
-    def log_publishing_options(self) -> Optional[Any]:
+    def log_publishing_options(self) -> Optional[Mapping[str, 'outputs.DomainLogPublishingOption']]:
         return pulumi.get(self, "log_publishing_options")
 
     @property

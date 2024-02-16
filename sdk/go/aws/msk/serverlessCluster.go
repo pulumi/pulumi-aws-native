@@ -20,7 +20,7 @@ type ServerlessCluster struct {
 	ClientAuthentication ServerlessClusterClientAuthenticationOutput `pulumi:"clientAuthentication"`
 	ClusterName          pulumi.StringOutput                         `pulumi:"clusterName"`
 	// A key-value pair to associate with a resource.
-	Tags       pulumi.AnyOutput                      `pulumi:"tags"`
+	Tags       pulumi.StringMapOutput                `pulumi:"tags"`
 	VpcConfigs ServerlessClusterVpcConfigArrayOutput `pulumi:"vpcConfigs"`
 }
 
@@ -43,7 +43,7 @@ func NewServerlessCluster(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"clientAuthentication",
 		"clusterName",
-		"tags",
+		"tags.*",
 		"vpcConfigs[*]",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -83,7 +83,7 @@ type serverlessClusterArgs struct {
 	ClientAuthentication ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
 	ClusterName          string                                `pulumi:"clusterName"`
 	// A key-value pair to associate with a resource.
-	Tags       interface{}                  `pulumi:"tags"`
+	Tags       map[string]string            `pulumi:"tags"`
 	VpcConfigs []ServerlessClusterVpcConfig `pulumi:"vpcConfigs"`
 }
 
@@ -92,7 +92,7 @@ type ServerlessClusterArgs struct {
 	ClientAuthentication ServerlessClusterClientAuthenticationInput
 	ClusterName          pulumi.StringInput
 	// A key-value pair to associate with a resource.
-	Tags       pulumi.Input
+	Tags       pulumi.StringMapInput
 	VpcConfigs ServerlessClusterVpcConfigArrayInput
 }
 
@@ -146,8 +146,8 @@ func (o ServerlessClusterOutput) ClusterName() pulumi.StringOutput {
 }
 
 // A key-value pair to associate with a resource.
-func (o ServerlessClusterOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ServerlessCluster) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o ServerlessClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o ServerlessClusterOutput) VpcConfigs() ServerlessClusterVpcConfigArrayOutput {

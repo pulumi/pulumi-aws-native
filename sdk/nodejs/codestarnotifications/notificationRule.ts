@@ -45,7 +45,7 @@ export class NotificationRule extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly resource!: pulumi.Output<string>;
     public readonly status!: pulumi.Output<enums.codestarnotifications.NotificationRuleStatus | undefined>;
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly targetAddress!: pulumi.Output<string | undefined>;
     public readonly targets!: pulumi.Output<outputs.codestarnotifications.NotificationRuleTarget[]>;
 
@@ -114,7 +114,7 @@ export interface NotificationRuleArgs {
     name?: pulumi.Input<string>;
     resource: pulumi.Input<string>;
     status?: pulumi.Input<enums.codestarnotifications.NotificationRuleStatus>;
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     targetAddress?: pulumi.Input<string>;
     targets: pulumi.Input<pulumi.Input<inputs.codestarnotifications.NotificationRuleTargetArgs>[]>;
 }

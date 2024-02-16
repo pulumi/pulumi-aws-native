@@ -41,11 +41,11 @@ type LookupSceneResult struct {
 	// The description of the scene.
 	Description *string `pulumi:"description"`
 	// A key-value pair of generated scene metadata for the scene.
-	GeneratedSceneMetadata interface{} `pulumi:"generatedSceneMetadata"`
+	GeneratedSceneMetadata map[string]string `pulumi:"generatedSceneMetadata"`
 	// A key-value pair of scene metadata for the scene.
-	SceneMetadata interface{} `pulumi:"sceneMetadata"`
+	SceneMetadata map[string]string `pulumi:"sceneMetadata"`
 	// A key-value pair to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The date and time of the current update.
 	UpdateDateTime *string `pulumi:"updateDateTime"`
 }
@@ -114,18 +114,18 @@ func (o LookupSceneResultOutput) Description() pulumi.StringPtrOutput {
 }
 
 // A key-value pair of generated scene metadata for the scene.
-func (o LookupSceneResultOutput) GeneratedSceneMetadata() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupSceneResult) interface{} { return v.GeneratedSceneMetadata }).(pulumi.AnyOutput)
+func (o LookupSceneResultOutput) GeneratedSceneMetadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSceneResult) map[string]string { return v.GeneratedSceneMetadata }).(pulumi.StringMapOutput)
 }
 
 // A key-value pair of scene metadata for the scene.
-func (o LookupSceneResultOutput) SceneMetadata() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupSceneResult) interface{} { return v.SceneMetadata }).(pulumi.AnyOutput)
+func (o LookupSceneResultOutput) SceneMetadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSceneResult) map[string]string { return v.SceneMetadata }).(pulumi.StringMapOutput)
 }
 
 // A key-value pair to associate with a resource.
-func (o LookupSceneResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupSceneResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupSceneResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSceneResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The date and time of the current update.

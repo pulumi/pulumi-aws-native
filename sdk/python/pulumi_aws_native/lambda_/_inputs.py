@@ -657,24 +657,24 @@ class FunctionDeadLetterConfigArgs:
 @pulumi.input_type
 class FunctionEnvironmentArgs:
     def __init__(__self__, *,
-                 variables: Optional[Any] = None):
+                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         A function's environment variable settings.
-        :param Any variables: Environment variable key-value pairs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Environment variable key-value pairs.
         """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Any]:
+    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Environment variable key-value pairs.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[Any]):
+    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "variables", value)
 
 

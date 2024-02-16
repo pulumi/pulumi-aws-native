@@ -40,7 +40,7 @@ export interface GetDomainNameResult {
     /**
      * The collection of tags associated with a domain name.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).

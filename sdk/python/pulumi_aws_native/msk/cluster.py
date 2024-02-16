@@ -29,11 +29,11 @@ class ClusterArgs:
                  logging_info: Optional[pulumi.Input['ClusterLoggingInfoArgs']] = None,
                  open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
                  storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] current_version: The current version of the MSK cluster
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "broker_node_group_info", broker_node_group_info)
         pulumi.set(__self__, "kafka_version", kafka_version)
@@ -172,14 +172,14 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -200,7 +200,7 @@ class Cluster(pulumi.CustomResource):
                  number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
                  open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
                  storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MSK::Cluster
@@ -208,7 +208,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] current_version: The current version of the MSK cluster
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         ...
     @overload
@@ -246,7 +246,7 @@ class Cluster(pulumi.CustomResource):
                  number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
                  open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
                  storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -386,7 +386,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A key-value pair to associate with a resource.
         """

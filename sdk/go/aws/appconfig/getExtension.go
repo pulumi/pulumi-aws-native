@@ -27,13 +27,13 @@ type LookupExtensionArgs struct {
 }
 
 type LookupExtensionResult struct {
-	Actions interface{} `pulumi:"actions"`
-	Arn     *string     `pulumi:"arn"`
+	Actions map[string][]ExtensionAction `pulumi:"actions"`
+	Arn     *string                      `pulumi:"arn"`
 	// Description of the extension.
-	Description   *string     `pulumi:"description"`
-	Id            *string     `pulumi:"id"`
-	Parameters    interface{} `pulumi:"parameters"`
-	VersionNumber *int        `pulumi:"versionNumber"`
+	Description   *string                       `pulumi:"description"`
+	Id            *string                       `pulumi:"id"`
+	Parameters    map[string]ExtensionParameter `pulumi:"parameters"`
+	VersionNumber *int                          `pulumi:"versionNumber"`
 }
 
 func LookupExtensionOutput(ctx *pulumi.Context, args LookupExtensionOutputArgs, opts ...pulumi.InvokeOption) LookupExtensionResultOutput {
@@ -71,8 +71,8 @@ func (o LookupExtensionResultOutput) ToLookupExtensionResultOutputWithContext(ct
 	return o
 }
 
-func (o LookupExtensionResultOutput) Actions() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupExtensionResult) interface{} { return v.Actions }).(pulumi.AnyOutput)
+func (o LookupExtensionResultOutput) Actions() ExtensionActionArrayMapOutput {
+	return o.ApplyT(func(v LookupExtensionResult) map[string][]ExtensionAction { return v.Actions }).(ExtensionActionArrayMapOutput)
 }
 
 func (o LookupExtensionResultOutput) Arn() pulumi.StringPtrOutput {
@@ -88,8 +88,8 @@ func (o LookupExtensionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExtensionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupExtensionResultOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupExtensionResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+func (o LookupExtensionResultOutput) Parameters() ExtensionParameterMapOutput {
+	return o.ApplyT(func(v LookupExtensionResult) map[string]ExtensionParameter { return v.Parameters }).(ExtensionParameterMapOutput)
 }
 
 func (o LookupExtensionResultOutput) VersionNumber() pulumi.IntPtrOutput {

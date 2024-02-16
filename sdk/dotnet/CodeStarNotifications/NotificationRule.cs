@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         public Output<Pulumi.AwsNative.CodeStarNotifications.NotificationRuleStatus?> Status { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("targetAddress")]
         public Output<string?> TargetAddress { get; private set; } = null!;
@@ -124,7 +124,12 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         public Input<Pulumi.AwsNative.CodeStarNotifications.NotificationRuleStatus>? Status { get; set; }
 
         [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("targetAddress")]
         public Input<string>? TargetAddress { get; set; }

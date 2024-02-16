@@ -22,7 +22,7 @@ class StackArgs:
                  disable_rollback: Optional[pulumi.Input[bool]] = None,
                  enable_termination_protection: Optional[pulumi.Input[bool]] = None,
                  notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_name: Optional[pulumi.Input[str]] = None,
                  stack_policy_body: Optional[Any] = None,
@@ -113,11 +113,11 @@ class StackArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[Any]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -212,7 +212,7 @@ class Stack(pulumi.CustomResource):
                  disable_rollback: Optional[pulumi.Input[bool]] = None,
                  enable_termination_protection: Optional[pulumi.Input[bool]] = None,
                  notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_name: Optional[pulumi.Input[str]] = None,
                  stack_policy_body: Optional[Any] = None,
@@ -258,7 +258,7 @@ class Stack(pulumi.CustomResource):
                  disable_rollback: Optional[pulumi.Input[bool]] = None,
                  enable_termination_protection: Optional[pulumi.Input[bool]] = None,
                  notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_name: Optional[pulumi.Input[str]] = None,
                  stack_policy_body: Optional[Any] = None,
@@ -396,7 +396,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Any]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "parameters")
 
     @property

@@ -25,8 +25,11 @@ __all__ = [
     'BotAliasTag',
     'BotAliasTextLogDestination',
     'BotAliasTextLogSetting',
+    'BotAllowedInputTypes',
+    'BotAudioAndDtmfInputSpecification',
     'BotAudioLogDestination',
     'BotAudioLogSetting',
+    'BotAudioSpecification',
     'BotButton',
     'BotCloudWatchLogGroupLogDestination',
     'BotCondition',
@@ -41,6 +44,7 @@ __all__ = [
     'BotDialogCodeHookInvocationSetting',
     'BotDialogCodeHookSetting',
     'BotDialogState',
+    'BotDtmfSpecification',
     'BotElicitationCodeHookInvocationSetting',
     'BotExternalSourceSetting',
     'BotFulfillmentCodeHookSetting',
@@ -66,6 +70,7 @@ __all__ = [
     'BotPlainTextMessage',
     'BotPostDialogCodeHookInvocationSpecification',
     'BotPostFulfillmentStatusSpecification',
+    'BotPromptAttemptSpecification',
     'BotPromptSpecification',
     'BotResponseSpecification',
     'BotS3BucketLogDestination',
@@ -91,6 +96,7 @@ __all__ = [
     'BotTag',
     'BotTestBotAliasSettings',
     'BotTestBotAliasSettingsSentimentAnalysisSettingsProperties',
+    'BotTextInputSpecification',
     'BotTextLogDestination',
     'BotTextLogSetting',
     'BotVersionLocaleDetails',
@@ -634,6 +640,117 @@ class BotAliasTextLogSetting(dict):
 
 
 @pulumi.output_type
+class BotAllowedInputTypes(dict):
+    """
+    Specifies the allowed input types.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowAudioInput":
+            suggest = "allow_audio_input"
+        elif key == "allowDtmfInput":
+            suggest = "allow_dtmf_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotAllowedInputTypes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotAllowedInputTypes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotAllowedInputTypes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_audio_input: bool,
+                 allow_dtmf_input: bool):
+        """
+        Specifies the allowed input types.
+        :param bool allow_audio_input: Indicates whether audio input is allowed.
+        :param bool allow_dtmf_input: Indicates whether DTMF input is allowed.
+        """
+        pulumi.set(__self__, "allow_audio_input", allow_audio_input)
+        pulumi.set(__self__, "allow_dtmf_input", allow_dtmf_input)
+
+    @property
+    @pulumi.getter(name="allowAudioInput")
+    def allow_audio_input(self) -> bool:
+        """
+        Indicates whether audio input is allowed.
+        """
+        return pulumi.get(self, "allow_audio_input")
+
+    @property
+    @pulumi.getter(name="allowDtmfInput")
+    def allow_dtmf_input(self) -> bool:
+        """
+        Indicates whether DTMF input is allowed.
+        """
+        return pulumi.get(self, "allow_dtmf_input")
+
+
+@pulumi.output_type
+class BotAudioAndDtmfInputSpecification(dict):
+    """
+    Specifies the audio and DTMF input specification.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTimeoutMs":
+            suggest = "start_timeout_ms"
+        elif key == "audioSpecification":
+            suggest = "audio_specification"
+        elif key == "dtmfSpecification":
+            suggest = "dtmf_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotAudioAndDtmfInputSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotAudioAndDtmfInputSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotAudioAndDtmfInputSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start_timeout_ms: int,
+                 audio_specification: Optional['outputs.BotAudioSpecification'] = None,
+                 dtmf_specification: Optional['outputs.BotDtmfSpecification'] = None):
+        """
+        Specifies the audio and DTMF input specification.
+        :param int start_timeout_ms: Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
+        """
+        pulumi.set(__self__, "start_timeout_ms", start_timeout_ms)
+        if audio_specification is not None:
+            pulumi.set(__self__, "audio_specification", audio_specification)
+        if dtmf_specification is not None:
+            pulumi.set(__self__, "dtmf_specification", dtmf_specification)
+
+    @property
+    @pulumi.getter(name="startTimeoutMs")
+    def start_timeout_ms(self) -> int:
+        """
+        Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
+        """
+        return pulumi.get(self, "start_timeout_ms")
+
+    @property
+    @pulumi.getter(name="audioSpecification")
+    def audio_specification(self) -> Optional['outputs.BotAudioSpecification']:
+        return pulumi.get(self, "audio_specification")
+
+    @property
+    @pulumi.getter(name="dtmfSpecification")
+    def dtmf_specification(self) -> Optional['outputs.BotDtmfSpecification']:
+        return pulumi.get(self, "dtmf_specification")
+
+
+@pulumi.output_type
 class BotAudioLogDestination(dict):
     """
     The location of audio log files collected when conversation logging is enabled for a bot.
@@ -691,6 +808,58 @@ class BotAudioLogSetting(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class BotAudioSpecification(dict):
+    """
+    Specifies the audio input specifications.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTimeoutMs":
+            suggest = "end_timeout_ms"
+        elif key == "maxLengthMs":
+            suggest = "max_length_ms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotAudioSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotAudioSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotAudioSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_timeout_ms: int,
+                 max_length_ms: int):
+        """
+        Specifies the audio input specifications.
+        :param int end_timeout_ms: Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
+        :param int max_length_ms: Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
+        """
+        pulumi.set(__self__, "end_timeout_ms", end_timeout_ms)
+        pulumi.set(__self__, "max_length_ms", max_length_ms)
+
+    @property
+    @pulumi.getter(name="endTimeoutMs")
+    def end_timeout_ms(self) -> int:
+        """
+        Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
+        """
+        return pulumi.get(self, "end_timeout_ms")
+
+    @property
+    @pulumi.getter(name="maxLengthMs")
+    def max_length_ms(self) -> int:
+        """
+        Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
+        """
+        return pulumi.get(self, "max_length_ms")
 
 
 @pulumi.output_type
@@ -1395,6 +1564,84 @@ class BotDialogState(dict):
         List of session attributes to be applied when the conversation reaches this step.
         """
         return pulumi.get(self, "session_attributes")
+
+
+@pulumi.output_type
+class BotDtmfSpecification(dict):
+    """
+    Specifies the settings on DTMF input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deletionCharacter":
+            suggest = "deletion_character"
+        elif key == "endCharacter":
+            suggest = "end_character"
+        elif key == "endTimeoutMs":
+            suggest = "end_timeout_ms"
+        elif key == "maxLength":
+            suggest = "max_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotDtmfSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotDtmfSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotDtmfSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deletion_character: str,
+                 end_character: str,
+                 end_timeout_ms: int,
+                 max_length: int):
+        """
+        Specifies the settings on DTMF input.
+        :param str deletion_character: The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
+        :param str end_character: The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
+        :param int end_timeout_ms: How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
+        :param int max_length: The maximum number of DTMF digits allowed in an utterance.
+        """
+        pulumi.set(__self__, "deletion_character", deletion_character)
+        pulumi.set(__self__, "end_character", end_character)
+        pulumi.set(__self__, "end_timeout_ms", end_timeout_ms)
+        pulumi.set(__self__, "max_length", max_length)
+
+    @property
+    @pulumi.getter(name="deletionCharacter")
+    def deletion_character(self) -> str:
+        """
+        The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
+        """
+        return pulumi.get(self, "deletion_character")
+
+    @property
+    @pulumi.getter(name="endCharacter")
+    def end_character(self) -> str:
+        """
+        The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
+        """
+        return pulumi.get(self, "end_character")
+
+    @property
+    @pulumi.getter(name="endTimeoutMs")
+    def end_timeout_ms(self) -> int:
+        """
+        How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
+        """
+        return pulumi.get(self, "end_timeout_ms")
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> int:
+        """
+        The maximum number of DTMF digits allowed in an utterance.
+        """
+        return pulumi.get(self, "max_length")
 
 
 @pulumi.output_type
@@ -3217,6 +3464,75 @@ class BotPostFulfillmentStatusSpecification(dict):
 
 
 @pulumi.output_type
+class BotPromptAttemptSpecification(dict):
+    """
+    Specifies the settings on a prompt attempt.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedInputTypes":
+            suggest = "allowed_input_types"
+        elif key == "allowInterrupt":
+            suggest = "allow_interrupt"
+        elif key == "audioAndDtmfInputSpecification":
+            suggest = "audio_and_dtmf_input_specification"
+        elif key == "textInputSpecification":
+            suggest = "text_input_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotPromptAttemptSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotPromptAttemptSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotPromptAttemptSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_input_types: 'outputs.BotAllowedInputTypes',
+                 allow_interrupt: Optional[bool] = None,
+                 audio_and_dtmf_input_specification: Optional['outputs.BotAudioAndDtmfInputSpecification'] = None,
+                 text_input_specification: Optional['outputs.BotTextInputSpecification'] = None):
+        """
+        Specifies the settings on a prompt attempt.
+        :param bool allow_interrupt: Indicates whether the user can interrupt a speech prompt attempt from the bot.
+        """
+        pulumi.set(__self__, "allowed_input_types", allowed_input_types)
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if audio_and_dtmf_input_specification is not None:
+            pulumi.set(__self__, "audio_and_dtmf_input_specification", audio_and_dtmf_input_specification)
+        if text_input_specification is not None:
+            pulumi.set(__self__, "text_input_specification", text_input_specification)
+
+    @property
+    @pulumi.getter(name="allowedInputTypes")
+    def allowed_input_types(self) -> 'outputs.BotAllowedInputTypes':
+        return pulumi.get(self, "allowed_input_types")
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[bool]:
+        """
+        Indicates whether the user can interrupt a speech prompt attempt from the bot.
+        """
+        return pulumi.get(self, "allow_interrupt")
+
+    @property
+    @pulumi.getter(name="audioAndDtmfInputSpecification")
+    def audio_and_dtmf_input_specification(self) -> Optional['outputs.BotAudioAndDtmfInputSpecification']:
+        return pulumi.get(self, "audio_and_dtmf_input_specification")
+
+    @property
+    @pulumi.getter(name="textInputSpecification")
+    def text_input_specification(self) -> Optional['outputs.BotTextInputSpecification']:
+        return pulumi.get(self, "text_input_specification")
+
+
+@pulumi.output_type
 class BotPromptSpecification(dict):
     """
     Prompts the user to confirm the intent.
@@ -3251,11 +3567,11 @@ class BotPromptSpecification(dict):
                  message_groups_list: Sequence['outputs.BotMessageGroup'],
                  allow_interrupt: Optional[bool] = None,
                  message_selection_strategy: Optional['BotMessageSelectionStrategy'] = None,
-                 prompt_attempts_specification: Optional[Any] = None):
+                 prompt_attempts_specification: Optional[Mapping[str, 'outputs.BotPromptAttemptSpecification']] = None):
         """
         Prompts the user to confirm the intent.
         :param bool allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
-        :param Any prompt_attempts_specification: Specifies the advanced settings on each attempt of the prompt.
+        :param Mapping[str, 'BotPromptAttemptSpecification'] prompt_attempts_specification: Specifies the advanced settings on each attempt of the prompt.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "message_groups_list", message_groups_list)
@@ -3291,7 +3607,7 @@ class BotPromptSpecification(dict):
 
     @property
     @pulumi.getter(name="promptAttemptsSpecification")
-    def prompt_attempts_specification(self) -> Optional[Any]:
+    def prompt_attempts_specification(self) -> Optional[Mapping[str, 'outputs.BotPromptAttemptSpecification']]:
         """
         Specifies the advanced settings on each attempt of the prompt.
         """
@@ -4556,6 +4872,45 @@ class BotTestBotAliasSettingsSentimentAnalysisSettingsProperties(dict):
         Enable to call Amazon Comprehend for Sentiment natively within Lex
         """
         return pulumi.get(self, "detect_sentiment")
+
+
+@pulumi.output_type
+class BotTextInputSpecification(dict):
+    """
+    Specifies the text input specifications.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTimeoutMs":
+            suggest = "start_timeout_ms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotTextInputSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotTextInputSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotTextInputSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start_timeout_ms: int):
+        """
+        Specifies the text input specifications.
+        :param int start_timeout_ms: Time for which a bot waits before re-prompting a customer for text input.
+        """
+        pulumi.set(__self__, "start_timeout_ms", start_timeout_ms)
+
+    @property
+    @pulumi.getter(name="startTimeoutMs")
+    def start_timeout_ms(self) -> int:
+        """
+        Time for which a bot waits before re-prompting a customer for text input.
+        """
+        return pulumi.get(self, "start_timeout_ms")
 
 
 @pulumi.output_type

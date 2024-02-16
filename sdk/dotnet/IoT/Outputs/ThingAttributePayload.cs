@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class ThingAttributePayload
     {
-        public readonly object? Attributes;
+        public readonly ImmutableDictionary<string, string>? Attributes;
 
         [OutputConstructor]
-        private ThingAttributePayload(object? attributes)
+        private ThingAttributePayload(ImmutableDictionary<string, string>? attributes)
         {
             Attributes = attributes;
         }

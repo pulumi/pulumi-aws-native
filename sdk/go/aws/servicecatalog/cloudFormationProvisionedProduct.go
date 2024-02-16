@@ -19,7 +19,7 @@ type CloudFormationProvisionedProduct struct {
 	CloudformationStackArn pulumi.StringOutput                                     `pulumi:"cloudformationStackArn"`
 	NotificationArns       pulumi.StringArrayOutput                                `pulumi:"notificationArns"`
 	// List of key-value pair outputs.
-	Outputs                  pulumi.AnyOutput                                                 `pulumi:"outputs"`
+	Outputs                  pulumi.StringMapOutput                                           `pulumi:"outputs"`
 	PathId                   pulumi.StringPtrOutput                                           `pulumi:"pathId"`
 	PathName                 pulumi.StringPtrOutput                                           `pulumi:"pathName"`
 	ProductId                pulumi.StringPtrOutput                                           `pulumi:"productId"`
@@ -161,8 +161,8 @@ func (o CloudFormationProvisionedProductOutput) NotificationArns() pulumi.String
 }
 
 // List of key-value pair outputs.
-func (o CloudFormationProvisionedProductOutput) Outputs() pulumi.AnyOutput {
-	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.AnyOutput { return v.Outputs }).(pulumi.AnyOutput)
+func (o CloudFormationProvisionedProductOutput) Outputs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringMapOutput { return v.Outputs }).(pulumi.StringMapOutput)
 }
 
 func (o CloudFormationProvisionedProductOutput) PathId() pulumi.StringPtrOutput {

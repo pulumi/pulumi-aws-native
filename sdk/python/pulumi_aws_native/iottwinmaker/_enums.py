@@ -5,13 +5,47 @@
 from enum import Enum
 
 __all__ = [
+    'ComponentTypeDataTypeType',
+    'ComponentTypeFunctionScope',
+    'ComponentTypePropertyGroupGroupType',
     'ComponentTypeStatusError1PropertiesCode',
     'ComponentTypeStatusErrorPropertiesCode',
     'ComponentTypeStatusState',
+    'EntityDataTypeType',
+    'EntityPropertyGroupGroupType',
     'EntityStatusError1PropertiesCode',
     'EntityStatusErrorPropertiesCode',
     'EntityStatusState',
 ]
+
+
+class ComponentTypeDataTypeType(str, Enum):
+    """
+    The underlying type of the data type.
+    """
+    RELATIONSHIP = "RELATIONSHIP"
+    STRING = "STRING"
+    LONG = "LONG"
+    BOOLEAN = "BOOLEAN"
+    INTEGER = "INTEGER"
+    DOUBLE = "DOUBLE"
+    LIST = "LIST"
+    MAP = "MAP"
+
+
+class ComponentTypeFunctionScope(str, Enum):
+    """
+    The scope of the function.
+    """
+    ENTITY = "ENTITY"
+    WORKSPACE = "WORKSPACE"
+
+
+class ComponentTypePropertyGroupGroupType(str, Enum):
+    """
+    The type of property group.
+    """
+    TABULAR = "TABULAR"
 
 
 class ComponentTypeStatusError1PropertiesCode(str, Enum):
@@ -30,6 +64,27 @@ class ComponentTypeStatusState(str, Enum):
     DELETING = "DELETING"
     ACTIVE = "ACTIVE"
     ERROR = "ERROR"
+
+
+class EntityDataTypeType(str, Enum):
+    """
+    The underlying type of the data type.
+    """
+    RELATIONSHIP = "RELATIONSHIP"
+    STRING = "STRING"
+    LONG = "LONG"
+    BOOLEAN = "BOOLEAN"
+    INTEGER = "INTEGER"
+    DOUBLE = "DOUBLE"
+    LIST = "LIST"
+    MAP = "MAP"
+
+
+class EntityPropertyGroupGroupType(str, Enum):
+    """
+    The type of property group.
+    """
+    TABULAR = "TABULAR"
 
 
 class EntityStatusError1PropertiesCode(str, Enum):

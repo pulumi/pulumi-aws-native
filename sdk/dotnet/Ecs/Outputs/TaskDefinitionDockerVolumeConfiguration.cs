@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     {
         public readonly bool? Autoprovision;
         public readonly string? Driver;
-        public readonly object? DriverOpts;
-        public readonly object? Labels;
+        public readonly ImmutableDictionary<string, string>? DriverOpts;
+        public readonly ImmutableDictionary<string, string>? Labels;
         public readonly string? Scope;
 
         [OutputConstructor]
@@ -25,9 +25,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             string? driver,
 
-            object? driverOpts,
+            ImmutableDictionary<string, string>? driverOpts,
 
-            object? labels,
+            ImmutableDictionary<string, string>? labels,
 
             string? scope)
         {

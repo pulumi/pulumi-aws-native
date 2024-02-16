@@ -18,7 +18,7 @@ __all__ = ['ConnectorArgs', 'Connector']
 class ConnectorArgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input['ConnectorCapacityArgs'],
-                 connector_configuration: Any,
+                 connector_configuration: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  kafka_cluster: pulumi.Input['ConnectorKafkaClusterArgs'],
                  kafka_cluster_client_authentication: pulumi.Input['ConnectorKafkaClusterClientAuthenticationArgs'],
                  kafka_cluster_encryption_in_transit: pulumi.Input['ConnectorKafkaClusterEncryptionInTransitArgs'],
@@ -31,7 +31,7 @@ class ConnectorArgs:
                  worker_configuration: Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Connector resource.
-        :param Any connector_configuration: The configuration for the connector.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connector_configuration: The configuration for the connector.
         :param pulumi.Input[str] kafka_connect_version: The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]] plugins: List of plugins to use with the connector.
         :param pulumi.Input[str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
@@ -66,14 +66,14 @@ class ConnectorArgs:
 
     @property
     @pulumi.getter(name="connectorConfiguration")
-    def connector_configuration(self) -> Any:
+    def connector_configuration(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
         The configuration for the connector.
         """
         return pulumi.get(self, "connector_configuration")
 
     @connector_configuration.setter
-    def connector_configuration(self, value: Any):
+    def connector_configuration(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "connector_configuration", value)
 
     @property
@@ -188,7 +188,7 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[pulumi.InputType['ConnectorCapacityArgs']]] = None,
-                 connector_configuration: Optional[Any] = None,
+                 connector_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connector_description: Optional[pulumi.Input[str]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ConnectorKafkaClusterArgs']]] = None,
@@ -205,7 +205,7 @@ class Connector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any connector_configuration: The configuration for the connector.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connector_configuration: The configuration for the connector.
         :param pulumi.Input[str] connector_description: A summary description of the connector.
         :param pulumi.Input[str] connector_name: The name of the connector.
         :param pulumi.Input[str] kafka_connect_version: The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
@@ -237,7 +237,7 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[pulumi.InputType['ConnectorCapacityArgs']]] = None,
-                 connector_configuration: Optional[Any] = None,
+                 connector_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connector_description: Optional[pulumi.Input[str]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ConnectorKafkaClusterArgs']]] = None,
@@ -286,7 +286,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["service_execution_role_arn"] = service_execution_role_arn
             __props__.__dict__["worker_configuration"] = worker_configuration
             __props__.__dict__["connector_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connector_configuration", "connector_description", "connector_name", "kafka_cluster", "kafka_cluster_client_authentication", "kafka_cluster_encryption_in_transit", "kafka_connect_version", "log_delivery", "plugins[*]", "service_execution_role_arn", "worker_configuration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connector_configuration.*", "connector_description", "connector_name", "kafka_cluster", "kafka_cluster_client_authentication", "kafka_cluster_encryption_in_transit", "kafka_connect_version", "log_delivery", "plugins[*]", "service_execution_role_arn", "worker_configuration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Connector, __self__).__init__(
             'aws-native:kafkaconnect:Connector',
@@ -340,7 +340,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorConfiguration")
-    def connector_configuration(self) -> pulumi.Output[Any]:
+    def connector_configuration(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The configuration for the connector.
         """

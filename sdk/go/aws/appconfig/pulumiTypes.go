@@ -758,6 +758,133 @@ func (o EnvironmentTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTagOutput
 	}).(EnvironmentTagOutput)
 }
 
+// An action for an extension to take at a specific action point.
+type ExtensionAction struct {
+	// The description of the extension Action.
+	Description *string `pulumi:"description"`
+	// The name of the extension action.
+	Name string `pulumi:"name"`
+	// The ARN of the role for invoking the extension action.
+	RoleArn *string `pulumi:"roleArn"`
+	// The URI of the extension action.
+	Uri string `pulumi:"uri"`
+}
+
+// ExtensionActionInput is an input type that accepts ExtensionActionArgs and ExtensionActionOutput values.
+// You can construct a concrete instance of `ExtensionActionInput` via:
+//
+//	ExtensionActionArgs{...}
+type ExtensionActionInput interface {
+	pulumi.Input
+
+	ToExtensionActionOutput() ExtensionActionOutput
+	ToExtensionActionOutputWithContext(context.Context) ExtensionActionOutput
+}
+
+// An action for an extension to take at a specific action point.
+type ExtensionActionArgs struct {
+	// The description of the extension Action.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the extension action.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ARN of the role for invoking the extension action.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The URI of the extension action.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (ExtensionActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionAction)(nil)).Elem()
+}
+
+func (i ExtensionActionArgs) ToExtensionActionOutput() ExtensionActionOutput {
+	return i.ToExtensionActionOutputWithContext(context.Background())
+}
+
+func (i ExtensionActionArgs) ToExtensionActionOutputWithContext(ctx context.Context) ExtensionActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionActionOutput)
+}
+
+// ExtensionActionArrayInput is an input type that accepts ExtensionActionArray and ExtensionActionArrayOutput values.
+// You can construct a concrete instance of `ExtensionActionArrayInput` via:
+//
+//	ExtensionActionArray{ ExtensionActionArgs{...} }
+type ExtensionActionArrayInput interface {
+	pulumi.Input
+
+	ToExtensionActionArrayOutput() ExtensionActionArrayOutput
+	ToExtensionActionArrayOutputWithContext(context.Context) ExtensionActionArrayOutput
+}
+
+type ExtensionActionArray []ExtensionActionInput
+
+func (ExtensionActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionAction)(nil)).Elem()
+}
+
+func (i ExtensionActionArray) ToExtensionActionArrayOutput() ExtensionActionArrayOutput {
+	return i.ToExtensionActionArrayOutputWithContext(context.Background())
+}
+
+func (i ExtensionActionArray) ToExtensionActionArrayOutputWithContext(ctx context.Context) ExtensionActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionActionArrayOutput)
+}
+
+// An action for an extension to take at a specific action point.
+type ExtensionActionOutput struct{ *pulumi.OutputState }
+
+func (ExtensionActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionAction)(nil)).Elem()
+}
+
+func (o ExtensionActionOutput) ToExtensionActionOutput() ExtensionActionOutput {
+	return o
+}
+
+func (o ExtensionActionOutput) ToExtensionActionOutputWithContext(ctx context.Context) ExtensionActionOutput {
+	return o
+}
+
+// The description of the extension Action.
+func (o ExtensionActionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionAction) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the extension action.
+func (o ExtensionActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ARN of the role for invoking the extension action.
+func (o ExtensionActionOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionAction) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The URI of the extension action.
+func (o ExtensionActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type ExtensionActionArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtensionActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionAction)(nil)).Elem()
+}
+
+func (o ExtensionActionArrayOutput) ToExtensionActionArrayOutput() ExtensionActionArrayOutput {
+	return o
+}
+
+func (o ExtensionActionArrayOutput) ToExtensionActionArrayOutputWithContext(ctx context.Context) ExtensionActionArrayOutput {
+	return o
+}
+
+func (o ExtensionActionArrayOutput) Index(i pulumi.IntInput) ExtensionActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtensionAction {
+		return vs[0].([]ExtensionAction)[vs[1].(int)]
+	}).(ExtensionActionOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ExtensionAssociationTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -865,6 +992,112 @@ func (o ExtensionAssociationTagArrayOutput) Index(i pulumi.IntInput) ExtensionAs
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtensionAssociationTag {
 		return vs[0].([]ExtensionAssociationTag)[vs[1].(int)]
 	}).(ExtensionAssociationTagOutput)
+}
+
+// A parameter for the extension to send to a specific action.
+type ExtensionParameter struct {
+	// The description of the extension Parameter.
+	Description *string `pulumi:"description"`
+	Required    bool    `pulumi:"required"`
+}
+
+// ExtensionParameterInput is an input type that accepts ExtensionParameterArgs and ExtensionParameterOutput values.
+// You can construct a concrete instance of `ExtensionParameterInput` via:
+//
+//	ExtensionParameterArgs{...}
+type ExtensionParameterInput interface {
+	pulumi.Input
+
+	ToExtensionParameterOutput() ExtensionParameterOutput
+	ToExtensionParameterOutputWithContext(context.Context) ExtensionParameterOutput
+}
+
+// A parameter for the extension to send to a specific action.
+type ExtensionParameterArgs struct {
+	// The description of the extension Parameter.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Required    pulumi.BoolInput      `pulumi:"required"`
+}
+
+func (ExtensionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionParameter)(nil)).Elem()
+}
+
+func (i ExtensionParameterArgs) ToExtensionParameterOutput() ExtensionParameterOutput {
+	return i.ToExtensionParameterOutputWithContext(context.Background())
+}
+
+func (i ExtensionParameterArgs) ToExtensionParameterOutputWithContext(ctx context.Context) ExtensionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionParameterOutput)
+}
+
+// ExtensionParameterMapInput is an input type that accepts ExtensionParameterMap and ExtensionParameterMapOutput values.
+// You can construct a concrete instance of `ExtensionParameterMapInput` via:
+//
+//	ExtensionParameterMap{ "key": ExtensionParameterArgs{...} }
+type ExtensionParameterMapInput interface {
+	pulumi.Input
+
+	ToExtensionParameterMapOutput() ExtensionParameterMapOutput
+	ToExtensionParameterMapOutputWithContext(context.Context) ExtensionParameterMapOutput
+}
+
+type ExtensionParameterMap map[string]ExtensionParameterInput
+
+func (ExtensionParameterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ExtensionParameter)(nil)).Elem()
+}
+
+func (i ExtensionParameterMap) ToExtensionParameterMapOutput() ExtensionParameterMapOutput {
+	return i.ToExtensionParameterMapOutputWithContext(context.Background())
+}
+
+func (i ExtensionParameterMap) ToExtensionParameterMapOutputWithContext(ctx context.Context) ExtensionParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionParameterMapOutput)
+}
+
+// A parameter for the extension to send to a specific action.
+type ExtensionParameterOutput struct{ *pulumi.OutputState }
+
+func (ExtensionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionParameter)(nil)).Elem()
+}
+
+func (o ExtensionParameterOutput) ToExtensionParameterOutput() ExtensionParameterOutput {
+	return o
+}
+
+func (o ExtensionParameterOutput) ToExtensionParameterOutputWithContext(ctx context.Context) ExtensionParameterOutput {
+	return o
+}
+
+// The description of the extension Parameter.
+func (o ExtensionParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ExtensionParameterOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v ExtensionParameter) bool { return v.Required }).(pulumi.BoolOutput)
+}
+
+type ExtensionParameterMapOutput struct{ *pulumi.OutputState }
+
+func (ExtensionParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ExtensionParameter)(nil)).Elem()
+}
+
+func (o ExtensionParameterMapOutput) ToExtensionParameterMapOutput() ExtensionParameterMapOutput {
+	return o
+}
+
+func (o ExtensionParameterMapOutput) ToExtensionParameterMapOutputWithContext(ctx context.Context) ExtensionParameterMapOutput {
+	return o
+}
+
+func (o ExtensionParameterMapOutput) MapIndex(k pulumi.StringInput) ExtensionParameterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExtensionParameter {
+		return vs[0].(map[string]ExtensionParameter)[vs[1].(string)]
+	}).(ExtensionParameterOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -976,6 +1209,51 @@ func (o ExtensionTagArrayOutput) Index(i pulumi.IntInput) ExtensionTagOutput {
 	}).(ExtensionTagOutput)
 }
 
+type ExtensionActionArrayMap map[string]ExtensionActionArrayInput
+
+func (ExtensionActionArrayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string][]ExtensionAction)(nil)).Elem()
+}
+
+func (i ExtensionActionArrayMap) ToExtensionActionArrayMapOutput() ExtensionActionArrayMapOutput {
+	return i.ToExtensionActionArrayMapOutputWithContext(context.Background())
+}
+
+func (i ExtensionActionArrayMap) ToExtensionActionArrayMapOutputWithContext(ctx context.Context) ExtensionActionArrayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionActionArrayMapOutput)
+}
+
+// ExtensionActionArrayMapInput is an input type that accepts ExtensionActionArrayMap and ExtensionActionArrayMapOutput values.
+// You can construct a concrete instance of `ExtensionActionArrayMapInput` via:
+//
+//	ExtensionActionArrayMap{ "key": ExtensionActionArray{ ExtensionActionArgs{...} } }
+type ExtensionActionArrayMapInput interface {
+	pulumi.Input
+
+	ToExtensionActionArrayMapOutput() ExtensionActionArrayMapOutput
+	ToExtensionActionArrayMapOutputWithContext(context.Context) ExtensionActionArrayMapOutput
+}
+
+type ExtensionActionArrayMapOutput struct{ *pulumi.OutputState }
+
+func (ExtensionActionArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string][]ExtensionAction)(nil)).Elem()
+}
+
+func (o ExtensionActionArrayMapOutput) ToExtensionActionArrayMapOutput() ExtensionActionArrayMapOutput {
+	return o
+}
+
+func (o ExtensionActionArrayMapOutput) ToExtensionActionArrayMapOutputWithContext(ctx context.Context) ExtensionActionArrayMapOutput {
+	return o
+}
+
+func (o ExtensionActionArrayMapOutput) MapIndex(k pulumi.StringInput) ExtensionActionArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []ExtensionAction {
+		return vs[0].(map[string][]ExtensionAction)[vs[1].(string)]
+	}).(ExtensionActionArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagsInput)(nil)).Elem(), ApplicationTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagsArrayInput)(nil)).Elem(), ApplicationTagsArray{})
@@ -991,10 +1269,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorArrayInput)(nil)).Elem(), EnvironmentMonitorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagInput)(nil)).Elem(), EnvironmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagArrayInput)(nil)).Elem(), EnvironmentTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionInput)(nil)).Elem(), ExtensionActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionArrayInput)(nil)).Elem(), ExtensionActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionAssociationTagInput)(nil)).Elem(), ExtensionAssociationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionAssociationTagArrayInput)(nil)).Elem(), ExtensionAssociationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionParameterInput)(nil)).Elem(), ExtensionParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionParameterMapInput)(nil)).Elem(), ExtensionParameterMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionTagInput)(nil)).Elem(), ExtensionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionTagArrayInput)(nil)).Elem(), ExtensionTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionArrayMapInput)(nil)).Elem(), ExtensionActionArrayMap{})
 	pulumi.RegisterOutputType(ApplicationTagsOutput{})
 	pulumi.RegisterOutputType(ApplicationTagsArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileTagsOutput{})
@@ -1009,8 +1292,13 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentMonitorArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentTagOutput{})
 	pulumi.RegisterOutputType(EnvironmentTagArrayOutput{})
+	pulumi.RegisterOutputType(ExtensionActionOutput{})
+	pulumi.RegisterOutputType(ExtensionActionArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionAssociationTagOutput{})
 	pulumi.RegisterOutputType(ExtensionAssociationTagArrayOutput{})
+	pulumi.RegisterOutputType(ExtensionParameterOutput{})
+	pulumi.RegisterOutputType(ExtensionParameterMapOutput{})
 	pulumi.RegisterOutputType(ExtensionTagOutput{})
 	pulumi.RegisterOutputType(ExtensionTagArrayOutput{})
+	pulumi.RegisterOutputType(ExtensionActionArrayMapOutput{})
 }

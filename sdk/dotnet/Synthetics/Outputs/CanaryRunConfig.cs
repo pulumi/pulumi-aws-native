@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
         /// <summary>
         /// Environment variable key-value pairs.
         /// </summary>
-        public readonly object? EnvironmentVariables;
+        public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
         /// Provide maximum memory available for canary in MB
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
         private CanaryRunConfig(
             bool? activeTracing,
 
-            object? environmentVariables,
+            ImmutableDictionary<string, string>? environmentVariables,
 
             int? memoryInMb,
 

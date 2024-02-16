@@ -72,7 +72,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     /**
      * The tags associated with the lifecycle policy.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LifecyclePolicy resource with the given unique name, arguments, and options.
@@ -159,5 +159,5 @@ export interface LifecyclePolicyArgs {
     /**
      * The tags associated with the lifecycle policy.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

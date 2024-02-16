@@ -20,7 +20,7 @@ class ExperimentTemplateArgs:
                  description: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  stop_conditions: pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]],
-                 tags: Any,
+                 tags: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  targets: pulumi.Input['ExperimentTemplateTargetMapArgs'],
                  actions: Optional[pulumi.Input['ExperimentTemplateActionMapArgs']] = None,
                  experiment_options: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']] = None,
@@ -69,11 +69,11 @@ class ExperimentTemplateArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Any:
+    def tags(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Any):
+    def tags(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -124,7 +124,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                  log_configuration: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  targets: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateTargetMapArgs']]] = None,
                  __props__=None):
         """
@@ -163,7 +163,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                  log_configuration: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  targets: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateTargetMapArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -192,7 +192,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             if targets is None and not opts.urn:
                 raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tags"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ExperimentTemplate, __self__).__init__(
             'aws-native:fis:ExperimentTemplate',
@@ -258,7 +258,7 @@ class ExperimentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Any]:
+    def tags(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property

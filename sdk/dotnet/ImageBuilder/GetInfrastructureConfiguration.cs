@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The tags attached to the resource created by Image Builder.
         /// </summary>
-        public readonly object? ResourceTags;
+        public readonly ImmutableDictionary<string, string>? ResourceTags;
         /// <summary>
         /// The security group IDs of the infrastructure configuration.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The tags associated with the component.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The terminate instance on failure configuration of the infrastructure configuration.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             Outputs.InfrastructureConfigurationLogging? logging,
 
-            object? resourceTags,
+            ImmutableDictionary<string, string>? resourceTags,
 
             ImmutableArray<string> securityGroupIds,
 
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             string? subnetId,
 
-            object? tags,
+            ImmutableDictionary<string, string>? tags,
 
             bool? terminateInstanceOnFailure)
         {

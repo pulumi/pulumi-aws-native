@@ -43,7 +43,7 @@ type LookupInfrastructureConfigurationResult struct {
 	// The logging configuration of the infrastructure configuration.
 	Logging *InfrastructureConfigurationLogging `pulumi:"logging"`
 	// The tags attached to the resource created by Image Builder.
-	ResourceTags interface{} `pulumi:"resourceTags"`
+	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// The security group IDs of the infrastructure configuration.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -51,7 +51,7 @@ type LookupInfrastructureConfigurationResult struct {
 	// The subnet ID of the infrastructure configuration.
 	SubnetId *string `pulumi:"subnetId"`
 	// The tags associated with the component.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The terminate instance on failure configuration of the infrastructure configuration.
 	TerminateInstanceOnFailure *bool `pulumi:"terminateInstanceOnFailure"`
 }
@@ -130,8 +130,8 @@ func (o LookupInfrastructureConfigurationResultOutput) Logging() InfrastructureC
 }
 
 // The tags attached to the resource created by Image Builder.
-func (o LookupInfrastructureConfigurationResultOutput) ResourceTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) interface{} { return v.ResourceTags }).(pulumi.AnyOutput)
+func (o LookupInfrastructureConfigurationResultOutput) ResourceTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) map[string]string { return v.ResourceTags }).(pulumi.StringMapOutput)
 }
 
 // The security group IDs of the infrastructure configuration.
@@ -150,8 +150,8 @@ func (o LookupInfrastructureConfigurationResultOutput) SubnetId() pulumi.StringP
 }
 
 // The tags associated with the component.
-func (o LookupInfrastructureConfigurationResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupInfrastructureConfigurationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The terminate instance on failure configuration of the infrastructure configuration.

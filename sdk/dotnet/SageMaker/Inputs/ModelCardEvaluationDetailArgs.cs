@@ -29,11 +29,17 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("evaluationObservation")]
         public Input<string>? EvaluationObservation { get; set; }
 
+        [Input("metadata")]
+        private InputMap<string>? _metadata;
+
         /// <summary>
         /// additional attributes associated with the evaluation results.
         /// </summary>
-        [Input("metadata")]
-        public Input<object>? Metadata { get; set; }
+        public InputMap<string> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<string>());
+            set => _metadata = value;
+        }
 
         [Input("metricGroups")]
         private InputList<Inputs.ModelCardMetricGroupArgs>? _metricGroups;

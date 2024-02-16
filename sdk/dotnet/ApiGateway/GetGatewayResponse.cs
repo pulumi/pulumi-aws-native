@@ -55,11 +55,11 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
         /// </summary>
-        public readonly object? ResponseParameters;
+        public readonly ImmutableDictionary<string, string>? ResponseParameters;
         /// <summary>
         /// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
         /// </summary>
-        public readonly object? ResponseTemplates;
+        public readonly ImmutableDictionary<string, string>? ResponseTemplates;
         /// <summary>
         /// The HTTP status code for this GatewayResponse.
         /// </summary>
@@ -69,9 +69,9 @@ namespace Pulumi.AwsNative.ApiGateway
         private GetGatewayResponseResult(
             string? id,
 
-            object? responseParameters,
+            ImmutableDictionary<string, string>? responseParameters,
 
-            object? responseTemplates,
+            ImmutableDictionary<string, string>? responseTemplates,
 
             string? statusCode)
         {

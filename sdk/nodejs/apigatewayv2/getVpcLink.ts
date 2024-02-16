@@ -24,7 +24,7 @@ export interface GetVpcLinkResult {
     /**
      * This resource type use map for Tags, suggest to use List of Tag
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     readonly vpcLinkId?: string;
 }
 /**

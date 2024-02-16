@@ -23,7 +23,7 @@ export interface GetExtensionAssociationResult {
     readonly arn?: string;
     readonly extensionArn?: string;
     readonly id?: string;
-    readonly parameters?: any;
+    readonly parameters?: {[key: string]: string};
     readonly resourceArn?: string;
 }
 /**

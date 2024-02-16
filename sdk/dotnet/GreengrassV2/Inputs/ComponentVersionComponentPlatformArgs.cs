@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
     public sealed class ComponentVersionComponentPlatformArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
-        public Input<object>? Attributes { get; set; }
+        private InputMap<string>? _attributes;
+        public InputMap<string> Attributes
+        {
+            get => _attributes ?? (_attributes = new InputMap<string>());
+            set => _attributes = value;
+        }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

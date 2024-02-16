@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
     [OutputType]
     public sealed class ListenerRuleAuthenticateCognitoConfig
     {
-        public readonly object? AuthenticationRequestExtraParams;
+        public readonly ImmutableDictionary<string, string>? AuthenticationRequestExtraParams;
         public readonly string? OnUnauthenticatedRequest;
         public readonly string? Scope;
         public readonly string? SessionCookieName;
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerRuleAuthenticateCognitoConfig(
-            object? authenticationRequestExtraParams,
+            ImmutableDictionary<string, string>? authenticationRequestExtraParams,
 
             string? onUnauthenticatedRequest,
 

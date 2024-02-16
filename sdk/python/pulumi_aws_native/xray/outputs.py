@@ -143,7 +143,7 @@ class SamplingRule(dict):
                  service_name: str,
                  service_type: str,
                  url_path: str,
-                 attributes: Optional[Any] = None,
+                 attributes: Optional[Mapping[str, str]] = None,
                  rule_arn: Optional[str] = None,
                  rule_name: Optional[str] = None,
                  version: Optional[int] = None):
@@ -157,7 +157,7 @@ class SamplingRule(dict):
         :param str service_name: Matches the name that the service uses to identify itself in segments.
         :param str service_type: Matches the origin that the service uses to identify its type in segments.
         :param str url_path: Matches the path from a request URL.
-        :param Any attributes: Matches attributes derived from the request.
+        :param Mapping[str, str] attributes: Matches attributes derived from the request.
         :param int version: The version of the sampling rule format (1)
         """
         pulumi.set(__self__, "fixed_rate", fixed_rate)
@@ -252,7 +252,7 @@ class SamplingRule(dict):
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
+    def attributes(self) -> Optional[Mapping[str, str]]:
         """
         Matches attributes derived from the request.
         """
@@ -402,7 +402,7 @@ class SamplingRuleUpdate(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 attributes: Optional[Any] = None,
+                 attributes: Optional[Mapping[str, str]] = None,
                  fixed_rate: Optional[float] = None,
                  host: Optional[str] = None,
                  http_method: Optional[str] = None,
@@ -415,7 +415,7 @@ class SamplingRuleUpdate(dict):
                  service_type: Optional[str] = None,
                  url_path: Optional[str] = None):
         """
-        :param Any attributes: Matches attributes derived from the request.
+        :param Mapping[str, str] attributes: Matches attributes derived from the request.
         :param float fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
         :param str host: Matches the hostname from a request URL.
         :param str http_method: Matches the HTTP method from a request URL.
@@ -453,7 +453,7 @@ class SamplingRuleUpdate(dict):
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
+    def attributes(self) -> Optional[Mapping[str, str]]:
         """
         Matches attributes derived from the request.
         """

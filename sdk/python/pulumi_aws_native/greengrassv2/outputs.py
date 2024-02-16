@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ComponentVersionComponentDependencyRequirement',
     'ComponentVersionComponentPlatform',
     'ComponentVersionLambdaContainerParams',
     'ComponentVersionLambdaDeviceMount',
@@ -20,6 +21,9 @@ __all__ = [
     'ComponentVersionLambdaFunctionRecipeSource',
     'ComponentVersionLambdaLinuxProcessParams',
     'ComponentVersionLambdaVolumeMount',
+    'DeploymentComponentConfigurationUpdate',
+    'DeploymentComponentDeploymentSpecification',
+    'DeploymentComponentRunWith',
     'DeploymentComponentUpdatePolicy',
     'DeploymentConfigurationValidationPolicy',
     'DeploymentIoTJobAbortConfig',
@@ -30,12 +34,53 @@ __all__ = [
     'DeploymentIoTJobRateIncreaseCriteria',
     'DeploymentIoTJobTimeoutConfig',
     'DeploymentPolicies',
+    'DeploymentSystemResourceLimits',
 ]
+
+@pulumi.output_type
+class ComponentVersionComponentDependencyRequirement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependencyType":
+            suggest = "dependency_type"
+        elif key == "versionRequirement":
+            suggest = "version_requirement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComponentVersionComponentDependencyRequirement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComponentVersionComponentDependencyRequirement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComponentVersionComponentDependencyRequirement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dependency_type: Optional['ComponentVersionComponentDependencyRequirementDependencyType'] = None,
+                 version_requirement: Optional[str] = None):
+        if dependency_type is not None:
+            pulumi.set(__self__, "dependency_type", dependency_type)
+        if version_requirement is not None:
+            pulumi.set(__self__, "version_requirement", version_requirement)
+
+    @property
+    @pulumi.getter(name="dependencyType")
+    def dependency_type(self) -> Optional['ComponentVersionComponentDependencyRequirementDependencyType']:
+        return pulumi.get(self, "dependency_type")
+
+    @property
+    @pulumi.getter(name="versionRequirement")
+    def version_requirement(self) -> Optional[str]:
+        return pulumi.get(self, "version_requirement")
+
 
 @pulumi.output_type
 class ComponentVersionComponentPlatform(dict):
     def __init__(__self__, *,
-                 attributes: Optional[Any] = None,
+                 attributes: Optional[Mapping[str, str]] = None,
                  name: Optional[str] = None):
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -44,7 +89,7 @@ class ComponentVersionComponentPlatform(dict):
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
+    def attributes(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "attributes")
 
     @property
@@ -214,7 +259,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 environment_variables: Optional[Any] = None,
+                 environment_variables: Optional[Mapping[str, str]] = None,
                  event_sources: Optional[Sequence['outputs.ComponentVersionLambdaEventSource']] = None,
                  exec_args: Optional[Sequence[str]] = None,
                  input_payload_encoding_type: Optional['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType'] = None,
@@ -250,7 +295,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[Any]:
+    def environment_variables(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "environment_variables")
 
     @property
@@ -334,7 +379,7 @@ class ComponentVersionLambdaFunctionRecipeSource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 component_dependencies: Optional[Any] = None,
+                 component_dependencies: Optional[Mapping[str, 'outputs.ComponentVersionComponentDependencyRequirement']] = None,
                  component_lambda_parameters: Optional['outputs.ComponentVersionLambdaExecutionParameters'] = None,
                  component_name: Optional[str] = None,
                  component_platforms: Optional[Sequence['outputs.ComponentVersionComponentPlatform']] = None,
@@ -355,7 +400,7 @@ class ComponentVersionLambdaFunctionRecipeSource(dict):
 
     @property
     @pulumi.getter(name="componentDependencies")
-    def component_dependencies(self) -> Optional[Any]:
+    def component_dependencies(self) -> Optional[Mapping[str, 'outputs.ComponentVersionComponentDependencyRequirement']]:
         return pulumi.get(self, "component_dependencies")
 
     @property
@@ -480,6 +525,127 @@ class ComponentVersionLambdaVolumeMount(dict):
     @pulumi.getter(name="sourcePath")
     def source_path(self) -> Optional[str]:
         return pulumi.get(self, "source_path")
+
+
+@pulumi.output_type
+class DeploymentComponentConfigurationUpdate(dict):
+    def __init__(__self__, *,
+                 merge: Optional[str] = None,
+                 reset: Optional[Sequence[str]] = None):
+        if merge is not None:
+            pulumi.set(__self__, "merge", merge)
+        if reset is not None:
+            pulumi.set(__self__, "reset", reset)
+
+    @property
+    @pulumi.getter
+    def merge(self) -> Optional[str]:
+        return pulumi.get(self, "merge")
+
+    @property
+    @pulumi.getter
+    def reset(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "reset")
+
+
+@pulumi.output_type
+class DeploymentComponentDeploymentSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentVersion":
+            suggest = "component_version"
+        elif key == "configurationUpdate":
+            suggest = "configuration_update"
+        elif key == "runWith":
+            suggest = "run_with"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentComponentDeploymentSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentComponentDeploymentSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentComponentDeploymentSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_version: Optional[str] = None,
+                 configuration_update: Optional['outputs.DeploymentComponentConfigurationUpdate'] = None,
+                 run_with: Optional['outputs.DeploymentComponentRunWith'] = None):
+        if component_version is not None:
+            pulumi.set(__self__, "component_version", component_version)
+        if configuration_update is not None:
+            pulumi.set(__self__, "configuration_update", configuration_update)
+        if run_with is not None:
+            pulumi.set(__self__, "run_with", run_with)
+
+    @property
+    @pulumi.getter(name="componentVersion")
+    def component_version(self) -> Optional[str]:
+        return pulumi.get(self, "component_version")
+
+    @property
+    @pulumi.getter(name="configurationUpdate")
+    def configuration_update(self) -> Optional['outputs.DeploymentComponentConfigurationUpdate']:
+        return pulumi.get(self, "configuration_update")
+
+    @property
+    @pulumi.getter(name="runWith")
+    def run_with(self) -> Optional['outputs.DeploymentComponentRunWith']:
+        return pulumi.get(self, "run_with")
+
+
+@pulumi.output_type
+class DeploymentComponentRunWith(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "posixUser":
+            suggest = "posix_user"
+        elif key == "systemResourceLimits":
+            suggest = "system_resource_limits"
+        elif key == "windowsUser":
+            suggest = "windows_user"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentComponentRunWith. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentComponentRunWith.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentComponentRunWith.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 posix_user: Optional[str] = None,
+                 system_resource_limits: Optional['outputs.DeploymentSystemResourceLimits'] = None,
+                 windows_user: Optional[str] = None):
+        if posix_user is not None:
+            pulumi.set(__self__, "posix_user", posix_user)
+        if system_resource_limits is not None:
+            pulumi.set(__self__, "system_resource_limits", system_resource_limits)
+        if windows_user is not None:
+            pulumi.set(__self__, "windows_user", windows_user)
+
+    @property
+    @pulumi.getter(name="posixUser")
+    def posix_user(self) -> Optional[str]:
+        return pulumi.get(self, "posix_user")
+
+    @property
+    @pulumi.getter(name="systemResourceLimits")
+    def system_resource_limits(self) -> Optional['outputs.DeploymentSystemResourceLimits']:
+        return pulumi.get(self, "system_resource_limits")
+
+    @property
+    @pulumi.getter(name="windowsUser")
+    def windows_user(self) -> Optional[str]:
+        return pulumi.get(self, "windows_user")
 
 
 @pulumi.output_type
@@ -854,5 +1020,26 @@ class DeploymentPolicies(dict):
     @pulumi.getter(name="failureHandlingPolicy")
     def failure_handling_policy(self) -> Optional['DeploymentPoliciesFailureHandlingPolicy']:
         return pulumi.get(self, "failure_handling_policy")
+
+
+@pulumi.output_type
+class DeploymentSystemResourceLimits(dict):
+    def __init__(__self__, *,
+                 cpus: Optional[float] = None,
+                 memory: Optional[int] = None):
+        if cpus is not None:
+            pulumi.set(__self__, "cpus", cpus)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpus(self) -> Optional[float]:
+        return pulumi.get(self, "cpus")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[int]:
+        return pulumi.get(self, "memory")
 
 

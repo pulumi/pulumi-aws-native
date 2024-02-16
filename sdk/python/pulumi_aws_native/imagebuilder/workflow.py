@@ -22,7 +22,7 @@ class WorkflowArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
@@ -33,7 +33,7 @@ class WorkflowArgs:
         :param pulumi.Input[str] description: The description of the workflow.
         :param pulumi.Input[str] kms_key_id: The KMS key identifier used to encrypt the workflow.
         :param pulumi.Input[str] name: The name of the workflow.
-        :param Any tags: The tags associated with the workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the workflow.
         :param pulumi.Input[str] uri: The uri of the workflow.
         """
         pulumi.set(__self__, "type", type)
@@ -139,14 +139,14 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The tags associated with the workflow.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -172,7 +172,7 @@ class Workflow(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input['WorkflowType']] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -187,7 +187,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the workflow.
         :param pulumi.Input[str] kms_key_id: The KMS key identifier used to encrypt the workflow.
         :param pulumi.Input[str] name: The name of the workflow.
-        :param Any tags: The tags associated with the workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags associated with the workflow.
         :param pulumi.Input['WorkflowType'] type: The type of the workflow denotes whether the workflow is used to build, test, or distribute.
         :param pulumi.Input[str] uri: The uri of the workflow.
         :param pulumi.Input[str] version: The version of the workflow.
@@ -221,7 +221,7 @@ class Workflow(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input['WorkflowType']] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -248,7 +248,7 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["change_description", "data", "description", "kms_key_id", "name", "tags", "type", "uri", "version"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["change_description", "data", "description", "kms_key_id", "name", "tags.*", "type", "uri", "version"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workflow, __self__).__init__(
             'aws-native:imagebuilder:Workflow',
@@ -334,7 +334,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags associated with the workflow.
         """

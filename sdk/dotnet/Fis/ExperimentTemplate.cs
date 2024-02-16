@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Fis
         public Output<ImmutableArray<Outputs.ExperimentTemplateStopCondition>> StopConditions { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<object> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         [Output("targets")]
         public Output<Outputs.ExperimentTemplateTargetMap> Targets { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Fis
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "tags",
+                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +112,12 @@ namespace Pulumi.AwsNative.Fis
         }
 
         [Input("tags", required: true)]
-        public Input<object> Tags { get; set; } = null!;
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("targets", required: true)]
         public Input<Inputs.ExperimentTemplateTargetMapArgs> Targets { get; set; } = null!;

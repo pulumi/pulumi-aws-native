@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.GreengrassV2
     public sealed class GetDeploymentResult
     {
         public readonly string? DeploymentId;
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetDeploymentResult(
             string? deploymentId,
 
-            object? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             DeploymentId = deploymentId;
             Tags = tags;

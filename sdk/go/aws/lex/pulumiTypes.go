@@ -1315,6 +1315,240 @@ func (o BotAliasTextLogSettingArrayOutput) Index(i pulumi.IntInput) BotAliasText
 	}).(BotAliasTextLogSettingOutput)
 }
 
+// Specifies the allowed input types.
+type BotAllowedInputTypes struct {
+	// Indicates whether audio input is allowed.
+	AllowAudioInput bool `pulumi:"allowAudioInput"`
+	// Indicates whether DTMF input is allowed.
+	AllowDtmfInput bool `pulumi:"allowDtmfInput"`
+}
+
+// BotAllowedInputTypesInput is an input type that accepts BotAllowedInputTypesArgs and BotAllowedInputTypesOutput values.
+// You can construct a concrete instance of `BotAllowedInputTypesInput` via:
+//
+//	BotAllowedInputTypesArgs{...}
+type BotAllowedInputTypesInput interface {
+	pulumi.Input
+
+	ToBotAllowedInputTypesOutput() BotAllowedInputTypesOutput
+	ToBotAllowedInputTypesOutputWithContext(context.Context) BotAllowedInputTypesOutput
+}
+
+// Specifies the allowed input types.
+type BotAllowedInputTypesArgs struct {
+	// Indicates whether audio input is allowed.
+	AllowAudioInput pulumi.BoolInput `pulumi:"allowAudioInput"`
+	// Indicates whether DTMF input is allowed.
+	AllowDtmfInput pulumi.BoolInput `pulumi:"allowDtmfInput"`
+}
+
+func (BotAllowedInputTypesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAllowedInputTypes)(nil)).Elem()
+}
+
+func (i BotAllowedInputTypesArgs) ToBotAllowedInputTypesOutput() BotAllowedInputTypesOutput {
+	return i.ToBotAllowedInputTypesOutputWithContext(context.Background())
+}
+
+func (i BotAllowedInputTypesArgs) ToBotAllowedInputTypesOutputWithContext(ctx context.Context) BotAllowedInputTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAllowedInputTypesOutput)
+}
+
+// Specifies the allowed input types.
+type BotAllowedInputTypesOutput struct{ *pulumi.OutputState }
+
+func (BotAllowedInputTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAllowedInputTypes)(nil)).Elem()
+}
+
+func (o BotAllowedInputTypesOutput) ToBotAllowedInputTypesOutput() BotAllowedInputTypesOutput {
+	return o
+}
+
+func (o BotAllowedInputTypesOutput) ToBotAllowedInputTypesOutputWithContext(ctx context.Context) BotAllowedInputTypesOutput {
+	return o
+}
+
+// Indicates whether audio input is allowed.
+func (o BotAllowedInputTypesOutput) AllowAudioInput() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotAllowedInputTypes) bool { return v.AllowAudioInput }).(pulumi.BoolOutput)
+}
+
+// Indicates whether DTMF input is allowed.
+func (o BotAllowedInputTypesOutput) AllowDtmfInput() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotAllowedInputTypes) bool { return v.AllowDtmfInput }).(pulumi.BoolOutput)
+}
+
+// Specifies the audio and DTMF input specification.
+type BotAudioAndDtmfInputSpecification struct {
+	AudioSpecification *BotAudioSpecification `pulumi:"audioSpecification"`
+	DtmfSpecification  *BotDtmfSpecification  `pulumi:"dtmfSpecification"`
+	// Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
+	StartTimeoutMs int `pulumi:"startTimeoutMs"`
+}
+
+// BotAudioAndDtmfInputSpecificationInput is an input type that accepts BotAudioAndDtmfInputSpecificationArgs and BotAudioAndDtmfInputSpecificationOutput values.
+// You can construct a concrete instance of `BotAudioAndDtmfInputSpecificationInput` via:
+//
+//	BotAudioAndDtmfInputSpecificationArgs{...}
+type BotAudioAndDtmfInputSpecificationInput interface {
+	pulumi.Input
+
+	ToBotAudioAndDtmfInputSpecificationOutput() BotAudioAndDtmfInputSpecificationOutput
+	ToBotAudioAndDtmfInputSpecificationOutputWithContext(context.Context) BotAudioAndDtmfInputSpecificationOutput
+}
+
+// Specifies the audio and DTMF input specification.
+type BotAudioAndDtmfInputSpecificationArgs struct {
+	AudioSpecification BotAudioSpecificationPtrInput `pulumi:"audioSpecification"`
+	DtmfSpecification  BotDtmfSpecificationPtrInput  `pulumi:"dtmfSpecification"`
+	// Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
+	StartTimeoutMs pulumi.IntInput `pulumi:"startTimeoutMs"`
+}
+
+func (BotAudioAndDtmfInputSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioAndDtmfInputSpecification)(nil)).Elem()
+}
+
+func (i BotAudioAndDtmfInputSpecificationArgs) ToBotAudioAndDtmfInputSpecificationOutput() BotAudioAndDtmfInputSpecificationOutput {
+	return i.ToBotAudioAndDtmfInputSpecificationOutputWithContext(context.Background())
+}
+
+func (i BotAudioAndDtmfInputSpecificationArgs) ToBotAudioAndDtmfInputSpecificationOutputWithContext(ctx context.Context) BotAudioAndDtmfInputSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAudioAndDtmfInputSpecificationOutput)
+}
+
+func (i BotAudioAndDtmfInputSpecificationArgs) ToBotAudioAndDtmfInputSpecificationPtrOutput() BotAudioAndDtmfInputSpecificationPtrOutput {
+	return i.ToBotAudioAndDtmfInputSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i BotAudioAndDtmfInputSpecificationArgs) ToBotAudioAndDtmfInputSpecificationPtrOutputWithContext(ctx context.Context) BotAudioAndDtmfInputSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAudioAndDtmfInputSpecificationOutput).ToBotAudioAndDtmfInputSpecificationPtrOutputWithContext(ctx)
+}
+
+// BotAudioAndDtmfInputSpecificationPtrInput is an input type that accepts BotAudioAndDtmfInputSpecificationArgs, BotAudioAndDtmfInputSpecificationPtr and BotAudioAndDtmfInputSpecificationPtrOutput values.
+// You can construct a concrete instance of `BotAudioAndDtmfInputSpecificationPtrInput` via:
+//
+//	        BotAudioAndDtmfInputSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotAudioAndDtmfInputSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToBotAudioAndDtmfInputSpecificationPtrOutput() BotAudioAndDtmfInputSpecificationPtrOutput
+	ToBotAudioAndDtmfInputSpecificationPtrOutputWithContext(context.Context) BotAudioAndDtmfInputSpecificationPtrOutput
+}
+
+type botAudioAndDtmfInputSpecificationPtrType BotAudioAndDtmfInputSpecificationArgs
+
+func BotAudioAndDtmfInputSpecificationPtr(v *BotAudioAndDtmfInputSpecificationArgs) BotAudioAndDtmfInputSpecificationPtrInput {
+	return (*botAudioAndDtmfInputSpecificationPtrType)(v)
+}
+
+func (*botAudioAndDtmfInputSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAudioAndDtmfInputSpecification)(nil)).Elem()
+}
+
+func (i *botAudioAndDtmfInputSpecificationPtrType) ToBotAudioAndDtmfInputSpecificationPtrOutput() BotAudioAndDtmfInputSpecificationPtrOutput {
+	return i.ToBotAudioAndDtmfInputSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *botAudioAndDtmfInputSpecificationPtrType) ToBotAudioAndDtmfInputSpecificationPtrOutputWithContext(ctx context.Context) BotAudioAndDtmfInputSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAudioAndDtmfInputSpecificationPtrOutput)
+}
+
+// Specifies the audio and DTMF input specification.
+type BotAudioAndDtmfInputSpecificationOutput struct{ *pulumi.OutputState }
+
+func (BotAudioAndDtmfInputSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioAndDtmfInputSpecification)(nil)).Elem()
+}
+
+func (o BotAudioAndDtmfInputSpecificationOutput) ToBotAudioAndDtmfInputSpecificationOutput() BotAudioAndDtmfInputSpecificationOutput {
+	return o
+}
+
+func (o BotAudioAndDtmfInputSpecificationOutput) ToBotAudioAndDtmfInputSpecificationOutputWithContext(ctx context.Context) BotAudioAndDtmfInputSpecificationOutput {
+	return o
+}
+
+func (o BotAudioAndDtmfInputSpecificationOutput) ToBotAudioAndDtmfInputSpecificationPtrOutput() BotAudioAndDtmfInputSpecificationPtrOutput {
+	return o.ToBotAudioAndDtmfInputSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o BotAudioAndDtmfInputSpecificationOutput) ToBotAudioAndDtmfInputSpecificationPtrOutputWithContext(ctx context.Context) BotAudioAndDtmfInputSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAudioAndDtmfInputSpecification) *BotAudioAndDtmfInputSpecification {
+		return &v
+	}).(BotAudioAndDtmfInputSpecificationPtrOutput)
+}
+
+func (o BotAudioAndDtmfInputSpecificationOutput) AudioSpecification() BotAudioSpecificationPtrOutput {
+	return o.ApplyT(func(v BotAudioAndDtmfInputSpecification) *BotAudioSpecification { return v.AudioSpecification }).(BotAudioSpecificationPtrOutput)
+}
+
+func (o BotAudioAndDtmfInputSpecificationOutput) DtmfSpecification() BotDtmfSpecificationPtrOutput {
+	return o.ApplyT(func(v BotAudioAndDtmfInputSpecification) *BotDtmfSpecification { return v.DtmfSpecification }).(BotDtmfSpecificationPtrOutput)
+}
+
+// Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
+func (o BotAudioAndDtmfInputSpecificationOutput) StartTimeoutMs() pulumi.IntOutput {
+	return o.ApplyT(func(v BotAudioAndDtmfInputSpecification) int { return v.StartTimeoutMs }).(pulumi.IntOutput)
+}
+
+type BotAudioAndDtmfInputSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (BotAudioAndDtmfInputSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAudioAndDtmfInputSpecification)(nil)).Elem()
+}
+
+func (o BotAudioAndDtmfInputSpecificationPtrOutput) ToBotAudioAndDtmfInputSpecificationPtrOutput() BotAudioAndDtmfInputSpecificationPtrOutput {
+	return o
+}
+
+func (o BotAudioAndDtmfInputSpecificationPtrOutput) ToBotAudioAndDtmfInputSpecificationPtrOutputWithContext(ctx context.Context) BotAudioAndDtmfInputSpecificationPtrOutput {
+	return o
+}
+
+func (o BotAudioAndDtmfInputSpecificationPtrOutput) Elem() BotAudioAndDtmfInputSpecificationOutput {
+	return o.ApplyT(func(v *BotAudioAndDtmfInputSpecification) BotAudioAndDtmfInputSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret BotAudioAndDtmfInputSpecification
+		return ret
+	}).(BotAudioAndDtmfInputSpecificationOutput)
+}
+
+func (o BotAudioAndDtmfInputSpecificationPtrOutput) AudioSpecification() BotAudioSpecificationPtrOutput {
+	return o.ApplyT(func(v *BotAudioAndDtmfInputSpecification) *BotAudioSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.AudioSpecification
+	}).(BotAudioSpecificationPtrOutput)
+}
+
+func (o BotAudioAndDtmfInputSpecificationPtrOutput) DtmfSpecification() BotDtmfSpecificationPtrOutput {
+	return o.ApplyT(func(v *BotAudioAndDtmfInputSpecification) *BotDtmfSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.DtmfSpecification
+	}).(BotDtmfSpecificationPtrOutput)
+}
+
+// Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
+func (o BotAudioAndDtmfInputSpecificationPtrOutput) StartTimeoutMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BotAudioAndDtmfInputSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTimeoutMs
+	}).(pulumi.IntPtrOutput)
+}
+
 // The location of audio log files collected when conversation logging is enabled for a bot.
 type BotAudioLogDestination struct {
 	S3Bucket BotS3BucketLogDestination `pulumi:"s3Bucket"`
@@ -1468,6 +1702,165 @@ func (o BotAudioLogSettingArrayOutput) Index(i pulumi.IntInput) BotAudioLogSetti
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotAudioLogSetting {
 		return vs[0].([]BotAudioLogSetting)[vs[1].(int)]
 	}).(BotAudioLogSettingOutput)
+}
+
+// Specifies the audio input specifications.
+type BotAudioSpecification struct {
+	// Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
+	EndTimeoutMs int `pulumi:"endTimeoutMs"`
+	// Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
+	MaxLengthMs int `pulumi:"maxLengthMs"`
+}
+
+// BotAudioSpecificationInput is an input type that accepts BotAudioSpecificationArgs and BotAudioSpecificationOutput values.
+// You can construct a concrete instance of `BotAudioSpecificationInput` via:
+//
+//	BotAudioSpecificationArgs{...}
+type BotAudioSpecificationInput interface {
+	pulumi.Input
+
+	ToBotAudioSpecificationOutput() BotAudioSpecificationOutput
+	ToBotAudioSpecificationOutputWithContext(context.Context) BotAudioSpecificationOutput
+}
+
+// Specifies the audio input specifications.
+type BotAudioSpecificationArgs struct {
+	// Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
+	EndTimeoutMs pulumi.IntInput `pulumi:"endTimeoutMs"`
+	// Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
+	MaxLengthMs pulumi.IntInput `pulumi:"maxLengthMs"`
+}
+
+func (BotAudioSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioSpecification)(nil)).Elem()
+}
+
+func (i BotAudioSpecificationArgs) ToBotAudioSpecificationOutput() BotAudioSpecificationOutput {
+	return i.ToBotAudioSpecificationOutputWithContext(context.Background())
+}
+
+func (i BotAudioSpecificationArgs) ToBotAudioSpecificationOutputWithContext(ctx context.Context) BotAudioSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAudioSpecificationOutput)
+}
+
+func (i BotAudioSpecificationArgs) ToBotAudioSpecificationPtrOutput() BotAudioSpecificationPtrOutput {
+	return i.ToBotAudioSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i BotAudioSpecificationArgs) ToBotAudioSpecificationPtrOutputWithContext(ctx context.Context) BotAudioSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAudioSpecificationOutput).ToBotAudioSpecificationPtrOutputWithContext(ctx)
+}
+
+// BotAudioSpecificationPtrInput is an input type that accepts BotAudioSpecificationArgs, BotAudioSpecificationPtr and BotAudioSpecificationPtrOutput values.
+// You can construct a concrete instance of `BotAudioSpecificationPtrInput` via:
+//
+//	        BotAudioSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotAudioSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToBotAudioSpecificationPtrOutput() BotAudioSpecificationPtrOutput
+	ToBotAudioSpecificationPtrOutputWithContext(context.Context) BotAudioSpecificationPtrOutput
+}
+
+type botAudioSpecificationPtrType BotAudioSpecificationArgs
+
+func BotAudioSpecificationPtr(v *BotAudioSpecificationArgs) BotAudioSpecificationPtrInput {
+	return (*botAudioSpecificationPtrType)(v)
+}
+
+func (*botAudioSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAudioSpecification)(nil)).Elem()
+}
+
+func (i *botAudioSpecificationPtrType) ToBotAudioSpecificationPtrOutput() BotAudioSpecificationPtrOutput {
+	return i.ToBotAudioSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *botAudioSpecificationPtrType) ToBotAudioSpecificationPtrOutputWithContext(ctx context.Context) BotAudioSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAudioSpecificationPtrOutput)
+}
+
+// Specifies the audio input specifications.
+type BotAudioSpecificationOutput struct{ *pulumi.OutputState }
+
+func (BotAudioSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAudioSpecification)(nil)).Elem()
+}
+
+func (o BotAudioSpecificationOutput) ToBotAudioSpecificationOutput() BotAudioSpecificationOutput {
+	return o
+}
+
+func (o BotAudioSpecificationOutput) ToBotAudioSpecificationOutputWithContext(ctx context.Context) BotAudioSpecificationOutput {
+	return o
+}
+
+func (o BotAudioSpecificationOutput) ToBotAudioSpecificationPtrOutput() BotAudioSpecificationPtrOutput {
+	return o.ToBotAudioSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o BotAudioSpecificationOutput) ToBotAudioSpecificationPtrOutputWithContext(ctx context.Context) BotAudioSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAudioSpecification) *BotAudioSpecification {
+		return &v
+	}).(BotAudioSpecificationPtrOutput)
+}
+
+// Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
+func (o BotAudioSpecificationOutput) EndTimeoutMs() pulumi.IntOutput {
+	return o.ApplyT(func(v BotAudioSpecification) int { return v.EndTimeoutMs }).(pulumi.IntOutput)
+}
+
+// Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
+func (o BotAudioSpecificationOutput) MaxLengthMs() pulumi.IntOutput {
+	return o.ApplyT(func(v BotAudioSpecification) int { return v.MaxLengthMs }).(pulumi.IntOutput)
+}
+
+type BotAudioSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (BotAudioSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAudioSpecification)(nil)).Elem()
+}
+
+func (o BotAudioSpecificationPtrOutput) ToBotAudioSpecificationPtrOutput() BotAudioSpecificationPtrOutput {
+	return o
+}
+
+func (o BotAudioSpecificationPtrOutput) ToBotAudioSpecificationPtrOutputWithContext(ctx context.Context) BotAudioSpecificationPtrOutput {
+	return o
+}
+
+func (o BotAudioSpecificationPtrOutput) Elem() BotAudioSpecificationOutput {
+	return o.ApplyT(func(v *BotAudioSpecification) BotAudioSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret BotAudioSpecification
+		return ret
+	}).(BotAudioSpecificationOutput)
+}
+
+// Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
+func (o BotAudioSpecificationPtrOutput) EndTimeoutMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BotAudioSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.EndTimeoutMs
+	}).(pulumi.IntPtrOutput)
+}
+
+// Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
+func (o BotAudioSpecificationPtrOutput) MaxLengthMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BotAudioSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxLengthMs
+	}).(pulumi.IntPtrOutput)
 }
 
 // A button to use on a response card used to gather slot values from a user.
@@ -3398,6 +3791,203 @@ func (o BotDialogStatePtrOutput) SessionAttributes() BotSessionAttributeArrayOut
 		}
 		return v.SessionAttributes
 	}).(BotSessionAttributeArrayOutput)
+}
+
+// Specifies the settings on DTMF input.
+type BotDtmfSpecification struct {
+	// The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
+	DeletionCharacter string `pulumi:"deletionCharacter"`
+	// The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
+	EndCharacter string `pulumi:"endCharacter"`
+	// How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
+	EndTimeoutMs int `pulumi:"endTimeoutMs"`
+	// The maximum number of DTMF digits allowed in an utterance.
+	MaxLength int `pulumi:"maxLength"`
+}
+
+// BotDtmfSpecificationInput is an input type that accepts BotDtmfSpecificationArgs and BotDtmfSpecificationOutput values.
+// You can construct a concrete instance of `BotDtmfSpecificationInput` via:
+//
+//	BotDtmfSpecificationArgs{...}
+type BotDtmfSpecificationInput interface {
+	pulumi.Input
+
+	ToBotDtmfSpecificationOutput() BotDtmfSpecificationOutput
+	ToBotDtmfSpecificationOutputWithContext(context.Context) BotDtmfSpecificationOutput
+}
+
+// Specifies the settings on DTMF input.
+type BotDtmfSpecificationArgs struct {
+	// The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
+	DeletionCharacter pulumi.StringInput `pulumi:"deletionCharacter"`
+	// The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
+	EndCharacter pulumi.StringInput `pulumi:"endCharacter"`
+	// How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
+	EndTimeoutMs pulumi.IntInput `pulumi:"endTimeoutMs"`
+	// The maximum number of DTMF digits allowed in an utterance.
+	MaxLength pulumi.IntInput `pulumi:"maxLength"`
+}
+
+func (BotDtmfSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotDtmfSpecification)(nil)).Elem()
+}
+
+func (i BotDtmfSpecificationArgs) ToBotDtmfSpecificationOutput() BotDtmfSpecificationOutput {
+	return i.ToBotDtmfSpecificationOutputWithContext(context.Background())
+}
+
+func (i BotDtmfSpecificationArgs) ToBotDtmfSpecificationOutputWithContext(ctx context.Context) BotDtmfSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotDtmfSpecificationOutput)
+}
+
+func (i BotDtmfSpecificationArgs) ToBotDtmfSpecificationPtrOutput() BotDtmfSpecificationPtrOutput {
+	return i.ToBotDtmfSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i BotDtmfSpecificationArgs) ToBotDtmfSpecificationPtrOutputWithContext(ctx context.Context) BotDtmfSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotDtmfSpecificationOutput).ToBotDtmfSpecificationPtrOutputWithContext(ctx)
+}
+
+// BotDtmfSpecificationPtrInput is an input type that accepts BotDtmfSpecificationArgs, BotDtmfSpecificationPtr and BotDtmfSpecificationPtrOutput values.
+// You can construct a concrete instance of `BotDtmfSpecificationPtrInput` via:
+//
+//	        BotDtmfSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotDtmfSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToBotDtmfSpecificationPtrOutput() BotDtmfSpecificationPtrOutput
+	ToBotDtmfSpecificationPtrOutputWithContext(context.Context) BotDtmfSpecificationPtrOutput
+}
+
+type botDtmfSpecificationPtrType BotDtmfSpecificationArgs
+
+func BotDtmfSpecificationPtr(v *BotDtmfSpecificationArgs) BotDtmfSpecificationPtrInput {
+	return (*botDtmfSpecificationPtrType)(v)
+}
+
+func (*botDtmfSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotDtmfSpecification)(nil)).Elem()
+}
+
+func (i *botDtmfSpecificationPtrType) ToBotDtmfSpecificationPtrOutput() BotDtmfSpecificationPtrOutput {
+	return i.ToBotDtmfSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *botDtmfSpecificationPtrType) ToBotDtmfSpecificationPtrOutputWithContext(ctx context.Context) BotDtmfSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotDtmfSpecificationPtrOutput)
+}
+
+// Specifies the settings on DTMF input.
+type BotDtmfSpecificationOutput struct{ *pulumi.OutputState }
+
+func (BotDtmfSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotDtmfSpecification)(nil)).Elem()
+}
+
+func (o BotDtmfSpecificationOutput) ToBotDtmfSpecificationOutput() BotDtmfSpecificationOutput {
+	return o
+}
+
+func (o BotDtmfSpecificationOutput) ToBotDtmfSpecificationOutputWithContext(ctx context.Context) BotDtmfSpecificationOutput {
+	return o
+}
+
+func (o BotDtmfSpecificationOutput) ToBotDtmfSpecificationPtrOutput() BotDtmfSpecificationPtrOutput {
+	return o.ToBotDtmfSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o BotDtmfSpecificationOutput) ToBotDtmfSpecificationPtrOutputWithContext(ctx context.Context) BotDtmfSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotDtmfSpecification) *BotDtmfSpecification {
+		return &v
+	}).(BotDtmfSpecificationPtrOutput)
+}
+
+// The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
+func (o BotDtmfSpecificationOutput) DeletionCharacter() pulumi.StringOutput {
+	return o.ApplyT(func(v BotDtmfSpecification) string { return v.DeletionCharacter }).(pulumi.StringOutput)
+}
+
+// The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
+func (o BotDtmfSpecificationOutput) EndCharacter() pulumi.StringOutput {
+	return o.ApplyT(func(v BotDtmfSpecification) string { return v.EndCharacter }).(pulumi.StringOutput)
+}
+
+// How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
+func (o BotDtmfSpecificationOutput) EndTimeoutMs() pulumi.IntOutput {
+	return o.ApplyT(func(v BotDtmfSpecification) int { return v.EndTimeoutMs }).(pulumi.IntOutput)
+}
+
+// The maximum number of DTMF digits allowed in an utterance.
+func (o BotDtmfSpecificationOutput) MaxLength() pulumi.IntOutput {
+	return o.ApplyT(func(v BotDtmfSpecification) int { return v.MaxLength }).(pulumi.IntOutput)
+}
+
+type BotDtmfSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (BotDtmfSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotDtmfSpecification)(nil)).Elem()
+}
+
+func (o BotDtmfSpecificationPtrOutput) ToBotDtmfSpecificationPtrOutput() BotDtmfSpecificationPtrOutput {
+	return o
+}
+
+func (o BotDtmfSpecificationPtrOutput) ToBotDtmfSpecificationPtrOutputWithContext(ctx context.Context) BotDtmfSpecificationPtrOutput {
+	return o
+}
+
+func (o BotDtmfSpecificationPtrOutput) Elem() BotDtmfSpecificationOutput {
+	return o.ApplyT(func(v *BotDtmfSpecification) BotDtmfSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret BotDtmfSpecification
+		return ret
+	}).(BotDtmfSpecificationOutput)
+}
+
+// The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
+func (o BotDtmfSpecificationPtrOutput) DeletionCharacter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotDtmfSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeletionCharacter
+	}).(pulumi.StringPtrOutput)
+}
+
+// The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
+func (o BotDtmfSpecificationPtrOutput) EndCharacter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotDtmfSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndCharacter
+	}).(pulumi.StringPtrOutput)
+}
+
+// How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
+func (o BotDtmfSpecificationPtrOutput) EndTimeoutMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BotDtmfSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.EndTimeoutMs
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of DTMF digits allowed in an utterance.
+func (o BotDtmfSpecificationPtrOutput) MaxLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BotDtmfSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxLength
+	}).(pulumi.IntPtrOutput)
 }
 
 // Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.
@@ -7816,6 +8406,126 @@ func (o BotPostFulfillmentStatusSpecificationPtrOutput) TimeoutResponse() BotRes
 	}).(BotResponseSpecificationPtrOutput)
 }
 
+// Specifies the settings on a prompt attempt.
+type BotPromptAttemptSpecification struct {
+	// Indicates whether the user can interrupt a speech prompt attempt from the bot.
+	AllowInterrupt                 *bool                              `pulumi:"allowInterrupt"`
+	AllowedInputTypes              BotAllowedInputTypes               `pulumi:"allowedInputTypes"`
+	AudioAndDtmfInputSpecification *BotAudioAndDtmfInputSpecification `pulumi:"audioAndDtmfInputSpecification"`
+	TextInputSpecification         *BotTextInputSpecification         `pulumi:"textInputSpecification"`
+}
+
+// BotPromptAttemptSpecificationInput is an input type that accepts BotPromptAttemptSpecificationArgs and BotPromptAttemptSpecificationOutput values.
+// You can construct a concrete instance of `BotPromptAttemptSpecificationInput` via:
+//
+//	BotPromptAttemptSpecificationArgs{...}
+type BotPromptAttemptSpecificationInput interface {
+	pulumi.Input
+
+	ToBotPromptAttemptSpecificationOutput() BotPromptAttemptSpecificationOutput
+	ToBotPromptAttemptSpecificationOutputWithContext(context.Context) BotPromptAttemptSpecificationOutput
+}
+
+// Specifies the settings on a prompt attempt.
+type BotPromptAttemptSpecificationArgs struct {
+	// Indicates whether the user can interrupt a speech prompt attempt from the bot.
+	AllowInterrupt                 pulumi.BoolPtrInput                       `pulumi:"allowInterrupt"`
+	AllowedInputTypes              BotAllowedInputTypesInput                 `pulumi:"allowedInputTypes"`
+	AudioAndDtmfInputSpecification BotAudioAndDtmfInputSpecificationPtrInput `pulumi:"audioAndDtmfInputSpecification"`
+	TextInputSpecification         BotTextInputSpecificationPtrInput         `pulumi:"textInputSpecification"`
+}
+
+func (BotPromptAttemptSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotPromptAttemptSpecification)(nil)).Elem()
+}
+
+func (i BotPromptAttemptSpecificationArgs) ToBotPromptAttemptSpecificationOutput() BotPromptAttemptSpecificationOutput {
+	return i.ToBotPromptAttemptSpecificationOutputWithContext(context.Background())
+}
+
+func (i BotPromptAttemptSpecificationArgs) ToBotPromptAttemptSpecificationOutputWithContext(ctx context.Context) BotPromptAttemptSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotPromptAttemptSpecificationOutput)
+}
+
+// BotPromptAttemptSpecificationMapInput is an input type that accepts BotPromptAttemptSpecificationMap and BotPromptAttemptSpecificationMapOutput values.
+// You can construct a concrete instance of `BotPromptAttemptSpecificationMapInput` via:
+//
+//	BotPromptAttemptSpecificationMap{ "key": BotPromptAttemptSpecificationArgs{...} }
+type BotPromptAttemptSpecificationMapInput interface {
+	pulumi.Input
+
+	ToBotPromptAttemptSpecificationMapOutput() BotPromptAttemptSpecificationMapOutput
+	ToBotPromptAttemptSpecificationMapOutputWithContext(context.Context) BotPromptAttemptSpecificationMapOutput
+}
+
+type BotPromptAttemptSpecificationMap map[string]BotPromptAttemptSpecificationInput
+
+func (BotPromptAttemptSpecificationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BotPromptAttemptSpecification)(nil)).Elem()
+}
+
+func (i BotPromptAttemptSpecificationMap) ToBotPromptAttemptSpecificationMapOutput() BotPromptAttemptSpecificationMapOutput {
+	return i.ToBotPromptAttemptSpecificationMapOutputWithContext(context.Background())
+}
+
+func (i BotPromptAttemptSpecificationMap) ToBotPromptAttemptSpecificationMapOutputWithContext(ctx context.Context) BotPromptAttemptSpecificationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotPromptAttemptSpecificationMapOutput)
+}
+
+// Specifies the settings on a prompt attempt.
+type BotPromptAttemptSpecificationOutput struct{ *pulumi.OutputState }
+
+func (BotPromptAttemptSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotPromptAttemptSpecification)(nil)).Elem()
+}
+
+func (o BotPromptAttemptSpecificationOutput) ToBotPromptAttemptSpecificationOutput() BotPromptAttemptSpecificationOutput {
+	return o
+}
+
+func (o BotPromptAttemptSpecificationOutput) ToBotPromptAttemptSpecificationOutputWithContext(ctx context.Context) BotPromptAttemptSpecificationOutput {
+	return o
+}
+
+// Indicates whether the user can interrupt a speech prompt attempt from the bot.
+func (o BotPromptAttemptSpecificationOutput) AllowInterrupt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BotPromptAttemptSpecification) *bool { return v.AllowInterrupt }).(pulumi.BoolPtrOutput)
+}
+
+func (o BotPromptAttemptSpecificationOutput) AllowedInputTypes() BotAllowedInputTypesOutput {
+	return o.ApplyT(func(v BotPromptAttemptSpecification) BotAllowedInputTypes { return v.AllowedInputTypes }).(BotAllowedInputTypesOutput)
+}
+
+func (o BotPromptAttemptSpecificationOutput) AudioAndDtmfInputSpecification() BotAudioAndDtmfInputSpecificationPtrOutput {
+	return o.ApplyT(func(v BotPromptAttemptSpecification) *BotAudioAndDtmfInputSpecification {
+		return v.AudioAndDtmfInputSpecification
+	}).(BotAudioAndDtmfInputSpecificationPtrOutput)
+}
+
+func (o BotPromptAttemptSpecificationOutput) TextInputSpecification() BotTextInputSpecificationPtrOutput {
+	return o.ApplyT(func(v BotPromptAttemptSpecification) *BotTextInputSpecification { return v.TextInputSpecification }).(BotTextInputSpecificationPtrOutput)
+}
+
+type BotPromptAttemptSpecificationMapOutput struct{ *pulumi.OutputState }
+
+func (BotPromptAttemptSpecificationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BotPromptAttemptSpecification)(nil)).Elem()
+}
+
+func (o BotPromptAttemptSpecificationMapOutput) ToBotPromptAttemptSpecificationMapOutput() BotPromptAttemptSpecificationMapOutput {
+	return o
+}
+
+func (o BotPromptAttemptSpecificationMapOutput) ToBotPromptAttemptSpecificationMapOutputWithContext(ctx context.Context) BotPromptAttemptSpecificationMapOutput {
+	return o
+}
+
+func (o BotPromptAttemptSpecificationMapOutput) MapIndex(k pulumi.StringInput) BotPromptAttemptSpecificationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BotPromptAttemptSpecification {
+		return vs[0].(map[string]BotPromptAttemptSpecification)[vs[1].(string)]
+	}).(BotPromptAttemptSpecificationOutput)
+}
+
 // Prompts the user to confirm the intent.
 type BotPromptSpecification struct {
 	// Indicates whether the user can interrupt a speech prompt from the bot.
@@ -7824,7 +8534,7 @@ type BotPromptSpecification struct {
 	MessageGroupsList        []BotMessageGroup            `pulumi:"messageGroupsList"`
 	MessageSelectionStrategy *BotMessageSelectionStrategy `pulumi:"messageSelectionStrategy"`
 	// Specifies the advanced settings on each attempt of the prompt.
-	PromptAttemptsSpecification interface{} `pulumi:"promptAttemptsSpecification"`
+	PromptAttemptsSpecification map[string]BotPromptAttemptSpecification `pulumi:"promptAttemptsSpecification"`
 }
 
 // BotPromptSpecificationInput is an input type that accepts BotPromptSpecificationArgs and BotPromptSpecificationOutput values.
@@ -7846,7 +8556,7 @@ type BotPromptSpecificationArgs struct {
 	MessageGroupsList        BotMessageGroupArrayInput           `pulumi:"messageGroupsList"`
 	MessageSelectionStrategy BotMessageSelectionStrategyPtrInput `pulumi:"messageSelectionStrategy"`
 	// Specifies the advanced settings on each attempt of the prompt.
-	PromptAttemptsSpecification pulumi.Input `pulumi:"promptAttemptsSpecification"`
+	PromptAttemptsSpecification BotPromptAttemptSpecificationMapInput `pulumi:"promptAttemptsSpecification"`
 }
 
 func (BotPromptSpecificationArgs) ElementType() reflect.Type {
@@ -7945,8 +8655,10 @@ func (o BotPromptSpecificationOutput) MessageSelectionStrategy() BotMessageSelec
 }
 
 // Specifies the advanced settings on each attempt of the prompt.
-func (o BotPromptSpecificationOutput) PromptAttemptsSpecification() pulumi.AnyOutput {
-	return o.ApplyT(func(v BotPromptSpecification) interface{} { return v.PromptAttemptsSpecification }).(pulumi.AnyOutput)
+func (o BotPromptSpecificationOutput) PromptAttemptsSpecification() BotPromptAttemptSpecificationMapOutput {
+	return o.ApplyT(func(v BotPromptSpecification) map[string]BotPromptAttemptSpecification {
+		return v.PromptAttemptsSpecification
+	}).(BotPromptAttemptSpecificationMapOutput)
 }
 
 type BotPromptSpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -8011,13 +8723,13 @@ func (o BotPromptSpecificationPtrOutput) MessageSelectionStrategy() BotMessageSe
 }
 
 // Specifies the advanced settings on each attempt of the prompt.
-func (o BotPromptSpecificationPtrOutput) PromptAttemptsSpecification() pulumi.AnyOutput {
-	return o.ApplyT(func(v *BotPromptSpecification) interface{} {
+func (o BotPromptSpecificationPtrOutput) PromptAttemptsSpecification() BotPromptAttemptSpecificationMapOutput {
+	return o.ApplyT(func(v *BotPromptSpecification) map[string]BotPromptAttemptSpecification {
 		if v == nil {
 			return nil
 		}
 		return v.PromptAttemptsSpecification
-	}).(pulumi.AnyOutput)
+	}).(BotPromptAttemptSpecificationMapOutput)
 }
 
 // A list of message groups that Amazon Lex uses to respond the user input.
@@ -11341,6 +12053,146 @@ func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) Det
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the text input specifications.
+type BotTextInputSpecification struct {
+	// Time for which a bot waits before re-prompting a customer for text input.
+	StartTimeoutMs int `pulumi:"startTimeoutMs"`
+}
+
+// BotTextInputSpecificationInput is an input type that accepts BotTextInputSpecificationArgs and BotTextInputSpecificationOutput values.
+// You can construct a concrete instance of `BotTextInputSpecificationInput` via:
+//
+//	BotTextInputSpecificationArgs{...}
+type BotTextInputSpecificationInput interface {
+	pulumi.Input
+
+	ToBotTextInputSpecificationOutput() BotTextInputSpecificationOutput
+	ToBotTextInputSpecificationOutputWithContext(context.Context) BotTextInputSpecificationOutput
+}
+
+// Specifies the text input specifications.
+type BotTextInputSpecificationArgs struct {
+	// Time for which a bot waits before re-prompting a customer for text input.
+	StartTimeoutMs pulumi.IntInput `pulumi:"startTimeoutMs"`
+}
+
+func (BotTextInputSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotTextInputSpecification)(nil)).Elem()
+}
+
+func (i BotTextInputSpecificationArgs) ToBotTextInputSpecificationOutput() BotTextInputSpecificationOutput {
+	return i.ToBotTextInputSpecificationOutputWithContext(context.Background())
+}
+
+func (i BotTextInputSpecificationArgs) ToBotTextInputSpecificationOutputWithContext(ctx context.Context) BotTextInputSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotTextInputSpecificationOutput)
+}
+
+func (i BotTextInputSpecificationArgs) ToBotTextInputSpecificationPtrOutput() BotTextInputSpecificationPtrOutput {
+	return i.ToBotTextInputSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i BotTextInputSpecificationArgs) ToBotTextInputSpecificationPtrOutputWithContext(ctx context.Context) BotTextInputSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotTextInputSpecificationOutput).ToBotTextInputSpecificationPtrOutputWithContext(ctx)
+}
+
+// BotTextInputSpecificationPtrInput is an input type that accepts BotTextInputSpecificationArgs, BotTextInputSpecificationPtr and BotTextInputSpecificationPtrOutput values.
+// You can construct a concrete instance of `BotTextInputSpecificationPtrInput` via:
+//
+//	        BotTextInputSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotTextInputSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToBotTextInputSpecificationPtrOutput() BotTextInputSpecificationPtrOutput
+	ToBotTextInputSpecificationPtrOutputWithContext(context.Context) BotTextInputSpecificationPtrOutput
+}
+
+type botTextInputSpecificationPtrType BotTextInputSpecificationArgs
+
+func BotTextInputSpecificationPtr(v *BotTextInputSpecificationArgs) BotTextInputSpecificationPtrInput {
+	return (*botTextInputSpecificationPtrType)(v)
+}
+
+func (*botTextInputSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotTextInputSpecification)(nil)).Elem()
+}
+
+func (i *botTextInputSpecificationPtrType) ToBotTextInputSpecificationPtrOutput() BotTextInputSpecificationPtrOutput {
+	return i.ToBotTextInputSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *botTextInputSpecificationPtrType) ToBotTextInputSpecificationPtrOutputWithContext(ctx context.Context) BotTextInputSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotTextInputSpecificationPtrOutput)
+}
+
+// Specifies the text input specifications.
+type BotTextInputSpecificationOutput struct{ *pulumi.OutputState }
+
+func (BotTextInputSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotTextInputSpecification)(nil)).Elem()
+}
+
+func (o BotTextInputSpecificationOutput) ToBotTextInputSpecificationOutput() BotTextInputSpecificationOutput {
+	return o
+}
+
+func (o BotTextInputSpecificationOutput) ToBotTextInputSpecificationOutputWithContext(ctx context.Context) BotTextInputSpecificationOutput {
+	return o
+}
+
+func (o BotTextInputSpecificationOutput) ToBotTextInputSpecificationPtrOutput() BotTextInputSpecificationPtrOutput {
+	return o.ToBotTextInputSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o BotTextInputSpecificationOutput) ToBotTextInputSpecificationPtrOutputWithContext(ctx context.Context) BotTextInputSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotTextInputSpecification) *BotTextInputSpecification {
+		return &v
+	}).(BotTextInputSpecificationPtrOutput)
+}
+
+// Time for which a bot waits before re-prompting a customer for text input.
+func (o BotTextInputSpecificationOutput) StartTimeoutMs() pulumi.IntOutput {
+	return o.ApplyT(func(v BotTextInputSpecification) int { return v.StartTimeoutMs }).(pulumi.IntOutput)
+}
+
+type BotTextInputSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (BotTextInputSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotTextInputSpecification)(nil)).Elem()
+}
+
+func (o BotTextInputSpecificationPtrOutput) ToBotTextInputSpecificationPtrOutput() BotTextInputSpecificationPtrOutput {
+	return o
+}
+
+func (o BotTextInputSpecificationPtrOutput) ToBotTextInputSpecificationPtrOutputWithContext(ctx context.Context) BotTextInputSpecificationPtrOutput {
+	return o
+}
+
+func (o BotTextInputSpecificationPtrOutput) Elem() BotTextInputSpecificationOutput {
+	return o.ApplyT(func(v *BotTextInputSpecification) BotTextInputSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret BotTextInputSpecification
+		return ret
+	}).(BotTextInputSpecificationOutput)
+}
+
+// Time for which a bot waits before re-prompting a customer for text input.
+func (o BotTextInputSpecificationPtrOutput) StartTimeoutMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BotTextInputSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTimeoutMs
+	}).(pulumi.IntPtrOutput)
+}
+
 // Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
 type BotTextLogDestination struct {
 	CloudWatch BotCloudWatchLogGroupLogDestination `pulumi:"cloudWatch"`
@@ -12323,9 +13175,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogDestinationInput)(nil)).Elem(), BotAliasTextLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogSettingInput)(nil)).Elem(), BotAliasTextLogSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogSettingArrayInput)(nil)).Elem(), BotAliasTextLogSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAllowedInputTypesInput)(nil)).Elem(), BotAllowedInputTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioAndDtmfInputSpecificationInput)(nil)).Elem(), BotAudioAndDtmfInputSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioAndDtmfInputSpecificationPtrInput)(nil)).Elem(), BotAudioAndDtmfInputSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioLogDestinationInput)(nil)).Elem(), BotAudioLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioLogSettingInput)(nil)).Elem(), BotAudioLogSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioLogSettingArrayInput)(nil)).Elem(), BotAudioLogSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioSpecificationInput)(nil)).Elem(), BotAudioSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioSpecificationPtrInput)(nil)).Elem(), BotAudioSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotButtonInput)(nil)).Elem(), BotButtonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotButtonArrayInput)(nil)).Elem(), BotButtonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotCloudWatchLogGroupLogDestinationInput)(nil)).Elem(), BotCloudWatchLogGroupLogDestinationArgs{})
@@ -12352,6 +13209,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogCodeHookSettingPtrInput)(nil)).Elem(), BotDialogCodeHookSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogStateInput)(nil)).Elem(), BotDialogStateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogStatePtrInput)(nil)).Elem(), BotDialogStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotDtmfSpecificationInput)(nil)).Elem(), BotDtmfSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotDtmfSpecificationPtrInput)(nil)).Elem(), BotDtmfSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotElicitationCodeHookInvocationSettingInput)(nil)).Elem(), BotElicitationCodeHookInvocationSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotElicitationCodeHookInvocationSettingPtrInput)(nil)).Elem(), BotElicitationCodeHookInvocationSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotExternalSourceSettingInput)(nil)).Elem(), BotExternalSourceSettingArgs{})
@@ -12402,6 +13261,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPostDialogCodeHookInvocationSpecificationPtrInput)(nil)).Elem(), BotPostDialogCodeHookInvocationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPostFulfillmentStatusSpecificationInput)(nil)).Elem(), BotPostFulfillmentStatusSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPostFulfillmentStatusSpecificationPtrInput)(nil)).Elem(), BotPostFulfillmentStatusSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptAttemptSpecificationInput)(nil)).Elem(), BotPromptAttemptSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptAttemptSpecificationMapInput)(nil)).Elem(), BotPromptAttemptSpecificationMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptSpecificationInput)(nil)).Elem(), BotPromptSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptSpecificationPtrInput)(nil)).Elem(), BotPromptSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotResponseSpecificationInput)(nil)).Elem(), BotResponseSpecificationArgs{})
@@ -12451,6 +13312,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTestBotAliasSettingsPtrInput)(nil)).Elem(), BotTestBotAliasSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesInput)(nil)).Elem(), BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrInput)(nil)).Elem(), BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotTextInputSpecificationInput)(nil)).Elem(), BotTextInputSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotTextInputSpecificationPtrInput)(nil)).Elem(), BotTextInputSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTextLogDestinationInput)(nil)).Elem(), BotTextLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTextLogSettingInput)(nil)).Elem(), BotTextLogSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTextLogSettingArrayInput)(nil)).Elem(), BotTextLogSettingArray{})
@@ -12486,9 +13349,14 @@ func init() {
 	pulumi.RegisterOutputType(BotAliasTextLogDestinationOutput{})
 	pulumi.RegisterOutputType(BotAliasTextLogSettingOutput{})
 	pulumi.RegisterOutputType(BotAliasTextLogSettingArrayOutput{})
+	pulumi.RegisterOutputType(BotAllowedInputTypesOutput{})
+	pulumi.RegisterOutputType(BotAudioAndDtmfInputSpecificationOutput{})
+	pulumi.RegisterOutputType(BotAudioAndDtmfInputSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotAudioLogDestinationOutput{})
 	pulumi.RegisterOutputType(BotAudioLogSettingOutput{})
 	pulumi.RegisterOutputType(BotAudioLogSettingArrayOutput{})
+	pulumi.RegisterOutputType(BotAudioSpecificationOutput{})
+	pulumi.RegisterOutputType(BotAudioSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotButtonOutput{})
 	pulumi.RegisterOutputType(BotButtonArrayOutput{})
 	pulumi.RegisterOutputType(BotCloudWatchLogGroupLogDestinationOutput{})
@@ -12515,6 +13383,8 @@ func init() {
 	pulumi.RegisterOutputType(BotDialogCodeHookSettingPtrOutput{})
 	pulumi.RegisterOutputType(BotDialogStateOutput{})
 	pulumi.RegisterOutputType(BotDialogStatePtrOutput{})
+	pulumi.RegisterOutputType(BotDtmfSpecificationOutput{})
+	pulumi.RegisterOutputType(BotDtmfSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotElicitationCodeHookInvocationSettingOutput{})
 	pulumi.RegisterOutputType(BotElicitationCodeHookInvocationSettingPtrOutput{})
 	pulumi.RegisterOutputType(BotExternalSourceSettingOutput{})
@@ -12565,6 +13435,8 @@ func init() {
 	pulumi.RegisterOutputType(BotPostDialogCodeHookInvocationSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotPostFulfillmentStatusSpecificationOutput{})
 	pulumi.RegisterOutputType(BotPostFulfillmentStatusSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(BotPromptAttemptSpecificationOutput{})
+	pulumi.RegisterOutputType(BotPromptAttemptSpecificationMapOutput{})
 	pulumi.RegisterOutputType(BotPromptSpecificationOutput{})
 	pulumi.RegisterOutputType(BotPromptSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotResponseSpecificationOutput{})
@@ -12614,6 +13486,8 @@ func init() {
 	pulumi.RegisterOutputType(BotTestBotAliasSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput{})
 	pulumi.RegisterOutputType(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotTextInputSpecificationOutput{})
+	pulumi.RegisterOutputType(BotTextInputSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotTextLogDestinationOutput{})
 	pulumi.RegisterOutputType(BotTextLogSettingOutput{})
 	pulumi.RegisterOutputType(BotTextLogSettingArrayOutput{})

@@ -119,7 +119,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[Any]:
+    def resource_tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags attached to the resource created by Image Builder.
         """
@@ -151,7 +151,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags associated with the component.
         """

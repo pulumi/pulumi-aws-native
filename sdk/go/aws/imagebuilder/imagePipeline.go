@@ -42,7 +42,7 @@ type ImagePipeline struct {
 	// The status of the image pipeline.
 	Status ImagePipelineStatusPtrOutput `pulumi:"status"`
 	// The tags of this image pipeline.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Workflows to define the image build process
 	Workflows ImagePipelineWorkflowConfigurationArrayOutput `pulumi:"workflows"`
 }
@@ -116,7 +116,7 @@ type imagePipelineArgs struct {
 	// The status of the image pipeline.
 	Status *ImagePipelineStatus `pulumi:"status"`
 	// The tags of this image pipeline.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Workflows to define the image build process
 	Workflows []ImagePipelineWorkflowConfiguration `pulumi:"workflows"`
 }
@@ -148,7 +148,7 @@ type ImagePipelineArgs struct {
 	// The status of the image pipeline.
 	Status ImagePipelineStatusPtrInput
 	// The tags of this image pipeline.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// Workflows to define the image build process
 	Workflows ImagePipelineWorkflowConfigurationArrayInput
 }
@@ -258,8 +258,8 @@ func (o ImagePipelineOutput) Status() ImagePipelineStatusPtrOutput {
 }
 
 // The tags of this image pipeline.
-func (o ImagePipelineOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ImagePipeline) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o ImagePipelineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Workflows to define the image build process

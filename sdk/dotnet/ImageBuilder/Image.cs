@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The tags associated with the image.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Workflows to define the image build process
@@ -131,7 +131,7 @@ namespace Pulumi.AwsNative.ImageBuilder
                     "imageScanningConfiguration",
                     "imageTestsConfiguration",
                     "infrastructureConfigurationArn",
-                    "tags",
+                    "tags.*",
                     "workflows[*]",
                 },
             };
@@ -204,11 +204,17 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Input("infrastructureConfigurationArn")]
         public Input<string>? InfrastructureConfigurationArn { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// The tags associated with the image.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("workflows")]
         private InputList<Inputs.ImageWorkflowConfigurationArgs>? _workflows;

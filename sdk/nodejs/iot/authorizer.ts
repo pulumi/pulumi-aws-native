@@ -45,7 +45,7 @@ export class Authorizer extends pulumi.CustomResource {
     public readonly status!: pulumi.Output<enums.iot.AuthorizerStatus | undefined>;
     public readonly tags!: pulumi.Output<outputs.iot.AuthorizerTag[] | undefined>;
     public readonly tokenKeyName!: pulumi.Output<string | undefined>;
-    public readonly tokenSigningPublicKeys!: pulumi.Output<any | undefined>;
+    public readonly tokenSigningPublicKeys!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Authorizer resource with the given unique name, arguments, and options.
@@ -99,5 +99,5 @@ export interface AuthorizerArgs {
     status?: pulumi.Input<enums.iot.AuthorizerStatus>;
     tags?: pulumi.Input<pulumi.Input<inputs.iot.AuthorizerTagArgs>[]>;
     tokenKeyName?: pulumi.Input<string>;
-    tokenSigningPublicKeys?: any;
+    tokenSigningPublicKeys?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

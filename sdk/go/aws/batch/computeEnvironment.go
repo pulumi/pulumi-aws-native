@@ -24,7 +24,7 @@ type ComputeEnvironment struct {
 	ServiceRole               pulumi.StringPtrOutput                      `pulumi:"serviceRole"`
 	State                     pulumi.StringPtrOutput                      `pulumi:"state"`
 	// A key-value pair to associate with a resource.
-	Tags           pulumi.AnyOutput                        `pulumi:"tags"`
+	Tags           pulumi.StringMapOutput                  `pulumi:"tags"`
 	Type           pulumi.StringOutput                     `pulumi:"type"`
 	UnmanagedvCpus pulumi.IntPtrOutput                     `pulumi:"unmanagedvCpus"`
 	UpdatePolicy   ComputeEnvironmentUpdatePolicyPtrOutput `pulumi:"updatePolicy"`
@@ -44,7 +44,7 @@ func NewComputeEnvironment(ctx *pulumi.Context,
 		"computeEnvironmentName",
 		"computeResources.spotIamFleetRole",
 		"eksConfiguration",
-		"tags",
+		"tags.*",
 		"type",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -88,7 +88,7 @@ type computeEnvironmentArgs struct {
 	ServiceRole               *string                             `pulumi:"serviceRole"`
 	State                     *string                             `pulumi:"state"`
 	// A key-value pair to associate with a resource.
-	Tags           interface{}                     `pulumi:"tags"`
+	Tags           map[string]string               `pulumi:"tags"`
 	Type           string                          `pulumi:"type"`
 	UnmanagedvCpus *int                            `pulumi:"unmanagedvCpus"`
 	UpdatePolicy   *ComputeEnvironmentUpdatePolicy `pulumi:"updatePolicy"`
@@ -103,7 +103,7 @@ type ComputeEnvironmentArgs struct {
 	ServiceRole               pulumi.StringPtrInput
 	State                     pulumi.StringPtrInput
 	// A key-value pair to associate with a resource.
-	Tags           pulumi.Input
+	Tags           pulumi.StringMapInput
 	Type           pulumi.StringInput
 	UnmanagedvCpus pulumi.IntPtrInput
 	UpdatePolicy   ComputeEnvironmentUpdatePolicyPtrInput
@@ -175,8 +175,8 @@ func (o ComputeEnvironmentOutput) State() pulumi.StringPtrOutput {
 }
 
 // A key-value pair to associate with a resource.
-func (o ComputeEnvironmentOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ComputeEnvironment) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o ComputeEnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o ComputeEnvironmentOutput) Type() pulumi.StringOutput {

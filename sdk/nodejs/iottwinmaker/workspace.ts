@@ -57,7 +57,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * A map of key-value pairs to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The date and time of the current update.
      */
@@ -131,7 +131,7 @@ export interface WorkspaceArgs {
     /**
      * A map of key-value pairs to associate with a resource.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the workspace.
      */

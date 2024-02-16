@@ -935,9 +935,9 @@ class RuleHttpParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 header_parameters: Optional[Any] = None,
+                 header_parameters: Optional[Mapping[str, str]] = None,
                  path_parameter_values: Optional[Sequence[str]] = None,
-                 query_string_parameters: Optional[Any] = None):
+                 query_string_parameters: Optional[Mapping[str, str]] = None):
         if header_parameters is not None:
             pulumi.set(__self__, "header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -947,7 +947,7 @@ class RuleHttpParameters(dict):
 
     @property
     @pulumi.getter(name="headerParameters")
-    def header_parameters(self) -> Optional[Any]:
+    def header_parameters(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "header_parameters")
 
     @property
@@ -957,7 +957,7 @@ class RuleHttpParameters(dict):
 
     @property
     @pulumi.getter(name="queryStringParameters")
-    def query_string_parameters(self) -> Optional[Any]:
+    def query_string_parameters(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "query_string_parameters")
 
 
@@ -984,7 +984,7 @@ class RuleInputTransformer(dict):
 
     def __init__(__self__, *,
                  input_template: str,
-                 input_paths_map: Optional[Any] = None):
+                 input_paths_map: Optional[Mapping[str, str]] = None):
         pulumi.set(__self__, "input_template", input_template)
         if input_paths_map is not None:
             pulumi.set(__self__, "input_paths_map", input_paths_map)
@@ -996,7 +996,7 @@ class RuleInputTransformer(dict):
 
     @property
     @pulumi.getter(name="inputPathsMap")
-    def input_paths_map(self) -> Optional[Any]:
+    def input_paths_map(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "input_paths_map")
 
 

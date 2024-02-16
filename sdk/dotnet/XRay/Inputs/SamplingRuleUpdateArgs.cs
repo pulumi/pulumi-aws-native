@@ -12,11 +12,17 @@ namespace Pulumi.AwsNative.XRay.Inputs
 
     public sealed class SamplingRuleUpdateArgs : global::Pulumi.ResourceArgs
     {
+        [Input("attributes")]
+        private InputMap<string>? _attributes;
+
         /// <summary>
         /// Matches attributes derived from the request.
         /// </summary>
-        [Input("attributes")]
-        public Input<object>? Attributes { get; set; }
+        public InputMap<string> Attributes
+        {
+            get => _attributes ?? (_attributes = new InputMap<string>());
+            set => _attributes = value;
+        }
 
         /// <summary>
         /// The percentage of matching requests to instrument, after the reservoir is exhausted.

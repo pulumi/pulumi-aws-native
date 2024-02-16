@@ -27,8 +27,8 @@ type LookupDeploymentArgs struct {
 }
 
 type LookupDeploymentResult struct {
-	DeploymentId *string     `pulumi:"deploymentId"`
-	Tags         interface{} `pulumi:"tags"`
+	DeploymentId *string           `pulumi:"deploymentId"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentResultOutput {
@@ -70,8 +70,8 @@ func (o LookupDeploymentResultOutput) DeploymentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.DeploymentId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDeploymentResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupDeploymentResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupDeploymentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -43,7 +43,7 @@ type Stage struct {
 	// Specifies whether active tracing with X-ray is enabled for the Stage.
 	TracingEnabled pulumi.BoolPtrOutput `pulumi:"tracingEnabled"`
 	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
-	Variables pulumi.AnyOutput `pulumi:"variables"`
+	Variables pulumi.StringMapOutput `pulumi:"variables"`
 }
 
 // NewStage registers a new resource with the given unique name, arguments, and options.
@@ -121,7 +121,7 @@ type stageArgs struct {
 	// Specifies whether active tracing with X-ray is enabled for the Stage.
 	TracingEnabled *bool `pulumi:"tracingEnabled"`
 	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
-	Variables interface{} `pulumi:"variables"`
+	Variables map[string]string `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a Stage resource.
@@ -153,7 +153,7 @@ type StageArgs struct {
 	// Specifies whether active tracing with X-ray is enabled for the Stage.
 	TracingEnabled pulumi.BoolPtrInput
 	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
-	Variables pulumi.Input
+	Variables pulumi.StringMapInput
 }
 
 func (StageArgs) ElementType() reflect.Type {
@@ -259,8 +259,8 @@ func (o StageOutput) TracingEnabled() pulumi.BoolPtrOutput {
 }
 
 // A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: “[A-Za-z0-9-._~:/?#&=,]+“.
-func (o StageOutput) Variables() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Stage) pulumi.AnyOutput { return v.Variables }).(pulumi.AnyOutput)
+func (o StageOutput) Variables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringMapOutput { return v.Variables }).(pulumi.StringMapOutput)
 }
 
 func init() {

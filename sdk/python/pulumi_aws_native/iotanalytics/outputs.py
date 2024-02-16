@@ -1654,7 +1654,7 @@ class PipelineActivity(dict):
 @pulumi.output_type
 class PipelineAddAttributes(dict):
     def __init__(__self__, *,
-                 attributes: Any,
+                 attributes: Mapping[str, str],
                  name: str,
                  next: Optional[str] = None):
         pulumi.set(__self__, "attributes", attributes)
@@ -1664,7 +1664,7 @@ class PipelineAddAttributes(dict):
 
     @property
     @pulumi.getter
-    def attributes(self) -> Any:
+    def attributes(self) -> Mapping[str, str]:
         return pulumi.get(self, "attributes")
 
     @property

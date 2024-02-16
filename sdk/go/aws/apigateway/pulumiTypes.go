@@ -500,7 +500,7 @@ type DeploymentCanarySetting struct {
 	// The percent (0-100) of traffic diverted to a canary deployment.
 	PercentTraffic *float64 `pulumi:"percentTraffic"`
 	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
-	StageVariableOverrides interface{} `pulumi:"stageVariableOverrides"`
+	StageVariableOverrides map[string]string `pulumi:"stageVariableOverrides"`
 	// A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
 	UseStageCache *bool `pulumi:"useStageCache"`
 }
@@ -523,7 +523,7 @@ type DeploymentCanarySettingArgs struct {
 	// The percent (0-100) of traffic diverted to a canary deployment.
 	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
 	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
-	StageVariableOverrides pulumi.Input `pulumi:"stageVariableOverrides"`
+	StageVariableOverrides pulumi.StringMapInput `pulumi:"stageVariableOverrides"`
 	// A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
 	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
 }
@@ -614,8 +614,8 @@ func (o DeploymentCanarySettingOutput) PercentTraffic() pulumi.Float64PtrOutput 
 }
 
 // Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
-func (o DeploymentCanarySettingOutput) StageVariableOverrides() pulumi.AnyOutput {
-	return o.ApplyT(func(v DeploymentCanarySetting) interface{} { return v.StageVariableOverrides }).(pulumi.AnyOutput)
+func (o DeploymentCanarySettingOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeploymentCanarySetting) map[string]string { return v.StageVariableOverrides }).(pulumi.StringMapOutput)
 }
 
 // A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
@@ -658,13 +658,13 @@ func (o DeploymentCanarySettingPtrOutput) PercentTraffic() pulumi.Float64PtrOutp
 }
 
 // Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
-func (o DeploymentCanarySettingPtrOutput) StageVariableOverrides() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DeploymentCanarySetting) interface{} {
+func (o DeploymentCanarySettingPtrOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DeploymentCanarySetting) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.StageVariableOverrides
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
@@ -682,7 +682,7 @@ type DeploymentCanarySettings struct {
 	// The percentage (0.0-100.0) of traffic routed to the canary deployment.
 	PercentTraffic *float64 `pulumi:"percentTraffic"`
 	// A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-	StageVariableOverrides interface{} `pulumi:"stageVariableOverrides"`
+	StageVariableOverrides map[string]string `pulumi:"stageVariableOverrides"`
 	// A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
 	UseStageCache *bool `pulumi:"useStageCache"`
 }
@@ -703,7 +703,7 @@ type DeploymentCanarySettingsArgs struct {
 	// The percentage (0.0-100.0) of traffic routed to the canary deployment.
 	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
 	// A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-	StageVariableOverrides pulumi.Input `pulumi:"stageVariableOverrides"`
+	StageVariableOverrides pulumi.StringMapInput `pulumi:"stageVariableOverrides"`
 	// A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
 	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
 }
@@ -792,8 +792,8 @@ func (o DeploymentCanarySettingsOutput) PercentTraffic() pulumi.Float64PtrOutput
 }
 
 // A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-func (o DeploymentCanarySettingsOutput) StageVariableOverrides() pulumi.AnyOutput {
-	return o.ApplyT(func(v DeploymentCanarySettings) interface{} { return v.StageVariableOverrides }).(pulumi.AnyOutput)
+func (o DeploymentCanarySettingsOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeploymentCanarySettings) map[string]string { return v.StageVariableOverrides }).(pulumi.StringMapOutput)
 }
 
 // A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
@@ -836,13 +836,13 @@ func (o DeploymentCanarySettingsPtrOutput) PercentTraffic() pulumi.Float64PtrOut
 }
 
 // A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-func (o DeploymentCanarySettingsPtrOutput) StageVariableOverrides() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DeploymentCanarySettings) interface{} {
+func (o DeploymentCanarySettingsPtrOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DeploymentCanarySettings) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.StageVariableOverrides
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
@@ -1082,7 +1082,7 @@ type DeploymentStageDescription struct {
 	//  For more information, see [Trace API Gateway API Execution with X-Ray](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html) in the *API Gateway Developer Guide*.
 	TracingEnabled *bool `pulumi:"tracingEnabled"`
 	// A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
-	Variables interface{} `pulumi:"variables"`
+	Variables map[string]string `pulumi:"variables"`
 }
 
 // DeploymentStageDescriptionInput is an input type that accepts DeploymentStageDescriptionArgs and DeploymentStageDescriptionOutput values.
@@ -1136,7 +1136,7 @@ type DeploymentStageDescriptionArgs struct {
 	//  For more information, see [Trace API Gateway API Execution with X-Ray](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html) in the *API Gateway Developer Guide*.
 	TracingEnabled pulumi.BoolPtrInput `pulumi:"tracingEnabled"`
 	// A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
-	Variables pulumi.Input `pulumi:"variables"`
+	Variables pulumi.StringMapInput `pulumi:"variables"`
 }
 
 func (DeploymentStageDescriptionArgs) ElementType() reflect.Type {
@@ -1310,8 +1310,8 @@ func (o DeploymentStageDescriptionOutput) TracingEnabled() pulumi.BoolPtrOutput 
 }
 
 // A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: “[A-Za-z0-9-._~:/?#&=,]+“.
-func (o DeploymentStageDescriptionOutput) Variables() pulumi.AnyOutput {
-	return o.ApplyT(func(v DeploymentStageDescription) interface{} { return v.Variables }).(pulumi.AnyOutput)
+func (o DeploymentStageDescriptionOutput) Variables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
 
 type DeploymentStageDescriptionPtrOutput struct{ *pulumi.OutputState }
@@ -1521,13 +1521,13 @@ func (o DeploymentStageDescriptionPtrOutput) TracingEnabled() pulumi.BoolPtrOutp
 }
 
 // A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: “[A-Za-z0-9-._~:/?#&=,]+“.
-func (o DeploymentStageDescriptionPtrOutput) Variables() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DeploymentStageDescription) interface{} {
+func (o DeploymentStageDescriptionPtrOutput) Variables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Variables
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type DeploymentTag struct {
@@ -2136,9 +2136,9 @@ type MethodIntegration struct {
 	// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in ``requestTemplates``. The valid value is one of the following: ``WHEN_NO_MATCH``: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. ``WHEN_NO_TEMPLATES``: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. ``NEVER``: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 	PassthroughBehavior *MethodIntegrationPassthroughBehavior `pulumi:"passthroughBehavior"`
 	// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
-	RequestParameters interface{} `pulumi:"requestParameters"`
+	RequestParameters map[string]string `pulumi:"requestParameters"`
 	// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
-	RequestTemplates interface{} `pulumi:"requestTemplates"`
+	RequestTemplates map[string]string `pulumi:"requestTemplates"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
 	TimeoutInMillis *int `pulumi:"timeoutInMillis"`
 	// Specifies an API method integration type. The valid value is one of the following:
@@ -2182,9 +2182,9 @@ type MethodIntegrationArgs struct {
 	// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in ``requestTemplates``. The valid value is one of the following: ``WHEN_NO_MATCH``: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. ``WHEN_NO_TEMPLATES``: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. ``NEVER``: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 	PassthroughBehavior MethodIntegrationPassthroughBehaviorPtrInput `pulumi:"passthroughBehavior"`
 	// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
-	RequestParameters pulumi.Input `pulumi:"requestParameters"`
+	RequestParameters pulumi.StringMapInput `pulumi:"requestParameters"`
 	// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
-	RequestTemplates pulumi.Input `pulumi:"requestTemplates"`
+	RequestTemplates pulumi.StringMapInput `pulumi:"requestTemplates"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
 	TimeoutInMillis pulumi.IntPtrInput `pulumi:"timeoutInMillis"`
 	// Specifies an API method integration type. The valid value is one of the following:
@@ -2321,13 +2321,13 @@ func (o MethodIntegrationOutput) PassthroughBehavior() MethodIntegrationPassthro
 }
 
 // A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of “method.request.{location}.{name}“, where “location“ is “querystring“, “path“, or “header“ and “name“ must be a valid and unique method request parameter name.
-func (o MethodIntegrationOutput) RequestParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v MethodIntegration) interface{} { return v.RequestParameters }).(pulumi.AnyOutput)
+func (o MethodIntegrationOutput) RequestParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MethodIntegration) map[string]string { return v.RequestParameters }).(pulumi.StringMapOutput)
 }
 
 // Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
-func (o MethodIntegrationOutput) RequestTemplates() pulumi.AnyOutput {
-	return o.ApplyT(func(v MethodIntegration) interface{} { return v.RequestTemplates }).(pulumi.AnyOutput)
+func (o MethodIntegrationOutput) RequestTemplates() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MethodIntegration) map[string]string { return v.RequestTemplates }).(pulumi.StringMapOutput)
 }
 
 // Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
@@ -2466,23 +2466,23 @@ func (o MethodIntegrationPtrOutput) PassthroughBehavior() MethodIntegrationPasst
 }
 
 // A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of “method.request.{location}.{name}“, where “location“ is “querystring“, “path“, or “header“ and “name“ must be a valid and unique method request parameter name.
-func (o MethodIntegrationPtrOutput) RequestParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *MethodIntegration) interface{} {
+func (o MethodIntegrationPtrOutput) RequestParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MethodIntegration) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.RequestParameters
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
-func (o MethodIntegrationPtrOutput) RequestTemplates() pulumi.AnyOutput {
-	return o.ApplyT(func(v *MethodIntegration) interface{} {
+func (o MethodIntegrationPtrOutput) RequestTemplates() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MethodIntegration) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.RequestTemplates
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
@@ -2525,9 +2525,9 @@ type MethodIntegrationResponse struct {
 	//  If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
 	ContentHandling *MethodIntegrationResponseContentHandling `pulumi:"contentHandling"`
 	// A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
-	ResponseParameters interface{} `pulumi:"responseParameters"`
+	ResponseParameters map[string]string `pulumi:"responseParameters"`
 	// Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
-	ResponseTemplates interface{} `pulumi:"responseTemplates"`
+	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
 	// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
 	SelectionPattern *string `pulumi:"selectionPattern"`
 	// Specifies the status code that is used to map the integration response to an existing MethodResponse.
@@ -2551,9 +2551,9 @@ type MethodIntegrationResponseArgs struct {
 	//  If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
 	ContentHandling MethodIntegrationResponseContentHandlingPtrInput `pulumi:"contentHandling"`
 	// A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
-	ResponseParameters pulumi.Input `pulumi:"responseParameters"`
+	ResponseParameters pulumi.StringMapInput `pulumi:"responseParameters"`
 	// Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
-	ResponseTemplates pulumi.Input `pulumi:"responseTemplates"`
+	ResponseTemplates pulumi.StringMapInput `pulumi:"responseTemplates"`
 	// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrInput `pulumi:"selectionPattern"`
 	// Specifies the status code that is used to map the integration response to an existing MethodResponse.
@@ -2620,13 +2620,13 @@ func (o MethodIntegrationResponseOutput) ContentHandling() MethodIntegrationResp
 }
 
 // A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of “method.response.header.{name}“, where “name“ is a valid and unique header name. The mapped non-static value must match the pattern of “integration.response.header.{name}“ or “integration.response.body.{JSON-expression}“, where “name“ is a valid and unique response header name and “JSON-expression“ is a valid JSON expression without the “$“ prefix.
-func (o MethodIntegrationResponseOutput) ResponseParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v MethodIntegrationResponse) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
+func (o MethodIntegrationResponseOutput) ResponseParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) map[string]string { return v.ResponseParameters }).(pulumi.StringMapOutput)
 }
 
 // Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
-func (o MethodIntegrationResponseOutput) ResponseTemplates() pulumi.AnyOutput {
-	return o.ApplyT(func(v MethodIntegrationResponse) interface{} { return v.ResponseTemplates }).(pulumi.AnyOutput)
+func (o MethodIntegrationResponseOutput) ResponseTemplates() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) map[string]string { return v.ResponseTemplates }).(pulumi.StringMapOutput)
 }
 
 // Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the “.+“ regex to match error response. However, make sure that the error response does not contain any newline (“\n“) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
@@ -2662,9 +2662,9 @@ func (o MethodIntegrationResponseArrayOutput) Index(i pulumi.IntInput) MethodInt
 // Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template.
 type MethodResponse struct {
 	// Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
-	ResponseModels interface{} `pulumi:"responseModels"`
+	ResponseModels map[string]string `pulumi:"responseModels"`
 	// A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
-	ResponseParameters interface{} `pulumi:"responseParameters"`
+	ResponseParameters map[string]bool `pulumi:"responseParameters"`
 	// The method response's status code.
 	StatusCode string `pulumi:"statusCode"`
 }
@@ -2683,9 +2683,9 @@ type MethodResponseInput interface {
 // Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template.
 type MethodResponseArgs struct {
 	// Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
-	ResponseModels pulumi.Input `pulumi:"responseModels"`
+	ResponseModels pulumi.StringMapInput `pulumi:"responseModels"`
 	// A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
-	ResponseParameters pulumi.Input `pulumi:"responseParameters"`
+	ResponseParameters pulumi.BoolMapInput `pulumi:"responseParameters"`
 	// The method response's status code.
 	StatusCode pulumi.StringInput `pulumi:"statusCode"`
 }
@@ -2743,13 +2743,13 @@ func (o MethodResponseOutput) ToMethodResponseOutputWithContext(ctx context.Cont
 }
 
 // Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
-func (o MethodResponseOutput) ResponseModels() pulumi.AnyOutput {
-	return o.ApplyT(func(v MethodResponse) interface{} { return v.ResponseModels }).(pulumi.AnyOutput)
+func (o MethodResponseOutput) ResponseModels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MethodResponse) map[string]string { return v.ResponseModels }).(pulumi.StringMapOutput)
 }
 
 // A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern “method.response.header.{name}“, where “name“ is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in “integration.response.header.{name}“, a static value enclosed within a pair of single quotes (e.g., “'application/json'“), or a JSON expression from the back-end response payload in the form of “integration.response.body.{JSON-expression}“, where “JSON-expression“ is a valid JSON expression without the “$“ prefix.)
-func (o MethodResponseOutput) ResponseParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v MethodResponse) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
+func (o MethodResponseOutput) ResponseParameters() pulumi.BoolMapOutput {
+	return o.ApplyT(func(v MethodResponse) map[string]bool { return v.ResponseParameters }).(pulumi.BoolMapOutput)
 }
 
 // The method response's status code.
@@ -3417,7 +3417,7 @@ type StageCanarySetting struct {
 	// The percent (0-100) of traffic diverted to a canary deployment.
 	PercentTraffic *float64 `pulumi:"percentTraffic"`
 	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
-	StageVariableOverrides interface{} `pulumi:"stageVariableOverrides"`
+	StageVariableOverrides map[string]string `pulumi:"stageVariableOverrides"`
 	// A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
 	UseStageCache *bool `pulumi:"useStageCache"`
 }
@@ -3440,7 +3440,7 @@ type StageCanarySettingArgs struct {
 	// The percent (0-100) of traffic diverted to a canary deployment.
 	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
 	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
-	StageVariableOverrides pulumi.Input `pulumi:"stageVariableOverrides"`
+	StageVariableOverrides pulumi.StringMapInput `pulumi:"stageVariableOverrides"`
 	// A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
 	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
 }
@@ -3534,8 +3534,8 @@ func (o StageCanarySettingOutput) PercentTraffic() pulumi.Float64PtrOutput {
 }
 
 // Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
-func (o StageCanarySettingOutput) StageVariableOverrides() pulumi.AnyOutput {
-	return o.ApplyT(func(v StageCanarySetting) interface{} { return v.StageVariableOverrides }).(pulumi.AnyOutput)
+func (o StageCanarySettingOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v StageCanarySetting) map[string]string { return v.StageVariableOverrides }).(pulumi.StringMapOutput)
 }
 
 // A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
@@ -3588,13 +3588,13 @@ func (o StageCanarySettingPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
 }
 
 // Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
-func (o StageCanarySettingPtrOutput) StageVariableOverrides() pulumi.AnyOutput {
-	return o.ApplyT(func(v *StageCanarySetting) interface{} {
+func (o StageCanarySettingPtrOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StageCanarySetting) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.StageVariableOverrides
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
@@ -3907,7 +3907,7 @@ type UsagePlanApiStage struct {
 	// API stage name of the associated API stage in a usage plan.
 	Stage *string `pulumi:"stage"`
 	// Map containing method level throttling information for API stage in a usage plan.
-	Throttle interface{} `pulumi:"throttle"`
+	Throttle map[string]UsagePlanThrottleSettings `pulumi:"throttle"`
 }
 
 // UsagePlanApiStageInput is an input type that accepts UsagePlanApiStageArgs and UsagePlanApiStageOutput values.
@@ -3928,7 +3928,7 @@ type UsagePlanApiStageArgs struct {
 	// API stage name of the associated API stage in a usage plan.
 	Stage pulumi.StringPtrInput `pulumi:"stage"`
 	// Map containing method level throttling information for API stage in a usage plan.
-	Throttle pulumi.Input `pulumi:"throttle"`
+	Throttle UsagePlanThrottleSettingsMapInput `pulumi:"throttle"`
 }
 
 func (UsagePlanApiStageArgs) ElementType() reflect.Type {
@@ -3994,8 +3994,8 @@ func (o UsagePlanApiStageOutput) Stage() pulumi.StringPtrOutput {
 }
 
 // Map containing method level throttling information for API stage in a usage plan.
-func (o UsagePlanApiStageOutput) Throttle() pulumi.AnyOutput {
-	return o.ApplyT(func(v UsagePlanApiStage) interface{} { return v.Throttle }).(pulumi.AnyOutput)
+func (o UsagePlanApiStageOutput) Throttle() UsagePlanThrottleSettingsMapOutput {
+	return o.ApplyT(func(v UsagePlanApiStage) map[string]UsagePlanThrottleSettings { return v.Throttle }).(UsagePlanThrottleSettingsMapOutput)
 }
 
 type UsagePlanApiStageArrayOutput struct{ *pulumi.OutputState }
@@ -4388,6 +4388,31 @@ func (i *usagePlanThrottleSettingsPtrType) ToUsagePlanThrottleSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsPtrOutput)
 }
 
+// UsagePlanThrottleSettingsMapInput is an input type that accepts UsagePlanThrottleSettingsMap and UsagePlanThrottleSettingsMapOutput values.
+// You can construct a concrete instance of `UsagePlanThrottleSettingsMapInput` via:
+//
+//	UsagePlanThrottleSettingsMap{ "key": UsagePlanThrottleSettingsArgs{...} }
+type UsagePlanThrottleSettingsMapInput interface {
+	pulumi.Input
+
+	ToUsagePlanThrottleSettingsMapOutput() UsagePlanThrottleSettingsMapOutput
+	ToUsagePlanThrottleSettingsMapOutputWithContext(context.Context) UsagePlanThrottleSettingsMapOutput
+}
+
+type UsagePlanThrottleSettingsMap map[string]UsagePlanThrottleSettingsInput
+
+func (UsagePlanThrottleSettingsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (i UsagePlanThrottleSettingsMap) ToUsagePlanThrottleSettingsMapOutput() UsagePlanThrottleSettingsMapOutput {
+	return i.ToUsagePlanThrottleSettingsMapOutputWithContext(context.Background())
+}
+
+func (i UsagePlanThrottleSettingsMap) ToUsagePlanThrottleSettingsMapOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsMapOutput)
+}
+
 // “ThrottleSettings“ is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
 type UsagePlanThrottleSettingsOutput struct{ *pulumi.OutputState }
 
@@ -4465,6 +4490,26 @@ func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput 
 		}
 		return v.RateLimit
 	}).(pulumi.Float64PtrOutput)
+}
+
+type UsagePlanThrottleSettingsMapOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanThrottleSettingsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (o UsagePlanThrottleSettingsMapOutput) ToUsagePlanThrottleSettingsMapOutput() UsagePlanThrottleSettingsMapOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsMapOutput) ToUsagePlanThrottleSettingsMapOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsMapOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsMapOutput) MapIndex(k pulumi.StringInput) UsagePlanThrottleSettingsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UsagePlanThrottleSettings {
+		return vs[0].(map[string]UsagePlanThrottleSettings)[vs[1].(string)]
+	}).(UsagePlanThrottleSettingsOutput)
 }
 
 type VpcLinkTag struct {
@@ -4621,6 +4666,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanTagArrayInput)(nil)).Elem(), UsagePlanTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanThrottleSettingsInput)(nil)).Elem(), UsagePlanThrottleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanThrottleSettingsPtrInput)(nil)).Elem(), UsagePlanThrottleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanThrottleSettingsMapInput)(nil)).Elem(), UsagePlanThrottleSettingsMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcLinkTagInput)(nil)).Elem(), VpcLinkTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcLinkTagArrayInput)(nil)).Elem(), VpcLinkTagArray{})
 	pulumi.RegisterOutputType(ApiKeyStageKeyOutput{})
@@ -4676,6 +4722,7 @@ func init() {
 	pulumi.RegisterOutputType(UsagePlanTagArrayOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UsagePlanThrottleSettingsMapOutput{})
 	pulumi.RegisterOutputType(VpcLinkTagOutput{})
 	pulumi.RegisterOutputType(VpcLinkTagArrayOutput{})
 }

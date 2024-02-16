@@ -41,7 +41,7 @@ export class ExtensionAssociation extends pulumi.CustomResource {
     public /*out*/ readonly extensionArn!: pulumi.Output<string>;
     public readonly extensionIdentifier!: pulumi.Output<string | undefined>;
     public readonly extensionVersionNumber!: pulumi.Output<number | undefined>;
-    public readonly parameters!: pulumi.Output<any | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -91,7 +91,7 @@ export class ExtensionAssociation extends pulumi.CustomResource {
 export interface ExtensionAssociationArgs {
     extensionIdentifier?: pulumi.Input<string>;
     extensionVersionNumber?: pulumi.Input<number>;
-    parameters?: any;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     resourceIdentifier?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

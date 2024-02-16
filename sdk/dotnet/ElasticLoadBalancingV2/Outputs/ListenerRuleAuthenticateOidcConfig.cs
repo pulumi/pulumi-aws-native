@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
     [OutputType]
     public sealed class ListenerRuleAuthenticateOidcConfig
     {
-        public readonly object? AuthenticationRequestExtraParams;
+        public readonly ImmutableDictionary<string, string>? AuthenticationRequestExtraParams;
         public readonly string AuthorizationEndpoint;
         public readonly string ClientId;
         public readonly string? ClientSecret;
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerRuleAuthenticateOidcConfig(
-            object? authenticationRequestExtraParams,
+            ImmutableDictionary<string, string>? authenticationRequestExtraParams,
 
             string authorizationEndpoint,
 

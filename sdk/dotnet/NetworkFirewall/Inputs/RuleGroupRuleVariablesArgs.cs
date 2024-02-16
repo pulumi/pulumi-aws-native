@@ -13,10 +13,20 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     public sealed class RuleGroupRuleVariablesArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipSets")]
-        public Input<object>? IpSets { get; set; }
+        private InputMap<Inputs.RuleGroupIpSetArgs>? _ipSets;
+        public InputMap<Inputs.RuleGroupIpSetArgs> IpSets
+        {
+            get => _ipSets ?? (_ipSets = new InputMap<Inputs.RuleGroupIpSetArgs>());
+            set => _ipSets = value;
+        }
 
         [Input("portSets")]
-        public Input<object>? PortSets { get; set; }
+        private InputMap<Inputs.RuleGroupPortSetArgs>? _portSets;
+        public InputMap<Inputs.RuleGroupPortSetArgs> PortSets
+        {
+            get => _portSets ?? (_portSets = new InputMap<Inputs.RuleGroupPortSetArgs>());
+            set => _portSets = value;
+        }
 
         public RuleGroupRuleVariablesArgs()
         {

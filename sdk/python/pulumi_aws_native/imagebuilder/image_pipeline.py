@@ -29,7 +29,7 @@ class ImagePipelineArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
                  status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a ImagePipeline resource.
@@ -45,7 +45,7 @@ class ImagePipelineArgs:
         :param pulumi.Input[str] name: The name of the image pipeline.
         :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: The schedule of the image pipeline.
         :param pulumi.Input['ImagePipelineStatus'] status: The status of the image pipeline.
-        :param Any tags: The tags of this image pipeline.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of this image pipeline.
         :param pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowConfigurationArgs']]] workflows: Workflows to define the image build process
         """
         if container_recipe_arn is not None:
@@ -223,14 +223,14 @@ class ImagePipelineArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The tags of this image pipeline.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -263,7 +263,7 @@ class ImagePipeline(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']]] = None,
                  status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImagePipelineWorkflowConfigurationArgs']]]]] = None,
                  __props__=None):
         """
@@ -283,7 +283,7 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the image pipeline.
         :param pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']] schedule: The schedule of the image pipeline.
         :param pulumi.Input['ImagePipelineStatus'] status: The status of the image pipeline.
-        :param Any tags: The tags of this image pipeline.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of this image pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImagePipelineWorkflowConfigurationArgs']]]] workflows: Workflows to define the image build process
         """
         ...
@@ -322,7 +322,7 @@ class ImagePipeline(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']]] = None,
                  status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImagePipelineWorkflowConfigurationArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -495,7 +495,7 @@ class ImagePipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of this image pipeline.
         """

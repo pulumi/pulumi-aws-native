@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.AppConfig
         public readonly string? Arn;
         public readonly string? ExtensionArn;
         public readonly string? Id;
-        public readonly object? Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         public readonly string? ResourceArn;
 
         [OutputConstructor]
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.AppConfig
 
             string? id,
 
-            object? parameters,
+            ImmutableDictionary<string, string>? parameters,
 
             string? resourceArn)
         {

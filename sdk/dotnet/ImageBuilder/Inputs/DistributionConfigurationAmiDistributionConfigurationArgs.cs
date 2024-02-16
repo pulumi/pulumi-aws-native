@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// </summary>
     public sealed class DistributionConfigurationAmiDistributionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("amiTags")]
+        private InputMap<string>? _amiTags;
+
         /// <summary>
         /// The tags to apply to AMIs distributed to this Region.
         /// </summary>
-        [Input("amiTags")]
-        public Input<object>? AmiTags { get; set; }
+        public InputMap<string> AmiTags
+        {
+            get => _amiTags ?? (_amiTags = new InputMap<string>());
+            set => _amiTags = value;
+        }
 
         /// <summary>
         /// The description of the AMI distribution configuration.

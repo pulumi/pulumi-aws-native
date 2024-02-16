@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.IoT.Inputs
     public sealed class ThingGroupAttributePayloadArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
-        public Input<object>? Attributes { get; set; }
+        private InputMap<string>? _attributes;
+        public InputMap<string> Attributes
+        {
+            get => _attributes ?? (_attributes = new InputMap<string>());
+            set => _attributes = value;
+        }
 
         public ThingGroupAttributePayloadArgs()
         {

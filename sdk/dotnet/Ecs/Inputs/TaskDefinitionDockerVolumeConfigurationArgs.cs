@@ -19,10 +19,20 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<string>? Driver { get; set; }
 
         [Input("driverOpts")]
-        public Input<object>? DriverOpts { get; set; }
+        private InputMap<string>? _driverOpts;
+        public InputMap<string> DriverOpts
+        {
+            get => _driverOpts ?? (_driverOpts = new InputMap<string>());
+            set => _driverOpts = value;
+        }
 
         [Input("labels")]
-        public Input<object>? Labels { get; set; }
+        private InputMap<string>? _labels;
+        public InputMap<string> Labels
+        {
+            get => _labels ?? (_labels = new InputMap<string>());
+            set => _labels = value;
+        }
 
         [Input("scope")]
         public Input<string>? Scope { get; set; }

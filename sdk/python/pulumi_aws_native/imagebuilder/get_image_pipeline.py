@@ -162,7 +162,7 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         The tags of this image pipeline.
         """

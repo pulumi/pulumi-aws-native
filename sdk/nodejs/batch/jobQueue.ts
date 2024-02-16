@@ -46,7 +46,7 @@ export class JobQueue extends pulumi.CustomResource {
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a JobQueue resource with the given unique name, arguments, and options.
@@ -82,7 +82,7 @@ export class JobQueue extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["jobQueueName", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["jobQueueName", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(JobQueue.__pulumiType, name, resourceInputs, opts);
     }
@@ -100,5 +100,5 @@ export interface JobQueueArgs {
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

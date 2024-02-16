@@ -126,7 +126,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A key-value pair to associate with a resource.
         """

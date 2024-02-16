@@ -18,11 +18,17 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         [Input("amis")]
         public Input<Inputs.LifecyclePolicyAmiExclusionRulesArgs>? Amis { get; set; }
 
+        [Input("tagMap")]
+        private InputMap<string>? _tagMap;
+
         /// <summary>
         /// The Image Builder tags to filter on.
         /// </summary>
-        [Input("tagMap")]
-        public Input<object>? TagMap { get; set; }
+        public InputMap<string> TagMap
+        {
+            get => _tagMap ?? (_tagMap = new InputMap<string>());
+            set => _tagMap = value;
+        }
 
         public LifecyclePolicyExclusionRulesArgs()
         {

@@ -24,7 +24,7 @@ type Stack struct {
 	LastUpdateTime              pulumi.StringOutput              `pulumi:"lastUpdateTime"`
 	NotificationArns            pulumi.StringArrayOutput         `pulumi:"notificationArns"`
 	Outputs                     StackOutputTypeArrayOutput       `pulumi:"outputs"`
-	Parameters                  pulumi.AnyOutput                 `pulumi:"parameters"`
+	Parameters                  pulumi.StringMapOutput           `pulumi:"parameters"`
 	ParentId                    pulumi.StringOutput              `pulumi:"parentId"`
 	RoleArn                     pulumi.StringPtrOutput           `pulumi:"roleArn"`
 	RootId                      pulumi.StringOutput              `pulumi:"rootId"`
@@ -89,7 +89,7 @@ type stackArgs struct {
 	DisableRollback             *bool                   `pulumi:"disableRollback"`
 	EnableTerminationProtection *bool                   `pulumi:"enableTerminationProtection"`
 	NotificationArns            []string                `pulumi:"notificationArns"`
-	Parameters                  interface{}             `pulumi:"parameters"`
+	Parameters                  map[string]string       `pulumi:"parameters"`
 	RoleArn                     *string                 `pulumi:"roleArn"`
 	StackName                   *string                 `pulumi:"stackName"`
 	StackPolicyBody             interface{}             `pulumi:"stackPolicyBody"`
@@ -108,7 +108,7 @@ type StackArgs struct {
 	DisableRollback             pulumi.BoolPtrInput
 	EnableTerminationProtection pulumi.BoolPtrInput
 	NotificationArns            pulumi.StringArrayInput
-	Parameters                  pulumi.Input
+	Parameters                  pulumi.StringMapInput
 	RoleArn                     pulumi.StringPtrInput
 	StackName                   pulumi.StringPtrInput
 	StackPolicyBody             pulumi.Input
@@ -193,8 +193,8 @@ func (o StackOutput) Outputs() StackOutputTypeArrayOutput {
 	return o.ApplyT(func(v *Stack) StackOutputTypeArrayOutput { return v.Outputs }).(StackOutputTypeArrayOutput)
 }
 
-func (o StackOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Stack) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+func (o StackOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 func (o StackOutput) ParentId() pulumi.StringOutput {

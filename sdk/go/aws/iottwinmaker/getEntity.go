@@ -33,9 +33,9 @@ type LookupEntityResult struct {
 	// The ARN of the entity.
 	Arn *string `pulumi:"arn"`
 	// A map that sets information about a component type.
-	Components interface{} `pulumi:"components"`
+	Components map[string]EntityComponent `pulumi:"components"`
 	// A map that sets information about a composite component.
-	CompositeComponents interface{} `pulumi:"compositeComponents"`
+	CompositeComponents map[string]EntityCompositeComponent `pulumi:"compositeComponents"`
 	// The date and time when the entity was created.
 	CreationDateTime *string `pulumi:"creationDateTime"`
 	// The description of the entity.
@@ -49,7 +49,7 @@ type LookupEntityResult struct {
 	// The current status of the entity.
 	Status *EntityStatus `pulumi:"status"`
 	// A key-value pair to associate with a resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The last date and time when the entity was updated.
 	UpdateDateTime *string `pulumi:"updateDateTime"`
 }
@@ -98,13 +98,13 @@ func (o LookupEntityResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // A map that sets information about a component type.
-func (o LookupEntityResultOutput) Components() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupEntityResult) interface{} { return v.Components }).(pulumi.AnyOutput)
+func (o LookupEntityResultOutput) Components() EntityComponentMapOutput {
+	return o.ApplyT(func(v LookupEntityResult) map[string]EntityComponent { return v.Components }).(EntityComponentMapOutput)
 }
 
 // A map that sets information about a composite component.
-func (o LookupEntityResultOutput) CompositeComponents() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupEntityResult) interface{} { return v.CompositeComponents }).(pulumi.AnyOutput)
+func (o LookupEntityResultOutput) CompositeComponents() EntityCompositeComponentMapOutput {
+	return o.ApplyT(func(v LookupEntityResult) map[string]EntityCompositeComponent { return v.CompositeComponents }).(EntityCompositeComponentMapOutput)
 }
 
 // The date and time when the entity was created.
@@ -138,8 +138,8 @@ func (o LookupEntityResultOutput) Status() EntityStatusPtrOutput {
 }
 
 // A key-value pair to associate with a resource.
-func (o LookupEntityResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupEntityResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupEntityResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupEntityResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The last date and time when the entity was updated.

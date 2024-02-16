@@ -121,10 +121,10 @@ class ComputeEnvironmentComputeResources(dict):
                  placement_group: Optional[str] = None,
                  security_group_ids: Optional[Sequence[str]] = None,
                  spot_iam_fleet_role: Optional[str] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[Mapping[str, str]] = None,
                  update_to_latest_image_version: Optional[bool] = None):
         """
-        :param Any tags: A key-value pair to associate with a resource.
+        :param Mapping[str, str] tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "maxv_cpus", maxv_cpus)
         pulumi.set(__self__, "subnets", subnets)
@@ -242,7 +242,7 @@ class ComputeEnvironmentComputeResources(dict):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A key-value pair to associate with a resource.
         """

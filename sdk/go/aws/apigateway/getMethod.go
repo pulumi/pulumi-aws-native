@@ -48,9 +48,9 @@ type LookupMethodResult struct {
 	// A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
 	OperationName *string `pulumi:"operationName"`
 	// A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
-	RequestModels interface{} `pulumi:"requestModels"`
+	RequestModels map[string]string `pulumi:"requestModels"`
 	// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
-	RequestParameters interface{} `pulumi:"requestParameters"`
+	RequestParameters map[string]bool `pulumi:"requestParameters"`
 	// The identifier of a RequestValidator for request validation.
 	RequestValidatorId *string `pulumi:"requestValidatorId"`
 }
@@ -133,13 +133,13 @@ func (o LookupMethodResultOutput) OperationName() pulumi.StringPtrOutput {
 }
 
 // A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
-func (o LookupMethodResultOutput) RequestModels() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupMethodResult) interface{} { return v.RequestModels }).(pulumi.AnyOutput)
+func (o LookupMethodResultOutput) RequestModels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupMethodResult) map[string]string { return v.RequestModels }).(pulumi.StringMapOutput)
 }
 
 // A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of “method.request.{location}.{name}“, where “location“ is “querystring“, “path“, or “header“ and “name“ is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (“true“) or optional (“false“). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
-func (o LookupMethodResultOutput) RequestParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupMethodResult) interface{} { return v.RequestParameters }).(pulumi.AnyOutput)
+func (o LookupMethodResultOutput) RequestParameters() pulumi.BoolMapOutput {
+	return o.ApplyT(func(v LookupMethodResult) map[string]bool { return v.RequestParameters }).(pulumi.BoolMapOutput)
 }
 
 // The identifier of a RequestValidator for request validation.

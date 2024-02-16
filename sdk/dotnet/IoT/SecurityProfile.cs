@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
         /// Specifies the destinations to which alerts are sent.
         /// </summary>
         [Output("alertTargets")]
-        public Output<object?> AlertTargets { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.SecurityProfileAlertTarget>?> AlertTargets { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the behaviors that, when violated by a device (thing), cause an alert.
@@ -130,11 +130,17 @@ namespace Pulumi.AwsNative.IoT
             set => _additionalMetricsToRetainV2 = value;
         }
 
+        [Input("alertTargets")]
+        private InputMap<Inputs.SecurityProfileAlertTargetArgs>? _alertTargets;
+
         /// <summary>
         /// Specifies the destinations to which alerts are sent.
         /// </summary>
-        [Input("alertTargets")]
-        public Input<object>? AlertTargets { get; set; }
+        public InputMap<Inputs.SecurityProfileAlertTargetArgs> AlertTargets
+        {
+            get => _alertTargets ?? (_alertTargets = new InputMap<Inputs.SecurityProfileAlertTargetArgs>());
+            set => _alertTargets = value;
+        }
 
         [Input("behaviors")]
         private InputList<Inputs.SecurityProfileBehaviorArgs>? _behaviors;

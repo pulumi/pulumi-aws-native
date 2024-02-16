@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.AppIntegrations.Inputs
     /// </summary>
     public sealed class DataIntegrationFileConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("filters")]
+        private InputMap<ImmutableArray<string>>? _filters;
+
         /// <summary>
         /// Restrictions for what files should be pulled from the source.
         /// </summary>
-        [Input("filters")]
-        public Input<object>? Filters { get; set; }
+        public InputMap<ImmutableArray<string>> Filters
+        {
+            get => _filters ?? (_filters = new InputMap<ImmutableArray<string>>());
+            set => _filters = value;
+        }
 
         [Input("folders", required: true)]
         private InputList<string>? _folders;

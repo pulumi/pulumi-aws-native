@@ -17,7 +17,7 @@ __all__ = ['UserPoolUserArgs', 'UserPoolUser']
 class UserPoolUserArgs:
     def __init__(__self__, *,
                  user_pool_id: pulumi.Input[str],
-                 client_metadata: Optional[Any] = None,
+                 client_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  desired_delivery_mediums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_alias_creation: Optional[pulumi.Input[bool]] = None,
                  message_action: Optional[pulumi.Input[str]] = None,
@@ -54,11 +54,11 @@ class UserPoolUserArgs:
 
     @property
     @pulumi.getter(name="clientMetadata")
-    def client_metadata(self) -> Optional[Any]:
+    def client_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "client_metadata")
 
     @client_metadata.setter
-    def client_metadata(self, value: Optional[Any]):
+    def client_metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "client_metadata", value)
 
     @property
@@ -121,7 +121,7 @@ class UserPoolUser(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_metadata: Optional[Any] = None,
+                 client_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  desired_delivery_mediums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_alias_creation: Optional[pulumi.Input[bool]] = None,
                  message_action: Optional[pulumi.Input[str]] = None,
@@ -160,7 +160,7 @@ class UserPoolUser(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_metadata: Optional[Any] = None,
+                 client_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  desired_delivery_mediums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_alias_creation: Optional[pulumi.Input[bool]] = None,
                  message_action: Optional[pulumi.Input[str]] = None,
@@ -187,7 +187,7 @@ class UserPoolUser(pulumi.CustomResource):
             __props__.__dict__["user_pool_id"] = user_pool_id
             __props__.__dict__["username"] = username
             __props__.__dict__["validation_data"] = validation_data
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_metadata", "desired_delivery_mediums[*]", "force_alias_creation", "message_action", "user_attributes[*]", "user_pool_id", "username", "validation_data[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_metadata.*", "desired_delivery_mediums[*]", "force_alias_creation", "message_action", "user_attributes[*]", "user_pool_id", "username", "validation_data[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserPoolUser, __self__).__init__(
             'aws-native:cognito:UserPoolUser',
@@ -223,7 +223,7 @@ class UserPoolUser(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientMetadata")
-    def client_metadata(self) -> pulumi.Output[Optional[Any]]:
+    def client_metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "client_metadata")
 
     @property

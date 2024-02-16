@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetIdentityPoolRoleAttachmentResult',
@@ -36,12 +37,12 @@ class GetIdentityPoolRoleAttachmentResult:
 
     @property
     @pulumi.getter(name="roleMappings")
-    def role_mappings(self) -> Optional[Any]:
+    def role_mappings(self) -> Optional[Mapping[str, 'outputs.IdentityPoolRoleAttachmentRoleMapping']]:
         return pulumi.get(self, "role_mappings")
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[Any]:
+    def roles(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "roles")
 
 

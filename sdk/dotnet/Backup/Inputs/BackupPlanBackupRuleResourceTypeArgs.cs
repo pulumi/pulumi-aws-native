@@ -30,7 +30,12 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public Input<Inputs.BackupPlanLifecycleResourceTypeArgs>? Lifecycle { get; set; }
 
         [Input("recoveryPointTags")]
-        public Input<object>? RecoveryPointTags { get; set; }
+        private InputMap<string>? _recoveryPointTags;
+        public InputMap<string> RecoveryPointTags
+        {
+            get => _recoveryPointTags ?? (_recoveryPointTags = new InputMap<string>());
+            set => _recoveryPointTags = value;
+        }
 
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;

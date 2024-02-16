@@ -31,7 +31,7 @@ type LookupDataCatalogResult struct {
 	// A description of the data catalog to be created.
 	Description *string `pulumi:"description"`
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
-	Parameters interface{} `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// A list of comma separated tags to add to the data catalog that is created.
 	Tags []DataCatalogTag `pulumi:"tags"`
 	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
@@ -80,8 +80,8 @@ func (o LookupDataCatalogResultOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
-func (o LookupDataCatalogResultOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupDataCatalogResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+func (o LookupDataCatalogResultOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDataCatalogResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // A list of comma separated tags to add to the data catalog that is created.

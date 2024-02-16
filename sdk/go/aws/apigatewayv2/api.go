@@ -46,7 +46,7 @@ type Api struct {
 	// The route selection expression for the API. For HTTP APIs, the ``routeSelectionExpression`` must be ``${request.method} ${request.path}``. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
 	RouteSelectionExpression pulumi.StringPtrOutput `pulumi:"routeSelectionExpression"`
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.
 	Target pulumi.StringPtrOutput `pulumi:"target"`
 	// A version identifier for the API.
@@ -126,7 +126,7 @@ type apiArgs struct {
 	// The route selection expression for the API. For HTTP APIs, the ``routeSelectionExpression`` must be ``${request.method} ${request.path}``. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
 	RouteSelectionExpression *string `pulumi:"routeSelectionExpression"`
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.
 	Target *string `pulumi:"target"`
 	// A version identifier for the API.
@@ -164,7 +164,7 @@ type ApiArgs struct {
 	// The route selection expression for the API. For HTTP APIs, the ``routeSelectionExpression`` must be ``${request.method} ${request.path}``. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
 	RouteSelectionExpression pulumi.StringPtrInput
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 	// This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.
 	Target pulumi.StringPtrInput
 	// A version identifier for the API.
@@ -287,8 +287,8 @@ func (o ApiOutput) RouteSelectionExpression() pulumi.StringPtrOutput {
 }
 
 // The collection of tags. Each tag element is associated with a given resource.
-func (o ApiOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Api) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o ApiOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.

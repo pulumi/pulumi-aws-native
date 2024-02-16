@@ -27,28 +27,28 @@ type LookupDomainArgs struct {
 }
 
 type LookupDomainResult struct {
-	AccessPolicies              interface{}                         `pulumi:"accessPolicies"`
-	AdvancedOptions             interface{}                         `pulumi:"advancedOptions"`
-	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput `pulumi:"advancedSecurityOptions"`
-	Arn                         *string                             `pulumi:"arn"`
-	ClusterConfig               *DomainClusterConfig                `pulumi:"clusterConfig"`
-	CognitoOptions              *DomainCognitoOptions               `pulumi:"cognitoOptions"`
-	DomainArn                   *string                             `pulumi:"domainArn"`
-	DomainEndpoint              *string                             `pulumi:"domainEndpoint"`
-	DomainEndpointOptions       *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
-	DomainEndpointV2            *string                             `pulumi:"domainEndpointV2"`
-	DomainEndpoints             interface{}                         `pulumi:"domainEndpoints"`
-	EbsOptions                  *DomainEbsOptions                   `pulumi:"ebsOptions"`
-	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
-	EngineVersion               *string                             `pulumi:"engineVersion"`
-	Id                          *string                             `pulumi:"id"`
-	IpAddressType               *string                             `pulumi:"ipAddressType"`
-	LogPublishingOptions        interface{}                         `pulumi:"logPublishingOptions"`
-	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions  `pulumi:"nodeToNodeEncryptionOptions"`
-	OffPeakWindowOptions        *DomainOffPeakWindowOptions         `pulumi:"offPeakWindowOptions"`
-	ServiceSoftwareOptions      *DomainServiceSoftwareOptions       `pulumi:"serviceSoftwareOptions"`
-	SnapshotOptions             *DomainSnapshotOptions              `pulumi:"snapshotOptions"`
-	SoftwareUpdateOptions       *DomainSoftwareUpdateOptions        `pulumi:"softwareUpdateOptions"`
+	AccessPolicies              interface{}                          `pulumi:"accessPolicies"`
+	AdvancedOptions             map[string]string                    `pulumi:"advancedOptions"`
+	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput  `pulumi:"advancedSecurityOptions"`
+	Arn                         *string                              `pulumi:"arn"`
+	ClusterConfig               *DomainClusterConfig                 `pulumi:"clusterConfig"`
+	CognitoOptions              *DomainCognitoOptions                `pulumi:"cognitoOptions"`
+	DomainArn                   *string                              `pulumi:"domainArn"`
+	DomainEndpoint              *string                              `pulumi:"domainEndpoint"`
+	DomainEndpointOptions       *DomainEndpointOptions               `pulumi:"domainEndpointOptions"`
+	DomainEndpointV2            *string                              `pulumi:"domainEndpointV2"`
+	DomainEndpoints             map[string]string                    `pulumi:"domainEndpoints"`
+	EbsOptions                  *DomainEbsOptions                    `pulumi:"ebsOptions"`
+	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions       `pulumi:"encryptionAtRestOptions"`
+	EngineVersion               *string                              `pulumi:"engineVersion"`
+	Id                          *string                              `pulumi:"id"`
+	IpAddressType               *string                              `pulumi:"ipAddressType"`
+	LogPublishingOptions        map[string]DomainLogPublishingOption `pulumi:"logPublishingOptions"`
+	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions   `pulumi:"nodeToNodeEncryptionOptions"`
+	OffPeakWindowOptions        *DomainOffPeakWindowOptions          `pulumi:"offPeakWindowOptions"`
+	ServiceSoftwareOptions      *DomainServiceSoftwareOptions        `pulumi:"serviceSoftwareOptions"`
+	SnapshotOptions             *DomainSnapshotOptions               `pulumi:"snapshotOptions"`
+	SoftwareUpdateOptions       *DomainSoftwareUpdateOptions         `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags       []DomainTag       `pulumi:"tags"`
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
@@ -93,8 +93,8 @@ func (o LookupDomainResultOutput) AccessPolicies() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.AccessPolicies }).(pulumi.AnyOutput)
 }
 
-func (o LookupDomainResultOutput) AdvancedOptions() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.AdvancedOptions }).(pulumi.AnyOutput)
+func (o LookupDomainResultOutput) AdvancedOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDomainResult) map[string]string { return v.AdvancedOptions }).(pulumi.StringMapOutput)
 }
 
 func (o LookupDomainResultOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsInputPtrOutput {
@@ -129,8 +129,8 @@ func (o LookupDomainResultOutput) DomainEndpointV2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainEndpointV2 }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDomainResultOutput) DomainEndpoints() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.DomainEndpoints }).(pulumi.AnyOutput)
+func (o LookupDomainResultOutput) DomainEndpoints() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDomainResult) map[string]string { return v.DomainEndpoints }).(pulumi.StringMapOutput)
 }
 
 func (o LookupDomainResultOutput) EbsOptions() DomainEbsOptionsPtrOutput {
@@ -153,8 +153,8 @@ func (o LookupDomainResultOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDomainResultOutput) LogPublishingOptions() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.LogPublishingOptions }).(pulumi.AnyOutput)
+func (o LookupDomainResultOutput) LogPublishingOptions() DomainLogPublishingOptionMapOutput {
+	return o.ApplyT(func(v LookupDomainResult) map[string]DomainLogPublishingOption { return v.LogPublishingOptions }).(DomainLogPublishingOptionMapOutput)
 }
 
 func (o LookupDomainResultOutput) NodeToNodeEncryptionOptions() DomainNodeToNodeEncryptionOptionsPtrOutput {

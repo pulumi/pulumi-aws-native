@@ -32,7 +32,7 @@ export interface GetStackResult {
     readonly lastUpdateTime?: string;
     readonly notificationArns?: string[];
     readonly outputs?: outputs.cloudformation.StackOutput[];
-    readonly parameters?: any;
+    readonly parameters?: {[key: string]: string};
     readonly parentId?: string;
     readonly roleArn?: string;
     readonly rootId?: string;

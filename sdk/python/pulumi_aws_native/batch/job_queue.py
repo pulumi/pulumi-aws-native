@@ -22,10 +22,10 @@ class JobQueueArgs:
                  job_queue_name: Optional[pulumi.Input[str]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['JobQueueState']] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a JobQueue resource.
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "compute_environment_order", compute_environment_order)
         pulumi.set(__self__, "priority", priority)
@@ -85,14 +85,14 @@ class JobQueueArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -106,14 +106,14 @@ class JobQueue(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['JobQueueState']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Batch::JobQueue
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         ...
     @overload
@@ -144,7 +144,7 @@ class JobQueue(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['JobQueueState']] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -165,7 +165,7 @@ class JobQueue(pulumi.CustomResource):
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
             __props__.__dict__["job_queue_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["job_queue_name", "tags"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["job_queue_name", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(JobQueue, __self__).__init__(
             'aws-native:batch:JobQueue',
@@ -230,7 +230,7 @@ class JobQueue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A key-value pair to associate with a resource.
         """

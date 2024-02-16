@@ -16,11 +16,11 @@ __all__ = ['ExtensionArgs', 'Extension']
 @pulumi.input_type
 class ExtensionArgs:
     def __init__(__self__, *,
-                 actions: Any,
+                 actions: pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['ExtensionActionArgs']]]]],
                  description: Optional[pulumi.Input[str]] = None,
                  latest_version_number: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtensionParameterArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionTagArgs']]]] = None):
         """
         The set of arguments for constructing a Extension resource.
@@ -42,11 +42,11 @@ class ExtensionArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> Any:
+    def actions(self) -> pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['ExtensionActionArgs']]]]]:
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Any):
+    def actions(self, value: pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['ExtensionActionArgs']]]]]):
         pulumi.set(self, "actions", value)
 
     @property
@@ -84,11 +84,11 @@ class ExtensionArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtensionParameterArgs']]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[Any]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtensionParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -109,11 +109,11 @@ class Extension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[Any] = None,
+                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionActionArgs']]]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  latest_version_number: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExtensionParameterArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -149,11 +149,11 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[Any] = None,
+                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionActionArgs']]]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  latest_version_number: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExtensionParameterArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -210,7 +210,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Any]:
+    def actions(self) -> pulumi.Output[Mapping[str, Sequence['outputs.ExtensionAction']]]:
         return pulumi.get(self, "actions")
 
     @property
@@ -241,7 +241,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Any]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ExtensionParameter']]]:
         return pulumi.get(self, "parameters")
 
     @property

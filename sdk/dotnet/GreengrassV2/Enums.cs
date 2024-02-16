@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.GreengrassV2
 {
     [EnumType]
+    public readonly struct ComponentVersionComponentDependencyRequirementDependencyType : IEquatable<ComponentVersionComponentDependencyRequirementDependencyType>
+    {
+        private readonly string _value;
+
+        private ComponentVersionComponentDependencyRequirementDependencyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComponentVersionComponentDependencyRequirementDependencyType Soft { get; } = new ComponentVersionComponentDependencyRequirementDependencyType("SOFT");
+        public static ComponentVersionComponentDependencyRequirementDependencyType Hard { get; } = new ComponentVersionComponentDependencyRequirementDependencyType("HARD");
+
+        public static bool operator ==(ComponentVersionComponentDependencyRequirementDependencyType left, ComponentVersionComponentDependencyRequirementDependencyType right) => left.Equals(right);
+        public static bool operator !=(ComponentVersionComponentDependencyRequirementDependencyType left, ComponentVersionComponentDependencyRequirementDependencyType right) => !left.Equals(right);
+
+        public static explicit operator string(ComponentVersionComponentDependencyRequirementDependencyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComponentVersionComponentDependencyRequirementDependencyType other && Equals(other);
+        public bool Equals(ComponentVersionComponentDependencyRequirementDependencyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ComponentVersionLambdaEventSourceType : IEquatable<ComponentVersionLambdaEventSourceType>
     {
         private readonly string _value;

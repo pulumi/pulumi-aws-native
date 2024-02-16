@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// The configuration for the connector.
         /// </summary>
         [Output("connectorConfiguration")]
-        public Output<object> ConnectorConfiguration { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> ConnectorConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// A summary description of the connector.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.KafkaConnect
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "connectorConfiguration",
+                    "connectorConfiguration.*",
                     "connectorDescription",
                     "connectorName",
                     "kafkaCluster",
@@ -137,11 +137,17 @@ namespace Pulumi.AwsNative.KafkaConnect
         [Input("capacity", required: true)]
         public Input<Inputs.ConnectorCapacityArgs> Capacity { get; set; } = null!;
 
+        [Input("connectorConfiguration", required: true)]
+        private InputMap<string>? _connectorConfiguration;
+
         /// <summary>
         /// The configuration for the connector.
         /// </summary>
-        [Input("connectorConfiguration", required: true)]
-        public Input<object> ConnectorConfiguration { get; set; } = null!;
+        public InputMap<string> ConnectorConfiguration
+        {
+            get => _connectorConfiguration ?? (_connectorConfiguration = new InputMap<string>());
+            set => _connectorConfiguration = value;
+        }
 
         /// <summary>
         /// A summary description of the connector.

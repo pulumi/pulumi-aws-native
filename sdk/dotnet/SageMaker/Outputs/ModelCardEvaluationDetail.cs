@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// additional attributes associated with the evaluation results.
         /// </summary>
-        public readonly object? Metadata;
+        public readonly ImmutableDictionary<string, string>? Metadata;
         public readonly ImmutableArray<Outputs.ModelCardMetricGroup> MetricGroups;
         public readonly string Name;
 
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string? evaluationObservation,
 
-            object? metadata,
+            ImmutableDictionary<string, string>? metadata,
 
             ImmutableArray<Outputs.ModelCardMetricGroup> metricGroups,
 

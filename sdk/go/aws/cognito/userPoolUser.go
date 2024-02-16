@@ -16,7 +16,7 @@ import (
 type UserPoolUser struct {
 	pulumi.CustomResourceState
 
-	ClientMetadata         pulumi.AnyOutput                     `pulumi:"clientMetadata"`
+	ClientMetadata         pulumi.StringMapOutput               `pulumi:"clientMetadata"`
 	DesiredDeliveryMediums pulumi.StringArrayOutput             `pulumi:"desiredDeliveryMediums"`
 	ForceAliasCreation     pulumi.BoolPtrOutput                 `pulumi:"forceAliasCreation"`
 	MessageAction          pulumi.StringPtrOutput               `pulumi:"messageAction"`
@@ -37,7 +37,7 @@ func NewUserPoolUser(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"clientMetadata",
+		"clientMetadata.*",
 		"desiredDeliveryMediums[*]",
 		"forceAliasCreation",
 		"messageAction",
@@ -80,7 +80,7 @@ func (UserPoolUserState) ElementType() reflect.Type {
 }
 
 type userPoolUserArgs struct {
-	ClientMetadata         interface{}                 `pulumi:"clientMetadata"`
+	ClientMetadata         map[string]string           `pulumi:"clientMetadata"`
 	DesiredDeliveryMediums []string                    `pulumi:"desiredDeliveryMediums"`
 	ForceAliasCreation     *bool                       `pulumi:"forceAliasCreation"`
 	MessageAction          *string                     `pulumi:"messageAction"`
@@ -92,7 +92,7 @@ type userPoolUserArgs struct {
 
 // The set of arguments for constructing a UserPoolUser resource.
 type UserPoolUserArgs struct {
-	ClientMetadata         pulumi.Input
+	ClientMetadata         pulumi.StringMapInput
 	DesiredDeliveryMediums pulumi.StringArrayInput
 	ForceAliasCreation     pulumi.BoolPtrInput
 	MessageAction          pulumi.StringPtrInput
@@ -139,8 +139,8 @@ func (o UserPoolUserOutput) ToUserPoolUserOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o UserPoolUserOutput) ClientMetadata() pulumi.AnyOutput {
-	return o.ApplyT(func(v *UserPoolUser) pulumi.AnyOutput { return v.ClientMetadata }).(pulumi.AnyOutput)
+func (o UserPoolUserOutput) ClientMetadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *UserPoolUser) pulumi.StringMapOutput { return v.ClientMetadata }).(pulumi.StringMapOutput)
 }
 
 func (o UserPoolUserOutput) DesiredDeliveryMediums() pulumi.StringArrayOutput {

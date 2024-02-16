@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The tags attached to the resource created by Image Builder.
         /// </summary>
         [Output("resourceTags")]
-        public Output<object?> ResourceTags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> ResourceTags { get; private set; } = null!;
 
         /// <summary>
         /// The security group IDs of the infrastructure configuration.
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The tags associated with the component.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The terminate instance on failure configuration of the infrastructure configuration.
@@ -196,11 +196,17 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("resourceTags")]
+        private InputMap<string>? _resourceTags;
+
         /// <summary>
         /// The tags attached to the resource created by Image Builder.
         /// </summary>
-        [Input("resourceTags")]
-        public Input<object>? ResourceTags { get; set; }
+        public InputMap<string> ResourceTags
+        {
+            get => _resourceTags ?? (_resourceTags = new InputMap<string>());
+            set => _resourceTags = value;
+        }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -226,11 +232,17 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// The tags associated with the component.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The terminate instance on failure configuration of the infrastructure configuration.

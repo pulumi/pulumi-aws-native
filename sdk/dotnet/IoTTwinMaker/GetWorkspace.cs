@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// <summary>
         /// A map of key-value pairs to associate with a resource.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The date and time of the current update.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
 
             string? s3Location,
 
-            object? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? updateDateTime)
         {

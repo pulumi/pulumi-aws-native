@@ -27,7 +27,7 @@ type DomainName struct {
 	RegionalDomainName      pulumi.StringOutput                        `pulumi:"regionalDomainName"`
 	RegionalHostedZoneId    pulumi.StringOutput                        `pulumi:"regionalHostedZoneId"`
 	// The collection of tags associated with a domain name.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +84,7 @@ type domainNameArgs struct {
 	// The mutual TLS authentication configuration for a custom domain name.
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
 	// The collection of tags associated with a domain name.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainName resource.
@@ -96,7 +96,7 @@ type DomainNameArgs struct {
 	// The mutual TLS authentication configuration for a custom domain name.
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
 	// The collection of tags associated with a domain name.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {
@@ -160,8 +160,8 @@ func (o DomainNameOutput) RegionalHostedZoneId() pulumi.StringOutput {
 }
 
 // The collection of tags associated with a domain name.
-func (o DomainNameOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DomainName) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o DomainNameOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

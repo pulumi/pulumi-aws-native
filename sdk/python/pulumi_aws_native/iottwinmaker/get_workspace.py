@@ -83,7 +83,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A map of key-value pairs to associate with a resource.
         """
