@@ -168,6 +168,7 @@ AWS::Cognito::UserPoolDomain
 AWS::Cognito::UserPoolGroup
 AWS::Cognito::UserPoolIdentityProvider
 AWS::Cognito::UserPoolResourceServer
+AWS::Cognito::UserPoolRiskConfigurationAttachment
 AWS::Cognito::UserPoolUICustomizationAttachment
 AWS::Cognito::UserPoolUser
 AWS::Cognito::UserPoolUserToGroupAttachment
@@ -203,6 +204,7 @@ AWS::Connect::UserHierarchyGroup
 AWS::Connect::View
 AWS::Connect::ViewVersion
 AWS::ConnectCampaigns::Campaign
+AWS::ControlTower::EnabledBaseline
 AWS::ControlTower::EnabledControl
 AWS::ControlTower::LandingZone
 AWS::CustomerProfiles::CalculatedAttributeDefinition
@@ -440,6 +442,8 @@ AWS::GroundStation::MissionProfile
 AWS::GuardDuty::Detector
 AWS::GuardDuty::Filter
 AWS::GuardDuty::IPSet
+AWS::GuardDuty::Master
+AWS::GuardDuty::Member
 AWS::GuardDuty::ThreatIntelSet
 AWS::HealthImaging::Datastore
 AWS::HealthLake::FHIRDatastore

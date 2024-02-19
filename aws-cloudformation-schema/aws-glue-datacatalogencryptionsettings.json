@@ -3,26 +3,26 @@
   "description" : "Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
+    "CatalogId" : {
       "type" : "string"
     },
     "DataCatalogEncryptionSettings" : {
       "$ref" : "#/definitions/DataCatalogEncryptionSettings"
     },
-    "CatalogId" : {
+    "Id" : {
       "type" : "string"
     }
   },
   "definitions" : {
-    "DataCatalogEncryptionSettings" : {
+    "ConnectionPasswordEncryption" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "ConnectionPasswordEncryption" : {
-          "$ref" : "#/definitions/ConnectionPasswordEncryption"
+        "KmsKeyId" : {
+          "type" : "string"
         },
-        "EncryptionAtRest" : {
-          "$ref" : "#/definitions/EncryptionAtRest"
+        "ReturnConnectionPasswordEncrypted" : {
+          "type" : "boolean"
         }
       }
     },
@@ -38,20 +38,20 @@
         }
       }
     },
-    "ConnectionPasswordEncryption" : {
+    "DataCatalogEncryptionSettings" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "ReturnConnectionPasswordEncrypted" : {
-          "type" : "boolean"
+        "ConnectionPasswordEncryption" : {
+          "$ref" : "#/definitions/ConnectionPasswordEncryption"
         },
-        "KmsKeyId" : {
-          "type" : "string"
+        "EncryptionAtRest" : {
+          "$ref" : "#/definitions/EncryptionAtRest"
         }
       }
     }
   },
-  "required" : [ "CatalogId", "DataCatalogEncryptionSettings" ],
+  "required" : [ "DataCatalogEncryptionSettings", "CatalogId" ],
   "createOnlyProperties" : [ "/properties/CatalogId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]

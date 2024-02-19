@@ -65,7 +65,7 @@
     "Engine" : {
       "description" : "The property describes a data engine for the data provider.",
       "type" : "string",
-      "enum" : [ "postgresql", "mysql", "oracle", "sqlserver", "aurora", "aurora_postgresql" ]
+      "enum" : [ "postgres", "mysql", "oracle", "sqlserver", "aurora", "aurora_postgresql" ]
     },
     "ExactSettings" : {
       "description" : "The property describes the exact settings which can be modified",
