@@ -942,13 +942,16 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 		}
 	}
 
+	if propertySpec.Ref == "pulumi.json#/Any" {
+		if propertySpec.Description != "" {
+			propertySpec.Description += "\n\n"
+		}
+		propertySpec.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", ctx.cfTypeName)
+	}
+
 	if tagsProp, hasCustomTagsProp := GetTagsProperty(spec); propName == "Tags" || (hasCustomTagsProp && propName == tagsProp) {
 		switch ctx.GetTagsStyle(typeSpec, spec) {
 		case TagsStyleUntyped:
-			if propertySpec.Description != "" {
-				propertySpec.Description += "\n\n"
-			}
-			propertySpec.Description += "No additional type information is available in the schema for this property, please refer to the Cloud Control documentation for the expected schema."
 		case TagsStyleStringMap:
 			// Nothing to do
 		case TagsStyleKeyValueArray:
