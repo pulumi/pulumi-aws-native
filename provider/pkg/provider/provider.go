@@ -289,7 +289,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	} else {
 		return nil, errors.New("missing required configuration key \"aws-native:region\":" +
 			"The region where AWS operations will take place. Examples are eu-east-1, eu-west-2, etc.\n" +
-			"\tSet a value using the command `pulumi config set aws-native:region <value>`")
+			"\tSet a value using the command `pulumi config set aws-native:region <value>`, or by setting the environment variables `AWS_REGION` or `AWS_DEFAULT_REGION`.")
 	}
 
 	if profile, ok := varsOrEnv(vars, "aws-native:config:profile", "AWS_PROFILE"); ok {
