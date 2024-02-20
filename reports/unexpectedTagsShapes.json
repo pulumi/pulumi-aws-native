@@ -320,6 +320,22 @@
     "minItems": 0,
     "type": "array"
   },
+  "aws-native:backup:Framework": {
+    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:backup:ReportPlan": {
+    "description": "Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
   "aws-native:backup:RestoreTestingPlan": {
     "insertionOrder": false,
     "items": {
@@ -841,6 +857,15 @@
     "insertionOrder": false,
     "items": {
       "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:datapipeline:Pipeline": {
+    "description": "A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/PipelineTag"
     },
     "type": "array",
     "uniqueItems": false
@@ -1495,6 +1520,21 @@
       "$ref": "#/definitions/Tag"
     },
     "type": "array"
+  },
+  "aws-native:efs:AccessPoint": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/AccessPointTag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:efs:FileSystem": {
+    "items": {
+      "$ref": "#/definitions/ElasticFileSystemTag"
+    },
+    "type": "array",
+    "uniqueItems": true
   },
   "aws-native:eks:AccessEntry": {
     "description": "An array of key-value pairs to apply to this resource.",
