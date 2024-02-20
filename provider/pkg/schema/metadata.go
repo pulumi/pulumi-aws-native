@@ -20,7 +20,6 @@ type CloudAPIResource struct {
 	Required          []string                        `json:"required,omitempty"`
 	CreateOnly        []string                        `json:"createOnly,omitempty"`
 	WriteOnly         []string                        `json:"writeOnly,omitempty"`
-	UnorderedArrays   []string                        `json:"unorderedArrays,omitempty"`
 	IrreversibleNames map[string]string               `json:"irreversibleNames,omitempty"`
 }
 
